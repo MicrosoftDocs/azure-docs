@@ -66,7 +66,6 @@ To create an assessment, follow these steps.
 
 1. Review and create the assessment. 
  
-
 ## Next steps 
 
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 

@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Create an Azure VM assessment
 
-This article explains how to create an Azure VM assessments. For more information on general Azure Migrate assessment concepts, refer to the assessment overview. To quickly migrate your on-premises or public cloud servers to Azure using lift and shift, create an Azure VM assessment to check readiness, cost, and get migration advice for your workloads. 
+This article explains how to create an Azure VM assessments. For more information on general Azure Migrate assessment concepts, refer to the [assessment overview](concepts-assessment-overview.md). To quickly migrate your on-premises or public cloud servers to Azure using lift and shift, create an Azure VM assessment to check readiness, cost, and get migration advice for your workloads. 
 
 > [!Note]
 > All assessments you create with Azure Migrate are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance data collected or change in the source configuration.  
@@ -30,7 +30,7 @@ Once you have discovered your servers, identify if you want to create an As-is o
 
 ## Create an assessment 
 
-Follow the steps to create an assessment:
+To create an assessment, follow the steps:
 
 1. To create an Azure VM assessment, go to **Infrastructure** tab and select all the VMs you would like to assess.
 1. You can apply column based or custom tags-based filters to identify and add VMs to the scope of your assessment. 

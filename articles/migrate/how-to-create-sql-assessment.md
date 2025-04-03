@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Create SQL assessment
 
-This article explains how to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive recommended target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
+This article to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive recommended target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
 
 In this article, you'll learn how to:
 
@@ -23,13 +23,13 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-* Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md) [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
+* Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
 * Check the appliance requirement [Azure Migrate appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
-* Follow the steps [Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
+* [Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
 
 ## Create a workload assessment for webapps
 
-1. On the **Azure Migrate** project overview page, under **Decide and Plan**, select **Assessments**
+1. On the **Azure Migrate** project overview page, under **Decide and plan**, select **Assessments**
 
     :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text=" Screenshot of assessment page on how to sql create an assessment.":::
 
@@ -37,7 +37,7 @@ In this article, you'll learn how to:
 
     :::image type="content" source="./media/how-to-create-sql-assessment/create-assessment.png" alt-text="Screenshot of assessment page on how to create an assessment.":::
 
-1. Provide a suitable name for the assessment, then select **Add Workloads**
+1. Provide a suitable name for the assessment, then select **Add workloads**
 
     :::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Screenshot of sql assessment page on how to add the workloads.":::
 
@@ -45,11 +45,11 @@ In this article, you'll learn how to:
 
     :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Screenshot of sql assessment page on how to select webapp and add.":::
 
-1. Review the selected workloads and then select **Next**.
+1. **Review the selected workloads** and then select **Next**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Screenshot of sql assessment page on how to review the selected workloads.":::
 
-1. On the **General** settings tab, modify the assessment settings that apply to all Azure target.
+1. On the **General** tab, modify the assessment settings that apply to all Azure targets.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/general-settings.png" alt-text=" Screenshot that explains on how to modify assessment settings.":::
 
@@ -65,7 +65,7 @@ In this article, you'll learn how to:
     Default savings options  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/>None  | Select a savings option if you've opted for Reserved Instances or Savings Plan. 
     Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service costs in the month-over-month cost estimate. 
 
-1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings.  
+1. On the **Advanced** tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings.  
 
     :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Screenshot of sql assessment that shows how to edit defaults.":::
 
