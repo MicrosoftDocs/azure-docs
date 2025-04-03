@@ -6753,6 +6753,11 @@
       "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
       "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
            "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/work-with-styx-objects-indicators.md",
+      "redirect_url": "/azure/sentinel/work-with-stix-objects-indicators",
+      "redirect_document_id": false
+    },
   ]
 }
