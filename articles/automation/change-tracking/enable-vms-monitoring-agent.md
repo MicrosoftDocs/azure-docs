@@ -3,7 +3,7 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 02/18/2025
+ms.date: 04/03/2025
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: sudhirsneha
@@ -38,6 +38,7 @@ This section provides detailed procedure on how you can enable change tracking o
    :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
 1. Select the virtual machine for which you want to enable Change Tracking.
+
 1. In the search, enter **Change tracking** to view the change tracking and inventory page.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::

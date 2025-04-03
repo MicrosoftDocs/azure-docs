@@ -267,7 +267,7 @@
       href: change-tracking/region-mappings-monitoring-agent.md
     - name: Enable change tracking and inventory
       items:
-      - name: At scale using Azure portal - Machines blade (New experience)
+      - name: At scale using Azure portal - Machines blade (New)
         href: change-tracking/enable-change-tracking-at-scale-machines-blade.md
       - name: At scale using Azure Policy
         href: change-tracking/enable-change-tracking-at-scale-policy.md

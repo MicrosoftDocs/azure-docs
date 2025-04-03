@@ -3,7 +3,7 @@ title: Enable Change Tracking and Inventory at Scale with Azure Policy
 description: Learn how to use Azure Policy to enable change tracking and inventory at scale for Windows and Linux VMs, including Arc-enabled VMs and VM Scale Sets.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 03/31/2025
+ms.date: 04/03/2025
 ms.topic: how-to
 ms.service: azure-automation
 ---
@@ -22,9 +22,16 @@ This article provides detailed procedure on how you can enable change tracking a
 
 Using the Deploy if not exist (DINE) policy, you can enable Change tracking with Azure Monitoring Agent at scale and in the most efficient manner.
 
-1. In Azure portal, select **Policy**.
-1. In the **Policy** page, under **Authoring**, select **Definitions**
-1. In **Policy | Definitions** page, under the **Definition Type** category, select **Initiative** and in **Category**, select **Change Tracking and Inventory**. You'll see a list of three policies:
+1. In Azure portal, select **Change Tracking and Inventory**.
+
+   :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png" alt-text="Screenshot showing the selection Change Tracking and Inventory from Azure portal." lightbox="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png":::
+
+1. In the **Change Tracking and Inventory Center | Machines, page**,  under **Manage**, select **Policy**.
+
+    :::image type="content" source="media/enable-change-tracking-at-scale-policy/select-policy.png" alt-text="Screenshot showing the selection policy from Azure portal." lightbox="media/enable-change-tracking-at-scale-policy/select-policy.png":::
+
+
+1. In **Change Tracking and Inventory Center | Policy** page, under the filter **Definition Type**, select **Initiative** and in **Category** filter, select **Change Tracking and Inventory**. You'll see a list of three policies:
 
     #### [Arc-enabled virtual machines](#tab/arcvm)
 
@@ -34,7 +41,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
     #### [Virtual machines Scale Sets](#tab/vmss)
 
-     - Select *Enable Change Tracking and inventory for Virtual Machine Scale Sets*.
+     - Select *[Preview]: Enable Change Tracking and inventory for Virtual Machine Scale Sets*.
      
        :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-expanded.png":::
 
@@ -67,4 +74,4 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
 ## Next steps
 
-* To learn about alerts, see [Configuring alerts](../change-tracking/configure-alerts.md).
+* Learn more on [how to enable Change Tracking and Inventory at scale using Azure portal - Machines blade](enable-change-tracking-at-scale-machines-blade.md).
