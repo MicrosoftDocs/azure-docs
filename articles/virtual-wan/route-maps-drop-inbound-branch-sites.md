@@ -28,7 +28,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 In this situation, we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA (Network Virtual Appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
- :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot that shows the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+:::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot that shows the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here's the addressing for this environment:  
 
