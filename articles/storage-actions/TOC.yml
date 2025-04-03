@@ -10,6 +10,8 @@ items:
   items:
   - name: Create, assign, and run a storage task
     href: storage-tasks/storage-task-quickstart-portal.md
+  - name: Create a storage task - Terraform
+    href: storage-tasks/storage-task-quickstart-terraform.md
   expanded: true
 - name: Concepts
   items: 
@@ -21,6 +23,8 @@ items:
     href: storage-tasks/storage-task-authorization-roles.md
   - name: Reliability in Azure Storage Actions
     href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
+  - name: Costs and billing
+    href: storage-actions-plan-manage-costs.md 
   expanded: true
 - name: How-to
   items: 

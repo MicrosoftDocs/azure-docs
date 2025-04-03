@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 01/23/2025
+ms.date: 03/24/2025
 ---
 
 # Upgrade plan for Azure Data Factory connectors
@@ -21,22 +21,25 @@ This article describes future upgrades for some connectors of Azure Data Factory
 
 | Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- |:-- | :-- | 
+| [Azure Database for PostgreSQL (version 1.0)](connector-azure-database-for-postgresql.md)   | [Link](connector-azure-database-for-postgresql.md#upgrade-the-azure-database-for-postgresql-connector) | GA version available | To be determined | /  | 
+| [Cassandra (version 1.0)](connector-cassandra.md) |[Link](connector-cassandra.md#upgrade-the-cassandra-connector) | Preview version available | To be determined | / | 
 | [Google BigQuery (V1)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support and GA version available | October 31, 2024 | / | 
 | [MariaDB (version 1.0)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support and GA version available | October 31, 2024 | /| 
-| [MySQL (version 1.0)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support and GA version available | October 31, 2024| /| 
+| [MySQL (version 1.0)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support and GA version available | October 31, 2024| /|
+| [Oracle (version 1.0)](connector-oracle.md) |[Link](connector-oracle.md#upgrade-the-oracle-connector) | Preview version available | To be determined| / |  
 | [Salesforce (V1)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | To be determined | /| 
 | [Salesforce Service Cloud (V1)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | To be determined |/ | 
 | [PostgreSQL (V1)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support and GA version available |October 31, 2024 | /  | 
 | [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | To be determined | / | 
 | [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | To be determined | /  | 
-| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | Preview version available | To be determined | /  | 
+| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | GA version available | To be determined | /  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Drill](connector-drill.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [HBase](connector-hbase.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Magento (Preview)](connector-magento.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
-| [Marketo (Preview)](connector-marketo.md) |/ | End of support | December 31, 2024| December 31, 2024 | 
+| [Marketo (Preview)](connector-marketo.md) |/ | End of support | December 31, 2024| December 31, 2024 |
 | [Oracle Eloqua (Preview)](connector-oracle-eloqua.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Oracle Responsys (Preview)](connector-oracle-responsys.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
@@ -58,11 +61,14 @@ This section describes the different release stages and support for each stage.
 
 ## V1 connectors with updated connectors or drivers available now
 
-The following V1 connectors or version 1.0 will be deprecated, but new updated versions are available in Azure Data Factory. You can update existing data sources to use the new connectors moving forward.
+The following V1 connectors or version 1.0 now have new updated versions available in Azure Data Factory. You can update existing data sources to use the new connectors moving forward.
 
+- [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#upgrade-the-azure-database-for-postgresql-connector)
+- [Cassandra](connector-cassandra.md#upgrade-the-cassandra-connector)
 - [Google BigQuery](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service)
 - [MariaDB](connector-mariadb.md#upgrade-the-mariadb-driver-version)
 - [MySQL](connector-mysql.md#upgrade-the-mysql-driver-version)
+- [Oracle](connector-oracle.md#upgrade-the-oracle-connector)
 - [PostgreSQL](connector-postgresql.md#upgrade-the-postgresql-linked-service)
 - [Salesforce](connector-salesforce.md#upgrade-the-salesforce-linked-service)
 - [Salesforce Service Cloud](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service)
@@ -71,6 +77,13 @@ The following V1 connectors or version 1.0 will be deprecated, but new updated v
 - [Vertica](connector-vertica.md#upgrade-the-vertica-version)
 
 ## Connectors that are at End of Support stage
+
+The following connectors have reached the End of Support stage, and new updated versions are now available in Azure Data Factory. You should upgrade to the latest versions of these connectors.
+
+- [Google BigQuery (V1)](connector-google-bigquery-legacy.md)
+- [MariaDB (version 1.0)](connector-mariadb.md)
+- [MySQL (version 1.0)](connector-mysql.md) 
+- [PostgreSQL (V1)](connector-postgresql-legacy.md) 
 
 The following connectors are at End of Support stage. You should migrate to [alternative solutions for linked services](#options-to-replace-deprecated-connectors) that use these connectors.
 

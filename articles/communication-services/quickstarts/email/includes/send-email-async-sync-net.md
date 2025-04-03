@@ -140,7 +140,7 @@ EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new Default
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+Email clients can also be authenticated using an [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```csharp
 var key = new AzureKeyCredential("<your-key-credential>");

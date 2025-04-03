@@ -16,11 +16,11 @@ ms.date: 01/09/2023
 
 This article describes advanced configurations for working with Jupyter notebooks and MSTICPy in Microsoft Sentinel.
 
-For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
 
 ## Prerequisites
 
-This article is a continuation on from [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md). We recommend that you perform the tutorial before continuing with the advanced procedures described below.
+This article is a continuation on from [Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md). We recommend that you perform the tutorial before continuing with the advanced procedures described in this article.
 
 ## Specify authentication parameters for Azure and Microsoft Sentinel APIs
 
@@ -39,7 +39,7 @@ This procedure describes how to configure authentication parameters for Microsof
 
 1. Select the authentication methods to use:
 
-    - While you can use a different set of methods from the [Azure defaults](notebook-get-started.md#specify-the-azure-cloud-and-azure-authentication-methods), this usage isn't a typical configuration.
+    - While you can use a different set of methods from the defaults, this usage isn't a typical configuration. For more information, see the [**Getting Started Guide For Azure Sentinel ML Notebooks** notebook](notebook-get-started.md).
     - Unless you want to use the **env** (environment variable) authentication, leave the **clientId**, **tenantId**, and **clientSecret** fields empty.
     - While not recommended, MSTICPy also supports using client app IDs and secrets for your authentication. In such cases, define your **clientId**, **tenantId**, and **clientSecret** fields directly in the **Data Providers** tab.
 
@@ -67,11 +67,11 @@ When you frequently author new notebooks, autoloading query providers can save y
 
    Each provider also has the following optional values:
 
-   - **Auto-connect:** This option is defined as **True** by default, and MSTICPy tries to authenticate to the provider immediately after loading. MSTICPy assumes that you've configured credentials for the provider in your settings.
+   - **Auto-connect:** This option is defined as **True** by default, and MSTICPy tries to authenticate to the provider immediately after loading. MSTICPy assumes that you configured credentials for the provider in your settings.
 
    - **Alias:** When MSTICPy loads a provider, it assigns the provider to a Python variable name. By default, the variable name is **qryworkspace_name** for Microsoft Sentinel providers and **qryprovider_name** for other providers.
 
-        For example, if you load a query provider for the *ContosoSOC* workspace, this query provider will be created in your notebook environment with the name `qry_ContosoSOC`. Add an alias if you want to use something shorter or easier to type and remember. The provider variable name will be `qry_<alias>`, where `<alias>` is replaced by the alias name that you provided.
+        For example, if you load a query provider for the *ContosoSOC* workspace, this query provider is created in your notebook environment with the name `qry_ContosoSOC`. Add an alias if you want to use something shorter or easier to type and remember. The provider variable name is `qry_<alias>`, where `<alias>` is replaced by the alias name that you provided.
 
         Providers you load by this mechanism are also added to the MSTICPy `current_providers` attribute, which is used, for example, in the following code:
 
@@ -88,16 +88,14 @@ This procedure describes how to define other components that are automatically l
 
 Supported components include, in the following order:
 
-1. **TILookup:** The [TI provider library](notebook-get-started.md#add-threat-intelligence-provider-settings)
-1. **GeoIP:** The [GeoIP provider](notebook-get-started.md#add-geoip-provider-settings) you want to use
+1. **TILookup:** The TI provider library you want to use
+1. **GeoIP:** The GeoIP provider you want to use
 1. **AzureData:** The module you use to query details about [Azure resources](#specify-authentication-parameters-for-azure-and-microsoft-sentinel-apis)
 1. **AzureSentinelAPI:** The module you use to query the [Microsoft Sentinel API](#specify-authentication-parameters-for-azure-and-microsoft-sentinel-apis)
 1. **Notebooklets:** Notebooklets from the [msticnb package](https://msticnb.readthedocs.io/en/latest/)
 1. **Pivot:** Pivot functions
 
-> [!NOTE]
-> The components load in this order because the Pivot component needs query and other providers loaded to find the pivot functions that it attaches to entities. For more information, see [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/data_analysis/PivotFunctions.html).
->
+The components load in this order because the Pivot component needs query and other providers loaded to find the pivot functions that it attaches to entities. For more information, see [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/data_analysis/PivotFunctions.html). For more information, see the [**Getting Started Guide For Azure Sentinel ML Notebooks** notebook](notebook-get-started.md).
 
 **To define auto-loaded MSTICPy components**:
 
@@ -110,9 +108,8 @@ Supported components include, in the following order:
 
 1. In the **Autoload Components** tab, define any parameter values as needed. For example:
 
-   - **GeoIpLookup**.  Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.  For more information, see [Add GeoIP provider settings](notebook-get-started.md#add-geoip-provider-settings).
-
-   - **AzureData and AzureSentinelAPI components**.  Define the following values:
+   - **GeoIpLookup**. Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.
+   - **AzureData and AzureSentinelAPI components**. Define the following values:
 
       - **auth_methods:** Override the default settings for AzureCLI, and connect using the selected methods.
       - **Auto-connect:** Set to false to load without connecting.
@@ -138,11 +135,11 @@ Supported components include, in the following order:
 
 ## Switch between Python 3.6 and 3.8 kernels
 
-If you're switching between Python 3.65 and 3.8 kernels, you may find that MSTICPy and other packages don't get installed as expected.
+If you're switching between Python 3.65 and 3.8 kernels, you might find that MSTICPy and other packages don't get installed as expected.
 
-This may happen when the `!pip install pkg` command will install correctly in the first environment, but then doesn't install correctly in the second. This creates a situation where the second environment can't import or use the package.
+This might happen when the `!pip install pkg` command installs correctly in the first environment, but then doesn't install correctly in the second. This creates a situation where the second environment can't import or use the package.
 
-We recommend that you don't use `!pip install...` to install packages in Azure ML notebooks. Instead, use one of the following options:
+We recommend that you don't use `!pip install...` to install packages in Azure Machine Learning notebooks. Instead, use one of the following options:
 
 - **Use the %pip line magic within a notebook**. Run:
 
@@ -153,7 +150,7 @@ We recommend that you don't use `!pip install...` to install packages in Azure M
 
 - **Install from a terminal**:
 
-  1. Open a terminal in Azure ML notebooks and run the following commands:
+  1. Open a terminal in Azure Machine Learning notebooks and run the following commands:
 
      ``` bash
      conda activate azureml_py38
@@ -164,7 +161,7 @@ We recommend that you don't use `!pip install...` to install packages in Azure M
 
 ## Set an environment variable for your msticpyconfig.yaml file
 
-If you are running in Azure ML and have your **msticpyconfig.yaml** file in the root of your user folder, MSTICPy will automatically find these settings. However, if you are running the notebooks in another environment, follow the instructions in this section to set an environment variable that points to the location of your configuration file.
+If you're running in Azure Machine Learning and have your **msticpyconfig.yaml** file in the root of your user folder, MSTICPy automatically finds these settings. However, if you're running the notebooks in another environment, follow the instructions in this section to set an environment variable that points to the location of your configuration file.
 
 Defining the path to your **msticpyconfig.yaml** file in an environment variable allows you to store your file in a known location and make sure that you always load the same settings.
 
@@ -172,9 +169,9 @@ Use multiple configuration files, with multiple environment variables, if you wa
 
 1. Decide on a location for your **msticpyconfig.yaml** file, such as in **~/.msticpyconfig.yaml** or **%userprofile%/msticpyconfig.yaml**.
 
-    **Azure ML users**: If you store your configuration file in your Azure ML user folder, the MSTICPy `init_notebook` function (run in the initialization cell) will automatically find and use the file, and you do not need to set a **MSTICPYCONFIG** environment variable.
+    **Azure ML users**: If you store your configuration file in your Azure Machine Learning user folder, the MSTICPy `init_notebook` function (run in the initialization cell) automatically finds and uses the file, and you don't need to set a **MSTICPYCONFIG** environment variable.
 
-    However, if you also have secrets stored in the file, we recommend storing the configuration file on the compute local drive. The compute internal storage is accessible only to the person who created the compute, whereas the shared storage is accessible to anyone with access to your Azure ML workspace.
+    However, if you also have secrets stored in the file, we recommend storing the configuration file on the compute local drive. The compute internal storage is accessible only to the person who created the compute, whereas the shared storage is accessible to anyone with access to your Azure Machine Learning workspace.
 
     For more information, see [What is an Azure Machine Learning compute instance?](/azure/machine-learning/concept-compute-instance).
 
@@ -202,11 +199,11 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
 
 1. Move the **msticpyconfig.yaml** file to the Compute instance as needed.
 
-1. Open an Azure ML terminal, such as from the Microsoft Sentinel **Notebooks** page.
+1. Open an Azure Machine Learning terminal, such as from the Microsoft Sentinel **Notebooks** page.
 
 1. Verify that you can access your **msticpyconfig.yaml** file.
 
-   In your Azure ML terminal, your current directory should be your Azure ML file store home directory, mounted in the Compute Linux system. The prompt looks similar to the following example:
+   In your Azure Machine Learning terminal, your current directory should be your Azure Machine Learning file store home directory, mounted in the Compute Linux system. The prompt looks similar to the following example:
 
    ```python
    azureuser@alicecontoso-azml7:~/cloudfiles/code/Users/alicecontoso$
@@ -233,13 +230,13 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
     - If you moved the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/msticpyconfig.yaml`.
     - If you didn't move the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/cloudfiles/code/Users/<YOURNAME>/msticpyconfig.yaml`.
 
-# [Azure ML options](#tab/azure-ml)
+# [Azure Machine Learning options](#tab/azure-ml)
 
-If you need to store your **msticpyconfig.yaml**  file somewhere other than your Azure ML user folder, use one of the following options:
+If you need to store your **msticpyconfig.yaml**  file somewhere other than your Azure Machine Learning user folder, use one of the following options:
 
-- **An *nbuser_settings.py* file at the root of your user folder**.  While this process is simpler and less intrusive than editing the **kernel.json** file, it's only supported when you run the `init_notebook` function at the start of your notebook code. While this is the default behavior, if you run the notebook code without first running `init_notebook`, MSTICPy may not be able to find the configuration file.
+- **An *nbuser_settings.py* file at the root of your user folder**. While this process is simpler and less intrusive than editing the **kernel.json** file, it's only supported when you run the `init_notebook` function at the start of your notebook code. While this is the default behavior, if you run the notebook code without first running `init_notebook`, MSTICPy mmight not be able to find the configuration file.
 
-    1. In the Azure ML terminal, create the **nbuser_settings.py** file in the root of your user folder, which is the folder with your username.
+    1. In the Azure Machine Learning terminal, create the **nbuser_settings.py** file in the root of your user folder, which is the folder with your username.
     1. In the **nbuser_settings.py** file, add the following lines:
 
         ```python
@@ -296,7 +293,7 @@ If you need to store your **msticpyconfig.yaml**  file somewhere other than your
 ---
 
 > [!NOTE]
-> For the Linux and Windows options, you'll need to restart your Jupyter server for it to pick up the environment variable that you defined.
+> For the Linux and Windows options, you need to restart your Jupyter server for it to pick up the environment variable that you defined.
 
 ## Next steps
 

@@ -2,7 +2,8 @@
 title: Custom Domain with TLS/SSL in Azure Container Apps
 description: Describes the settings required for a custom domain with TLS/SSL in Azure Container Apps.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025

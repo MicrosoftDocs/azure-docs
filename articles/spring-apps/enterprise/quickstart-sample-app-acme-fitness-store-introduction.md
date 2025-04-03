@@ -3,7 +3,8 @@ title: Introduction to the Fitness Store Sample App
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Describes the sample app used in this series of quickstarts for deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/27/2024
