@@ -92,7 +92,7 @@
       - name: Migrate a VNet-injected instance
         href: migrate-stv1-to-stv2-vnet.md
     - name: Configure update settings
-      href: configure-update-settings.md
+      href: configure-service-update-settings.md
     - name: Move instances between regions
       href: api-management-howto-migrate.md
     - name: Recover a deleted instance

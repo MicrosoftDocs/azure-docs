@@ -64,7 +64,7 @@ Here's how to know about service updates that are expected or are in progress.
 
 ## Canary deployment strategies
   
-You can use an API Management instances assigned to a specific update group or deployed in a specific Azure region as a canary deployment that receives updates earlier than your production instances.
+You can use an API Management instance assigned to a specific update group or deployed in a specific Azure region as a canary deployment that receives updates earlier than your production instances.
 
 * **Add instance to Early update group** - Use an API Management instance in the Early update group to validate updates early in a production rollout. This instance is effectively your canary deployment. 
 
