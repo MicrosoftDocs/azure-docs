@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Data Factory
-description: Learn about reliability in Azure Data Factory, including availability zones, multiple-region deployments, and resilient pipeline practices.
+description: Learn about reliability in Azure Data Factory, including availability zones, multi-region deployments, and resilient pipeline practices.
 author: jonburchel
 ms.author: jburchel
 ms.topic: reliability-article
@@ -12,7 +12,7 @@ ms.date: 03/19/2025
 
 # Reliability in Azure Data Factory
 
-This article describes reliability support in [Azure Data Factory](../data-factory/introduction.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
+This article describes reliability support in [Azure Data Factory](../data-factory/introduction.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
 Reliability is a shared responsibility between you and Microsoft. This article describes ways for you to create a reliable solution that meets your needs.
 
@@ -32,7 +32,7 @@ The components of Data Factory include:
 
 - **The core Data Factory service**, which manages pipeline triggers and oversees the coordination of pipeline activities. The core service also manages metadata for each component in the data factory. Microsoft manages the core service.
 
-- **[IRs](../data-factory/concepts-integration-runtime.md#integration-runtime-types)**, which perform specific activities within a pipeline. There are different types of IRs.
+- **[Integration runtimes (IRs)](../data-factory/concepts-integration-runtime.md#integration-runtime-types)**, which perform specific activities within a pipeline. There are different types of IRs.
 
     - *Microsoft-managed IRs*, which include the Azure IR and the Azure-SQL Server Integration Services (Azure-SSIS) IR. Microsoft manages the components that make up these runtimes. In some scenarios, you configure settings that affect the resiliency of your IRs.
     
@@ -123,9 +123,9 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 - *A SHIR* requires you to configure your own capacity and scaling. Consider over-provisioning when you deploy a SHIR.
 
-### Traffic routing between zones
+### Normal operations
 
-During normal operations, Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
+ **Traffic routing between zones:** During normal operations, Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
 
 ### Zone-down experience
 
@@ -139,13 +139,13 @@ When the availability zone recovers, Data Factory automatically fails back to th
 
 However, if you use a SHIR, you might need to restart your compute resources if they've been stopped.
 
-### Test for zone failures
+### Testing for zone failures
 
 For the core service, and for Azure and Azure-SSIS IRs, Data Factory manages traffic routing, failover, and failback for zone-redundant resources. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
 For SHIRs, you can use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to simulate an availability zone failure on an Azure VM.
 
-## Multiple-region support
+## Multi-region support
 
 Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable. However, there are approaches that you can use to help ensure resilience to region outages. These approaches depend on whether the data factory is in a paired or nonpaired region and on your specific requirements and configuration.
 
@@ -158,9 +158,9 @@ Because of data residency requirements in Brazil South and Southeast Asia, Data 
 For data factories in nonpaired regions, or in Brazil South or Southeast Asia, Microsoft doesn't perform regional failover on your behalf.
 
 > [!IMPORTANT]
-> Microsoft triggers Microsoft-managed failover. It's likely to occur after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. You might experience some loss of your data factory metadata. The failover of Data Factory resources might occur at a different time than the failover of other Azure services.
+> Microsoft triggers Microsoft-managed failover. It's likely to occur after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. You might experience some loss of your data factory metadata. The failover of Data Factory resources might occur at a time that's different from the failover time of other Azure services.
 >
-> If you need to be resilient to region outages, consider using one of the [alternative multiple-region approaches](#alternative-multiple-region-approaches).
+> If you need to be resilient to region outages, consider using one of the [alternative multi-region approaches](#alternative-multi-region-approaches).
 
 #### Failover of IRs
 
@@ -176,7 +176,7 @@ To prepare for a failover, there might be some extra considerations, depending o
 
 After a Microsoft-managed failover is complete, you can access your Data Factory pipeline in the paired region. However, after the failover completes, you might need to perform some reconfiguration for IRs or other components. This process includes re-establishing the networking configuration.
 
-### Alternative multiple-region approaches
+### Alternative multi-region approaches
 
 If you need your pipelines to be resilient to regional outages and you need control over the failover process, consider using a metadata-driven pipeline.
 
