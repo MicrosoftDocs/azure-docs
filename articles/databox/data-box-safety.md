@@ -203,6 +203,377 @@ Hazardous Substances Table:
 
 :::row:::
     :::column:::
+     
+    :::column-end:::
+    :::column span="10":::
+    **有毒有害物質或元素**
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    部件名称
+    :::column-end:::
+	:::column:::
+    铅(Pb)
+    :::column-end:::
+    :::column:::
+	镉
+    (Ca)
+    :::column-end:::
+    :::column:::
+    汞
+    (Hg)
+    :::column-end:::
+    :::column:::
+    六价铬
+    (Cr(VI))
+    :::column-end:::
+    :::column:::
+    多溴联苯
+    (PBB)
+    :::column-end:::
+    :::column:::
+    多溴二苯醚
+    (PBDE)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸二（2-乙基）己 酯
+    (DEHP)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸丁基苄酯
+    (BBP)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸二正丁酯
+    (DBP)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸二异丁酯
+    (DIBP)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    印刷电路板
+    (PCB)
+    :::column-end:::
+	:::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    电缆及其组件
+    (Cables & Cable Assemblies)	
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    金属部件
+    (Metal Parts)
+    :::column-end:::
+    :::column:::
+	X	
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    塑料和聚合物部件
+    (Plastic and Polymeric parts)
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    芯片电阻
+    (Chips)
+    :::column-end:::
+	:::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    电源供应器
+    (Power Supply)
+    :::column-end:::
+	:::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    风扇
+    (Fan)
+    :::column-end:::
+    :::column:::
+	X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    储存装置(硬盘、固态硬盘)
+    (Storage Devices HDD 、SSD)
+    :::column-end:::
+    :::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::    
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="11":::
+    ○ : 表示该有毒有害物质在该部件所有均质材料中的含量均在 SJ/T 11364-2024(现由 GB/T 26572第一号修改单取代)标准规定的限量要求以下。
+
+    Indicates that this hazardous substance contained in all homogeneous materials of such component is within the limits specified in SJ/T 11364-2024 (now replaced by GB/T 26572 amendment order No.1).
+
+    X :  表示该有毒有害物质至少在该部件的某一均质材料中的含量超出 SJ/T 11364-2024(现由 GB/T 26572第一号修改单取代)标准规定的限量要求。
+
+    Indicates that the content of such hazardous substance in at least a homogeneous material of such component exceeds the limits specified in SJ/T 11364-2024 (now replaced by GB/T 26572 amendment order No.1).
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="11":::
+    a.	对销售之日的所售产品,本表显示我公司供应链的电子信息产品可能包含这些物质。注意：在所售产品中可能会也可能不会含有所有所列的部件。
+
+    This table shows where these substances may be found in the supply chain of our electronic information products, as of the date of sale of the enclosed product. Note that some of the component types listed above may or may not be a part of the enclosed product.
+
+    b.	除非另外特别的标注,此标志为针对所涉及产品的环保使用期限标志. 某些可更换的零部件可能会有一个不同的环保使用期限(例如,电池单元模块).此环保使用期限只适用于产品在产品手册中所规定的条件下工作.
+
+    The Environment-Friendly Use Period (EFUP) for all enclosed products and their parts are per the symbol shown here, unless otherwise marked. Certain field-replaceable parts may have a different EFUP (for example, battery modules) number.  The Environment-Friendly Use Period is valid only when the product is operated under the conditions defined in the product manual.
+ 
+    :::image type="icon" source="media/data-box-next-gen-safety/icon-efup.png" border="false":::
+    :::column-end:::
+:::row-end:::
+
+
+
+
+
+
+<!--
+:::row:::
+    :::column:::
     **部件名稱**
     :::column-end:::
     :::column:::
@@ -437,9 +808,9 @@ Hazardous Substances Table:
     
     The Environment-Friendly Use Period (EFUP) for all enclosed products and their parts are per the symbol shown here, unless otherwise marked. Certain field-replaceable parts may have a different EFUP (for example, battery modules) number.  The Environment-Friendly Use Period is valid only when the product is operated under the conditions defined in the product manual.
     :::column-end:::
-:::row-end:::
+:::row-end:::-->
 
-:::image type="icon" source="media/data-box-next-gen-safety/icon-efup.png" border="false":::
+
 
 **Japan**
 

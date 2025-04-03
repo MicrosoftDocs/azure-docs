@@ -1101,7 +1101,9 @@
     href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
-    - name: Workspace manager
+    - name: Workspaces in the Defender portal 
+      href: workspaces-defender-portal.md
+    - name: Workspace manager in the Azure portal
       href: workspace-manager.md
     - name: Extend across multiple workspaces
       href: extend-sentinel-across-workspaces-tenants.md  
