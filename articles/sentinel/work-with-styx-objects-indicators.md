@@ -23,7 +23,7 @@ For more information about threat intelligence in Microsoft Sentinel, see [Threa
 >[!IMPORTANT]
 > Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicator` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
 >
-> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 
 ## Identify threat actors associated with specific threat indicators
 
