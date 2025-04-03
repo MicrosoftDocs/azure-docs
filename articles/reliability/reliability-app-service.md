@@ -108,7 +108,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Considerations
 
-Applications that are deployed in a zone-redundant App Service plan continue to run and serve traffic even if multiple zones in the region suffer an outage. However, nonruntime behaviors might still be impacted during an availability zone outage. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing. 
+During an availability zone outage, some aspects of Azure App Service might be impacted even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
 
 ### Cost
 
