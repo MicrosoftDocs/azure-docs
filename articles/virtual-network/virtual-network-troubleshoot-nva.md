@@ -81,6 +81,7 @@ Each NVA has basic configuration requirements to function correctly on Azure. Th
    Set-AzNetworkInterface -NetworkInterface $nic2
   $nic2 | Format-List
    ```
+
    The output should look similar to the following:
 
    ```output
