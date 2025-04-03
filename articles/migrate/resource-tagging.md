@@ -35,6 +35,8 @@ In any cloud transformation journey, a comprehensive current-state analysis of t
 
 ## Add tags to workloads
 
+To add tags, follow these steps:
+
 1.	Select the workload(s) that you intend to tag from the inventory.
 
 2.	Select **Tags** > **Add and edit tags**.
@@ -43,9 +45,11 @@ In any cloud transformation journey, a comprehensive current-state analysis of t
 
 ## View tags 
 
-Choose the workload for which you wish to view the tags assigned.
+To view tags, select the workload for which you wish to view the tags assigned.
 
 ## Filter using tags
+
+To filter using tags, follow these steps:
 
 1.	Select **Add filter** button beside the search bar.
 
@@ -54,6 +58,8 @@ Choose the workload for which you wish to view the tags assigned.
 3.	Select the value(s) for the tag that you want to filter with.
 
 ## Import tags
+
+To import using tags, follow these steps:
 
 1.	Select **Tags > Import tags**
 
