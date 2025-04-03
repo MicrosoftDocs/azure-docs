@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 01/15/2025
+ms.date: 04/03/2025
 zone_pivot_groups: app-service-sku
 #customer intent: As an engineer responsible for business continuity, I want to understand how Azure App Service works from a reliability perspective.
 ---
@@ -21,18 +21,7 @@ When you deploy Azure App Service, you can create multiple instances of an *App 
 
 ## Production deployment recommendations
 
-For production deployments, you should:
-
-::: zone pivot="free-shared-basic"
-
-- Use premium v3 App Service plans.
-- [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
-
-::: zone-end
-
-::: zone pivot="premium,isolated"
-
-- [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
+For production deployments,  make sure to use [premium v3 App Service plans to enable zone redundancy](reliability-app-service.md?pivots-premium##vailability-zone-support).
 
 ::: zone-end
 
@@ -72,7 +61,7 @@ For App Service plans that aren't configured as zone redundant, virtual machine 
 
 ::: zone pivot="free-shared-basic,premium"
 
-Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./regions-list.md).
+Zone-redundant App Service Premium plans can be deployed in [any region that supports availability zones](./regions-list.md).
 
 ::: zone-end
 
@@ -84,13 +73,8 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Requirements
 
-::: zone pivot="free-shared-basic,premium"
 
-- You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
-
-- Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, if availability zones aren't supported for your resource group, you receive an error. To ensure that your workloads land on a stamp that supports availability zones, you might need to create a new resource group, App Service plan, and App Service.
-
-::: zone-end
+- Availability zones are only supported on the [Premium v2 or Premium v3 plans](./reliability-app-service.md?pivots=premium#requirmeens), even if the region supports availability zones.
 
 ::: zone pivot="premium,isolated"
 
@@ -100,9 +84,6 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ::: zone pivot="premium,isolated"
 
-### Considerations
-
-Applications that are deployed in a zone-redundant App Service plan continue to run and serve traffic even if multiple zones in the region suffer an outage. Nonruntime behaviors might still be impacted during an availability zone outage. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
 
 ### Cost
 
@@ -147,11 +128,15 @@ Zone redundancy can only be configured when you create a new App Service plan. I
 
 To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
-### Traffic routing between zones
 
-During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
+### Normal operations
+
+**Traffic routing between zones:** During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
 
 ### Zone-down experience
+
+Applications that are deployed in a zone-redundant App Service plan continue to run and serve traffic even if multiple zones in the region suffer an outage. However, nonruntime behaviors might still be impacted during an availability zone outage. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing. 
+
 
 **Detection and response.** The App Service platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
 
