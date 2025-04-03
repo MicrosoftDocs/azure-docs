@@ -79,28 +79,6 @@ ms.date: 03/24/2025
 
 ## Step 7. Configure with a linked service
 
-1. Open your Synapse workspace and create or open a notebook.
-2. In the first code cell, add the configuration code to emit logs to Event Hub.
-
-     ```
-     {
-     "conf": { 
-        "spark.synapse.diagnostic.emitters": <EMITTER_NAME>,
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.type": "AzureEventHub",
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.categories": "DriverLog,ExecutorLog,EventLog,Metrics",
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.certificateName": <CERTIFICATE_NAME>",
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.linkedService": <LINKED_SERVICE_NAME>,
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.hostName": <EVENT_HUB_HOST_NAME>,
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.tenantId": <SERVICE_PRINCIPAL_TENANT_ID>,
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.clientId": <SERVICE_PRINCIPAL_CLIENT_ID>,
-        "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.entityPath": <EVENT_HUB_ENTITY_PATH> 
-          }, 
-          "jars": [ 
-               "Your-specific-jar-in-blob" 
-               ] 
-     } 
-     ```
-
 Gather the following values and add to the Apache Spark configuration.
 
 - **<EMITTER_NAME>**: The name for the emmiter.
@@ -110,6 +88,18 @@ Gather the following values and add to the Apache Spark configuration.
 - **<SERVICE_PRINCIPAL_TENANT_ID>**: The service principal tenant id, you can find it in App registrations -> your app name -> Overview -> Directory (tenant) ID
 - **<SERVICE_PRINCIPAL_CLIENT_ID>**: The service principal client id, you can find it in registrations -> your app name -> Overview -> Application(client) ID
 - **<EVENT_HUB_ENTITY_PATH>**: The Event Hub entity path, you can find it in Event Hubs Namespace -> Overview -> Host name.
+
+```
+     "spark.synapse.diagnostic.emitters": <EMITTER_NAME>,
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.type": "AzureEventHub",
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.categories": "DriverLog,ExecutorLog,EventLog,Metrics",
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.certificateName": <CERTIFICATE_NAME>",
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.linkedService": <LINKED_SERVICE_NAME>,
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.hostName": <EVENT_HUB_HOST_NAME>,
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.tenantId": <SERVICE_PRINCIPAL_TENANT_ID>,
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.clientId": <SERVICE_PRINCIPAL_CLIENT_ID>,
+     "spark.synapse.diagnostic.emitter.<EMITTER_NAME>.entityPath": <EVENT_HUB_ENTITY_PATH>
+```
 
 ## Step 8. Submit an Apache Spark application and view the logs and metrics
 
