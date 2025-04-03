@@ -19,10 +19,10 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
-The Azure SQL trigger scaling decisions for the [Consumption and Premium plans](./functions-scale.md) are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md) and review the [Azure Functions hosting options](./functions-scale.md). 
+The Azure SQL trigger scaling decisions for the [Consumption and Premium plans](functions-scale.md) are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md) and review the [Azure Functions hosting options](functions-scale.md). 
 
 > [!NOTE]
-> Support for Consumption plans requires version v3.1.284 or later of the [Azure SQL bindings for Azure Functions](/functions-bindings-azure-sql).
+> Support for Consumption plans requires version v3.1.284 or later of the [Azure SQL bindings for Azure Functions](functions-bindings-azure-sql).
 > 
 
 ## Functionality Overview
