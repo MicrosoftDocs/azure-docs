@@ -38,7 +38,7 @@ productDirectory:
 conceptualContent:
   sections:
     - title: Plan your migration to Azure
-      summary: "Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a topic to access comprehensive insights and practical guidance customized to your migration needs."
+      summary: "Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a scenario to access comprehensive insights and practical guidance customized to your migration needs."
       items:
       - title: Adopt Azure
         links:
