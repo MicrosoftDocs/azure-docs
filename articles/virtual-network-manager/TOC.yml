@@ -10,56 +10,10 @@
     href: concept-limitations.md
   - name: FAQ
     href: faq.md
-- name: Configure
-  items:
-  - name: Scope
-    href: concept-network-manager-scope.md
-  - name: Network groups
-    items:
-    - name: Network groups overview
-      href: concept-network-groups.md
-    - name: Azure Policy integration with network groups
-      href: concept-azure-policy-integration.md
-    - name: Cross-tenant connection support
-      href: concept-cross-tenant.md
-  - name: Configuration types
-    items:
-    - name: Connectivity
-      href: concept-connectivity-configuration.md
-    - name: Security admin rules
-      items: 
-      - name: Security admin rule concepts
-        href: concept-security-admins.md
-      - name: Security admin rule enforcement
-        href: concept-enforcement.md
-      - name: Network groups as source and destination
-        href: concept-security-admin-rules-network-group.md
-    - name: User-defined routes (UDRs) management 
-      href: concept-user-defined-route.md
-    - name: View applied configurations
-      href: how-to-view-applied-configurations.md
-    - name: User-defined routes (UDRs) management
-      items:
-      - name: Create user-defined routes (UDRs)
-        href: how-to-create-user-defined-route.md
-      - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
-        href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md
-- name: Manage IP addresses
-  items:
-    - name: IP address management overview
-      href: concept-ip-address-management.md
-    - name: Automate IP address management
-      href: automate-ip-address-management-ipam-sample.md
-    - name: Prevent overlapping IP address spaces with Azure Policy and IPAM
-      href: Prevent-overlapping-ip-address-space-policy-ipam.md
-    - Name: Manage IP addresses
-      href: how-to-manage-ip-addresses-network-manager.md
 - name: Deploy 
   items:
-  - name: Deployments
+  - name: Deployment overview
     href: concept-deployments.md
-  - name: Remove or update components
-    href: concept-remove-components-checklist.md
   - name: Quickstarts
     items:
     - name: Create Virtual Network Manager - Portal
@@ -100,7 +54,53 @@
         href: how-to-create-mesh-network-powershell.md
   - name: Deploy hub and spoke topology with Azure Firewall
     href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
-- name: Monitor and troubleshoot
+- name: Configure
+  items:
+  - name: Scope
+    href: concept-network-manager-scope.md
+  - name: Network groups
+    items:
+    - name: Network groups overview
+      href: concept-network-groups.md
+    - name: Azure Policy integration with network groups
+      href: concept-azure-policy-integration.md
+    - name: Cross-tenant connection support
+      href: concept-cross-tenant.md
+  - name: Configuration types
+    items:
+    - name: Connectivity
+      href: concept-connectivity-configuration.md
+    - name: Security admin rules
+      items: 
+      - name: Security admin rule concepts
+        href: concept-security-admins.md
+      - name: Security admin rule enforcement
+        href: concept-enforcement.md
+      - name: Network groups as source and destination
+        href: concept-security-admin-rules-network-group.md
+    - name: User-defined routes (UDRs) management 
+      href: concept-user-defined-route.md
+    - name: View applied configurations
+      href: how-to-view-applied-configurations.md
+    - name: User-defined routes (UDRs) management
+      items:
+      - name: Create user-defined routes (UDRs)
+        href: how-to-create-user-defined-route.md
+      - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
+        href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md
+  - name: Remove or update components
+    href: concept-remove-components-checklist.md
+- name: Manage IP addresses (IPAM)
+  items:
+    - name: IP address management overview
+      href: concept-ip-address-management.md
+    - name: Automate IP address management
+      href: automate-ip-address-management-ipam-sample.md
+    - name: Prevent overlapping IP address spaces with Azure Policy and IPAM
+      href: Prevent-overlapping-ip-address-space-policy-ipam.md
+    - Name: Create IP address pools with IPAM
+      href: how-to-manage-ip-addresses-network-manager.md
+- name: Troubleshoot
   items:
     - name: Event Log Options for Azure Virtual Network Manager
       href: concept-event-logs.md
@@ -116,7 +116,7 @@
       href: how-to-verify-reachability-with-virtual-network-verifier.md
     - name: Define dynamic network group membership with Azure Policy
       href: how-to-define-network-group-membership-azure-policy.md
-- name: Security and compliance
+- name: Security
   items:
   - name: Secure network traffic with security admin rules
     items:
