@@ -1909,3 +1909,14 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+#owner: mbender
+- id: load-balancer-multiple-ip-pv
+  title: Load Balancer Multiple IPs
+  prompt: Select your creation experience for Azure Load Balancer.
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-powershell
+    title: Azure PowerShell

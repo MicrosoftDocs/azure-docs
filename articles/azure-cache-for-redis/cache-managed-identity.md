@@ -4,6 +4,8 @@ description: Learn to Azure Cache for Redis
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 08/29/2022
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Managed identity for storage

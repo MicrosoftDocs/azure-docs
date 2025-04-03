@@ -33,19 +33,25 @@ _Degraded_ status messages and associated automatic cordoning behavior are prese
 
 ## Troubleshooting
 
-To check for any Bare Metal Machines (BMMs) which are currently degraded, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table`. This command shows the current status of all BMMs in the specified resource group. Any active _Degraded_ conditions are visible in the detailed status message.
+To check for any Bare Metal Machines (BMMs) which are currently degraded, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table`.
+This command shows the current status of all BMMs in the specified resource group. Any active _Degraded_ conditions are visible in the detailed status message.
 
-To see the current Cordoning status, include a `--query` parameter which specifies the `cordonStatus`, as seen in the following example. This command can help to identify any compute nodes which are still automatically cordoned due to recently resolved _Degraded_ conditions.
+To see the current Cordoning status, include a `--query` parameter which specifies the `cordonStatus`, as seen in the following example.
+This command can help to identify any compute nodes which are still automatically cordoned due to recently resolved _Degraded_ conditions.
 
 ```azurecli
-az networkcloud baremetalmachine list  -g <ResourceGroup_Name> --output table --query "[].{name:name,powerState:powerState,provisioningState:provisioningState,readyState:readyState,cordonStatus:cordonStatus,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage}"
+az networkcloud baremetalmachine list \
+  -g <ResourceGroup_Name> \
+  --output table \
+  --query "[].{name:name,powerState:powerState,provisioningState:provisioningState,readyState:readyState,cordonStatus:cordonStatus,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage}"
 ```
 
 **Example Azure CLI output**
 
-This example shows a deployment with two currently degraded BMMs (`compute01` and `compute04`), and two cordoned BMMs (`compute02` and `compute04`). Not all degraded BMMs are cordoned (yet), and not all of the healthy BMMs are uncordoned (yet) - due to the fixed delay before automatic cordoning and uncordoning takes effect.
+This example shows a deployment with two currently degraded BMMs (`compute01` and `compute04`), and two cordoned BMMs (`compute02` and `compute04`).
+Not all degraded BMMs are cordoned (yet), and not all of the healthy BMMs are uncordoned (yet) - due to the fixed delay before automatic cordoning and uncordoning takes effect.
 
-```
+```shell
 Name            PowerState    ProvisioningState    ReadyState    CordonStatus    DetailedStatus    DetailedStatusMessage
 --------------  ------------  -------------------  ------------  --------------  ----------------  -----------------------------------------------------------------------------------------------------------------
 rack1management1  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
@@ -74,7 +80,12 @@ Additional information about recent degraded conditions and automatic cordoning 
 To view these `bmm` kubernetes resource fields, use an Azure CLI `run-read-command` command as shown in the following example.
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command -g <ResourceGroup_Name> -n rack2management2 --limit-time-seconds 60 --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack2compute08,-o,json]}]" --output-directory .
+az networkcloud baremetalmachine run-read-command \
+  -g <ResourceGroup_Name> \
+  -n rack2management2 \
+  --limit-time-seconds 60 \
+  --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack2compute08,-o,json]}]" \
+  --output-directory .
 ```
 
 - Replace `<ResourceGroup_Name>` with the name of the resource group containing the BMM resources.
@@ -87,7 +98,7 @@ For more information about the `run-read-command` feature, see [BareMetal Run-Re
 
 This example shows an automatically cordoned BMM with two active _Degraded_ conditions.
 
-```
+```json
 {
   "metadata": {
     "annotations": {
@@ -141,7 +152,8 @@ For more information about investigating the root cause of an automatic cordon, 
 
 ## `Degraded: port down`
 
-This message in the BMM _Detailed status message_ field indicates that the physical link is down on one or more of the Mellanox interfaces on the underlying compute host. This scenario can indicate a cabling, switch port configuration, or hardware failure.
+This message in the BMM _Detailed status message_ field indicates that the physical link is down on one or more of the Mellanox interfaces on the underlying compute host.
+This scenario can indicate a cabling, switch port configuration, or hardware failure.
 
 To troubleshoot this issue:
 
@@ -152,21 +164,22 @@ To troubleshoot this issue:
 
 **Example `conditions` output for port down**
 
-```
-  "conditions": [
-    {
-      "lastTransitionTime": "2025-03-04T03:27:00Z",
-      "message": "Physical link(s) down: 4b_p1",
-      "reason": "PortDown",
-      "status": "False",
-      "type": "BmmNetworkLinksUp"
-    },
-  ],
+```json
+"conditions": [
+  {
+    "lastTransitionTime": "2025-03-04T03:27:00Z",
+    "message": "Physical link(s) down: 4b_p1",
+    "reason": "PortDown",
+    "status": "False",
+    "type": "BmmNetworkLinksUp"
+  },
+],
 ```
 
 ## `Degraded: LACP status is down`
 
-This message in the BMM _Detailed status message_ field indicates a Link Aggregation Control Protocol (LACP) failure on the underlying compute host, when the physical links are physically up. This scenario can indicate a cabling or Top Of Rack (TOR) switch configuration issue.
+This message in the BMM _Detailed status message_ field indicates a Link Aggregation Control Protocol (LACP) failure on the underlying compute host, when the physical links are physically up.
+This scenario can indicate a cabling or Top Of Rack (TOR) switch configuration issue.
 
 To troubleshoot this issue:
 
@@ -178,26 +191,30 @@ To troubleshoot this issue:
 - for more information about diagnosing and fixing LACP issues, see [Troubleshoot LACP Bonding](./troubleshoot-lacp-bonding.md).
 
 > [!WARNING]
-> In version 2502.1, there's a known issue where `LACP status is down` can be incorrectly reported in addition to a `port is not functioning as expected` message during a port down scenario. This issue can happen when a BMM is restarted or reimaged while the physical port is down. In this case, the LACP warning can be safely ignored if the physical port is also down. This issue is fixed in version 2503.1.
+> In version 2502.1, there's a known issue where `LACP status is down` can be incorrectly reported in addition to a `port is not functioning as expected` message during a port down scenario.
+> This issue can happen when a BMM is restarted or reimaged while the physical port is down.
+> In this case, the LACP warning can be safely ignored if the physical port is also down. This issue is fixed in version 2503.1.
 
 **Example `conditions` output for unexpected LACP state**
 
-```
-  "conditions": [
-    {
-      "lastTransitionTime": "2025-01-31T12:24:27Z",
-      "message": "Error: LACP status for interface 4b_p0 is down, LACP status for interface 4b_p1 is down",
-      "reason": "LACP status is down",
-      "severity": "Error",
-      "status": "False",
-      "type": "BmmInExpectedLACPState"
-    },
-  ],
+```json
+"conditions": [
+  {
+    "lastTransitionTime": "2025-01-31T12:24:27Z",
+    "message": "Error: LACP status for interface 4b_p0 is down, LACP status for interface 4b_p1 is down",
+    "reason": "LACP status is down",
+    "severity": "Error",
+    "status": "False",
+    "type": "BmmInExpectedLACPState"
+  },
+],
 ```
 
 ## `Degraded: port flapping`
 
-This message in the BMM _Detailed status message_ field indicates that one or more of the Mellanox ethernet ports is experiencing port flapping. Port flapping is defined as two or more changes in the physical link state within the previous 15 minutes. This behavior can indicate a cabling, switch or hardware issue, or possible network configuration issues.
+This message in the BMM _Detailed status message_ field indicates that one or more of the Mellanox ethernet ports is experiencing port flapping.
+Port flapping is defined as two or more changes in the physical link state within the previous 15 minutes.
+This behavior can indicate a cabling, switch or hardware issue, or possible network configuration issues.
 
 To troubleshoot this issue:
 
@@ -209,7 +226,7 @@ To troubleshoot this issue:
 
 **Example `conditions` output for port flapping**
 
-```
+```json
 "conditions": [
   {
     "lastTransitionTime": "2025-03-04T03:49:00Z",

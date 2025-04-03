@@ -22,6 +22,20 @@ Azure file shares are managed through a common Azure resource called a *storage 
 
 When you create a storage account, you choose a redundancy setting for the storage account that's shared for all storage services exposed by that account. Therefore, all file shares deployed in the same storage account have the same redundancy setting. You might want to isolate file shares in separate storage accounts if they have different redundancy requirements.
 
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Redundancy in the primary region
 
 Data in an Azure storage account is always replicated three times in the primary region. Azure Files offers two options for how your data is replicated in the primary region:
@@ -46,7 +60,7 @@ LRS is a good choice for the following scenarios:
 - If your application stores data that can be easily reconstructed if data loss occurs.
 - If your application is restricted to replicating data only within a country or region due to data governance requirements. In some cases, the paired regions across which the data is geo-replicated might be in another country or region. For more information, see [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired).
 
-LRS is supported in all Azure regions for standard file shares. For a list of regions that support LRS for premium file shares, see [LRS support for premium Azure file shares](redundancy-premium-file-shares.md#lrs-support-for-premium-azure-file-shares).
+LRS is supported in all Azure regions for HDD file shares. For a list of regions that support LRS for SSD file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-premium-azure-file-shares).
 
 ### Zone-redundant storage
 
@@ -71,14 +85,14 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 
 To understand which regions support ZRS for standard file shares, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1) and refer to the availability zone support column. ZRS is supported in standard general-purpose v2 storage accounts for all three standard tiers: transaction optimized, hot, and cool.
 
-ZRS is supported for premium file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for premium file share accounts, see [ZRS support for premium Azure file shares](redundancy-premium-file-shares.md#zrs-support-for-premium-azure-file-shares).
+ZRS is supported for SSD file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for SSD file share accounts, see [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-premium-azure-file-shares).
 
 ## Redundancy in a secondary region
 
 For applications requiring high durability for SMB file shares, you can choose geo-redundant storage to copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
 
 > [!IMPORTANT]
-> Azure Files only supports geo-redundancy (GRS or GZRS) for standard SMB file shares. Premium file shares and NFS file shares must use LRS or ZRS.
+> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD file shares. SSD file shares must use LRS or ZRS.
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
 
@@ -113,16 +127,37 @@ Only standard general-purpose v2 storage accounts support GZRS.
 
 To determine if a region supports GZRS, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1). To support GZRS, a region must support availability zones and have a paired region.
 
-### Disaster recovery and failover
+### Snapshot and sync frequency
 
+To ensure Geo and GeoZone redundant file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state is based on the latest system snapshot in the secondary region. Due to geo-lag or other issues, the latest system snapshot in the secondary region may be older than 15 minutes.
+
+The Last Sync Time (LST) property on the storage account indicates the last time that data from the primary region was written successfully to the secondary region. For Azure Files, the Last Sync Time is based on the latest system snapshot in the secondary region. You can use PowerShell or Azure CLI to [check the Last Sync Time](../common/last-sync-time-get.md#get-the-last-sync-time-property) for a storage account.
+
+It's important to understand the following about the Last Sync Time property:
+
+- The Last Sync Time property on the storage account is based on the service (Files, Blobs, Tables, Queues) in the storage account that's the furthest behind.
+- The Last Sync Time isn't updated if no changes have been made on the storage account.
+- The Last Sync Time calculation can time out if the number of file shares exceeds 100 per storage account. Less than 100 file shares per storage account is recommended.
+
+### Failover considerations
 With GRS or GZRS, the file shares won't be accessible in the secondary region unless a failover occurs. If the primary region becomes unavailable, you can choose to fail over to the secondary region. The failover process updates the DNS entry provided by Azure Files so that the secondary endpoint becomes the new primary endpoint for your storage account. During the failover process, your data is inaccessible. After the failover is complete, you can read and write data to the new primary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information, see [Azure Files disaster recovery and failover](files-disaster-recovery.md).
 
 > [!IMPORTANT]
 > Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured and billed as GRS or GZRS.
 
-### Geo-redundancy for premium file shares
+The following items might impact your ability to fail over to the secondary region:
 
-As previously mentioned, geo-redundancy options (GRS and GZRS) aren't supported for premium file shares. However, you can achieve geo-redundancy in other ways.
+- Storage account failover is blocked if a system snapshot doesn't exist in the secondary region.
+- Storage account failover is blocked if the storage account contains more than 100,000 file shares. To failover the storage account, open a support request.
+- File handles and leases aren't retained on failover, and clients must unmount and remount the file shares.
+- File share quota might change after failover. The file share quota in the secondary region will be based on the quota that was configured when the system snapshot was taken in the primary region.
+- Copy operations in progress are aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
+
+To failover a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
+
+### Geo-redundancy for SSD file shares
+
+As previously mentioned, geo-redundancy options (GRS and GZRS) aren't supported for SSD file shares. However, you can achieve geo-redundancy in other ways.
 
 For Azure File Sync scenarios, you can sync between your Azure file share (your cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure all data is present locally, and provision enough storage on the Azure VM to hold the entire dataset. To ensure changes will replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
