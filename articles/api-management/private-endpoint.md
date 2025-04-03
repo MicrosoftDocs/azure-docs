@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 04/03/2025
 ---
 
 # Connect privately to API Management using an inbound private endpoint
@@ -41,7 +41,7 @@ Use an inbound private endpoint to enable private-only access directly to the AP
 Supported configurations include:
 
 * Pass client requests through a firewall and configure rules to route requests privately to the API Management gateway.
-* Configure Azure Front Door (or Azure Front Door with Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway. For example, see [Connect Azure Front Door Premium to an Azure API Management with Private Link (Preview)](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
+* Configure Azure Front Door (or Azure Front Door with Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway. For example, see [Connect Azure Front Door Premium to an Azure API Management with Private Link](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
 
 
 ## Prerequisites
@@ -103,11 +103,11 @@ When you use the Azure portal to create a private endpoint, as shown in the next
 
 ### Create private endpoint - portal
 
-You can create a private endpoint for your API Management instance in the Azure portal.
+You can create a private endpoint when you create an API Management instance in the Azure portal. You can also add a private endpoint to an existing instance.
 
 #### [Classic](#tab/classic)
 
-In the classic API Management tiers, you can create a private endpoint when you create the instance. In an existing instance, use the instance's **Network** blade in the Azure portal.
+To add a private endpoint to an existing API Management instance:
 
 1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
 
@@ -188,8 +188,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
 
 #### [Standard v2](#tab/v2)
 
-> [!NOTE]
-> Currently you can only set up a private endpoint on an existing Standard v2 instance.
+To add a private endpoint to an existing API Management instance:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your API Management Standard v2 instance.
 
