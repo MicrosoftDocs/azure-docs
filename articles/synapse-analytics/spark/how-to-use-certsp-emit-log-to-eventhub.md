@@ -10,8 +10,6 @@ ms.date: 03/24/2025
 
 # How to use certificate and Service Principal emit log to eventhub
 
-(Summry)
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
