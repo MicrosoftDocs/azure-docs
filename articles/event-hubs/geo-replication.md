@@ -69,10 +69,11 @@ Geo-replication can also be used to facilitate data migration, maintenance and s
 ## Geo-replication 
 The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:
 
--	Managed identity for capture 
+- Customer managed keys encryption (CMK).
+-	Managed identity for capture.
 -	Private endpoints.
--	Large messages support (currently in public preview)
--	Kafka Streams and Transactions (currently in public preview)
+-	Large messages support (currently in public preview).
+-	Kafka Streams and Transactions (currently in public preview).
  
 Some of the key aspects of Geo-data Replication public preview are: 
 
