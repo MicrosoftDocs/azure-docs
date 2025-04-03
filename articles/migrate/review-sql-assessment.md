@@ -9,7 +9,7 @@ ms.date: 03/26/2025
 ms.custom: engagement-fy24
 ---
 
-# Review a SQL assessment
+# Tutorial: Review a SQL assessment
 
 This article describes the various components of a SQL assessment and how you can review the assessment after it's created.
 

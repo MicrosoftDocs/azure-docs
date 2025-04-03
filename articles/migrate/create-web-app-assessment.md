@@ -8,7 +8,7 @@ ms.date: 03/26/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24
 ---
-# Create web app assessment for modernization 
+# Tutorial: Create web app assessment for modernization 
 
 This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
 
@@ -66,7 +66,6 @@ To create an assessment, follow these steps.
 
 1. Review and create the assessment. 
  
-
 ## Next steps 
 
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
