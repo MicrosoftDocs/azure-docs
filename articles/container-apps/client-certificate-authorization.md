@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 04/03/2025
 ms.author: cshoe
 ---
 
@@ -51,8 +51,8 @@ Get the ARM ID of the Azure Container App:
 
 ```azurecli
 APP_ID=$(az containerapp show \
-  --name <app-name> \
-  --resource-group <resource-group> \
+  --name <APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --query id \
   --output tsv)
 ```
@@ -62,7 +62,7 @@ Patch the clientCertificateMode Property on the App:
 ```azurecli
 az rest \
   --method patch \
-  --url "https://management.azure.com/$APP_ID?api-version=<api-version>" \
+  --url "https://management.azure.com/$APP_ID?api-version=<API_VERSION>" \
   --body '{
     "properties": {
       "configuration": {
@@ -73,23 +73,16 @@ az rest \
     }
   }'
 ```
-When `require` is set, the client must provide a certificate.
-When `accept` is set, the certificate is optional. If the client provides a certificate, it is passed to the app in the X-Forwarded-Client-Cert header, as a semicolon-separated list. For example:
 
-```html
-<button style="margin: 0px;">
-</button>
+- When `require` is set, the client must provide a certificate.
 
-<script>
-  const hash = '....';
-  const cert = `-----BEGIN CERTIFICATE-----
-  ....
-  -----END CERTIFICATE-----`;
+- When `accept` is set, the certificate is optional. If the client provides a certificate, it is passed to the app in the `X-Forwarded-Client-Cert` header, as a semicolon-separated list. For example:
 
-  const chain = `-----BEGIN CERTIFICATE-----
-  ...
-  -----END CERTIFICATE-----`;
-</script>
+> [!NOTE]
+> Before you use the following example, make sure to replace the placeholders surrounded by `<>` with your own values.
+
+```text
+Hash=<HASH_VALUE>;Cert="-----BEGIN CERTIFICATE-----<CERTIFICATE_VALUE>";Chain="-----BEGIN CERTIFICATE-----<CERTIFICATE_VALUE>";
 ```
 
 ## Next Steps
