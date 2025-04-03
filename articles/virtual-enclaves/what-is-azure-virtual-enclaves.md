@@ -42,7 +42,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
   - Managed resources protected by Azure Policy and Deny Assignments
   - Service Catalog - Collection of templates that can be used to deploy well-known services and applications.
 
-![image1.png](./media/images-hierarchy.png)
+![Graphic showing the layers Azure Virtual Enclaves within the management layers in Azure](./media/images-hierarchy.png)
 
 ## Virtual connection management
 With Azure Virtual Enclaves, you can easily connect your communities, enclaves, and workloads to other networks and resources, both on Azure and on-premises.
