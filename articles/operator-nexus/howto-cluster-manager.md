@@ -104,8 +104,8 @@ Arguments:
 - `wait`/`--no-wait` - Wait for command to complete or don't wait for the long-running operation to finish.
 - `--tags` - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags.
 - `--subscription` - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
-- `--mi-system-assigned` - Enable System-assigned managed identity. Not used if using `--mi-user-assigned`.
-- `--mi-user-assigned` - Space-separated resource IDs of the User-assigned managed identities to be added. Not used if using `--mi-system-assigned`.
+- `--mi-system-assigned` - Enable System-assigned managed identity. One of `--mi-user-assigned` or `--mi-system-assigned` can be used at a time.
+- `--mi-user-assigned` - Space-separated resource IDs of the User-assigned managed identities to be added. One of `--mi-user-assigned` or `--mi-system-assigned` can be used at a time.
 - `--if-match`/`if-none-match` - Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes. The ETag is returned as the resource property once the resource is created and can be used on the update operations.
 
 Common arguments that are available for every Azure CLI command:
