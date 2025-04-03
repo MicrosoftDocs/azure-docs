@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/31/2025
+ms.date: 04/03/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -22,6 +22,8 @@ This article shows you how to create an [Azure Functions app in Azure Container 
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 
 ## Create a Functions app
+
+The following steps show you how to use a sample container image to create your container app. If you want to use this procedure with a custom container image, see [Create your first Azure Function on Azure Container Apps](https://github.com/Azure/azure-functions-on-container-apps/blob/main/README.md#create-your-first-azure-function-on-azure-container-apps) and [Functions in containers](/azure/azure-functions/functions-container-apps-hosting).
 
 1. Go to the Azure portal and search for **Container Apps** in the search bar.
 
@@ -76,9 +78,16 @@ This article shows you how to create an [Azure Functions app in Azure Container 
     | Registry login server  | Enter **mcr.microsoft.com** |
     | Image and tag | Enter **azure-functions/dotnet8-quickstart-demo:1.0** |
 
-1. For *Development stack*, select **.NET**.
+1. Under *Environment variables* enter values for the following variables:
 
-    This value is required since the sample container image is implemented in .NET.
+    - `AzureWebJobsStorage`
+    - `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`
+
+    Enter either Managed identity or connection string values for these variables. Managed Identity is recommended.
+
+    The `AzureWebJobsStorage` variable is a required Azure Storage account connection string for Azure Functions. This storage account stores function execution logs, manage triggers and bindings, and maintains state for durable functions.
+
+    Application Insights is a monitoring and diagnostic service that provides insights into the performance and usage of your Azure Functions. This monitoring helps you track request rates, response times, failure rates, and other metrics.
 
 1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 
