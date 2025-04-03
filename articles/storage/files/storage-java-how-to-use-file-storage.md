@@ -191,6 +191,7 @@ To use Java file I/O libraries, you must first mount a file share. See the follo
 In this article, we use the following path to refer to a mounted SMB file share on Windows:
 
 ```java
+String fileSharePath = "Z:\\file-share";
 ```
 
 ### Example: Connect to a file share and enumerate directories using Java file I/O libraries
@@ -222,7 +223,7 @@ try {
 
 ### Example: Write to a file in a file share using Java file I/O libraries
 
-The following code example shows how to write and append text with the `File` class:
+The following code example shows how to write and append text to a file:
 
 ```java
 import java.io.*;
@@ -257,7 +258,7 @@ try {
 
 SMB clients that mount file shares can use file system locking mechanisms to manage access to shared files.
 
-The following code example shows how to lock a file in a file share with share mode set to `None`. This share mode declines sharing of the current file until the file is closed.
+The following code example shows how to lock a file in a file share:
 
 ```java
 import java.io.*;
