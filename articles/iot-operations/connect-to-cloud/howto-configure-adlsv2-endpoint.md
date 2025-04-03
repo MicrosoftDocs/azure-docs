@@ -20,7 +20,7 @@ Send data to Azure Data Lake Storage Gen2 in Azure IoT Operations by configuring
 
 ## Prerequisites
 
-- An instance of [Azure IoT operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md).
 - A storage container that is already created in the storage account.
 
