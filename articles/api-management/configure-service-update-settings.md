@@ -4,18 +4,18 @@ description: Learn how to configure settings for applying service updates to you
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 04/03/2025
 ms.author: danlep
 ---
 
 # Configure service update settings for your API Management instances 
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
 
 This article shows you how to configure *service update* settings in your API Management instance. Azure periodically applies service updates automatically to API Management instances, using a phased rollout approach. These updates include new features, security enhancements, and reliability improvements. 
 
-You can't control exactly when Azure updates each instance, but API Management lets you select an *update group* for your instance, and also a *maintenance window* during the day when you want your instance to receive updates. 
+You can't control exactly when Azure updates each instance, but in select service tiers API Management lets you choose an *update group* for your instance, and also a *maintenance window* during the day when you want your instance to receive updates. 
 
 * **Update group** - A set of instances that receive API Management service updates during a production rollout, which can take from several days to several weeks to complete. 
 
@@ -38,9 +38,6 @@ You can't control exactly when Azure updates each instance, but API Management l
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your API Management instance.
 1. In the left menu, select **Deployment + infrastructure** > **Service update settings**.
 1. Under **Update group**, review the current setting and select **Edit** to change it.
-    > [!NOTE]
-    > Only the **Early** update group is available for API Management instances in the Developer tier.
-
 1. Under **Maintenance window**, review the current settings and select **Edit** to change them. For each day you can select the default window, a different standard window, or a custom window by day.
  
 ## Know when your instances are receiving updates 
@@ -64,7 +61,7 @@ Here's how to know about service updates that are expected or are in progress.
 
 ## Canary deployment strategies
   
-You can use an API Management instance assigned to a specific update group or deployed in a specific Azure region as a canary deployment that receives updates earlier than your production instances.
+You can use an API Management instance assigned to a specific update group (if that option is available) or deployed in a specific Azure region as a canary deployment that receives updates earlier than your production instances.
 
 * **Add instance to Early update group** - Use an API Management instance in the Early update group to validate updates early in a production rollout. This instance is effectively your canary deployment. 
 
