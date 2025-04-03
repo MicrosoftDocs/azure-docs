@@ -83,7 +83,6 @@ ms.date: 03/24/2025
 2. In the first code cell, add the configuration code to emit logs to Event Hub.
 
      ```
-     %%configure -f
      {
      "conf": { 
         "spark.synapse.diagnostic.emitters": <EMITTER_NAME>,
