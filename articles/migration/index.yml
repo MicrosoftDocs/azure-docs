@@ -128,14 +128,14 @@ conceptualContent:
             text: Azure data and AI services map
             itemType: reference
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
-            text: Amazon RDS for PostgreSQL for PostgreSQL (offline)
-            itemType: overview
+            text: Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (offline)
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
-            text: Amazon RDS for PostgreSQL for PostgreSQL (online)
-            itemType: overview
+            text: Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (online)
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
             text: Amazon Aurora PostgreSQL (offline)
-            itemType: overview
+            itemType: tutorial
         footerLink:
           text: See more
           url: ./migrate-databases-from-aws.md
