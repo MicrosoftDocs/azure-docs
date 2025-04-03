@@ -24,10 +24,10 @@
 #       href: create-a-workload-in-the-azure-portal.md
 #     - name: Easy Button Deployments
 #       href: easy-button-deployments.md
-- name: Concepts
-  items:
-    - name: Understanding Enclave Networking
-      href: networking.md
+# - name: Concepts
+#   items:
+#     - name: Understanding Enclave Networking
+#       href: networking.md
 #     - name: Designing intra-enclave network isolation
 #       href: designing-intra-enclave-network-isolation.md
 #     - name: Concepts and best practices
