@@ -10,7 +10,7 @@ ms.custom: UpdateFrequency2
 #customer intent: As a lab administrator, I want to create custom images from existing VMs so I can make the custom images available to lab users as bases for creating more VMs.
 ---
 
-# Create a custom image from a VM
+# Create a custom image from a VM in DevTest Labs
 
 In this article, you learn how to create a custom image from a provisioned Azure DevTest Labs virtual machine (VM). The custom image includes the OS disk, attached data disks, and any artifacts associated with the VM. Lab users can use the custom image to create identical provisioned lab VMs.
 

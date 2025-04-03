@@ -29,9 +29,11 @@ To avoid losing work, stop the VM before you resize it. To stop a VM, disconnect
 ## Resize the VM
 
 1. On the VM's **Overview** page, select **Size** under **Settings** in the left navigation menu.
+
    :::image type="content" source="./media/devtest-lab-resize-vm/size-menu.png" alt-text="Screenshot that shows selecting Size in the VM's left navigation.":::
 
 1. On the **Select a VM size** screen, select a new size for your VM, and then select **Select**.
+
    :::image type="content" source="./media/devtest-lab-resize-vm/select-size.png" alt-text="Screenshot that shows selecting a V M size.":::
 
 You can check the status of the resize operation in the **Notifications** window.
