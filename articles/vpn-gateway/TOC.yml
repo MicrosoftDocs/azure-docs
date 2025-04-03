@@ -58,6 +58,10 @@
       items:
       - name: About SKU consolidation & migration
         href: gateway-sku-consolidation.md
+    - name: Basic SKU public IP address migration
+      items:
+      - name: About Basic SKU public IP address migration
+        href: basic-public-ip-migrate-about.md
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
     - name: Change a gateway SKU
