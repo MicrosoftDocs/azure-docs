@@ -20,54 +20,13 @@ Before you start:
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
 - You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).  
+- [Set up the environment](./azure-to-azure-powershell.md#sign-in-to-your-microsoft-azure-subscription).
 
-
-## Set up the environment
-
-Sign in to your Azure account and set the context to the subscription where you want to enable replication.
-
-```powershell
-Connect-AzAccount 
-```
-
-Select your Azure subscription. Use the Get-AzSubscription cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription to work with using the Set-AzContext cmdlet. 
-
-```powershell
-Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-```
 
 ## Get the resource group and VM details
 
-In this article, a virtual machine in the East US region is replicated to and recovered in the West US 2 region. The virtual machine being replicated has an OS disk and a single data disk. The name of the virtual machine used in the example is `AzureDemoVM`. 
+After setting up the environment, [get the resource group and VM details](./azure-to-azure-powershell.md#get-details-of-the-virtual-machine-to-be-replicated). The resource group is the resource group in which the virtual machine is located. The VM is the virtual machine that you want to protect.
 
-```powershell
-# Get details of the virtual machine 
-$VM = Get-AzVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM" 
-Write-Output $V
-```
-
-```Output
-ResourceGroupName  : A2AdemoRG
-Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/A2AdemoRG/providers/Microsoft.Compute/virtualMachines/AzureDemoVM
-VmId               : 1b864902-c7ea-499a-ad0f-65da2930b81b
-Name               : AzureDemoVM
-Type               : Microsoft.Compute/virtualMachines
-Location           : eastus
-Tags               : {}
-DiagnosticsProfile : {BootDiagnostics}
-HardwareProfile    : {VmSize}
-NetworkProfile     : {NetworkInterfaces}
-OSProfile          : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
-ProvisioningState  : Succeeded
-StorageProfile     : {ImageReference, OsDisk, DataDisks}
-```
-
-Get disk details for the virtual machine's disks. Disk details will be used later when starting replication for the virtual machine.
-
-```azurepowershell
-$OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
-$DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
-```
 
 ## Create a Recovery Services vault
 
@@ -112,168 +71,18 @@ SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-## Prepare the vault to start replicating Azure virtual machines
+## Prepare the vault to start replicating Azure virtual
 
-### Create a Site Recovery fabric object to represent the primary (source) region
+To prepare the vault for replication, you need to do the following:
 
-The fabric object in the vault represents an Azure region. The primary fabric object is created to represent the Azure region that virtual machines being protected to the vault belong to. In the example in this article, the virtual machine being protected is in the East US region.
+1. [Create a Site Recovery fabric object to represent the primary (source) region](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region).
+1. [Create a Site Recovery fabric object to represent the recovery region](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-recovery-region).
+1. [Create a Site Recovery protection container in the primary region](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-primary-region).
+1. [Create a Site Recovery protection container in the recovery fabric](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-recovery-region). Learn more about [Fabric and container creation when enabling zone to zone replication](./azure-to-azure-powershell.md#fabric-and-container-creation-when-enabling-zone-to-zone-replication).
+1. [Create a replication policy](./azure-to-azure-powershell.md#create-a-replication-policy).
+1. [Create a protection container mapping between the primary and recovery protection containers](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-containers). Learn more about [Protection container mapping creation when enabling zone to zone replication](./azure-to-azure-powershell.md#protection-container-mapping-creation-when-enabling-zone-to-zone-replication).
+1. [Create a protection container mapping for failback (reverse replication after a failover)](./azure-to-azure-powershell.md#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover).
 
-- Only one fabric object can be created per region.
-- If you've previously enabled Site Recovery replication for a VM in the Azure portal, Site Recovery creates a fabric object automatically. If a fabric object exists for a region, you can't create a new one.
-
-Before you start, understand that Site Recovery operations are executed asynchronously. When you initiate an operation, an Azure Site Recovery job is submitted and a job tracking object is returned. Use the job tracking object to get the latest status for the job (`Get-AzRecoveryServicesAsrJob`), and to monitor the status of the operation.
-
-```powershell
-#Create Primary ASR fabric
-$TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS"
-
-# Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
-Write-Output $TempASRJob.State
-
-$PrimaryFabric = Get-AzRecoveryServicesAsrFabric -Name "A2Ademo-EastUS"
-```
-
-If virtual machines from multiple Azure regions are being protected to the same vault, create one fabric object for each source Azure region.
-
-### Create a Site Recovery fabric object to represent the recovery region
-
-The recovery fabric object represents the recovery Azure location. If there's a failover, virtual machines are replicated and recovered to the recovery region represented by the recovery fabric. The recovery Azure region used in this example is West US 2.
-
-```powershell
-#Create Recovery ASR fabric
-$TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS"
-
-# Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
-Write-Output $TempASRJob.State
-
-$RecoveryFabric = Get-AzRecoveryServicesAsrFabric -Name "A2Ademo-WestUS"
-```
-
-### Create a Site Recovery protection container in the primary fabric
-
-The protection container is a container used to group replicated items within a fabric.
-
-```powershell
-#Create a Protection container in the primary Azure region (within the Primary fabric)
-$TempASRJob = New-AzRecoveryServicesAsrProtectionContainer -InputObject $PrimaryFabric -Name "A2AEastUSProtectionContainer"
-
-#Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-Write-Output $TempASRJob.State
-
-$PrimaryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
-```
-
-### Create a Site Recovery protection container in the recovery fabric
-
-```powershell
-#Create a Protection container in the recovery Azure region (within the Recovery fabric)
-$TempASRJob = New-AzRecoveryServicesAsrProtectionContainer -InputObject $RecoveryFabric -Name "A2AWestUSProtectionContainer"
-
-#Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
-
-Write-Output $TempASRJob.State
-
-$RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
-```
-
-#### Fabric and container creation when enabling zone to zone replication
-
-When enabling zone to zone replication, only one fabric will be created. But there will be two containers. Assuming that the region is West Europe, use following commands to get the primary and protection containers -
-
-```powershell
-$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
-$recoveryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
-```
-
-### Create a replication policy
-
-```powershell
-#Create replication policy
-$TempASRJob = New-AzRecoveryServicesAsrPolicy -AzureToAzure -Name "A2APolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4
-
-#Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
-Write-Output $TempASRJob.State
-
-$ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "A2APolicy"
-```
-
-### Create a protection container mapping between the primary and recovery protection container
-
-A protection container mapping maps the primary protection container with a recovery protection container and a replication policy. Create one mapping for each replication policy that you'll use to replicate virtual machines between a protection container pair.
-
-```powershell
-#Create Protection container mapping between the Primary and Recovery Protection Containers with the Replication policy
-$TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "A2APrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer $PrimaryProtContainer -RecoveryProtectionContainer $RecoveryProtContainer
-
-#Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
-Write-Output $TempASRJob.State
-
-$EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
-```
-
-#### Protection container mapping creation when enabling zone to zone replication
-
-When enabling zone to zone replication, use the below command to create protection container mapping. Assuming that the region is West Europe, the command will be -
-
-```powershell
-$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
-```
-
-### Create a protection container mapping for failback (reverse replication after a failover)
-
-After a failover, when you're ready to bring the failed over virtual machine back to the original Azure region, you do a failback. To fail back, the failed over virtual machine is reverse replicated from the failed over region to the original region. For reverse replication the roles of the original region and the recovery region switch. The original region now becomes the new recovery region, and what was originally the recovery region now becomes the primary region. The protection container mapping for reverse replication represents the switched roles of the original and recovery regions.
-
-```powershell
-#Create Protection container mapping (for fail back) between the Recovery and Primary Protection Containers with the Replication policy
-$TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
-
-#Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
-Write-Output $TempASRJob.State
-
-$WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $RecoveryProtContainer -Name "A2ARecoveryToPrimary"
-```
 
 ## Create cache storage account and target storage account
 
@@ -361,248 +170,165 @@ A network mapping maps virtual networks in the primary region to virtual network
     #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
 
+
 ## Create a Site Recovery protection cluster 
 
 The protection cluster is a container used to group replicated items that are part of a shared disk cluster. 
 
 ```powershell
 $clusterjob = New-AzRecoveryServicesAsrReplicationProtectionCluster -AzureToAzure -Name $clusterName -ProtectionContainerMapping $forwardpcm 
-```
-
-#### Get by name 
-
-```powershell
+# Get by name 
 $clusters = Get-AzRecoveryServicesAsrReplicationProtectionCluster -ProtectionContainer $pc -Name "3nodecluster" 
-```
-
- #### List protection clusters in vault 
-
-```powershell
+# List protection clusters in vault
 Get-AzRecoveryServicesAsrReplicationProtectionCluster 
+# List protection clusters in protection container 
+Get-AzRecoveryServicesAsrReplicationProtectionCluster -Name $clusterName -ProtectionContainer $pc
 ```
 
 
-#### List protection clusters in protection container 
-
-```Get-AzRecoveryServicesAsrReplicationProtectionCluster -Name $clusterName -ProtectionContainer $pc```
-
-## 
+## Enable protection on your cluster
 
 Replicate the Azure virtual machines with managed shared disks when disk details are unavailable.  
 
- 
-
+```powershell
 $EnableJob1 = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -Name $rpiName1 -ReplicationProtectionCluster $cluster ` 
-
 -AzureVmId $vmId1 -ProtectionContainerMapping $forwardpcm -RecoveryResourceGroupId $rgId -RecoveryAvailabilitySetId $avset ` 
-
--RecoveryProximityPlacementGroupId $ppg -RecoveryAzureNetworkId $networkId -LogStorageAccountId $storageId 
-
- 
+-RecoveryProximityPlacementGroupId $ppg -RecoveryAzureNetworkId $networkId -LogStorageAccountId $storageId
+```
 
 Replicate the Azure virtual machines with managed shared disks when disk details are available. 
 
- 
-
+```powershell
 $disk1 = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $storageId ` 
-
-    -DiskId $vhdId1 -RecoveryResourceGroupId  $rgId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` 
-
-    -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType 
-
+-DiskId $vhdId1 -RecoveryResourceGroupId  $rgId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` 
+-RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType 
 $disk2 = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $storageId ` 
-
     -DiskId $vhdId2 -RecoveryResourceGroupId  $rgId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` 
-
     -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType 
-
 $disks = @() 
-
 $disks += $disk1 
-
 $disks += $disk2 
-
- 
-
 $EnableJob2 = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -Name $rpiName2 ` 
-
 -AzureToAzureDiskReplicationConfiguration $disks -ReplicationProtectionCluster $cluster -AzureVmId $vmId2 ` 
-
 -ProtectionContainerMapping $forwardpcm -RecoveryResourceGroupId $rgId -RecoveryAvailabilitySetId $avset ` 
-
 -RecoveryProximityPlacementGroupId $ppg -RecoveryAzureNetworkId $networkId 
+```
 
- 
+The AzureToAzureDiskReplicationConfiguration should contain both the normal disks and shared disk information. For example, enabling protection for two VMs in a WSFC cluster with 1 shared disk and are part of Avset and PPG.
 
-The AzureToAzureDiskReplicationConfiguration should contain both the normal disks and shared disk information. 
 
- 
-
-Example: Enabling protection for 2 VMs in a WSFC cluster with 1 shared disk and are part of Avset and PPG 
-
- 
-
+```powershell
 $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2" 
-
 $Avset = "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/ClusterRG-asr/providers/Microsoft.Compute/availabilitySets/SDGQL-AS-asr" 
-
 $Ppg = "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/ClusterRG-asr/providers/Microsoft.Compute/proximityPlacementGroups/sdgql-ppg-asr" 
-
 $NetworkId = "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/ClusterRG-asr/providers/Microsoft.Network/virtualNetworks/adVNET-asr" 
-
-     
-
 $EnableJob1 = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -Name (New-Guid).Guid -ReplicationProtectionCluster $cluster ` 
-
 -AzureVmId $VM1.Id -ProtectionContainerMapping $EusToWusPCMapping -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryAvailabilitySetId $Avset ` 
-
 -RecoveryProximityPlacementGroupId $Ppg -RecoveryAzureNetworkId $NetworkId -LogStorageAccountId $EastUSCacheStorageAccount.Id 
-
- 
-
 #OsDisk 
-
 $OSdiskId = $vm2.StorageProfile.OsDisk.ManagedDisk.Id 
-
 $RecoveryOSDiskAccountType = $vm2.StorageProfile.OsDisk.ManagedDisk.StorageAccountType 
-
 $RecoveryReplicaDiskAccountType = $vm2.StorageProfile.OsDisk.ManagedDisk.StorageAccountType 
-
- 
-
 $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` 
 
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` 
 
          -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType 
-
- 
-
 # Data disk 
-
 $datadiskId1 = $vm2.StorageProfile.DataDisks[0].ManagedDisk.Id 
-
 $RecoveryReplicaDiskAccountType = $vm2.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType 
-
 $RecoveryTargetDiskAccountType = $vm2.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType 
-
- 
-
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` 
 
          -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType ` 
 
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType 
-
- 
-
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated. 
-
 $diskconfigs = @() 
-
 $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig 
-
- 
-
 $EnableJob2 = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -Name (New-Guid).Guid ` 
-
 -AzureToAzureDiskReplicationConfiguration $diskconfigs-ReplicationProtectionCluster $cluster -AzureVmId $VM2.Id ` 
-
 -ProtectionContainerMapping $EusToWusPCMapping -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryAvailabilitySetId $Avset ` 
-
 -RecoveryProximityPlacementGroupId $Ppg -RecoveryAzureNetworkId $NetworkId 
+```
 
- 
+## Create recovery points 
 
- 
+The recovery point is a point in time to which you can fail over. You can create a recovery point for the cluster or for the individual nodes. To create a recovery point, do the following:
 
-Recovery points 
 
-List 
+**List** 
+```Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster```
 
-Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster 
 
- 
+**Get** 
+```Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster -Name "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"```
 
-Get 
 
-Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster -Name "xxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
-
- 
-
- 
-
-Test Failover 
+## Test failover 
 
 Test the fail over of the cluster to a specific recovery point. 
 
+```powershell
 $tfoJob = Start-AzRecoveryServicesAsrClusterTestFailoverJob -ReplicationProtectionCluster $protectionCluster -Direction PrimaryToRecovery -AzureVMNetworkId "/subscriptions/xxxxxxxxx/resourceGroups/ClusterRG-asr/providers/Microsoft.Network/virtualNetworks/adVNET-asr" -LatestProcessedRecoveryPoint 
+```
 
  
+## Test failover cleanup
 
- 
+Cleanup the test failover after completion of testing. 
 
-Test Failover Cleanup 
-
-Cleanup the test failover after completion of testing 
-
+```powershell
 Start-AzRecoveryServicesAsrClusterTestFailoverCleanupJob -ReplicationProtectionCluster $protectionCluster  
+```
 
- 
-
-Failover 
+## Failover 
 
 Fail over the cluster to a specific recovery point. 
 
+```powershell
 $rpi1 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql1" 
-
     $rpi2 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql2" 
 
     $nodeRecoveryPoint1 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi1 
 
     $nodeRecoveryPoint2 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi2 
-
-  
 
     $nodeRecoveryPoints = @($nodeRecoveryPoint1[-1].ID, $nodeRecoveryPoint2[-1].ID) 
 
     $clusterRecoveryPoints = Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $protectionCluster 
-
-    
-
     $ufoJob = Start-AzRecoveryServicesAsrClusterUnplannedFailoverJob -ReplicationProtectionCluster $protectionCluster -Direction PrimaryToRecovery -ClusterRecoveryPoint $clusterRecoveryPoints[-1] -ListNodeRecoveryPoint $nodeRecoveryPoints 
-
+```
  
+## Change pit
 
-Change Pit 
-
+```powershell
 $rpi1 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql1" 
-
     $rpi2 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql2" 
 
     $nodeRecoveryPoint1 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi1 
 
     $nodeRecoveryPoint2 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi2 
-
-  
 
     $nodeRecoveryPoints = @($nodeRecoveryPoint1[-1].ID, $nodeRecoveryPoint2[-1].ID) 
 
     $clusterRecoveryPoints = Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $protectionCluster 
 
    $changePitJob = Start-AzRecoveryServicesAsrApplyClusterRecoveryPoint -ReplicationProtectionCluster $protectionCluster -ClusterRecoveryPoint $clusterRecoveryPoints[-1] -ListNodeRecoveryPoint $nodeRecoveryPoints 
-
+```
  
+## Commit failover
+After failover, commit the failover to the new target region. 
 
-Commit Failover 
+```powershell 
 $CommitFailoverJob = Start-AzRecoveryServicesAsrClusterCommitFailoverJob -ReplicationProtectionCluster $protectionCluster    
+```
 
- 
-
-Reprotect  
+## Reprotect  
 
 After failover, protect the Cluster in the new source region back and failover to the new target region. 
 
+```powershell
 $storage = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/vijami-alertrg/providers/Microsoft.Storage/storageAccounts/yerp1nvijamitestasrcache" 
 
     $ppg = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/ClusterRG-Vijami-1003165924/providers/Microsoft.Compute/proximityPlacementGroups/sdgql-ppg" 
@@ -610,8 +336,6 @@ $storage = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/v
     $avset = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/ClusterRG-Vijami-1003165924/providers/Microsoft.Compute/availabilitySets/SDGQL-AS" 
 
     $rgId = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/ClusterRG-Vijami-1003165924" 
-
-  
 
     # Without protected item details 
 
@@ -628,12 +352,10 @@ $storage = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/v
     -RecoveryProximityPlacementGroupId $ppg -RecoveryAvailabilitySetId $avset ` 
 
     -RecoveryResourceGroupId $rgId -LogStorageAccountId $storage -ProtectionContainerMapping $recoverypcm 
-
+```
  
 
 After reprotection is complete, you can fail over in the reverse direction, West US to East US, and fail back to source region using Failover. 
-
-
 
 
 ## Next steps 
