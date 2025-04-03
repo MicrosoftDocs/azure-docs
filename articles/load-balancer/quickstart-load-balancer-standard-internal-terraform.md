@@ -94,7 +94,7 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
     terraform output -raw private_ip_address
     ```
 
-1. Login to the VM which is not associated to the backend pool of load balancer using Bastion.
+1. Log in to the VM that isn't associated with the backend pool of the load balancer using Bastion.
 
 1. Run the curl command to access the custom web page of the Nginx web server using the frontend private IP address of the load balancer.
 
