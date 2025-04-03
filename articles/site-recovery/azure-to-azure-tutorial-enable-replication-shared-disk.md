@@ -20,7 +20,7 @@ Before you start:
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
 - You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).  
-- [Set up the environment](./azure-to-azure-powershell.md#sign-in-to-your-microsoft-azure-subscription).
+- [Set up the environment](./azure-to-azure-powershell.md#sign-in-to-your-microsoft-azure-subscription) for recovery.
 
 
 ## Get the resource group and VM details
@@ -77,10 +77,10 @@ To prepare the vault for replication, you need to do the following:
 
 1. [Create a Site Recovery fabric object to represent the primary (source) region](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region).
 1. [Create a Site Recovery fabric object to represent the recovery region](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-recovery-region).
-1. [Create a Site Recovery protection container in the primary region](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-primary-region).
-1. [Create a Site Recovery protection container in the recovery fabric](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-recovery-region). Learn more about [Fabric and container creation when enabling zone to zone replication](./azure-to-azure-powershell.md#fabric-and-container-creation-when-enabling-zone-to-zone-replication).
+1. [Create a Site Recovery protection container in the primary region](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-primary-fabric).
+1. [Create a Site Recovery protection container in the recovery fabric](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-recovery-fabric). Learn more about [Fabric and container creation when enabling zone to zone replication](./azure-to-azure-powershell.md#fabric-and-container-creation-when-enabling-zone-to-zone-replication).
 1. [Create a replication policy](./azure-to-azure-powershell.md#create-a-replication-policy).
-1. [Create a protection container mapping between the primary and recovery protection containers](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-containers). Learn more about [Protection container mapping creation when enabling zone to zone replication](./azure-to-azure-powershell.md#protection-container-mapping-creation-when-enabling-zone-to-zone-replication).
+1. [Create a protection container mapping between the primary and recovery protection containers](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container). Learn more about [Protection container mapping creation when enabling zone to zone replication](./azure-to-azure-powershell.md#protection-container-mapping-creation-when-enabling-zone-to-zone-replication).
 1. [Create a protection container mapping for failback (reverse replication after a failover)](./azure-to-azure-powershell.md#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover).
 
 
@@ -258,11 +258,15 @@ The recovery point is a point in time to which you can fail over. You can create
 
 
 **List** 
-```Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster```
+```
+Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster
+```
 
 
 **Get** 
-```Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster -Name "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"```
+```
+Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $cluster -Name "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
 
 
 ## Test failover 
@@ -301,6 +305,8 @@ $rpi1 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContaine
 ```
  
 ## Change pit
+
+You can change the point in time to which you want to fail over. This is useful when you want to fail over to a specific recovery point. 
 
 ```powershell
 $rpi1 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql1" 
@@ -353,11 +359,21 @@ $storage = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/v
 
     -RecoveryResourceGroupId $rgId -LogStorageAccountId $storage -ProtectionContainerMapping $recoverypcm 
 ```
- 
 
 After reprotection is complete, you can fail over in the reverse direction, West US to East US, and fail back to source region using Failover. 
 
+## Disable protection
+
+To disable protection, do the following:
+
+```powershell
+$clusterToDisableName = "PowershellTestLatest"
+$clusterToDisable = Get-AzRecoveryServicesAsrReplicationProtectionCluster -Name $clusterToDisableName -ProtectionContainer $pc
+$DisableJob = Remove-AzRecoveryServicesAsrReplicationProtectionCluster -ReplicationProtectionCluster $clusterToDisable
+```
 
 ## Next steps 
 
-View the Azure Site Recovery PowerShell reference to learn how you can do other tasks such as creating recovery plans and testing failover of recovery plans with PowerShell. 
+- View the [Azure Site Recovery PowerShell reference](/powershell/module/az.RecoveryServices) to learn how you can do other tasks such as creating recovery plans and testing failover of recovery plans with PowerShell.
+
+- Learn more about [shared disks in Azure Site Recovery](./tutorial-shared-disk.md). 
