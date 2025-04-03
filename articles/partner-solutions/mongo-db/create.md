@@ -2,10 +2,7 @@
 title: "Quickstart: Get started with MongoDB Atlas"
 description: Learn how to create an Astro resource in the Azure portal.
 ms.topic: quickstart
-ms.date: 02/07/2025
-ms.custom:
-  - references_regions
-  - ignite-2023
+ms.date: 04/03/2025
 ---
 
 # Quickstart: Get started with MongoDB Atlas
