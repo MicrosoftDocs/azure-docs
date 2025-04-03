@@ -196,6 +196,9 @@ To build and push the Docker image, use the following steps:
 
 1. In the Spring Cloud Gateway project directory, create a **Dockerfile** with the following contents:
 
+    > [!Note]
+    > Alternatively, see the [ACME Fitness Store sample Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile) for guidance.
+
     ```dockerfile
     FROM mcr.microsoft.com/openjdk/jdk:17-mariner as build
     WORKDIR /staging
@@ -222,9 +225,6 @@ To build and push the Docker image, use the following steps:
 
     ENTRYPOINT ["java", "-jar", "gateway-0.0.1-SNAPSHOT.jar"]
     ```
-
-    > [!Note]
-    > Alternatively, see the [ACME Fitness Store sample Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile) for guidance.
 
 1. Use the following commands to build the image of the gateway:
 
