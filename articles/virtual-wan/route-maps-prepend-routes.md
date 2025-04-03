@@ -27,7 +27,7 @@ Verify that you have met the following criteria before beginning your configurat
 ## Design
 In this situation, we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA (network virtual appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot to show the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here's the addressing for this environment:  
 
@@ -55,11 +55,11 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 
 1.  Use the Route-Map dashboard in hub 2 to verify the ASNs on routes are being advertised from the virtual network connection. 
 
-   :::image type="content" source="./media/route-maps-prepend-routes/db_before_one.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-prepend-routes/db_before_one.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/db-before-one.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-prepend-routes/db-before-one.png":::
 
    Look at the Route-Map dashboard for the VPN branch 2 to verify the ASNs for route 10.5.0.192/26 that are being sent to the branch office. 
 
-   :::image type="content" source="./media/route-maps-prepend-routes/db_before_two.png" alt-text="Screenshot that shows the routes before Route-Map VPN." lightbox="./media/route-maps-prepend-routes/db_before_two.png"::: 
+   :::image type="content" source="./media/route-maps-prepend-routes/db-before-two.png" alt-text="Screenshot that shows the routes before Route-Map for the VPN branch." lightbox="./media/route-maps-prepend-routes/db-before-two.png"::: 
 
 2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
@@ -69,15 +69,15 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 
 3. Apply the Route-Map on the virtual network 3 connection. The Route-Map will be applied in the inbound direction. 
 
-   :::image type="content" source="./media/route-maps-prepend-routes/apply.png" alt-text="Screenshot the Route-map being applied." lightbox="./media/route-maps-prepend-routes/apply.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/apply.png" alt-text="Screenshot of the Route-map being applied." lightbox="./media/route-maps-prepend-routes/apply.png":::
 
 4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has an ASN of 65533 added.    
 
-   :::image type="content" source="./media/route-maps-prepend-routes/db_after_one.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-prepend-routes/db_after_one.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/db-after-one.png" alt-text="Screenshot showing routes after Route-map was applied." lightbox="./media/route-maps-prepend-routes/db-after-one.png":::
 
    look at the Route-Map dashboard for VPN branch 2 connection to verify route 10.5.0.192/26 has the ASNs 65533 advertised to VPN branch 2.
 
-   :::image type="content" source="./media/route-maps-prepend-routes/db_after_two.png" alt-text="Screenshot of routes after Route-map being applied VPN." lightbox="./media/route-maps-prepend-routes/db_after_two.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/db-after-two.png" alt-text="Screenshot of routes after Route-map being applied for the VPN branch." lightbox="./media/route-maps-prepend-routes/db-after-two.png":::
 
 ## Next steps
 

@@ -27,7 +27,7 @@ Verify that you have met the following criteria before beginning your configurat
 ## Design
 In this situation, we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an  (network virtual appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot that shows to the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here's the addressing for this environment:  
 
@@ -53,11 +53,11 @@ In this scenario, the goal is to tag route 10.5.0.192/26 form virtual network 3 
 
 1. Use the Route-Map dashboard in hub 2 to verify the BGP community on the route 10.5.0.192/26 being advertised from the virtual network connection.
 
-   :::image type="content" source="./media/route-maps-tag-routes/db_before.png" alt-text="Screenshot that shows routes before Route-map." lightbox="./media/route-maps-tag-routes/db_before.png"::: 
+   :::image type="content" source="./media/route-maps-tag-routes/db-before.png" alt-text="Screenshot that shows routes before Route-map." lightbox="./media/route-maps-tag-routes/db-before.png"::: 
 
-   look at the Route-Map dashboard for the VPN Brach to verify the BGP community on the route for 10.5.0.192/26. The goal is to very what routes are being sent on prem.
+   look at the Route-Map dashboard for the VPN Brach to verify the BGP community on the route for 10.5.0.192/26. The goal is to vary what routes are being sent on premises.
 
-   :::image type="content" source="./media/route-maps-tag-routes/db_before_two.png" alt-text="Screenshot that shows routes before Route-map VPN." lightbox="./media/route-maps-tag-routes/db_before_two.png":::   
+   :::image type="content" source="./media/route-maps-tag-routes/db-before-two.png" alt-text="Screenshot that shows routes for VPN branch." lightbox="./media/route-maps-tag-routes/db-before-two.png":::   
 
 2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
@@ -71,11 +71,11 @@ In this scenario, the goal is to tag route 10.5.0.192/26 form virtual network 3 
 
 4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has the BGP community of 3356:70 added on the virtual network 3 connection.    
 
-   :::image type="content" source="./media/route-maps-tag-routes/db_after.png" alt-text="Screenshot that shows routes after Route-map being applied." lightbox="./media/route-maps-tag-routes/db_after.png":::
+   :::image type="content" source="./media/route-maps-tag-routes/db-after.png" alt-text="Screenshot that shows routes after Route-map being applied." lightbox="./media/route-maps-tag-routes/db-after.png":::
 
    look at the Route-Map dashboard for the VPN branch connection to verify route 10.5.0.192/26 has the BGP community 3356:70 being advertised to the VPN branch office 2.  
 
-   :::image type="content" source="./media/route-maps-tag-routes/rm_after_two.png" alt-text="Screenshot that shows routes after Route-map being applied VPN." lightbox="./media/route-maps-tag-routes/rm_after_two.png":::
+   :::image type="content" source="./media/route-maps-tag-routes/rm-after-two.png" alt-text="Screenshot that shows routes after the Route-map has been applied to VPN branch." lightbox="./media/route-maps-tag-routes/rm-after-two.png":::
 
 ## Next steps
 

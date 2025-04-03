@@ -28,7 +28,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 In this situation, there are two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA (Network Virtual Appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
-:::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+:::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot to show the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here's the addressing for this environment:  
 
@@ -48,27 +48,27 @@ Here's the addressing for this environment:
 
 In this scenario, a Route-map will summarize the routes being advertised to the VPN branch 2 site. In this example we'll be taking the routes 10.122.1.0/24, 10.122.2.0/24, 10.122.3.0/24 from VPN Brach 1 and summarizing them to 10.122.0.0/16 
 
-:::image type="content" source="./media/route-maps-how-to-summarize/sum.png" alt-text="Screenshot shows Scenario." lightbox="./media/route-maps-how-to-summarize/sum.png":::
+:::image type="content" source="./media/route-maps-how-to-summarize/sum.png" alt-text="Screenshot to show the scenario." lightbox="./media/route-maps-how-to-summarize/sum.png":::
 
 ## Workflow
 
 1. Use the Route-map dashboard in hub 2 to verify the correct routes are currently being advertised to VPN branch 2 site.
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/db_one.png" alt-text="Screenshot shows before routes." lightbox="./media/route-maps-how-to-summarize/db_one.png":::   
+   :::image type="content" source="./media/route-maps-how-to-summarize/db-one.png" alt-text="Screenshot shows before routes." lightbox="./media/route-maps-how-to-summarize/db-one.png"::: 
 
 2. Create a Route-map to summarize the routes. Before you create your first time Route-map, see [How to configure Route-maps](route-maps-how-to.md) for more information.
 
-   The Route-map has a match rule for contains 10.122.0.0/16. The action **Modify** is selected. Route Modification has a **Replace** for the **RoutePrefix** 10.122.0.0/16.  
+   The Route-map has a match rule for contains 10.122.0.0/16. The action **Modify** is selected. Route Modification has a **Replace** for the **RoutePrefix** 10.122.0.0/16.
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/rm.png" alt-text="Screenshot shows Route-map." lightbox="./media/route-maps-how-to-summarize/rm.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/rm.png" alt-text="Screenshot to show the Route-Map." lightbox="./media/route-maps-how-to-summarize/rm.png":::
 
 3. Apply the Route-map on the VPN branch 2 site connection. The Route-map will be applied in the outbound direction.
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/apply.png" alt-text="Screenshot shows applying Route-map." lightbox="./media/route-maps-how-to-summarize/apply.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/apply.png" alt-text="Screenshot to show the Route-Map being applied" lightbox="./media/route-maps-how-to-summarize/apply.png":::
 
 4. Using the Route-map dashboard in Hub 2, Verify that route 10.122.0.0/16 is being summarized.  
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/db_after.png" alt-text="Screenshot shows results of Route-Map." lightbox="./media/route-maps-how-to-summarize/db_after.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/db-after.png" alt-text="Screenshot to show routes after Route-map was applied." lightbox="./media/route-maps-how-to-summarize/db-after.png":::
 
 ## Next steps
 

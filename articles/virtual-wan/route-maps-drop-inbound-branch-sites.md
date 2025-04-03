@@ -28,7 +28,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 In this situation, we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA (Network Virtual Appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
- :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+ :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot that shows the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here's the addressing for this environment:  
 
@@ -48,17 +48,17 @@ Here's the addressing for this environment:
 
 In this scenario, the goal is to drop routes being advertised from VPN branch site 1. In this example we'll be taking the routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 and dropping them.   
 
- :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/drop.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-drop-inbound-branch-sites/drop.png":::
+:::image type="content" source="./media/route-maps-drop-inbound-branch-sites/drop.png" alt-text="Screenshot that shows the scenario." lightbox="./media/route-maps-drop-inbound-branch-sites/drop.png":::
 
 ## Workflow
 
 1.  Use the Route-Map dashboard in hub 1 to verify what routes are being advertised from the VPN branch. 
 
-   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/db_before.png" alt-text="Screenshot that shows routes before." lightbox="./media/route-maps-drop-inbound-branch-sites/db_before.png":::  
+   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/db-before.png" alt-text="Screenshot that shows routes before Route-maps." lightbox="./media/route-maps-drop-inbound-branch-sites/db-before.png"::: 
    
    Verify the routes are showing up in the effective route table for hub 1.
 
-   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/er_before.png" alt-text="Screenshot that shows routes before effective routes." lightbox="./media/route-maps-drop-inbound-branch-sites/er_before.png":::   
+   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/er-before.png" alt-text="Screenshot that shows routes in effective routes table." lightbox="./media/route-maps-drop-inbound-branch-sites/er-before.png":::  
 
 2. Create a Route-Map to drop the routes. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
@@ -68,15 +68,15 @@ In this scenario, the goal is to drop routes being advertised from VPN branch si
 
 3. Apply the Route-Map on the VPN branch 1 site connection. The Route-Map will be applied in the inbound direction. 
 
-   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/apply.png" alt-text="Screenshot that shows applying the Route-Map." lightbox="./media/route-maps-drop-inbound-branch-sites/apply.png":::
+   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/apply.png" alt-text="Screenshot showing the Route-Map being applied." lightbox="./media/route-maps-drop-inbound-branch-sites/apply.png":::
 
 4. Using the Route-Map dashboard in Hub 1, Verify that routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 are being dropped.   
 
-   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/db_after.png" alt-text="Screenshot that shows routes after applying Route-Map." lightbox="./media/route-maps-drop-inbound-branch-sites/db_after.png":::
+   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/db-after.png" alt-text="Screenshot showing routes after the Route-Map being applied." lightbox="./media/route-maps-drop-inbound-branch-sites/db-after.png":::
 
    Verify the routes are no longer in the effective route table.
 
-   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/er_after.png" alt-text="Screenshot that shows routes after applying Route-Map effective routes." lightbox="./media/route-maps-drop-inbound-branch-sites/ER_after.png":::
+   :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/er-after.png" alt-text="Screenshot showing dropped routes." lightbox="./media/route-maps-drop-inbound-branch-sites/er-after.png":::
 
 ## Next steps
 
