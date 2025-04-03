@@ -512,7 +512,7 @@ When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups di
 > [!Note]
 > You can avoid JBoss EAP clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
 
-The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
+The Premium V3, Premium V4, and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
 
 ### Autoscale Rules
 
@@ -529,7 +529,7 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 <a id="jboss-eap-hardware-options"></a>
 
 JBoss EAP is available in the following pricing tiers: **F1**,
-**P0v3**, **P1mv3**, **P2mv3**, **P3mv3**, **P4mv3**, and **P5mv3**.
+**P0v3**, **P1mv3**, **P2mv3**, **P3mv3**, **P4mv3**, **P5mv3**, **P0v4**, **P1mv4**, **P2mv4**, **P3mv4**, **P4mv4**, and **P5mv4**.
 
 ## JBoss EAP server lifecycle
 

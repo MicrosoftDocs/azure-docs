@@ -19,7 +19,7 @@ This article compares the differentiating features of App Service Environment v3
 |---------|---------|---------|
 |Hosting environment|[Fully isolated and dedicated compute](overview.md).|[Shared environment](../../app-service/overview.md). Workers running your apps are dedicated, but the supporting infrastructure is shared with other customers. |
 |Hardware|[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).|[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).|
-|[Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2.        |Free, Basic, Standard, Premium v2, Premium v3.        |
+|[Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2.        |Free, Basic, Standard, Premium v2, Premium v3, Premium v4.        |
 |Dedicated host group|[Available](overview.md#dedicated-environment). |Not available. |
 |Remote file storage|Fully dedicated to the App Service Environment. |Remote file storage for the application is dedicated, but the storage is hosted on a shared file server. |
 |Private inbound configuration|Yes, using the internal load balancer (ILB) App Service Environment variation. |Yes, via private endpoint. |
