@@ -13,14 +13,6 @@ ms.author: ekarandjeff
 
 This article describes how to troubleshoot server problems by using restart, reimage, and replace actions on Azure Operator Nexus bare metal machines (BMMs). You might need to take these actions on your server for maintenance reasons, which causes a brief disruption to specific BMMs.
 
-## In this article
-- [Prerequisites](#prerequisites)
-- [Identify the corrective action](#identify-the-corrective-action)
-- [Troubleshoot with a restart action](#troubleshoot-with-a-restart-action)
-- [Troubleshoot with a reimage action](#troubleshoot-with-a-reimage-action)
-- [Troubleshoot with a replace action](#troubleshoot-with-a-replace-action)
-- [Summary](#summary)
-
 The time required to complete each of these actions is similar. Restarting is the fastest, whereas replacing takes slightly longer. All three actions are simple and efficient methods for troubleshooting.
 
 > [!CAUTION]
