@@ -39,7 +39,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
  
        :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-arc-virtual-machine-manager-inline.png" alt-text="Screenshot showing the selection of Arc-enabled virtual machines." lightbox="media/enable-vms-monitoring-agent/enable-for-arc-virtual-machine-manager-expanded.png":::
 
-    #### [Virtual machines Scale Sets](#tab/vmss)
+    #### [Virtual Machines Scale Sets](#tab/vmss)
 
      - Select *[Preview]: Enable Change Tracking and inventory for Virtual Machine Scale Sets*.
      
