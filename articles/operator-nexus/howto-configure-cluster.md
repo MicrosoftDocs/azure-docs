@@ -75,7 +75,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                                                              |
 | CLUSTER_LOCATION          | The local name of the Cluster                                                                                                                           |
 | AGGR_RACK_RESOURCE_ID     | RackID for Aggregator Rack                                                                                                                              |
-| AGGR_RACK_SKU             | Rack SKU for Aggregator Rack \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                              |
+| AGGR_RACK_SKU             | Rack Stock Keeping Unit (SKU) for Aggregator Rack \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                              |
 | AGGR_RACK_SN              | Rack Serial Number for Aggregator Rack                                                                                                                  |
 | AGGR_RACK_LOCATION        | Rack physical location for Aggregator Rack                                                                                                              |
 | AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                                                              |
@@ -111,7 +111,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 
 ## Cluster Identity
 
-Starting with the 2024-07-01 API version, a customer can assign managed identity to a Cluster. Both System-assigned and User-Assigned managed identities are supported.
+After release of the `2024-07-01` API version, a customer can assign managed identity to a Cluster. Both System-assigned and User-Assigned managed identities are supported.
 
 Once added, the Identity can only be removed via the API call at this time.
 
@@ -171,7 +171,7 @@ Cluster create Logs can be viewed in the following locations:
 
 The threshold for the allowable failures of compute nodes during hardware validation is set using the `compute-deployment-threshold` parameter.
 
-If `compute-deployment-threshold` is not set, the defaults are as follows:
+If `compute-deployment-threshold` isn't set, the defaults are as follows:
 
 ```
       "strategyType": "Rack",
@@ -180,9 +180,9 @@ If `compute-deployment-threshold` is not set, the defaults are as follows:
       "waitTimeMinutes": 1
 ```
 
-If a `compute-deployment-threshold` that it is different from the default of 80% is required, you can run the following `cluster update` command.
+If a `compute-deployment-threshold` different from the default of 80% is required, run the following `cluster update` command.
 
-The example below is for a customer requesting type "PercentSuccess" with a success rate of 97%.
+For example, a customer requesting type "PercentSuccess" with a success rate of 97%:
 
 ```azurecli
 az networkcloud cluster update --name "<clusterName>" /
@@ -204,15 +204,15 @@ az networkcloud cluster show --resource-group "<resourceGroup>" --name "<cluster
     "value": 97
 ```
 
-In this example, if less than 97% of the compute nodes being deployed pass hardware validation, the Cluster deployment will fail. **NOTE: All kubernetes control plane (KCP) and nexus management plane (NMP) must pass hardware validation.** If 97% or more of the compute nodes being deployed pass hardware validation, the Cluster deployment will continue to the bootstrap provisioning phase. 
+In this example, if less than 97% of the compute nodes being deployed pass hardware validation, the Cluster deployment fails. **NOTE: All kubernetes control plane (KCP) and nexus management plane (NMP) must pass hardware validation.** If 97% or more of the compute nodes being deployed pass hardware validation, the Cluster deployment continues to the bootstrap provisioning phase. 
 
 > [!NOTE]
-> Deployment thresholds cannot be changed after Cluster deployment has started.
+> Deployment thresholds can't be changed after Cluster deployment is started.
 
 ## Deploy Cluster
 
 > [!IMPORTANT]
-> It is recommended to wait for 20 minutes after creating a Cluster before deploying to ensure all associated resources are created.
+> As a best pracice, wait 20 minutes after creating a Cluster before deploying to ensure all associated resources are created.
 
 The deploy Cluster action can be triggered after creating the Cluster.
 The deploy Cluster action creates the bootstrap image and deploys the Cluster.
@@ -238,7 +238,7 @@ az networkcloud cluster deploy \
 
 > [!TIP]
 > To check the status of the `az networkcloud cluster deploy` command, it can be executed using the `--debug` flag.
-> This will allow you to obtain the `Azure-AsyncOperation` or `Location` header used to query the `operationStatuses` resource.
+> Obtain the `Azure-AsyncOperation` or `Location` header used to query the `operationStatuses` resource from the debug output.
 > See the section [Cluster Deploy Failed](#cluster-deploy-failed) for more detailed steps.
 > Optionally, the command can run asynchronously using the `--no-wait` flag.
 
@@ -251,12 +251,12 @@ and any user skipped machines, a determination is done on whether sufficient nod
 passed and/or are available to meet the thresholds necessary for deployment to continue.
 
 > [!IMPORTANT]
-> The hardware validation process will write the results to the specified `analyticsWorkspaceId` at Cluster Creation.
+> The hardware validation process writes the results to the specified `analyticsWorkspaceId` at Cluster Creation.
 > Additionally, the provided Service Principal in the Cluster object is used for authentication against the Log Analytics Workspace Data Collection API.
-> This capability is only visible during a new deployment (Green Field); existing Cluster will not have the logs available retroactively.
+> This capability is only visible during a new deployment (Green Field); existing Clusters won't have the logs available retroactively.
 
 > [!NOTE]
-> The RAID controller is reset during Cluster deployment wiping all data from the server's virtual disks. Any Baseboard Management Controller (BMC) virtual disk alerts can typically be ignored unless there are additional physical disk and/or RAID controllers alerts.
+> The RAID controller is reset during Cluster deployment wiping all data from the server's virtual disks. Any Baseboard Management Controller (BMC) virtual disk alerts can be ignored unless there are other physical disk and/or RAID controllers alerts.
 
 By default, the hardware validation process writes the results to the configured Cluster `analyticsWorkspaceId`.
 However, due to the nature of Log Analytics Workspace data collection and schema evaluation, there can be ingestion delay that can take several minutes or more.
@@ -284,7 +284,7 @@ az networkcloud cluster deploy \
 #### Cluster Deploy failed
 
 > [!IMPORTANT]
-> If a Cluster is in `Failed` state, it must be deleted and recreated before it can be deployed again. Cluster failures can occur when the hardware validation threshold is not met, or any phase of the deployment can't complete up until the Cluster is in `Running` state.
+> If a Cluster is in `Failed` state, it must be deleted and recreated before it can be deployed again. Cluster failures can occur when the hardware validation threshold isn't met, or any phase of the deployment can't complete up until the Cluster is in `Running` state.
 
 To track the status of an asynchronous operation, run with a `--debug` flag enabled.
 When `--debug` is specified, the progress of the request can be monitored.
@@ -318,7 +318,7 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
 ```
 
 See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track-async-operations-cli.md) for another example.
-See the article [Troubleshoot BMM provisioning](./troubleshoot-bare-metal-machine-provisioning.md) for more information that may be helpful when specific machines fail validation or deployment.
+See the article [Troubleshoot Bare Metal Machine (BMM) provisioning](./troubleshoot-bare-metal-machine-provisioning.md) for more information that may be helpful when specific machines fail validation or deployment.
 
 ## Cluster deployment validation
 
@@ -360,8 +360,8 @@ Cluster create Logs can be viewed in the following locations:
 
 Deleting a Cluster deletes the resources in Azure and the Cluster that resides in the on-premises environment.
 
-> [!NOTE]
-> If there are any tenant resources that exist in the cluster, it will not be deleted until those resources are deleted.
+> [!IMPORTANT]
+> If there are any tenant resources that exist in the Cluster, the delete will fail until those resources are deleted.
 
 :::image type="content" source="./media/nexus-delete-failure.png" lightbox="./media/nexus-delete-failure.png" alt-text="Screenshot of the portal showing the failure to delete because of tenant resources.":::
 
@@ -370,4 +370,4 @@ az networkcloud cluster delete --name "$CLUSTER_NAME" --resource-group "$CLUSTER
 ```
 
 > [!NOTE]
-> It is recommended to wait for 20 minutes after deleting a Cluster before trying to create a new Cluster with the same name to ensure all associated resources are deleted.
+> As a best practice, wait 20 minutes after deleting a Cluster before trying to create a new Cluster with the same name to ensure all associated resources are deleted.
