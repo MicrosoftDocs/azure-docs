@@ -761,7 +761,12 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
-
+    - name: Move resources
+      items:
+        - name: Move between subscriptions
+          href: /azure/azure-resource-manager/management/move-resource-group-and-subscription?toc=%2Fazure%2Fazure-functions%2Ftoc.json
+        - name: Move to other regions
+          href: /azure/operational-excellence/relocation-functions?toc=%2Fazure%2Fazure-functions%2Ftoc.json
 - name: Reference
   items:
     - name: API references
