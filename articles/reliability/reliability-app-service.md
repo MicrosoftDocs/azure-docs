@@ -21,7 +21,13 @@ When you deploy Azure App Service, you can create multiple instances of an *App 
 
 ## Production deployment recommendations
 
-For production deployments,  make sure to use [premium v3 App Service plans to enable zone redundancy](reliability-app-service.md?pivots-premium##vailability-zone-support).
+::: zone pivot="free-shared-basic"
+
+For production deployments, [use premium v3 or v4 App Service plans to enable zone redundancy](reliability-app-service.md?pivots-premium##vailability-zone-support).
+
+::: zone pivot="premium,isolated"
+
+[Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
 
 ::: zone-end
 
@@ -74,7 +80,7 @@ To see which regions support availability zones for App Service Environment v3, 
 ### Requirements
 
 
-- Availability zones are only supported on the [Premium v2 or Premium v3 plans](./reliability-app-service.md?pivots=premium#requirmeens), even if the region supports availability zones.
+- Availability zones are only supported on the [Premium v2, Premium v3, or Premium v4 plans](./reliability-app-service.md?pivots=premium#requirmeens), even if the region supports availability zones.
 
 ::: zone pivot="premium,isolated"
 
@@ -91,7 +97,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ::: zone pivot="premium"
 
-When you're using App Service Premium v2 or Premium v3 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Premium v3 or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three. The platform charges you for those three instances.
 
