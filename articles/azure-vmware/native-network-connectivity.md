@@ -1,6 +1,6 @@
 ---
 title: Connectivity to an Azure Virtual Network
-description: Learn about key concepts and use cases connectivity to Azure virtual networks.
+description: Learn about key concepts and use cases on connectivity to Azure virtual networks.
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 3/14/2025
