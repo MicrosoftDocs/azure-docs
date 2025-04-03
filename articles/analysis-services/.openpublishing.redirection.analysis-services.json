@@ -114,6 +114,11 @@
             "source_path_from_root": "/articles/analysis-services/tutorials/analysis-services-tutorial-pbid.md",
             "redirect_url": "/bi-shared/docs/azure-analysis-services/tutorials/analysis-services-tutorial-pbid",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/tutorials/analysis-services-tutorial-roles.md",
+            "redirect_url": "/bi-shared/docs/azure-analysis-services/tutorials/analysis-services-tutorial-roles",
+            "redirect_document_id": false
         }
     ]
 }
