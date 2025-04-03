@@ -13,7 +13,7 @@ ms.custom: references_regions, engagement-fy23
 
 # Azure Blob Storage lifecycle management overview
 
-You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns or delete them entirely at the end of their lifecycle. A policy can operate on current versions, previous versions and snapshots. A policy does not operate on blobs in system containers such as as the **$logs** or **$web** containers. 
+You can use lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. You can also delete blobs entirely at the end of their lifecycle. A policy can operate on current versions, previous versions and snapshots, but a policy doesn't operate on blobs in system containers such as as the **$logs** or **$web** containers.
 
 This article describes the elements of a lifecycle management policy. For policy examples, see the following articles:
 
@@ -64,17 +64,19 @@ Filters limit actions to a subset of blobs within the storage account. You can u
 
 | Filter name    | Type                            | Description                                                                    | Required |
 |----------------|---------------------------------|--------------------------------------------------------------------------------|----------|
-| **blobTypes**  | Array of predefined enum values | The type of blob (For example: **blockblob**)                                  | Yes      |
+| **blobTypes**  | Array of predefined enum values | The type of blob (either **blockblob** or **appendBlob**)                                  | Yes      |
 | **prefixMatch**    | Array of strings                | These strings are prefixes to be matched.                                      | No       |
 | **blobIndexMatch** | An array of dictionary values   | These values consist of blob index tag key and value conditions to be matched. | No       |
 
-The current release supports **blockBlob** and **appendBlob** blob types. Only the **Delete** action is supported for **appendBlob** blob type. 
+#### Prefix match filter
 
-Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under the path `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. 
+If you apply the **prefixMatch** filter, then each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under the path `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. 
 
 This filter will match all blobs in `sample-container` where the names begin with `blob1`. If you don't define a prefix match, then, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals.
 
-Each rule can define up to 10 blob index tag conditions. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/`, then the **blobIndexMatch** filter is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for the **blobIndexMatch** filter, then the rule applies to all blobs within the storage account.
+#### Blob index match filer
+
+If you apply the **blobIndexMatch** filter, then each rule can define up to 10 blob index tag conditions. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/`, then the **blobIndexMatch** filter is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for the **blobIndexMatch** filter, then the rule applies to all blobs within the storage account.
 
 ### Actions
 
@@ -82,19 +84,11 @@ You must define at least one action for each rule. Actions are applied to the fi
 
 | Action | Description |
 |---|---|
-| **TierToCool**<sup>1</sup>  | Set a blob to the cool access tier. |
-| **TierToCold**<sup>1</sup> | Set a blob to the cold access tier. | 
-| **TierToArchive**<sup>1,2</sup>  | Set a blob to the archive access tier. |
-| **enableAutoTierToHotFromCool**<sup>3</sup> | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition.| 
-| **Delete**<sup>4</sup> | Deletes a blob. | 
-
-<sup>1</sup>    Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account.
-
-<sup>2</sup>   Not supported with blobs that use an encryption scope or with blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS).
-
-<sup>3</sup>   Not supported with previous versions or snapshots.
-
-<sup>4</sup>   Not supported with page blobs or blobs in an immutable container. 
+| **TierToCool**<sup>1</sup>  | Set a blob to the cool access tier. Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account.|
+| **TierToCold**<sup>1</sup> | Set a blob to the cold access tier. Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account.| 
+| **TierToArchive**<sup>1,2</sup>  | Set a blob to the archive access tier. Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account. Also not supported with blobs that use an encryption scope or with blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS)|
+| **enableAutoTierToHotFromCool**<sup>3</sup> | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition. Not supported with previous versions or snapshots. | 
+| **Delete**<sup>4</sup> | Deletes a blob. Not supported with page blobs or blobs in an immutable container.|
 
 If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
 
