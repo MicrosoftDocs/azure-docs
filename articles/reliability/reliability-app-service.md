@@ -23,7 +23,7 @@ When you deploy Azure App Service, you can create multiple instances of an *App 
 
 ::: zone pivot="free-shared-basic"
 
-For production deployments, [use premium v3 or v4 App Service plans to enable zone redundancy](reliability-app-service.md?pivots-premium##vailability-zone-support).
+For production deployments, [use premium v3 or v4 App Service plans to enable zone redundancy](reliability-app-service.md?pivots-premium##availability-zone-support).
 
 ::: zone pivot="premium,isolated"
 
@@ -80,7 +80,7 @@ To see which regions support availability zones for App Service Environment v3, 
 ### Requirements
 
 
-- Availability zones are only supported on the [Premium v2, Premium v3, or Premium v4 plans](./reliability-app-service.md?pivots=premium#requirmeens), even if the region supports availability zones.
+- Availability zones are only supported on the [Premium v2, Premium v3, or Premium v4 plans](./reliability-app-service.md?pivots=premium#requirements), even if the region supports availability zones.
 
 ::: zone pivot="premium,isolated"
 
