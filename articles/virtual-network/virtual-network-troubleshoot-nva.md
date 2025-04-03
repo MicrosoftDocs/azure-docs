@@ -75,12 +75,12 @@ Each NVA has basic configuration requirements to function correctly on Azure. Th
 
 1. If IP forwarding isn't enabled, execute the following commands to enable it:
 
-   ```powershell
-   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
-   $nic2.EnableIPForwarding = 1
-   Set-AzNetworkInterface -NetworkInterface $nic2
-  $nic2 | Format-List
-   ```
+    ```powershell
+    $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+    $nic2.EnableIPForwarding = 1
+    Set-AzNetworkInterface -NetworkInterface $nic2
+    $nic2 | Format-List
+    ```
 
    The output should look similar to the following:
 
@@ -113,19 +113,19 @@ Use of a standard version of public IPs. There must be an NSG created and an exp
 
 **Check whether NVA and VMs are listening for expected traffic**
 
-1. Connect to the NVA by using RDP or SSH, and then run following command:
+Connect to the NVA by using RDP or SSH, and then run following command:
 
-    For Windows:
+For Windows:
 
-    ```console
-   netstat -an
-    ```
+```console
+netstat -an
+```
 
-    For Linux:
+For Linux:
 
-    ```console
-   netstat -an | grep -i listen
-    ```
+```console
+netstat -an | grep -i listen
+```
 
 If the TCP port used by the NVA software isn't listed in the results, configure the application on the NVA and VM to listen on those ports. For further assistance, [contact the NVA vendor](https://mskb.pkisolutions.com/kb/2984655).
 
