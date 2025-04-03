@@ -12,30 +12,23 @@ ms.date: 04/02/2025
 
 #  Nested templates in DevTest Labs environments
 
-Azure DevTest Labs *environments* consist of multiple infrastructure-as-a-service (IaaS) virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision DevTest Labs environments by using Azure Resource Manager (ARM) templates.
+An Azure DevTest Labs *environment* consists of multiple infrastructure-as-a-service (IaaS) virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision and deploy DevTest Labs environments by using Azure Resource Manager (ARM) templates.
 
-This article describes using *nested templates* to deploy a DevTest Labs environment. A nested deployment runs secondary ARM templates from within a main template. Using a set of targeted, purpose-specific templates provides testing, reuse, and readability benefits. 
+To deploy complex solutions like environments, you can break a template into secondary templates, and deploy these templates through a main template. This article describes using *nested templates* to deploy a DevTest Labs environment. Using a set of targeted, purpose-specific templates to deploy an environment promotes testing, reuse, and readability.
 
 For general information about nested templates, including code samples, see [Use linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates).
 
 [!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
-## Nested template deployment with Visual Studio
+## Nested template deployment
 
-The Azure Resource Group project template in Visual Studio makes it easy to develop and debug nested templates. In DevTest Labs, you can store ARM templates in a Git repository linked to a lab. When you use a repository template to create an environment, DevTest Labs copies the template files into the lab's Azure Storage container.
+In DevTest Labs, you can store ARM templates in a Git repository linked to a lab. When you use repository templates to create an environment, DevTest Labs copies all template and artifact files, including nested template files, into the lab's Azure Storage container.
 
-When you add a nested template to a lab repository and main *azuredeploy.json* template file, Visual Studio automatically takes the following actions:
+The main *azuredeploy.json* template file for a nested template deployment uses `Microsoft.Resources/deployments` objects to call linked secondary templates. You provide URI values for the linked templates, and generate a Shared Access Signature (SaS) token for the deployment.
 
-- Adds a subfolder for the secondary template and parameters files, and copies the subfolder to the lab storage container.
-- Adds variables for the nested template folder and files to the `variables` section of the main template file.
-- Adds the `_artifactsLocation` and `_artifactsLocationSasToken` parameters to the main template file.
-- Inserts the location and Shared Access Signature (SaS) token into the parameters file.
+The deployment uses Azure PowerShell `New-AzResourceGroupDeployment` or Azure CLI `az deployment group create`, specifying the main template URI and the SaS token. For more information, see [Tutorial: Deploy a linked template](/azure/azure-resource-manager/templates/deployment-tutorial-linked-template).
 
-The following screenshot shows the project structure in Visual Studio. The Git repository folder has a subfolder, *nestedtemplates*, that contains the nested template files *NestOne.json* and *NestOne.parameters.json*. You can add more than one nested template subfolder, but at only one level of nesting.
-
-:::image type="content" source="media/deploy-nested-template-environments/visual-studio-project-structure.png" alt-text="Screenshot that shows the nested template project structure in Visual Studio.":::
-
-## Nested deployment example
+## Nested template example
 
 The following example *azuredeploy.json* main template file shows the code for a nested deployment. The main template file defines links to the nested template.
 
