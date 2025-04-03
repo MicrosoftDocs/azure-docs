@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus - Example of clusterManager.parameters.jsonc template file"
-description: Example of clusterManager.parameters.jsonc template file to use with ARM template in creating a cluster manager.
-author: jeffreymason
-ms.author: jeffreymason
+description: Example of clusterManager.parameters.jsonc template file to use with ARM template in creating a Cluster Manager.
+author: bartpinto
+ms.author: bpino
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/08/2024
@@ -41,8 +41,8 @@ ms.custom: template-how-to, devx-track-arm-template
     },
     "clusterManagerTags": {
       "value": {
-        "EnableClusterManagerInfraServices": "true",
-        "EnableFabricAssignRoleIntegration": "true"
+        "<TAG1>": "<TAG1_VALUE>",
+        "<TAG2>": "<TAG2_VALUE>"
       }
     },
     "environment": {
