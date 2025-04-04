@@ -147,7 +147,7 @@ Terminal Server has been deployed and configured as follows:
 - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
 - Terminal Server is accessible from the management VPN
 - To upgrade the terminal server to OS version 24.11.2 [refer](./howto-upgrade-os-of-terminal-server.md)
-- To setup single session and session timeout for serial console [refer](./howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md)
+- To set up single session and session timeout for serial console [refer](./howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md)
 
 ### Step 1: Setting up hostname
 
