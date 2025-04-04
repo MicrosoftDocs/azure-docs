@@ -20,7 +20,7 @@ highlightedContent:
     # Card
     - title: What's Azure VMware Solution? 
       itemType: overview
-      url: /azure/azure-vmware/vmware-solution-overview
+      url: /azure/azure-vmware/legacy-introduction
     - title: What's Azure VMware Solution in an Azure Virtual Network (Public preview)
       itemType: overview
       url: /azure/azure-vmware/native-introduction
@@ -55,7 +55,7 @@ additionalContent:
         - title: Overview
           links:
           - text: What's Azure VMware Solution?
-            url: introduction.md
+            url: native-introduction.md
           - text: What's new?
             url: azure-vmware-solution-platform-updates.md
           - text: Known issues

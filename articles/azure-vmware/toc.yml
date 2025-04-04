@@ -2,11 +2,11 @@ items:
 - name: Azure VMware Solution
   href: index.yml
 - name: Overview - Azure VMware Solution
-  href: vmware-solution-overview.md 
+  href: vmware-solution-overview.md
 - name: Azure VMware Solution
   items:
   - name: What's Azure VMware Solution
-    href: introduction.md
+    href: legacy-introduction.md
   - name: What's new
     href: azure-vmware-solution-platform-updates.md
   - name: Known issues
@@ -101,11 +101,11 @@ items:
     items:
     - name: Create an Azure VMware Solution in an Azure Virtual Network (Public preview) 
       href: native-create-azure-vmware-virtual-network-private-cloud.md
-  - name: Design considerations
+  - name: Architecture
     items:
-    - name: Azure VMware Solution in an Azure Virtual Network design considerations (Public preview)
-      href: native-network-design-consideration.md
-    - name: Azure VMware Solution in an Azure Virtual Network Internet connectivity design considerations (Public preview)
+    - name: Azure VMware Solution in an Azure Virtual Network architecture (Public preview) 
+      href: native-architecture.md
+    - name: Azure VMware Solution in an Azure Virtual Network design consideration (Public preview) 
       href: native-internet-connectivity-design-considerations.md
   - name: Security
     items:
