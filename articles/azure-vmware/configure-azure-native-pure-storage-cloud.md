@@ -13,12 +13,7 @@ ms.topic:    # Add the ms.topic value
 ms.date:     03/31/2025
 ---
  
-# Configure Azure Native Pure Storage Cloud
-
-**In this article**
-
-[Azure Native Pure Storage Cloud for Azure VMware Solution]()
-[Onboarding and support]()
+# Configure Azure Native Pure Storage Cloud (Preview)
 
 ## Azure Native Pure Storage Cloud for Azure VMware Solution
 
@@ -29,3 +24,8 @@ Azure Native Pure Storage Cloud solution, offered by Pure Storage, is an iSCSI-b
 Pure Storage manages onboarding of Azure Native Pure Storage Cloud for Azure VMware Solution. As Azure Native Pure Storage Cloud is a customer deployed and managed solution, reach out to Pure Storage for Customer Support.
 
 For more information, see the following resources:
+
+- [Azure Native Pure Storage Cloud](https://learn.microsoft.com/en-us/azure/partner-solutions/pure-storage/overview)
+- [Azure Native Pure Storage Cloud Deployment Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/topics/c_azure_native_pure_storage_cloud.html)
+- [Azure Native Pure Storage Cloud Deployment Troubleshooting](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/topics/c_azure_native_pure_storage_cloud.html)
+- [Azure Native Pure Storage Cloud support articles](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/topics/c_azure_native_pure_storage_cloud.html)
