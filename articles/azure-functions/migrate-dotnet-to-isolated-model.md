@@ -1,15 +1,15 @@
 ---
-title: Migrate from in-process to isolated worker model
-description: Learn how to migrate your existing .NET function apps running on the in-process model to the isolated worker model.
+title: Migrate C# app from in-process to isolated worker model
+description: Learn how to migrate your existing C# function apps running on .NET in the in-process model to the isolated worker model.
 ms.service: azure-functions
 ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/10/2025
+ms.date: 04/04/2025
 ---
 
-# Migrate .NET apps from the in-process model to the isolated worker model
+# Migrate C# apps from the in-process model to the isolated worker model
 
 > [!IMPORTANT]
 > [Support for the in-process model ends on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). We highly recommend that you migrate your apps to the isolated worker model by following the instructions in this article.
@@ -20,6 +20,8 @@ This guide assumes that your app is running on version 4.x of the Functions runt
 
 - [Migrate apps from Azure Functions version 2.x and 3.x to version 4.x](./migrate-version-3-version-4.md)
 - [Migrate apps from Azure Functions version 1.x to version 4.x](./migrate-version-1-version-4.md)
+
+When supported, this article takes advantage of [ASP.NET Core integration] in the isolated worker model, which improves performance and provides a familiar programming model when your app uses HTTP triggers. 
 
 ## Identify function apps to migrate
 
