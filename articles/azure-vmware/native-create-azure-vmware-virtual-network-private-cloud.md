@@ -18,22 +18,26 @@ With this offering, you can directly create the private cloud using the AV64 SKU
 
 ## Prerequisites
 
-Before you begin, these items are required to create an Azure VMware Solution on Azure Virtual Network private cloud:
+Before you begin, these items are required to create an Azure VMware Solution private cloud in an Azure Virtual Network private cloud:
 
 - Enable the Azure VMware Solution Fleet Rp Service Principal as described in the [enable Azure VMware Solution Fleet Rp service Principal](native-first-party-Principal-security.md).
-- Appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
+- Ensure you have appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
 - Hosts provisioned and the "Microsoft.AVS" resource provider is registered.
-- Azure Virtual Network with a minimum network address space of a /22 or four /24s.
-- The newly created Azure Virtual Network and your Azure VMware Solution pprviate cloud must be in the same Resource Group.
+- Deploy or us an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
+- The newly created Azure Virtual Network and your Azure VMware Solution private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
-- The following Preview feature flag needs to be registered under the subscription where your private cloud resides.
-    - az feature register--namespace Microsoft. Network 
-      --name “EnablePrivateIpPrefixAllocation”--subscription **Subscription ID**
-     - az feature registrations create --namespace "Microsoft.AVS"--name "Early Access"--subscription **Subscription ID**
-     - az feature registration create--namespace "Microsoft.AVS"--name "FleetGreenfield"--subscription **Subscription ID**
+- The following Preview feature flags need to be registered under the subscription where your private cloud will reside. This commands can be run using Azure Cloud Shell. 
 
 ```bash
-az feature register --namespace Microsoft.Network --name EnablePrivateIpPrefixAllocation
+az feature register--namespace Microsoft.Network --name “EnablePrivateIpPrefixAllocation”--subscription **Subscription ID**
+```
+
+```bash
+az feature registrations create --namespace "Microsoft.AVS"--name "Early Access"--subscription **Subscription ID**
+```
+
+```bash
+az feature registration create --namespace "Microsoft.AVS" --name "FleetGreenfield" --subscription "<Subscription ID>" 
 ```
 
 ## Sign into the Azure portal
