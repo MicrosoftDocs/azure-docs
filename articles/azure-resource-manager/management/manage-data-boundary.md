@@ -31,7 +31,7 @@ To configure data boundary, the `DataBoundaryTenantAdministrator` built-in role 
 1. Elevate access to manage all Azure subscriptions and management groups. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 1. With the User Access Administrator privilege, grant yourself the `DataBoundaryTenantAdministrator` role at the tenant scope (`/`) by using Azure CLI or Azure PowerShell or REST API.
 
-    ### [Azure Portal](#tab/azure-portal)
+    ### [Azure portal](#tab/azure-portal)
 
     Not supported by the Azure portal. Use Azure CLI or Azure PowerShell or REST API instead.
 
@@ -100,7 +100,7 @@ To opt in a tenant to data boundary, use the following commands.
 
 ### [Azure portal](#tab/azure-portal)
 
-Use these steps to create a data boundray:
+Use these steps to create a data boundary:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. In the search box, type **azure data boundaries**, and then select **Azure Data Boundaries**.
