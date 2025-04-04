@@ -63,7 +63,7 @@
     href: cache-migration-guide.md
 
 - name: Azure Cache for Redis 
-  expanded: false
+  expanded: true
   items:
   - name: What's new?
     href: cache-whats-new.md
