@@ -82,7 +82,7 @@ There are multiple ways to turn off default outbound access. The following secti
 
 :::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
 
-* Using Powershell, the following script takes the names of the Resource Group and Virtual Network and loops through each subnet to enable private subnet.
+* Using PowerShell, the following script takes the names of the Resource Group and Virtual Network and loops through each subnet to enable private subnet.
 
 ```
 $resourceGroupName = ""
@@ -166,7 +166,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 * In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
 
-* Private Subnet may not behave as expected in delegated/managed subnets with PaaS services. This is because each service can control their own outbound in a way that is not explicitly shown in your VNETs, and traffic could continue to egress even with Private subnet settings applied.
+* Private Subnets are not applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
  
 ### Add an explicit outbound connectivity method
  

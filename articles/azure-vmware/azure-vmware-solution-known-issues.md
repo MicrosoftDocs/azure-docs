@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/4/2025
+ms.date: 4/4/2025
 ---
 
 # Known issues: Azure VMware Solution
@@ -15,6 +15,7 @@ Refer to the table to find details about resolution dates or possible workaround
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
+|After deploying an AV48 private cloud, you may see a High pNic error rate detected. Check the host's vSAN performance view for details alert is active in the vSphere client.  | April 2025  | The alert should be considered an informational message, since Microsoft manages the service. Select the **Reset to Green** link to clear it. | April 2025 |
 | [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390) VMCI Heap-overflow, ESXi arbitrary write, and Information disclosure vulnerabilities | March 2025 | Microsoft has verified the applicability of the vulnerabilities within the Azure VMware Solution service and have adjudicated the vulnerabilities at a combined adjusted Environmental Score of [9.4](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/MAC:L/MPR:N/MUI:N/MS:C/MC:H/MI:H/MA:H). Customers are advised to take additional precautions when granting administrative access to, and monitor any administrative activities on, guest VMs until the update is fully addressed. For additional information on the vulnerability and Microsoft’s involvement, please see [this blog post](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074). (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) | March 2025 - Resolved in [ESXi 8.0_U2d](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html) |
 |Issue 3464419: After upgrading HCX 4.10.2 users are unable to log in or perform various management operations. | 2024 | None | December 2024- Resolved in [HCX 4.10.3](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/hcx-4-10-release-notes/vmware-hcx-4103-release-notes.html#GUID-ca55e2de-cd98-494d-b026-201132967232-en_id-6fc83b19-af5d-4a89-a258-3ce63559ffb8) |
 |After deploying an AV64 Cluster to my private cloud, the **Cluster-N:  vSAN Hardware compatibility issue** alert is active in the vSphere client.  | 2024  | The alert should be considered an informational message, since Microsoft manages the service. Select the **Reset to Green** link to clear it. | 2024 |

@@ -1,31 +1,21 @@
 ---
-title: Load balancing on multiple IP configurations - PowerShell
-titleSuffix: Azure Load Balancer
-description: In this article, learn about load balancing across primary and secondary IP configurations using Azure PowerShell.
-services: load-balancer
-author: mbender-ms
-ms.service: azure-load-balancer
-ms.topic: how-to
-ms.date: 06/27/2024
-ms.author: mbender
-ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
+ title: include file
+ description: include file
+ services: networking
+ author: mbender-ms
+ ms.service: networking
+ ms.topic: include
+ ms.date: 03/21/2025
+ ms.author: mbender
+ ms.custom: include file
 ---
 
-# Load balancing on multiple IP configurations using PowerShell
-
-> [!div class="op_single_selector"]
-> * [Portal](load-balancer-multiple-ip.md)
-> * [CLI](load-balancer-multiple-ip-cli.md)
-> * [PowerShell](load-balancer-multiple-ip-powershell.md)
-
-This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, and both backend pool IP addresses.
-
-## Steps to load balance on multiple IP configurations
+## Load balance on multiple IP configurations
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-Follow the steps below to achieve the scenario outlined in this article:
-
+Use the following steps to create a load balancer that can balance traffic across multiple IP configurations on a single virtual machine (VM) with Azure PowerShell. This example uses two VMs, but you can use this same process for any number of VMs.
+ 
 1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](/powershell/azure/) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 2. Create a resource group using the following settings:
 
@@ -51,7 +41,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     Then complete [Create a Windows VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) steps 6.3 through 6.8.
 
-5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md#add-secondary-private-and-public-ip-address) article. Use the following configuration settings:
+5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell) article. Use the following configuration settings:
 
     ```powershell
     $NicName = "VM1-NIC2"
@@ -63,7 +53,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     You don't need to associate the secondary IP configurations with public IPs in this tutorial. Edit the command to remove the public IP association part.
 
-6. Complete steps 4 through 6 of this article again for VM2. Be sure to replace the VM name to VM2 when doing this. You don't need to create a virtual network for the second VM. You can create a new subnet based on your use case.
+6. Complete steps 4 through 6 again for VM2. Be sure to replace the VM name to `VM2` in code examples. You don't need to create a virtual network for the second VM. You can create a new subnet based on your use case.
 
 7. Create two public IP addresses and store them in the appropriate variables as shown:
 
@@ -110,7 +100,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     Add-AzLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzLoadBalancer
     ```
 
-12. The commands below get the NICs and then add both IP configurations of each secondary NIC to the backend address pool of the load balancer:
+12. The following commands get the NICs and then add both IP configurations of each secondary NIC to the backend address pool of the load balancer:
 
     ```powershell
     $nic1 = Get-AzNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
@@ -127,8 +117,5 @@ Follow the steps below to achieve the scenario outlined in this article:
     $nic2 | Set-AzNetworkInterface
     ```
 
-13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You can host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You can host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](/azure/dns/dns-for-azure-services).
 
-## Next steps
-- Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Azure Monitor logs for Azure Load Balancer](./monitor-load-balancer.md).

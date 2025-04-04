@@ -16,6 +16,8 @@
       items:
         - name: Storage overview
           href: concepts-storage.md
+        - name: Multiple storage appliances
+          href: concepts-storage-multiple-appliances.md
         - name: Storage for Nexus Kubernetes
           href: concepts-storage-kubernetes.md
     - name: Cluster deployment and upgrades
@@ -405,6 +407,12 @@
           items:
             - name: Due To Bare Metal Machine Power Failure
               href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
+    - name: Storage Appliance
+      expanded: false
+      items:
+        - name: Troubleshoot Multiple Storage appliances
+          href: troubleshoot-multiple-storage-appliances.md
+
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

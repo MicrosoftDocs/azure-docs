@@ -192,8 +192,8 @@ The following table shows the redundancy options supported by each Azure Storage
 | Azure managed disks                             | &#x2705; | &#x2705; <sup>3</sup> |          |          |          |          |
 | Azure Elastic SAN                               | &#x2705; | &#x2705; |          |          |          |          |
 
-<sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
-<sup>2</sup> Premium file shares are supported on LRS and ZRS.<br/>
+<sup>1</sup> Standard (HDD) file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
+<sup>2</sup> SSD file shares are supported on LRS and ZRS.<br/>
 <sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 ### Supported storage account types
@@ -202,7 +202,7 @@ The following table shows which redundancy options are supported for each type o
 
 | Storage account types | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| **Recommended** | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> Premium file shares (`FileStorage`) <br/><br/> Premium page blobs (`StorageV2`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> Premium file shares (`FileStorage`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> |
+| **Recommended** | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> SSD file shares (`FileStorage`) <br/><br/> Premium page blobs (`StorageV2`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> SSD file shares (`FileStorage`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> |
 | **Legacy** | Standard general-purpose v1 (`Storage`)<br/><br/> Legacy blob (`BlobStorage`) | N/A | Standard general-purpose v1 (`Storage`)<br/><br/> Legacy blob (`BlobStorage`) | N/A |
 
 <sup>1</sup> Accounts of this type with a hierarchical namespace enabled also support the specified redundancy option.
