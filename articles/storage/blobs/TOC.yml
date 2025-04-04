@@ -448,10 +448,6 @@ items:
       items:
       - name: Change redundancy configuration
         href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Regions that support ZRS
-        href: ../common/redundancy-regions-zrs.md?toc=/azure/storage/blobs/toc.json
-      - name: Regions that support GZRS
-        href: ../common/redundancy-regions-gzrs.md?toc=/azure/storage/blobs/toc.json
     - name: Disaster recovery
       items:
       - name: Disaster recovery planning and failover

@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 04/02/2025
+ms.date: 04/04/2025
 ms.custom:
   - vmware-scenario-422
   - engagement-fy24
@@ -294,7 +294,7 @@ Windows servers | Windows Server 2008 R2 and later are supported. | Not supporte
 Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Protocol | WinRM port 5985 (HTTP) | SSH port 22 (TCP)
-Required privileges | Local admin. | Root or sudo user.
+Required privileges | Local admin. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
