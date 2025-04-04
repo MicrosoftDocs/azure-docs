@@ -174,7 +174,7 @@ def import_package_with_dependencies (packagename):
         pkgname = get_packagename_from_filename(file)
         download_uri_for_file = resolve_download_url(pkgname, file)
         send_webservice_import_module_request(pkgname, download_uri_for_file)
-        # Sleep a few seconds so we don't send too many import requests https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-automation-limits
+        # Sleep a few seconds so we don't send too many import requests https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-automation-limits
         time.sleep(10)
 
 if __name__ == '__main__':

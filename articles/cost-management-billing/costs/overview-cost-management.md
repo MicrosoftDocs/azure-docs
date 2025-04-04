@@ -39,7 +39,6 @@ Everything up to this point makes up the billing process where charges are final
 
 - The [anomaly detection](../understand/analyze-unexpected-charges.md) model identifies anomalies daily based on normalized usage (not rated usage).
 - The cost allocation engine applies tag inheritance and [splits shared costs](allocate-costs.md).
-- AWS cost and usage reports are pulled based on any [connectors for AWS](aws-integration-manage.md) you may have configured.
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](tutorial-acm-create-budgets.md), [anomalies](../understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 
@@ -75,12 +74,11 @@ During your cloud journey, there are many tools available to help you understand
 
 ## Report on and analyze costs
 
-Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
+Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud costs.
 
 - [**Cost analysis**](quick-acm-cost-analysis.md) is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
 **Power BI** is an advanced solution to build more extensive dashboards and complex reports or combine costs with other data. Power BI is available for billing accounts and billing profiles.
 - [**Exports and the Cost Details API**](../automate/usage-details-best-practices.md) enable you to integrate cost details into external systems or business processes.
-- **Connectors for AWS** enable you to ingest your AWS cost details into Azure to facilitate managing Azure and AWS costs together. After configured, the connector also enables other capabilities, like budget and scheduled alerts.
 
 For more information, see [Get started with reporting](reporting-get-started.md).
 
