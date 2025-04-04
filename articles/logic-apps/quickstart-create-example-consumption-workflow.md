@@ -7,7 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mode-ui
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/18/2025
+ms.date: 04/04/2025
 #Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---
 
