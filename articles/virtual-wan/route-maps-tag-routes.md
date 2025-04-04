@@ -27,7 +27,7 @@ Verify that you have met the following criteria before beginning your configurat
 ## Design
 In this situation, we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an  (network virtual appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot that shows to the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot that shows the environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here's the addressing for this environment:  
 
@@ -75,7 +75,7 @@ In this scenario, the goal is to tag route 10.5.0.192/26 form virtual network 3 
 
    look at the Route-Map dashboard for the VPN branch connection to verify route 10.5.0.192/26 has the BGP community 3356:70 being advertised to the VPN branch office 2.  
 
-   :::image type="content" source="./media/route-maps-tag-routes/rm-after-two.png" alt-text="Screenshot that shows routes after the Route-map has been applied to VPN branch." lightbox="./media/route-maps-tag-routes/rm-after-two.png":::
+   :::image type="content" source="./media/route-maps-tag-routes/rm-after-two.png" alt-text="Screenshot that shows routes after the Route-map has been applied for the VPN branch." lightbox="./media/route-maps-tag-routes/rm-after-two.png":::
 
 ## Next steps
 

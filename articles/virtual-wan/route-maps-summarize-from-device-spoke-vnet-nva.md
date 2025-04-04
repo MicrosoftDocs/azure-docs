@@ -1,7 +1,7 @@
 ---
 title: 'How to configure Route-maps summarize routes from an NVA in a spoke virtual network'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure Route-maps to summarize routes from an NVA
+description: Learn how to configure Route-maps to summarize routes from an NVA in a spoke virtual network
 author: cfields475
 ms.service: azure-virtual-wan
 ms.topic: how-to
@@ -27,7 +27,7 @@ Verify that you have met the following criteria before beginning your configurat
 ## Design
 In this situation, we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA (network virtual appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot that shows to the Environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here's the addressing for this environment:  
 
@@ -53,7 +53,7 @@ In this scenario, the goal is to summarize some routes being advertised to the h
 
 1.  Use the Route-Map dashboard in hub 1 to verify the correct routes are currently being advertised from virtual network 1 to the hub.
 
-   :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-one.png" alt-text="Screenshot that shows the routes before Route-maps." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-one.png":::
+    :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-one.png" alt-text="Screenshot that shows the routes before Route-maps." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-one.png":::
 
    Use the Route-Map dashboard to verify the routes being sent to VPN branch 1.  
 
@@ -75,7 +75,7 @@ In this scenario, the goal is to summarize some routes being advertised to the h
 
    Using the Route-Map dashboard verify route 10.150.0.0/16 has been advertised to VPN branch 1
 
-   :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-after-two.png" alt-text="Screenshot that shows routes after Route-map being applied VPN branch." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-after-two.png":::
+   :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-after-two.png" alt-text="Screenshot that shows routes after Route-map being applied for the VPN branch." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-after-two.png":::
 
 ## Next steps
 

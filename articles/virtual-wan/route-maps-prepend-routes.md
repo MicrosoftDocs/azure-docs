@@ -55,11 +55,11 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 
 1.  Use the Route-Map dashboard in hub 2 to verify the ASNs on routes are being advertised from the virtual network connection. 
 
-   :::image type="content" source="./media/route-maps-prepend-routes/db-before-one.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-prepend-routes/db-before-one.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/db-before-one.png" alt-text="Screenshot that shows the routes before Route-Map being applied." lightbox="./media/route-maps-prepend-routes/db-before-one.png":::
 
    Look at the Route-Map dashboard for the VPN branch 2 to verify the ASNs for route 10.5.0.192/26 that are being sent to the branch office. 
 
-   :::image type="content" source="./media/route-maps-prepend-routes/db-before-two.png" alt-text="Screenshot that shows the routes before Route-Map for the VPN branch." lightbox="./media/route-maps-prepend-routes/db-before-two.png"::: 
+   :::image type="content" source="./media/route-maps-prepend-routes/db-before-two.png" alt-text="Screenshot that shows the routes before Route-Map being applied to the VPN branch." lightbox="./media/route-maps-prepend-routes/db-before-two.png"::: 
 
 2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 

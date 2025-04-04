@@ -54,7 +54,7 @@ In this scenario, a Route-map will summarize the routes being advertised to the 
 
 1. Use the Route-map dashboard in hub 2 to verify the correct routes are currently being advertised to VPN branch 2 site.
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/db-one.png" alt-text="Screenshot shows before routes." lightbox="./media/route-maps-how-to-summarize/db-one.png"::: 
+   :::image type="content" source="./media/route-maps-how-to-summarize/db-one.png" alt-text="Screenshot that shows routes before Route-Maps." lightbox="./media/route-maps-how-to-summarize/db-one.png"::: 
 
 2. Create a Route-map to summarize the routes. Before you create your first time Route-map, see [How to configure Route-maps](route-maps-how-to.md) for more information.
 
