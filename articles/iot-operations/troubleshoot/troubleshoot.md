@@ -87,6 +87,35 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 - Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
 
+## Troubleshoot OPC PLC simulator
+
+### The OPC PLC simulator doesn't send data to the MQTT broker after you create an asset endpoint for it
+
+To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+
+```bash
+ENDPOINT_NAME=<name-of-you-endpoint-here>
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+-n azure-iot-operations \
+--type=merge \
+-p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+```
+
+> [!CAUTION]
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+You can patch all your asset endpoints with the following command:
+
+```bash
+ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
+for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+   -n azure-iot-operations \
+   --type=merge \
+   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
+done
+```
+
 ## Troubleshoot Azure IoT Layered Network Management (preview)
 
 The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).

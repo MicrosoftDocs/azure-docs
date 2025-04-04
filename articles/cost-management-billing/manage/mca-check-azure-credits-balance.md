@@ -31,66 +31,61 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
     :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + Billing.":::
 
-3. In the billing scopes page, select the billing account for which you want to track the credit balance. The billing account should be of type **Microsoft Customer Agreement**.
+1. In the billing scopes page, select the billing account for which you want to track the credit balance. The billing account should be of type **Microsoft Customer Agreement**.
 
-    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/list-of-scopes.png" alt-text="Screenshot that shows Billing Scopes.":::
+    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/list-of-scopes.png" alt-text="Screenshot that shows billing scopes in Cost Management + Billing.":::
 
-    > [!NOTE]
-    >
-    > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
+   
+   > [!NOTE]
+   > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the **[right scope](/azure/cost-management-billing/manage/mca-check-azure-credits-balance?tabs=portal)**. If not, **[switch the scope](/azure/cost-management-billing/manage/view-all-accounts)** to select the billing account for a Microsoft Customer Agreement.
+   
+   
+   
+   
+1. Select **Payment methods** from the left-hand side and then select **Azure credits**.
 
-3. Select **Payment methods** from the left-hand side and then select **Azure credits**.
 
-   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-payment-methods.png" alt-text="Screenshot of estimated and current balances.":::
+    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/azure-credits-page-azportal.png" alt-text="Screenshot that shows Credits in the Azure portal for Cost Management + Billing.":::
+   
+   
+   
+   #### Available Balance
 
-4. The Azure credits page has the following sections:
+   Available credits after your last invoice. This includes all active credits only and excludes any expired or future credits. When your available balance drops to 0, you are charged for all your usage, including products that are eligible for credits.
+   
+   #### Credit details
 
-   #### Balance
-
-   The balance section displays the summary of your Azure credit balance.
-
-   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-credit-balance.png" alt-text="Screenshot showing the credit balance for a billing profile.":::
-
-   | Term               | Definition                           |
-   |--------------------|--------------------------------------------------------|
-   | Estimated balance  | Estimated amount of credits you have after considering all billed and pending transactions |
-   | Current balance    | Amount of credits as of your last invoice. It doesn't include any pending transactions |
-
-   When your estimated balance drops to 0, you are charged for all your usage, including for products that are eligible for credits.
-
-   #### Credits list
-
-   The credits list section displays the list of Azure credits.
-
-   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-credits-list.png" alt-text="Screenshot showing the credits lists for a billing profile.":::
-
+    View list of all credits with details.
+   
    | Term | Definition |
    |---|---|
-   | Source | The acquisition source of the credit |
-   | Start date | The date when you acquired the credit |
-   | Expiration date | The date when the credit expires |
-   | Current balance | The balance as of your last invoice |
-   | Original amount | The original amount of credit |
-   | Status | The current status of credit. Status can be active, used, expired, or expiring |
+   | Source |The acquisition source of the credit.|
+   | Start date |The date when credit was acquired.|
+   | Expiration date |The date when the credit expires.|
+   | Original amount|The original amount of the credit.|
+   | Balance|The credit balance after the latest invoice.|
+   | Status |The current status of credit. Status can be active, used, expired, or expiring |
+   
+   
+   ####  Transactions
 
-   #### Transactions
-
-   The transactions section displays all transactions that affected your credits balance.
-
-   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-credits-transactions.png" alt-text="Screenshot showing credit transactions for a billing profile.":::
-
+     The transactions section displays all transactions that affected your credits balance.
+   
+     :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/credits-transactions-azportal.png" alt-text="Screenshot that shows Credit transactions in the Azure portal for Cost Management + Billing.":::
+   
    | Term | Definition |
    |---|---|
-   | Transaction date | The date when the transaction happened |
-   | Description | A description of the transaction |
-   | Amount| The amount of transaction |
-   | Balance | The balance after the transaction |
-
-    > [!NOTE]
-    >
-    > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing account which has credits or one of its billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
-
-5. If you are viewing Azure credits at the billing account scope and the billing account has more than one billing profiles, the Azure credits page will show a table with a summary of Azure credits for each billing profile. Select a billing profile from the list, select payment methods and then Azure credits to view details for a billing profile.
+   | Transaction date |The date when the transaction happened.|
+   | Description |Description of the transaction.|
+   | Amount |The amount of transaction.|
+   
+   > [!NOTE]
+   > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing account which has credits or one of its billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+   
+   
+   
+   
+1. If you are viewing Azure credits at the billing account scope and the billing account has more than one billing profiles, the Azure credits page will show a table with a summary of Azure credits for each billing profile. Select a billing profile from the list, select payment methods and then Azure credits to view details for a billing profile.
 
     :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-account-credit-list.png" alt-text="Screenshot showing the credit list for a billing account.":::
 
@@ -151,65 +146,14 @@ The API response returns a list of billing accounts and their billing profiles.
 
 Use the `displayName` property of the billing profile to identify the billing profile for which you want to check the credit balance. Copy the `id` of the billing profile. For example, if you want to check credit balance for **Development** billing profile, you'd copy ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Paste this value somewhere so that you can use it in the next step.
 
-### Get Azure credit balance
-
-Make the following request, replacing `<billingProfileId>` with the `id` copied in the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
-
-```json
-GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
-```
-
-The API response returns estimated and current balance for the billing profile.
-
-```json
-{
-  "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/providers/Microsoft.Consumption/credits/balanceSummary/57c2e8df-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "57c2e8df-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "type": "Microsoft.Consumption/credits/balanceSummary",
-  "eTag": null,
-  "properties": {
-    "balanceSummary": {
-      "estimatedBalance": {
-        "currency": "USD",
-        "value": 996.13
-      },
-      "currentBalance": {
-        "currency": "USD",
-        "value": 997.87
-      }
-    },
-    "pendingCreditAdjustments": {
-      "currency": "USD",
-      "value": 0.0
-    },
-    "expiredCredit": {
-      "currency": "USD",
-      "value": 0.0
-    },
-    "pendingEligibleCharges": {
-      "currency": "USD",
-      "value": -1.74
-    }
-  }
-}
-```
-
-| Element name  | Description                                                                           |
-|---------------|---------------------------------------------------------------------------------------|
-| `estimatedBalance` | The estimated amount of credits you have after considering all billed and pending transactions. |
-| `currentBalance`   | The amount of credits as of your last invoice. It doesn't include any pending transactions.    |
-| `pendingCreditAdjustments`      | The adjustments like refunds that are not yet invoiced.  |
-| `expiredCredit`      |  The credit that expired since your last invoice.  |
-| `pendingEligibleCharges`  | The credit eligible charges that are not yet invoiced.   |
-
 ### Get list of credits
 
 Make the following request, replacing `<billingProfileId>` with the `id` copied in the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
 
 ```json
-GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountId>/billingProfiles/<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2023-03-01
 ```
-The API response returns lists of Azure credits for a billing profile.
+The API response returns original credit amounts and available balance across all credit lots for the billing profile. This includes active, expired, and credits with a future start date. Available balance can be computed by aggregating the values in `closedBalance` across all active credits.
 
 ```json
 {
@@ -259,19 +203,26 @@ The API response returns lists of Azure credits for a billing profile.
 ```
 | Element name  | Description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
-| `originalAmount` | The original amount of the credit. |
-| `closedBalance`   | The balance as of the last invoice.    |
-| `source`      | The source that defines who how acquired the credit. |
-| `startDate`      |  The date when the credit became active.  |
-| `expirationDate`  | The date when the credit expires.   |
-| `poNumber`  | The purchase order number of the invoice on which the credit was billed.   |
+| `creditCurrency` |The currency of the credit. |
+| `billingCurrency`   |The currency used for billing.   |
+| `originalAmount`      |The original amount of the credit in USD. |
+| `originalAmountInBillingCurrency`      | The original amount of the credit in billing currency with exchange rate. |
+| `expirationDate`  |The date when the credit expires.   |
+| `closedBalance` |The balance as of the last invoice in USD. |
+| `closedBalanceInBillingCurrency` |The balance as of the last invoice in billing currency with exchange rate. |
+| `reseller` |Information about the reseller, if any. |
+| `source` |The source of the credit, e.g., Azure promotional credit. |
+| `startDate` |The date when the credit became active. |
+| `expirationDate` |The date when the credit expires. |
+| `poNumber`  |The purchase order number of the invoice on which the credit was billed.   |
+| `isEstimatedBalance` |Indicates whether the balance is estimated. |
 
 ### Get transactions that affected credit balance
 
 Make the following request, replacing `<billingProfileId>` with the `id` copied in the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). You would need to pass a **startDate** and an **endDate** to get transactions for your required duration.
 
 ```json
-GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountID>/billingProfiles/<billingProfileID>/providers/Microsoft.Consumption/events?api-version=2023-03-01&startDate=<date>&endDate=<date>
 ```
 The API response returns all transactions that affected the credit balance for your billing profile.
 
@@ -360,9 +311,9 @@ The API response returns all transactions that affected the credit balance for y
 
 ## How credits are used
 
-In a billing account for a Microsoft customer agreement, you use billing profiles to manage your invoices and payment methods. A monthly invoice is generated for each billing profile and you use the payment methods to pay the invoice.
+In a billing account for a Microsoft customer agreement, you use billing profiles to manage your invoices and payment methods. A monthly invoice is generated for each billing profile, and you use the payment methods to pay the invoice.
 
-You assign credits that you acquire to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total charges to calculate the amount that you need to pay. You pay the remaining amount with your payment methods like check/ wire transfer or credit card.
+Credits that you acquire are assigned to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total charges to calculate the amount that you need to pay. You pay the remaining amount with your payment methods like check/ wire transfer or credit card.
 
 ## Products that aren't covered by Azure credits
 
@@ -392,4 +343,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Understand billing account for Microsoft Customer Agreement](../understand/mca-overview.md)
+
 - [Understand terms on your Microsoft Customer Agreement invoice](../understand/mca-understand-your-invoice.md)
+
