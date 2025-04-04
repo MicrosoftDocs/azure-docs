@@ -103,7 +103,7 @@ When you use the Azure portal to create a private endpoint, as shown in the next
 
 ### Create private endpoint - portal
 
-You can create a private endpoint when you create an API Management instance in the Azure portal. You can also add a private endpoint to an existing instance.
+You can create a private endpoint when you create an API Management instance in the Azure portal, or you can add a private endpoint to an existing instance. You can also create a private endpoint using the [Private Link Center](/azure/private-link/create-private-endpoint-portal).
 
 #### [Classic](#tab/classic)
 
@@ -188,7 +188,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
 
 #### [Standard v2](#tab/v2)
 
-To add a private endpoint when you create an API Management Standard v2 instance in the Azure portal:
+### Create private endpoint when creating API Management Standard v2 instance
 
 1. In the **Create API Management service wizard**, select the **Networking** tab.
 
@@ -216,7 +216,7 @@ To add a private endpoint when you create an API Management Standard v2 instance
 
 1. Continue with the creation of the API Management instance.
 
-To add a private endpoint to an existing API Management Standard v2 instance:
+### Create private endpoint for existing API Management Standard v2 instance
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your API Management Standard v2 instance.
 
@@ -276,7 +276,7 @@ You can also use the [API Management Service - Update](/rest/api/apimanagement/a
 
 #### [Standard v2](#tab/v2)
 
-Use the portal to disable the public network access property in a Standard v2 instance.
+You can use the portal to disable the public network access property in a Standard v2 instance.
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your API Management Standard v2 instance.
 
