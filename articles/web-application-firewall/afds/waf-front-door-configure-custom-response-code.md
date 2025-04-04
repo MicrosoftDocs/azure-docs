@@ -5,18 +5,20 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 04/04/2025
 ms.custom: devx-track-azurepowershell
 zone_pivot_groups: front-door-tiers
 ---
 
 # Configure a custom response for Azure Web Application Firewall
 
-This article describes how to configure a custom response page when Azure Web Application Firewall blocks a request.
+In this article, you learn how to configure a custom response page when Azure Web Application Firewall blocks a request.
 
 By default, when Azure Web Application Firewall blocks a request because of a matched rule, it returns a 403 status code with the message "The request is blocked." The default message also includes the tracking reference string that's used to link to [log entries](./waf-front-door-monitor.md) for the request. You can configure a custom response status code and a custom message with a reference string for your use case.
 
-## Configure a custom response status code and message by using the portal
+## Configure a custom response status code and message
+
+# [**Portal**](#tab/portal)
 
 You can configure a custom response status code and body under **Policy settings** on the Azure Web Application Firewall portal.
 
@@ -26,19 +28,11 @@ In the preceding example, we kept the response code as 403 and configured a shor
 
 :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Screenshot that shows a custom response example.":::
 
-::: zone pivot="front-door-standard-premium"
 
-"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
+> [!NOTE]
+> If you leave the block response body blank, the WAF will respond 403 (forbidden) on normal WAF blocks and will respond 429 (too many requests) on rate limit blocks. 
 
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontdoorAccessLog` and `FrontdoorWebApplicationFirewallLog` logs.
-
-::: zone-end
-
-## Configure a custom response status code and message by using PowerShell
+# [**PowerShell**](#tab/powershell)
 
 Follow these steps to configure a custom response status code and message by using PowerShell.
 
@@ -111,6 +105,21 @@ Update-AzFrontDoorFireWallPolicy `
 -CustomBlockResponseBody "<html><head><title>Forbidden</title></head><body>{{azure-ref}}</body></html>"
 ```
 
-## Next steps
+---
 
-Learn more about [Azure Web Application Firewall on Azure Front Door](../afds/afds-overview.md).
+::: zone pivot="front-door-standard-premium"
+
+"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontdoorAccessLog` and `FrontdoorWebApplicationFirewallLog` logs.
+
+::: zone-end
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Configure a Web Application Firewall rate-limit rule](../afds/waf-front-door-rate-limit-configure.md).
