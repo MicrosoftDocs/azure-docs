@@ -17,7 +17,7 @@ File access logs provide file access logging for individual volumes, capturing f
 ## Considerations
 
 >[!IMPORTANT]
->File access logs is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
+>The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
 
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
@@ -33,9 +33,9 @@ File access logs provide file access logging for individual volumes, capturing f
     * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting not log these frequent operations to conserve performance. 
     * SACL policy additions aren't currently supported with file access logs. 
 * When clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
-* File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). The log generation rate should not exceed 64 MiB/minute.
+* File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). The log generation rate shouldn't exceed 64 MiB/minute.
 
-    If the rate of file access event generation exceeds 64 MiB/minute, the [Activity log](monitor-azure-netapp-files.md) sends a message stating that the rate of file access log generation is exceeding the limit. If log generation exceeds the limit, logging events can be delayed or dropped. If you are approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate. As a precaution, you can [create an alert](/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule) for this event.
+    If the rate of file access event generation exceeds 64 MiB/minute, the [Activity log](monitor-azure-netapp-files.md) sends a message stating that the rate of file access log generation is exceeding the limit. If log generation exceeds the limit, logging events can be delayed or dropped. If you're approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate. As a precaution, you can [create an alert](/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule) for this event.
  
 * During migration or robocopy operations, disable file access logs to reduce log generation. 
 * It's recommended you avoid enabling file access logs on files with more than 450 ACEs to avoid performance issues. 
@@ -81,10 +81,10 @@ The file access logs feature is currently in preview. If you're using this featu
       Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs
     ```
 
-1. Check the status of the registiation 
+1. Check the status of the registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** can be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
@@ -126,7 +126,7 @@ You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 exports for auditing
 If you're logging access events on all files and directories within a volume, set SACLs by applying Storage-Level Access Guard security. 
 
 >[!NOTE]
-> Select only the events you need to log. Selecting too many log options may impact system performance. 
+> Select only the events you need to log. Selecting too many log options can impact system performance. 
 
 To enable logging access on individual files and directories, complete the following steps on the  Windows administration host. 
 
