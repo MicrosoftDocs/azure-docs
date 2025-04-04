@@ -81,7 +81,7 @@ Shared access signature (SAS) tokens aren't currently supported for mounting Azu
 > [!NOTE]
 > A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure virtual machine (VM). One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
-### Mount the Azure file share using the provided script
+### Mount the Azure file share
 
 The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key.
 
