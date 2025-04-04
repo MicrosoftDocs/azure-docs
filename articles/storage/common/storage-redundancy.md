@@ -89,7 +89,7 @@ For more information about which regions support ZRS, see [Azure regions with av
 
 Redundancy options can help provide high durability for your applications. In many regions, you can copy the data within your storage account to a secondary region located hundreds of miles away from the primary region. Copying your storage account to a secondary region ensures that your data remains durable during a complete regional outage or a disaster in which the primary region isn't recoverable.
 
-When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
 
 Azure Storage offers two options for copying your data to a secondary region:
 
@@ -126,7 +126,7 @@ The following diagram shows how your data is replicated with GZRS or RA-GZRS:
 
 :::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS or RA-GZRS":::
 
-For a list of regions that support geo-zone-redundant storage (GZRS), see [Azure regions that support geo-zone-redundant storage (GZRS)](storage-redundancy.md#supported-storage-account-types).
+To determine if a region supports GZRS, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1). To support GZRS, a region must support availability zones and have a paired region.
 
 ## Read access to data in the secondary region
 
