@@ -15,10 +15,10 @@ This article describes how to configure backup for Azure Data Lake Storage using
 
 Before you configure backup for Azure Data Lake Storage, ensure the following prerequisites are met:
 
-- The storage account must be in a supported region and of the required types. See the support matrix.
+- The storage account must be in a supported region and of the required types. See the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
 - Vaulted backup restores are only possible to a different storage account. Ensure the target account has no containers with the same names as those in a recovery point—any conflicts will cause the restore to fail.
 
-For more information about the supported scenarios, limitations, and availability, see the support matrix.
+For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
 
 ## Create a Backup vault
 
@@ -94,7 +94,7 @@ You can track the progress of the backup configuration under **Backup instances*
 
 ## Next steps
 
-Restore Azure Data Lake Storage using Azure portal (preview)
+[Restore Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-restore.md).
  
 
 
