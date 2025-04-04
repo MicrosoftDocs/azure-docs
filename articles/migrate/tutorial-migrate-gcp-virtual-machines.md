@@ -7,6 +7,10 @@ ms.topic: tutorial
 ms.date: 12/30/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 ---
 
 # Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure

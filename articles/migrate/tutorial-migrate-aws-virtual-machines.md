@@ -9,8 +9,10 @@ ms.date: 12/31/2024
 ms.custom:
   - MVC
   - engagement-fy25
-  - migration
-  - aws-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
