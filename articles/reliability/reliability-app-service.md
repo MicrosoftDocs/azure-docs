@@ -26,7 +26,6 @@ When you deploy Azure App Service, you can create multiple instances of an *App 
 For production deployments, you should:
 
 ::: zone pivot="free-shared-basic"
- 
 - Use premium v3 App Service plans.
 - [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
 
