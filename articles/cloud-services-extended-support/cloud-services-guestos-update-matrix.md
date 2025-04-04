@@ -758,7 +758,7 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 | 1 |Version 1.0+ |
 
 ## Guest OS release information
-There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS reaches the **disabled** date, Microsoft removes it from Azure. However, any Cloud Service targeting that Guest OS still operate as normal.
+There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS reaches the **disabled** date, Microsoft removes it from Azure. However, any Cloud Service targeting that Guest OS still operates as normal.
 
 The window between the **disabled** date and the **expiration** date provides you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you're always on the latest version and you don't have to worry about it expiring.
 

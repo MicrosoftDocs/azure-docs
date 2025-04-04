@@ -2439,7 +2439,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-06 |  [5003711]  |  Servicing Stack update  | [6.32] | June 8, 2021 |
 |  Rel 21-06 |  [4494175]  |  Microcode  | [5.56] | Sep 1, 2020 |
 |  Rel 21-06 |  [4494174]  |  Microcode  | [6.32] | Sep 1, 2020 |
-|  Rel 21-06 |  [4052623]  |  Update for Microsoft Defender antimalware platform | [6.32], [5.56] | May 13, 2021 |
+|  Rel 21-06 |  [4052623]  |  Update for Microsoft Defender anti-malware platform | [6.32], [5.56] | May 13, 2021 |
 
 [5003646]: https://support.microsoft.com/kb/5003646
 

@@ -6471,27 +6471,27 @@
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family-2-3-4-retirement.md",
-      "redirect_url": "azure/cloud-services-extended-support/cloud-services-guestos-family-2-3-4-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-2-3-4-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family1-retirement.md",
-      "redirect_url": "azure/cloud-services-extended-support/cloud-services-guestos-family1-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-1-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-msrc-releases.md",
-      "redirect_url": "azure/cloud-services-extended-support/cloud-services-guestos-msrc-releases",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-microsoft-security-response-center-releases",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-retirement-policy.md",
-      "redirect_url": "azure/cloud-services-extended-support/cloud-services-guestos-retirement-policy",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-retirement-policy",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-update-matrix.md",
-      "redirect_url": "azure/cloud-services-extended-support/cloud-services-guestos-update-matrix",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-update-matrix",
       "redirect_document_id": false
     },
     {

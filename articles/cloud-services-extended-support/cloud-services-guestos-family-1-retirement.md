@@ -26,9 +26,9 @@ If you have other questions, visit the [Microsoft Question & Answer page for Clo
 
 This retirement affects your cloud services if any one of the following applies:
 
-1. You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.
-2. You don't have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
-3. The Azure portal lists your Guest Operating System family value as "Windows Server 2008".
+* You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.
+* You don't have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
+* The Azure portal lists your Guest Operating System family value as "Windows Server 2008".
 
 To find which of your cloud services are running which OS Family, you can run the following script in Azure PowerShell, though you must [set up Azure PowerShell](/powershell/azure/) first. For more information on the script, see [Azure Guest OS Family 1 End of Life: June 2014](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
 
