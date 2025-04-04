@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Create an Azure VMware Solution in an Azure Virtual Network (Public preview)
 
-In this tutorial, you learn how to create an Azure VMware Solution on Native private cloud. This solution combines a first-party Azure VMware Solution with Azure hardware and operations to improve your experience, enhance quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. You get the best of both worlds by applying your existing VMware expertise, with the benefits of the entire Azure cloud to effectively and efficiently manage your workloads. This initial launch of this offering utilizes the existing AV64 SKU.
+In this tutorial, you learn how to create an Azure VMware Solution private cloud in an Azure Virtual Network. This solution combines a first-party Azure VMware Solution with Azure hardware and operations to improve your experience, enhance quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. You get the best of both worlds by applying your existing VMware expertise, with the benefits of the entire Azure cloud to effectively and efficiently manage your workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 
 With this offering, you can directly create the Azure VMware Solution SDDC using the AV64 SKU. You're no longer required to deploy a minimum of three hosts of AV36, AV36P, or AV52 to provision a cluster with AV64.
 
