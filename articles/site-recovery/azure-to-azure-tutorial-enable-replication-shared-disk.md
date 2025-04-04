@@ -71,7 +71,8 @@ SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-## Prepare the vault to start replicating Azure virtual
+## Prepare the vault to start replicating Azure virtual machines
+
 
 To prepare the vault for replication, you need to do the following:
 
@@ -293,13 +294,9 @@ Fail over the cluster to a specific recovery point.
 ```powershell
 $rpi1 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql1" 
     $rpi2 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql2" 
-
     $nodeRecoveryPoint1 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi1 
-
     $nodeRecoveryPoint2 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi2 
-
     $nodeRecoveryPoints = @($nodeRecoveryPoint1[-1].ID, $nodeRecoveryPoint2[-1].ID) 
-
     $clusterRecoveryPoints = Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $protectionCluster 
     $ufoJob = Start-AzRecoveryServicesAsrClusterUnplannedFailoverJob -ReplicationProtectionCluster $protectionCluster -Direction PrimaryToRecovery -ClusterRecoveryPoint $clusterRecoveryPoints[-1] -ListNodeRecoveryPoint $nodeRecoveryPoints 
 ```
@@ -311,15 +308,10 @@ You can change the point in time to which you want to fail over. This is useful 
 ```powershell
 $rpi1 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql1" 
     $rpi2 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql2" 
-
     $nodeRecoveryPoint1 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi1 
-
     $nodeRecoveryPoint2 = Get-ASRRecoveryPoint -ReplicationProtectedItem $rpi2 
-
     $nodeRecoveryPoints = @($nodeRecoveryPoint1[-1].ID, $nodeRecoveryPoint2[-1].ID) 
-
     $clusterRecoveryPoints = Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $protectionCluster 
-
    $changePitJob = Start-AzRecoveryServicesAsrApplyClusterRecoveryPoint -ReplicationProtectionCluster $protectionCluster -ClusterRecoveryPoint $clusterRecoveryPoints[-1] -ListNodeRecoveryPoint $nodeRecoveryPoints 
 ```
  
@@ -336,27 +328,18 @@ After failover, protect the Cluster in the new source region back and failover t
 
 ```powershell
 $storage = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/vijami-alertrg/providers/Microsoft.Storage/storageAccounts/yerp1nvijamitestasrcache" 
-
     $ppg = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/ClusterRG-Vijami-1003165924/providers/Microsoft.Compute/proximityPlacementGroups/sdgql-ppg" 
-
     $avset = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/ClusterRG-Vijami-1003165924/providers/Microsoft.Compute/availabilitySets/SDGQL-AS" 
-
     $rgId = "/subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/ClusterRG-Vijami-1003165924" 
 
     # Without protected item details 
 
     $recoveryFabricName = "asr-a2a-default-westus" 
-
     $recoveryFabric = Get-AzRecoveryServicesAsrFabric -Name $recoveryFabricName 
-
     $recoverypc = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $recoveryFabric 
-
     $recoverypcm = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $recoverypc -Name "westus-eastus2-24-hour-retention-policy" 
-
     $ReprotectJob = Update-AzRecoveryServicesAsrClusterProtectionDirection -AzureToAzure -ReplicationProtectionCluster $cluster ` 
-
     -RecoveryProximityPlacementGroupId $ppg -RecoveryAvailabilitySetId $avset ` 
-
     -RecoveryResourceGroupId $rgId -LogStorageAccountId $storage -ProtectionContainerMapping $recoverypcm 
 ```
 
