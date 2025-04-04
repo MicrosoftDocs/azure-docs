@@ -15,12 +15,12 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
-This article shows you how to migrate a Spring Cloud Gateway for VMWare Tanzu project running on an Azure Spring Apps Enterprise plan to a project running as a self-hosted Open Source (OSS) Spring Cloud Gateway running as an Azure Container Apps application.
+This article shows you how to migrate a Spring Cloud Gateway for VMWare Tanzu project running on an Azure Spring Apps Enterprise plan to a project running as a self-hosted, open source software (OSS) Spring Cloud Gateway project running as an Azure Container Apps application.
 
 The OSS version of Spring Cloud Gateway mentioned in this page is provided as an example for reference. Users can choose other distributions of Spring Cloud Gateway based on their requirements.
 
 > [!NOTE]
-> The features offered by Spring Cloud Gateway for VMWare Tanzu are more extensive than the features in the OSS version, so it's essential to verify the differences and ensure compatibility before moving to production.
+> The features offered by Spring Cloud Gateway for VMWare Tanzu are more extensive than the features in the OSS version. Be sure to examine the differences and ensure compatibility before moving to production.
 
 ## Prerequisites
 
@@ -34,25 +34,23 @@ The OSS version of Spring Cloud Gateway mentioned in this page is provided as an
 To get the code of the Spring Cloud Gateway application, use the following steps:
 
 1. Navigate to https://start.spring.io.
-1. Update the project metadata by setting the **Group** to your organization's name. Change the **Artifact** and **Name** to **gateway**.
-1. Add dependencies **Reactive Gateway** and **Spring Boot Actuator**.
+1. Update the project metadata by setting the **Group** field to your organization's name. Change the **Artifact** and **Name** fields to **gateway**.
+1. Add the **Reactive Gateway** and **Spring Boot Actuator** dependencies.
 1. Leave the other properties at their default values.
-1. Click **Generate** to download the project.
-1. Extract the project when it's downloaded.
+1. Select **Generate** to download the project.
+1. After the project downloads, extract it.
 
-## Configure the Spring Cloud Gateway
+## Configure the Spring Cloud Gateway application
 
-Now that the Spring Cloud Gateway code is ready, you configure it in the next sections.
+Now that you downloaded the Spring Cloud Gateway application, you configure it in the next sections.
 
 ### Configure the application properties file
 
 To configure the application properties file, use the following steps:
 
 1. Navigate to the **gateway/src/main/resources** directory of the project.
-
 1. Rename the **application.properties** file to **application.yml**.
-
-1. Edit the **application.yml**. The following **application.yml** file is typical:
+1. Edit the **application.yml** file. The following **application.yml** file is typical:
 
     ```yaml
     spring:
@@ -88,13 +86,13 @@ To configure the application properties file, use the following steps:
 
 ### CORS configuration
 
-To migrate the Cross-Origin Resource Sharing (CORS) configuration of your Spring Cloud Gateway for VMWare Tanzu project, see [CORS Configuration for Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#cors-configuration) for global CORS configuration and route CORS configuration.
+To migrate the Cross-Origin Resource Sharing (CORS) configuration of your Spring Cloud Gateway for VMWare Tanzu project, see [CORS Configuration](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#cors-configuration) for global CORS configuration and route CORS configuration.
 
 ### Scale
 
-When migrating to a Spring Cloud Gateway application in Azure Container Apps, the scaling behavior should align with the Azure Container Apps model. The instance count from Spring Cloud Gateway for VMWare Tanzu maps to `min-replica` and `max-replica` in Azure Container Apps. You can configure automatic scaling for the gateway application by defining scaling rules. For more information, see [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app).
+When you migrate to a Spring Cloud Gateway application in Azure Container Apps, the scaling behavior should align with the Azure Container Apps model. The instance count from Spring Cloud Gateway for VMWare Tanzu maps to `min-replica` and `max-replica` in Azure Container Apps. You can configure automatic scaling for the gateway application by defining scaling rules. For more information, see [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app).
 
-The CPU and memory combinations available in Azure Spring Apps differ from those in Azure Container Apps. When mapping resource allocations, ensure that the selected CPU and memory configurations in Azure Container Apps fit both your performance needs and the supported options.
+The CPU and memory combinations available in Azure Spring Apps differ from the combinations available in Azure Container Apps. When mapping resource allocations, ensure that the selected CPU and memory configurations in Azure Container Apps fit both your performance needs and the supported options.
 
 ### Custom domains & certificates
 
@@ -102,18 +100,17 @@ Azure Container Apps supports custom domains and certificates. For more informat
 
 ### Routes
 
-You can migrate the routes in Spring Cloud Gatewy for Tanzu to Spring Cloud Gateway, as the **application.yml** example shows. The following list describes the mapping relationship between the routes of Spring Cloud Gateway for VMWare Tanzu and the routes of Spring Cloud Gateway:
+You can migrate the routes in Spring Cloud Gateway for Tanzu to Spring Cloud Gateway, as the **application.yml** example shows. The following list describes the mapping relationship between the routes of Spring Cloud Gateway for VMWare Tanzu and the routes of Spring Cloud Gateway:
 
 - The `name` property of the route is mapped to `id`.
-
 - The `appName` and `protocol` properties are mapped to the URI of the route, which should be the accessible URI for the Azure Container Apps instance. Make sure the Azure Container Apps applications enable the ingress.
-- Predicates and filters of Spring Cloud Gateway for VMWare Tanzu are mapped to those of Spring Cloud Gateway. Commercial predicates and filters aren't supported. For more information, see [Commercial route filters in Spring Cloud Gateway for K8s](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-gateway-for-kubernetes/2-2/scg-k8s/developer-filters.html).
+- Predicates and filters of Spring Cloud Gateway for VMWare Tanzu are mapped to predicates and filters of Spring Cloud Gateway. Commercial predicates and filters aren't supported. For more information, see [Commercial route filters in Spring Cloud Gateway for K8s](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-gateway-for-kubernetes/2-2/scg-k8s/developer-filters.html).
 
 As an example, consider the following route config JSON file, **test-api.json**, which defines the `test-api` route in Spring Cloud Gateway for VMWare Tanzu for the `test` app:
 
 ```json
 {
-  "protocol": "HTTP",   
+  "protocol": "HTTP",
   "routes": [
     {
       "title": "Test API",
@@ -129,7 +126,7 @@ As an example, consider the following route config JSON file, **test-api.json**,
 }
 ```
 
-Then, the following YAML file shows the corresponding route configuration for Spring Cloud Gateway:
+Then, the following YAML file shows the corresponding route configuration for the Spring Cloud Gateway application:
 
 ```yaml
 spring:
@@ -146,11 +143,12 @@ spring:
         - StripPrefix=1
 ```
 
-Spring Cloud Gateway for VMWare Tanzu sets `StripPrefix=1` by default on every route. To migrate to Spring Cloud Gateway, you need to explicitly set `StripPrefix=1` in the filter configuration.
+Spring Cloud Gateway for VMWare Tanzu sets `StripPrefix=1` by default on every route. To migrate to a Spring Cloud Gateway, you need to explicitly set `StripPrefix=1` in the filter configuration.
 
-To allow your Spring Cloud Gateway application to access other applications through the app name, you need to enable ingress for your Azure Container App applications. You can also set the accessible FQDN of the Azure Container Apps application to be the URI of the route, following the format `https://<app-name>.<container-app-env-name>.<region>.azurecontainerapps.io`.
+To enable your Spring Cloud Gateway application to access other applications through the app name, you need to enable ingress for your Azure Container App applications. You can also set the accessible fully qualified domain name (FQDN) of the Azure Container Apps application to be the URI of the route, following the format `https://<app-name>.<container-app-env-name>.<region>.azurecontainerapps.io`.
 
-There are some [commercial predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-predicates.html) and [commercial filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-filters.html) that aren't supported on Spring Cloud Gateway.
+> [!NOTE]
+> There are some [commercial predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-predicates.html) and [commercial filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-filters.html) that aren't supported on Spring Cloud Gateway.
 
 ### Response cache
 
@@ -184,7 +182,7 @@ spring:
 
 ### Integrate with APM
 
-You can enable application performance monitoring (APM) for Spring Cloud Gateway application. For more information, see [Integrate application performance monitoring into container images](migrate-to-azure-container-apps-build-application-performance-monitoring.md).
+You can enable application performance monitoring (APM) for your Spring Cloud Gateway application. For more information, see [Integrate application performance monitoring into container images](migrate-to-azure-container-apps-build-application-performance-monitoring.md).
 
 ## Deploy to Azure Container Apps
 
@@ -231,13 +229,13 @@ To build and push the Docker image, use the following steps:
     ```azurecli
     az acr login --name <azure-container-registry-name>
     az acr build \
-         --resource-group <resource-group-name> \
+        --resource-group <resource-group-name> \
         --image gateway:acrbuild-spring-cloud-gateway-0.0.1-SNAPSHOT \
         --registry <azure-container-registry-name> \
         --file Dockerfile .
     ```
 
-1. Ensure the gateway image is created, and get the image tag, which uses the following format: `<azure-container-registry-name>.azurecr.io/gateway:acrbuild-spring-cloud-gateway-0.0.1-SNAPSHOT`.
+1. Ensure that the gateway image is created, and get the image tag, which uses the following format: `<azure-container-registry-name>.azurecr.io/gateway:acrbuild-spring-cloud-gateway-0.0.1-SNAPSHOT`.
 
 ### Deploy the image in Azure Container Apps
 
@@ -257,15 +255,15 @@ Access the FQDN of the Spring Cloud Gateway application to verify that it's runn
 
 ## Troubleshooting
 
-If you encounter issues when running the Spring Cloud Gateway application, you can view real time and historical logs of the `gateway`application in Azure Container Apps. For more information, see [Application Logging in Azure Container Apps](/azure/container-apps/logging).
+If you encounter issues when running the Spring Cloud Gateway application, you can view real-time and historical logs of the `gateway` application in Azure Container Apps. For more information, see [Application Logging in Azure Container Apps](/azure/container-apps/logging).
 
 You can also monitor a gateway application's metrics. For more information, see [Monitor Azure Container Apps metrics](/azure/container-apps/metrics)
 
 ## Known limitation
 
-As far as we know, Spring Cloud Gateway does not support the following commercial features:
+As far as we know, Spring Cloud Gateway doesn't support the following commercial features:
 
 - Metadata used to generate OpenAPI documentation.
 - Single sign-on (SSO) functionality.
 
-If you require these features, you may need to consider other commercial solutions, such as Spring Cloud Gateway for VMWare Tanzu.
+If you require these features, you might need to consider other commercial solutions, such as Spring Cloud Gateway for VMWare Tanzu.
