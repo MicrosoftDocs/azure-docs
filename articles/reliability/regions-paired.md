@@ -39,7 +39,6 @@ You aren't limited to using services within a single region, or within your regi
 
 To see a list of regions that includes all region pairs, see [List of Azure regions](./regions-list.md).
 
-
 ### Asymmetrically paired regions
 
 Most region pairs are *symmetrical*, which means that each region is bidirectionally paired with another region. For example, West US is paired with East US and East US is paired with West US.
@@ -60,7 +59,6 @@ Azure continues to expand globally, and many of our newer regions provide multip
 Many Azure services support geo-replication and geo-redundancy between any arbitrary set of regions, and don't rely on region pairs. It's important to understand how multi-region support works for the particular services you use. To learn about the details of each service, see [Azure service reliability guides](./overview-reliability-guidance.md).
 
 To see a list of regions that includes all nonpaired regions, see [Azure region pairs](./regions-list.md).
-
 
 ## Related content
 
