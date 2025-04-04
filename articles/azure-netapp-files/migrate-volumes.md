@@ -14,26 +14,36 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 
 ## Considerations 
 
-* In ONTAP or Cloud Volumes ONTAP, you must be running ONTAP 9.9.0 or later.
+* In ONTAP or Cloud Volumes ONTAP, you must be running ONTAP 9.10.0 or later.
 * SnapMirror license entitlement needs to be obtained and applied to the on-premises ONTAP or Cloud Volumes ONTAP cluster. Work with your account team to involve an Azure Technology Specialist in applying the license to the on-premises storage cluster.
 * Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
-* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for the migration volumes. The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
+* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to the migration volumes. The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
 * After issuing the peering request, the request must be accepted within 60 minutes of making the request. Peer requests expire after 60 minutes. 
+* If using Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
+* When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional 6+1 NICs is consumed.
+
+## Before you begin 
+
+You must create Express Route or VPN resources to esnure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. There are multiple ways to ensure network connectivity. Connectivity includes this set of firewall rules (bidirectional for all): 
+
+- ICMP
+- TCP 11104
+- TCP 11105
+- HTTPS
+
+The network connectivity must be in place for all intercluster (IC) LIFs on the source cluster to all IC LIFs on the Azure NetApp Files endpoint.
 
 ## Migrate volumes
 
-1. Establish network connectivity from the ONTAP or Cloud Volumes ONTAP cluster to Azure NetApp Files. Work with the site reliability engineering team to create Express Route resources. 
-    The source cluster must have connectivity to the Azure NetApp Files delegated subnet. Connectivity includes: ICMP, TCP 11104, TCP 11105, and HTTPS.
-    Network connectivity must be in place for all intercluster logical interfaces (LIFs) on the source cluster.
 1. Create a migration API request to create Azure NetApp Files volumes for each on-premises volume you intend to migrate. 
-1. 
+
     >[!IMPORTANT]
     >Ensure the size and other volume properties on the target volumes match with the source.
 
     The "remote path" values are the host, server, and volume names of your on-premises storage. 
 
     ```rest
-    PUT: https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/Migvolfinal?api-version=2024-05-01
+    PUT: https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/Migvolfinal?api-version=2024-09-01
     Body: {
        "type":"Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
        "location":"<LOCATION>",
@@ -85,8 +95,11 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 
 1. Issue a cluster peering API request from each of the target Azure NetApp Files migration volumes to the on-premises cluster. Repeat this step for each migration volume. Each call must provide a list of the on-premises cluster intercluster LIFs. The peer IP Addresses must match your on-premises networking.
 
+    >[!NOTE]
+    >Every node in your ONTAP system needs an IC LIF. Each IC LIF needs to be listed here. 
+
     ```rest
-        POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2024-05-01
+        POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2024-09-01
     
         Body: {
            "PeerAddresses":[
@@ -103,11 +116,11 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 
     ```rest
 
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2024-05-01...
+    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2024-09-01...
     ```
     
     >[!NOTE]
-    > This operation can take time. Check on the request status. It's complete when that status reads "Succeeded." If the Azure-AsyncOperation doesn't respond successfully after an hour or it fails with an error, run the peerExternalCluster command again. Ensure the network configuration between your external ONTAP system and your Azure NetApp Files delegated subnet is working before continuing.
+    > This operation can take time. Check on the request status. It's complete when that status reads "Succeeded." If the Azure-AsyncOperation doesn't respond successfully after an hour or it fails with an error, run the `peerExternalCluster` command again. Ensure the network configuration between your external ONTAP system and your Azure NetApp Files delegated subnet is working before continuing.
 
     ```json
     {
@@ -134,12 +147,12 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 1. Issue an `authorizeExternalReplication` API request for your migration volumes. Repeat this request for each migration volume. 
 
     ```rest
-    POST: https://southcentralus.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2024-05-01
+    POST: https://southcentralus.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2024-09-01
     ```
 1. Accept the storage virtual machine (SVM) peer request from Azure NetApp Files by sending a GET request using the Azure-AsyncOperation ID in step 3. 
 
     ```rest
-    GET https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2024-05-01&...
+    GET https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2024-09-01&...
     ```
 
     An example response: 
@@ -171,13 +184,13 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 1. Break the replication relationship. You can accomplish this in the Azure portal by navigating to each volume's **Replication** menu then selecting **Break peering**. You can alternately submit an API request: 
 
     ```rest
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2024-05-01
+    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2024-09-01
     ```
 
 1. Finalize the replication by deleting the migration replication. If the deleted replication is the last migration associated with your subscription, the associated cluster peer and intercluster LIFs are deleted. 
 
     ```rest
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2024-05-01
+    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2024-09-01
     ```
  
 ## More information 
