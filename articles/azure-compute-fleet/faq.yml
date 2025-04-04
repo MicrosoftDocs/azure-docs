@@ -76,7 +76,7 @@ sections:
           Can I configure start and stop time for my Compute Fleet? 
         answer: |
           No, there's no start and stop time configuration available on Compute Fleet. 
-        - question: |
+      - question: |
           Can a Compute Fleet resource be moved ? 
         answer: |
           No. Compute Fleet doesn't currently support that capability. If you need to move, you can consider deleting it and using the Azure Resource Manager template to create another one in another location/subscription/resource group.
