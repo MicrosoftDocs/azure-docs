@@ -11,9 +11,9 @@ ms.date: 03/18/2025
 
 # Migrate AWS Lambda to Azure Functions
 
-This article provides an overview of how to migrate serverless applications from AWS Lambda to Azure Functions.
+This article provides an overview of how to migrate serverless applications from AWS Lambda to Azure Functions. Learn about Functions features, and understand the stages of migration so that you can migrate your workload efficiently.
 
-## Introduction to Azure Functions 
+## Introduction to Azure Functions
 
 Azure Functions provides serverless compute resources in Azure by enabling you to run event-driven code without provisioning or managing infrastructure. The Flex Consumption hosting plan for Functions is equivalent to Lambda's consumption-based model. It provides network integration to meet enterprise governance needs alongside serverless implementation. AWS Lambda and Azure Functions share similar features like automatic resource provisioning, scaling, and pay-per-use pricing models. Functions also supports dedicated hosting modes, taking advantage of its highly portable runtime to run in various environments. Functions provides unique benefits, such as a versatile programming model that has rich triggers and bindings, scaling models, concurrency control, and runtime support. 
 	
@@ -46,4 +46,4 @@ During this stage, you perform these steps to adapt function code, deploy and te
 Let's get started migrating your AWS Lambda code to Azure Functions:
 
 > [!div class="nextstepaction"]
-> [Discover stage](lambda-functions-migration-discover.md)
+> [Discover stage](discover-lambda-workloads.md)
