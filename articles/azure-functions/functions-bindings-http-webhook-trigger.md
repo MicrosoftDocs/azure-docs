@@ -1112,6 +1112,8 @@ The key can be included in a query string variable named `code`, as mentioned ea
 
 You can allow anonymous requests, which don't require keys. You can also require that the master key is used. You change the default authorization level by using the `authLevel` property in the binding JSON. 
 
+#### [Azure function app with Azure container apps](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deploy-container-apps?tabs=acr%2Cbash&pivots=programming-language-powershell#verify-your-functions-on-azure)
+
 > [!NOTE]
 > When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-container-registry.md#build-the-container-image-and-verify-locally).
 
