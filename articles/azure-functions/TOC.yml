@@ -580,7 +580,7 @@
         - name: Disable a function
           href: disable-function.md
         - name: Networking
-          href: configure-networking-how-to.m
+          href: configure-networking-how-to.md
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md
     - name: Monitor
