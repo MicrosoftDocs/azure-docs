@@ -6,7 +6,7 @@ author: jesscraze
 ms.author: jecru
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/03/2025
+ms.date: 04/04/2025
 
 ---
 
@@ -14,8 +14,8 @@ ms.date: 04/03/2025
 
 Microsoft supports startups at different stages of their journey in two distinct ways:
 
-- Azure startup credit offer - A fixed Azure credit offer for eligible startups and individual founders looking to explore Azure services and start building.
-- Microsoft for Startups - An invite-only program that partners with select investors to offer additional benefits to startups in their cohort or community.
+- Azure startup credit offer - A fixed Azure credit offer for eligible unincorporated startups and individual founders looking to explore Azure services and start building.
+- Microsoft for Startups - A comprehensive program for startups that are incorporated or registered as a legal entity and are ready to build, scale, and grow. In addition to Azure credits, Microsoft for startups offers dedicated support and discounted first- and third-party products and services.
 
 These two paths are designed to make accessing Azure credits and resources easier, no matter how you get started.
 
@@ -23,7 +23,7 @@ These two paths are designed to make accessing Azure credits and resources easie
 
 ### Who qualifies for the Azure startup credit offer?
 
-To qualify for the $200 startup credit offer, you must meet the following criteria:
+To qualify for the [startup credit offer](/overview.md), you must meet the following criteria:
 
 - You must be a new customer with no prior Azure account.
 - You must sign up or sign in using a valid personal Microsoft account (MSA).
@@ -31,10 +31,10 @@ To qualify for the $200 startup credit offer, you must meet the following criter
 
 ### How do I apply for Microsoft for Startups?
 
-Microsoft for Startups accepts new startups into the program through a select group of investor partners. These investors have been given a code to share with startups that they work with. Investors can share this code with current startups in their cohorts / programs as well as alumni. To learn more, [refer to this Microsoft Learn article](/microsoft-for-startups/application).
+Learn more about [how to apply, explore program benefits, and find answers to common questions](/microsoft-for-startups/).
 
 ### Can I receive the startup credit offer and join Microsoft for Startups?
 
-Yes! Founders that begin with the startup credit offer have an opportunity to join Microsoft for Startups if they receive funding from an affiliated investor. Startups will enter their investor's unique referral code on the Microsoft for Startups website to become eligible for the program.
+Yes! Founders that begin with the Azure startup credit offer can apply for Microsoft for Startups once they incorporate or register as a legal entity.
 
 If you have already redeemed Azure credits through Microsoft for Startups, you are not eligible for the startup credit offer.

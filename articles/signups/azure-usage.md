@@ -6,7 +6,7 @@ author: jesscraze
 ms.author: jecru
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/03/2025
+ms.date: 04/04/2025
 
 ---
 
@@ -30,7 +30,7 @@ You can [change the credit card on file](/azure/cost-management-billing/manage/c
 
 ### Why am I being charged when I have startup credits?
 
-Some exclusions apply and usage may not be covered by your startup credits. To check your charges, open a support request via the Azure Portal. Select 'Help+Support' to submit a ticket.
+Some exclusions apply, and usage may not be covered by your startup credits. If you notice unexpected charges, use [Help + support](https://go.microsoft.com/fwlink/p/?linkid=2201834) in the Azure portal to open a support request.
 
 ### How can I estimate costs of Azure services?
 
@@ -38,4 +38,4 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 
 ### How can I monitor my Azure usage and spending?
 
-You can track and monitor your costs using [budgets](/azure/cost-management-billing/costs/tutorial-acm-create-budgets), [cost alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending), and [cost analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis). For step-by-step guidance, [refer to this Microsoft Learn article](/azure/cost-management-billing/understand/plan-manage-costs#monitor-costs-when-using-azure-services).
+Track your costs using [budgets](/azure/cost-management-billing/costs/tutorial-acm-create-budgets), [cost alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending), and [cost analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis). Get [step-by-step guidance](/azure/cost-management-billing/understand/plan-manage-costs#monitor-costs-when-using-azure-services) to monitor and optimize your Azure spending.
