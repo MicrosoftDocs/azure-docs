@@ -134,7 +134,11 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
    :::image type="content" source="media/quickstart-create-example-consumption-workflow/add-rss-trigger-settings.png" alt-text="Screenshot shows the RSS trigger settings, including RSS URL, frequency, interval, and others." lightbox="media/quickstart-create-example-consumption-workflow/add-rss-trigger-settings.png":::
 
-1. On the designer toolbar, select **Code view**.
+1. This specific trigger requires a workaround due to double-encoding behavior. So, on the *designer* toolbar, select **Code view**.
+
+   > [!IMPORTANT]
+   >
+   > Don't select **Code view** in the trigger information pane, which opens code view in read-only mode.
 
 1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.a.dj.com/rss/RSSMarketsMain.xml'))}"`**.
 
@@ -142,9 +146,9 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
    
    **`"feedUrl": "@{encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml')}"`**  
 
-   This change is necessary to remove double-encoding behavior, which requires manual correction.  
+   You must make manually make this change to remove the double-encoding behavior.
    
-1. Switch back to the designer.
+1. Now, return to the designer. On the code editor toolbar, select **Designer**.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
