@@ -20,7 +20,7 @@ With this offering, you can directly create the private cloud using the AV64 SKU
 
 Before you begin, these items are required to create an Azure VMware Solution private cloud in an Azure Virtual Network private cloud:
 
-- Enable the Azure VMware Solution Fleet Rp Service Principal as described in the [enable Azure VMware Solution Fleet Rp service Principal](native-first-party-Principal-security.md).
+- Enable the Azure VMware Solution Fleet Rp Service Principal as described in the [enable Azure VMware Solution Fleet Rp service Principal](native-first-party-principle-security.md).
 - Ensure you have appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
 - Hosts provisioned and the "Microsoft.AVS" resource provider is registered.
 - Deploy or us an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
