@@ -2,7 +2,7 @@
 title: About Azure Data Lake Storage backup
 description: Learn how the Azure Data Lake Storage Gen2 backup works
 ms.topic: overview
-ms.date: 04/03/2025
+ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
@@ -42,6 +42,6 @@ We recommend you assign this role to the Backup vault before you configure backu
 
 You can restore data from any point in time where a recovery point exists. Recovery points are created when a storage account is in a protected state and remain available for restoration as long as they fall within the retention period defined by the backup policy. You can choose to perform a granular recovery by selecting specific containers, applying a prefix-based filter, or restoring the entire storage account.
 
-If you want to restore the recovery point to different subscription, then at present that also needs to be whitelisted by Azure backup team. You can use the same sign-up form to request this.
+If you want to restore the recovery point to different subscription, then at present that also needs to be allowlisted by Azure backup team. You can use the same sign-up form to request this.
 
 Currently, the vaulted backup solution supports restoring data only to a different storage account within the same region as the vault. However, restoring data from older recovery points may result in a longer recovery time (higher RTO).

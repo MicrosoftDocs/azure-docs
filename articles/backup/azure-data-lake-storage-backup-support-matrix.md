@@ -39,7 +39,7 @@ The following table lists the protection setting limits:
 
 - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
-- The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](https://learn.microsoft.com/rest/api/storageservices/data-lake-storage-gen2). 
+- The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2). 
 - Similarly, if you delete and recreate a container with the same name, **Object Replication** doesn't track the change, and future Recovery Points still include the previous blobs and versions.
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
 - Enabling backups isn't supported for the blob container that are configured with native replication using data factory.

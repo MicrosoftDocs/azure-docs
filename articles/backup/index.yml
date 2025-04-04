@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 03/20/2025
+  ms.date: 04/16/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -64,6 +64,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Data Lake Storage Gen 2 backup support (preview)
+            url: azure-data-lake-storage-backup-overview.md
           - text: Azure Files vaulted backup support
             url: azure-file-share-backup-overview.md?tabs=vault-standard
           - text: Azure Database for PostgreSQL - Flexible server backup support

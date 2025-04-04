@@ -106,7 +106,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Vaulted backup support for  Azure Data Lake Storage Gen 2 (preview)
+## Vaulted backup support for Azure Data Lake Storage Gen 2 (preview)
 
 Azure Backup now supports vaulted backups for block blob data in Azure Data Lake Storage (Gen 2 storage account with [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace)), enhancing data protection against ransomware and accidental loss. You can schedule backups, set retention policies, and store recovery points securely in the Backup vault for up to **10 years**. If there is data loss in the source storage account, you can  restore to an alternate account. Security features such as [Immutable vault](backup-azure-immutable-vault-concept.md?tabs=backup-vault) and [Soft delete](backup-azure-security-feature-cloud.md) protect your backup data.
 

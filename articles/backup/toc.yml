@@ -192,6 +192,8 @@
       href: disk-backup-support-matrix.md
     - name: Azure Blobs backup support matrix
       href: blob-backup-support-matrix.md
+    - name: Azure Data Lake Storage Gen 2 backup support matrix (preview)
+      href: azure-data-lake-storage-backup-support-matrix.md  
     - name: Active Directory domain controllers
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
@@ -268,6 +270,8 @@
       href: azure-kubernetes-service-cluster-backup-concept.md
   - name: Azure Blob backup
     href: blob-backup-overview.md
+  - name: Azure Data Lake Storage Gen 2 backup (preview)
+    href: azure-data-lake-storage-backup-overview.md  
   - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
@@ -626,6 +630,12 @@
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
+  - name: Azure Data Lake Storage Gen 2 backup (preview)
+    items:
+    - name: Configure backup
+      href: azure-data-lake-storage-configure-backup.md
+    - name: Restore
+      href: azure-data-lake-storage-restore.md        
   - name: Azure Files backup
     items:
     - name: From the Azure portal
