@@ -6,7 +6,7 @@ ms.author: jburchel
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-data-factory
-ms.date: 03/19/2025
+ms.date: 04/04/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Data Factory works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
 
@@ -111,15 +111,17 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 - *Azure-SSIS integration runtime* requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 - *Self-hosted integration runtime* requires you to configure your own capacity and scaling. Consider over-provisioning when you deploy a self-hosted integration runtime.
 
-### Traffic routing between zones
+### Normal operations
 
-During normal operations, Azure Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
+This section describes what to expect when Azure Data Factory resources are configured for zone redundancy and all availability zones are operational.
+
+**Traffic routing between zones:** During normal operations, Azure Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
 
 ### Zone-down experience
 
-**Detection and response.** The Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
+- **Detection and response.** The Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
 
-**Active requests.** Any pipelines and triggers in progress continue to execute, and you won't notice a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
+- **Active requests.** Any pipelines and triggers in progress continue to execute, and you won't notice a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
 
 ### Failback
 
