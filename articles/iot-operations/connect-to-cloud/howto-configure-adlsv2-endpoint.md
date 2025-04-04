@@ -41,7 +41,7 @@ Then, go to the Azure Storage account > **Access control (IAM)** > **Add role as
 
 ## Create data flow endpoint for Azure Data Lake Storage Gen2
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the IoT Operations portal, select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
@@ -137,7 +137,7 @@ Follow the steps in the [access token](#access-token) section to get a SAS token
 
 Then, create the *DataflowEndpoint* resource and specify the access token authentication method. Here, replace `<SAS_SECRET_NAME>` with name of the secret containing the SAS token and other placeholder values.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 See the [access token](#access-token) section for steps to create a secret in the operations experience web UI.
 
@@ -229,7 +229,7 @@ Before you configure the data flow endpoint, assign a role to the Azure IoT Oper
 
 Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
@@ -259,7 +259,7 @@ dataLakeStorageSettings:
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -300,7 +300,7 @@ Before you configure the data flow endpoint, assign a role to the user-assigned 
 
 Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
@@ -353,7 +353,7 @@ Get a [SAS token](../../storage/common/storage-sas-overview.md) for an Azure Dat
 
 To enhance security and follow the principle of least privilege, you can generate a SAS token for a specific container. To prevent authentication errors, ensure that the container specified in the SAS token matches the data flow destination setting in the configuration.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 > [!IMPORTANT]
 > To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
@@ -420,7 +420,7 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
