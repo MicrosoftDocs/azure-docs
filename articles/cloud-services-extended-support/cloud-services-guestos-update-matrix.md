@@ -815,7 +815,7 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: /archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
-[patches]: cloud-services-guestos-msrc-releases.md
+[patches]: cloud-services-guestos-microsoft-security-response-center-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: /security-updates/SecurityBulletins/2017/ms17-010
