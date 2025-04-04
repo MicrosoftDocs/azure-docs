@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 04/04/2025
 ---
 
 # Connect privately to API Management using an inbound private endpoint
@@ -188,7 +188,31 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
 
 #### [Standard v2](#tab/v2)
 
-To add a private endpoint to an existing API Management instance:
+To add a private endpoint when you create an API Management Standard v2 instance in the Azure portal:
+
+1. In the **Create API Management service wizard**, select the **Networking** tab.
+
+1. In **Network configuration**, select **Inbound private link and/or outbound virtual network integration**.
+
+1. Next to **Private endpoints**, select **Create new**.
+
+1. On the **Create private endpoint** page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription. |
+    | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
+    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted.  |
+    | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
+    | Sub-resource | Select **Gateway**. |
+
+1. Under **Networking**, enter or select the virtual network and subnet for your private endpoint.
+
+1. Under **Private DNS integration**, select **Integrate with private DNS zone**. The default DNS zone is displayed: **privatelink.azure-api.net**.
+
+1. Select **OK** and continue with the creation of the API Management instance.
+
+To add a private endpoint to an existing API Management Standard v2 instance:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your API Management Standard v2 instance.
 
@@ -202,7 +226,7 @@ To add a private endpoint to an existing API Management instance:
     | ------- | ----- |
     | Subscription | Select your subscription. |
     | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
-    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted  |
+    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted.  |
     | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
     | Sub-resource | Select **Gateway**. |
 
@@ -225,7 +249,7 @@ To list private endpoint connections to the API Management instance:
 
 1. On the **Private endpoints** page, review the private endpoints to the API Management instance.
 
-1. To change the connection state or delete the endpoint, select and endpoint, then select the context **(...)** menu. Choose the appropriate command on the menu.
+1. To change the connection state or delete the endpoint, select an endpoint, then select the context **(...)** menu. Choose the appropriate command on the menu.
 
 ---
 
