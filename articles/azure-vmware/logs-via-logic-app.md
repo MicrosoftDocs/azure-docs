@@ -32,7 +32,7 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-2.png" alt-text="Screenshot showing which hosting option of Azure Logic Apps to select." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-2.png":::
 
 
-3. Enter the Subscription you intend to use, the Resource Group chosen to house this instance. Give it a name and select a region. The default Windows plan is **Workflow Standard WS1 (210 total ACU, 3.5 Gb memory, 1 vCPU)** which should be enough to handle log volumes from large workloads. This can always adjust this later, as needed. After filing these details, select **Review + create**.
+3. Enter the Subscription you intend to use, the Resource Group chosen to house this instance. Give it a name and select a region. The default Windows plan is **Workflow Standard WS1 (210 total ACU, 3.5 Gb memory, 1 vCPU)** which should be enough to handle log volumes from large workloads. This can always be adjusted later, as needed. After filing these details, select **Review + create**.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-3.png" alt-text="Screenshot showing the fields that need to be populated when creating an Azure Logic App." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-3.png":::
 
@@ -46,7 +46,7 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-5.png" alt-text="Screenshot showing the Workflows blade of Azure Logic App." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-5.png":::
 
-2. In here, search for **Azure VMware Solution**. Click on the option called **Azure VMware Solution: Export private cloud logs to log management solution**.
+2. In the search bar, search for **Azure VMware Solution**. Click on the option called **Azure VMware Solution: Export private cloud logs to log management solution**.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-6.png" alt-text="Screenshot showing Azure VMware Solution option under Workflow templates in the Logic App." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-6.png":::
 
@@ -85,7 +85,7 @@ If Azure Logic Apps requires that the certificate from the log management server
 
 1. Export the certificate from the log management server and save it as a .cer file. 
 
-2. Under the Azure Logic App, select **Settings**, then click on **Certificates**. Navigate to the tab that says **Public key certificates (.cer)** and click on **Add certificate**. 
+2. In the Azure Logic App, navigate tp  **Settings > Certificates**. Navigate to the tab that says **Public key certificates (.cer)** and click on **Add certificate**. 
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-14.png" alt-text="Screenshot showing where to add the Public key certificate in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-14.png":::
 
@@ -109,7 +109,12 @@ This will work by itself for log management tools such as VMware Cloud Foundatio
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-18.png" alt-text="Screenshot showing where headers can be modified inside the workflow" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-18.png":::
 
+### Run History
+The Run History section of a workflow in Azure Logic Apps provides a detailed log of workflow executions, helping you track successful runs, diagnose failures, and troubleshoot issues. By reviewing the timestamps, status codes, and error messages, you can ensure your Azure VMware Solution syslog forwarding process is running smoothly and quickly identify any disruptions.
+
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-20.png" alt-text="Screenshot showing Run History can be accessed" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-20.png":::
+
 ### Configuring Notifications
-You will notice in the last step of the workflow that there is an optional item called **Optional-Notification (README)**. You may replace this item with one of the plethora of triggers available in Azure Logic Apps, such as Outlook emails or Teams messages, to notify you in the event there is a failure sending your logs to your log management server.
+You will notice in the last step of the workflow that there is an optional item called **Optional-Notification (README)**. You may replace this item with one of the plethora of actions available in Azure Logic Apps, such as Outlook emails or Teams messages, to notify you in the event there is a failure sending your logs to your log management server.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-19.png" alt-text="Screenshot showing where notifications can be added inside the workflow" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-19.png":::
