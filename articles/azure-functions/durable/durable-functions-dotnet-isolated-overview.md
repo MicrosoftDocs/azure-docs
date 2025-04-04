@@ -90,6 +90,7 @@ Durable entities are supported in the .NET isolated worker. See [developer's gui
 
 ## Migration guide
 
+#### [Migrate to .NET 8.0](https://learn.microsoft.com/en-us/azure/azure-functions/migrate-dotnet-to-isolated-model?tabs=net8#choose-your-target-net-version)
 This guide assumes you're starting with a .NET Durable Functions 2.x project.
 
 ### Update your project
