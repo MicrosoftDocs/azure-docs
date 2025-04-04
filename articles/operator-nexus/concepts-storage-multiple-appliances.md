@@ -99,10 +99,6 @@ Subsequent updates to the `nexusSharedStorageApplianceName` Azure resource tag h
 
 - Azure Operator Nexus doesn't support moving the shared storage service from one storage appliance to another. Attempts to change the storage appliance backing the shared storage service have no effect.
 
-### Persistent storage for virtual machines
-
-Nexus VMs support persistent OS disks and data disks backed by the storage appliance. There's no support for placing these disks on the second storage appliance. All VM disks are placed on the storage appliance in rack slot 1. For more information, see [Azure Operator Nexus storage for virtual machines](./concepts-storage-virtual-machine.md).
-
 ### Metrics, logs, and monitoring
 
 The second storage appliance appears as an independent resource in Azure, of type NetworkCloud/storageAppliance. A Nexus instance with two storage appliances have two Storage Appliance Azure Resources. These resources are functionally identical: they share an API definition; and all supported metrics, documented in [List of Metrics Collected in Azure Operator Nexus](./list-of-metrics-collected.md), function identically on both storage appliances.
