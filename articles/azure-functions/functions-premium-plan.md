@@ -3,7 +3,7 @@ title: Azure Functions Premium plan
 description: Learn about details and configuration options (virtual network, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: nzthiago
 ms.topic: concept-article
-ms.date: 03/12/2025
+ms.date: 04/04/2025
 ms.author: thalme
 ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
@@ -24,7 +24,7 @@ Premium plan hosting provides the following benefits for your functions:
 * High-density app allocation for plans with multiple function apps
 * Support for [Linux container deployments](./container-concepts.md)
 
-When you use the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the [Consumption plan](consumption-plan.md). Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.
+When you use the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the [Flex Consumption plan](./flex-consumption-plan.md) and the [Consumption plan](consumption-plan.md). Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.
 
 ## Billing
 

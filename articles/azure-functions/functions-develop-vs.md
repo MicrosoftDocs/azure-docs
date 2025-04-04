@@ -240,7 +240,9 @@ To start your function in Visual Studio in debug mode:
 
     When you run Visual Studio in debug mode, breakpoints are hit as expected.
 
+::: zone pivot="in-proc"
 For a more detailed testing scenario using Visual Studio, see [Testing functions](#testing-functions).
+::: zone-end
 
 ## Publish to Azure
 
