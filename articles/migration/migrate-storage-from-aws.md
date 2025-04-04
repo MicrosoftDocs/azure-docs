@@ -6,7 +6,10 @@ ms.author: doveychase
 ms.reviewer: prwilk, chkittel
 ms.date: 03/25/2025
 ms.topic: conceptual
-ms.custom: migration
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 ---
 
 # Migrate storage from Amazon Web Services (AWS) to Azure

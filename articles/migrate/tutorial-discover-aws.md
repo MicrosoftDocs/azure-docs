@@ -8,6 +8,10 @@ ms.topic: tutorial
 ms.date: 08/08/2024
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy25
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
