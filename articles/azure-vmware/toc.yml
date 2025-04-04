@@ -95,21 +95,21 @@ items:
         href: tutorial-delete-private-cloud.md
 - name: Azure VMware Solution in an Azure Virtual Network
   items:
-  - name: What's Azure VMware Solution in an Azure Virtual Network(Public preview)  
+  - name: What's Azure VMware Solution in an Azure Virtual Network (Public Preview)  
     href: native-introduction.md
   - name: Tutorial
     items:
-    - name: Create an Azure VMware Solution in an Azure Virtual Network (Public preview) 
+    - name: Create an Azure VMware Solution in an Azure Virtual Network (Public Preview) 
       href: native-create-azure-vmware-virtual-network-private-cloud.md
   - name: Architecture
     items:
-    - name: Azure VMware Solution in an Azure Virtual Network architecture (Public preview) 
+    - name: Azure VMware Solution in an Azure Virtual Network architecture (Public Preview) 
       href: native-architecture.md
-    - name: Azure VMware Solution in an Azure Virtual Network design consideration (Public preview) 
+    - name: Azure VMware Solution in an Azure Virtual Network design consideration (Public Preview)  
       href: native-internet-connectivity-design-considerations.md
   - name: Security
     items:
-    - name: Enable first-party application service principle for Azure VMware Solution in an Azure Virtual Network
+    - name: Enable first-party application service principal for Azure VMware Solution in an Azure Virtual Network 
       href: native-first-party-principle-security.md
   - name: Networking
     items:
@@ -117,13 +117,13 @@ items:
       href: native-network-connectivity.md
     - name: Connect to on-premises environment
       href: native-connect-onpremises.md
-    - name: Internet connectivity design considerations for Azure VMware Solution in an Azure Virtual Network private cloud
+    - name: Internet connectivity options
       href: native-internet-connectivity-design-considerations.md
     - name: Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds
       href: native-connect-multiple-private-clouds.md
-    - name: Connect Azure VMware Solution in an Azure Virtual Network private cloud to previous edition of Azure VMware Solution private cloud
+    - name: Connect Azure VMware Solution private cloud in an Azure Virtual Network private cloud to the previous edition of Azure VMware Solution private cloud
       href: native-connect-private-cloud-previous-edition.md
-    - name: DNS forward lookup zone for Azure VMware Solution in an Azure Virtual Network private cloud
+    - name: Public and Private DNS forward lookup zone configuration
       href: native-dns-forward-lookup-zone.md
 - name: Cost optimization
   items:
