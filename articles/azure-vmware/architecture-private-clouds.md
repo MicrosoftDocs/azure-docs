@@ -3,7 +3,7 @@ title: Architecture - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 12/9/2024
+ms.date: 4/4/2025
 ms.custom: engagement-fy23, references_regions
 ---
 
@@ -85,6 +85,7 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | Germany West Central | AZ03 | **AV36, AV36P**, AV64 | Yes | 7 |
 | Italy North | AZ03 | AV36P, AV64 | No | 7 |
 | Japan East | AZ02 | **AV36**, AV64 | No | 7 |
+| Japan East | AZ03 | **AV48** | No | N/A |
 | Japan West | AZ01 | **AV36**, AV64 | No | 7 |
 | North Central US | AZ01 | **AV36**, AV64 | No | 7 |
 | North Central US | AZ02 | **AV36P**, AV64 | No | 7 |
