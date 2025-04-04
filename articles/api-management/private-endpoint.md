@@ -210,7 +210,11 @@ To add a private endpoint when you create an API Management Standard v2 instance
 
 1. Under **Private DNS integration**, select **Integrate with private DNS zone**. The default DNS zone is displayed: **privatelink.azure-api.net**.
 
-1. Select **OK** and continue with the creation of the API Management instance.
+1. Select **OK**.
+
+1. Optionally configure settings for [outbound virtual network integration](integrate-vnet-outbound.md).
+
+1. Continue with the creation of the API Management instance.
 
 To add a private endpoint to an existing API Management Standard v2 instance:
 
