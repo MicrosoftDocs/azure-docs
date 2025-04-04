@@ -24,9 +24,9 @@ Note that the features offered by Spring Cloud Gateway for Tanzu are more extens
 ## Prerequisites
 
 - An Azure Spring Apps Enterprise plan instance with Spring Cloud Gateway enabled.
-- An Azure Container Apps. For more information, see [Quickstart: Deploy your first container app using the Azure portal](/azure/container-apps/quickstart-portal.md).
-- [Azure CLI](/cli/azure/install-azure-cli).
-- An Azure Container Registry with sufficient permissions to build and push Docker images, see [Create A Container Registry](/azure/container-registry/container-registry-get-started-azure-cli#create-a-container-registry)
+- An Azure Container Apps instance. For more information, see [Quickstart: Deploy your first container app using the Azure portal](/azure/container-apps/quickstart-portal).
+- [Azure CLI](/cli/azure/install-azure-cli)
+- An Azure container registry with sufficient permissions to build and push Docker images. For more information, see [Create a container registry](/azure/container-registry/container-registry-get-started-azure-cli#create-a-container-registry).
 
 ## Prepare the code of self-hosted Spring Cloud Gateway application
 
