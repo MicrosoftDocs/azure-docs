@@ -3,7 +3,7 @@ title: What's new in Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
-azure-vmware
+ms.service: azure-vmware
 ms.date: 12/24/2024
 ---
 

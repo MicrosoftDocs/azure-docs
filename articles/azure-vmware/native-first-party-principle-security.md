@@ -13,7 +13,7 @@ In this article, you learn how to re-enable the Azure VMware Solution service pr
 
 ## Prerequisite
  
-You require permissions to edit applications in your Microsoft Entra ID tenant, such as:  
+You must have the permissions to edit applications in your Microsoft Entra ID tenant, such as:  
 - Cloud Application Administrator  
 - Application Administrator  
 - Global Administrator  
