@@ -29,7 +29,7 @@ To scale-up an app to Premium V4:
 The Premium V4 tier is available for source code based applications on Windows, and both source code based applications and custom containers on Linux.  The Premium V4 tier is not available for Windows containers.
 
 > [!NOTE]
-> The Premium V4 tier does not provide a stable set of outbound IP addresses.  This behavior is intentional.  Although applications running on the Premium V4 tier can make outbound calls to internet-facing endpoints, the App Service platform does not provide a stable set of outbound IP addresses for the Premium V4 tier.  This is a change in behavior from previous App Service pricing tiers.  The portal will show "Dynamic" for "Outbound IP addresses" and "Additional Outbound IP addresses" information for applications using Premium V4.  ARM and CLI calls will return empty strings for the values of *outboundIpAddresses* and *possibleOutboundIpAddresses*.  If applications running on Premium V4 require a stable outbound IP address(es), developers will need to use a solution like [Azure NAT Gateway](https://learn.microsoft.com/azure/app-service/overview-nat-gateway-integration) to get a predictable IP address for outbound internet-facing traffic.
+> The Premium V4 tier does not provide a stable set of outbound IP addresses.  This behavior is intentional.  Although applications running on the Premium V4 tier can make outbound calls to internet-facing endpoints, the App Service platform does not provide a stable set of outbound IP addresses for the Premium V4 tier.  This is a change in behavior from previous App Service pricing tiers.  The portal will show "Dynamic" for "Outbound IP addresses" and "Additional Outbound IP addresses" information for applications using Premium V4.  ARM and CLI calls will return empty strings for the values of *outboundIpAddresses* and *possibleOutboundIpAddresses*.  If applications running on Premium V4 require a stable outbound IP address(es), developers will need to use a solution like [Azure NAT Gateway](overview-nat-gateway-integration.md) to get a predictable IP address for outbound internet-facing traffic.
 
 Premium V4 and specific Premium V4 SKUs are available in some Azure regions. Microsoft is adding availability in other regions continually. To see if a specific PremiumV4 offering is available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md). Substitute *P1V4* with the desired SKU:
 
@@ -54,8 +54,6 @@ When you configure the new App Service plan in the <a href="https://portal.azure
 
 To see all the Premium V4 options, select **Explore pricing plans**, then select one of the Premium V4 plans and select **Select**.
 
-:::image type="content" source="media/app-service-configure-premium-tier/explore-pricing-plans-TBD.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V4 plan selected.":::
-
 > [!IMPORTANT]
 > You might not see **P0V4**, **P1V4**, **P2V4**, **P3V4**, **P1mV4**, **P2mV4**, **P3mV4**, **P4mV4**, and **P5mV4** as options or some options might be grayed out. If so, **Premium V4** isn't available in the underlying App Service deployment. For more information, see [Scale up from an unsupported resource group and region combination](#unsupported).
 
@@ -77,11 +75,7 @@ Depending on your hosting environment, scaling up can require extra steps.
 
 1. Select one of the Premium V4 plans and select **Select**.
 
-   :::image type="content" source="media/app-service-configure-premium-tier/explore-pricing-plans-TBD.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V4 plan selected.":::
-
    If your operation finishes successfully, your app's overview page shows that it's now in a Premium V4 tier.
-
-   :::image type="content" source="media/app-service-configure-premium-tier/finished-TBD.png" alt-text="Screenshot showing the Premium V4 pricing tier on your app's overview page.":::
 
 ### If you get an error
 
