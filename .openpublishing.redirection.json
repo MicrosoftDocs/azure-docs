@@ -6471,27 +6471,27 @@
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family-2-3-4-retirement.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family-2-3-4-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-2-3-4-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family1-retirement.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family1-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-1-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-msrc-releases.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-msrc-releases",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-microsoft-security-response-center-releases",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-retirement-policy.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-retirement-policy",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-retirement-policy",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-update-matrix.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-update-matrix",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-update-matrix",
       "redirect_document_id": false
     },
     {
@@ -6740,6 +6740,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/work-with-styx-objects-and-indicators.md",
+      "redirect_url": "/azure/sentinel/work-with-styx-objects-indicators",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/geo-redundant-storage-for-large-file-shares.md",
       "redirect_url": "/azure/storage/files/files-redundancy",
       "redirect_document_id": false
@@ -6748,6 +6753,36 @@
       "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
       "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
            "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/sentinel/work-with-styx-objects-indicators.md",
+      "redirect_url": "/azure/sentinel/work-with-stix-objects-indicators",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/migration.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-assess.md",
+      "redirect_url": "/azure/azure-functions/migration/assess-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-discover.md",
+      "redirect_url": "/azure/azure-functions/migration/discover-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-migrate.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_document_id": false
+    },
   ]
 }

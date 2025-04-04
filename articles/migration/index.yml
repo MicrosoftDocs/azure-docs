@@ -38,7 +38,7 @@ productDirectory:
 conceptualContent:
   sections:
     - title: Plan your migration to Azure
-      summary: "Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a topic to access comprehensive insights and practical guidance customized to your migration needs."
+      summary: "Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a scenario to access comprehensive insights and practical guidance customized to your migration needs."
       items:
       - title: Adopt Azure
         links:
@@ -128,14 +128,14 @@ conceptualContent:
             text: Azure data and AI services map
             itemType: reference
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
-            text: Amazon RDS for PostgreSQL for PostgreSQL (offline)
-            itemType: overview
+            text: Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (offline)
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
-            text: Amazon RDS for PostgreSQL for PostgreSQL (online)
-            itemType: overview
+            text: Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (online)
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
-            text: Amazon Aurora PostgreSQL (offline)
-            itemType: overview
+            text: Amazon Aurora PostgreSQL to Azure Database for PostgreSQL (offline)
+            itemType: tutorial
         footerLink:
           text: See more
           url: ./migrate-databases-from-aws.md
@@ -196,13 +196,13 @@ conceptualContent:
             text: Azure databases services map
             itemType: reference
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline
-            text: Migrate to Azure Database for PostgreSQL (offline)
-            itemType: how-to-guide
+            text: Migrate Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (offline)
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
-            text: Migrate to Azure Database for PostgreSQL (online)
-            itemType: how-to-guide
-          - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
-            text: Migrate MySQL on Google Cloud to Azure Database for MySQL
+            text: Migrate Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (online)
+            itemType: tutorial
+          - url: /azure/dms/tutorial-mysql-azure-mysql-offline-portal
+            text: Migrate Google Cloud SQL for MySQL to Azure Database for MySQL (offline)
             itemType: tutorial
         footerLink:
           text: See more
