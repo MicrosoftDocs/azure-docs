@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 04/03/2025
+ms.date: 04/04/2025
 zone_pivot_groups: app-service-sku
 #customer intent: As an engineer responsible for business continuity, I want to understand how Azure App Service works from a reliability perspective.
 ---
@@ -23,13 +23,13 @@ When you deploy Azure App Service, you can create multiple instances of an *App 
 
 ::: zone pivot="free-shared-basic"
 
-- [Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3 or Isolated v2 App Service plans and that you have at minimum three instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
+[Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3 or Isolated v2 App Service plans and that you have at minimum three instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
 ::: zone pivot="premium,isolated"
 
-- [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
+[Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
 
 ::: zone-end
 
@@ -88,7 +88,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ::: zone pivot="free-shared-basic"
 
-- You must use the [Premium v2, Premium v3, or Isolated v2 plan types](/azure/app-service/overview-hosting-plans). To view more information, make sure that you select the appropriate tier at the top of this page.
+You must use the [Premium v2, Premium v3, or Isolated v2 plan types](/azure/app-service/overview-hosting-plans). To view more information, make sure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
