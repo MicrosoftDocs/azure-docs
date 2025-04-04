@@ -1,6 +1,6 @@
 ---
-title: Create a mapping data flow
-description: How to create an Azure Data Factory mapping data flow
+title: Create a Mapping Data Flow
+description: Learn how to create an Azure Data Factory mapping data flow.
 author: whhender
 ms.author: whhender
 ms.reviewer: makromer
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 02/13/2025
 ---
 
-# Create Azure Data Factory data flows
+# Create an Azure Data Factory mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -40,7 +40,7 @@ You can also add data flows directly to your data factory without using a templa
 # [Azure Synapse](#tab/synapse-analytics)
 
 Get started by first [creating a new Synapse Workspace](../synapse-analytics/quickstart-create-workspace.md) from the Azure portal. After creating your new workspace, select the **Open Azure  Studio** tile to launch the Data Factory UI.
-    
+
 :::image type="content" source="media/data-flow-create/open-synapse-studio-from-portal.png" alt-text="Shows a screenshot of how to open the Synapse Studio from the Azure portal.":::
 
 You can add sample Data Flows from the template gallery.  To browse the gallery, select the **Integrate** tab in Synapse Studio and click the plus sign to choose **Browse Gallery**.
@@ -62,4 +62,4 @@ You can also add data flows directly to your workspace without using a template.
 ## Related content
 
 * [Tutorial: Transform data using mapping data flows](tutorial-data-flow.md)
-* Begin building your data transformation with a [source transformation](data-flow-source.md).
+* [Source transformation in mapping data flows](data-flow-source.md)
