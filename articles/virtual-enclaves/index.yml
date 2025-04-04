@@ -1,0 +1,123 @@
+### YamlMime:Landing
+
+title: Virtual Enclaves Documentation
+summary: Learn how to use Azure Virtual Enclaves. Get started with quickstarts, tutorials, and best practices for deploying, securing, and managing enclave environments in Azure.
+
+metadata:
+  title: Azure Virtual Enclaves Documentation - Tutorials, Quickstarts, API References
+  description: Learn how to use Azure Virtual Enclaves. Quickstarts, tutorials, samples, and best practices for deploying, securing, and managing enclaves.
+  # ms.service: azure-virtual-enclaves
+  ms.topic: landing-page
+  author: jadean-msft
+  ms.author: jadean
+  ms.date: 03/028/2025
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Azure Virtual Enclaves (AVE) Overview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Enclaves?
+            url: what-is-azure-virtual-enclaves.md
+      #     - text: Why use Azure Virtual Enclaves?
+      #       url: why-azure-virtual-enclaves.md
+      # - linkListType: learn
+      #   links:
+      #     - text: Understanding Enclave Networking
+      #       url: networking.md
+#           - text: Designing intra-enclave network isolation
+#             url: designing-intra-enclave-network-isolation.md
+#  # Card
+#   - title: Components of a Virtual Enclave Environment 
+#     linkLists:
+#       - linkListType: concept
+#         links:
+#           - text: What is a community?
+#             url: what-is-a-community.md
+#           - text: What is a transit hub?
+#             url: what-is-a-transit-hub.md
+#           - text: What is a Community Endpoint?
+#             url: what-is-a-community-endpoint.md
+#           - text: What is an enclave?
+#             url: what-is-an-enclave.md
+#           - text: What is a Enclave Endpoint?
+#             url: what-is-an-enclave-endpoint.md
+#           - text: What is a Enclave Connection?
+#             url: what-is-an-enclave-connection.md
+#           - text: What is a workload?
+#             url: what-is-a-workload.md
+#           - text: What is a service catalog?
+#             url: what-is-the-service-catalog.md
+#  # Card
+#   - title: Deploy an Azure Virtual Enclaves Environment
+#     linkLists:
+#       - linkListType: quickstart
+#         links:
+#           - text: Onboard to AVE
+#             url: Onboard-to-AVE.md
+#           - text: Deploy an AVE Community with Enclaves
+#             url: Deploy-an-AVE-Community-with-Enclaves.md
+#           - text: Create a Community Endpoint
+#             url: Create-a-Community-Community-Endpoint-in-the-Azure-Portal.md
+#           - text: Create an Enclave
+#             url: Create-an-Enclave-in-the-Azure-Portal.md
+#           - text: Create a Workload
+#             url: Create-a-Workload-in-the-Azure-Portal.md
+#           - text: Migrate workload resources
+#             url: Migrate-Workload-Resources.md
+#           - text: Deploy a Storage Account
+#             url: Deploy-a-Storage-Account-from-the-Service-Catalog-into-a-Workload.md
+#           - text: Create an Enclave Endpoint
+#             url: Create-a-Enclave-Endpoint-in-the-Azure-Portal.md
+#           - text: Create an Enclave Connection
+#             url: Create-an-Enclave-Connection-in-the-Azure-Portal.md
+#           - text: Easy button deployments
+#             url: Easy-Button-Deployments.md
+#  # Card
+#   - title: Governance, Security, and Compliance
+#     linkLists:
+#       - linkListType: how-to-guide
+#         links:
+#           - text: Just-In-Time Access
+#             url: just-in-time-access.md
+#           - text: Dynamic Access Controls
+#             url: dynamic-access-controls.md
+#           - text: Managed Identity
+#             url: managed-identity.md
+#           - text: Customer Managed Key Encryption
+#             url: setup-sustomer-sanaged-key-encryption-within-an-enclave.md
+#           - text: Policy compliance framework
+#             url: policy-compliance-framework.md
+#           - text: Regulatory compliance guidelines
+#             url: regulatory-compliance-guidelines.md
+#           - text: Security best practices
+#             url: security-best-practices.md
+#  # Card
+#   - title: Manage and Monitor Virtual Enclaves
+#     linkLists:
+#       - linkListType: how-to-guide
+#         links:
+#           - text: Monitor your enclaves
+#             url: monitor-your-enclaves.md
+#           - text: Maintenance mode
+#             url: maintenance-mode.md
+#           - text: IP Allocation Management
+#             url: ip-allocation-management.md
+#           - text: Naming rules and restrictions
+#             url: naming-rules-and-restrictions-for-azure-virtual-enclave-resources.md
+#  # Card
+#   - title: Troubleshoot
+#     linkLists:
+#       - linkListType: how-to-guide
+#         links:
+#           - text: Troubleshooting guide
+#             url: troubleshooting.md
+#           - text: Policy compliance exemptions
+#             url: policy-compliance-exemptions.md
+#           - text: Transfer or move data into my enclave
+#             url: transfer-or-move-data-into-my-enclave.md
