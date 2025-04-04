@@ -16,13 +16,7 @@ Enclave Connections can also enable secured public access to resources within a 
 
 ## Architecture of an enclave connection
 
-![image1.png](./media/image-b0a65533-8f75-46d0-aefe-843d4ed8473b.png)
+![Graphic showing connections between two enclaves and connections to external resources.](./media/connections-enclave-to-enclave-and-enclave-to-external.png)
 
 ## Template
-See template documentation [here](./ave-templates.md#connections-template)
-
-## About enclave connection resources
-coming soon
-
-## Next Steps
-- coming soon
+See [template documentation](./ave-templates.md#connections-template)

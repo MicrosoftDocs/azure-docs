@@ -22,7 +22,7 @@ Enclaves come with the following primary platform-managed and platform-deployed 
 - [Admin Workstations](./understanding-admin-workstations.md) ([Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines.md)) and [Azure Bastion](../bastion/bastion-overview.md). These resources are created by default for Enclave system administrative access.
 - [Private Endpoints](../private-link/private-endpoint-overview.md) and [Private DNS Zones](../dns/private-dns-privatednszone.md). By default and for private networking security, Azure Private DNS Zones, along with certain private DNS records, are created for every new enclave. All platform-managed Enclave resources are configured to use Azure Private Link Service.
 
-![Communities and Virtual Enclaves - Enclave.svg](./media/communities-and-virtual-enclaves--enclave.svg)
+![Graphic showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-and-virtual-enclaves-enclave.svg)
 
 ## Enclave managed resource group 
 When you create an enclave, the Azure Virtual Enclaves resource provider also creates a resource group which is managed by the Virtual Enclaves service. This managed resource group has a controlled configuration that allows for specific control plane actions. When an enclave is created, Azure places a [deny assignment](../role-based-access-control/deny-assignments.md) to protect resources in the enclave managed resource group.
@@ -33,7 +33,7 @@ For more details regarding the Enclave managed resource group, learn more about 
 Maintenance mode is a feature that allows Enclave Owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary. [Learn more](./maintenance-mode.md).
 
 ## Template
-See template documentation [here](./ave-templates.md#enclave-template)
+See [template documentation](./ave-templates.md#enclave-template)
 
 ## Managed Resources
 The following resources types are deployed into the Enclave Managed Resource Group:

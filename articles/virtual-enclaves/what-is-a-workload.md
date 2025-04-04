@@ -22,12 +22,11 @@ The alternative is to deploy an Azure Resource Group through the portal that isn
 ## Architecture of a workload
 Workloads come with the following primary platform-managed and platform-deployed resources:
 
-- Workload managed resource group
-- [Azure Virtual Enclaves governance](./what-is-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring)
+- [Azure Virtual Enclaves governance](./what-is-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Enclave services and properties](./what-is-an-enclave.md)
 
-## Workload managed resource group
-When you create a workload, the Azure Virtual Enclaves resource provider also creates a resource group which is managed by the Virtual Enclaves service. This managed resource group has a controlled configuration that allows for specific control plane actions.
+## Workload resource group
+When you create a workload, you create Workload Resource Groups that you need to organize your resources. You could separate 
 
 For more details regarding the Workload managed resource group, learn more about [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
 

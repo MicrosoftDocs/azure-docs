@@ -1,6 +1,6 @@
 ---
 title: What is the Service Catalog?
-description: Azure Virtual Enclaves Documentation
+description: What is the Service Catalog?
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves

@@ -14,7 +14,7 @@ Enclave Endpoints define how workloads can be accessed from outside of an Enclav
 
 ## Architecture of an enclave endpoint
 
-![image1.png](./media/image-cd6e271a-20a8-403c-87a0-0aa10a33c58a.png)
+![Graphic showing enclave resource connections and access from another enclave and from an external resource.](./media/community-two-enclaves-connections-externally.png)
 
 ## Enclave Endpoint Rules
 Enclave endpoint rules have the following three components:
@@ -29,4 +29,4 @@ Enclave Endpoints support two types of connections:
 - Inbound from a Transit Hub
 
 ## Template
-See template documentation [here](./ave-templates.md#endpoints-template)
+See [template documentation](./ave-templates.md#endpoints-template)
