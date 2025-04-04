@@ -10,17 +10,17 @@ ms.custom: engagement-fy25
 
 # Connect to an On-premises environment
 
-In this article, you learn how the private cloud gets connectivity to your on-premises environments. It discusses how you deploy Azure VMware Solution in an Azure Virtual Network. You may need to have network connectivity between the private cloud and other networks you have on an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or on the Internet. 
+You may need to have network connectivity between the private cloud and other networks you have on an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or on the Internet. In this article, you learn how the private cloud gets connectivity to your on-premises environments.
 
 ## Prerequisites
 
-- Have Azure VMware Solution an Azure Virtual Network private cloud deployed successfully within your Azure virtual network.
-- Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a virtual network gateway for ExpressRoute. A virtual network gateway for ExpressRoute uses the GatewayType ExpressRoute, not VPN.
+- Azure VMware Solution private cloud in an Azure Virtual Network deployed successfully within your Azure Vvirtual Nnetwork.
+- Ensure that you have a Virtual Network and a Virtual Network gateway created and fully provisioned. Follow the instructions to create a virtual network gateway for ExpressRoute. A virtual network gateway for ExpressRoute uses the GatewayType ExpressRoute, not VPN.
 - You must have an active ExpressRoute circuit.
 
 ## Connect to an on-premises environment
 
-The Azure VMware Solution on native connectivity to on-premises is done using a standard ExpressRoute connection or Site-to-Site VPN. This is similar to the way customers have been establishing connectivity between Azure Virtual Network (virtual network) and on-premises connectivity as described in the Azure virtual network documentation.
+Connectivity to on-premises is done using a standard ExpressRoute connection or Site-to-Site VPN. This is similar to the way customers establish connectivity between Azure Virtual Network and on-premises connectivity as described in the Azure Virtual Network documentation.
 
 > [!NOTE]
 > You can connect through VPN, but that information is out of scope for this article.
