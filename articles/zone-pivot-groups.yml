@@ -1652,8 +1652,6 @@ groups:
     title: Single Azure VM and Azure Arc-enabled VM
   - id: multiple-portal-cli
     title: Multiple VMs using Azure portal and Azure CLI
-  - id: at-scale-policy
-    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service

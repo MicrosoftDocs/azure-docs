@@ -37,7 +37,7 @@ The ephemeral bootstrap node sequentially provisions each KCP node, and if a KCP
 
 After successful provisioning of KCP nodes, the deployment action proceeds to provision NMP nodes in parallel. If an NMP node fails to provision, the cluster deployment action fails, resulting in the cluster status being marked as failed.
 
-Upon successful provisioning of NMP nodes, a storage appliance is created before the deployment action proceeds with provisioning the compute nodes. Compute nodes are provisioned in parallel, and once the defined compute node threshold is met, the cluster status transitions from Deploying to Running. However, the remaining nodes continue undergoing the provisioning process until they too are successfully provisioned.
+Upon successful provisioning of NMP nodes, up to two storage appliances are created before the deployment action proceeds with provisioning the compute nodes. Compute nodes are provisioned in parallel, and once the defined compute node threshold is met, the cluster status transitions from Deploying to Running. However, the remaining nodes continue undergoing the provisioning process until they too are successfully provisioned.
 
 
 ## Cluster operations

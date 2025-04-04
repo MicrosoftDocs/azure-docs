@@ -239,9 +239,9 @@
     href: files-change-redundancy-configuration.md
   - name: Initiate storage account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
-  - name: Premium file shares redundancy support
+  - name: SSD file shares redundancy support
     href: redundancy-premium-file-shares.md
-  - name: Deploy SQL Server Failover Cluster with premium file shares
+  - name: Deploy SQL Server Failover Cluster with SSD file shares
     href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
 - name: Performance, scale, and cost
   items:
