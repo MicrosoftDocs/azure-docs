@@ -104,7 +104,7 @@ Update-AzFrontDoorFireWallPolicy `
 ---
 
 > [!NOTE]
-> If you leave the block response body blank, the WAF will respond 403 (forbidden) on normal WAF blocks and will respond 429 (too many requests) on rate limit blocks. 
+> If you leave the block response body blank, the WAF returns a *403 Forbidden* response for normal WAF blocks and a *429 Too many requests* for rate limit blocks. 
 
 ::: zone pivot="front-door-standard-premium"
 
