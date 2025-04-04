@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to configure an Azure App Service Environment v3'
 description: In this quickstart, you create an Azure resource group, a virtual network, and a subnet with unique, randomly generated names to configure an Azure App Service Environment v3. 
 ms.topic: quickstart
-ms.date: 03/20/2025
+ms.date: 04/04/2025
 ms.custom: devx-track-terraform
 ms.service: azure-app-service
 author: cephalin
@@ -14,9 +14,7 @@ content_well_notification:
 
 # 'Quickstart: Use Terraform to configure an Azure App Service Environment v3'
 
-In this quickstart, you use Terraform to create a resource group, virtual network, and a subnet to configure an Azure App Service Environment v3. This code creates a resource group, a container that holds related resources for an Azure solution; a virtual network; and a subnet to provide network isolation and segmentation for the App Service Environment. App Service Environment v3 is a fully isolated environment that's dedicated to securely run App Service apps at high scale. It's typically used when you need to host many apps in a one region, deploy apps into a virtual network, or when you need to use a lot of memory.
-
-[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+App Service Environment is a single-tenant deployment of Azure App Service. You use it with an Azure virtual network. You need one subnet for a deployment of App Service Environment, and this subnet can't be used for anything else. In this quickstart, you use [Terraform](/azure/developer/terraform) to create a resource group, virtual network, and a subnet to configure an Azure App Service Environment v3. This code creates a resource group, a container that holds related resources for an Azure solution; a virtual network; and a subnet to provide network isolation and segmentation for the App Service Environment.
 
 > [!div class="checklist"]
 > * Create an Azure resource group with a unique name.
