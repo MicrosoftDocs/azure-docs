@@ -28,10 +28,6 @@ In the preceding example, we kept the response code as 403 and configured a shor
 
 :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Screenshot that shows a custom response example.":::
 
-
-> [!NOTE]
-> If you leave the block response body blank, the WAF will respond 403 (forbidden) on normal WAF blocks and will respond 429 (too many requests) on rate limit blocks. 
-
 # [**PowerShell**](#tab/powershell)
 
 Follow these steps to configure a custom response status code and message by using PowerShell.
@@ -107,6 +103,9 @@ Update-AzFrontDoorFireWallPolicy `
 
 ---
 
+> [!NOTE]
+> If you leave the block response body blank, the WAF will respond 403 (forbidden) on normal WAF blocks and will respond 429 (too many requests) on rate limit blocks. 
+
 ::: zone pivot="front-door-standard-premium"
 
 "{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
@@ -122,4 +121,4 @@ Update-AzFrontDoorFireWallPolicy `
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure a Web Application Firewall rate-limit rule](../afds/waf-front-door-rate-limit-configure.md).
+> [Configure a Web Application Firewall rate-limit rule](../afds/waf-front-door-rate-limit-configure.md)
