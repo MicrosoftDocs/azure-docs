@@ -737,16 +737,16 @@
     - name: Migrate from AWS Lambda
       items:
         - name: Overview
-          href: migration/lambda-functions-migration-overview.md
+          href: migration/migrate-lambda-workloads-overview.md
           displayName: AWS Lambda, migration
         - name: Discover
-          href: migration/lambda-functions-migration-discover.md
+          href: migration/discover-lambda-workloads.md
           displayName: AWS Lambda, migration
         - name: Assess
-          href: migration/lambda-functions-migration-assess.md
+          href: migration/assess-lambda-workloads.md
           displayName: AWS Lambda, migration
         - name: Migrate
-          href: migration/lambda-functions-migration-migrate.md
+          href: migration/migrate-lambda-workloads.md
           displayName: AWS Lambda, migration   
     - name: Upgrade runtime versions
       items:
