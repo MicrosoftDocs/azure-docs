@@ -297,10 +297,6 @@
           href: howto-virtual-machine-placement-hints.md
         - name: Gather VM Console Data
           href: howto-gather-vm-console-data.md
-        - name: Create data disk
-          href: howto-deploy-data-disk-bicep.md
-        - name: Create virtual machine with persistent disks
-          href: howto-deploy-persistent-vm-bicep.md
     - name: Observability
       expanded: false
       items:
