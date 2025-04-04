@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-bastion
-ms.date: 11/21/2024
+ms.date: 04/04/2025
 
 ---
 
@@ -90,6 +90,8 @@ There's no additional cost to use zone redundancy for Azure Bastion.
 
 ### Normal operations
 
+This section describes what to expect when Bastion resources are configured for zone redundancy and all availability zones are operational.
+
 **Traffic routing between zones:** When you initiate an SSH or RDP session, it can be routed to an Azure Bastion instance in any of the availability zones you selected.
 
 If you configure zone redundancy on Azure Bastion, a session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to. In the following diagram, a request from the user is sent to an Azure Bastion instance in zone 2, although the virtual machine is in zone 1:
@@ -101,13 +103,13 @@ In most scenarios, the small amount of cross-zone latency isn't significant. How
 
 ### Zone-down experience
 
-**Detection and response:** When you use zone redundancy, Azure Bastion detects and responds to failures in an availability zone. You don't need to do anything to initiate an availability zone failover.
+- **Detection and response:** When you use zone redundancy, Azure Bastion detects and responds to failures in an availability zone. You don't need to do anything to initiate an availability zone failover.
 
-**Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
+- **Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
 
 If the virtual machine you're connecting to isn't in the affected availability zone, the virtual machine continues to be accessible. See [Reliability in virtual machines: Zone down experience](./reliability-virtual-machines.md#zone-down-experience) for more information on the VM zone down experience.
 
-**Traffic rerouting:** When you use zone redundancy, new connections use Azure Bastion instances in the surviving availability zones. Overall, Azure Bastion remains operational.
+- **Traffic rerouting:** When you use zone redundancy, new connections use Azure Bastion instances in the surviving availability zones. Overall, Azure Bastion remains operational.
 
 ### Failback
 

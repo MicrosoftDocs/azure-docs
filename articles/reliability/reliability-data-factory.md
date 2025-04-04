@@ -6,7 +6,7 @@ ms.author: jburchel
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-data-factory
-ms.date: 03/19/2025
+ms.date: 04/04/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Data Factory works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
 
@@ -113,13 +113,15 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 
 ### Normal operations
 
+This section describes what to expect when Azure Data Factory resources are configured for zone redundancy and all availability zones are operational.
+
 **Traffic routing between zones:** During normal operations, Azure Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
 
 ### Zone-down experience
 
-**Detection and response.** The Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
+- **Detection and response.** The Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
 
-**Active requests.** Any pipelines and triggers in progress continue to execute, and you won't notice a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
+- **Active requests.** Any pipelines and triggers in progress continue to execute, and you won't notice a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
 
 ### Failback
 

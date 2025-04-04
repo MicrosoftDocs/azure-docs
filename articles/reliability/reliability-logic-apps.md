@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 services: logic-apps
 ms.service: azure-logic-apps
-ms.date: 01/06/2025
+ms.date: 04/04/2025
 zone_pivot_groups: logic-app-hosting-types
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Logic Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
@@ -177,6 +177,8 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 ### Normal operations
 
+This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and all availability zones are operational.
+
 
 ::: zone pivot="consumption"
 
@@ -192,9 +194,9 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 ### Zone-down experience
 
-**Detection and response:** The Azure Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+- **Detection and response:** The Azure Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-**Active requests:** If an availability zone becomes unavailable, any in-progress workflow executions that run on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Due to this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
+- **Active requests:** If an availability zone becomes unavailable, any in-progress workflow executions that run on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Due to this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
 
 ### Failback
 
