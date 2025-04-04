@@ -124,7 +124,7 @@ Here's how to generate a registration key by using the Azure portal:
 1. Select **Download** to download a text file that contains the newly created registration key, or copy the registration key to your clipboard to use it later. You can also retrieve the registration key later by returning to the host pool overview.
 
 > [!WARNING]
-> Upon generating a new key, the **RDP Properties** of the Host Pool will reset to the default configuration.
+> Upon generating a new registration key, the **RDP Properties** of the Host Pool will reset to the default configuration.
 
 # [Azure PowerShell](#tab/powershell)
 
