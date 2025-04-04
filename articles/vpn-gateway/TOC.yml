@@ -54,20 +54,20 @@
     items:
     - name: About gateway SKUs
       href: about-gateway-skus.md
-    - name: SKU consolidation & migration
+    - name: Gateway SKU consolidation & migration
       items:
       - name: About SKU consolidation & migration
         href: gateway-sku-consolidation.md
-    - name: Basic SKU public IP address migration
-      items:
-      - name: About Basic SKU public IP address migration
-        href: basic-public-ip-migrate-about.md
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
     - name: Change a gateway SKU
       href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
+  - name: Public IP addresses
+    items:
+    - name: About public IP address Basic SKU migration
+      href: basic-public-ip-migrate-about.md
   - name: About active-active mode gateways
     href: about-active-active-gateways.md
   - name: About zone-redundant gateways
@@ -100,7 +100,7 @@
       href: vpn-gateway-about-skus-legacy.md
   - name: Migrate classic gateways to Resource Manager
     href: vpn-gateway-classic-resource-manager-migration.md
-  - name: Active-active gateways
+  - name: Active-active mode gateways
     items:
     - name: About active-active mode gateways
       href: about-active-active-gateways.md
