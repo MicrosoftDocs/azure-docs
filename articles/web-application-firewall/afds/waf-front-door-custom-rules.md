@@ -5,7 +5,6 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-services: web-application-firewall
 ms.date: 05/31/2024
 ---
 

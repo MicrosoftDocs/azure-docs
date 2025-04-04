@@ -8,7 +8,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: overview
-ms.date: 01/17/2024
+ms.date: 03/27/2025
 ms.author: normesta
 
 ---
@@ -70,14 +70,6 @@ See these articles to learn how to monitor task runs:
 - [Analyze storage task runs](storage-tasks/storage-task-runs.md)
 - [Monitor Azure Storage Actions](storage-tasks/monitor-storage-tasks.md)
 
-### Handle storage task events
-
-Azure Storage Actions events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
-
-Azure Storage Actions events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering. Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service will send data about that event to the endpoint.
-
-See the [Azure Storage Actions events schema](../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json) article to view the full list of the events that Azure Storage Actions supports.
-
 ## Supported Regions
 
 Azure Storage tasks are supported in the following public regions:
@@ -113,12 +105,17 @@ Azure Storage tasks are supported in the following public regions:
 
 - West US 2
 
+> [!NOTE]
+> General-purpose v1 accounts don't support the latest features and hence Azure Storage Actions is not supported either. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
+
 ## Pricing and billing
 
-You can try the feature for free during the preview, paying only for transactions invoked on your storage account. Pricing information for the feature will be published before general availability.
+Pricing is based on the execution of storage task assignments. Each time your storage task assignment executes, you are billed a task execution instance charge. You also incur a charge based on the count of objects scanned and evaluated against the conditions of the storage task. That charge is based on a single price per million objects scanned. The final meter applies to the count of operations performed on objects in the storage account. This charge is also based on a single price per million objects. Meters are applied to each executing instance. If a storage task assignment is scheduled to execute repeatedly, then you're billed for each separate instance. 
 
-> [!Note]
-> General-purpose v1 accounts don't support the latest features and hence Azure Storage Actions is not supported either. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
+At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter. These charges appear in the subscription of the storage account where the task assignment is configured. To learn more about Azure Storage Actions billing meters along with example calculations for common scenarios, see [Plan to manage costs for Azure Storage Actions](storage-actions-plan-manage-costs.md)
+
+> [!NOTE]
+> Pricing for Azure Storage Actions will start rolling out across the different preview regions starting from April 1, 2025. Charges for Azure Storage Actions might appear on your subscription if a task assignment was executed after the effective date. During the rollout period, charges for objects targeted and operations executed might not appear on your bill until later in the cycle. Because of this delay, your bill might seem lower than expected during the first part of the month. 
 
 ## Next steps
 

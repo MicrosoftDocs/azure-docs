@@ -1,17 +1,17 @@
 ---
-title: Enrich data by using dataflows
-description: Use contextualization datasets to enrich data in Azure IoT Operations dataflows.
+title: Enrich data by using data flows
+description: Use contextualization datasets to enrich data in Azure IoT Operations data flows.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 11/13/2024
 
-#CustomerIntent: As an operator, I want to understand how to create a dataflow to enrich data sent to endpoints.
+#CustomerIntent: As an operator, I want to understand how to create a data flow to enrich data sent to endpoints.
 ms.service: azure-iot-operations
 ---
 
-# Enrich data by using dataflows
+# Enrich data by using data flows
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
@@ -19,22 +19,14 @@ You can enrich data by using the *contextualization datasets* function. When inc
 
 To load sample data into the state store, use the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli).
 
-For example, consider the following dataset with a few records, represented as JSON records:
+For example, consider the following dataset with a few records, using the [JSON lines format](https://jsonlines.org/):
 
 ```json
-{
-  "Position": "Analyst",
-  "BaseSalary": 70000,
-  "WorkingHours": "Regular"
-},
-{
-  "Position": "Receptionist",
-  "BaseSalary": 43000,
-  "WorkingHours": "Regular"
-}
+{ "Position": "Analyst", "BaseSalary": 70000, "WorkingHours": "Regular" }
+{ "Position": "Receptionist", "BaseSalary": 43000, "WorkingHours": "Regular" }
 ```
 
-The mapper accesses the reference dataset stored in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the state store correspond to a dataset in the dataflow configuration.
+The mapper accesses the reference dataset stored in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the state store correspond to a dataset in the data flow configuration.
 
 # [Bicep](#tab/bicep)
 

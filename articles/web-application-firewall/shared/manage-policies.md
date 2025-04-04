@@ -4,7 +4,7 @@ description: Learn about managing Azure Web Application Firewall policies using 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/15/2022
 ---
 

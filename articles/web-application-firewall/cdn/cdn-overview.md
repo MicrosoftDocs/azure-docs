@@ -5,7 +5,7 @@ services: web-application-firewall
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/16/2023
 ---
 

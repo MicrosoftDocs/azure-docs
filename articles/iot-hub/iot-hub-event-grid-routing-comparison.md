@@ -2,12 +2,12 @@
 title: Compare Event Grid, routing for IoT Hub
 titleSuffix: Azure IoT Hub
 description: IoT Hub offers its own message routing service, but also integrates with Event Grid for event publishing. Compare the two features. 
-author: kgremban
+author: SoniaLopezBravo
 
 ms.service: azure-iot-hub
 ms.topic: product-comparison
 ms.date: 02/22/2023
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: fasttrack-edit
 ---
 

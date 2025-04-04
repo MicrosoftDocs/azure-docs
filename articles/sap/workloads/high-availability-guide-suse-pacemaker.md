@@ -42,7 +42,7 @@ You can configure the SBD device by using either of two options:
   ![Diagram of Pacemaker on SLES overview.](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
   
   >[!IMPORTANT]
-  > When you're planning and deploying Linux Pacemaker clustered nodes and SBD devices, do not allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
+  > When you're planning and deploying Linux Pacemaker clustered nodes and SBD devices, don't allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
   >
   > Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
 
@@ -774,11 +774,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > - SLES 12 SP5: fence-agents 4.9.0+git.1624456340.8d746be9-3.35.2 or later
    > - SLES 15 SP1 and higher: fence-agents 4.5.2+git.1592573838.1eee0863 or later.
    >
-   > Earlier versions will not work correctly with a managed identity configuration.  
+   > Earlier versions don't work correctly with a managed identity configuration.  
 
 10. **[A]** Install fence-agents-azure-arm package.
 
-    For **SLES 12 SP5**, if you are using `fence-agents` version `4.9.0+git.1624456340.8d746be9-3.41.3` or later, and for **SLES 15 SP4 and newer**, you need to install the `fence-agents-azure-arm` package. This package will include all required dependencies.
+    For **SLES 12 SP5**, if you're using `fence-agents` version `4.9.0+git.1624456340.8d746be9-3.41.3` or later, and for **SLES 15 SP4 and newer**, you need to install the `fence-agents-azure-arm` package. This package includes all required dependencies.
 
     ```bash
     # On SLES 12 SP5 with fence-agents version 4.9.0+git.1624456340.8d746be9-3.41.3 or higher. You might need to activate the public cloud extension first
@@ -792,7 +792,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 11. **[A]** Install the Azure Python SDK and Azure Identity Python module.
 
-    For **SLES 12 SP5**, if your `fence-agents` version is lower then `4.9.0+git.1624456340.8d746be9-3.41.3`, and for **SLES 15 SP3 and below**, you need to install below additional packages.
+    For **SLES 12 SP5**, if your `fence-agents` version is lower than `4.9.0+git.1624456340.8d746be9-3.41.3`, and for **SLES 15 SP3 and lower**, you need to install below additional packages.
 
     ```bash
     # You might need to activate the public cloud extension first
@@ -821,7 +821,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     Replace the IP address and the hostname in the following commands.
 
     >[!IMPORTANT]
-    > If you're using hostnames in the cluster configuration, it's essential to have a reliable hostname resolution. The cluster communication will fail if the names are unavailable, and that can lead to cluster failover delays.
+    > If you're using hostnames in the cluster configuration, it's essential to have a reliable hostname resolution. The cluster communication fails if the names are unavailable, and that can lead to cluster failover delays.
     >
     > The benefit of using */etc/hosts* is that your cluster becomes independent of the DNS, which could be a single point of failure too.  
 
@@ -1052,11 +1052,12 @@ Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events).
 
    ```bash
    sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \
-   meta allow-unhealthy-nodes=true failure-timeout=120s \
+   meta failure-timeout=120s \
    op start start-delay=60s \
    op monitor interval=10s
    
-   sudo crm configure clone health-azure-events-cln health-azure-events
+   sudo crm configure clone health-azure-events-cln health-azure-events \
+   meta allow-unhealthy-nodes=true
    ```
 
    > [!NOTE]

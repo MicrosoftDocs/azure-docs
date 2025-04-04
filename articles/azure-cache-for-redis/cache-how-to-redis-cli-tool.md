@@ -6,6 +6,8 @@ description: Learn how to use *redis-cli* as a command-line tool for interacting
 
 ms.topic: conceptual
 ms.date: 01/04/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
@@ -107,7 +109,7 @@ You're now connected to your Azure Cache for Redis instance using the _redis-cli
 While the _redis-cli_ is a useful tool, you can connect to your cache in other ways for troubleshooting or testing:
 
 - Azure Cache for Redis offers a [Redis Console](cache-configure.md#redis-console) built into the Azure portal where you can issue commands without needing to install the command-line tool. The Redis Console feature is currently only available in the Basic, Standard, and Premium tiers.
-- [RedisInsight](https://redis.com/redis-enterprise/redis-insight/) is a rich open source graphical tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Cache for Redis and is supported on Linux, Windows, and macOS.
+- [RedisInsight](https://redis.io/insight/) is a rich open source graphical tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Cache for Redis and is supported on Linux, Windows, and macOS.
 
 ## Related content
 

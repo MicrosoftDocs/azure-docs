@@ -2,7 +2,7 @@
 title: Custom container CI/CD from GitHub Actions
 description: Learn how to use GitHub Actions to deploy your custom Linux container to App Service from a CI/CD pipeline.
 ms.topic: article
-ms.date: 12/15/2021
+ms.date: 02/14/2025
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
@@ -34,7 +34,7 @@ For an Azure App Service container workflow, the file has three sections:
   		
 ## Generate deployment credentials
 
-The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal or Open ID Connect but the process requires more steps. 
+The recommended way to authenticate with Azure App Services for GitHub Actions is with OpenID Connect. You can also authenticate with a service principal or a Publish Profile. 
 
 Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
 
@@ -53,74 +53,31 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 
 # [Service principal](#tab/service-principal)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+* Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+* Create a client secret for your service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-2?branch=main#create-a-service-principal-containing-a-password), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?#password-based-authentication).
+* Copy the values for **Client ID**, **Client Secret**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+* Assign an appropriate role to your service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#assign-a-role-to-the-application), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-5#create-or-remove-a-role-assignment), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#manage-service-principal-roles).
 
-```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor \
-                            --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
-                            --json-auth
-```
-
-In the example, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app. Copy this JSON object for later.
-
-```output 
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
-```
-
-> [!IMPORTANT]
-> It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
 # [OpenID Connect](#tab/openid)
 
 OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
 
-1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+To use [Azure Login action](https://github.com/marketplace/actions/azure-login) with OIDC, you need to configure a federated identity credential on a Microsoft Entra application or a user-assigned managed identity.
 
-    ```azurecli-interactive
-    az ad app create --display-name myApp
-    ```
+**Option 1: Microsoft Entra application**
 
-    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
+* Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+* Assign an appropriate role to your service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#assign-a-role-to-the-application), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-5#create-or-remove-a-role-assignment), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#manage-service-principal-roles).
+* [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
-    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+**Option 2: User-assigned managed identity**
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
-
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
-    
-    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
-
-    ```azurecli-interactive
-     az ad sp create --id $appId
-    ```
-
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
-
-    ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/
-    ```
-
-1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
-
-    * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
-    * Set a value for `CREDENTIAL-NAME` to reference later.
-    * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
-      * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
-      * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-      * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
-    
-    ```azurecli
-    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
-    ```
-    
-    To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-    
+* [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+* [Assign an appropriate role to your user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#manage-access-to-user-assigned-managed-identities).
+* [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository.
 
 ---
 ## Configure the GitHub secret for authentication
@@ -148,7 +105,7 @@ To use [user-level credentials](#generate-deployment-credentials), paste the ent
 When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
 ```yaml
-- uses: azure/login@v1
+- uses: azure/login@v2
   with:
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
@@ -158,6 +115,9 @@ When you configure the workflow file later, you use the secret for the input `cr
 You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
 
 1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
+
+    > [!NOTE]
+    > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets. You can find these values in the Azure portal by searching for your active directory application. 
 
@@ -354,7 +314,7 @@ jobs:
       uses: actions/checkout@main
     
     - name: 'Sign in via Azure CLI'
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
@@ -396,7 +356,7 @@ jobs:
       uses: actions/checkout@main
     
     - name: 'Sign in via Azure CLI'
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -472,7 +432,7 @@ jobs:
       uses: actions/checkout@main
     
     - name: 'Sign in via Azure CLI'
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
@@ -514,7 +474,7 @@ jobs:
       uses: actions/checkout@main
     
     - name: 'Sign in via Azure CLI'
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}

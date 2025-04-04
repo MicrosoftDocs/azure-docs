@@ -2,7 +2,6 @@
 metadata:
   title: Azure Web Application Firewall on Application Gateway - frequently asked questions
   description: This article provides answers to frequently asked questions about Web Application Firewall on Application Gateway
-  services: web-application-firewall
   author: halkazwini
   ms.author: halkazwini
   ms.service: azure-web-application-firewall

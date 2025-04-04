@@ -25,9 +25,9 @@ Because the Public IP allocation is set to 'Static' before detaching from the VM
 
 The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, created in the same location where the module was executed (by default). 
 
-## Constraints/ Unsupported Scenarios
+## Constraints / Unsupported Scenarios
 
-- **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it isn't possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either through Backend Pool or NAT Pool membership. Use the scripts [Upgrade a Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade both the Load Balancer and Public IPs as the same time.
+- **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it isn't possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either through Backend Pool or NAT Pool membership. Use the scripts [Upgrade a Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade both the Load Balancer and Public IPs at the same time.
 - **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG would result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](public-ip-addresses.md#sku)
 - **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these configurations aren't Public IP resources and as such cannot be upgraded. Instead, you can remove the Basic IP configuration and use the SKU property to specify that Standard IP configurations are required for each virtual machine scale set instance as shown [here](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine).
 
@@ -86,7 +86,7 @@ If a migration fails due to a transient issue, such as a network outage or clien
 To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the VM to recover with the `-VMName` and `-VMResourceGroup` or `-VMResourceID` parameters, as shown in this example.
 
 ```powershell
-    Start-VMPublicIPUpgrade -RecoverFromFile ./PublicIPUpgrade_Recovery_2020-01-01-00-00.csv -VMName myVM -VMResourceGroup -rg-myrg
+    Start-VMPublicIPUpgrade -RecoverFromFile ./PublicIPUpgrade_Recovery_2020-01-01-00-00.csv -VMName myVM -VMResourceGroup rg-myrg
 ```
 
 ## Common questions

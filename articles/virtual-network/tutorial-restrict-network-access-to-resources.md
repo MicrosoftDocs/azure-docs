@@ -318,8 +318,6 @@ az network nsg create \
     | Priority | Leave the default of **100**. |
     | Name | Enter **allow-storage-all**. |
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-outbound-storage-rule.png" alt-text="Screenshot of creating an outbound security to access storage.":::
-
 1. Select **+ Add**.
 
 1. Create another outbound security rule that denies communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete the previous steps with the following values in **Add outbound security rule**:
@@ -338,8 +336,6 @@ az network nsg create \
     | Priority | Leave the default **110**. |
     | Name | Enter **deny-internet-all**. |
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-outbound-internet-rule.png" alt-text="Screenshot of creating an outbound security to block internet access.":::
-
 1. Select **Add**.
 
 1. In the search box at the top of the portal page, search for **Network security group**. Select **Network security groups** in the search results.
@@ -351,8 +347,6 @@ az network nsg create \
 1. Select **+ Associate**.
 
 1. In **Associate subnet**, select **vnet-1** in **Virtual network**. Select **subnet-private** in **Subnet**. 
-
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/associate-nsg-private-subnet.png" alt-text="Screenshot of private subnet associated with network security group.":::
 
 1. Select **OK**.
 
@@ -525,11 +519,7 @@ The steps required to restrict network access to resources created through Azure
     }
     $storageAcctKey = (Get-AzStorageAccountKey @storagekey).Value[0]
     ```
-
-    For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
-
-    For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
-
+    
     The key is used to create a file share in a later step. Enter `$storageAcctKey` and note the value. You manually enter it in a later step when you map the file share to a drive in a virtual machine.
 
 ### [CLI](#tab/cli)
@@ -552,10 +542,6 @@ The steps necessary to restrict network access to resources created through Azur
 
 1. After the storage account is created, retrieve the connection string for the storage account into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
 
-    For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
-
-    For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
-
     ```azurecli-interactive
     saConnectionString=$(az storage account show-connection-string \
       --name $storageAcctName \
@@ -565,6 +551,11 @@ The steps necessary to restrict network access to resources created through Azur
     ```
 
 ---
+
+> [!IMPORTANT]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
 
 ### Create a file share in the storage account
 
@@ -657,8 +648,6 @@ To restrict network access to a subnet:
 1. Select **Add**.
 
 1. Select **Save** to save the virtual network configurations.
-
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/restrict-network-access-save.png" alt-text="Screenshot of storage account screen and confirmation of subnet restriction.":::
 
 ### [PowerShell](#tab/powershell)
 

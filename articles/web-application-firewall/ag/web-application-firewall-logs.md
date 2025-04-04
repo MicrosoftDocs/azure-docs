@@ -1,7 +1,6 @@
 ---
 title: Monitor logs for Azure Web Application Firewall
 description: Learn how to enable and manage logs and for Azure Web Application Firewall
-services: web-application-firewall
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall

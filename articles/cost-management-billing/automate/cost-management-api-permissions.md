@@ -2,8 +2,8 @@
 title: Assign permissions to Cost Management APIs
 titleSuffix: Microsoft Cost Management
 description: This article describes what you need to know to successfully assign permissions to an Azure service principal.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing

@@ -4,13 +4,15 @@ description: Learn about client libraries for Azure Cache for Redis.
 
 
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 02/06/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java, ignite-2024
 ---
 
 # Client libraries
 
-Azure Cache for Redis is based on the popular open-source in-memory data store, open-source Redis. Azure Cache for Redis can be accessed by a wide variety of Redis clients for many programming languages. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
+Azure Cache for Redis is based on the popular open-source in-memory data store, open-source Redis. Redis clients for many programming languages can access Azure Managed Redis. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
 
 Each client maintains its own reference documentation for its library. The clients also provide links to get support through the client library developer community. The Azure Cache for Redis team doesn't own the development, or the support for any client libraries.
 
@@ -23,7 +25,7 @@ Although we don't own or support any client libraries, we do recommend some libr
 | Jedis               | Java    |  [Link](https://github.com/redis/jedis)                       |                                              |
 | node_redis          | Node.js |  [Link](https://github.com/redis/node-redis)            |                                              |
 | Redisson            | Java    |  [Link](https://github.com/redisson/redisson)           | [More information here](https://redisson.org/) |
-| ioredis             | Node.js |  [Link](https://github.com/luin/ioredis)                     | [More information here](https://ioredis.readthedocs.io/en/stable/API/) |
+| ioredis             | Node.js |  [Link](https://github.com/luin/ioredis)                | [More information here](https://ioredis.readthedocs.io/en/stable/API/) |
 
 > [!NOTE]
 > Your application can use any client library that is compatible with open-source Redis to connect to your Azure Cache for Redis instance.
@@ -33,14 +35,12 @@ Although we don't own or support any client libraries, we do recommend some libr
 For information on client library-specific guidance best practices, see the following links:
 
 - [StackExchange.Redis (.NET)](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
-- [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
-- [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
+- [Jedis (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Java-Jedis.md)
 - [Redisson (Java)](cache-best-practices-client-libraries.md#redisson-java)
-- [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
-- [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+- [Node.js](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Node-js.md)
+- [PHP](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-PHP.md)
 - [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
-- [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 ## Redisson (Java)
 
@@ -48,9 +48,9 @@ We _recommend_ you  use redisson 3.14.1 or higher. Older versions contain known 
 
 Other notes:
 
-- Redisson defaults to 'read from replica' strategy, unlike some other clients. To change this, modify the 'readMode' config setting.
-- Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or 'connection storms'. To reduce the risk, consider using fewer connections because you can efficiently pipeline commands, or batches of commands, over a few connections.
-- Redisson has a default idle connection timeout of 10 seconds, which leads to more closing and reopening of connections than ideal.
+- Redisson defaults to 'read from replica' strategy, unlike some other clients. To change this default, modify the 'readMode' config setting.
+- Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or 'connection storms.' To reduce the risk, consider using fewer connections because you can efficiently pipeline commands, or batches of commands, over a few connections.
+- Redisson has a default idle connection time out of 10 seconds, which leads to more closing and reopening of connections than ideal.
 
 Here's a recommended baseline configuration for cluster mode that you can modify as needed:
 
@@ -83,7 +83,7 @@ clusterServersConfig:
   tcpNoDelay: true
 ```
 
-For an article demonstrating how to use Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
+For an article about Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 ## How to use client libraries
 
@@ -91,13 +91,13 @@ Besides the reference documentation, you can find tutorials showing how to get s
 
 For more information on using some of these client libraries in tutorials, see the following articles:
 
-- [Code a .NET Framework app](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Code a .NET Core app](cache-dotnet-core-quickstart.md)
-- [Code an ASP.NET web app](cache-web-app-howto.md)
-- [Code an ASP.NET Core web app](cache-web-app-aspnet-core-howto.md)
-- [Code a Java app](cache-java-get-started.md)
-- [Code a Node.js app](cache-nodejs-get-started.md)
-- [Code a Python app](cache-python-get-started.md)
+- [Code a .NET Framework app](../redis/dotnet-how-to-use-azure-redis-cache.md)
+- [Code a .NET Core app](../redis/dotnet-core-quickstart.md)
+- [Code an ASP.NET web app](../redis/web-app-cache-howto.md)
+- [Code an ASP.NET Core web app](../redis/web-app-aspnet-core-howto.md)
+- [Code a Java app](../redis/java-get-started.md)
+- [Code a Node.js app](../redis/nodejs-get-started.md)
+- [Code a Python app](../redis/python-get-started.md)
 
 ## Next steps
 

@@ -138,3 +138,6 @@ sections:
           When you clone an API, the new instance is created with a system-generated value for the name, which you can't change. To specify a name for the API, 
           manually create a new API and import the API definition. For more information, see [Import an API](api-management-howto-import-api.md).
 
+      - question: Can I integrate Azure API Management directly with Azure database solutions?  
+        answer: |
+          Yes, you can integrate Azure API Management directly with other Azure services without an intermediary. For example, Azure API Management can integrate directly with Azure Cosmos DB REST APIs for CRUD operations, eliminating the need for intermediate services like Azure Functions.

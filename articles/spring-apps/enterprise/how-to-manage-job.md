@@ -2,7 +2,8 @@
 title: Manage and Use Jobs in the Azure Spring Apps Enterprise Plan
 description: Learn how to manage jobs with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: ninpan
+ms.author: karler
+ms.reviewer: ninpan
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/06/2024

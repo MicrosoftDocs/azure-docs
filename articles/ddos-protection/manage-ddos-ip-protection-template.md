@@ -7,7 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 12/02/2024
+ms.date: 03/17/2025
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using ARM template
@@ -40,7 +40,7 @@ The template defines one resource:
 
 ## Deploy the template
 
-In this example, the template creates a new resource group, a DDoS protection plan, and a VNet.
+In this example, the template creates a new resource group, a DDoS protection plan, and a virtual network.
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** button.
 
@@ -48,7 +48,7 @@ In this example, the template creates a new resource group, a DDoS protection pl
 
 1. Enter the values to create a new resource group, Public IP address, and enable DDoS IP Protection.
 
-    :::image type="content" source="media/manage-ddos-protection-template/ddos-template-ip.png" alt-text="Screenshot of DDoS IP Protection ARM quickstart template.":::
+    :::image type="content" source="media/manage-ddos-protection-template/ddos-template-ip.png" alt-text="Screenshot of DDoS IP Protection ARM template quickstart template.":::
 
     - **Subscription**: Name of the Azure subscription where the resources will be deployed.
     - **Resource group**: Select an existing resource group. In this example, we'll create a new *Resource group*. Select **Create new**, enter **MyResourceGroup**, then select **OK**.

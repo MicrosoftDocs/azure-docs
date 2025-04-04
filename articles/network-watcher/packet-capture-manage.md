@@ -1,19 +1,19 @@
 ---
-title: Manage packet captures for VMs
+title: Manage packet captures
 titleSuffix: Azure Network Watcher
 description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 01/31/2025
+ms.date: 03/21/2025
 
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
 
-# Manage packet captures with Azure Network Watcher
+# Start, stop, download, and delete packet captures with Azure Network Watcher
 
-In this article, you learn how to use the Azure Network Watcher [packet capture](packet-capture-overview.md) feature to remotely configure, start, stop, download, and delete virtual machine packet captures.
+In this article, you learn how to use the Azure Network Watcher [packet capture](packet-capture-overview.md) feature to remotely configure, start, stop, download, and delete packet captures.
 
 ## Prerequisites
 
@@ -25,7 +25,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - Network Watcher Agent VM extension installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+    - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+    - The storage account key access must be enabled to allow requests from Network Watcher using shared access signature (SAS) tokens.
 
 - Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -37,7 +39,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=powershell) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=powershell).
 
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
+    - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
+    - The storage account key access must be enabled to allow requests from Network Watcher using shared access signature (SAS) tokens.
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -53,7 +57,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=cli) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=cli).
 
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
+    - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
+    - The storage account key access must be enabled to allow requests from Network Watcher using shared access signature (SAS) tokens.
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -64,9 +70,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 ---
 
 > [!NOTE]
-> Azure creates a Network Watcher instance in the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-
-If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
+> - Azure creates a Network Watcher instance in the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+> 
+> - If a network security group is associated to the virtual machine's network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity. Similarly, ensure outbound connectivity when adding user-defined routes to your network.
 
 ## Start a packet capture
 
@@ -298,9 +304,9 @@ The following example is the output from the `az network watcher packet-capture 
 
 ## Download a packet capture
 
-# [**Portal**](#tab/portal)
+After your packet capture session completes, the resulting capture file is saved to Azure Storage, a local file on the target virtual machine, or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
 
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
+# [**Portal**](#tab/portal)
 
 To download a packet capture file saved to Azure storage, follow these steps:
 
@@ -312,18 +318,13 @@ To download a packet capture file saved to Azure storage, follow these steps:
 
 1. In the blob page, select **Download**.
 
-> [!NOTE]
-> You can also download capture files from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
-> ```
-> https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
-> ```
-> <sup>1</sup> Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-To download a packet capture file saved to the virtual machine (VM), connect to the VM and download the file from the local path specified during the packet capture creation. 
+You can also download capture files by directly going to the storage account container at the following path: 
+```
+https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
+```
 
 # [**PowerShell**](#tab/powershell)
-
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
 
 If a storage account is specified, capture files are saved to the storage account at the following path:
 
@@ -338,12 +339,7 @@ To download a packet capture from Azure storage to the local disk, use [Get-AzSt
 Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' -Destination 'C:\Capture\myVM_1.cap'
 ```
 
-> [!NOTE]
-> You can also download the capture file from the storage account container using the Azure Storage Explorer. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
-
 # [**Azure CLI**](#tab/cli)
-
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
 
 If a storage account is specified, capture files are saved to the storage account at the following path:
 
@@ -358,10 +354,15 @@ To download a packet capture from Azure storage to the local disk, use [az stora
 az storage blob download --container-name 'network-watcher-logs' --blob-url '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' --file 'C:\Capture\myVM_1.cap'
 ```
 
-> [!NOTE]
-> You can also download the capture file from the storage account container using the Azure Storage Explorer. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
-
 ---
+
+> [!NOTE]
+> You can use Azure Storage Explorer to download capture files from the storage account container. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+> [!IMPORTANT]
+> During the packet capture session, the capture file might not immediately appear in the storage account container because it's initially saved to a temporary location. The file is transferred to its final location after the capture session is completed.
+
+To download a packet capture file saved to the virtual machine (VM), connect to the VM and download the file from the local path specified during the packet capture creation. 
 
 ## Delete a packet capture
 

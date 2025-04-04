@@ -4,8 +4,8 @@ description: Schema reference guide for Workflow Definition Language trigger and
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: reference
-ms.date: 05/20/2024
+ms.topic: conceptual
+ms.date: 03/27/2025
 ms.custom:
 ---
 

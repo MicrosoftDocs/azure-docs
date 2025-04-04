@@ -82,17 +82,13 @@ items:
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
+    displayName: Windows App, connect, access dev box, RDP, iPad   
     href: how-to-create-dev-boxes-developer-portal.md
-  - name: Connect with Windows App
+  - name: Connect to your dev box
     displayName: Windows App, connect, access dev box, RDP, iPad 
-    href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
-  - name: Use Dev Home to manage dev boxes
-    href: how-to-use-dev-home-customize-dev-box.md
-  - name: Connect with Remote Desktop
-    displayName: Windows App, connect, access dev box, RDP, iPad 
-    href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+    href: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
   - name: Use multiple monitors
-    href: tutorial-configure-multiple-monitors.md
+    href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
 - name: Security
   items:
   - name: Provide access to project admins
@@ -135,6 +131,11 @@ items:
   - name: USB redirection
     displayName: USB, devices, connect, physical, peripherals, android, switch
     href: /azure/virtual-desktop/redirection-configure-usb?tabs=intune&pivots=dev-box
+- name: Snapshot and restore
+  items:
+    - name: Restore from snapshot
+      displayName: backup, restore, snapshot
+      href: how-to-restore-from-snapshot.md
 - name: Troubleshooting
   items: 
   - name: Automatically repair connectivity issues
