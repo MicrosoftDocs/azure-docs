@@ -798,10 +798,10 @@ For more information about manually updating your Guest OS, see the [Guest OS re
 ## Guest OS supportability and retirement policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
-[cloud updates]: ./cloud-services-update-azure-service.md
+[cloud updates]: /previous-versions/azure/cloud-services/cloud-services-update-azure-service.md
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: ./cloud-services-dotnet-install-dotnet.md?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
+[Azure Guest OS Update Settings]: /previous-versions/azure/cloud-services/cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: /security-updates/SecurityAdvisories/2015/3009008
 [ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
@@ -820,4 +820,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: /security-updates/SecurityBulletins/2017/ms17-010
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[more]: ./applications-dont-support-tls-1-2.md
+[more]: /previous-versions/azure/cloud-services/applications-dont-support-tls-1-2.md
