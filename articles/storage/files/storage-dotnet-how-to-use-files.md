@@ -325,7 +325,7 @@ For more information and examples, see the following resources:
 
 To connect an app to Azure Files, create a `ShareClient` object. This object is your starting point for working with Azure Files resources. The following code examples show how to create a `ShareClient` object using different authorization mechanisms.
 
-## [Microsoft Entra ID (recommended)](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/entra-id)
 
 To authorize with Microsoft Entra ID, you need to use a security principal. The type of security principal you need depends on where your app runs. Use this table as a guide.
 
