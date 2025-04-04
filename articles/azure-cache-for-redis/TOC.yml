@@ -111,6 +111,8 @@
       href: cache-best-practices-performance.md
     - name: Kubernetes-hosted client applications best practices
       href: cache-best-practices-kubernetes.md
+    - name: Enterprise tiers best practices
+      href: cache-best-practices-enterprise-tiers.md
     - name: Vector Search
       href: /azure/redis/overview-vector-similarity
     - name: Connection resilience best practices
