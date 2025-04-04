@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: whhender    
+    
 ---
 
 # Synapse SQL resource consumption

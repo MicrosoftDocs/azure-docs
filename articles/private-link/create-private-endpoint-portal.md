@@ -5,7 +5,7 @@ description: In this quickstart, learn how to create a private endpoint using th
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -89,7 +89,6 @@ Next, you create a private endpoint for the web app that you created in the **Pr
     | ------- | ----- |
     | **Private IP configuration** | Select **Dynamically allocate IP address**. |
 
-    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true" lightbox="./media/create-private-endpoint-portal/dynamic-ip-address.png":::
 
     # [**Static IP**](#tab/static-ip)
 
@@ -98,8 +97,6 @@ Next, you create a private endpoint for the web app that you created in the **Pr
     | **Private IP configuration** | Select **Statically allocate IP address**. |
     | Name | Enter **ipconfig-1**. |
     | Private IP | Enter **10.0.0.10**. |
-
-    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true" lightbox="./media/create-private-endpoint-portal/static-ip-address.png":::
 
     ---
 

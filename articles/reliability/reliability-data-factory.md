@@ -6,8 +6,8 @@ ms.author: jburchel
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-data-factory
-ms.date: 03/19/2025
-#Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Data Factory works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different scenarios.
+ms.date: 04/04/2025
+#Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Data Factory works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
 
 # Reliability in Azure Data Factory
@@ -125,7 +125,7 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 ### Normal operations
 
- **Traffic routing between zones:** During normal operations, Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
+**Traffic routing between zones:** During normal operations, Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
 
 ### Zone-down experience
 

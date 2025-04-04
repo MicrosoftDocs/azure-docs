@@ -166,7 +166,7 @@
   - name: Microsoft CDN (classic) retirement FAQ
     href: ../cdn/classic-cdn-retirement-faq.md
   - name: Edgio retirement FAQ
-    href: /previous-versions/azure/cdn/edgio-retirement-faq.md?toc=/azure/frontdoor/TOC.json
+    href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/TOC.json
   - name: CDN (classic) to Azure Front Door
     items:
     - name: Overview
@@ -193,6 +193,12 @@
     href: front-door-ddos.md
   - name: End-to-end TLS encryption
     href: end-to-end-tls.md
+  - name: TLS policy
+    items:
+    - name: Overview
+      href: standard-premium/tls-policy.md
+    - name: Configure TLS policy
+      href: standard-premium/tls-policy-configure.md
   - name: Set up managed identity
     href: managed-identity.md
   - name: Sensitive data protection

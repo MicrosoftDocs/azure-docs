@@ -7,6 +7,7 @@ ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+# Customer intent: As a cloud service developer, I want to understand the Azure service definition schema (csdef file) so that I can configure roles, endpoints, and settings for my application deployment effectively.
 ---
 
 # Azure Cloud Services (extended support) definition schema (csdef file)

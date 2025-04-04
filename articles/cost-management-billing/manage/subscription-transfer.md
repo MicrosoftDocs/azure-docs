@@ -1,7 +1,7 @@
 ---
 title: Azure product transfer hub
 description: This article helps you understand the Azure subscription, reservation, and savings plan transfer requirements and support. This article also provides links to other articles for more detailed information.
-author: bandersmsft
+author: PreetiSGit
 ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing

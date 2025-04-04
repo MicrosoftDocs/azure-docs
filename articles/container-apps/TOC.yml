@@ -175,6 +175,8 @@
             href: troubleshoot-storage-mount-failures.md
           - name: Target port
             href: troubleshoot-target-port-settings.md
+          - name: Container start
+            href: troubleshoot-container-start-failures.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability

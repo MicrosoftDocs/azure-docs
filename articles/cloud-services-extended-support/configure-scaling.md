@@ -8,6 +8,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud administrator, I want to configure scaling options for Azure Cloud Services (extended support) so that I can optimize resource usage and maintain high availability based on workload demands.
 ---
 
 # Configure scaling options with Azure Cloud Services (extended support) 

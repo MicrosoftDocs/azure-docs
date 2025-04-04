@@ -1,7 +1,7 @@
 ---
 title: Get started with your Enterprise Agreement billing account
 description: This article explains how Azure Enterprise Agreement (Azure EA) customers can use the Azure portal to manage their billing.
-author: bandersmsft
+author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: billing
