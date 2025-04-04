@@ -125,7 +125,7 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <br><br>This example uses the Wall Street Journal's RSS feed at **https://feeds.a.dj.com/rss/RSSMarketsMain.xml**. However, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can easily test your workflow. |
+   | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <br><br>This example uses the Wall Street Journal's RSS feed at **https://feeds.content.dowjones.io/public/rss/RSSMarketsMain**. However, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can easily test your workflow. |
    | **Chosen Property Will Be Used To Determine Which Items are New** | No | **PublishDate** | The property that determines which items are new. |
    | **Interval** | Yes | **30** | The number of intervals to wait between feed checks. <br><br>This example uses **30** as the interval because this value is the [minimum interval for the **RSS** trigger](/connectors/rss/#general-limits). |
    | **Frequency** | Yes | **Minute** | The unit of frequency to use for every interval. <br><br>This example uses **Minute** as the frequency. |
@@ -140,11 +140,11 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
    >
    > Don't select **Code view** in the trigger information pane, which opens code view in read-only mode.
 
-1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.a.dj.com/rss/RSSMarketsMain.xml'))}"`**.
+1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.content.dowjones.io/public/rss/RSSMarketsMain'))}"`**.
 
 1. Remove the extra function named **`encodeURIComponent()`** so that you have only one instance, for example: 
    
-   **`"feedUrl": "@{encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml')}"`**  
+   **`"feedUrl": "@{encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain')}"`**  
 
    You must make manually make this change to remove the double-encoding behavior.
    
