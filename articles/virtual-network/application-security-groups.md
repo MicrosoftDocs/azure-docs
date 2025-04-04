@@ -5,7 +5,7 @@ description: Learn about the use of application security groups.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 04/08/2023
+ms.date: 03/31/2025
 ms.author: allensu
 ---
 
@@ -53,8 +53,8 @@ Application security groups have the following constraints:
     
     - An example would be if *AsgLogic* had network interfaces from *VNet1* and *AsgDb* had network interfaces from *VNet2*. In this case, it would be impossible to assign *AsgLogic* as the source and *AsgDb* as the destination in a rule. All network interfaces for both the source and destination application security groups need to exist in the same virtual network.
 
-> [!TIP]
-> To minimize the number of security rules you need, and the need to change the rules, plan out the application security groups you need and create rules using service tags or application security groups, rather than individual IP addresses, or ranges of IP addresses, whenever possible.
+> [!TIP]  
+> To minimize the number of security rules you need, plan out the application security groups you require. Create rules using service tags or application security groups, rather than individual IP addresses or ranges of IP addresses, whenever possible.
 
 ## Next steps
 

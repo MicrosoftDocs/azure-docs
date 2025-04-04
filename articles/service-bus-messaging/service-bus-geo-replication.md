@@ -26,28 +26,6 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 
 > [!IMPORTANT]
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
-> - The below regions are currently supported in the public preview.
->
-> | Region               | Region               | Region             |
-> |----------------------|----------------------|--------------------|
-> | -------------------- | -------------------- | ------------------ |
-> | AustraliaCentral     | GermanyNorth         | SouthAfricaNorth   |
-> | AustraliaCentral2    | GermanyWestCentral   | SouthAfricaWest    |
-> | AustraliaEast        | IsraelCentral        | SoutheastAsia      |
-> | AustraliaSoutheast   | ItalyNorth           | SouthIndia         |
-> | BrazilSouth          | JapanEast            | SpainCentral       |
-> | BrazilSoutheast      | JapanWest            | SwedenCentral      |
-> | CanadaCentral        | JioIndiaCentral      | SwitzerlandNorth   |
-> | CanadaEast           | JioIndiaWest         | SwitzerlandWest    |
-> | CentralIndia         | KoreaCentral         | UAECentral         |
-> | CentralUS            | KoreaSouth           | UAENorth           |
-> | CentralUSEUAP        | MexicoCentral        | UKSouth            |
-> | EastAsia             | NorthCentralUS       | UKWest             |
-> | EastUS               | NorthEurope          | WestCentralUS      |
-> | EastUS2              | NorwayEast           | WestEurope         |
-> | FranceCentral        | NorwayWest           | WestUS2            |
-> | FranceSouth          | PolandCentral        |                    |
-> 
 > - This feature is currently available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
 >     - Large message support.

@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 02/18/2025
+ms.date: 03/31/2025
 ms.author: cherylmc
 ---
 

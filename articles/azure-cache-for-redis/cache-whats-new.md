@@ -8,6 +8,8 @@ ms.custom: references_regions
 
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
@@ -158,7 +160,7 @@ Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, y
 
 A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance.
 
-For more information, see [Monitor Azure Cache for Redis](monitor-cache.md#azure-cache-for-redis-metrics).
+For more information, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md#azure-cache-for-redis-metrics).
 
 ## March 2023
 
@@ -198,7 +200,7 @@ For more information, see [Enabling connection audit logs](cache-monitor-diagnos
 
 Support for using the RedisJSON module reached General Availability (GA).
 
-For more information, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+For more information, see [Use Redis modules with Azure Cache for Redis](../redis/redis-modules.md).
 
 ### Redis 6 becomes default update
 
@@ -212,7 +214,7 @@ For more information, see [Redis 6 becomes default for new cache instances](#red
 
 Several enhancements were made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
 
-- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](monitor-cache.md).
+- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md).
   
   - Geo Replication Connectivity Lag (preview)
   - Geo Replication Data Sync Offset (preview)
@@ -250,7 +252,7 @@ The Enterprise and Enterprise Flash tiers of Azure Cache for Redis now support t
 
 The **RedisJSON** module implements the community version of the module so you can use your existing knowledge and workstreams. **RedisJSON** is  designed for use with the search functionality of **RediSearch**. Using both modules provides integrated indexing and querying of data. For more information, see [RedisJSON](https://aka.ms/redisJSON).
 
-The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](../redis/redis-modules.md).
 
 ## July 2022
 
@@ -288,7 +290,7 @@ These two new metrics can help identify whether Azure Cache for Redis clients ar
 - Connections Created Per Second
 - Connections Closed Per Second
 
-For more information, see [View cache metrics](monitor-cache.md#view-cache-metrics).
+For more information, see [View cache metrics](../redis/monitor-cache.md#view-cache-metrics).
 
 ### Default cache change
 

@@ -17,7 +17,10 @@ appliesto: Microsoft Sentinel in the Azure portal
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-If you onboard Microsoft Sentinel to the Microsoft Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+If you onboard Microsoft Sentinel to the Microsoft Defender portal, see:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal) 
+- [Microsoft Defender multitenant management](/defender-xdr/mto-overview)
 
 ## Entering multiple workspace view
 

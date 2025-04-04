@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
+Get the sample Android application at [Azure Samples Android SDK for chat](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Get the sample Android application for this [quickstart](https://github.com/Azur
 
 ## Set up the project
 
-Complete the following sections to set up the quickstart project.
+Complete the following sections to set up the project.
 
 ### Create a new Android project
 

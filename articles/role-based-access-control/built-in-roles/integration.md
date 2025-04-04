@@ -1690,6 +1690,131 @@ Read and search DICOM data.
 }
 ```
 
+## Durable Task Data Contributor
+
+Durable Task role for all data access operations.
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Durable Task role for all data access operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0ad04412-c4d5-4796-b79c-f76d14c8d402",
+  "name": "0ad04412-c4d5-4796-b79c-f76d14c8d402",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Data Reader
+
+Read all Durable Task Scheduler data.
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read all Durable Task Scheduler data.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/d6a5505f-6ebb-45a4-896e-ac8274cfc0ac",
+  "name": "d6a5505f-6ebb-45a4-896e-ac8274cfc0ac",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read",
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/metadata/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Worker
+
+Used by worker applications to interact with the Durable Task service
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by worker applications to interact with the Durable Task service",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/80d0d6b0-f522-40a4-8886-a5a11720c375",
+  "name": "80d0d6b0-f522-40a4-8886-a5a11720c375",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Worker",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## EventGrid Contributor
 
 Lets you manage EventGrid operations.

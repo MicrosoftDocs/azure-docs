@@ -8,6 +8,8 @@ ms.topic: overview
 ms.custom:
   - ignite-2024
 ms.date: 01/23/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 # Customer intent: As a developer creating a service that uses a cache, I want to know the details about TLS connections so that I know my service is secure.
 ---
 

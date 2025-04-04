@@ -3,10 +3,10 @@ title: Use Managed Identity for SQL Database authentication in Azure HDInsight
 description: Learn how to use managed identity for SQL Database authentication in Azure HDInsight. 
 ms.service: azure-hdinsight 
 ms.topic: how-to 
-author: hareshg
-ms.author: hgowrisankar
+author: abhishjain002
+ms.author: abhishjain
 ms.reviewer: nijelsf
-ms.date: 01/09/2025 
+ms.date: 03/31/2025 
 ---
 
 # Use Managed Identity for SQL Database authentication in Azure HDInsight 
@@ -33,7 +33,6 @@ The Managed Identity (MI) option is available for the following Databases:
 > * It's recommended not to update the Managed Identity after cluster recreation as it can disrupt cluster operation.
 > * When you recreate an MSI with the same name, you must recreate the contained user and reassign roles, as the new MSI will have different object and client IDs even if the name remains unchanged.
 
-
 ## Steps to Use Managed Identity during cluster creation in Azure portal
 
 1. During cluster creation, navigate to the Storage section and select the SQL database for Ambari/Hive/Oozie. Choose Managed Identity as the Authentication method.
@@ -56,7 +55,7 @@ Object ID of managed identity can be obtained from portal on the managed identit
    > For example: 
    > * MSI Name: contosoMSI 
    > * Object ID: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`
-   > * user_name could be `contosoMSI-2ba6c`
+   > * user_name could be `contosoMSI_aaaaaaaa`
 
 
     ``` 

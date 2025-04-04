@@ -14,7 +14,7 @@ Azure Virtual Enclaves (AVE) accelerates and streamlines the deployment and mana
 
 AVE takes a multi-layered and hierarchical approach to virtual boundary protection. A **community** serves as a central hub for networking, governance, and monitoring for a collection of isolated networks known as **enclaves**. The community itself hosts a centralized, virtual hub network (Azure VWAN) secured by an intelligent firewall security platform (Azure Firewall), through which all enclave traffic is routed, logged, and monitored. Enclaves are isolated, zero-trust software-defined networks (Azure Virtual Network), hosting customer workloads deployed through Azure Cloud products. Enclaves and customer workloads are securely governed through policy configuration management (Azure Policy).
 
-![Graphic that shows Communities and Virtual Enclaves example architecture.svg](./media/communities-and-virtual-enclaves.svg)
+![Graphic that shows Communities and Virtual Enclaves example architecture.](./media/communities-and-virtual-enclaves.svg)
 
 ## Key Capabilities
 
@@ -42,7 +42,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
   - Managed resources protected by Azure Policy and Deny Assignments
   - Service Catalog - Collection of templates that can be used to deploy well-known services and applications.
 
-![Graphic showing the Azure Virtual Enclaves layers within the management layers in Azure](./media/images-hierarchy.png)
+![Graphic showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-and-azure-layers-hierarchy.png)
 
 ## Virtual connection management
 With Azure Virtual Enclaves, you can easily connect your communities, enclaves, and workloads to other networks and resources, both on Azure and on-premises.
@@ -67,7 +67,7 @@ These guardrails include:
 - **Connection Management**: All connections, internal or external, are governed by strict, user-defined rules to prevent unwarranted access through.
 - **Policy Guardrails**: Ensure your environments remain secure through build-in policies at the Community, Enclave, and Workload levels to audit and/or enforce consistency and compliance across your environment.
 - **Mandatory Access Control**: Access is granted not merely by identity but by role, ensuring users only access what they need, and nothing more.
-- **Observability**: Azure Virtual Enclaves uses Azure's built in logging, alerting, and auditing that seamlessly integrates with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+- **Observability**: Azure Virtual Enclaves uses Azure's built-in logging, alerting, and auditing that seamlessly integrates with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
 - **Secure Transit Hubs**: Managed VPN Gateway, ExpressRoute, or vNet peering connections.
 - **Service Catalog**: Ensure workload deployments simple and repeatable through a collection of pre-built templates.
 

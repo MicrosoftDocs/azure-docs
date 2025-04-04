@@ -39,9 +39,6 @@ Budgets are supported for the following types of Azure account types and scopes:
     - Billing profile
     - Invoice section
     - Customer
-- AWS scopes
-    - External account
-    - External subscription
 
 To view budgets, you need at least read access for your Azure account.
 

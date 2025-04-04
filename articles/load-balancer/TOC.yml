@@ -278,14 +278,7 @@
       href: configure-vm-scale-set-portal.md
     expanded: false
   - name: Using multiple IP configurations
-    items:
-    - name: Azure portal
-      href: load-balancer-multiple-ip.md
-    - name: Azure CLI
-      href: load-balancer-multiple-ip-cli.md
-    - name: Azure PowerShell
-      href: load-balancer-multiple-ip-powershell.md
-    expanded: false
+    href: load-balancer-multiple-ip.md
   - name: Move a load balancer across regions
     href: move-across-regions-azure-load-balancer.md
 - name: Security and compliance

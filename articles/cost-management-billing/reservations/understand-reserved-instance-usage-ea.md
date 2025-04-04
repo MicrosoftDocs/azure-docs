@@ -168,4 +168,4 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
 - [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)
 - [Use service principal to get cost data](../manage/assign-roles-azure-service-principals.md)
-- [Use cost management exports](../costs/tutorial-export-acm-data.md)
+- [Use cost management exports](../costs/tutorial-improved-exports.md)

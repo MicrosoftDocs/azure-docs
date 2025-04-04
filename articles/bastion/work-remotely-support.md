@@ -6,7 +6,7 @@ author: isamorris
 
 ms.service: azure-bastion
 ms.topic: concept-article
-ms.date: 06/23/2023
+ms.date: 03/31/2025
 ms.author: isamorris
 ---
 

@@ -93,7 +93,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
                     "requestId": "requestId",
                     "userMessage" : "The access code you entered is incorrect. Please try again.",
                     "developerMessage" : `The provided code ${req.body.accessCode} does not match the expected code for user.`,
-                    "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+                    "moreInfo" :"https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
                 res.status(409).send(errorResponse);                
             }
@@ -138,7 +138,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
             "requestId": "requestId",
             "userMessage": "The access code you entered is incorrect. Please try again.",
             "developerMessage": "The provided code 54321 does not match the expected code for user.",
-            "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+            "moreInfo": "https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
 Your REST service can return HTTP 4xx status code, but the value of `status` in the JSON response must be `409`.

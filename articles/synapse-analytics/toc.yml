@@ -738,7 +738,7 @@ items:
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.4 runtime (GA)
           href: ./spark/apache-spark-34-runtime.md
-        - name: Azure Synapse Apache Spark 3.3 runtime (EOSA)
+        - name: Azure Synapse Apache Spark 3.3 runtime (unsupported)
           href: ./spark/apache-spark-33-runtime.md
         - name: Azure Synapse Apache Spark 3.2 runtime (deprecated)
           href: ./spark/apache-spark-32-runtime.md

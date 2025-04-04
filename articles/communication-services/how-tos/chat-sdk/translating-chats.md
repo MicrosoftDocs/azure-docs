@@ -1,6 +1,6 @@
 ---
-title: Translating chats and detecting sentiment
-titleSuffix: An Azure Communication Services tutorial
+title: Translating chats
+titleSuffix: An Azure Communication Services article
 description: Learn how to build use cases with the Chat SDK to enable users to chat in different languages and detect sentiment.
 author: kperla97
 manager: darmour
@@ -13,16 +13,21 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-#  Translating chats to enable users to communicate in their preferred language
+#  Translating chats
 
-In this guide, learn how you can use [Azure AI APIs](/azure/ai-services/) with the Chat SDK to build use cases like:
+Translating chats enables users to communicate in their preferred language.
+
+This article describes how you can use [Azure AI APIs](/azure/ai-services/) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages.
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Analyze the incoming messages for key detection and entity recognition, and prompt relevant info to the user in your app based on the message content.
 
-One way to achieve the use cases above is by having your trusted service act as a participant on a chat thread. Let's say you want to enable language translation. This service (as illustrated in diagram below) is responsible for listening to the messages
-exchanged by other participants [1], calling Azure AI APIs to translate content to desired language [2 and 3] and sending the translated result as a message in the chat thread [4].
+One way to achieve these use cases is to have your trusted service act as a participant on a chat thread. Let's say you want to enable language translation. This service, illustrated in the following diagram, is responsible for:
+1. listening to the messages exchanged by other participants,
+2. calling Azure AI APIs to 
+3. translate content to desired language, and 
+4. sending the translated result as a message in the chat thread.
 
 [![Screenshot showing Azure AI services interacting with Communication Services.](./media/ai-services.png)](./media/ai-services.png#lightbox)
 

@@ -113,11 +113,11 @@ landingContent:
           - text: Reports for Site Recovery with Azure Monitor logs
             url: report-site-recovery.md
 
-  - title: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) (preview)
+  - title: Disaster recovery for Azure Extended Zone (preview)
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Disaster recovery for Azure Public MEC (preview) VMs 
+          - text: Disaster recovery for Azure Extended Zone (preview) VMs 
             url: tutorial-replicate-vms-edge-zone-to-azure-region.md      
                
   - title: Get involved

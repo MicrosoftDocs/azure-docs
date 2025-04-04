@@ -4,6 +4,9 @@ description: Learn how to host a Kubernetes client application.
 ms.custom: linux-related-content, ignite-2024
 ms.topic: conceptual
 ms.date: 11/10/2023
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Kubernetes-hosted client application

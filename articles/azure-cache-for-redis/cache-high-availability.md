@@ -6,6 +6,8 @@ description: Learn about Azure Cache for Redis high availability features and op
 
 ms.topic: conceptual
 ms.date: 08/05/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ms.custom: references_regions
 ---

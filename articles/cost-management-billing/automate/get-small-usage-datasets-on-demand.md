@@ -46,7 +46,7 @@ If you want to get the latest cost data, we recommend you query at most once per
 
 Chunk your calls into small date ranges to get more manageable files that you can download over the network. For example, we recommend chunking by day or by week if you have a large Azure cost file month-to-month. If you have scopes with a large amount of cost data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download. For more information about Cost Management scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md). After you download the data, use Excel to analyze data further with filters and pivot tables.
 
-If your dataset is more than 2 GB (or roughly 2 million rows) month-to-month, consider using [Exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
+If your dataset is more than 2 GB (or roughly 2 million rows) month-to-month, consider using [Exports](../costs/tutorial-improved-exports.md) as a more scalable solution.
 
 ### Latency and rate limits
 
@@ -177,5 +177,5 @@ Here's a summary of the key fields in the API response:
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
 - [Understand cost details fields](understand-usage-details-fields.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

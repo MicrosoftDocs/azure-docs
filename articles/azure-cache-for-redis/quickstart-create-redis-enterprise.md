@@ -4,6 +4,8 @@ description: In this quickstart, learn how to create an instance of Azure Cache 
 ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
 ms.date: 04/12/2023
+appliesto:
+  - ✅ Azure Cache for Redis
 #Customer intent: As a Redis Enterprise developer who is new to Azure Cache for Redis, I want to create a new cache in the Enterprise tier of Azure Cache for Redis.
 ---
 
@@ -54,7 +56,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
    Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. 
 
-   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Clustering](managed-redis/managed-redis-architecture.md#clustering).
+   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Clustering](../redis/architecture.md#clustering).
 
      :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
@@ -65,7 +67,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    >
 
    > [!IMPORTANT]
-   > You can't change the clustering policy of an Enterprise cache instance after you create it. If you're using [RediSearch](cache-redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported. 
+   > You can't change the clustering policy of an Enterprise cache instance after you create it. If you're using [RediSearch](../redis/redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported. 
    >
 
    > [!IMPORTANT]
@@ -90,4 +92,4 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 In this quickstart, you learned how to create an Enterprise tier instance of Azure Cache for Redis.
 
-- [Create an ASP.NET web app that uses an Azure Cache for Redis](cache-web-app-aspnet-core-howto.md)
+- [Create an ASP.NET web app that uses an Azure Cache for Redis](../redis/web-app-aspnet-core-howto.md)

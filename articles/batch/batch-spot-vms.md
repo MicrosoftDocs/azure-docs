@@ -2,7 +2,7 @@
 title: Run Batch workloads on cost-effective Spot VMs
 description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 04/02/2025
 ms.custom:
 ---
 
