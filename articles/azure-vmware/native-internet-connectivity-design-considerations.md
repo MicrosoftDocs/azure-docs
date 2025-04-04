@@ -7,7 +7,7 @@ ms.date: 3/28/2025
 ms.custom: engagement-fy25
 ---
 
-# Azure VMware Solution in an Azure Virtual Network Internet connectivity design consideration (Public preview)
+# Internet connectivity design considerations (Public preview)
 
 In this article, you learn to connect Azure VMware Solution on an Azure Virtual Network private cloud to the internet. After you deploy Azure VMware Solution in an Azure Virtual Network, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network (virtual network), on-premises, other Azure VMware Solution private clouds, or the internet. This article focuses on how the Azure VMware Solution on native private cloud gets connectivity to the internet. 
 
