@@ -201,6 +201,7 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 | `az trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                               |
 | `az trustedsigning list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
 
+---
 
 ## Create an identity validation request
 
