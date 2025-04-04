@@ -415,7 +415,7 @@ groups:
   prompt: Choose how your Java app is hosted
   pivots:
   - id: java-javase
-    title: Java SE (such as embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as Spring Boot, Quarkus)
   - id: java-tomcat
     title: Tomcat
   - id: java-jboss
@@ -1652,8 +1652,6 @@ groups:
     title: Single Azure VM and Azure Arc-enabled VM
   - id: multiple-portal-cli
     title: Multiple VMs using Azure portal and Azure CLI
-  - id: at-scale-policy
-    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1909,3 +1907,14 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+#owner: mbender
+- id: load-balancer-multiple-ip-pv
+  title: Load Balancer Multiple IPs
+  prompt: Select your creation experience for Azure Load Balancer.
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-powershell
+    title: Azure PowerShell

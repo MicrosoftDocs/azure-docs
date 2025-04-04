@@ -86,7 +86,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Oracle connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-oracle-connector) to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
+The Oracle connector version 2.0 (Preview) supports TLS 1.3. Refer to this [section](#upgrade-the-oracle-connector) to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0 (Preview)](#version-20-preview)
 - [Version 1.0](#version-10)
@@ -672,3 +672,5 @@ The Oracle connector version 2.0 (Preview) offers new functionalities and is com
 |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
 | Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
 | Using `?` as a placeholder for script activity query parameters is not support. You can use the named parameter (such as `:paramA`) or the positional parameter (such as `:1`) as a replacement.    | Support using `?` as a placeholder for script activity query parameters.  | 
+| Support TLS 1.3.| TLS 1.3 is not supported. | 
+
