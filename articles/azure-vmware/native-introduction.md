@@ -11,7 +11,7 @@ ms.author: jacobjaygbay
 
 # What's Azure VMware Solution in an Azure Virtual Network (Public Preview) 
 
-Azure VMware Solution private clouds can now be deployed inside an Azure Virtual Network, conforming Azure VMware Solution to Azure networking standards. This architecture simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. Users can now deploy Azure VMware Solution private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, or AV52 cluster.
+Azure VMware Solution private clouds can now be deployed inside an Azure Virtual Network, conforming Azure VMware Solution to Azure networking standards. This architecture simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. Users can now deploy Azure VMware Solution private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, or AV52 cluster. The same Azure VMware Solution limits apply as decribed in [Scale clusters in a Private Cloud](tutorial-scale-private-cloud.md).
 
 :::image type="content" source="./media/native-connectivity/azure-virtual-network-connectivity.png" alt-text="Diagram showing an Azure VMware Solution Virtual Network connectivity."::: 
 
