@@ -5,7 +5,10 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025
 ms.topic: conceptual
-ms.custom: migration
+ms.collection: 
+ - migration
+ - aws-to-azure
+ - gcp-to-azure
 ---
 
 # Migrate databases from Google Cloud Platform (GCP) to Azure
