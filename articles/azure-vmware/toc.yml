@@ -2,7 +2,7 @@ items:
 - name: Azure VMware Solution
   href: index.yml
 - name: Overview - Azure VMware Solution
-  href: introduction.md 
+  href: vmware-solution-overview.md 
 - name: Azure VMware Solution
   items:
   - name: What's Azure VMware Solution
