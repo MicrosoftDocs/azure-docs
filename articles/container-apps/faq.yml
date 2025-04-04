@@ -113,7 +113,9 @@ sections:
       - question: |
           How often are Dapr versions released for Azure Container Apps?
         answer: |
-          Dapr versions are updated on a best-effort basis, prioritizing stability, rigorous testing, and customer impact to ensure seamless integration without breaking changes. Updates are applied automatically, ensuring you always have the latest secure version.
+          Dapr versions are updated on a best-effort basis, with a strong focus on stability, thorough testing, and minimizing customer impact. The goal is to ensure updates are seamlessly integrated without introducing breaking changes.
+
+          Since Dapr version updates are applied automatically, you always benefit from the most secure version. However, Dapr in Azure Container Apps doesn't follow a fixed release schedule for new features. Instead, the release of new Dapr versions for new functionality depends on the prioritization and stability of the Dapr binaries.
 
       - question: |
           Can I use a specific Dapr version for my environment?
