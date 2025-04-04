@@ -47,8 +47,8 @@ For general information about these approaches, see [Overview of application dev
 
 This article focuses on working with Azure Files resources using the following approaches:
 
-- [Work with Azure Files using Python file I/O libraries](#work-with-azure-files-using-systemio): Mount a file share using SMB or NFS and use the Python file I/O libraries to work with files and directories in the share.
-- [Work with Azure Files using the File Shares client library for Python](#work-with-azure-files-data-using-the-file-shares-client-library-for-net): Use the Azure Storage File Shares client library for Python to work with files and directories in a file share. This client library builds on the FileREST API.
+- [Work with Azure Files using Python file I/O libraries](#work-with-azure-files-using-python-file-io-libraries): Mount a file share using SMB or NFS and use the Python file I/O libraries to work with files and directories in the share.
+- [Work with Azure Files using the File Shares client library for Python](#work-with-azure-files-data-using-the-file-shares-client-library-for-python): Use the Azure Storage File Shares client library for Python to work with files and directories in a file share. This client library builds on the FileREST API.
 - [Manage Azure Files resources using the Azure Storage management libraries](#manage-azure-files-resources-using-the-azure-storage-management-libraries): Use the Azure Storage management libraries to manage file shares and other resources in your storage account. The management libraries build on the Azure Storage resource provider REST API.
 
 ## Prerequisites
@@ -93,7 +93,7 @@ from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.storage import StorageManagementClient
 ```
 
-## Work with Azure Files using System.IO
+## Work with Azure Files using Python file I/O libraries
 
 Standard file I/O libraries are the most common way to access and work with Azure Files resources. When you mount a file share using SMB or NFS, your operating system redirects API requests for the local file system. This approach allows you to use standard file I/O libraries, such as `os` or `io`, to interact with files and directories in the share.
 
