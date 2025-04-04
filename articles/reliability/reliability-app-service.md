@@ -26,7 +26,7 @@ When you deploy Azure App Service, you can create multiple instances of an *App 
 For production deployments, you should:
 
 ::: zone pivot="free-shared-basic"
- 
+
 - Use premium v3 App Service plans.
 - [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
 
@@ -150,9 +150,9 @@ Zone redundancy can only be configured when you create a new App Service plan. I
 
 To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
-### Normal operations
+### Traffic routing between zones
 
-**Traffic routing between zones:** During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
+During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
 
 ### Zone-down experience
 
