@@ -192,18 +192,36 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 ### Regional availability
 
-| Supported Regions  |                  |                  |
-|------------------|------------------|------------------|
-| Asia East       | Australia Central | Australia East  |
-| Australia Southeast | Brazil South  | Canada Central |
-| Canada East     | France Central    | Germany West Central |
-| India Central   | India South       | India West     |
-| Italy North     | Jio India West    | Korea South    |
-| Mexico Central  | Norway East       | Poland Central |
-| Qatar Central   | South Africa North | Spain Central  |
-| Sweden Central  | Switzerland North | UAE North      |
-| US South       | US West 2         | US West 3      |
-| US West Central |                  |                |
+Supported regions:
+
+- Asia East
+- Australia Central
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Canada East
+- France Central
+- Germany West Central
+- India Central
+- India South
+- India West
+- Italy North
+- Jio India West
+- Korea South
+- Mexico Central
+- Norway East
+- Poland Central
+- Qatar Central
+- South Africa North
+- Spain Central
+- Sweden Central
+- Switzerland North
+- UAE North
+- US South
+- US West 2
+- US West 3
+- US West Central
 
 ### Performance improvements with metadata caching
 

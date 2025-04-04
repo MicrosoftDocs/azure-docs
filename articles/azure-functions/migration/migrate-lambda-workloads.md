@@ -1,5 +1,5 @@
 ---
-title: "Stage 3: Migrate Workloads from AWS Lambda to Azure Functions"
+title: Migrate Workloads from AWS Lambda to Azure Functions
 description: Learn about the steps to complete your AWS Lambda to Azure Functions migration, test performance, optimize operations, and implement monitoring.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
