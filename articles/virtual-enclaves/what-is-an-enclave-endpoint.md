@@ -20,7 +20,7 @@ Enclave Endpoints define how workloads can be accessed from outside of an Enclav
 Enclave endpoint rules have the following three components:
 - Destination IP Address: IP/CIDR range of an IP space within the Enclave boundary
 - Ports: Ports though which network traffic is allowed to flow to the destination IP
-- Protocols: Protocols through which network traffic is allow to flow to the destination IP
+- Protocols: Protocols through which network traffic is allowed to flow to the destination IP
 
 ## Connection Types
 

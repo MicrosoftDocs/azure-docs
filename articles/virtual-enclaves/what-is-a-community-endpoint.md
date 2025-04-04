@@ -21,5 +21,5 @@ Enclave Connections associated with a Community Endpoint allow the Source Enclav
 
 - IP Address: Enable traffic from an Enclave to an IP address outside of the Community vWAN
 - Fully Qualified Domain Name (FQDN): Enable traffic from an Enclave to a trusted FQDN (for example, *portal.azure.com)
-- FQDN Tag: Enable traffic from Enclaves to known Microsoft Azure services via FQDN Tags (for example, "AzurePortal")
+- FQDN Tag: Enable traffic from Enclaves to known Microsoft Azure services via FQDN Tags (for example, "Azure portal")
 - Private Network: Enable traffic from Enclaves to an external private network through an existing Transit Hub connection (Transit Hub must exist before a Private Network rule can be created).
