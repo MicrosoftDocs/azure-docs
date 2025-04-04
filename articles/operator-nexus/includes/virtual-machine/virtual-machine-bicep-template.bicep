@@ -61,14 +61,13 @@ param sshPublicKeys array
 //   keyData: 'string'
 // }
 
-@description('StorageProfile represents information about OS and (optionally) data disks.')
+@description('StorageProfile represents information about a disk.')
 param storageProfile object = {
   osDisk: {
     createOption: 'Ephemeral'
     deleteOption: 'Delete'
     diskSizeGB: 64
   }
-  volumeAttachments: []
 }
 
 @description('The Base64 encoded cloud-init user data.')
