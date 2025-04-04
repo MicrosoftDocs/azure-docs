@@ -1,13 +1,14 @@
----
+![image](https://github.com/user-attachments/assets/6a89216d-8b33-446b-9fa2-10c767346433)---
 title: How Azure applies centrally assigned SQL licenses to hourly usage
 description: This article provides a detailed explanation about how Azure applies centrally assigned SQL licenses to hourly usage with Azure Hybrid Benefit.
-author: bandersmsft
-ms.author: banders
+author: pri-mittal
+ms.author: Primittal
 ms.date: 05/08/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
-ms.reviewer: chrisrin
+ms.reviewer: Primittal
+
 ---
 
 # How Azure applies centrally assigned SQL licenses to hourly usage
