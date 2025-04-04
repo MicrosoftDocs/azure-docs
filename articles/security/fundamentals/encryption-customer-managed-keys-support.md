@@ -74,8 +74,8 @@ The following services support server-side encryption with customer managed keys
 | [Batch](/azure/batch/) | Yes | | [Use customer-managed keys with Batch accounts](/azure/batch/batch-customer-managed-key) |
 | [SAP HANA](/azure/sap/large-instances/hana-overview-architecture) | Yes | | |
 | [Site Recovery](/azure/site-recovery/) | Yes | | [Enable replication with customer-managed keys](/azure/site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks) |
-| [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/) | Yes | Yes | [Encrypt virtual machine scale sets using the portal](/azure/virtual-machines/linux/disk-encryption-key-vault) |
-| [Virtual Machines](/azure/virtual-machines/) | Yes | Yes | [Azure Disk Encryption for Windows and Linux VMs](/azure/virtual-machines/disk-encryption#customer-managed-keys) |
+| [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/) | Yes | Yes | [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) |
+| [Virtual Machines](/azure/virtual-machines/) | Yes | Yes | [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) |
 
 ## Databases
 
