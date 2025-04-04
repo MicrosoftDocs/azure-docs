@@ -10,26 +10,26 @@ ms.custom: engagement-fy25
 
 # Connectivity to an Azure Virtual Network
 
-In this article, you learn how to connect the private cloud to the Azure virtual networks – Hosted virtual network, other virtual networks in the region, and virtual networks in other regions. After you deploy Azure VMware Solution on native private clouds, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network (virtual network), on-premises, other Azure VMware Solution private clouds, or the internet. 
+ After you deploy Azure VMware Solution private cloud in an Azure Virtual Network, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or the internet. In this article, you learn how to connect the private cloud to the Azure Virtual Networks – Hosted Virtual Network, other Virtual Networks in the region, and Virtual Networks in other regions.
 
 ## Prerequisites
 
-- Azure VMware Solution on native private cloud deployed successfully within your Azure virtual network.
-- Multiple virtual networks to establish connectivity to private cloud Azure virtual network.
+- Azure VMware Solution private cloud in an Azure Virtual Network private cloud deployed successfully within your Azure Virtual Network.
+- Multiple Virtual Networks to establish connectivity to private cloud Azure Virtual Network.
 
 ## Azure VMware Solution Hosted (Local) virtual network
 
-Azure VMware Solution on native is directly hosted on Azure Virtual Network, unlike its predecessor. This means that the connectivity to the local virtual network from Azure VMware Solution SDDC is established during deployment, with no another configuration required. The Azure VMware Solution on native operates similarly to other Azure services from a network connectivity standpoint. Therefore any NSX workload segments created on Azure VMware Solution SDDC are systematically programmed, as virtual network address space, to the virtual network domain for routing purposes.
+This Azure VMware Solution private cloud deployment is hosted in an Azure Virtual Network.This means that the connectivity to the local Virtual Network from AVS SDDC is established during deployment, with no additional configuration required. This private cloud follows the same network connectivity constructs as other Azure services. This means any NSX workload segments created on this private cloud will be systematically programmed, as Virtual Network address spaces to the Virtual Network domain for routing purposes.
 
 :::image type="content" source="./media/native-connectivity/native-connectivity-private-cloud.png" alt-text="Diagram of an Azure VMware Solution connection to a private cloud":::
 
-Azure VMware Solution creates the following read-only management subnets within the hosted virtual network to host required SDDC components. These Management Subnets are allocated from the management address block specified for SDDC creation. The following  are sample subnets derived from an SDDC with a 10.74.64.0/22 address block.
+Azure VMware Solution creates the following read-only management subnets within the hosted virtual network to host required private cloud components. These Management Subnets are allocated from the management address block specified for private cloud creation. The following  are sample subnets derived from an SDDC with a 10.74.64.0/22 address block.
 
 ## Other virtual networks
 
-Azure VMware Solution's native connectivity to nonlocal virtual networks follows the same procedure as Azure virtual network users use to connect their workloads between virtual networks. Azure VMware Solution on native virtual network can be connected to other nonlocal virtual networks using Azure virtual network peering as described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
+Azure VMware Solution's connectivity to non-local Virtual Networks follows the same procedure as Azure Virtual Network users use to connect their workloads between Virtual Networks. The Virtual Network can be connected to other non-local Virtual Networks using Azure Virtual Network peering as described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
 
-Both regional virtual network peering and global virtual network peering are supported for Azure VMware Solution on native virtual network connectivity.
+Both regional Virtual Network peering and global Virtual Network peering is supported for Azure VMware Solution.
 
  >[!Note]
  > The standard Azure peer virtual network peering resync needs to be done to propagate any NSX segment/subnet/route changes on Azure VMware Solution private cloud.
