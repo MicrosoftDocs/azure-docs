@@ -16,7 +16,7 @@ Azure support and Microsoft Q&A are your go-to resources for troubleshooting iss
 
 ## Azure support
 
-Your startup credit offer includes a [Basic support plan](https://azure.microsoft.com/support/plans/) for your Azure Sponsorship subscription. This provides billing and subscription management support at no additional cost via the Azure portal.
+Your startup credit offer includes a [Basic support plan](https://azure.microsoft.com/support/plans/) for your Azure Sponsorship subscription. This plan provides billing and subscription management support at no extra cost via the Azure portal.
 
 ## Microsoft Q&A
 
@@ -34,11 +34,11 @@ To create a support request, go to [Help + support](https://go.microsoft.com/fwl
 
 ### I'm having trouble redeeming my startup credits. How do I get support if I don't have an Azure subscription yet?
 
-You can create a subscription management support request in the Azure portal even if your subscription has not yet been created.
+You can create a subscription management support request in the Azure portal even if your subscription hasn't yet been created.
 
 ### How do I get technical support?
 
-Technical support is provided through a paid Azure support plan. [Compare Azure support plans](https://azure.microsoft.com/support/plans/). Azure support plans are not covered by your startup credits.
+Technical support is provided through a paid Azure support plan. [Compare Azure support plans](https://azure.microsoft.com/support/plans/). Azure support plans aren't covered by your startup credits.
 
 ### Where can I find Azure documentation and learning resources?
 

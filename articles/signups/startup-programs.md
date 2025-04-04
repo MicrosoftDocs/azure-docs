@@ -37,4 +37,4 @@ Learn more about [how to apply, explore program benefits, and find answers to co
 
 Yes! Founders that begin with the Azure startup credit offer can apply for Microsoft for Startups once they incorporate or register as a legal entity.
 
-If you have already redeemed Azure credits through Microsoft for Startups, you are not eligible for the startup credit offer.
+If you have already redeemed Azure credits through Microsoft for Startups, you aren't eligible for the startup credit offer.

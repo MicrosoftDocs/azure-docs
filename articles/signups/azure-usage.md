@@ -24,7 +24,7 @@ Once your startup credits are exhausted or expire, your Azure Sponsorship subscr
 
 After your subscription converts to pay-as-you-go, the credit card used to activate your startup credits will be automatically [charged each billing period](/azure/cost-management-billing/understand/review-individual-bill) for the previous month's usage.
 
-You can [change the credit card on file](/azure/cost-management-billing/manage/change-credit-card) or request to [pay by wire transfer](azure/cost-management-billing/manage/pay-by-invoice). To ensure a smooth transition between your sponsorship subscription and paid subscription, verify the credit card on your billing profile is up to date before your credits expire.
+You can [change the credit card on file](/azure/cost-management-billing/manage/change-credit-card) or request to [pay by wire transfer](/azure/cost-management-billing/manage/pay-by-invoice). To ensure a smooth transition between your sponsorship subscription and paid subscription, verify the credit card on your billing profile is up to date before your credits expire.
 
 ## Frequently asked questions
 
@@ -34,7 +34,7 @@ Some exclusions apply, and usage may not be covered by your startup credits. If 
 
 ### How can I estimate costs of Azure services?
 
-Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate monthly costs. While your startup credits are active, your Azure usage will be 100% off standard published [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) rates for the duration of your offer.
+Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate monthly costs. While your startup credits are active, your Azure usage is 100% off standard published [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) rates for the duration of your offer.
 
 ### How can I monitor my Azure usage and spending?
 
