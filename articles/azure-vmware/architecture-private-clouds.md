@@ -3,7 +3,7 @@ title: Architecture for Private Clouds and Clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined datacenters and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 4/2/2025
+ms.date: 4/4/2025
 ms.custom: engagement-fy23, references_regions
 ---
 
@@ -87,6 +87,7 @@ AV64 host types are available per availability zone. The following table lists t
 | Germany West Central | AZ03 | **AV36, AV36P**, AV64 | Yes | 7 |
 | Italy North | AZ03 | AV36P, AV64 | No | 7 |
 | Japan East | AZ02 | **AV36**, AV64 | No | 7 |
+| Japan East | AZ03 | AV48 | No | N/A |
 | Japan West | AZ01 | **AV36**, AV64 | No | 7 |
 | North Central US | AZ01 | **AV36**, AV64 | No | 7 |
 | North Central US | AZ02 | **AV36P**, AV64 | No | 7 |
