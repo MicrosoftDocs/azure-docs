@@ -161,7 +161,7 @@ The Cross Region Restore option allows you to restore data in a secondary Azur
 Some datasources of Backup vault support restore to a subscription different from that of the source machine. Cross Subscription Restore (CSR) is enabled for existing vaults by default, and you can use it if supported for the intended datasource.
 
 >[!Note]
->The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMWare Service (AVS) backup.
+>The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMware Service (AVS) backup.
 
 To do Cross Subscription Restore, follow these steps:
 
