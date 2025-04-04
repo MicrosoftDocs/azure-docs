@@ -170,7 +170,7 @@ ZRS for standard general-purpose v2 storage accounts is available for a [subset 
 
 ### Premium ZRS availability
 
-ZRS for premium file shares is available for a [subset of Azure regions](redundancy-premium-file-shares.md#zrs-support-for-premium-azure-file-shares).
+ZRS for premium (SSD) file shares is available for a [subset of Azure regions](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
 
 ### Standard GZRS availability
 
