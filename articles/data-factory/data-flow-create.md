@@ -13,15 +13,15 @@ ms.date: 02/13/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A mapping data flow provides a way to transform data at scale without any coding required. You can design a data transformation job in the data flow designer by constructing a series of transformations. Start with any number of source transformations, followed by data transformation steps. Then, complete your data flow with a sink to land your results in a destination.
-
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+A mapping data flow provides a way to transform data at scale without any coding required. You can design a data transformation job in the data flow designer by constructing a series of transformations. Start with any number of source transformations, followed by data transformation steps. Then, complete your data flow with a sink to land your results in a destination.
 
 ## Steps to create a new data flow
 
 # [Azure Data Factory](#tab/data-factory)
 
-1. [Create a new data factory by using the Azure portal](quickstart-create-data-factory-portal.md).
+1. [Create a new V2 data factory by using the Azure portal](quickstart-create-data-factory-portal.md).
 
 1. In the portal, go to your data factory. Select **Overview**, and then select the **Open Azure Data Factory Studio** tile.
 
@@ -31,7 +31,7 @@ A mapping data flow provides a way to transform data at scale without any coding
 
    :::image type="content" source="media/data-flow-create/open-template-gallery-from-data-factory.png" alt-text="Screenshot that shows selections for opening the template gallery in Azure Data Factory Studio.":::
 
-1. Under **Categories**, select the **Data flow** category to choose from the available templates.
+1. Filter by the **Data flow** category to choose from the available templates.
 
    :::image type="content" source="media/data-flow-create/template-gallery-filtered-for-data-flow.png" alt-text="Screenshot that shows the template gallery filtered for data flows.":::
 
@@ -51,7 +51,7 @@ You can also add data flows directly to your data factory without using a templa
 
    :::image type="content" source="media/data-flow-create/open-template-gallery-from-synapse.png" alt-text="Screenshot that shows selections for opening the template gallery in Azure Synapse Analytics Studio.":::
 
-1. For **Category**, select **Data flow** to choose from the available templates.
+1. Filter by the **Data flow** category to choose from the available templates.
 
    :::image type="content" source="media/data-flow-create/synapse-template-gallery-filtered-for-data-flow.png" alt-text="Screenshot that shows the template gallery filtered for data flows.":::
 

@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this quickstart, you use the Copy Data tool in Azure Data Factory Studio to create a pipeline that copies data from the source folder in Azure Blob Storage to a target folder.
+In this quickstart, you use the Copy Data tool in Azure Data Factory Studio to create a pipeline that copies data from a source folder in Azure Blob Storage to a target folder.
 
 ## Prerequisites
 
@@ -94,9 +94,9 @@ The Copy Data tool has five pages that walk you through the task of copying data
 
 ### Step 3: Complete destination configuration
 
-1. On the **Target** page of the Copy Data tool, for **connection**, select the **AzureBlobStorage** connection that you created.
+1. On the **Target** page of the Copy Data tool, for **Connection**, select the **AzureBlobStorage** connection that you created.
 
-1. In the **Folder path** section,  enter **adftutorial/output**.
+1. In the **Folder path** section, enter **adftutorial/output**.
 
    :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/destination-data-store.png" alt-text="Screenshot that shows settings for a destination data store.":::
 
@@ -129,7 +129,7 @@ After you finish copying the data, you can monitor the pipeline that you created
 
    :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/refresh-pipeline.png" alt-text="Screenshot that shows the button for refreshing the list of pipelines.":::
 
-1. On the page that shows the details of the activity run, select the **Details** link (eyeglasses icon) in the **Activity name** column for more details about copy operation. For information about the properties, see the [overview article about the copy activity](copy-activity-overview.md).
+1. On the page that shows the details of the activity run, select the **Details** link (eyeglasses icon) in the **Activity name** column for more details about the copy operation. For information about the properties, see the [overview article about the copy activity](copy-activity-overview.md).
 
 ## Related content
 

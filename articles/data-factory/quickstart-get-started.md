@@ -31,7 +31,7 @@ The following video provides a walkthrough of the sample in this article:
 
 ## Step 1: Use the demo to create resources
 
-In this demo scenario, you use the [copy activity](copy-activity-overview.md) in a data factory to copy a blob named moviesDB2.csv from an input folder on Azure Blob Storage to an output folder. In a real-world scenario, this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.
+In this demo scenario, you use the [copy activity](copy-activity-overview.md) in a data factory to copy a blob named moviesDB2.csv from an input folder in Azure Blob Storage to an output folder. In a real-world scenario, this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.
 
 1. Select the following button.
 
@@ -89,7 +89,7 @@ All the resources in this demo are created in the new resource group, so you can
 
 ## Step 3: Trigger the demo pipeline to run
 
-1. Select **Add Trigger**, and then select **Trigger now**.
+1. Select **Add trigger**, and then select **Trigger now**.
 
    :::image type="content" source="media/quickstart-get-started/trigger-now.png" alt-text="Screenshot of the button for the triggering the demo pipeline to run.":::
 1. On the right pane, under **Pipeline run**, select **OK**.

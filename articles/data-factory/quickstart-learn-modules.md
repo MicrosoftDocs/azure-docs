@@ -1,6 +1,6 @@
 ---
 title: Summary of Introductory Training Modules
-description: Learn about introductory training modules that can help you quickly get started with Aure Data Factory.
+description: Learn about introductory training modules that can help you quickly get started with Azure Data Factory.
 author: whhender
 ms.topic: concept-article
 ms.date: 02/13/2025
@@ -37,6 +37,6 @@ This module introduces you to the details of ingestion methods in Azure Data Fac
 - [Quickstart: Get started with Azure Data Factory](quickstart-get-started.md)
 - [Quickstart: Create a data factory by using the Azure portal](quickstart-create-data-factory-portal.md)
 - [Quickstart: Use the Copy Data tool in Azure Data Factory Studio to copy data](quickstart-hello-world-copy-data-tool.md)
-- [Quickstart: Create an Azure Data Factory by using an ARM template](quickstart-create-data-factory-resource-manager-template.md)
+- [Quickstart: Create an Azure data factory by using an ARM template](quickstart-create-data-factory-resource-manager-template.md)
 - [Quickstart: Create a mapping data flow in Azure Data Factory and Azure Synapse Analytics](data-flow-create.md)
 - [All training modules for Azure Data Factory](/training/browse/?filter-products=fact&products=azure-data-factory)

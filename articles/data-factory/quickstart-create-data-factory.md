@@ -34,7 +34,7 @@ By using Azure Data Factory Studio, you can create a data factory in seconds:
 
    :::image type="content" source="media/quickstart-create-data-factory/create-with-azure-data-factory-studio.png" alt-text="Screenshot that shows the Azure Data Factory Studio page for creating a data factory.":::
 
-After you create a data factory, you go to it from the home page of Azure Data Factory Studio.
+After you create a data factory, you can go to it from the home page of Azure Data Factory Studio.
 
    :::image type="content" source="media/quickstart-create-data-factory/azure-data-factory-studio-home-page.png" alt-text="Screenshot that shows the Azure Data Factory Studio page for a created data factory.":::
 
@@ -54,7 +54,7 @@ When you use the Azure portal to create a data factory, the creation options are
    - Select an existing resource group from the dropdown list.
    - Select **Create new**, and then enter the name of a new resource group.
 
-   To learn about resource groups, see [What is a resource group?](../azure-resource-manager/management/overview.md#what-is-a-resource-group).
+   To learn about resource groups, see [What is a resource group?](../azure-resource-manager/management/overview.md#resource-groups).
 
 1. For **Region**, select the location for the data factory.
 
@@ -62,7 +62,7 @@ When you use the Azure portal to create a data factory, the creation options are
 
 1. For **Name**, enter **ADFTutorialDataFactory**.
 
-   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, to **\<yourname\>ADFTutorialDataFactory**) and try creating it again. To learn about naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+   The name of the data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, to **\<yourname\>ADFTutorialDataFactory**) and try creating it again. To learn about naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Screenshot that shows an error for a new data factory that indicates a duplicate name.":::
 
@@ -82,4 +82,4 @@ When you use the Azure portal to create a data factory, the creation options are
 ## Related content
 
 - Learn how to [use Azure Data Factory to copy data from one location to another](quickstart-hello-world-copy-data-tool.md).
-- Learn how to [create a data flow with Azure Data Factory](data-flow-create.md).
+- Learn how to [create a data flow by using Azure Data Factory](data-flow-create.md).
