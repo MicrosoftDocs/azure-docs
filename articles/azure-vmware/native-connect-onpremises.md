@@ -8,15 +8,15 @@ ms.custom: engagement-fy25
 #customer intent: As an IT administrator, I want to connect my on-premises environment to Azure VMware Solution in an Azure Virtual Network so that I can extend my infrastructure seamlessly.
 ---
 
-# Connect to an On-premises environment
+# Connect to an on-premises environment
 
-You may require network connectivity between the private cloud and other networks you have deployed in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or on the Internet. In this article, you learn how the private cloud gets connectivity to your on-premises environments.
+You require network connectivity between the private cloud and other networks you deployed in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or on the Internet. In this article, you learn how the private cloud gets connectivity to your on-premises environments.
 
 ## Prerequisites
 
-- Azure VMware Solution private cloud in an Azure Virtual Network deployed successfully within your Azure Virtual Nnetwork.
+- Ensure you have an Azure VMware Solution private cloud in an Azure Virtual Network deployed successfully within your Azure Virtual Network.
 - Ensure that you have a Virtual Network and a Virtual Network gateway created and fully provisioned. Follow the instructions to create a Virtual Network gateway for ExpressRoute. A Virtual Network gateway for ExpressRoute uses the GatewayType ExpressRoute, not VPN.
-- You must have an active ExpressRoute circuit.
+- Ensure you have an active ExpressRoute circuit provisioned.
 
 ## Connect to an on-premises environment
 
