@@ -170,7 +170,7 @@ Before you start, make sure that you have these items:
                "method": "get",
                "path": "/OnNewFeed",
                "queries": {
-                  "feedUrl": "@{encodeURIComponent('')}",
+                  "feedUrl": "@{encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain')}",
                   "sinceProperty": "PublishDate"
                }
             }
