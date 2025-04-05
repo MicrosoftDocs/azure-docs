@@ -146,11 +146,11 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
       >
       > Don't select the **Code view** tab in the trigger information pane. This tab opens code view in read-only mode.
 
-   1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.content.dowjones.io/public/rss/RSSMarketsMain'))}"`**.
+   1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain'))}"`**.
 
    1. Remove the extra function named **`encodeURIComponent()`** so that you have only one instance, for example: 
    
-      **`"feedUrl": "@{encodeURIComponent(`https://feeds.content.dowjones.io/public/rss/RSSMarketsMain`)}"`**  
+      **`"feedUrl": "@{encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain')}"`**  
 
 1. Save the changes that you made. On the code editor toolbar, select **Save**.
 
