@@ -22,7 +22,7 @@ Enclaves come with the following primary platform-managed and platform-deployed 
 - [Admin Workstations](./understanding-admin-workstations.md) ([Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines.md)) and [Azure Bastion](../bastion/bastion-overview.md). These resources are created by default for Enclave system administrative access.
 - [Private Endpoints](../private-link/private-endpoint-overview.md) and [Private DNS Zones](../dns/private-dns-privatednszone.md). By default and for private networking security, Azure Private DNS Zones, along with certain private DNS records, are created for every new enclave. All platform-managed Enclave resources are configured to use Azure Private Link Service.
 
-![Graphic showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-and-virtual-enclaves-enclave.svg)
+![Graphic showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-virtual-enclaves-enclave.svg)
 
 ## Enclave managed resource group 
 When you create an enclave, the Azure Virtual Enclaves resource provider also creates a resource group which is managed by the Virtual Enclaves service. This managed resource group has a controlled configuration that allows for specific control plane actions. When an enclave is created, Azure places a [deny assignment](../role-based-access-control/deny-assignments.md) to protect resources in the enclave managed resource group.
@@ -50,9 +50,9 @@ The following resources types are deployed into the Enclave Managed Resource Gro
 - [Private DNS Zones](../dns/private-dns-privatednszone.md)
 
 ## Next Steps
-- [What is a Workload?](./what-is-a-workload.md)
-- [What is the Service Catalog?](./what-is-the-service-catalog.md)
-- [What is a Community?](./what-is-a-community.md)
+- [What is a Workload?](./what-workload.md)
+- [What is the Service Catalog?](./what-service-catalog.md)
+- [What is a Community?](./what-community.md)
 - [Best practices](./best-practices.md)
 - [Maintenance mode](./maintenance-mode.md)
-- [Tutorial: Create an Enclave](./2-create-enclaves-within-a-community.md)
+- [Tutorial: Create an Enclave](./2-create-enclaves-inside-community.md)

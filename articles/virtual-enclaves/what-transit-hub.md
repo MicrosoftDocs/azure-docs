@@ -26,5 +26,5 @@ Transit hubs support the following types of secure connectivity:
 
 ## Next Steps
 
-- [Create a Transit Hub in the Azure portal](./create-a-transit-hub-from-the-azure-portal.md)
-- [Create a Community Endpoint in the Azure portal](./create-a-community-endpoint-in-the-azure-portal.md)
+- [Create a Transit Hub in the Azure portal](./create-transit-hub-azure-portal.md)
+- [Create a Community Endpoint in the Azure portal](./create-community-endpoint-azure-portal.md)

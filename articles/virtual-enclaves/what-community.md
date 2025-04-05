@@ -14,7 +14,7 @@ Communities are isolated hub networks that can securely and logically group seve
 
 ## Architecture of a community
 
-![Graphic showing a simplified view of a Community with the community managed resources and three enclaves.](./media/simple-community-managed-resources-and-enclaves.png)
+![Graphic showing a simplified view of a Community with the community managed resources and three enclaves.](./media/simple-community-managed-resources-enclaves.png)
 
 Communities come with the following primary platform-managed and platform-deployed resources:
 - Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](https://learn.microsoft.com/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud).
@@ -39,7 +39,7 @@ See [template documentation](./ave-templates.md#community-template)
 - [Azure Storage Account](../storage/common/storage-account-overview.md)
 
 ## Next Steps
-- [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)
-- [What is an Enclave?](./what-is-an-enclave.md)
+- [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
+- [What is an Enclave?](./what-enclave.md)
 - [Best practices of Azure Virtual Enclaves](./best-practices.md)
-- [Tutorial: Create a Community](./1-deploy-a-community.md)
+- [Tutorial: Create a Community](./1-deploy-community.md)

@@ -22,8 +22,8 @@ The alternative is to deploy an Azure Resource Group through the portal that isn
 ## Architecture of a workload
 Workloads come with the following primary platform-managed and platform-deployed resources:
 
-- [Azure Virtual Enclaves governance](./what-is-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
-- [Enclave services and properties](./what-is-an-enclave.md)
+- [Azure Virtual Enclaves governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
+- [Enclave services and properties](./what-enclave.md)
 
 ## Workload resource group
 When you create a workload, you create Workload Resource Groups that you need to organize your resources. You could separate 
@@ -31,13 +31,13 @@ When you create a workload, you create Workload Resource Groups that you need to
 For more details regarding the Workload managed resource group, learn more about [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
 
 ## What can I add to my Workload?
-The managed resource group functions just like an Azure resource group with the managed aspects mentioned above. You can create new resources using the methods you're familiar with for your Azure resources. Additionally, you can create resources from the Portal through the Service Catalog: [What is the Service Catalog](./what-is-the-service-catalog.md)
+The managed resource group functions just like an Azure resource group with the managed aspects mentioned above. You can create new resources using the methods you're familiar with for your Azure resources. Additionally, you can create resources from the Portal through the Service Catalog: [What is the Service Catalog](./what-service-catalog.md)
 
 ## Next Steps
-- [What is the Service Catalog?](./what-is-the-service-catalog.md)
-- [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)
-- [What is a Community?](./what-is-a-community.md)
-- [What is an Enclave?](./what-is-an-enclave.md)
+- [What is the Service Catalog?](./what-service-catalog.md)
+- [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
+- [What is a Community?](./what-community.md)
+- [What is an Enclave?](./what-enclave.md)
 - [Shared responsibility model in the cloud](../security/fundamentals/shared-responsibility.md)
 - [Best practices](./best-practices.md)
-- [Tutorial: Create a Workload](./3-create-workloads-in-an-enclave.md)
+- [Tutorial: Create a Workload](./3-create-workloads-enclave.md)
