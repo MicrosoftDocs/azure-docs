@@ -9,7 +9,7 @@ ms.date: 4/2/2025
 
 # Enable first-party application service principal for Azure VMware Solution in an Azure Virtual Network
 
-In this article, you learn how to re-enable the Azure VMware Solution service principal. This service principal is required to be enabled to deploy the Azure VMware Solution in an Azure Virtual Network. If you're already familiar with how to enable service principal, re-enable the service principal for application ID “1a5e141d-70dd-4594-8442-9fc46fa48686” with name “Avs Fleet Rp”.
+In this article, you learn how to re-enable the Azure VMware Solution service principal. This service principal is required to be enabled to deploy the Azure VMware Solution in an Azure Virtual Network. If you're already familiar with how to enable service principal, re-enable the service principal for application ID '1a5e141d-70dd-4594-8442-9fc46fa48686' with name 'Avs Fleet Rp'.
 
 ## Prerequisite
  
@@ -26,7 +26,7 @@ There are two options to enable the service principal for Azure VMware Solution.
 
 1. Select **Microsoft Entra ID**.  
 
-2. Search **Microsoft Entra ID** for the application ID "1a5e141d-70dd-4594-8442-9fc46fa48686". Select **Avs Fleet Rp**.  
+2. Search **Microsoft Entra ID** for the application ID '1a5e141d-70dd-4594-8442-9fc46fa48686'. Select **Avs Fleet Rp**.  
 
 3. Enable the **Avs Fleet Rp** Enterprise application for user sign-in by toggling the **Enabled for users to sign-in** toggle to **Yes**.   
 
@@ -40,9 +40,9 @@ There are two options to enable the service principal for Azure VMware Solution.
     Get-AzADServicePrincipal -ApplicationId 1a5e141d-70dd-4594-8442-9fc46fa48686  
     ```  
 
-2. Use the "Id" returned. You can copy the value from the "Id" column to use in the next command. The "Id" field is a full GUID (blurred in the screenshot for privacy).  
+2. Use the 'Id' returned. You can copy the value from the 'Id' column to use in the next command. The 'Id' field is a full GUID.  
 
-3. Run the following command to enable the service principal using the value you copied from the "Id" column:  
+3. Run the following command to enable the service principal using the value you copied from the 'Id' column:  
     ```powershell  
     Set-AzureADServicePrincipal -ObjectId 0a9fa53e-1930 -AccountEnabled $True  
     ```  
