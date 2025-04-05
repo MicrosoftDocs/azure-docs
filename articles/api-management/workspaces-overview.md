@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 04/04/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 
@@ -38,7 +38,8 @@ In Azure API Management, use *workspaces* to implement federated API management.
 * Each workspace contains APIs, products, subscriptions, named values, and related resources. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) for a full list of resources and operations supported in workspaces.
 * Teams' access to resources within a workspace is managed through Azure's role-based access control (RBAC) with built-in or custom roles assignable to Microsoft Entra accounts and scoped to a workspace. 
 * Each workspace is associated with one or more [workspace gateways](#workspace-gateway) for routing API traffic to the backend services of APIs in the workspace.
-* The platform team can apply API policies spanning APIs in workspaces, monitor the platform by viewing the logs for all workspaces, and implement a centralized API discovery experience with a developer portal.
+* The platform team can apply API policies spanning APIs in workspaces and implement a centralized API discovery experience with a developer portal.
+* Each workspace team can gather and analyze gateway resource logs to manage their own workspace APIs, while the platform team can access logs all-up for the API Management service, providing oversight, security, and compliance across the entire API ecosystem.
 
 :::image type="content" source="media/workspaces-overview/workspace-concept.png" alt-text="Conceptual diagram of API Management service with workspaces.":::
 
