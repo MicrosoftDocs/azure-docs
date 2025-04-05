@@ -28,7 +28,7 @@ Workloads come with the following primary platform-managed and platform-deployed
 ## Workload resource group
 When you create a workload, you create Workload Resource Groups that you need to organize your resources. You could separate 
 
-For more details regarding the Workload managed resource group, learn more about [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
+For more details regarding the Workload managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 ## What can I add to my Workload?
 The managed resource group functions just like an Azure resource group with the managed aspects mentioned above. You can create new resources using the methods you're familiar with for your Azure resources. Additionally, you can create resources from the Portal through the Service Catalog: [What is the Service Catalog](./what-service-catalog.md)
