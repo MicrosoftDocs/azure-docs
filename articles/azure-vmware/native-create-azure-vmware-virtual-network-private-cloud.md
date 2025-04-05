@@ -40,7 +40,7 @@ az feature registrations create --namespace "Microsoft.AVS"--name "Early Access"
 az feature registration create --namespace "Microsoft.AVS" --name "FleetGreenfield" --subscription "<Subscription ID>" 
 ```
 
-## Sign into the Azure portal
+## Deployment Steps
 
 1. Sign in to the Azure portal.
 
