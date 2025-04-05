@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 11/12/2024
+ms.date: 04/04/2025
 ms.custom:
 ---
 
@@ -114,6 +114,39 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
     * **Owner**
     * **Contributor**
     * **Reader** 
+
+
+## Configure settings for Azure Monitor logs
+
+Workspace gateway logs can be sent to Azure Monitor for review and analysis by the workspace members. 
+
+1. First, enable diagnostics settings at the service level. we recommend sending logs to a Log Analytics workspace. For more information, see [Configure diagnostic settings for API Management](api-management-howto-use-azure-monitor.md#configure-diagnostic-settings-for-api-management).
+
+    > [!NOTE]
+    > This setting collects logs for all workspaces associated with the API Management instance.
+1. Then, enable diagnostics settings at the workspace level
+
+
+To configure a workspace diagnostic setting for collection of resource logs:
+
+Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
+
+1. In the left menu, under **APIs**, select **Workspaces**  > the name of your workspace.
+
+1. In the left menu of your workspaces, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
+
+1. On the **Diagnostic setting** page, enter or select details for the setting:
+
+    1. **Diagnostic setting name**: Enter a descriptive name.
+    1. **Category groups**: Optionally make a selection for your scenario.
+    1. Under **Categories**: Select **Logs related to ApiManagement Gateway** to collect logs for most requests to the API Management gateway. 
+    1. Under **Destination details**, select to send logs to an Azure Log Analytics workspace
+    1. Select **Save**.
+
+
+> [!NOTE]
+> This setting collects logs for all workspace gateways associated with the workspace.
+
 
 ## Get started with your workspace
 
