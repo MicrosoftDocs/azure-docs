@@ -67,7 +67,7 @@ These guardrails include:
 - **Connection Management**: All connections, internal or external, are governed by strict, user-defined rules to prevent unwarranted access through.
 - **Policy Guardrails**: Ensure your environments remain secure through build-in policies at the Community, Enclave, and Workload levels to audit and/or enforce consistency and compliance across your environment.
 - **Mandatory Access Control**: Access is granted not merely by identity but by role, ensuring users only access what they need, and nothing more.
-- **Observability**: Azure Virtual Enclaves uses Azure's built-in logging, alerting, and auditing that seamlessly integrates with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+- **Observability**: Azure Virtual Enclaves uses Azure's built-in logging, alerting, and auditing that seamlessly integrates with Microsoft Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
 - **Secure Transit Hubs**: Managed VPN Gateway, ExpressRoute, or vNet peering connections.
 - **Service Catalog**: Ensure workload deployments simple and repeatable through a collection of pre-built templates.
 
@@ -75,7 +75,7 @@ Learn more about how Azure Virtual Enclaves [governance](./what-azure-virtual-en
 
 ## Defense-in-depth 
 Azure Virtual Enclaves simplifies integration with existing secure Azure security and monitoring services including:
-- **Azure Sentinel**: Combine the power of Azure Sentinel's SIEM and SOAR capabilities with Azure Virtual Enclaves to enhance threat detection, investigation, and response across your cloud environment.
+- **Microsoft Sentinel**: Combine the power of Microsoft Sentinel's SIEM and SOAR capabilities with Azure Virtual Enclaves to enhance threat detection, investigation, and response across your cloud environment.
 - **Azure Monitor**: Get end-to-end visibility and in-depth monitoring of your Azure Virtual Enclaves operations, benefiting from Azure Monitor's advanced analytics.
 - **Microsoft Defender for Cloud**: Bolster the security posture of your Azure Virtual Enclaves by leveraging the comprehensive threat protection features and security baseline insights of Microsoft Defender for Cloud.
 - **Azure Virtual Desktop**: Integrate your Virtual Enclaves with Azure Virtual Desktop to provide users with a secure, remote desktop experience from anywhere.
