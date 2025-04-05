@@ -40,9 +40,9 @@ There are two options to enable the service principal for Azure VMware Solution.
     Get-AzADServicePrincipal -ApplicationId 1a5e141d-70dd-4594-8442-9fc46fa48686  
     ```  
 
-2. Use the 'Id' returned. You can copy the value from the 'Id' column to use in the next command. The 'Id' field is a full GUID.  
+2. Use the 'ID' returned. You can copy the value from the 'ID' column to use in the next command. The 'ID' field is a full GUID.  
 
-3. Run the following command to enable the service principal using the value you copied from the 'Id' column:  
+3. Run the following command to enable the service principal using the value you copied from the 'ID' column:  
     ```powershell  
     Set-AzureADServicePrincipal -ObjectId 0a9fa53e-1930 -AccountEnabled $True  
     ```  
