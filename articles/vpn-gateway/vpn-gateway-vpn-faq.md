@@ -94,6 +94,12 @@ No.
 
 A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the `-GatewayType` value `Vpn`. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
+### My gateway's are learning on-premises routes from site to site. When I checked the VM NIC effective routes, why do some environments show the next hop IP as the VPN gateway public IP and some environment show next hop as the private IP?
+
+Public IP as the Next Hop: If you have an active/passive gateway instance, then VPN learned on premises routes you will see the public IP of the gateway in the NIC's effective routes.
+ 
+Private IP as the Next Hop: If you have an active/active gateway instance, then VPN learned on premises routes, you will see the private IP of the gateway instance.
+
 ### Why can't I specify policy-based and route-based VPN types?
 
 As of October 1, 2023, you can't create a policy-based VPN gateway through the Azure portal. All new VPN gateways are automatically created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based. You can use Azure PowerShell or the Azure CLI to create the policy-based gateways.
