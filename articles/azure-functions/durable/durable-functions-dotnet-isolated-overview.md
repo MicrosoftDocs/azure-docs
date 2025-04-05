@@ -91,7 +91,7 @@ Durable entities are supported in the .NET isolated worker. For more information
 
 ## Migration guide
 
-This process assumes you're starting with a .NET Durable Functions 2.x project running in-process with the Functions host. When 
+This process assumes you're starting with a .NET Durable Functions 2.x project running in-process with the Functions host. 
 
 ### Migrate your project
 
