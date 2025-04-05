@@ -29,7 +29,7 @@ Before you begin, these items are required to create an Azure VMware Solution pr
 - The following Preview feature flags need to be registered under the subscription where your private cloud will reside. This commands can be run using Azure Cloud Shell. 
 
 ```bash
-az feature register--namespace Microsoft.Network --name “EnablePrivateIpPrefixAllocation”--subscription **Subscription ID**
+az feature register--namespace "Microsoft.Network" --name “EnablePrivateIpPrefixAllocation”--subscription **Subscription ID**
 ```
 
 ```bash
