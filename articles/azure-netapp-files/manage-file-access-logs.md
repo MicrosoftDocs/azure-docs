@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 04/04/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -106,13 +106,13 @@ Availability for file access log is limited to the following regions:
 - Central US
 - East US
 - East US 2
+- Japan East
 - Japan West
 - North Europe
 - South Central US
 - Switzerland North
 - Switzerland West
 - UK South
-- US Gov Virginia
 - West Europe
 - West US
 - West US 2
