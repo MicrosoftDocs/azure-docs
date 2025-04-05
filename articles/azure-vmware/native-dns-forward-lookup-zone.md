@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/14/2025
 ms.custom: engagement-fy25
-# customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution in an Azure virtual network so that I can manage domain name resolution for private cloud appliances.
+# customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution in an Azure Virtual Network so that I can manage domain name resolution for private cloud appliances.
 ---
 
 # Private and Public DNS forward lookup zone configuration
@@ -22,7 +22,7 @@ Azure VMware Solution allows you to configure DNS forward lookup zones in two wa
 
 **Public**: The public DNS forward lookup zone allows domain names to be resolved using any public DNS servers. 
 
-**Private**: The private DNS forward lookup zone makes it resolvable only within a private customer environment and provides other security compliance. If a customer chooses Private Forward Lookup Zone, the Software-Defined Data Center (SDDC) Fully Qualified Domain Names (FQDNs) are resolvable from the virtual network where the SDDC is provisioned. If you wish to enable this zone to be resolvable outside of this virtual network, such as in a customer on-premises environment, you need to configure an Azure DNS Private Resolver or deploy your own DNS server in your virtual network that uses the Azure DNS Service (168.63.129.16) to resolve your SDDC FQDNs. 
+**Private**: The private DNS forward lookup zone makes it resolvable only within a private customer environment and provides other security compliance. If a customer chooses Private Forward Lookup Zone, the Software-Defined Data Center (SDDC) Fully Qualified Domain Names (FQDNs) are resolvable from the Virtual Network where the SDDC is provisioned. If need to enable this zone to be resolvable outside of this Virtual Network, such as in a customer on-premises environment, you need to configure an Azure DNS Private Resolver or deploy your own DNS server in your Virtual Network that uses the Azure DNS Service (168.63.129.16) to resolve your SDDC FQDNs. 
 
 ## Related content 
 
@@ -32,7 +32,7 @@ DNS forward lookup zone can be configured at the time of creation or changed aft
 
 ## Configuring Private DNS for your Azure VMware Solution Private Cloud in an Azure Virtual Network  
  
- During private cloud creation if you choose the Private DNS option, or when changing the zone type to private, the private cloud will be resolvable from the Virtual Network where the private cloud was provisioned. This is done by linking the private DNS zone to your Virtual Network. If you wish to enable this zone to be resolvable outside of this Virtual Network, such as in your on-premises environment, you will need to configure an Azure DNS Private Resolver, or deploy your own DNS server in your Virtual Network that will use the Azure DNS Service (168.63.129.16) to resolve your private cloud FQDNs. This section explains configuring an Azure DNS Private Resolver. 
+If you select the Private DNS option, the private cloud will be resolvable from the Virtual Network where the private cloud is provisioned. This is done by linking the private DNS zone to your Virtual Network. If you need to enable this zone to be resolvable outside of this Virtual Network, such as in your on-premises environment, you need to configure an Azure DNS Private Resolver, or deploy your own DNS server in your Virtual Network. Private DNS will use the Azure DNS Service (168.63.129.16) to resolve your private cloud FQDNs. This section explains configuring an Azure DNS Private Resolver. 
  
  ### Prerequisite
  
@@ -45,7 +45,7 @@ DNS forward lookup zone can be configured at the time of creation or changed aft
  1. Click create. 
  2. In the Search the Marketplace field, type Private DNS Resolver and click enter. 
  3. Click create for the Private DNS Resolver. 
- 4. Ensure the Subscription, Resource group, and Region fields are correct, enter a name and choose your virtual network, this network must be the same as where you deployed your private cloud, then click Next: Inbound Endpoints. 
+ 4. Ensure the Subscription, Resource group, and Region fields are correct. Enter a name and choose your Virtual Network. This network must be the same as where you deployed your private cloud, then click Next: Inbound Endpoints. 
  5. Click Add an Endpoint, enter a name for the Inbound endpoint, such as dns-in and select the subnet for the DNS inbound endpoint and click Save.
  6. Click Next: Outbound Endpoints. 
  7. Click Add an Endpoint, enter a name for the Outbound endpoint, such as dns-out and select the subnet for the DNS outbound endpoint and click Save.
