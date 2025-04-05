@@ -134,25 +134,31 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
    :::image type="content" source="media/quickstart-create-example-consumption-workflow/add-rss-trigger-settings.png" alt-text="Screenshot shows the RSS trigger settings, including RSS URL, frequency, interval, and others." lightbox="media/quickstart-create-example-consumption-workflow/add-rss-trigger-settings.png":::
 
-1. This specific trigger requires a workaround due to double-encoding behavior. So, on the *designer* toolbar, select **Code view**.
-
-   > [!IMPORTANT]
-   >
-   > Don't select **Code view** in the trigger information pane, which opens code view in read-only mode.
-
-1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.content.dowjones.io/public/rss/RSSMarketsMain'))}"`**.
-
-1. Remove the extra function named **`encodeURIComponent()`** so that you have only one instance, for example: 
-   
-   **`"feedUrl": "@{encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain')}"`**  
-
-   You must make manually make this change to remove the double-encoding behavior.
-   
-1. Now, return to the designer. On the code editor toolbar, select **Designer**.
-
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   This step instantly publishes your logic app resource and workflow live in the Azure portal. However, the trigger only checks the RSS feed without taking any other actions. So, you need to add an action to specify what you want to happen when the trigger fires.
+   This step automatically publishes your logic app resource and workflow live in the Azure portal. However, the workflow doesn't do anything yet other than fire the trigger to check the RSS feed, based on the specified schedule. In a later section, you add an action to specify what you want to happen when the trigger fires.
+
+1. Due to this **RSS** trigger's default double-encoding behavior, you have to edit the trigger definition and manually remove this behavior:
+
+   1. On the *designer* toolbar, select **Code view**.
+
+      > [!IMPORTANT]
+      >
+      > Don't select the **Code view** tab in the trigger information pane. This tab opens code view in read-only mode.
+
+   1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.content.dowjones.io/public/rss/RSSMarketsMain'))}"`**.
+
+   1. Remove the extra function named **`encodeURIComponent()`** so that you have only one instance, for example: 
+   
+      **`"feedUrl": "@{encodeURIComponent(`https://feeds.content.dowjones.io/public/rss/RSSMarketsMain`)}"`**  
+
+1. Save the changes that you made. On the code editor toolbar, select **Save**.
+
+   Every time that you save changes to your workflow in the designer or code editor, Azure instantly publishes those changes live in the Azure portal.
+
+1. Return to the designer. On the code editor toolbar, select **Designer**.
+
+In the next section, you specify the action to take when the trigger condition is met, which causes the trigger to fire.
 
 <a name="add-email-action"></a>
 
