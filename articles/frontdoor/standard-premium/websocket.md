@@ -6,7 +6,7 @@ ms.author: halkazwini
 manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 3/31/2025
+ms.date: 03/31/2025
 ---
 
 # Azure Front Door WebSocket

@@ -36,6 +36,9 @@ The Cordon action without the `evacuate` parameter isn't considered disruptive w
 
 ## Power off a Bare Metal Machine
 
+> [!IMPORTANT]
+> There are rare cases where running Nexus VMs fail to relaunch after BMM shutdown or restart. To prevent these cases, power off any virtual machines on the BMM before powering off or restarting the BMM. See the [`cordon`](#make-a-bare-metal-machine-unschedulable-cordon) command for instructions on finding the workloads running on a BMM.
+
 This command will `power-off` the specified `bareMetalMachineName`.
 
 ```azurecli
@@ -57,6 +60,9 @@ az networkcloud baremetalmachine start \
 ```
 
 ## Restart a Bare Metal Machine
+
+> [!IMPORTANT]
+> There are rare cases where running Nexus VMs fail to relaunch after BMM shutdown or restart. To prevent these cases, power off any virtual machines on the BMM before powering off or restarting the BMM. See the [`cordon`](#make-a-bare-metal-machine-unschedulable-cordon) command for instructions on finding the workloads running on a BMM.
 
 This command will `restart` the specified `bareMetalMachineName`.
 
