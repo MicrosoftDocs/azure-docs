@@ -23,14 +23,14 @@ Communities come with the following primary platform-managed and platform-deploy
 - [Azure Storage Account](../storage/common/storage-account-overview.md). By default and for convenience, all Communities are deployed with a Storage Account.  [Learn more about Azure Storage](https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options.md).
 
 ### Community address space
-> **Note**:
+> [!NOTE]
 > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a Community. Users shouldn't create Communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
 
 ## Community managed resource group
 When you create a community, the Azure Virtual Enclaves resource provider also creates and manages a separate resource group called the Community managed resource group. For more details regarding the Community managed resource group, learn more about [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
 
 ## Template
-See template documentation [here](./ave-templates.md#community-template)
+See [template documentation](./ave-templates.md#community-template)
 
 ## Managed Resources
 - [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md)
