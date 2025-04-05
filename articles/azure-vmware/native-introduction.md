@@ -51,7 +51,7 @@ This offering is supported on the following SKU type:
 
 ## Regional availability
 
-Azure VMware Solution in an Azure Virtual Network offering is available in the following regions for public Preview.
+Azure VMware Solution in an Azure Virtual Network offering is available in the following regions for Public Preview.
 
 | Region | Status |
 |--------|--------|
