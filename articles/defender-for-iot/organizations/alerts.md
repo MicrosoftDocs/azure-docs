@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for IoT alerts
 description: Learn about Microsoft Defender for IoT alerts across the Azure portal and OT network sensors.
-ms.date: 08/03/2025
+ms.date: 04/06/2025
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
