@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure Reliability documentation
+title: What's new in Azure reliability documentation
 description: Learn about what's new in Azure reliability documentation
 ms.service: azure
 ms.topic: whats-new
