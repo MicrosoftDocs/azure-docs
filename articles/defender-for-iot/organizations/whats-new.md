@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 10/14/2024
+ms.date: 04/08/2025
 ms.custom: enterprise-iot
 ---
 
@@ -22,6 +22,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
+## April 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Configure a backup server after false positive alert](#configure-a-backup-server-after-false-positive-alert)<br> |
+
+### Configure a backup server after false positive alert
+
+When a false positive alert is produced, the backup server might need to be reconfigured. For more information, see [configure a backup server after false positive alert](how-to-troubleshoot-sensor.md#configure-a-backup-server-after-false-positive-alert).
+
 ## March 2025
 
 |Service area  |Updates  |
@@ -31,8 +41,6 @@ The legacy on-premises management console won't be available for download after 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
 
 The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
-
-:::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of URL information in alert details." lightbox="media/whats-new/url-parameters.png":::
 
 ### Improved RDP brute force detection
 
