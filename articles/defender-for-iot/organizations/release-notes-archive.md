@@ -1,15 +1,15 @@
 ---
 title: What's new archive for Microsoft Defender for IoT for organizations
-description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than six months ago.
+description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than nine months ago.
 ms.topic: concept-article
-ms.date: 04/6/2025
+ms.date: 04/06/2025
 ---
 
 # What's new archive for in Microsoft Defender for IoT for organizations
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than six months ago.
+This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than nine months ago.
 
 For more recent updates, see [What's new in Microsoft Defender for IoT?](whats-new.md).
 

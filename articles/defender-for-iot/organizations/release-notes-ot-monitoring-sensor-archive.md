@@ -1,8 +1,8 @@
 ---
 title: OT monitoring software versions archive for Microsoft Defender for IoT for organizations
-description: Learn about OT monitoring software versions released for Microsoft Defender for IoT for organizations more than six months ago.
+description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions archive released more than six months ago, including release and support dates and highlights for new features.
 ms.topic: concept-article
-ms.date: 01/26/2025
+ms.date: 04/06/2025
 ---
 
 # OT monitoring software versions archive for in Microsoft Defender for IoT for organizations
@@ -19,8 +19,6 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 This section describes the servicing information, timelines, and guidance for the available on-premises software versions.
 
-
-
 > [!NOTE]
 > If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
 >
@@ -32,7 +30,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
 > [!IMPORTANT]
-> The on-premises management console isn't be supported or available for download after January 1st, 2025. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
+> The on-premises management console isn't supported or available for download after January 1st, 2025. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 >
 
 | Version / Patch |  Release date | Scope     | Supported until |
@@ -82,8 +80,6 @@ Maintain your sensors and on-premises management consoles, for activities like b
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
-
-
 
 ## Versions 23.2.x
 
@@ -389,53 +385,3 @@ This version includes the following new updates and fixes:
 - [Updated process for sensor name changes](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
-
-## Versions 10.5.x
-
-To update your software to the latest version available, first update to version 22.1.7, and then update again to the latest 22.2.x version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
-### 10.5.5
-
-**Release date**: 12/2021
-
-**Supported until**: 9/2022
-
-This version minor maintenance updates.
-
-### 10.5.4
-
-**Release date**: 12/2021
-
-**Supported until**: 09/2022
-
-This version includes the following new updates and fixes:
-
-- [New Microsoft Sentinel solution for Defender for IoT](../../sentinel/iot-solution.md)
-- [Mitigation for the Apache Log4j vulnerability](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844)
-- [Alerts for minor events and edge cases disabled or minimized](alert-engine-messages.md)
-
-### 10.5.3
-
-**Release date**: 10/2021
-
-**Supported until**: 07/2022
-
-This version includes the following new updates and fixes:
-
-- [New integration APIs](api/management-integration-apis.md)
-- [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
-- [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-- [Export alert enhancements](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
-
-### 10.5.2
-
-**Release date**: 10/2021
-
-**Supported until**: 07/2022
-
-This version includes the following new updates and fixes:
-
-- [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
-- [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
-- [Unicode support for certificate passphrases](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates)
