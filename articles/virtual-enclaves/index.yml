@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Virtual Enclaves?
-            url: what-is-azure-virtual-enclaves.md
+            url: what-azure-virtual-enclaves.md
       #     - text: Why use Azure Virtual Enclaves?
       #       url: why-azure-virtual-enclaves.md
       # - linkListType: learn
@@ -32,27 +32,27 @@ landingContent:
       #       url: networking.md
 #           - text: Designing intra-enclave network isolation
 #             url: designing-intra-enclave-network-isolation.md
-#  # Card
-#   - title: Components of a Virtual Enclave Environment 
-#     linkLists:
-#       - linkListType: concept
-#         links:
-#           - text: What is a community?
-#             url: what-is-a-community.md
-#           - text: What is a transit hub?
-#             url: what-is-a-transit-hub.md
-#           - text: What is a Community Endpoint?
-#             url: what-is-a-community-endpoint.md
-#           - text: What is an enclave?
-#             url: what-is-an-enclave.md
-#           - text: What is a Enclave Endpoint?
-#             url: what-is-an-enclave-endpoint.md
-#           - text: What is a Enclave Connection?
-#             url: what-is-an-enclave-connection.md
-#           - text: What is a workload?
-#             url: what-is-a-workload.md
-#           - text: What is a service catalog?
-#             url: what-is-the-service-catalog.md
+ # Card
+  - title: Components of a Virtual Enclave Environment 
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is a community?
+            url: what-community.md
+          - text: What is a transit hub?
+            url: what-transit-hub.md
+          - text: What is a Community Endpoint?
+            url: what-community-endpoint.md
+          - text: What is an enclave?
+            url: what-enclave.md
+          - text: What is a Enclave Endpoint?
+            url: what-enclave-endpoint.md
+          - text: What is a Enclave Connection?
+            url: what-enclave-connection.md
+          - text: What is a workload?
+            url: what-workload.md
+          - text: What is a service catalog?
+            url: what-service-catalog.md
 #  # Card
 #   - title: Deploy an Azure Virtual Enclaves Environment
 #     linkLists:
@@ -78,6 +78,27 @@ landingContent:
 #             url: Create-an-Enclave-Connection-in-the-Azure-Portal.md
 #           - text: Easy button deployments
 #             url: Easy-Button-Deployments.md
+   # Card
+  - title: Azure Virtual Enclaves Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Tutorial 1 Create a community
+            url: 1-create-community.md
+          - text: Tutorial 2 Create enclaves inside a community
+            url: 2-create-enclaves-inside-community.md
+          - text: Tutorial 3 Create workloads inside an enclave
+            url: 3-create-workloads-inside-enclave.md
+          - text: Tutorial 4 Use the service catalog to create Azure resources inside a workload
+            url: 4-use-service-catalog-create-azure-resources-workloads.md
+          - text: Tutorial 5 Create an enclave endpoint and connection
+            url: 5-create-enclave-endpoint-connections.md
+          - text: Tutorial 6 Monitor your enclaves
+            url: 6-monitor-your-enclaves.md
+          - text: Tutorial 7 Host a publicly accessible application in a virtual enclave
+            url: 7-host-publicly-accessible-application-virtual-enclave.md
+          - text: Tutorial 8 Migrate workload resources
+            url: 8-migrate-workload-resources.md
 #  # Card
 #   - title: Governance, Security, and Compliance
 #     linkLists:
