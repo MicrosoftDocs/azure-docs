@@ -12,20 +12,14 @@ ms.date: 01/26/2025
 This article serves as an archive for OT monitoring software versions released for Microsoft Defender for IoT for organizations more than six months ago.
 
 For more recent updates, see [OT monitoring software versions in Microsoft Defender for IoT?](release-notes.md).
-<!-- do we need this? -->
+
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Versioning and support for on-premises software versions
 
 This section describes the servicing information, timelines, and guidance for the available on-premises software versions.
 
-### Version update recommendations
 
-When updating your on-premises software, we recommend:
-
-- Plan to **update your sensor versions to the latest version once every 6 months**.
-
-- Update to a **patch version only for specific bug fixes or security patches**. When working with the Microsoft support team on a specific issue, verify which patch version is recommended to resolve your issue.
 
 > [!NOTE]
 > If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
@@ -38,7 +32,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
 > [!IMPORTANT]
-> The on-premises management console won't be supported or available for download after January 1st, 2025. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
+> The on-premises management console isn't be supported or available for download after January 1st, 2025. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 >
 
 | Version / Patch |  Release date | Scope     | Supported until |

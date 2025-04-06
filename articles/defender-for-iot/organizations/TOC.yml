@@ -423,5 +423,7 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Release notes archive
     href: release-notes-archive.md
+  - name: OT monitoring software versions archive
+    href: release-notes-ot-monitoring-software-archive.md
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
