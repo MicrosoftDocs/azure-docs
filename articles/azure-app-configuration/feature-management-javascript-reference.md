@@ -276,7 +276,7 @@ The following snippet demonstrates how to implement a customized feature filter 
     }
 ```
 
-You need to register your custom filter under the `customFilters` property of the `FeatureManagerOptions` object passed to the `FeatureManager` constructor.
+You need to register the custom filter under the `customFilters` property of the `FeatureManagerOptions` object passed to the `FeatureManager` constructor.
 
 ```typescript
 const featureManager = new FeatureManager(ffProvider, {
