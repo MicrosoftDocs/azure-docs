@@ -123,7 +123,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Malicious URL path alert](release-notes-archive.md#malicious-url-path-alert)
+- [Malicious URL path alert](release-notes-ot-monitoring-sensor-archive.md#malicious-url-path-alert)
 - The following CVE is resolved in this version:
   - CVE-2024-38089
 
@@ -135,7 +135,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Sensor time drift detection](release-notes-archive.md#sensor-time-drift-detection)
+- [Sensor time drift detection](release-notes-ot-monitoring-sensor-archive.md#sensor-time-drift-detection)
 - Bug fixes for stability improvements
 - The following CVEs are resolved in this version:
   - CVE-2024-29055
@@ -161,4 +161,4 @@ This version includes the following updates and enhancements:
 
 ## Next steps
 
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-ot-monitoring-sensor-archive.md.md).

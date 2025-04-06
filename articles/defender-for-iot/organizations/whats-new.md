@@ -10,7 +10,7 @@ ms.custom: enterprise-iot
 
 This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, both on-premises and in the Azure portal, and for versions released in the last nine months.
 
-Features released earlier than nine months ago are described in the [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md). For more information specific to OT monitoring software versions, see [OT monitoring software release notes](release-notes.md).
+Features released earlier than nine months ago are described in the [What's new archive for Microsoft Defender for IoT for organizations](whats-new-archive.md). For more information specific to OT monitoring software versions, see [OT monitoring software release notes](release-notes.md).
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
