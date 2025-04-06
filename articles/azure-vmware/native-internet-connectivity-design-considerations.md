@@ -32,3 +32,10 @@ Azure VMware Solution internet connectivity using Azure Firewall is similar to t
     >[!Note] 
     >The Azure route tables (UDR), associated with private cloud uplink subnets, and private cloud VNet need to be in the same Azure resource group.
 4. Have necessary firewall rules to allow traffic to and from the internet.
+
+Related topics
+- [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
+- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
+- [Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud](native-connect-private-cloud-previous-edition.md)
+- [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)

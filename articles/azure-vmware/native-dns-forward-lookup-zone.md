@@ -68,3 +68,10 @@ You can now resolve your private cloud DNS records from any workload using the I
  6. Select the zone you just created in the FQDN zones dropdown and click OK.  
  
  Your workload Virtual Machines can now resolve the private cloud management components. 
+
+## Related topics
+- [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
+- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Internet connectivity options](native-internet-connectivity-design-considerations.md)
+- [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
+- [Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud](native-connect-private-cloud-previous-edition.md)

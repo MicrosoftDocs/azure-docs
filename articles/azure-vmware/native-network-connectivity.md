@@ -35,3 +35,10 @@ Both regional Virtual Network peering and global Virtual Network peering is supp
  > The standard Azure peer Virtual Network peering resync needs to be done to propagate any NSX segment, subnet and route changes on Azure VMware Solution private cloud.
 
 :::image type="content" source="./media/native-connectivity/native-connectivity-private-vnet-peering.png" alt-text="Diagram showing an Azure VMware Solution connection to other Virtual Networks":::
+
+## Related topics
+- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Internet connectivity options](native-internet-connectivity-design-considerations.md)
+- [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
+- [Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud](native-connect-private-cloud-previous-edition.md)
+- [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)

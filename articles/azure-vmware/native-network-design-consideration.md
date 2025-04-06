@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solution in an Azure Virtual Network design consideration (Public Preview)
+title: Azure VMware Solution in an Azure Virtual Network design consideration (Public preview)
 description: Learn about Azure VMware Solution in an Azure Virtual Network design consideration.
 ms.topic: conceptual
 ms.service: azure-vmware
@@ -37,7 +37,7 @@ The following 1st-party and 3rd-party integrations won't be available during Pub
 - **Zerto**
 - **Jetstream**
 
-## Routing and Subnet Considerations
+## Routing and subnet considerations
 
 Azure VMware Solution in an Azure Virtual Network provides a VMware private cloud environment accessible to users and applications from on-premises and Azure-based environments or resources. Connectivity is delivered through standard Azure Networking. Specific network address ranges and firewall ports are required to enable these services. This section helps you configure your networking to work with Azure VMware Solution. 
 

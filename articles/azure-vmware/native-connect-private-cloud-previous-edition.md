@@ -31,3 +31,10 @@ For more information about how to connect Virtual Networks using ExtressRoute, s
 4. Add a connection to the ExpressRoute gateway using the ER authorization key and ExpressRoute ID from the previous step.
 
 :::image type="content" source="./media/native-connectivity/native-connect-express-route-previous-edition.png" alt-text="Diagram showing an Azure VMware Solution connection to previous edition of private cloud."::: 
+
+## Related topics
+- [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
+- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Internet connectivity options](native-internet-connectivity-design-considerations.md)
+- [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
+- [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)
