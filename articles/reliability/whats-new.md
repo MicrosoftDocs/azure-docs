@@ -9,8 +9,7 @@ author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# What's new in Azure Reliability documentation
-
+# What's new in Azure reliability documentation
 
 This article provides a summary of the latest documentation updates for Azure Reliability. We update this page monthly to let you know about new articles, updated articles, and other changes to the documentation.
 
@@ -18,9 +17,9 @@ This article provides a summary of the latest documentation updates for Azure Re
 
 ### New articles
 
-- [Region List](./region-list.md): This article contains a list of all Azure regions, their paired region status, physical location, geography, and availability zone support.  The list replaces that previously separated lists for region pairs and nonpaired regions, and availability zones support.
+- [List of Azure regions](./regions-list.md): This article contains a list of all Azure regions, their paired region status, physical location, geography, and availability zone support.  The list replaces the previously separated lists for region pairs and nonpaired regions, and availability zones support.
 
-- [Nonregional Azure services ](./regions-nonregional-services.md): This article explains the difference between global and geographic nonregional services, and provides a list of nonregional services that indicates whether each is a global or geographic service.
+- [Nonregional Azure services](./regions-nonregional-services.md): This article explains the difference between global and geographic nonregional services, and provides a list of nonregional services that indicates whether each is a global or geographic service.
 
 ### Reliability guides
 
