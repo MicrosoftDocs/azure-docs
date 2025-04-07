@@ -31,7 +31,7 @@ When phone numbers are flagged as spam, it can limit the ability of businesses t
 
 The following activities are prohibited:
 1.	Using Communications Services in any manner that may expose Microsoft or any of its personnel to criminal or civil liability;
-2.	Re-selling Calling Plan and Audio Conferencing subscription minutes;
+2.	Reselling Calling Plan and Audio Conferencing subscription minutes;
 3.	Placing calls to or from Microsoft issued telephone numbers (whether singly, sequentially, or automatically) to generate income for yourself or others as a result of placing the call, other than for Customer’s business communications;
 4.	Placing calls in unusual calling patterns inconsistent with normal, individual subscription use, for example, placing regular calls of short durations or calls to multiple numbers in a short period of time.
 5.	Using Communications Services in violation of any applicable laws or regulations of any jurisdiction, including, but not limited to, (a) privacy or data protection laws or regulations; (b) laws requiring consent of participants to receive calls or text messages; (c) laws governing the recording or monitoring of telephone calls; (d) laws and regulations that prohibit unsolicited, unwanted or harassing communications; or (e) anti-spam laws such as the U.S. CAN SPAM Act of 2003 and the Do-Not-Call Implementation Act.
