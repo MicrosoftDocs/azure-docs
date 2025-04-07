@@ -61,7 +61,7 @@ To prevent duplicate record insertion because of a transient fault, implement th
 You can use retry policies to configure parts of your pipeline to retry if there's a problem, like transient faults in connected resources. In Data Factory, you can configure retry policies on the following pipeline object types:
 
 - [Tumbling window triggers](../data-factory/concepts-pipeline-execution-triggers.md#tumbling-window-trigger)
-- [Implementation activities](../data-factory/concepts-pipelines-activities.md#execution-activities)
+- [Execution activities](../data-factory/concepts-pipelines-activities.md#execution-activities).
 
 For more information about how to change or disable retry policies for your data factory triggers and activities, see [Pipeline runs and triggers](../data-factory/concepts-pipeline-execution-triggers.md).
 
@@ -188,7 +188,7 @@ Depending on the IR that you use, there might be other considerations.
 
 - *An Azure-SSIS IR* uses a database stored in Azure SQL Database or Azure SQL Managed Instance. You can configure geo-replication or a failover group for this database. The Azure-SSIS database is located in a primary Azure region that has read-write access. The database is continuously replicated to a secondary region that has read-only access. If the primary region is unavailable, a failover triggers, which causes the primary and secondary databases to swap roles.
 
-    You can also configure a dual standby Azure SSIS IR pair that works in sync with a SQL Database or SQL Managed Instance failover group.
+    You can also configure a dual standby Azure SSIS IR pair that works in sync with an Azure SQL Database or SQL Managed Instance failover group.
 
     For more information, see [Configure an Azure-SSIS IR for BCDR](../data-factory/configure-bcdr-azure-ssis-integration-runtime.md).
 
