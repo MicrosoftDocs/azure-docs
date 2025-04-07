@@ -19,7 +19,7 @@ When phone numbers are flagged as spam, it can limit the ability of businesses t
 - **Reputation Damage:** Being flagged as a spammer can harm the business reputation and customer trust.
 - **Operational Disruptions:** Communication disruptions can lead to operational inefficiencies and lost opportunities.
 
-## Requirements and Best Practices for Voice Communications
+## Requirements and best practices for voice communications
 
 -  **Monitor Call Patterns:** Regularly monitor call patterns to identify any unusual activity that may trigger spam filters. Avoid making a high volume of calls in a short period.
 -  **Use Caller ID:** Ensure that the customer’s caller ID is correctly set up and displays accurate information. This practice helps recipients recognize the caller and reduces the likelihood of being reported as spam. You can apply the Azure Communication process for Caller Name Delivery (CNAM) set up in [Define your caller identity](../telephony/how-to-manage-your-calling-identity.md).
@@ -27,7 +27,7 @@ When phone numbers are flagged as spam, it can limit the ability of businesses t
 -  **Provide Opt-Out Options:** Offer recipients an easy way to opt-out of receiving calls. This action can be done through automated systems or customer service representatives.
 -  **Maintain a Clean Contact List:** Remove inactive or incorrect numbers by regular update of customer’s contact list. This practice reduces the chances of calling numbers that may report customer’s calls as spam. Customers can use the Azure Communication Services Number Lookup API to help customers with this process. For more information, see [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md).
 
-## Prohibited uses of Communications Services
+## Prohibited uses of communications services
 
 The following activities are prohibited:
 -  Using Communications Services in any manner that may expose Microsoft or any of its personnel to criminal or civil liability;
