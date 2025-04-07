@@ -34,7 +34,7 @@ You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-
 | Feature | Scope | Default Quota | Maximum Quota | Remarks |
 |--|--|--|--|--|
 | Cores | Replica | 4 | 4 | Maximum number of cores available to a revision replica. |
-| Cores | Environment | 100 | 5,000 | Maximum number of cores the Consumption workload profile in a Dedicated plan environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. Quota name: Managed Environment General Purpose Cores |
+| Cores | Environment | 500 | 5,000 | Maximum number of cores the Consumption workload profile in a Dedicated plan environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. Quota name: Managed Environment Consumption Cores |
 
 ### Dedicated workload profiles
 
@@ -42,8 +42,8 @@ You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-
 |--|--|--|--|--|
 | Cores | Subscription | 2,000 | Unlimited  | Maximum number of dedicated workload profile cores within one subscription | 
 | Cores | Replica | Maximum cores a workload profile supports | Same as default quota | Maximum number of cores available to a revision replica. |
-| Cores | Environment | 100 | 5,000 | The total cores available to all general purpose (D-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment General Purpose Cores |
-| Cores | Environment | 50 | 5,000 | The total cores available to all memory optimized (E-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment Memory Optimized Cores |
+| Cores | Environment | 500 | 5,000 | The total cores available to all general purpose (D-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment General Purpose Cores |
+| Cores | Environment | 500 | 5,000 | The total cores available to all memory optimized (E-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment Memory Optimized Cores |
 
 > [!NOTE]
 > For GPU enabled workload profiles, you need to request capacity via a [request for a quota increase in the Azure portal](/azure/quotas/quickstart-increase-quota-portal).
