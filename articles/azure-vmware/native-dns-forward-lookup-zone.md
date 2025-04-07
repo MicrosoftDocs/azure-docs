@@ -22,11 +22,9 @@ Azure VMware Solution allows you to configure DNS forward lookup zones in two wa
 
 **Public**: The public DNS forward lookup zone allows domain names to be resolved using any public DNS servers. 
 
-**Private**: The private DNS forward lookup zone makes it resolvable only within a private customer environment and provides other security compliance. If a customer chooses Private Forward Lookup Zone, the Software-Defined Data Center (SDDC) Fully Qualified Domain Names (FQDNs) are resolvable from the Virtual Network where the SDDC is provisioned. If need to enable this zone to be resolvable outside of this Virtual Network, such as in a customer on-premises environment, you need to configure an Azure DNS Private Resolver or deploy your own DNS server in your Virtual Network that uses the Azure DNS Service (168.63.129.16) to resolve your SDDC FQDNs. 
+**Private**: The private DNS forward lookup zone makes it resolvable only within a private customer environment and provides other security compliance. If a customer chooses Private Forward Lookup Zone, the Software-Defined Data Center (private cloud) Fully Qualified Domain Names (FQDNs) are resolvable from the Virtual Network where the private cloud is provisioned. If need to enable this zone to be resolvable outside of this Virtual Network, such as in a customer on-premises environment, you need to configure an Azure DNS Private Resolver or deploy your own DNS server in your Virtual Network that uses the Azure DNS Service (168.63.129.16) to resolve your private cloud FQDNs. 
 
-## Related content 
-
-DNS forward lookup zone can be configured at the time of creation or changed after the SDDC is created. The following diagram shows the configuration page for the DNS forward lookup zone. 
+DNS forward lookup zone can be configured at the time of creation or changed after the private cloud is created. The following diagram shows the configuration page for the DNS forward lookup zone. 
 
 :::image type="content" source="./media/native-connectivity/native-connect-dns-lookup.png" alt-text="Diagram showing an Azure VMware Solution DNS forward lookup."::: 
 
