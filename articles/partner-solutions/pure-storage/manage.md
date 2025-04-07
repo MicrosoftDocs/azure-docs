@@ -36,7 +36,9 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ### Create a Storage Pool
 
-To create a storage pool:
+One you've created a resource, you can create a storage pool. 
+
+[!INCLUDE [manage](../includes/manage.md)]
 
 1. Select **Settings > Storage Pool** from the service menu.
 
