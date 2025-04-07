@@ -2,9 +2,9 @@
 title: Group and allocate costs using tag inheritance
 titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
-author: bandersmsft
-ms.author: banders
-ms.date: 12/18/2023
+author: sdoultani
+ms.author: sadoulta
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -111,12 +111,10 @@ Let's look at another example where a resource tag gets overridden. In the follo
 
 ## Usage record updates
 
-After the tag inheritance setting is enabled, it takes about 8-24 hours for the child resource usage records to get updated with subscription and resource group tags. The usage records are updated for the current month using the existing subscription and resource group tags.
+After the tag inheritance setting is updated, it takes about 8-24 hours for the child resource usage records to get updated. Any update to the setting or the tags being inherited takes effect for the current month.
 
-For example, if the tag inheritance setting is enabled on October 20, child resource usage records are updated from October 1 using the tags that existed on October 20.
-
-Similarly, if the tag inheritance setting is disabled, the inherited tags are removed from the usage records for the current month.
-
+For example, if the tag inheritance setting is enabled on October 20, child resource usage records are updated from October 1 using the tags that existed on October 20. 
+ 
 > [!NOTE]
 > If there are purchases or resources that don’t emit usage at a subscription scope, they will not have the subscription tags applied even if the setting is enabled.
 

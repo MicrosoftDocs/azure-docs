@@ -1,13 +1,13 @@
 ---
 title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save your money with your enterprise enrollment.
-author: bandersmsft
-ms.author: banders
-ms.date: 02/13/2024
+author: racheg
+ms.author: racheg
+ms.date: 04/02/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: sapnakeshari
+ms.reviewer: racheg
 ---
 
 # Azure EA VM reserved instances
@@ -73,7 +73,7 @@ Reserved instances can reduce your virtual machine costs up to 72 percent over P
 
 To purchase an Azure reserved virtual machine instance, an Enterprise administrator must enable the _Reserved Instances_ purchase option. For more information, see [View and manage enrollment policies](direct-ea-administration.md#view-and-manage-enrollment-policies).
 
-Once the EA enrollment is enabled to add reserved instances, any account owner with an active subscription associated to the EA enrollment can buy a reserved virtual machine instance in the [Azure portal](https://aka.ms/reservations). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/prepay-reserved-vm-instances.md).
+Once the EA enrollment is enabled to add reserved instances, any account owner with an active subscription associated to the EA enrollment can buy a reserved virtual machine instance in the [Azure portal](https://aka.ms/reservations). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
 
 ### How to view reserved instance purchase details
 

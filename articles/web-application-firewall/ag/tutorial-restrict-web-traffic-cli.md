@@ -1,12 +1,11 @@
 ---
 title: Enable Web Application Firewall - Azure CLI
 description: Learn how to restrict web traffic with a Web Application Firewall on an application gateway using the Azure CLI.
-services: web-application-firewall
-author: vhorne
-ms.service: web-application-firewall
-ms.date: 06/23/2022
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
 ms.topic: how-to 
+ms.date: 06/23/2022
 ms.custom: devx-track-azurecli
 ---
 

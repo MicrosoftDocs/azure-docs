@@ -15,10 +15,6 @@ An App Service Environment is an Azure App Service feature that provides a fully
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
-> 
-
 The custom domain suffix defines a root domain used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. For ILB App Service Environments, the default root domain is *appserviceenvironment.net*. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal.contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing *APP-NAME.internal.contoso.com*.
 
 The custom domain suffix is for the App Service Environment. This feature is different from a custom domain binding on an App Service. For more information on custom domain bindings, see [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md).
@@ -69,7 +65,7 @@ If you rotate your certificate in Azure Key Vault, the App Service Environment p
 
 ### Network access to Key Vault
 
-The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. To learn how to configure a private endpoint, see [Integrate Key Vault with Azure Private Link](../../key-vault/general/private-link-service.md). If you use public access, you can secure your key vault to only accept traffic from the outbound IP address of the App Service Environment. The App Service Environment uses the platform outbound IP address as the source address when accessing the key vault. You can find the IP address in the IP Addresses page in Azure portal.
+The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. To learn how to configure a private endpoint, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service). If you use public access, you can secure your key vault to only accept traffic from the outbound IP address of the App Service Environment. The App Service Environment uses the platform outbound IP address as the source address when accessing the key vault. You can find the IP address in the IP Addresses page in Azure portal.
 
 :::image type="content" source="./media/custom-domain-suffix/platform-outbound-ip.png" alt-text="Screenshot of IP Addresses page in Azure portal.":::
 
@@ -110,14 +106,14 @@ You need to configure the managed identity and ensure it exists before assigning
     "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
+            "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
         }
     },
     "properties": {
         "customDnsSuffixConfiguration": {
             "dnsSuffix": "antares-test.net",
             "certificateUrl": "https://kv-sample-key-vault.vault.azure.net/secrets/wildcard-antares-test-net",
-            "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
+            "keyVaultReferenceIdentity": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
         },
         "internalLoadBalancingMode": "Web, Publishing",
         etc...

@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: jonburchel
 ms.author: jburchel
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ---
 
 # Monitor dedicated SQL pool in Azure Synapse Analytics

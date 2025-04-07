@@ -69,8 +69,10 @@
       href: ../files/files-manage-namespaces.md?toc=/azure/storage/file-sync/toc.json
     - name: Enable threat protection with Microsoft Defender for Storage
       href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/file-sync/toc.json
-  - name: Encryption
+  - name: Security
     items:
+    - name: Configure managed identities
+      href: file-sync-managed-identities.md
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/file-sync/toc.json
     - name: Encryption at rest with customer-managed keys
@@ -150,7 +152,7 @@
   - name: Disaster recovery best practices
     href: file-sync-disaster-recovery-best-practices.md
   - name: Change the redundancy configuration
-    href: ../common/redundancy-migration.md?toc=/azure/storage/file-sync/toc.json
+    href: ../files/files-change-redundancy-configuration.md?toc=/azure/storage/file-sync/toc.json
   - name: Initiate an account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/file-sync/toc.json
   - name: Recover from a server failure
@@ -185,6 +187,16 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot cloud tiering issues
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
+  - name: Troubleshoot managed identities
+    href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+- name: Training
+  items:
+  - name: Extend share capacity with Azure File Sync
+    href: /training/modules/extend-share-capacity-with-azure-file-sync/
+  - name: Configure Azure Files and Azure File Sync
+    href: /training/modules/configure-azure-files-file-sync/
+  - name: Implement a hybrid file server infrastructure
+    href: /training/modules/implement-hybrid-file-server-infrastructure/    
 - name: Reference
   items:
   - name: Azure File Sync agent silent installation
@@ -195,8 +207,10 @@
     href: ../files/storage-files-faq.md?toc=/azure/storage/file-sync/toc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/file-sync/toc.json
-  - name: Monitoring Azure Files reference
+  - name: Monitoring Azure Files data reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
+  - name: Monitoring Azure File Sync data reference
+    href: monitor-file-sync-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
@@ -253,7 +267,7 @@
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x (preview)

@@ -2,7 +2,7 @@
 title: Discover shadow APIs using Dev Proxy
 description: Learn how to discover shadow APIs in your apps using Dev Proxy and onboard them to API Center.
 author: waldekmastykarz
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 07/15/2024
 ms.author: wmastyka 
@@ -51,7 +51,7 @@ In the `devproxyrc.json` file, add the following configuration:
     "https://jsonplaceholder.typicode.com/*"
   ],
   "apiCenterOnboardingPlugin": {
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "resourceGroupName": "demo",
     "serviceName": "contoso-api-center",
     "workspaceName": "default",
@@ -93,7 +93,7 @@ Update your `devproxyrc.json` file with a reference to the plain-text reporter:
     "https://jsonplaceholder.typicode.com/*"
   ],
   "apiCenterOnboardingPlugin": {
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "resourceGroupName": "demo",
     "serviceName": "contoso-api-center",
     "workspaceName": "default",
@@ -207,7 +207,7 @@ The `ApiCenterOnboardingPlugin` can not only detect shadow APIs, but also automa
     "https://jsonplaceholder.typicode.com/*"
   ],
   "apiCenterOnboardingPlugin": {
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "resourceGroupName": "demo",
     "serviceName": "contoso-api-center",
     "workspaceName": "default",
@@ -251,7 +251,7 @@ To automatically generate OpenAPI specs for onboarded APIs, update Dev Proxy con
     "https://jsonplaceholder.typicode.com/*"
   ],
   "apiCenterOnboardingPlugin": {
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "resourceGroupName": "demo",
     "serviceName": "contoso-api-center",
     "workspaceName": "default",

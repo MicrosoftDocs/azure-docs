@@ -3,8 +3,8 @@ title: Data retention policy overview - Azure SQL Edge
 description: Learn about the data retention policy in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -12,7 +12,9 @@ keywords:
 ---
 # Data retention overview
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Collection and storage of data from connected IoT devices is important to drive and gain operational and business insights. However, with the volume of data originating from these devices, it becomes important for organizations to carefully plan the amount of data they want to retain and at what granularity. While retaining all data at all granularity is desirable, it's not always practical. Additionally, the volume of data that can be retained is constrained by the amount of storage available on the IoT or Edge devices.
@@ -39,7 +41,7 @@ After data retention is configured for a table, a background task runs to identi
 - Data Retention can't be enabled for a Temporal History Table
 - Data Retention filter column can't be altered. To alter the column, disable data retention on the table.
 
-## Next steps
+## Related content
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).

@@ -1,19 +1,19 @@
 ---
-title: Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
+title: Set up a sign-up and sign-in flow for a local account
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a local account, using email and password, by using Azure Active Directory B2C custom policy.  
 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to set up a sign-up and sign-in flow for a local account using Azure Active Directory B2C custom policy, so that users can create and sign in to their accounts in my application.
@@ -37,7 +37,7 @@ Azure AD B2C custom policy provides an OpenID Connect technical profile, which y
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms.  
+- [Register a web application](tutorial-register-applications.md).  
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
@@ -311,7 +311,7 @@ When the custom policy runs:
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 
-- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution.
+- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT at the end of the policy’s execution.
 
 ## Step 4 - Upload policy
 
@@ -325,7 +325,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 You can sign in by entering the **Email Address** and **Password** of an existing account. If you don't already have an account, you need to select the **Sign up now** link to create a new user account. 
 
-## Next steps
+## Related content
 
 - Learn how to [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md).
 

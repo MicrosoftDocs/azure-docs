@@ -4,8 +4,8 @@ description: Reference guide to the JSON schema and syntax for the Workflow Defi
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: reference
-ms.date: 06/13/2024
+ms.topic: conceptual
+ms.date: 03/27/2025
 ---
 
 # Schema reference guide for the Workflow Definition Language in Azure Logic Apps
@@ -235,7 +235,7 @@ When you're done, the expression appears for the corresponding property in your 
   "inputs": {
     "host": {
       "connection": {
-        "name": "@parameters('$connections')['twitter']['connectionId']"
+        "name": "@parameters('$connections')['x']['connectionId']"
       }
     }
   },

@@ -3,8 +3,8 @@ title: Azure Front Door sensitive data protection
 description: Learn about sensitive data protection for logs in Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
-ms.service: frontdoor
-ms.topic: concept-article #Required; leave this attribute/value as-is.
+ms.service: azure-frontdoor
+ms.topic: concept-article
 ms.date: 04/30/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about Azure Front Door scrubbing tool so that I can use it to protect sensitive data in Azure Front Door. logs.

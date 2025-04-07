@@ -1,7 +1,7 @@
 ---
-author: craigshoemaker
-ms.author: cshoe
-ms.service: static-web-apps
+author: v1212
+ms.author: wujia
+ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 07/02/2024
 ---

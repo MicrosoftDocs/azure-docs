@@ -3,11 +3,11 @@ title: Release notes for 2021 Azure Health Data Services monthly releases
 description: 2021 - Explore the new capabilities and benefits of Azure Health Data Services in 2021. Learn about the features and enhancements introduced in the FHIR, DICOM, and MedTech services that help you manage and analyze health data. 
 services: healthcare-apis
 author: shellyhaverkamp
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 03/13/2024
-ms.author: jasteppe
+ms.author: kesheth
 ms.custom: references_regions
 ---
 
@@ -51,7 +51,7 @@ We started the process of providing PowerShell, CLI scripts, and ARM templates t
 
 #### Process patient-everything links
 
-We expanded the atient-everything capabilities to process patient links [PR #2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links).
+We expanded the patient-everything capabilities to process patient links [PR #2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links).
 
 ### Bug fixes
 

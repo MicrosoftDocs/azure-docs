@@ -2,8 +2,8 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/04/2024
-ms.topic: conceptual
+ms.date: 02/17/2025
+ms.topic: troubleshooting
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
@@ -42,13 +42,13 @@ To review the logs related to all actions performed by the extension, check for 
 #### [Arc-enabled Servers](#tab/azure-arc)
 
 
-For Azure Arc-enabled servers, see [Troubleshoot VM extensions](../azure-arc/servers/troubleshoot-vm-extensions.md) for general troubleshooting steps.
+For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
-To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
+To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. It includes the following log files of interest:
 
 * `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes the patches assessed and installed on the machine and any problems encountered in the process.
 * `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
-* `cmd_excution_<numeric>_stderr.txt`
+* `cmd_execution_<numeric>_stderr.txt`
 
 ---
 
@@ -90,24 +90,24 @@ The Virtual Machine Contributor role doesn’t have enough permissions.
 -	Also, in scenarios where the Contributor role doesn’t work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
 
-### Unable to generate periodic assessment for Arc-enabled servers
+## Unable to generate periodic assessment for Arc-enabled servers
 
-#### Issue
+### Issue
 
 The subscriptions in which the Arc-enabled servers are onboarded aren't producing assessment data.
 
-#### Resolution
+### Resolution
 Ensure that the Arc servers subscriptions are registered to Microsoft.Compute resource provider so that the periodic assessment data is generated periodically as expected. [Learn more](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
-### Maintenance configuration isn't applied when VM is moved to a different subscription or resource group
+## Maintenance configuration isn't applied when VM is moved to a different subscription or resource group
 
-#### Issue
+### Issue
 
 When a VM is moved to another subscription or resource group, the scheduled maintenance configuration associated to the VM isn't running.
 
-#### Resolution
+### Resolution
 
-The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a prerequisite, first remove the assignment before following the steps.** 
+Maintenance configurations do not currently support the moving of assigned resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a prerequisite, first remove the assignment before following the steps.** 
 
 If you're using a `static` scope:
 
@@ -125,26 +125,26 @@ If any of the steps are missed, please move the resource to the previous resourc
 > [!NOTE]
 > If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
 
-### Unable to change the patch orchestration option to manual updates from automatic updates
+## Unable to change the patch orchestration option to manual updates from automatic updates
 
-#### Issue
+### Issue
 
-The Azure machine has the patch orchestration option as `AutomaticByOS/Windows` automatic updates and you're unable to change the patch orchestration to Manual Updates by using **Change update settings**.
+You want to ensure that the Windows Update client won't install patches on your Windows Server so you want to set the patch setting to Manual. The Azure machine has the patch orchestration option as `AutomaticByOS/Windows` automatic updates and you're unable to change the patch orchestration to Manual Updates by using **Change update settings**.
 
-#### Resolution
+### Resolution
 
 If you don't want any patch installation to be orchestrated by Azure or aren't using custom patching solutions, you can change the patch orchestration option to **Customer Managed Schedules (Preview)** or `AutomaticByPlatform` and `ByPassPlatformSafetyChecksOnUserSchedule` and not associate a schedule/maintenance configuration to the machine. This setting ensures that no patching is performed on the machine until you change it explicitly. For more information, see **Scenario 2** in [User scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
 
 :::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
 
-### Machine shows as "Not assessed" and shows an HRESULT exception
+## Machine shows as "Not assessed" and shows an HRESULT exception
 
-#### Issue
+### Issue
 
 * You have machines that show as `Not assessed` under **Compliance**, and you see an exception message below them.
 * You see an `HRESULT` error code in the portal.
 
-#### Cause
+### Cause
 
 The Update Agent (Windows Update Agent on Windows and the package manager for a Linux distribution) isn't configured correctly. Update Manager relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Manager can't properly report on the patches that are needed or installed.
 
@@ -182,18 +182,16 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
 
 
-## Known issues in schedule patching
+## Known issues in scheduled patching
 
-- For a concurrent or conflicting schedule, only one schedule is triggered. The other schedule is triggered after a schedule is finished.
+- For a concurrent or conflicting schedule, only one schedule is triggered. The other schedule is triggered after the first schedule is finished.
 - If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in the case of Azure VMs.
-- Policy definition **Schedule recurring updates using Azure Update Manager** with version 1.0.0-preview successfully remediates resources. However, it always shows them as noncompliant. The current value of the existence condition is a placeholder that always evaluates to false.
 
-
-### Schedule patching fails with error 'ShutdownOrUnresponsive'
+### Scheduled patching fails with error 'ShutdownOrUnresponsive'
 
 #### Issue
 
-Schedule patching hasn't installed the patches on the VMs and gives an error as 'ShutdownOrUnresponsive'.
+Scheduled patching hasn't installed the patches on the VMs and gives an error as 'ShutdownOrUnresponsive'.
 
 #### Resolution
 Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation.
@@ -210,7 +208,7 @@ The machines are in a shutdown state.
 
 #### Resolution
 
-Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](../virtual-machines/maintenance-configurations.md#shut-down-machines).
+Ensure your machines are turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](/azure/virtual-machines/maintenance-configurations#shut-down-machines).
 
 ### Patch run failed with Maintenance window exceeded property showing true even if time remained
 
@@ -235,6 +233,121 @@ To find more information, review the logs in the file path provided in the error
 #### Resolution
 
 Set a longer time range for maximum duration when you're triggering an [on-demand update deployment](deploy-updates.md) to help avoid the problem.
+
+
+### Windows/Linux OS update extension isn't installed
+
+#### Issue
+
+The Windows/Linux OS Update extension must be successfully installed on Arc machines to perform on-demand assessments, patching, and scheduled patching.
+
+#### Resolution
+
+Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
+
+If the extension is already present on an Arc machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation so that it is installed again.
+
+### Windows/Linux patch update extension isn't installed
+
+#### Issue
+The Windows/Linux patch update extension must be successfully installed on Azure machines to perform on-demand assessment or patching, scheduled patching and for periodic assessments.
+
+#### Resolution
+Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
+
+If the extension is already present on the machine but the extension status is not **Succeeded**, trigger an on-demand operation which will install it again. 
+
+### Allow Extension Operations check failed
+
+#### Issue
+
+The property [AllowExtensionOperations](/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations) is set to false in the machine OSProfile.
+
+#### Resolution
+The property should be set to true to allow extensions to work properly. 
+
+### Sudo privileges not present
+
+#### Issue
+
+Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines. You may see the following exception:
+```
+EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
+```
+
+Azure Update Manager (*AUM*) requires a high level of permissions due to the many different components that may be updated with AUM (*Kernel drivers, OS Security Patching, etc.*). The AUM extensions use the `root` account for operations.
+
+#### Resolution
+Grant sudo privileges to ensure assessment or patching operations succeed. You will need to add the root account to the sudoers file.
+
+1. Open the sudoers file for editing:
+   ```bash
+   sudo visudo
+   ```
+
+2. Add the following entry to the end of `/etc/sudoers` file:
+   ```
+   root ALL=(ALL) ALL
+   ```
+
+3. When done, save and exit the editor using the `Ctrl-X` command. If you are using the *vi* editor you can type `:wq` and press <kbd>⏎ ENTER</kbd>.
+
+### Proxy is configured
+
+#### Issue
+
+Proxy is configured on Windows or Linux machines that may block access to endpoints required for assessment or patching operations to succeed. 
+
+#### Resolution
+
+For Windows, see [issues related to proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#issues-related-to-httpproxy). 
+
+For Linux, ensure proxy setup doesn't block access to repositories that are required for downloading and installing updates.
+
+### TLS 1.2 Check Failed 
+
+#### Issue
+
+TLS 1.0 and TLS 1.1 are deprecated.
+
+#### Resolution
+
+Use TLS 1.2 or higher.
+ 
+For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
+
+For Linux, execute the following command to see the supported versions of TLS for your distro.
+`nmap --script ssl-enum-ciphers -p 443 www.azure.com`
+
+### HTTPS connection check failed
+
+#### Issue
+
+HTTPS connection is not available which is required to download and install updates from required endpoints for each operating system. 
+
+#### Resolution
+
+Allow HTTPS connection from your machine. 
+
+### MsftLinuxPatchAutoAssess service is not running, or Time is not active 
+
+#### Issue
+
+[MsftLinuxPatchAutoAssess](https://github.com/Azure/LinuxPatchExtension) is required for successful periodic assessments on Linux machines. 
+
+#### Resolution
+
+Ensure that the LinuxPatchExtension status is succeeded for the machine. Reboot the machine to check if the issue is resolved.
+
+### Linux repositories aren't accessible
+
+#### Issue
+
+The updates are downloaded from configured public or private repositories for each Linux distro. The machine is unable to connect to these repositories to download or assess the updates. 
+
+#### Resolution
+
+Ensure that network security rules don’t hinder connection to required repositories for update operations. 
 
 ## Next steps
 

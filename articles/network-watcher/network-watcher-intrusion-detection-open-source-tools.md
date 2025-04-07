@@ -2,12 +2,11 @@
 title: Perform network intrusion detection by using open-source tools
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Network Watcher and open-source tools to perform network intrusion detection.
-services: network-watcher
 ms.author: halkazwini
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 10/16/2024
 ---
 
 # Perform network intrusion detection by using Azure Network Watcher and open-source tools
@@ -238,7 +237,7 @@ For more instructions on installing Logstash, refer to the [official Elastic doc
 
 This article provides a sample dashboard for you to view trends and details in your alerts. To use it:
 
-1. Download the [dashboard file](https://aka.ms/networkwatchersuricatadashboard), [visualization file](https://aka.ms/networkwatchersuricatavisualization), and [saved search file](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Download the [dashboard file](https://github.com/Azure/NWPublicScripts/blob/main/nw-public-docs-artifacts/nsg-flow-logs/suricata/Sample_Suricata_Alert_Kibana_Dashboard.json), [visualization file](https://github.com/Azure/NWPublicScripts/blob/main/nw-public-docs-artifacts/nsg-flow-logs/suricata/Sample_Suricata_Alert_Visualizations.json), and [saved search file](https://github.com/Azure/NWPublicScripts/blob/main/nw-public-docs-artifacts/nsg-flow-logs/suricata/Sample_Suricata_Alert_Saved_Search.json).
 
 1. On the **Management** tab of Kibana, go to **Saved Objects** and import all three files. Then, on the **Dashboard** tab, you can open and load the sample dashboard.
 
@@ -252,23 +251,13 @@ The sample dashboard provides several visualizations of the Suricata alert logs:
 
 - **Alert by GeoIP**: A map that shows the distribution of alerts by their country/region of origin based on geographic location (determined by IP).
 
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure3.png" alt-text="Screenshot shows a map for geographic IP alerts." lightbox="./media/network-watcher-intrusion-detection-open-source-tools/figure3.png":::
-
 - **Top 10 Alerts**: A summary of the 10 most frequently triggered alerts and their descriptions. Selecting an individual alert filters the dashboard to the information that pertains to that specific alert.
-
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure4.png" alt-text="Screenshot that shows the most frequently triggered alerts.":::
 
 - **Number of Alerts**: The total count of alerts that the rule set triggered.
 
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure5.png" alt-text="Screenshot shows the number of alerts.":::
-
 - **Top 20 ScrIP - Alerts**, **Top 20 DestIP - Alerts**, **Top 20 SrcPort - Alerts**, **Top 20 DestPort - Alerts**: Pie charts that show the sources and destinations for the top 20 IPs and ports that alerts were triggered on. You can filter on specific IPs or ports to see how many and what kinds of alerts are being triggered.
 
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure6.png" alt-text="Screenshot that shows pie charts of the top 20 IPs and ports that alerts were triggered on." lightbox="./media/network-watcher-intrusion-detection-open-source-tools/figure6.png":::
-
 - **Alert Summary**: A table that summarizes specific details of each alert. You can customize this table to show other parameters of interest for each alert.
-
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure7.png" alt-text="Screenshot shows a summary table with details about individual alerts." lightbox="./media/network-watcher-intrusion-detection-open-source-tools/figure7.png":::
 
 For more information on creating custom visualizations and dashboards, see [Kibana's official documentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 

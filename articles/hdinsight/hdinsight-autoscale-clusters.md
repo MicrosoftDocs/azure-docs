@@ -1,9 +1,12 @@
 ---
 title: Automatically scale Azure HDInsight clusters
 description: Use the Autoscale feature to automatically scale Azure HDInsight clusters based on a schedule or performance metrics.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 05/22/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Automatically scale Azure HDInsight clusters

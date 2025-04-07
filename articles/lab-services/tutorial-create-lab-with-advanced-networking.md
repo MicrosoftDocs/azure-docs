@@ -1,7 +1,7 @@
 ---
 title: Use advanced networking in Azure Lab Services | Microsoft Docs
 description: Create an Azure Lab Services lab plan with advanced networking.  Create two labs and verify they share same virtual network when published.
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: tutorial 
 ms.date: 08/28/2023
 ms.custom: template-tutorial
@@ -254,7 +254,7 @@ To enable ICMP, complete the following steps for each template VM in each lab.
 
     :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/lab-connect-to-template.png" alt-text="Screenshot of Azure Lab Services template page. The Connect to template menu button is highlighted.":::
 
-When you're logged in to the template VM, modify the firewall rules on the VM to allow ICMP.  Because you're using Windows 11, you can use PowerShell and the [Enable-NetFilewallRule](/powershell/module/netsecurity/enable-netfirewallrule) cmdlet. To open a PowerShell window:
+When you're logged in to the template VM, modify the firewall rules on the VM to allow ICMP.  Because you're using Windows 11, you can use PowerShell and the [Enable-NetFirewallRule](/powershell/module/netsecurity/enable-netfirewallrule) cmdlet. To open a PowerShell window:
 
 1. Select the Start button.
 1. Type "PowerShell"

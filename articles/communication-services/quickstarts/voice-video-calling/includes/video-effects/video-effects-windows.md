@@ -50,8 +50,8 @@ Once you've created a `LocalVideoStream`, you need to get the `VideoEffects` fea
 ```C#
 private async void CameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 {
-    var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-    cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+    var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+    cameraStream = new LocalOutgoingVideoStream(selectedCamera);
     InitVideoEffectsFeature(cameraStream);
     
     var localUri = await cameraStream.StartPreviewAsync();

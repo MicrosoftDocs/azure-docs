@@ -1,25 +1,33 @@
 ---
 title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
-ms.date: 11/01/2023
-ms.author: helohr
-ms.custom: references_regions
+ms.date: 11/19/2024
+ms.author: daknappe
+ms.custom: references_regions, docs_inherited
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
+
+> [!IMPORTANT]
+> Dynamic autoscaling for pooled host pools with session host configuration is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
 > [!NOTE]
-> - Azure Virtual Desktop (classic) doesn't support autoscale. 
-> - Autoscale isn't supported on Azure Virtual Desktop for Azure Stack HCI.
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
-> - Autoscale is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
+> - Power management autoscaling is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
+> - Dynamic autoscaling is only available in Azure and isn't supported in Azure Government.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager (ARM) templates or first-party tools from Microsoft.
 
 ## How a scaling plan works
+
+A scaling plan defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. Each host pool can only have one scaling plan assigned to it. There are two different scaling methods you can choose from when creating a scaling plan:
+
+- **Power management autoscaling**: powers on and off session hosts to adjust to the available capacity in a host pool. If you want to apply a scaling plan to a host pool with standard management, this is the option that you should use. 
+
+- **Dynamic autoscaling (preview)**: powers on and off session hosts and creates and deletes session hosts to adjust to the available capacity in a host pool. Dynamic autoscaling can only be used for pooled host pools with session host configuration.
 
 Before you create your plan, keep the following things in mind:
 
@@ -154,7 +162,7 @@ In this scenario, we'll show that autoscale turns off session hosts when all of 
 - The used host pool capacity is below the capacity threshold.
 - Autoscale can turn off session hosts without exceeding the capacity threshold.
 - Autoscale only turns off session hosts with no user sessions on them (unless the scaling plan is in ramp-down phase and you've enabled the force logoff setting).
-- Pooled autoscale will not turn off session hosts in the ramp-up phase to avoid bad user experience.
+- Pooled autoscale won't turn off session hosts in the ramp-up phase to avoid bad user experience.
 
 
 For this scenario, the host pool starts off looking like this:
@@ -176,13 +184,13 @@ Because we're in the peak phase, we can expect the number of users to remain rel
 
 So, let's say that there are seven users signed in during peak hours. If the total number of user sessions is seven, that would make the used host pool capacity 28%. Because autoscale can't turn off a session host without the used host pool capacity exceeding the capacity threshold, autoscale won't turn off any session hosts yet.
 
-If two of the seven users sign out during their lunch break, that leaves five user sessions across five session hosts. Since the maximum session limit is still five, the available host pool capacity is 25. Having only five users means that the used host pool capacity is now 20%. autoscale must now check if it can turn off a session host without making the used host pool capacity go above the capacity threshold.
+If two of the seven users sign out during their lunch break, that leaves five user sessions across five session hosts. Since the maximum session limit is still five, the available host pool capacity is 25. Having only five users means that the used host pool capacity is now 20%. Autoscale must now check if it can turn off a session host without making the used host pool capacity go above the capacity threshold.
 
 If autoscale turned off a session host, the available host pool capacity would be 20. With five users, the used host pool capacity would then be 25%. Because 25% is less than the capacity threshold of 30%, autoscale will select a session host without user sessions on it, put it in drain mode, and turn it off.
 
 Once autoscale turns off one of the session hosts without user sessions, there are four available session hosts left. The host pool maximum session limit is still five, so the available host pool capacity is 20. Since there are five user sessions, the used host pool capacity is 25%, which is still below the capacity threshold.
 
-However, if another user signs out and heads out for lunch, there are now four user sessions spread across the four session hosts in the host pool. Since the maximum session limit is still five, the available host pool capacity is 20, and the used host pool capacity is 20%. Turning off another session host would leave three session hosts and an available host pool capacity of 15, which would cause the used host pool capacity to jump up to around 27%. Even though 27% is below the capacity threshold, there are no session hosts with zero user sessions on it. Autoscale will select the session host with the least number of user sessions, put it in drain mode, and wait for all user sessions to sign out before turning it off. If at any point the used host pool capacity gets to a point where autoscale can no longer turn off the session host, it will take the session host out of drain mode.
+However, if another user signs out and heads out for lunch, there are now four user sessions spread across the four session hosts in the host pool. Since the maximum session limit is still five, the available host pool capacity is 20, and the used host pool capacity is 20%. Turning off another session host would leave three session hosts and an available host pool capacity of 15, which would cause the used host pool capacity to jump up to around 27%. Even though 27% is below the capacity threshold, there are no session hosts with zero user sessions on it.
 
 The following animation is a visual recap of what we just went over in Scenario 2.
 
@@ -260,7 +268,11 @@ If at this point another user signs out, that leaves only three user sessions di
 |User sessions | 3 |
 |Used host pool capacity | 30% |
 
-Because the maximum session limit is still five and the available host pool capacity is 10, the used host pool capacity is now 30%. Autoscale can now turn off one session host without exceeding the capacity threshold. Autoscale turns off a session host by choosing the session host with the fewest number of user sessions on it. Autoscale then puts the session host in drain mode, sends users a notification that says the session host will be turned off, then after a set amount of time, forcibly signs any remaining users out and turns it off. After doing so, there's now one remaining available session host in the host pool with a maximum session limit of five, making the available host pool capacity five. 
+Because the maximum session limit is still five and the available host pool capacity is 10, the used host pool capacity is now 30%. Autoscale can now turn off one session host without exceeding the capacity threshold.
+	
+Autoscale turns off a session host by choosing the session host with the fewest number of user sessions on it. Autoscale then puts the session host in drain mode, sends users a notification that says the session host will be turned off, then after a set amount of time, forcibly signs out any remaining users and turns it off.
+	
+After turning off the session host, there's now one remaining available session host in the host pool with a maximum session limit of five, making the available host pool capacity five. 
 
 Since autoscale forced a user to sign out when turning off the chosen session host, there are now only two user sessions left, which makes the used host pool capacity 40%.
 

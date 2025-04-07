@@ -6,7 +6,7 @@ summary: Azure API for FHIR is a managed, standards-based, compliant API for cli
 metadata:
   title: Azure API for FHIR Documentation - tutorials, how-to guides
   description: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
-  ms.service: healthcare-apis
+  ms.service: azure-health-data-services
   ms.subservice: fhir
   ms.topic: landing-page 
   author: expekesheth

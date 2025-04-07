@@ -1,7 +1,7 @@
-Get started with the Phone Numbers client library for Python to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for Python to look up operator information for phone numbers. Use the operator information to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/lookup-phone-numbers-quickstart).
+> To view the source code for this example, see [Manage Phone Numbers - Python | GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/lookup-phone-numbers-quickstart).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ except Exception as ex:
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-phonenumbers==1.2.0b2
+pip install azure-communication-phonenumbers==1.2.0
 ```
 
 ## Code examples
@@ -107,11 +107,11 @@ To search for a phone number's operator information, call `search_operator_infor
 
 ```python
 options = { "include_additional_operator_details": True }
-operator_results = phone_numbers_client.search_operator_information("<target-phone-number>", options)
+operator_results = phone_numbers_client.search_operator_information("<target-phone-number>", options=options)
 ```
 
 > [!WARNING]
-> Using this functionality will incur a charge to your account.
+> Using this function incurs a charge to your account.
 
 ### Use operator information
 
@@ -138,7 +138,7 @@ else:
 print(str.format("{0} is a {1} number, operated in {2} by {3}", operator_information.phone_number, number_type, operator_information.iso_country_code, operator_name))
 ```
 
-You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You can also use the operator information to determine whether to send an SMS. For more information about sending an SMS, see [Send an SMS message](../../sms/send.md).
 
 ## Run the code
 
@@ -150,4 +150,4 @@ python number_lookup_sample.py
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/lookup-phone-numbers-quickstart).
+You can download the sample app from [Manage Phone Numbers - Python | GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/lookup-phone-numbers-quickstart).

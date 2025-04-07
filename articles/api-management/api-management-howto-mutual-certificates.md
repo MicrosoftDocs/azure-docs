@@ -5,8 +5,8 @@ description: Learn how to manage client certificates and secure backend services
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
+ms.service: azure-api-management
+ms.topic: how-to
 ms.date: 01/12/2023
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -25,13 +25,13 @@ You can also manage API Management certificates using the [API Management REST A
 
 API Management provides two options to manage certificates used to secure access to backend services:
 
-* Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
+* Reference a certificate managed in [Azure Key Vault](/azure/key-vault/general/overview) 
 * Add a certificate file directly in API Management
 
 Using key vault certificates is recommended because it helps improve API Management security:
 
 * Certificates stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to certificates stored in key vaults
+* Granular [access policies](/azure/key-vault/general/security-features#privileged-access) can be applied to certificates stored in key vaults
 * Certificates updated in the key vault are automatically rotated in API Management. After update in the key vault, a certificate in API Management is updated within 4 hours. You can also manually refresh the certificate using the Azure portal or via the management REST API.
 
 ## Prerequisites
@@ -91,7 +91,7 @@ To delete a certificate, select it and then select **Delete** from the context m
 > [!IMPORTANT]
 > If the certificate is referenced by any policies, then a warning screen is displayed. To delete the certificate, you must first remove the certificate from any policies that are configured to use it.
 
-## Next steps
+## Related content
 
 * [How to secure APIs using client certificate authentication in API Management](api-management-howto-mutual-certificates-for-clients.md)
 * [How to add a custom CA certificate in Azure API Management](./api-management-howto-ca-certificates.md)

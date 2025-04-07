@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure S2S VPN over Microsoft peering'
 description: Learn how to set up IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: duau
@@ -54,8 +54,6 @@ To configure a site-to-site VPN connection over ExpressRoute, you must use Expre
 * If you already have an ExpressRoute circuit, but don't have Microsoft peering configured, configure Microsoft peering using the [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-arm.md#msft) article.
 
 Once you configured your circuit and Microsoft peering, you can easily view it using the **Overview** page in the Azure portal.
-
-:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/circuit.png" alt-text="Screenshot of the overview page of an ExpressRoute circuit.":::
 
 ## <a name="routefilter"></a>2. Configure route filters
 
@@ -156,7 +154,7 @@ In this example, the variable declarations correspond to the example network. Wh
   "vpnType": "RouteBased",                // type of VPN gateway
   "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
-  "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
+  "asnRemote": 65010,                     // BGP Autonomous System number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises
   "connectionName": "vpn2local1",
   "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
@@ -212,7 +210,7 @@ Assign a public IP address for each instance of a VPN gateway.
     "name": "[variables('gatewayPublicIPName1')]",
     "location": "[resourceGroup().location]",
     "properties": {
-      "publicIPAllocationMethod": "Dynamic"
+      "publicIPAllocationMethod": "Static"
     },
     "comments": "Public IP for the first instance of the VPN gateway"
   },
@@ -222,7 +220,7 @@ Assign a public IP address for each instance of a VPN gateway.
     "name": "[variables('gatewayPublicIPName2')]",
     "location": "[resourceGroup().location]",
     "properties": {
-      "publicIPAllocationMethod": "Dynamic"
+      "publicIPAllocationMethod": "Static"
     },
     "comments": "Public IP for the second instance of the VPN gateway"
   },
@@ -276,7 +274,7 @@ This section of the template configures the VPN gateway with the required settin
   "ipConfigurations": [
     {
       "properties": {
-        "privateIPAllocationMethod": "Dynamic",
+        "privateIPAllocationMethod": "Static",
         "subnet": {
           "id": "[variables('gatewaySubnetRef')]"
         },
@@ -288,7 +286,7 @@ This section of the template configures the VPN gateway with the required settin
     },
     {
       "properties": {
-        "privateIPAllocationMethod": "Dynamic",
+        "privateIPAllocationMethod": "Static",
         "subnet": {
           "id": "[variables('gatewaySubnetRef')]"
         },

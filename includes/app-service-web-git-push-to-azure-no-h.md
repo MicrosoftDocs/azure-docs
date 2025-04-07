@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: app-service
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 02/02/2018
 ms.author: cephalin
@@ -22,10 +22,10 @@ ms.custom: "include file"
     git remote add azure <deploymentLocalGitUrl-from-create-step>
     ```
 
-1. Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure a deployment user**, not the credentials you use to sign in to the Azure portal.
+1. Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure local git deployment**, not the credentials you use to sign in to the Azure portal.
 
     ```bash
     git push azure main
     ```
 
-    This command may take a few minutes to run. While running, it displays information similar to the following example:
+    This command might take a few minutes to run. While running, it displays information similar to the following example:

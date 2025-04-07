@@ -2,14 +2,18 @@ items:
   - name: Azure Event Grid Documentation
     href: index.yml
   - name: Overview
+    expanded: true
     items:
     - name: What is Event Grid?
       href: overview.md
+    - name: Use cases
+      href: use-cases.md
     - name: What's new?
       href: whats-new.md
     - name: Choose the right tier
       href: choose-right-tier.md
   - name: Event Grid namespaces  
+    expanded: true
     items:
     - name: MQTT broker
       items:
@@ -43,6 +47,8 @@ items:
         items:
         - name: Terminology
           href: mqtt-event-grid-namespace-terminology.md
+        - name: Support for CloudEvents schema
+          href: namespaces-cloud-events.md
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
         - name: MQTT clients
@@ -73,8 +79,10 @@ items:
             href: oauth-json-web-token-authentication.md
           - name: MQTT client authentication using certificates
             href: mqtt-client-certificate-authentication.md        
-          - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
+          - name: Microsoft Entra JWT authentication and RBAC authorization for clients 
             href: mqtt-client-microsoft-entra-token-and-rbac.md
+          - name: OAuth 2.0 JSON Web Token authentication and authorization for clients 
+            href: mqtt-client-custom-jwt.md
           - name: Transport Layer Security connection with MQTT broker
             href: mqtt-transport-layer-security-flow.md
         - name: Reliability
@@ -90,6 +98,8 @@ items:
             href: ./policy-reference.md
           - name: Network security (MQTT)
             href: network-security-namespaces.md
+          - name: Transport Layer Security (TLS)
+            href: transport-layer-security.md
         - name: Use cases
           items:
           - name: Automotive Messaging
@@ -205,7 +215,7 @@ items:
             displayName: samples, policies, definitions
             href: ./policy-reference.md
           - name: Network security
-            href: network-security-namespaces.md            
+            href: network-security-namespaces.md
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
@@ -216,6 +226,8 @@ items:
           href: create-view-manage-event-subscriptions.md
         - name: Assign custom domain name to a namespace
           href: assign-custom-domain-name.md
+        - name: Forward events to another namespace topic
+          href: forward-events-to-another-namespace-topic.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces
@@ -271,7 +283,7 @@ items:
           displayName: Resource Manager
           href: blob-event-quickstart-template.md        
       - name: Subscribe to Container Registry events
-        href: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
+        href: /azure/container-registry/container-registry-event-grid-quickstart?toc=/azure/event-grid/toc.json
       - name: Subscribe to Azure Communication Services events
         href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
       - name: Subscribe to Azure Cache for Redis events
@@ -405,6 +417,8 @@ items:
               href: event-schema-health-resources.md
             - name: Azure Resource Management
               href: event-schema-resources.md
+            - name: Container Service Event Resources
+              href: event-schema-containerservice-resources.md
           - name: Azure Service Bus
             href: event-schema-service-bus.md
           - name: Azure SignalR
@@ -483,8 +497,12 @@ items:
           href: event-filtering.md
         - name: Delivery and retry
           href: delivery-and-retry.md
-        - name: Webhook event delivery
-          href: webhook-event-delivery.md
+        - name: Endpoint validation with CloudEvents 1.0 schema
+          href: end-point-validation-cloud-events-schema.md
+        - name: Endpoint validation with Event Grid event schema
+          href: end-point-validation-event-grid-events-schema.md
+        - name: Event schema compatibility
+          href: event-schema-compatibility.md
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
@@ -529,7 +547,7 @@ items:
         - name: Azure Resource Manager template
           href: create-view-manage-system-topics-arm.md
       - name: Use CloudEvents schema
-        href: cloudevents-schema.md
+        href: cloud-event-schema.md
       - name: Create and manage custom topics
         items:
         - name: Create a custom topic or a domain
@@ -580,6 +598,8 @@ items:
         href: input-mappings.md
       - name: Manage topics with Event Domains
         href: how-to-event-domains.md
+      - name: Send events to webhooks hosted in private destinations
+        href: send-events-webhooks-private-destinations.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
       - name: Azure Monitor alerts as destination
@@ -592,6 +612,8 @@ items:
         href: subscribe-to-resource-notifications-health-resources-events.md
       - name: Subscribe to Azure Resource Notifications - Resource Management events
         href: subscribe-to-resource-notifications-resources-events.md
+      - name: Subscribe to Azure Resource Notifications - Container Service events
+        href: subscribe-to-resource-notifications-containerservice-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
       - name: Relocate
@@ -616,6 +638,8 @@ items:
             href: add-identity-roles.md
           - name: Create an event subscription that uses the managed identity
             href: managed-service-identity.md
+          - name: Cross-tenant delivery using managed identity
+            href: cross-tenant-delivery-using-managed-identity.md
         - name: Enforce security controls with custom Azure policies
           href: custom-azure-policies-for-security-control.md
         - name: Deliver events securely over a private link

@@ -1,9 +1,9 @@
 ---
 title: How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
 description: Learn how to mask sensitive data on Azure Web Application Firewall on Azure Front Door.
-author: vhorne
-ms.author: victorh
-ms.service: web-application-firewall
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 06/24/2024
 ---

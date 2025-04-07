@@ -1,33 +1,45 @@
 ---
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 06/20/2024
+ms.date: 1/6/2025
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-track-csharp, devx-track-dotnet]
 ---
 
-## Receive cloud-to-device messages
+## Create a device application
 
-This section describes how to receive cloud-to-device messages using the [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class in the Azure IoT SDK for .NET.
+This section describes how to receive cloud-to-device messages.
 
 There are two options that a device client application can use to receive messages:
 
-* **Polling**: The device application checks for new IoT Hub messages using a code loop (for example, a `while` or `for` loop). The loop executes continually, checking for messages.
 * **Callback**: The device application sets up an asynchronous message handler method that is called immediately when a message arrives.
+* **Polling**: The device application checks for new IoT Hub messages using a code loop (for example, a `while` or `for` loop). The loop executes continually, checking for messages.
 
-### Declare a DeviceClient object
+### Required device NuGet Package
 
-[DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) includes methods and properties necessary to receive messages from IoT Hub.
+Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
 
-For example:
+Add these `using` statements to use the device library.
 
 ```csharp
-static DeviceClient deviceClient;
+using Microsoft.Azure.Devices.Client;
+using Microsoft.Azure.Devices.Shared;
 ```
 
-### Supply the connection parameters
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
+
+The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to receive messages on the device.
 
 Supply the IoT Hub primary connection string and Device ID to `DeviceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring) method. In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
@@ -35,12 +47,42 @@ Supply the IoT Hub primary connection string and Device ID to `DeviceClient` usi
 * `transportSettings` - Interface used to define various transport-specific settings for `DeviceClient` and `ModuleClient`. For more information, see [ITransportSettings Interface](/dotnet/api/microsoft.azure.devices.client.itransportsettings).
 * `ClientOptions` - Options that allow configuration of the device or module client instance during initialization.
 
-This example calls `CreateFromConnectionString` to define the `DeviceClient` connection IoT hub and device ID settings.
+This example connects to a device using the `Mqtt` transport protocol.
 
-``` csharp
-static string connectionString = "{your IoT hub connection string}";
-static string deviceID = "{your device ID}";
-deviceClient = DeviceClient.CreateFromConnectionString(connectionString,deviceID);
+```csharp
+static string DeviceConnectionString = "{IoT hub device connection string}";
+static deviceClient = null;
+deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
+   TransportType.Mqtt);
+```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-dotnet.md)]
+
+### Callback
+
+To receive callback cloud-to-device messages in the device application, the application must connect to the IoT Hub and set up a callback listener to process incoming messages. Incoming messages to the device are received from the IoT Hub message queue.
+
+Using callback, the device application sets up a message handler method using [SetReceiveMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setreceivemessagehandlerasync). The message handler is called then a message is received. Creating a callback method to receive messages removes the need to continuously poll for received messages.
+
+Callback is available only using these protocols:
+
+* `Mqtt`
+* `Mqtt_WebSocket_Only`
+* `Mqtt_Tcp_Only`
+* `Amqp`
+* `Amqp_WebSocket_Only`
+* `Amqp_Tcp_only`
+
+The `Http1` protocol option does not support callbacks since the SDK methods would need to poll for received messages anyway, which defeats the callback principle.
+
+In this example, `SetReceiveMessageHandlerAsync` sets up a callback handler method named `OnC2dMessageReceivedAsync`, which is called each time a message is received.
+
+```csharp
+// Subscribe to receive C2D messages through a callback (which isn't supported over HTTP).
+await deviceClient.SetReceiveMessageHandlerAsync(OnC2dMessageReceivedAsync, deviceClient);
+Console.WriteLine($"\n{DateTime.Now}> Subscribed to receive C2D messages over callback.");
 ```
 
 ### Polling
@@ -109,31 +151,6 @@ while (!stopPolling)
 }
 ```
 
-### Callback
-
-To receive callback cloud-to-device messages in the device application, the application must connect to the IoT Hub and set up a callback listener to process incoming messages. Incoming messages to the device are received from the IoT Hub message queue.
-
-Using callback, the device application sets up a message handler method using [SetReceiveMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setreceivemessagehandlerasync). The message handler is called then a message is received. Creating a callback method to receive messages removes the need to continuously poll for received messages.
-
-Callback is available only using these protocols:
-
-* `Mqtt`
-* `Mqtt_WebSocket_Only`
-* `Mqtt_Tcp_Only`
-* `Amqp`
-* `Amqp_WebSocket_Only`
-* `Amqp_Tcp_only`
-
-The `Http1` protocol option does not support callbacks since the SDK methods would need to poll for received messages anyway, which defeats the callback principle.
-
-In this example, `SetReceiveMessageHandlerAsync` sets up a callback handler method named `OnC2dMessageReceivedAsync`, which is called each time a message is received.
-
-```csharp
-// Subscribe to receive C2D messages through a callback (which isn't supported over HTTP).
-await deviceClient.SetReceiveMessageHandlerAsync(OnC2dMessageReceivedAsync, deviceClient);
-Console.WriteLine($"\n{DateTime.Now}> Subscribed to receive C2D messages over callback.");
-```
-
 ### Receive message retry policy
 
 The device client message retry policy can be defined using [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy).
@@ -144,34 +161,43 @@ The message retry timeout is stored in the [DeviceClient.OperationTimeoutInMilli
 
 The .NET/C# SDK includes a [Message Receive](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/MessageReceiveSample) sample that includes the receive message methods described in this section.
 
-## Send cloud-to-device messages
+## Create a backend application
 
 This section describes essential code to send a message from a solution backend application to an IoT device using the [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class in the Azure IoT SDK for .NET. As discussed previously, a solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
 
 A solution backend application can also request and receive delivery feedback for a message sent to IoT Hub that is destined for device delivery via the message queue.
 
-### Declare a ServiceClient object
+### Add service NuGet Package
 
-[ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) includes methods and properties necessary to send messages from an application through IoT Hub to a device.
+Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
 
-``` csharp
-static ServiceClient serviceClient;
-```
+### Connect to IoT hub
 
-### Supply the connection string
+You can connect a backend service to IoT Hub using the following methods:
 
-Supply the IoT Hub primary connection string to `ServiceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring) method. In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring). In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
 * `transportType` - `Amqp` or `Amqp_WebSocket_Only`.
 * `transportSettings` - The AMQP and HTTP proxy settings for Service Client.
 * `ServiceClientOptions` - Options that allow configuration of the service client instance during initialization. For more information, see [ServiceClientOptions](/dotnet/api/microsoft.azure.devices.serviceclientoptions).
 
-This example creates the `ServiceClient` object using the IoT Hub connection string.
+This example creates the `ServiceClient` object using the IoT Hub connection string and default `Amqp` transport.
 
 ``` csharp
-static string connectionString = "{your iot hub connection string}";
+static string connectionString = "{your IoT hub connection string}";
 serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
 ### Send an asynchronous cloud-to-device message
 
@@ -248,7 +274,7 @@ var feedbackReceiver = serviceClient.GetFeedbackReceiver();
 // Define the cancellation token.
 CancellationTokenSource source = new CancellationTokenSource();
 CancellationToken token = source.Token;
-// Call ReceiveAsync, passing the token. Wait for the timout period.
+// Call ReceiveAsync, passing the token. Wait for the timeout period.
 var feedbackBatch = await feedbackReceiver.ReceiveAsync(token);
 if (feedbackBatch == null) continue;
 ```

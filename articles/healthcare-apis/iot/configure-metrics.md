@@ -3,14 +3,18 @@ title: Monitor performance metrics for the MedTech service in Azure Health Data 
 description: Learn how to monitor the performance metrics of the MedTech service in Azure Health Data Services. Find out how to configure, display, and save the metrics in an Azure portal dashboard.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: chrupa
 ---
 
 # Monitor performance metrics for the MedTech service
+
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 Gain insights into the health, availability, latency, traffic, and errors of your organization's MedTech services by monitoring MedTech service metrics in the Azure portal. To help you identify patterns or trends, pin tiles for the metrics to an Azure portal dashboard for easy access and visualization.
 
 ## Configure service metrics
@@ -52,9 +56,9 @@ The screenshot shows an example of a line chart that monitors the **Number of In
 
 ## Save metrics as a tile on an Azure dashboard
 
-To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For steps, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For steps, see [Create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards).
 
-To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 ## Next steps
 

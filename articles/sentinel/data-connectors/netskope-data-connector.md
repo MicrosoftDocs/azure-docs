@@ -2,7 +2,7 @@
 title: "Netskope Data Connector (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Netskope Data Connector (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 05/30/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -271,4 +271,4 @@ Using the ARM template deploy the function apps for ingestion of Netskope events
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope_mss?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope-for-azure?tab=Overview) in the Azure Marketplace.

@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 05/20/2024
+ms.date: 01/07/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI embeddings input binding allows you to generate embeddings for inputs. The binding can generate embeddings from files or raw text inputs.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about embeddings in Azure OpenAI Service, see [Understand embeddings in Azure OpenAI Service](../ai-services/openai/concepts/understand-embeddings.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about embeddings in Azure OpenAI Service, see [Understand embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -46,24 +46,30 @@ This example shows how to retrieve embeddings stored at a specified file that is
 :::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="61-90":::
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
+::: zone pivot="programming-language-javascript,programming-language-typescript" 
+This example shows how to generate embeddings for a raw text string.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-31":::
 
-{{Add more examples if available}}
--->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
+
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="3-31":::
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript" 
 This example shows how to generate embeddings for a raw text string.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="7-31":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="29-54":::
 
-This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="37-61":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="33-62":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

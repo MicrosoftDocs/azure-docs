@@ -1,12 +1,12 @@
 ---
 title: Azure Database for PostgreSQL server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL server backup.
-ms.topic: conceptual
-ms.date: 09/07/2023
+ms.topic: reference
+ms.date: 09/09/2024
 ms.custom: references_regions
-ms.service: backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.service: azure-backup
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Database for PostgreSQL server support matrix
@@ -21,12 +21,12 @@ Azure Database for PostgreSQL server backup is available in all regions, except 
 
 |Scenarios  | Details  |
 |---------| ---------|
-|Deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
+|Deployments   |  [Azure Database for PostgreSQL - Single Server](/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
 |Azure PostgreSQL versions    |   9.5, 9.6, 10, 11    |
 
 ## Feature considerations and limitations
 
-- Recommended limit for the maximum database size is 400 GB.
+- The maximum supported database size is 400GB, which is a hard limit for a single server..
 - Cross-region backup isn't supported. Therefore, you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault. However, we support cross-subscription backup and restore. 
 - Private endpoint-enabled Azure PostgreSQL servers can be backed up by allowing trusted Microsoft services in the network settings.
 - Only the data is recovered during restore; _roles_ aren't restored.

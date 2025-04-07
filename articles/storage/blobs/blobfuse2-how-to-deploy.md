@@ -56,13 +56,13 @@ Configure the [Linux Package Repository for Microsoft Products](/windows-server/
 
 # [RHEL](#tab/RHEL)
 
-As an example, on a Redhat Enterprise Linux 8 distribution:
+As an example, on a Red Hat Enterprise Linux 8 distribution:
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
-Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
+Similarly, change the URL to `.../rhel/7/...` to point to a Red Hat Enterprise Linux 7 distribution.
 
 # [Ubuntu](#tab/Ubuntu)
 
@@ -183,8 +183,6 @@ stream:
     buffer-size-mb: The size for each buffer
 ```
 
-To get started quickly with some settings for a basic streaming scenario, see the [sample streaming configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleStreamingConfig.yaml).
-
 #### Configure caching for smaller files
 
 Smaller files are cached to a temporary path that's specified under `file_cache:` in the configuration file:
@@ -287,12 +285,12 @@ However, you should be aware of some key [differences in functionality](blobfuse
 
 This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities:
 
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage  <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Azure Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Azure Data Lake Storage, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## See also
 

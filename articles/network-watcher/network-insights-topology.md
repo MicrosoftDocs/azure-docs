@@ -3,7 +3,7 @@ title: View topology
 description: Learn how to use Network Insights topology to get a visual representation of Azure resources with connectivity and traffic insights for monitoring. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 06/05/2024
 ms.custom: subject-monitoring
@@ -64,7 +64,7 @@ In this section, you learn how to view a region's topology and insights.
 
 1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
-   :::image type="content" source="./media/network-insights-topology/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-insights-topology/portal-search.png":::
+   :::image type="content" source="./media/network-watcher-portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-portal-search.png":::
     
 1. Under **Monitoring**, select **Topology**. 
 

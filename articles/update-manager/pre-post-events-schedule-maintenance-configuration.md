@@ -1,5 +1,5 @@
 ---
-title: Create the pre and post (preview) maintenance configuration events in Azure Update Manager
+title: Create the pre and post maintenance configuration events in Azure Update Manager
 description: The article provides the steps to create the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
 ms.date: 07/24/2024
@@ -9,7 +9,7 @@ author: SnehaSudhirG
 zone_pivot_groups: create-pre-post-events-maintenance-configuration
 ---
 
-# Create pre and post events (preview)
+# Create pre and post events
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
@@ -56,7 +56,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using PowerShell](#tab/powershell)
 
-1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-powershell.md#guest).
+1. Create a maintenance configuration by following the steps listed [here](/azure/virtual-machines/maintenance-configurations-powershell#guest).
 
 1. ```powershell-interactive
     # Obtain the Maintenance Configuration ID from Step 1 and assign it to MaintenanceConfigurationResourceId variable  
@@ -86,8 +86,10 @@ In the **Event Subscription Details** section, provide an appropriate name.
     $EventSubscriptionName = "PreEventWebhook"
     
     $PreEventWebhookEndpoint = "<Webhook URL>"
-    
-    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes
+
+    $dest = New-AzEventGridWebHookEventSubscriptionDestinationObject -EndpointUrl $PreEventWebhookEndpoint
+   
+    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes -Destination $dest
     
     # Azure Function
     
@@ -99,7 +101,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using CLI](#tab/cli)
 
-1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-cli.md#guest-vms).
+1. Create a maintenance configuration by following the steps listed [here](/azure/virtual-machines/maintenance-configurations-cli#guest-vms).
 
 1. ```azurecli-interactive
 
@@ -137,7 +139,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using API](#tab/api)
 
-1. Create a maintenance configuration by following the steps listed [here](https://learn.microsoft.com/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
+1. Create a maintenance configuration by following the steps listed [here](/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
 
 1. **# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
 
@@ -268,8 +270,10 @@ In the **Event Subscription Details** section, provide an appropriate name.
     $EventSubscriptionName = "PreEventWebhook"
     
     $PreEventWebhookEndpoint = "<Webhook URL>"
+
+    $dest = New-AzEventGridWebHookEventSubscriptionDestinationObject -EndpointUrl $PreEventWebhookEndpoint
     
-    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes
+    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes -Destination $dest
  
     # Azure Function
     

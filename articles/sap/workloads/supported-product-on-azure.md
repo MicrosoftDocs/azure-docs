@@ -82,12 +82,12 @@ Support of non-HANA databases for SAP workload is documented in [SAP support not
 In Azure there are two services, which can be used to run HANA database:
 
 - Azure Virtual Machines
-- [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md)
+- [HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 For running SAP HANA, SAP has more and stronger conditions infrastructure needs to meet than for running NetWeaver or other SAP applications and DBMS. As a result a smaller number of Azure VMs qualify for running the SAP HANA DBMS. The list of supported Azure infrastructure supported for SAP HANA can be found in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). 
 
 > [!NOTE]
-> The units starting with the letter 'S' are [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) units. 
+> The units starting with the letter 'S' are [HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) units. 
 
 > [!NOTE]
 > SAP has no specific certification dependent on the SAP HANA major releases. Contrary to common opinion, the column **Certification scenario** in the [HANA  certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120), the column makes **no statement about the HANA major or minor release certified**. You need to assume that all the units listed that can be used for HANA 1.0 and HANA 2.0 as long as the certified operating system releases for the specific units are supported by HANA 1.0 releases as well. 

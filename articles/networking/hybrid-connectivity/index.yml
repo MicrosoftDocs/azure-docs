@@ -7,7 +7,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure hybrid connectivity documentation
   description: Azure hybrid connectivity services provide connectivity to your resources in Azure and help secure your network. 
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: hub-page
   author: duongau
   ms.author: duau
@@ -22,7 +22,7 @@ highlightedContent:
       url: /training/paths/intro-to-azure-hybrid-connectivity-services/
     - title: Azure Networking blogs
       itemType: concept
-      url: https://azure.microsoft.com/en-us/blog/?s=&k%5B0%5D=Virtual%20WAN&k%5B1%5D=ExpressRoute&k%5B2%5D=VPN
+      url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure network security documentation
       itemType: overview
       url: ../security/index.yml
@@ -53,11 +53,6 @@ productDirectory:
       imageSrc: ./media/virtual-wan.svg
       summary: Connect and manage your on-premises network to Azure through a centralized network hub.
       url: ../../virtual-wan/index.yml
-    # Card
-    - title: Peering Service
-      imageSrc: ./media/peering-service.svg
-      summary: Enhance connectivity to Microsoft cloud services over the public internet.
-      url: ../../peering-service/about.md
 
 # conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:
@@ -91,7 +86,7 @@ conceptualContent:
             - url: ../../vpn-gateway/vpn-gateway-about-point-to-site-routing.md
               itemType: concept
               text: About Point-to-site VPN routing
-            - url: ../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            - url: ../../vpn-gateway/point-to-site-certificate-gateway.md
               itemType: how-to-guide
               text: Configure point-to-site VPN - Azure certificate authentication
             - url: ../../vpn-gateway/point-to-site-how-to-radius-ps.md
@@ -163,3 +158,17 @@ conceptualContent:
             - url: /azure/architecture/networking/architecture/massive-scale-azure-architecture
               itemType: architecture
               text: Massive scale Virtual WAN architecture design
+
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Network foundation
+          url: ../foundations/index.yml
+        - title: Load balancing and content delivery
+          url: ../load-balancer-content-delivery/index.yml
+        - title: Network security
+          url: ../security/index.yml
+        - title: Network monitoring and management
+          url: ../monitoring-management/index.yml 

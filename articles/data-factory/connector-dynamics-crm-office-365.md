@@ -2,13 +2,13 @@
 title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 07/11/2024
+ms.date: 12/16/2024
+ai-usage: ai-assisted
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -246,7 +246,7 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
 >[!Note]
->Due to the sunset of Idf authentication type by **August 31, 2024**, please upgrade to Active Directory Authentication type before the date if you are currently using it.
+>Due to the sunset of Ifd authentication type by **August 31, 2024**, please upgrade to Active Directory Authentication type before the date if you are currently using it.
  
 #### Example: Dynamics on-premises with IFD using Active Directory authentication
 
@@ -500,6 +500,15 @@ To write data into a lookup field with multiple targets like Customer and Owner,
    - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
 
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+### Setting the Owner field
+
+When setting the Owner field in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, it is important to provide a valid reference. The valid options for the `@EntityReference` are:
+
+- `systemuser`: This refers to an individual user within the system.
+- `team`: This refers to a team of users within the organization.
+
+Ensure that the value provided corresponds to one of these options to avoid errors during data transformation.
 
 For example, assume the source has these two columns:
 

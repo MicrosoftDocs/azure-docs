@@ -4,7 +4,6 @@ description: Learn how to copy data from and to Microsoft Access using a copy ac
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

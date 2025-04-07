@@ -4,7 +4,7 @@ description: This page explains to traditional network engineers how networks wo
 services: networking
 author: osamazia
 manager: tracsman
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: osamaz

@@ -1,9 +1,7 @@
 ---
 title: Emergency calling for Microsoft Teams Direct Routing with Azure Communications Gateway
 description: Understand Azure Communications Gateway's support for emergency calling with Microsoft Teams Direct Routing
-author: rcdun
-ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 10/09/2023
 ms.custom: template-concept

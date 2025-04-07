@@ -2,7 +2,7 @@
 title: "Azure SignalR Service serverless quickstart - C#"
 description: "A quickstart for using Azure SignalR Service and Azure Functions to create an app showing GitHub star count using C#."
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
@@ -25,6 +25,8 @@ In this article, you learn how to use SignalR Service and Azure Functions to bui
 > You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp-isolated).
 
 ---
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Prerequisites
 
@@ -275,7 +277,9 @@ You need the Azure Functions Core Tools for this step.
 
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string, and then run the following command:
+    1. Copy the primary connection string, and then run the following command.
+    
+        [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"

@@ -3,10 +3,9 @@ title: Troubleshoot the Oracle connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Oracle connector in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/02/2024
+ms.date: 10/23/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -36,9 +35,9 @@ This article provides suggestions to troubleshoot common problems with the Oracl
 
 - **Cause**: The secure algorithm is not added to your Oracle server. 
 
-- **Recommendation**: Update your Oracle server settings to add these secure algorithms:
+- **Recommendation**: Update your Oracle server settings to add these secure algorithms if they are not already included:
 
-    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) encryption.
+    - For **SQLNET.ENCRYPTION_TYPES_SERVER**, need to add the following algorithms that are deemed as secure by OpenSSL and will be used for OAS (Oracle Advanced Security) encryption.
         - AES256 
         - AES192 
         - 3DES168 
@@ -46,7 +45,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - 3DES112 
         - DES
         
-    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) data integrity. 
+    - For **SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER**, need to add the following algorithms that are deemed as secure by OpenSSL and will be used for OAS (Oracle Advanced Security) data integrity.
         - SHA256 
         - SHA384 
         - SHA512
@@ -93,4 +92,4 @@ For more troubleshooting help, try these resources:
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

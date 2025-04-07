@@ -1,345 +1,238 @@
 ---
-title: Use the quickstart to create a sample infrastructure - Azure Virtual Desktop
-description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's quickstart.
-author: dknappettmsft
+title: "Quickstart: deploy a sample Azure Virtual Desktop environment"
+description: Quickly and easily deploy a sample Azure Virtual Desktop environment from the Azure portal using quickstart.
 ms.topic: quickstart
-ms.date: 08/02/2022
-ms.author: daknappe
 ms.custom: mode-portal
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 03/05/2025
+#customer intent: As an IT admin, I want quickly and easily deploy Azure Virtual Desktop so that I can evaluate and become familiar with the service before deploying it in production.
 ---
 
-# Use the quickstart to create a sample infrastructure
+# Quickstart: deploy a sample Azure Virtual Desktop environment
 
-You can quickly deploy Azure Virtual Desktop with the *quickstart* in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services deployments, or it can deploy Microsoft Entra Domain Services for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one application group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
+You can quickly deploy a sample Azure Virtual Desktop environment with *quickstart* in the Azure portal. Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production.
 
-Joining session hosts to Microsoft Entra ID with the quickstart is not supported. If you want to join session hosts to Microsoft Entra ID, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
+When you use quickstart, it deploys a small environment consisting of minimal resources and configuration. A user then signs into Windows App and connects to a full virtual desktop session. Deployment takes approximately 20 minutes to complete.
 
 > [!TIP]
-> Enterprises should plan an Azure Virtual Desktop deployment using information from [Enterprise-scale support for Microsoft Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone). You can also find more a granular deployment process in a [series of tutorials](create-host-pools-azure-marketplace.md), which also cover programmatic methods and less permission.
+> If you want to learn more about Azure Virtual Desktop, such as what it can do and how it works, see [What is Azure Virtual Desktop](/azure/virtual-desktop/overview), where you can also watch an introductory video.
+>
+> To learn more about all the different terminology, see [Azure Virtual Desktop terminology](terminology.md).
 
-You can see the list of [resources that will be deployed](#resources-that-will-be-deployed) further down in this article.
+Quickstart deploys the following resources:
+
+> [!div class="checklist"]
+> - A resource group.
+> 
+> - A virtual network and subnet with the IPv4 address space `192.168.0.0/24` and uses Azure provided DNS servers.
+> 
+> - A network security group associated with the subnet of the virtual network with the default rules only. No inbound rules are required for Azure Virtual Desktop.
+> 
+> - A host pool with single sign-on (SSO) enabled.
+> 
+> - A session host running Windows 11 Enterprise multi-session with Microsoft 365 apps preinstalled in *English (US)*. It's a [Standard_D4ds_v4](/azure/virtual-machines/sizes/general-purpose/ddsv4-series) size virtual machine (4 vCPUs, 16 GiB memory) configured with a [standard SSD](/azure/virtual-machines/disks-types#standard-ssds) disk, and is joined to Microsoft Entra ID.
+> 
+> - An application group that publishes the full desktop from the session host.
+> 
+> - A workspace.
+
+You can see a detailed list of [deployed resources](#deployed-resources) later in this article.
 
 ## Prerequisites
 
-Please review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) to start for a general idea of what's required, however there are some differences when using the quickstart that you'll need to meet. Select a tab below to show instructions that are most relevant to your scenario.
+Before you can use quickstart to deploy a sample Azure Virtual Desktop environment, you need:
 
-> [!TIP]
-> If you don't already have other Azure resources, we recommend you select the **New Microsoft Entra Domain Services** tab. This scenario will deploy everything you need to be ready to connect to a full virtual desktop session. If you already have AD DS or Microsoft Entra Domain Services, select the relevant tab for your scenario instead.
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-# [New Microsoft Entra Domain Services](#tab/new-aadds)
+- An Azure account with the following role-based access control (RBAC) roles assigned to the subscription as a minimum. To learn how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
-At a high level, you'll need:
+   | Role | Description |
+   |--|--|
+   | **Contributor** | Used to deploy all the required resources. |
+   | **User access administrator** | Used to assign users you specify during deployment access to sign into a remote session. |
 
-- An Azure account with an active subscription
-- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
-- No existing Microsoft Entra Domain Services domain deployed in your Azure tenant.
-- User names you choose must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-), and you must use a unique user name that's not already in your Microsoft Entra subscription.
-- The user name for AD Domain join UPN should be a unique one that doesn't already exist in Microsoft Entra ID. The quickstart doesn't support using existing Microsoft Entra user names when also deploying Microsoft Entra Domain Services.
+- One or two user accounts that you want to assign access to the remote session. At least one user is required. These accounts must be members of the same Microsoft Entra tenant as the subscription you're using, not guests. You can assign other users later. 
 
-# [Existing AD DS](#tab/existing-adds)
+- Available quota for your subscription for the `Standard_D4ds_v4` virtual machine. If you don't have available quota, you can request an increase by following the steps in [Request VM quota increase](/azure/quotas/per-vm-quota-requests).
 
-At a high level, you'll need:
+- Internet access from the new virtual machine that gets deployed. For more information, see [Required FQDNs and endpoints for Azure Virtual Desktop](required-fqdn-endpoint.md).
 
-- An Azure account with an active subscription.
-- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
-- An AD DS domain controller deployed in Azure in the same subscription as the one you choose to use with the quickstart. Using multiple subscriptions isn't supported. Make sure you know the fully qualified domain name (FQDN).
-- Domain admin credentials for your existing AD DS domain
-- You must configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) on your subscription and make sure the **Users** container is syncing with Microsoft Entra ID. A security group called **AVDValidationUsers** will be created during deployment in the *Users* container by default. You can also pre-create the **AVDValidationUsers** security group in a different organization unit in your existing AD DS domain. You must make sure this group is then synchronized to Microsoft Entra ID. 
-- A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network for AD DS or Microsoft Entra Domain Services. You also need to make sure you can resolve your AD DS or Microsoft Entra Domain Services domain name from this new virtual network.
-- Internet access is required from your domain controller VM to download PowerShell DSC configuration from `https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/`.
+## Register the Azure Virtual Desktop resource provider
 
-> [!NOTE]
-> The PowerShell Desired State Configuration (DSC) extension will be added to your domain controller VM. A configuration will be added called **AddADDSUser** that contains PowerShell scripts to create the security group and test user, and to populate the security group with any users you choose to add during deployment.
+To deploy Azure Virtual Desktop resources, you need to register the `Microsoft.DesktopVirtualization` resource provider on your Azure subscription:
 
-# [Existing Microsoft Entra Domain Services](#tab/existing-aadds)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-At a high level, you'll need:
+1. Select **Subscriptions**, then select the subscription you want to use.
 
-- An Azure account with an active subscription.
-- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
-- Microsoft Entra Domain Services deployed in the same tenant and subscription. Peered subscriptions aren't supported. Make sure you know the fully qualified domain name (FQDN).
-- Your domain admin user needs to have the same UPN suffix in Microsoft Entra ID and Microsoft Entra Domain Services. This means your Microsoft Entra Domain Services name is the same as your `.onmicrosoft.com` tenant name or you've added the domain name used for Microsoft Entra Domain Services as a verified custom domain name to Microsoft Entra ID.
-- A Microsoft Entra account that is a member of **AAD DC Administrators** group in Microsoft Entra ID.
-- The *forest type* for Microsoft Entra Domain Services must be **User**.
-- A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network  or Microsoft Entra Domain Services. You also need to make sure you [configure DNS servers](../active-directory-domain-services/tutorial-configure-networking.md#configure-dns-servers-in-the-peered-virtual-network) to resolve your Microsoft Entra Domain Services domain name from this virtual network for Azure Virtual Desktop.
+1. Select **Resource providers**, then search for `Microsoft.DesktopVirtualization`.
 
----
+1. If the status is **NotRegistered**, select the checkbox next to `Microsoft.DesktopVirtualization`, and then select **Register**.
 
-> [!IMPORTANT]
-> The quickstart doesn't currently support accounts that use multi-factor authentication. It also does not support personal Microsoft accounts (MSA) or [Microsoft Entra B2B collaboration](../active-directory/external-identities/user-properties.md) users (either member or guest accounts).
+1. Verify that the status of `Microsoft.DesktopVirtualization` is **Registered**.
 
-## Deployment steps
+## Deploy a sample Azure Virtual Desktop environment
 
-# [New Microsoft Entra Domain Services](#tab/new-aadds)
+Here's how to use quickstart to deploy a sample Azure Virtual Desktop environment:
 
-Here's how to deploy Azure Virtual Desktop and a new Microsoft Entra Domain Services domain using the quickstart:
+1. Go to the [Quickstart options for Azure Virtual Desktop options](https://portal.azure.com/#view/Microsoft_Azure_WVD/WvdManagerMenuBlade/~/quickstart) in the Azure portal and sign in. Alternatively the **Quickstart Center** has Azure Virtual Desktop options found in the option **Deliver virtual desktops and stream remote applications**.
 
-1. Sign in to [the Azure portal](https://portal.azure.com).
+   :::image type="content" source="media/quickstart/quickstart-center-options.png" alt-text="A screenshot showing the Azure Virtual Desktop options in the Quickstart Center." lightbox="media/quickstart/quickstart-center-options.png":::
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. Select **Get started quickly with Azure Virtual Desktop** and review the description, then select **Create**. 
 
-1. Select **Quickstart** to open the landing page for the quickstart, then select **Start**.
-
-1. On the **Basics** tab, complete the following information, then select **Next: Virtual Machines >**:
+1. On the **Basics** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Subscription | The subscription you want to use from the drop-down list. |
-   | Identity provider | No identity provider. |
-   | Identity service type | Microsoft Entra Domain Services. |
-   | Resource group | Enter a name. This will be used as the prefix for the resource groups that are deployed. |
-   | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Microsoft Entra role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Azure admin password | The password for the Azure admin account. |
-   | Domain admin user name | The user principal name (UPN) for a new Microsoft Entra account that will be added to a new *AAD DC Administrators* group and used to manage your Microsoft Entra Domain Services domain. The UPN suffix will be used as the Microsoft Entra Domain Services domain name.<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Domain admin password | The password for the domain admin account. |
+   | **Subscription** | In the dropdown list, select the subscription you want to use. |
+   | **Location** | Select the Azure region where you want to deploy the resources. |
+   | **Local administrator account** |  |
+   | **Username** | Enter a name to use as the local administrator account for the new session host. For more information, see [What are the username requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) |
+   | **Password** | Enter a password to use for the local administrator account. For more information, see [What are the password requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-) |
+   | **Confirm password** | Reenter the password. |
+   | **Assignment** |  |
+   | **User assignment** | Select **Select maximum two users**. In the pane that opens, search for and select the user account or user group that you want to assign to this desktop. Finish by selecting **Select**. |
 
-1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
+1. Select **Review + create**. On the **Review + create** tab, ensure that validation passes and review the information to use during deployment.
 
-   | Parameter | Value/Description |
-   |--|--|
-   | Users per virtual machine | Select **Multiple users** or **One user at a time** depending on whether you want users to share a session host or assign a session host to an individual user. Learn more about [host pool types](environment-setup.md#host-pools). Selecting **Multiple users** will also create an Azure Files storage account joined to the same Microsoft Entra Domain Services domain. |
-   | Image type | Select **Gallery** to choose from a predefined list, or **storage blob** to enter a URI to the image. |
-   | Image | If you chose **Gallery** for image type, select the operating system image you want to use from the drop-down list. You can also select **See all images** to choose an image from the [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).<br /><br />If you chose **Storage blob** for image type, enter the URI of the image. |
-   | Virtual machine size | The [Azure virtual machine size](../virtual-machines/sizes.md) used for your session host(s) |
-   | Name prefix | The name prefix for your session host(s). Each session host will have a hyphen and then a number added to the end, for example **avd-sh-1**. This name prefix can be a maximum of 11 characters and will also be used as the device name in the operating system. |
-   | Number of virtual machines | The number of session hosts you want to deploy at this time. You can add more later. |
-   | Link Azure template | Tick the box if you want to [link a separate ARM template](../azure-resource-manager/templates/linked-templates.md) for custom configuration on your session host(s) during deployment. You can specify inline deployment script, desired state configuration, and custom script extension. Provisioning other Azure resources in the template isn't supported.<br /><br />Untick the box if you don't want to link a separate ARM template during deployment. |
-   | ARM template file URL | The URL of the ARM template file you want to use. This could be stored in a storage account. |
-   | ARM template parameter file URL | The URL of the ARM template parameter file you want to use. This could be stored in a storage account. |
+1. Select **Create** to deploy the sample Azure Virtual Desktop environment.
 
-1. On the **Assignments** tab, complete the following information, then select **Next: Review + create >**:
+1. Once the deployment completes successfully, you're ready to connect to the desktop.
 
-   | Parameter | Value/Description |
-   |--|--|
-   | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your new Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Test password | The password to be used for the test account. |
-   | Confirm password | Confirmation of the password to be used for the test account. |
-
-1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
-
-1. Select **Create**.
-
-# [Existing AD DS](#tab/existing-adds)
-
-Here's how to deploy Azure Virtual Desktop using the quickstart where you already have AD DS available:
-
-1. Sign in to [the Azure portal](https://portal.azure.com).
-
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
-
-1. Select **Quickstart** to open the landing page for the quickstart, then select **Start**.
-
-1. On the **Basics** tab, complete the following information, then select **Next: Virtual Machines >**:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Subscription | The subscription you want to use from the drop-down list. |
-   | Identity provider | Existing Active Directory. |
-   | Identity service type | Active Directory. |
-   | Resource group | Enter a name. This will be used as the prefix for the resource groups that are deployed. |
-   | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
-   | Virtual network | The virtual network in the same Azure region you want to connect your Azure Virtual Desktop resources to. This must have connectivity to your AD DS domain controller in Azure and be able to resolve its FQDN. |
-   | Subnet | The subnet of the virtual network you want to connect your Azure Virtual Desktop resources to. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Microsoft Entra role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Azure admin password | The password for the Azure admin account. |
-   | Domain admin user name | The user principal name (UPN) of the domain admin account in your AD DS domain. The UPN suffix doesn't need to be added as a custom domain in Azure AD.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Domain admin password | The password for the domain admin account. |
-
-1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Users per virtual machine | Select **Multiple users** or **One user at a time** depending on whether you want users to share a session host or assign a session host to an individual user. Learn more about [host pool types](environment-setup.md#host-pools). Selecting **Multiple users** will also create an Azure Files storage account joined to the same AD DS domain. |
-   | Image type | Select **Gallery** to choose from a predefined list, or **storage blob** to enter a URI to the image. |
-   | Image | If you chose **Gallery** for image type, select the operating system image you want to use from the drop-down list. You can also select **See all images** to choose an image from the [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).<br /><br />If you chose **Storage blob** for image type, enter the URI of the image. |
-   | Virtual machine size | The [Azure virtual machine size](../virtual-machines/sizes.md) used for your session host(s). |
-   | Name prefix | The name prefix for your session host(s). Each session host will have a hyphen and then a number added to the end, for example **avd-sh-1**. This name prefix can be a maximum of 11 characters and will also be used as the device name in the operating system. |
-   | Number of virtual machines | The number of session hosts you want to deploy at this time. You can add more later. |
-   | Specify domain or unit | Select **Yes** if:<br /><ul><li>The FQDN of your domain is different to the UPN suffix of the domain admin user in the previous step.</li><li>You want to create the computer account in a specific Organizational Unit (OU).</li></ul><br />If you select **Yes** and you only want to specify an OU, you must enter a value for **Domain to join**, even if that is the same as the UPN suffix of the domain admin user in the previous step. Organizational Unit path is optional and if it's left empty, the computer account will be placed in the *Users* container.<br /><br />Select **No** to use the suffix of the Active Directory domain join UPN as the FQDN. For example, the user `vmjoiner@contoso.com` has a UPN suffix of `contoso.com`. The computer account will be placed in the *Users* container. |
-   | Domain controller resource group | The resource group that contains your domain controller virtual machine from the drop-down list. The resource group must be in the same subscription you selected earlier. |
-   | Domain controller virtual machine | Your domain controller virtual machine from the drop-down list. This is required for creating or assigning the initial user and group. |
-   | Link Azure template | Tick the box if you want to [link a separate ARM template](../azure-resource-manager/templates/linked-templates.md) for custom configuration on your session host(s) during deployment. You can specify inline deployment script, desired state configuration, and custom script extension. Provisioning other Azure resources in the template isn't supported.<br /><br />Untick the box if you don't want to link a separate ARM template during deployment. |
-   | ARM template file URL | The URL of the ARM template file you want to use. This could be stored in a storage account. |
-   | ARM template parameter file URL | The URL of the ARM template parameter file you want to use. This could be stored in a storage account. |
-
-1. On the **Assignments** tab, complete the following information, then select **Next: Review + create >**:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your AD DS domain, synchronized to Microsoft Entra ID, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Test password | The password to be used for the test account. |
-   | Confirm password | Confirmation of the password to be used for the test account. |
-   | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Microsoft Entra users or user groups**. Select Microsoft Entra users or user groups, then select **Select**. These users and groups must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user account is synchronized between your AD DS domain and Microsoft Entra ID. Admin accounts aren’t able to sign in to the virtual desktop. |
-
-1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
-
-1. Select **Create**.
-
-# [Existing Microsoft Entra Domain Services](#tab/existing-aadds)
-
-Here's how to deploy Azure Virtual Desktop using the quickstart where you already have Microsoft Entra Domain Services available:
-
-1. Sign in to [the Azure portal](https://portal.azure.com).
-
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
-
-1. Select **Quickstart** to open the landing page for the quickstart, then select **Start**.
-
-1. On the **Basics** tab, complete the following information, then select **Next: Virtual Machines >**:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Subscription | The subscription you want to use from the drop-down list. |
-   | Identity provider | Existing Active Directory. |
-   | Identity service type | Microsoft Entra Domain Services. |
-   | Resource group | Enter a name. This will be used as the prefix for the resource groups that are deployed. |
-   | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
-   | Virtual network | The virtual network in the same Azure region you want to connect your Azure Virtual Desktop resources to. This must have connectivity to your Microsoft Entra Domain Services domain and be able to resolve its FQDN. |
-   | Subnet | The subnet of the virtual network you want to connect your Azure Virtual Desktop resources to. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Microsoft Entra role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Azure admin password | The password for the Azure admin account. |
-   | Domain admin user name | The user principal name (UPN) of the admin account to manage your Microsoft Entra Domain Services domain. The UPN suffix of the user in Microsoft Entra ID must match the Microsoft Entra Domain Services domain name.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Domain admin password | The password for the domain admin account. |
-
-1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Users per virtual machine | Select **Multiple users** or **One user at a time** depending on whether you want users to share a session host or assign a session host to an individual user. Learn more about [host pool types](environment-setup.md#host-pools). Selecting **Multiple users** will also create an Azure Files storage account joined to the same Microsoft Entra Domain Services domain. |
-   | Image type | Select **Gallery** to choose from a predefined list, or **storage blob** to enter a URI to the image. |
-   | Image | If you chose **Gallery** for image type, select the operating system image you want to use from the drop-down list. You can also select **See all images** to choose an image from the [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).<br /><br />If you chose **Storage blob** for image type, enter the URI of the image. |
-   | Virtual machine size | The [Azure virtual machine size](../virtual-machines/sizes.md) used for your session host(s) |
-   | Name prefix | The name prefix for your session host(s). Each session host will have a hyphen and then a number added to the end, for example **avd-sh-1**. This name prefix can be a maximum of 11 characters and will also be used as the device name in the operating system. |
-   | Number of virtual machines | The number of session hosts you want to deploy at this time. You can add more later. |
-   | Link Azure template | Tick the box if you want to [link a separate ARM template](../azure-resource-manager/templates/linked-templates.md) for custom configuration on your session host(s) during deployment. You can specify inline deployment script, desired state configuration, and custom script extension. Provisioning other Azure resources in the template isn't supported.<br /><br />Untick the box if you don't want to link a separate ARM template during deployment. |
-   | ARM template file URL | The URL of the ARM template file you want to use. This could be stored in a storage account. |
-   | ARM template parameter file URL | The URL of the ARM template parameter file you want to use. This could be stored in a storage account. |
-
-1. On the **Assignments** tab, complete the following information, then select **Next: Review + create >**:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
-   | Test password | The password to be used for the test account. |
-   | Confirm password | Confirmation of the password to be used for the test account. |
-   | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Microsoft Entra users or user groups**. Select Microsoft Entra users or user groups, then select **Select**. These users and groups must be in the synchronization scope configured for Microsoft Entra Domain Services. Admin accounts aren’t able to sign in to the virtual desktop. |
-
-1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
-
-1. Select **Create**.
-
----
+   :::image type="content" source="media/quickstart/quickstart-deployment-complete.png" alt-text="A screenshot showing the Azure Virtual Desktop quickstart deployment complete." lightbox="media/quickstart/quickstart-deployment-complete.png":::
 
 ## Connect to the desktop
 
-Once the deployment has completed successfully, if you created a test account or assigned an existing user during deployment, you can connect to it following the steps for one of the supported Remote Desktop clients. For example, you can follow the steps to [Connect with the Windows Desktop client](users/connect-windows.md).
+Once the sample Azure Virtual Desktop environment is deployed, you can connect to it using [Windows App](/windows-app/) and sign in with a user account you assigned during deployment.
 
-If you didn't create a test account or assigned an existing user during deployment, you'll need to add users to the **AVDValidationUsers** security group before you can connect.
+> [!TIP]
+> The desktop takes longer to load the first time as the profile is being created, however subsequent connections are quicker.
 
-## Resources that will be deployed
+Select the relevant tab and follow the steps, depending on which platform you're using. We only list the steps here for Windows, macOS, and using a web browser. If you want to connect using Windows App on another device, such as an iPad, see our full guidance at [Get started with Windows App to connect to desktops and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop).
 
-# [New Microsoft Entra Domain Services](#tab/new-aadds)
+# [Windows](#tab/windows)
 
-| Resource type | Name | Resource group name | Notes |
-|--|--|--|--|
-| Resource group | *your prefix*-avd | N/A | This is a predefined name. |
-| Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
-| Resource group | *your prefix*-prerequisite | N/A | This is a predefined name. |
-| Microsoft Entra Domain Services | *your domain name* | *your prefix*-prerequisite | Deployed with the [Enterprise SKU](https://azure.microsoft.com/pricing/details/active-directory-ds/#pricing). You can [change the SKU](../active-directory-domain-services/change-sku.md) after deployment. |
-| Automation Account | ebautomation*random string* | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Only created if **Multiple users** is selected for **Users per virtual machine**. This is a predefined name. |
-| Host pool | EB-AVD-HP | *your prefix*-avd | This is a predefined name. |
-| Application group | EB-AVD-HP-DAG | *your prefix*-avd | This is a predefined name. |
-| Workspace | EB-AVD-WS | *your prefix*-avd | This is a predefined name. |
-| Storage account | eb*random string* | *your prefix*-avd | This is a predefined name. |
-| Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
-| Virtual network | avdVnet | *your prefix*-prerequisite | The address space used is **10.0.0.0/16**. The address space and name are predefined. |
-| Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
-| Network interface | aadds-*random string*-nic | *your prefix*-prerequisite | This is a predefined name. |
-| Network interface | aadds-*random string*-nic | *your prefix*-prerequisite | This is a predefined name. |
-| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
-| Load balancer | aadds-*random string*-lb | *your prefix*-prerequisite | This is a predefined name. |
-| Public IP address | aadds-*random string*-pip | *your prefix*-prerequisite | This is a predefined name. |
-| Network security group | avdVnet-nsg | *your prefix*-prerequisite | This is a predefined name. |
-| Group | AVDValidationUsers | N/A | Created in your new Microsoft Entra tenant and synchronized to Microsoft Entra Domain Services. It contains a new test user (if created) and users you selected. This is a predefined name. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your new Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the *AVDValidationUsers* security group. |
+To connect to your sample desktop on a Windows device, follow these steps:
 
-# [Existing AD DS](#tab/existing-adds)
+1. Download and install [Windows App from the Microsoft Store](https://apps.microsoft.com/detail/9N1F85V9T8BN). When Windows App is installed, open it.
 
-| Resource type | Name | Resource group name | Notes |
-|--|--|--|--|
-| Resource group | *your prefix*-avd | N/A | This is a predefined name. |
-| Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
-| Automation Account | ebautomation*random string* | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Only created if **Multiple users** is selected for **Users per virtual machine**. This is a predefined name. |
-| Host pool | EB-AVD-HP | *your prefix*-avd | This is a predefined name. |
-| Application group | EB-AVD-HP-DAG | *your prefix*-avd | This is a predefined name. |
-| Workspace | EB-AVD-WS | *your prefix*-avd | This is a predefined name. |
-| Storage account | eb*random string* | *your prefix*-avd | This is a predefined name. |
-| Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
-| Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
-| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
-| Group | AVDValidationUsers | N/A | Created in your AD DS domain and synchronized to Microsoft Entra ID. It contains a new test user (if created) and users you selected. This is a predefined name. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your AD DS domain, synchronized to Microsoft Entra ID, and made a member of the *AVDValidationUsers* security group. |
+   :::image type="content" source="media/quickstart/windows-app-windows-welcome.png" alt-text="A screenshot showing the welcome tab for Windows App on Windows with Azure Virtual Desktop." lightbox="media/quickstart/windows-app-windows-welcome.png":::
 
-# [Existing Microsoft Entra Domain Services](#tab/existing-aadds)
+1. Select **Sign in** and sign in with a user account you assigned during deployment. If you're signed in to your local Windows device with a work or school account on a managed device, you're signed in to Windows App automatically with the same account.
 
-| Resource type | Name | Resource group name | Notes |
-|--|--|--|--|
-| Resource group | *your prefix*-avd | N/A | This is a predefined name. |
-| Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
-| Automation Account | ebautomation*random string* | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | resourceSetupRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Automation Account runbook | roleAssignmentRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
-| Managed Identity | easy-button-fslogix-identity | *your prefix*-avd | Only created if **Multiple users** is selected for **Users per virtual machine**. This is a predefined name. |
-| Host pool | EB-AVD-HP | *your prefix*-avd | This is a predefined name. |
-| Application group | EB-AVD-HP-DAG | *your prefix*-avd | This is a predefined name. |
-| Workspace | EB-AVD-WS | *your prefix*-avd | This is a predefined name. |
-| Storage account | eb*random string* | *your prefix*-avd | This is a predefined name. |
-| Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
-| Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
-| Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
-| Group | AVDValidationUsers | N/A | Created in your Microsoft Entra tenant and synchronized to Microsoft Entra Domain Services. It contains a new test user (if created) and users you selected. This is a predefined name. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the *AVDValidationUsers* security group. |
+1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
+
+1. After you sign in, select the **Devices** tab.
+
+1. The desktop you created is shown as a tile called **SessionDesktop**. Select **Connect**.
+
+   :::image type="content" source="media/quickstart/windows-app-windows-quickstart-sessiondesktop.png" alt-text="A screenshot showing the devices tab for Windows App on Windows with the SessionDesktop deployed using Quickstart." lightbox="media/quickstart/windows-app-windows-quickstart-sessiondesktop.png":::
+
+1. By default, using single sign-on requires the user to grant permission to connect to the session host, which lasts for 30 days before prompting again. You can hide this dialog by configuring a list of trusted devices. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md).
+
+   To grant permission, at the prompt **Allow remote desktop connection**, select **Yes**. You might need to enter your password again to see the prompt if you're not signed into your Windows device with the same account.
+   
+   :::image type="content" source="media/quickstart/allow-remote-desktop-connection-prompt.png" alt-text="A screenshot showing the Allow remote desktop connection prompt when connecting from Windows App on Windows." lightbox="media/quickstart/allow-remote-desktop-connection-prompt.png":::
+
+1. Once you're connected, your desktop is ready to use.
+
+# [macOS](#tab/macos)
+
+To connect to your sample desktop on a macOS device, follow these steps:
+
+1. Download and install [Windows App from the Mac App Store](https://aka.ms/macOSWindowsApp). When Windows App is installed, open it.
+
+1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
+
+1. Windows App opens on the **Devices** tab. Select the *plus* (**+**) icon, then select **Add Work or School Account** and sign in with a user account you assigned during deployment.
+
+   :::image type="content" source="media/quickstart/windows-app-macos-devices-add.png" alt-text="A screenshot showing the empty devices tab for Windows App on macOS with Azure Virtual Desktop." lightbox="media/quickstart/windows-app-macos-devices-add.png":::
+
+1. After you sign in, make sure you're on the **Devices** tab.
+
+1. The desktop you created is shown as a tile called **SessionDesktop**. Double-click **SessionDesktop** to connect.
+
+   :::image type="content" source="media/quickstart/windows-app-macos-quickstart-sessiondesktop.png" alt-text="A screenshot showing the devices tab for Windows App on Windows with the SessionDesktop deployed using Quickstart." lightbox="media/quickstart/windows-app-macos-quickstart-sessiondesktop.png":::
+
+1. By default, using single sign-on requires the user to grant permission to connect to the session host, which lasts for 30 days before prompting again. You can hide this dialog by configuring a list of trusted devices. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md).
+
+   To grant permission, at the prompt **Allow remote desktop connection**, select **Yes**.
+
+   :::image type="content" source="media/quickstart/allow-remote-desktop-connection-prompt.png" alt-text="A screenshot showing the Allow remote desktop connection prompt when connecting from Windows App on macOS." lightbox="media/quickstart/allow-remote-desktop-connection-prompt.png":::
+
+1. Once you're connected, your desktop is ready to use.
+
+# [Web browser](#tab/web)
+
+To connect to your sample desktop from a web browser, follow these steps:
+
+1. Open a web browser and go to Windows App at [**https://windows.cloud.microsoft/**](https://windows.cloud.microsoft/).
+
+1. Sign in with a user account you assigned during deployment. If you're signed in to your browser with a work or school account on a managed device, you're signed in to Windows App automatically with the same account.
+
+1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
+
+1. After you sign in, select the **Devices** tab.
+
+1. The desktop you created is shown as a tile called **SessionDesktop**. Select **Connect**.
+
+   :::image type="content" source="media/quickstart/windows-app-web-quickstart-sessiondesktop.png" alt-text="A screenshot showing the devices tab for Windows App from a web browser with the SessionDesktop deployed using Quickstart." lightbox="media/quickstart/windows-app-windows-quickstart-sessiondesktop.png":::
+
+1. The prompt **In Session Settings** enables you to access some local resources, such as printers and the clipboard in the remote session. Make your selections, then select **Connect**.
+
+1. By default, using single sign-on requires the user to grant permission to connect to the session host, which lasts for 30 days before prompting again. You can hide this dialog by configuring a list of trusted devices. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md).
+
+   To grant permission:
+   
+   1. Select **Sign in** when prompted. The same account you used to sign in to the web browser is used automatically.
+
+      :::image type="content" source="media/quickstart/windows-app-web-grant-permission-sign-in.png" alt-text="A screenshot showing the grant permission sign in prompt when connecting from Windows App from a web browser." lightbox="media/quickstart/windows-app-web-grant-permission-sign-in.png":::
+
+   1. At the prompt **Allow remote desktop connection**, select **Yes**.
+
+      :::image type="content" source="media/quickstart/allow-remote-desktop-connection-prompt.png" alt-text="A screenshot showing the Allow remote desktop connection prompt when connecting from Windows App from a web browser." lightbox="media/quickstart/allow-remote-desktop-connection-prompt.png":::
+
+1. Once you're connected, your desktop is ready to use.
 
 ---
 
+## Deployed resources
+
+When you deploy a sample Azure Virtual Desktop environment using quickstart, the following resources are deployed, where `<timestamp>` is the date and time when you started the deployment:
+
+| Resource type | Name | Notes |
+|--|--|--|
+| Resource group | `rg-avd-quickstart-<guid>` | None. |
+| Host pool | `vdpool-avd-quickstart-<guid>` | Uses the [breadth-first load balancing algorithm](configure-host-pool-load-balancing.md), with a maximum session limit of **2**. |
+| Application group | `vdag-avd-quickstart-<guid>` | Desktop application group. |
+| Workspace | `vdws-avd-quickstart-<guid>` | None. |
+| Virtual machine | `vmaqs<timestamp>` | Windows 11 Enterprise multi-session with Microsoft 365 apps preinstalled in *English (US)*.<br /><br />[Standard_D4ds_v4](/azure/virtual-machines/sizes/general-purpose/ddsv4-series) size virtual machine.<br /><br />Joined to Microsoft Entra ID. |
+| Virtual network | `vnet-avd-quickstart-<guid>` | The IPv4 address space is `192.168.0.0/24`. |
+| Network interface | `nic-avd-quickstart-<guid>` | Uses Azure provided DNS servers. |
+| Disk | `vmaqs<timestamp>_OsDisk_1_<random-string>` | [Premium SSD](/azure/virtual-machines/disks-types#premium-ssds), 127 GiB, P10 performance tier. |
+| Network security group | `nsg-avd-quickstart-<guid>` | Associated with the subnet of the virtual network with the default rules only. |
+
+Once the resource group is created, all resources are deployed to that resource group. All resource names and their configuration are predefined.
+
+Timestamps are in the format `yyMMddHHmm`. For example **2501081128** is January 8, 2025, 11:28 AM.
+
 ## Clean up resources
 
-If you want to remove Azure Virtual Desktop resources from your environment, you can safely remove them by deleting the resource groups that were deployed. These are:
-
-- *your-prefix*-deployment
-- *your-prefix*-avd
-- *your-prefix*-prerequisite (only if you deployed the quickstart with a new Microsoft Entra Domain Services domain)
-
-To delete the resource groups:
-
-1. Sign in to [the Azure portal](https://portal.azure.com).
-
-1. In the search bar, type *Resource groups* and select the matching service entry.
-
-1. Select the name of one of resource groups, then select **Delete resource group**.
-
-1. Review the affected resources, then type the resource group name in the box, and select **Delete**.
-
-1. Repeat these steps for the remaining resource groups.
+If you want to remove the sample Azure Virtual Desktop resources, you can safely remove them by stopping the virtual machine and deleting the resources in the resource group `rg-avd-quickstart-<guid>`.
 
 ## Next steps
 
-If you want to publish apps as well as the full virtual desktop, see the tutorial to [Manage application groups with the Azure portal](manage-app-groups.md).
+Once you deploy and connect to the sample Azure Virtual Desktop environment, here are some next steps you might want to take:
 
-If you'd like to learn how to deploy Azure Virtual Desktop in a more in-depth way, with less permission required, or programmatically, check out our series of tutorials, starting with [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
+- If you want to publish individual apps as an alternative to the full virtual desktop, see [Publish applications with RemoteApp](publish-applications-stream-remoteapp.md).
+
+- To learn more about Windows App and how to use it, see the [Windows App documentation](/windows-app/).
+
+- If you'd like to learn how to deploy Azure Virtual Desktop with more configuration choices and programmatic methods that can be used in production, see the following documentation:
+
+   - [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).
+   - Cloud Adoption Framework: [Migrate end-user desktops to Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/).
+   - Azure Architecture Center: [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop).
+

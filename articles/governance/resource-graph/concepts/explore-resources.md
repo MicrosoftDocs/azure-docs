@@ -307,7 +307,7 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 (Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip").Data | ConvertTo-Json
 ```
 
-To see how to accomplish these steps in a single query with the `join` operator, go to [List virtual machines with their network interface and public IP](../samples/advanced.md#list-virtual-machines-with-their-network-interface-and-public-ip) sample.
+To see how to accomplish these steps in a single query with the `join` operator, go to [List virtual machines with their network interface and public IP](../samples/advanced.md#get-virtual-networks-and-subnets-of-network-interfaces) sample.
 
 ## Next steps
 

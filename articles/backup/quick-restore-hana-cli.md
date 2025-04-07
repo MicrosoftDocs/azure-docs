@@ -5,9 +5,9 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/17/2024
 ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
-ms.service: backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.service: azure-backup
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Restore SAP HANA System Replication on Azure VMs using Azure CLI

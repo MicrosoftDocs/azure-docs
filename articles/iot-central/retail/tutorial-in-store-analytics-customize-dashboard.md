@@ -2,7 +2,7 @@
 title: Tutorial - Customize the dashboard in Azure IoT Central
 description: This tutorial shows how to customize the dashboard in an IoT Central application, and manage devices.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 author: dominicbetts

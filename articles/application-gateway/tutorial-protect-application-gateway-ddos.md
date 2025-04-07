@@ -7,8 +7,7 @@ author: duongau
 ms.author: duau
 ms.date: 09/20/2023
 ms.topic: quickstart
-ms.service: application-gateway
-ms.custom: template tutorial
+ms.service: azure-application-gateway
 ---
 
 # Tutorial: Protect your application gateway with Azure DDoS Network Protection

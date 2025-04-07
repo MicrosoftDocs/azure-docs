@@ -4,7 +4,7 @@ description: Learn how to export an API from API Management as a custom connecto
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: danlep
@@ -64,7 +64,7 @@ From API Management, you can update a connector to target a different API or Pow
 1. Select the API you want to update the connector for, update settings as needed, and select **Update**.
 
 
-## Next steps
+## Related content
 
 * [Learn more about the Power Platform](https://powerplatform.microsoft.com/) and [licensing](/power-platform/admin/pricing-billing-skus)
 * [Learn more about creating and using custom connectors](/connectors/custom-connectors/)

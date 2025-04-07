@@ -4,8 +4,8 @@ description: Learn how to ensure application reliability in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
-ms.custom: subject-reliability, references_regions, devx-track-azurepowershell, devx-track-azurecli
+ms.service: azure-container-apps
+ms.custom: subject-reliability,  devx-track-azurepowershell, devx-track-azurecli
 ms.topic: reliability-article
 ms.date: 10/23/2023
 ---
@@ -29,7 +29,7 @@ By enabling Container Apps' zone redundancy feature, replicas are automatically 
 
 Azure Container Apps offers the same reliability support regardless of your plan type.
 
-Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
+Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](regions-list.md).
 
 ### SLA improvements
 

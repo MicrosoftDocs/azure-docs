@@ -1,55 +1,46 @@
 ---
 title: Set up customer provided Key Vault for Managed Credential rotation
 description: Step by step guide on setting up a key vault for managing and rotating credentials used within Azure Operator Nexus Cluster resource.
-author: ghugo
-ms.author: gagehugo
+author: eak13
+ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 02/5/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Set up Key Vault for Managed Credential Rotation in Operator Nexus
 
-Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. The Operator Nexus platform handles the rotation of these secrets and certificates. By default, Operator Nexus stores the credentials in a managed Key Vault. To keep the rotated credentials in their own Key Vault, the user has to set up the Key Vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the Customer Key Vault to the Nexus Cluster Resource.
+Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. The Operator Nexus platform handles the rotation of these secrets and certificates. By default, Operator Nexus stores the credentials in a managed Key Vault. To keep the rotated credentials in their own Key Vault, the user must configure their own Key Vault to receive rotated credentials. This configuration requires the user to configure the Key Vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the Customer Key Vault to the Nexus Cluster Resource.
 
 ## Prerequisites
 
 - Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
-- Get the *Subscription ID* for the customer's subscription
+- Get the _Subscription ID_ for the customer's subscription
 
 > [!NOTE]
 > A single Key Vault can be used for any number of clusters.
 
-## Writing Credential Updates to a Customer Key Vault on Nexus Cluster
+## Configure Key Vault Using Managed Identity for the Cluster
 
-- Ensure that the *Microsoft.NetworkCloud* resource provider is registered with the customer subscription.
+> [!NOTE]
+> The managed identity functionality for Key Vault and Cluster managed identity exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API.
 
-```console
-az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscription ID>
-```
+See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
 
-- Assign the *Operator Nexus Key Vault Writer Service Role*. Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access control (IAM)* view, select to add a role assignment.
+## Configure Key Vault Using Managed Identity for Cluster Manager
 
-| Role Name                                              | Role Definition ID                   |
-|:-------------------------------------------------------|:-------------------------------------|
-| Operator Nexus Key Vault Writer Service Role (Preview) | 44f0a1a8-6fea-4b35-980a-8ff50c487c97 |
+> [!NOTE]
+> This method is deprecated with the roll out of the 2025-02-01 GA API. A transition period is in place to support migration, but existing users should look to migrate to using the Cluster managed identity. Once a Cluster is updated to use the Secret Archive Settings and the Cluster managed identity, the Cluster Manager managed identity is ignored for credential rotation.
 
-| Environment | App Name              | App ID                               |
-|:------------|:----------------------|:-------------------------------------|
-| Production  | AFOI-NC-RP-PME-PROD   | 05cf5e27-931d-47ad-826d-cb9028d8bd7a |
-| Production  | AFOI-NC-MGMT-PME-PROD | 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 |
+Beginning with the 2024-07-01 API version, managed identities in the Cluster Manager are used for write access to deliver rotated credentials to a key vault. The Cluster Manager identity can be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
 
-Example:
+For information on assigning managed identities to the Cluster Manager, see [Cluster Manager Identity](./howto-cluster-manager.md#cluster-manager-identity)
 
-```console
-az role assignment create --assignee 05cf5e27-931d-47ad-826d-cb9028d8bd7a --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
+### Configure Nexus Cluster Secret Archive
 
-az role assignment create --assignee 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
-```
-
-- User associates the Customer Key Vault with the Operator Nexus cluster. The key vault resource ID must be configured in the cluster and enabled to store the secrets of the cluster.
+Register the Customer Key Vault as the secret archive for the Nexus cluster. The key vault resource ID must be configured in the cluster and enabled to store the secrets of the cluster.
 
 Example:
 
@@ -61,8 +52,52 @@ az networkcloud cluster update --ids /subscriptions/<subscription ID>/resourceGr
 az networkcloud cluster show --ids /subscriptions/<subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.NetworkCloud/clusters/<Nexus Cluster Name> --query secretArchive
 ```
 
+<br/>
+
 For more help:
 
 ```console
 az networkcloud cluster update --secret-archive ?? --help
 ```
+
+### Get the Principal ID for the Cluster Manager Managed Identity
+
+Once a managed identity is configured, use the CLI to view the identity and the associated principal ID data within the cluster manager.
+
+Example:
+
+```console
+az networkcloud clustermanager show --ids /subscriptions/<Subscription ID>/resourceGroups/<Cluster Manager Resource Group Name>/providers/Microsoft.NetworkCloud/clusterManagers/<Cluster Manager Name>
+```
+
+<br/>
+
+System-assigned identity example:
+
+```
+    "identity": {
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "type": "SystemAssigned"
+    },
+```
+
+<br/>
+
+User-assigned identity example:
+
+```
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
+                "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+                "principalId": "bbbbbbbb-cccc-dddd-2222-333333333333"
+            }
+        }
+    },
+```
+
+<br/>
+
+Refer to [_Configure Key Vault Using Managed Identity for the Cluster_](#configure-key-vault-using-managed-identity-for-the-cluster) to assign the appropriate role to the Managed Identity Principal ID.

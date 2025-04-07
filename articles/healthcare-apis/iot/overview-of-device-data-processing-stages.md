@@ -3,14 +3,17 @@ title: Overview of the MedTech service device data processing stages - Azure Hea
 description: Learn about the MedTech service device data processing stages.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: overview
 ms.date: 07/19/2023
 ms.author: chrupa
 ---
 
 # Overview of the MedTech service device data processing stages 
+
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
 
 This article provides an overview of the device data processing stages within the [MedTech service](overview.md). The MedTech service transforms device data into [FHIR&reg; Observations](https://www.hl7.org/fhir/observation.html) for persistence in the [FHIR service](../fhir/overview.md).
 

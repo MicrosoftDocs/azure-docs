@@ -1,8 +1,8 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 06/14/2023
-ms.service: vpn-gateway
+ms.date: 03/27/2025
+ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 **If you're using Azure Cloud Shell** you'll automatically be directed to sign into your account after you open Cloudshell. You don't need to run `Connect-AzAccount`. Once signed in, you can still change subscriptions if necessary by using `Get-AzSubscription` and `Select-AzSubscription`.

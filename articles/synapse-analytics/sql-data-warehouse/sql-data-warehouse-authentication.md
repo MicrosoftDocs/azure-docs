@@ -1,10 +1,10 @@
 ---
 title: Authentication for dedicated SQL pool (formerly SQL DW)
 description: Learn how to authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics by using Microsoft Entra ID or SQL Server authentication.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 04/02/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 tag: azure-synapse

@@ -82,8 +82,6 @@ items:
     items:
     - name: Overview
       href: workspace-connected-experience.md
-    - name: Supported regions
-      href: workspace-connected-regions.md
   - name: Connectivity
     items: 
     - name: Connectivity architecture
@@ -101,7 +99,7 @@ items:
       - name: Data discovery & classification
         href: /azure/azure-sql/database/data-discovery-and-classification-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Vulnerability assessment
-        href: ../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md
+        href: /azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview
       - name: Advanced Threat Protection
         href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Auditing
@@ -292,7 +290,7 @@ items:
     items:
     - name: Overview
       href: sql-data-warehouse-overview-manageability-monitoring.md
-    - name: Scale, pause, resume
+    - name: Scale, pause, and resume compute
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Resource utilization & query activity 
       href: sql-data-warehouse-concept-resource-utilization-query-activity.md 

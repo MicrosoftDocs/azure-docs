@@ -1,18 +1,19 @@
 ---
 title: Tutorial - View protectable resources
-description: In this tutorial, learn how to view your resources that are currently not protected by any solution using Azure Business Continuity center.
+description: In this tutorial, learn how to view your resources that are currently not protected by any solution using Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 07/22/2024
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Tutorial: View protectable resources (preview)
+# Tutorial: View protectable resources 
 
-This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) center (preview). 
+This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) center. 
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ Before you start this tutorial:
 
 As a business continuity and disaster recovery admin, the first stage in the journey is to identify your critical resources that do not have backup or replication configured.  In case of any outage, malicious attack, or operational failures, these resources can’t be recovered in primary or secondary region, which can then lead to data loss. 
 
-Follow these steps:
+To view the protectable resources, follow these steps:
 
 1. Go to the Azure Business Continuity Center from the Azure portal.
 1. Select **Protectable resources** under the **Protection inventory** section. 
@@ -55,4 +56,4 @@ By default, only Azure Virtual machines are shown in the **Protectable resources
 
 ## Next steps
 
-For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC center](./tutorial-configure-protection-datasource.md).
+[Configure protection from ABC center](./tutorial-configure-protection-datasource.md).

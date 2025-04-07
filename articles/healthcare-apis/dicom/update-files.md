@@ -1,12 +1,12 @@
 ---
 title: Update files in the DICOM service in Azure Health Data Services
 description: Learn how to use the bulk update API in Azure Health Data Services to modify DICOM attributes for multiple files in the DICOM service. This article explains the benefits, requirements, and steps of the bulk update operation.
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 1/18/2024
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Update DICOM files
@@ -19,12 +19,15 @@ Beyond the efficiency gains, the bulk update capability preserves a record of th
 There are a few limitations when you use the bulk update operation:
 
 - A maximum of 50 studies can be updated in a single operation.
-- Only one bulk update operation can be performed at a time.
-- You can't delete only the latest version of a study or revert back to the original version. 
+- Only one bulk update operation can be performed at a time for a given study.
+- For updates involving UID changes, only one study can be updated in a single operation.
+- Only Study Instance UID and Series Instance UID can be updated as part of UID update. SOP Instance UID cannot be updated for an instance.
+- UID update operation would fail when the target UIDs (`studyInstanceUID`, `seriesInstanceUid` and `sopInstanceUId`) already exists.
+- You can't delete only the latest version of a study, or revert back to the original version. 
 - You can't update any field from non-null to a null value.
 
 ## Use the bulk update operation
-Bulk update is an asynchronous, long-running operation available at the studies endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes. 
+Bulk update is an asynchronous, long-running operation available at a study's endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes. 
 
 ### Update instances in multiple studies
 The bulk update endpoint starts a long-running operation that updates all instances in each study with the specified attributes.
@@ -64,6 +67,41 @@ The request body contains the specification for studies to update. Both the `stu
 }
 ```
 
+For updating the UIDs, new UIDs have to be provided in the change dataset as follows. The `seriesInstanceUid` is an optional field.
+
+1. Use the request in the format below to update the `studyInstanceUid` for all instances within a study.
+
+```
+{
+    "studyInstanceUids": ["1.2.3.4"],
+    "changeDataset": { 
+        "0020000D": { 
+            "vr": "UI", 
+            "Value": ["1.2.3.5"]
+        } 
+    }
+}
+```
+
+2. Use the request in the format below to update the `studyInstanceUid` and the `seriesInstanceUid` for all instances within a series. Note that only one study can be updated at a time, and if a series-level update is performed, the entire hierarchy must be included. For series-level update, both the new `studyInstanceUid` and `seriesInstanceUid` have to be provided in the `changeDataset`.
+
+```
+{
+    "studyInstanceUids": ["1.2.3.4"],
+    "seriesInstanceUid": "5.6.7.8",
+    "changeDataset": { 
+        "0020000D": { 
+            "vr": "UI", 
+            "Value": ["1.2.3.5"]
+        },
+        "0020000E": { 
+            "vr": "UI", 
+            "Value": ["5.6.7.9"]
+        } 
+    }
+}
+```
+
 #### Responses
 When a bulk update operation starts successfully, the API returns a `202` status code. The body of the response contains a reference to the operation.
 
@@ -76,7 +114,7 @@ Content-Type: application/json
 }
 ```
 
-If the operation fails to start successfully, the response includes information about the failure in the errors list, including UIDs of the failing instance(s). 
+If the operation fails to start successfully, the response includes information about the failure in the errors list, including UIDs of one or more failing instances. 
 
 ```http
 {
@@ -135,12 +173,12 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 
 | Name            | Type      | Description                                  |
 | --------------- | --------- | -------------------------------------------- |
-| 200 (OK)        | Operation | The operation with the specified ID is complete |
-| 202 (Accepted)  | Operation | The operation with the specified ID is running |
-| 404 (Not Found) |           | Operation not found                   |
+| 200 (OK)        | Operation | The operation with the specified ID is complete. |
+| 202 (Accepted)  | Operation | The operation with the specified ID is running. |
+| 404 (Not Found) |           | Operation not found |
 
 ## Retrieving study versions
-The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance. The latest version of a study, series, or instance is always returned by default. The original version is returned by setting the `msdicom-request-original` header to `true`. Here's an example request:
+The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance. By default, the latest version of a study, series, or instance is returned. The original version is returned by setting the `msdicom-request-original` header to `true`. For bulk updates involving UID update, the original and latest version can be retrieved using the newer UIDs only. An example request follows.
 
 ```http 
 GET {dicom-service-url}/{version}/studies/{study}/series/{series}/instances/{instance}
@@ -149,72 +187,76 @@ msdicom-request-original: true
 Content-Type: application/dicom
  ```
 
+For bulk updates involving UID update, the original and latest version can be retrieved using the newer UIDs only.
+
 ## Delete
 The [delete](dicom-services-conformance-statement-v2.md#delete) method deletes both the original and latest version of a study, series, or instance.
 
 ## Change feed
-The [change feed](change-feed-overview.md) records update actions in the same manner as create and delete actions. 
+The [change feed](change-feed-overview.md) records update actions in the same manner as create and delete actions. For UID updates, change feed entries for the older UIDs will not be updated. The update action would be present only for the new UIDs. 
 
 ## Supported DICOM modules
 Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables.
 
 ### Attributes automatically changed in bulk updates
 
-When you perform a bulk update, the DICOM service updates the requested attributes and also two additional metadata fields. Here is the information that is updated automatically:  
+When you perform a bulk update, the DICOM service updates the requested attributes and two additional metadata fields automatically. Following is the information that is updated automatically.
 
-| Tag           | Attribute name        | Description           | Value
+| Tag           | Attribute name        | Description           | Value |
 | --------------| --------------------- | --------------------- | --------------|
 | (0002,0012)   | Implementation Class UID | Uniquely identifies the implementation that wrote this file and its content. | 1.3.6.1.4.1.311.129 |
-| (0002,0013)   | Implementation Version Name | Identifies a version for an Implementation Class UID (0002,0012) | Assembly version of the DICOM service (e.g. 0.1.4785) |
+| (0002,0013)   | Implementation Version Name | Identifies a version for an Implementation Class UID (0002,0012) | Assembly version of the DICOM service (for example, 0.1.4785) |
 
-Here, the UID `1.3.6.1.4.1.311.129` is a registered under [Microsoft OID arc](https://oidref.com/1.3.6.1.4.1.311) in IANA.
+The UID `1.3.6.1.4.1.311.129` is a registered under [Microsoft OID arc](https://oidref.com/1.3.6.1.4.1.311) in IANA.
 
 #### Patient identification module attributes
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
 | Patient's Name   | (0010,0010)   | Patient's full name   |
-| Patient ID       | (0010,0020)   | Primary hospital identification number or code for the patient. |
-| Other Patient IDs| (0010,1000) | Other identification numbers or codes used to identify the patient. 
-| Type of Patient ID| (0010,0022) |  The type of identifier in this item. Enumerated Values: TEXT RFID BARCODE Note that the identifier is coded as a string regardless of the type, not as a binary value. 
-| Other Patient Names| (0010,1001) | Other names used to identify the patient. 
-| Patient's Birth Name| (0010,1005) | Patient's birth name. 
-| Patient's Mother's Birth Name| (0010,1060) | Birth name of patient's mother. 
-| Medical Record Locator | (0010,1090)| An identifier used to find the patient's existing medical record (for example, film jacket). 
+| Patient ID       | (0010,0020)   | Primary hospital identification number or code for the patient |
+| Other Patient IDs| (0010,1000) | Other identification numbers or codes used to identify the patient |
+| Type of Patient ID| (0010,0022) |  The type of identifier in this item; Enumerated Values: TEXT RFID BARCODE. Note that the identifier is coded as a string, _not_ as a binary value, regardless of the type. |
+| Other Patient Names| (0010,1001) | Other names used to identify the patient |
+| Patient's Birth Name| (0010,1005) | Patient's birth name |
+| Patient's Mother's Birth Name| (0010,1060) | Birth name of patient's mother | 
+| Medical Record Locator | (0010,1090)| An identifier used to find the patient's existing medical record (for example, film jacket). |
 
 #### Patient demographic module attributes
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
-| Patient's Age | (0010,1010) | Age of the Patient. |
-| Occupation | (0010,2180) | Occupation of the Patient. |
-| Confidentiality Constraint on Patient Data Description | (0040,3001) | Special indication to the modality operator about confidentiality of patient information (for example, that they shouldn't use the patients name where other patients are present). |
+| Patient's Age | (0010,1010) | Age of the Patient |
+| Occupation | (0010,2180) | Occupation of the Patient |
+| Confidentiality Constraint on Patient Data Description | (0040,3001) | Special indication to the modality operator about confidentiality of patient information; For example, that they shouldn't use the patient's name when other patients are present. |
 | Patient's Birth Date | (0010,0030) | Date of birth of the named patient  |
 | Patient's Birth Time | (0010,0032) | Time of birth of the named patient  |
-| Patient's Sex | (0010,0040) | Sex of the named patient. |
+| Patient's Sex | (0010,0040) | Sex of the named patient |
 | Quality Control Subject |(0010,0200) | Indicates whether or not the subject is a quality control phantom. |
 | Patient's Size | (0010,1020) | Patient's height or length in meters  |
 | Patient's Weight | (0010,1030) | Weight of the patient in kilograms  |
-| Patient's Address | (0010,1040) | Legal address of the named patient  |
+| Patient's Address | (0010,1040) | Legal address of the named patient |
 | Military Rank | (0010,1080) | Military rank of patient  |
-| Branch of Service | (0010,1081) | Branch of the military. The country or regional allegiance might also be included (for example, U.S. Army). |
-| Country of Residence | (0010,2150) | Country where a patient currently resides  |
-| Region of Residence | (0010,2152) | Region within patient's country of residence  |
-| Patient's Telephone Numbers | (0010,2154) | Telephone numbers at which the patient can be reached  |
-| Ethnic Group | (0010,2160) | Ethnic group or race of patient  |
-| Patient's Religious Preference | (0010,21F0) | The religious preference of the patient  |
+| Branch of Service | (0010,1081) | Branch of the military; The country or regional allegiance might also be included (for example, U.S. Army). |
+| Country of Residence | (0010,2150) | Country or region where a patient currently resides |
+| Region of Residence | (0010,2152) | Region within patient's country or region of residence |
+| Patient's Telephone Numbers | (0010,2154) | Telephone numbers at which the patient can be reached |
+| Ethnic Group | (0010,2160) | Ethnic group or race of patient |
+| Patient's Religious Preference | (0010,21F0) | The religious preference of the patient |
 | Patient Comments | (0010,4000) | User-defined comments about the patient | 
-| Responsible Person | (0010,2297) | Name of person with medical decision making authority for the patient. |
-| Responsible Person Role | (0010,2298) | Relationship of Responsible Person to the patient. |
-| Responsible Organization | (0010,2299) | Name of organization with medical decision making authority for the patient. |
-| Patient Species Description | (0010,2201) | The species of the patient. |
-| Patient Breed Description | (0010,2292) | The breed of the patient. See Section C.7.1.1.1.1. |
-| Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry. |
-| Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID.
+| Responsible Person | (0010,2297) | Name of a person with medical decision making authority for the patient. |
+| Responsible Person Role | (0010,2298) | Relationship of Responsible Person to the patient |
+| Responsible Organization | (0010,2299) | Name of an organization with medical decision making authority for the patient |
+| Patient Species Description | (0010,2201) | The species of the patient |
+| Patient Breed Description | (0010,2292) | The breed of the patient; See Section C.7.1.1.1.1. |
+| Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry |
+| Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID |
 
 #### General study module
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
-| Referring Physician's Name | (0008,0090) | Name of the patient's referring physician.  |
-| Accession Number | (0008,0050) | A RIS generated number that identifies the order for the Study. |
-| Study Description | (0008,1030) | Institution-generated description or classification of the Study (component) performed. |
+| Study Instance UID | (0020,000D) | Unique identifier for the Study |
+| Series Instance UID | (0020,000E) | Unique identifier for the Series |
+| Referring Physician's Name | (0008,0090) | Name of the patient's referring physician |
+| Accession Number | (0008,0050) | A RIS generated number that identifies the order for the Study |
+| Study Description | (0008,1030) | Institution-generated description or classification of the Study (component) performed |
 
 [!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-trademark.md)]

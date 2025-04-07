@@ -3,12 +3,11 @@ title: 'Azure ExpressRoute: Configure MACsec'
 description: This article helps you configure MACsec to secure the connections between your edge routers and Microsoft's edge routers.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 01/31/2025
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Configure MACsec on ExpressRoute Direct ports
@@ -40,7 +39,7 @@ Follow these steps to begin the configuration:
 
 ## Create Azure Key Vault, MACsec secrets, and user identity
 
-1. To store MACsec secrets securely, you need to create a Key Vault instance in a new resource group. Key Vault is a service that allows you to manage and protect cryptographic keys, certificates, and secrets in Azure. For more information, see [What is Azure Key Vault?](../key-vault/general/overview.md).
+1. To store MACsec secrets securely, you need to create a Key Vault instance in a new resource group. Key Vault is a service that allows you to manage and protect cryptographic keys, certificates, and secrets in Azure. For more information, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name "your_resource_group" -Location "resource_location"
@@ -55,7 +54,7 @@ Follow these steps to begin the configuration:
     ```
     
     > [!NOTE]
-    > * ExpressRoute is a trusted service within Azure that supports Network Security policies within Azure Key Vault. For more information, see [Configure Azure Key Vault Firewall and Virtual Networks](../key-vault/general/network-security.md).
+    > * ExpressRoute is a trusted service within Azure that supports Network Security policies within Azure Key Vault. For more information, see [Configure Azure Key Vault Firewall and Virtual Networks](/azure/key-vault/general/network-security).
     > * You shouldn't place the Azure Key Vault behind a private endpoint, as this will prevent the communication with the ExpressRoute management plane. The ExpressRoute management plane is responsible for managing the MACsec keys and parameters for your connection.
     
 1. To create a new user identity, you need to use the `New-AzUserAssignedIdentity` cmdlet. This cmdlet creates a user-assigned managed identity in Microsoft Entra ID and registers it with the specified subscription and resource group. A user-assigned managed identity is a stand-alone Azure resource that can be assigned to any Azure service that supports managed identities. You can use this identity to authenticate and authorize access to Azure resources without storing any credentials in your code or configuration files. For more information, see [What is managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
@@ -70,13 +69,11 @@ Follow these steps to begin the configuration:
     $identity = Get-AzUserAssignedIdentity -ResourceGroupName "your_resource_group" -Name "identity_name"
     ```
 
-    Install the following module in Administrator mode if PowerShell doesn't recognize `New-AzUserAssignedIdentity` or `Get-AzUserAssignedIdentity` as valid cmdlets. Then, execute the above command again.
+    Install the following module in Administrator mode if PowerShell doesn't recognize `New-AzUserAssignedIdentity` or `Get-AzUserAssignedIdentity` as valid cmdlets. Then, run the command again.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity
     ```
-
-1. 
 
 1. Create a connectivity association key (CAK) and a connectivity association key name (CKN) and store them in the Key Vault.
 
@@ -92,7 +89,7 @@ Follow these steps to begin the configuration:
     > * CAK length depends on cipher suite specified:
     >    * For GcmAes128 and GcmAesXpn128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F).
     >    * For GcmAes256 and GcmAesXpn256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F).
-    > * For CAK, the full length of the key must be used. If the key is shorter than the required length then `0's` will be added to the end of the key to meet the length requirement. For example, CAK of 1234 will be 12340000... for both 128-bit and 256-bit based on the cipher.
+    > * For CAK, the full length of the key must be used. If the key is shorter than the required length, then `0's` will be added to the end of the key to meet the length requirement. For example, CAK of 1234 will be 12340000... for both 128-bit and 256-bit based on the cipher.
 
 1. Grant the user identity the authorization to perform the `GET` operation.
 

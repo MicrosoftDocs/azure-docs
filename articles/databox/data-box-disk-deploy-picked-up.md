@@ -4,8 +4,7 @@ description: In this tutorial, learn how to return your Azure Data Box Disk. The
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 07/17/2024
 ms.author: shaas
@@ -66,7 +65,7 @@ Microsoft uses two shipping partners to return Data Box Disk devices to Azure Da
 
 #### [United States - FedEx](#tab/fedex)
 
-Take the following steps if you are a US Public Cloud customer returning a Data Box Disk device in the US or Canada.
+Take the following steps if you are returning a Data Box Disk device in the US.
 
 1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
@@ -79,9 +78,9 @@ Take the following steps if you are a US Public Cloud customer returning a Data 
 
 You can also drop your Data Box Disk at your nearest FedEx drop-off location.
 
-#### [US Government and Canada - UPS](#tab/ups)
+#### [Canada - UPS](#tab/ups)
 
-Take the following steps if returning the device in US or Canada.
+Take the following steps if you are returning a Data Box Disk device in Canada.
 
 1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.

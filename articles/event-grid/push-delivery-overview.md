@@ -1,17 +1,14 @@
 ---
-ms.date: 11/15/2023
+ms.date: 12/12/2024
 author: robece
 ms.author: robece
 title: Introduction to push delivery
 description: Learn about Event Grid's http push delivery and the resources that support them.
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-  - build-2024
+ms.topic: concept-article
 ---
 
 # Push delivery with HTTP
-This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
+This article builds on the [What is Azure Event Grid?](overview.md) article to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!Important]
 > This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, see [Overview of the MQTT Support in Azure Event Grid](mqtt-overview.md).

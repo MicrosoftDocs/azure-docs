@@ -2,7 +2,7 @@
 title: Check app's API calls for minimal permissions with Dev Proxy
 description: Learn how to use Dev Proxy to check if your app is calling APIs using minimal permissions defined in Azure API Center.
 author: waldekmastykarz
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 07/17/2024
 ms.author: wmastyka 
@@ -64,7 +64,7 @@ In the `devproxyrc.json` file, add the following configuration:
     "https://api.northwind.com/*"
   ],
   "apiCenterMinimalPermissionsPlugin": {
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "resourceGroupName": "demo",
     "serviceName": "contoso-api-center",
     "workspaceName": "default"
@@ -105,7 +105,7 @@ Update your `devproxyrc.json` file with a reference to the plain-text reporter:
     "https://api.northwind.com/*"
   ],
   "apiCenterMinimalPermissionsPlugin": {
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "resourceGroupName": "demo",
     "serviceName": "contoso-api-center",
     "workspaceName": "default"

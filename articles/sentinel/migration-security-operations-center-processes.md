@@ -1,10 +1,14 @@
 ---
 title: "Microsoft Sentinel migration: Update SOC and analyst processes | Microsoft Docs"
 description: Learn how to update your SOC and analyst processes as part of your migration to Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security operations manager, I want to update our SOC processes and analyst workflows for Microsoft Sentinel so that we can effectively manage and respond to cybersecurity incidents using the new toolsets and features.
+
 ---
 
 # Update SOC processes
@@ -113,7 +117,7 @@ Use this table to compare the main concepts of your legacy SIEM to Microsoft Sen
 |  | Jupyter Notebooks | Jupyter Notebooks | Microsoft Sentinel notebooks |
 | Dashboards | Dashboards | Dashboards | Workbooks |
 | Correlation rules | Building blocks | Correlation rules | Analytics rules |
-|Incident queue |Offences tab |Incident review |**Incident** page |
+|Incident queue |Offenses tab |Incident review |**Incident** page |
 
 ## Next steps
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to specify a blob's access tier when you upload it, or how to change the access tier for an existing blob.
 author: normesta
 ms.author: normesta
-ms.date: 05/01/2024
+ms.date: 09/03/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.reviewer: fryu
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 You can set a blob's access tier in any of the following ways:
 
-- By setting the default online access tier (hot or cool) for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+- By setting the default online access tier for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
 - By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, or archive tier.
 - By changing an existing blob's tier with a Set Blob Tier operation. Typically, you would use this operation to move from a hotter tier to a cooler one.
 - By copying a blob with a Copy Blob operation. Typically, you would use this operation to move from a cooler tier to a hotter one.
@@ -40,7 +40,7 @@ To set the default access tier for a storage account at create time in the Azure
 
 2. Fill out the **Basics** tab.
 
-3. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to either *Hot* or *Cool*. The default setting is *Hot*.
+3. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to either *Hot*, *Cool* or *Cold*. The default setting is *Hot*.
 
 4. Select **Review + Create** to validate your settings and create your storage account.
 
@@ -52,7 +52,7 @@ To update the default access tier for an existing storage account in the Azure p
 
 2. Under **Settings**, select **Configuration**.
 
-3. Locate the **Blob access tier (default)** setting, and select either *Hot* or *Cool*. The default setting is *Hot*, if you have not previously set this property.
+3. Locate the **Blob access tier (default)** setting, and select either *Hot*, *Cool*, or *Cold*. The default setting is *Hot*, if you have not previously set this property.
 
 4. Save your changes.
 
@@ -217,7 +217,7 @@ A blob that doesn't have an explicitly assigned tier infers its tier from the de
 
 #### [Portal](#tab/azure-portal)
 
-If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
+If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)**, **Cool (inferred)**, or **Cold (inferred)**.
 
 :::image type="content" source="media/access-tiers-online-manage/default-access-tier-portal.png" alt-text="Screenshot showing blobs with the default access tier in the Azure portal.":::
 
@@ -487,9 +487,6 @@ N/A
 ---
 
 When moving a large number of blobs to another tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The suboperations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
-
-> [!NOTE]
-> The [Set Blob Tier](/rest/api/storageservices/set-blob-tier) suboperation of the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
 
 To change access tier of blobs with a batch operation, use one of the Azure Storage client libraries. The following code example shows how to perform a basic batch operation with the .NET client library:
 

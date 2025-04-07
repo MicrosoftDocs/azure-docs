@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 04/05/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
@@ -250,7 +250,7 @@ In this example:
 - 10.5.5.5 is a protective DNS service.
 
 > [!IMPORTANT]
-> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the forwarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
 > **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ## Test the private resolver

@@ -24,9 +24,9 @@ When you configure a volume group, you can choose to use either platform-managed
 
 ## Customer-managed keys
 
-If you use customer-managed keys, you must use either an [Azure Key Vault](../../key-vault/general/overview.md) to store it.
+If you use customer-managed keys, you must use either an [Azure Key Vault](/azure/key-vault/general/overview) to store it.
 
-You can either create and import [your own RSA keys](../../key-vault/keys/hsm-protected-keys.md) and store them in your Azure Key Vault, or you can generate new RSA keys using Azure Key Vault. You can use the Azure Key Vault APIs or management interfaces to generate your keys. The Elastic SAN and the key vault can be in different regions and subscriptions, but they must be in the same Microsoft Entra ID tenant.
+You can either create and import [your own RSA keys](/azure/key-vault/keys/hsm-protected-keys) and store them in your Azure Key Vault, or you can generate new RSA keys using Azure Key Vault. You can use the Azure Key Vault APIs or management interfaces to generate your keys. The Elastic SAN and the key vault can be in different regions and subscriptions, but they must be in the same Microsoft Entra ID tenant.
 
 The following diagram shows how Azure Elastic SAN uses Microsoft Entra ID and a key vault to make requests using the customer-managed key:
 

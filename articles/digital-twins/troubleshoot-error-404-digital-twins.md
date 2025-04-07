@@ -2,7 +2,7 @@
 title: "Troubleshoot Azure Digital Twins: Error 404 (Sub-Domain not found)"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve error 404 (Sub-Domain not found) failed service requests from Azure Digital Twins.
-ms.service: digital-twins
+ms.service: azure-digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
@@ -23,7 +23,7 @@ This error may occur when accessing an Azure Digital Twins instance using a serv
 
 Azure Digital Twins requires that all authenticating users belong to the same Microsoft Entra tenant as the Azure Digital Twins instance.
 
-[!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
+[!INCLUDE [digital-twins-tenant-limitation](includes/digital-twins-tenant-limitation.md)]
 
 ## Solutions
 
@@ -31,13 +31,13 @@ Azure Digital Twins requires that all authenticating users belong to the same Mi
 
 You can resolve this issue by having each federated identity from another tenant request a token from the Azure Digital Twins instance's "home" tenant. 
 
-[!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
+[!INCLUDE [digital-twins-tenant-solution-1](includes/digital-twins-tenant-solution-1.md)]
 
 ### Solution #2
 
 If you're using the `DefaultAzureCredential` class in your code and you continue encountering this issue after getting a token, you can specify the home tenant in the `DefaultAzureCredential` options to clarify the tenant even when authentication defaults down to another type.
 
-[!INCLUDE [digital-twins-tenant-solution-2](../../includes/digital-twins-tenant-solution-2.md)]
+[!INCLUDE [digital-twins-tenant-solution-2](includes/digital-twins-tenant-solution-2.md)]
 
 ## Next steps
 

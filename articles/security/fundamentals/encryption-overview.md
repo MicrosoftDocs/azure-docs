@@ -15,7 +15,7 @@ This article provides an overview of how encryption is used in Microsoft Azure. 
 
 ## Encryption of data at rest
 
-Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md), and Azure Data Lake.
+Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest), and Azure Data Lake.
 
 Data encryption at rest using AES 256 data encryption is available for services across the software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) cloud models. This article summarizes and provides resources to help you use the Azure encryption options.
 
@@ -46,7 +46,7 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. Azure also offers options to protect temp disks, caches, and manage keys in Azure Key Vault. For more information, see [Overview of managed disk encryption options](../../virtual-machines/disk-encryption-overview.md).
+All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. Azure also offers options to protect temp disks, caches, and manage keys in Azure Key Vault. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 ### Azure Storage Service Encryption
 
@@ -90,7 +90,7 @@ CLE has built-in functions that you can use to encrypt data by using either symm
 
 ### Azure Cosmos DB database encryption
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) is Microsoft's globally distributed, multi-model database. User data that's stored in Azure Cosmos DB in non-volatile storage (solid-state drives) is encrypted by default. There are no controls to turn it on or off. Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Encryption keys are managed by Microsoft and are rotated per Microsoft internal guidelines. Optionally, you can choose to add a second layer of encryption with keys you manage using the [customer-managed keys or CMK](../../cosmos-db/how-to-setup-cmk.md) feature.
+[Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) is Microsoft's globally distributed, multi-model database. User data that's stored in Azure Cosmos DB in non-volatile storage (solid-state drives) is encrypted by default. There are no controls to turn it on or off. Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Encryption keys are managed by Microsoft and are rotated per Microsoft internal guidelines. Optionally, you can choose to add a second layer of encryption with keys you manage using the [customer-managed keys or CMK](/azure/cosmos-db/how-to-setup-cmk) feature.
 
 ### At-rest encryption in Data Lake
 
@@ -140,7 +140,7 @@ You can also use Remote Desktop to connect to a Linux VM in Azure.
 
 ### Secure access to Linux VMs with SSH
 
-For remote management, you can use [Secure Shell](../../virtual-machines/linux/ssh-from-windows.md) (SSH) to connect to Linux VMs running in Azure. SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. By using SSH keys for authentication, you eliminate the need for passwords to sign in. SSH uses a public/private key pair (asymmetric encryption) for authentication.
+For remote management, you can use [Secure Shell](/azure/virtual-machines/linux/ssh-from-windows) (SSH) to connect to Linux VMs running in Azure. SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. By using SSH keys for authentication, you eliminate the need for passwords to sign in. SSH uses a public/private key pair (asymmetric encryption) for authentication.
 
 ## Azure VPN encryption
 
@@ -160,7 +160,7 @@ You can configure a point-to-site VPN connection to a virtual network by using t
 
 To learn more about point-to-site VPN connections to Azure virtual networks, see:
 
-[Configure a point-to-site connection to a virtual network by using certification authentication: Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Configure a point-to-site connection to a virtual network by using certification authentication: Azure portal](../../vpn-gateway/point-to-site-certificate-gateway.md) 
 
 [Configure a point-to-site connection to a virtual network by using certificate authentication: PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

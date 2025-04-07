@@ -3,9 +3,9 @@ title: About dual-homed network with Azure Route Server
 description: Learn how to utilize Azure Route Server in a dual-homed network where you can connect a spoke virtual network (VNet) to more than one hub VNet.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 01/30/2024
+ms.date: 09/16/2024
 #CustomerIntent: As an Azure administrator, I want to peer spoke virtual networks (VNets) to more than one hub VNet so that the resources in the spoke VNets can communicated through either of the hub VNets.
 ---
 
@@ -35,14 +35,14 @@ You can build a dual-homed network that involves two or more ExpressRoute connec
 
 * Create a route server in each hub VNet that has an ExpressRoute gateway.
 * Configure BGP peering between the NVA and the route server in the hub VNet.
-* [Enable route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) between the ExpressRoute gateway and the route server in the hub VNet.
+* Enable [route exchange](configure-route-server.md#configure-route-exchange) between the ExpressRoute gateway and the route server in the hub VNet.
 * Make sure “Use Remote Gateway or Remote Route Server” is **disabled** in the spoke virtual network VNet peering configuration.
 
 :::image type="content" source="./media/about-dual-homed-network/dual-homed-topology-expressroute.png" alt-text="Diagram of Route Server in a dual-homed topology with ExpressRoute.":::
 
 ### How does it work?
 
-In the control plane, the NVA in the hub VNet will learn about on-premises routes from the ExpressRoute gateway through [route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) with the route server in the hub. In return, the NVA will send the spoke VNet addresses to the ExpressRoute gateway using the same route server. The route server in both the spoke and hub VNets will then program the on-premises network addresses to the virtual machines in their respective virtual network.
+In the control plane, the NVA in the hub VNet will learn about on-premises routes from the ExpressRoute gateway through [route exchange](configure-route-server.md#configure-route-exchange) with the route server in the hub. In return, the NVA will send the spoke VNet addresses to the ExpressRoute gateway using the same route server. The route server in both the spoke and hub VNets will then program the on-premises network addresses to the virtual machines in their respective virtual network.
 
 > [!IMPORTANT]
 > BGP prevents a loop by verifying the AS number in the AS Path. If the receiving route server sees its own AS number in the AS Path of a received BGP packet, it will drop the packet. In this example, both route servers have the same AS number, 65515. To prevent each route server from dropping the routes from the other route server, the NVA must apply **as-override** BGP policy when peering with each route server. 

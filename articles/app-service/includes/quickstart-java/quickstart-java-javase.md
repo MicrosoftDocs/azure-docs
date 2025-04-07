@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: include
 ms.date: 02/10/2024
@@ -10,9 +10,6 @@ ms.author: cephalin
 In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded server to [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. Use the tabs to switch between Tomcat, JBoss, or embedded server (Java SE) instructions.
 
 The quickstart deploys either a Spring Boot app, embedded Tomcat, or Quarkus app using the [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App) plugin.
-
-> [!NOTE]
-> App Service can host Spring apps. For Spring apps that require all the Spring services, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead.
 
 ### [Spring Boot](#tab/springboot)
 
@@ -104,7 +101,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 1. For **Create new run configuration**, type **Y**, then **Enter**.
 1. For **Define value for OS**, type **2** for Linux, then **Enter**.
 1. For **Define value for javaVersion**, type **1** for Java 17, then **Enter**.
-1. For **Define value for pricingTier**, type **9** for P1v2, then **Enter**.
+1. For **Define value for pricingTier**, type **3** for P1v2, then **Enter**.
 1. For **Confirm**, type **Y**, then **Enter**.
 
     ```

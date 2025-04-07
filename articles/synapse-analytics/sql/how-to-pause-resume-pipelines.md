@@ -3,8 +3,8 @@ title: How to pause and resume dedicated SQL pools with Synapse Pipelines
 description: Learn to automate pause and resume for a dedicated SQL pool with Synapse Pipelines in Azure Synapse Analytics. 
 author: kromerm
 ms.author: makromer
-ms.service: synapse-analytics
-ms.reviewer: wiassaf
+ms.service: azure-synapse-analytics
+
 ms.subservice: sql
 ms.topic: how-to 
 ms.date: 08/12/2021

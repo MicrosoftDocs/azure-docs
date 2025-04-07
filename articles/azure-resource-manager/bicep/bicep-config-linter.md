@@ -3,7 +3,7 @@ title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/19/2024
+ms.date: 09/19/2024
 ---
 
 # Add linter settings in the Bicep config file
@@ -115,6 +115,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning",
           "maxAllowedAgeInDays": 730
         },
+        "use-recent-module-versions": {
+          "level": "warning"
+        },
         "use-resource-id-functions": {
           "level": "warning"
         },
@@ -131,6 +134,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-stable-vm-image": {
+          "level": "warning"
+        },
+        "what-if-short-circuiting": {
           "level": "warning"
         }
       }

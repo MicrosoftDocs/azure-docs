@@ -2,7 +2,7 @@
 title: Quickstart - Create your Azure API center - portal
 description: In this quickstart, use the Azure portal to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: quickstart
 ms.date: 04/19/2024
 ms.author: danlep 
@@ -26,7 +26,7 @@ To register the resource provider using the portal:
 
 1. Select the subscription where you want to create the API center.
 
-1. In the left menu, under **Resources**, select **Resource providers**.
+1. In the left menu, under **Settings** > **Resources**, select **Resource providers**.
 
 1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it's not registered, select **Register**.
 

@@ -1,13 +1,12 @@
 ---
 title: 'Transform data using Spark in Azure Data Factory '
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 05/15/2024
 author: nabhishek
 ms.author: abnarain
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 # Transform data in the cloud by using Spark activity in Azure Data Factory
 

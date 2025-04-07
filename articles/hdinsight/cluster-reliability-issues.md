@@ -1,8 +1,11 @@
 ---
 title: Cluster reliability issue with older images in HDInsight clusters
 description: Cluster reliability issue with older images in HDInsight clusters
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 03/28/2024
 ---
 

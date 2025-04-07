@@ -6,7 +6,7 @@ summary: Azure Network Function Manager offers an Azure Marketplace experience f
 metadata:
   title: Network Function Manager documentation
   description: Learn about Network Function Manager.
-  ms.service: network-function-manager
+  ms.service: azure-network-function-manager
   ms.topic: landing-page
   author: polarapfel
   ms.author: tobiaw

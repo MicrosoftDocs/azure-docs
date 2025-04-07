@@ -1,14 +1,14 @@
 ---
 title: Management of Azure production network - Microsoft Azure
 description: This article describes how Microsoft manages and operates the Azure production network to secure the Azure datacenters.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/29/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 ---
 
 # Management and operation of the Azure production network    

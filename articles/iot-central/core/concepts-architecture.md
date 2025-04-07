@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/13/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: [iot-central-frontdoor]
 ---
@@ -62,7 +62,7 @@ IoT Central can also control devices by calling commands on the device. For exam
 
 The telemetry, properties, and commands that a device implements are collectively known as the device capabilities. You define these capabilities in a model that the device and the IoT Central application share. In IoT Central, this model is part of the device template that defines a specific type of device. To learn more, see [Assign a device to a device template](concepts-device-templates.md#assign-a-device-to-a-device-template).
 
-The [device implementation](tutorial-connect-device.md) should follow the [IoT Plug and Play conventions](../../iot/concepts-convention.md) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot/iot-sdks.md).
+The device implementation should follow the [IoT Plug and Play conventions](../../iot/concepts-convention.md) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot/iot-sdks.md).
 
 Devices connect to IoT Central using one the supported protocols: [MQTT, AMQP, or HTTP](../../iot-hub/iot-hub-devguide-protocols.md).
 
@@ -134,7 +134,7 @@ Use the `az iot central device manual-failover` command to check if your applica
 
 For highly available device connectivity, an IoT Central application always has at least two IoT hubs. The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
 
-IoT Central also uses [availability zones](../../availability-zones/az-overview.md#availability-zones) to make various services it uses highly available.
+IoT Central also uses [availability zones](../../reliability/availability-zones-overview.md) to make various services it uses highly available.
 
 An incident that requires disaster recovery could range from a subset of services becoming unavailable to a whole region becoming unavailable. IoT Central follows different recovery processes depending on the nature and scale of the incident. For example, if an entire Azure region becomes unavailable in the wake of a catastrophic failure, disaster recovery procedures failover applications to another region in the same geography.
 

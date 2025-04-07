@@ -108,12 +108,6 @@ ms.custom: template-how-to, devx-track-arm-template
       "metadata": {
         "description": "Secret KeyVault for credential rotation"
       }
-    },
-    "sshKeyUrl": {
-      "type": "string",
-      "metadata": {
-        "description": "SSH Key URL that is used for to gather list of Public Keys"
-      }
     }
   },
   "variables": {},
@@ -341,7 +335,8 @@ ms.custom: template-how-to, devx-track-arm-template
         }
       }
     }
-  ],
+  }
+],
   "outputs": {}
 }
 ```

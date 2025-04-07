@@ -5,7 +5,7 @@ description: How to customize the managed API Management developer portal with c
 author: dlepow
 ms.author: danlep
 ms.date: 10/27/2023
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.custom: devx-track-extended-azdevcli
 ---
@@ -60,7 +60,7 @@ For more advanced use cases, you can create and upload a custom widget to the de
 
 ### Prerequisites 
  
-* Install [Node.JS runtime](https://nodejs.org/en/) locally 
+* Install [Node.js runtime](https://nodejs.org/en/) locally 
 * Basic knowledge of programming and web development
 
 ### Create widget

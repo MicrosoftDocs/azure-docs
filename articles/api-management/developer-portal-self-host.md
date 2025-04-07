@@ -5,7 +5,7 @@ description: Learn how to self-host the developer portal for Azure API Managemen
 author: dlepow
 ms.author: danlep
 ms.date: 03/29/2024
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 
@@ -444,6 +444,6 @@ The conversion process is almost identical to setting up a generic self-hosted p
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
 
 
-## Next steps
+## Related content
 
 - Learn about [Alternative approaches to self-hosting](developer-portal-alternative-processes-self-host.md)

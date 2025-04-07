@@ -1,9 +1,12 @@
 ---
 title: How to custom configure Azure HDInsight Autoscale.
 description: Learn how to custom configure Autoscale in Azure HDInsight clusters
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 05/06/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # How to custom configure HDInsight Autoscale

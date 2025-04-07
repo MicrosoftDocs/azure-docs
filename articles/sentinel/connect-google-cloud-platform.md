@@ -5,7 +5,9 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2024
-#Customer intent: As a security operator, I want to ingest Google Cloud Platform log data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in my multicloud environment.
+
+#Customer intent: As a security engineer, I want to ingest Google Cloud Platform log data into Microsoft Sentinel so that analysts can monitor and detect potential threats across my multicloud environment.
+
 ---
 
 # Ingest Google Cloud Platform log data into Microsoft Sentinel
@@ -19,9 +21,6 @@ With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform (
 - The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
 
 - The **Google Cloud Platform (GCP) Security Command Center connector** collects findings from Google Security Command Center, a robust security and risk management platform for Google Cloud. Analysts can view these findings to gain insights into the organization's security posture, including asset inventory and discovery, detections of vulnerabilities and threats, and risk mitigation and remediation.
-
-> [!IMPORTANT]
-> The GCP Pub/Sub connectors are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
 
 ## Prerequisites
 
@@ -297,7 +296,7 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 
 1. Select **Data connectors**, and in the search bar, type *GCP Pub/Sub Audit Logs*.
 
-1. Select the **GCP Pub/Sub Audit Logs (Preview)** connector.
+1. Select the **GCP Pub/Sub Audit Logs**  connector.
 
 1. In the details pane, select **Open connector page**. 
 
@@ -321,7 +320,7 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 
 1. Select **Data connectors**, and in the search bar, type *Google Security Command Center*. 
 
-1. Select the **Google Security Command Center (Preview)** connector.
+1. Select the **Google Security Command Center** connector.
 
 1. In the details pane, select **Open connector page**. 
 

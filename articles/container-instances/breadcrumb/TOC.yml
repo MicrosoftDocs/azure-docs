@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Container Instances
-    tocHref: /azure/connectors/
-    topicHref: /azure/container-instances/index

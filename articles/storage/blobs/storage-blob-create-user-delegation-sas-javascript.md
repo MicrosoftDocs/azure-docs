@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 08/05/2024
 
 ms.custom: template-how-to, devx-track-js, devguide-js
 
@@ -37,7 +37,7 @@ Because anyone with the SAS token can use it to access the container and blobs, 
 
 ## Use the DefaultAzureCredential in Azure Cloud
 
-To authenticate to Azure, _without secrets_, set up **managed identity**. This allows your code to use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). 
+To authenticate to Azure, _without secrets_, set up **managed identity**. This approach allows your code to use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). 
 
 To set up managed identity for the Azure cloud:
 
@@ -45,7 +45,7 @@ To set up managed identity for the Azure cloud:
 * Set the appropriate [Storage roles](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac) for the identity
 * Configure your Azure environment to work with your managed identity
 
-When these two tasks are complete, use the DefaultAzureCredential instead of a connection string or account key. This allows all your environments to use the _exact same source code_ without the issue of using secrets in source code.
+When these two tasks are complete, use the DefaultAzureCredential instead of a connection string or account key. This approach allows all your environments to use the _exact same source code_ without the issue of using secrets in source code.
 
 ## Use the DefaultAzureCredential in local development
 

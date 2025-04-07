@@ -3,7 +3,7 @@ title: Supported Azure resource types
 titleSuffix: Azure Load Testing
 description: 'Learn which Azure resource types are supported for server-side monitoring in Azure Load Testing. You can select specific metrics to be monitored during a load test.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
 ms.author: ninallam
 author: ninallam
@@ -23,7 +23,9 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Azure API Management
 * Azure App Service
 * Azure App Service plan
+* Azure Application Gateway
 * Azure Application Insights
+* Azure Application Gateway
 * Azure Batch Service
 * Azure Cache for Redis
 * Azure AI services
@@ -38,6 +40,7 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Azure Database for MySQL server
 * Azure Database for PostgreSQL Flexible Server
 * Azure Database for PostgreSQL server
+* Azure Front Door
 * Azure Functions function app
 * Azure HDInsight
 * Azure Kubernetes Service (AKS)

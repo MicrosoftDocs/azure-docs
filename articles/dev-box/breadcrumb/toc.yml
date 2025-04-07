@@ -6,7 +6,6 @@ items:
   - name: Dev Box
     tocHref: /dev-box/
     topicHref: /azure/dev-box/index
-    items:
-    - name: Windows App
-      tocHref: /windows-app/users/get-started-connect-devices-desktops-apps
-      topicHref: /azure/dev-box/index
+  - name: Dev Box
+    tocHref: /windows-app/
+    topicHref: /azure/dev-box/index

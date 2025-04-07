@@ -4,8 +4,7 @@ description: The first tutorial about deploying Azure Stack Edge Pro R involves 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/23/2022

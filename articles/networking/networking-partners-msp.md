@@ -3,8 +3,8 @@ title: 'Networking Partners: Azure Networking | Microsoft Docs'
 description: Learn about Azure Networking Managed Service Provider Partner Program and find a list of partners that offer cloud and hybrid networking services.
 services: networking
 author: skishen525
-ms.service: expressroute
-ms.topic: conceptual
+ms.service: azure-expressroute
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: sukishen
 ---
@@ -59,13 +59,13 @@ Use the links in this section for more information about managed cloud networkin
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|Azure Migration: 3-Week Assessment|||||
 |[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)||[Managed Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_expressroute?tab=Overview)|[Managed Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_azure_vwan_for_sdwan?tab=Overview)|||
 |[Tech Mahindra](https://www.techmahindra.com/en-in/network-services/)|[Tech Mahindra End to End Managed Network Services](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-network-transformstrategy?tab=Overview)|||[Azure Private LTE MSP](https://azuremarketplace.microsoft.com/marketplace/apps/techm.private_5g_network)|
-|[Telia](https://business.teliacompany.com/global-solutions/Business-Defined-Networking/Hybrid-Networking)|[Azure landing zone: 5-Day workshops](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/telia.ps_caf_far_001)||[Telia Cloud First Azure vWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/telia.telia_cloud_first_azure_vwan?tab=Overview)|[Telia IoT Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/telia.telia_iot_platform?tab=Overview)|
+|[Telia](https://www.telia.se/foretag/it/produktivitet)|[Azure landing zone: 5-Day workshops](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/telia.ps_caf_far_001)||[Telia Cloud First Azure vWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/telia.telia_cloud_first_azure_vwan?tab=Overview)|[Telia IoT Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/telia.telia_iot_platform?tab=Overview)|
 |[Vigilant IT](https://vigilant.it/cloud-infrastructure/cloud-management/)|[Azure Health Check: 3-Day Assessment](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/greymatter.azurehealth)||||
 |[Vandis](https://www.vandis.com/services/microsoft-azure-practice/)|[Managed NAC With Aruba ClearPass Policy Manager](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_aruba_clearpass?tab=Overview)|[Vandis Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN Powered by Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis Managed VWAN Powered by Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview); [Managed VWAN Powered by Barracuda CloudGen WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_barracuda_vwan?tab=Overview)|
 |[Zertia](https://zertia.es/)||[ExpressRoute – Intercloud connectivity](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-inter-conect-of103?tab=Overview)|[Enterprise Connectivity Suite - Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-vw-suite-of101?tab=Overview); [Manage Virtual WAN – SD-WAN Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-mvw-fortinet-of101?tab=Overview); [Manage Virtual WAN – SD-WAN Cisco Meraki](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zertiatelecomunicacionessl1615311863650.zertia-mvw-cisco-of101?tab=Overview)|||
 
 Azure Marketplace offers for Managed ExpressRoute, Virtual WAN, Security Services and Private Edge Zone Services from the following Azure Networking MSP Partners are on our roadmap:
-[Amdocs](https://www.amdocs.com/); [Cirrus Core Networks](https://cirruscorenetworks.com/); [Cognizant](https://www.cognizant.com/us/en/glossary/cloud-enablement);   [InterCloud](https://www.intercloud.com/partners/microsoft-azure);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [SES](https://www.ses.com/networks/cloud/ses-and-azure-expressroute); 
+[Amdocs](https://www.amdocs.com/); [Cirrus Core Networks](https://cirruscorenetworks.com/); [Cognizant](https://www.cognizant.com/us/en/glossary/cloud-enablement);   [InterCloud](https://www.intercloud.com/partners/microsoft-azure);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong Telecom](https://www.sejongtelecom.net/); [SES](https://www.ses.com/networks/cloud/ses-and-azure-expressroute); 
 
 ## <a name="expressroute"></a>ExpressRoute partners
 

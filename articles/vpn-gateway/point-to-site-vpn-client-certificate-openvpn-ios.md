@@ -3,7 +3,7 @@ title: 'Configure P2S VPN clients - certificate authentication - iOS OpenVPN cli
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure the VPN client for VPN Gateway P2S configurations that use certificate authentication. This article applies to iOS OpenVPN client.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: cherylmc
@@ -23,8 +23,8 @@ Before you begin configuring your client, verify that you're on the correct arti
 
 This article assumes that you've already performed the following prerequisites:
 
-* You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
-* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
+* You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
+* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 * You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
 
 ### Connection requirements
@@ -51,11 +51,11 @@ For information about working with certificates, see [Point-to site: Generate ce
 
 ## Configure the OpenVPN client
 
-The following example uses **OpenVPN Connect** from the App store.
+The following example uses **OpenVPN Connect** from the App Store.
 
 [!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 
 
 ## Next steps
 
-Follow up with any additional server or connection settings. See [Point-to-site configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Follow up with any additional server or connection settings. See [Point-to-site configuration steps](point-to-site-certificate-gateway.md).

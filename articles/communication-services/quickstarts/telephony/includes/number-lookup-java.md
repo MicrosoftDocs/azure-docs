@@ -1,7 +1,7 @@
-Get started with the Phone Numbers client library for Java to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for Java to look up operator information for phone numbers. Use the operator information to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).
+> To view the source code for this example, see [Manage Phone Numbers - Java | GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ The public preview version of the SDK is published to a dev package feed. To con
 </repository>
 ```
 
-You may need to add or edit the `settings.xml` file in `${user.home}/.m2`
+You might need to add or edit the `settings.xml` file in `${user.home}/.m2`
 
 ```xml
 <server>
@@ -72,7 +72,7 @@ Add the following dependency elements to the group of dependencies in the **pom.
   <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.2.0-beta.3</version>
+    <version>1.2.0</version>
   </dependency>
 
   <dependency>
@@ -188,7 +188,7 @@ OperatorInformation operatorInfo = result.getValue().getValues().get(0);
 ```
 
 > [!WARNING]
-> Using this functionality will incur a charge to your account.
+> Using this function incurs a charge to your account.
 
 ### Use operator information
 
@@ -215,7 +215,7 @@ System.out.println(operatorInfo.getPhoneNumber() + " is a " + numberType + " num
     + operatorInfo.getIsoCountryCode() + " by " + operatorName);
 ```
 
-You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You can also use the operator information to determine whether to send an SMS. For more information, see [Send an SMS message](../../sms/send.md).
 
 ## Run the code
 
@@ -240,4 +240,4 @@ mvn exec:java -D"exec.mainClass"="com.communication.lookup.quickstart.App" -D"ex
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).
+You can download the sample app from [Manage Phone Numbers - Java | GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).

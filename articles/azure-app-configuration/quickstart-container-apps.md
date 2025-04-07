@@ -6,14 +6,14 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.custom: service-connector
 ms.topic: quickstart
-ms.date: 03/02/2023
+ms.date: 12/11/2024
 ms.author: malev
 
 ---
 
 # Quickstart: Use Azure App Configuration in Azure Container Apps
 
-In this quickstart, you will use Azure App Configuration in an app running in Azure Container Apps. This way, you can centralize the storage and management of the configuration of your apps in Container Apps. This quickstart leverages the ASP.NET Core app created in [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md). You will containerize the app and deploy it to Azure Container Apps. Complete the quickstart before you continue.
+In this quickstart, you use Azure App Configuration in an app running in Azure Container Apps. This way, you can centralize the storage and management of the configuration of your apps in Container Apps. This quickstart leverages the ASP.NET Core app created in [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md). You containerize the app and deploy it to Azure Container Apps. Complete the quickstart before you continue.
 
 > [!TIP]
 > While following this quickstart, preferably register all new resources within a single resource group, so that you can regroup them all in a single place and delete them faster later on if you don't need them anymore.
@@ -28,20 +28,27 @@ In this quickstart, you will use Azure App Configuration in an app running in Az
 
 ## Connect Azure App Configuration to the container app
 
-In the Azure portal, navigate to your Container App instance. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection with your App Configuration store using the settings below.
+1. In the Azure portal, navigate to your Container App instance.
 
-- In the **Basics** tab:
-  - select **App Configuration** for **Service type**
-  - pick your App Configuration store for "**App Configuration**"
+1. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection for your App Configuration store, using the following settings.
 
-    :::image type="content" border="true" source="media\connect-container-app\use-service-connector.png" alt-text="Screenshot the Azure platform showing a form in the Service Connector menu in a Container App." lightbox="media\connect-container-app\use-service-connector.png":::
+   1. In the **Basics** tab:
+       
+      - Under **Service type**, select **App Configuration**
+      - Under **App Configuration**, select your App Configuration store.
 
-- In the **Authentication** tab:
-  - pick **Connection string** authentication type and **Read-Only** for "**Permissions for the connection string**
-  - expand the **Advanced** menu. In the Configuration information, there should be an environment variable already created called "AZURE_APPCONFIGURATION_CONNECTIONSTRING". Edit the environment variable by selecting the icon on the right and change the name to *ConnectionStrings__AppConfig*. We need to make this change as *ConnectionStrings__AppConfig* is the name of the environment variable the application built in the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md) will look for. This is the environment variable which contains the connection string for App Configuration. If you have used another application to follow this quickstart, please use the corresponding environment variable name. Then select **Done**.
-- Use default values for everything else.
+        :::image type="content" border="true" source="media\connect-container-app\use-service-connector.png" alt-text="Screenshot the Azure platform showing a form in the Service Connector menu in a Container App." lightbox="media\connect-container-app\use-service-connector.png":::
 
-Once done, an environment variable named **ConnectionStrings__AppConfig** will be added to the container of your Container App. Its value is a reference of the Container App secret, the connection string of your App Configuration store.
+   1. In the **Authentication** tab:
+
+      - Select the **System-assigned managed identity** authentication type
+      - Expand the **Advanced** menu
+      - Assign your identity the **App Configuration Data Reader** role
+      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that you load your App Configuration endpoint from. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. When editing the variable name, replace the colon with double underscores so that it becomes `Endpoints__AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, then select **Done**.
+    
+   1. Use default values for everything else.
+
+    When the connection is created, an environment variable named `Endpoints__AppConfiguration` is added to the container of your Container App resource. Its value is a reference of the Container App secret, the endpoint of your App Configuration store.
 
 ## Build a container
 
@@ -72,14 +79,14 @@ Create an Azure Container Registry (ACR). ACR enables you to build, store, and m
 
 #### [Portal](#tab/azure-portal)
 
-1. To create the container registry, follow the [Azure Container Registry quickstart](../container-registry/container-registry-get-started-portal.md).
+1. To create the container registry, follow the [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-portal).
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
 1. Take note of the **Login server** value listed on this page. You'll use this information in a later step.
 1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials. Alternatively, you can leave it disabled and configure the container app to [pull images from the registry with a managed identity](../container-apps/managed-identity-image-pull.md).
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Create an ACR instance using the following command. It creates a basic tier registry named *myregistry* with admin user enabled that allows the container app to connect to the registry using admin user credentials. For more information, see [Azure Container Registry quickstart](../container-registry/container-registry-get-started-azure-cli.md).
+1. Create an ACR instance using the following command. It creates a basic tier registry named *myregistry* with admin user enabled that allows the container app to connect to the registry using admin user credentials. For more information, see [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-azure-cli).
 
     ```azurecli
    az acr create 
@@ -164,7 +171,7 @@ The web page looks like this:
 
 [!INCLUDE [Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## Next steps
+## Related content
 
 In this quickstart, you:
 
@@ -175,7 +182,7 @@ In this quickstart, you:
 - Added the container image to Azure Container Apps
 - Browsed to the URL of the Azure Container Apps instance updated with the settings you configured in your App Configuration store.
 
-The managed identity enables one Azure resource to access another without you maintaining secrets. You can streamline access from Container Apps to other Azure resources. For more information, see how to [access App Configuration using the managed identity](howto-integrate-azure-managed-service-identity.md) and how to [[access Container Registry using the managed identity](../container-registry/container-registry-authentication-managed-identity.md)].
+The managed identity enables one Azure resource to access another without you maintaining secrets. You can streamline access from Container Apps to other Azure resources. For more information, see how to [access App Configuration using the managed identity](howto-integrate-azure-managed-service-identity.md) and how to [access Container Registry using the managed identity](/azure/container-registry/container-registry-authentication-managed-identity).
 
 To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 

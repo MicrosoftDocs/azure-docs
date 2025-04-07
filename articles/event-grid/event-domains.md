@@ -1,10 +1,9 @@
 ---
 title: Event Domains in Azure Event Grid
 description: This article describes how to use event domains to manage the flow of custom events to your various business organizations, customers, or applications.
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
+ms.topic: concept-article
+ms.date: 12/16/2024
+# Customer intent: I want to know what event domains in Azure Event Grid are and how to use them. 
 ---
 
 # Understand event domains for managing Event Grid topics
@@ -13,7 +12,7 @@ An event domain provides an endpoint for thousands of individual topics related 
 
 Domains also give you authentication and authorization control over each topic so you can partition your tenants. This article describes how to use event domains to manage the flow of custom events to your various business organizations, customers, or applications. Use event domains to:
 
-* Manage multitenant eventing architectures at scale.
+* Manage multitenant event-driven architectures at scale.
 * Manage your authentication and authorization.
 * Partition your topics without managing each individually.
 * Avoid individually publishing to each of your topic endpoints.
@@ -119,6 +118,6 @@ Event domains handle publishing to topics for you. Instead of publishing events 
 
 Event domains use the same [operations pricing](https://azure.microsoft.com/pricing/details/event-grid/) that all other features in Event Grid use. Operations work the same in event domains as they do in custom topics. Each ingress of an event to an event domain is an operation, and each delivery attempt for an event is an operation.
 
-## Next steps
+## Related content
 
 To learn about setting up event domains, creating topics, creating event subscriptions, and publishing events, see [Manage event domains](./how-to-event-domains.md).

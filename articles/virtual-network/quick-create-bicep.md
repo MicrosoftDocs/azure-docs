@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Use Bicep templates to create a virtual network and virtual machines, and deploy Azure Bastion to securely connect from the internet.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: quickstart
 ms.date: 02/28/2024
 ms.author: allensu
@@ -200,8 +200,6 @@ Get-AzResource -ResourceGroupName TestRG
 1. On the **Virtual machines** page, select **BackendVM1**.
 
 1. At the top of the **BackendVM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
-
-   :::image type="content" source="./media/quick-create-bicep/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to the first virtual machine with Azure Bastion." border="true":::
 
 1. On the **Bastion** page, enter the username and password that you created for the VM, and then select **Connect**.
 

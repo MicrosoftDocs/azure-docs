@@ -2,9 +2,9 @@
 title: Get usage data with the Azure CLI
 titleSuffix: Microsoft Cost Management
 description: This article explains how you get usage data with the Azure CLI.
-author: bandersmsft
-ms.author: banders
-ms.date: 11/17/2023
+author: jojopm
+ms.author: jojoh
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -40,7 +40,7 @@ After you sign in, use the [export](/cli/azure/costmanagement/export) commands t
 1. Run the [export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
 
     ```azurecli
-    az costmanagement export create --name DemoExport --type Usage \--scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \--storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
+    az costmanagement export create --name DemoExport --type Usage \--scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" --storage-account-id cmdemo \--storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
     ```
 
 ## Related content
@@ -48,5 +48,5 @@ After you sign in, use the [export](/cli/azure/costmanagement/export) commands t
 - Read the [Ingest usage details data](automation-ingest-usage-details-overview.md) article.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 - [Understand usage details fields](understand-usage-details-fields.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

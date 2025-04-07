@@ -2,7 +2,7 @@
 title: "Troubleshoot Azure Digital Twins Explorer: Authentication error"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve authentication errors in Azure Digital Twins Explorer.
-ms.service: digital-twins
+ms.service: azure-digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
@@ -42,7 +42,7 @@ If you do not have this role, set it up to resolve the issue.
 
 #### Check current setup
 
-[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-verify-role-assignment.md](includes/digital-twins-setup-verify-role-assignment.md)]
 
 #### Fix issues 
 
@@ -53,6 +53,8 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "<role-name>"
 ```
+
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 For more details about this role requirement and the assignment process, see [Set up your user's access permissions](how-to-set-up-instance-CLI.md#set-up-user-access-permissions).
 

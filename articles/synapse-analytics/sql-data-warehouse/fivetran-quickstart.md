@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Fivetran and dedicated SQL pool (formerly SQL DW)"
 description: Get started with Fivetran and dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 10/12/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

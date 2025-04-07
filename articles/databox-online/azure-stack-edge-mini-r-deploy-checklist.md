@@ -4,8 +4,7 @@ description: This article describes the information that can be gathered before 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/22/2022
 ms.author: alkohli 

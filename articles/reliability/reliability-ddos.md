@@ -5,8 +5,8 @@ author: AbdullahBell
 ms.author: abell
 ms.topic: reliability-article
 ms.workload: infrastructure-services
-ms.custom: subject-reliability, references_regions
-ms.service: ddos-protection
+ms.custom: subject-reliability
+ms.service: azure-ddos-protection
 ms.date: 03/14/2024 
 ---
 
@@ -52,4 +52,4 @@ For single region geographies in a disaster scenario, the virtual network and th
 
 ## Next steps
 
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

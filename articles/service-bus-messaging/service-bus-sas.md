@@ -1,8 +1,8 @@
 ---
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
-ms.topic: article
-ms.date: 11/28/2023
+ms.topic: concept-article
+ms.date: 12/11/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -14,14 +14,13 @@ This article discusses *Shared Access Signatures (SAS)*, how they work, and how 
 SAS guards access to Service Bus based on authorization rules that are configured either on a namespace, or a messaging entity (queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
 
 > [!NOTE]
-> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there is no need to store the tokens in your code and risk potential security vulnerabilities.
->
-> Microsoft recommends using Microsoft Entra ID with your Azure Service Bus applications when possible. For more information, see the following articles:
-> - [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](authenticate-application.md).
-> - [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md)
+> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). SAS Keys lack fine grained access control, are difficult to manage/rotate and do not have the audit capabilities to associate its use with a specific user or service principal. For these reasons we recommend using Microsoft Entra ID.
 > 
-> You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
+> Microsoft recommends using Microsoft Entra ID with your Azure Service Bus applications when possible. For more information, see the following articles:
+- [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](authenticate-application.md).
+- [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md)
 
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 ## Overview of SAS
 
 Shared Access Signatures are a claims-based authorization mechanism using simple tokens. When you use SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
@@ -69,7 +68,7 @@ The following recommendations for using shared access signatures can help mitiga
 - **Be careful with the SAS start time**: If you set the start time for SAS to **now**, then due to clock skew (differences in current time according to different machines), you might see failures intermittently for the first few minutes. In general, set the start time to be at least 15 minutes in the past. Or, don’t set it at all, which will make it valid immediately in all cases. The same generally applies to the expiry time as well. Remember that you might observe up to 15 minutes of clock skew in either direction on any request. 
 - **Be specific with the resource to be accessed**: A security best practice is to provide user with the minimum required privileges. If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities. It also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
 - **Don’t always use SAS**: Sometimes the risks associated with a particular operation against your Service Bus outweigh the benefits of SAS. For such operations, create a middle-tier service that writes to your Service Bus after business rule validation, authentication, and auditing.
-- **Always use HTTPs**: Always use Https to create or distribute a SAS. If a SAS is passed over HTTP and intercepted, an attacker performing a man-in-the-middle attach is able to read the SAS and then use it just as the intended user could have, potentially compromising sensitive data or allowing for data corruption by the malicious user.
+- **Always use HTTPS**: Always use Https to create or distribute a SAS. If a SAS is passed over HTTP and intercepted, an attacker performing a man-in-the-middle attach is able to read the SAS and then use it just as the intended user could have, potentially compromising sensitive data or allowing for data corruption by the malicious user.
 
 ## Configuration for Shared Access Signature authentication
 
@@ -256,6 +255,7 @@ The following table shows the access rights required for various operations on S
 | Enumerate queues |Manage |/$Resources/Queues |
 | Get the queue description |Manage |Any valid queue address |
 | Configure authorization rule for a queue |Manage |Any valid queue address |
+| Get queue exists or not | Manage | Any valid queue address |
 | Send into to the queue |Send |Any valid queue address |
 | Receive messages from a queue |Listen |Any valid queue address |
 | Abandon or complete messages after receiving the message in peek-lock mode |Listen |Any valid queue address |

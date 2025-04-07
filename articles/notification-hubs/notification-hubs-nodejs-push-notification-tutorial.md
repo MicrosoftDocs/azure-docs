@@ -4,9 +4,9 @@ description: Learn how to use Notification Hubs to send push notifications from 
 keywords: push notification,push notifications,node.js push,ios push
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.devlang: javascript
 ms.topic: article
 ms.date: 08/23/2021

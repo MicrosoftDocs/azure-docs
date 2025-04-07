@@ -166,7 +166,7 @@ Your configured custom domain is missing a "CNAME record" or an "A record".
 
 **Solution for cause 1**
 
-- If you added an "A record", make sure that a TXT record is also added. For more information, see [Create the DNS records](./app-service-web-tutorial-custom-domain.md#2-create-the-dns-records).
+- If you added an "A record", make sure that a TXT record is also added. For more information, see [Create the DNS records](./app-service-web-tutorial-custom-domain.md#create-the-dns-records).
 
 - If you don't have to use the root domain for your app, the recommendation is that you use a "CNAME record", rather than an "A record".
 
@@ -385,8 +385,8 @@ When you select "Download as a certificate" for the App Service Certificate unde
 
 **What file format can I use to upload a certificate to my App Service?**
 
-The certificate file format must be a .pfx file with a password applied to the file. The certificate must also meet the certificate requirements mentioned [here](../app-service/configure-ssl-certificate.md#private-certificate-requirements).  If you have obtained your certificate from a 3rd party CA and the file format is a .PEM/.KEY format, you can use a tool like openSSL to convert the file(s) to a .pfx file format. The private key must be included during the conversion as it is required in the .pfx file format. Also, if your certificate authority gives you multiple certificates in the certificate chain, you have to merge the certificates following the same order. For more information, please see [here](../app-service/configure-ssl-certificate.md#merge-intermediate-certificates). 
+The certificate file format must be a .pfx file with a password applied to the file. The certificate must also meet the certificate requirements mentioned [here](../app-service/configure-ssl-certificate.md#private-certificate-requirements).  If you have obtained your certificate from a 3rd party CA and the file format is a .PEM/.KEY format, you can use a tool like OpenSSL to convert the file(s) to a .pfx file format. The private key must be included during the conversion as it is required in the .pfx file format. Also, if your certificate authority gives you multiple certificates in the certificate chain, you have to merge the certificates following the same order. For more information, please see [here](../app-service/configure-ssl-certificate.md#merge-intermediate-certificates). 
 
 **How do I generate a certificate signing request (CSR) for an App Service Certificate?**
 
-For an App Service Certificate, you would purchase through the Azure portal or using a Powershell/CLI command. A CSR is not needed. However, Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [here](../key-vault/certificates/create-certificate-signing-request.md).
+For an App Service Certificate, you would purchase through the Azure portal or using a Powershell/CLI command. A CSR is not needed. However, Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [here](/azure/key-vault/certificates/create-certificate-signing-request).

@@ -3,9 +3,8 @@ title: Table data types in dedicated SQL pool (formerly  SQL DW)
 description: Recommendations for defining table data types for dedicated SQL pool (formerly  SQL DW) in Azure Synapse Analytics.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: whhender
 ms.date: 01/06/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

@@ -26,7 +26,7 @@ First, download the AzAcSnap executable file to any directory on your computer. 
   - The Linux binary has an associated [Linux signature file](https://aka.ms/azacsnap-linux-signature). This file is signed with Microsoft's public key to allow for GPG verification of the downloaded installer.
 
   > [!IMPORTANT]
-  > The installer is no longer available for Linux. Please follow the [guidelines here](azacsnap-installation.md) to setup the user's profile to run AzAcSnap and its dependencies.
+  > The installer is no longer available for Linux. Please follow the [guidelines here](azacsnap-installation.md) to set up the user's profile to run AzAcSnap and its dependencies.
 
 - [Windows 64-bit](https://aka.ms/azacsnap-windows) (executable)
   - The Windows binary is signed by Microsoft.
@@ -39,7 +39,7 @@ Once these downloads are completed, then [Install Azure Application Consistent S
 Follow the guidelines to set up and run the snapshots and disaster-recovery commands. We recommend that you complete the following steps as root before you install and use the snapshot tools:
 
 1. Patch the operating system
-   1. For SUSE on Azure Large Instances, set up SUSE Subscription Management Tool (SMT). For more information, see [Install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
+   1. For SUSE on Azure Large Instances, set up SUSE Subscription Management Tool (SMT). For more information, see [Install and configure SAP HANA (Large Instances) on Azure](/azure/virtual-machines/workloads/sap/hana-installation#operating-system).
 1. Set up time synchronization. Provide a time server that's compatible with the Network Time Protocol (NTP), and configure the operating system accordingly.
 1. Install the database. Follow the instructions for the supported database that you're using.
 1. Select the storage back end that you're using for your deployment. For more information, see [Enable communication with storage](azacsnap-configure-storage.md#enable-communication-with-storage) later in this article.
@@ -88,6 +88,10 @@ Follow the guidelines to set up and run the snapshots and disaster-recovery comm
     DB20000I  The QUIT command completed successfully.
     ```
 
+    # [Microsoft SQL Server](#tab/mssql)
+
+    There are no specific database connection requirements for MS SQL Server as AzAcSnap has built-in connectivity to MS SQL Server.
+   
     ---
 ## Install the snapshot tools
 

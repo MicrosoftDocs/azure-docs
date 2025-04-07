@@ -1,19 +1,21 @@
 ---
 title: Manage Azure Cache for Redis using Azure classic CLI
 description: Learn how to install the Azure classic CLI on any platform, how to use it to connect to your Azure account, and how to create and manage an Azure Cache for Redis from the classic CLI.
-author: flang-msft
 
 
-ms.service: cache
+
+
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.author: franlanglois 
+appliesto:
+  - ✅ Azure Cache for Redis
+ 
 ms.custom: engagement-fy23
 ---
 # How to create and manage Azure Cache for Redis using the Azure classic CLI
 
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
+> * [PowerShell](../redis/how-to-manage-redis-cache-powershell.md)
 > * [Azure classic CLI](cache-manage-cli.md)
 >
 

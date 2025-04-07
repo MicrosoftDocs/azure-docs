@@ -23,6 +23,8 @@ As shown in the diagram, your clients establish WebSocket connections with your 
 
 :::image type="content" source="./media/reference-client-sdk-javascript/flow-overview.png" alt-text="Screenshot showing clients establishing WebSocket connection with a Web PubSub resource":::
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Getting started
 
 ### Prerequisites
@@ -43,7 +45,7 @@ A client uses `Client Access URL` to connect and authenticate with the service, 
 As shown in the diagram, the client has the permissions to send messages to and join a specific group named **`group1`**. 
 
 ```js
-// Imports the client libray
+// Imports the client library
 const { WebPubSubClient } = require("@azure/web-pubsub-client");
 
 // Instantiates the client object
@@ -116,6 +118,8 @@ In production, clients usually fetch `Client Access URL` from an application ser
 
 #### 1. Application server 
 The code snippet is an example of an application server exposes a `/negotiate` endpoint and returns `Client Access URL`.
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 ```js
 // This code snippet uses the popular Express framework

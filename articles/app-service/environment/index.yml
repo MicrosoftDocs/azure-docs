@@ -8,7 +8,7 @@ metadata:
   description: Host fully isolated websites in a secure and scalable environment. Find quickstarts, tutorials, and read about concepts to help you succeed with App Service Environment.
   ms.topic: landing-page
   ms.author: mijacobs
-  ms.service: app-service
+  ms.service: azure-app-service
   ms.date: 11/15/2021
 
 landingContent:
@@ -51,7 +51,7 @@ landingContent:
           - text: App Service Environment common tasks
             url: using.md
           - text: Provision an ASE from an ARM template
-            url: create-from-template.md
+            url: how-to-create-from-template.md
           - text: Configure ASE custom settings
             url: app-service-app-service-environment-custom-settings.md
       - linkListType: reference

@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 07/18/2024
+ms.date: 08/06/2024
 ms.author: madsd
 ---
 
@@ -11,12 +11,13 @@ ms.author: madsd
 
 App Service Environment is a single-tenant deployment of Azure App Service that hosts Windows and Linux containers, web apps, API apps, logic apps, and function apps. When you install an App Service Environment, you pick the Azure virtual network that you want it to be deployed in. All of the inbound and outbound application traffic is inside the virtual network you specify. You deploy into a single subnet in your virtual network, and nothing else can be deployed into that subnet.
 
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans.
-
 ## Subnet requirements
 
-You must delegate the subnet to `Microsoft.Web/hostingEnvironments`, and the subnet must be empty.
+The following are the minimum set of requirements for the subnet your App Service Environment is in.
+
+- The subnet must be delegated to `Microsoft.Web/hostingEnvironments`.
+- The subnet must be empty.
+- The subnet's `addressPrefix` property must be formatted as a string, not an array. 
 
 The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. For production scale, we recommend a `/24` address space (256 addresses) for your subnet. If you plan to scale near max capacity of 200 instances in our App Service Environment and you plan frequent up/down scale operations, we recommend a `/23` address space (512 addresses) for your subnet.
 
@@ -30,7 +31,7 @@ If you use a smaller subnet, be aware of the following limitations:
 - If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the App Service Environment. Another possibility is that you can experience increased latency during intensive traffic load, if Microsoft isn't able to scale the supporting infrastructure.
 
 >[!NOTE]
-> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If your App Service Environment has for example 2 Windows Container App Service plans each with 25 instances and each with 5 apps running, you will need 300 IP addresses and additional addresses to support horizontal (in/out) scale.
+> Windows Containers use an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If your App Service Environment has for example 2 Windows Container App Service plans each with 25 instances and each with 5 apps running, you will need 300 IP addresses and additional addresses to support horizontal (in/out) scale.
 >
 > Sample calculation:
 >
@@ -52,10 +53,12 @@ App Service Environment has the following network information at creation:
 |--------------|-------------|
 | App Service Environment virtual network | The virtual network deployed into. |
 | App Service Environment subnet | The subnet deployed into. |
-| Domain suffix | The domain suffix that is used by the apps made. |
+| Domain suffix | The default domain suffix that is used by the apps. |
+| Custom domain suffix | (optional) The custom domain suffix that is used by the apps. |
 | Virtual IP (VIP) | The VIP type used. The two possible values are internal and external. |
 | Inbound address | The inbound address is the address at which your apps are reached. If you have an internal VIP, it's an address in your App Service Environment subnet. If the address is external, it's a public-facing address. |
-| Default outbound addresses | The apps use this address, by default, when making outbound calls to the internet. |
+| Worker outbound addresses | The apps use this or these addresses, when making outbound calls to the internet. |
+| Platform outbound addresses | The platform uses this address, when making outbound calls to the internet. An example is pulling certificates for custom domain suffix from Key Vault if a private endpoint isn't used. |
 
 You can find details in the **IP Addresses** portion of the portal, as shown in the following screenshot:
 
@@ -72,7 +75,7 @@ You can bring your own inbound address to your App Service Environment. If you c
 
 ## Ports and network restrictions
 
-For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports, you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
+For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
 
 > [!NOTE]
 > Changes to NSG rules can take up to 14 days to take effect due to HTTP connection persistence. If you make a change that blocks platform/management traffic, it could take up to 14 days for the impact to be seen.
@@ -135,11 +138,11 @@ For more information about Private Endpoint and Web App, see [Azure Web App Priv
 
 ## DNS
 
-The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. For App Service Environment domains, the site name is truncated at 40 characters because of DNS limits. If you have a slot, the slot name is truncated at 19 characters.
+The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. For App Service Environment domains, the site name is truncated at 59 characters because of DNS limits. For App Service Environment domains with slots, the site name is truncated at 40 characters and the slot name is truncated at 19 characters because of DNS limits.
 
 ### DNS configuration to your App Service Environment
 
-If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, when you create your App Service Environment, if you select having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you choose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
+If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you have two options when you create your App Service Environment. If you select having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you choose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
 
 If you want to use your own DNS server, add the following records:
 

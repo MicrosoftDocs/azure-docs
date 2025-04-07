@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: references_regions
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/17/2024
+ms.date: 09/17/2024
 ---
 # Prerequisites for Azure Virtual Desktop
 
@@ -93,7 +93,7 @@ To access desktops and applications from your session hosts, your users need to 
 You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
 > [!NOTE]
-> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain.
+> For Azure Local, you can only join session hosts to an Active Directory Domain Services domain. You can only join session hosts on Azure Local to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
 
 To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
@@ -145,7 +145,7 @@ You need to enter the following identity parameters when deploying session hosts
 - Organizational Unit (OU), which is an optional parameter that lets you place session hosts in the desired OU at deployment time.
 
 > [!IMPORTANT]
-> The account you use for joining a domain can't have multi-factor authentication (MFA) enabled.
+> The account you use for joining a domain can't have multifactor authentication (MFA) enabled.
 
 ## Operating systems and licenses
 
@@ -156,27 +156,25 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 To learn more about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
 
 > [!IMPORTANT]
-> - The following items are not supported:
+> - The following items aren't supported for session hosts:
 >   - 32-bit operating systems.
 >   - N, KN, LTSC, and other editions of Windows operating systems not listed in the previous table.
->   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
->   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
->   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
-> 
-> - Support for Windows 7 ended on January 10, 2023.
-> - Support for Windows Server 2012 R2 ended on October 10, 2023.
+>   - [Ultra disks](/azure/virtual-machines/disks-types#ultra-disks) for the OS disk type.
+>   - [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks).
+>   - [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
+>   - Arm64-based Azure VMs.
 
 For Azure, you can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 
 - [Custom image templates in Azure Virtual Desktop](custom-image-templates.md)
-- [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
-- [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.yml).
+- [Store and share images in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
+- [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource).
 
-Alternatively, for Azure Stack HCI you can use operating system images from:
+Alternatively, for Azure Local you can use operating system images from:
 
-- Azure Marketplace. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
-- Azure Storage account. For more information, see [Create Azure Stack HCI VM image using image in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account).
-- A local share. For more information, see[Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+- Azure Marketplace. For more information, see [Create Azure Local VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
+- Azure Storage account. For more information, see [Create Azure Local VM image using image in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account).
+- A local share. For more information, see [Create Azure Local VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
 You can deploy a virtual machines (VMs) to be used as session hosts from these images with any of the following methods:
 
@@ -186,10 +184,10 @@ You can deploy a virtual machines (VMs) to be used as session hosts from these i
 
 If your license entitles you to use Azure Virtual Desktop, you don't need to install or apply a separate license, however if you're using per-user access pricing for external users, you need to [enroll an Azure Subscription](remote-app-streaming/per-user-access-pricing.md). You need to make sure the Windows license used on your session hosts is correctly assigned in Azure and the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
 
-For session hosts on Azure Stack HCI, you must license and activate the virtual machines you use before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
+For session hosts on Azure Local, you must license and activate the virtual machines you use before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Local](/azure-stack/hci/manage/vm-activate).
 
 > [!NOTE]
-> To ensure continued functionality with the latest security update, update your VMs on Azure Stack HCI to the latest cumulative update by June 17, 2024. This update is essential for VMs to continue using Azure benefits. For more information, see [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification?tabs=wac#benefits-available-on-azure-stack-hci).
+> To ensure continued functionality with the latest security update, update your VMs on Azure Local to the latest cumulative update by June 17, 2024. This update is essential for VMs to continue using Azure benefits. For more information, see [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification?tabs=wac#benefits-available-on-azure-stack-hci).
 
 > [!TIP]
 > To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If you deploy Azure Virtual Desktop in an Azure Dev/Test subscription, end users may connect to that deployment without separate license entitlement in order to perform acceptance tests or provide feedback.
@@ -237,7 +235,7 @@ Consider the following points when managing session hosts:
 
 ## Azure regions
 
-You can deploy host pools, workspaces, and application groups in the following Azure regions. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts for the user sessions can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md), enabling you to deploy compute resources close to your users. For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
+You can deploy host pools, workspaces, and application groups in the following Azure regions. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts for the user sessions can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Local](azure-stack-hci-overview.md), enabling you to deploy compute resources close to your users. For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 :::row:::
     :::column:::
@@ -249,10 +247,12 @@ You can deploy host pools, workspaces, and application groups in the following A
        - East US
        - East US 2
        - Japan East
+       - Japan West
        - North Central US
     :::column-end:::
     :::column:::
        - North Europe
+       - South Africa North
        - South Central US
        - UK South
        - UK West
@@ -268,17 +268,17 @@ Azure Virtual Desktop is also available in sovereign clouds, such as [Azure for 
 
 To learn more about the architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
-## Remote Desktop clients
+## Connecting to a remote session
 
-Your users need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to desktops and applications. The following clients support Azure Virtual Desktop:
+Your users need to use [Windows App](/windows-app/) or the [Remote Desktop client](users/remote-desktop-clients-overview.md) to connect to desktops and applications. You can connect from:
 
-- [Windows Desktop client](./users/connect-windows.md)
-- [Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)
-- [Web client](./users/connect-web.md)
-- [macOS client](./users/connect-macos.md)
-- [iOS and iPadOS client](./users/connect-ios-ipados.md)
-- [Android and Chrome OS client](./users/connect-android-chrome-os.md)
-- [Remote Desktop app for Windows](./users/connect-microsoft-store.md)
+- Windows
+- macOS
+- iOS/iPadOS
+- Android/Chrome OS
+- Web browser
+
+For more information, see [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop).
 
 > [!IMPORTANT]
 > Azure Virtual Desktop doesn't support connections from the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
@@ -287,6 +287,6 @@ To learn which URLs clients use to connect and that you must allow through firew
 
 ## Next steps
 
-- For a simple way to get started with Azure Virtual Desktop by creating a sample infrastructure, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-create-connect-personal-desktop.md).
+- When you're ready to try Azure Virtual Desktop, use [quickstart to deploy a sample Azure Virtual Desktop environment](quickstart.md) with Windows 11 Enterprise multi-session.
 
 - For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](create-host-pool.md).

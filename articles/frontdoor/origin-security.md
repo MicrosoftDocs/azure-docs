@@ -2,12 +2,11 @@
 title: Secure traffic to origins
 titleSuffix: Azure Front Door
 description: This article explains how to ensure that your origins receive traffic only from Azure Front Door.
-services: front-door
 author: johndowns
-ms.service: frontdoor
-ms.topic: conceptual
-ms.date: 10/02/2023
 ms.author: jodowns
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 10/02/2023
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -78,6 +77,30 @@ Application Gateway is deployed into your virtual network. Configure a network s
 
 Use a custom WAF rule to check the `X-Azure-FDID` header value.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
 
+# [Application Gateway for Containers](#tab/agc)
+
+To configure traffic routing in Azure Kubernetes Service (AKS) with Application Gateway for Containers, set up an HTTPRoute rule to match incoming traffic from Azure Front Door using the X-Azure-FDID header.
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: http-route
+  namespace: {namespace}
+spec:
+  parentRefs:
+  - name: {gateway-name}
+  rules:
+  - matches:
+    - headers:
+      - type: Exact
+        name: X-Azure-FDID
+        value: "xxxxxxxx-xxxx-xxxx-xxxx-xxx"
+    backendRefs:
+    - name: {backend-name}
+      port: {port}
+```
+
 # [IIS](#tab/iis)
 
 When you run [Microsoft Internet Information Services (IIS)](https://www.iis.net/) on an Azure-hosted virtual machine, you should create a network security group in the virtual network that hosts the virtual machine. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
@@ -105,7 +128,7 @@ Use an IIS configuration file like in the following example to inspect the `X-Az
 
 # [AKS NGINX controller](#tab/aks-nginx)
 
-When you run [AKS with an NGINX ingress controller](../aks/ingress-basic.md), you should create a network security group in the virtual network that hosts the AKS cluster. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
+When you run [AKS with an NGINX ingress controller](/azure/aks/ingress-basic), you should create a network security group in the virtual network that hosts the AKS cluster. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
 
 Use a Kubernetes ingress configuration file like in the following example to inspect the `X-Azure-FDID` header on your incoming requests:
 

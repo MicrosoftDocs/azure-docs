@@ -1,27 +1,21 @@
 ---
 title: Restore Azure PostgreSQL databases via Azure CLI
 description: Learn how to restore Azure PostgreSQL databases using Azure CLI.
-ms.topic: conceptual
-ms.date: 01/24/2022
-ms.service: backup
+ms.topic: how-to
+ms.date: 07/30/2024
+ms.service: azure-backup
 ms.custom: devx-track-azurecli
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure PostgreSQL databases using Azure CLI
 
-This article explains how to restore [Azure PostgreSQL databases](../postgresql/overview.md#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
+This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
-Being a PaaS database, the Original Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
+Being a PaaS database, the Original Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server, which is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 
-In this article, you'll learn how to:
-
-- Restore to create a new PostgreSQL database
-
-- Track the restore operation status
-
-We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
+Here, let's use an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
 ## Restore a backed-up PostgreSQL database
 
@@ -43,12 +37,12 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
   {
     "datasourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/servers/testpostgresql/databases/empdb11",
     "extendedLocation": null,
-    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "identity": null,
     "kind": "",
     "location": "",
     "managedBy": "",
-    "name": "testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149",
+    "name": "testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "plan": null,
     "properties": {
       "currentProtectionState": "ProtectionConfigured",
@@ -118,10 +112,10 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 Once the instance is identified, fetch the relevant recovery point using the [az dataprotection recovery-point list](/cli/azure/dataprotection/recovery-point#az-dataprotection-recovery-point-list) command.
 
 ```azurecli
-az dataprotection recovery-point list --backup-instance-name testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 -g testBkpVaultRG --vault-name TestBkpVault
+az dataprotection recovery-point list --backup-instance-name testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -g testBkpVaultRG --vault-name TestBkpVault
 
 {
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149/recoveryPoints/9da55e757af94261afa009b43cd3222a",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/recoveryPoints/9da55e757af94261afa009b43cd3222a",
   "name": "9da55e757af94261afa009b43cd3222a",
   "properties": {
     "friendlyName": "2031fdb43a914114b6ce644eb6fcb5ce",
@@ -217,7 +211,7 @@ To validate if the JSON file will succeed to create new resources, use the [az d
 Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-trigger) command to trigger the restore operation with the previously prepared request.
 
 ```azurecli-interactive
-az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 --restore-request-object OssRestoreReq.JSON
+az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e --restore-request-object OssRestoreReq.JSON
 ```
 
 ## Tracking job

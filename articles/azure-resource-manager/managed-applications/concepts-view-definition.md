@@ -142,7 +142,7 @@ When you provide this view in _viewDefinition.json_, it overrides the default Ov
 
 `"kind": "Metrics"`
 
-The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/essentials/data-platform-metrics.md).
+The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 ```json
 {
@@ -183,7 +183,7 @@ The metrics view enables you to collect and aggregate data from your managed app
 |---------|---------|---------|
 | `displayName` |Yes | The displayed title of the chart. |
 | `chartType` | No | The visualization to use for this chart. By default, it uses a line chart. Supported chart types: `Bar, Line, Area, Scatter`. |
-| `metrics` | Yes | The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md). |
+| `metrics` | Yes | The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported). |
 
 ### Metric
 

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/19/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -147,7 +147,7 @@ NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. 
 There are two options for redundancy within an Azure region:
 
 * [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage) offers local, in-zone synchronous data replication.
-* [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data synchronously across the three [availability zones](../../availability-zones/az-overview.md) in the region.
+* [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data synchronously across the three [availability zones](../../reliability/availability-zones-overview.md) in the region.
 
 Check if your selected Azure region offers NFSv4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] for **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
@@ -189,13 +189,13 @@ Next, deploy the NFS shares in the storage account that you created. In this exa
    3. Select **NFS** as the protocol.
    4. Select **No root Squash**.  Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
-The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
 #### Important considerations for NFS on Azure Files shares
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
-* The minimum share size is 100 gibibytes (GiB). You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
+* The minimum share size is 100 GiB. You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-v1-model).
 * Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
@@ -227,7 +227,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
    * Volume `sapnw1` (`nfs://10.27.1.5/sapnw1/usrsapNW1`)
    * Volume `trans` (`nfs://10.27.1.5/trans`)
 
-The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
+The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
 
 #### Important considerations for NFS on Azure NetApp Files
 
@@ -578,11 +578,11 @@ The instructions in this section are applicable only if you're using Azure NetAp
     Start_Program_01 = local $(_EN) pf=$(_PF)
     
     # Add the following lines.
-    service/halib = $(DIR_CT_RUN)/saphascriptco.so
+    service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # Add the keepalive parameter, if you're using ENSA1.
-    enque/encni/set_so_keepalive = true
+    enque/encni/set_so_keepalive = TRUE
     ```
 
     For Standalone Enqueue Server 1 and 2 (ENSA1 and ENSA2), make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
@@ -597,7 +597,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
     
     # Add the following lines.
-    service/halib = $(DIR_CT_RUN)/saphascriptco.so
+    service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # Remove Autostart from the ERS profile.
@@ -631,14 +631,33 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo ssh sap-cl2 "cat /usr/sap/sapservices" | grep ERS01 | sudo tee -a /usr/sap/sapservices
     ```
 
-9. **[A]** Enable  `sapping` and `sappong`. The `sapping` agent runs before `sapinit` to hide the `/usr/sap/sapservices` file. The `sappong` agent runs after `sapinit` to unhide the `sapservices` file during VM boot. `SAPStartSrv` isn't started automatically for an SAP instance at boot time, because the Pacemaker cluster manages it.  
+9. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
+
+   > [!NOTE]
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
+
+   ```bash
+   # Stop ASCS and ERS instances using <sid>adm
+   sapcontrol -nr 00 -function Stop
+   sapcontrol -nr 00 -function StopService
+
+   sapcontrol -nr 01 -function Stop
+   sapcontrol -nr 01 -function StopService
+
+   # Execute below command on VM where you have performed ASCS instance installation (e.g. sap-cl1)
+   sudo systemctl disable SAPNW1_00
+   # Execute below command on VM where you have performed ERS instance installation (e.g. sap-cl2)
+   sudo systemctl disable SAPNW1_01
+   ```
+
+10. **[A]** Enable  `sapping` and `sappong`. The `sapping` agent runs before `sapinit` to hide the `/usr/sap/sapservices` file. The `sappong` agent runs after `sapinit` to unhide the `sapservices` file during VM boot. `SAPStartSrv` isn't started automatically for an SAP instance at boot time, because the Pacemaker cluster manages it.  
 
     ```bash
     sudo systemctl enable sapping
     sudo systemctl enable sappong
     ```
 
-10. **[1]** Create `SAPStartSrv` resource for ASCS and ERS by creating a file and then load the file.
+11. **[1]** Create `SAPStartSrv` resource for ASCS and ERS by creating a file and then load the file.
 
     ```bash
     vi crm_sapstartsrv.txt
@@ -663,7 +682,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     > [!NOTE]
     > If you’ve set up a SAPStartSrv resource using the "crm configure primitive…" command on crmsh version 4.4.0+20220708.6ed6b56f-150400.3.3.1 or later, it’s important to review the configuration of the SAPStartSrv resource primitives. If a monitor operation is present, it should be removed. While SUSE also suggests removing the start and stop operations, but these are not as crucial as the monitor operation. For more information, see [recent changes to crmsh package can result in unsupported configuration of SAPStartSrv resource Agent in a SAP NetWeaver HA cluster](https://www.suse.com/support/kb/doc/?id=000021423).
 
-11. **[1]** Create the SAP cluster resources.
+12. **[1]** Create the SAP cluster resources.
 
     Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 

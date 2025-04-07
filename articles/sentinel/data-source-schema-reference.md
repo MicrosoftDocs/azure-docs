@@ -1,10 +1,14 @@
 ---
 title: Microsoft Sentinel data source schema reference
 description: This article lists Azure and third-party data source schemas supported by Microsoft Sentinel, with links to their reference documentation.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 11/09/2021
+
+
+#Customer intent: As a security analyst, I want to reference supported data source schemas so that I can integrate and analyze logs from various network and host systems in a unified platform.
+
 ---
 
 # Data source schema reference

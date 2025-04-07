@@ -2,15 +2,17 @@
 title: Differences between Azure Data Explorer and Azure Synapse Data Explorer (Preview)
 description: This article describes the differences between Azure Data Explorer and Azure Synapse Data Explorer.
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ---
 
 # What is the difference between Azure Synapse Data Explorer and Azure Data Explorer? (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](includes/data-explorer-deprecation-notice.md)]
 
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a stand-alone, fast, and highly scalable data exploration service for log and telemetry data. The same underlying technology that runs the service is available in Azure Synapse as an integrated analytics service to complement its existing SQL and Spark services geared for data warehouse and data engineering machine learning scenarios.
 

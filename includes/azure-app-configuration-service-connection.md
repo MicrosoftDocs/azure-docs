@@ -13,7 +13,7 @@ A [service connection](/azure/devops/pipelines/library/service-endpoints) gives 
 1. In **New service connection**, select **Azure Resource Manager**.
 
     :::image type="content" source="./media/azure-app-configuration-service-connection/new-service-connection.png" alt-text="Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.":::
-1. In the **Authentication method** dialog, select **Service principal (automatic)** to create a new service principal or select **Service principal (manual)** to [use an existing service principal](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn&preserve-view=true).
+1. In the **Authentication method** dialog, select **Workload identity federation (automatic)** to create a new workload identity federation or select **Workload identity federation (manual)** to [use an existing workload identity federation](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation&preserve-view=true).
 1. Enter your subscription, resource group, and a name for your service connection.
 
 If you created a new service principal, find the name of the service principal assigned to the service connection. You'll add a new role assignment to this service principal in the next step.

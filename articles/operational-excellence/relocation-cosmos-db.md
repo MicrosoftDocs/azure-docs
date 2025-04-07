@@ -2,7 +2,7 @@
 title: Relocate an Azure Cosmos DB NoSQL account to another region
 description: Learn how to relocate an Azure Cosmos DB NoSQL account to another region.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.custom:
@@ -56,20 +56,20 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
 1. Add a new region to the account.
 
-    To add a new region to an Azure Cosmos DB account, see [Add/remove regions to an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.yml#add-remove-regions-from-your-database-account).
+    To add a new region to an Azure Cosmos DB account, see [Add/remove regions to an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#add-remove-regions-from-your-database-account).
 
 1. Perform a manual failover to the new region.
 
     When the region that's being removed is currently the write region for the account, you'll need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step. 
     
-    To start a failover, see [Perform manual failover on an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.yml#perform-manual-failover-on-an-azure-cosmos-db-account).
+    To start a failover, see [Perform manual failover on an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#perform-manual-failover-on-an-azure-cosmos-db-account).
 
 1. Remove the original region.
 
-    To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.yml#add-remove-regions-from-your-database-account).
+    To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#add-remove-regions-from-your-database-account).
 
 > [!NOTE]
-> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](../cosmos-db/scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
+> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](/azure/cosmos-db/scaling-provisioned-throughput-best-practices#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
 
 ## Redeploy Azure Cosmos DB account metadata
 
@@ -78,17 +78,17 @@ Azure Cosmos DB does not natively support migrating account metadata from one re
 > [!IMPORTANT]
 > It is not necessary to migrate the account metadata if the data is stored or moved to a different region. The region in which the account metadata resides has no impact on the performance, security or any other operational aspects of your Azure Cosmos DB account.
 
-A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](../cosmos-db/change-feed.md) or a tool that uses it.
+A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](/azure/cosmos-db/change-feed) or a tool that uses it.
 
 The following steps demonstrate how to migrate an Azure Cosmos DB account for the API for NoSQL and its data from one region to another:
 
 1. Create a new Azure Cosmos DB account in the desired region.
 
-    To create a new account via the Azure portal, PowerShell, or the Azure CLI, see [Create an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.yml#create-an-account).
+    To create a new account via the Azure portal, PowerShell, or the Azure CLI, see [Create an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#create-an-account).
 
 1. Create a new database and container.
 
-    To create a new database and container, see [Create an Azure Cosmos DB container](../cosmos-db/nosql/how-to-create-container.md).
+    To create a new database and container, see [Create an Azure Cosmos DB container](/azure/cosmos-db/nosql/how-to-create-container).
 
 1. Migrate data by using the Azure Cosmos DB Spark Connector live migration sample.
 
@@ -98,7 +98,7 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
     With the Live Data Migration sample still running, update the connection information in the new deployment of your application. You can retrieve the endpoints and keys for your application from the Azure portal.
 
-    :::image type="content" source="../cosmos-db/media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control in the Azure portal, demonstrating NoSQL database security.":::
+    :::image type="content" source="/azure/cosmos-db/media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control in the Azure portal, demonstrating NoSQL database security.":::
 
 1. Redirect requests to the new application.
 
@@ -112,5 +112,5 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 For more information and examples on how to manage the Azure Cosmos DB account as well as databases and containers, read the following articles:
 
-* [Manage an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.yml)
-* [Change feed in Azure Cosmos DB](../cosmos-db/change-feed.md)
+* [Manage an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account)
+* [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)

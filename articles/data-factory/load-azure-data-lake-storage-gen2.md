@@ -3,10 +3,9 @@ title: Load data into Azure Data Lake Storage Gen2
 description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen2'
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory

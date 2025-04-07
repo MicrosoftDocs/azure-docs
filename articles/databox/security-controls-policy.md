@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: stevenmatthew
 ms.author: shaas
-ms.service: databox
+ms.service: azure-databox
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Data Box

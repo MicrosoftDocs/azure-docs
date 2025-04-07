@@ -3,9 +3,9 @@ title: Compare pricing between Azure DDoS Protection tiers
 description: Learn about Azure DDoS Protection pricing and compare pricing between Azure DDoS Protection tiers.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
-ms.topic: conceptual
-ms.date: 07/17/2024
+ms.service: azure-ddos-protection
+ms.topic: concept-article
+ms.date: 03/17/2025
 ms.author: abell
 ---
 

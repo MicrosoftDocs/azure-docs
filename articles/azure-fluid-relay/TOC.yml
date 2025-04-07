@@ -50,6 +50,8 @@
       href: how-tos/container-recovery.md
     - name: 'How to: Use audience features in the Fluid Framework'
       href: how-tos/use-audience-in-fluid.md
+    - name: 'How to: Rotate Azure Fluid Relay access keys'
+      href: how-tos/rotate-fluid-relay-access-keys.md
 - name: Reference
   items:
     - name: Service limits

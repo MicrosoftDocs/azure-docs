@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mode-ui
 #Customer intent: As an administrator, I want to enable managed identities for my Automation account so that I can securely access other Azure resources.
+ms.service: azure-automation
 ---
 
 # Quickstart: Enable managed identities for your Automation account using the Azure portal

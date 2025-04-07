@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: batch
- ms.service: batch
+ ms.service: azure-batch
  ms.topic: include
  ms.date: 11/17/2022
  ms.custom: include file

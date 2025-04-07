@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 11/15/2024
 ms.custom: references_regions
 ms.author: normesta
 
@@ -26,7 +26,7 @@ Prior to the release of this feature, if you wanted to use SFTP to transfer data
 
 Now, with SFTP support for Azure Blob Storage, you can enable SFTP support for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22.
 
-This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
+This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Enable or disable SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support-how-to.md).
 
 > [!NOTE]
 > SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured then all requests will receive a disconnect from the service.
@@ -35,7 +35,7 @@ This article describes SFTP support for Azure Blob Storage. To learn how to enab
 
 SFTP support requires hierarchical namespace to be enabled. Hierarchical namespace organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized. The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. 
 
-Different protocols are supported by the hierarchical namespace. SFTP is one of these available protocols. The following image shows storage access via multiple protocols and REST APIs. For easier reading, this image uses the term Gen2 REST to refer to the Azure Data Lake Storage Gen2 REST API.
+Different protocols are supported by the hierarchical namespace. SFTP is one of these available protocols. The following image shows storage access via multiple protocols and REST APIs. For easier reading, this image uses the term REST to refer to the Azure Data Lake Storage REST API.
 
 > [!div class="mx-imgBorder"]
 > ![hierarchical namespace](./media/secure-file-transfer-protocol-support/hierarchical-namespace-and-sftp-support.png)
@@ -44,16 +44,20 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 
 SFTP clients can't be authorized by using Microsoft Entra identities. Instead, SFTP utilizes a new form of identity management called _local users_.
 
-Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 2,000 local users for a storage account.
+Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 25,000 local users for a storage account.
 
 To set up access permissions, you create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
+
+> [!IMPORTANT]
+> If you have any feedback on scenarios that require Entra Identities-based authorization, please reach out to us at BlobSFTP@microsoft.com.
+>
 
 > [!CAUTION]
 > Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). Access control lists (ACLs) are supported for local users at the preview level.
 >
-> For example, Jeff has read only permission (can be controlled via RBAC or ABAC) via their Microsoft Entra identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage Gen2 REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
+> For example, Jeff has read only permission (can be controlled via RBAC or ABAC) via their Microsoft Entra identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
 
-Enabling SFTP support doesn't prevent other types of clients from using Microsoft Entra ID. For users that access Blob Storage by using the Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKs, and Azure REST APIs, you can continue to use the full breadth of Azure Blob Storage security setting to authorize access. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+Enabling SFTP support doesn't prevent other types of clients from using Microsoft Entra ID. For users that access Blob Storage by using the Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKs, and Azure REST APIs, you can continue to use the full breadth of Azure Blob Storage security setting to authorize access. To learn more, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
 ## Authentication methods
 
@@ -65,7 +69,7 @@ You can't set custom passwords, rather Azure generates one for you. If you choos
 
 #### SSH key pairs
 
-A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and should be known only to the local user. The public key is stored in Azure. When an SSH client connects to the storage account using a local user identity, it sends a message with the public key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](../../virtual-machines/linux/ssh-from-windows.md#).
+A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and should be known only to the local user. The public key is stored in Azure. When an SSH client connects to the storage account using a local user identity, it sends a message with the public key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](/azure/virtual-machines/linux/ssh-from-windows#).
 
 If you choose to authenticate with private-public key pair, you can either generate one, use one already stored in Azure, or provide Azure the public key of an existing public-private key pair. You can have a maximum of 10 public keys per local user.
 
@@ -91,7 +95,7 @@ When performing write operations on blobs in sub directories, Read permission is
 > This capability is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. A common ACL use case is to restrict a user's access to a specific directory without letting that user access other directories within the same container. This can be repeated for multiple users so that they each have granular access to their own directory. Without ACLs, this would require a container per local user. ACLs also make it easier for administrators to manage access for multiple local users with the help of groups. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 To authorize a local user by using ACLs, you must first enable ACL authorization for that local user. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
@@ -103,7 +107,7 @@ The following table describes the properties of a local user that are used for A
 | Property | Description |
 |---|---|
 | UserId | <li>Unique identifier for the local user within the storage account</li><li>Generated by default when the Local User is created</li><li>Used for setting owning user on file/directory</li> |
-| GroupId | <li>Identifer for a group of local users</li><li>Used for setting owning group on file/directory</li> |
+| GroupId | <li>Identifier for a group of local users</li><li>Used for setting owning group on file/directory</li> |
 | AllowAclAuthorization | <li>Allow authorizing this Local User's requests with ACLs</li> |
 
 ### How ACL permissions are evaluated
@@ -177,20 +181,27 @@ SFTP is a platform level service, so port 22 will be open even if the account op
 
 The following clients have compatible algorithm support with SFTP for Azure Blob Storage. See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you're having trouble connecting. This list isn't exhaustive and may change over time.
 
+- AIX<sup>1</sup>
 - AsyncSSH 2.1.0+
 - Axway
+- curl 7.85.0+
 - Cyberduck 7.8.2+
 - edtFTPjPRO 7.0.0+
 - FileZilla 3.53.0+
+- Five9
+- JSCH 0.1.54+
 - libssh 0.9.5+
+- MobaXterm v21.3
 - Maverick Legacy 1.7.15+
 - Moveit 12.7
+- Mule 2.1.2+
 - OpenSSH 7.4+
 - paramiko 2.8.1+
 - phpseclib 1.0.13+
 - PuTTY 0.74+
 - QualysML 12.3.41.1+
 - RebexSSH 5.0.7119.0+
+- Ruckus 6.1.2+
 - Salesforce
 - ssh2js 0.1.20+
 - sshj 0.27.0+
@@ -198,10 +209,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - WinSCP 5.10+
 - Workday
 - XFB.Gateway
-- JSCH 0.1.54+
-- curl 7.85.0+
-- AIX<sup>1</sup>
-- MobaXterm v21.3
+- Apache NiFi
 
 <sup>1</sup>    Must set `AllowPKCS12KeystoreAutoOpen` option to `no`.
 

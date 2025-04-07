@@ -4,7 +4,7 @@ description: Learn how to troubleshoot and resolve the connectivity problems tha
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 07/19/2023
 ms.author: allensu

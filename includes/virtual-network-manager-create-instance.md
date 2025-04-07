@@ -5,7 +5,7 @@
  author: mbender
  ms.service: virtual-network-manager
  ms.topic: include
- ms.date: 06/26/2024
+ ms.date: 1/13/2024
  ms.author: mbender-ms
 ms.custom: include file
 ---
@@ -25,9 +25,9 @@ Deploy a Virtual Network Manager instance with the defined scope and access that
     | Setting | Value |
     | ------- | ----- |
     | **Subscription** | Select the subscription where you want to deploy Virtual Network Manager. |
-    | **Resource group** | Select **Create new** and enter **rg-learn-eastus-001**.
-    | **Name** | Enter **vnm-learn-eastus-001**. |
-    | **Region** | Enter **eastus** or a region of your choosing. Virtual Network Manager can manage virtual networks in any region. The selected region is where the Virtual Network Manager instance will be deployed. |
+    | **Resource group** | Select **Create new** and enter **resource-group**. |
+    | **Name** | Enter **network-manager**. |
+    | **Region** | Enter **westus2** or a region of your choosing. Virtual Network Manager can manage virtual networks in any region. The selected region is where the Virtual Network Manager instance will be deployed. |
     | **Description** | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
     | [Features](../articles/virtual-network-manager/concept-network-manager-scope.md#features) | Select **Connectivity** and **Security Admin** from the dropdown list.  </br> **Connectivity** enables the creation of a full mesh or hub-and-spoke network topology between virtual networks within the scope. </br> **Security Admin** enables the creation of global network security rules. |
 

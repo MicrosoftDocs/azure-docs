@@ -28,7 +28,7 @@ param cloudServicesNetworkId string
 @description('Number of CPU cores for the virtual machine. Choose a value between 2 and 46.')
 param cpuCores int = 2
 
-@description('The memory size of the virtual machine in GB (max 224 GB)')
+@description('The memory size of the virtual machine in GiB (max 224 GiB)')
 param memorySizeGB int = 4
 
 @description('The list of network attachments to the virtual machine.')
@@ -84,12 +84,12 @@ param vmDeviceModel string = 'T2'
 param vmImage string
 
 @description('Credentials used to login to the image repository.')
-param vmImageRepositoryCredentials object
+param vmImageRepositoryCredentials object = {}
 // password: "string"
 // registryUrl: "string"
 // username: "string"
 
-resource vm 'Microsoft.NetworkCloud/virtualMachines@2023-07-01' = {
+resource vm 'Microsoft.NetworkCloud/virtualMachines@2025-02-01' = {
   name: vmName
   location: location
   extendedLocation: {
@@ -102,7 +102,6 @@ resource vm 'Microsoft.NetworkCloud/virtualMachines@2023-07-01' = {
     bootMethod: (empty(bootMethod) ? null : bootMethod)
     cloudServicesNetworkAttachment: {
       attachedNetworkId: cloudServicesNetworkId
-      defaultGateway: 'False'
       ipAllocationMethod: 'Dynamic'
     }
     cpuCores: cpuCores

@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mrayyan
+author: mayssamm
 manager: alexokun
 
 ms.service: azure-communication-services
-ms.date: 07/20/2023
+ms.date: 02/27/2025
 ms.topic: include
 ms.custom: include file
-ms.author: t-siddiquim
+ms.author: mayssamm
 ---
 
 ## Prerequisites
@@ -123,7 +123,7 @@ RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionSt
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. ACS Rooms currently supports a room participant of type CommunicationUserIdentifier only, using other types of CommunicationIdentity will result in a runtime error.
 
 To use `CommunicationIdentityClient`, add the following package:
 
@@ -248,11 +248,11 @@ To add or update participants to a `room`, use the `addOrUpdateParticipants` met
 
 List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
-// Adding new participant
- participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.CONSUMER));
-
 // Updating current participant
-participantsToAddAOrUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
+participantsToAddAOrUpdate.add(participant_1.setRole(ParticipantRole.PRESENTER));
+
+// Adding new participant
+ participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.COLLABORATOR));
 
 AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAOrUpdate);
 
@@ -379,8 +379,9 @@ Updated room with validFrom: 2023-05-11T22:11:46.784Z, validUntil: 2023-05-11T22
 Participant(s) added/updated
 
 Participants:
-8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Attendee)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Presenter)
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e902 (Consumer)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e903 (Collaborator)
 
 Participant(s) removed
 

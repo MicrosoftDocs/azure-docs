@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/04/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: device-developer
 ---
@@ -17,6 +17,8 @@ An IoT Edge device can act as a gateway that provides a connection between other
 IoT Edge supports the [*transparent* and *translation* gateway patterns](../../iot-edge/iot-edge-as-gateway.md). This article summarizes how to implement the transparent gateway pattern. In this pattern, the gateway passes messages from the downstream device through to the IoT Hub endpoint in your IoT Central application. The gateway doesn't manipulate the messages as they pass through. In IoT Central, each downstream device appears as child to the gateway device:
 
 :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/edge-transparent-gateway.png" alt-text="Diagram that shows IoT Edge as a transparent gateway." border="false":::
+
+[!INCLUDE [iot-authentication-device-connection-string](../../../includes/iot-authentication-device-connection-string.md)]
 
 For simplicity, this article uses virtual machines to host the downstream and gateway devices. In a real scenario, the downstream device and gateway would run on physical devices on your local network.
 
@@ -228,6 +230,9 @@ IoT Central relies on the Device Provisioning Service (DPS) to provision devices
 In your IoT Central application, verify that the **Device status** for the `thermostat1` device is now **Provisioned**.
 
 ## Configure a downstream device
+
+> [!NOTE]
+> IoT Central does not support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
 
 In the previous section, you configured the `edgegateway` virtual machine with the demo certificates to enable it to run as gateway. The `leafdevice` virtual machine is ready for you to install a thermostat simulator that uses the gateway to connect to IoT Central.
 

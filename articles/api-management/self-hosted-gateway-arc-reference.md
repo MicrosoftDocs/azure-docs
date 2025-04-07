@@ -4,7 +4,7 @@ description: Reference for the required and optional settings to configure when 
 services: api-management
 author: tomkerkhove
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 06/04/2023
 ms.author: danlep
@@ -126,7 +126,7 @@ This section provides an overview of the available configuration options you can
 | `affinity` | Affinity for pod scheduling ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/)) | No | N/A |
 | `tolerations` | 	Tolerations for pod scheduling ([docs](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)) | No | N/A |
 
-## Next steps
+## Related content
 
 -   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)

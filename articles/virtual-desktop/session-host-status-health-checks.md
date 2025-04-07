@@ -1,10 +1,11 @@
 ---
 title: Session host statuses and health checks in Azure Virtual Desktop
 description: Learn about the different statuses and health checks for session hosts in Azure Virtual Desktop.
-author: heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/05/2024
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Session host statuses and health checks in Azure Virtual Desktop
 
@@ -20,11 +21,11 @@ The following table lists all statuses for session hosts in the Azure portal eac
 | Session host status | Description | Load balancing | How to resolve related issues |
 |---------------------|------|------|--|
 |Available| This status means that the session host passed all health checks and is available to accept user connections. If a session host has reached its maximum session limit but has passed health checks, it's still listed as “Available." | New user sessions are load balanced here. |N/A| 
-|Needs Assistance|The session host didn't pass one or more of the following non-fatal health checks: the Geneva Monitoring Agent health check, the Azure Instance Metadata Service (IMDS) health check, or the URL health check. In this state, users can connect to VMs, but their user experience may degrade. You can find which health checks failed in the Azure portal by going to the **Session hosts** tab and selecting the name of your session host. | New user sessions are load balanced here. |Follow the directions in [Error: Session hosts are stuck in "Needs Assistance" state](troubleshoot-agent.md#error-session-hosts-are-stuck-in-the-needs-assistance-state) to resolve the issue.|  
+|Needs Assistance|The session host didn't pass one or more of the following non-fatal health checks: the Geneva Monitoring Agent health check, the Azure Instance Metadata Service (IMDS) health check, or the URL health check. In this state, users can connect to VMs, but their user experience may degrade. You can find which health checks failed in the Azure portal by going to the **Session hosts** tab and selecting the name of your session host. | New user sessions are load balanced here. |Follow the directions in [Error: Session hosts are stuck in "Needs Assistance" state](/troubleshoot/azure/virtual-desktop/troubleshoot-agent#error-session-hosts-are-stuck-in-the-needs-assistance-state) to resolve the issue.|  
 |Shutdown| The session host has been shut down. If the agent enters a shutdown state before connecting to the broker, its status changes to *Unavailable*. If you've shut down your session host and see an *Unavailable* status, that means the session host shut down before it could update the status, and doesn't indicate an issue. You should use this status with the [VM instance view API](/rest/api/compute/virtual-machines/instance-view?tabs=HTTP#virtualmachineinstanceview) to determine the power state of the VM. | Not available for load balancing. |Turn on the session host. | 
 |Unavailable| The session host is either turned off or hasn't passed fatal health checks, which prevents user sessions from connecting to this session host. | Not available for load balancing. |If the session host is off, turn it back on. If the session host didn't pass the domain join check or side-by-side stack listener health checks, refer to the table in [Health check](#health-check) for ways to resolve the issue. If the status is still "Unavailable" after following those directions, open a support case.|
-|Upgrade Failed| This status means that the Azure Virtual Desktop Agent couldn't update or upgrade. This status doesn't affect new nor existing user sessions. | New user sessions are load balanced here. |Follow the instructions in the [Azure Virtual Desktop Agent troubleshooting article](troubleshoot-agent.md).| 
-|Upgrading| This status means that the agent upgrade is in progress. This status updates to “Available” once the upgrade is done and the session host can accept connections again.| New user sessions are load balanced here. |If your session host is stuck in the "Upgrading" state, then [reinstall the agent](troubleshoot-agent.md#error-session-host-vms-are-stuck-in-upgrading-state).|
+|Upgrade Failed| This status means that the Azure Virtual Desktop Agent couldn't update or upgrade. This status doesn't affect new nor existing user sessions. | New user sessions are load balanced here. |Follow the instructions in the [Azure Virtual Desktop Agent troubleshooting article](/troubleshoot/azure/virtual-desktop/troubleshoot-agent).| 
+|Upgrading| This status means that the agent upgrade is in progress. This status updates to “Available” once the upgrade is done and the session host can accept connections again.| New user sessions are load balanced here. |If your session host is stuck in the "Upgrading" state, then [reinstall the agent](/troubleshoot/azure/virtual-desktop/troubleshoot-agent#error-session-host-vms-are-stuck-in-upgrading-state).|
 
 ## Health check
 
@@ -41,9 +42,9 @@ The health check is a test run by the agent on the session host. The following t
 
 ## Next steps
 
-- For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating an Azure Virtual Desktop environment and host pool in an Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
-- To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).
+- To troubleshoot issues while creating an Azure Virtual Desktop environment and host pool in an Azure Virtual Desktop environment, see [Environment and host pool creation](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-issues).
+- To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](/troubleshoot/azure/virtual-desktop/troubleshoot-vm-configuration).
+- To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](/troubleshoot/azure/virtual-desktop/troubleshoot-agent).
+- To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](/troubleshoot/azure/virtual-desktop/troubleshoot-powershell).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

@@ -1,13 +1,13 @@
 ---
 title: Build fact creators and retrievers
 description: Learn how to build fact creators and retrievers to develop and test rules in Microsoft Rules Composer.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how to build fact creators and retrievers so that I can test my rules and rulesets in Microsoft Rules Composer and use those rulesets with my Azure Logic Apps Rules Engine project.
 ---

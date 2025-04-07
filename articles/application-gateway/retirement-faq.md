@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article lists out commonly added questions on  retirement of Application gateway V1 SKUs and Migration
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: greglin
@@ -59,7 +59,7 @@ Planning and execution of migration greatly depends on the complexity of the dep
 
 ### How do I report an issue?
 
-Post your issues and questions about migration to our [Microsoft Q&A](https://aka.ms/ApplicationGatewayQA) for AppGateway, with the keyword `V1Migration`. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a [support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) as well.
+Post your issues and questions about migration to our [Microsoft Q&A](https://aka.ms/ApplicationGatewayQA) for AppGateway, with the keyword `V1Migration`. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a [support ticket](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) as well.
 
 ## FAQ on V1 to V2 migration
 

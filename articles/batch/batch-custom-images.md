@@ -41,7 +41,7 @@ To scale Batch pools reliably with a managed image, we recommend creating the ma
 If you're creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see [List Supported Images](/rest/api/batchservice/account/listsupportedimages).
 
 > [!NOTE]
-> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
+> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](/azure/virtual-machines/linux/cli-ps-findimage#check-the-purchase-plan-information) or [Windows](/azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties) VMs.
 >
 > To use third-party image, you can use the Azure Compute Gallery. Please refer to [Use the Azure Compute Gallery to create a custom image pool](./batch-sig-images.md) for more information.
 
@@ -54,7 +54,7 @@ If you're creating a new VM for the image, use a first party Azure Marketplace i
 
 ### Create a VM snapshot
 
-A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VMs OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [VMs](../virtual-machines/snapshot-copy-managed-disk.md).
+A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VMs OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [VMs](/azure/virtual-machines/snapshot-copy-managed-disk).
 
 ### Create an image from one or more snapshots
 
@@ -152,7 +152,7 @@ Ensure that the resource used to create the managed image exists for the lifetim
 
 If the image or the underlying resource is removed, you may get an error similar to: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. If you get this error, ensure that the underlying resource hasn't been removed.
 
-For more information on using Packer to create a VM, see [Build a Linux image with Packer](../virtual-machines/linux/build-image-with-packer.md) or [Build a Windows image with Packer](../virtual-machines/windows/build-image-with-packer.md).
+For more information on using Packer to create a VM, see [Build a Linux image with Packer](/azure/virtual-machines/linux/build-image-with-packer) or [Build a Windows image with Packer](/azure/virtual-machines/windows/build-image-with-packer).
 
 ## Next steps
 

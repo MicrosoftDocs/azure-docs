@@ -6,9 +6,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
-ms.date: 05/20/2024
+ms.date: 07/12/2024
 ---
 
 # RedisPubSubTrigger for Azure Functions
@@ -19,9 +19,13 @@ For more information about Azure Cache for Redis triggers and bindings, [Redis E
 
 ## Scope of availability for functions triggers
 
-|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
-|---------|:---------:|:---------:|:---------:|
-|Pub/Sub Trigger  | Yes  | Yes  |  Yes  |
+| Trigger Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Pub/Sub Trigger | Yes   | Yes               |
+
+> [!IMPORTANT]
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
 
 > [!WARNING]
 > This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
@@ -218,12 +222,15 @@ public class SimplePubSubTrigger {
             @RedisPubSubTrigger(
                 name = "req",
                 connection = "redisConnectionString",
-                channel = "pubsubTest")
+                channel = "pubsubTest",
+                pattern = false)
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
     }
 }
+
+
 ```
 
 This sample listens to any keyspace notifications for the key `myKey`.
@@ -241,12 +248,14 @@ public class KeyspaceTrigger {
             @RedisPubSubTrigger(
                 name = "req",
                 connection = "redisConnectionString",
-                channel = "__keyspace@0__:keyspaceTest")
+                channel = "__keyspace@0__:keyspaceTest",
+                pattern = false)
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
     }
 }
+
 ```
 
 This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
@@ -264,7 +273,8 @@ public class KeyeventTrigger {
             @RedisPubSubTrigger(
                 name = "req",
                 connection = "redisConnectionString",
-                channel = "__keyevent@0__:del")
+                channel = "__keyevent@0__:del",
+                pattern = false)
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
@@ -298,6 +308,7 @@ Here's binding data to listen to the channel `pubsubTest`.
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "pubsubTest",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -315,6 +326,7 @@ Here's binding data to listen to keyspace notifications for the key `keyspaceTes
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "__keyspace@0__:keyspaceTest",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -332,6 +344,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "__keyevent@0__:del",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -372,6 +385,7 @@ Here's binding data to listen to the channel `pubsubTest`.
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "pubsubTest",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -389,6 +403,7 @@ Here's binding data to listen to keyspace notifications for the key `keyspaceTes
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "__keyspace@0__:keyspaceTest",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -406,6 +421,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "__keyevent@0__:del",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -443,6 +459,7 @@ Here's binding data to listen to the channel `pubsubTest`.
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "pubsubTest",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -460,6 +477,7 @@ Here's binding data to listen to keyspace notifications for the key `keyspaceTes
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "__keyspace@0__:keyspaceTest",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -477,6 +495,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
       "type": "redisPubSubTrigger",
       "connection": "redisConnectionString",
       "channel": "__keyevent@0__:del",
+      "pattern": false,
       "name": "message",
       "direction": "in"
     }
@@ -520,13 +539,14 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 
 ## Configuration
 
-| function.json property    | Description                                                                                                                                               | Required   | Default    |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| :-----:| -----:|
-| `type`                    | Trigger type. For the pub sub trigger, the type is `redisPubSubTrigger`.                                                                                       |  Yes   |     |
-| `connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...`|  Yes   |     |
-| `channel`                 | Name of the pub sub channel that is being subscribed to                                                                                                    |  Yes   |     |
-| `name`                    | Name of the variable holding the value returned by the function.                                                                                          |  Yes   |     |
-| `direction`               | Must be set to `in`.                                                                                                                                      |  Yes   |     |
+| function.json property | Description                                                                                                                                                                                                    | Required | Default |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------:| -------:|
+| `type`                 | Trigger type. For the pub sub trigger, the type is `redisPubSubTrigger`.                                                                                                                                       |    Yes   |         |
+| `connection`           | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |    Yes   |         |
+| `channel`              | Name of the pub sub channel that is being subscribed to.                                                                                                                                                        |    Yes   |         |
+| `pattern`              | A boolean to indicate the given channel uses pattern matching. If `pattern` is true, then the channel is treated like a _glob-style_ pattern instead of as a literal.                                     |  Yes        |         |
+| `name`                 | Name of the variable holding the value returned by the function.                                                                                                                                               |    Yes   |         |
+| `direction`            | Must be set to `in`.                                                                                                                                                                                           |    Yes   |         |
 
 ::: zone-end
 
@@ -606,7 +626,7 @@ JSON string format
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Redis pub sub messages](https://redis.io/docs/latest/develop/interact/pubsub/)

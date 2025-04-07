@@ -4,11 +4,10 @@ description: Learn how to copy data from Shopify to supported sink data stores u
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 11/05/2024
 ---
 
 # Copy data from Shopify using Azure Data Factory or Synapse Analytics (Preview)
@@ -33,6 +32,10 @@ This Shopify connector is supported for the following capabilities:
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
+The billing_on column property was removed from the Recurring_Application_Charges and UsageCharge tables due to Shopify's official deprecation of billing_on field.
 
 ## Getting started
 

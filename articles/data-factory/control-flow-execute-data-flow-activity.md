@@ -3,12 +3,11 @@ title: Data Flow activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: How to execute data flows from inside an Azure Data Factory or Azure Synapse Analytics pipeline. 
 author: kromerm
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics

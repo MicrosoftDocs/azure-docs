@@ -4,8 +4,9 @@ description: This article tells how to use change tracking and inventory to trac
 services: automation
 ms.subservice: change-inventory-management
 ms.custom: linux-related-content
-ms.date: 07/17/2023
-ms.topic: conceptual
+ms.date: 03/07/2025
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Manage change tracking and inventory using Azure Monitoring Agent
@@ -24,14 +25,17 @@ To manage tracking and inventory, ensure that you enable Change tracking with AM
 
 1. In the [Azure portal](https://portal.azure.com), select the virtual machine.
 1. Select a specific VM for which you would like to configure the Change tracking settings. 
-1. Under **Operations**, select **Change tracking**
+1. Under **Operations**, select **Change tracking**.
+   
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/configure-file-settings.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/manage-change-tracking-monitoring-agent/configure-file-settings.png":::
+
 1. Select **Settings** to view the **Data Collection Rule Configuration** (DCR) page. Here, you can do the following actions:
    1. Configure changes on a VM at a granular level.  
    1. Select the filter to configure the workspace.
    1. Use the filter to view all the DCRs that are configured to the specific LA workspace level.
 
    >[!NOTE]
-   >The settings that you configure are applicable to all the VMs that are attached to a specific DCR. For more information about DCR, see [Data collection rules in Azure Monitor](../../azure-monitor/essentials/data-collection-rule-overview.md).
+   >The settings that you configure are applicable to all the VMs that are attached to a specific DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
 1. Select **Add** to configure new file settings
    
@@ -117,7 +121,7 @@ For user-assigned managed identity, follow these steps to assign the user assign
 #### Upgrade the extension version
 
 > [!NOTE]
-> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to 2.13
+> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to the current general release version: [GA Extension Version](../change-tracking/extension-version-details.md)
 
 Use the following command to upgrade the extension version:
 
@@ -158,7 +162,7 @@ To remove change tracking with Azure Monitoring Agent from a virtual machine, fo
 1. In the Virtual Machines page, under **Settings**, select **Extensions + applications**.
 1. In the **VM |Extensions + applications** page, under **Extensions** tab, select **MicrosoftAzureChangeTrackingAndInventoryChangeTracking-Windows/Linux**.
 
-   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshort of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshot of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
 
 1. Select **Uninstall**.
 

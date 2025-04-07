@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 06/01/2023
+ms.date: 03/10/2025
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: ozgun
@@ -62,7 +62,7 @@ A default encryption scope must be specified for a container at the time that th
 If no default encryption scope is specified for the container, then you can upload a blob using any encryption scope that you've defined for the storage account. The encryption scope must be specified at the time that the blob is uploaded.
 
 > [!NOTE]
-> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot change the access tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot set the access tier to the **archive** tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## Disabling an encryption scope
 
@@ -72,8 +72,8 @@ If your encryption scope is protected with a customer-managed key, and you revok
 
 Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
-- [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
-- [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with PowerShell](/azure/key-vault/general/key-vault-recovery)
+- [How to use soft-delete with CLI](/azure/key-vault/general/key-vault-recovery)
 
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
@@ -97,5 +97,5 @@ To learn about pricing for encryption scopes, see [Blob Storage pricing](https:/
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
 - [Create and manage encryption scopes](encryption-scope-manage.md)
 - [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
-- [What is Azure Key Vault?](../../key-vault/general/overview.md)
+- [What is Azure Key Vault?](/azure/key-vault/general/overview)
 

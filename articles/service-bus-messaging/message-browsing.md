@@ -2,7 +2,7 @@
 title: Azure Service Bus - Browse or peek messages
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
 ms.topic: concept-article
-ms.date: 06/08/2023
+ms.date: 07/25/2024
 #customer intent: As a developer, I want to know how to browse or peek messages in a queue or a subscription, for diagnostic and debugging purposes. 
 ---
 
@@ -21,7 +21,7 @@ The Peek operation on a queue or a subscription returns at most the requested nu
 | Scheduled messages | Yes for queues. No for subscriptions |
 
 ## Dead-lettered messages
-To peek into **Dead-lettered** messages of a queue or subscription, the peek operation should be run on the dead letter queue associated with the queue or subscription. For more information, see [accessing dead letter queues](service-bus-dead-letter-queues.md#path-to-the-dead-letter-queue).
+To peek into **dead-lettered** messages of a queue or subscription, the peek operation should be run on the dead letter queue associated with the queue or subscription. For more information, see [accessing dead letter queues](service-bus-dead-letter-queues.md#path-to-the-dead-letter-queue).
 
 ## Expired messages
 Expired messages might be included in the results returned from the Peek operation. Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run. This step might not necessarily occur immediately after messages expire. That's why, a peek operation might return messages that have already expired. These messages will be removed or dead-lettered when a receive operation is invoked on the queue or subscription the next time. Keep this behavior in mind when attempting to recover deferred messages from the queue. 
@@ -47,9 +47,10 @@ You can also pass a SequenceNumber to a peek operation. It's used to determine w
 
 You can specify the maximum number of messages that you want the peek operation to return. But, there's no way to guarantee a minimum size for the batch. The number of returned messages depends on several factors of which the most impactful is how quickly the network can stream messages to the client. 
 
-Here's an example snippet for peeking all messages with the Python Service Bus SDK. The `sequence_number​` can be used to track the last peeked message and start browsing at the next message.
 
 ### [C#](#tab/csharp)
+
+Here's an example snippet for peeking all messages with the .NET SDK. The `SequenceNumber​` can be used to track the last peeked message and start browsing at the next message.
 
 ```csharp
 using Azure.Messaging.ServiceBus;
@@ -112,6 +113,8 @@ Peek round complete
 
 
 ### [Python](#tab/python)
+
+Here's an example snippet for peeking all messages with the Python Service Bus SDK. The `sequence_number​` can be used to track the last peeked message and start browsing at the next message.
 
 ```python
 import os

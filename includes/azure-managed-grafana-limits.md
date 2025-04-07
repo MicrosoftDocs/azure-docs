@@ -1,6 +1,6 @@
 ---
 author: maud-lv
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: include
 ms.date: 04/18/2024
 ms.author: malev

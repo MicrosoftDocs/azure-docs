@@ -2,15 +2,16 @@
 title: Move an Azure Relay namespace to another region
 description: This article shows you how to move an Azure Relay namespace from the current region to another region. 
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 12/10/2024
 ms.custom: subject-moving-resources
+# Customer intent: As an Azure Relay user, I want to know how to move a Relay namespace from one region to another region. 
 ---
 
 # Move an Azure Relay namespace to another region
 This article shows you how to move an Azure Relay namespace from one region to another region. Here are the high-level steps:
 
 1. **Export** the Relay namespace to an Azure Resource Manager template.
-1. **Update location (region)** for resources in the template. Also, delete any **dynamic** WCF relays from the template. 
+1. **Update location (region)** for resources in the template. Also, delete any **dynamic** Windows Communication Foundation (WCF) relays from the template. 
 
     WCF relays have two modes. In the first mode, the WCF relay is  explicitly created using the Azure portal or Azure Resource Manager template. On the **WCF Relays** page of the Azure portal, you see the **isDynamic** property set to **false** for a relay in this mode. 
 
@@ -88,7 +89,7 @@ To delete an Azure Relay namespace (source or target) by using the Azure portal:
     ![Delete namespace - button](./media/move-across-regions/delete-namespace-button.png)
 3. On the **Delete Namespace** page, type the name of the Azure Relay namespace to confirm the deletion, and then select **Delete**. 
 
-## Next steps
+## Related content
 In this tutorial, you moved an Azure Relay namespace from one region to another region. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

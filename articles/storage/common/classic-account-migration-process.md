@@ -35,7 +35,7 @@ Before you start the migration:
 
 - Ensure that the storage accounts that you want to migrate don't use any unsupported features or configurations. Usually the platform detects these issues and generates an error.
 
-    If you're migrating Azure virtual machines (VMs) that include disks in classic storage accounts, be sure to familiarize yourself with the process of VM migration. For information about unsupported features and configurations, see [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations). For a list of errors that may occur in relation to classic disk artifacts, see [Common errors during Classic to Azure Resource Manager migration](../../virtual-machines/migration-classic-resource-manager-errors.md#list-of-errors).
+    If you're migrating Azure virtual machines (VMs) that include disks in classic storage accounts, be sure to familiarize yourself with the process of VM migration. For information about unsupported features and configurations, see [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview#unsupported-features-and-configurations). For a list of errors that may occur in relation to classic disk artifacts, see [Common errors during Classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-errors#list-of-errors).
 
 - Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
 
@@ -70,8 +70,8 @@ The Validation step analyzes the state of resources in the classic deployment mo
 The Validation step doesn't check for VM disks that may be associated with the storage account. You must check your storage accounts manually to determine whether they contain VM disks. For more information, see the following articles:
 
 - [Migrate classic storage accounts to Azure Resource Manager](classic-account-migrate.md)
-- [Migrate VMs to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account)
-- [Migrate VMs to Resource Manager using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli.md#step-5-migrate-a-storage-account)
+- [Migrate VMs to Resource Manager with PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps#step-5b-migrate-a-storage-account)
+- [Migrate VMs to Resource Manager using Azure CLI](/azure/virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account)
 
 Keep in mind that it's not possible to check for every constraint that the Azure Resource Manager stack might impose on the storage account during migration. Some constraints are only checked when the resources undergo transformation in the next step of migration (the Prepare step).
 

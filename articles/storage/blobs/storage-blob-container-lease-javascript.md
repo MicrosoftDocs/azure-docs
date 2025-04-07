@@ -1,5 +1,5 @@
 ---
-title: Create and manage container leases with JavaScript
+title: Create and manage container leases with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to manage a lock on a container in your Azure Storage account using the JavaScript client library.
 services: storage
@@ -8,12 +8,12 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 10/28/2024
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Create and manage container leases with JavaScript
+# Create and manage container leases with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-lease-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-container.md)]
 
@@ -41,11 +41,19 @@ To acquire a lease, create an instance of the [BlobLeaseClient](/javascript/api/
 
 The following example acquires a 30-second lease for a container:
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-container.js" id="Snippet_AcquireContainerLease":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/lease-container.ts" id="Snippet_AcquireContainerLease":::
+
+---
 
 ## Renew a lease
 
-You can renew a container lease if the lease ID specified on the request matches the lease ID associated with the container. The lease can be renewed even if it has expired, as long as the container hasn't been leased again since the expiration of that lease. When you renew a lease, the duration of the lease resets.
+You can renew a container lease if the lease ID specified on the request matches the lease ID associated with the container. The lease can be renewed even if it expires, as long as the container hasn't been leased again since the expiration of that lease. When you renew a lease, the duration of the lease resets.
 
 To renew a lease, use one of the following methods on a [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
 
@@ -53,7 +61,15 @@ To renew a lease, use one of the following methods on a [BlobLeaseClient](/javas
 
 The following example renews a container lease:
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-container.js" id="Snippet_RenewContainerLease":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/lease-container.ts" id="Snippet_RenewContainerLease":::
+
+---
 
 ## Release a lease
 
@@ -65,7 +81,15 @@ You can release a lease using one of the following methods on a [BlobLeaseClient
 
 The following example releases a lease on a container:
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-container.js" id="Snippet_ReleaseContainerLease":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/lease-container.ts" id="Snippet_ReleaseContainerLease":::
+
+---
 
 ## Break a lease
 
@@ -77,7 +101,15 @@ You can break a lease using one of the following methods on a [BlobLeaseClient](
 
 The following example breaks a lease on a container:
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-container.js" id="Snippet_BreakContainerLease":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/lease-container.ts" id="Snippet_BreakContainerLease":::
+
+---
 
 [!INCLUDE [storage-dev-guide-container-lease](../../../includes/storage-dev-guides/storage-dev-guide-container-lease.md)]
 
@@ -85,18 +117,20 @@ The following example breaks a lease on a container:
 
 To learn more about managing container leases using the Azure Blob Storage client library for JavaScript, see the following resources.
 
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-container.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/lease-container.ts) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for managing container leases use the following REST API operation:
 
 - [Lease Container](/rest/api/storageservices/lease-container)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-container.js)
-
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
 ### See also
 
 - [Managing Concurrency in Blob storage](concurrency-manage.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]

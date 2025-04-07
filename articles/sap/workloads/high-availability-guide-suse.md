@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/19/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -81,7 +81,7 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 > We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 > The SAP configuration guides for SAP NW highly available SAP system with native NFS services are:
 >
-> * [High availability SAP NW on Azure VMswith simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
+> * [High availability SAP NW on Azure VMs with simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
 > * [High availability for SAP NW on Azure VMs with NFS on Azure Files on SLES for SAP Applications](./high-availability-guide-suse-nfs-azure-files.md)
 > * [High availability for SAP NW on Azure VMs with NFS on Azure NetApp Files on SLES for SAP Applications](./high-availability-guide-suse-netapp-files.md)
 
@@ -437,11 +437,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      Start_Program_01 = local $(_EN) pf=$(_PF)
      
      # Add the following lines
-     service/halib = $(DIR_CT_RUN)/saphascriptco.so
+     service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
      service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
      
      # Add the keep alive parameter, if using ENSA1
-     enque/encni/set_so_keepalive = true
+     enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
@@ -456,7 +456,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
      
      # Add the following lines
-     service/halib = $(DIR_CT_RUN)/saphascriptco.so
+     service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
      service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
      
      # remove Autostart from ERS profile
@@ -486,6 +486,25 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    ```bash
    cat /usr/sap/sapservices | grep ASCS00 | sudo ssh nw1-cl-1 "cat >>/usr/sap/sapservices"
    sudo ssh nw1-cl-1 "cat /usr/sap/sapservices" | grep ERS02 | sudo tee -a /usr/sap/sapservices
+   ```
+
+1. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
+
+   > [!NOTE]
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
+
+   ```bash
+   # Stop ASCS and ERS instances using <sid>adm
+   sapcontrol -nr 00 -function Stop
+   sapcontrol -nr 00 -function StopService
+
+   sapcontrol -nr 01 -function Stop
+   sapcontrol -nr 01 -function StopService
+
+   # Execute below command on VM where you have performed ASCS instance installation (e.g. nw1-cl-0)
+   sudo systemctl disable SAPNW1_00
+   # Execute below command on VM where you have performed ERS instance installation (e.g. nw1-cl-1)
+   sudo systemctl disable SAPNW1_01
    ```
 
 1. **[1]** Create the SAP cluster resources
@@ -557,7 +576,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure property maintenance-mode="false"
    ```
 
-   ---
+    ---
 
 If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 

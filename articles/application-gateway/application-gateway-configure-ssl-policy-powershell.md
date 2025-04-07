@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides instructions to configure TLS Policy on Azure Application Gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: greglin 

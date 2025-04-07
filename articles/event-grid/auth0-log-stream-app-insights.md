@@ -31,7 +31,7 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
         // Event Grid always sends an array of data and may send more
         // than one event in the array. The runtime invokes this function
         // once for each array element, so we are always dealing with one.
-        // See: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=
+        // See: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=
         module.exports = async function (context, eventGridEvent) {
             context.log(typeof eventGridEvent);
             context.log(eventGridEvent);
@@ -61,7 +61,7 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
             context.log(`Sent to App Insights successfully`);
         };
         ```    
-1. Create an Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
+1. Create an Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp%2Cquick-create#publish-to-azure).
 1. Deploy your function to the function app on Azure using instructions from [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files).
 
      

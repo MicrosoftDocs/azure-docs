@@ -4,7 +4,7 @@ metadata:
   description: Answers to frequently asked questions about the Azure Load Balancer. 
   services: load-balancer
   author: mbender-ms
-  ms.service: load-balancer
+  ms.service: azure-load-balancer
   ms.topic: faq
   ms.date: 04/10/2024
   ms.author: mbender
@@ -67,6 +67,10 @@ sections:
         answer: |
           Adding a VM from the same availability set to different backend pools isn't possible if the load balancer is NIC based. However, with IP-based load balancer, this constraint is lifted.
 
+      - question: |
+          Can I ping from a backend VM behind a load balancer to a public IP?
+        answer: |
+          No, Azure Load Balancer does not support ICMP pings for outbound connectivity. If you want to ping outbound from a backend VM behind a load balancer, associate an Instance-level Public IP to the backend VM and send pings from that IP.
       - question: |
           What is the maximum data throughput that can be achieved via an Azure Load Balancer?
         answer: |

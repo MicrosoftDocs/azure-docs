@@ -3,7 +3,7 @@ title: Troubleshoot library installation errors
 description: This tutorial provides an overview on how to troubleshoot library installation errors.
 author: shuaijunye
 ms.author: shuaijunye 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 07/07/2022
@@ -46,7 +46,7 @@ To view the full installation logs:
 3. Select the highlighted **Spark history server** option which would open the Spark history server details page in a new tab.
    ![Screenshot that highlights the details of the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-failure-details.png "View details of failed system library job")
 4. In this page, you will see 2 attempts, select **Attempt 1** as shown below.
-    ![Screenshot that highlights the executor details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors.png "View executor detaols in spark history server page")
+    ![Screenshot that highlights the executor details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors.png "View executor details in spark history server page")
 5. On the top navigation bar in the Spark history server page, switch to the **Executors** tab.
     ![Screenshot that highlights the job details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-page.png "View the job details in the spark history server page")
 6. Download the **stdout** and **stderr** log files to access the full library management output and error logs.
@@ -112,7 +112,7 @@ To recreate the environment and validate your updates:
  3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
 
 >[!IMPORTANT]
->Issues may arrise when using pip and conda together. When combining pip and conda, it's best to follow these [recommended best practices](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
+>Issues may arise when using pip and conda together. When combining pip and conda, it's best to follow these [recommended best practices](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)

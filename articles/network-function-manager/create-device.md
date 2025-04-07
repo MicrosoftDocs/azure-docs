@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a device resource for Azure Network Function Manager'
 description: In this quickstart, learn about how to create a device resource for Azure Network Function Manager.
 author: polarapfel
-ms.service: network-function-manager
+ms.service: azure-network-function-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: tobiaw

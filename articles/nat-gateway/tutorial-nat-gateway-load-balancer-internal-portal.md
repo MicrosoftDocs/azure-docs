@@ -4,9 +4,9 @@ titleSuffix: Azure NAT Gateway
 description: In this tutorial, learn how to integrate a NAT gateway with an internal load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
-ms.date: 02/13/2024
+ms.date: 08/30/2024
 ms.custom: template-tutorial, linux-related-content
 ---
 
@@ -74,7 +74,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
-    20.7.200.36
+    203.0.113.0.25
     ```
 
 1. Close the bastion connection to **vm-1**.

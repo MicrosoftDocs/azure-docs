@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot a slow or failing job on Azure HDInsight cluster
 description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 07/12/2024
@@ -84,7 +84,7 @@ HDInsight relies on several Azure services. It runs virtual servers on Azure HDI
 #### Check Azure service usage limits
 
 If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](../azure-portal/supportability/regional-quota-requests.md).
+You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](/azure/azure-portal/supportability/regional-quota-requests).
 
 #### Check the release version
 

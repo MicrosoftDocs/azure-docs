@@ -4,7 +4,7 @@ description: Learn how to protect your API Management instance in an external vi
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: danlep
@@ -61,7 +61,7 @@ Depending on the DDoS Protection plan you use, enable DDoS protection on the vir
 
 If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
 
-## Next steps
+## Related content
 
 * Learn how to verify DDoS protection of your API Management instance by [testing with simulation partners](../ddos-protection/test-through-simulations.md)
 * Learn how to [view and configure Azure DDoS Protection telemetry](../ddos-protection/telemetry.md)

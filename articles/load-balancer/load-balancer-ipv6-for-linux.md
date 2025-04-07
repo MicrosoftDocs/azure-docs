@@ -5,9 +5,9 @@ description: In this article, learn how to configure DHCPv6 for Linux VMs.
 services: load-balancer
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 09/17/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23, doc-a-thon, linux-related-content
 ---
@@ -51,7 +51,7 @@ For RHEL and Oracle Linux versions 7.4 or higher, follow these steps:
 
 Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, use one of the following procedures to configure DHCPv6.
 
-## OpenSuSE 13 and SLES 11
+## openSUSE 13 and SLES 11
 
 1. Install the `dhcp-client` package, if needed:
 
@@ -70,7 +70,7 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-## OpenSUSE Leap and SLES 12
+## openSUSE Leap and SLES 12
 
 For openSUSE Leap and SLES 12, follow these steps:
 
@@ -131,6 +131,8 @@ For Ubuntu versions 17.10 or higher, follow these steps:
     :::image type="content" source="./media/load-balancer-ipv6-for-linux/ipv6-ip-address-ifconfig.png" alt-text="Screenshot of ifconfig showing IPv6 IP address.":::
 
 # [Debian](#tab/debian)
+
+All supported Debian images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM based on an older or custom Debian image, follow these steps:
 
 1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
 

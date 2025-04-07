@@ -2,7 +2,7 @@
 title: 'Load data with Petastorm (deprecated)'
 description: This article provides a conceptual overview of how to load data with Petastorm.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 05/02/2024
@@ -11,7 +11,7 @@ ms.author: midesa
 
 # Load data with Petastorm (deprecated)
 
-Petastorm is an open source data access library, which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that are loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as Tensorflow and PyTorch.
+Petastorm is an open source data access library, which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that are loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as TensorFlow and PyTorch.
 
 For more information about Petastorm, you can visit the [Petastorm GitHub page](https://github.com/uber/petastorm) or the [Petastorm API documentation](https://petastorm.readthedocs.io/en/latest).
 
@@ -103,7 +103,7 @@ generate_petastorm_dataset(output_url)
 
 ### Read dataset from a primary storage account
 
-The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as Tensorflow or Pytorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
+The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as TensorFlow or PyTorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
 
 In the example, you can see how you can pass an ```abfs``` URL protocol.
 

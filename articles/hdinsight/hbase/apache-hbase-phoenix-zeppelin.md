@@ -1,10 +1,13 @@
 ---
 title: Run Apache Base queries in Azure HDInsight with Apache Phoenix
 description: Learn how to use Apache Zeppelin to run Apache Base queries with Phoenix.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 02/12/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  02/03/2025
 ---
 
 # Use Apache Zeppelin to run Apache Phoenix queries over Apache HBase in Azure HDInsight

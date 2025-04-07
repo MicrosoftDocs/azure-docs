@@ -47,6 +47,8 @@ message UpstreamMessage {
         EventMessage event_message = 5;
         JoinGroupMessage join_group_message = 6;
         LeaveGroupMessage leave_group_message = 7;
+        SequenceAckMessage sequence_ack_message = 8;
+        PingMessage ping_message = 9;
     }
 
     message SendToGroupMessage {
@@ -69,6 +71,9 @@ message UpstreamMessage {
     message LeaveGroupMessage {
         string group = 1;
         optional uint64 ack_id = 2;
+    }
+
+    message PingMessage {
     }
 }
 
@@ -93,6 +98,7 @@ message DownstreamMessage {
         AckMessage ack_message = 1;
         DataMessage data_message = 2;
         SystemMessage system_message = 3;
+        PongMessage pong_message = 4;
     }
     
     message AckMessage {
@@ -127,10 +133,13 @@ message DownstreamMessage {
             string reason = 2;
         }
     }
+
+    message PongMessage {
+    }
 }
 ```
 
-Messages received by the client can be in any of three types: `ack`, `message`, or `system`. 
+Messages received by the client can be in any of three types: `ack`, `message`, `system` or `pong`. 
 
 ### Ack response
 
@@ -157,7 +166,7 @@ The sender's `dataType` will cause one of the following messages to be sent:
 
 ### System response
 
-The Web PubSub service can also send system-related responses to the client. 
+The Web PubSub service can also send system-related responses to the client.
 
 #### Connected
 
@@ -166,6 +175,10 @@ When the client connects to the service, you receive a `DownstreamMessage.System
 #### Disconnected
 
 When the server closes the connection or the service declines the client, you receive a `DownstreamMessage.SystemMessage.DisconnectedMessage` message.
+
+### Pong response
+
+The Web PubSub service sends a `PongMessage` to the client when it receives a `PingMessage` from the client.
 
 ## Next steps
 

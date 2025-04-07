@@ -15,7 +15,7 @@ using Azure.Identity;
 using Azure.Core;
 using Npgsql;
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // For system-assigned identity.
 // var sqlServerTokenProvider = new DefaultAzureCredential();
 
@@ -60,12 +60,12 @@ using (var connection = new NpgsqlConnection(connectionString))
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.3.6</version>
+        <version>42.7.5</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-extensions</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.0</version>
     </dependency>
     ```
 
@@ -75,7 +75,7 @@ using (var connection = new NpgsqlConnection(connectionString))
     import java.sql.*;
     
     String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
-    String pluginName = "com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
+    String pluginName = "com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
     Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=" + pluginName);
     ```
 
@@ -83,14 +83,14 @@ For more information, see the following resources:
 
 * [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
 * [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
 * [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?tabs=sign-in-azure-cli%2Cjava%2Cservice-connector%2Cassign-role-service-connector)
 
 #### [SpringBoot](#tab/springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps.
 
-Update your application following the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../spring-apps/enterprise/how-to-bind-postgres.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
+Update your application following the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../spring-apps/basic-standard/how-to-bind-postgres.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
 
 For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?tabs=passwordless%2Cservice-connector&pivots=postgresql-passwordless-flexible-server#store-data-from-azure-database-for-postgresql) and [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=postgresq).
 
@@ -108,7 +108,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
      
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # cred = DefaultAzureCredential()
 
@@ -142,7 +142,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # credential = DefaultAzureCredential()
 
@@ -205,7 +205,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
 	_ "github.com/lib/pq"
     )    
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // cred, err := azidentity.NewDefaultAzureCredential(nil)
     
@@ -255,7 +255,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
     const { Client } = require('pg');
 
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
 
@@ -269,6 +269,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     // const tenantId = process.env.AZURE_POSTGRESQL_TENANTID;
     // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
     // const clientSecret = process.env.AZURE_POSTGRESQL_CLIENTSECRET;
+    // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
     // Acquire the access token.
     var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');
@@ -325,13 +326,13 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     require 'net/http'
     require 'json'
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # uri = URI(ENV['IDENTITY_ENDPOINT'] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01')
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
 
     # For user-assigned identity.
-    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
+    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client_id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
     
     # For service principal
@@ -364,4 +365,4 @@ For other languages, use the connection properties that Service Connector sets t
 
 ---
 
-[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
+[!INCLUDE [PostgreSQL grant permission](./postgres-grant-permission.md)]

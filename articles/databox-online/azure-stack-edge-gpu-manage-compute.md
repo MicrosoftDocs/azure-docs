@@ -4,8 +4,7 @@ description: Describes how to manage the Edge compute settings such as trigger, 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/04/2021
 ms.author: alkohli

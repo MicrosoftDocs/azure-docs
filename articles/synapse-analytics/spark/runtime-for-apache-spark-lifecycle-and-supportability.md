@@ -1,11 +1,11 @@
 ---
 title: Synapse runtime for Apache Spark lifecycle and supportability
 description: Lifecycle and support policies for Synapse runtime for Apache Spark
-author: whhender
-ms.author: whhender
-ms.reviewer: eskot, whhender
+author: juluczni
+ms.author: juluczni
+ms.reviewer: eskot
 ms.date: 03/08/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: reference
 ---

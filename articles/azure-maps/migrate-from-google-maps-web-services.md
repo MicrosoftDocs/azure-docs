@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: rest-api
 ---
 
 # Tutorial: Migrate web service from Google Maps
@@ -51,11 +51,6 @@ The following service APIs aren't currently available in Azure Maps:
 * Map URLs
 * Nearest Roads - Achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but isn't currently available as a service.
 * Static street view
-
-Azure Maps has several other REST web services that may be of interest:
-
-* [Spatial operations]: Offload complex spatial calculations and operations, such as geofencing, to a service.
-* [Traffic]: Access real-time traffic flow and incident data.
 
 ## Prerequisites
 
@@ -428,9 +423,9 @@ This table cross-references the Google Maps API parameters with the comparable A
 
 | Google Maps API parameter      | Comparable Azure Maps API parameter  |
 |--------------------------------|--------------------------------------|
-| `arrivial_time`                | `arriveAt`                           |
+| `arrival_time`                 | `arriveAt`                           |
 | `avoid`                        | `avoid`                              |
-| `depature_time`                | `departAt`                           |
+| `departure_time`               | `departAt`                           |
 | `destinations`                 | `destination` – specify in the `POST` request body as GeoJSON. |
 | `key`                          | `subscription-key` – For more information, see [Authentication with Azure Maps]. |
 | `language`                     | `language` – For more information, see [Localization support in Azure Maps].  |

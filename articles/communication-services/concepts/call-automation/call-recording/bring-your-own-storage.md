@@ -26,8 +26,8 @@ Bring your own Azure storage uses [Azure Managed Identities](/entra/identity/man
 
 ## Known issues
 
-- Azure Communication Services will also store your files in a built-in storage for 24 hours even if the exporting is successful.
-- For Pause on Start Recording the meta data file would have an incorrect pause duration in relation to the recording file.
+- Azure Communication Services also stores your files in a built-in storage for 24 hours even if the exporting is successful.
+- For Pause on Start Recording, the meta data file has an incorrect pause duration in relation to the recording file.
 
 
 ## Next steps

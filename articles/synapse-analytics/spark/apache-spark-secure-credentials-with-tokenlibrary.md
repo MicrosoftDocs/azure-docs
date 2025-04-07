@@ -5,7 +5,7 @@ author: vijaysr
 ms.author: vijaysr
 ms.reviewer: shravan
 ms.date: 06/24/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
 ms.custom:
@@ -494,9 +494,6 @@ While Azure Synapse Analytics supports various linked service connections (from 
 | `Azure Data Lake Store` | `DataLakeStore`                       |
 | `Azure Data Factory` | `ADF`        |
 | `Azure Data Explorer` | `AzureDataExplorer`                   |
-| `Azure Database for MySQL` | `AzureOSSDB` |
-| `Azure Database for MariaDB` | `AzureOSSDB` |
-| `Azure Database for PostgreSQL` | `AzureOSSDB` |
 
 #### Unsupported linked service access from the Spark runtime
 

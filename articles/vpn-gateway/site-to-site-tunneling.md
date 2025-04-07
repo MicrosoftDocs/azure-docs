@@ -3,10 +3,10 @@ title: 'Configure forced tunneling for S2S connections - Default Site: PowerShel
 description: Learn how to force tunnel traffic for VPN Gateway site-to-site connections by specifying the Default Site setting - PowerShell. Also learn how to specify Internet-bound traffic routing for specific subnets.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 ---
 # Configure forced tunneling using Default Site for site-to-site connections

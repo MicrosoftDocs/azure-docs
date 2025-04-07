@@ -4,9 +4,9 @@ description: How to configure downstream devices to connect to Azure IoT Edge ga
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 08/07/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt
 ---
@@ -47,7 +47,7 @@ Acquire the following to prepare your downstream device:
 
 * A root CA certificate file.
 
-  This file was used to generate the device CA certificate in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which is available on your downstream device. 
+  This file was used to generate the Edge CA certificate in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which is available on your downstream device. 
 
   Your downstream device uses this certificate to validate the identity of the gateway device. This trusted certificate validates the transport layer security (TLS) connections to the gateway device. See usage details in the [Provide the root CA certificate](#provide-the-root-ca-certificate) section.
 
@@ -80,13 +80,13 @@ To verify the gateway device's certificates, the downstream device needs its own
 
 If you haven't already, move this certificate file to any directory on your downstream device. You can move the file by either installing the CA certificate in the operating system's certificate store or (for certain languages) by referencing the certificate within applications using the Azure IoT SDKs.
 
-You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate file.
+You can use a service like [Azure Key Vault](/azure/key-vault/) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate file.
 
 ## Install certificates in the OS
 
 Once the root CA certificate is on the downstream device, make sure the applications that are connecting to the gateway can access the certificate.
 
-Installing the root CA certificate in the operating system's certificate store generally allows most applications to use the root CA certificate. There are some exceptions, like NodeJS applications that don't use the OS certificate store but rather use the Node runtime's internal certificate store. If you can't install the certificate at the operating system level, skip ahead to [Use certificates with Azure IoT SDKs](#use-certificates-with-azure-iot-sdks).
+Installing the root CA certificate in the operating system's certificate store generally allows most applications to use the root CA certificate. There are some exceptions, like Node.js applications that don't use the OS certificate store but rather use the Node runtime's internal certificate store. If you can't install the certificate at the operating system level, skip ahead to [Use certificates with Azure IoT SDKs](#use-certificates-with-azure-iot-sdks).
 
 Install the root CA certificate on either Ubuntu or Windows.
 
@@ -144,7 +144,7 @@ Now you're ready to use certificates with a sample in the language of your choic
 
 # [NodeJS](#tab/nodejs)
 
-This section provides a sample application to connect an Azure IoT NodeJS device client to an IoT Edge gateway. For NodeJS applications, you must install the root CA certificate at the application level as shown here. NodeJS applications don't use the system's certificate store.
+This section provides a sample application to connect an Azure IoT Node.js device client to an IoT Edge gateway. For Node.js applications, you must install the root CA certificate at the application level as shown here. Node.js applications don't use the system's certificate store.
 
 1. Get the sample for **edge_downstream_device.js** from the [Azure IoT device SDK for Node.js samples repo](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples).
 1. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.

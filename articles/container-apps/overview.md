@@ -3,9 +3,9 @@ title: Azure Container Apps overview
 description: Learn about common scenarios and uses for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 11/14/2023
+ms.date: 11/19/2024
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -75,7 +75,7 @@ With Azure Container Apps, you can:
 
 ## Introductory video
 
-> [!VIDEO https://www.youtube.com/embed/b3dopSTnSRg]
+> [!VIDEO https://www.youtube.com/embed/OxmVds31qL8]
 
 ### Next steps
 

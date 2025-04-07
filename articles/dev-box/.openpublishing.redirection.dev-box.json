@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/dev-box/quickstart-connect-to-dev-box-with-remote-desktop-app.md",
-      "redirect_url": "/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app",
+      "redirect_url": "/azure/dev-box/how-to-create-dev-boxes-developer-portal",
       "redirect_document_id": false
     },
     {
@@ -46,13 +46,48 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md#configure-remote-desktop-to-use-multiple-monitors",
-      "redirect_url": "/azure/dev-box/tutorial-configure-multiple-monitors",
+      "source_path_from_root": "/articles/dev-box/how-to-determine-your-quota-usage.md",
+      "redirect_url": "/azure/dev-box/how-to-request-quota-increase",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/dev-box/how-to-determine-your-quota-usage.md",
-      "redirect_url": "/azure/dev-box/how-to-request-quota-increase",
+      "source_path_from_root": "/articles/dev-box/how-to-connect-to-dev-box-with-windows-app.md",
+      "redirect_url": "/windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-access-dev-box-task-view.md",
+      "redirect_url": "/azure/dev-box/how-to-troubleshoot-dev-box-task-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/tutorial-configure-multiple-monitors.md",
+      "redirect_url": "https://aka.ms/dev-box/multiple-monitors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-customize-dev-box-setup-tasks.md",
+      "redirect_url": "/azure/dev-box/concept-what-are-team-customizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-use-dev-home-customize-dev-box.md",
+      "redirect_url": "/azure/dev-box/how-to-write-customization-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md",
+      "redirect_url": "https://aka.ms/dev-box/multiple-monitors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-use-dev-home-create-dev-box.md",
+      "redirect_url": "/azure/dev-box/how-to-create-dev-boxes-developer-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-configure-multiple-monitors.md",
+      "redirect_url": "https://aka.ms/dev-box/multiple-monitors",
       "redirect_document_id": false
     }
   ]

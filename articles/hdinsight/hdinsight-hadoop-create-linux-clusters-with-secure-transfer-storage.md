@@ -1,7 +1,7 @@
 ---
 title: Apache Hadoop & secure transfer storage - Azure HDInsight
 description: Learn how to create HDInsight clusters with secure transfer enabled Azure storage accounts.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
 ms.date: 03/23/2024
@@ -41,7 +41,7 @@ If you accidentally enabled the 'Require secure transfer' option after creating 
 
 `com.microsoft.azure.storage.StorageException: The account being accessed does not support http.`
 
-For Hbase clusters only, you can try the following steps to restore the cluster functionality:
+For HBase clusters only, you can try the following steps to restore the cluster functionality:
 1. Stop HBase from Ambari.
 2. Stop HDFS from Ambari.
 3. In Ambari, navigate to HDFS --> Configs --> Advanced --> fs.defaultFS

@@ -1,14 +1,17 @@
 ---
 title: 'Tutorial: Configure network in an Azure FXT Edge Filer cluster'
 description: How to customize network settings after creating the Azure FXT Edge Filer cluster 
-author: femila
-ms.author: femila 
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 10/07/2021
 ---
 
 # Tutorial: Configure the cluster's network settings
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 Before you use a newly created Azure FXT Edge Filer cluster, you should check and customize several network settings for your workflow.
 

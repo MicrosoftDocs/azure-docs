@@ -1,11 +1,8 @@
 ---
 title: Assess AWS instances for migration to Azure with Azure Migrate
 description: Learn to access AWS instances for migration to Azure with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/26/2024
+ms.date: 08/08/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
 #Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
@@ -48,7 +45,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
@@ -192,3 +189,4 @@ Confidence ratings are as follows.
 
 - Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Migrate [AWS VMs](tutorial-migrate-aws-virtual-machines.md) to Azure.

@@ -2,7 +2,7 @@
 title: Low Shuffle Merge optimization on Delta tables
 description: Low Shuffle Merge optimization on Delta tables for Apache Spark
 author: sezruby
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 04/11/2023
@@ -29,10 +29,8 @@ It's available on Synapse Pools for Apache Spark versions 3.2 and 3.3.
 
 |Version| Availability | Default |
 |--|--|--|
-| Delta 0.6 / [Spark 2.4](./apache-spark-24-runtime.md) | No | - |
 | Delta 1.2 / [Spark 3.2](./apache-spark-32-runtime.md) | Yes | false |
 | Delta 2.2 / [Spark 3.3](./apache-spark-33-runtime.md) | Yes | true |
-
 
 ## Benefits of Low Shuffle Merge
 

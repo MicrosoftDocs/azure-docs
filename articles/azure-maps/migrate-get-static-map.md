@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 06/26/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: render
 ---
 
 # Migrate Bing Maps Get a Static Map API
@@ -86,7 +86,7 @@ https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/51.504810,-0.113629/15?map
 Azure Maps _Get Map Static Image_ API sample GET request:
 
 ``` http
-https://atlas.microsoft.com/map/static?api-version=2024-04-01&tilesetId=microsoft.base.road&zoom=15&center=-0.113629,51.504810&subscription-key={Your-Azure-Maps-Subscription-key}
+https://atlas.microsoft.com/map/static?api-version=2024-04-01&tilesetId=microsoft.base.road&zoom=15&center=-0.113629,51.504810&height=500&Width=500&pins=default||-0.113629 51.504810||&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ## Response examples

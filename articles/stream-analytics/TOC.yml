@@ -290,7 +290,7 @@
       displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
-    - name: Twitter sentiment analysis
+    - name: X sentiment analysis
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: Run jobs on Azure Stack
       href: on-azure-stack.md

@@ -21,7 +21,7 @@ If you have an existing network that you're ready to use with Azure Center for S
 ## Prerequisites
 
 - An Azure subscription.
-- [Review the quotas for your Azure subscription](../../quotas/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
+- [Review the quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
 - It's recommended to have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's always better to have a `/26` mask instead of `/29`. 
 - The names including AzureFirewallSubnet, AzureFirewallManagementSubnet, AzureBastionSubnet and GatewaySubnet are reserved names within Azure. Please do not use these as the subnet names.
 - Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the VMs. There are:
@@ -67,13 +67,13 @@ If it's not possible to allow the resources within the virtual network to connec
 
 If you're using SUSE for the VMs, [allowlist the SUSE endpoints](https://www.suse.com/c/azure-public-cloud-update-infrastructure-101/). For example:
 
-1. Create a VM with any OS [using the Azure portal](../../virtual-machines/linux/quick-create-portal.md) or [using Azure Cloud Shell](../../cloud-shell/overview.md). Or, install *openSUSE Leap* from the Microsoft Store and enable WSL.
+1. Create a VM with any OS [using the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [using Azure Cloud Shell](../../cloud-shell/overview.md). Or, install *openSUSE Leap* from the Microsoft Store and enable WSL.
 1. Install *pip3* by running `zypper install python3-pip`.
 1. Install the *pip* package *susepubliccloudinfo* by running `pip3 install susepubliccloudinfo`.
 1. Get a list of IP addresses to configure in the network and firewall by running `pint microsoft servers --json --region` with the appropriate Azure region parameter.
 1. Allowlist all these IP addresses on the firewall or network security group where you're planning to attach the subnets.
 
-If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](../../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) as needed. The default allowlist is the Azure Global IP addresses. Depending on your use case, you might also need to allowlist Azure US Government or Azure Germany IP addresses. Configure all IP addresses from your list on the firewall or the network security group where you want to attach the subnets.
+If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers) as needed. The default allowlist is the Azure Global IP addresses. Depending on your use case, you might also need to allowlist Azure US Government or Azure Germany IP addresses. Configure all IP addresses from your list on the firewall or the network security group where you want to attach the subnets.
 
 ### Allowlist storage accounts
 

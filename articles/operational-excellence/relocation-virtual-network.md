@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 03/13/2024
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
@@ -56,7 +56,7 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
 
 - Verify that your Azure subscription allows you to create virtual networks in the target region. To enable the required quota, contact support.
 
-- Confirm that your subscription has enough resources to support the addition of virtual networks for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Confirm that your subscription has enough resources to support the addition of virtual networks for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 - Understand the following considerations:
 

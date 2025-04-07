@@ -60,7 +60,7 @@ az aks create -g ${resourceGroup} -n ${clusterName} --node-count 3 --generate-ss
 ## Enable Azure Arc
 
 Enable Azure Arc for the Azure Kubernetes Service (AKS) cluster. Running the commands below should be sufficient. If you would like to find out more, see
-[Create and manage custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
+[Create and manage custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/custom-locations).
 
 ## Retrieve the config file for AKS cluster
 

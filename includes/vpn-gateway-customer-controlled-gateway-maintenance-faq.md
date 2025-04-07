@@ -1,8 +1,8 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 11/01/2023
-ms.service: vpn-gateway
+ms.date: 03/11/2025
+ms.service: azure-vpn-gateway
 ms.topic: include
 
 ## This article pertains to ExpressRoute, VPN Gateway, and Virtual WAN FAQs. If you need to add something that **doesn't** apply to all 3 of these services, go to the FAQ and update the FAQ section of the specific service that your additional information applies to, using the exact format below. Add your information after the include in that section.
@@ -11,11 +11,12 @@ ms.topic: include
 
 ### Which services are included in maintenance configuration for the Network Gateways scope? 
 
-The Network Gateways scope includes gateway resources in networking services. There are four types of resources in the Network Gateways scope:
+The Network Gateways scope includes gateway resources in networking services including below resource types:
 
 * Virtual network gateway in the ExpressRoute service
 * Virtual network gateway in the VPN Gateway service
 * VPN gateway (site-to-site) in the Azure Virtual WAN service
+* VPN gateway (User VPN or point-to-site) in the Azure Virtual WAN service
 * ExpressRoute gateway in the Virtual WAN service
 
 ### Which maintenance does customer-controlled maintenance support?
@@ -24,7 +25,7 @@ Azure services go through periodic maintenance updates to improve functionality,
 
 ### Can I get advanced notification of the maintenance?
 
-At this time, you can't get advanced notification for the maintenance of Network Gateway REST API resources.
+At this time, you can't get advanced notification for the maintenance of Network Gateway resources.
 
 ### Can I configure a maintenance window shorter than five hours?
 

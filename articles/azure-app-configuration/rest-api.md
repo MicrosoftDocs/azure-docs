@@ -29,8 +29,3 @@ The documentation on the [control plane](../azure-resource-manager/management/co
 - [Common Headers](./rest-api-headers.md)
 - [Throttling](./rest-api-throttling.md)
 - [Versioning](./rest-api-versioning.md)
-
-## Development
-
-- [Fiddler](./rest-api-fiddler.md)
-- [Postman](./rest-api-postman.md)

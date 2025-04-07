@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.topic: how-to
 ms.date: 03/13/2024
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: template-how-to
 
 ---

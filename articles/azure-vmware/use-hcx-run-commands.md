@@ -10,8 +10,6 @@ ms.date: 3/22/2024
 # Use VMware HCX Run Commands
 In this article, learn how to use VMware HCX Run Commands. Use run commands to perform operations that would normally require elevated privileges through a collection of PowerShell cmdlets. This document outlines the available VMware HCX Run Commands and how to use them. 
 
-This article describes two VMware HCX commands: **Restart HCX Manager** and **Scale HCX Manager**. 
-
 ## Restart VMware HCX Manager 
 
 This Command checks for active VMware HCX migrations and replications. If none are found, it restarts the VMware HCX Cloud Manager (VMware HCX VM's guest OS). 
@@ -45,7 +43,7 @@ Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allo
 
 1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
 
-1. Select the **Microsoft.AVS.HCX** package dropdown menu and select the ``Set-HcxScaledCpuAndMemorySetting`` command.
+1. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **Set-HcxScaledCpuAndMemorySetting** command.
  
     :::image type="content" source="media/hcx-commands/set-hcx-scale.png" alt-text="Diagram that shows run command parameters for Set-HcxScaledCpuAndMemorySetting command." border="false" lightbox="media/hcx-commands/set-hcx-scale.png"::: 
  
@@ -62,5 +60,60 @@ Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allo
     >[!NOTE]
     > VMware HCX cloud manager will be unavailable during the scaling. 
 
+## Take a snapshot of VMware HCX Cloud Manager 
+
+1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
+
+2. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **New-HCXManagerSnapshot** command.
+
+3. Specify Optional Command parameters as needed. Available command parameters available are as below:
+**Description** - A description for the snapshot.
+**Force** - Force parameter bypasses the alert of active HCX migrations or replications, allowing the snapshot to be created even if these processes are in progress. If any warnings are triggered, the snapshot creation proceeds regardless of the detected conditions.
+**Memory** - Memory snapshots preserve the live state of a virtual machine, allowing for precise recovery if an upgrade or change does not go as expected. They do not require quiescing, ensuring an exact capture of the VM's running state. If memory is not included, the snapshot saves only disk data, which remains crash-consistent unless explicitly quiesced.
+**Quiesce** - Quiescing a virtual machine ensures that its file system is in a consistent state when a snapshot is taken. This is useful for automated or periodic backups, especially when the VM's activity is unknown. Quiesced snapshots require VMware Tools and are unavailable if the VM is powered off or has large-capacity disks.
+
+4. Select **Run** to execute.
+
+  >[!NOTE]
+  > Snapshots created via run commands are retained for 72 hours and will be automatically deleted without prior notice.
+
+## List all snapshots on VMware HCX Cloud Manager
+
+1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
+
+1. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **Get-HCXManagerSnapshot** command.
+
+1. Select **Run** to execute.
+
+1. The snapshot details will be displayed under the **Output** tab. <br>
+
+
+## Update the description of the existing snapshot for VMware HCX Cloud Manager
+
+1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
+
+2. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **Update-HCXManagerSnapshotDescription** command.
+
+3. Specify mandatory Command parameters as described below:
+ **SnapshotName** - Name of the snapshot. You can use **Get-HCXManagerSnaphot** run command to list existing snapshots.
+ **NewDescription** - A description for the snapshot.
+
+4. Select **Run** to execute.
+
+## Delete VMware HCX Cloud Manager snapshot
+
+1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
+
+2. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **Remove-HCXManagerSnapshot** command.
+
+3. Specify mandatory Command parameters as described below:
+ **SnapshotName** - Name of the snapshot.
+
+4. Specify Optional Command parameters as needed. Available command parameters available are as below:
+ **RunAsync** - Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object.
+ **Force** - If any warnings are triggered, the snapshot deletion proceeds regardless of the detected conditions. 
+ **EnableDebug** - Indicates that the cmdlet is run only to display the changes that would be made and actually no objects are modified.
+
+
  ## Next step
-To learn more about Run Commands, see [Run Commands](using-run-command.md)
+To learn more about Run Commands, see [Run Commands](using-run-command.md).

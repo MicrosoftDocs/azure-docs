@@ -9,8 +9,9 @@ metadata:
   ms.topic: landing-page
   ms.author: anaharris
   author: anaharris-ms
-  ms.service: reliability
+  ms.service: azure
   ms.date: 02/14/2024
+  ms.subservice: azure-reliability
 
 landingContent: 
   # Card

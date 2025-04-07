@@ -1,12 +1,11 @@
 ---
 title: Upgrade WAF policies for Azure Application Gateway
 description: Learn how to upgrade Azure Web Application Firewall policies using Azure PowerShell.
-services: web-application-firewall
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
 ms.topic: how-to
-author: vhorne
-ms.service: web-application-firewall
 ms.date: 05/18/2023
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 

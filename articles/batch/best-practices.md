@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 06/27/2024
+ms.date: 02/28/2025
 ms.topic: conceptual
 ---
 
@@ -65,6 +65,10 @@ supported indefinitely. An EOL date may be added or updated in the future at any
 
 For the purposes of isolation, if your scenario requires isolating jobs or tasks from each other, do so by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools aren't visible or able to communicate with each other. Avoid using separate Batch accounts as a means of security isolation unless the larger environment from which the Batch account operates in requires isolation.
 
+If desired, proper access control must be applied on the Batch account and APIs to prevent access to all pools under the Batch account.
+It's recommended to disable shared key access and only allow Entra-based authentication to enable
+[role-based access control](batch-role-based-access-control.md).
+
 #### Batch Node Agent updates
 
 Batch node agents aren't automatically upgraded for pools that have nonzero compute nodes. To ensure your Batch pools receive the latest security fixes and updates to the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It's recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand changes to new Batch node agent versions. Checking regularly for updates when they were released enables you to plan upgrades to the latest agent version.
@@ -84,7 +88,7 @@ as retrieving package repository updates (for example, `apt update`) or installi
 It's recommended to enable [Auto OS upgrade for Batch pools](batch-upgrade-policy.md), which allows the underlying
 Azure infrastructure to coordinate updates across the pool. This option can be configured to be nondisrupting for task
 execution. Automatic OS upgrade doesn't support all operating systems that Batch supports. For more information, see the
-[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
+[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade#supported-os-images).
 For Windows operating systems, ensure that you aren't enabling the property
 `virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates` when using Auto OS upgrade on the Batch pool.
 
@@ -116,7 +120,7 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 ### Third-party images
 
-Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
+Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
 
 ### Container pools
 
@@ -128,8 +132,8 @@ IP ranges between the Docker network bridge and your virtual network.
 Docker Hub limits the number of image pulls. Ensure that your workload doesn't
 [exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
 Hub-based images. It's recommended to use
-[Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
-[Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
+[Azure Container Registry](/azure/container-registry/container-registry-intro) directly or leverage
+[Artifact cache in ACR](/azure/container-registry/container-registry-artifact-cache).
 
 ### Azure region dependency
 
@@ -240,7 +244,7 @@ facilities.
 
 ### Isolated nodes
 
-Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](../virtual-machines/isolation.md).
+Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](/azure/virtual-machines/isolation).
 
 ### Avoid creating directory junctions in Windows
 
@@ -289,7 +293,7 @@ In this example, this device would be `/dev/disk/azure/scsi1/lun0`. You could pr
 tooling required for your workflow. Alternatively, you can use `lsblk` with `blkid` to map the UUID for the disk.
 
 For more information about Azure data disks in Linux, including alternate methods of locating data disks and `/etc/fstab` options,
-see this [article](../virtual-machines/linux/add-disk.md). Ensure that there are no dependencies or races as described by the Tip
+see this [article](/azure/virtual-machines/linux/add-disk). Ensure that there are no dependencies or races as described by the Tip
 note before promoting your method into production use.
 
 #### Preparing data disks in Windows Batch pools
@@ -313,7 +317,7 @@ Where disk number 2 is the uninitialized data disk attached to this compute node
 and formatted as required for your workflow.
 
 For more information about Azure data disks in Windows, including sample PowerShell scripts, see this
-[article](../virtual-machines/windows/attach-disk-ps.md). Ensure any sample scripts are validated for idempotency before
+[article](/azure/virtual-machines/windows/attach-disk-ps). Ensure any sample scripts are validated for idempotency before
 promotion into production use.
 
 ### Collect Batch agent logs

@@ -2,11 +2,11 @@
 title: Configure streaming ingestion on your Azure Synapse Data Explorer pool
 description: Learn how to configure your Azure Synapse Data Explorer pool and start loading data with streaming ingestion.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, python
@@ -14,6 +14,8 @@ ms.custom: mode-other
 ---
 
 # Configure streaming ingestion on your Azure Synapse Data Explorer pool (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 Streaming ingestion is useful for loading data when you need low latency between ingestion and query. Consider using streaming ingestion in the following scenarios:
 

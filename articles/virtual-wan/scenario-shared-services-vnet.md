@@ -5,9 +5,9 @@ description: Learn about Virtual WAN routing scenarios. In this scenario, you se
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 08/24/2023
+ms.service: azure-virtual-wan
+ms.topic: concept-article
+ms.date: 10/25/2024
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 

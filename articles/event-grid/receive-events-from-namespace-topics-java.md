@@ -68,7 +68,7 @@ import java.util.List;
  */
 public class NamespaceTopicConsumer {
     private static final String TOPIC_NAME = "<yourNamespaceTopicName>";
-    public static final String EVENT_SUBSCRIPTION_NAME = "<yourEventSusbcriptionName>";
+    public static final String EVENT_SUBSCRIPTION_NAME = "<yourEventSubscriptionName>";
     public static final String ENDPOINT =  "<yourFullHttpsUrlToTheNamespaceEndpoint>";
     public static final int MAX_NUMBER_OF_EVENTS_TO_RECEIVE = 10;
     public static final Duration MAX_WAIT_TIME_FOR_EVENTS = Duration.ofSeconds(10);

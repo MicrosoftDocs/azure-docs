@@ -5,12 +5,12 @@ summary: The DICOM® service enables healthcare organizations to store, manage, 
 metadata:
   title: Documentation for the DICOM service in Azure Health Data Services
   description: Find documentation for the DICOM® service, which enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently.
-  ms.service: healthcare-apis
-  ms.subservice: dicom
+  ms.service: azure-health-data-services
+  ms.subservice: dicom-service
   ms.topic: landing-page 
   author: mmitrik
   ms.author: mmitrik
-  ms.date: 0
+  ms.date: 11/06/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -79,4 +79,6 @@ landingContent:
           - text: Export DICOM files
             url: export-files.md
           - text: Bulk update DICOM files
-            url: update-files.md            
+            url: update-files.md    
+          - text: External metadata
+            url: external-metadata.md           

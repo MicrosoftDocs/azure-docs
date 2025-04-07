@@ -17,11 +17,12 @@ The Azure CLI allows you to configure runtime protection ***Enforcement Level***
 This document provides the steps to execute those tasks.
 
 > [!NOTE]
-> The MDE runtime protection service integrates with [Microsoft Defender for Endpoint](../defender-for-cloud/integration-defender-for-endpoint.md), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Microsoft Defender for Endpoint integration, you can spot abnormalities and detect vulnerabilities.
+> The MDE runtime protection service integrates with [Microsoft Defender for Endpoint](/azure/defender-for-cloud/integration-defender-for-endpoint), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Microsoft Defender for Endpoint integration, you can spot abnormalities and detect vulnerabilities.
 
 ## Before you begin
 
 - Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
+- Onboarding permissions granted to the nc-platform-extension identity of the cluster. See [Grant MDE Onboarding Permissions](./howto-set-up-defender-for-cloud-security.md).
 
 ## Setting variables
 

@@ -5,9 +5,9 @@ description: How to configure a custom domain name and choose certificates for t
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/13/2023
+ms.date: 06/24/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -23,6 +23,9 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
 >
 >* The Gateway's default domain name
 >* Any of the Gateway's configured custom domain names
+
+> [!NOTE]
+> Currently, custom domain names aren't supported in a [workspace gateway](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
 
@@ -73,7 +76,7 @@ If you already have a private certificate from a third-party provider, you can u
 
 # [Key Vault](#tab/key-vault)
 
-We recommend using Azure Key Vault to [manage your certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
+We recommend using Azure Key Vault to [manage your certificates](/azure/key-vault/certificates/about-certificates) and setting them to `autorenew`.
 
 If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a ](/rest/api/keyvault/certificates/create-certificate/create-certificate)_[certificate](/rest/api/keyvault/certificates/create-certificate/create-certificate)_, not a _secret_.
 
@@ -86,8 +89,7 @@ To fetch a TLS/SSL certificate, API Management must have the list and get secret
     1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal ID on that page.
     1.  Assign permissions to the managed identity to access the key vault. Use steps in the following section.
     
-    [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
-
+    [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
 If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
 
@@ -203,7 +205,7 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## Next steps
+## Related content
 
 [Upgrade and scale your service](upgrade-and-scale.md)
 

@@ -1,14 +1,14 @@
 ---
 title: Permissions to view and manage Azure reservations
 description: Learn how to view and manage Azure reservations in the Azure portal.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Permissions to view and manage Azure reservations
@@ -137,7 +137,7 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservations Administrator and Reservations Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
 
 ### Add a Reservations Administrator role or Reservations Reader role at the tenant level
-You can assign these roles from the [Azure portal](https://portal.azure.com).
+Only Global Administrators can assign these roles from the [Azure portal](https://portal.azure.com).
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 1. Select a reservation that you have access to.

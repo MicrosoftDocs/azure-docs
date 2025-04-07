@@ -2,11 +2,14 @@
 title: 'Quickstart: Query Apache HBase in Azure HDInsight - HBase Shell'
 description: In this quickstart, you learn how to use Apache HBase Shell to run Apache HBase queries.
 keywords: hdinsight,hadoop,HBase
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive, mode-other
 ms.topic: quickstart
-ms.date: 01/04/2024
-#Customer intent: As a HBase user, I want learn HBase shell so that I can run queries.
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  01/02/2025
+#Customer intent: As an HBase user, I want learn HBase shell so that I can run queries.
 ---
 
 # Quickstart: Query Apache HBase in Azure HDInsight with HBase Shell

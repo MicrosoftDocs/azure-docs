@@ -1,7 +1,6 @@
 ---
 title: Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)
 description: This article describes how to configure Azure-SSIS integration runtime in Azure Data Factory with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR).
-ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 author: chugugrace
@@ -21,6 +20,8 @@ Azure SQL Database/Managed Instance and SQL Server Integration Services (SSIS) i
 For business continuity and disaster recovery (BCDR), Azure SQL Database/Managed Instance can be configured with a [geo-replication/failover group](/azure/azure-sql/database/auto-failover-group-overview), where SSISDB in a primary Azure region with read-write access (primary role) will be continuously replicated to a secondary region with read-only access (secondary role). When a disaster occurs in the primary region, a failover will be triggered, where the primary and secondary SSISDBs will swap roles.
 
 For BCDR, you can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group. This allows you to have a pair of running Azure-SSIS IRs that at any given time, only one can access the primary SSISDB to fetch and execute packages, as well as write package execution logs (primary role), while the other can only do the same for packages deployed somewhere else, for example in Azure Files (secondary role). When SSISDB failover occurs, the primary and secondary Azure-SSIS IRs will also swap roles and if both are running, there'll be a near-zero downtime.
+
+This approach can be used with any regions supported by Azure SQL. It isn't restricted to [paired Azure regions](../reliability/regions-paired.md).
 
 This article describes how to configure Azure-SSIS IR with Azure SQL Database/Managed Instance failover group for BCDR.
 

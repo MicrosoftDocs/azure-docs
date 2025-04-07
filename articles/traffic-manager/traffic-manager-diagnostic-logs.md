@@ -3,16 +3,16 @@ title: Enable resource logging in Azure Traffic Manager
 description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Enable resource logging in Azure Traffic Manager
 
-This article describes how to enable collection of diagnostic resource logs and access log data for a Traffic Manager profile.
+This article describes how to enable the collection of diagnostic resource logs, including Traffic Manager Probe Health Results, for a Traffic Manager profile.
 
 Azure Traffic Manager resource logs can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use the profile's log data to determine why individual probes have timed out against an endpoint.
 
@@ -74,7 +74,7 @@ To access log files follow the following steps.
 ## Traffic Manager log schema
 
 All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events. 
-For top-level resource logs schema, see [Supported services, schemas, and categories for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md).
+For top-level resource logs schema, see [Supported services, schemas, and categories for Azure Resource Logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 The following table includes logs schema specific to the Azure Traffic Manager profile resource.
 

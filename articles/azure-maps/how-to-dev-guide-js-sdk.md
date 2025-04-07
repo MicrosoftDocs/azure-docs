@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: rest-sdk
 ms.custom: devx-track-js, devx-track-ts
-services: azure-maps
 ---
 
 # JavaScript/TypeScript REST SDK Developers Guide (preview)
@@ -441,7 +441,7 @@ main().catch((err) => {
 [listSas]: /javascript/api/%40azure/arm-maps/accounts#@azure-arm-maps-accounts-listsas
 [managedIdentity]: https://techcommunity.microsoft.com/t5/azure-maps-blog/managed-identities-for-azure-maps/ba-p/3666312
 [Node.js Release Working Group]: https://github.com/nodejs/release#release-schedule
-[Node.js]: https://nodejs.org/en/download/
+[Node.js]: https://nodejs.org/en/download/package-manager/
 [search package]: https://www.npmjs.com/package/@azure-rest/maps-search
 [search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
 [search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/

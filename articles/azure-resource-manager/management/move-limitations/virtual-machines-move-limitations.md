@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-templ
 
 # Handling special cases when moving virtual machines to resource group or subscription
 
-This article describes special cases that require extra steps when moving a virtual machine to a new resource group or Azure subscription. If your virtual machine uses disk encryption, a Marketplace plan, or Azure Backup, you must use one of the workarounds described in this article. For all other scenarios, move the virtual machine with the standard operations for [Azure portal](../move-resource-group-and-subscription.md#use-the-portal), [Azure CLI](../move-resource-group-and-subscription.md#use-azure-cli), or [Azure PowerShell](../move-resource-group-and-subscription.md#use-azure-powershell). For Azure CLI, use the [az resource move](/cli/azure/resource#az-resource-move) command. For Azure PowerShell, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command.
+This article describes special cases that require extra steps when moving a virtual machine to a new resource group or Azure subscription. If your virtual machine uses disk encryption, a Marketplace plan, or Azure Backup, you must use one of the workarounds described in this article. For all other scenarios, move the virtual machine with the standard operations for [Azure portal](../move-resource-group-and-subscription.md#use-the-azure-portal), [Azure CLI](../move-resource-group-and-subscription.md#use-the-azure-cli), or [Azure PowerShell](../move-resource-group-and-subscription.md#use-azure-powershell). For Azure CLI, use the [az resource move](/cli/azure/resource#az-resource-move) command. For Azure PowerShell, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command.
 
 If you want to move a virtual machine to a new region, see [Tutorial: Move Azure VMs across regions](../../../resource-mover/tutorial-move-region-virtual-machines.md).
 
@@ -21,11 +21,11 @@ The following scenarios aren't yet supported:
 * Virtual machines created from Marketplace resources with plans attached can't be moved across subscriptions. For a potential workaround, see [Virtual machines with Marketplace plans](#virtual-machines-with-marketplace-plans).
 * Low-priority virtual machines and low-priority virtual machine scale sets can't be moved across resource groups or subscriptions.
 * Virtual machines in an availability set can't be moved individually.
-* Virtual machines using scheduled patching can't be moved across resource groups or subscriptions. For a potential workaround, see [Managing VM updates with Maintenance Configurations](../../../virtual-machines/maintenance-configurations.md#guest)
+* Virtual machines using scheduled patching can't be moved across resource groups or subscriptions. For a potential workaround, see [Managing VM updates with Maintenance Configurations](/azure/virtual-machines/maintenance-configurations#guest)
 
 ## Azure disk encryption
 
-A virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md) can be moved to another resource group when it is in deallocated state. 
+A virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) or [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview) can be moved to another resource group when it is in deallocated state. 
 
 However, to move such virtual machine to another subscription, you must disable encryption.
 
@@ -100,9 +100,9 @@ Virtual machines created from Marketplace resources with plans attached can't be
 
     Or, you can create a new instance of a virtual machine with the plan through the portal. You can delete the virtual machine after accepting the terms in the new subscription.
 
-1. In the destination subscription, recreate the virtual machine from the cloned OS disk using PowerShell, CLI, or an Azure Resource Manager template. Include the marketplace plan that's attached to the disk. The information about the plan should match the plan you purchased in the new subscription. For more information, see [Create the VM](../../../virtual-machines/marketplace-images.md#create-the-vm).
+1. In the destination subscription, recreate the virtual machine from the cloned OS disk using PowerShell, CLI, or an Azure Resource Manager template. Include the marketplace plan that's attached to the disk. The information about the plan should match the plan you purchased in the new subscription. For more information, see [Create the VM](/azure/virtual-machines/marketplace-images#create-the-vm).
 
-For more information, see [Move a Marketplace Azure Virtual Machine to another subscription](../../../virtual-machines/azure-cli-change-subscription-marketplace.md).
+For more information, see [Move a Marketplace Azure Virtual Machine to another subscription](/azure/virtual-machines/azure-cli-change-subscription-marketplace).
 
 ## Virtual machines with Azure Backup
 

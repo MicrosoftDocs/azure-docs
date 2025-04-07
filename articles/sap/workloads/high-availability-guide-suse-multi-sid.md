@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 06/19/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -325,11 +325,11 @@ This documentation assumes that:
    Start_Program_01 = local $(_EN) pf=$(_PF)
    
    # Add the following lines
-   service/halib = $(DIR_CT_RUN)/saphascriptco.so
+   service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    
    # Add the keep alive parameter, if using ENSA1
-   enque/encni/set_so_keepalive = true
+   enque/encni/set_so_keepalive = TRUE
    ```
 
    For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
@@ -344,7 +344,7 @@ This documentation assumes that:
    Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
    
    # Add the following lines
-   service/halib = $(DIR_CT_RUN)/saphascriptco.so
+   service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    
    # remove Autostart from ERS profile
@@ -372,7 +372,28 @@ This documentation assumes that:
     sudo ssh slesmsscl1 "cat /usr/sap/sapservices" | grep ERS22 | sudo tee -a /usr/sap/sapservices
     ```
 
-8. **[1]** Create the SAP cluster resources for the newly installed SAP system.
+8. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
+
+   > [!NOTE]
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installing or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
+
+   ```bash
+   # Stop all ASCS and ERS instances using <sid>adm
+   sapcontrol -nr 10 -function Stop
+   sapcontrol -nr 10 -function StopService
+
+   sapcontrol -nr 12 -function Stop
+   sapcontrol -nr 12 -function StopService
+
+   # Execute below command on VM where you have performed ASCS instance installation for each SAP system (e.g. slesmsscl1)
+   sudo systemctl disable SAPNW2_10
+   sudo systemctl disable SAPNW3_20
+   # Execute below command on VM where you have performed ERS instance installation for each SAP system (e.g. slesmsscl2)
+   sudo systemctl disable SAPNW2_12
+   sudo systemctl disable SAPNW2_22
+   ```
+
+9. **[1]** Create the SAP cluster resources for the newly installed SAP system.
 
    Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources for **NW2** and **NW3** systems. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 

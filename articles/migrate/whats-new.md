@@ -6,13 +6,30 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 06/07/2024
-ms.custom: mvc, engagement-fy24
+ms.date: 02/24/2025
+ms.custom: mvc, engagement-fy25
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (February 2025)
+
+Public Preview: Azure Migrate now supports discovery and assessment of MySQL databases. You can use this capability to discover MySQL instances and their attributes within your environment, assess their readiness for migration to Azure Database for MySQL, and obtain recommendations on the suitable compute and storage options, along with the associated costs. [Learn more](assessments-overview-migrate-to-azure-db-mysql.md).
+
+## Update (November 2024)
+
+- AVS assessments now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
+- Support for cost of SKUs when porting on-premises VCF subscription to AVS.
+- Support for migrating Enterprise Linux machines (RHEL and SLES) in VMware and Hyper-V environments to Azure, leveraging Azure Hybrid benefit. [Learn more](tutorial-migrate-hyper-v.md).
+- Public Preview: Azure Migrate now supports creating a business case for Azure Arc and onboarding servers to Azure Arc from the Migrate inventory. [Learn more](how-to-arc-enable-inventory.md).
+<br>Using these capabilities, you can visualize the value Azure Arc brings to your on-premises estate throughout the migration journey, enabling confident, informed decisions. You can also check if your on-premises servers are already Arc-enabled and, if not, generate an Azure Arc onboarding script to deploy at scale using automation tools for the servers you choose to enable.
+
+## Update (October 2024)
+
+The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
+
 
 ## Update (April 2024)
 
@@ -141,6 +158,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 
 ## Update (December 2021)
+
 - Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 - Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization, and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
     - Support for two new target assessment regions: Central US and Canada East
@@ -159,7 +177,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 ## Update (August 2021)
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-webapps-assessment-calculation.md). Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-webapps.md) tutorials to get started.
-- Support for Azure [ultra disks](../virtual-machines/disks-types.md#ultra-disks) in Azure VM assessment recommendation.
+- Support for Azure [ultra disks](/azure/virtual-machines/disks-types#ultra-disks) in Azure VM assessment recommendation.
 - General Availability of at-scale, software inventory, and agentless dependency analysis for VMware virtual machines.
 - Azure Migrate appliance updates:
     - "Diagnose and solve" on appliance to help users identify and self-assess any issues with the appliance.

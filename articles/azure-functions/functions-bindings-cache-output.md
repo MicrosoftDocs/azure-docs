@@ -1,13 +1,13 @@
 ---
 title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis
-description: Learn how to use Redis output binding on an Azure Functions. 
+description: Learn how to use Redis output binding on an Azure Functions.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 07/12/2024
 ---
 
 # Azure Cache for Redis output binding for Azure Functions
@@ -15,6 +15,16 @@ ms.date: 02/27/2024
 The Azure Cache for Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
 
 For information on setup and configuration details, see the [overview](functions-bindings-cache.md).
+
+## Scope of availability for functions bindings
+
+| Binding Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Output | Yes   | Yes               |
+
+> [!IMPORTANT]
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
 
 ::: zone pivot="programming-language-javascript"  
 <!--- Replace with the following when Node.js v4 is supported:
@@ -40,9 +50,34 @@ The following example shows a pub/sub trigger on the set event with an output bi
 >
 >For .NET functions, using the _isolated worker_ model is recommended over the _in-process_ model. For a comparison of the _in-process_ and _isolated worker_ models, see differences between the _isolated worker_ model and the _in-process_ model for .NET on Azure Functions.
 
-### [In-process](#tab/in-process)
+### [Isolated process](#tab/isolated-process)
 
 ```c#
+
+using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisOutputBinding
+{
+    internal class SetDeleter
+    {
+        [Function(nameof(SetDeleter))]
+        [RedisOutput(Common.connectionString, "DEL")]
+        public static string Run(
+            [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:set")] string key,
+            ILogger logger)
+        {
+            logger.LogInformation($"Deleting recently SET key '{key}'");
+            return key;
+        }
+    }
+}
+```
+
+---
+
+### [In-process](#tab/in-process)
+
+```csharp
 using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
@@ -57,28 +92,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
         {
             logger.LogInformation($"Deleting recently SET key '{key}'");
             arguments = new string[] { key };
-        }
-    }
-}
-```
-
-### [Isolated process](#tab/isolated-process)
-
-```csharp
-﻿using Microsoft.Extensions.Logging;
-
-namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
-{
-    internal class SetDeleter
-    {
-        [FunctionName(nameof(SetDeleter))]
-        [return: Redis(Common.connectionStringSetting, "DEL")]
-        public static string Run(
-            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
-            ILogger logger)
-        {
-            logger.LogInformation($"Deleting recently SET key '{key}'");
-            return key;
         }
     }
 }
@@ -123,7 +136,7 @@ This example shows a pub/sub trigger on the set event with an output binding to 
 
 ### [Model v3](#tab/nodejs-v3)
 
-The bindings are defined in this `function.json`` file:
+The bindings are defined in the `function.json`` file:
 
 ```json
 {
@@ -315,10 +328,12 @@ The output returns a string, which is the key of the cache entry on which apply 
 
 There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache in your deployments. For local development, you can also use service principal secrets. Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
 
+[!INCLUDE [functions-azure-redis-cache-authentication-note](../../includes/functions-azure-redis-cache-authentication-note.md)]
+
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings)
