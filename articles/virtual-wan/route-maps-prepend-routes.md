@@ -53,7 +53,7 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 
 ## Workflow
 
-1.  Use the Route-Map dashboard in hub 2 to verify the ASNs on routes are being advertised from the virtual network connection. 
+   1.  Use the Route-Map dashboard in hub 2 to verify the ASNs on routes are being advertised from the virtual network connection. 
 
    :::image type="content" source="./media/route-maps-prepend-routes/db-before-one.png" alt-text="Screenshot that shows the routes before Route-Map being applied." lightbox="./media/route-maps-prepend-routes/db-before-one.png":::
 
@@ -61,17 +61,17 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 
    :::image type="content" source="./media/route-maps-prepend-routes/db-before-two.png" alt-text="Screenshot that shows the routes before Route-Map being applied to the VPN branch." lightbox="./media/route-maps-prepend-routes/db-before-two.png"::: 
 
-2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
+   2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
    The Route-Map will have a match rule for route 10.5.0.192/26. The action **modify** will be selected. Route Modification has a **Prepend** for **AS Path** 65533.  
 
    :::image type="content" source="./media/route-maps-prepend-routes/rm.png" alt-text="Screenshot that shows the Route-Map." lightbox="./media/route-maps-prepend-routes/rm.png":::
 
-3. Apply the Route-Map on the virtual network 3 connection. The Route-Map will be applied in the inbound direction. 
+   3. Apply the Route-Map on the virtual network 3 connection. The Route-Map will be applied in the inbound direction. 
 
    :::image type="content" source="./media/route-maps-prepend-routes/apply.png" alt-text="Screenshot of the Route-map being applied." lightbox="./media/route-maps-prepend-routes/apply.png":::
 
-4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has an ASN of 65533 added.    
+   4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has an ASN of 65533 added.    
 
    :::image type="content" source="./media/route-maps-prepend-routes/db-after-one.png" alt-text="Screenshot showing routes after Route-map was applied." lightbox="./media/route-maps-prepend-routes/db-after-one.png":::
 

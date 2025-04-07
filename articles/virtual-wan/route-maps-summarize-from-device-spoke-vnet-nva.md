@@ -51,7 +51,7 @@ In this scenario, the goal is to summarize some routes being advertised to the h
 
 ## Workflow
 
-1.  Use the Route-Map dashboard in hub 1 to verify the correct routes are currently being advertised from virtual network 1 to the hub.
+   1.  Use the Route-Map dashboard in hub 1 to verify the correct routes are currently being advertised from virtual network 1 to the hub.
 
    :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-one.png" alt-text="Screenshot that shows the routes before Route-maps." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-one.png":::
 
@@ -59,17 +59,17 @@ In this scenario, the goal is to summarize some routes being advertised to the h
 
    :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-two.png" alt-text="Screenshot that shows the routes before Route-maps for VPN branch." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-before-two.png":::  
 
-2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
+   2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
    The Route-Map will have a match rule for route 10.150.0.0/16. The action **modify** will be selected. Route Modification has an **Replace** for **RoutePrefix** 10.150.0.0/16.  
 
    :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/rm.png" alt-text="Screenshot that shows the Route-map." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/rm.png":::
 
-3. Apply the Route-Map on the virtual network 1 connection. The Route-Map will be applied in the inbound direction. 
+   3. Apply the Route-Map on the virtual network 1 connection. The Route-Map will be applied in the inbound direction. 
 
    :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/apply.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/apply.png":::
 
-4. Using the Route-Map dashboard in Hub 1, Verify that route 10.150.0.0/16 is being summarized.    
+   4. Using the Route-Map dashboard in Hub 1, Verify that route 10.150.0.0/16 is being summarized.    
 
    :::image type="content" source="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-after-one.png" alt-text="Screenshot that shows routes after Route-map being applied." lightbox="./media/route-maps-summarize-from-device-spoke-vnet-nva/db-after-one.png":::
 
