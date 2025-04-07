@@ -1,13 +1,13 @@
 ---
 title: Transfer Azure Enterprise enrollment accounts and subscriptions
 description: Describes how Azure Enterprise enrollment accounts and subscriptions are transferred.
-author: bandersmsft
-ms.reviewer: sapnakeshari
+author: prashantsaini4
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/06/2025
-ms.author: banders
+ms.date: 04/01/2025
+ms.author: prsaini
 ---
 
 # Transfer Azure Enterprise enrollment accounts and subscriptions

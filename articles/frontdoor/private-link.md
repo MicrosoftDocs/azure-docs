@@ -36,7 +36,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
 * API Management
-* Application Gateway (Public Preview. Don't use in production environments)
+* Application Gateway
 * Azure Container Apps (Public Preview. Don't use in production environments)
 
 > [!NOTE]
@@ -66,7 +66,7 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 
 ### Private endpoint creation
 
-Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of Private Link, resource ID and group ID, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID, and group ID, you don't need to approve anymore private endpoints.
+Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of resource ID, group ID and region, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID, and group ID, you don't need to approve anymore private endpoints.
 
 #### Single private endpoint
 

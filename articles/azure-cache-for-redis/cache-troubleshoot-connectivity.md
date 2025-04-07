@@ -6,6 +6,8 @@ description: Learn how to resolve connectivity problems when creating clients wi
 
 ms.topic: conceptual
 ms.date: 12/12/2023
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.custom: template-concept, ignite-2024
 ---
 

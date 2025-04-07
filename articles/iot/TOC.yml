@@ -7,16 +7,17 @@ items:
     - name: Introduction
       href: iot-introduction.md
     - name: IoT solution components
+      expanded: true
       items:
-      - name: Device development
+      - name: Asset and device development
         href: iot-overview-device-development.md
-      - name: Device connectivity
+      - name: Asset and device connectivity
         href: iot-overview-device-connectivity.md
-      - name: Device management and control
+      - name: Asset and device management and control
         href: iot-overview-device-management.md
       - name: Process and route messages
         href: iot-overview-message-processing.md
-      - name: Extend your IoT solution
+      - name: Extend your solution
         href: iot-overview-solution-extensibility.md
       - name: Analyze and visualize your IoT data
         href: iot-overview-analyze-visualize.md
@@ -26,7 +27,7 @@ items:
         href: iot-overview-security.md
       - name: Scalability, high availability
         href: iot-overview-scalability-high-availability.md
-    - name: Azure IoT services and technologies
+    - name: Choose an Azure IoT service
       href: iot-services-and-technologies.md
 
   - name: How-to guides
@@ -110,6 +111,8 @@ items:
       href: iot-glossary.md
     - name: Azure IoT services
       items:
+      - name: Azure IoT Operations
+        href: ../iot-operations/index.yml
       - name: IoT Hub
         href: ../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
@@ -126,6 +129,8 @@ items:
       items:
       - name: Device and Service SDKs
         href: iot-sdks.md
+      - name: Azure IoT Operations SDKs
+        href: https://github.com/Azure/iot-operations-sdks
     - name: Azure IoT Tools for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
