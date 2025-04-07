@@ -17,11 +17,11 @@ ms.date: 03/31/2025
 
 HTTP variables provide the means through which you can retrieve HTTP request and response metadata. This metadata can then be used to dynamically alter a request or a response. The use of HTTP variables is restricted to the following rules engine features:
 
-- [Cache-Key Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
-- [Modify Client Request Header](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
-- [Modify Client Response Header](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
-- [URL Redirect](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
-- [URL Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
+- Cache-Key Rewrite
+- Modify Client Request Header
+- Modify Client Response Header
+- URL Redirect
+- URL Rewrite
 
 ## Definitions
 

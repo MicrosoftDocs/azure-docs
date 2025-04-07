@@ -168,15 +168,15 @@ The following flowchart describes how Azure Content Delivery Network validates a
 3. Under **HTTP Large**, select **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable extra token authentication-related capabilities. For more information, see [Rules engine reference](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication.
-   2. To enable token authentication on a rule, select **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** from the **Features** list, then select **Enabled**. Select **Update** if you're updating a rule or **Add** if you're creating a rule.
+   2. To enable token authentication on a rule, select **Token Auth** from the **Features** list, then select **Enabled**. Select **Update** if you're updating a rule or **Add** if you're creating a rule.
 
 4. In the rules engine, you can also enable more token authentication-related features. To enable any of the following features, select it from the **Features** list, then select **Enabled**.
 
-   - **[Token Auth Denial Code](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm):** Determines the type of response that is returned to a user when a request is denied. Rules set here override the response code set in the **Custom Denial Handling** section on the token-based authentication page.
+   - **Token Auth Denial Code:** Determines the type of response that is returned to a user when a request is denied. Rules set here override the response code set in the **Custom Denial Handling** section on the token-based authentication page.
 
-   - **[Token Auth Ignore URL Case](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm):** Determines whether the URL used to validate the token is case-sensitive.
+   - **Token Auth Ignore URL Case:** Determines whether the URL used to validate the token is case-sensitive.
 
-   - **[Token Auth Parameter](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm):** Renames the token auth query string parameter that appears in the requested URL.
+   - **Token Auth Parameter:** Renames the token auth query string parameter that appears in the requested URL.
 
 5. You can customize your token by accessing source code in [GitHub](https://github.com/VerizonDigital/ectoken).
    Available languages include:
