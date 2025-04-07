@@ -51,7 +51,7 @@ The number of NSGs that you can create for each Azure region and subscription is
     | --- | --- |
     | **Project details** | |
     | Subscription | Select your Azure subscription. |
-    | Resource group | Select an existing resource group, or create a new one by selecting **Create new**. This example uses the `myResourceGroup` resource group. |
+    | Resource group | Select an existing resource group, or create a new one by selecting **Create new**. This example uses the `test-rg` resource group. |
     | **Instance details** | |
     | Network security group name | Enter a name for the NSG that you're creating. |
     | Region | Select the region that you want. |
@@ -62,13 +62,13 @@ The number of NSGs that you can create for each Azure region and subscription is
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
-Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create an NSG named `myNSG` in the **East US** region. The NSG named `myNSG` is created in the existing `myResourceGroup` resource group.
+Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create an NSG named `nsg-1` in the **East US** region. The NSG named `nsg-1` is created in the existing `test-rg` resource group.
 
 ```azurepowershell-interactive
 # Define parameters for the new network security group
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
     Location          = "eastus"
 }
 
@@ -78,12 +78,12 @@ New-AzNetworkSecurityGroup @NSGParams
 
 # [**Azure CLI**](#tab/network-security-group-cli)
 
-Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create an NSG named `myNSG` in the existing `myResourceGroup` resource group.
+Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create an NSG named `nsg-1` in the existing `test-rg` resource group.
 
 ```azurecli-interactive
 az network nsg create \
-    --resource-group MyResourceGroup 
-    --name myNSG
+    --resource-group test-rg \
+    --name nsg-1
 ```
 
 ---
@@ -147,8 +147,8 @@ Use [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecu
 ```azurepowershell-interactive
 # Define parameters for the network security group
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
 }
 
 # Retrieve the network security group
@@ -171,8 +171,8 @@ Use [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show) to view th
 
 ```azurecli-interactive
 az network nsg show \
-    --resource-group myResourceGroup \
-    --name myNSG
+    --resource-group test-rg \
+    --name nsg-1
 ```
 
 To learn more about the common Azure settings that are listed, see the following articles:
@@ -225,11 +225,11 @@ Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtu
 ```azurepowershell-interactive
 # Define parameters for the virtual network and subnet configuration
 $VNetParams = @{
-    Name              = "myVNet"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "vnet-1"
+    ResourceGroupName = "test-rg"
 }
 $SubnetParams = @{
-    Name              = "mySubnet"
+    Name              = "subnet-1"
     AddressPrefix     = "10.0.0.0/24"
     NetworkSecurityGroup = $networkSecurityGroup
 }
@@ -250,10 +250,10 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vn
 
 ```azurecli-interactive
 az network vnet subnet update \
-    --resource-group myResourceGroup \
-    --vnet-name myVNet \
-    --name mySubnet \
-    --network-security-group myNSG
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --name subnet-1 \
+    --network-security-group nsg-1
 ```
 
 ---
@@ -278,8 +278,8 @@ Use [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetwo
 ```azurepowershell-interactive
 # Define parameters for the network security group to be removed
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
 }
 
 # Remove the network security group
@@ -292,8 +292,8 @@ Use [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete) to del
 
 ```azurecli-interactive
 az network nsg delete \
-    --resource-group myResourceGroup \
-    --name myNSG
+    --resource-group test-rg \
+    --name nsg-1
 ```
 
 ---
@@ -345,8 +345,8 @@ Use [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetwor
 ```azurepowershell-interactive
 # Define parameters for the network security group and security rule
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
 }
 $RuleParams = @{
     Name                 = "RDP-rule"
@@ -377,8 +377,8 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule
 
 ```azurecli-interactive
 az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
+    --resource-group test-rg \
+    --nsg-name nsg-1 \
     --name RDP-rule \
     --priority 300 \
     --destination-address-prefixes '*' \
@@ -431,8 +431,8 @@ Use [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetwor
 ```azurepowershell-interactive
 # Define parameters for the network security group
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
 }
 
 # Retrieve the network security group
@@ -448,8 +448,8 @@ Use [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-l
 
 ```azurecli-interactive
 az network nsg rule list \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG
+    --resource-group test-rg \
+    --nsg-name nsg-1
 ```
 
 ---
@@ -477,8 +477,8 @@ Use [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetwor
 ```azurepowershell-interactive
 # Define parameters for the network security group and security rule
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
 }
 $RuleParams = @{
     Name = "RDP-rule"
@@ -500,8 +500,8 @@ Use [az network nsg rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-s
 
 ```azurecli-interactive
 az network nsg rule show \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
+    --resource-group test-rg \
+    --nsg-name nsg-1 \
     --name RDP-rule
 ```
 
@@ -535,8 +535,8 @@ Use [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetwor
 ```azurepowershell-interactive
 # Define parameters for the network security group and security rule
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
 }
 $RuleParams = @{
     Name                 = "RDP-rule"
@@ -570,8 +570,8 @@ Use [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule
 
 ```azurecli-interactive
 az network nsg rule update \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
+    --resource-group test-rg \
+    --nsg-name nsg-1 \
     --name RDP-rule \
     --priority 200
 ```
@@ -606,8 +606,8 @@ Use [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-az
 ```azurepowershell-interactive
 # Define parameters for the network security group and security rule
 $NSGParams = @{
-    Name              = "myNSG"
-    ResourceGroupName = "myResourceGroup"
+    Name              = "nsg-1"
+    ResourceGroupName = "test-rg"
 }
 $RuleParams = @{
     Name = "RDP-rule"
@@ -632,8 +632,8 @@ Use [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule
 
 ```azurecli-interactive
 az network nsg rule delete \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
+    --resource-group test-rg \
+    --nsg-name nsg-1 \
     --name RDP-rule
 ```
 
@@ -659,7 +659,7 @@ An application security group contains zero or more network interfaces. To learn
     | --- | --- |
     | **Project details** | |
     | Subscription | Select your Azure subscription. |
-    | Resource group | Select an existing resource group, or create a new one by selecting **Create new**. This example uses the `myResourceGroup` resource group. |
+    | Resource group | Select an existing resource group, or create a new one by selecting **Create new**. This example uses the `test-rg` resource group. |
     | **Instance details** | |
     | Name | Enter a name for the application security group that you're creating. |
     | Region | Select the region in which you want to create the application security group. |
@@ -676,8 +676,8 @@ Use [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplica
 ```azurepowershell-interactive
 # Define parameters for the new application security group
 $ASGParams = @{
-    ResourceGroupName = "myResourceGroup"
-    Name              = "myASG"
+    ResourceGroupName = "test-rg"
+    Name              = "asg-1"
     Location          = "eastus"
 }
 
@@ -691,8 +691,8 @@ Use [az network asg create](/cli/azure/network/asg#az-network-asg-create) to cre
 
 ```azurecli-interactive
 az network asg create \
-    --resource-group myResourceGroup \
-    --name myASG \
+    --resource-group test-rg \
+    --name asg-1 \
     --location eastus
 ```
 
@@ -719,7 +719,7 @@ Use [az network asg list](/cli/azure/network/asg#az-network-asg-list) to list al
 
 ```azurecli-interactive
 az network asg list \
-    --resource-group myResourceGroup \
+    --resource-group test-rg \
     --out table
 ```
 
@@ -737,7 +737,7 @@ az network asg list \
 Use [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) to view the details of an application security group.
 
 ```azurepowershell-interactive
-Get-AzApplicationSecurityGroup -Name myASG
+Get-AzApplicationSecurityGroup -Name asg-1
 ```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -746,8 +746,8 @@ Use [az network asg show](/cli/azure/network/asg#az-network-asg-show) to view th
 
 ```azurecli-interactive
 az network asg show \
-    --resource-group myResourceGroup \
-    --name myASG
+    --resource-group test-rg \
+    --name asg-1
 ```
 
 ---
@@ -775,18 +775,14 @@ az network asg show \
 ```azurepowershell-interactive
 # Define parameters for the application security group
 $ASGParams = @{
-    ResourceGroupName = "myResourceGroup"
-    Name              = "myASG"
+    ResourceGroupName = "test-rg"
+    Name              = "asg-1"
 }
 
 # Retrieve the application security group
 $applicationSecurityGroup = Get-AzApplicationSecurityGroup @ASGParams
 
-# Update the tags for the application security group
-$applicationSecurityGroup.Tags = @{"Dept" = "Finance"}
-
-# Apply the changes to the application security group
-Set-AzApplicationSecurityGroup -ApplicationSecurityGroup $applicationSecurityGroup
+New-AzTag -ResourceId $applicationSecurityGroup.Id -Tag @{ Dept = "Finance" }
 ```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -795,8 +791,8 @@ Use [az network asg update](/cli/azure/network/asg#az-network-asg-update) to upd
 
 ```azurecli-interactive
 az network asg update \
-    --resource-group myResourceGroup\
-    --name myASG \
+    --resource-group test-rg\
+    --name asg-1 \
     --tags Dept=Finance
 ```
 
@@ -826,8 +822,8 @@ Use [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-aza
 ```azurepowershell-interactive
 # Define parameters for the application security group to be removed
 $ASGParams = @{
-    ResourceGroupName = "myResourceGroup"
-    Name              = "myASG"
+    ResourceGroupName = "test-rg"
+    Name              = "asg-1"
 }
 
 # Remove the application security group
@@ -840,8 +836,8 @@ Use [az network asg delete](/cli/azure/network/asg#az-network-asg-delete) to del
 
 ```azurecli-interactive
 az network asg delete \
-    --resource-group myResourceGroup \
-    --name myASG
+    --resource-group test-rg \
+    --name asg-1
 ```
 
 ---
