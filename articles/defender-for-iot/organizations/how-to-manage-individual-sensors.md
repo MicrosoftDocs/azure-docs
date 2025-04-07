@@ -430,7 +430,7 @@ A confirmation message appears that the action was successful. All learned data,
 
 View data for each protocol monitored by your sensor using the **Protocols DPI (Horizon Plugins)** page in the sensor console.
 
-1. Sign in to your OT sensor console and select **System settings > Network monitoring > Protocols DPI (Horizon Plugins)**.
+1. Sign into your OT sensor console and select **System settings > Network monitoring > Protocols DPI (Horizon Plugins)**.
 
 1. Do one of the following:
 
