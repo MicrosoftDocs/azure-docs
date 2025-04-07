@@ -1,6 +1,6 @@
 ---
 title: Prevent phone numbers from being flagged as spam
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services article
 description: Learn about Communication Services recommendations.
 author: henikaraa
 manager: ankura
