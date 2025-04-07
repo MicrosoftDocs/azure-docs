@@ -57,7 +57,7 @@ Second, we set up the backend targets. We configure backend targets to the backe
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step-5.jpg" alt-text="Screenshot showing how to create an Application Gateway resource - create a routing rule, backend targets.":::
 
 
-Web PubSub service only accepts HTTPs traffic. So we instruct Application Gateway to communicate with Web PubSub using HTTPs. To keep this guide focused, we let Application Gateway to pick the host. The recommended practice is to set up a Custom Domain in production.  
+Web PubSub service only accepts HTTPS traffic. So we instruct Application Gateway to communicate with Web PubSub using HTTPS. To keep this guide focused, we let Application Gateway to pick the host. The recommended practice is to set up a Custom Domain in production.  
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step-6.jpg" alt-text="Screenshot showing how to create an Application Gateway resource - create a routing rule, backend settings.":::
 
@@ -236,7 +236,7 @@ export appGatewayEndpoint="<replace with the public IP of your Application Gatew
 
 Three points to note. 
 - We use the `ws://` instead of `wss://` since your Application Gateway is configured to listen to `http` traffic only. 
-- In production, it's probably best to set up custom domain for your Application Gateway resource and configured it to accept HTTPs only.
+- In production, it's probably best to set up custom domain for your Application Gateway resource and configured it to accept HTTPS only.
 - We need to keep the access token as it is since it encodes credentials for your client to connect with your Web PubSub resource. 
 
 Open your browser and visit `http://localhost:3000` again, you can verify that the WebSocket is successfully proxied through Application Gateway and receives messages from Application Gateway roughly every 2 seconds.
@@ -359,8 +359,8 @@ Make sure you select the same Virtual Network your Web PubSub resource is in.
 :::image type="content" source="media/howto-integrate-app-gateway/web-app-enable-vnet-step-2.jpg" alt-text=" Screenshot showing how to enable Virtual Network integration - step 2.":::
 
 #### Turn off automatic HTTP redirect
-By default, Web App redirects HTTP traffic to HTTPs. We need to disable this default behavior. This is not recommended for production workload. 
-:::image type="content" source="media/howto-integrate-app-gateway/web-app-turn-off-https-redirect.jpg" alt-text="Screenshot showing how to turn off automatic HTTPs redirect.":::
+By default, Web App redirects HTTP traffic to HTTPS. We need to disable this default behavior. This is not recommended for production workload. 
+:::image type="content" source="media/howto-integrate-app-gateway/web-app-turn-off-https-redirect.jpg" alt-text="Screenshot showing how to turn off automatic HTTPS redirect.":::
 
 ### Verify that everything works
 So far in step 2, you
@@ -370,7 +370,7 @@ So far in step 2, you
 4. updated the endpoint by which a client gets an access token for connecting with your Web PubSub resource
 5. deployed `publish.js` as a Web App into the same Virtual Network,
 6. set two environment variables on your Web App resource,
-7. disabled Web App's default behavior of redirecting HTTP traffic to HTTPs.
+7. disabled Web App's default behavior of redirecting HTTP traffic to HTTPS.
 
 Now, open your web browser and enter the domain name of your Web App. If you inspect the page, open the Network panel, you see that the client goes to Web App for the access token and then uses the token to establish a WebSocket connection with Application Gateway. 
 

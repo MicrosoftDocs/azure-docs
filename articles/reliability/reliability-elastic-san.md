@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Elastic SAN.
 author: roygara
 ms.author: rogarana
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: azure-elastic-san-storage
 ms.date: 1/15/2025
 ---
@@ -43,7 +43,7 @@ Deploying a ZRS Elastic SAN provides more reliability than an LRS Elastic SAN, b
 
 ### Availability zone migration
 
-To migrate an Elastic SAN on LRS to ZRS, snapshot your Elastic SAN volumes, export them to managed disk snapshots, deploy an Elastic SAN on ZRS, and then create volumes on the SAN on ZRS using those disk snapshots. To learn how to use snapshots (preview), see [Snapshot Azure Elastic SAN volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md).
+To migrate an Elastic SAN on LRS to ZRS, snapshot your Elastic SAN volumes, export them to managed disk snapshots, deploy an Elastic SAN on ZRS, and then create volumes on the SAN on ZRS using those disk snapshots. To learn how to use snapshots, see [Snapshot Azure Elastic SAN volumes](../storage/elastic-san/elastic-san-snapshots.md).
 
 ## Disaster recovery and business continuity
 
@@ -64,4 +64,4 @@ Microsoft and its customers operate under the [Shared Responsibility Model](./co
 ## Next steps
 
 - [Plan for deploying an Elastic SAN](../storage/elastic-san/elastic-san-planning.md)
-- [Snapshot Azure Elastic SAN volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md)
+- [Snapshot Azure Elastic SAN volumes](../storage/elastic-san/elastic-san-snapshots.md)

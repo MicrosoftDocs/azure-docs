@@ -155,8 +155,6 @@ This section includes questions related to management for Oracle Database@Azure.
 
 Oracle manages and hosts the data on OCI hosted in Azure datacenters. Your data resides in the provisioned Oracle Exadata infrastructure in Azure, and within the Azure Virtual Network boundary.
 
-If you enable backup to Azure, the data resides in the respective Azure storage, such as Azure NetApp Files and Azure Blob Storage.
-
 We ensure compliance with both companies’ data privacy and compliance policies through physical isolation of systems in Azure datacenters and through enforced access assignment policies. For more information about compliance, see [Overview of Oracle Database@Azure](database-overview.md) and [Oracle Cloud compliance](https://docs.oracle.com/iaas/Content/multicloud/compliance.htm).
 
 ### How is data security managed? Is the data encrypted in transit and at rest?

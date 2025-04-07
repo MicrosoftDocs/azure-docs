@@ -1,13 +1,13 @@
 ---
 title: View your Azure usage summary details and download reports for EA enrollments
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
-author: bandersmsft
-ms.author: banders
-ms.date: 02/04/2025
+author: RaniChegondi
+ms.author: racheg
+ms.date: 04/01/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: sapnakeshari
+ms.reviewer: racheg
 ---
 
 # View your usage summary details and download reports for EA enrollments
@@ -24,7 +24,7 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 
 ## Review usage charges
 
-To view detailed usage for specific accounts, download the usage detail report. Usage files can be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](../costs/tutorial-export-acm-data.md).
+To view detailed usage for specific accounts, download the usage detail report. Usage files can be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](../costs/tutorial-improved-exports.md).
 
 Enterprise Administrators and partner administrators can view historical data usage for terminated enrollments just as they do for active ones using the following information.
 
@@ -270,7 +270,10 @@ For a new enrollment, the default PO number is the enrollment number.
 
 If you don’t change the PO number, then the same PO number is used for all upcoming invoices. The PO number doesn't automatically increment. If you want to get new PO number for each month, then update it from Azure portal.
 
-Starting in May 2025, the EA admin won't receive a notification email reminding them to update the PO number. However, you can create a custom alert to send an email notification to yourself every month after an invoice is finalized. Then you can use the email notification as a reminder to update your PO number. For more information, see [Subscribe to scheduled alerts](../costs/save-share-views.md#subscribe-to-scheduled-alerts). Set the alert Frequency to Every month after invoice finalized. To view your usage and charges anytime, you can use the **Usage + Charges** tab in the [Azure portal](https://portal.azure.com).
+Starting in May 2025, the EA admin won't receive a notification email reminding them to update the PO number. However, you can create a custom alert to send an email notification to yourself every month before an invoice is finalized. Then you can use the email notification as a reminder to update your PO number. For more information, see [Subscribe to scheduled alerts](../costs/save-share-views.md#subscribe-to-scheduled-alerts). Set the alert **Frequency** to **Custom**, **Repeat every month**, and then choose a day early in the month to give yourself enough time to update the PO before the invoice is finalized. To view your usage and charges anytime, you can use the **Usage + Charges** tab in the [Azure portal](https://portal.azure.com).
+Here's an example of how to set up a custom alert to remind you to update your PO number:
+
+:::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/subscribe-emails-reminder.png" alt-text="Screenshot showing the Subscribe to emails window where you can define the email frequency." lightbox="./media/direct-ea-azure-usage-charges-invoices/subscribe-emails-reminder.png" :::
 
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
 

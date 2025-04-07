@@ -1,7 +1,7 @@
 ---
 title: End of call survey logs 
 titleSuffix: An Azure Communication Services concept document
-description: Learn about logging for End of Call Survey.
+description: Learn about logging for end of call survey.
 author: Mkhribech
 services: azure-communication-services
 
@@ -17,20 +17,31 @@ ms.subservice: data
 > [!NOTE]
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
+## How to use call logs
+We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
+
+There are two main tools you can use to monitor your calls and improve call quality. 
+- [Voice and video insights dashboard](../insights/voice-and-video-insights.md)
+- [Call diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+We recommend using the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[call diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+
+
 ## Prerequisites
 
 Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
-  * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
+  * Categories of logs and metric data sent to the destinations defined in the setting. The available categories vary for different resource types.
   * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
   * A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to five diagnostic settings.
 
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you don't send survey data to one of these options your survey data won't be stored and will be lost.
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 > [!NOTE]
-> Under diagnostic setting name please select “Call Survey” to enable the logs for end of call survey.
+> Under diagnostic setting name, select “Call Survey” to enable the logs for end of call survey.
 
  :::image type="content" source="..\logs\diagnostic-settings-call-survey-log.png" alt-text="Screenshot of diagnostic settings for call survey.":::
 ### Overview 
@@ -49,12 +60,16 @@ In addition to the above, the optional tags in the responses offer further insig
 
 By analyzing the data captured in the End of Call Survey logs, you can pinpoint areas that require improvement, thereby enhancing the overall user experience. 
 
+
 ## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:
 * **End of Call Survey logs** - provides basic information related to the survey at the end of the call
 
 ## **Properties** ##
+
+This table describes each property.
+
 
 | Property | Description |
 | -------- | ---------------|
@@ -115,7 +130,7 @@ Communication Services offers the following types of logs that you can enable:
 }
 ]
 ```
-### Example for the Audio quality 
+### Example for the audio quality 
 ```json
 [
 {
@@ -190,3 +205,29 @@ Communication Services offers the following types of logs that you can enable:
 }
 ]
 ```
+
+## Frequently asked questions
+
+### How do I store logs?
+The following section explains this requirement.
+
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [voice and video insights dashboard](../insights/voice-and-video-insights.md) and [call diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+
+**Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
+
+Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../enable-logging.md). We recommend that you initially **collect all logs**. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../enable-logging.md#adding-a-diagnostic-setting). To collect **all logs**, select **allLogs**.
+
+Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
+
+If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID.   
+
+## Next steps
+
+- Review the overview of all voice and video logs, see: [Overview of Azure Communication Services call logs](voice-and-video-logs.md)
+
+- Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
+
+- Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
+
+- Learn how to use call logs to diagnose call quality and reliability
+  issues with Call Diagnostics, see: [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)

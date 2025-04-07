@@ -202,7 +202,7 @@ Web components are categorized based on their function.
 | Hosting Provider | hostingprovider.com |
 | Server | Apache |
 | DNS Server | ISC BIND |
-| Data stores | MySQL, ElasticSearch, MongoDB |
+| Data stores | MySQL, Elasticsearch, MongoDB |
 | Remote access | OpenSSH, Microsoft Admin Center, Netscaler Gateway |
 | Data Exchange | Pure-FTPd |
 | Internet of things (IoT) | HP Deskjet, Linksys Camera, Sonos |

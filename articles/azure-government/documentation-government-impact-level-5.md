@@ -1,6 +1,6 @@
 ---
 title: Azure Government isolation guidelines for Impact Level 5
-description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
+description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads, which have a higher degree of impact to the DoD.
 ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
@@ -419,5 +419,4 @@ Start using Azure Government:
 
 - [Guidance for developers](./documentation-government-developer-guide.md)
 - [Connect with the Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
-- [Deploy STIG-compliant Linux VMs](./documentation-government-stig-linux-vm.md)
-- [Deploy STIG-compliant Windows VMs](./documentation-government-stig-windows-vm.md)
+

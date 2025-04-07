@@ -4,7 +4,7 @@ description: Tutorial for how to use Pandas in a PySpark notebook to read/write 
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: how-to
-ms.reviewer: whhender, garye
+
 ms.date: 12/19/2024
 author: juluczni
 ms.author: juluczni

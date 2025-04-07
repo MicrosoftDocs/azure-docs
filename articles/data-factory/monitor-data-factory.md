@@ -5,8 +5,8 @@ ms.date: 10/03/2024
 ms.subservice: monitoring
 ms.custom: horz-monitor
 ms.topic: conceptual
-author: jonburchel
-ms.author: jburchel
+author: whhender
+ms.author: whhender
 ---
 
 # Monitor Azure Data Factory

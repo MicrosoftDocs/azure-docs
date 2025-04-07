@@ -4,6 +4,9 @@ description: Tutorial - Learn how to use the Apache Kafka Streams API with Kafka
 ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 12/02/2024
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---

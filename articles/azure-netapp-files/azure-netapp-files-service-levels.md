@@ -5,10 +5,11 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/24/2025
+ms.date: 03/25/2025
 ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
+
 Service levels are an attribute of a capacity pool. Service levels are defined and differentiated by the allowed maximum throughput for a volume in the capacity pool based on the quota that is assigned to the volume. Throughput is a combination of read and write speed. 
 
 ## Supported service levels
@@ -29,7 +30,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
     The Flexible service level enables you to adjust throughput and size limits independently. This service level is designed for demanding applications such as Oracle or SAP HANA. You can also use the Flexible service level to create high-capacity volumes with (relatively) low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The first 128 MiB/s of throughput, known as the baseline, is included in the Flexible service level. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level.
 
     >[!IMPORTANT]
-    >The Flexible service level is only supported for new _manual QoS_ capacity pools. 
+    >The Flexible service level is only supported for new _manual QoS_ capacity pools. For a list of regions that support the Flexible service level, see [Create a capacity pool for Azure NetApp Files](azure-netapp-files-set-up-capacity-pool.md#regions).
 
 * Storage with cool access:      
     [Cool access storage](manage-cool-access.md#register-the-feature) is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. Throughput experience differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
@@ -70,8 +71,7 @@ The following diagram illustrates the scenarios for the SAP HANA volumes but wit
 
 :::image type="content" source="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png" alt-text="Diagram of Flexible service level throughput with SAP HANA volumes." lightbox="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png":::
 
-
-The example extends to the Flexible service as well. A Flexible service level capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
+The example extends to the Flexible service level as well. A Flexible service level capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
 
 - SAP HANA data volume: Size 4 TiB with up to 704 MiB/s
 - SAP HANA log volume: Size 0.5 TiB with up to 256 MiB/s
@@ -86,13 +86,13 @@ As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s 
 | - | - | -- |
 | 1 | 128 | 5 * 128 * 1 = 640 |
 | 2 | 128 | 5 * 128 * 2 = 1,280 |
-| 5 | 128 | 5 * 128 * 5 = 3,200 |
 | 10 | 128 | 5 * 128 * 10 = 6,400 |
 | 50 | 128 | 5 * 128 * 50 = 32,000 |
 | 100 | 128 | 5 * 128 * 100 = 64,000 |
+| 1,024 | 128 | 5 * 128 * 1,024 = 655,360 |
 
 >[!NOTE]
->A Flexible capacity pool with 128 MiB/s throughput assigned to it is only charged for the allocated capacity.
+>A baseline throughput of 128 MiB/s is provided for every pool, at no additional cost.
 
 ## Next steps
 

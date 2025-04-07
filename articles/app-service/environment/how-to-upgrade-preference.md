@@ -14,10 +14,6 @@ Azure App Service is regularly updated to provide new features, new runtime vers
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
-> 
-
 With App Service Environment v3, you can specify your preference for when and how the planned maintenance is applied. The upgrade can be applied automatically or manually. Even with your preference set to automatic, you have some options to influence the timing.
 
 ## Automatic upgrade preference
@@ -32,16 +28,20 @@ In smaller regions, Early and Late upgrade preferences might be very close to ea
 
 ## Manual upgrade preference
 
-Manual upgrade preference gives you the option to receive a notification when an upgrade is available. The availability is also visible in the Azure portal. After the upgrade is available, you'll have 15 days to start the upgrade process. If you don't start the upgrade within the 15 days, the upgrade is processed with the remaining automatic upgrades in the region.
+Manual upgrade preference gives you the option to receive a notification when an upgrade is available. The availability is also visible in the Azure portal. After the upgrade is available, you'll typically have 15 days to start the upgrade process. If you don't start the upgrade within the 15 days, the upgrade is processed with the remaining automatic upgrades in the region.
 
-> [!IMPORTANT]
-> In rare cases, you might see an upgrade is available in the **Configuration** page for your App Service Environment, but you don't receive a **Service Health** notification (if you [configure notifications](#configure-notifications)). If you don't receive a Service Health notification, this available upgrade isn't required and the 15-day time limit doesn't apply. This is a known bug that we are working to fix.
+> [!NOTE]
+> Our goal is to provide you with a 15-day notice before the upgrade is applied automatically. In rare cases, the notice period is less than 15 days. The "End Time" for the planned maintenance event that you receive always indicates the end of the notice period.
 > 
 
 Upgrades normally don't affect the availability of your apps. The upgrade adds extra instances to ensure that the same capacity is available during upgrade. Patched and restarted instances are added back in rotation, and when you have workloads sensitive to restarts you should plan to start the maintenance during non-business hours. The full upgrade process normally finishes within 18 hours, but could take longer. Once the upgrade is started the upgrade runs until it's complete and isn't paused during standard business hours.
 
 > [!NOTE]
 > In rare cases, the upgrade availability might be impacted by a security hotfix superseding the planned upgrade, or a regression found in the planned upgrade before it has been applied to your instance. In these rare cases, the available upgrade will be removed and will transition to automatic upgrade.
+> 
+
+> [!IMPORTANT]
+> In rare cases, you might see an upgrade is available in the **Configuration** page for your App Service Environment, but you don't receive a **Service Health** notification (if you [configure notifications](#configure-notifications)). If you don't receive a Service Health notification, this available upgrade isn't required and the 15-day time limit doesn't apply. This is a known bug that we are working to fix.
 > 
 
 ## Configure notifications

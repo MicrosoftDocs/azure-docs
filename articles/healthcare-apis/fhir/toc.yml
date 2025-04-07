@@ -129,8 +129,6 @@ items:
   items: 
     - name: Access the FHIR service
       items: 
-        - name: Access using Postman
-          href: use-postman.md
         - name: Access using cURL
           href: using-curl.md
         - name: Access using REST Client

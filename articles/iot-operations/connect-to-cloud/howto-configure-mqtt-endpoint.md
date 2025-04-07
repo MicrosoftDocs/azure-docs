@@ -127,7 +127,7 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
     | Host                 | The hostname and port of the MQTT broker. Use the format `<hostname>:<port>`                                |
     | Authentication method | The method used for authentication. Choose [*Service account token*](#kubernetes-service-account-token-sat), or [*X509 certificate*](#x509-certificate) |
     | Service audience      | The audience for the service account token. Required if using *Service account token*. |
-    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. You can upload industry-standard multi-line X509 certificates improving device authentication management, security, and flexibility.|
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
     | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
 
@@ -372,7 +372,7 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
     | Host                  | The hostname of the MQTT broker endpoint in the format `<hostname>.<port>`. |
     | Authentication method | The method used for authentication. Choose [*Service account token*](#kubernetes-service-account-token-sat), or [*X509 certificate*](#x509-certificate). |
     | Service audience      | The audience for the service account token. Required if using *Service account token*. |
-    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*.  You can upload industry-standard multi-line X509 certificates improving device authentication management, security, and flexibility.  |
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
     | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
     
@@ -580,7 +580,7 @@ Many MQTT brokers, like Event Grid, support X.509 authentication. Data flows can
 The certificate and private key must be in PEM format and not password protected.
 
 > [!TIP]
-> PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with a headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
+> PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
 > 
 > If you have a certificate in another format, you can convert it to PEM format using OpenSSL. To learn more, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
 
@@ -598,10 +598,10 @@ Before configuring the data flow endpoint, create a secret with the certificate 
 # [Portal](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 > [!IMPORTANT]
-> The operations experience portal currently has a known issue where creating a X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).
+> The operations experience web UI currently has a known issue where creating an X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
@@ -614,7 +614,7 @@ If you select **Create new**, enter the following settings:
 | Setting | Description |
 | ------- | ----------- |
 | Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
-| Secret value | The certificate, private key, or intermediate certificates in PEM format. |
+| Secret value | The certificate, private key, or intermediate certificates in PEM format. You can upload industry-standard multi-line X509 certificates improving device authentication management, security, and flexibility. |
 | Set activation date | If turned on, the date when the secret becomes active. |
 | Set expiration date | If turned on, the date when the secret expires. |
 

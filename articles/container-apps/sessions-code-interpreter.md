@@ -180,6 +180,9 @@ Content-Type: application/octet-stream
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
+> [!NOTE]
+> The file upload limit is `128MB`. If this is exceeded a `HTTP 413` may be returned.
+
 #### Download a file from a session
 
 To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.

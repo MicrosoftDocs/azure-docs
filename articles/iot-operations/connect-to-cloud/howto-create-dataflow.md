@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 01/07/2025
+ms.date: 02/07/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -16,7 +16,7 @@ ai-usage: ai-assisted
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow by creating a *Data flow* custom resource or using the Azure IoT Operations Studio portal. A data flow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
+A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow by creating a *Data flow* custom resource or using the operations experience web UI. A data flow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
 <!--
 ```mermaid
@@ -186,7 +186,7 @@ If the default endpoint isn't used as the source, it must be used as the [destin
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Data flow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
-    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
@@ -268,7 +268,7 @@ If you created a custom MQTT or Kafka data flow endpoint (for example, to use wi
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Data flow endpoint    | Use the **Reselect** button to select a custom MQTT or Kafka data flow endpoint. For more information, see [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md) or [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md).|
-    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
@@ -313,10 +313,7 @@ When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT 
 
 # [Portal](#tab/portal)
 
-In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic** field to specify the MQTT topic filter to subscribe to for incoming messages.
-
-> [!NOTE]
-> Only one topic filter can be specified in the operations experience. To use multiple topic filters, use Bicep or Kubernetes.
+In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. You can add multiple MQTT topics by selecting **Add row** and entering a new topic.
 
 # [Bicep](#tab/bicep)
 
@@ -450,7 +447,7 @@ sourceSettings:
 
 ### Specify source schema
 
-When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#data-flows).
+When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience web UI. Using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#data-flows-issues).
 
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
@@ -680,7 +677,7 @@ You can use the **Compute** transform to apply a formula to the source data. Thi
     | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
 
 
-    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown.
+    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown. For built-in formulas, select the `<dataflow>` placeholder to see the list of available datapoints.
 
     You can enter MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
@@ -704,10 +701,7 @@ You can rename a datapoint using the **Rename** transform. This operation is use
     | New datapoint name | Enter the new name for the datapoint.                                                                   |
     | Description        | Provide a description for the transformation.                                                           |
 
-    Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown.
-
     You can enter MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
-
 
 1. Select **Apply**.
 

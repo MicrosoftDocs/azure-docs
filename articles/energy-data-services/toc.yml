@@ -1,3 +1,4 @@
+items:
 - name: Microsoft Azure Data Manager for Energy Documentation
   href: index.yml
 - name: Overview
@@ -33,6 +34,10 @@
       href: tutorial-well-delivery-ddms.md
     - name: Use Petrel DDMS APIs
       href: tutorial-petrel-ddms.md
+    - name: Use Reservoir DDMS APIs
+      href: tutorial-reservoir-ddms-apis.md
+    - name: Use Reservoir DDMS websocket APIs
+      href: tutorial-reservoir-ddms-websocket.md
 - name: Concepts
   items:
     - name: OSDU® services available on Azure Data Manager for Energy
@@ -78,6 +83,10 @@
           href: how-to-enable-external-data-sources.md
         - name: How to register External Data Sources (EDS)
           href: how-to-register-external-data-sources.md
+        - name: How to enable legal tags restricted COO (Country of Origin)
+          href: how-to-enable-legal-tags-restricted-country-of-origin.md
+        - name: How to enable Reservoir DDMS
+          href: how-to-enable-reservoir-ddms.md
     - name: Monitoring
       items:
         - name: Airflow task logs integration with Azure Monitor

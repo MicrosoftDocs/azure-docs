@@ -22,7 +22,7 @@ The following table shows limits that are different for Basic, Standard, Premium
 | Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB | 1 MB |
 | Number of consumer groups per event hub | 1 | 20 | 100 | 1,000<br/>No limit per CU |
 | Number of Kafka consumer groups per namespace | NA | 1,000 | 1,000 | 1,000 |
-| Number of brokered connections per namespace | 100 | 5,000 | 10,000 per PU<br/><br/>For example, if the namespace is assigned 3 PUs, the limit is 30,000. | 100,000 per CU |
+| Number of brokered connections per namespace | 100 | 5,000 | 10,000 per PU<br/><br/>For example, if the namespace is assigned 4 PUs, the limit is 40,000. | 100,000 per CU |
 | Maximum retention period of event data | 1 day | 7 days | 90 days | 90 days |
 | Event storage for retention | 84 GB per TU | 84 GB per TU | 1 TB per PU | 10 TB per CU | 
 | Maximum TUs or PUs or CUs | 40 TUs | 40 TUs | 16 PUs | 20 CUs |

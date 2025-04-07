@@ -1,9 +1,8 @@
 ---
 title: Troubleshooting guide for Azure Synapse Link creation for Azure SQL Database 
 description: Learn how to troubleshoot Azure Synapse Link creation for Azure SQL Database
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: imotiwala
+author: im-microsoft
+ms.author: imotiwala
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link

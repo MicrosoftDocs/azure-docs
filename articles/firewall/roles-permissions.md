@@ -6,7 +6,7 @@ author: raboilla
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 12/9/2024
-ms.author: victorh
+ms.author: duau
 
 ---
 # About roles and permissions for Azure Firewall

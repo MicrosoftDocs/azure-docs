@@ -89,7 +89,7 @@ For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?
 - Model name: The name of the chat completion model, like "gpt-4o".
 - Deployment name: This is sometimes the same as the model name, but you may have chosen to use a different name. This differentiates between different deployments of the same model.
 - Endpoint: A URL like "https://cog-xxk4qzq3tahic.openai.azure.com/"
-- API version: The desired API version, like "2024-10-21". See the [version history documentation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) for the latest version.
+- API version: The desired API version, like "2024-10-21". See the [version history documentation](/azure/ai-services/openai/api-version-deprecation) for the latest version.
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you need the following values:
 

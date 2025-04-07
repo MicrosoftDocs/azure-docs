@@ -18,7 +18,7 @@ You can move Azure VMware Solution resources to a different region for several r
 
 This article helps you plan and migrate Azure VMware Solution from one Azure region to another, such as Azure region A to Azure region B.
 
-The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments. An HCX site pairing and service mesh are created between the two environments. The HCX migration traffic and Layer-2 extension moves (depicted by the purple line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://www.vmware.com/docs/vmware-cloud-planning-an-hcx-migration).
+The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments. An HCX site pairing and service mesh are created between the two environments. The HCX migration traffic and Layer-2 extension moves (depicted by the purple line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://docs.vmware.com/en/VMware-HCX/index.html).
 
 :::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false" lightbox="media/move-across-regions/move-ea-csp-across-regions-2.png":::
 
@@ -42,7 +42,7 @@ In this article, walk through the steps to:
 
 ## Prerequisites
 
-- [VMware HCX appliance is upgraded to the latest patch](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx.html) to avoid migration issues if any.
+- [VMware HCX appliance is upgraded to the latest patch](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx.html) to avoid migration issues if any.
 
 - Source's local content library is a [published content library](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0/using-content-librariesvsphere-vm-admin/publish-the-contents-of-a-library-and-a-single-template-to-a-subscribervsphere-vm-admin.html).
 
@@ -56,7 +56,7 @@ The following steps show how to prepare your Azure VMware Solution private cloud
 
 1. [Export the contents of an inventory list view to a CSV file](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/using-the-vsphere-client-host-management/working-with-the-vsphere-client-inventory-host-management.html#GUID-C0E8DD52-677E-464F-A3EA-044EE20B7B92-en).
 
-1. [Sort workloads into migration groups (migration wave)](https://www.vmware.com/docs/vmware-cloud-planning-an-hcx-migration).
+1. [Sort workloads into migration groups (migration wave)](https://docs.vmware.com/en/VMware-HCX/index.html).
 
 
 ### Deploy the target environment
@@ -281,7 +281,7 @@ In this step, use VMware HCX to migrate the VMs from the source to the target. Y
 
 Besides vMotion, other methods, like Bulk and Cold vMotion, are also recommended. Learn more about:
 
-- [Plan an HCX Migration](https://www.vmware.com/docs/vmware-cloud-planning-an-hcx-migration)
+- [Plan an HCX Migration](https://docs.vmware.com/en/VMware-HCX/index.html)
 
 - [Migrate Virtual Machines with HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-14D48C15-3D75-485B-850F-C5FCB96B5637.html)
 
@@ -294,7 +294,7 @@ In this step, perform a final gateway cutover to terminate the extended networks
 
 Before the gateway cutover, verify all migrated workload services and performance. Once application and web service owners accept the performance (except for any latency issues), you can continue with the gateway cutover.  Once the cutover is completed, you need to modify the public DNS A and PTR records. 
 
-For VMware recommendations, see [Cutover of extended networks](https://www.vmware.com/docs/vmware-cloud-planning-an-hcx-migration).
+For VMware recommendations, see [Cutover of extended networks](https://docs.vmware.com/en/VMware-HCX/index.html).
 
 ### Public IP DNAT for migrated DMZ VMs
 

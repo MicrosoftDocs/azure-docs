@@ -7,6 +7,9 @@ ms.topic: conceptual
 ms.date: 06/15/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+author: anuj1905
+ms.author: anujsharda
+ms.reviewer: hgowrisankar
 ---
 # Azure HDInsight double encryption for data at rest
 
@@ -22,7 +25,7 @@ HDInsight supports multiple types of encryption in two different layers:
 
 - Server Side Encryption (SSE) - SSE is performed by the storage service. In HDInsight, SSE is used to encrypt OS disks and data disks. It is enabled by default. SSE is a layer 1 encryption service.
 - Encryption at host using platform-managed key - Similar to SSE, this type of encryption is performed by the storage service. However, it is only for temporary disks and is not enabled by default. Encryption at host is also a layer 1 encryption service.
-- Encryption at rest using customer managed key - This type of encryption can be used on data and temporary disks. It is not enabled by default and requires the customer to provide their own key through Azure key vault. Encryption at rest is a layer 2 encryption service.
+- Encryption at rest using customer managed key - This type of encryption can be used on data and temporary disks. It is not enabled by default and requires the customer to provide their own key through Azure Key Vault. Encryption at rest is a layer 2 encryption service.
 
 These types are summarized in the following table.
 
@@ -39,7 +42,7 @@ Both data disks and temporary disks on each node of the cluster are encrypted wi
 
 For OS disks attached to the cluster VMs only one layer of encryption (PMK) is available. It is recommended that customers avoid copying sensitive data to OS disks if having a CMK encryption is required for their scenarios.
 
-If the key vault firewall is enabled on the key vault where the disk encryption key is stored, the HDInsight regional Resource Provider IP addresses for the region where the cluster will be deployed must be added to the key vault firewall configuration. This is necessary because HDInsight is not a trusted Azure key vault service.
+If the key vault firewall is enabled on the key vault where the disk encryption key is stored, the HDInsight regional Resource Provider IP addresses for the region where the cluster will be deployed must be added to the key vault firewall configuration. This is necessary because HDInsight is not a trusted Azure Key Vault service.
 
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](/azure/key-vault/general/soft-delete-overview) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 

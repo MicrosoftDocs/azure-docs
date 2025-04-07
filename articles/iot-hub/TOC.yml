@@ -209,8 +209,6 @@
           href: ./security-controls-policy.md
         - name: IoT security best practices
           href: ../iot/iot-overview-security.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: IoT security architecture
-          href: ../iot/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
 - name: How-to guides
   items:
     - name: Manage

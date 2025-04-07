@@ -2,11 +2,11 @@
 title: Azure Firewall Standard features
 description: Learn about Azure Firewall features.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 01/30/2025
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall Standard features

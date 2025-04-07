@@ -2,7 +2,7 @@
 title: Manage recovery points
 description: Learn how the Azure Backup service manages recovery points for virtual machines
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -96,7 +96,7 @@ There are two ways to stop protecting a VM:
 
 ## Impact of deleting a VM without stop protection
 
-Deleting a VM without stop protection has impact on recovery points, and is an undesirable scenario. Ideally backups should be stopped before deleting the virtual machine. Since the resource doesn't exist, the scheduled backups will fail with the [VMNotFoundV2 error](backup-azure-vms-troubleshoot.md#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found). The recovery points will be cleaned periodically according to the retention policy, but the last copy of the virtual machine will remain forever and you'll be billed accordingly. Depending on your scenario, you have the following two options:
+Deleting a VM without stop protection has impact on recovery points, and is an undesirable scenario. Ideally backups should be stopped before deleting the virtual machine. Since the resource doesn't exist, no further backups will be triggered and the item will still show as Healthy. If a manual backup is triggered, this will force a check on the VM and the job will fail with the [VMNotFoundV2 error](backup-azure-vms-troubleshoot.md#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found). The recovery points will be cleaned periodically according to the retention policy, but the last copy of the virtual machine will remain forever and you'll be billed accordingly. Depending on your scenario, you have the following two options:
 
 - **Option 1:** Restore the VM using any of the recovery points. If you want to recover the deleted VM, restore using the same name and in the same resource group. If you protect the restored VM to the same vault, then the existing recovery points will automatically get attached.
 - **Option 2:** Go to the Recovery Services vault and stop protection with delete data.

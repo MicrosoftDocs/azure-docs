@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 03/14/2025
 ---
 
 # Test workflows with mock outputs in Azure Logic Apps
@@ -26,9 +26,9 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
   If you're new to logic apps, see the following documentation:
 
-  * [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+  * [Quickstart: Create an example Consumption logic app workflow using the Azure portal](quickstart-create-example-consumption-workflow.md)
 
-  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
 ## Limitations
 
@@ -90,7 +90,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
    The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you enabled static results.
 
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Consumption workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png"::: 
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Consumption workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png":::
 
    To find workflow runs that use mock outputs, see [Find runs that use static results](#find-runs-mock-data) later in this guide.
 
@@ -123,7 +123,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 1. When you're ready, select **Save**.
 
-   The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you've enabled static results.
+   The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you enabled static results.
 
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Standard workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png":::
 
@@ -133,9 +133,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 <a name="find-runs-mock-data"></a>
 
-## Find runs that use mock outputs
-
-### [Consumption](#tab/consumption)
+## Find runs that use mock outputs (Consumption only)
 
 To find earlier workflow runs where the actions use mock outputs, review that workflow's run history.
 
@@ -157,30 +155,6 @@ To find earlier workflow runs where the actions use mock outputs, review that wo
 
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Consumption workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
 
-### [Standard](#tab/standard)
-
-To find earlier or other workflow runs where the actions use mock outputs, review each workflow's run history.
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
-
-1. On the workflow menu, select **Overview**.
-
-1. Under the **Essentials** section, select **Run History**, if not selected.
-
-1. In the **Run History** table, find the **Static Results** column.
-
-   Any run that includes actions with mock outputs has the **Static Results** column set to **Enabled**, for example:
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run-standard.png" alt-text="Screenshot shows Standard workflow run history with the Static Results column." lightbox="media/test-logic-apps-mock-data-static-results/select-run-standard.png":::
-
-1. To view the actions in a run that uses mock outputs, select the run where the **Static Results** column is set to **Enabled**.
-
-   On the run details pane, any actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Standard workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
-
----
-
 ## Disable mock outputs
 
 Turning off static results on an action doesn't remove the values from your last setup. So, if you turn on static results again on the same action, you can continue using your previous values.
@@ -199,6 +173,6 @@ Turning off static results on an action doesn't remove the values from your last
 
 For more information about this setting in your underlying workflow definitions, see [Static results - Schema reference for Workflow Definition Language](logic-apps-workflow-definition-language.md#static-results) and [runtimeConfiguration.staticResult - Runtime configuration settings](logic-apps-workflow-actions-triggers.md#runtime-configuration-settings).
 
-## Next steps
+## Related content
 
-* Learn more about [Azure Logic Apps](logic-apps-overview.md)
+* [What is Azure Logic Apps?](logic-apps-overview.md)

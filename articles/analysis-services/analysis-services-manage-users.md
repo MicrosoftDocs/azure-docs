@@ -31,6 +31,9 @@ Power BI Desktop, Visual Studio, and SSMS support Active Directory Universal Aut
 
 If signing in to Azure by using a Windows account, and Universal Authentication is not selected or available (Excel), [Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) is required. With Federation, Microsoft Entra ID and Microsoft 365 users are authenticated using on-premises credentials and can access Azure resources.
 
+> [!NOTE]
+> When creating a token with custom logic, it must either be a user token or an application service principal and the audience must be set to exactly `https://*.asazure.windows.net`
+
 ### SQL Server Management Studio (SSMS)
 
 Azure Analysis Services servers support connections from [SSMS V17.1](/sql/ssms/download-sql-server-management-studio-ssms) and higher by using Windows Authentication, Active Directory Password Authentication, and Active Directory Universal Authentication. In general, it's recommended you use Active Directory Universal Authentication because:

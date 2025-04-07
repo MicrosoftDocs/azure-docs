@@ -4,7 +4,7 @@ description: Lists the permissions for the Azure resource providers in the Integ
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
 ms.date: 01/25/2025
 ms.custom: generated
@@ -183,8 +183,8 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/service/apis/releases/read | Lists all releases of an API.<br>An API release is created when making an API Revision current.<br>Releases are also used to rollback to previous revisions.<br>Results will be paged and can be constrained by the $top and $skip parameters.<br>or Returns the details of an API release. |
 > | Microsoft.ApiManagement/service/apis/releases/delete | Removes all releases of the API or Deletes the specified release in the API. |
 > | Microsoft.ApiManagement/service/apis/releases/write | Creates a new Release for the API. or Updates the details of the release of the API specified by its identifier. |
-> | Microsoft.ApiManagement/service/apis/resolvers/read | Get the graphQL resolvers at the API level. or Get the graphQL resolver at the API level. |
-> | Microsoft.ApiManagement/service/apis/resolvers/write | Creates or updates graphQL resolver for the API. or Updates the details of the graphQL resolver in the API specified by its identifier. |
+> | Microsoft.ApiManagement/service/apis/resolvers/read | Get the GraphQL resolvers at the API level. or Get the GraphQL resolver at the API level. |
+> | Microsoft.ApiManagement/service/apis/resolvers/write | Creates or updates GraphQL resolver for the API. or Updates the details of the GraphQL resolver in the API specified by its identifier. |
 > | Microsoft.ApiManagement/service/apis/resolvers/delete | Deletes the policy configuration at the Api. |
 > | Microsoft.ApiManagement/service/apis/resolvers/policies/read | Get the list of policy configurations at the GraphQL API resolver level. or Get the policy configuration at the GraphQL API resolver level. |
 > | Microsoft.ApiManagement/service/apis/resolvers/policies/write | Creates or updates policy configuration for the GraphQL API. |
@@ -431,8 +431,8 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/service/tenants/apis/releases/read | Lists all releases of an API.<br>An API release is created when making an API Revision current.<br>Releases are also used to rollback to previous revisions.<br>Results will be paged and can be constrained by the $top and $skip parameters.<br>or Returns the details of an API release. |
 > | Microsoft.ApiManagement/service/tenants/apis/releases/delete | Removes all releases of the API or Deletes the specified release in the API. |
 > | Microsoft.ApiManagement/service/tenants/apis/releases/write | Creates a new Release for the API. or Updates the details of the release of the API specified by its identifier. |
-> | Microsoft.ApiManagement/service/tenants/apis/resolvers/read | Get the graphQL resolvers at the API level. or Get the graphQL resolver at the API level. |
-> | Microsoft.ApiManagement/service/tenants/apis/resolvers/write | Creates or updates graphQL resolver for the API. or Updates the details of the graphQL resolver in the API specified by its identifier. |
+> | Microsoft.ApiManagement/service/tenants/apis/resolvers/read | Get the GraphQL resolvers at the API level. or Get the GraphQL resolver at the API level. |
+> | Microsoft.ApiManagement/service/tenants/apis/resolvers/write | Creates or updates GraphQL resolver for the API. or Updates the details of the GraphQL resolver in the API specified by its identifier. |
 > | Microsoft.ApiManagement/service/tenants/apis/resolvers/delete | Deletes the policy configuration at the Api. |
 > | Microsoft.ApiManagement/service/tenants/apis/resolvers/policies/read | Get the list of policy configurations at the GraphQL API resolver level. or Get the policy configuration at the GraphQL API resolver level. |
 > | Microsoft.ApiManagement/service/tenants/apis/resolvers/policies/write | Creates or updates policy configuration for the GraphQL API. |
@@ -720,6 +720,30 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/Locations/OperationStatuses/write | Writes the status of an async operation |
 > | Microsoft.Communication/Operations/read | Reads operations |
 > | Microsoft.Communication/RegisteredSubscriptions/read | Reads registered subscriptions |
+
+## Microsoft.DurableTask
+
+Azure service: [Durable Functions](/azure/azure-functions/durable/durable-functions-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DurableTask/register/action | Register Microsoft.DurableTask resource provider for the subscription |
+> | Microsoft.DurableTask/unregister/action | Unregister Microsoft.DurableTask resource provider for the subscription |
+> | Microsoft.DurableTask/locations/operationStatuses/read | OperationStatuses read |
+> | Microsoft.DurableTask/locations/operationStatuses/write | OperationStatuses write |
+> | Microsoft.DurableTask/schedulers/write | Create or Update Durable Task Scheduler |
+> | Microsoft.DurableTask/schedulers/delete | Delete Durable Task Scheduler |
+> | Microsoft.DurableTask/schedulers/read | Read Durable Task Scheduler Namespace |
+> | Microsoft.DurableTask/schedulers/taskhubs/write | Create or Update Durable Task Scheduler Task Hub |
+> | Microsoft.DurableTask/schedulers/taskhubs/delete | Delete Durable Task Scheduler Task Hub |
+> | Microsoft.DurableTask/schedulers/taskhubs/read | Read Durable Task Scheduler Task Hub |
+> | **DataAction** | **Description** |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/manage/action | Manages orchestrations |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/raiseevents/action | Can invoke RaiseEvent |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
 
 ## Microsoft.EventGrid
 

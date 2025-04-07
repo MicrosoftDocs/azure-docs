@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Join a Teams meeting
+title: Join a Teams meeting
 author: eboltonmaggs
 ms.author: eboltonmaggs
 ms.date: 04/30/2024
@@ -7,10 +7,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for JavaScript.
+This article describes how to chat in a Teams meeting using the Azure Communication Services Chat SDK for JavaScript.
 
 ## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
+
+Download this code at GitHub Azure Samples [Join your chat app to a Teams meeting](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
 ## Prerequisites 
 
@@ -19,7 +20,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ## Joining the meeting chat 
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting adds them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user won't have access to chat messages that were sent before they joined the meeting and they won't be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
+A Communication Services user can join a Teams meeting as an anonymous user via the Calling SDK. Joining the meeting also adds them as a participant to the meeting chat, where they can send and receive messages with other users in the meeting. The user doesn't have access to chat messages that were sent before they joined the meeting and they can't send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
 
 ## Create a new Node.js application
 
@@ -53,19 +54,21 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ## Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
+This sample uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli, and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
 
 ```console
 npm install webpack@5.89.0 webpack-cli@5.1.4 webpack-dev-server@4.15.1 --save-dev
 ```
 
-Create an **index.html** file in the root directory of your project. We use this file to configure a basic layout that will allow the user to join a meeting and start chatting.
+Create an **index.html** file in the root directory of your project. We use this file to configure a basic layout that enables the user to join a meeting and start chatting.
 
 ## Add the Teams UI controls
 
 Replace the code in index.html with the following snippet.
-The text box at the top of the page will be used to enter the Teams meeting context. The 'Join Teams Meeting' button is used to join the specified meeting.
-A chat pop-up appears at the bottom of the page. It can be used to send messages on the meeting thread, and it displays in real time any messages sent on the thread while the Communication Services user is a member.
+
+Use the text box at the top of the page to enter the Teams meeting context. End users can join the specified meeting by clicking the **Join Teams Meeting** button.
+
+A chat pop-up appears at the bottom of the page. End users can use it to send messages on the meeting thread. It displays in real time any messages sent on the thread while the Communication Services user is a member.
 
 ```html
 <!DOCTYPE html>
@@ -331,7 +334,7 @@ sendMessageButton.addEventListener("click", async () => {
 
 ```
 
-Display names of the chat thread participants aren't set by the Teams client. The names are returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object. On receiving a notification about a roster change, you can use this code to retrieve the name of the user that was added or removed:
+The Teams client doesn't set the display names of the chat thread participants. The names are returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object. On receiving a notification about a roster change, you can use this code to retrieve the name of the user that was added or removed:
 
 ```
 var displayName = call.remoteParticipants.find(p => p.identifier.communicationUserId == '<REMOTE_USER_ID>').displayName;
@@ -349,7 +352,7 @@ Open your browser and navigate to `http://localhost:8080/`. You should see app l
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams meeting link into the text box. Press *Join Teams Meeting* to join the Teams meeting. After the Communication Services user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting. For simplicity, the application only shows the last two messages in the chat.
+Insert the Teams meeting link into the text box. Users can click **Join Teams Meeting** to join the Teams meeting. After the Communication Services user is admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting. For simplicity, the application only shows the last two messages in the chat.
 
 > [!NOTE] 
-> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)
+> Certain features are currently not supported for interoperability scenarios with Teams. For more information about supported features, see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md).

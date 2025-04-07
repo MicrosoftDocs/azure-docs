@@ -2,11 +2,11 @@
 title: 'Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy using the Azure portal. 
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 08/05/2024
-ms.author: victorh
+ms.author: duau
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 
@@ -275,8 +275,6 @@ Create the on-premises to hub virtual network connection. This step is similar t
 #### Verify the connection
 
 After about five minutes or so, the status of both connections should be **Connected**.
-
-![Gateway connections](media/tutorial-hybrid-portal/gateway-connections.png)
 
 ## Peer the hub and spoke virtual networks
 

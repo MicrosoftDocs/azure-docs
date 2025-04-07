@@ -5,6 +5,9 @@ ms.custom: references_regions, ignite-2024
 
 ms.topic: conceptual
 ms.date: 06/05/2023
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Configure role-based access control with Data Access Policy

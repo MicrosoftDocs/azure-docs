@@ -35,11 +35,17 @@ Before you run an automated script, clone the emulator's [GitHub installer repos
 
 Use the following steps to run the Service Bus emulator locally on Windows:
 
-1. Allow the execution of unsigned scripts by running this command in the PowerShell window:
+1. **Open PowerShell** and navigate to the directory where the [common](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/Common) scripts folder is cloned using `cd`:
+   ```powershell
+   cd <path to your common scripts folder> # Update this path
+      
+2. Issue wsl command to open WSL at this directory.
+   ```powershell
+   wsl
 
-   `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser'`
-
-1. Run the setup script [LaunchEmulator.ps1](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/Windows). Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
+3. **Run the setup script** *./LaunchEmulator.sh*.Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
+   ```bash
+   ./Launchemulator.sh 
 
 ### Linux and macOS
 
@@ -51,9 +57,10 @@ To run the Service Bus emulator locally on Linux or macOS:
 
 1. To start the emulator, supply a configuration for the entities that you want to use. Save the following JSON file locally as _config.json_:
 
-   ```JSON
+
+ ```JSON
    {
-   "UserConfig": {
+  "UserConfig": {
     "Namespaces": [
       {
         "Name": "sbemulatorns",
@@ -67,7 +74,7 @@ To run the Service Bus emulator locally on Linux or macOS:
               "ForwardDeadLetteredMessagesTo": "",
               "ForwardTo": "",
               "LockDuration": "PT1M",
-              "MaxDeliveryCount": 10,
+              "MaxDeliveryCount": 3,
               "RequiresDuplicateDetection": false,
               "RequiresSession": false
             }
@@ -89,7 +96,7 @@ To run the Service Bus emulator locally on Linux or macOS:
                   "DeadLetteringOnMessageExpiration": false,
                   "DefaultMessageTimeToLive": "PT1H",
                   "LockDuration": "PT1M",
-                  "MaxDeliveryCount": 10,
+                  "MaxDeliveryCount": 3,
                   "ForwardDeadLetteredMessagesTo": "",
                   "ForwardTo": "",
                   "RequiresSession": false
@@ -100,15 +107,15 @@ To run the Service Bus emulator locally on Linux or macOS:
                     "Properties": {
                       "FilterType": "Correlation",
                       "CorrelationFilter": {
-                        "ContentType": "application/text",
-                        "CorrelationId": "id1",
-                        "Label": "subject1",
-                        "MessageId": "msgid1",
-                        "ReplyTo": "someQueue",
-                        "ReplyToSessionId": "sessionId",
-                        "SessionId": "session1",
-                        "To": "xyz"
-                      }
+                     "ContentType": "application/text",
+                     "CorrelationId": "id1",
+                     "Label": "subject1",
+                     "MessageId": "msgid1",
+                     "ReplyTo": "someQueue",
+                     "ReplyToSessionId": "sessionId",
+                     "SessionId": "session1",
+                     "To": "xyz"
+                   }
                     }
                   }
                 ]
@@ -119,7 +126,7 @@ To run the Service Bus emulator locally on Linux or macOS:
                   "DeadLetteringOnMessageExpiration": false,
                   "DefaultMessageTimeToLive": "PT1H",
                   "LockDuration": "PT1M",
-                  "MaxDeliveryCount": 10,
+                  "MaxDeliveryCount": 3,
                   "ForwardDeadLetteredMessagesTo": "",
                   "ForwardTo": "",
                   "RequiresSession": false
@@ -131,7 +138,7 @@ To run the Service Bus emulator locally on Linux or macOS:
                       "FilterType": "Correlation",
                       "CorrelationFilter": {
                         "Properties": {
-                          "prop3": "value3"
+                          "prop1": "value1"
                         }
                       }
                     }
@@ -144,11 +151,37 @@ To run the Service Bus emulator locally on Linux or macOS:
                   "DeadLetteringOnMessageExpiration": false,
                   "DefaultMessageTimeToLive": "PT1H",
                   "LockDuration": "PT1M",
-                  "MaxDeliveryCount": 10,
+                  "MaxDeliveryCount": 3,
                   "ForwardDeadLetteredMessagesTo": "",
                   "ForwardTo": "",
                   "RequiresSession": false
                 }
+              },
+              {
+                "Name": "subscription.4",
+                "Properties": {
+                  "DeadLetteringOnMessageExpiration": false,
+                  "DefaultMessageTimeToLive": "PT1H",
+                  "LockDuration": "PT1M",
+                  "MaxDeliveryCount": 3,
+                  "ForwardDeadLetteredMessagesTo": "",
+                  "ForwardTo": "",
+                  "RequiresSession": false
+                },
+                "Rules": [
+                  {
+                    "Name": "sql-filter-1",
+                    "Properties": {
+                      "FilterType": "Sql",
+                      "SqlFilter": {
+                        "SqlExpression": "sys.MessageId = '123456' AND userProp1 = 'value1'"
+                      },
+                      "Action" : {
+                        "SqlExpression": "SET sys.To = 'Entity'"
+                      }
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -158,10 +191,9 @@ To run the Service Bus emulator locally on Linux or macOS:
     "Logging": {
       "Type": "File"
     }
-   }
-   }
-
-   ```
+  }
+}
+```
 
 2.To spin up containers for Service Bus emulator, save the following .yaml file as _docker-compose.yaml_
 
@@ -174,14 +206,17 @@ services:
   emulator:
     container_name: "servicebus-emulator"
     image: mcr.microsoft.com/azure-messaging/servicebus-emulator:latest
+    pull_policy: always
     volumes:
       - "${CONFIG_PATH}:/ServiceBus_Emulator/ConfigFiles/Config.json"
     ports:
       - "5672:5672"
+      - "5300:5300"
     environment:
-      SQL_SERVER: sqledge  
-      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+      SQL_SERVER: sqledge
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Edge  
       ACCEPT_EULA: ${ACCEPT_EULA}
+      SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
     depends_on:
       - sqledge
     networks:
@@ -197,9 +232,11 @@ services:
               - "sqledge"
         environment:
           ACCEPT_EULA: ${ACCEPT_EULA}
-          MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+          MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
+
 networks:
   sb-emulator:
+
 ```
 
 3. Create .env file to declare the environment variables for Service Bus emulator and ensure all of the following environment variables are set.
