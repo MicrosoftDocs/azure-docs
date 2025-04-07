@@ -1,5 +1,5 @@
 ---
-title: Connect to CICS programs on IBM mainframes
+title: Connect to CICS Programs on IBM Mainframes
 description: Integrate CICS programs with Standard workflows in Azure Logic Apps by using the IBM CICS connector.
 services: logic-apps
 ms.suite: integration
@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 04/08/2025
 
 #customer intent: As a developer, I want to use the IBM CICS connector so I can integrate CICS programs with Standard workflows in Azure Logic Apps.
 ---
