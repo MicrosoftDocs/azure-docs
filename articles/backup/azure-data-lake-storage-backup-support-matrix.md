@@ -15,17 +15,17 @@ This article summarizes the regional availability, supported scenarios, and limi
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage Gen2 is available in the following regions: France South, India Central, India West, East Asia, and Southeast Asia.
+Vaulted backups of Azure Data Lake Storage Gen2 are available in the following regions: France South, India Central, India West, East Asia, and Southeast Asia.
 
 ## Supported storage accounts
 
 The following table lists the supported storage account details:
 
-| **Storage  account details** | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Support**                                                      |
+| Storage  account details | Support |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | <ul><li>Only block blobs in a *standard general-purpose v2 HNS-enabled storage accounts*.<br><li>*Accounts using NFS 3.0, and SFTP protocols* for blobs are currently not supported.</ul>|
-| Redundancy              | <ul><li>Only LRS & ZRS enabled storage account.</ul> |
-| Tier              | <ul><li>Hot, Cool, and Cold tier blobs are supported.<br><li>Archive tier blob backup isn't supported.</ul> |
+| Account  Kind            | Only block blobs in a standard general-purpose v2 HNS-enabled storage account. <br><br>*Accounts using Network File Shares (NFS) 3.0, and Secure File Transfer Protocol (SFTP) protocols for blobs are currently not supported*.|
+| Redundancy              | Only Locally redundant storage (LRS) & Zone-redundant storage (ZRS) enabled storage account. |
+| Tier              | Hot, Cool, and Cold tier blobs are supported.<br><br>*Archive tier blob backup isn't supported*. |
 
 ## Protection limits
 
@@ -68,7 +68,7 @@ The following table lists the Retention setting limits:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Maximum retention of daily recovery points             | 3650 days|
+| Maximum retention of daily recovery points             | 3,650 days|
 | Maximum retention of weekly recovery points             | 521 weeks|
 | Maximum retention of monthly recovery points             | 120 months|
 | Maximum retention of yearly recovery points             | 10 years|
