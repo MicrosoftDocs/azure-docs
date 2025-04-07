@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/10/2025
+ms.date: 03/07/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
