@@ -198,6 +198,10 @@ Depending on the IR that you use, there might be other considerations.
 
 Data Factory supports CI/CD through source control integration, so that you can back up the metadata of a data factory instance. CI/CD pipelines deploy this metadata seamlessly into a new environment. For more information, see [CI/CD in Data Factory](../data-factory/continuous-integration-delivery.md).
 
+## Service-level agreement
+
+The service-level agreement (SLA) for Azure Data Factory describes the expected availability of the service. This agreement also describes the conditions to meet for achieving this expectation. To understand these conditions, make sure that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
 ## Related content
 
 - [Reliability in Azure](./overview.md)

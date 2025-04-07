@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: devx-track-terraform;build-2023-metadata-update
 ms.topic: quickstart
 ms.author: normesta
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 #customer intent: As a Terraform user, I want to see how to create a storage task using Terraform.
 content_well_notification: 
   - AI-contribution
@@ -17,7 +17,7 @@ content_well_notification:
 
 A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Actions?](../overview.md).
 
-In this how-to article, you'll learn how to create a storage task using Terraform.
+In this how-to article, you learn how to create a storage task using Terraform.
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available in these [regions](../overview.md#supported-regions).
@@ -25,8 +25,9 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+In this article, you learn how to:
+
 > [!div class="checklist"]
-> * Retrieve the current Azure client configuration.
 > * Generate a random name for the resource group.
 > * Create a new Azure resource group with the generated name.
 > * Generate a random string to be used as the storage task name.

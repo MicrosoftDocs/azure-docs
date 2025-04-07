@@ -85,7 +85,7 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | Germany West Central | AZ03 | **AV36, AV36P**, AV64 | Yes | 7 |
 | Italy North | AZ03 | AV36P, AV64 | No | 7 |
 | Japan East | AZ02 | **AV36**, AV64 | No | 7 |
-| Japan East | AZ03 | **AV48** | No | N/A |
+| Japan East | AZ03 | AV48 | No | N/A |
 | Japan West | AZ01 | **AV36**, AV64 | No | 7 |
 | North Central US | AZ01 | **AV36**, AV64 | No | 7 |
 | North Central US | AZ02 | **AV36P**, AV64 | No | 7 |
