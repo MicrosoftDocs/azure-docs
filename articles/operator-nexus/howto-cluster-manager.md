@@ -14,8 +14,6 @@ ms.custom: devx-track-azurecli
 
 The Cluster Manager is deployed in the operator's Azure subscription to manage the lifecycle of Operator Nexus Infrastructure Clusters. 
 
----
-
 ## Before you begin
 
 Ensure you have the following information:
@@ -25,12 +23,8 @@ Ensure you have the following information:
 - **Azure Region** - The Cluster Manager should be created in the same Azure region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
----
-
 ## Limitations
 - **Naming** - Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetworkcloud).
-
----
 
 ## Cluster Manager properties
 
@@ -46,7 +40,6 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 | provisioningState                 | The provisioning status of the latest operation on the Cluster Manager. One of: Succeeded, Failed, Provisioning, Accepted, Updating.                                                                                                                  |
 | detailedStatus                    | The detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                                    |
 | detailedStatusMessage             | The descriptive message about the current detailed status.                                                                                                                                                                                            |
----
 
 ## Cluster Manager Identity
 
@@ -64,8 +57,6 @@ The role assignment can be done via the Azure portal:
 - Assign access to: User, group, or service principal
 - Select Member: `AFOI-NC-MGMT-PME-PROD` application
 - Review and assign
-
----
 
 ## Create a Cluster Manager
 
@@ -181,8 +172,6 @@ You can find examples of these two files here:
 1. Make sure all Instance Details are correct.
 1. Click Review + create.
 
----
-
 ## List/show Cluster Managers
 
 List and show commands are used to get a list of existing Cluster Managers or the properties of a specific Cluster Manager.
@@ -234,8 +223,6 @@ This command shows the properties of the specified Cluster Manager in JSON forma
 
 To view Cluster Managers, use Portal, CLI, or PowerShell.
 
----
-
 ## Update Cluster Manager
 
 This command is used to patch properties of the provided Cluster Manager, or update the tags assigned to the Cluster Manager. Properties and tag updates can be done independently.
@@ -278,8 +265,6 @@ Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGrou
 ### [ARM Template](#tab/template)
 
 The template used for creation can also be used to update the Cluster Manager.
-
----
 
 ## Cluster Manager identity 
 
@@ -334,8 +319,6 @@ az networkcloud clustermanager identity remove \
     --mi-system-assigned
 ```
 
----
-
 ## Delete Cluster Manager
 
 This command is used to Delete the provided Cluster Manager.
@@ -365,17 +348,11 @@ To delete the Cluster Manager, use Portal, CLI, or PowerShell.
 >[!NOTE]
 >As best practice, wait 20 minutes after deleting a Cluster Manager before trying to create a new Cluster Manager with the same name.
 
----
-
 ## Next steps
 
 After you successfully created the Network Fabric Controller and the Cluster Manager, the next step is to create a [Network Fabric](./howto-configure-network-fabric.md).
-
----
 
 ## Useful links
 
 - [NetworkCloud REST APIs Reference](/rest/api/networkcloud/)
 - [NetworkCloud PowerShell Reference](/powershell/module/az.networkcloud/)
-
----
