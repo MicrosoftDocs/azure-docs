@@ -32,6 +32,8 @@ The legacy on-premises management console isn't available for download after **J
 
 The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
 
+:::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of URL information in alert details." lightbox="media/whats-new/url-parameters.png":::
+
 ### Improved RDP brute force detection
 
 The “Excessive Number of Sessions” alert now includes support by default to a remote desktop protocol (RDP) port, enhancing visibility into potential brute-force attacks and unauthorized access attempts.
