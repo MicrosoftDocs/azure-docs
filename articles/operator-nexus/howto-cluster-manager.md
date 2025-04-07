@@ -190,7 +190,7 @@ This command lists the Cluster Managers in the specified subscription.
  Get-AzNetworkCloudClusterManager -SubscriptionId "$SUB_ID"
 ```
 
-This command shows the properties of the specified Cluster Manager in Json format.
+This command shows the properties of the specified Cluster Manager in JSON format.
 
 ```azurepowershell-interactive
  Get-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME" -ResourceGroupName "$CLUSTER_MANAGER_RG" -SubscriptionId "$SUB_ID" | ConvertTo-Json

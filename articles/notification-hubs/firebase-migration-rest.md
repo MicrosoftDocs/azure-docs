@@ -2,7 +2,7 @@
 title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using REST API and the Azure portal
 description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration using REST APIs.
 author: sethmanheim
-manager: femila
+manager: lizross
 ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 05/08/2024
@@ -65,7 +65,7 @@ Go to your notification hub on the Azure portal, and select **Settings > Google 
 
 #### Option 2: Update FcmV1 credentials via management plane hub operation
 
-See the [description of a NotificationHub FcmV1Credential](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
+See the [description of a NotificationHub FcmV1Credential](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential&preserve-view=true).
 
 - Use API version: 2023-10-01-preview
 - **FcmV1CredentialProperties**:
@@ -194,7 +194,7 @@ See [Create or overwrite an installation](/rest/api/notificationhubs/create-over
 
 #### Option 1: Debug send
 
-Use this procedure to test notifications prior to option 2, 3, or 4. See [Notification Hubs - Debug Send](/rest/api/notificationhubs/notification-hubs/debug-send?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP).
+Use this procedure to test notifications prior to option 2, 3, or 4. See [Notification Hubs - Debug Send](/rest/api/notificationhubs/notification-hubs/debug-send?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP&preserve-view=true).
 
 > [!NOTE]
 > Use API version: 2023-10-01-preview.
@@ -220,11 +220,11 @@ Alternatively, you can perform a test send (debug send) via the Azure portal:
 
 #### Option 2: Direct send
 
-Perform a [direct send](/rest/api/notificationhubs/direct-send?view=rest-notificationhubs-2023-10-01-preview). In the request header, set `ServiceBusNotification-Format` to `fcmV1`.
+Perform a [direct send](/rest/api/notificationhubs/direct-send?view=rest-notificationhubs-2023-10-01-preview&preserve-view=true). In the request header, set `ServiceBusNotification-Format` to `fcmV1`.
 
 #### Option 3: FcmV1 native notification (audience send)
 
-Perform an FcmV1 native notification send. See [Send a Google Cloud Messaging (GCM) native notification](/rest/api/notificationhubs/send-gcm-native-notification?view=rest-notificationhubs-2023-10-01-preview). In the request header, set `ServiceBusNotification-Format` to `fcmV1`. For example, in the request body:
+Perform an FcmV1 native notification send. See [Send a Google Cloud Messaging (GCM) native notification](/rest/api/notificationhubs/send-gcm-native-notification?view=rest-notificationhubs-2023-10-01-preview&preserve-view=true). In the request header, set `ServiceBusNotification-Format` to `fcmV1`. For example, in the request body:
 
 ```json
 { 
@@ -246,7 +246,7 @@ Perform an FcmV1 native notification send. See [Send a Google Cloud Messaging (G
 
 #### Option 4: template notification
 
-You can test template sends with a new request body following [the new JSON payload structure](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages/send). No other changes need to be made. See [Send a template notification](/rest/api/notificationhubs/send-template-notification?view=rest-notificationhubs-2023-10-01-preview).
+You can test template sends with a new request body following [the new JSON payload structure](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages/send). No other changes need to be made. See [Send a template notification](/rest/api/notificationhubs/send-template-notification?view=rest-notificationhubs-2023-10-01-preview&preserve-view=true).
 
 ## Next steps
 

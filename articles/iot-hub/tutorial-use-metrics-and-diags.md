@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Set up and use metrics and logs with an Azure IoT hub
 description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT hub to provide data to analyze and diagnose problems your hub may be having.
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 07/21/2022
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 #Customer intent: As a developer, I want to know how to set up and check metrics and logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 # 4.17/2021 Updated this to "guide the new alerts experience" at request of John Lian. 1577857. They added metrics
@@ -49,7 +49,7 @@ In this tutorial, you perform the following tasks:
 
 * An email account capable of receiving mail.
 
-* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

@@ -83,7 +83,7 @@ Before creating a peering, familiarize yourself with the [requirements and const
 
 1. Select the **Refresh** button after a few seconds, and the peering status will change from **Updating** to **Connected**.
 
-    :::image type="content" source="./media/virtual-network-manage-peering/vnet-peering-connected.png" alt-text="Screenshot of virtual network peering status on peerings page.":::
+
 
 For step-by-step instructions for implementing peering between virtual networks in different subscriptions and deployment models, see [next steps](#next-steps).
 
@@ -258,8 +258,6 @@ deselect the **Allow traffic to remote virtual network** setting if you want to 
     > When you delete a virtual network peering from a virtual network, the peering from the remote virtual network will also be deleted.
 
 1. Select **Delete** to confirm the deletion in **Delete confirmation**.
-
-    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion-2.png" alt-text="Screenshot of peering delete confirmation.":::
 
 # [**PowerShell**](#tab/peering-powershell)
 

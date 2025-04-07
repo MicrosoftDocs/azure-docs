@@ -11,13 +11,13 @@ ms.collection: ce-skilling-ai-copilot
 
 # Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service
 
-When creating intelligent apps, you may want to ground the context of your app using your own SQL data. With the recent announcement of [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can ground the context using the Azure SQL data you already have with new [vector functions](https://learn.microsoft.com/sql/t-sql/functions/vector-functions-transact-sql) that help manage vector data. 
+When creating intelligent apps, you may want to ground the context of your app using your own SQL data. With the recent announcement of [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can ground the context using the Azure SQL data you already have with new [vector functions](/sql/t-sql/functions/vector-functions-transact-sql) that help manage vector data. 
 
 In this tutorial, you'll create a RAG sample application by setting up a Hybrid vector search against your Azure SQL database using a .NET 8 Blazor app. This example builds from the previous documentation to deploy a [.NET Blazor app with OpenAI](/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet).
 
 ## Prerequisites
 
-- An [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Ckeyless%2Ctypescript-keyless%2Cpython#set-up) resource with deployed models
+- An [Azure OpenAI](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Ckeyless%2Ctypescript-keyless%2Cpython#set-up) resource with deployed models
 - A .NET 8 or 9 Blazor Web App deployed on App Service
 - An Azure SQL database resource with vector embeddings.
 
@@ -135,7 +135,7 @@ In order to prepare your Azure SQL database for vector search, you need to make 
 - `text-embedding-ada-002` is used to generate the embeddings
 - `gpt-3.5-turbo` is used for the language model
 
-These two models need to be deployed before continuing the next step. Visit the [documentation](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-openai) for deploying models with Azure OpenAI using Azure AI Foundry.
+These two models need to be deployed before continuing the next step. Visit the [documentation](/azure/ai-studio/how-to/deploy-models-openai) for deploying models with Azure OpenAI using Azure AI Foundry.
 
 ## 4. Vectorize your SQL database
 
@@ -143,7 +143,7 @@ To perform a hybrid vector search on your Azure SQL database, you first need to 
 
 ## 5. Create procedure to generate embeddings
 
-With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure invokes an external REST API endpoint to get the embeddings. See the [documentation](https://learn.microsoft.com/azure-data-studio/quickstart-sql-database) to use Azure Data Studio to connect to your database before running the query. 
+With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure invokes an external REST API endpoint to get the embeddings. See the [documentation](/azure-data-studio/quickstart-sql-database) to use Azure Data Studio to connect to your database before running the query. 
 
 - Use the following to create a stored procedure with your preferred SQL query editor. You need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You'll notice the model name as part of the @url, which will be populated with your search query.
 

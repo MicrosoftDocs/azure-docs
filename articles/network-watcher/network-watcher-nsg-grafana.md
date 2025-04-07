@@ -179,9 +179,7 @@ For additional installation information, see [Installing on Debian / Ubuntu](htt
 
 #### Add the Elasticsearch server as a data source
 
-Next, you need to add the Elasticsearch index containing flow logs as a data source. You can add a data source by selecting **Add data source** and completing the form with the relevant information. A sample of this configuration can be found in the following screenshot:
-
-![Add data source](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
+Next, you need to add the Elasticsearch index containing flow logs as a data source. You can add a data source by selecting **Add data source** and completing the form with the relevant information.
 
 #### Create a dashboard
 

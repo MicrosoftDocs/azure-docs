@@ -47,7 +47,7 @@ There are required fields (identified with a red asterisk) in each section that 
     | Resource name      | Specify a unique name for the resource.   |
     | Region             | Select a region to deploy your resource.  |
 
-1. Enter the values for each required setting under *New Relic account details*.
+1. Enter the values for each required setting under *Astro organization details*.
 
     | Field             | Action                                                                                           |
     |-------------------|--------------------------------------------------------------------------------------------------|

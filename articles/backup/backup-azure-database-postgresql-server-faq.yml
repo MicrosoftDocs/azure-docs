@@ -4,13 +4,18 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure Database for PostgreSQL server with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 01/24/2022
+  ms.date: 03/18/2025
   author: jyothisuri
   ms.author: jsuri
 
 title: Frequently asked questions-Back up Azure Database for PostgreSQL server
 summary: |
   This article answers common questions about backing up Azure Database for PostgreSQL server with the [Azure Backup](./backup-overview.md) service.
+
+  >[!Important]
+  >Azure Database for PostgreSQL single servers is scheduled for retirement on March 28, 2025. On this date, changes will be implemented to Azure Backup for PostgreSQL single servers. Learn more [about the retirement announcement here](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).
+  >
+  >To understand the changes to Vaulted backups for PostgreSQL single server, see [this section](backup-azure-database-postgresql-overview.md#changes-to-vaulted-backups-for-postgresql-single-server).
 
 
 sections:

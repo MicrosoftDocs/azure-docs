@@ -76,9 +76,9 @@ The following table lists the file and directory permissions required for the Io
 | File or directory | Permissions | Owner |
 |-------------------|-------------|-------|
 | `/var/aziot/certs/` certificates directory | drwxr-xr-x (755) | aziotcs |
-| Certificate files in `/var/aziot/certs/` | -wr-r--r-- (644) | aziotcs |
+| Certificate files in `/var/aziot/certs/` | -rw-r--r-- (644) | aziotcs |
 | `/var/aziot/secrets/` keys directory | drwx------ (700)| aziotks |
-| Key files in `/var/aziot/secrets/` | -wr------- (600) | aziotks |
+| Key files in `/var/aziot/secrets/` | -rw------- (600) | aziotks |
 
 To create the directories, set the permissions, and set the owner, run the following commands:
 

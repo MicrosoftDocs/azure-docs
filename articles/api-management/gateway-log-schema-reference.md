@@ -66,7 +66,7 @@ The following properties are logged for each API request.
 | UserId | string | User entity identifier for current request |
 
 
-## Next steps
+## Related content
 
 * For information about monitoring APIs in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md)
 * Learn more about [Common and service-specific schema for Azure Resource Logs](/azure/azure-monitor/essentials/resource-logs-schema)

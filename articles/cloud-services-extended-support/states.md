@@ -7,6 +7,7 @@ author: surbhijain
 ms.author: surbhijain
 ms.date: 07/24/2024
 
+# Customer intent: As a cloud administrator, I want to understand the provisioning and power states for Azure Cloud Services (extended support) so that I can monitor and troubleshoot resource deployments and role instance behavior effectively.
 ---
 # Available Provisioning and Power States for Azure Cloud Services (extended support)
 

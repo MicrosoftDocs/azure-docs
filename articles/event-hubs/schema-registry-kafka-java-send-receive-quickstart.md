@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/26/2023
 ms.devlang: java
 ms.custom: devx-track-extended-java
+ms.subservice: kafka
 author: spelluru
 ms.author: spelluru
 ---
@@ -83,7 +84,7 @@ And if you're using managed identity, you would need:
 ## Add user to Schema Registry Reader role
 Add your user account to the **Schema Registry Reader** role at the namespace level. You can also use the **Schema Registry Contributor** role, but that's not necessary for this quickstart.  
 
-1. On the **Event Hubs Namespace** page, select **Access control (IAM)** on the left menu.
+1. On the **Event Hubs namespace** page, select **Access control (IAM)** on the left menu.
 2. On the **Access control (IAM)** page, select **+ Add** -> **Add role assignment** on the menu. 
 3. On the **Assignment type** page, select **Next**.
 4. On the **Roles** page, select **Schema Registry Reader (Preview)**, and then select **Next** at the bottom of the page.

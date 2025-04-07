@@ -30,23 +30,31 @@ Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.10292.900 |
-| Validation | 1.0.10648.200 |
+| Production | 1.0.10673.700 |
+| Validation | 1.0.10806.600 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.10292.900
-*Published: January 2025*
+## Version 1.0.10806.600 (validation)
+
+*Published: March 2025*
 
 In this update, we made the following changes:
 
-- Improved RD Agent reconnection on machines with active sessions using throttling delay logic.
-- Added support for App Attach third party client connections regardless of previous client connection status.
-- Improved App Attach third party telemetry.
-- General improvements and bug fixes. 
+- The agent now reports additional telemetry for pending OS reboots, improving system reboot tracking and management. 
+- Added support for automatic restarts if Intune enrollment encounters an error, ensuring smoother enrollment processes.
 
-## Version 1.0.10648.200 (validation) 
+## Version 1.0.10673.700
+
+*Published: March 2025*
+
+In this update, we made the following changes:
+
+- Resolved an issue that caused device enrollment to fail under certain conditions, ensuring a smoother and more reliable enrollment process. 
+- Added new fields to better track user identity, even for sessions where users have logged off, improving overall session management and reporting.
+
+## Version 1.0.10648.200 
 
 *Published: January 2025*
 
@@ -58,18 +66,6 @@ In this update, we made the following changes:
 - Updated handling for 403 errors between RDAgent and RDBroker communication. 
 - General improvements and bug fixes. 
 
-## Version 1.0.10159.600 
-
-*Published: January 2025*
-
-In this update, we made the following changes:
-
-- Perform RDAgent monitoring cleanup, 15 minutes after RDAgent starts. 
-- Increase timeout for Intune Provisioning.  
-- Updated Security Nuget packages to meet compliance requirements.  
-- Added detection time in RDAgent diagnostics.  
-- General improvements and bug fixes. 
-
 ## Version 1.0.10434.200
 
 *Published: December 2024*
@@ -79,12 +75,35 @@ In this update, we made the following changes:
 - This version supports Windows 365 Frontline Shared scenarios. 
 - General improvements and bug fixes.
 
+## Version 1.0.10292.900
+
+*Published: December 2024*
+
+In this update, we made the following changes:
+
+- Improved RD Agent reconnection on machines with active sessions using throttling delay logic.
+- Added support for App Attach third party client connections regardless of previous client connection status.
+- Improved App Attach third party telemetry.
+- General improvements and bug fixes. 
+
 ## Version 1.0.10292.500
 
 *Published: November 2024*
 
 In this update, we made the following changes:
 
+- General improvements and bug fixes.
+
+## Version 1.0.10159.600 
+
+*Published: November 2024*
+
+In this update, we made the following changes:
+
+- Perform RDAgent monitoring cleanup, 15 minutes after RDAgent starts. 
+- Increase timeout for Intune Provisioning.  
+- Updated Security Nuget packages to meet compliance requirements.  
+- Added detection time in RDAgent diagnostics.  
 - General improvements and bug fixes.
 
 ## Version 1.0.10159.300

@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/23/2024
+ms.date: 03/13/2025
 ---
 
 # Copy data from ServiceNow V2 using Azure Data Factory or Synapse Analytics
@@ -153,6 +153,8 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | value | The constant value. |Yes when the expression type is Constant or Field |
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
+| | | |
+| pageSize | The number of documents per page of the query result. | No<br/>(the default is **300**) |
 
 **Example:**
 
@@ -191,7 +193,8 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
                             "value": "2000"
                         }
                     ]
-                }
+                },
+                "pageSize": 300
             },
             "sink": {
                 "type": "<sink type>"

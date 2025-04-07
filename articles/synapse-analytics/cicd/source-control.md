@@ -25,7 +25,7 @@ This article outlines how to configure and work in a Synapse workspace with git 
 
 ## Configure Git repository in Synapse Studio
 
-After launching your Synapse Studio, you can configure a git repository in your workspace. A Synapse Studio workspace can be associated with only one git repository at a time.
+After launching your Synapse Studio, you can configure a git repository in your workspace. A Synapse workspace can be associated with only one git repository at a time.
 
 ### Configuration method 1: global bar
 

@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/14/2025
+ms.date: 04/04/2025
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -70,18 +70,20 @@ Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open. Conn
 
 ## Using an Azure file share with Windows
 
-To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path).
+To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path). 
 
-This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. Shared access signature (SAS) tokens aren't currently supported for mounting Azure file shares.
+This article uses the storage account key to mount the file share, which is only appropriate for admin access. Mounting the share with the Active Directory or Micosoft Entra identity of the user is preferred. See [identity-based authentication overview](storage-files-active-directory-overview.md).
 
-A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure virtual machine (VM). One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
+A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
+
+Shared access signature (SAS) tokens aren't currently supported for mounting Azure file shares.
+
+> [!NOTE]
+> A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure virtual machine (VM). One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
 ### Mount the Azure file share
 
 The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key.
-
-> [!IMPORTANT]
-> Using the storage account key isn't recommended in production environments for security reasons. Use [identity-based authentication](storage-files-active-directory-overview.md) instead.
 
 To get this script:
 
@@ -99,7 +101,7 @@ To get this script:
 1. Select the drive letter to mount the share to.
 1. Copy the provided script.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-script.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
 
 1. Paste the script into a shell on the host you'd like to mount the file share to, and run it.
 

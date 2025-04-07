@@ -2,11 +2,11 @@
 title: API support in Azure Static Web Apps with Azure Container Apps
 description: Learn how to use Azure Container Apps with Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 06/14/2022
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # API support in Azure Static Web Apps with Azure Container Apps

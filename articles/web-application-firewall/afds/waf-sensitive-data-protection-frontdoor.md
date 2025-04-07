@@ -26,7 +26,7 @@ The following fields can be scrubbed from the logs:
 -   Request Header Names
 -   Request Cookie Names
 -   Request Body Post Arg Names
--   Request Body Json Arg Names
+-   Request Body JSON Arg Names
 -   Query String Arg Names
 -   Request URI
 -   Request IP Address

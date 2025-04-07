@@ -1,8 +1,8 @@
 ---
 title: Manage, update, or uninstall
 description: Use the Azure CLI or Azure portal to manage your Azure IoT Operations instances, including updating and uninstalling.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 10/24/2024
@@ -18,7 +18,7 @@ Use the Azure CLI and Azure portal to manage, uninstall, or update Azure IoT Ope
 
 * An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 

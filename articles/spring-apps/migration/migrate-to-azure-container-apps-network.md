@@ -2,7 +2,8 @@
 title: Migrating a custom Virtual Network
 description: Describes how to migrate custom virtual network settings.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025

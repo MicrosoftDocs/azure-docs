@@ -456,7 +456,7 @@ Now we have a simple app with a simple secured API, let's test it.
 
 The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
 
-## Next steps
+## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.

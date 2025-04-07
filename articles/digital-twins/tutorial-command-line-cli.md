@@ -3,7 +3,7 @@ title: 'Tutorial: Create a graph in Azure Digital Twins (CLI)'
 titleSuffix: Azure Digital Twins
 description: Tutorial that shows how to build an Azure Digital Twins scenario using the Azure CLI
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 1/3/2024
 ms.topic: tutorial
 ms.service: azure-digital-twins
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Create an Azure Digital Twins graph using the Azure CLI
 
-[!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
+[!INCLUDE [digital-twins-tutorial-selector.md](includes/digital-twins-tutorial-selector.md)]
 
 In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the [Azure Digital Twins command set for the Azure CLI](/cli/azure/dt).
 
@@ -45,7 +45,7 @@ To get the files on your machine, use the navigation links above and copy the fi
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
-[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
+[!INCLUDE [CLI setup for Azure Digital Twins](includes/digital-twins-cli.md)]
 
 ### Prepare an Azure Digital Twins instance
 
@@ -80,7 +80,7 @@ Models are similar to classes in object-oriented programming languages; they pro
 
 Navigate on your machine to the *Room.json* file that you created in the [Prerequisites](#prerequisites) section. Open it in a code editor, and change it in the following ways:
 
-[!INCLUDE [digital-twins-tutorial-model-create.md](../../includes/digital-twins-tutorial-model-create.md)]
+[!INCLUDE [digital-twins-tutorial-model-create.md](includes/digital-twins-tutorial-model-create.md)]
 
 ### Upload models to Azure Digital Twins
 
@@ -100,6 +100,8 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     ```
     
     The output from each command will show information about the successfully uploaded model.
+
+    [!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
     >[!TIP]
     >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az-dt-model-create-optional-parameters).
@@ -158,7 +160,7 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+[!INCLUDE [digital-twins-query-latency-note.md](includes/digital-twins-query-latency-note.md)]
 
 ### Modify a digital twin
 
@@ -234,7 +236,7 @@ The twins and relationships you have set up in this tutorial form the following 
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, querying is done with the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command.
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+[!INCLUDE [digital-twins-query-latency-note.md](includes/digital-twins-query-latency-note.md)]
 
 Run the following queries in the CLI to answer some questions about the sample environment. Each command has one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
@@ -300,9 +302,9 @@ After completing this tutorial, you can choose which resources you want to remov
 
 * If you plan to continue to the next tutorial, you can keep the resources you set up here and reuse the Azure Digital Twins instance without clearing anything in between.
 
-[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](includes/digital-twins-cleanup-clear-instance.md)]
 
-[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+[!INCLUDE [digital-twins-cleanup-basic.md](includes/digital-twins-cleanup-basic.md)]
 
 You may also want to delete the model files you created on your local machine.
 

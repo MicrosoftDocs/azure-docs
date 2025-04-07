@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure portal"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure portal.
-ms.date: 07/03/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ---
 
@@ -58,7 +58,7 @@ In this quickstart, you create a policy assignment with a built-in policy defini
    | Tab name | Options |
    | ---- | ---- |
    | **Parameters** | If the policy definition you selected on the **Basics** tab has parameters, you configure them on the **Parameters** tab. This example doesn't use parameters. |
-   | **Remediation** | You can create a managed identity. For this example, **Create a Managed Identity** is unchecked. <br><br> This box _must_ be checked when a policy or initiative includes a policy with either the [deployIfNotExists](./concepts/effect-deploy-if-not-exists.md) or [modify](./concepts/effect-modify.md) effect. For more information, go to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation access control works](./how-to/remediate-resources.md#how-remediation-access-control-works). |
+   | **Remediation** | You can create a managed identity. For this example, **Create a Managed Identity** is unchecked. <br><br> This box _must_ be checked when a policy or initiative includes a policy with either the [deployIfNotExists](./concepts/effect-deploy-if-not-exists.md) or [modify](./concepts/effect-modify.md) effect. For more information, go to [managed identities](/entra/identity/managed-identities-azure-resources/overview) and [how remediation access control works](./how-to/remediate-resources.md#how-remediation-access-control-works). |
 
 1. Select **Next** and on the **Non-compliance messages** tab create a **Non-compliance message** like _Virtual machines should use managed disks_.
 

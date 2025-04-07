@@ -142,7 +142,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Cause**: The dataset type is Binary, which isn't supported.
 
-- **Recommendation**: Use the DelimitedText, Json, Avro, Orc, or Parquet dataset instead.
+- **Recommendation**: Use the DelimitedText, JSON, Avro, Orc, or Parquet dataset instead.
 
 - **Cause**: For the file storage, the format settings are missing in the dataset.
 

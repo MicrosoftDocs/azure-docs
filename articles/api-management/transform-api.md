@@ -155,6 +155,8 @@ The rest of this section tests policy transformations that you set in this artic
 
 1. Wait for 15 seconds or more and then select **Send** again. This time you should get a **200 OK** response.
 
+[!INCLUDE [api-management-policies-azure-copilot](../../includes/api-management-policies-azure-copilot.md)]
+
 ## Summary
 
 In this tutorial, you learned how to:

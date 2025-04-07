@@ -4,6 +4,9 @@ description: Learn how to use SSH to run MapReduce jobs using Apache Hadoop on H
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

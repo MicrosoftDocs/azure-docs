@@ -1,13 +1,15 @@
 ---
-title: Update Defender for IoT OT monitoring software versions
-description: Learn how to update (upgrade) Defender for IoT software on OT sensors.
-ms.date: 12/17/2023
+title: Defender for IoT - Update OT monitoring software
+description: Learn how to update the OT software on your Defender for IoT sensors so that you can manage updates efficiently.
+ms.date: 01/20/2025
 ms.topic: upgrade-and-migration-article
+
+#Customer intent: As an IT admin, I want to update OT sensors remotely via the Azure portal so that I can manage updates efficiently.
 ---
 
-# Update Defender for IoT OT monitoring software
+# Defender for IoT - Update OT monitoring software
 
-This article describes how to update Defender for IoT software versions on OT sensor.
+This article describes how to update the OT software on your Defender for IoT sensors so that you can manage updates and stay up to date with the latest version.
 
 You can purchase pre-configured appliances for your sensors, or install software on your own hardware machines. In either case, you'll need to update software versions to use new features for OT sensors.
 
@@ -24,7 +26,7 @@ To perform the procedures described in this article, make sure that you have:
 
     |Update scenario  |Method details  |
     |---------|---------|
-    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#update-ot-sensors) require that your OT sensor has version [22.2.3](release-notes.md#2223) or later already installed.       |
+    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#update-ot-sensors-with-the-latest-ot-monitoring-software) require that your OT sensor has version [22.2.3](release-notes.md#2223) or later already installed.       |
     |**Locally managed sensors**     |  Locally managed sensors can be updated using a downloaded update package directly on an OT sensor console. |
 
 - **Required access permissions**:
@@ -54,7 +56,7 @@ To perform the procedures described in this article, make sure that you have:
 
     For more information, see [Networking requirements](networking-requirements.md) and [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-## Update OT sensors
+## Update OT sensors with the latest OT monitoring software
 
 This section describes how to update Defender for IoT OT sensors using any of the supported methods.
 

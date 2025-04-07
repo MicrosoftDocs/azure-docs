@@ -9,6 +9,7 @@ ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
 
+# Customer intent: As an IT admin managing legacy Azure Cloud Services deployments, I want to understand the technical requirements and migration process, so that I can successfully transition to Azure Cloud Services (extended support) while ensuring compatibility and minimizing downtime.
 ---
 
 # Technical details of migrating to Azure Cloud Services (extended support)   

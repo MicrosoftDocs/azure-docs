@@ -2,7 +2,7 @@
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 03/14/2025
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -634,9 +634,10 @@ In the following tables, the term alphanumeric refers to:
 > | netAppAccounts / backups | NetApp account | 3-225 | Alphanumerics, underscores, periods, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / backupPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
+> | netAppAccounts / shareNames | NetApp account | 1-64 | Alphanumerics and hyphens. <br><br>Start with alphanumeric.<br><br>Underscores aren't supported. |
 > | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
-> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
+> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
 > | netAppAccounts / volumeGroups | NetApp account | 3-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 
 ## Microsoft.Network
@@ -678,7 +679,7 @@ In the following tables, the term alphanumeric refers to:
 > | routeTables | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | routeTables / routes | route table | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | serviceEndpointPolicies | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | trafficmanagerprofiles | global | 1-63 | Alphanumerics, hyphens, and periods<br><br>Start and end with alphanumeric. |
+> | trafficmanagerprofiles | global | 1-63 | Alphanumerics and hyphens<br><br>Start and end with alphanumeric. <br><br>Note: A period/dot (.) is not allowed in the profile name. |
 > | virtualNetworkGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | virtualNetworks | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | virtualnetworks / subnets | virtual network | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |

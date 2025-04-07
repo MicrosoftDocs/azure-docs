@@ -20,17 +20,18 @@ But because Azure Resource Graph alerts is in preview, there are operators and f
 
 The following are known unsupported operators and functions:
 
-| Operator/function | Type |
+| Operator/function | Type | Example |
 | ---- | ---- |
 | `join` | operator <br/>The integration works when you join an Azure Resource Graph table with a Log Analytics table. The integration doesn't work if you join two or more Azure Resource Graph tables. |
-| `mv-apply` | operator |
-| `arg_min()` | scalar function |
-| `avg()`, `avgif()` | aggregation function |
-| `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()` | aggregation function |
-| `rand()` | scalar function |
-| `stdev()`, `stdevif()`, `stdevp()` | aggregation function |
-| `variance()`, `varianceif()`, `variancep()` | aggregation function |
-| Using keys with bag functions | scalar function |
+| `mv-apply` | operator | |
+| `arg_min()` | scalar function | |
+| `avg()`, `avgif()` | aggregation function | |
+| `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()` | aggregation function | |
+| `rand()` | scalar function | |
+| `stdev()`, `stdevif()`, `stdevp()` | aggregation function | |
+| `variance()`, `varianceif()`, `variancep()` | aggregation function | |
+| `now()/ago()` | supported | where JobEndTime between(ago(15)..now()) |
+| Using keys with bag functions | scalar function | |
 
 For more information about operators and functions, go to [tabular operators](/azure/data-explorer/kusto/query/queries), [scalar functions](/azure/data-explorer/kusto/query/scalarfunctions), and [aggregation functions](/azure/data-explorer/kusto/query/aggregation-functions).
 

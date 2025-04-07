@@ -4,6 +4,9 @@ description: Get started using MapReduce samples in jar files included in HDInsi
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

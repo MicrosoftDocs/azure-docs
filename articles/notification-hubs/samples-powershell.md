@@ -3,7 +3,7 @@ title: Azure PowerShell Samples for Azure Notification Hubs | Microsoft Docs
 description: Azure PowerShell Samples - Scripts to help you create and manage notification hubs.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 editor: jwargo
 
 ms.service: azure-notification-hubs

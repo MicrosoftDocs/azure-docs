@@ -5,7 +5,7 @@
  author: duongau
  ms.service: azure-expressroute
  ms.topic: include
- ms.date: 01/18/2025
+ ms.date: 03/31/2025
  ms.author: duau
  ms.custom: include file
 ---
@@ -17,7 +17,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
-| **North America** |East US<br/>West US<br/>East US 2<br/>West US 2<br/>West US 3<br/>Central US<br/>South Central US<br/>North Central US<br/>West Central US<br/>Canada Central<br/>Canada East<br/>Mexico Central |Atlanta<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dallas2<br/>Denver<br/>Las Vegas<br/>Los Angeles<br/>Los Angeles2<br/>Miami<br/>Minneapolis<br/>Montreal<br/>New York<br/>Phoenix<br/>Phoenix2<br/>Quebec City<br/>Queretaro(Mexico)<br/>Quincy<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Silicon Valley2<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC2 |
+| **North America** |East US<br/>West US<br/>East US 2<br/>West US 2<br/>West US 3<br/>Central US<br/>South Central US<br/>North Central US<br/>West Central US<br/>Canada Central<br/>Canada East<br/>Mexico Central | Atlanta<br/>Atlanta2<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dallas2<br/>Denver<br/>Las Vegas<br/>Los Angeles<br/>Los Angeles2<br/>Miami<br/>Minneapolis<br/>Montreal<br/>New York<br/>Phoenix<br/>Phoenix2<br/>Quebec City<br/>Queretaro(Mexico)<br/>Quincy<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Silicon Valley2<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC2 |
 | **South America** | Brazil South | Campinas<br/>Rio de Janeiro<br/>Sao Paulo<br/>Sao Paulo2<br/>Santiago |
 
 #### [Europe & Africa](#tab/europe)

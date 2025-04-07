@@ -24,7 +24,7 @@ Run the following commands to add the package repository and then add the Micros
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
 
-::: moniker range=">=iotedge-1.5"
+
 
 * **24.04**:
 
@@ -34,7 +34,7 @@ Installing can be done with a few commands.  Open a terminal and run the followi
    rm packages-microsoft-prod.deb
    ```
 
-::: moniker-end
+
 
 * **22.04**:
 
@@ -56,7 +56,7 @@ Installing can be done with a few commands.  Open a terminal and run the followi
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
-::: moniker range=">=iotedge-1.5"
+
 
 * **12 - Bookworm (arm32v7)**:
 
@@ -65,7 +65,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
     sudo apt install ./packages-microsoft-prod.deb
     ```
 
-::: moniker-end
+
 
 * **11 - Bullseye (arm32v7)**:
 

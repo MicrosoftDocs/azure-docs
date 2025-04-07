@@ -71,7 +71,7 @@ Note that below permissions would be required in addition to permissions on indi
 | **Read maintenance apply updates resource** | Microsoft.Maintenance/applyUpdates/read | Machine |
 | **Get list of update  deployment** | Microsoft.Resources/deployments/read | Maintenance configuration and virtual machine subscription |
 | **Create or update an update deployment** | Microsoft.Resources/deployments/write | Maintenance configuration and virtual machine subscription |
-| **Get a list of update deployment operation statuses** | Microsoft.Resources/deployments/operation statuses | Maintenance configuration and virtual machine subscription |
+| **Get a list of update deployment operation statuses** | Microsoft.Resources/deployments/operationstatuses | Maintenance configuration and virtual machine subscription |
 | **Read maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/read | Subscription/Resource group / machine |
 | **Create/modify maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/write | Subscription/Resource group / machine |
 | **Delete maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete | Subscription/Resource group / machine |

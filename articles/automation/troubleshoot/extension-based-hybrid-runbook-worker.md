@@ -83,13 +83,25 @@ Jobs fail and go into a suspended state on the Hybrid Runbook Worker. The Micros
 When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership and when user has to elevate permissions, the jobs begin to fail.
 
 #### Resolution
-For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders:
+For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders and registry:
 
-| Folder |Permissions |
+| Folder | Permissions |
 |--- | --- |
 | `C:\ProgramData\AzureConnectedMachineAgent\Tokens` | Read |
 | `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows` | Read and Execute |
 
+| Registry | Permissions |
+|--- | --- |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog` | Read |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Wbem\CIMOM` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorker` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorkerV2` | Full access |
+| `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles` | Full access |
 
 ### Scenario: Job failed to start as the Hybrid Worker wasn't available when the scheduled job started
 

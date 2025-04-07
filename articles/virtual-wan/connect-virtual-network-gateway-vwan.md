@@ -4,7 +4,7 @@ description: Learn how to connect an Azure VPN gateway (virtual network gateway)
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
 
 ---
@@ -28,7 +28,6 @@ Azure Virtual WAN
 Virtual Network (for virtual network gateway)
 
 * [Create a virtual network](../virtual-network/quick-create-portal.md) without any virtual network gateways. This virtual network will be configured with an active/active virtual network gateway in later steps. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to.
-
 
 ## <a name="vnetgw"></a>1. Configure VPN Gateway virtual network gateway
 
@@ -132,7 +131,7 @@ In this section, you create a connection between the VPN Gateway local network g
 1. On the **Add connection** page, configure the following values for your connection:
 
    * **Name:** Name your connection.
-   * **Connection type:** Select **Site-to-site(IPSec)**
+   * **Connection type:** Select **Site-to-site(IPsec)**
    * **Virtual network gateway:** The value is fixed because you're connecting from this gateway.
    * **Local network gateway:** This connection will connect the virtual network gateway to the local network gateway. Choose one of the local network gateways that you created earlier.
    * **Shared Key:** Enter the shared key from earlier.

@@ -182,7 +182,7 @@ Policies can be applied at different scopes, depending on your needs: global (al
 * [Transform and protect your API][How to create and configure advanced product settings].
 * [Policy expressions](./api-management-policy-expressions.md)
 
-## Next steps
+## Related content
 
 Complete the following quickstart and start using Azure API Management:
 

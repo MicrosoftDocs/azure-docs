@@ -2,7 +2,7 @@
 title: "1Password (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector 1Password (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 07/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
