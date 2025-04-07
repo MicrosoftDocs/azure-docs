@@ -135,6 +135,12 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
+    - name: Use Azure Functions
+      items:
+        - name: Overview
+          href: functions-overview.md
+        - name: Create a Functions app
+          href: functions-usage.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
