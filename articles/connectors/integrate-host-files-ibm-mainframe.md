@@ -70,7 +70,7 @@ This section describes the available operations for the **IBM Host File** connec
 
 ### Parse Host File Contents action
 
- The following table summarizes the usage for the **Parse Host File Contents** action:
+The following table summarizes the usage for the **Parse Host File Contents** action:
 
 | Parameter | Required | Type | Description |
 |-----------|----------|-------|-------------|
@@ -158,7 +158,7 @@ Follow these steps to add a Parse Host File Contents action:
 
       <!-- Reviewer: Current article doesn't indicate how to add the "Create file" step. The text indicates that the action creates a file on an "SFTP" server, but it looks like an FTP server in the image. I chose the "SFTP server (NOT In-app)" option for this refresh. Let me know if an alternate action is required. -->
 
-      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/create-file-on-sftp-server.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting to create a file on an SFTP server." lightbox="./media/integrate-host-files-ibm-mainframe/create-file-on-sftp-server.png":::
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-sftp-server.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting to create a file on an SFTP server." lightbox="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-sftp-server.png":::
    
    After your configuration, the **Parse Host File Contents** action looks like the following example:
 
@@ -220,21 +220,25 @@ Follow these steps to add a Generate Host File Contents action:
 
    :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows the host file schema in the HIDX file." lightbox="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png":::
 
-   **Provide HIDX file and schema**
+   1. Configure the **HIDX Name** and **Schema Name** with values from the HIDX file:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png" alt-text="Screenshot shows the Generate Host File Contents action with selected HIDX file and schema." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png":::
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png" alt-text="Screenshot shows the Generate Host File Contents action with selected HIDX file and schema." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png":::
 
-   **Select rows from blob to read and convert**
+   1. For the **Rows** > **Rows Item - 1**, select the dynamic content list (lightning icon), and select the **Response from read blob action Content** option:
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account.":::
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account.":::
 
-   When you're done, the **Generate Host File Contents** action looks like the following example with a subsequent action that creates a file on an SFTP server:
+   1. Add a final action to create a file on a Secure File Transfer Protocol (SFTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
+
+      <!-- Reviewer: Current article doesn't indicate how to add the "Create file" step. The text indicates that the action creates a file on an "SFTP" server, but it looks like an FTP server in the image. I chose the "SFTP server (NOT In-app)" option for this refresh. Let me know if an alternate action is required. -->
+
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-sftp-server.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting to create a file on an SFTP server." lightbox="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-sftp-server.png":::
+   
+   After your configuration, the **Generate Host File Contents** action looks like the following example:
 
    :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png" alt-text="Screenshot shows the completed Generate Host File Contents action." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png":::
 
-1. When you're done, save your workflow. On designer toolbar, select **Save**.
-
-
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### Test your workflow
 
