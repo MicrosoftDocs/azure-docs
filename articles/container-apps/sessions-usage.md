@@ -45,7 +45,7 @@ The following example shows how to send request to a session using a user's ID a
 Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
 
 ```http
-POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/<API_PATH_EXPOSED_BY_CONTAINER>?identifier=<USER_ID>
+POST <POOL_MANAGEMENT_ENDPOINT>/<API_PATH_EXPOSED_BY_CONTAINER>?identifier=<USER_ID>
 Authorization: Bearer <TOKEN>
 {
   "command": "echo 'Hello, world!'"
