@@ -10,7 +10,7 @@ When using Route-maps, don't use private ASNs (Autonomous System Numbers) for AS
 
 Don't use ASNs reserved by Azure for AS prepending:
 
-Public ASNs: 8074, 8075, 12076
+* Public ASNs: 8074, 8075, 12076
 
-Private ASNs: 65515, 65517, 65518, 65519, 65520 
+* Private ASNs: 65515, 65517, 65518, 65519, 65520 
 
