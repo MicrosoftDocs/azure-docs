@@ -1,5 +1,5 @@
 ---
-title: Parse and generate IBM host files
+title: Parse and Generate IBM Host Files
 description: Learn how to parse and generate offline IBM host files from IBM mainframes for Standard workflows in Azure Logic Apps with the IBM Host File connector.
 services: logic-apps
 ms.suite: integration
@@ -56,7 +56,7 @@ In most ways, the managed provider operates as a normal data provider. You can c
 
 For customers interested in accessing and using databases in their mainframe environments, such as SQL Server or Azure Cosmos DB, the **IBM Host File** connector provides the capability to generate host files in JSON format. This approach enables you to use the host files in your cloud database of choice and send the data back as a host file to your mainframe or midrange environments.
 
-The following diagram shows how the **IBM Host File** connector in Azure Logic Apps interacts with other systems:
+The following diagram shows how the **IBM Host File** connector in Azure Logic Apps interacts with other systems to read, parse, and generate host file content:
 
 :::image type="content" source="media/integrate-host-files-ibm-mainframe/host-file-connector-overview.png" alt-text="Conceptual diagram shows how the IBM Host File connector in Azure Logic Apps works with other systems." lightbox="media/integrate-host-files-ibm-mainframe/host-file-connector-overview.png":::
 
