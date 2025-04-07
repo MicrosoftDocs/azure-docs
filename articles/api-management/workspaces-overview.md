@@ -107,7 +107,6 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways don't support synthetic GraphQL APIs
 * Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
-* Azure Monitor logs are aggregated at the service level; workspace-level logs aren't available
 * Workspace gateways don't support CA certificates
 * Workspace gateways don't support autoscaling
 * Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
