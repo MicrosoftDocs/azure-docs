@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 01/04/2024
 ---
 
-# About The Standard Logic App Workflow Designer In Single-Tenant Azure Logic Apps
+# About the Standard logic app workflow designer in single-tenant Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
