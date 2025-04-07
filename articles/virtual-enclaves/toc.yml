@@ -26,18 +26,6 @@
 #       href: easy-button-deployments.md
 - name: Concepts
   items:
-#     - name: Understanding Enclave Networking
-#       href: networking.md
-#     - name: Designing intra-enclave network isolation
-#       href: designing-intra-enclave-network-isolation.md
-#     - name: Concepts and best practices
-#       href: concepts-and-best-practices.md
-#     - name: Defense in Depth
-#       href: defense-in-depth.md
-#     - name: Workload and Application Planning
-#       href: workload-and-application-planning.md
-#     - name: Built in RBAC Roles
-#       href: built-in-rbac-roles.md
     - name: What is a community?
       href: what-community.md
     - name: What is a transit hub?
@@ -54,6 +42,18 @@
       href: what-workload.md
     - name: What is the service catalog?
       href: what-service-catalog.md
+#     - name: Understanding Enclave Networking
+#       href: networking.md
+#     - name: Designing intra-enclave network isolation
+#       href: designing-intra-enclave-network-isolation.md
+#     - name: Concepts and best practices
+#       href: concepts-and-best-practices.md
+#     - name: Defense in Depth
+#       href: defense-in-depth.md
+#     - name: Workload and Application Planning
+#       href: workload-and-application-planning.md
+#     - name: Built in RBAC Roles
+#       href: built-in-rbac-roles.md
   - name: Tutorials
     items:
     - name: Tutorial 1 Create a community
