@@ -1124,6 +1124,8 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
 
 ## Configure cross-region or cross-zone replication
 
+You can use [cross-zone](cross-zone-replication-introduction.md) or [cross-region](cross-region-replication-introduction.md) replication for disaster recovery for your application volume group. This example configures cross-zone replication. 
+
 >[!NOTE]
 >In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 
 
@@ -1694,7 +1696,9 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
 }
 ```
 
-### Cross-region replication using proximity placement groups
+### Cross-region replication using a proximity placement group
+
+This example configures [cross-region replication](cross-region-replication-introduction.md) for an application volume group for Oracle deployed using a proximity placement group. 
 
 >[!NOTE]
 >In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 
