@@ -58,7 +58,7 @@ with a Network Fabric.
 ### Create the Cluster using Azure CLI - single storage appliance:
 
 >[!IMPORTANT]
->This command creates the cluster for a Nexus instance that contains a single storage appliance. If you run it against an instance with two storage appliances, the second appliance won't configure. Follow [the instructions for multiple storage appliances](#create-the-cluster-using-azure-cli---multiple-storage-appliances) if your Nexus instance includes two storage appliances.
+>This command creates the cluster for a Nexus instance that contains a single storage appliance. If you run it against an instance with two storage appliances, the second appliance doesn't configure. Follow [the instructions for multiple storage appliances](#create-the-cluster-using-azure-cli---multiple-storage-appliances) if your Nexus instance includes two storage appliances.
 
 ```azurecli
 az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
