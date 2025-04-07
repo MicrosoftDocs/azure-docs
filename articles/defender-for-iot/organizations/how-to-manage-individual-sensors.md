@@ -416,7 +416,7 @@ After clearing data on a cloud-connected sensor:
 
 **To clear system data**:
 
-1. Sign in to the OT sensor as the *admin* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
+1. Sign into the OT sensor as the *admin* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 1. Select **Support** > **Clear data**.
 
@@ -430,7 +430,7 @@ A confirmation message appears that the action was successful. All learned data,
 
 View data for each protocol monitored by your sensor using the **Protocols DPI (Horizon Plugins)** page in the sensor console.
 
-1. Sign into your OT sensor console and select **System settings > Network monitoring > Protocols DPI (Horizon Plugins)**.
+1. Sign in to your OT sensor console and select **System settings > Network monitoring > Protocols DPI (Horizon Plugins)**.
 
 1. Do one of the following:
 
@@ -452,6 +452,20 @@ The **Protocols DPI (Horizon Plugins)** lists the following data per plugin:
 | **Errors** | The number of errors detected in the last five seconds for packets that failed basic protocol validations for the packets that match protocol definitions. |
 
 Log data is available for export in the **Dissection statistics** and **Dissection Logs**, log files. For more information, see [Export troubleshooting logs](how-to-troubleshoot-sensor.md).
+
+## Configure a backup server
+
+Ensure that your backup server is correctly configured, otherwise a false-positive alert might be triggered.
+
+1. Sign into your OT sensor console and select **System settings** > **Sensor management** > **Advanced configurations**.
+
+1. Select the **Global** category. Ensure the parameter **is_reduce_backup_malware_enabled=1** (Note: **true** is also an acceptable parameter) is set correctly.
+
+1. Select the **Vulnerability assessment** category. Ensure **backup_servers** lists the backup server device's IP address.
+
+1. Select the **Ports** category. Ensure that **backup_known_ports** lists the port(s) that the backup server uses.
+
+1. Select **Save**.
 
 ## Next steps
 

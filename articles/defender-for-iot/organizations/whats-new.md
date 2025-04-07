@@ -20,17 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ## On-premises management console retirement
 
-The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
-
-## April 2025
-
-|Service area  |Updates  |
-|---------|---------|
-| **OT networks** | - [Configure a backup server after false positive alert](#configure-a-backup-server-after-false-positive-alert)<br> |
-
-### Configure a backup server after false positive alert
-
-When a false positive alert is produced, the backup server might need to be reconfigured. For more information, see [configure a backup server after false positive alert](how-to-troubleshoot-sensor.md#configure-a-backup-server-after-false-positive-alert).
+The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
 ## March 2025
 

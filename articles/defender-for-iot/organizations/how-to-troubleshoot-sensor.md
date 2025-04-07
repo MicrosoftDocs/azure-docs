@@ -348,21 +348,6 @@ For further troubleshooting, you might want to export logs to send to the suppor
 > [!NOTE]
 > Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support).
 
-## Configure a backup server after false positive alert
-<!-- what should the title be?-->
-
-When a false positive alert is produced the backup server might be misconfigured. In confirm the correct settings:
-
-1. In the sensor console, go to **System settings** > **Sensor management** > **Advanced configurations**.
-
-1. Select the **Global** category. Ensure that **is_reduce_backup_malware_enabled=1** (Note: **true** is also an acceptable parameter).
-
-1. Select the **Vulnerability assessment** category. Ensure **backup_servers** contains the backup server device's IP address.
-
-1. Select the **Ports** category. Ensure that **backup_known_ports** contains the list of port(s) used for the backup server.
-
-1. Select **Save**.
-
 ## Next steps
 
 - [View alerts](how-to-view-alerts.md)
