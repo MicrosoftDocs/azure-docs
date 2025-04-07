@@ -39,7 +39,7 @@ items:
     - name: Create Web Application Firewall v2 - Bicep
       href: ./ag/quick-create-bicep.md
     - name: Create Web Application Firewall v2 – Terraform
-      href: quickstart-web-application-firewall.md
+      href: quickstart-web-application-firewall-terraform.md
   - name: Front Door
     items:
     - name: Create WAF policy - portal
