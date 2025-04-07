@@ -217,6 +217,22 @@ Add the range of IP addresses to configure the DHCP settings that can apply to a
 1. Select **Next: Review**.
 1. Review the details and select **Save and assign** to add the range of addresses to the DHCP range list.
 
+## Configure a backup server
+
+Configure your backup server correctly otherwise a false-positive [Malware engine alert](alert-engine-messages.md#malware-engine-alerts) might be triggered.
+
+**To configure the backup server:**
+
+1. Sign into your OT sensor console and select **System settings** > **Sensor management** > **Advanced configurations**.
+
+1. Select the **Global** category. Ensure the parameter **is_reduce_backup_malware_enabled=1** is set correctly. (Note: **true** is also an acceptable parameter.)
+
+1. Select the **Vulnerability assessment** category. Ensure **backup_servers** lists the backup server device's IP address.
+
+1. Select the **Ports** category. Ensure that **backup_known_ports** lists the port(s) that the backup server uses.
+
+1. Select **Save**.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
