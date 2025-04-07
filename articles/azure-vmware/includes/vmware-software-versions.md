@@ -3,7 +3,7 @@ title: VMware solution software versions
 description: Supported VMware solution software versions for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 3/3/2025
+ms.date: 3/20/2025
 author: suzizuber
 ms.author: v-suzuber
 ms.custom: engagement-fy23
@@ -22,7 +22,7 @@ The VMware solution software versions used in new deployments of Azure VMware So
 | VMware vSAN on-disk format       |    [19](https://knowledge.broadcom.com/external/article?legacyId=2148493)   | N/A |
 | VMware vSAN storage architecture |    [OSA](https://blogs.vmware.com/cloud-foundation/2022/08/31/comparing-the-original-storage-architecture-to-the-vsan-8-express-storage-architecture/)   | N/A |
 | VMware NSX                       |    [!INCLUDE [nsxt-version](nsxt-version.md)]   | 22224317 |
-| VMware HCX                       |    [4.10.1](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/hcx-4-10-release-notes/Chunk174419121.html#Chunk174419121)   | 23857539 |
+| VMware HCX                       |    [4.10.3](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/hcx-4-10-release-notes/vmware-hcx-4103-release-notes.html)   | 24447633 |
 | VMware Site Recovery Manager     |    [8.8.0.3](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/release-notes/vmware-site-recovery-manager-8803-release-notes.html)   | 23263429 |
 | VMware vSphere Replication       |    [8.8.0.3](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/release-notes/vsphere-replication-8803-release-notes.html)   | 23166649 |
 

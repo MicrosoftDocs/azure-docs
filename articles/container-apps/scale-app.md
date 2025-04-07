@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 03/10/2025
+ms.date: 02/10/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -234,6 +234,9 @@ az containerapp create \
 Not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#tcp) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#tcp) to configure a TCP scale rule.
 
 ::: zone-end
+
+> [!NOTE]
+> TCP scaling rules are not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#authentication) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#authentication) to configure TCP scaling rules.
 
 ## Custom
 

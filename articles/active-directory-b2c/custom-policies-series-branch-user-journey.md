@@ -1,7 +1,7 @@
 ---
 title: Create branching in user journey by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
-description: Learn how to enable or disable Technical Profiles based on claims values. Learn how to branch in user journeys by enabling and disabling Azure AD B2C custom policy technical profiles.      
+description: Learn how to create branching in user journeys using Azure AD B2C custom policies. Enable or disable technical profiles based on claim values. 
 
 author: kengaderdus
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -233,7 +233,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 1. Repeat step 5, but this time, select **Account Type**, select **Contoso Employee Account**, and then follow the prompts.  
  
 
-## Next steps
+## Related content
 
 In [step 3](#step-3---configure-or-update-technical-profiles), we enable or disable  the technical profile by using the `EnabledForUserJourneys` element. Alternatively, you can use [Preconditions](userjourneys.md#preconditions) inside the user journey orchestration steps to execute or skip an orchestration step as we learn later in this series.
 
@@ -241,4 +241,4 @@ Next, learn:
 
 - About [User Journey Orchestration Steps Preconditions](userjourneys.md#preconditions).
 
--  How to [Use the TrustFrameworkPolicy schema file to validate Azure AD B2C policy files](custom-policies-series-install-xml-extensions.md).
+- How to [Use the TrustFrameworkPolicy schema file to validate Azure AD B2C policy files](custom-policies-series-install-xml-extensions.md).

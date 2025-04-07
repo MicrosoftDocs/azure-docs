@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Open and save files on premises and in Azure with SSIS packages deployed in Azure

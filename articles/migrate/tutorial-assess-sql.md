@@ -1,8 +1,6 @@
 ---
 title: Tutorial to assess SQL instances for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
 description: Learn how to create assessment for Azure SQL in Azure Migrate
-author: rashi-ms
-ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 08/13/2024

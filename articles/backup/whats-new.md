@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 03/05/2025
+ms.date: 03/10/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -150,7 +150,7 @@ For more information, see [About Immutable vault for Azure Backup](backup-azure-
 
 Azure Backup now supports Cross Subscription Backup (CSB) for Azure File Shares (preview), allowing you to back up data across different subscriptions within the same tenant or Microsoft Entra ID. This capability offers greater flexibility and control, essentially for enterprises managing multiple subscriptions with varying purposes and security policies.
 
-For more information, see [About Azure File share backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-preview-works).
+For more information, see [About Azure File share backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works).
 
 ## Back up SAP ASE (Sybase) database (preview)
 

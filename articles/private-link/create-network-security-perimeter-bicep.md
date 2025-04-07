@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/07/2025
+ms.date: 03/25/2025   
 ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource in the Bicep, so that I can control the network traffic to and from the resource.
 ---
@@ -24,8 +24,6 @@ You can also create a network security perimeter by using the [Azure portal](cre
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
 ## Review the Bicep file
 

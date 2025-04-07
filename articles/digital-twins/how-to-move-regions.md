@@ -1,10 +1,9 @@
 ---
-# Mandatory fields.
 title: Move instance to a different Azure region
 titleSuffix: Azure Digital Twins
 description: Learn how to move an Azure Digital Twins instance from one Azure region to another.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 02/23/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources

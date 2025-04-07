@@ -13,7 +13,7 @@ ms.date: 02/13/2024
 
 # Associate your ASN with an Azure subscription using the Azure portal
 
-In this article, you learn how to associate your Autonomous System Number (ASN) with an Azure subscription using the Azure portal. To learn how to associate your ASN with an Azure subscription using Azure PowerShell, see [Associate peer ASN to Azure subscription using PowerShell](howto-subscription-association-powershell.md).
+In this article, you learn how to associate your Autonomous System Number (ASN) with an Azure subscription using the Azure portal.
 
 As an Internet Service Provider or Internet Exchange Provider, you must associate your peer ASN with an Azure subscription before you submit a peering request.
 

@@ -8,6 +8,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As an IT admin, I want to understand common issues and errors during migration to Azure Cloud Services (extended support), so that I can troubleshoot effectively and ensure a smooth transition from Cloud Services (classic).
 ---
 
 # Common errors and known issues when migrating to Azure Cloud Services (extended support)

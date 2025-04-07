@@ -90,6 +90,10 @@ Create your instance of `ServiceHubContext` from a `ServiceManager`:
 var serviceHubContext = await serviceManager.CreateHubContextAsync("<Your Hub Name>",cancellationToken);
 ```
 
+> [!NOTE]
+> 
+> Creating `ServiceHubContext` is a rather expensive operation. It's recommended to reuse the same `ServiceHubContext` instance for the same hub.
+
 ### Negotiation
 
 In [default mode](concept-service-mode.md#default-mode), an endpoint `/<Your Hub Name>/negotiate` is exposed for negotiation by Azure SignalR Service SDK. SignalR clients reach this endpoint and then redirect to Azure SignalR Service later.

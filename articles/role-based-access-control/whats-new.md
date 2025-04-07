@@ -2,10 +2,10 @@
 title: What's new in Azure RBAC documentation
 description: Learn about the new features and documentation improvements in Azure role-based access control (RBAC).
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 02/26/2025
+ms.date: 04/01/2025
 ms.author: rolyon
 
 ---
@@ -18,6 +18,9 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| April 2025 | Roles | Added [Azure Red Hat OpenShift](built-in-roles/containers.md#azure-red-hat-openshift-cloud-controller-manager) roles. |
+| March 2025 | Roles | Added Durable Task roles. See [Durable Task Data Contributor](built-in-roles/integration.md#durable-task-data-contributor), [Durable Task Data Reader](built-in-roles/integration.md#durable-task-data-reader), and [Durable Task Worker](built-in-roles/integration.md#durable-task-worker). |
+| March 2025 | Security | Updates about classic administrators access. See [Azure classic subscription administrators](classic-administrators.md). |
 | February 2025 | Limits | Updates to [Azure RBAC limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). |
 | February 2025 | Roles | Added [Chaos Studio Target Contributor](built-in-roles/devops.md#chaos-studio-target-contributor) role. |
 | February 2025 | Security | Added instructions for how to detect elevate access events using Microsoft Sentinel. See [Detect elevate access events using Microsoft Sentinel](elevate-access-global-admin.md#detect-elevate-access-events-using-microsoft-sentinel). |

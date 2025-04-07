@@ -2,12 +2,11 @@
 title: Health probes
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door monitors the health of your origins.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 01/29/2025
-ms.author: duau
 ---
 
 # Health probes

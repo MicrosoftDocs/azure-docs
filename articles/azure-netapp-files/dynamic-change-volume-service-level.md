@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/27/2024
+ms.date: 03/18/2025
 ms.author: anfdocs
 ---
 # Dynamically change the service level of an Azure NetApp Files volume
@@ -19,6 +19,8 @@ The capacity pool that you want to move the volume to must already exist. The ca
 ## Considerations
 
 * Dynamically changing the service level of a volume is supported within the same NetApp account. You can't move the volume to a capacity pool in a different NetApp Account.
+
+* You can't convert a Flexible service level capacity pool to Standard, Premium, or Ultra. Standard, Premium, and Ultra service level capacity pools can't be converted to the Flexible service level.
 
 * After the volume is moved to another capacity pool, you no longer have access to the previous volume activity logs and volume metrics. The volume starts with new activity logs and metrics under the new capacity pool.
 

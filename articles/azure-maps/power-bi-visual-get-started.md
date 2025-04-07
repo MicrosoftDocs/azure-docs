@@ -156,8 +156,10 @@ The Azure Maps Power BI visual is available in the following services and applic
 | Power BI publish to web                  | Yes          |
 | Power BI Embedded                        | Yes          |
 | Power BI service embedding (PowerBI.com) | Yes          |
+| Power BI export                          | No           |
+| Power BI subscriptions                   | No           |
 
-**Where is Azure Maps available?**
+**Where is Azure Maps Visual for Power BI available?**
 
 At this time, Azure Maps is currently available in all countries and regions except:
 
