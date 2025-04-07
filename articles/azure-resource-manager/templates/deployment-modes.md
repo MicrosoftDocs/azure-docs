@@ -23,7 +23,7 @@ In incremental mode, Resource Manager **leaves unchanged** resources that exist 
 
 > [!IMPORTANT]
 >
-> Incremental mode is the recommended deployment dode. If there is a need to delete resources as part of a Bicep file or ARM JSON template, use [deployment stacks](../bicep/deployment-stacks.md).
+> Incremental mode is the recommended deployment mode. If there is a need to delete resources as part of a Bicep file or ARM JSON template, use [deployment stacks](../bicep/deployment-stacks.md).
 >
 > When redeploying an existing resource in incremental mode, all properties are reapplied. The **properties aren't incrementally added**. A common misunderstanding is to think properties that aren't specified in the template are left unchanged. If you don't specify certain properties, Resource Manager interprets the deployment as overwriting those values. Properties that aren't included in the template are reset to the default values. Specify all non-default values for the resource, not just the ones you're updating. The resource definition in the template always contains the final state of the resource. It can't represent a partial update to an existing resource.
 
