@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: conceptual
-ms.date: 02/19/2025
+ms.date: 04/07/2025
 ms.author: cshoe
 ms.collection: ce-skilling-ai-copilot
 ---

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/19/2025
+ms.date: 04/07/2025
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024
 ---
@@ -76,89 +76,6 @@ The session identifier is a string that you define that is unique within the ses
 
 The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
 
-## Work with files
-
-You can upload and download files, and list all the files in a session.
-
-### Upload a file
-
-To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a filename.
-
-Uploaded files are stored in the session's file system under the `/mnt/data` directory.
-
-The following example shows how to upload a file to a session.
-
-Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
-
-```http
-POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/upload?api-version=2024-02-02-preview&identifier=<SESSION_ID>
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-Authorization: Bearer <token>
-
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="<FILE_NAME_AND_EXTENSION>"
-Content-Type: application/octet-stream
-
-(data)
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-```
-
-### Download a file
-
-To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
-
-The following example demonstrates how to format a `GET` request to download a file.
-
-Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
-
-```http
-GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/content/<FILE_NAME_AND_EXTENSION>?api-version=2024-02-02-preview&identifier=<SESSION_ID>
-Authorization: Bearer <TOKEN>
-```
-
-### List the files
-
-To list the files in a session's `/mnt/data` directory, send a `GET` request to the `files` endpoint.
-
-The following example shows you how to list the files in a session's directory.
-
-Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
-
-```http
-GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2024-02-02-preview&identifier=<SESSION_ID>
-Authorization: Bearer <TOKEN>
-```
-
-The response contains a list of files in the session.
-
-The following listing shows a sample of the type of response you can expect from requesting session contents.
-
-```json
-{
-    "$id": "1",
-    "value": [
-        {
-            "$id": "2",
-            "properties": {
-                "$id": "3",
-                "filename": "test1.txt",
-                "size": 16,
-                "lastModifiedTime": "2024-05-02T07:21:07.9922617Z"
-            }
-        },
-        {
-            "$id": "4",
-            "properties": {
-                "$id": "5",
-                "filename": "test2.txt",
-                "size": 17,
-                "lastModifiedTime": "2024-05-02T07:21:08.8802793Z"
-            }
-        }
-    ]
-}
-```
-
 ## Security
 
 Dynamic sessions are built to run untrusted code and applications in a secure and isolated environment. While sessions are isolated from one another, anything within a single session, including files and environment variables, is accessible by users of the session.
@@ -185,7 +102,6 @@ To fully secure your sessions, you can:
 
 - [Use Microsoft Entra ID authentication and authorization](#authentication)
 - [Protect session identifiers](#protect-session-identifiers)
-- [Use Managed Identity](#use-managed-identity)
 
 ### <a name="authentication"></a>Authentication and authorization
 
@@ -286,118 +202,6 @@ Example strategies include:
 
 > [!IMPORTANT]
 > Failure to secure access to sessions could result in misuse or unauthorized access to data stored in your users' sessions.
-
-### Use managed identity
-
-A managed identity from Microsoft Entra ID allows your container session pools and their sessions to access other Microsoft Entra protected resources. Both system-assigned and user-assigned managed identities are supported in a session pool.
-
-For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
-
-There are two ways to use managed identities with custom container session pools:
-
-- **Image pull authentication**: Use the managed identity to authenticate with the container registry to pull the container image.
-
-- **Resource access**: Use the session pool's managed identity in a session to access other Microsoft Entra protected resources. Due to its security implications, this capability is disabled by default.
-
-    > [!IMPORTANT]
-    > If you enable access to managed identity in a session, any code or programs running in the session can create Microsoft Entra tokens for the pool's managed identity. Since sessions typically run untrusted code, use this feature with extreme caution.
-
-# [Azure CLI](#tab/azure-cli)
-
-To enable managed identity for a custom container session pool, use Azure Resource Manager.
-
-# [Azure Resource Manager](#tab/arm)
-
-To enable managed identity for a custom container session pool, you add an `identity` property to the session pool resource.
-
-The `identity` property must have a `type` property with the value `SystemAssigned` or `UserAssigned`. For more information on how to configure this property, see [Configure managed identities](managed-identity.md?tabs=arm%2Cdotnet#configure-managed-identities).
-
-The following example shows an ARM template snippet that enables a user-assigned identity for a custom container session pool and use it for image pull authentication.
-
-Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
-
-```json
-{
-  "type": "Microsoft.App/sessionPools",
-  "apiVersion": "2024-08-02-preview",
-  "name": "my-session-pool",
-  "location": "westus2",
-  "properties": {
-    "environmentId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>",
-    "poolManagementType": "Dynamic",
-    "containerType": "CustomContainer",
-    "scaleConfiguration": {
-      "maxConcurrentSessions": 10,
-      "readySessionInstances": 5
-    },
-    "dynamicPoolConfiguration": {
-      "executionType": "Timed",
-      "cooldownPeriodInSeconds": 600
-    },
-    "customContainerTemplate": {
-      "registryCredentials": {
-          "server": "myregistry.azurecr.io",
-          "identity": "<IDENTITY_RESOURCE_ID>"
-      },
-      "containers": [
-        {
-          "image": "myregistry.azurecr.io/my-container-image:1.0",
-          "name": "mycontainer",
-          "resources": {
-            "cpu": 0.25,
-            "memory": "0.5Gi"
-          },
-          "command": [
-            "/bin/sh"
-          ],
-          "args": [
-            "-c",
-            "while true; do echo hello; sleep 10;done"
-          ],
-          "env": [
-            {
-              "name": "key1",
-              "value": "value1"
-            },
-            {
-              "name": "key2",
-              "value": "value2"
-            }
-          ]
-        }
-      ],
-      "ingress": {
-        "targetPort": 80
-      }
-    },
-    "sessionNetworkConfiguration": {
-      "status": "EgressEnabled"
-    },
-    "managedIdentitySettings": [
-      {
-        "identity": "<IDENTITY_RESOURCE_ID>",
-        "lifecycle": "None"
-      }
-    ]
-  },
-  "identity": {
-    "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "<IDENTITY_RESOURCE_ID>": {}
-    }
-  }
-}
-```
-
-This template contains the following settings for managed identity:
-
-| Parameter | Value | Description |
-|---------|-------|-------------|
-| `customContainerTemplate.registryCredentials.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use for image pull authentication. |
-| `managedIdentitySettings.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use in the session. |
-| `managedIdentitySettings.lifecycle` | `None` | The session lifecycle where the managed identity is available.<br><br>- `None` (default): The session can't access the identity. This setting is only used for image pull.<br><br>- `Main`: In addition to image pull, the main session can also access the identity. **Use with caution.** |
-
----
 
 ## Logging
 
