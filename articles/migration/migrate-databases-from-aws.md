@@ -9,7 +9,6 @@ ms.topic: concept-article
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Migrate databases from Amazon Web Services (AWS) to Azure

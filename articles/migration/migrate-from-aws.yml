@@ -14,7 +14,6 @@ metadata:
   ms.collection: 
    - migration
    - aws-to-azure
-   - gcp-to-azure
 
 landingContent:
   - title: Migration strategy

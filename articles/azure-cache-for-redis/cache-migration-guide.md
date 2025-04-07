@@ -7,7 +7,6 @@ ms.custom:
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ms.date: 11/17/2021
 appliesto:
   - ✅ Azure Cache for Redis

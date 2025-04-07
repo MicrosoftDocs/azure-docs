@@ -9,7 +9,6 @@ ms.author: cwatson
 ms.collection:
  - sentinel-data-connector
  - migration
- - aws-to-azure
  - gcp-to-azure
 ---
 

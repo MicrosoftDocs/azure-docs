@@ -7,7 +7,6 @@ ms.service: azure-migrate
 ms.custom: MVC, engagement-fy25
 ms.collection: 
  - migration
- - aws-to-azure
  - gcp-to-azure
 #Customer intent: As a server admin, I want to assess my GCP instances in preparation for migration to Azure.
 ---

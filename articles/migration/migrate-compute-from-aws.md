@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Migrate compute from Amazon Web Services to Azure

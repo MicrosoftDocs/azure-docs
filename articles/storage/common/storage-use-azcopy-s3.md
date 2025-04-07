@@ -11,7 +11,6 @@ ms.subservice: storage-common-concepts
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Copy data from Amazon S3 to Azure Storage by using AzCopy

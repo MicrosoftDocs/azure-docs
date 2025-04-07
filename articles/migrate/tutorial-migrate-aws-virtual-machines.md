@@ -12,7 +12,6 @@ ms.custom:
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure

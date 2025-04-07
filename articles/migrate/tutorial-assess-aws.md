@@ -8,7 +8,6 @@ ms.custom: MVC, engagement-fy23
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 #Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
 ---
 

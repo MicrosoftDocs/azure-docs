@@ -9,7 +9,6 @@ ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
 ms.collection: 
  - migration
- - aws-to-azure
  - gcp-to-azure
 ---
 

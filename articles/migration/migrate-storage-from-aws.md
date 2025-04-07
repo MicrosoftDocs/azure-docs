@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Migrate storage from Amazon Web Services (AWS) to Azure

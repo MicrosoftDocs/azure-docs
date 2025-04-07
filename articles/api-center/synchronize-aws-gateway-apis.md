@@ -11,7 +11,6 @@ ms.custom:
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 

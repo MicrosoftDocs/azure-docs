@@ -9,7 +9,6 @@ ms.subservice: data-movement
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2

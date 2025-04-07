@@ -7,7 +7,6 @@ ms.service: azure-functions
 ms.collection: 
  - migration
  - aws-to-azure
- - gcp-to-azure
 ms.topic: how-to
 ms.date: 03/18/2025
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.

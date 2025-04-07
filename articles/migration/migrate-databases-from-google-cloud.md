@@ -7,7 +7,6 @@ ms.date: 01/28/2025
 ms.topic: conceptual
 ms.collection: 
  - migration
- - aws-to-azure
  - gcp-to-azure
 ---
 
