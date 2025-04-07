@@ -25,7 +25,7 @@ When phone numbers are flagged as spam, it can limit the ability of businesses t
 2. **Use Caller ID:** Ensure that the customer’s caller ID is correctly set up and displays accurate information. This practice helps recipients recognize the caller and reduces the likelihood of being reported as spam. You can apply the Azure Communication process for Caller Name Delivery (CNAM) set up in [Define your caller identity](../telephony/how-to-manage-your-calling-identity.md).
 3. **Obtain Consent:** Always obtain consent from recipients before making calls. This goal can be achieved through opt-in mechanisms where customers explicitly agree to receive calls from the customer’s business.
 4. **Provide Opt-Out Options:** Offer recipients an easy way to opt-out of receiving calls. This action can be done through automated systems or customer service representatives.
-5. **Maintain a Clean Contact List:** Remove inactive or incorrect numbers by regular update of customer’s contact list. This practice reduces the chances of calling numbers that may report customer’s calls as spam. Customers can use the Azure Communication Services Number Lookup API to help customers with this process (more details [here](../../quickstarts/telephony/number-lookup.md)).
+5. **Maintain a Clean Contact List:** Remove inactive or incorrect numbers by regular update of customer’s contact list. This practice reduces the chances of calling numbers that may report customer’s calls as spam. Customers can use the Azure Communication Services Number Lookup API to help customers with this process. For more information, see [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md).
 
 ## Prohibited uses of Communications Services
 
