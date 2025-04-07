@@ -5,7 +5,7 @@ ms.devlang: terraform
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/28/2025
+ms.date: 04/07/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -41,9 +41,6 @@ To create a Backup policy for Azure Database for PostgreSQL - Flexible Server, f
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/enter-policy-name.png" alt-text="Screenshot sows how to provide the Backup policy name.":::
 
 4. On the **Schedule + retention** tab, under **Backup schedule**, define the Backup frequency.
-
-   >[!Note]
-   >The **Weekly backup** option is currently available. However, you can schedule the backups on multiple days of the week.
 
 5. Under **Retention rules**, select **Add retention rule**.
 
