@@ -876,6 +876,8 @@ items:
     href: concepts/numbers/number-types.md
   - name: Define your caller identity
     href: concepts/telephony/how-to-manage-your-calling-identity.md
+  - name: Prevent phone numbers from being flagged as spam
+    href: concepts/telephony/prevent-spam-flag.md
   - name: Country availability
     href: concepts/numbers/sub-eligibility-number-capability.md
   - name: Trial phone numbers
