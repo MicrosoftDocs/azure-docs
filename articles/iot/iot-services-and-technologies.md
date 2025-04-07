@@ -72,7 +72,7 @@ To learn more, see [What is asset management in Azure IoT Operations](../iot-ope
 
 ### Azure IoT Operations SDKs (preview)
 
-> The Azure IoT Operations SDKs enable you to build a custom **edge-based IoT solution** that use Azure IoT Operations.
+> The Azure IoT Operations SDKs enable you to build a custom **edge-based IoT solution** that uses Azure IoT Operations.
 
 The Azure IoT Operations SDKs are a suite of tools and libraries across multiple languages designed to aid the development of applications for Azure IoT Operations. The SDKs can be used to build secure, highly available applications at the edge, that interact with Azure IoT Operations to perform operations such as asset discovery, protocol translation and data transformation.
 
@@ -88,7 +88,7 @@ To learn more, see [What is Azure IoT Hub?](../iot-hub/iot-concepts-and-iot-hub.
 
 ### Azure IoT Hub Device Provisioning Service (DPS)
 
-> DPS is typically part of a **cloud-based IoT solution** based on IoT Hub or IoT Central.
+> DPS is typically part of a **cloud-based IoT solution** that uses IoT Hub or IoT Central.
 
 DPS is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning of IoT devices to an IoT hub without requiring human intervention. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. DPS can provision devices that use X.509 certificates and trusted platform modules. IoT Central applications use an internal DPS instance to manage device connections.
 
@@ -96,7 +96,7 @@ To learn more, see [What is Azure IoT Hub Device Provisioning Service?](../iot-d
 
 ### Azure Device Update for IoT Hub
 
-> Device Update for IoT Hub is typically part of a **cloud-based IoT solution** based on IoT Hub.
+> Device Update for IoT Hub is typically part of a **cloud-based IoT solution** that uses IoT Hub.
 
 Azure Device Update for IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices, including Azure IoT Edge devices. Device Update offers optimized update deployment and streamlined operations through integration with Azure IoT Hub, making it easy to adopt on any existing IoT Hub-based solution.
 
@@ -104,7 +104,7 @@ To learn more, see [What is Device Update for IoT Hub?](../iot-hub-device-update
 
 ### Azure IoT Edge
 
-> IoT Edge is typically part of a **hybrid IoT solution** based on IoT Hub or IoT Central.
+> IoT Edge is typically part of a **hybrid IoT solution** that uses IoT Hub or IoT Central.
 
 Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads at the edge, bringing analytics closer to your devices for faster insights and offline decision-making. IoT Edge can also act as a gateway for devices with no internet connectivity and protocol translation. IoT Edge is a feature of Azure IoT Hub and also integrates with Azure IoT Central.
 
@@ -112,7 +112,7 @@ To learn more, see [What is Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 ## Azure Digital Twins
 
-> The Azure Digital Twins service is typically part of a **cloud-based IoT solution** based on IoT Hub.
+> The Azure Digital Twins service is typically part of a **cloud-based IoT solution** that uses IoT Hub.
 
 Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of twin graphs based on digital models of entire environments, which could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud solution, and which connects to IoT Hub device twins to send and receive live data.
 
@@ -140,7 +140,7 @@ To learn more, see [What is Azure Event Grid?](../event-grid/overview.md)
 
 ## Azure IoT device and service SDKs
 
-> The Azure IoT device and service SDKs enables you to build a custom **cloud-based IoT solution** that use IoT Hub or IoT Central.
+> The Azure IoT device and service SDKs enables you to build a custom **cloud-based IoT solution** that uses IoT Hub or IoT Central.
 
 - The [Azure IoT device SDKs](iot-sdks.md#device-sdks) help you address the challenges of connecting devices securely and reliably to your IoT Hub or IoT Central using protocols such as MQTT and AMQP.
 - The [Azure IoT service SDKs](iot-sdks.md#iot-hub-service-sdks) contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
@@ -153,7 +153,7 @@ To learn more, see [Azure IoT device and service SDKs](iot-sdks.md).
 
 ## Azure IoT Plug and Play
 
-> Azure IoT Plug and Play is a programming model that enables you to build a **cloud-based IoT solution** that use IoT Hub or IoT Central.
+> Azure IoT Plug and Play is a programming model that enables you to build a **cloud-based IoT solution** that uses IoT Hub or IoT Central.
 
 IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled service such as IoT Central or Azure Digital Twins. You define IoT Plug and Play models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
