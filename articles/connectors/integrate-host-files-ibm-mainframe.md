@@ -154,10 +154,9 @@ Follow these steps to add a Parse Host File Contents action:
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting binary data to read from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png":::
 
-<!-- Reviewer: Current article doesn't indicate how to add the "Create file" step.
-The text indicates that the action creates a file on an "SFTP" server, but it looks like an FTP server in the image. I chose the "SFTP server (NOT In-app)" option for this refresh. Let me know if an alternate action is required. -->
-
    1. Add a final action to create a file on a Secure File Transfer Protocol (SFTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
+
+      <!-- Reviewer: Current article doesn't indicate how to add the "Create file" step. The text indicates that the action creates a file on an "SFTP" server, but it looks like an FTP server in the image. I chose the "SFTP server (NOT In-app)" option for this refresh. Let me know if an alternate action is required. -->
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/create-file-on-sftp-server.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting to create a file on an SFTP server." lightbox="./media/integrate-host-files-ibm-mainframe/create-file-on-sftp-server.png":::
    
