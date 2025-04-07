@@ -38,7 +38,7 @@ The following activities are prohibited:
 
 For the full list of applicable Azure Communication Services Terms, see [Service Specific Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#clause-2520-h3-1) and [Communications Services Tax Rates and Terms](https://www.microsoft.com/licensing/docs/view/Communications-Services-Tax-Rates-and-Terms?msockid=29591b22ce2367e3338a0afdcfe86647).
 
-## Register in FCR
+## Register in the Free Caller Registry (FCR)
 
 The [Free Caller Registry](https://www.freecallerregistry.com/fcr/) (FCR) serves as a system for organizations that conduct outbound calls to secure approval for their phone numbers, ensuring they are not incorrectly tagged as "Spam Likely" or "Scam" by mobile service providers.
 The registry is important for entities dependent on outbound calls for their business activities. It helps to prevent their calls from being intercepted or wrongly marked as spam by carriers or external services. We recommend that customers initiate the process of phone number registration to mitigate this risk.
