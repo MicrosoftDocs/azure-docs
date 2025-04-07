@@ -1,3 +1,16 @@
+---
+title: Prevent Phone Numbers from Being Flagged as Spam
+titleSuffix: An Azure Communication Services concept document
+description: Learn about Communication Services recommendations.
+author: henikaraa
+manager: ankura
+services: azure-communication-services
+ms.author: henikaraa
+ms.date: 04/07/2025
+ms.topic: conceptual
+ms.service: azure-communication-services
+---
+
 # Prevent Phone Numbers from Being Flagged as Spam
 
 When phone numbers are flagged as spam, it can severely impact the ability of businesses to communicate with their customers. This issue arises when carriers detect patterns that resemble spam behavior, such as high volumes of calls or messages, or when recipients report the number as spam. The consequences include:
@@ -7,10 +20,10 @@ When phone numbers are flagged as spam, it can severely impact the ability of bu
 
 ## Requirements and Best Practices for Voice Communications
 1. **Monitor Call Patterns:** Regularly monitor call patterns to identify any unusual activity that may trigger spam filters. Avoid making a high volume of calls in a short period.
-2. **Use Caller ID:** Ensure that the customer’s caller ID is correctly set up and displays accurate information. This helps recipients recognize the caller and reduces the likelihood of being reported as spam (You can leverage the Azure Communication process for CNAM setup detailed [here](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/how-to-manage-your-calling-identity)).
+2. **Use Caller ID:** Ensure that the customer’s caller ID is correctly set up and displays accurate information. This helps recipients recognize the caller and reduces the likelihood of being reported as spam (You can leverage the Azure Communication process for CNAM setup detailed [here](https://learn.microsoft.com/azure/communication-services/concepts/telephony/how-to-manage-your-calling-identity)).
 3. **Obtain Consent:** Always obtain consent from recipients before making calls. This can be done through opt-in mechanisms where customers explicitly agree to receive calls from the customer’s business.
 4. **Provide Opt-Out Options:** Offer recipients an easy way to opt-out of receiving calls. This can be done through automated systems or customer service representatives.
-5. **Maintain a Clean Contact List:** Regularly update and clean customer’s contact list to remove inactive or incorrect numbers. This reduces the chances of calling numbers that may report customer’s calls as spam. Customers can leverage the Azure Communication Services Number Lookup API to help customers with this (more details [here](https://learn.microsoft.com/en-us/azure/communication-services/concepts/numbers/number-lookup-concept)).
+5. **Maintain a Clean Contact List:** Regularly update and clean customer’s contact list to remove inactive or incorrect numbers. This reduces the chances of calling numbers that may report customer’s calls as spam. Customers can leverage the Azure Communication Services Number Lookup API to help customers with this (more details [here](https://learn.microsoft.com/azure/communication-services/concepts/numbers/number-lookup-concept)).
 
 ## Prohibited uses of Communications Services
 The following activities are prohibited:
