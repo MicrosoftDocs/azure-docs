@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create an Azure Native Pure Storage Cloud resource (preview)"
+title: "Quickstart: Create an Azure Native Pure Storage Cloud Resource (preview)"
 description: Learn how to create a resource for Pure Storage Cloud (preview) using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
