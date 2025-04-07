@@ -54,4 +54,11 @@ Consider the following points when submitting the registration request:
   - Hiya: freecallerregistry@hiya.com
   - TNS: communications@tnsi.com
 - In certain cases, the platform vendors may ask customers to set up an account as part of the application process.
-- Number registration will fix most of the “spam like” flags but it’s not a guarantee against any future flagging. This issue can happen in case customers do not comply with US regulations.
+- Number registration fixes most of the “spam like” flags but it’s not a guarantee against any future flagging. This issue can happen if customers do not comply with US regulations.
+
+## Related articles
+
+- [Define your caller identity](../telephony/how-to-manage-your-calling-identity.md)
+- [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md)
+- [Service Specific Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#clause-2520-h3-1)
+- [Communications Services Tax Rates and Terms](https://www.microsoft.com/licensing/docs/view/Communications-Services-Tax-Rates-and-Terms?msockid=29591b22ce2367e3338a0afdcfe86647)
