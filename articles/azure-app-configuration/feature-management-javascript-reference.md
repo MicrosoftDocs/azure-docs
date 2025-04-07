@@ -130,6 +130,35 @@ const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
 const featureManager = new FeatureManager(featureProvider);
 ```
 
+#### Use Azure App Configuration to dynamically control the state of the feature flag
+
+Azure App Configuration is not only a solution to externalize storage and centralized management of your feature flags, but also it allows to dynamically turn on/off the feature flags.
+
+To enable the dynamic refresh for feature flags, you need to configure the `refresh` property of `featureFlagOptions` when loading feature flags from Azure App Configuration.
+
+``` typescript
+const appConfig = await load("YOUR_APP-CONFIG-ENDPOINT",  new DefaultAzureCredential(),  { 
+    featureFlagOptions: { 
+        enabled: true,
+        refresh: {
+            enabled: true, // enable the dynamic refresh for feature flags
+            refreshIntervalInMs: 30_000
+        }
+    } 
+});
+
+const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+const featureManager = new FeatureManager(featureProvider);
+```
+
+You need to call the `refresh` method to get the latest feature flag state.
+
+```typescript
+await appConfig.refresh(); // Refresh to get the latest feature flags
+const isBetaEnabled = await featureManager.isEnabled("Beta");
+console.log(`Beta is enabled: ${isBetaEnabled}`);
+```
+
 > [!NOTE]
 > For more information about how to use feature management library with Azure App Configuration, please go to the [quickstart](./quickstart-javascript.md).
 
