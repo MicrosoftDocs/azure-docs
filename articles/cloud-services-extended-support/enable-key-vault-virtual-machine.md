@@ -7,6 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
 ms.date: 07/24/2024
+# Customer intent: As an IT administrator, I want to configure the Key Vault VM extension for Azure Cloud Services, so that I can automate certificate management and ensure timely updates for secured operations.
 ---
 
 # Apply the Key Vault Virtual Machine (VM) extension to Azure Cloud Services (extended support)

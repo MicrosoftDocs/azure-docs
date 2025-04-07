@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/17/2025    
+ms.date: 03/25/2025   
 ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource in the Bicep, so that I can control the network traffic to and from the resource.
 ---

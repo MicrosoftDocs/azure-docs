@@ -25,7 +25,7 @@ For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus
 - Microsoft Support must patch the Nexus Network Fabric with an active storage SAS URL before running cabling validation.
 
 >[!Note]
-> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) article.
+> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/azure/operator-nexus/howto-configure-network-fabric) article.
 
 ## Creating an Azure Support Request for Patching Nexus Network Fabric:
   - Refer to [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)

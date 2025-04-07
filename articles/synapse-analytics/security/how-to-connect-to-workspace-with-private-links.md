@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 12/20/2024 
 ms.author: danzhang
-ms.reviewer: whhender
 ---
 
 # Connect to your Azure Synapse workspace using private links

@@ -8,6 +8,7 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want PowerShell scripts for resetting Azure Cloud Service deployments so that I can efficiently manage and recover service instances.
 ---
 # Reset an Azure Cloud Service (extended support) 
 These samples cover various ways to reset an existing Azure Cloud Service (extended support) deployment.

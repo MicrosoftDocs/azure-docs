@@ -7,7 +7,7 @@ manager: dcscontentpm
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: troubleshooting
-ms.date: 02/13/2023
+ms.date: 03/31/2025
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ---
@@ -42,18 +42,18 @@ The following diagram shows the logical connectivity of an on-premises network t
 1. Determine your Internet Service Provider (ISP) bandwidth.
 1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8). This calculation gives you Megabytes-per-second.
 
-If your calculated throughput does not meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](/azure/virtual-machines/resize-vm). If you are not experiencing the expected Internet bandwidth, you may also contact your ISP.
+If your calculated throughput doesn't meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](/azure/virtual-machines/resize-vm). If you aren't experiencing the expected Internet bandwidth, you may also contact your ISP.
 
 > [!NOTE]
 > VPN Gateway throughput is an aggregate of all Site-to-Site\VNET-to-VNET, or Point-to-Site connections.
 
 ## Validate network throughput by using performance tools
 
-This validation should be performed during nonpeak hours, as VPN tunnel throughput saturation during testing does not give accurate results.
+This validation should be performed during nonpeak hours, as VPN tunnel throughput saturation during testing doesn't give accurate results.
 
 The tool we use for this test is iPerf, which works on both Windows and Linux and has both client and server modes. It is limited to 3 Gbps for Windows VMs.
 
-This tool does not perform any read/write operations to disk. It solely produces self-generated TCP traffic from one end to the other. It generates statistics based on experimentation that measures the bandwidth available between client and server nodes. When testing between two nodes, one node acts as the server, and the other node acts as a client. Once this test is completed, we recommend that you reverse the roles of the nodes to test both upload and download throughput on both nodes.
+This tool doesn't perform any read/write operations to disk. It solely produces self-generated TCP traffic from one end to the other. It generates statistics based on experimentation that measures the bandwidth available between client and server nodes. When testing between two nodes, one node acts as the server, and the other node acts as a client. Once this test is completed, we recommend that you reverse the roles of the nodes to test both upload and download throughput on both nodes.
 
 ### Download iPerf
 
@@ -218,7 +218,7 @@ In particular, analysis of packet capture traces (Wireshark/Network Monitor) col
 
 ## Address slow file copy issues
 
-Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/etc..) was good, you may experience slow file coping when either using Windows Explorer, or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
+Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/etc.) was good, you may experience slow file coping when either using Windows Explorer, or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
 
 * File copy applications, such as Windows Explorer and RDP, don't use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.
 
@@ -254,7 +254,7 @@ You can check latency by using the following tools:
 
 If you notice a high latency spike at any of the hops before entering MS Network backbone, you may want to proceed with further investigations with your Internet Service Provider.
 
-If a large, unusual latency spike is noticed from hops within "msn.net", please contact MS support for further investigations.
+If a large, unusual latency spike is noticed from hops within "msn.net", contact MS support for further investigations.
 
 ## Next steps
 

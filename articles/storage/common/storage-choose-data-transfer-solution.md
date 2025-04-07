@@ -30,7 +30,7 @@ Data transfer can be offline or over the network connection. Choose your solutio
 
 The data movement can be of the following types:
 
-- **Offline transfer using shippable devices** - Use physical shippable devices when you want to do offline one-time bulk data transfer. This use case involves copying data to either a disk or specialized device, and then shipping it to a secure Microsoft facility where the data is uploaded. You can purchase and ship your own disks, or you order a Microsoft-supplied disk or device. Microsoft-supplied solutions for offline transfer include Azure [Data Box](../../databox/data-box-overview.md), [Data Box Disk](../../databox/data-box-disk-overview.md), and [Data Box Heavy](../../databox/data-box-heavy-overview.md).
+- **Offline transfer using shippable devices** - Use physical shippable devices when you want to do offline one-time bulk data transfer. This use case involves copying data to either a disk or specialized device, and then shipping it to a secure Microsoft facility where the data is uploaded. You can purchase and ship your own disks, or you order a Microsoft-supplied disk or device. Microsoft-supplied solutions for offline transfer include Azure [Data Box Next-Gen](../../databox/data-box-overview.md?pivots=dbx-ng), [Data Box](../../databox/data-box-overview.md?pivots=dbx), [Data Box Disk](../../databox/data-box-disk-overview.md), and [Data Box Heavy](../../databox/data-box-heavy-overview.md).
 
 - **Network Transfer** - You transfer your data to Azure over your network connection. This transfer can be done in many ways.
 

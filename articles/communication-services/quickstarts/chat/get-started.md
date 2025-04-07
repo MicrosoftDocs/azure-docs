@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add chat to your app
-titleSuffix: An Azure Communication Services quickstart
-description: This quickstart shows you how to add Communication Services chat to your app.
+title: Add chat to your app
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add Communication Services chat to your app.
 author: tophpalmer
 manager: phans
 services: azure-communication-services
@@ -13,9 +13,10 @@ ms.subservice: chat
 zone_pivot_groups: acs-azcli-js-csharp-java-python-swift-android-power-platform
 ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 ---
-# Quickstart: Add Chat to your App
 
-Get started with Azure Communication Services by using the Communication Services Chat SDK to add real-time chat to your application. In this quickstart, we'll use the Chat SDK to create chat threads that allow users to have conversations with one another. To learn more about Chat concepts, visit the [chat conceptual documentation](../../concepts/chat/concepts.md).
+# Add Chat to your App
+
+Add real-time chat to your app using the Communication Services Chat SDK. This article describes how to use the Chat SDK to create chat threads that enable users to have conversations with one another. To learn more about Chat concepts, see [chat conceptual documentation](../../concepts/chat/concepts.md).
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE [Chat with Azure CLI](./includes/chat-az-cli.md)]
@@ -51,11 +52,11 @@ Get started with Azure Communication Services by using the Communication Service
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+To clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. For more information, see [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
-In this quickstart you learned how to:
+This article described how to:
 
 > [!div class="checklist"]
 > * Create a chat client
@@ -67,9 +68,9 @@ In this quickstart you learned how to:
 > [!div class="nextstepaction"]
 > [Try the Chat Hero App](../../samples/chat-hero-sample.md)
 
-You may also want to:
+## Related articles
 
- - Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md)
- - Learn about [chat concepts](../../concepts/chat/concepts.md)
- - Familiarize yourself with [Chat SDK](../../concepts/chat/sdk-features.md)
+ - Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md).
+ - Learn about [chat concepts](../../concepts/chat/concepts.md).
+ - Familiarize yourself with [Chat SDK](../../concepts/chat/sdk-features.md).
  - Using [Chat SDK in your React Native](./react-native.md) application.
