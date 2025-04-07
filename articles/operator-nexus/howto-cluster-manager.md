@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 The Cluster Manager is deployed in the operator's Azure subscription to manage the lifecycle of Operator Nexus Infrastructure Clusters. 
 
+---
+
 ## Before you begin
 
 Ensure you have the following information:
@@ -23,8 +25,12 @@ Ensure you have the following information:
 - **Azure Region** - The Cluster Manager should be created in the same Azure region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
+---
+
 ## Limitations
 - **Naming** - Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetworkcloud).
+
+---
 
 ## Cluster Manager properties
 
@@ -35,11 +41,12 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 | managedResourceGroupConfiguration | The details of Managed Resource Group that is created for the Cluster Manager to host its internally used resources.                                                                                                                                  |
 | fabricControllerId                | The reference to the Network Fabric Controller that is 1:1 with this Cluster Manager                                                                                                                                                                  | 
 | clusterVersions[]                 | The list of Cluster versions that the Cluster Manager supports. It's used as an input in the Cluster clusterVersion property.                                                                                                                         |
-| userAssignedIdentity             | The details of the User Assigned Managed Identity assigned to the Cluster Manager.                                                                                                                                                                     |
-| identity                          | The details of the type of identity assigned to the Cluster Manager.                                                                                                                                                                                  |
-| provisioningState                 | The provisioning status of the latest operation on the Cluster Manager. One of: Succeeded, Failed, Provisioning, Accepted, Updating                                                                                                                   |
+| userAssignedIdentity             | The details of the User Assigned Managed Identity assigned to the Cluster Manager if it is assigned.                                                                                                                                                                     |
+| identity                          | The details of the type of identity assigned to the Cluster Manager. One of: UserAssigned or SystemAssigned.                                                                                                                                                                                  |
+| provisioningState                 | The provisioning status of the latest operation on the Cluster Manager. One of: Succeeded, Failed, Provisioning, Accepted, Updating.                                                                                                                  |
 | detailedStatus                    | The detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                                    |
 | detailedStatusMessage             | The descriptive message about the current detailed status.                                                                                                                                                                                            |
+---
 
 ## Cluster Manager Identity
 
@@ -57,6 +64,8 @@ The role assignment can be done via the Azure portal:
 - Assign access to: User, group, or service principal
 - Select Member: `AFOI-NC-MGMT-PME-PROD` application
 - Review and assign
+
+---
 
 ## Create a Cluster Manager
 
@@ -243,7 +252,38 @@ az networkcloud clustermanager update \
     --subscription "<SUB_ID>"
 ```
 
-Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` sub commands.
+### [Azure PowerShell](#tab/azure-powershell)
+
+This command updates the Cluster Manager in the specified Resource group.
+
+```azurepowershell-interactive
+$TAGS_HASH = @{
+  tag1 = "true"
+  tag2 = "false"
+}
+
+Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -Tag $TAGS_HASH
+```
+
+This command updates the Cluster Manager for `SystemAssigned` Managed Identity:
+```azurepowershell-interactive
+Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "SystemAssigned"
+```
+
+This command updates the Cluster Manager for `UserAssigned` Managed Identity:
+```azurepowershell-interactive
+Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "UserAssigned" -IdentityUserAssignedIdentity <UAMI_RESOURCE_ID>
+```
+
+### [ARM Template](#tab/template)
+
+The template used for creation can also be used to update the Cluster Manager.
+
+---
+
+## Cluster Manager identity 
+
+The Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` sub commands.
 
 This command shows the currently assigned identities.
 
@@ -274,7 +314,7 @@ az networkcloud clustermanager identity assign \
     --mi-system-assigned
 ```
 
-This command removes a user-assigned identity.
+This command removes the user-assigned identity.
 
 ```azurecli-interactive
 az networkcloud clustermanager identity remove \
@@ -284,7 +324,7 @@ az networkcloud clustermanager identity remove \
     --mi-user-assigned "<UAMI_RESOURCE_ID>"
 ```
 
-This command removes a system-assigned identity.
+This command removes the system-assigned identity.
 
 ```azurecli-interactive
 az networkcloud clustermanager identity remove \
@@ -293,43 +333,6 @@ az networkcloud clustermanager identity remove \
     --subscription "<SUB_ID>" \
     --mi-system-assigned
 ```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-This command updates the Cluster Manager in the specified Resource group.
-
-```azurepowershell-interactive
-$TAGS_HASH = @{
-  tag1 = "true"
-  tag2 = "false"
-}
-
-Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -Tag $TAGS_HASH
-```
-
-This command updates the Cluster Manager for `SystemAssigned` Managed Identity:
-```azurepowershell-interactive
-$TAGS_HASH = @{
-  tag1 = "true"
-  tag2 = "false"
-}
-
-Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "SystemAssigned" -Tag $TAGS_HASH
-```
-
-This command updates the Cluster Manager for `UserAssigned` Managed Identity:
-```azurepowershell-interactive
-$TAGS_HASH = @{
-  tag1 = "true"
-  tag2 = "false"
-}
-
-Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "UserAssigned" -IdentityUserAssignedIdentity <UAMI_RESOURCE_ID> -Tag $TAGS_HASH
-```
-
-### [ARM Template](#tab/template)
-
-The template used for creation can also be used to update the Cluster Manager.
 
 ---
 
@@ -359,17 +362,20 @@ Remove-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGrou
 
 To delete the Cluster Manager, use Portal, CLI, or PowerShell.
 
----
-
 >[!NOTE]
 >As best practice, wait 20 minutes after deleting a Cluster Manager before trying to create a new Cluster Manager with the same name.
+
+---
 
 ## Next steps
 
 After you successfully created the Network Fabric Controller and the Cluster Manager, the next step is to create a [Network Fabric](./howto-configure-network-fabric.md).
+
+---
 
 ## Useful links
 
 - [NetworkCloud REST APIs Reference](/rest/api/networkcloud/)
 - [NetworkCloud PowerShell Reference](/powershell/module/az.networkcloud/)
 
+---
