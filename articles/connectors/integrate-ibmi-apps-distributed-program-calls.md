@@ -1,5 +1,5 @@
 ---
-title: Connect COBOL & RPG programs - IBM Midrange Systems
+title: Connect COBOL, RPG Programs on IBM Midrange Systems
 description: Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps by using the IBM i connector.
 services: logic-apps
 ms.suite: integration
@@ -24,11 +24,39 @@ This article describes the following aspects about the IBM i connector:
 * Prerequisites and setup for using the IBM i connector
 * Steps for adding IBM i connector actions to your Standard logic app workflow
 
+## Explore the IBM i connector and usage scenarios
+
+More than 50 years ago, IBM released the first midrange systems. IBM advertised them as "Small in size, small in price and Big in performance. It is a system for now and for the future." Over the years, the midrange systems evolved and became pervasive in medium-sized businesses or in large enterprises to extend mainframe environments. Midrange systems that run IBM i, typically Power Systems, support TCP/IP and SNA.
+
+The IBM i system includes the DPC server feature that allows most IBM i applications to interact with clients like Azure Logic Apps by using the client-initiated only request-reply pattern with minimum modifications. DPC is a documented protocol that supports program-to-program integration on an IBM i system, which client applications can easily access by using the TCP/IP networking protocol.
+
+Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems by using TCP/IP and APPC LU6.2. For many years, customers have used the HIS Transaction Integrator to integrate IBM i systems and Windows on-premises. The **IBM i Program Call** connector uses the TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
+
+The following diagram shows how the IBM i connector interacts with an IBM i system:
+
+:::image type="content" source="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png" alt-text="Conceptual diagram shows how the IBM i Program Call connector works with an IBM midrange system." lightbox="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png":::
+
+To extend these hybrid cloud scenarios, the IBM i connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the COBOL or RPG program. For this task, the HIS Designer uses a [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) that determines the characteristics of the data exchange between the midrange and the workflow. The HIS Designer converts that information into metadata that the IBM i connector uses when running an action in your workflow.
+
+After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IBM i connector action. The connector reads the metadata file from your logic app resource, and dynamically presents parameters to use with the IBM i connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
+
+## Review connector technical reference
+
+Currently, one operation is available for the IBM i connector: **Call an IBM i program**. The following table summarizes the usage for this action:
+
+| Parameter | Required | Type | Description |
+|-----------|----------|-------|-------------|
+| **HIDX Name** | Yes | String | Select the IBM i HIDX file that you want to use. |
+| **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
+| **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
+
+This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Access to the midrange that hosts the IBM i system.
+* Access to the midrange server that hosts the IBM i system.
 
 * The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **IBM i Program Call** connector to execute your midrange program.
 
@@ -48,34 +76,6 @@ This article describes the following aspects about the IBM i connector:
 
 Currently, the IBM i connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
-## Explore the IBM i connector and usage scenarios
-
-More than 50 years ago, IBM released the first midrange systems. IBM advertised them as "Small in size, small in price and Big in performance. It is a system for now and for the future." Over the years, the midrange systems evolved and became pervasive in medium-sized businesses or in large enterprises to extend mainframe environments. Midrange systems that run IBM i, typically Power Systems, support TCP/IP and SNA.
-
-The IBM i system includes the DPC server feature that allows most IBM i applications to interact with clients like Azure Logic Apps by using the client-initiated only request-reply pattern with minimum modifications. DPC is a documented protocol that supports program-to-program integration on an IBM i system, which client applications can easily access by using the TCP/IP networking protocol.
-
-Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems by using TCP/IP and APPC LU6.2. For many years, customers have used the HIS Transaction Integrator to integrate IBM i systems and Windows on-premises. The **IBM i Program Call** connector uses the TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
-
-The following diagram shows how the IBM i connector interacts with an IBM i system:
-
-:::image type="content" source="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png" alt-text="Conceptual diagram shows how the IBM i Program Call connector works with an IBM midrange system." lightbox="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png":::
-
-To extend these hybrid cloud scenarios, the IBM i connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the COBOL or RPG program. For this task, the HIS Designer uses a [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) that determines the characteristics of the data exchange between the midrange and the workflow. The HIS Designer converts that information into metadata that the IBM i connector uses when running an action in your workflow.
-
-After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IBM i connector action. The connector reads the metadata file from your logic app resource, and dynamically presents parameters to use with the IBM i connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
-
-## Review the technical reference
-
-Currently, one operation is available for the IBM i connector: **Call an IBM i program**. The following table summarizes the usage for this action:
-
-| Parameter | Required | Type | Description |
-|-----------|----------|-------|-------------|
-| **HIDX Name** | Yes | String | Select the IBM i HIDX file that you want to use. |
-| **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
-| **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
-
-This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
-
 ## Define and generate metadata
 
 After you download and install the HIS Designer for Azure Logic Apps, follow [these steps to generate the HIDX file from the metadata artifact](/host-integration-server/core/application-integration-lahostapps).
@@ -94,7 +94,7 @@ Later in this guide, when you add an **IBM i Program Call** connector action to 
 
 ## Add an IBM i action
 
-Follow these steps to add an IBM i action:
+Follow these steps to add an IBM i action and configure the necessary parameters:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
@@ -139,7 +139,7 @@ Follow these steps to add an IBM i action:
 
    **Select HIDX file and method**
 
-   :::image type="content" source="./media/integrate-ibmi-apps-dpc/action-parameters.png" alt-text="Screenshot shows IBM i action with selected HIDX file and method.":::
+   :::image type="content" source="./media/integrate-ibmi-apps-dpc/action-parameters.png" alt-text="Screenshot shows IBM i action with selected HIDX file and method." lightbox="./media/integrate-ibmi-apps-dpc/action-parameters.png":::
 
    **Select advanced parameters**
 
@@ -149,7 +149,7 @@ Follow these steps to add an IBM i action:
 
 ## Test your workflow
 
-Follow these steps and test your workflow:
+Follow these steps to check your workflow and confirm the outputs:
 
 1. To run your workflow, on the designer toolbar, select **Run** > **Run**.
 
