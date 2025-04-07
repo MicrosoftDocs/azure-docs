@@ -42,7 +42,7 @@ with a Network Fabric.
 > [!IMPORTANT]
 > There's a known issue where updating a cluster immediately after creating it can cause cluster deployment failures. The problem happens when the resource is updated before the bmcConnectionString fields are populated in the `cluster.spec.computeRackDefinitions.bareMetalMachineConfigurationData` section. The bmcConnectionStrings are normally set within a few minutes of creating the Cluster.
 >
-> To avoid this issue, ensure that the bmcConnectionStrings contain nonempty values before updating the Cluster resource via Azure portal or the az networkcloud update command.
+> To avoid this issue, ensure that the bmcConnectionStrings contain nonempty values before updating the Cluster resource via Azure portal or the `az networkcloud update` command.
 >
 > To confirm the status, open the JSON properties for the Cluster (Operator Nexus) resource in Azure portal, or run an `az networkcloud cluster show` CLI command as shown in the following example. If the bmmConnectionString values show nonempty `redfish+https..` values, then it's safe to update the cluster. This issue will be fixed in a future release.
 >
@@ -58,7 +58,7 @@ with a Network Fabric.
 ### Create the Cluster using Azure CLI - single storage appliance:
 
 >[!IMPORTANT]
->This command creates the cluster for a Nexus instance that contains a single storage appliance. If you run it against an instance with two storage appliances the second appliance will not be configured. Follow [the instructions for multiple storage appliances](#create-the-cluster-using-azure-cli---multiple-storage-appliances) if your Nexus instance includes two storage appliances.
+>This command creates the cluster for a Nexus instance that contains a single storage appliance. If you run it against an instance with two storage appliances, the second appliance won't configure. Follow [the instructions for multiple storage appliances](#create-the-cluster-using-azure-cli---multiple-storage-appliances) if your Nexus instance includes two storage appliances.
 
 ```azurecli
 az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
