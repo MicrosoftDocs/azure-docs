@@ -55,7 +55,10 @@ with a Network Fabric.
 > "redfish+https://10.9.3.17/redfish/v1/Systems/System.Embedded.1"]
 > ```
 
-### Create the Cluster using Azure CLI:
+### Create the Cluster using Azure CLI - single storage appliance:
+
+>[!IMPORTANT]
+>This command creates the cluster for a Nexus instance that contains a single storage appliance. If you run it against an instance with two storage appliances the second appliance will not be configured. Follow [the instructions for multiple storage appliances](#create-the-cluster-using-azure-cli---multiple-storage-appliances) if your Nexus instance includes two storage appliances.
 
 ```azurecli
 az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
@@ -68,7 +71,34 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --rack-serial-number "$AGGR_RACK_SN" \
   --rack-location "$AGGR_RACK_LOCATION" \
   --bare-metal-machine-configuration-data "["$AGGR_RACK_BMM"]" \
-  --storage-appliance-configuration-data '[{"adminCredentials":{"password":"$SA_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA_SN","storageApplianceName":"$SA_NAME"}]' \
+  --storage-appliance-configuration-data '[{"adminCredentials":{"password":"$SA1_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA1_SN","storageApplianceName":"$SA1_NAME"}]' \
+  --compute-rack-definitions '[{"networkRackId": "$COMPX_RACK_RESOURCE_ID", "rackSkuId": "$COMPX_RACK_SKU", "rackSerialNumber": "$COMPX_RACK_SN", "rackLocation": "$COMPX_RACK_LOCATION", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"$COMPX_SVRY_BMC_PASS", "username":"$COMPX_SVRY_BMC_USER"}, "bmcMacAddress":"$COMPX_SVRY_BMC_MAC", "bootMacAddress":"$COMPX_SVRY_BOOT_MAC", "machineDetails":"$COMPX_SVRY_SERVER_DETAILS", "machineName":"$COMPX_SVRY_SERVER_NAME"}]}]'\
+  --managed-resource-group-configuration name="$MRG_NAME" location="$MRG_LOCATION" \
+  --network fabric-id "$NF_ID" \
+  --cluster-service-principal application-id="$SP_APP_ID" \
+    password="$SP_PASS" principal-id="$SP_ID" tenant-id="$TENANT_ID" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --secret-archive "{key-vault-id:$KVRESOURCE_ID, use-key-vault:true}" \
+  --cluster-type "$CLUSTER_TYPE" --cluster-version "$CLUSTER_VERSION" \
+  --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
+```
+
+### Create the Cluster using Azure CLI - multiple storage appliances:
+
+"$AGGR_RACK_SKU" must be set to a value which supports two storage appliances. See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) to pick an appropriate SKU. The cluster creation command also sets the default storage appliance for volume creation. The default appliance is the appliance with `"rackSlot":1` in its configuration data.
+
+```azurecli
+az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
+  --extended-location name="$CL_NAME" type="CustomLocation" \
+  --resource-group "$CLUSTER_RG" \
+  --analytics-workspace-id "$LAW_ID" \
+  --cluster-location "$CLUSTER_LOCATION" \
+  --network-rack-id "$AGGR_RACK_RESOURCE_ID" \
+  --rack-sku-id "$AGGR_RACK_SKU"\
+  --rack-serial-number "$AGGR_RACK_SN" \
+  --rack-location "$AGGR_RACK_LOCATION" \
+  --bare-metal-machine-configuration-data "["$AGGR_RACK_BMM"]" \
+  --storage-appliance-configuration-data '[{"adminCredentials":{"password":"$SA1_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA1_SN","storageApplianceName":"$SA1_NAME"},{"adminCredentials":{"password":"$SA2_PASS","username":"$SA_USER"},"rackSlot":2,"serialNumber":"$SA2_SN","storageApplianceName":"$SA2_NAME"}]' \
   --compute-rack-definitions '[{"networkRackId": "$COMPX_RACK_RESOURCE_ID", "rackSkuId": "$COMPX_RACK_SKU", "rackSerialNumber": "$COMPX_RACK_SN", "rackLocation": "$COMPX_RACK_LOCATION", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"$COMPX_SVRY_BMC_PASS", "username":"$COMPX_SVRY_BMC_USER"}, "bmcMacAddress":"$COMPX_SVRY_BMC_MAC", "bootMacAddress":"$COMPX_SVRY_BOOT_MAC", "machineDetails":"$COMPX_SVRY_SERVER_DETAILS", "machineName":"$COMPX_SVRY_SERVER_NAME"}]}]'\
   --managed-resource-group-configuration name="$MRG_NAME" location="$MRG_LOCATION" \
   --network fabric-id "$NF_ID" \
@@ -95,10 +125,13 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | AGGR_RACK_SN              | Rack Serial Number for Aggregator Rack                                                                                                                  |
 | AGGR_RACK_LOCATION        | Rack physical location for Aggregator Rack                                                                                                              |
 | AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                                                              |
-| SA_NAME                   | Storage Appliance Device name                                                                                                                           |
-| SA_PASS                   | Storage Appliance admin password                                                                                                                        |
+| SA1_NAME                   | First Storage Appliance Device name                                                                                                                           |
+| SA2_NAME                   | Second Storage Appliance Device name                                                                                                                           |
+| SA1_PASS                   | First Storage Appliance admin password                                                                                                                        |
+| SA2_PASS                   | Second Storage Appliance admin password                                                                                                                        |
 | SA_USER                   | Storage Appliance admin user                                                                                                                            |
-| SA_SN                     | Storage Appliance Serial Number                                                                                                                         |
+| SA1_SN                     | First Storage Appliance Serial Number                                                                                                                         |
+| SA2_SN                     | Second Storage Appliance Serial Number                                                                                                                         |
 | COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack; repeat for each rack in compute-rack-definitions                                                                                 |
 | COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) |
 | COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                                                     |
