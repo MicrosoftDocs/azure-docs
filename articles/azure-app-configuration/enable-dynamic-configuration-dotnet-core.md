@@ -57,7 +57,7 @@ builder.AddAzureAppConfiguration(options =>
            {
                refresh.RegisterAll()
                       .SetRefreshInterval(TimeSpan.FromSeconds(10));
-            })
+           })
 
     _refresher = options.GetRefresher();
 });
