@@ -90,7 +90,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 
 ## Replicated machine operating systems
 
-Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Note that if an already-replicating machine is later upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
+Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Note that if an already-replicating machine's operating system is later upgraded (or downgraded) to a different major version of the operating system (for example RHEL 8 to RHEL 9), you must disable replication, uninstall Mobility Agent and re-enable replication after the upgrade.
 
 ### Windows
 

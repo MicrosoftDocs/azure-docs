@@ -68,6 +68,39 @@ For more information about naming blobs, see [Naming and Referencing Containers,
 
 The Azure SDKs contain libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar programming language paradigms. The SDKs are designed to simplify interactions between your application and Azure resources.
 
+In rare scenarios, applications that have upgraded to the latest beta or generally available version of the SDK can receive an `InvalidHeaderValue` error message. This issue can occur when using any of the Storage libraries. The error message looks similar to the following sample:
+
+```Console
+HTTP/1.1 400 The value for one of the HTTP headers is not in the correct format.
+Content-Length: 328
+Content-Type: application/xml
+Server: Microsoft-HTTPAPI/2.0
+x-ms-request-id: <REMOVED>
+Date: Fri, 19 May 2023 17:10:33 GMT
+ 
+<?xml version="1.0" encoding="utf-8"?>
+<Error>
+<Code>InvalidHeaderValue</Code>
+<Message>
+The value for one of the HTTP headers is not in the correct format.
+RequestId:<REMOVED>
+Time:2023-05-19T17:10:34.2972651Z
+</Message>
+<HeaderName>x-ms-version</HeaderName><HeaderValue>yyyy-mm-dd</HeaderValue>
+</Error>
+```
+
+If you've upgraded to the latest beta or generally available version of the SDK and you experience this error, it's recommended that you downgrade to the previous generally available version of the SDK to see if the issue resolves.
+
+You can view SDK-specific details at the following locations:
+
+- [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet#invalidheadervalue-error-message-when-using-beta-version-of-sdk)
+- [Java](/java/api/overview/azure/storage?view=azure-java-stable#10-invalidheadervalue-error-message-when-using-beta-version-of-sdk)
+- [JS](/javascript/api/overview/azure/storage?view=azure-node-latest#known-issues)
+- [Python](/python/api/overview/azure/storage?view=azure-python#known-issues)
+
+If the issue persists, or if the recommendation is not feasible, [open a support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to explore further options.
+
 In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. These classes provide operations to work with an Azure Storage resource.
 
 ## [.NET](#tab/dotnet)

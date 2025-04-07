@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 03/21/2025
+ms.date: 03/25/2025
 ms.author: anfdocs
 ---
 
@@ -36,6 +36,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 * Azure NetApp Files supports the ability to [transition existing volumes from platform-managed keys (PMK) to customer-managed keys (CMK) without data migration](#transition-volumes). This provides flexibility with the encryption key lifecycle (renewals, rotations) and extra security for regulated industry requirements.
 * If Azure Key Vault becomes inaccessible, Azure NetApp Files loses its access to the encryption keys and the ability to read or write data to volumes enabled with customer-managed keys. In this situation, create a support ticket to have access manually restored for the affected volumes.
 * Azure NetApp Files supports customer-managed keys on source and data replication volumes with cross-region replication or cross-zone replication relationships.
+* Applying Azure network security groups (NSG) on the private link subnet to Azure Key Vault is supported for Azure NetApp Files customer-managed keys. NSGs don’t affect connectivity to private links unless a private endpoint network policy is enabled on the subnet.
 
 ## Supported regions
 

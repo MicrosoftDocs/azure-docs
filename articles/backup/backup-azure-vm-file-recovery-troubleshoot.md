@@ -3,7 +3,7 @@ title: Troubleshoot Azure VM file recovery
 description: Troubleshoot issues when recovering files and folders from an Azure VM backup.
 ms.topic: troubleshooting
 ms.custom: linux-related-content
-ms.date: 12/19/2024
+ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -170,9 +170,18 @@ If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover 
 
 ### You can't copy the files from mounted volumes
 
-The copy might fail with the error "0x80070780: The file cannot be accessed by the system."
+The copy might fail with the error **0x80070780: The file cannot be accessed by the system.**
 
-Check if the source server has disk deduplication enabled. If it does, ensure the restore server also has deduplication enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
+Check if the source server has disk **deduplication** enabled. If the option is enabled, ensure the restore server also has **deduplication** enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
+
+### Disk is not unmount although clicked Unmount disks on Azure Portal (Linux OS)
+
+Unmount disks manually by running python script with the `clean` parameter. The following example shows installation of **python 3 package** by the machine.
+
+```python
+
+ python3 XXX.py clean
+```
 
 ## Next steps
 

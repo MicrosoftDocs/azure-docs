@@ -116,7 +116,7 @@ To generate configurations and deploy the app, follow these steps:
 
    * **Subscription ID** - the subscription you used to create an Azure Spring Apps instance.
    * **Service instance** - the name of your Azure Spring Apps instance.
-   * **App name** - an app name of your choice, or use the default value `artifactId`.
+   * **App name** - an app name of your choice, or use the default value **artifactId**.
    * **Public endpoint** - **true** to expose the app to public access; otherwise, **false**.
 
 1. Verify that the `appName` element in the POM file has the correct value. The relevant portion of the POM file should look similar to the following example.

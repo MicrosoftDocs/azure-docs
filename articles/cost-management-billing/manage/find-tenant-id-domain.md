@@ -2,13 +2,13 @@
 title: Find tenant ID and primary domain
 titleSuffix: Microsoft Cost Management
 description: Describes how to find ID and primary domain for your Microsoft Entra tenant.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Locate tenant ID and primary domain

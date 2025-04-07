@@ -23,16 +23,11 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The `support create-bundle` command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-### You see a `"code":"LinkedAuthorizationFailed"` error message
-If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the messages indicates that you don't have the required permissions on the resource group containing the cluster.
-
-To resolve this issue, ensure that you have **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level.
-
 ### You see an UnauthorizedNamespaceError error message
 
 If you see the following error message, you either didn't enable the required Azure-arc custom locations feature, or you enabled the custom locations feature with an incorrect custom locations RP OID.
 
-```ouput
+```output
 Message: Microsoft.ExtendedLocation resource provider does not have the required permissions to create a namespace on the cluster.
 ```
 
@@ -44,21 +39,26 @@ If you see the following error message, your custom location resource associated
 
 ```output
 Message: The resource {resource Id} extended location {custom location resource Id} does not support the resource type {IoT Operations resource type} or api version {IoT Operations ARM API}. Please check with the owner of the extended location to ensure the host has the CRD {custom resource name} with group {api group name}.iotoperations.azure.com, plural {custom resource plural name}, and versions [{api group version}] installed.
-``` 
+```
 
 To resolve, delete any provisioned resources associated with prior deployment(s) including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before re-deploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended.
 
 ### You see a LinkedAuthorizationFailed error message
 
-If you see the following error message, the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
+If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the messages indicates that you don't have the required permissions on the resource group containing the cluster.
+
+The following message indicates that the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
 
 ```output
 Message: The client {principal Id} with object id {principal object Id} has permission to perform action Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write on scope {resource sync resource Id}; however, it does not have permission to perform action(s) Microsoft.Authorization/roleAssignments/write on the linked scope(s) {resource sync resource group} (respectively) or the linked scope(s) are invalid.
 ```
 
-Deployment of resource sync rules requires the logged-in principal to have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This is a necessary security constraint as edge to cloud resource hydration will create new resources in the target resource group. 
+To deploy resource sync rules, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This is a necessary security constraint as edge to cloud resource hydration creates new resources in the target resource group.
 
-To resolve, either elevate principal permissions, or don't deploy resource sync rules. Current AIO CLI has an opt-in mechanism to deploy resource sync rules via `--enable-rsync`. Simply omit this flag. Legacy AIO CLIs had an opt-out mechanism via `--disable-rsync-rules`.
+To resolve the issue, either elevate principal permissions, or don't deploy resource sync rules. The current AIO CLI has an opt-in mechanism to deploy resource sync rules by using the `--enable-rsync` flag. To stop the resource sync rules being deployed, omit the flag.
+
+> [!NOTE]
+> Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
 ## Troubleshoot Azure Key Vault secret management
 
@@ -86,6 +86,35 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
     | `securityPolicy` | `http://opcfoundation.org/UA/SecurityPolicy#None` |
 
 - Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
+
+## Troubleshoot OPC PLC simulator
+
+### The OPC PLC simulator doesn't send data to the MQTT broker after you create an asset endpoint for it
+
+To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+
+```bash
+ENDPOINT_NAME=<name-of-you-endpoint-here>
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+-n azure-iot-operations \
+--type=merge \
+-p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+```
+
+> [!CAUTION]
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+You can patch all your asset endpoints with the following command:
+
+```bash
+ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
+for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+   -n azure-iot-operations \
+   --type=merge \
+   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
+done
+```
 
 ## Troubleshoot Azure IoT Layered Network Management (preview)
 

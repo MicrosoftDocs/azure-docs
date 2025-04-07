@@ -10,7 +10,7 @@ ms.service: azure-cdn
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ---
 
 # Manage expiration of web content in Azure Content Delivery Network
