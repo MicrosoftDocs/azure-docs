@@ -49,7 +49,7 @@ To request registration for an Azure Communication Services number, customers ne
 3. Once the customer has verified his work email, he can submit his request.
 
 Consider the following points when submitting the registration request:
-- It takes several days to get a response for updating all US-based carriers, confirming or denying the request.. Sometimes the best is also to contact the three providers who are supporting the platform:
+- It takes several days to get a response for updating all US-based carriers, confirming or denying the request. You can also contact one of the three providers supporting the platform:
   - First Orion: FCRsupport@firstorion.com
   - Hiya: freecallerregistry@hiya.com
   - TNS: communications@tnsi.com
