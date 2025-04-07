@@ -36,7 +36,7 @@ To extend these hybrid cloud scenarios, the IMS connector in a Standard workflow
 
 After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the parameters to use with the IMS connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
 
-## Review connector technical reference
+## Connector technical reference
 
 Currently, one operation is available for the IMS connector: **Call an IMS program**. The following table summarizes the usage for this action:
 
