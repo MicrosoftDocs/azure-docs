@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 03/21/2025
+ms.date: 04/07/2025
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
