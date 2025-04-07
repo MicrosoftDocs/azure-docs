@@ -15,6 +15,9 @@ Azure VMware Solution private clouds can now be deployed inside an Azure Virtual
 
 :::image type="content" source="./media/native-connectivity/azure-virtual-network-connectivity.png" alt-text="Diagram showing an Azure VMware Solution Virtual Network connectivity."::: 
 
+> [!NOTE]
+> The product name may change when General Availability is announced.
+
 ## Differences
 
 The following table summarizes the differences between the Azure VMware Solution and the Azure VMware Solution in an Azure Virtual Network offering:
