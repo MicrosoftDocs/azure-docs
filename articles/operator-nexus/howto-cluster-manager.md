@@ -172,6 +172,8 @@ You can find examples of these two files here:
 1. Make sure all Instance Details are correct.
 1. Click Review + create.
 
+---
+
 ## List/show Cluster Managers
 
 List and show commands are used to get a list of existing Cluster Managers or the properties of a specific Cluster Manager.
@@ -223,6 +225,8 @@ This command shows the properties of the specified Cluster Manager in JSON forma
 
 To view Cluster Managers, use Portal, CLI, or PowerShell.
 
+---
+
 ## Update Cluster Manager
 
 This command is used to patch properties of the provided Cluster Manager, or update the tags assigned to the Cluster Manager. Properties and tag updates can be done independently.
@@ -238,35 +242,6 @@ az networkcloud clustermanager update \
     --resource-group "<CLUSTER_MANAGER_RG>" \
     --subscription "<SUB_ID>"
 ```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-This command updates the Cluster Manager in the specified Resource group.
-
-```azurepowershell-interactive
-$TAGS_HASH = @{
-  tag1 = "true"
-  tag2 = "false"
-}
-
-Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -Tag $TAGS_HASH
-```
-
-This command updates the Cluster Manager for `SystemAssigned` Managed Identity:
-```azurepowershell-interactive
-Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "SystemAssigned"
-```
-
-This command updates the Cluster Manager for `UserAssigned` Managed Identity:
-```azurepowershell-interactive
-Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "UserAssigned" -IdentityUserAssignedIdentity <UAMI_RESOURCE_ID>
-```
-
-### [ARM Template](#tab/template)
-
-The template used for creation can also be used to update the Cluster Manager.
-
-## Cluster Manager identity 
 
 The Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` sub commands.
 
@@ -319,6 +294,35 @@ az networkcloud clustermanager identity remove \
     --mi-system-assigned
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+This command updates the Cluster Manager in the specified Resource group.
+
+```azurepowershell-interactive
+$TAGS_HASH = @{
+  tag1 = "true"
+  tag2 = "false"
+}
+
+Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -Tag $TAGS_HASH
+```
+
+This command updates the Cluster Manager for `SystemAssigned` Managed Identity:
+```azurepowershell-interactive
+Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "SystemAssigned"
+```
+
+This command updates the Cluster Manager for `UserAssigned` Managed Identity:
+```azurepowershell-interactive
+Update-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGroupName "<CLUSTER_MANAGER_RG>" -SubscriptionId "<SUB_ID>" -IdentityType "UserAssigned" -IdentityUserAssignedIdentity <UAMI_RESOURCE_ID>
+```
+
+### [ARM Template](#tab/template)
+
+The template used for creation can also be used to update the Cluster Manager.
+
+---
+
 ## Delete Cluster Manager
 
 This command is used to Delete the provided Cluster Manager.
@@ -344,6 +348,8 @@ Remove-AzNetworkCloudClusterManager -Name "<CLUSTER_MANAGER_NAME>" -ResourceGrou
 ### [ARM Template](#tab/template)
 
 To delete the Cluster Manager, use Portal, CLI, or PowerShell.
+
+---
 
 >[!NOTE]
 >As best practice, wait 20 minutes after deleting a Cluster Manager before trying to create a new Cluster Manager with the same name.
