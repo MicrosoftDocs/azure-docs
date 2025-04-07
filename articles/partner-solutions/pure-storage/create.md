@@ -22,8 +22,9 @@ This quickstart shows you how to create a Pure Storage Cloud (preview) resource 
 
 ### Basics tab
 
-The *Basics* tab has three sections:
+The *Basics* tab has four sections:
 
+- Project Details
 - Instance Details
 - Billing Details
 - Company Details
@@ -31,6 +32,13 @@ The *Basics* tab has three sections:
 :::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create an Azure Native Pure Storage Cloud Storage options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields that you need to fill out.
+
+1. Enter the values for each required setting under *Project Details*.
+
+    | Setting           | Action                                     |
+    |-------------------|--------------------------------------------|
+    | Subscription      | Select your subscription.                  |
+    | Resource group    | Specify a resource group.                 |
 
 1. Enter the values for each required setting under *Instance Details*.
 
