@@ -1,5 +1,5 @@
 ---
-title: Connect COBOL & RPG programs - IBM midrange systems
+title: Connect COBOL & RPG programs - IBM Midrange Systems
 description: Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps by using the IBM i connector.
 services: logic-apps
 ms.suite: integration
@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 04/08/2025
 
 #customer intent: As a developer, I want to use the IBM i connector so I can integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps.
 ---
