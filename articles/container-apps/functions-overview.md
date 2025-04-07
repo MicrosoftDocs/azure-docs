@@ -27,7 +27,7 @@ By running Functions in Container Apps, you benefit from automatic scaling, easy
 
 ## Scenarios
 
-Azure Functions in Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
+Azure Functions on Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
 
 - **Line-of-business APIs**: Package custom libraries, packages, and APIs with Functions for line-of-business applications.
 
@@ -51,7 +51,7 @@ All Functions triggers are available in your containerized Functions app. Howeve
 - Kafka
 - Timer
 
-Azure Functions on Container Apps is designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app.
+Azure Functions on Container Apps are designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app.
 
 You can write your function code in any [language stack supported](/azure/azure-functions/supported-languages?tabs=isolated-process%2Cv4&pivots=programming-language-csharp) by Azure Functions. You can use the same Functions triggers and bindings with event-driven scaling.
 
