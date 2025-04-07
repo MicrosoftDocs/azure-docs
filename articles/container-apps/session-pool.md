@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Use session pools in Azure Container Apps
 
-Session pools provide subsecond session allocation times for new pools, and is responsible for the management and lifecycle of each session.
+Session pools provide subsecond session allocation times for new pools, and are responsible for the management and lifecycle of each session.
 
 ## Configuration
 
