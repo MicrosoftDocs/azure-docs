@@ -35,7 +35,7 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 | managedResourceGroupConfiguration | The details of Managed Resource Group that is created for the Cluster Manager to host its internally used resources.                                                                                                                                  |
 | fabricControllerId                | The reference to the Network Fabric Controller that is 1:1 with this Cluster Manager                                                                                                                                                                  | 
 | clusterVersions[]                 | The list of Cluster versions that the Cluster Manager supports. It's used as an input in the Cluster clusterVersion property.                                                                                                                         |
-| userAssignedIdentity             | The details of the User Assigned Managed Identity assigned to the Cluster Manager if assigned.                                                                                                                                                                     |
+| userAssignedIdentity             | The details of the User Assigned Managed Identity, if assigned to the Cluster Manager.                                                                                                                                                                     |
 | identity                          | The details of the type of identity assigned to the Cluster Manager. One of: UserAssigned or SystemAssigned.                                                                                                                                                                                  |
 | provisioningState                 | The provisioning status of the latest operation on the Cluster Manager. One of: Succeeded, Failed, Provisioning, Accepted, Updating.                                                                                                                  |
 | detailedStatus                    | The detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                                    |
@@ -94,7 +94,7 @@ Arguments:
 - `--name` or `-n` [Required] - The name of the Cluster Manager.
 - `--resource-group` or `-g` [Required] - The name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
 - `--fabric-controller-id` [Required] - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
-- `--location` or `-l` - The Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="<LOCATION"`.
+- `--location` or `-l` - The Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="<LOCATION>"`.
 - `--managed-resource-group-configuration` - The configuration of the managed resource group associated with the resource.
   - Usage: `--managed-resource-group-configuration location=XX name=XX`
   - location: The region of the managed resource group. If not specified, the region of the
