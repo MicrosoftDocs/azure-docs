@@ -188,6 +188,10 @@ Depending on the integration runtime you use, there might be additional consider
 
 Azure Data Factory supports CI/CD through source control integration, so that you can back up metadata associated with a data factory instance and deploy it into a new environment. To learn more, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-delivery.md).
 
+## Service-level agreement
+
+The service-level agreement (SLA) for Azure Data Factory describes the expected availability of the service. This agreement also describes the conditions to meet for achieving this expectation. To understand these conditions, make sure that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
 ## Related content
 
 - [Reliability in Azure](./overview.md)
