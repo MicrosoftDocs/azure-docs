@@ -1,5 +1,5 @@
 ---
-title: "Stage 2: Assess Workloads to Migrate from AWS Lambda to Azure Functions"
+title: Assess AWS Lambda Workloads to Migrate to Azure Functions
 description: Learn how to map AWS Lambda features to Azure Functions and develop a plan for your AWS Lambda to Azure Functions migration.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
@@ -181,4 +181,4 @@ By the end of this stage, you've mapped AWS Lambda features and services to thei
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Migrate stage](lambda-functions-migration-migrate.md)
+> [Migrate stage](migrate-lambda-workloads.md)
