@@ -61,7 +61,7 @@ To prevent duplicate record insertion because of a transient fault, implement th
 You can use retry policies to configure parts of your pipeline to retry if there's a problem, like transient faults in connected resources. In Data Factory, you can configure retry policies on the following pipeline object types:
 
 - [Tumbling window triggers](../data-factory/concepts-pipeline-execution-triggers.md#tumbling-window-trigger)
-- [Execution activities](../data-factory/concepts-pipelines-activities.md#execution-activities).
+- [Execution activities](../data-factory/concepts-pipelines-activities.md#execution-activities)
 
 For more information about how to change or disable retry policies for your data factory triggers and activities, see [Pipeline runs and triggers](../data-factory/concepts-pipeline-execution-triggers.md).
 
