@@ -1,7 +1,7 @@
 ---
 title: Prevent phone numbers from being flagged as spam
 titleSuffix: An Azure Communication Services article
-description: Learn about Communication Services recommendations.
+description: This article describes how to prevent business phone numbers from being flagged as spam.
 author: henikaraa
 manager: ankura
 services: azure-communication-services
