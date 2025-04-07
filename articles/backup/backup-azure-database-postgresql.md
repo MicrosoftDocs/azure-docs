@@ -182,5 +182,5 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 ## Next steps
 
-- [Azure Backup pricing information for PostgreSQ](https://azure.microsoft.com/pricing/details/backup/)
+- [Azure Backup pricing information for PostgreSQL](https://azure.microsoft.com/pricing/details/backup/)
 - [Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md)

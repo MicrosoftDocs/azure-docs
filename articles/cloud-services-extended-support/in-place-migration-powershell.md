@@ -10,6 +10,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: As an IT administrator managing legacy Azure Cloud Services, I want to migrate from classic to extended support using PowerShell, so that I can leverage the improved reliability and features of the Azure Resource Manager deployment model.
 ---
 
 # Migrate to Azure Cloud Services (extended support) using PowerShell

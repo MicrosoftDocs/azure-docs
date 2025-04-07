@@ -17,7 +17,7 @@ This overview introduces the key concepts around developing assets and devices t
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the assets and connectors shown in the diagram:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the assets and connectors shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-025 -->
 
@@ -33,7 +33,7 @@ You can create your own, custom connectors to connect to assets that use protoco
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the devices and gateway shown in the diagram:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the devices and gateway shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-025 -->
 
@@ -52,7 +52,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 
 ## Asset and device types
 
-An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contain both devices and assets.
+An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contains both devices and assets.
 
 # [Edge-based solution](#tab/edge)
 
@@ -82,7 +82,7 @@ These devices are typically built using microcontrollers (MCUs) or microprocesso
 
 - MCUs are less expensive and simpler to operate than MPUs.
 - An MCU contains many of the functions, such as memory, interfaces, and I/O on the chip itself. An MPU accesses this functionality from components in supporting chips.
-- An MCU often uses a real-time OS (RTOS) or runs bare-metal (no OS) and provides real-time responses and highly deterministic reactions to external events. MPUs generally run a general purpose OS, such as Windows, Linux, or macOS that provides a nondeterministic real-time response. There's typically no guarantee as to when a task will complete.
+- An MCU often uses a real-time OS (RTOS) or runs bare-metal (no OS) and provides real-time responses and highly deterministic reactions to external events. MPUs generally run a general purpose OS, such as Windows, Linux, or macOS that provides a nondeterministic real-time response. There's typically no guarantee as to when a task completes.
 
 Examples of specialized hardware and operating systems include:
 
@@ -150,11 +150,11 @@ Device and asset models define the data that devices and assets exchange with th
 
 # [Edge-based solution](#tab/edge)
 
-In an edge-based solution, an operator configures connectors to connect to assets. This configuration includes a mapping between the asset's data and a cloud schema. For example, the OPC UA connector lets the operator map OPC UA node Ids to tags and events in a JSON message exchanged with the MQTT broker. The following screenshot shows an example in the digital operations experience web UI that defines two such mappings for an asset:
+In an edge-based solution, an operator configures connectors to connect to assets. This configuration includes a mapping between the asset's data and a cloud schema. For example, the OPC UA connector lets the operator map OPC UA node IDs to tags and events in a JSON message exchanged with the MQTT broker. The following screenshot shows an example in the digital operations experience web UI that defines two such mappings for an asset:
 
 :::image type="content" source="media/iot-overview-device-development/add-tag.png" alt-text="Screenshot that shows an example asset definition.":::
 
-Elsewhere in the solution, an operator can refer directly to the **Temperature** and **Tag 10** tags without needing to know the details of the OPC UA node Ids.
+Elsewhere in the solution, an operator can refer directly to the **Temperature** and **Tag 10** tags without needing to know the details of the OPC UA node IDs.
 
 # [Cloud-based solution](#tab/cloud)
 
@@ -209,3 +209,9 @@ The following table lists some of the available IoT device development tools:
 | [Azure IoT Hub (VS Code extension)](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) | This VS Code extension lets you manage your IoT Hub resources and devices from within VS Code. |
 | [Azure IoT explorer](howto-use-iot-explorer.md) | This cross-platform tool lets you manage your IoT Hub resources and devices from a desktop application. |
 | [Azure IoT extension for Azure CLI](/cli/azure/service-page/azure%20iot) | This CLI extension includes commands such as `az iot device simulate`, `az iot device c2d-message`, and `az iot hub monitor-events` that help you test interactions with devices. |
+
+## Related content
+
+- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
+- [IoT asset and device management and control](iot-overview-device-management.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

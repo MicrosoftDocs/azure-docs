@@ -1,9 +1,8 @@
 ---
 title: 'Quickstart: Get started add an Administrator' 
 description: In this tutorial, you'll learn how to add another administrative user to your workspace.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial

@@ -7,18 +7,23 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
-ms.date: 12/07/2023
+ms.date: 03/10/2025
+
+#customer-intent: As a developer, I want to deploy an environment so that I can create resources and a resource group.
 ---
 
 # Create and access an environment by using the Azure CLI
 
-This guide explains how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project by using the Azure CLI.
+This article explains how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project by using the Azure CLI.
 
 ## Prerequisites
 
-- [Install the Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md)
-- [Create and configure a dev center by using the Azure CLI](how-to-create-configure-dev-center.md)
-- [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)
+|Category|Requirement|
+|-|-|
+|Installation| [The Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md).|
+|Procedure|Completion of [Create and configure a dev center by using the Azure CLI](how-to-create-configure-dev-center.md).|
+|Procedure|Completion of [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md).|
+|Permissions|To create an environment: The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions. |
 
 ## Create an environment
 
@@ -34,13 +39,13 @@ Complete the following steps in the Azure CLI to create an environment and confi
     az login
     ```
 
-1. Install the Azure Dev Center extension for the CLI.
+1. Install or upgrade the Azure Dev Center extension for the CLI:
 
    ```azurecli
    az extension add --name devcenter --upgrade
    ```
 
-1. List all the Azure Deployment Environments projects you have access to:
+1. List all the Azure Deployment Environments projects that you have access to:
 
    ```azurecli
    az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects'" -o table
@@ -58,7 +63,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az config set defaults.group=<resourceGroupName>
    ```
 
-1. List the type of environments you can create in a specific project:
+1. List the type of environments that you can create in a specific project:
 
    ```azurecli
    az devcenter dev environment-type list --dev-center <devcenterName> --project-name <projectName> -o table
@@ -70,7 +75,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az devcenter dev environment-definition list --dev-center <devcenterName> --project-name <projectName> -o table
    ```
 
-1. Create an environment by using an *environment-definition* (an infrastructure as code template defined in the [environment.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
+1. Create an environment by using an *environment-definition* (an infrastructure-as-code template that's defined in the [environment.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenterName>

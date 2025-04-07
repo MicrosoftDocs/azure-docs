@@ -1,3 +1,4 @@
+items:
 - name: ARM template documentation
   href: index.yml
 - name: Overview
@@ -148,7 +149,7 @@
   - name: Databases
     items:
     - name: Cache for Redis
-      href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../redis/redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/sql/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB
@@ -288,7 +289,7 @@
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Redis Web App
-      href: ../../azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../redis/web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Concepts

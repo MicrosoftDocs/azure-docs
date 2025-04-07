@@ -271,7 +271,7 @@ You can use NAT Gateway to simplify outbound connectivity for your outbound inte
 
 When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
-### <a name="public-network-access"></a>Public network access
+### <a name="public-network-access"></a>Public network access (preview)
 
 The public network access setting determines whether your container apps environment is accessible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
@@ -285,9 +285,6 @@ In order to create private endpoints on your Azure Container App environment, pu
 Azure networking policies are supported with the public network access flag.
 
 ### <a name="private-endpoint"></a>Private endpoint (preview)
-
-> [!NOTE]
-> This feature is supported for all public regions. Government and China regions aren't supported.
 
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 
@@ -387,6 +384,20 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 ```
 
 ---
+
+### Rule-based routing (preview)
+
+With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
+
+- Isolation: By routing different paths to different container apps, you can deploy and update individual components without affecting the entire application.
+
+- Scalability: With rule-based routing, you can scale individual container apps independently based on the traffic each container app receives.
+
+- Custom Routing Rules: You can, for example, redirect users to different versions of your application or implement A/B testing.
+
+- Security: You can implement security measures tailored to each container app. This helps you to reduce the attack surface of your application.
+
+To learn how to configure rule-based routing on your container apps environment, see [Use rule-based routing](rule-based-routing.md).
 
 ## DNS
 

@@ -78,6 +78,6 @@ After the API is registered, you can perform various tasks using the extension. 
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable and view platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 * [Overview of GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction)
 

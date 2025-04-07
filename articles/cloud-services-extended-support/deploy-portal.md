@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud administrator, I want to deploy Cloud Services (extended support) in the Azure portal, so that I can host scalable applications and manage required configurations in a virtual network.
 ---
 
 # Deploy Cloud Services (extended support) by using the Azure portal

@@ -3,25 +3,34 @@ ms.service: azure-logic-apps
 author: ecfan
 ms.author: estfan
 ms.topic: include
-ms.date: 01/06/2025
+ms.date: 04/01/2025
 ---
 
-> [!IMPORTANT]
+> [!WARNING]
 >
-> For optimal security, use [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
-> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication 
-> when possible. This method provides superior security without having to provide credentials. Azure manages 
-> this identity and helps keep authentication information secure so that you don't have to manage this sensitive 
-> information yourself. To set up a managed identity for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity).
+> Always secure and protect sensitive and personal data, such as credentials, secrets, 
+> access keys, connection strings, certificates, thumbprints, and similar information 
+> with the highest available or supported level of security.
 >
-> If you have to use a different authentication type, use the next highest level security option available. 
-> For example, suppose that you have to create a connection by using a connection string instead. A connection 
-> string includes the authorization information required for your app to access a specific resource, service, 
-> or system. The access key in the connection string is similar to a root password.
+> For authentication and authorization, set up or use 
+> [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a 
+> [managed identity](/entra/identity/managed-identities-azure-resources/overview). 
+> This solution provides optimal and superior security without you having to manually 
+> provide and manage credentials, secrets, access keys, and so on because Azure handles 
+> the managed identity for you. To set up a managed identity for Azure Logic Apps, see 
+> [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity).
 >
-> In production environments, always protect sensitive information and secrets, such as credentials, certificates, 
-> thumbprints, access keys, and connection strings. Make sure that you securely store such information by using 
-> Microsoft Entra ID and [Azure Key Vault](https://go.microsoft.com/fwlink/?linkid=2300117). Avoid hardcoding 
-> this information, sharing with other users, or saving in plain text anywhere that others can access. Rotate your 
-> secrets as soon as possible if you think this information might be compromised. For more information, see 
-> [About Azure Key Vault](/azure/key-vault/general/overview).
+> If you can't use a managed identity, choose the next highest level security solution 
+> available. For example, if you must use a connection string, which includes information 
+> required to access a resource, service, or system, remember that this string includes 
+> an access key that is similar to a root password.
+>
+> Make sure that you securely store such information by using Microsoft Entra ID and 
+> [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, 
+> share with other users, or save in plain text anywhere that others can access. Set up 
+> a plan to rotate or revoke secrets in the case they become compromised. For more 
+> information, see the following resources:
+>
+> - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
+> - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
+> - [Secrets in Azure Key Vault](/azure/key-vault/secrets/)

@@ -1,9 +1,6 @@
 ---
 title: Questions about assessments in Azure Migrate
 description: Get answers to common questions about assessments in Azure Migrate.
-author: rashijoshi
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 08/06/2024
