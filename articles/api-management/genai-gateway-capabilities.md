@@ -1,5 +1,5 @@
 ---
-title: GenAI gateway capabilities in Azure API Management
+title: AI gateway capabilities in Azure API Management
 description: Learn about Azure API Management's policies and features to manage generative AI APIs, such as token rate limiting, load balancing, and semantic caching.
 services: api-management
 author: dlepow
@@ -11,15 +11,15 @@ ms.date: 02/05/2025
 ms.author: danlep
 ---
 
-# Overview of generative AI gateway capabilities in Azure API Management
+# Overview of AI gateway capabilities in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article introduces capabilities in Azure API Management to help you manage generative AI APIs, such as those provided by [Azure OpenAI Service](/azure/ai-services/openai/overview). Azure API Management provides a range of policies, metrics, and other features to enhance security, performance, and reliability for the APIs serving your intelligent apps. Collectively, these features are called *generative AI (GenAI) gateway capabilities* for your generative AI APIs.
+This article introduces capabilities in Azure API Management to help you manage generative AI APIs, such as those provided by [Azure OpenAI Service](/azure/ai-services/openai/overview). Azure API Management provides a range of policies, metrics, and other features to enhance security, performance, and reliability for the APIs serving your intelligent apps. Collectively, these features are called *AI gateway capabilities* for your generative AI APIs.
 
 > [!NOTE]
-> * This article focuses on capabilities to manage APIs exposed by Azure OpenAI Service. Many of the GenAI gateway capabilities apply to other large language model (LLM) APIs, including those available through [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
-> * Generative AI gateway capabilities are features of API Management's existing API gateway, not a separate API gateway. For more information on API Management, see [Azure API Management overview](api-management-key-concepts.md).
+> * This article focuses on capabilities to manage APIs exposed by Azure OpenAI Service. Many of the AI gateway capabilities apply to other large language model (LLM) APIs, including those available through [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
+> * AI gateway capabilities are features of API Management's existing API gateway, not a separate API gateway. For more information on API Management, see [Azure API Management overview](api-management-key-concepts.md).
 
 ## Challenges in managing generative AI APIs
 
@@ -44,7 +44,7 @@ The rest of this article describes how Azure API Management can help you address
 
 Configure the [Azure OpenAI token limit policy](azure-openai-token-limit-policy.md) to manage and enforce limits per API consumer based on the usage of Azure OpenAI Service tokens. With this policy you can set a rate limit, expressed in tokens-per-minute (TPM). You can also set a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
 
-:::image type="content" source="media/genai-gateway-capabilities/token-rate-limiting.png" alt-text="Diagram of limiting Azure OpenAI Service tokens in API Management.":::
+:::image type="content" source="media/AI-gateway-capabilities/token-rate-limiting.png" alt-text="Diagram of limiting Azure OpenAI Service tokens in API Management.":::
 
 This policy provides flexibility to assign token-based limits on any counter key, such as subscription key, originating IP address, or an arbitrary key defined through a policy expression. The policy also enables precalculation of prompt tokens on the Azure API Management side, minimizing unnecessary requests to the Azure OpenAI Service backend if the prompt already exceeds the limit. 
 
@@ -64,7 +64,7 @@ The following basic example demonstrates how to set a TPM limit of 500 per subsc
 
 The [Azure OpenAI emit token metric](azure-openai-emit-token-metric-policy.md) policy sends metrics to Application Insights about consumption of LLM tokens through Azure OpenAI Service APIs. The policy helps provide an overview of the utilization of Azure OpenAI Service models across multiple applications or API consumers. This policy could be useful for chargeback scenarios, monitoring, and capacity planning.  
 
-:::image type="content" source="media/genai-gateway-capabilities/emit-token-metrics.png" alt-text="Diagram of emitting Azure OpenAI Service token metrics using API Management.":::
+:::image type="content" source="media/AI-gateway-capabilities/emit-token-metrics.png" alt-text="Diagram of emitting Azure OpenAI Service token metrics using API Management.":::
 
 This policy captures prompt, completions, and total token usage metrics and sends them to an Application Insights namespace of your choice. Moreover, you can configure or select from predefined dimensions to split token usage metrics, so you can analyze metrics by subscription ID, IP address, or a custom dimension of your choice. 
 
@@ -87,17 +87,17 @@ One of the challenges when building intelligent applications is to ensure that t
 
 The backend [load balancer](backends.md#backends-in-api-management) supports round-robin, weighted, and priority-based load balancing, giving you flexibility to define a load distribution strategy that meets your specific requirements. For example, define priorities within the load balancer configuration to ensure optimal utilization of specific Azure OpenAI endpoints, particularly those purchased as PTUs. 
 
-:::image type="content" source="media/genai-gateway-capabilities/backend-load-balancing.png" alt-text="Diagram of using backend load balancing in API Management.":::
+:::image type="content" source="media/AI-gateway-capabilities/backend-load-balancing.png" alt-text="Diagram of using backend load balancing in API Management.":::
 
 The backend [circuit breaker](backends.md#circuit-breaker) features dynamic trip duration, applying values from the Retry-After header provided by the backend. This ensures precise and timely recovery of the backends, maximizing the utilization of your priority backends. 
 
-:::image type="content" source="media/genai-gateway-capabilities/backend-circuit-breaker.png" alt-text="Diagram of using backend circuit breaker in API Management.":::
+:::image type="content" source="media/AI-gateway-capabilities/backend-circuit-breaker.png" alt-text="Diagram of using backend circuit breaker in API Management.":::
 
 ## Semantic caching policy
 
 Configure [Azure OpenAI semantic caching](azure-openai-enable-semantic-caching.md) policies to optimize token use by storing completions for similar prompts.
 
-:::image type="content" source="media/genai-gateway-capabilities/semantic-caching.png" alt-text="Diagram of semantic caching in API Management.":::
+:::image type="content" source="media/AI-gateway-capabilities/semantic-caching.png" alt-text="Diagram of semantic caching in API Management.":::
 
 In API Management, enable semantic caching by using Azure Redis Enterprise or another [external cache](api-management-howto-cache-external.md) compatible with RediSearch and onboarded to Azure API Management. By using the Azure OpenAI Service Embeddings API, the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) and [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) policies store and retrieve semantically similar prompt completions from the cache. This approach ensures completions reuse, resulting in reduced token consumption and improved response performance. 
 
@@ -107,20 +107,20 @@ In API Management, enable semantic caching by using Azure Redis Enterprise or an
 
 ## Labs and samples
 
-* [Labs for the GenAI gateway capabilities of Azure API Management](https://github.com/Azure-Samples/AI-Gateway)
-* [Azure API Management (APIM) - Azure OpenAI Sample (Node.js)](https://github.com/Azure-Samples/genai-gateway-apim)
+* [Labs for the AI gateway capabilities of Azure API Management](https://github.com/Azure-Samples/AI-Gateway)
+* [Azure API Management (APIM) - Azure OpenAI Sample (Node.js)](https://github.com/Azure-Samples/AI-gateway-apim)
 * [Python sample code for using Azure OpenAI with API Management](https://github.com/Azure-Samples/openai-apim-lb/blob/main/docs/sample-code.md)
 
 ## Architecture and design considerations
 
-* [GenAI gateway reference architecture using API Management](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/reference-architectures/apim-based)
+* [AI gateway reference architecture using API Management](/ai/playbook/technology-guidance/generative-ai/dev-starters/AI-gateway/reference-architectures/apim-based)
 * [AI hub gateway landing zone accelerator](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
-* [Designing and implementing a gateway solution with Azure OpenAI resources](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/)
+* [Designing and implementing a gateway solution with Azure OpenAI resources](/ai/playbook/technology-guidance/generative-ai/dev-starters/AI-gateway/)
 * [Use a gateway in front of multiple Azure OpenAI deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend)
 
 ## Related content
 
-* [Blog: Introducing GenAI capabilities in Azure API Management](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/introducing-genai-gateway-capabilities-in-azure-api-management/ba-p/4146525)
+* [Blog: Introducing AI capabilities in Azure API Management](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/introducing-AI-gateway-capabilities-in-azure-api-management/ba-p/4146525)
 * [Blog: Integrating Azure Content Safety with API Management for Azure OpenAI Endpoints](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/integrating-azure-content-safety-with-api-management-for-azure/ba-p/4202505)
 * [Training: Manage your generative AI APIs with Azure API Management](/training/modules/api-management)
 * [Smart load balancing for OpenAI endpoints and Azure API Management](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/smart-load-balancing-for-openai-endpoints-and-azure-api/ba-p/3991616)
