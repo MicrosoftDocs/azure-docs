@@ -516,8 +516,13 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-akri-architecture.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-akri",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/concept-akri-architecture.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-akri-architecture",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-akri",
             "redirect_document_id": false
         },
         {

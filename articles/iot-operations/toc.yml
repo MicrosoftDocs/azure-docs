@@ -49,8 +49,6 @@ items:
         href: discover-manage-assets/concept-assets-asset-endpoints.md
       - name: Automatically discover assets
         href: discover-manage-assets/overview-akri.md
-      - name: Akri services architecture
-        href: discover-manage-assets/concept-akri-architecture.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
       - name: Secure access to your assets
