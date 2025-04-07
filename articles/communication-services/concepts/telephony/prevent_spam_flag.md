@@ -43,7 +43,7 @@ For the full list of applicable Azure Communication Services Terms, see [Service
 The [Free Caller Registry](https://www.freecallerregistry.com/fcr/) (FCR) serves as a system for organizations that conduct outbound calls to secure approval for their phone numbers, ensuring they are not incorrectly tagged as "Spam Likely" or "Scam" by mobile service providers.
 The registry is important for entities dependent on outbound calls for their business activities. It helps to prevent their calls from being intercepted or wrongly marked as spam by carriers or external services. We recommend that customers initiate the process of phone number registration to mitigate this risk.
 
-In order to request registration for an Azure Communication Services number, customers need to work through the following steps:
+To request registration for an Azure Communication Services number, customers need to work through the following steps:
 1. Visit [Free Caller Registry](https://www.freecallerregistry.com/fcr/) and click on "*Register here*"
 2. Complete the form with all the details about numbers that customers own and use for public switched telephone network (PSTN) Outbound calls, company’s details as well as expected volume and justification for the request.
 3. Once the customer has verified his work email, he can submit his request.
