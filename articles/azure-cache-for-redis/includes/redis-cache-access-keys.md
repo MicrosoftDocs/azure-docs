@@ -6,14 +6,18 @@ ms.custom: ignite-2024
 
 ### Get cache host name, port, and access keys from the Azure portal
 
-To connect to your Azure Redis cache, the cache client needs the cache host name, port, and keys. Some clients might refer to these items by slightly different names. Follow these instructions to get the cache host name, port, and keys from the [Azure portal](https://portal.azure.com).
+To connect to your Azure Redis cache, the cache client needs the cache host name, ports, and keys. Some clients might refer to these items by slightly different names. Follow these instructions to get the cache host name, ports, and keys from the [Azure portal](https://portal.azure.com).
 
-- Copy the host name and port from the cache **Overview** page in the portal. The host name is of the form `<cachename>.redis.cache.windows.net`.
+- Get the host name from the cache **Overview** page. The host name is of the form `<cachename>.redis.cache.windows.net`.
+
+- Select the link next to **Ports** to get the ports. Enterprise and Enterprise Flash tier caches use port `10000`. Basic, Standard, and Premium tier caches use either port `6379` for non-TLS connections or port `6380` for TLS connections.
+
+- To get the access keys, select **Show access keys**.
 
   :::image type="content" source="media/redis-cache-access-keys/redis-cache-hostname-ports.png" alt-text="Screenshot showing Azure Redis cache properties.":::
 
-- To get the access keys, select **Show access keys** on the **Overview** page. The **CacheKeys** pane shows the keys.
-
+  The **CacheKeys** pane displays the keys.
+ 
   :::image type="content" source="media/redis-cache-access-keys/redis-cache-keys-pane.png" alt-text="Screenshot showing Azure Redis cache access keys pane.":::
 
   You can also select **Authentication** under **Settings** in the left navigation menu, and then select the **Access keys** tab.
