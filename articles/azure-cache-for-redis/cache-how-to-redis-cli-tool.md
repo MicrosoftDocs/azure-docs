@@ -52,7 +52,7 @@ The following section describes how to get these values from the Azure portal.
 
 You might also need to specify the following options for redis-cli:
 
-- **Transport Layer Security (TLS)**: By default, Azure Redis instances use [TLS](cache-remove-tls-10-11.md) encryption for connections. If the cache uses TLS, you must enable TLS for redis-cli by using the `--tls` option.
+- **TLS**: By default, Azure Redis instances use [TLS](cache-remove-tls-10-11.md) encryption for connections. If the cache uses TLS, you must enable TLS for redis-cli by using the `--tls` option.
 - **Clustering**: If you have a Premium tier cache that uses clustering, or an Enterprise or Enterprise Flash tier cache that uses OSS cluster policy, add the `-c` option to ensure that all shards can be accessed.
 
 ### Run the redis-cli connection command

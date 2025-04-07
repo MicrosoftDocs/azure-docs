@@ -10,7 +10,7 @@ To connect to your Azure Redis cache, the cache client needs the cache host name
 
 - Get the host name from the cache **Overview** page. The host name is of the form `<cachename>.redis.cache.windows.net`.
 
-- Select the link next to **Ports** to get the ports. Enterprise and Enterprise Flash tier caches use port `10000`. Basic, Standard, and Premium tier caches use either port `6379` for non-TLS connections or port `6380` for TLS connections.
+- Select the link next to **Ports** to get the ports. Enterprise and Enterprise Flash tier caches use port `10000`. Basic, Standard, and Premium tier caches use either port `6380` for Transport Layer Security (TLS) connections or port `6379` for non-TLS connections.
 
 - To get the access keys, select **Show access keys**.
 
