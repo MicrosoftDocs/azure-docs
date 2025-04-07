@@ -119,6 +119,8 @@ This section describes what to expect when Azure Data Factory resources are conf
 
 ### Zone-down experience
 
+This section describes what to expect when Azure Data Factory resources are configured for zone redundancy and there's an availability zone outage.
+
 - **Detection and response.** The Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
 
 - **Active requests.** Any pipelines and triggers in progress continue to execute, and you won't notice a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
@@ -187,6 +189,10 @@ Depending on the integration runtime you use, there might be additional consider
 ## Backup and restore
 
 Azure Data Factory supports CI/CD through source control integration, so that you can back up metadata associated with a data factory instance and deploy it into a new environment. To learn more, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-delivery.md).
+
+## Service-level agreement
+
+The service-level agreement (SLA) for Azure Data Factory describes the expected availability of the service. This agreement also describes the conditions to meet for achieving this expectation. To understand these conditions, make sure that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Related content
 
