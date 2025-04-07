@@ -330,6 +330,8 @@ items:
     href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware solution
     href: enable-vmware-cds-with-azure.md
+  - name: Enable VMware Cloud Director with Azure VMware Solution
+    href: enable-vmware-vcd-with-azure.md 
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
     href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
 - name: Resources
