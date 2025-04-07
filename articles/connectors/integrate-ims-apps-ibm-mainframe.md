@@ -24,6 +24,30 @@ This article describes the following aspects about the IMS connector:
 * Prerequisites and setup for using the IMS connector
 * Steps for adding IMS connector actions to your Standard logic app workflow
 
+## Explore the IMS connector and usage scenarios
+
+IMS systems were one of the first mission-critical systems to run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IMS systems by following two models: IMS Connect and APPC LU6.2. Customers have used the HIS Transaction Integrator to integrate their IMS systems with Windows on-premises for many years. The **IMS Program Call** connector uses the IMS Connect model to interact with IMS transaction programs through TCP/IP.
+
+The following diagram shows how the IMS connector interacts with an IBM mainframe system:
+
+:::image type="content" source="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png" alt-text="Conceptual diagram shows how the IMS Program Call connector works with IBM mainframe system." lightbox="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png":::
+
+To extend these hybrid cloud scenarios, the IMS connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer converts that information into metadata that the IMS connector uses when running an action in your workflow.
+
+After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the parameters to use with the IMS connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
+
+## Review connector technical reference
+
+Currently, one operation is available for the IMS connector: **Call an IMS program**. The following table summarizes the usage for this action:
+
+| Parameter | Required | Type | Description |
+|-----------|----------|-------|-------------|
+| **HIDX Name** | Yes | String | Select the IMS HIDX file that you want to use. |
+| **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
+| **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
+
+This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -48,30 +72,6 @@ This article describes the following aspects about the IMS connector:
 
 Currently, the IMS connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
-## Explore the IMS connector and usage scenarios
-
-IMS systems were one of the first mission-critical systems to run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IMS systems by following two models: IMS Connect and APPC LU6.2. Customers have used the HIS Transaction Integrator to integrate their IMS systems with Windows on-premises for many years. The **IMS Program Call** connector uses the IMS Connect model to interact with IMS transaction programs through TCP/IP.
-
-The following diagram shows how the IMS connector interacts with an IBM mainframe system:
-
-:::image type="content" source="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png" alt-text="Conceptual diagram shows how the IMS Program Call connector works with IBM mainframe system." lightbox="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png":::
-
-To extend these hybrid cloud scenarios, the IMS connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer converts that information into metadata that the IMS connector uses when running an action in your workflow.
-
-After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the parameters to use with the IMS connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
-
-## Review the technical reference
-
-Currently, one operation is available for the IMS connector: **Call an IMS program**. The following table summarizes the usage for this action:
-
-| Parameter | Required | Type | Description |
-|-----------|----------|-------|-------------|
-| **HIDX Name** | Yes | String | Select the IMS HIDX file that you want to use. |
-| **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
-| **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
-
-This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
-
 ## Define and generate metadata
 
 After you download and install the HIS Designer for Azure Logic Apps, follow [these steps to generate the HIDX file from the metadata artifact](/host-integration-server/core/application-integration-lahostapps).
@@ -90,7 +90,7 @@ Later in this article, when you add an **IMS Program Call** connector action to 
 
 ## Add an IMS action
 
-Follow these steps to add an IMS action:
+Follow these steps to add an IMS action and configure the necessary parameters:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
@@ -149,7 +149,7 @@ Follow these steps to add an IMS action:
 
 ## Test your workflow
 
-Follow these steps and test your workflow:
+Follow these steps to check your workflow and confirm the outputs:
 
 1. To run your workflow, on the designer toolbar, select **Run** > **Run**.
 
