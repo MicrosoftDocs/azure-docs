@@ -27,7 +27,7 @@ Some Azure services use paired regions to build their multi-region geo-replicati
 If you're in a region with a pair, then using its pair as a secondary region provides several benefits:
 
 - **Region recovery sequence**. In the unlikely event of a geography-wide outage, the recovery of one region is prioritized out of every region pair. Components that are deployed across paired regions have one of the regions prioritized for recovery.
-- **Sequential updating**. Planned Azure system updates are staggered across region pairs to minimize downtime, impact of bugs, and any logical failures in the rare event of a faulty update.
+- **Sequential updating**. Planned Azure system updates are staggered across region pairs to minimize the impact of bugs or logical failures in the rare event of a faulty update, and to prevent downtime to solutions that have been designed to use paired regions together for resiliency.
 - **Data residency**. To meet data residency requirements, almost all regions reside within the same geography as their pair. To learn about the exceptions, see the [list of Azure regions](./regions-list.md).
 
 > [!IMPORTANT]
@@ -38,7 +38,6 @@ If you're in a region with a pair, then using its pair as a secondary region pro
 You aren't limited to using services within a single region, or within your region's pair. Although an Azure service might rely upon a specific regional pair for some of its reliability capabilities, you can host your services in any region that satisfies your business needs. For example, an Azure solution can use Azure Storage in the Canada Central region with GRS storage to replicate data to the paired region, Canada East, while using Azure compute resources located in East US, and Azure OpenAI resources located in West US.
 
 To see a list of regions that includes all region pairs, see [List of Azure regions](./regions-list.md).
-
 
 ### Asymmetrically paired regions
 
@@ -60,7 +59,6 @@ Azure continues to expand globally, and many of our newer regions provide multip
 Many Azure services support geo-replication and geo-redundancy between any arbitrary set of regions, and don't rely on region pairs. It's important to understand how multi-region support works for the particular services you use. To learn about the details of each service, see [Azure service reliability guides](./overview-reliability-guidance.md).
 
 To see a list of regions that includes all nonpaired regions, see [Azure region pairs](./regions-list.md).
-
 
 ## Related content
 

@@ -53,7 +53,8 @@ tmpfs                            3.9G  299M  3.6G   8% /tmp
 /dev/sda1                        222M   49M  158M  24% /boot
 ```
 
-Ensure at least **5 GB** of free space is available on the Terminal Server before beginning the upgrade process.  
+
+Ensure at least **5 GB** of free space is available in the '/tmp' folder on the Terminal Server before beginning the upgrade process.
 
 ## Verifying OS download integrity using SHA1 checksum  
 

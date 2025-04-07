@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 03/25/2025
 #CustomerIntent: As a network administrator, I want to inspect packets captured by Network Watcher to investigate network problems.
 ---
 
@@ -23,7 +23,7 @@ In this article, you learn how to use a popular open-source tool to open a packe
 
 ## Prerequisites
 
-- A packet capture file created through Network Watcher. For more information, see [Manage packet captures for virtual machines using the Azure portal](packet-capture-vm-portal.md).
+- A packet capture file created through Network Watcher. For more information, see [Start, stop, download, and delete packet captures with Azure Network Watcher](packet-capture-manage.md).
 
 - Wireshark. For more information, see the [Wireshark website](https://www.wireshark.org/).
 
@@ -105,4 +105,4 @@ Understanding the types of traffic, the endpoints, and the ports for communicati
 To learn about the other network diagnostic tools of Network Watcher, see:
 
 > [!div class="nextstepaction"]
-> [Network Watcher diagnostic tools](network-watcher-overview.md#network-diagnostic-tools)
+> [Troubleshoot outbound connections](connection-troubleshoot-manage.md)

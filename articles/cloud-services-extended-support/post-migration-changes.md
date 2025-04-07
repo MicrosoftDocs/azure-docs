@@ -8,6 +8,7 @@ author: tanmaygore
 ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As an IT admin managing legacy deployments, I want to update deployment files, automation scripts, and resource configurations post-migration to Azure Resource Manager, so that I can ensure compatibility, manage endpoints, and leverage new features in Cloud Services (extended support).
 ---
  
 # Post-migration changes

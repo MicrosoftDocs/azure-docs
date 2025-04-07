@@ -1249,6 +1249,16 @@
             "source_path_from_root": "/articles/virtual-network/ip-services/configure-routing-preference-virtual-machine-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-peering-different-deployment-models.md",
+            "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-peering-different-deployment-models-subscriptions.md",
+            "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
+            "redirect_document_id": false
         }
     ]
 }

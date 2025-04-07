@@ -2,8 +2,8 @@
 title: Savings plan scopes
 titleSuffix: Microsoft Cost Management
 description: Learn about savings plan scopes and how they're processed.
-author: bandersmsft
-ms.author: banders
+author: nwokolo
+ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
