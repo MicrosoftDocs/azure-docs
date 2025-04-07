@@ -63,7 +63,13 @@
     - name: Jobs
       href: jobs.md
     - name: Dynamic sessions
-      href: sessions.md
+      items:
+      - name: Overview
+        href: sessions.md
+      - name: Usage
+        href: sessions-usage.md
+      - name: Session pools
+        href: session-pool.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
