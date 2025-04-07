@@ -70,7 +70,7 @@ Once you have the prerequisites, you can start to create a data flow.
 
 1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow and choose the data flow profile to use. The default data flow profile is selected by default. For more information on data flow profiles, see [Configure data flow profile](howto-configure-dataflow-profile.md).
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-profile.png" alt-text="Screenshot naming and selecting the profile for the dataflow using operations experience.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-profile.png" alt-text=""Screenshot of the operations experience interface where a user names the data flow and selects a profile for it.:::
 
     > [!IMPORTANT] 
     > You can only choose the data flow profile when creating a data flow. You can't change the data flow profile after the data flow is created.
@@ -78,7 +78,7 @@ Once you have the prerequisites, you can start to create a data flow.
 
 1. Configure the source, transformation, and destination endpoint for the data flow by selecting the items in the data flow diagram.
 
-    :::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience. The view shows the flow from source endpoint through transform to destination endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot of the operations experience interface displaying a data flow diagram with a source endpoint, transformation stage, and destination endpoint.":::
 
 # [Bicep](#tab/bicep)
 
@@ -189,7 +189,7 @@ If the default endpoint isn't used as the source, it must be used as the [destin
 
 1. Under **Source details**, select **Message broker**.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select message broker as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot of the operations experience interface showing the selection of the message broker as the source endpoint for a data flow.":::
 
 1. Enter the following settings for the message broker source:
 
@@ -508,7 +508,7 @@ This section is an introduction to data flow transforms. For more detailed infor
 
 In the operations experience, select **Data flow** > **Add transform (optional)**.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience to add a transform to a data flow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot of the operations experience interface showing the addition of a transformation stage to a data flow.":::
 
 # [Bicep](#tab/bicep)
 
@@ -1133,7 +1133,7 @@ To export the data flow configuration, you can use the operations experience or 
 
 Select the data flow you want to export and select **Export** from the toolbar.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience to export a data flow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot of the operations experience interface showing the export option for a configured data flow.":::
 
 # [Bicep](#tab/bicep)
 
