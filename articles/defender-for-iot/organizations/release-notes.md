@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 12/19/2023
+ms.date: 04/06/2025
 ---
 
 # OT monitoring software versions
@@ -38,6 +38,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **25.1** | | | |
+| 25.1.1  |03/2025 | Minor |02/2026 |
 | 25.1.0  |03/2025 | Major |02/2026 |
 | **24.1** | | | |
 | 24.1.9  |03/2025 | Minor |02/2026 |
@@ -95,6 +96,17 @@ Version numbers are listed only in this article and in the [What's new in Micros
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
 ## Versions 25.1.x
+
+### Version 25.1.1
+
+**Release date**: 04/2025
+
+**Supported until**: 03/2026
+
+This version includes the following updates:
+
+- Bug fixes for stability improvements
+- Enhanced 'Address Scan Detected' alert with port and protocol details for each scanned address, allowing SOC teams to investigate more efficiently without opening the PCAP.
 
 ### Version 25.1.0
 
