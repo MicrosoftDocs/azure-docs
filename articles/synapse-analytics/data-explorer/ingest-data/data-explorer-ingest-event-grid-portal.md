@@ -2,7 +2,7 @@
 title: Ingest data from Event Grid into Azure Synapse Data Explorer (Preview)
 description: Learn how to ingest (load) data into Azure Synapse Data Explorer from Event Grid.
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -13,6 +13,8 @@ ms.subservice: data-explorer
 ---
 
 # Ingest blobs into Azure Synapse Data Explorer by subscribing to Event Grid notifications (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 <!-- > [!div class="op_single_selector"]
 > * [One-click](one-click-ingestion-new-table.md)

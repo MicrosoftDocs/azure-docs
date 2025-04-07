@@ -4,7 +4,7 @@ description: This article provides information about deploying the extension-bas
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
-ms.date: 02/27/2025
+ms.date: 04/07/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ms.service: azure-automation
@@ -52,7 +52,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 | Required package | Description | Minimum version |
 |--------------------- | --------------------- | ------------------- |
 | Glibc |GNU C Library | 2.5-12 |
-| Openssl | OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported) |
+| OpenSSL | OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported) |
 | Curl | cURL web client | 7.15.5 |
 | Python-ctypes | Foreign function library for Python | Python 2.x or Python 3.x are required |
 | PAM | Pluggable Authentication Modules |       |
