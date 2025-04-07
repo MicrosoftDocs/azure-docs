@@ -45,7 +45,7 @@ After you generate the metadata file as a Host Integration Designer XML (HIDX) f
 Currently, one operation is available for the IBM i connector: **Call an IBM i program**. The following table summarizes the usage for this action:
 
 | Parameter | Required | Type | Description |
-|-----------|----------|-------|-------------|
+|-----------|----------|------|-------------|
 | **HIDX Name** | Yes | String | Select the IBM i HIDX file that you want to use. |
 | **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
 | **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
