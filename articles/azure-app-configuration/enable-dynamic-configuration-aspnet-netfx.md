@@ -99,14 +99,14 @@ Add the following key-values to the App Configuration store and leave **Label** 
         {
             string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
             options.Connect(new Uri(endpoint), new DefaultAzureCredential())
-                    // Load all keys that start with `TestApp:` and have no label.
-                    .Select("TestApp:*")
-                    // Reload configuration if any selected key-values have changed.
-                    .ConfigureRefresh(refresh => 
-                    {
-                        refresh.RegisterAll()
-                               .SetRefreshInterval(new TimeSpan(0, 5, 0));
-                    });
+                   // Load all keys that start with `TestApp:` and have no label.
+                   .Select("TestApp:*")
+                   // Reload configuration if any selected key-values have changed.
+                   .ConfigureRefresh(refresh => 
+                   {
+                       refresh.RegisterAll()
+                              .SetRefreshInterval(new TimeSpan(0, 5, 0));
+                   });
             _configurationRefresher = options.GetRefresher();
         });
 
@@ -123,14 +123,14 @@ Add the following key-values to the App Configuration store and leave **Label** 
         builder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    // Load all keys that start with `TestApp:` and have no label.
-                    .Select("TestApp:*")
-                    // Reload configuration if any selected key-values have changed.
-                    .ConfigureRefresh(refresh => 
-                    {
-                        refresh.RegisterAll()
-                               .SetRefreshInterval(new TimeSpan(0, 5, 0));
-                    });
+                   // Load all keys that start with `TestApp:` and have no label.
+                   .Select("TestApp:*")
+                   // Reload configuration if any selected key-values have changed.
+                   .ConfigureRefresh(refresh => 
+                   {
+                       refresh.RegisterAll()
+                              .SetRefreshInterval(new TimeSpan(0, 5, 0));
+                   });
             _configurationRefresher = options.GetRefresher();
         });
 
@@ -155,9 +155,9 @@ Add the following key-values to the App Configuration store and leave **Label** 
     ```
     Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method at the beginning of every request to signal a refresh. This design ensures your application only sends requests to App Configuration when it is actively receiving requests. 
     
-    Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal. When a request is made to App Configuration, as you don't wait on the task, the configuration is refreshed asynchronously without blocking the execution of the current request. The current request may not get the updated configuration values, but subsequent requests will do.
+    Calling `TryRefreshAsync` is a no-op before the configured refresh interval elapses, so its performance impact is minimal. When a request is made to App Configuration, as you don't wait on the task, the configuration is refreshed asynchronously without blocking the execution of the current request. The current request may not get the updated configuration values, but subsequent requests will do.
 
-    If the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed again, and the `TryRefreshAsync` call is triggered by a new request to your application.
+    If the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed again, and the `TryRefreshAsync` call is triggered by a new request to your application.
 
 ## Use the latest configuration data
 
@@ -268,7 +268,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
     | *TestApp:Settings:FontColor*       | *LightGray*                                                  |
     | *TestApp:Settings:Message*         | *Data from Azure App Configuration - now with live updates!* |
 
-1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected or change your cache expiration time to less than 5 minutes. 
+1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected or change your refresh interval to less than 5 minutes. 
 
     ![App refresh local](./media/dotnet-fx-web-app-refresh.png)
 

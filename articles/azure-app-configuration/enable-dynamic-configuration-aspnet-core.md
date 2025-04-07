@@ -36,11 +36,11 @@ Finish the quickstart: [Create an ASP.NET Core app with App Configuration](./qui
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         options.Connect(new Uri(endpoint), new DefaultAzureCredential())
-                // Load all keys that start with `TestApp:` and have no label.
-                .Select("TestApp:*", LabelFilter.Null)
-                // Reload configuration if any selected key-values have changed.
-                .ConfigureRefresh(refreshOptions =>
-                    refreshOptions.RegisterAll());
+               // Load all keys that start with `TestApp:` and have no label.
+               .Select("TestApp:*", LabelFilter.Null)
+               // Reload configuration if any selected key-values have changed.
+               .ConfigureRefresh(refreshOptions =>
+                   refreshOptions.RegisterAll());
     });
     ```
 
@@ -100,7 +100,7 @@ You've set up your app to use the [options pattern in ASP.NET Core](/aspnet/core
     
 ## Request-driven configuration refresh
 
-The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle. When your app is active, the App Configuration middleware monitors any keys you registered for refreshing in the `ConfigureRefresh` call. The middleware is triggered upon every incoming request to your app. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed.
+The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle. When your app is active, the App Configuration middleware monitors any keys you registered for refreshing in the `ConfigureRefresh` call. The middleware is triggered upon every incoming request to your app. However, the middleware will only send requests to check the value in App Configuration when the refresh interval you set has passed.
 
 - If a request to App Configuration for change detection fails, your app will continue to use the cached configuration. New attempts to check for changes will be made periodically while there are new incoming requests to your app.
 - The configuration refresh happens asynchronously to the processing of your app's incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but later requests will get new configuration values.

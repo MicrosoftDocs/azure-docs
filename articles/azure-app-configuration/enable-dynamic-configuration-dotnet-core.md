@@ -50,14 +50,14 @@ builder.AddAzureAppConfiguration(options =>
 {
     string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
     options.Connect(new Uri(endpoint), new DefaultAzureCredential())            
-            // Load the key-value with key "TestApp:Settings:Message" and no label
-            .Select("TestApp:Settings:Message")
-            // Reload configuration if any selected key-values have changed.
-            .ConfigureRefresh(refresh =>
-            {
-                refresh.RegisterAll()
-                       .SetRefreshInterval(TimeSpan.FromSeconds(10));
-            });
+           // Load the key-value with key "TestApp:Settings:Message" and no label
+           .Select("TestApp:Settings:Message")
+           // Reload configuration if any selected key-values have changed.
+           .ConfigureRefresh(refresh =>
+           {
+               refresh.RegisterAll()
+                      .SetRefreshInterval(TimeSpan.FromSeconds(10));
+            })
 
     _refresher = options.GetRefresher();
 });
@@ -81,7 +81,7 @@ Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instr
 
 The `SetRefreshInterval` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
 
-Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You'll want to include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time you press the Enter key. Even if the call `TryRefreshAsync` fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
+Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You'll want to include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time you press the Enter key. Even if the call `TryRefreshAsync` fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured refresh interval has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured refresh interval elapses, so its performance impact is minimal, even if it's called frequently.
 
 ### Configuration refresh using dependency injection
 
@@ -170,7 +170,7 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
     ![Quickstart app refresh local](./media/quickstarts/dotnet-core-app-run-refresh.png)
     
     > [!NOTE]
-    > Since the cache expiration time was set to 10 seconds using the `SetRefreshInterval` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
+    > Since the refresh interval was set to 10 seconds using the `SetRefreshInterval` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
 
 ## Logging and monitoring
 
