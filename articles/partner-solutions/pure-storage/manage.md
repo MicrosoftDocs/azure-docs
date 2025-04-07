@@ -36,7 +36,7 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ### Create a Storage Pool
 
-To create a storage pool
+To create a storage pool:
 
 1. Select **Settings > Storage Pool** from the service menu.
 
@@ -44,6 +44,9 @@ To create a storage pool
 
     The *Create a Storage Pool* window appears.
     There are required fields that you need to fill out.
+
+    > [!NOTE]
+    > The storage pool will default to the same region as your Pure Storage resource.
 
 1. Enter the values for each required setting.
   
@@ -62,6 +65,11 @@ To create a storage pool
     > It can take up to 1 hour for deployment to complete. 
 
 ### Connect a Storage Pool to an Azure VMware resource
+
+Once you've created a storage pool, you can link the storage pool to an Azure VMware resource from the Azure portal.
+
+> [!IMPORTANT]
+> In order to connect your storage pool to an Azure VMware Solution resource, you must be an "Owner" or "RBACAdministrator" in your subscription.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
