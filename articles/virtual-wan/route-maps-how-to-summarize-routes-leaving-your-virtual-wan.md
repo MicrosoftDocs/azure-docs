@@ -64,7 +64,7 @@ In this scenario, a Route-map will summarize the routes being advertised to the 
 
 3. Apply the Route-map on the VPN branch 2 site connection. The Route-map will be applied in the outbound direction.
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/apply.png" alt-text="Screenshot to show the Route-Map being applied" lightbox="./media/route-maps-how-to-summarize/apply.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/apply.png" alt-text="Screenshot to show the Route-Map being applied." lightbox="./media/route-maps-how-to-summarize/apply.png":::
 
 4. Using the Route-map dashboard in Hub 2, Verify that route 10.122.0.0/16 is being summarized.  
 
