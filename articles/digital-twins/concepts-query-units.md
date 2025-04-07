@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Query Units in Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Learn about the billing concept of Query Units in Azure Digital Twins
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Query Units in Azure Digital Twins 

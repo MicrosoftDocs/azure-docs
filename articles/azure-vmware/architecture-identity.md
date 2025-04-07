@@ -28,7 +28,7 @@ Use the following steps to view the privileges granted to the Azure VMware Solut
 
    :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Screenshot shows the roles and privileges for CloudAdmin in the vSphere Client.":::
 
-The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter Server. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter Server. For more information, see the [VMware product documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security-8-0/defined-privileges.html).
 
 | Privilege | Description |
 | --------- | ----------- |
@@ -146,7 +146,7 @@ You can view the permissions granted to the Azure VMware Solution cloudadmin rol
 
 ## NSX LDAP integration for role-based access control (RBAC)
 
-In an Azure VMware Solution deployment, the VMware NSX can be integrated with external LDAP directory service to add remote directory users or group, and assign them a VMware NSX RBAC role, like on-premises deployment.  For more information on how to enable VMware NSX LDAP integration, see the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
+In an Azure VMware Solution deployment, the VMware NSX can be integrated with external LDAP directory service to add remote directory users or group, and assign them a VMware NSX RBAC role, like on-premises deployment.  For more information on how to enable VMware NSX LDAP integration, see the [VMware product documentation](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/administration-guide/authentication-and-authorization/integration-with-ldap.html).
 
 Unlike on-premises deployment, not all predefined NSX RBAC roles are supported with Azure VMware solution to keep Azure VMware Solution IaaS control plane config management separate from tenant network and security configuration. For more information, see the next section, Supported NSX RBAC roles.
 
@@ -227,12 +227,12 @@ Now that you've covered Azure VMware Solution access and identity concepts, you 
 
 - [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
-- [Details of each privilege](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [Details of each privilege](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security-8-0/defined-privileges.html)
 
-- [How Azure VMware Solution monitors and repairs private clouds](./architecture-private-clouds.md#host-monitoring-and-remediation)
+- [How Azure VMware Solution monitors and repairs private clouds](azure-vmware-solution-host-remediation.md#host-monitoring-and-remediation)
 
 <!-- LINKS - external-->
-[VMware product documentation]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html
+[VMware product documentation]: https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security-8-0/defined-privileges.html
 
 <!-- LINKS - internal -->
 [concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management

@@ -4,13 +4,16 @@ description: Learn how to mount an Azure file share over SMB with macOS using Fi
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 12/13/2024
 ms.author: kendownie
 ---
 
 # Mount SMB Azure file share on macOS
 
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted with the industry standard SMB 3 protocol by macOS High Sierra 10.13+. This article shows two different ways to mount an Azure file share on macOS: with the Finder UI and using the Terminal.
+
+> [!WARNING]
+> Mounting a file share using storage account keys carries inherent security risks. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md). Azure Files doesn't currently support using identity-based authentication to mount a file share on macOS.
 
 ## Applies to
 
@@ -24,7 +27,7 @@ ms.author: kendownie
 
 * **Storage account name**: To mount an Azure file share, you'll need the name of the storage account.
 
-* **Storage account key**: To mount an Azure file share, you'll need the primary (or secondary) storage key. SAS tokens aren't currently supported for mounting Azure file shares.
+* **Storage account key**: To mount an Azure file share, you'll need the primary (or secondary) storage account key. SAS tokens aren't currently supported for mounting Azure file shares.
 
 * **Ensure port 445 is open**: SMB communicates over TCP port 445. On your client machine (the Mac), check to make sure your firewall isn't blocking TCP port 445. If your organization or ISP is blocking port 445, you might need to set up a VPN from on-premises to your Azure storage account with Azure Files exposed on your internal network using private endpoints. With this configuration, traffic will go through a secure tunnel as opposed to over the internet. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md). To see a summary of ISPs that allow or disallow access from port 445, go to [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
@@ -54,6 +57,6 @@ ms.author: kendownie
 
     ![A snapshot of the mounted Azure file share](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
-## Next steps
+## Next step
 
 * [Connect your Mac to shared computers and servers - Apple Support](https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/mac)

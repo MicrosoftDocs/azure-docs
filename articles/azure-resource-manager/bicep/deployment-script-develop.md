@@ -731,7 +731,7 @@ You can also specify `subnetId` values for running the deployment script in a pr
 
 ```bicep
 param containerGroupName string = 'mycustomaci'
-param subnetId string = '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
+param subnetId string = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   ...

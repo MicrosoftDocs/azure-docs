@@ -2,8 +2,8 @@
 title: "Bitglass (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Bitglass (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
-ms.date: 10/15/2024
+ms.topic: generated-reference
+ms.date: 11/20/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -63,7 +63,7 @@ To integrate with Bitglass (using Azure Functions) make sure you have:
 
  Follow the instructions to obtain the credentials.
 
-1. Please contact Bitglass [support](https://pages.bitglass.com/Contact.html) and obtain the **BitglassToken** and **BitglassServiceURL** ntation].
+1. Please contact Bitglass [support](https://www.forcepoint.com/company/contact-us) and obtain the **BitglassToken** and **BitglassServiceURL** ntation].
 2. Save credentials for using in the data connector.
 
 

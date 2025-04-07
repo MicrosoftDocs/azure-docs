@@ -5,7 +5,7 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/01/2024
+ms.date: 03/18/2025
 ---
 
 # Add session hosts to a host pool
@@ -13,7 +13,7 @@ ms.date: 10/01/2024
 > [!IMPORTANT]
 > The following features are currently in preview:
 >
-> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and for Azure operated by 21Vianet (Azure in China).
+> - Azure Virtual Desktop on Azure Local for Azure Government and for Azure operated by 21Vianet (Azure in China).
 >
 > - Azure Virtual Desktop on Azure Extended Zones.
 >
@@ -29,7 +29,7 @@ When you add session hosts to a host pool, the method you use depends on your [h
 
 - For a host pool using standard management, you can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. Alternatively, you can create VMs outside the Azure Virtual Desktop service, such as using an automated pipeline, the Azure CLI, or Azure PowerShell, and then add them as session hosts to a host pool separately.
 
-   For Azure Stack HCI, you can create new VMs to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. If you want to create the VMs outside the Azure Virtual Desktop service, follow the steps in [Create Azure Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), and then add the VMs as session hosts to a host pool separately.
+   For Azure Local, you can create new VMs to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. If you want to create the VMs outside the Azure Virtual Desktop service, follow the steps in [Create Azure Arc virtual machines on Azure Local](/azure-stack/hci/manage/create-arc-virtual-machines), and then add the VMs as session hosts to a host pool separately.
 
 > [!TIP]
 > Select a button at the top of this article to choose between host pools using standard management or host pools using session host configuration to see the relevant documentation.
@@ -51,7 +51,7 @@ For a general idea of what's required, such as supported operating systems, virt
 ::: zone-end
 
 ::: zone pivot="host-pool-standard"
-- You need an existing host pool with standard management. Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
+- You need an existing host pool with standard management. Each host pool must only contain session hosts on Azure or on Azure Local. You can't mix session hosts on Azure and on Azure Local in the same host pool.
 ::: zone-end
 
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
@@ -72,27 +72,27 @@ For a general idea of what's required, such as supported operating systems, virt
    |--|--|
    | Generate a registration key for the host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
    | Create and add session hosts by using the Azure portal (Azure and Azure Extended Zones) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-   | Create and add session hosts by using the Azure portal (Azure Stack HCI) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
+   | Create and add session hosts by using the Azure portal (Azure Local) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
 
-- To add session hosts on Azure Stack HCI, you also need:
+- To add session hosts on Azure Local, you also need:
 
-  - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [About Azure Stack HCI, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+  - An [Azure Local instance registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local instances need to be running a minimum of version 23H2. For more information, see [About Azure Stack HCI, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
   - A stable connection to Azure from your on-premises network.
 
-  - At least one Windows OS image available on the cluster. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+  - At least one Windows OS image available on the instance. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
-  - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Stack HCI VMs created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
+  - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Local machines created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
-  - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
+  - A logical network that you created on your Azure Local instance. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Local](/azure-stack/hci/manage/create-logical-networks).
 
 - To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need:
 
   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
 
-  - An existing [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network to which you're deploying the session hosts.
+  - An [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) with an outbound rule on the virtual network to which you're deploying session hosts. You can use an existing load balancer or you create a new one when adding session hosts.
 
 - If you want to use the Azure CLI or Azure PowerShell locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) Azure PowerShell module installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -218,7 +218,7 @@ Here's how to create session hosts and register them to a host pool by using the
 
 1. The **Basics** tab is unavailable because you're using the existing host pool. Select **Next: Virtual Machines**.
 
-1. On the **Virtual machines** tab, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or on Azure Stack HCI. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
+1. On the **Virtual machines** tab, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or on Azure Local. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
 
    <details>
        <summary>To add session hosts on <b>Azure</b>, expand this section.</summary>
@@ -233,7 +233,7 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Image** | Select the OS image that you want to use from the list, or select **See all images** to see more. The full list includes any images that you created and stored as an [Azure Compute Gallery shared image](/azure/virtual-machines/shared-image-galleries) or a [managed image](/azure/virtual-machines/windows/capture-image-resource). |
       | **Virtual machine size** | Select a size. If you want to use a different size, select **Change size**, and then select from the list. |
       | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).<br /><br />FSLogix and app attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or app attach for your personal host pools.|
-      | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) and [Virtual Machines limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machines-limits---azure-resource-manager). |
+      | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) and [Virtual Machines limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machines-limits---azure-resource-manager). |
       | **OS disk type** | Select the disk type to use for your session hosts. We recommend that you use only **Premium SSD** for production workloads. |
       | **OS disk size** | Select a size for the OS disk.<br /><br />If you enable hibernation, ensure that the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
       | **Confidential computing encryption** | If you're using a confidential VM, you must select the **Confidential compute encryption** checkbox to enable OS disk encryption.<br /><br />This checkbox appears only if you selected **Confidential virtual machines** as your security type. |
@@ -251,22 +251,23 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Confirm password** | Reenter the password. |
       | **Custom configuration** |  |
       | **Custom configuration script URL** | If you want to run a PowerShell script during deployment, you can enter the URL here. |
+
    </details>
 
    <details>
-       <summary>To add session hosts on <b>Azure Stack HCI</b>, expand this section.</summary>
+       <summary>To add session hosts on <b>Azure Local</b>, expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | **Virtual machine type** | Select **Azure Stack HCI virtual machine**. |
-      | **Custom location** | In the dropdown list, select the Azure Stack HCI cluster where you want to deploy your session hosts. |
-      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster that you selected. |
+      | **Virtual machine type** | Select **Azure Local**. |
+      | **Custom location** | In the dropdown list, select the Azure Local instance where you want to deploy your session hosts. |
+      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the instance that you selected. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
-      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Memory type** | Select **Static** for a fixed memory allocation, or select **Dynamic** for a dynamic memory allocation. |
-      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Network and security** |  |
       | **Network dropdown** | Select an existing network to connect each session to. |
       | **Domain to join** |  |
@@ -278,6 +279,7 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
       | **Password** | Enter a password for the local administrator account. |
       | **Confirm password** | Reenter the password. |
+
    </details>
 
    <details>
@@ -288,14 +290,13 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine type** | Select **Azure virtual machine**. |
-      | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. It must be the same region that contains your virtual network. Then select **Deploy to an Azure Extended Zone**. |
-      | **Azure Extended Zones** |  |
-      | **Azure Extended Zone** | Select **Los Angeles**. |
-      | **Place the session host(s) behind an existing load balancing solution?** | Select the box. This action shows options for selecting a load balancer and a back-end pool.|
-      | **Select a load balancer** | Select an existing load balancer on the virtual network to which you're deploying the session hosts. |
-      | **Select a backend pool** | Select a back-end pool on the load balancer in which you want to place the sessions hosts. |
-      | **Availability options** | Select from [availability zones](/azure/reliability/availability-zones-overview), [availability set](/azure/virtual-machines/availability-set-overview), or **No infrastructure dependency required**. If you select **availability zones** or **availability set**, complete the extra parameters that appear.  |
-      | **Security type** | Select from **Standard**, [Trusted launch virtual machines](/azure/virtual-machines/trusted-launch), or [Confidential virtual machines](/azure/confidential-computing/confidential-vm-overview).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+      | **Virtual machine location** | Select **Deploy to an Azure Extended Zone**. |
+      | **Azure Extended Zone** | Select the Extended Zone you require. |
+      | **Network and security** |  |
+      | **Select a load balancer** | Select an existing Azure load balancer on the same virtual network you want to use for your session hosts, or select **Create a load balancer** to create a new load balancer.|
+      | **Select a backend pool** | Select a backend pool on the load balancer you want to use for your session hosts. If you're creating a new load balancer, select **Create new** to create a new backend pool for the new load balancer. |
+      | **Add outbound rule** | If you're creating a new load balancer, select **Create new** to create a new outbound rule for it. |
+
    </details>
 
    After you complete this tab, select **Next: Tags**.
@@ -334,8 +335,8 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Download the installation files for the Agent and the Agent Boot Loader by using the following links. If you need to unblock them, right-click each file, select **Properties**, select **Unblock**, and finally select **OK**.
 
-   - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-   - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+   - [Azure Virtual Desktop Agent](https://go.microsoft.com/fwlink/?linkid=2310011)
+   - [Azure Virtual Desktop Agent Bootloader](https://go.microsoft.com/fwlink/?linkid=2311028)
 
    > [!TIP]
    > The Azure Virtual Desktop Agent download link is for the latest production version in [non-validation environments](terminology.md#validation-environment). This download link is updated after the automatic production rollout is complete, so you might see a delay between the release of a production version and the update of the download link. After you install the Azure Virtual Desktop Agent, it's updated automatically. For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent?](whats-new-agent.md#latest-available-versions).
@@ -370,24 +371,25 @@ You can use `msiexec` to install the agent and the boot loader from the command 
 
    ```powershell
    $uris = @(
-       "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv"
-       "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH"
+       "https://go.microsoft.com/fwlink/?linkid=2310011"
+       "https://go.microsoft.com/fwlink/?linkid=2311028"
    )
 
    $installers = @()
    foreach ($uri in $uris) {
-       $download = Invoke-WebRequest -Uri $uri -UseBasicParsing
+       $expandedUri = (Invoke-WebRequest -MaximumRedirection 0 -Uri $uri -ErrorAction SilentlyContinue).Headers.Location
+       $fileName = ($expandedUri).Split('/')[-1]
 
-       $fileName = ($download.Headers.'Content-Disposition').Split('=')[1].Replace('"','')
-       $output = [System.IO.FileStream]::new("$pwd\$fileName", [System.IO.FileMode]::Create)
-       $output.write($download.Content, 0, $download.RawContentLength)
-       $output.close()
-       $installers += $output.Name
+       Invoke-WebRequest -Uri $expandedUri -UseBasicParsing -OutFile $fileName
+       $installers += "$pwd\$fileName"
    }
 
    foreach ($installer in $installers) {
        Unblock-File -Path "$installer"
    }
+
+   Write-Host "`nFiles downloaded:`n"
+   $installers
    ```
 
    > [!TIP]

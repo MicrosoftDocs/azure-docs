@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 10/24/2024
+ms.date: 03/24/2025
 ms.author: anfdocs
 ---
 # Azure NetApp Files large volume performance benchmarks for Linux
@@ -22,11 +22,10 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 ## Testing summary 
 
-* The Azure NetApp Files large volumes feature offers three service levels, each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
+* The Azure NetApp Files large volumes feature offers [four service levels](azure-netapp-files-service-levels.md), each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
 
-    * Ultra service level: 12,800 MiB/s
-    * Premium service level: 6,400 MiB/s
-    * Standard service level: 1,600 MiB/s
+    * Standard, Preimium, and Ultra service levels: 12,800 MiB/s
+    * [Flexible service](azure-netapp-files-service-levels.md#Flexible): The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS
 
     The Ultra service level was used in these tests. 
 
@@ -87,9 +86,9 @@ The following graphs compare the advantages of `nconnect` with an NFS-mounted vo
 
 ### Linux read throughput 
 
-The following graphs show 256-KiB sequential reads of ~10,000MiB/s with `nconnect`, which is roughly ten times the throughput achieved without `nconnect`.  
+The following graphs show 256-KiB sequential reads of approximately 10,000M iB/s with `nconnect`, which is roughly ten times the throughput achieved without `nconnect`.  
 
-Note that 10,000 MiB/s bandwidth is offered by a large volume in the Ultra service level. 
+Note that 10,000 MiB/s is roughly the line rate of the 100 Gbps network interface card attached to the E104id_v5.
 
 :::image type="content" source="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png" alt-text="Bar chart comparison of read throughput with and without nconnect." lightbox="./media/performance-large-volumes-linux/throughput-comparison-nconnect.png":::
 

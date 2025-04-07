@@ -2,11 +2,11 @@
 title: "Next.js support on Azure Static Web Apps"
 description: "An overview of the support of Next.js on Azure Static Web Apps"
 services: static-web-apps
-author: aaronpowell
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 04/25/2024
-ms.author: aapowell
+ms.author: wujia
 ms.custom: devx-track-js
 ---
 
@@ -35,7 +35,7 @@ Key features that are available in the preview are:
 - [Image optimization](https://nextjs.org/docs/basic-features/image-optimization)
 - [Internationalization](https://nextjs.org/docs/advanced-features/i18n-routing)
 - [Middleware](https://nextjs.org/docs/advanced-features/middleware)
-- [Authentication](https://nextjs.org/docs/authentication)
+- [Authentication](https://nextjs.org/docs/pages/building-your-application/authentication)
 
 Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutorial to learn how to deploy a hybrid Next.js application to Azure.
 

@@ -6,8 +6,8 @@ ms.date: 04/08/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ms.reviewer: sooryar
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension

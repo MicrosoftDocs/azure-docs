@@ -59,23 +59,23 @@ string suppressionListResourceName = "<your-suppression-list-resource-name>";
 ResourceIdentifier suppressionListResourceId = SuppressionListResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainResourceName, suppressionListResourceName);
 SuppressionListResource suppressionListResource = client.GetSuppressionListResource(suppressionListResourceId);
 
-SuppressionListResourceData suppressiontListData = new SuppressionListResourceData()
+SuppressionListResourceData suppressionListData = new SuppressionListResourceData()
 {
     ListName = "<your-sender-username>", // Should match the sender username of the MailFrom address you would like to suppress emails from
 };
 
-suppressionListResource.Update(WaitUntil.Completed, suppressiontListData);
+suppressionListResource.Update(WaitUntil.Completed, suppressionListData);
 ```
 
 If you would like to suppress emails from all the sender usernames in particular domain, you can pass in an empty string for the list name.
 
 ```csharp
-SuppressionListResourceData suppressiontListData = new SuppressionListResourceData()
+SuppressionListResourceData suppressionListData = new SuppressionListResourceData()
 {
     ListName = "",
 };
 
-suppressionListResource.Update(WaitUntil.Completed, suppressiontListData);
+suppressionListResource.Update(WaitUntil.Completed, suppressionListData);
 ```
 
 ## Add an address to a suppression list
@@ -89,8 +89,8 @@ To add multiple addresses to the suppression list, you need to repeat this code 
 ```csharp
 string suppressionListAddressId = "<your-suppression-list-address-id>";
 
-ResourceIdentifier suppresionListAddressResourceId = SuppressionListAddressResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainResourceName, suppressionListResourceName, suppressionListAddressId);
-SuppressionListAddressResource suppressionListAddressResource = client.GetSuppressionListAddressResource(suppresionListAddressResourceId);
+ResourceIdentifier suppressionListAddressResourceId = SuppressionListAddressResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainResourceName, suppressionListResourceName, suppressionListAddressId);
+SuppressionListAddressResource suppressionListAddressResource = client.GetSuppressionListAddressResource(suppressionListAddressResourceId);
 
 SuppressionListAddressResourceData suppressionListAddressData = new SuppressionListAddressResourceData()
 {

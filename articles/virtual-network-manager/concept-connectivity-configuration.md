@@ -4,9 +4,8 @@ description: Learn about different types network topology you can create with a 
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
-ms.custom: template-concept
 ---
 
 # Connectivity configuration in Azure Virtual Network Manager

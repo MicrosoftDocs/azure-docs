@@ -68,7 +68,7 @@ In the case where your primary region goes down completely, you can still perfor
 ## Remove a secondary
 To remove a Geo-replication pairing with a secondary, select **Geo-replication** on the left menu, select the secondary region, and then select **Remove**. At the prompt, enter the word **delete**, and then you can delete the secondary. 
 
-:::image type="content" source="./media/use-geo-replication/remove-secondary.png" alt-text="Screenshot of the Remove secondary function in the geo-replcation UI.":::
+:::image type="content" source="./media/use-geo-replication/remove-secondary.png" alt-text="Screenshot of the Remove secondary function in the geo-replication UI.":::
 
 When a secondary region is removed, all of the data that it held is also removed. If you wish to re-enable Geo-replication with that region and cluster, it has to replicate the primary region data all over again. 
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 02/01/2025
 ms.author: phjensen
 ---
 
@@ -685,6 +685,29 @@ logout
 Connection to <serverAddress> closed.
 ```
 
+# [Microsoft SQL Server](#tab/mssql)
+
+The snapshot tools issue commands to the Microsoft SQL Server database directly to enable and disable backup mode.  
+
+AzAcSnap connects directly to Microsoft SQL Server using the provided connect-string to issue SQL commands, such as `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = ON` or `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = OFF`.  The connect-string will determine if the installation is on the database server or a centralized "backup" server.  Typical installations of AzAcSnap would be onto the database server to ensure features such as flushing file buffers can  work as expected.  If AzAcSnap has been installed onto the database server, then be sure the user running azacsnap has the required permissions.
+
+##### `azacsnap` user permissions
+
+Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
+The `azacsnap` user should have permissions to put Microsoft SQL Server into backup mode, and have permissions to flush I/O buffers to the volumes configured.
+
+Configure (`.\azacsnap.exe -c configure`) with the correct values for Microsoft SQL Server and test (`.\azacsnap.exe -c test --test mssql`) azacsnap database connectivity.
+Run the `azacsnap` test command
+```shell
+.\azacsnap.exe -c test --test mssql
+```
+
+```output
+BEGIN : Test process started for 'mssql'
+BEGIN : Database tests
+PASSED: Successful connectivity to MSSQL version 16.00.1115
+END   : Test process complete for 'mssql'
+```
 
 ---
 
@@ -761,7 +784,7 @@ global.ini,SYSTEM,,,persistence,basepath_logbackup,/hana/logbackups/H80
 global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
 ```
 
-### Configure the log backup timeout
+### Configure the log backup time-out
 
 The default setting for SAP HANA to perform a log backup is `900` seconds (15 minutes). We recommend that you reduce this value to `300` seconds (5 minutes). Then it's possible to run regular backups of these files (for example, every 10 minutes). You can take these backups by adding the `log_backup` volumes to the `OTHER` volume section of the
 configuration file.
@@ -770,9 +793,9 @@ configuration file.
 hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'log_backup_timeout_s') = '300' WITH RECONFIGURE"
 ```
 
-### Check the log backup timeout
+### Check the log backup time-out
 
-After you make the change to the log backup timeout, ensure that the timeout is set by using the following command.
+After you make the change to the log backup time-out, ensure that the time-out is set by using the following command.
 
 In this example, the settings are displayed as `SYSTEM` settings. This query also returns the `DEFAULT` settings for comparison.
 
@@ -818,6 +841,10 @@ Apply the following changes to the Oracle database to allow for monitoring by th
 # [IBM Db2](#tab/db2)
 
 No special database configuration is required for Db2 because you're using the instance user's local operating system environment.
+
+# [Microsoft SQL Server](#tab/mssql)
+
+No special database configuration is required for Microsoft SQL Server as we are using the User's local operating system environment.
 
 ---
 

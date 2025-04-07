@@ -1,13 +1,17 @@
 ---
-title: System architecture for OT/IoT monitoring - Microsoft Defender for IoT
-description: Learn about the Microsoft Defender for IoT system architecture and data flow.
+title: Defender for IoT - OT architecture and components
+description: Discover the OT architecture and data flow of Microsoft Defender for IoT, providing comprehensive coverage and visibility from diverse data sources.
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 01/30/2025
 ---
 
-# Microsoft Defender for IoT components
+# Microsoft Defender for IoT architecture and components for your OT environment
 
-The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
+The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources. Review this architecture to understand how to plan your OT architecture accordingly.
+
+## OT architecture overview
 
 The following image shows how data can stream into Defender for IoT from network sensors and third-party sources to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
 
@@ -19,11 +23,9 @@ Defender for IoT includes the following OT security monitoring components:
 
 - **The Azure portal**, for cloud management and integration to other Microsoft services, such as Microsoft Sentinel.
 
-- **Operational technology (OT) or Enterprise IoT network sensors**, to detect devices across your network. Defender for IoT network sensors are deployed on either a virtual machine or a physical appliance. OT sensors can be configured as cloud-connected sensors, or fully on-premises, locally managed sensors.
+- **Operational technology (OT) network sensors**, to detect devices across your network. Defender for IoT network sensors are deployed on either a virtual machine or a physical appliance. OT sensors can be configured as cloud-connected sensors, or fully on-premises, locally managed sensors.
 
-- **An on-premises management console** for centralized OT sensor management and monitoring for local, air-gapped environments.
-
-## OT and Enterprise IoT network sensors
+## OT network sensors
 
 Defender for IoT network sensors discover and continuously monitor network traffic across your network devices.
 
@@ -31,7 +33,7 @@ Defender for IoT network sensors discover and continuously monitor network traff
 
 - Network sensors use OT/IoT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect threats, such as fileless malware, based on anomalous or unauthorized activity.
 
-Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only telemetry and insights are transferred on for management, either to the Azure portal or an on-premises management console.
+Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only telemetry and insights are transferred on for management to the Azure portal.
 
 For more information, see [Defender for IoT OT deployment path](ot-deploy/ot-deploy-path.md).
 
@@ -49,13 +51,13 @@ Cloud-connected sensors are sensors that are connected to Defender for IoT in Az
 
 **In contrast, when working with locally managed sensors**:
 
-- View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console.
+- View any data for a specific sensor from the sensor console.
 
 - You must manually upload any threat intelligence packages to locally managed sensors.
 
 - Sensor names can be updated in the sensor console.
 
-For more information, see [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md) and [Manage OT sensors from the management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).
+For more information, see [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md).
 
 ### Defender for IoT analytics engines
 
@@ -90,12 +92,6 @@ Defender for IoT provides hybrid network support using the following management 
 - **The OT sensor console**. View detections for devices connected to a specific OT sensor from the sensor's console. Use the sensor console to view a network map for devices detected by that sensor, a timeline of all events that occur on the sensor, forward sensor information to partner systems, and more. For example:
 
     :::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
-
-- **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console, using extra maintenance tools and reporting features.
-
-    The software version on your on-premises management console must be equal to that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but cannot connect to newer sensor versions.
-
-    For more information, see [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
 
 ## Devices monitored by Defender for IoT
 

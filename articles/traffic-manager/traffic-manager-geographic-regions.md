@@ -5,10 +5,9 @@ services: traffic-manager
 author: greg-lindsay
 manager: kumud
 ms.service: azure-traffic-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: greglin
-ms.custom: template-concept
 ---
 
 # Country/Region hierarchy used by Azure Traffic Manager for geographic traffic routing method

@@ -1,24 +1,24 @@
 ---
-title: Copy and transform data in Snowflake
+title: Copy and transform data in Snowflake V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy and transform data in Snowflake using Data Factory or Azure Synapse Analytics.
+description: Learn how to copy and transform data in Snowflake V2 using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/22/2024
+ms.date: 01/23/2025
 ai-usage: ai-assisted
 ---
 
-# Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Snowflake V2 using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
->[!IMPORTANT]
->The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, you are recommended to [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) at your earliest convenience. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [Snowflake V2 connector](connector-snowflake.md) provides improved native Snowflake support. If you are using the [Snowflake V1 connector](connector-snowflake-legacy.md) in your solution, you are recommended to [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) at your earliest convenience. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between V2 and V1. 
 
 ## Supported capabilities
 
@@ -98,6 +98,7 @@ These generic properties are supported for the Snowflake linked service:
 | warehouse | The default virtual warehouse used for the session after connecting. |Yes|
 | authenticationType | Type of authentication used to connect to the Snowflake service. Allowed values are: **Basic** (Default) and  **KeyPair**. Refer to corresponding sections below on more properties and examples respectively.  | No |
 | role | The default security role used for the session after connecting. | No |
+| host | The host name of the Snowflake account. For example: `contoso.snowflakecomputing.com`. `.cn` is also supported.| No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No |
 
 This Snowflake connector supports the following authentication types. See the corresponding sections for details.
@@ -269,7 +270,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | storageIntegration | Specify the name of your storage integration that you created in the Snowflake. For the prerequisite steps of using the storage integration, see [Configuring a Snowflake storage integration](https://docs.snowflake.com/en/user-guide/data-load-azure-config#option-1-configuring-a-snowflake-storage-integration). | No |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Additional file format options that are provided to COPY command as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
+| additionalFormatOptions | Additional file format options that are provided to COPY command as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT, NULL_IF. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). <br/><br/>When you use NULL_IF, the NULL value in Snowflake is converted to the specified value (which needs to be single-quoted) when writing to the delimited text file in the staging storage. This specified value is treated as NULL when reading from the staging file to the sink storage. The default value is `'NULL'`. | No |
 
 >[!Note]
 > Make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
@@ -690,18 +691,18 @@ To upgrade the Snowflake connector, you can do a side-by-side upgrade, or an in-
 
 To perform a side-by-side upgrade, complete the following steps:
 
-1. Create a new Snowflake linked service and configure it by referring to the linked service properties.  
+1. Create a new Snowflake linked service and configure it by referring to the V2 linked service properties.  
 1. Create a dataset based on the newly created Snowflake linked service.
-1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the legacy objects. 
+1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the V1 objects. 
 
 ### In-place upgrade
 
 To perform an in-place upgrade, you need to edit the existing linked service payload and update dataset to use the new linked service.
 
 1. Update the type from **Snowflake** to **SnowflakeV2**.
-1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the legacy and new Snowflake linked services:
+1. Modify the linked service payload from its V1 format to V2. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the V1 and V2 Snowflake linked services:
 
-   **Legacy Snowflake linked service JSON payload:**
+   **Snowflake V1 linked service JSON payload:**
    ```json
      {
         "name": "Snowflake1",
@@ -722,7 +723,7 @@ To perform an in-place upgrade, you need to edit the existing linked service pay
     }
    ```
 
-   **New Snowflake linked service JSON payload:**
+   **Snowflake V2 linked service JSON payload:**
    ```json
     {
         "name": "Snowflake2",
@@ -754,16 +755,17 @@ To perform an in-place upgrade, you need to edit the existing linked service pay
 
 1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**. 
 
-## Differences between Snowflake and Snowflake (legacy)
+## <a name="differences-between-snowflake-and-snowflake-legacy"></a> Differences between Snowflake V2 and V1
 
-The Snowflake connector offers new functionalities and is compatible with most features of Snowflake (legacy) connector. The table below shows the feature differences between Snowflake and Snowflake (legacy).  
+The Snowflake V2 connector offers new functionalities and is compatible with most features of Snowflake V1 connector. The table below shows the feature differences between V2 and V1.  
 
-| Snowflake  | Snowflake (legacy) | 
+| Snowflake V2 | Snowflake V1 | 
 | :----------- | :------- |
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
-| Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
-| Legacy ```connectionstring``` property is deprecated in favor of required parameters **Account**, **Warehouse**, **Database**, **Schema**, and **Role** | In the legacy Snowflake connector, the `connectionstring` property was used to establish a connection. |
+| Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. If you want to covert it to numeric type, you can use the pipeline parameter with [int function](control-flow-expression-language-functions.md#int) or [float function](control-flow-expression-language-functions.md#float). For example, `int(activity('lookup').output.firstRow.VALUE)`, `float(activity('lookup').output.firstRow.VALUE)`| BigDecimal is not supported in Lookup activity.  | 
+| The `accountIdentifier`, `warehouse`, `database`, `schema` and `role` properties are used to establish a connection. | The `connectionstring` property is used to establish a connection. |
+| timestamp data type in Snowflake is read as DateTimeOffset data type in Lookup and Script activity. | timestamp data type in Snowflake is read as DateTime data type in Lookup and Script activity.<br> If you still need to use the Datetime value as a parameter in your pipeline after upgrading the connector, you can convert DateTimeOffset type to DateTime type by using [formatDateTime function](control-flow-expression-language-functions.md#formatdatetime) (recommended) or [concat function](control-flow-expression-language-functions.md#concat). For example: `formatDateTime(activity('lookup').output.firstRow.DATETIMETYPE)`, `concat(substring(activity('lookup').output.firstRow.DATETIMETYPE, 0, 19), 'Z')`|
 
 ## Related content
 

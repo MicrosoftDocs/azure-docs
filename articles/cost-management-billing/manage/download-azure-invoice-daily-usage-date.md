@@ -2,13 +2,13 @@
 title: Download Azure billing invoice
 description: Describes how to download or view your Azure billing invoice.
 keywords: billing invoice,invoice download,azure invoice
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: jkinma
 ---
 
 # Download or view your Azure billing invoice
@@ -87,7 +87,7 @@ You can opt out of getting your invoice by email by following the preceding step
 
 ### Get your Microsoft Customer Agreement invoices in email
 
-If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
+If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference. Please note that if you have inherited a role from the Billing Account, you will not receive invoices. Access must be granted explicitly under the Billing profile.
 
 1. Search for **Cost Management + Billing**.
 1. Select a billing profile.

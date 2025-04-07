@@ -37,7 +37,7 @@ Azure Maps integrates with other Azure services to store, manage, and perform sp
 
 To load and present your data on a map, you need to build a service layer (an API) that is used by the [Azure Maps Web SDK client] to get the data that needs to be displayed on the map. The following illustration is a simple architecture design showing what you need for this scenario:
 
-:::image type="content" source="./media/migration-guides/process-diagram.png" alt-text="A screenshot showing elements of an Azure Maps application with a section showing the Azure SQL database, Azure Function and Azure Maps accpount titled Azure subscription and another section titled your website with an Azure Maps web control in it.":::
+:::image type="content" source="./media/migration-guides/process-diagram.png" alt-text="A screenshot showing elements of an Azure Maps application with a section showing the Azure SQL database, Azure Function and Azure Maps account titled Azure subscription and another section titled your website with an Azure Maps web control in it.":::
 
 ### More information
 

@@ -4,8 +4,8 @@ description: This article describes how to configure Azure Application Gateway H
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
-ms.date: 10/03/2024
+ms.topic: concept-article
+ms.date: 03/19/2025
 ms.author: greglin
 ---
 
@@ -15,22 +15,22 @@ The application gateway routes traffic to the backend servers by using the confi
 
 ## Cookie-based affinity
 
-Azure Application Gateway uses gateway-managed cookies for maintaining user sessions. When a user sends the first request to Application Gateway, it sets an affinity cookie in the response with a hash value which contains the session details, so that the subsequent requests carrying the affinity cookie are routed to the same backend server for maintaining stickiness.
+Azure Application Gateway uses gateway-managed cookies for maintaining user sessions. When a user sends the first request to Application Gateway, it sets an affinity cookie in the response with a hash value that contains the session details. This process enables subsequent requests that carry the affinity cookie to be routed to the same backend server, thus maintaining stickiness.
 
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
+
 > [!NOTE]
-> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans do not take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
+> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans don't take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
 
 
 The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-03#rfc.section.5.3.7) attribute have to be treated as SameSite=Lax. For CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in an HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
 
 To support this change, starting February 17 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky sessions are maintained even for cross-origin requests.
 
-Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. If in your network topology, you deploy multiple application gateways in line, you must set unique cookie names for each resource. If you're using a custom affinity cookie name, an additional cookie is added with `CORS` as suffix. For example: *CustomCookieNameCORS*.
+The default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. If in your network topology, you deploy multiple application gateways in line, you must set unique cookie names for each resource. If you're using a custom affinity cookie name, an additional cookie is added with `CORS` as suffix. For example: *CustomCookieNameCORS*.
 
 > [!NOTE]
-> If the attribute *SameSite=None* is set, it is mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS.  If session affinity is required over CORS, you must migrate your workload to HTTPS. 
-Please refer to TLS offload and End-to-End TLS documentation for Application Gateway here – [Overview](ssl-overview.md), [Configure an application gateway with TLS termination using the Azure portal](create-ssl-portal.md), [Configure end-to-end TLS by using Application Gateway with the portal](end-to-end-ssl-portal.md).
+> If the attribute *SameSite=None* is set, it's mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS. If session affinity is required over CORS, you must migrate your workload to HTTPS. Refer to TLS offload and End-to-End TLS documentation for Application Gateway. See the [SSL overview](ssl-overview.md), [Configure an application gateway with TLS termination](create-ssl-portal.md), and [Configure end-to-end TLS](end-to-end-ssl-portal.md).
 
 ## Connection draining
 
@@ -38,14 +38,17 @@ Connection draining helps you gracefully remove backend pool members during plan
 - explicitly removed from the backend pool, or
 - reported as unhealthy by the health probes.
 
-You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This is also true for WebSocket connections.
+You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This process is also true for WebSocket connections.
 
 | Configuration Type  | Value |
 | ---------- | ---------- |
-|Default value when Connection Draining is not enabled in Backend Setting| 30 seconds |
+|Default value when Connection Draining isn't enabled in Backend Setting| 30 seconds |
 |User-defined value when Connection Draining is enabled in Backend Setting | 1 to 3600 seconds |
 
-The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity. These requests continue to be forwarded to the deregistering instances.
+The only exception to this process are requests bound for deregistering instances because of gateway-managed session affinity. These requests continue to be forwarded to the deregistering instances.
+
+> [!NOTE]
+> There's a limitation where a configuration update will terminate ongoing connections after the connection draining timeout. To address this limitation, you must increase the connection draining time-out in the backend settings to a value higher than the max expected client download time. 
 
 ## Protocol
 
@@ -100,11 +103,11 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 
 ## Configuring the host name
 
-Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway. While this configuration can be useful in some cases, exercise caution when overriding the hostname such that it is different between the application gateway and the client compared to the backend target.  
+Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway. While this configuration can be useful in some cases, exercise caution when overriding the hostname such that it's different between the application gateway and the client compared to the backend target.  
 
-In production, it is recommended to keep the hostname used by the client towards the application gateway as the same hostname used by the application gateway to the backend target. This avoids potential issues with absolute URLs, redirect URLs, and host-bound cookies.
+In production environments, it's a best practice to use the same hostname for the client to application gateway connection and application gateway to backend target connection. This practice avoids potential issues with absolute URLs, redirect URLs, and host-bound cookies.
 
-Before setting up Application Gateway that deviates from this, please review the implications of such configuration as discussed in more detail in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
+Before setting up Application Gateway that deviates from this, review the implications of such configuration as discussed in more detail in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
 
 There are two aspects of an HTTP setting that influence the [`Host`](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23) HTTP header that is used by Application Gateway to connect to the backend:
 - "Pick host name from backend-address"
@@ -120,10 +123,10 @@ An example case is multi-tenant services as the back end. An app service is a mu
 
 By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you can override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
 
-For a custom domain whose existing custom DNS name is mapped to the app service, the recommended configuration is not to enable the **pick host name from backend address**.
+For a custom domain whose existing custom DNS name is mapped to the app service, the recommended configuration isn't to enable the **pick host name from backend address**.
 
 > [!NOTE]
-> This setting is not required for App Service Environment, which is a dedicated deployment.
+> This setting isn't required for App Service Environment, which is a dedicated deployment.
 
 ## Host name override
 

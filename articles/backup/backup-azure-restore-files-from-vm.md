@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 10/16/2024
 ms.custom: references_regions
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Recover files from Azure virtual machine backup
 

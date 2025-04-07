@@ -34,7 +34,7 @@ You can use automation runbooks with three alert types:
 > [!NOTE]
 > The common alert schema standardizes the consumption experience for alert notifications in Azure. Historically, the three alert types in Azure (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](/azure/azure-monitor/alerts/alerts-common-schema).
 
-When an alert calls a runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formated object that has useful properties that are related to the alert. The following table lists links to the payload schema for each alert type:
+When an alert calls a runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formatted object that has useful properties that are related to the alert. The following table lists links to the payload schema for each alert type:
 
 |Alert  |Description|Payload schema  |
 |---------|---------|---------|

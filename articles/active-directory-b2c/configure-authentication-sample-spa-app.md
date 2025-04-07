@@ -60,7 +60,7 @@ The app architecture and registrations are illustrated in the following diagram:
 A computer that's running:
 
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor.
-* [Node.js runtime](https://nodejs.org/en/download/)
+* [Node.js runtime](https://nodejs.org/en/download/package-manager/)
 
 ## Step 1: Configure your user flow
 

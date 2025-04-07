@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Test the self-hosted developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 This article explains how to set up unit tests and end-to-end tests for your [self-hosted portal](developer-portal-self-host.md).
 
@@ -210,7 +210,7 @@ The Test Explorer extension for VS Code (for example, [Mocha Test Explorer](http
 
 :::image type="content" source="media/developer-portal-testing/visual-studio-code-test-explorer.png" alt-text="Screenshot of Visual Studio Code Test Explorer":::
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

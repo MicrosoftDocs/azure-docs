@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 12/16/2024
 
 # Customer intent: As a developer, I want to turn on and view enhanced telemetry in Application Insights for Standard logic app workflows.
 ---
@@ -16,7 +16,20 @@ ms.date: 10/16/2023
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This how-to guide shows how to turn on enhanced telemetry collection in Application Insights for your Standard logic app resource and then view the collected data after your workflow finishes a run.
+In Application Insights, you can enable enhanced telemetry collection for your Standard logic app resource and then view the collected data after your workflow finishes a run. This capability gives you a simplified experience to discover insights about your workflows and more control over filtering events at the data source, which helps you reduce storage costs. These improvements focus on real-time performance metrics that provide insights into your system's health and behavior. This can help you with proactively detecting and resolving issues earlier.
+
+With your logic app connected to Application Insights, you can view log data and other metrics in near real time through the Azure portal by using [Live Metrics Stream](/azure/azure-monitor/app/live-stream). 
+You also have visualizations to help you plot incoming requests, outgoing requests, and overall health and access to a table of trace level diagnostics.
+
+The following list describes some example telemetry improvements:
+
+-	Trigger and action events now include the trigger or action type and the API name, which lets you query for specific connector use.
+- Make retry events easier to track.
+-	Capture exceptions for trigger and action failures.
+-	More control over filtering non-workflow related events.
+-	Advanced filtering that gives you more control over how events are emitted, including triggers and actions.
+
+This guide shows how to turn on enhanced telemetry collection in Application Insights for your Standard logic app.
 
 ## Prerequisites
 
@@ -123,7 +136,7 @@ To show how data gets into these fields, suppose you have the following example 
 
 ![Screenshot shows Azure portal and Standard workflow designer with trigger and actions.](media/enable-enhanced-telemetry-standard-workflows/workflow-overview.png)
 
-The trigger's settings has a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
+The trigger's settings have a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
 
 ![Screenshot shows Azure portal, Standard workflow, Request trigger selected, Settings tab, and custom tracking Id.](media/enable-enhanced-telemetry-standard-workflows/requests-table/request-trigger-custom-tracking-id.png)
 
@@ -630,6 +643,23 @@ The following example sets the log's default verbosity level to **Warning**, but
 ```
 
 If you don't specify any **logLevel** values, the default verbosity level is **Information**. For more information, see [Configure log levels](../azure-functions/configure-monitoring.md#configure-log-levels).
+
+### Remove storage dependency errors
+
+To filter out storage dependency errors, such as **404 Not Found** errors and **412 Precondition Failed** errors, set the **Host.Workflow** log level to **None**, for example:
+
+```json
+{
+   "logging": {
+      "logLevel": {
+         "Workflow.Host": "Warning",
+         "Workflow.Jobs": "Warning",
+         "Workflow.Runtime": "Warning",
+         "Host.Workflow": "None"
+      }
+   }
+}
+```
 
 ### [Portal](#tab/portal)
 

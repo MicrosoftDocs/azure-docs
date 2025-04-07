@@ -2,7 +2,7 @@
 title: "Google Workspace (G Suite) (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Google Workspace (G Suite) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -135,7 +135,7 @@ To integrate with Google Workspace (G Suite) (using Azure Functions) make sure y
 	 3. In Scopes section, add **Admin SDK API** scope.
 	 4. In Test Users section, make sure the domain admin account is added.
  5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID
-	 1. Click on Create Credentials on the top and select Oauth client Id.
+	 1. Click on Create Credentials on the top and select OAuth client Id.
 	 2. Select Web Application from the Application Type drop down.
 	 3. Provide a suitable name to the Web App and add http://localhost:8081/ as one of the Authorized redirect URIs.
 	 4. Once you click Create, download the JSON from the pop-up that appears. Rename this file to "**credentials.json**".

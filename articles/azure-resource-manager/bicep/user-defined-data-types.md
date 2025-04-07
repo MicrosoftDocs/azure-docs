@@ -3,12 +3,12 @@ title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 10/23/2024
 ---
 
 # User-defined data types in Bicep
 
-Learn how to create user-defined data types in Bicep. For system-defined data types, see [Data types](./data-types.md).
+Learn how to create user-defined data types in Bicep. For system-defined data types, see [Data types](./data-types.md). Using user-defined data types automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 

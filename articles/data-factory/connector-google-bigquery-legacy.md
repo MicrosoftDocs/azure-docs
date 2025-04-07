@@ -1,22 +1,22 @@
 ---
-title: Copy data from Google BigQuery using legacy
+title: Copy data from Google BigQuery V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Google BigQuery V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/22/2024
+ms.date: 01/26/2025
 ---
 
-# Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics (legacy)
+# Copy data from Google BigQuery V1 using Azure Data Factory or Synapse Analytics 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The new Google BigQuery connector provides improved native Google BigQuery support. If you are using the legacy Google BigQuery connector in your solution, please [upgrade your Google BigQuery connector](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) before **October 31, 2024**. Refer to this [section](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, please [upgrade your Google BigQuery connector](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -33,8 +33,20 @@ For a list of data stores that are supported as sources or sinks by the copy act
 
 The service provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
 
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
 >[!NOTE]
 >This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
+
+## Prerequisites
+
+To use this connector, you need the following minimum permissions of Google BigQuery:
+- bigquery.connections.*
+- bigquery.datasets.*
+- bigquery.jobs.*
+- bigquery.readsessions.*
+- bigquery.routines.*
+- bigquery.tables.*
 
 ## Get started
 
@@ -123,9 +135,12 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | Yes |
+| keyFilePath | The full path to the `.json` key file that is used to authenticate the service account email address. | Yes |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
+
+> [!NOTE]
+> The connector no longer supports P12 key files. If you rely on service accounts, you are recommended to use JSON key files instead. The P12CustomPwd property used for supporting the P12 key file was also deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes). 
 
 **Example:**
 
@@ -139,7 +154,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
             "requestGoogleDriveScope" : true,
             "authenticationType" : "ServiceAuthentication",
             "email": "<email>",
-            "keyFilePath": "<.p12 or .json key path on the IR machine>"
+            "keyFilePath": "<.json key path on the IR machine>"
         },
         "connectVia": {
             "referenceName": "<name of Self-hosted Integration Runtime>",

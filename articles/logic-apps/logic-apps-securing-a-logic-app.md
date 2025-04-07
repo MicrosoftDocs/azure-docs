@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 11/15/2024
 ---
 
 # Secure access and data for workflows in Azure Logic Apps
@@ -1020,7 +1020,7 @@ For Consumption workflows where you want to disable SAS authentication, follow t
 
 1. Take the output from the **Workflows - Get** operation, and manually add the following elements:
 
-   1. In the **`properties`** object, add an **`accessControl`** object that contains a **`triggers`** object, if none exist.
+   1. In the **`properties`** object, add an **`accessControl`** object that contains a **`triggers`** object, if none exists.
 
    1. In the **`triggers`** object, add an **`sasAuthenticationPolicy`** object that contains the **`state`** property set to **`Disabled`**.
 
@@ -1038,13 +1038,13 @@ For Consumption workflows where you want to disable SAS authentication, follow t
    }
    ```
 
-1. Send another request to update your workflow with the edited output, which you use as input in the request body, by running the [**Workflows - Update** operation](/rest/api/logic/workflows/update) using the following **PATCH** request, for example:
+1. Send another request to update your workflow with the edited output, which you use as input in the request body, by running the [**Workflows - Update** operation](/rest/api/logic/workflows/update) using the following **PUT** request, for example:
 
-   **`PATCH https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
+   **`PUT https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
 
 1. In the [Azure portal](https://portal.azure.com), go to your Consumption workflow in the designer, and confirm that the **Request** trigger's URL no longer includes the SAS.
 
-1. To enable Oauth 2.0 with Microsoft Entra ID, at the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
+1. To enable OAuth 2.0 with Microsoft Entra ID, at the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
    For more information, see [Enable OAuth 2.0 with Microsoft Entra ID](#enable-oauth).
 
@@ -1591,7 +1591,7 @@ For more information about securing services by using client certificate authent
 
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Improve security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api.md)
+* [Improve security for your RESTful service by using client certificates](../active-directory-b2c/secure-rest-api.md)
 * [Certificate credentials for application authentication](/entra/identity-platform/certificate-credentials)
 * [Use a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 

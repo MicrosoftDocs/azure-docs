@@ -1,10 +1,9 @@
 ---
-title: Azure Event Grid concepts (push delivery) in Event Grid basic
+title: Concepts (push delivery) in Event Grid basic
 description: Describes Azure Event Grid concepts that pertain to push delivery. Defines several key components of Event Grid.
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
+ms.topic: concept-article
+ms.date: 12/12/2024
+# Customer intent: I want to basic concepts of Azure Event Grid. 
 ---
 
 # Azure Event Grid's push delivery - concepts
@@ -63,12 +62,12 @@ System topics are built-in topics provided by Azure services such as Azure Stora
 
 ## Partner topics
 
-Partner topics are a kind of topic used to subscribe to events published by a [partner](#partners).  The feature that enables this type of integration is called [Partner Events](partner-events-overview.md). Through that integration, you get a partner topic where events from a partner system are made available. Once you have a partner topic, you create an [event subscription](#event-subscriptions) as you would do for any other kind of topic.
+Partner topics are a kind of topic used to subscribe to events published by a [partner](#partners). The feature that enables this type of integration is called [Partner Events](partner-events-overview.md). Through that integration, you get a partner topic where events from a partner system are made available. Once you have a partner topic, you create an [event subscription](#event-subscriptions) as you would do for any other kind of topic.
 
 ## Event subscriptions
 
 > [!NOTE]
-> For information on event subscriptions under a namespace topic see this [concepts](concepts-event-grid-namespaces.md) artcle.
+> For information on event subscriptions under a namespace topic see this [concepts](concepts-event-grid-namespaces.md) article.
 
 A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md). Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. 
 
@@ -110,9 +109,9 @@ If you're a [partner](partner-events-overview-for-partners.md), you can define t
 
 ## Availability zones
 
-Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md).
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../reliability/availability-zones-overview.md).
 
-## Next steps
+## Related content
 
 - For an introduction to Event Grid, see [About Event Grid](overview.md).
 - To get started using custom topics, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

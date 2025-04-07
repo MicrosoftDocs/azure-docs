@@ -4,9 +4,9 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/21/2024
-  author: AbhishekMallick-MS
-  ms.author: v-abhmallick
+  ms.date: 03/27/2025
+  author: jyothisuri
+  ms.author: jsuri
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -20,7 +20,7 @@ sections:
         answer: |
           When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions).
 
-      - question: Why is the Initial backup taking a lot of time to complete?
+      - question: Why is the Initial backup taking longer time to complete?
         answer: |
           Initial backup is always a full backup and its duration will depend on the size of the data and when the backup is processed.
 
@@ -113,7 +113,7 @@ sections:
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
       
       - question: Can we back up tags from Azure VM? If so, how many tags?
-        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits).
 
       - question: Can I take on-demand (ad-hoc) backup without scheduling backup for an Azure VM?
         answer: |
@@ -129,7 +129,7 @@ sections:
 
       - question: Will a new disk added to VM be backed up automatically?
         answer: |
-          Yes, a new disk added to a VM will be backed up automatically during the next backup.
+          Yes, a new disk added to a VM will be backed up automatically during the next backup, unless selective disk backup is configured on the VM. A newly added disk to the VM will have a Full snapshot (Initial Replica) taken on the first backup, the existing disks will continue the Incremental logic chain.
           
       
       - question: Can I restore the files and folders from an encrypted VM backup?
@@ -300,6 +300,13 @@ sections:
         answer: |
           After you unmount disks from the Azure portal, run the Python script with `clean` parameter (`python scriptName.py clean`) to clear the session and remove the mount paths of the recovery point from the machine.     
 
+      - question: Why do restored VMs lose the Offer/SKU/Publisher properties of the source VM?
+        answer: |
+          During a virtual machine (VM) restore using Azure Backup, you might notice that the restored VM doesn't retain the Offer, SKU, and Publisher properties that were present on the source VM. This is an expected behavior, and happens due to the following reasons:
+
+          - **MarketPlace Image VMs**: Only VMs created from a MarketPlace image will have the Offer, SKU, and Publisher details. These properties are derived from the VM image itself. When a VM is created from a MarketPlace image, the createOption is set to **from image**. This ensures that the Offer, SKU, and Publisher properties are included during the VM creation process. 
+          - **VMs Created from Disks**: When a VM is created from disks (such as restored VMs, uploaded VMs, or VMs created from snapshots), the createOption is set to **Attach** instead of "from image". In this case, the Offer, SKU, and Publisher properties are not included because these properties are read-only and can only be added during the initial VM creation process when the createOption is **from image**. 
+
   - name: Manage VM backups
     questions:
       - question: What happens if I modify a backup policy?
@@ -337,7 +344,7 @@ sections:
           The old VM's restore points will be available for restore if needed. If you don't need this backup data, you can stop protecting your old VM with delete data.
 
       - question: Is there a limit on number of VMs that can be associated with the same backup policy?
-        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There is a daily limit of 1000 for overall configure/modify protections in a vault.
+        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There is a daily limit of 1000 for overall configure/modify protections in a vault.
 
       - question: How can I view the retention settings for my backups?
         answer: |
@@ -432,3 +439,23 @@ sections:
 
           Storage spaces in a single VM not supported for application consistent VM backup. For application consistent VM backup, VSS freezes the I/O and ensures that disk snapshots are consistent. Storage Spaces can still perform writes in the background, breaking the application consistent guarantee. This can result in a small probability that the backup taken is not application consistent. Today, backup and recovery of VM with storage spaces is not blocked in the product.
 
+      - question: If I remove one of the disks from VM and increase the size of existing disk, what happens to the backups and if next backup creates Full Backup for all disk?
+        answer: |
+          If you remove a disk, the snapshot or data transfer operation won't run for the removed disk. Number of disks included in the restore point will differ depending on the VM state at the time of the backup.
+
+          Resizing a disk will continue with incremental backups unless the underlying storage account of the disk changes, which results in a full backup.
+
+      - question: What is directory "/var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux"?
+        answer: |
+          This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
+
+      - question: If backup fails with time out error for large disk VMs after running sometime, when can I re-trigger the backup job again and will the backup continue from where it failed?
+        answer: |
+          For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
+
+      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is not supported?
+        answer: |
+          SSD V2/Ultra disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
+
+          >[!Note]
+          >GRS functions only when both paired regions support SSD V2/Ultra disks. 

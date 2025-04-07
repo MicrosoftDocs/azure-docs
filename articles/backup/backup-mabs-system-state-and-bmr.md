@@ -3,9 +3,9 @@ title: System state and bare-metal recovery protection for Azure Backup
 description: Use Azure Backup Server to back up your system state and provide bare-metal recovery (BMR) protection.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 03/29/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 12/03/2024
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -252,7 +252,7 @@ You also can run the system state restore at a command prompt:
 
 1. Start Windows Server Backup on the computer that you want to recover.
 
-1. To get the version identifer, at a command prompt, enter:
+1. To get the version identifier, at a command prompt, enter:
 
    `wbadmin get versions -backuptarget \<servername\sharename\>`
 

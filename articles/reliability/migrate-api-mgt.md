@@ -6,7 +6,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 
 ---
 
@@ -22,7 +22,7 @@ This article describes four scenarios for migrating an API Management instance t
 
 ## Prerequisites
 
-* To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+* To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](regions-list.md).
 
 * If you don't have an API Management instance, create one by following the [Create a new Azure API Management instance by using the Azure portal](../api-management/get-started-create-service-instance.md) quickstart. Select the Premium service tier.
 
@@ -44,7 +44,7 @@ There are no downtime requirements for any of the migration options.
 
 * When you're enabling availability zones in a region, you configure API Management scale [units](../api-management/upgrade-and-scale.md) that you can distribute evenly across the zones. For example, if you configure two zones, you can configure two units, four units, or another multiple of two units. 
 
-  Adding units incurs additional costs. For details, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+    [!INCLUDE [api-management-az-notes](../../includes/api-management-az-notes.md)]
 
 * If you configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after configuring availability zones. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
@@ -92,8 +92,6 @@ To migrate an existing location of your API Management instance to availability 
 
 To migrate an existing location of your API Management instance to availability zones when the instance is currently injected in a virtual network and is already hosted on the `stv2` platform:
 
-1. Create a new subnet and optional public IP address in the location to migrate to availability zones. Detailed requirements are in the [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
-
 1. In the Azure portal, go to your API Management instance.
 
 1. On the **Deployment + infrastructure** menu, select **Locations**.
@@ -104,7 +102,7 @@ To migrate an existing location of your API Management instance to availability 
 
 1. In the **Availability zones** box, select one or more zones. The number of units that you selected must be distributed evenly across the availability zones. For example, if you selected three units, select three zones so that each zone hosts one unit.
 
-1. In the **Public IP Address** box, optionally select the new public IP address in the location.
+1. In the **Public IP Address** box, optionally select a public IP address in the location.
 
 1. Select **Apply**, and then select **Save**.
 
@@ -136,4 +134,5 @@ To add a new location to your API Management instance and enable availability zo
 
 * [Deploy an Azure API Management instance to multiple Azure regions](../api-management/api-management-howto-deploy-multi-region.md)
 * [Design review checklist for reliability](/azure/architecture/framework/resiliency/app-design)
-* [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](regions-list.md)

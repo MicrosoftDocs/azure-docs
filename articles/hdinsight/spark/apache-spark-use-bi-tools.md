@@ -4,6 +4,9 @@ description: Tutorial - Use Microsoft Power BI to visualize Apache Spark data st
 ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, mvc
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 04/25/2024
 #Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to virtualize Spark data in BI tools.
 ---
@@ -100,9 +103,9 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png " alt-text="Screenshot showing area graph sum." border="true":::
 
-        By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. Select the down arrow next to **ActualTemp** and **TragetTemp** in the Visualizations pane, you can see **Sum** is selected.
+        By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. Select the down arrow next to **ActualTemp** and **TargetTemp** in the Visualizations pane, you can see **Sum** is selected.
 
-    3. Select the down arrows next to **ActualTemp** and **TragetTemp** in the Visualizations pane, select **Average** to get an average of actual and target temperatures for each building.
+    3. Select the down arrows next to **ActualTemp** and **TargetTemp** in the Visualizations pane, select **Average** to get an average of actual and target temperatures for each building.
 
         :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png " alt-text="Screenshot showing average of values." border="true":::
 

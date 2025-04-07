@@ -5,7 +5,7 @@ description: This article shows how to deploy IPv6 addresses to an existing appl
 services: virtual-network
 author: mbender-ms
 manager: kumudd
-ms.service: azure-virtual-network
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 09/30/2024
 ms.author: mbender
@@ -105,7 +105,7 @@ Add IPv6 address ranges to the virtual network and subnet hosting the VMs as fol
 
 ```azurepowershell-interactive
 #Add IPv6 ranges to the VNET and subnet
-#Retreive the VNET object
+#Retrieve the VNET object
 $vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVnet" 
 
 #Add IPv6 prefix to the VNET

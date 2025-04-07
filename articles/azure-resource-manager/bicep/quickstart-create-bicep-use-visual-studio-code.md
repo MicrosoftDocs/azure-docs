@@ -1,36 +1,34 @@
 ---
-title: Create Bicep files - Visual Studio Code
-description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources.
-ms.date: 09/20/2024
+title: 'Quickstart: Create Bicep files with Visual Studio Code'
+description: Learn how to use Visual Studio Code and the Bicep extension to create Bicep files and deploy Azure resources.
 ms.topic: quickstart
+ms.date: 03/25/2025
 ms.custom: mode-ui, devx-track-bicep
-#Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files so that I can use them to deploy Azure resources.
+#customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files so that I can use them to deploy Azure resources.
 ---
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You create a storage account and a virtual network. You also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
+This quickstart guides you how to use Visual Studio Code to create a [Bicep file](overview.md). You create a storage account and a virtual network. You also learn how the Bicep extension provides type safety, syntax validation, and autocompletion to simplify development.
 
-Similar authoring experience is also supported in Visual Studio. See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
+Visual Studio supports a similar authoring experience. See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md) for more information.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
 
-To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). You also have either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
+To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also have either the latest [Azure CLI](/cli/azure/) version or [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
 ## Add resource snippet
 
-VS Code with the Bicep extension simplifies development by providing predefined snippets. In this quickstart, you add a snippet that creates a virtual network.
+Visual Studio Code with the Bicep extension provides predefined snippets to simplify development. In this quickstart, you add a snippet that creates a virtual network.
 
-Launch Visual Studio Code and create a new file named **main.bicep**.
-
-In *main.bicep*, type **vnet**, and then select **res-vnet** from the list, and then press [TAB] or [ENTER].
+Launch Visual Studio Code, and create a new file named _main.bicep_. In _main.bicep_, type **vnet**, select **res-vnet** from the list, and then press **<kbd>TAB</kbd>** or **<kbd>ENTER</kbd>**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network.":::
 
 > [!TIP]
-> If you don't see those IntelliSense options in VS Code, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you don't have IntelliSense options until it starts. A notification in the lower right corner indicates that the service is starting. When that notification disappears, the service is running.
+> If you don't see those IntelliSense options in Visual Studio Code, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, and you won't have IntelliSense options until it starts. A notification in the lower-right corner indicates that the service is starting. When that notification disappears, the service is running.
 
 Your Bicep file now contains the following code:
 
@@ -62,15 +60,15 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
 }
 ```
 
-Within this snippet, you find all the necessary values for defining a virtual network. You may notice two curly underlines. A yellow one denotes a warning related to an outdated API version, while a red curly underline signals an error caused by a missing parameter definition.
+Within this snippet, you find all the necessary values for defining a virtual network. You might notice two curly underlines. A yellow one denotes a warning related to an outdated API version, while a red curly underline signals an error caused by a missing parameter definition. The [Bicep linter](./linter.md) checks Bicep files for syntax errors and best practice violations. Hover your cursor over `@2019-11-01`, and a popup pane shows **Use more recent API version for 'Microsoft.Network/virtualNetworks'**. Select **Quick fix** from the popup pane, and then select **Replace with 2024-05-01** to update the API version.
 
-Remove `@2019-11-01`, and replace it with `@`. Select the latest API version.
+Alternatively, remove `@2019-11-01`, and replace it with `@`. Select the latest API version.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/update-api-version.png" alt-text="Screenshot of updating API version.":::
 
 You'll fix the missing parameter definition error in the next section.
 
-You can also modify this code to meet your requirements. For example, `name` isn't a great name for the virtual network. Change the `name` property to `examplevnet`.
+You can also modify this code to meet your requirements. For example, since `name` isn't a clear name for the virtual network, you can change the `name` property to `exampleVnet`:
 
 ```bicep
 name: 'exampleVNet'
@@ -78,9 +76,7 @@ name: 'exampleVNet'
 
 ## Add parameter
 
-The code snippet you added in the last section misses a parameter definition.
-
-At the top of the file, add:
+The code snippet you added in the last section misses a parameter definition, `location`, as indicated by the red curly underline. At the top of the file, add:
 
 ```bicep
 param location
@@ -96,23 +92,23 @@ Give the parameter a default value:
 param location string = resourceGroup().location
 ```
 
-For more information about the function used in the default value, see [resourceGroup()](./bicep-functions-scope.md#resourcegroup).
+The preceding line assigns the location of the resource group to the virtual network resource. For more information about the function used in the default value, see [`resourceGroup()`](./bicep-functions-scope.md#resourcegroup).
 
-Add another parameter for the storage account name with a default value:
+At the top of the file, add another parameter for the storage account name (which you create later in the quickstart) with a default value:
 
 ```bicep
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 ```
 
-For more information, see [Interpolation](./data-types.md#strings) and [uniqueString()](./bicep-functions-string.md#uniquestring).
+For more information, see [Interpolation](./data-types.md#strings) and [`uniqueString()`](./bicep-functions-string.md#uniquestring).
 
-This parameter works fine, but storage accounts have limits on the length of the name. The name must have at least three characters and no more than 24 characters. You can specify those requirements by adding decorators to the parameter.
+This parameter works fine, but storage accounts have limits on the length of the name. The name must have at least 3 and no more than 24 characters. You can specify these requirements by adding decorators to the parameter.
 
-Add a line above the parameter, and type **@**. You see the available decorators. Notice there are decorators for both **minLength** and **maxLength**.
+Add a line above the parameter, and type **@**. You see the available decorators. Notice that there are decorators for both **minLength** and **maxLength**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-decorators.png" alt-text="Screenshot of adding decorators to parameter.":::
 
-Add both decorators and specify the character limits:
+Add both decorators, and specify the character limits (e.g., 3 and 24 below):
 
 ```bicep
 @minLength(3)
@@ -120,12 +116,12 @@ Add both decorators and specify the character limits:
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 ```
 
-You can also add a description for the parameter. Include information that helps people deploying the Bicep file understand which value to provide.
+You can also add a description for the parameter. Include information that helps people deploying the Bicep file to understand which value to provide:
 
 ```bicep
 @minLength(3)
 @maxLength(24)
-@description('Provide a name for the storage account. Use only lower case letters and numbers. The name must be unique across Azure.')
+@description('Provide a name for the storage account. Use only lowercase letters and numbers. The name must be unique across Azure.')
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 ```
 
@@ -135,13 +131,13 @@ Your parameters are ready to use.
 
 Instead of using a snippet to define the storage account, you use IntelliSense to set the values. IntelliSense makes this step easier than having to manually type the values.
 
-To define a resource, use the `resource` keyword. Below your virtual network, type **resource exampleStorage**:
+To define a resource, use the `resource` keyword. Below your virtual network, type **resource storageAccount**:
 
 ```bicep
-resource exampleStorage
+resource storageAccount
 ```
 
-**exampleStorage** is a symbolic name for the resource you're deploying. You can use this name to reference the resource in other parts of your Bicep file.
+**storageAccount** is a symbolic name for the resource you're deploying. You can use this name to reference the resource in other parts of your Bicep file.
 
 When you add a space after the symbolic name, a list of resource types is displayed. Continue typing **storageacc** until you can select it from the available options.
 
@@ -158,7 +154,7 @@ After the single quote for the resource type, add **=** and a space. You're pres
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name:
   location:
   sku: {
@@ -168,11 +164,11 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 }
 ```
 
-You're almost done. Just provide values for those properties.
+You're almost done, and the next step is to provide values for those properties.
 
-Again, IntelliSense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter you created earlier. When adding `sku.name` and `kind`, IntelliSense presents the valid options.
+Again, IntelliSense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter that you created earlier. When adding `sku.name` and `kind`, IntelliSense presents the valid options.
 
-To add optional properties alongside the required properties, place the cursor at the desired location and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>. IntelliSense suggests unused properties as shown in the following screenshot:
+To add optional properties alongside the required properties, place the cursor at the desired location, and press **<kbd>Ctrl</kbd>+<kbd>Space</kbd>**. The following screenshot shows how IntelliSense suggests available properties:
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visual-studio-code-add-properties.png" alt-text="Screenshot of adding additional properties.":::
 
@@ -181,12 +177,13 @@ When finished, you have:
 ```bicep
 @minLength(3)
 @maxLength(24)
+@description('Provide a name for the storage account. Use only lowercase letters and numbers. The name must be unique across Azure.')
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   name: 'exampleVNet'
-  location: resourceGroup().location
+  location: location
   properties: {
     addressSpace: {
       addressPrefixes: [
@@ -210,9 +207,9 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' = {
   }
 }
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
-  location: 'eastus'
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -220,39 +217,43 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 }
 ```
 
-For more information about the Bicep syntax, see [Bicep structure](./file.md).
+For more information about the Bicep syntax, see [Bicep file structure and syntax](./file.md).
 
 ## Visualize resources
 
-You can view a representation of the resources in your file.
+Bicep Visualizer shows you a graphic representation of the resources in your file.
 
-From the upper right corner, select the visualizer button to open the Bicep Visualizer.
+Select the Bicep Visualizer button in the upper-right corner to open the tool:
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer.png" alt-text="Screenshot of Bicep Visualizer.":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-visualizer-icon.png" alt-text="Screenshot of the Bicep Visualizer tool.":::
 
-The visualizer shows the resources defined in the Bicep file with the resource dependency information. The two resources defined in this quickstart don't have dependency relationship, so you don't see a connector between the two resources.
+This visualizer shows the resources defined in the Bicep file and the connectors between their dependencies. The two resources defined in this quickstart don't have a dependent relationship, so there isn't a connector between them:
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer-visual.png" alt-text="Screenshot of Bicep Visualizer diagram.":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-visualizer-diagram.png" alt-text="Screenshot of Bicep Visualizer diagram.":::
 
 ## Deploy the Bicep file
 
-1. Right-click the Bicep file inside the VS Code, and then select **Deploy Bicep file**.
+1. Right-click the Bicep file inside the Visual Studio Code, and then select **Deploy Bicep file**.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy.png" alt-text="Screenshot of Deploy Bicep file.":::
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy.png" alt-text="Screenshot of the Deploy Bicep File option.":::
 
-1. In the **Please enter name for deployment** text box, type **deployStorageAndVNet**, and then press **[ENTER]**.
+1. In the **Please enter name for deployment** text box, type **deployStorageAndVNet**, and then press <kbd>ENTER</kbd>.
+
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-name.png" alt-text="Screenshot of entering the deployment name.":::
+
 1. From the **Select Resource Group** listbox on the top, select **Create new Resource Group**.
-1. Enter **exampleRG** as the resource group name, and then press **[ENTER]**.
-1. Select a location for the resource group, select **Central US** or a location of your choice, and then press **[ENTER]**.
-1. From **Select a parameter file**, select **None**.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
+1. Enter **exampleRG** as the resource group name, and then press <kbd>ENTER</kbd>.
+
+1. Select a location for the resource group, select **Central US** or a location of your choice, and then press <kbd>ENTER</kbd>.
+
+1. From **Select a parameters file**, select **None**.
 
 It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
 
-You can also deploy the Bicep file by using Azure CLI or Azure PowerShell:
+You can also use the Azure CLI or Azure PowerShell to deploy the Bicep file:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create --name exampleRG --location eastus
@@ -260,7 +261,7 @@ az group create --name exampleRG --location eastus
 az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageAccountName=uniquename
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
@@ -270,19 +271,19 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 
 ---
 
-When the deployment finishes, you should see a message indicating the deployment succeeded.
+When the deployment finishes, you should see a message describing that the deployment succeeded.
 
 ## Clean up resources
 
 When the Azure resources are no longer needed, use the Azure CLI or Azure PowerShell module to delete the quickstart resource group.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group delete --name exampleRG
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name exampleRG
@@ -293,4 +294,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> Explore [Learn modules for Bicep](learn-bicep.md).

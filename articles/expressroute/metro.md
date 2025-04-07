@@ -4,8 +4,8 @@ description: This article provides an overview of ExpressRoute Metro and how it 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
-ms.date: 06/03/2024
+ms.topic: concept-article
+ms.date: 11/24/2024
 ms.author: duau
 ms.custom: references_regions, ai-usage
 ---
@@ -40,9 +40,9 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 | Metro location | Peering locations | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
 |--|--|--|--|--|--|--|
-| Amsterdam Metro | Amsterdam<br>Amsterdam2 | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<sup>1</sup><br>Console Connect<sup>1</sup><br>Digital Realty<br>Equinix<br>euNetworks<br><br>Megaport<br> |
-| Singapore Metro | Singapore<br>Singapore2 | Equinix SG1<br>Global Switch Tai Seng | 2 | Southeast Asia | &check; | Console Connect<sup>1</sup><br>Equinix<br>Megaport |
-| Zurich Metro | Zurich<br>Zurich2 | Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<sup>1</sup><br>Digital Realty |
+| Amsterdam Metro | Amsterdam<br>Amsterdam2 | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>Digital Realty<br>Equinix<br>euNetworks<br><br>Megaport<br> |
+| Singapore Metro | Singapore<br>Singapore2 | Equinix SG1<br>Global Switch Tai Seng | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
+| Zurich Metro | Zurich<br>Zurich2 | Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
 
 <sup>1<sup> These service providers will be available in the future.
 
@@ -64,8 +64,6 @@ You can create an ExpressRoute Metro circuit in the Azure portal in any of the t
     :::image type="content" source="./media/metro/create-metro-direct.png" alt-text="Screenshot of creating Metro ExpressRoute Direct ports.":::
 
 1. One you provisioned the Metro ExpressRoute Direct ports, you can download the LOA (Letter of Authorization), obtain the Meet-Me-Room details, and extend your physical cross-connects.
-
-    :::image type="content" source="./media/metro/generate-letter-of-authorization.png" alt-text="Screenshot of generating letter of authorization.":::
 
 ## Migrate from an existing Expressroute circuit to a Metro circuit
 

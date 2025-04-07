@@ -127,13 +127,13 @@ The following properties are available with [Application volume group for SAP HA
 The examples in this section illustrate the values passed in the volume group creation request for various SAP HANA configurations. The examples demonstrate best practices for naming, sizing, and values as described in the tables.
 
 In the following examples, selected placeholders are specified. You should replace them with the values specific to your configuration. These values include:
-1.	`<SubscriptionId>`: Subscription ID. Example: `11111111-2222-3333-4444-555555555555`
+1.	`<SubscriptionId>`: Subscription ID. Example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`
 2.	`<ResourceGroup>`: Resource group. Example: `TestResourceGroup`
 3.	`<NtapAccount>`: NetApp account, for example: `TestAccount`
 4.	`<VolumeGroupName>`: Volume group name, for example: `SH9-Test-00001`
-5.	`<SubnetId>`: Subnet resource ID, for example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
-6. `<CapacityPoolResourceId>`: Capacity pool resource ID, for example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool`
-7.	`<ProximityPlacementGroupResourceId>`: Proximity placement group, for example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/SH9_PPG`
+5.	`<SubnetId>`: Subnet resource ID, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
+6. `<CapacityPoolResourceId>`: Capacity pool resource ID, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool`
+7.	`<ProximityPlacementGroupResourceId>`: Proximity placement group, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/SH9_PPG`
 8.	`<PartnerVolumeId>`: Partner volume ID (for HSR volumes).
 9.	`<ExampleJson>`: JSON Request from one of the examples in the API request tables below.
 
@@ -1143,8 +1143,8 @@ Cross-region replication is one way to set up a disaster recovery configuration 
 
 In this example, the following placeholders are specified and should be replaced by values specific to your configuration:
 1.	`<CapacityPoolResourceId3>`: DR capacity pool resource ID, for example:
-`/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/DR_SH9_HSR_Pool`
-2.	`<ProximityPlacementGroupResourceId3>`: DR proximity placement group, for example:`/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/DR_SH9_PPG`
+`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/DR_SH9_HSR_Pool`
+2.	`<ProximityPlacementGroupResourceId3>`: DR proximity placement group, for example:`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/DR_SH9_PPG`
 3.	`<SrcVolumeId_data>`, `<SrcVolumeId_shared>`, `<SrcVolumeId_data-backup>`, `<SrcVolumeId_log-backup>`: cross-region replication source volume IDs for the data, shared, and log-backup cross-region replication destination volumes.
 
 ```json

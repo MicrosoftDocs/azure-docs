@@ -68,7 +68,7 @@ function InitMap()
   map.events.add('ready', function () {
 
     //Load the custom image icon into the map resources.
-    map.imageSprite.add('arrow-icon', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/purpleArrowRight.png').then(function () {
+    map.imageSprite.add('arrow-icon', '/images/icons/purpleArrowRight.png').then(function () {
       //Create a data source and add it to the map.
       datasource = new atlas.source.DataSource();
       map.sources.add(datasource);
@@ -124,6 +124,9 @@ function InitMap()
 This code creates a map that appears as follows:
 
 :::image type="content" source="./media/map-add-line-layer/add-symbols-along-a-line.png" lightbox="./media/map-add-line-layer/add-symbols-along-a-line.png" alt-text="A screenshot showing a line layer on an Azure Maps map with arrow symbols along the line.":::
+
+> [!NOTE]
+> For a copy of the image file used in the above sample, see [purpleArrowRight.png](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Static/images/icons/purpleArrowRight.png) in GitHub.
 
 <!-----------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true]

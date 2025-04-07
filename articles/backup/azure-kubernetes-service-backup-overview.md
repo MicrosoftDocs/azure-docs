@@ -5,9 +5,10 @@ ms.topic: overview
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 09/09/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+ms.date: 01/21/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # What is Azure Kubernetes Service backup?
@@ -15,9 +16,6 @@ ms.author: v-abhmallick
 [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) backup is a simple, cloud-native process you can use to back up and restore containerized applications and data that run in your AKS cluster. You can configure scheduled backups for cluster state and application data that's stored on persistent volumes in CSI driver-based Azure Disk Storage. The solution gives you granular control to choose a specific namespace or an entire cluster to back up or restore by storing backups locally in a blob container and as disk snapshots. You can use AKS backup for end-to-end scenarios, including operational recovery, cloning developer/test environments, and cluster upgrade scenarios.
 
 AKS backup integrates with Backup center in Azure, providing a single view that can help you govern, monitor, operate, and analyze backups at scale. Your backups are also available in the Azure portal under **Settings** in the service menu for an AKS instance.
-
->[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## How does AKS backup work?
 
@@ -28,7 +26,7 @@ Along with the Backup extension, a user identity (called an *extension identity*
 To support public, private, and authorized IP-based clusters, AKS backup requires Trusted Access to be enabled between the AKS cluster and the Backup vault. Trusted Access allows the Backup vault to access the AKS cluster because of specific permissions that are assigned to it for backup operations. For more information on AKS Trusted Access, see [Enable Azure resources to access AKS clusters by using Trusted Access](/azure/aks/trusted-access-feature).
 
 > [!NOTE]
-> AKS backup allows you to store backups in the Operational Tier. The Operational Tier is a local datastore (in your tenant as snapshots). You can now move one recovery point per day and store it in Vault Tier as blobs ( outside your tenant) using AKS backup. You can also use the Backup vault to manage backups.
+> AKS backup allows you to store backups in both Operational Tier and Vault Tier. The Operational Tier is a local datastore (backups are stored in your tenant as snapshots). You can now move one recovery point per day and store it in Vault Tier as blobs (outside your tenant) using AKS backup. Backups stored in the Vault can also be used to restore data in a secondary region (Azure paired region).
 
 After the Backup extension is installed and Trusted Access is enabled, you can configure scheduled backups for the clusters per your backup policy. You also can restore the backups to the original cluster or to an alternate cluster that's in the same subscription and region. You can choose a specific namespace or an entire cluster as a backup and restore configuration as you set up the specific operation.
 
@@ -425,7 +423,7 @@ Azure Backup for AKS supports two storage tiers as backup datastores:
 
 - **Operational Tier**: The Backup Extension installed in the AKS cluster first takes the backup by taking Volume snapshots via CSI Driver and stores cluster state in a blob container in your own tenant. This tier supports lower RPO with the minimum duration between two backups of four hours. Additionally, for Azure Disk-based volumes, Operational Tier supports quicker restores.
 
-- **Vault standard Tier (preview)**: To store backup data for longer duration at lower cost than snapshots, AKS backup supports Vault-standard datastore. As per the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure Paired Region) for recovery by enabling *Geo redundancy* and *Cross Region Restore* in the Backup vault.
+- **Vault Tier**: To store backup data for longer duration at lower cost than snapshots, AKS backup supports Vault-standard datastore. As per the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure Paired Region) for recovery by enabling *Geo redundancy* and *Cross Region Restore* in the Backup vault.
 
 > [!Note]
 > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to Vault Tier. However,  you can move any number of on-demand backups to the Vault as per the rule selected.  
@@ -444,4 +442,6 @@ You incur charges for:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
+>- [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
+>- [Back up AKS using Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
+>- Restore AKS using [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)

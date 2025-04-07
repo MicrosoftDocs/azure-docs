@@ -10,6 +10,9 @@ ms.service: azure-communication-services
 
 For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
+### Prerequisites
+A physical iOS device to run the App. An iOS Simulator does not support Picture-in-picture functionality.
+
 ### Picture-in-picture setup
 
 To enable multitasking and picture-in-picture, use the `CallCompositeOptions` constructor parameters `enableMultitasking` and `enableSystemPiPWhenMultitasking`.
@@ -44,7 +47,7 @@ callComposite.isHidden = true
 ```
 
 ```swift
-// Displaye calling UI and close PiP
+// Display calling UI and close PiP
 callComposite.isHidden = false
 ```
 

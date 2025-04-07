@@ -1,7 +1,7 @@
 ---
 title: Migrate to Azure Monitor Agent from Log Analytics agent 
 description: Procedure to migrate to Azure Monitor Agent from MMA
-author: v-sreedevank
+author: SnehaSudhirG
 ms.author: prijaisw
 ms.topic: how-to
 ms.date: 09/18/2024
@@ -58,7 +58,7 @@ As per the pricing change, you'll be billed against the volume of data gathered 
 
     | where DataType in (AzureMigrateDataTables)  
 
-    | summarize AzureMigateGBperMonth=sum(Quantity)/1000 
+    | summarize AzureMigrateGBperMonth=sum(Quantity)/1000 
     ```
 
 ## Support for Azure Monitor agent in Azure Migrate 

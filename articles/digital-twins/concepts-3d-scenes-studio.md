@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: 3D Scenes Studio (preview) for Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 11/07/2022
+ms.author: baanders
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # 3D Scenes Studio (preview) for Azure Digital Twins
@@ -49,7 +43,7 @@ To share your scenes with someone else, the recipient will need at least *Reader
 ## Set up
 
 To work with 3D Scenes Studio, you'll need the following required resources:
-* An [Azure Digital Twins instance](how-to-set-up-instance-cli.md)
+* An [Azure Digital Twins instance](how-to-set-up-instance-portal.md)
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
     * The instance should be populated with [models](concepts-models.md) and [twins](concepts-twins-graph.md)
 
@@ -112,7 +106,7 @@ You can use the **Elements** list to explore all the elements and active conditi
 
 3D Scenes Studio is extensible to support additional viewing needs. The [viewer component](#viewer) can be embedded into custom applications, and can work in conjunction with 3rd party components.
 
-[!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
+[!INCLUDE [digital-twins-3d-embed.md](includes/digital-twins-3d-embed.md)]
 
 ## Limits and performance
 

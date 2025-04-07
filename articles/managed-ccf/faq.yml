@@ -18,7 +18,7 @@ sections:
       - question: |
           Where can I learn about the Confidential Consortium Framework? 
         answer: |
-          The [open-source Confidential Consortium Framework (CCF) website](https://ccf.dev) is a good place to learn about the technology, the benefits. In addition, check out [the CCF documentation](https://microsoft.github.io/CCF/main/overview/index.html) to begin building your CCF-aware applications that you can run on Azure Managed Confidential Consortium Framework. 
+          The [open-source Confidential Consortium Framework (CCF) website](https://www.microsoft.com/research/project/confidential-consortium-framework/) is a good place to learn about the technology, the benefits. In addition, check out [the CCF documentation](https://microsoft.github.io/CCF/main/overview/index.html) to begin building your CCF-aware applications that you can run on Azure Managed Confidential Consortium Framework. 
           
       - question: |
           What can I do with the Azure Managed Confidential Consortium Framework? 

@@ -80,7 +80,7 @@ You can authorize access to data in your storage account using the following ste
     az login
     ```
 
-2. To use `DefaultAzureCredential` in a Go application, install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command::
+2. To use `DefaultAzureCredential` in a Go application, install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
 
     ```console
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity

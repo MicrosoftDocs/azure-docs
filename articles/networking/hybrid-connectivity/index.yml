@@ -22,7 +22,7 @@ highlightedContent:
       url: /training/paths/intro-to-azure-hybrid-connectivity-services/
     - title: Azure Networking blogs
       itemType: concept
-      url: https://azure.microsoft.com/en-us/blog/?s=&k%5B0%5D=Virtual%20WAN&k%5B1%5D=ExpressRoute&k%5B2%5D=VPN
+      url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure network security documentation
       itemType: overview
       url: ../security/index.yml
@@ -86,7 +86,7 @@ conceptualContent:
             - url: ../../vpn-gateway/vpn-gateway-about-point-to-site-routing.md
               itemType: concept
               text: About Point-to-site VPN routing
-            - url: ../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            - url: ../../vpn-gateway/point-to-site-certificate-gateway.md
               itemType: how-to-guide
               text: Configure point-to-site VPN - Azure certificate authentication
             - url: ../../vpn-gateway/point-to-site-how-to-radius-ps.md

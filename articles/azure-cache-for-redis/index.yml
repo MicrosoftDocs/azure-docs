@@ -1,19 +1,22 @@
 ### YamlMime:Landing
 title: Azure Cache for Redis Documentation
-summary: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Azure Cache for Redis from any application on Azure.
+summary: Azure Cache for Redis is a fully managed Redis service based on the community edition of Redis. It can be used as a data cache, session store, or message broker that provides high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For the latest and most performant Redis experience, see the links on this page for Azure Managed Redis, the newest Redis offering on Azure. 
 metadata:
   title: Azure Cache for Redis Documentation
-  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more.
+  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that give applications fast access to data. Tutorials, API references, and more.
   
   ms.topic: landing-page
-  
-  
-  ms.date: 08/15/2022
+  ms.custom:
+    - ignite-2024
+
+
+  ms.date: 03/11/2025
+  appliesto:
+    - ✅ Azure Cache for Redis
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  # Card
   - title: About Azure Cache for Redis
     linkLists:
       - linkListType: overview
@@ -22,71 +25,33 @@ landingContent:
             url: cache-overview.md
       - linkListType: video
         links:
-          - text: Azure Friday - Scale your cloud app 
-            url: /shows/azure-friday/scale-your-cloud-app-with-azure-cache-for-redis
-          - text: Ask the Expert - The latest news
-            url: /shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
+          - text: Azure Cache for Redis Community Standup 
+            url: https://www.youtube.com/watch?v=hA3117yQnHg&list=PLI7iePan8aH4V7A_BMwvlBY3xW2FAGITp
       - linkListType: whats-new
         links:
           - text: What's new?
             url: cache-whats-new.md
-          - text: Configure disk encryption
-            url: cache-how-to-encryption.md
-          - text: Change the size and tier of a cache
-            url: cache-how-to-scale.md
-  - title: 'Quickstarts: Azure Cache for Redis'
+  - title: Azure Redis SDKs and CLI reference
     linkLists:
-      - linkListType: quickstart
+      - linkListType: reference
         links:
-          - text: Code a .NET Framework app
-            url: cache-dotnet-how-to-use-azure-redis-cache.md
-          - text: Code a .NET Core app
-            url: cache-dotnet-core-quickstart.md
-          - text: Code an ASP.NET web app
-            url: cache-web-app-howto.md
-          - text: Code an ASP.NET Core web app
-            url: cache-web-app-aspnet-core-howto.md
-          - text: Code a Java app
-            url: cache-java-get-started.md
-          - text: Code a Node.js app
-            url: cache-nodejs-get-started.md
-          - text: Code a Python app
-            url: cache-python-get-started.md
-      - linkListType: tutorial
+          - text: .NET
+            url: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
+          - text: Java
+            url: /java/api/overview/azure/resourcemanager-redisenterprise-readme
+          - text: REST API
+            url: /rest/api/redis/redisenterprisecache/operation-groups
+          - text: Redis Clients
+            url: https://redis.io/docs/connect/clients/
+          - text: Redis commands
+            url: https://redis.io/commands
+      - linkListType: reference
         links:
-          - text: Use session state provider
-            url: cache-aspnet-session-state-provider.md
-          - text: Use output cache provider
-            url: cache-aspnet-output-cache-provider.md
-          - text: Use Spring Boot Initializer
-            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-      - linkListType: get-started
-        links:
-          - text: Samples
-            url: cache-redis-samples.md
-  - title: Best Practices
-    linkLists:
-      - linkListType: learn
-        links:
-         - text: Client libraries
-           url: cache-best-practices-client-libraries.md
-         - text: Connection resilience
-           url: cache-best-practices-connection.md
-         - text: Development
-           url: cache-best-practices-development.md
-         - text: Enterprise and Enterprise Flash
-           url: cache-best-practices-enterprise-tiers.md
-         - text: Kubernetes-hosted client applications
-           url: cache-best-practices-kubernetes.md
-         - text: Memory management
-           url: cache-best-practices-memory-management.md
-         - text:  Performance testing
-           url: cache-best-practices-performance.md
-         - text: Scaling
-           url: cache-best-practices-scale.md
-         - text: Server load management
-           url: cache-best-practices-server-load.md
-  - title: SDKs and command-lines
+          - text: Azure PowerShell
+            url: /powershell/module/az.redisenterprisecache
+          - text: Azure CLI
+            url: /cli/azure/redisenterprise
+  - title: Azure Cache for Redis SDKs and CLI reference
     linkLists:
       - linkListType: reference
         links:
@@ -106,19 +71,15 @@ landingContent:
             url: /powershell/module/az.rediscache
           - text: Azure CLI
             url: /cli/azure/redis
-  - title: Troubleshoot
+  - title: About Azure Managed Redis
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: overview
         links:
-          - text: Troubleshoot connectivity issues
-            url: cache-troubleshoot-connectivity.md
-          - text: Troubleshoot latency and timeouts
-            url: cache-troubleshoot-timeouts.md
-          - text: Troubleshoot client issues
-            url: cache-troubleshoot-client.md
-          - text: Troubleshoot Redis server issues
-            url: cache-troubleshoot-server.md
-          - text: Troubleshoot data loss issues
-            url: cache-troubleshoot-data-loss.md
-          - text: Troubleshooting FAQs
-            url: cache-monitor-troubleshoot-faq.yml
+          - text: What is Azure Managed Redis?
+            url: ../redis/overview.md
+          - text: What's new?
+            url: ../redis/whats-new.md
+          - text: Azure Managed Redis architecture
+            url: ../redis/architecture.md
+          - text: Moving to Azure Managed Redis from Azure Cache for Redis
+            url: ../redis/migrate/migrate-overview.md

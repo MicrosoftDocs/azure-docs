@@ -11,6 +11,9 @@ ms.author: chrupa
 
 # Overview of the MedTech service device mapping
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 This article provides an overview of the MedTech service device mapping.
 
 The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager (ARM) API. The device mapping is the first type and controls mapping values in the device data sent to the MedTech service to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The [FHIR&reg; destination mapping](overview-of-fhir-destination-mapping.md) is the second type and controls the mapping for [FHIR Observations](https://www.hl7.org/fhir/observation.html).

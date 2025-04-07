@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 02/10/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -114,7 +114,7 @@ Define an HTTP scale rule using the `--scale-rule-http-concurrency` parameter in
 |---|---|---|---|---|
 | `--scale-rule-http-concurrency`| When the number of concurrent HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `max-replicas` amount. | 10 | 1 | n/a |
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -206,7 +206,7 @@ Define a TCP scale rule using the `--scale-rule-tcp-concurrency` parameter in th
 |---|---|---|---|---|
 | `--scale-rule-tcp-concurrency`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas continue to be added up to the `max-replicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -229,6 +229,9 @@ az containerapp create \
 Not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#tcp) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#tcp) to configure a TCP scale rule.
 
 ::: zone-end
+
+> [!NOTE]
+> TCP scaling rules are not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#authentication) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#authentication) to configure TCP scaling rules.
 
 ## Custom
 
@@ -303,19 +306,19 @@ First, you define the type and metadata of the scale rule.
 
 1. From the KEDA scaler specification, find the `type` value.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.json" highlight="2":::
 
 1. In the ARM template, enter the scaler `type` value into the `custom.type` property of the scale rule.
 
-    :::code language="json" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="6":::
+    :::code language="json" source="./code/container-apps-azure-service-bus-rule-0.json" highlight="6":::
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.json" highlight="4,5,6":::
 
 1. In the ARM template, add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="json" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="8,9,10":::
+    :::code language="json" source="./code/container-apps-azure-service-bus-rule-0.json" highlight="8,9,10":::
 
 ### Authentication
 
@@ -331,7 +334,7 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
 1. In the `TriggerAuthentication` object, find each `secretTargetRef` and its associated secret.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
+    :::code language="yml" source="./code/keda-azure-service-bus-auth.json" highlight="8,16,17,18":::
 
 1. In the ARM template, for each secret:
 
@@ -343,7 +346,7 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
         1. Set the value of the `secretRef` property to the name of the `secretTargetRef`'s `key` property.
 
-    :::code language="json" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-rule-1.json" highlight="10,11,12,13,32,33,34,35":::
+    :::code language="json" source="./code/container-apps-azure-service-bus-rule-1.json" highlight="10,11,12,13,32,33,34,35":::
 
     Some scalers support metadata with the `FromEnv` suffix to reference a value in an environment variable. Container Apps looks at the first container listed in the ARM template for the environment variable.
 
@@ -382,21 +385,21 @@ To learn more about using managed identity with scale rules, see [Managed identi
 
 1. From the KEDA scaler specification, find the `type` value.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.json" highlight="2":::
 
 1. In the CLI command, set the `--scale-rule-type` parameter to the specification `type` value.
 
-    :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="10":::
+    :::code language="bash" source="./code/container-apps-azure-service-bus-cli.json" highlight="10":::
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.json" highlight="4,5,6":::
 
 1. In the CLI command, set the `--scale-rule-metadata` parameter to the metadata values.
 
     You need to transform the values from a YAML format to a key/value pair for use on the command line. Separate each key/value pair with a space.
 
-    :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="11,12,13":::
+    :::code language="bash" source="./code/container-apps-azure-service-bus-cli.json" highlight="11,12,13":::
 
 ### Authentication
 
@@ -410,7 +413,7 @@ A KEDA scaler supports secrets in a [TriggerAuthentication](https://keda.sh/docs
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
+    :::code language="yml" source="./code/keda-azure-service-bus-auth.json" highlight="8,16,17,18":::
 
 1. In your container app, create the [secrets](./manage-secrets.md) that match the `secretTargetRef` properties.
 
@@ -420,8 +423,8 @@ A KEDA scaler supports secrets in a [TriggerAuthentication](https://keda.sh/docs
 
     1. Create an authentication entry with the `--scale-rule-auth` parameter. If there are multiple entries, separate them with a space.
 
-    :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="8,14":::
-   
+    :::code language="bash" source="./code/container-apps-azure-service-bus-cli.json" highlight="8,14":::
+
 #### Using managed identity
 
 Container Apps scale rules can use managed identity to authenticate with Azure services. The following command creates a container app with a user-assigned managed identity and uses it to authenticate for an Azure Queue scaler.
@@ -464,13 +467,13 @@ Replace placeholders with your values.
 
 1. From the KEDA scaler specification, find the `type` value.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.json" highlight="2":::
 
 1. In the *Custom rule type* box, enter the scaler `type` value.
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.json" highlight="4,5,6":::
 
 1. In the portal, find the *Metadata* section and select **Add**. Enter the name and value for each item in the KEDA `ScaledObject` specification metadata section.
 
@@ -484,7 +487,7 @@ Container Apps scale rules support secrets-based authentication. Scale rules for
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
 
-    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
+    :::code language="yml" source="./code/keda-azure-service-bus-auth.json" highlight="16,17,18":::
 
 1. In the *Authentication* section, select **Add** to create an entry for each KEDA `secretTargetRef` parameter.
 
@@ -576,6 +579,7 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 
 - If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
 
+- Changing KEDA proxies through the [proxies](https://keda.sh/docs/2.16/operate/cluster/#http-proxies) settings are not supported. Consider using Workload Profiles with a NAT Gateway or User Defined Route (UDR) to send traffic to a network appliance, where traffic can be inspected or proxied from there.
 ## Next steps
 
 > [!div class="nextstepaction"]

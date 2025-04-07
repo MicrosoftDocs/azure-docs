@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/19/2024
 ms.author: noakuper
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ms.subservice: logs
 ---
 
@@ -59,4 +59,6 @@ Learn more about:
 
 - [Azure Monitor Logs Dedicated Clusters](/azure/azure-monitor/logs/logs-dedicated-clusters)
 
-- [Azure Services that support Availability Zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+
+- [Azure regions with availability zones](regions-list.md)

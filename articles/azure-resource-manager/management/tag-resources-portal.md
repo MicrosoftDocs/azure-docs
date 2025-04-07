@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions with Azure portal
 description: Shows how to use Azure portal to apply tags to Azure resources.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 01/22/2025
 ---
 
 # Apply tags with Azure portal
@@ -11,13 +11,13 @@ This article describes how to use the Azure portal to tag resources. For tag rec
 
 ## Add tags
 
-If a user doesn't have the required access for adding tags, you can assign the **Tag Contributor** role to the user. For more information, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+If a user doesn't have the required access for adding tags, assign the **Tag Contributor** role to the user. For more information, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-1. To view the tags for a resource or a resource group, look for existing tags in the overview. If you have not previously applied tags, the list is empty.
+1. To view the tags for a resource or a resource group, look for existing tags in the overview. If you didn't previously apply tags, the list is empty.
 
    :::image type="content" source="./media/tag-resources-portal/view-tags.png" alt-text="Screenshot of Azure portal showing tags for a resource group.":::
 
-1. To add a tag, select **Click here to add tags**.
+1. To add a tag, select **Add tags**.
 
 1. Provide a name and value.
 
@@ -63,7 +63,7 @@ To view all resources with a tag:
 
    :::image type="content" source="./media/tag-resources-portal/select-tag.png" alt-text="Screenshot of Azure portal displaying a list of tags with one selected for viewing resources.":::
 
-1. All resources with that tag are displayed.
+1. The portal displays all resources with that tag.
 
    :::image type="content" source="./media/tag-resources-portal/view-resources-by-tag.png" alt-text="Screenshot of Azure portal showing a list of resources filtered by the selected tag.":::
 

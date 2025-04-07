@@ -4,8 +4,8 @@ titleSuffix: Azure Bastion
 description: Learn about VM connections and features when connecting using Azure Bastion.
 author: cherylmc
 ms.service: azure-bastion
-ms.topic: conceptual
-ms.date: 06/08/2023
+ms.topic: concept-article
+ms.date: 03/03/2025
 ms.author: cherylmc
 
 ---
@@ -46,4 +46,4 @@ For FAQs, see [Bastion FAQ - VM connections and features](bastion-faq.md#vm).
 
 ## Next steps
 
-[Quickstart: Deploy Azure Bastion with default settings](quickstart-host-portal.md)
+[Quickstart: Deploy Azure Bastion with default settings and Standard SKU](quickstart-host-portal.md)

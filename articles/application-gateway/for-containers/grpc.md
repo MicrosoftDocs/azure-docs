@@ -2,7 +2,7 @@
 title: gRPC with Application Gateway for Containers
 description: Learn how to configure Application Gateway for Containers with support for gRPC.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 9/16/2024

@@ -102,7 +102,7 @@ landingContent:
             url: concept-performance.md
       - linkListType: how-to-guide
         links:
-          - text: Create reliable Websocket clients
+          - text: Create reliable WebSocket clients
             url: howto-develop-reliable-clients.md
           - text: Troubleshoot with resource logs
             url: howto-troubleshoot-resource-logs.md

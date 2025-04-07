@@ -4,8 +4,8 @@ description: In this article, discover how to back up SAP HANA databases with HA
 ms.topic: how-to
 ms.date: 10/01/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -86,11 +86,11 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    >
    >**Diagram shows the creation of the custom backup key using local host/IP.**
    >
-   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Diagram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
    >
    >**Diagram shows the creation of the custom backup key using Virtual IP (Load Balancer Frontend IP/Host).**
    >
-   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png" alt-text="Disgram explains the flow to create the custom backup key using Virtual IP." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png":::
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png" alt-text="Diagram explains the flow to create the custom backup key using Virtual IP." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png":::
 
 1. Create the same *Custom backup user* (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
    
@@ -120,7 +120,7 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    - SDC: ./script.sh -sk SYSTEMKEY -bk USRBKP -hn HSRlab001 -p 39015
    ```
 
-1. If your HANA setup uses private endpoints, run the preregistration script with the `-sn` or `--skip-network-checks` parameter. Ater the preregistration script has run successfully, proceed to the next steps.
+1. If your HANA setup uses private endpoints, run the preregistration script with the `-sn` or `--skip-network-checks` parameter. After the preregistration script has run successfully, proceed to the next steps.
 
 1. Run the SAP HANA backup configuration script (preregistration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
 

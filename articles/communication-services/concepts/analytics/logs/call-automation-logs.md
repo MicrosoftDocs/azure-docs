@@ -63,7 +63,7 @@ Communication Services offers the following types of logs that you can enable:
 | -------- | ---------------|
 | `TimeGenerated` | The time stamp (UTC) of when the log was generated. |
 | `OperationName` | The operation associated with the log record. |
-| `CorrelationID` | The identifier to identify a call and correlate events for a unique call.  |
+| `CorrelationID` | An identifier used to correlate events for a call. This identifier may change for the duration of the call depending on events like participants joining or leaving the call. For a fully stable call identifier, please consider using `CallConnectionId`. |
 | `OperationVersion` | The `api-version` version associated with the operation, if the `operationName` operation was performed through an API. If no API corresponds to this operation, the version represents the version of the operation, in case the properties associated with the operation change in the future. |
 | `Category` | The log category of the event. The category is the granularity at which you can enable or disable logs on a resource. The properties that appear within the `properties` blob of an event are the same within a log category and resource type. |
 | `ResultType` | The status of the operation. |
@@ -76,7 +76,6 @@ Communication Services offers the following types of logs that you can enable:
 | `ServerCallId` | A unique ID to identify a call. |
 | `SDKVersion` | The SDK version used for the request. |
 | `SDKType` | The SDK type used for the request. |
-| `ParticipantId` | The ID to identify the call participant that made the request. |
 | `SubOperationName` | The name that's used to identify the subtype of media operation (play or recognize). |
 |`operationID`| The ID that's used to correlate asynchronous events.|
 
@@ -87,7 +86,7 @@ Here's an example of a Call Automation operational log:
 {
 "TimeGenerated [UTC]": "5/25/2023, 5:43:25.746 PM",
 "Level": "Informational",
-"CorrelationId": "e2a97d52-0cbb-4adf-8c4b-e10f791fb764",
+"CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
 "OperationName": "Play",
 "OperationVersion": "3/6/23",
 "URI": "ccts-media-synthetics-prod.communication.azure.com",
@@ -113,7 +112,7 @@ Here's an example of a Call Automation operational log:
 | `resourceId` | The ID of the resource that emitted the event. |
 | `durationMs` | The duration of the operation in milliseconds. |
 | `callerIpAddress` | |
-| `correlationId` | The Skype chain ID.   |
+| `correlationId` | Identify correlated requests made by using Call Automation. |
 | `operationName` | The name of the operation that this event represents.|
 | `operationVersion` | |
 | `resultType` | The status of the event. Typical values include `Completed`, `Canceled`, and `Failed`.|
@@ -134,7 +133,7 @@ Here's an example of a Call Automation media summary log:
 {
 "TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
 "Level": "Informational",
-"CorrelationId": "d149d528-a392-404c-8fcd-69087e9d0802",
+"CorrelationId": "bbbb1111-cc22-3333-44dd-555555eeeeee",
 "ResultType": "Completed",
 "OperationName": "Play",
 "OperationId": "7bef24d5-eb95-4ee6-bbab-0b7d45d91288",

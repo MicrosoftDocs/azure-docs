@@ -1,12 +1,12 @@
 ---
 title: Configure $convert-data settings for the FHIR service in Azure Health Data Services
 description: Learn how to configure settings for the $convert-data operation to convert healthcare data into FHIR R4 format.
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 05/13/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Configure settings for $convert-data by using the Azure portal
@@ -185,6 +185,7 @@ There are many methods for securing ACR using the built-in firewall depending on
 * [Allow trusted services to securely access a network-restricted container registry](/azure/container-registry/allow-access-trusted-services)
 * [Configure rules to access an Azure container registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules)
 * [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519)
+
 
 > [!NOTE]
 > The FHIR service has been registered as a trusted Microsoft service with Azure Container Registry.

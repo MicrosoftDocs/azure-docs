@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mideboer, azla
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 01/26/2025
 #Customer intent: As a logic apps developer, I want to create a data gateway resource in the Azure portal so that my logic app workflow can connect to on-premises data sources.
 ---
 
@@ -145,7 +145,7 @@ After you create your gateway resource and associate your Azure subscription wit
 
       The following example for a Consumption workflow shows sample information for a SQL Server connection:
  
-      :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-gateway-connection.png" alt-text="Screenshot of a SQL Server connector. The 'Subscription,' 'Connection Gateway,' 'Connection name,' and other boxes have values.":::
+      :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-gateway-connection.png" alt-text="Screenshot shows SQL Server managed connector with values in the Connection Name, Authentication Type, and other parameter boxes.":::
 
 1. When you're done, select **Create**.
 
@@ -153,15 +153,20 @@ Your gateway connection is now ready for your logic app workflow to use.
 
 ## Edit connection
 
-To update the settings for a gateway connection, you can edit your connection. This section continues using a Consumption workflow as the example.
- 
-1. To find all the API connections for your logic app resource, on your logic app's menu, under **Development Tools**, select **API connections**.
- 
-   :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-api-connections.png" alt-text="Screenshot of a logic app resource in the Azure portal. On the logic app navigation menu, 'API connections' is highlighted.":::
+To update the settings for a connection that uses the on-premises data gateway, you can edit your connection.
 
-1. Select the gateway connection that you want to edit, and then select **Edit API connection**.
+### [Consumption](#tab/consumption)
+
+1. To find all the API connections for your Consumption logic app resource, on your logic app menu, under **Development Tools**, select **API connections**.
+ 
+   :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-api-connections.png" alt-text="Screenshot shows Azure portal, Consumption logic app resource, and resource menu. On resource menu, under Development Tools, API connections is selected.":::
+
+1. Select the connection that you want to edit. On the connection pane, go to the connection menu, under **General**, select **Edit API connection**.
+
+1. Make the changes that you want.
 
    > [!TIP]
+   >
    > If your updates don't take effect, try 
    > [stopping and restarting the gateway Windows service account](logic-apps-gateway-install.md#restart-gateway) 
    > for your gateway installation.
@@ -170,6 +175,18 @@ To find all API connections associated with your Azure subscription, use one of 
 
 * In the Azure portal search box, enter **api connections**, and select **API Connections**.
 * From the Azure portal menu, select **All resources**. Set the **Type** filter to **API Connection**.
+
+### [Standard](#tab/standard)
+
+1. To find all the API connections for your Standard logic app resource, on your logic app menu, under **Workflows**, select **Connections**.
+
+1. On the **Connections** page, select **API Connections**.
+
+1. On the **API Connections** tab, select the connection that you want to edit.
+
+1. On the connection page, go to the connection menu, under **General**, select **Edit API connection**.
+
+---
 
 <a name="change-delete-gateway-resource"></a>
 

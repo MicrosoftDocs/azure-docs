@@ -6,13 +6,12 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: shaas
 ms.reviewer: dineshm
-ms.date: 07/24/2023
-ms.custom:
+ms.date: 02/12/2025
 ---
 
 # Static website hosting in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](../../azure-functions/functions-overview.md) and other Platform as a service (PaaS) services. Azure Storage static website hosting is a great option in cases where you don't require a web server to render content. 
+Azure Blob Storage is ideal for storing large amounts of unstructured data such as text, images, and videos. Because blob storage also provides static website hosting support, it's a great option in cases where you don't require a web server to render content. Although you're limited to hosting static content such as HTML, CSS, JavaScript, and image files, you can use serverless architectures including [Azure Functions](../../azure-functions/functions-overview.md) and other Platform as a service (PaaS) services.
 
 [!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
@@ -20,15 +19,17 @@ If you need a web server to render content, you can use [Azure App Service](http
 
 ## Setting up a static website
 
-Static website hosting is a feature that you have to enable on the storage account.
+Static website hosting functionality is configured within a storage account and isn't enabled by default. To enable static website hosting, select a storage account. In the left navigation pane, select **Static website** from the **Data management** group, and then select **Enabled**. Provide a name for your *Index document name*. You can optionally provide a path to a custom 404 page. Finally, select **Save** to save your configuration changes.
 
-To enable static website hosting, select the name of your default file, and then optionally provide a path to a custom 404 page. If a blob storage container named **$web** doesn't already exist in the account, one is created for you. Add the files of your site to this container.
+:::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-enable-sml.png" alt-text="Screenshot showing the locations used to enable static website hosting on a storage account." lightbox="media/storage-blob-static-website/storage-blob-static-website-enable-lrg.png":::
 
-For step-by-step guidance, see [Host a static website in Azure Storage](storage-blob-static-website-how-to.md).
+A blob storage container named **$web** is created for you within the storage account if it doesn't already exist. Add your website's files to the **$web** container to make them accessible through the static website's primary endpoint.
 
-![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+:::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-blob-container-sml.png" alt-text="Screenshot showing how to enable static website hosting on a storage account using a blob storage container."  lightbox="media/storage-blob-static-website/storage-blob-static-website-blob-container-lrg.png":::
 
 Files in the **$web** container are case-sensitive, served through anonymous access requests and are available only through read operations.
+
+For step-by-step guidance, see [Host a static website in Azure Storage](storage-blob-static-website-how-to.md).
 
 ## Uploading content
 
@@ -46,7 +47,7 @@ You can use any of these tools to upload content to the **$web** container:
 
 Users can view site content from a browser by using the public URL of the website. You can find the URL by using the Azure portal, Azure CLI, or PowerShell. See [Find the website URL](storage-blob-static-website-how-to.md#portal-find-url).
 
-The index document that you specify when you enable static website hosting appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).
+The index document that you specify when you enable static website hosting appears when users open the site and don't specify a specific file (For example: `https://contosostaticsite.z22.web.core.windows.net`).
 
 If the server returns a 404 error, and you haven't specified an error document when you enabled the website, then a default 404 page is returned to the user.
 
@@ -63,9 +64,9 @@ You can modify the anonymous access level of the **$web** container, but making 
 
 While the primary static website endpoint isn't affected, a change to the anonymous access level does impact the primary blob service endpoint.
 
-For example, if you change the anonymous access level of the **$web** container from **Private (no anonymous access)** to **Blob (anonymous read access for blobs only)**, then the level of anonymous access to the primary static website endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html` doesn't change.
+For example, if you change the anonymous access level of the **$web** container from **Private (no anonymous access)** to **Blob (anonymous read access for blobs only)**, then the level of anonymous access to the primary static website endpoint `https://contosostaticsite.z22.web.core.windows.net/index.html` doesn't change.
 
-However, anonymous access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change, enabling users to open that file by using either of these two endpoints.
+However, anonymous access to the primary blob service endpoint `https://contosostaticsite.blob.core.windows.net/$web/index.html` does change, enabling users to open that file by using either of these two endpoints.
 
 Disabling anonymous access on a storage account by using the [anonymous access setting](anonymous-read-access-prevent.md#set-the-storage-accounts-allowblobpublicaccess-property-to-false) of the storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
@@ -130,7 +131,7 @@ You can configure a [custom SSL](./static-website-content-delivery-network.md) c
 
 ##### How do I add custom headers and rules with a static website?
 
-You can configure the host header for a static website by using [Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md). We'd be interested to hear your feedback [here](https://feedback.azure.com/d365community/idea/694b08ef-3525-ec11-b6e6-000d3a4f0f84).
+You can configure the host header for a static website by using [Azure CDN rules engine](../../cdn/cdn-verizon-premium-rules-engine.md). We'd be interested to hear your feedback [here](https://feedback.azure.com/d365community/idea/694b08ef-3525-ec11-b6e6-000d3a4f0f84).
 
 ##### Why am I getting an HTTP 404 error from a static website?
 
@@ -146,5 +147,5 @@ In the Azure portal, open the static website configuration page of your account 
 - [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 - [Azure Functions](../../azure-functions/functions-overview.md)
 - [Azure App Service](../../app-service/overview.md)
-- [Build your first serverless web app](/labs/build2018/serverlesswebapp/)
+- [Build your first serverless web app](/samples/azure-samples/azure-opensource-labs/azure-opensource-labs/)
 - [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 09/13/2023
 ms.author: msmbaldwin
 
-# Prerequites include for quickstarts and how to guides for registering the Microsoft.ConfidentialLedger provider.
+# Prerequisites include for quickstarts and how to guides for registering the Microsoft.ConfidentialLedger provider.
 
 ---
 

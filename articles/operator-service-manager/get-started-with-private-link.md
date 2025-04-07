@@ -53,7 +53,7 @@ Before resources can be uploaded securely, the following sequence of operations 
 ### Create publisher and artifact store
 * Create a new publisher resource with identity type set to 'SystemAssigned.'
   - If the publisher was already created without this property, use a reput operation to update.
-* Use the new property 'backingResourcePublicNetworkAcccess' to disable artifact store public access.
+* Use the new property 'backingResourcePublicNetworkAccess' to disable artifact store public access.
   - The property is first added in the 2024-04-15 version.
   - If the ArtifactResource was already created without this property, use a reput operation to update.
 
@@ -120,7 +120,7 @@ az rest --method post --url https://management.azure.com/subscriptions/<Subscrip
 ```
 ```
 # remove private endpoints
-az rest --method post --url https://management.azure.com/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<Publisher>/artifactStores/<ArtifactStore>/removeprivateendpoints?api-version=2024-04-15 --body '{ \"manualPrivateEndPointConnections\" : [ { \"id\" : \"/subscriptions/<Subscription>/resourceGroups/<ReourceGroup>/providers/Microsoft.Network/privateEndpoints/peName\" } ] }'
+az rest --method post --url https://management.azure.com/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<Publisher>/artifactStores/<ArtifactStore>/removeprivateendpoints?api-version=2024-04-15 --body '{ \"manualPrivateEndPointConnections\" : [ { \"id\" : \"/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.Network/privateEndpoints/peName\" } ] }'
 ```
 ```
 # list private endpoints

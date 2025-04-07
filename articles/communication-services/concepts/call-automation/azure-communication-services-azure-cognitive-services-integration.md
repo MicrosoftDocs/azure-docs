@@ -40,6 +40,7 @@ You'll need to connect your Azure Communication Services resource with the Azure
 ## Prerequisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/free/).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
+- Azure Communication Service  `Microsoft.Authorization/roleAssignments/write` permissions, commonly done through Azure RBAC. See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 - An [Azure AI Services resource](/azure/ai-services/multi-service-resource) .
 
 ### Connecting through the Azure portal
@@ -51,7 +52,7 @@ You'll need to connect your Azure Communication Services resource with the Azure
    [![Screenshot of Enable Managed Identity button.](./media/enabled-identity.png)](./media/enabled-identity.png#lightbox)
 
 4. Enable system assigned identity. This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
-  [![Screen shot of enable managed identiy.](./media/enable-system-identity.png)](./media/enable-system-identity.png#lightbox)
+  [![Screen shot of enable managed identity.](./media/enable-system-identity.png)](./media/enable-system-identity.png#lightbox)
 
 5. Once the identity is enabled, you should see something similar.
    [![Screenshot of enabled identity.](./media/identity-saved.png)](./media/identity-saved.png#lightbox)

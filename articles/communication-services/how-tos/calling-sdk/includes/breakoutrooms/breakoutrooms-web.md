@@ -25,10 +25,9 @@ const breakoutRoomsFeature = mainMeetingCall.feature(Features.BreakoutRooms);
 
 ### Subscribe to breakoutRoom events
 
-The `BreakoutRooms` API enables you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `BreakoutRoomsCallFeature` instance and contains information about the created, updated, and assigned breakout rooms. 
+The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `BreakoutRoomsCallFeature` instance and contains information about the created, updated, and assigned breakout rooms. 
 
-To receive  breakout room details, subscribe to the `breakoutRoomsUpdated` event.
-
+To receive  breakout room details, subscribe to the `breakoutRoomsUpdated` event. 
 ```js
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
@@ -96,9 +95,7 @@ Event `breakoutRoomsUpdated` provides an instance of one of the following classe
       data: Call | TeamsCall;
     }
    ```
-
-The following code shows the useful information received in the breakout room events:
-
+The following code shows you valuable information received in the breakout room events:
 ```js
     const breakoutRoomsUpdatedListener = (event) => {
     switch(event.type) {
@@ -118,13 +115,13 @@ The following code shows the useful information received in the breakout room ev
           break;
         case "breakoutRoomsSettings":
           const breakoutRoomSettings = event.data;
-          console.log(`Breakout room ends at: ${breakoutRoomSettings.roomEndTime}`);
+          console.log(`Breakout room ends at: ${breakoutRoomSettings.roomEndTime}`);          
           console.log(`Disable the user to return to main meeting from breakout room call : ${breakoutRoomSettings.disableReturnToMainMeeting}`);         
           break;
         case "join":
           const breakoutRoomCall = event.data;
           console.log(`You have joined breakout room with call ID: ${breakoutRoomCall.id}`);      
-          break;
+          break;      
       }
     }
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
@@ -166,19 +163,59 @@ if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRo
   const breakoutRoomCall = await breakoutRoom.join();
 }
 ```
+When the user is in a breakout room and the organizer assigns a new breakout room to the user, the user gets `breakoutRoomsUpdated` event with the type `assignedBreakoutRooms`. This event contains the latest breakout room details. The user has to `hangUp()` previous breakout room call. If `autoMoveParticipantToBreakoutRoom` is set to `true`, the user is automatically moved, otherwise the user has to call the `join` method explicitly on the new breakout room.
+
+```js
+//Breakout room which is assigned initially.
+const breakoutRoom = breakoutRoomsFeature.assignedBreakoutRoom;
+if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRoom) {
+  const breakoutRoomCall = await breakoutRoom.join();
+}
+
+// `breakoutRoomsUpdated` event which contains the details of the new breakout room
+let assignedRoom = undefined;
+const breakoutRoomsUpdatedListener = (event) => {
+     switch(event.type) {
+          case "assignedBreakoutRooms":
+          const assignedRoom = event.data;
+          break;
+     }
+}
+
+if(assignedRoom.threadId != breakoutRoom.threadId && breakoutRooms != null)
+{
+    await breakoutRoom.hangUp();
+}
+if(assignedRoom.state == 'open' && !assignedRoom.autoMoveParticipantToBreakoutRoom) {
+  const breakoutRoomCall = await assignedRoom.join();
+}
+```
+Microsoft 365 user with role organizer, co-organizer, or breakout room manager get the list of breakout rooms created by the breakout room manager or organizer of the main meeting. In this case, the behavior is slightly different. This user has to explicitly call `join()` method to join the breakout room. The user is kept on hold in the main meeting initially and eventually removed from the main meeting. The user has to initialize the breakoutRooms Feature for the `breakoutRoomCall` in order to receive updates on the breakout room.
+
+If the user wants to join any of the breakout rooms , then the user explicitly calls the `join` method.
+
+```js
+const breakoutRoom = breakoutRoomsFeature.breakoutRooms[0];
+if(breakoutRoom.state == 'open') {
+  const breakoutRoomCall = await breakoutRoom.join();
+}
+```
+To exit a breakout room, users should execute the `hangUp()` function on the breakout room call. The user would be calling `ReturnToMainMeeting` to resume the main meeting call.
+
+```js
+breakoutRoomCall.hangUp();
+const mainMeetingCall = breakoutRoomCall.returnToMainMeeting();
+```
 
 ### Leave breakout room
 
-When the breakout room state is `closed`, then the user is automatically moved to the main meeting. User is informed about the end of breakout room by receiving event `breakoutRoomsUpdated` with class `AssignedBreakoutRoomsEvent` and property `type` equal to `assignedBreakoutRooms` that indicates that `assignedBreakoutRoom` has property `state` set to `closed`. 
+When the breakout room state is `closed`, user is informed about the end of breakout room by receiving event `breakoutRoomsUpdated` with class `AssignedBreakoutRoomsEvent` and property `type` equal to `assignedBreakoutRooms` that indicates that `assignedBreakoutRoom` has property `state` set to `closed`. User leaves the breakout room automatically and can return to the main meeting by calling `returnToMainMeeting()` as shown above.
 
-If the user wants to leave the breakout room even before the room is closed and the breakout room settings `breakoutRoomsFeature.breakoutRoomsSettings` have property `disableReturnToMainMeeting` set to `false` then user can join the main meeting call with the following code: 
+If the user wants to leave the breakout room even before the room is closed and the breakout room settings `breakoutRoomsFeature.breakoutRoomsSettings` have property `disableReturnToMainMeeting` set to `false` then user can return to the main meeting call with the following code: 
 
 ```js
-const breakoutRoomsSettings = breakoutRoomsFeature.breakoutRoomsSettings;
- if(breakoutRoomCall != null && !breakoutRoomsSettings.disableReturnToMainMeeting){
-    breakoutRoomCall.hangUp();   
-    mainMeetingCall.resume();
- }
+breakoutRoomCall.hangUp();
+const mainMeetingCall = breakoutRoomCall.returnToMainMeeting();
 ```
 
 ### Get participants of the breakout room
@@ -208,7 +245,7 @@ Breakout rooms have the following properties:
 const displayName : string = breakoutRoom.displayName;
 const threadId : string = breakoutRoom.threadId;
 const state : BreakoutRoomState = breakoutRoom.state;
-const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom;
+const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
 const call : Call | TeamsCall = breakoutRoom.call;
 const invitees : Invitee[] = breakoutRoom.invitees;
 ```
@@ -247,5 +284,8 @@ const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;
 |412 | 46256| ExpectedError | Unable to join Breakout Room as the room is closed. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.|
 |412 | 46257| UnexpectedServerError | Unable to resume main meeting. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |412| 46258 | UnexpectedClientError | Unable to read breakout room details. | Gather browser console logs and contact Azure Communication Services support. |
-|500 | 46259| UnexpectedServerError | Couldn't hang up the Breakout room call. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. |
-|412| 46260 | UnexpectedClientError | Can't join Breakout Room as it isn't yet assigned. | Ensure that the `breakoutRoomsFeature.assignedBreakoutRoom` is having the details of the assigned breakout room. Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. |
+|500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. |
+|412| 46260 | UnexpectedClientError | Cannot join Breakout Room as it is not yet assigned. | Ensure that the `breakoutRoomsFeature.assignedBreakoutRoom` is having the details of the assigned breakout room. Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. |
+|412| 46261 | UnexpectedClientError | Unable to join the main meeting. | Please try again by calling the `breakoutRoomsFeature.assignedBreakoutRoom.returnToMainMeeting()` method. If the issue persists, gather browser console logs and contact Azure Communication Services support.|
+|412| 46262 | ExpectedError | Already in the main meeting. | Please call this method only when the participant is in breakout room and removed from the main meeting.|
+|412| 46263 | UnexpectedClientError | Existing breakout room call hangup failed. | Try to call hangup() method again to hangup the call. Call join() method to join the breakout room again. |

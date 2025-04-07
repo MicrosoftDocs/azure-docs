@@ -29,15 +29,15 @@ To audit your flow logs using the built-in policy, follow these steps:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-portal-search.png":::
+    :::image type="content" source="./media/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select **Assign policy**.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/assign-policy.png" alt-text="Screenshot of selecting the button for assigning a policy in the Azure portal.":::
+    :::image type="content" source="./media/assign-policy.png" alt-text="Screenshot of selecting the button for assigning a policy in the Azure portal." lightbox="./media/assign-policy.png":::
 
 1. Select the ellipsis (**...**) next to **Scope** to choose your Azure subscription that has the network security groups that you want the policy to audit. You can also choose the resource group that has the network security groups. After you make your selections, choose the **Select** button.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-scope.png":::
+    :::image type="content" source="./media/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/policy-scope.png":::
 
 1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and then select the **Built-in** filter. From the search results, select **Flow logs should be configured for every network security group**, and then select **Add**.
 
@@ -69,15 +69,15 @@ To assign the *deployIfNotExists* policy:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-portal-search.png":::
+    :::image type="content" source="./media/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select **Assign policy**.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/assign-policy.png" alt-text="Screenshot of selecting the button for assigning a policy in the Azure portal.":::
+    :::image type="content" source="./media/assign-policy.png" alt-text="Screenshot of selecting the button for assigning a policy in the Azure portal." lightbox="./media/assign-policy.png":::
 
 1. Select the ellipsis (**...**) next to **Scope** to choose your Azure subscription that has the network security groups that you want the policy to audit. You can also choose the resource group that has the network security groups. After you make your selections, choose the **Select** button.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-scope.png":::
+    :::image type="content" source="./media/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/policy-scope.png":::
 
 1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and then select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target network security group**, and then select **Add**.
 
@@ -92,7 +92,7 @@ To assign the *deployIfNotExists* policy:
     | Setting | Value |
     | --- | --- |
     | **NSG Region** | Select the region of your network security group that you're targeting with the policy. |
-    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
+    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
     | **Network Watchers RG** | Select the resource group of your Azure Network Watcher instance. |
     | **Network Watcher name** | Enter the name of your Network Watcher instance. |
 

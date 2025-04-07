@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
 ms.custom: "b2c-support"

@@ -4,9 +4,9 @@ description: This quickstart shows developers new to IoT Hub how to get started 
 ms.service: azure-iot-hub
 ms.topic: quickstart
 ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, 'Role: Cloud Development', devx-track-azurecli, mode-api]
-ms.author: timlt
-author: timlt
-ms.date: 10/11/2024
+ms.author: dobett
+author: dominicbetts
+ms.date: 1/10/2025
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI

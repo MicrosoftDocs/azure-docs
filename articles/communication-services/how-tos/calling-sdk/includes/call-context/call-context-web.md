@@ -21,7 +21,7 @@ When adding these custom headers as a developer you can choose to add only SIP h
 > [!NOTE]
 > Currently, adding custom User-to-User Information headers is only supported when initiating a 1:1 call. Passing User-to-User Information headers in group calls is not currently supported. To work around this after starting the 1:1 call, you can include additional participants while maintaining the User-to-User Information within the calls. 
 
-For details othe custom context interface API, consult the [custom context API resource](/javascript/api/azure-communication-services/@azure/communication-calling/customcontext?view=azure-communication-services-js&preserve-view=true) page.
+For details on the custom context interface API, consult the [custom context API resource](/javascript/api/azure-communication-services/@azure/communication-calling/customcontext?view=azure-communication-services-js&preserve-view=true) page.
 
 ## Place a call with User-to-User Information (UUI) data
 

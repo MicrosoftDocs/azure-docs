@@ -1,13 +1,13 @@
 ---
 title: Key next steps after accepting your Microsoft Customer Agreement - Azure
 description: This article helps you get started as you begin to manage Azure billing and subscriptions under your new Microsoft Customer Agreement.
-author: bandersmsft
+author: PreetiSGit
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 03/21/2024
-ms.author: banders
-ms.reviewer: sgautam
+ms.date: 01/07/2025
+ms.author: presharm
+ms.reviewer: presharm
 ---
 
 # Key next steps after accepting your Microsoft Customer Agreement
@@ -46,7 +46,7 @@ When you or your organization signed the Microsoft Customer Agreement, a billing
 
 ## Update your PO and tax ID number
 
-[Update your PO number](../manage/change-azure-account-profile.yml#update-a-po-number) in your billing profile and, after moving your subscriptions, ensure you [update your tax ID](../manage/change-azure-account-profile.yml#update-your-tax-id). The tax ID is used for tax exemption calculations and appears on your invoice. [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
+[Update your PO number](../manage/change-azure-account-profile.yml#update-a-po-number) in your billing profile and, after moving your subscriptions, ensure you [update your tax ID](../manage/change-azure-account-profile.yml#update-your-tax-id). The tax ID is used for tax exemption calculations and appears on your invoice. [Learn more about how to update your billing account settings](../understand/mosp-new-customer-experience.md).
 
 
 ## Confirm payment details

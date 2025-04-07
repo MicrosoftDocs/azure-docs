@@ -27,7 +27,6 @@ If you enable Applications Insights during development, you might hit this limit
 > [!IMPORTANT]
 > Application Insights has a [sampling](/azure/azure-monitor/app/sampling) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](configure-monitoring.md#configure-sampling).
 
-The full list of Application Insights features available to your function app is detailed in [Application Insights for Azure Functions supported features](/azure/azure-monitor/app/azure-functions-supported-features).
 
 ## Application Insights integration
 

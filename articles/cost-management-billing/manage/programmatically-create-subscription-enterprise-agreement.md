@@ -1,13 +1,13 @@
 ---
 title: Programmatically create Azure Enterprise Agreement subscriptions with the latest APIs
 description: Learn how to create Azure Enterprise Agreement subscriptions programmatically using the latest versions of REST API, Azure CLI, Azure PowerShell, and Azure Resource Manager templates.
-author: bandersmsft
+author: prashantsaini4
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/14/2024
-ms.reviewer: sapnakeshari
-ms.author: banders
+ms.date: 01/22/2025
+ms.reviewer: prsaini
+ms.author: prsaini
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 

@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 02/20/2025
 ---
 
 # Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps

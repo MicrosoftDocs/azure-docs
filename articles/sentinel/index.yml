@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: yelevin
   ms.author: yelevin
-  ms.date: 02/15/2024
+  ms.date: 01/03/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -51,8 +51,30 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Install solutions and content
-            url: sentinel-solutions-deploy.md          
-
+            url: sentinel-solutions-deploy.md  
+            
+  # Card
+  - title: Microsoft's unified security operations platform
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: "What is Microsoft's unified SecOps platform?"
+            url: /unified-secops-platform/overview-unified-security
+          - text: "Microsoft Defender portal overview"
+            url: /unified-secops-platform/overview-defender-portal
+          - text: "Microsoft Sentinel in the Microsoft Defender portal"
+            url: microsoft-sentinel-defender-portal.md
+      - linkListType: deploy
+        links:
+          - text: "Plan your unified SecOps deployment"
+            url: /unified-secops-platform/overview-plan
+          - text: "Deploy Microsoft's unified SecOps platform"
+            url: /unified-secops-platform/overview-deploy
+      - linkListType: how-to-guide
+        links:
+          - text: Connect Microsoft Sentinel to the Microsoft Defender portal
+            url: /defender-xdr/microsoft-sentinel-onboard?toc=%2Funified-secops-platform%2Ftoc.json&bc=%2Funified-secops-platform%2Fbreadcrumb%2Ftoc.json 
+            
   # Card
   - title: Collect data
     linkLists:
@@ -105,7 +127,7 @@ landingContent:
             url: detect-threats-custom.md
 
  # Card (optional)
-  - title: Investigate
+  - title: Investigate and respond
     linkLists:
       - linkListType: concept
         links:
@@ -113,12 +135,18 @@ landingContent:
             url: incident-investigation.md
           - text: Threat hunting
             url: hunting.md
-          - text: Kusto Query Language in Microsoft Sentinel
-            url: kusto-overview.md
+          - text: Kusto Query Language overview
+            url: /kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+          - text: Automation rules
+            url: automate-incident-handling-with-automation-rules.md
+          - text: Playbooks
+            url: automate-responses-with-playbooks.md
       - linkListType: tutorial
         links:
         - text: Investigate with UEBA
           url: investigate-with-ueba.md
+        - text: Respond automatically to threats
+          url: tutorial-respond-threats-playbook.md
       - linkListType: how-to-guide
         links:
           - text: Investigate incidents
@@ -130,17 +158,4 @@ landingContent:
           - text: Conduct end-to-end threat hunting
             url: hunts.md
 
-# Card (optional)
-  - title: Respond
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Automation rules
-            url: automate-incident-handling-with-automation-rules.md
-          - text: Playbooks
-            url: automate-responses-with-playbooks.md
-      - linkListType: tutorial
-        links:
-        - text: Respond automatically to threats
-          url: tutorial-respond-threats-playbook.md
 

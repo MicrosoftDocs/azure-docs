@@ -12,7 +12,7 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 # Enable resource logging in Azure Traffic Manager
 
-This article describes how to enable collection of diagnostic resource logs and access log data for a Traffic Manager profile.
+This article describes how to enable the collection of diagnostic resource logs, including Traffic Manager Probe Health Results, for a Traffic Manager profile.
 
 Azure Traffic Manager resource logs can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use the profile's log data to determine why individual probes have timed out against an endpoint.
 

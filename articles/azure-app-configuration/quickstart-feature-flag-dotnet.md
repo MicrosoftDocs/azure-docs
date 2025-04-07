@@ -40,46 +40,71 @@ You can use Visual Studio to create a new console app project.
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
-1. In **Create a new project**, filter on the **Console** project type and select **Console App**. If you want to create a .NET Framework app, please select **Console App (.NET Framework)** instead. Click **Next**.
+1. In **Create a new project**, filter on the **Console** project type and select **Console App**. If you want to create a .NET Framework app, select **Console App (.NET Framework)** instead. Click **Next**.
 
-1. In **Configure your new project**, enter a project name. If you are creating a .NET Framework app, please select **.NET Framework 4.7.2** or higher under **Framework**. Click **Create**.
+1. In **Configure your new project**, enter a project name. If you're creating a .NET Framework app, select **.NET Framework 4.7.2** or higher under **Framework**. Click **Create**.
 
 ## Use the feature flag
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
+1. Right-click your project and select **Manage NuGet Packages**. On the **Browse** tab, search and add the latest stable versions of the following NuGet packages to your project.
+ 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration
+    Microsoft.FeatureManagement
+    Azure.Identity
+    ```
+
+    ### [Connection string](#tab/connection-string)
 
     ```
     Microsoft.Extensions.Configuration.AzureAppConfiguration
     Microsoft.FeatureManagement
     ```
-
-    Make sure that the version of `Microsoft.FeatureManagement` is greater than 3.1.0.
+    ---
 
 1. Open *Program.cs* and add the following statements.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Microsoft.FeatureManagement;
+    using Azure.Identity;
+    ```
+
+    ### [Connection string](#tab/connection-string)
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
     ```
+    ---
 
-1. Connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definition from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
+1. Update the *Program.cs* file and add a call to the `UseFeatureFlags` method to load feature flags from App Configuration. Then create a `FeatureManager` to read feature flags from the configuration. Finally, display a message if the *Beta* feature flag is enabled.
 
-    ### [.NET](#tab/dotnet)
+    You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store by default. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    #### .NET
 
     ```csharp
     IConfiguration configuration = new ConfigurationBuilder()
         .AddAzureAppConfiguration(options =>
         {
-            options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                .UseFeatureFlags();
+            string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+                   .UseFeatureFlags();
         }).Build();
 
-    IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
-
-    IFeatureManager featureManager = new FeatureManager(
-        featureDefinitionProvider, 
-        new FeatureManagementOptions());
+    var featureManager = new FeatureManager(
+        new ConfigurationFeatureDefinitionProvider(configuration));
 
     if (await featureManager.IsEnabledAsync("Beta"))
     {
@@ -89,7 +114,55 @@ You can use Visual Studio to create a new console app project.
     Console.WriteLine("Hello World!");
     ```
 
-    ### [.NET Framework](#tab/dotnet-framework)
+    #### .NET Framework
+
+    ```csharp
+    public static async Task Main(string[] args)
+    {         
+        IConfiguration configuration = new ConfigurationBuilder()
+            .AddAzureAppConfiguration(options =>
+            {
+                string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+                options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+                       .UseFeatureFlags();
+            }).Build();
+
+        var featureManager = new FeatureManager(
+            new ConfigurationFeatureDefinitionProvider(configuration));
+
+        if (await featureManager.IsEnabledAsync("Beta"))
+        {
+            Console.WriteLine("Welcome to the beta!");
+        }
+
+        Console.WriteLine("Hello World!");
+    }
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+    #### .NET
+
+    ```csharp
+    IConfiguration configuration = new ConfigurationBuilder()
+        .AddAzureAppConfiguration(options =>
+        {
+            options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                   .UseFeatureFlags();
+        }).Build();
+
+    var featureManager = new FeatureManager(
+        new ConfigurationFeatureDefinitionProvider(configuration));
+
+    if (await featureManager.IsEnabledAsync("Beta"))
+    {
+        Console.WriteLine("Welcome to the beta!");
+    }
+
+    Console.WriteLine("Hello World!");
+    ```
+
+    #### .NET Framework
 
     ```csharp
     public static async Task Main(string[] args)
@@ -98,14 +171,11 @@ You can use Visual Studio to create a new console app project.
             .AddAzureAppConfiguration(options =>
             {
                 options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    .UseFeatureFlags();
+                       .UseFeatureFlags();
             }).Build();
 
-        IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
-
-        IFeatureManager featureManager = new FeatureManager(
-            featureDefinitionProvider, 
-            new FeatureManagementOptions());
+        var featureManager = new FeatureManager(
+            new ConfigurationFeatureDefinitionProvider(configuration));
 
         if (await featureManager.IsEnabledAsync("Beta"))
         {
@@ -127,17 +197,17 @@ You can use Visual Studio to create a new console app project.
     If you use the Windows command prompt, run the following command.
 
     ```console
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
     ### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command.
 
     ```azurepowershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     ---

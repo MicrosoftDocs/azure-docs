@@ -15,7 +15,7 @@ ms.subservice: pstn
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-You can use the Azure Communication Services Calling SDK to add Enhanced Emergency dialing and Public Safety Answering Point (PSAP) callback support to your applications in the United States (US), Puerto Rico (PR), the United Kingdom (GB), Canada (CA), Denmark (DK) and Australiua (AU). The capability to dial 911 (in US, PR, and CA), to dial 112 (in DK), to dial 000 (in AU) and to dial 999 or 112 (in GB) and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
+You can use the Azure Communication Services Calling SDK to add Enhanced Emergency dialing and Public Safety Answering Point (PSAP) callback support to your applications in the United States (US), Puerto Rico (PR), the United Kingdom (GB), Canada (CA), Denmark (DK) and Australia (AU). The capability to dial 911 (in US, PR, and CA), to dial 112 (in DK), to dial 000 (in AU) and to dial 999 or 112 (in GB) and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
 
 Calls to an emergency number are routed over the Microsoft network. Microsoft assigns a temporary phone number as the Call Line Identity (CLI) when a user places an emergency call from US, PR, GB, CA, DK or AU. Microsoft temporarily maintains a mapping of the phone number to the caller's identity.
 

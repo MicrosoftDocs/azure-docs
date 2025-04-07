@@ -1,14 +1,14 @@
 ---
-title: Bicep functions
-description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
+title: Bicep functions overview
+description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
+ms.date: 02/12/2025
 ms.custom: devx-track-bicep
-ms.date: 05/21/2024
 ---
 
-# Bicep functions
+# Bicep functions overview
 
-This article describes all the functions you can use in a Bicep file. To define custom functions, see [User-defined functions](./user-defined-functions.md). For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+This article describes all of the functions that you can use in a Bicep file. To define custom functions, see [User-defined functions](./user-defined-functions.md). For a description of the sections in a Bicep file, see [Bicep file structure and syntax](./file.md).
 
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
 
@@ -53,9 +53,9 @@ The following functions are available for working with arrays. All of these func
 * [take](./bicep-functions-array.md#take)
 * [union](./bicep-functions-array.md#union)
 
-## CIDR functions
+## Classless inter-domain (CIDR) functions
 
-The following functions are available for working with CIDR. All of these functions are in the `sys` namespace.
+The following functions are available for working with CIDR. All of these functions are in the `sys` namespace:
 
 * [parseCidr](./bicep-functions-cidr.md#parsecidr)
 * [cidrSubnet](./bicep-functions-cidr.md#cidrsubnet)
@@ -63,7 +63,7 @@ The following functions are available for working with CIDR. All of these functi
 
 ## Date functions
 
-The following functions are available for working with dates. All of these functions are in the `sys` namespace.
+The following functions are available for working with dates. All of these functions are in the `sys` namespace:
 
 * [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
 * [dateTimeFromEpoch](./bicep-functions-date.md#datetimefromepoch)
@@ -72,23 +72,30 @@ The following functions are available for working with dates. All of these funct
 
 ## Deployment value functions
 
-The following functions are available for getting values related to the deployment. All of these functions are in the `az` namespace.
+The following functions are available for getting values related to the deployment. All of these functions are in the `az` namespace:
 
+* [deployer](./bicep-functions-deployment.md#deployer)
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
 
 ## File functions
 
-The following functions are available for loading the content from external files into your Bicep file. All of these functions are in the `sys` namespace.
+The following functions are available for loading the content from external files into your Bicep file. All of these functions are in the `sys` namespace:
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
 * [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
 * [loadYamlContent](bicep-functions-files.md#loadyamlcontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
+## Flow-control functions
+
+The following function is available for influencing execution flow. This function is in the `sys` namespace:
+
+* [fail](bicep-functions-flow-control.md#fail)
+
 ## Lambda functions
 
-The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace.
+The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace:
 
 * [filter](bicep-functions-lambda.md#filter)
 * [groupBy](bicep-functions-lambda.md#groupby)
@@ -98,15 +105,15 @@ The following functions are available for working with lambda expressions. All o
 * [sort](bicep-functions-lambda.md#sort)
 * [toObject](bicep-functions-lambda.md#toobject)
 
-## Logical functions
+## Logical function
 
-The following function is available for working with logical conditions. This function is in the `sys` namespace.
+The following function is available for working with logical conditions. This function is in the `sys` namespace:
 
 * [bool](./bicep-functions-logical.md#bool)
 
 ## Numeric functions
 
-The following functions are available for working with integers. All of these functions are in the `sys` namespace.
+The following functions are available for working with integers. All of these functions are in the `sys` namespace:
 
 * [int](./bicep-functions-numeric.md#int)
 * [min](./bicep-functions-numeric.md#min)
@@ -114,7 +121,7 @@ The following functions are available for working with integers. All of these fu
 
 ## Object functions
 
-The following functions are available for working with objects. All of these functions are in the `sys` namespace.
+The following functions are available for working with objects. All of these functions are in the `sys` namespace:
 
 * [contains](./bicep-functions-object.md#contains)
 * [empty](./bicep-functions-object.md#empty)
@@ -128,14 +135,14 @@ The following functions are available for working with objects. All of these fun
 
 ## Parameters file functions
 
-The following functions are available to be used in Bicep parameter files. All of these functions are in the `sys` namespace.
+The following functions are available to be used in Bicep parameters files. All of these functions are in the `sys` namespace:
 
 * [getSecret](./bicep-functions-parameters-file.md)
 * [readEnvironmentVariable](./bicep-functions-parameters-file.md)
 
 ## Resource functions
 
-The following functions are available for getting resource values. Most of these functions are in the `az` namespace. The list functions and the getSecret function are called directly on the resource type, so they don't have a namespace qualifier.
+The following functions are available for getting resource values. Most of these functions are in the `az` namespace. The `list` and `getSecret` functions don't have namespace qualifiers since they're named directly in the resource type:
 
 * [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
 * [getSecret](./bicep-functions-resource.md#getsecret)
@@ -147,22 +154,22 @@ The following functions are available for getting resource values. Most of these
 * [pickZones](./bicep-functions-resource.md#pickzones)
 * [providers (deprecated)](./bicep-functions-resource.md#providers)
 * [reference](./bicep-functions-resource.md#reference)
-* [resourceId](./bicep-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
+* [resourceId](./bicep-functions-resource.md#resourceid) - This can be used at any scope, but the valid parameters change depending on the scope.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
 
 ## Scope functions
 
-The following functions are available for getting scope values. All of these functions are in the `az` namespace.
+The following functions are available for getting scope values. All of these functions are in the `az` namespace:
 
 * [managementGroup](./bicep-functions-scope.md#managementgroup)
-* [resourceGroup](./bicep-functions-scope.md#resourcegroup) - can only be used in deployments to a resource group.
-* [subscription](./bicep-functions-scope.md#subscription) - can only be used in deployments to a resource group or subscription.
+* [resourceGroup](./bicep-functions-scope.md#resourcegroup) - This can only be used in deployments to a resource group.
+* [subscription](./bicep-functions-scope.md#subscription) - This can only be used in deployments to a resource group or subscription.
 * [tenant](./bicep-functions-scope.md#tenant)
 
 ## String functions
 
-Bicep provides the following functions for working with strings. All of these functions are in the `sys` namespace.
+Bicep provides the following functions for working with strings. All of these functions are in the `sys` namespace:
 
 * [base64](./bicep-functions-string.md#base64)
 * [base64ToJson](./bicep-functions-string.md#base64tojson)
@@ -200,6 +207,5 @@ Bicep provides the following functions for working with strings. All of these fu
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
-* To iterate a specified number of times when creating a type of resource, see [Iterative loops in Bicep](loops.md).
-* To see how to deploy the Bicep file you've created, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md).
+* To iterate a specific number of times when creating a type of resource, see [Iterative loops in Bicep](./loops.md).
+* To learn how to deploy the Bicep file you've created, see [Deploy Bicep files with the Azure CLI](./deploy-cli.md) and [Azure PowerShell](./deploy-powershell.md).

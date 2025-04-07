@@ -381,9 +381,9 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "iss": "https://tenant.b2clogin.com/12345678-1234-1234-1234-123456789012/v2.0/", 
 
-      "sub": "12345678-1234-1234-1234-123456789012", 
+      "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb", 
 
-      "aud": "12345678-1234-1234-1234-123456789012", 
+      "aud": "00001111-aaaa-2222-bbbb-3333cccc4444", 
 
       "acr": "b2c_1a_signup_signin_biocatch_policy", 
 
@@ -405,7 +405,7 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "score": 275, 
 
-      "tid": "12345678-1234-1234-1234-123456789012" 
+      "tid": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" 
 
     }.[Signature]  
 

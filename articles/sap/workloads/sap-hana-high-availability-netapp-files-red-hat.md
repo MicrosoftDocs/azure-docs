@@ -419,7 +419,7 @@ Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux](./high-availa
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This step is an important one to optimize the integration with the cluster and improve the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr).
+This step is an important one to optimize the integration with the cluster and improve the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks).
 
 ### Configure file system resources
 

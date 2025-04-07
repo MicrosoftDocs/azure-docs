@@ -8,6 +8,7 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to use PowerShell scripts to retrieve details about Azure Cloud Services deployments, so that I can monitor their configuration, status, and operational state efficiently.
 ---
 
 # Retrieve information about your Azure Cloud Service (extended support) deployments

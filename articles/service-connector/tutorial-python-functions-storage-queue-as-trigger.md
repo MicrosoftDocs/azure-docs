@@ -71,7 +71,7 @@ In last step, you verified the function project locally. Now you'll learn how to
 az functionapp connection create storage-queue --source-id "<your-function-resource-id>" --target-id "<your-storage-queue-resource-id>" --secret
 ```
 
-* `--source-id` format: `/subscriptions/{subscription}/resourceG roups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
+* `--source-id` format: `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
 * `--target-id` format: `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/queueServices/default`
 
 This step creates a Service Connector resource that configures an `AZURE_STORAGEQUEUE_CONNECTIONSTRING` variable in the function's App Settings. The function binding runtime uses it to connect to the storage, so that the function can accept triggers from the storage queue. For more information, go to [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
@@ -85,7 +85,7 @@ Now you can deploy your function to Azure and verify the storage queue trigger w
 
 ## Troubleshoot
 
-If there are any errors related with the storage host, such as `No such host is known (<acount-name>.queue.core.windows.net:443)`, check whether the connection string you use to connect to Azure Storage contains the queue endpoint or not. If it doesn't, go to Azure Storage in the Azure portal, copy the connection string from the `Access keys` pane, and replace the values.
+If there are any errors related with the storage host, such as `No such host is known (<account-name>.queue.core.windows.net:443)`, check whether the connection string you use to connect to Azure Storage contains the queue endpoint or not. If it doesn't, go to Azure Storage in the Azure portal, copy the connection string from the `Access keys` pane, and replace the values.
 
 If this error happens when you start the project locally, check the `local.settings.json` file.
 

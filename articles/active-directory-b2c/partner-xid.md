@@ -132,7 +132,7 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
           <Metadata>
             <Item Key="METADATA">https://oidc-uat.x-id.io/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the X-ID Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid verification</Item>
             <Item Key="response_mode">query</Item>

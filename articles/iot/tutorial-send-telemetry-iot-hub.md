@@ -1,11 +1,11 @@
 ---
 title: Send device telemetry to Azure IoT Hub tutorial
 description: This tutorial shows device developers how to connect a device securely to Azure IoT Hub. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a device client for Windows, Linux, or Raspberry Pi (Raspbian). Then you connect and send telemetry.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot
 ms.topic: tutorial
-ms.date: 04/04/2024
+ms.date: 1/10/2025
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
 ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-python, linux-related-content, devx-track-js
@@ -71,5 +71,3 @@ As a next step, explore the following articles to learn more about building devi
 
 > [!div class="nextstepaction"]
 > [Control a device connected to an IoT hub](../iot-hub/quickstart-control-device.md)
-> [!div class="nextstepaction"]
-> [Build a device solution with IoT Hub](set-up-environment.md)

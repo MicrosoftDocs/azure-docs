@@ -7,6 +7,7 @@ ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+# Customer intent: As a cloud architect, I want to understand the NetworkConfiguration schema for Azure Cloud Services, so that I can accurately configure virtual networks, DNS settings, access control rules, and reserved IPs for my deployments.
 ---
 
 # Azure Cloud Services (extended support) config networkConfiguration schema

@@ -35,17 +35,17 @@
   items:
   - name: Move resources
     items:
-    - name: Overview
+    - name: Introduction to move
       href: move-resources-overview.md
     - name: Move across resource groups/subscriptions
       href: move-resource-group-and-subscription.md
     - name: Move across regions
       href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
-    - name: Supported resources
+    - name: Resources supported for move
       href: move-support-resources.md
-    - name: Services
+    - name: Azure services
       items:
-      - name: Resource groups/subscriptions
+      - name: Across resource groups/subscriptions
         items:
         - name: App Service
           href: ./move-limitations/app-service-move-limitations.md
@@ -63,7 +63,7 @@
           href: ../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Virtual Machines
           href: ./move-limitations/virtual-machines-move-limitations.md
-      - name: Regions
+      - name: Across regions
         items:
         - name: Azure API Management
           href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
@@ -206,6 +206,8 @@
     href: monitor-resource-manager.md
   - name: Resource group insights
     href: resource-group-insights.md
+  - name: Configure data boundary
+    href: manage-data-boundary.md
 - name: Reference
   items:
   - name: REST

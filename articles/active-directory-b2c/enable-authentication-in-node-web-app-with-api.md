@@ -29,7 +29,7 @@ In this article, you learn how to create your web app that calls your web API. T
 
 - [Visual Studio Code](https://code.visualstudio.com/), or another code editor
 
-- [Node.js runtime](https://nodejs.org/en/download/)
+- [Node.js runtime](https://nodejs.org/en/download/package-manager/)
 
 ## Step 1: Create a protected web API
 

@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: faq
-ms.date: 07/18/2024
+ms.date: 01/10/2025
 ms.author: duau
 
 ---
@@ -67,6 +67,18 @@ If you're using a dual-stack circuit, there's a maximum of 100 IPv6 prefixes on 
 ### What happens if the prefix limit on an ExpressRoute connection gets exceeded?
 
 The connection between the ExpressRoute circuit and the gateway disconnects including peered virtual network using gateway transit. Connectivity re-establishes when the prefix limit is no longer exceeded.
+
+## How can I adjust the number of prefixes advertised to the gateway to ensure it is within the maximum limitation?
+
+ExpressRoute supports up to 11,000 routes, covering virtual network address spaces, on-premises networks, and virtual network peering connections. If the ExpressRoute gateway exceeds this limit, please update the prefixes to be within the allowed range.
+
+To make this change in the Azure Portal:
+1. Go to the Advisor resource and select the "Performance" pillar.
+2. Click on the recommendation for "Max prefix reached for ExpressRoute Gateway."
+3. Select the Gateway with this recommendation.
+4. In the Gateway resource, select the "Virtual network" that the Gateway is attached to
+5. In the Virtual Network resource, select "Address Space" blade under settings on the left menu
+6. Reduce the advertised address space to within the limit
 
 ### Can routes from the on-premises network get filtered?
 
@@ -254,6 +266,13 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
+### Service Endpoint Policy on the Gateway Subnet?
+
+Configuring a Service Endpoint Policy (SEP) on the Gateway Subnet is not advisable due to potential issues, including:
+* Failures in gateway service deployment
+* Challenges with scaling and service healing
+
+
 ### Do virtual networks connected to ExpressRoute circuits have Internet connectivity?
 
 Yes. If a default routes (0.0.0.0/0) or Internet route prefixes isn't advertised through the BGP session, you can connect to the Internet from a virtual network linked to an ExpressRoute circuit.
@@ -287,9 +306,12 @@ The public IP address is used for internal management only, and doesn't constitu
 
 Yes. ExpressRoute accepts up to 4000 prefixes for private peering and 200 prefixes for Microsoft peering. You can increase the limit to 10,000 routes for private peering when using ExpressRoute premium.
 
+> [!NOTE]
+> Advertising prefixes received over Microsoft Peering to Private Peering carries the risk of exceeding prefix limits, as Microsoft prefixes are updated monthly and can grow significantly. To manage this, configure Service Health to review prefix updates, implement monitoring to detect changes, and consider upgrading the SKU or summarizing routes to control the number of prefixes advertised from on-premises.
+
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We don't accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size up to /32 prefix on both the Microsoft and the private peering.
+We don't accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size up to /32 prefix on both the Microsoft and the private peering. 
 
 ### What happens if the BGP route limit gets exceeded?
 
@@ -442,9 +464,9 @@ See the recommendation for [High availability and failover with Azure ExpressRou
 
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
-### Can I have ExpressRoute Private Peering in an Azure Goverment environment with Virtual Network Gateways in Azure commercial cloud? 
+### Can I have ExpressRoute Private Peering in an Azure Government environment with Virtual Network Gateways in Azure commercial cloud? 
 
-No, it's not possible to establish ExpressRoute Private peering in an Azure Goverment environment with a virtual network gateway in Azure commercial cloud environments. Furthermore, the scope of the ExpressRoute Government Microsoft Peering is limited to only public IPs within Azure government regions and doesn't extend to the broader ranges of commercial public IPs. 
+No, it's not possible to establish ExpressRoute Private peering in an Azure Government environment with a virtual network gateway in Azure commercial cloud environments. Furthermore, the scope of the ExpressRoute Government Microsoft Peering is limited to only public IPs within Azure government regions and doesn't extend to the broader ranges of commercial public IPs. 
 
 ## Route filters for Microsoft peering
 
@@ -506,7 +528,7 @@ You should experience minimal to no disruption during maintenance on your Expres
 
 ### Does ExpressRoute Traffic Collector support availability zones?
 
-ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it's available. For information about region availability, see [Availability zones supported regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
+ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it's available. For information about region availability, see [Availability zones supported regions](../reliability/availability-zones-region-support.md). 
 
 
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?

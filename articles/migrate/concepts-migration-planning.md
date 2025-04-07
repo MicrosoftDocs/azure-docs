@@ -1,12 +1,9 @@
 ---
 title: Build a migration plan with Azure Migrate
 description: Provides guidance on building a migration plan with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 09/26/2024
 ms.custom: engagement-fy23
 ---
 

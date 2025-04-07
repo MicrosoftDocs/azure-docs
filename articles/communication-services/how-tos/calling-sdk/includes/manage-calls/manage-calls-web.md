@@ -265,7 +265,7 @@ const state = remoteParticipant.state;
 > [!NOTE]
 > To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
 
-To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
+To mute all other participants or mute a specific participant who is connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
 
  *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
 
@@ -375,4 +375,21 @@ Check is screen sharing is on. It returns `Boolean`.
 
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
+```
+
+## Hang up
+
+There are two ways how you can hang up the call. You can leave the call and keep other participants in the call or terminate the call for all participants. If you want to leave the call, then just use
+
+```js
+call.hangUp();
+```
+
+You can also end the call for all participants if you provide  `HangUpOptions`.
+
+> [!NOTE]
+> This API is not available in rooms.
+
+```js
+call.hangUp( forEveryone: true);
 ```

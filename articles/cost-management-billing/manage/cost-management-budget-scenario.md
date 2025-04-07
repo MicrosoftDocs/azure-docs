@@ -1,13 +1,13 @@
 ---
 title: Azure billing and cost management budget scenario
 description: Learn how to use Azure Automation to shut down VMs based on specific budget thresholds.
-author: bandersmsft
-ms.reviewer: adwise
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: jojoh
 ---
 
 # Manage costs with budgets
@@ -87,7 +87,7 @@ You should now have two configured webhooks that are each available using the UR
 
 You completed the Azure Automation setup. You can test the webhooks with a simple API test to validate that the webhook works. Some popular ways to query the API are:
 
-- [Visual studio](/aspnet/core/test/http-files)
+- [Visual Studio](/aspnet/core/test/http-files)
 - [Insomnia](https://insomnia.rest/)
 - [Bruno](https://www.usebruno.com/)
 - PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
@@ -272,7 +272,7 @@ You can create a budget in the Azure portal using the [Budget feature](../costs/
 
 Next, you create a budget by calling the Azure Consumption REST APIs. You need a way to interact with APIs. Some popular ways to query the API are:
 
-- [Visual studio](/aspnet/core/test/http-files)
+- [Visual Studio](/aspnet/core/test/http-files)
 - [Insomnia](https://insomnia.rest/)
 - [Bruno](https://www.usebruno.com/)
 - PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)

@@ -59,11 +59,6 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-monitor-data-collection-rules-insight-resources-table](../includes/samples-by-category/query/insight-resources-monitor-data-collection-rules.md)]
 
-
-## Azure Orbital Ground Station
-
-[!INCLUDE [azure-orbitals-contacts-samples](../includes/samples-by-category/query/orbital-resources-contacts.md)]
-
 ## Azure Policy
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy](../includes/samples-by-category/azure-policy.md)]

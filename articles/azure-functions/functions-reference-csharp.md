@@ -3,7 +3,7 @@ title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2023
+ms.date: 12/29/2024
 ---
 # Azure Functions C# script (.csx) developer reference
 
@@ -21,6 +21,8 @@ Azure Functions lets you develop functions using C# in one of the following ways
 | C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | This article | 
 | C# class library (isolated worker) | isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
 | C# class library (in-process) | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |  
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 ## How .csx works
 
@@ -86,6 +88,10 @@ public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 ```
 
 The `#r` statement is explained [later in this article](#referencing-external-assemblies).
+
+## Connections
+
+When possible, use managed identity-based connections in your triggers and bindings. For more information, see the [Function developer guide](./functions-reference.md#connections).
 
 ## Supported types for bindings
 

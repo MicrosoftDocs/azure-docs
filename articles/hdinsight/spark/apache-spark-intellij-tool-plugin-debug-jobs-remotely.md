@@ -4,6 +4,9 @@ description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ to r
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/13/2024
 ---
 

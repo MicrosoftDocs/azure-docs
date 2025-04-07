@@ -7,6 +7,7 @@ ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
 author: msangapu-msft
 ms.author: msangapu
+ROBOTS: NOINDEX
 ---
 
 # Create an App Service app on Azure Arc (Preview)
@@ -75,7 +76,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 cd nodejs-docs-hello-world
 zip -r package.zip .
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
-az webapp deployment source config-zip --resource-group myResourceGroup --name <app-name> --src package.zip
+az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path package.zip
 ```
 
 ## 5. Get diagnostic logs using Log Analytics

@@ -1,6 +1,6 @@
 ---
-title: Manage autonomous database resources for Oracle Database@Azure
-description: Learn about how to manage autonomous database resources for Oracle Database@Azure.
+title: Manage resources in Oracle Database@Azure
+description: Learn how to manage resources in an instance of Oracle Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
@@ -8,120 +8,137 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-# Manage autonomous database resources for Oracle Database@Azure
+# Manage resources in Oracle Database@Azure
 
-After provisioning any OracleDB@Azure resource, you can use the Microsoft Azure blade for a limited set of management functions.
+After you provision an instance of Oracle Database@Azure, you can use the Azure portal to complete a limited set of resource management functions.
 
 ## Prerequisites
-There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
-- An existing Azure subscription
-- An Azure VNet with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+You must have the following prerequisites before you can provision Oracle Database@Azure:
+
+- An existing Azure subscription.
+- An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`).
 - Permissions in Azure to create resources in the region, with the following conditions:
-   * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
-   * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
-- Purchase OracleDB@Azure in the Azure portal.
-- Select your Oracle Cloud Infrastructure (OCI) account.
-For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
+  - No policies that prohibit the creation of resources without tags. The OracleSubscription resource is created automatically without tags during onboarding.
+  - No policies that enforce naming conventions. The OracleSubscription resource is created automatically with a default resource name.
+- Oracle Database@Azure purchased in the Azure portal.
+- An Oracle Cloud Infrastructure (OCI) account.
 
-## Common Management Functions from the Microsoft Azure Blade
+For more information, including optional steps, see [Onboard Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
-The following management functions are available for all resources from the Microsoft Azure blade for that resource.
+## Common management functions in the Azure portal
 
-### Access the resource blade
+This section describes management functions that are available for all Oracle Database@Azure resources. To access management functions, go to the Azure pane for that resource.
 
-1. From the Microsoft Azure portal, select OracleDB@Azure application.
-1. From the left menu, select **Oracle Exadata Database@Azure**.
-1. If the blade lists and manages several resources, select the resource type at the top of the blade. For example, the **Oracle Exadata Database@Azure** blade accesses both Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources.
+### Access the resource pane
 
-### List status for all resources of the same type
+1. In the Azure portal, go to the home pane for your Oracle Database@Azure application.
+1. On the service menu, select **Oracle Database@Azure**.
+1. If the pane lists and manages multiple resources, select the resource type at the top of the pane.
 
-1. Follow the steps to **Access the resource blade**.
-1. Resources will be shown in the list as **Succeeded**, **Failed**, or **Provisioning**.
-1. Access the specifics of that resource by selecting the link in the **Name** field in the table.
+   For example, use the **Oracle Exadata Database@Azure** pane to access both the Oracle Exadata infrastructure and the Oracle Exadata virtual machine (VM) cluster resources.
+
+### List a resource type status
+
+1. Go to the resource pane. For more information, see [Access the resource pane](#access-the-resource-pane).
+
+    Resources are shown as **Succeeded**, **Failed**, or **Provisioning**.
+
+1. To access details for the resource, under **Name**, select the link for the resource.
 
 ### Provision a new resource
 
-1. Follow the steps to **Access the resource blade**.
-1. Select the **+ Create** icon at the top of the blade.
-1. Follow the provisioning flow for [Provision an Autonomous Database](oracle-database-provision-autonomous-database.md).
+1. Go to the resource pane. For more information, see [Access the resource pane](#access-the-resource-pane).
+1. In the command bar, select **Create**.
+1. Complete the steps to [provision an instance of Oracle Autonomous Database](oracle-database-provision-autonomous-database.md).
 
-### Refresh the blade's info
+### Refresh the pane
 
-1. Follow the steps to **Access the resource blade**.
-1. Select the **Refresh** icon at the top of the blade.
-1. Wait for the blade to reload.
+1. Go to the resource pane.
+1. In the command bar, select the **Refresh** icon.
+1. Wait for the pane to reload.
 
 ### Remove a resource
 
-1. Follow the steps to **Access the resource blade**.
-1. You can remove a single or multiple resources from the blade by selecting the checkbox on the left side of the table. Once you have selected the resource(s) to remove, you can then select the **Delete** icon at the top of the blade.
-1. You can also remove a single resource by selecting the link to the resource from the **Name** field in the table. From the resource's detail page, select the **Delete** icon at the top of the blade.
+1. Go to the resource pane.
+1. On the resource pane, you can remove a single resource or multiple resources by selecting the checkbox to the left of the table. After you select the resources to remove, in the command bar, select the **Delete** icon.
+1. You also can remove a single resource. Under **Name**, select the link for the resource. On the resource's detail pane, select the **Delete** icon.
 
 ### Add, manage, or delete resource tags
 
-1. Follow the steps to **Access the resource blade**.
-1. Select the link to the resource from the **Name** field in the table.
-1. From the resource's overview page, select the **Edit** link on the **Tags** field.
-1. To create a new tag, enter values in the **Name** and **Value** fields.
-1. To edit an existing tag, change the value in the existing tag's **Value** field.
-1. To delete an existing tag, select the **Trashcan** icon at the right-side of the tag.
+1. Go to the resource pane.
+1. Under **Name**, select the link for the resource.
+1. On the resource overview pane, under **Tags**, select **Edit**.
+1. To create a new tag, enter a name and tag value.
+1. To edit an existing tag, change the value for the existing tag.
+1. To delete an existing tag, select the **Delete** icon to the right of the tag.
 
-### Manage Resource Allocation for Oracle Autonomous Database Serverless Instances
+### Manage resource allocation
 
->[!NOTE] 
->You can only change the resource allocation settings for Oracle Autonomous Database Serverless instances using these steps. This does not apply to any other resource type.
+> [!NOTE]
+> You can change only the *resource allocation* settings for an instance of Oracle Database@Azure by using these steps. The steps don't apply to any other resource type.
 
-1. Follow the steps to access the Oracle Autonomous Database@Azure blade.
-1. Select the link to the resource from the **Name** field in the table.
-1. From the resource's overview page, select the **Setting** link left-menu, and then the **Resource allocation** link.
-1. Select the **Manage** button at the top of the **Resource allocation** page.
-1. From the **Manage resource allocation** window, you can set the **ECPU count** from 2 to 512. The **Compute auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its computing allocation automatically up to 512. The **Storage** is a slider UI that allows setting the Storage allocation from 1 TB to 383 TB. The **Storage auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its storage allocation automatically up to 383 TB.
-1. After you have set or reviewed the fields, select the **Apply** or **Cancel** button as appropriate.
+1. Go to the resource pane.
+1. Under **Name**, select the link for the resource.
+1. On the service menu, select **Settings**, and then select **Resource allocation**.
+1. On the **Resource allocation** pane, select **Manage**.
+1. On the **Manage resource allocation** pane, you can set the Elastic Compute Processing Unit (ECPU) count from **2** to **512**. To set your Oracle Database@Azure instance to scale its computing allocation automatically up to 512, select the **Compute auto scaling** checkbox. For **Storage**, set storage allocation from 1 TB to 383 TB. To set your Oracle Database@Azure instance to scale storage allocation automatically up to 383 TB, select the **Storage auto scaling** checkbox.
+1. After you set or review settings, select **Apply** to apply changes, or select **Cancel** to leave the current settings.
 
-### Perform a connectivity test
+### Test connectivity
 
-1. Follow the steps to access the Oracle Autonomous Database@Azure blade.
-1. Select the link to the resource from the Name field in the table.
-1. From the resource's overview page, select the Settings link left-menu, and then the Connections link.
-1. Select the Download wallet icon and save the file.
-1. Open Oracle SQL Developer. If you don't have SQL Developer installed, download SQL Developer and install.
-1. Within SQL Developer, open a new connection with the following information.
-   1. **Name** - Enter a name of your choice used to save your connection.
-   1. **Username** - Enter **SYS**.
-   1. **Password** - Enter the password used when creating the PDB.
-   1. **Role** - Select **SYSDBA**.
-   1. **Save Password** - Select the box if your security rules allow. If not, you will need to enter the PDB password every time you use this connection in SQL Developer.
-   1. **Connection Type** - Select **Cloud Wallet**.
-   1. **Configuration File** - Select **Browse**, and select the wallet you downloaded.
-   1. Select the **Test** button. The **Status** at the bottom of the connections list should show as **Success**. If the connection is not a success, the wallet is out of date, or the ADB is not currently running.
-   1. Select the **Save** button.
-   1. Select the **Connect** button.
+1. Go to the resource pane.
+1. Under **Name**, select the link for the resource.
+1. On the service menu, select **Settings**, and then select **Connections**.
+1. Select the **Download wallet** icon and save the file.
+1. Open Oracle SQL Developer. If you don't have SQL Developer installed, download SQL Developer and install it.
+1. In SQL Developer, open a new connection by using the following information:
+
+   1. **Name**: Enter a name to use for the connection.
+   1. **Username**: Enter **SYS**.
+   1. **Password**: Enter the password you used when you created the pluggable database (PDB).
+   1. **Role**: Select **SYSDBA**.
+   1. **Save Password**: Select this checkbox if your security rules allow. Otherwise, you're required to enter the PDB password every time you use this connection in SQL Developer.
+   1. **Connection Type**: Select **Cloud Wallet**.
+   1. **Configuration File**: Select **Browse**, and then select the wallet you downloaded.
+   1. Select the **Test** button. Check **Status** in the list of connections for a **Success** value. If the connection isn't a success, the wallet is out of date, or the instance of Oracle Autonomous Database isn't currently running.
+   1. Select **Save**.
+   1. Select **Connect**.
 
 ### Access the OCI console
 
-1. Follow the steps to **Access the resource blade**.
-1. Select the link to the resource from the **Name** field in the table.
-1. From the resource's detail page, select the **Go to OCI** link on the **OCI Database URL** field.
-1. Log in to OCI.
+1. Go to the resource pane.
+1. Under **Name**, select the link for the resource.
+1. On the service menu, under **OCI Database URL**, select the **Go to OCI** link.
+1. Sign in to OCI.
 1. Manage the resource from within the OCI console.
 
-### Support for OracleDB@Azure
+### Get support for Oracle Database@Azure
 
-1. Follow the steps to Access the OCI console.
-1. From the OCI console, there are two ways to access support resources.
-   1. At the top of the page, select the Help (?) icon at the top-right of the menu bar.
-   1. On the right-side of the page, select the floating Support icon. 
-    >[!NOTE] 
-    > This icon can be moved by the user, and the precise horizontal location can vary from user to user.
+1. Follow the steps to [access the OCI console](#access-the-oci-console).
+
+1. In the OCI console, choose an option to access support resources:
+
+   - On the top-right menu bar, select the **Help** (`?`) icon.
+
+   - On the right side of the page, select the floating **Support** icon.
 
 1. You have several support options from here, including documentation, requesting help via chat, visiting the Support Center, posting a question to a forum, submitting feedback, requesting a limit increase, and creating a support request.
-1. If you need to create a support request, select that option.
-1. The support request page will auto-populate with information needed by Oracle Support Services, including resource name, resource OCID, service group, service, and several other items dependent upon the specific OracleDB@Azure resource.
-1. Select the support option from the following options:
-   1. **Critical outage** for critical production system outage or a critical business function is unavailable or unstable. You or an alternate contact must be available to work this issue 24x7 if needed.
-   1. **Significant impairment** for critical system or a business function experiencing severe loss of service. Operations can continue in a restricted manner. You or an alternate contact are available to work this issue during normal business hours.
-   1. **Technical issue** where functionality, errors, or a performance issue impact some operations.
-   1. **General guidance** where a product or service usage question, product or service setup, or documentation clarification is needed.
-1. Select the **Create Support Request** button.
-1. The support ticket is created. This ticket can be monitored within the OCI console or via [My Oracle Support (MOS)](https://support.oracle.com/).
+
+   If you need to create a support request, select that option.
+
+1. The support request page autopopulates with information that's needed by Oracle Support Services, including the resource name, the resource Oracle Cloud Identifier (OCID), the service group, the service, and several other items depending on the Oracle Database@Azure resource.
+
+1. Select the relevant support option from the following options:
+
+   1. **Critical outage** for a critical production system outage or if a critical business function is unavailable or unstable. You or an alternate contact must be available to work on this issue 24x7 if needed.
+
+   1. **Significant impairment** for a critical system failure or if a business function experiencing severe loss of service. Operations can continue in a restricted manner. You or an alternate contact must be available to work on this issue during normal business hours.
+
+   1. **Technical issue** for functionality, errors, or a performance issue that affects only some operations.
+
+   1. **General guidance** if you have a product or service usage question, for product or service setup, or if you need documentation clarification.
+
+1. Select **Create Support Request**.
+
+The support ticket is created. You can monitor the ticket in the OCI console or via [My Oracle Support (MOS)](https://support.oracle.com/).

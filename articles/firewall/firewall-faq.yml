@@ -3,12 +3,12 @@ metadata:
   title: Azure Firewall FAQ
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
-  author: vhorne
+  author: duongau
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
-  ms.date: 02/29/2024
-  ms.author: victorh
+  ms.date: 03/17/2025
+  ms.author: duau
 title: Azure Firewall FAQ
 summary: |
 
@@ -81,7 +81,7 @@ sections:
         answer: |
           You can use Azure PowerShell *deallocate* and *allocate* methods. For a firewall configured for forced tunneling, the procedure is slightly different.
 
-          For example, for a firewall NOT configured for forced tunneling:
+          For example, for a firewall configured with the Management NIC NOT enabled:
 
           ```azurepowershell
           # Stop an existing firewall
@@ -103,7 +103,7 @@ sections:
           Set-AzFirewall -AzureFirewall $azfw
           ```
 
-          For a firewall configured for forced tunneling, stopping is the same. But starting requires the management public IP to be re-associated back to the firewall:
+          For a firewall configured with the Management NIC enabled, stopping is the same. But starting requires the management public IP to be re-associated back to the firewall:
 
           ```azurepowershell
           # Stop an existing firewall
@@ -153,10 +153,12 @@ sections:
         answer: |
            The recommendation is to configure availability zones during the initial firewall deployment. However, in some cases it's possible to change availability zones after deployment. The prerequisites are:
            - The firewall is deployed in a VNet. It isn't supported with firewalls deployed in a secured virtual hub.
-           - The firewall's region [supports availability zones](../reliability/availability-zones-service-support.md).
+           - The firewall's region [supports availability zones](../reliability/availability-zones-region-support.md).
            - All attached public IP addresses are deployed with availability zones. In the properties page of each public IP address, ensure the **availability zones** field exists and is configured with the same zones you configured for the firewall.
 
-           Reconfiguring availability zones can only be done when you restart the firewall. After you allocate the firewall, and right before starting the firewall with `Set-AzFirewall`, use the following Azure PowerShell to modify the firewall's **Zones** property:
+           Reconfiguring availability zones can only be done when you restart the firewall. First you need to deallocate the firewall (by using '$azfw.Deallocate()'), then change the zone configuration and then allocate the firewall (by using  '$azfw.Allocate()').  
+           
+           After you allocate the firewall, and right before starting the firewall with `Set-AzFirewall`, use the following Azure PowerShell to modify the firewall's **Zones** property:
 
            ```azurepowershell
            $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"

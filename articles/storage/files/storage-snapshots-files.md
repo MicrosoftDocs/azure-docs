@@ -4,7 +4,7 @@ description: A share snapshot is a read-only, point-in-time copy of an Azure fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 12/09/2024
 ms.author: kendownie
 ---
 
@@ -45,10 +45,10 @@ You can restore a complete file share by using SMB, NFS, REST API, the Azure por
 
 After a share snapshot is created, it can be read, copied, or deleted, but not modified. You can't copy a whole share snapshot to another storage account. You have to do that file by file, by using AzCopy or other copying mechanisms.
 
-A share snapshot of a file share is identical to its base file share. The only difference is that a **DateTime** value is appended to the share URI to indicate the time at which the share snapshot was taken. For example, if a file share URI is http:\//storagesample.core.file.windows.net/myshare, the share snapshot URI is similar to:
+A share snapshot of a file share is identical to its base file share. The only difference is that a **DateTime** value is appended to the share URI to indicate the time at which the share snapshot was taken. For example, if a file share URI is https:\//storagesample.file.core.windows.net/myshare, the share snapshot URI is similar to:
 
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+https://storagesample.file.core.windows.net/myshare?sharesnapshot=2024-12-09T17:44:51.0000000Z
 ```
 
 Share snapshots persist until they are explicitly deleted, or until the file share is deleted. You can't delete a file share and keep the share snapshots. The delete workflow will automatically delete the snapshots when you delete the share. You can enumerate the snapshots associated with the base file share to track your current snapshots.
@@ -368,7 +368,7 @@ az storage share list --account-name <storage-account-name> --include-snapshots
 
 To mount an NFS Azure file share snapshot to a Linux VM (NFS client) and restore files, follow these steps.
 
-1. Run the following command in a console. See [Mount options](storage-files-how-to-mount-nfs-shares.md#mount-options) for other recommended mount options. To improve copy performance, mount the snapshot with [nconnect](nfs-performance.md#nconnect) to use multiple TCP channels.
+1. Run the following command in a console. See [Mount options](storage-files-how-to-mount-nfs-shares.md#mount-options) for other recommended mount options. To improve copy performance, mount the snapshot with [nconnect](nfs-performance.md#nfs-nconnect) to use multiple TCP channels.
    
    ```bash
    sudo mount -o vers=4,minorversion=1,proto=tcp,sec=sys $server:/nfs4account/share /media/nfs

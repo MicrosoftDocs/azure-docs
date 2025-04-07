@@ -122,12 +122,12 @@ In [/samples/OnFido-Combined/Policies](https://github.com/azure-ad-b2c/partner-i
 |Placeholder|Replace with value|Example|
 |---|---|---|
 |{your_tenant_name}|Your tenant short name|"your tenant" from yourtenant.onmicrosoft.com|
-|{your_tenantID}|Your Azure AD B2C TenantID| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_IdentityExperienceFramework_appid}|IdentityExperienceFramework app App ID configured in your Azure AD B2C tenant|01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_ ProxyIdentityExperienceFramework_appid}|ProxyIdentityExperienceFramework app App ID configured in your Azure AD B2C tenant| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_extensions_appid}|Your tenant storage application App ID| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_extensions_app_objectid}|Your tenant storage application Object ID| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_app_insights_instrumentation_key}|Your app insights instance* instrumentation key|01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenantID}|Your Azure AD B2C TenantID| aaaabbbb-0000-cccc-1111-dddd2222eeee|
+|{your_tenant_IdentityExperienceFramework_appid}|IdentityExperienceFramework app App ID configured in your Azure AD B2C tenant|00001111-aaaa-2222-bbbb-3333cccc4444|
+|{your_tenant_ ProxyIdentityExperienceFramework_appid}|ProxyIdentityExperienceFramework app App ID configured in your Azure AD B2C tenant| 00001111-aaaa-2222-bbbb-3333cccc4444|
+|{your_tenant_extensions_appid}|Your tenant storage application App ID| 00001111-aaaa-2222-bbbb-3333cccc4444|
+|{your_tenant_extensions_app_objectid}|Your tenant storage application Object ID| aaaabbbb-0000-cccc-1111-dddd2222eeee|
+|{your_app_insights_instrumentation_key}|Your app insights instance* instrumentation key|00001111-aaaa-2222-bbbb-3333cccc4444|
 |{your_ui_file_base_url}|Location URL of your UI folders **ocean_blue**, **dist**, and **assets**| `https://yourstorage.blob.core.windows.net/UI/`|
 |{your_app_service_URL}|The app service URL you set up|`https://yourapp.azurewebsites.net`|
 

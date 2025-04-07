@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Stora
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -208,6 +208,7 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/changeKeyVault/action | Change an account's existing AKV/HSM encryption with another instance of either AKV/HSM. |
 > | Microsoft.NetApp/netAppAccounts/getKeyVaultStatus/action | Get an account's key vault information, including subnet and private endpoint encryption pairs that have access to the key vault. |
 > | Microsoft.NetApp/netAppAccounts/migrateEncryption/action | Migrate volumes under an encryption sibling set from Microsoft-managed key to Customer-managed key or vice versa. |
+> | Microsoft.NetApp/netAppAccounts/transitionToCmk/action | Transitions all volumes under an encryption sibling set from Microsoft-managed key to Customer-managed key or vice versa. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/read | Reads an account backup resource. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/write | Writes an account backup resource. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/delete | Deletes an account backup resource. |
@@ -341,10 +342,13 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/accountMigrations/write | Customer is able to update their storage account redundancy for increased resiliency |
 > | Microsoft.Storage/storageAccounts/blobServices/read | List blob services |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the blob service |
+> | Microsoft.Storage/storageAccounts/blobServices/getInfo/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/write | Returns the result of put blob service properties |
 > | Microsoft.Storage/storageAccounts/blobServices/read | Returns blob service properties or statistics |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/migrate/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of patch blob container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/setAcl/action |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/getAcl/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
@@ -435,6 +439,8 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/setAcl/action | Returns the result of processing a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/getAcl/action | Returns the result of processing a message |
 > | Microsoft.Storage/storageAccounts/reports/read |  |
 > | Microsoft.Storage/storageAccounts/restorePoints/delete | Delete object replication restore point |
 > | Microsoft.Storage/storageAccounts/restorePoints/read | Get object replication restore point |
@@ -459,6 +465,8 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/tableServices/tables/read | Query tables |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/write | Create tables |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/delete | Delete tables |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/setAcl/action | Merge or update table entities |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/getAcl/action | Merge or update table entities |
 > | Microsoft.Storage/storageTasks/delete | Deletes an existing storage task |
 > | Microsoft.Storage/storageTasks/read | Gets the properties for the specified storage task |
 > | Microsoft.Storage/storageTasks/promote/action | Promote specific version of storage task to current version |

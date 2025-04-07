@@ -58,7 +58,7 @@ A nonexhaustive list of images with backported patches for DPDK with MANA:
 # check for pci devices with ID:
 #   vendor: Microsoft Corporation (1414)
 #   class:  Ethernet Controller (0200)
-#   device: Microsft Azure Network Adapter VF (00ba)
+#   device: Microsoft Azure Network Adapter VF (00ba)
 if [[ -n `lspci -d 1414:00ba:0200` ]]; then
     echo "MANA device is available."
 else

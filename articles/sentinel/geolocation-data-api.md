@@ -64,7 +64,7 @@ This command retrieves geolocation data for a given IP Address.
 |**city**     |   The city where this IP address is located      |
 |**cityCf**     | A numeric rating of confidence that the value in the 'city' field is correct, on a scale of 0-100        |
 |**continent**     | The continent where this IP address is located        |
-|**country**     |The county where this IP address is located        |
+|**country**     |The country/region where this IP address is located        |
 |**countryCf**     |   A numeric rating of confidence that the value in the 'country' field is correct on a scale of 0-100      |
 |**ipAddr**     |   The dotted-decimal or colon-separated string representation of the IP address      |
 |**ipRoutingType**     |   A description of the connection type for this IP address      |

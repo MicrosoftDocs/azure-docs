@@ -1,10 +1,11 @@
-﻿---
+---
 title: Script Sample - Disable Soft delete for File Share
 description: Learn how to use a script to disable soft delete for file shares in a storage account.
 ms.topic: sample
-ms.date: 02/02/2020
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 10/20/2024
+ms.service: azure-backup
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Disable soft delete for file shares in a storage account
@@ -47,7 +48,7 @@ Follow these steps:
     }
     ```
 
-3. Keep your storage account Azure Resource Manager (ARM) ID handy. For example: `/subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/afsshare/providers/Microsoft.Storage/storageAccounts/inquirytest`
+3. Keep your storage account Azure Resource Manager (ARM) ID handy. For example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/afsshare/providers/Microsoft.Storage/storageAccounts/inquirytest`
 
 4. Sign in using your credentials by running **armclient login**.
 
@@ -56,12 +57,12 @@ Follow these steps:
     The following GET operation fetches the soft delete properties for file shares in the *inquirytest* account:
 
     ```cmd
-    armclient get /subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01
+    armclient get /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01
     ```
 
     ```output
     {
-    "id": "/subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/Bugbash/providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/de
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Bugbash/providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/de
     fault",
     "name": "default",
     "type": "Microsoft.Storage/storageAccounts/fileServices",
@@ -82,12 +83,12 @@ Follow these steps:
     The following PUT operation disables the soft delete properties for file shares in the *inquirytest* account:
 
     ```cmd
-    armclient put /subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01 .\rqbody-disableSoftDelete.json
+    armclient put /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01 .\rqbody-disableSoftDelete.json
     ```
 
     ```Output
     {
-    "id": "/subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/Bugbash/providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/de
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Bugbash/providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/de
     fault",
     "name": "default",
     "type": "Microsoft.Storage/storageAccounts/fileServices",
@@ -105,12 +106,12 @@ Follow these steps:
     The following PUT operation enables the soft delete properties for file shares in “inquirytest “account.
 
     ```cmd
-    armclient put /subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01 .\rqbody-EnableSoftDelete.json
+    armclient put /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/afsshare /providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default?api-version=2019-04-01 .\rqbody-EnableSoftDelete.json
     ```
 
     ```Output
     {
-    "id": "/subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/Bugbash/providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Bugbash/providers/Microsoft.Storage/storageAccounts/inquirytest/fileServices/default",
     "name": "default",
     "type": "Microsoft.Storage/storageAccounts/fileServices",
     "properties": {

@@ -4,7 +4,7 @@ description: How-to guide for restoring an existing dedicated SQL pool.
 author: realAngryAnalytics
 ms.author: stevehow
 manager: joannapea
-ms.reviewer: joanpo, wiassaf
+ms.reviewer: joanpo
 ms.date: 01/23/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
@@ -138,7 +138,7 @@ Steps:
 
 1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. To validate your version via PowerShell:
    ```powershell
-   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
+   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prerequisite met."} else {update-module az.sql} }
    ```
    
 1. Connect to your Azure account and list all the subscriptions associated with your account.

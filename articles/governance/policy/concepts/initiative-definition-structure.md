@@ -1,7 +1,7 @@
 ---
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
-ms.date: 07/02/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 # Azure Policy initiative definition structure
@@ -390,9 +390,9 @@ Below is an example of the **policyMetadata** object. This example metadata belo
 
 ## Next steps
 
-- See the [definition structure](./definition-structure.md)
+- See the [definition structure](./definition-structure-basics.md)
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](effects.md).
+- Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
