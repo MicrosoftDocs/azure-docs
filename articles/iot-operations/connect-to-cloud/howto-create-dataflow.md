@@ -70,7 +70,7 @@ Once you have the prerequisites, you can start to create a data flow.
 
 1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow and choose the data flow profile to use. The default data flow profile is selected by default. For more information on data flow profiles, see [Configure data flow profile](howto-configure-dataflow-profile.md).
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-profile.png" alt-text=""Screenshot of the operations experience interface where a user names the data flow and selects a profile for it.:::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-profile.png" alt-text="Screenshot of the operations experience interface where a user names the data flow and selects a profile for it.":::
 
     > [!IMPORTANT] 
     > You can only choose the data flow profile when creating a data flow. You can't change the data flow profile after the data flow is created.
