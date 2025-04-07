@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 04/03/2025
+ms.date: 04/07/2025
 ms.author: cshoe
 ---
 
 # Azure Functions on Azure Container Apps overview
 
-Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on Azure Container Apps. Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs.
+Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on Azure Container Apps. Use Azure Container Apps for your Functions apps when you need to run in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs.
 
 Container Apps hosting lets you run your functions in a fully supported and managed, container-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
 
@@ -27,7 +27,7 @@ By running Functions in Container Apps, you benefit from automatic scaling, easy
 
 ## Scenarios
 
-Azure Functions in Container Apps provides a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
+Azure Functions in Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
 
 - **Line-of-business APIs**: Package custom libraries, packages, and APIs with Functions for line-of-business applications.
 

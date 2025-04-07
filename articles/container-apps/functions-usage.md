@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 04/03/2025
+ms.date: 04/07/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -88,6 +88,9 @@ The following steps show you how to use a sample container image to create your 
     The `AzureWebJobsStorage` variable is a required Azure Storage account connection string for Azure Functions. This storage account stores function execution logs, manage triggers and bindings, and maintains state for durable functions.
 
     Application Insights is a monitoring and diagnostic service that provides insights into the performance and usage of your Azure Functions. This monitoring helps you track request rates, response times, failure rates, and other metrics.
+
+    > [!TIP]
+    > By default, a containerized function app monitors port `80` for incoming requests. If your app uses a different port, use the `WEBSITES_PORT` application setting to change the default port.
 
 1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 
