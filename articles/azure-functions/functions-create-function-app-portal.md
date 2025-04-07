@@ -88,7 +88,7 @@ Next, create a function in the new function app.
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-csharp"  
 ## <a name="create-function"></a>Create an HTTP trigger function
 
-1. In your function app, select **Overview**, and then select **+ Create** under **Functions**. If you don't see the **+ Create** button, you can instead [create your functions locally](#create-your-functions-locally).
+1. In your function app, select **Overview**, and then select **+ Create** under **Functions**. If you don't see the **+ Create** button, you must instead [create your functions locally](./functions-develop-local.md).
 
 1. Under **Select a template**, scroll down and choose the **HTTP trigger** template.
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 04/07/2025
 ms.author: anfdocs
 ---
 # Restore a backup to a new volume
@@ -14,19 +14,19 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 ## Considerations
 
-* You can restore backups only within the same NetApp account. Restoring backups across NetApp accounts are not supported. 
+* You can restore backups only within the same NetApp account. Restoring backups across NetApp accounts isn't supported. 
 
 * You can restore backups to a different capacity pool within the same NetApp account.
 
-* You can restore a backup only to a new volume. You cannot overwrite the existing volume with the backup. 
+* You can restore a backup only to a new volume. You can't overwrite the existing volume with the backup. 
 
-* The new volume created by the restore operation cannot be mounted until the restore completes. 
+* The new volume created by the restore operation can't be mounted until the restore completes. 
 
 * You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
 
 * For volumes greater than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
-* Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
+* Restoring a backup to a new volume isn't dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
 * In the Volume overview page, refer to the **Originated from** field to see the name of the snapshot used to create the volume. 
 
@@ -34,7 +34,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 
 > [!IMPORTANT]
-> Running multiple concurrent volume restores using Azure NetApp Files backup may increase the time it takes for each individual, in-progress restore to complete. As such, if time is a factor to you, you should prioritize and sequentialize the most important volume restores and wait until the restores are complete before starting another, lower priority, volume restores.  
+> Running multiple concurrent volume restores using Azure NetApp Files backup may increase the time it takes for each individual, in-progress restore to complete. I time is a factor, prioritize and sequentialize the most important volume restores and wait until the restores are complete before starting other, lower priority volume restores.  
 
 See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for more considerations about using Azure NetApp Files backup. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for information about minimums and maximums. 
 
