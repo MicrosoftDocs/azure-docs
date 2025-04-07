@@ -62,10 +62,10 @@ The restart typically is the starting point for mitigating a problem.
 
 ### Restart workflow
 
-1. **Assess impact** - Determine if restarting the BMM will impact critical workloads
-2. **Power off** - If needed, power off the BMM (optional)
-3. **Start or restart** - Either start a powered-off BMM or restart a running BMM
-4. **Verify status** - Check if the BMM is back online and functioning properly
+1. **Assess impact** - Determine if restarting the BMM will impact critical workloads.
+1. **Power off** - If needed, power off the BMM (optional).
+1. **Start or restart** - Either start a powered-off BMM or restart a running BMM.
+1. **Verify status** - Check if the BMM is back online and functioning properly.
 
 > [!NOTE]
 > The restart operation is the fastest recovery method but may not resolve issues related to OS corruption or hardware failures.
@@ -117,10 +117,10 @@ A reimage action is the best practice for lowest operational risk to ensure the 
 
 ### Reimage workflow
 
-1. **Verify running workloads** - Before reimaging, check what workloads are running on the BMM
-2. **Cordon and evacuate workloads** - Drain the BMM of workloads
-3. **Perform reimage** - Execute the reimage operation
-4. **Uncordon** - Make the BMM schedulable again after reimage completes
+1. **Verify running workloads** - Before reimaging, check what workloads are running on the BMM.
+1. **Cordon and evacuate workloads** - Drain the BMM of workloads.
+1. **Perform reimage** - Execute the reimage operation.
+1. **Uncordon** - Make the BMM schedulable again after reimage completes.
 
 > [!WARNING]
 > Running more than one `baremetalmachine replace` or `reimage` command at the same time, or running a `replace`
@@ -181,11 +181,11 @@ A hardware validation process is invoked to ensure the integrity of the physical
 
 ### Replace workflow
 
-1. **Cordon and evacuate** - Remove workloads from the BMM before physical repair
-2. **Perform physical repairs** - Replace hardware components as needed
-3. **Execute replace command** - Run the replace command with required parameters 
-4. **Uncordon** - Make the BMM schedulable again after replacement completes
-5. **Verify status** - Check that the BMM is properly functioning
+1. **Cordon and evacuate** - Remove workloads from the BMM before physical repair.
+1. **Perform physical repairs** - Replace hardware components as needed.
+1. **Execute replace command** - Run the replace command with required parameters.
+1. **Uncordon** - Make the BMM schedulable again after replacement completes.
+1. **Verify status** - Check that the BMM is properly functioning.
 
 **The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
 
@@ -257,10 +257,10 @@ Restarting, reimaging, and replacing are effective troubleshooting methods for a
 ### Best practices
 
 1. **Always follow the escalation path**: Start with restart, then reimage, then replace unless the issue clearly indicates otherwise.
-2. **Verify workloads before action**: Use the provided commands to identify running workloads before any disruptive action.
-3. **Cordon with evacuation**: When performing reimage or replace actions, always use `cordon` with `evacuate="True"` to safely move workloads.
-4. **Never run multiple operations simultaneously**: Ensure one operation completes before starting another to prevent server issues.
-5. **Verify resolution**: After performing any action, verify the BMM status and that the original issue is resolved.
+1. **Verify workloads before action**: Use the provided commands to identify running workloads before any disruptive action.
+1. **Cordon with evacuation**: When performing reimage or replace actions, always use `cordon` with `evacuate="True"` to safely move workloads.
+1. **Never run multiple operations simultaneously**: Ensure one operation completes before starting another to prevent server issues.
+1. **Verify resolution**: After performing any action, verify the BMM status and that the original issue is resolved.
 
 More details about the BMM actions can be found in the [BMM actions](howto-baremetal-functions.md) article.
 
