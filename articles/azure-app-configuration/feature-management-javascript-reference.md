@@ -154,8 +154,8 @@ const featureManager = new FeatureManager(featureProvider);
 You need to call the `refresh` method to get the latest feature flag state.
 
 ```typescript
-await appConfig.refresh(); // Refresh to get the latest feature flag settings
-const isBetaEnabled = await fm.isEnabled("Beta");
+await appConfig.refresh(); // Refresh to get the latest feature flags
+const isBetaEnabled = await featureManager.isEnabled("Beta");
 console.log(`Beta is enabled: ${isBetaEnabled}`);
 ```
 
