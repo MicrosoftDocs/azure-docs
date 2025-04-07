@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 03/14/2025
 ---
 
 # Integrate the Azure Cosmos DB for Table with Service Connector
@@ -37,6 +37,9 @@ The table below shows which combinations of client types and authentication meth
 
 This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Cosmos DB for Table using Service Connector.
 
+> [!NOTE]
+> Cosmos DB does not natively support authentication via managed identity. Therefore, Service Connector uses the managed identity to retrieve the connection string, and the connection is subsequently established using that connection string.
+
 ## Default environment variable names or application properties and sample code
 
 Use the connection details below to connect your compute services to Azure Cosmos DB for Table. For each example below, replace the placeholder texts `<account-name>`, `<table-name>`, `<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<client-secret>`, `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
@@ -66,6 +69,9 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Table using 
 #### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for Table using a user-assigned managed identity.
+
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for cosmos table](./includes/code-cosmostable-me-id.md)]
 
 #### Connection string
@@ -80,6 +86,9 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Table using 
 #### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for Table using a connection string.
+
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for cosmos table](./includes/code-cosmostable-secret.md)]
 
 #### Service principal

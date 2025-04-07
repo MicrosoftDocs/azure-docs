@@ -96,7 +96,9 @@ items:
   - name: Plan the deployment
     href: plan-private-cloud-deployment.md
   - name: Deploy Azure VMware Solution
-    href: deploy-azure-vmware-solution.md	
+    href: deploy-azure-vmware-solution.md
+  - name: Azure VMware Solution SDDC maintenance best practices
+    href: azure-vmware-solution-host-remediation.md
   - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
   - name: Create a placement policy
@@ -223,17 +225,18 @@ items:
     href: azure-vmware-solution-citrix.md
 - name: Storage
   items:
-  - name: Configure storage policies
-    href: configure-storage-policy.md
   - name: Configure vSAN
     href: configure-vsan.md
-  - name: Configure customer-managed key encryption at rest
-    href: configure-customer-managed-keys.md
-  - name: Extend Azure VMware Solution with external storage
+    items:
+     - name: Configure storage policies
+       href: configure-storage-policy.md
+     - name: Configure customer-managed key encryption at rest
+       href: configure-customer-managed-keys.md
+  - name: External storage solutions
     href: ecosystem-external-storage-solutions.md
   - name: Configure Azure Elastic SAN
     href: configure-azure-elastic-san.md
-  - name: Manage and protect VMs on Azure NetApp Files
+  - name: Configure Azure NetApp Files
     items:
     - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
       href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
@@ -249,7 +252,7 @@ items:
       href: restore-azure-netapp-files-vms.md
     - name: Restore guest files and folders
       href: restore-guest-files-folders.md  
-  - name: Pure Cloud Block Store
+  - name: Configure Pure Cloud Block Store
     href: configure-pure-cloud-block-store.md
 - name: Backup and recovery
   items:

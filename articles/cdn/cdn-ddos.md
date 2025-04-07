@@ -2,12 +2,13 @@
 title: Azure Content Delivery Network DDoS Protection capabilities
 description: Azure Content Delivery Network from Microsoft is protected by DDoS Protection Basic for no extra cost
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Azure Content Delivery Network DDoS Protection

@@ -6,12 +6,12 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 02/02/2024
+ms.date: 03/14/2025
 ---
 
 # Integrate Azure Database for MySQL with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Database for MySQL - Flexible Server to other cloud services using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
+This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Database for MySQL - Flexible Server using Service Connector. In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
 
 [!INCLUDE [Azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
@@ -27,7 +27,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Database for MySQL using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute services to Azure Database for MySQL using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client type                     | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
 |---------------------------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
@@ -42,16 +42,14 @@ The table below shows which combinations of authentication methods and clients a
 | Ruby (mysql2)                   |                Yes               |               Yes              |            Yes           |        Yes        |
 | None                            |                Yes               |               Yes              |            Yes           |        Yes        |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Database for MySQL using Service Connector.
-
 > [!NOTE]
-> System-assigned managed identity, User-assigned managed identity and Service principal are only supported on Azure CLI.
+> System-assigned managed identity, user-assigned managed identity and service principal authentication is only supported on Azure CLI.
 
 ## Default environment variable names or application properties and sample code
 
 Reference the connection details and sample code in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for MySQL. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### System-assigned Managed Identity
+### System-assigned managed identity
 
 #### [.NET](#tab/dotnet)
 
@@ -65,7 +63,7 @@ Reference the connection details and sample code in following tables, according 
 | --------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `AZURE_MYSQL_CONNECTIONSTRING`  | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-#### [SpringBoot](#tab/springBoot)
+#### [Spring Boot](#tab/springBoot)
 
 | Application properties                           | Description                        | Example value                                                                                   |
 | ------------------------------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -140,7 +138,7 @@ Reference the connection details and sample code in following tables, according 
 Refer to the steps and code below to connect to Azure Database for MySQL using a system-assigned managed identity.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
-### User-assigned Managed Identity
+### User-assigned managed identity
 
 #### [.NET](#tab/dotnet)
 
@@ -156,7 +154,7 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 | `AZURE_MYSQL_CLIENTID`          | Your client ID               | `<identity-client-ID>`                                                                                                 |
 | `AZURE_MYSQL_CONNECTIONSTRING`  | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-#### [SpringBoot](#tab/springBoot)
+#### [Spring Boot](#tab/springBoot)
 
 | Application properties                                            | Description                        | Example value                                                                                   |
 | ----------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -240,7 +238,7 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 Refer to the steps and code below to connect to Azure Database for MySQL using a user-assigned managed identity.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
-### Connection String
+### Connection string
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
@@ -257,7 +255,7 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 | --------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `AZURE_MYSQL_CONNECTIONSTRING`  | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
 
-#### [SpringBoot](#tab/springBoot)
+#### [Spring Boot](#tab/springBoot)
 
 | Application properties         | Description                   | Example value                                                                                   |
 | ------------------------------ | ----------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -340,7 +338,7 @@ After created a `springboot` client type connection, Service Connector service w
 Refer to the steps and code below to connect to Azure Database for MySQL using a connection string.
 [!INCLUDE [code sample for mysql secrets](./includes/code-mysql-secret.md)]
 
-### Service Principal
+### Service principal
 
 #### [.NET](#tab/dotnet)
 
@@ -360,7 +358,7 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 | `AZURE_MYSQL_TENANTID`          | Your tenant ID               | `<tenant-ID>`                                                                                                          |
 | `AZURE_MYSQL_CONNECTIONSTRING`  | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-#### [SpringBoot](#tab/springBoot)
+#### [Spring Boot](#tab/springBoot)
 
 | Application properties                           | Description                        | Example value                                                                                   |
 | ------------------------------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------- |

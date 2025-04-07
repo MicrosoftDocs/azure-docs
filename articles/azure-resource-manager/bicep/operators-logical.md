@@ -3,7 +3,7 @@ title: Bicep logical operators
 description: Describes Bicep logical operators that evaluate conditions.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 03/21/2025
 ---
 
 # Bicep logical operators
@@ -153,7 +153,7 @@ Output from the example:
 
 `operand1 ?? operand2`
 
-Returns first non-null value from operands.
+Returns first non-null value from operands. To control the execution flow, see the [fail function](./bicep-functions-flow-control.md#fail).
 
 ### Operands
 
@@ -197,7 +197,7 @@ Output from the example:
 
 `condition ? true-value : false-value`
 
-Evaluates a condition and returns a value whether the condition is true or false.
+Evaluates a condition and returns a value whether the condition is true or false. To control the execution flow, see the [fail function](./bicep-functions-flow-control.md#fail).
 
 ### Operands
 

@@ -1,9 +1,8 @@
 ---
 title: "Quickstart: Bulk load data using a single T-SQL statement"
 description: Bulk load data using the COPY statement
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 11/20/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

@@ -64,9 +64,6 @@ You should be all set.
 
 ---
 
->[!IMPORTANT]
->This article currently shows how to connect to the container registry by using shared secret credentials. For the best security, you should instead use only a managed identity-based connection to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](../articles/azure-functions/functions-reference.md#connections).
-
 [!INCLUDE [functions-cli-create-venv](functions-cli-create-venv.md)]
 
 ## Create and test the local functions project

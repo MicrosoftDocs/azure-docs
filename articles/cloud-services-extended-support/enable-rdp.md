@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud administrator, I want to enable and configure remote desktop access for role instances in cloud services, so that I can securely manage and troubleshoot deployments after they are live.
 ---
 
 # Apply the Remote Desktop extension to Azure Cloud Services (extended support)

@@ -2,7 +2,8 @@
 title:  "Tutorial: Deploy Spring Boot Applications Using Maven"
 titleSuffix: Azure Spring Apps
 description: Use Maven to deploy applications to Azure Spring Apps.
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: tutorial
@@ -115,7 +116,7 @@ To generate configurations and deploy the app, follow these steps:
 
    * **Subscription ID** - the subscription you used to create an Azure Spring Apps instance.
    * **Service instance** - the name of your Azure Spring Apps instance.
-   * **App name** - an app name of your choice, or use the default value `artifactId`.
+   * **App name** - an app name of your choice, or use the default value **artifactId**.
    * **Public endpoint** - **true** to expose the app to public access; otherwise, **false**.
 
 1. Verify that the `appName` element in the POM file has the correct value. The relevant portion of the POM file should look similar to the following example.

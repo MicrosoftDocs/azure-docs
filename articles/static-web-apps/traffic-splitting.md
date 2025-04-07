@@ -2,11 +2,11 @@
 title: Traffic Splitting in Azure Static Web Apps (preview)
 description: Learn to divert traffic from one branch to another.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 01/22/2025
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Traffic Splitting in Azure Static Web Apps (preview)

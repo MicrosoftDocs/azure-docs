@@ -6,8 +6,9 @@ author: zhangmanling
 manager: erikre
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.author: erikre
+ROBOTS: NOINDEX
 ---
 
 # Real-time status in Microsoft Azure Content Delivery Network

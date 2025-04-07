@@ -2,12 +2,13 @@
 title: Dynamic site acceleration via Azure Content Delivery Network
 description: Azure Content Delivery Network supports dynamic site acceleration (DSA) optimization for files with dynamic content.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Dynamic site acceleration via Azure Content Delivery Network

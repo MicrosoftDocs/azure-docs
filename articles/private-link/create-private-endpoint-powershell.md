@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using Azure PowerShell.

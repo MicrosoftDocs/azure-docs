@@ -2,11 +2,11 @@
 title: Azure Firewall known issues and limitations
 description: Learn about Azure Firewall known issues and limitations.
 services: firewall
-author: vhorne
+author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 01/30/2025
-ms.author: victorh
+ms.date: 03/03/2025
+ms.author: varunkalyana
 ---
 
 # Azure Firewall known issues and limitations
@@ -15,12 +15,18 @@ This article lists the known issues for [Azure Firewall](overview.md) and is upd
 
 For Azure Firewall limitations, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
+> [!IMPORTANT]
+> **Capacity constraints**
+> 
+> The following zones are currently experiencing capacity constraints for both Standard and Premium SKUs:
+> 
+> | Zones | Restrictions | Recommendation |
+> | -- | -- | -- |
+> |- **Physical zone 2** in **_North Europe_** </br>- **Physical zone 3** in **_South East Asia_**  | - You can't deploy a new Azure Firewall to zone 3 in South East Asia or zone 2 in North Europe. </br></br>- If you stop an existing Azure Firewall that is deployed in these zone, it can't be restarted. </br></br>For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). | We recommend you deploy a new Azure Firewall to the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment) |
+
 ## Azure Firewall Standard
 
 Azure Firewall Standard has the following known issues:
-
-> [!NOTE]
-> Any issue that applies to Standard also applies to Premium.
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
@@ -45,19 +51,20 @@ Azure Firewall Standard has the following known issues:
 |Azure Firewall uses SNI TLS headers to filter HTTPS and MSSQL traffic|If browser or server software doesn't support the Server Name Indicator (SNI) extension, you can't connect through Azure Firewall.|If browser or server software doesn't support SNI, then you might be able to control the connection using a network rule instead of an application rule. See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.|
 |Can't add firewall policy tags using the portal or Azure Resource Manager (ARM) templates|Azure Firewall Policy has a patch support limitation that prevents you from adding a tag using the Azure portal or ARM templates. The following  error is generated: *Couldn't save the tags for the resource*.|A fix is being investigated. Or, you can use the Azure PowerShell cmdlet `Set-AzFirewallPolicy` to update tags.|
 |IPv6 not currently supported|If you add an IPv6 address to a rule, the firewall fails.|Use only IPv4 addresses. IPv6 support is under investigation.|
-|Updating multiple IP Groups fails with conflict error.|When you update two or more IP Groups attached to the same firewall, one of the resources goes into a failed state.|This is a known issue/limitation. <br><br>When you update an IP Group, it triggers an update on all firewalls that the IPGroup is attached to. If an update to a second IP Group is started while the firewall is still in the *Updating* state, then the IPGroup update fails.<br><br>To avoid the failure, IP Groups attached to the same firewall must be updated one at a time. Allow enough time between updates to allow the firewall to get out of the *Updating* state.|
 |Removing RuleCollectionGroups using ARM templates not supported.|Removing a RuleCollectionGroup using ARM templates isn't supported and results in failure.|This isn't a supported operation.|
 |DNAT rule for allow *any* (*) will SNAT traffic.|If a DNAT rule allows *any* (*) as the Source IP address, then an implicit Network rule matches VNet-VNet traffic and will always SNAT the traffic.|This is a current limitation.|
 |Adding a DNAT rule to a secured virtual hub with a security provider isn't supported.|This results in an asynchronous route for the returning DNAT traffic, which goes to the security provider.|Not supported.|
 | Error encountered when creating more than 2,000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource Manager limit). | This is a current limitation. |
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
 |Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.|
-|Physical zone 2 in North Europe is unavailable for firewall deployments.|You can’t deploy a new firewall with physical zone 2. Additionally, if you stop an existing firewall that is deployed in physical zone 2, it can't be restarted. For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones).|For new firewalls, deploy with the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment).
+|Associating a Public IP address with Azure Firewall is not supported in a cross-tenant scenario.|If you create a Public IP address in tenant A, you cannot associate it with a firewall deployed in tenant B.|None.|
 
 ## Azure Firewall Premium
 
-Azure Firewall Premium has the following known issues:
+> [!NOTE]
+> Any issue that applies to Standard also applies to Premium.
 
+Azure Firewall Premium has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|

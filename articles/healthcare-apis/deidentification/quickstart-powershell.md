@@ -10,9 +10,9 @@ ms.custom: devx-track-azurepowershell
 ms.date: 11/11/2024
 ---
 
-# Quickstart: Deploy the Azure Health Data Services de-identification service (preview) with Azure PowerShell
+# Quickstart: Deploy the Azure Health Data Services de-identification service with Azure PowerShell
 
-In this quickstart, you use Azure PowerShell to deploy a de-identification service (preview).
+In this quickstart, you use Azure PowerShell to deploy a de-identification service.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Install-Module -Name Az.HealthDataAIServices
 ```
 
-## Deploy a de-identification service (preview)
+## Deploy a de-identification service
 
 Replace `<deid-service-name>` with a name for your de-identification service.
 

@@ -108,6 +108,82 @@ Authorization: Bearer <token>
 
 To reuse a session, specify the same session identifier in subsequent requests.
 
+#### Upload a file to a session
+
+To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a filename.
+
+Uploaded files are stored in the session's file system under the `/mnt/data` directory.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
+
+```http
+POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/upload?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Authorization: Bearer <token>
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="<FILE_NAME_AND_EXTENSION>"
+Content-Type: application/octet-stream
+
+(data)
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+```
+
+> [!NOTE]
+> The file upload limit is `128MB`. If this is exceeded a `HTTP 413` may be returned.
+
+#### Download a file from a session
+
+To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
+
+```http
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/content/<FILE_NAME_AND_EXTENSION>?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+Authorization: Bearer <TOKEN>
+```
+
+#### List the files in a session
+
+To list the files in a session's `/mnt/data` directory, send a `GET` request to the `files` endpoint.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
+
+```http
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+Authorization: Bearer <TOKEN>
+```
+
+The response contains a list of files in the session.
+
+The following listing shows a sample of the type of response you can expect from requesting session contents.
+
+```json
+{
+    "$id": "1",
+    "value": [
+        {
+            "$id": "2",
+            "properties": {
+                "$id": "3",
+                "filename": "test1.txt",
+                "size": 16,
+                "lastModifiedTime": "2024-05-02T07:21:07.9922617Z"
+            }
+        },
+        {
+            "$id": "4",
+            "properties": {
+                "$id": "5",
+                "filename": "test2.txt",
+                "size": 17,
+                "lastModifiedTime": "2024-05-02T07:21:08.8802793Z"
+            }
+        }
+    ]
+}
+```
+
 ## Preinstalled packages
 
 Python code interpreter sessions include popular Python packages such as *NumPy*, *pandas*, and *scikit-learn*.

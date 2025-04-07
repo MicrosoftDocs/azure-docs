@@ -19,7 +19,7 @@ This article describes how to tag virtual machines (VMs) running on your Azure S
 
 Tags are user-defined key-value pairs that can be assigned to a resource or a resource group. You can apply tags to VMs running on your device to logically organize them into a taxonomy. You can place tags on a resource at the time of creation or add it to an existing resource. For example, you can apply the name `Organization` and the value `Engineering` to all VMs that are used by the Engineering department in your organization.
 
-For more information on tags, see how to [Manage tags via AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
+For more information on tags, see how to [Manage tags via AzureRM PowerShell](/powershell/azure/migrate-az-1.0.0).
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
     PS C:\WINDOWS\system32>
     ```
 
-For more information, see [Add-AzureRMTag](/powershell/module/azurerm.tags/remove-azurermtag?view=azurermps-6.13.0&preserve-view=true).
+For more information, see [Add-AzureRMTag](/powershell/module/az.accounts/uninstall-azurerm).
 
 ---
 
@@ -484,4 +484,4 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
 ## Next steps
 
 - Learn how to [How to tag a virtual machine in Azure using az cmdlets in PowerShell](/azure/virtual-machines/tag-powershell).
-- Learn how to [Manage tags via AzureRM cmdlets in PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
+- Learn how to [Manage tags via AzureRM cmdlets in PowerShell](/powershell/azure/migrate-az-1.0.0?view=azurermps-6.13.0&preserve-view=true).

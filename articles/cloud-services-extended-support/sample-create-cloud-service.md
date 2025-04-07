@@ -8,6 +8,7 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want sample scripts for deploying Azure Cloud Services (extended support) so that I can automate the configuration and provisioning of scalable, role-based applications using PowerShell.
 ---
 
 # Create a new Azure Cloud Service (extended Support)

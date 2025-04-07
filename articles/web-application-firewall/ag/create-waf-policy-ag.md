@@ -49,8 +49,6 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
    > If you assign a policy to your Application Gateway (or listener) that already has a policy in place, the original policy is overwritten and replaced by the new policy.
 4. Select **Review + create**, then select **Create**.
 
-   ![WAF policy basics](../media/create-waf-policy-ag/waf-policy-basics.png)
-
 ## Configure WAF rules (optional)
 
 When you create a WAF policy, by default it is in *Detection* mode. In Detection mode, WAF doesn't block any requests. Instead, the matching WAF rules are logged in the WAF logs. To see WAF in action, you can change the mode settings to *Prevention*. In Prevention mode, matching rules defined in the Microsoft Managed Rulesets you selected are blocked and/or logged in the WAF logs.
@@ -59,13 +57,9 @@ When you create a WAF policy, by default it is in *Detection* mode. In Detection
 
 Azure-managed OWASP rules are enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group, select the check box in front of the rule number, and select **Disable**.
 
-[ ![Managed rules](../media/create-waf-policy-ag/managed-rules.png) ](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
-
 ## Custom rules
 
 To create a custom rule, select **Add custom rule** under the **Custom rules** tab. This opens the custom rule configuration page. The following screenshot shows an example custom rule configured to block a request if the query string contains the text `blockme`.
-
-[![Edit custom rule](../media/create-waf-policy-ag/edit-custom-rule.png)](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="upgrade"></a>Upgrade your WAF Config to a WAF Policy
 
@@ -108,6 +102,6 @@ $appgw.ForceFirewallPolicyAssociation = $true
 
 Then proceed with the steps to associate a WAF Policy to your application gateway. For more information, see [Associate a WAF Policy with an existing Application Gateway.](associate-waf-policy-existing-gateway.md)
 
-## Next steps
+## Next step
 
 Learn more about [Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).

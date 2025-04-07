@@ -10,6 +10,9 @@ ms.date: 01/17/2025
 
 # App attach and MSIX app attach in Azure Virtual Desktop
 
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+
 There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *app attach* and *MSIX app attach*. With both *app attach* and *MSIX app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. 
 
 The following table compares MSIX app attach with app attach:
