@@ -30,7 +30,7 @@ More than 50 years ago, IBM released the first midrange systems. IBM advertised 
 
 The IBM i system includes the DPC server feature that allows most IBM i applications to interact with clients like Azure Logic Apps by using the client-initiated only request-reply pattern with minimum modifications. DPC is a documented protocol that supports program-to-program integration on an IBM i system, which client applications can easily access by using the TCP/IP networking protocol.
 
-Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems by using TCP/IP and APPC LU6.2. For many years, customers have used the HIS Transaction Integrator to integrate IBM i systems and Windows on-premises. The **IBM i Program Call** connector uses the TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
+Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems by using TCP/IP and APPC LU6.2. For many years, customers have used the HIS Transaction Integrator to integrate on-premises IBM i systems and Windows. The **IBM i Program Call** connector uses the TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
 
 The following diagram shows how the IBM i connector interacts with an IBM i system:
 
@@ -40,7 +40,7 @@ To extend these hybrid cloud scenarios, the IBM i connector in a Standard workfl
 
 After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IBM i connector action. The connector reads the metadata file from your logic app resource, and dynamically presents parameters to use with the IBM i connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
 
-## Review connector technical reference
+## Connector technical reference
 
 Currently, one operation is available for the IBM i connector: **Call an IBM i program**. The following table summarizes the usage for this action:
 
@@ -62,7 +62,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
-  To invoke a midrange program, your workflow needs to understand the midrange program's type, parameters, and return values. The IBM i connector manages this process and data conversions. The conversions are used to provide input data from the workflow to the midrange program and to send any output data generated from the midrange program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
+  To invoke a midrange program, your workflow needs to understand the midrange program's type, parameters, and return values. The IBM i connector manages this process and data conversions. These required conversions provide input data from the workflow to the midrange program and send any output data generated from the midrange program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
 
   To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods, parameters, and return values that you use in your workflow. You can also import COBOL or RPG program definitions (copybooks) that provide this information.
 
