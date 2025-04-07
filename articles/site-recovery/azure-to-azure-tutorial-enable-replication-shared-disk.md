@@ -88,7 +88,7 @@ To prepare the vault for replication, follow these steps:
 
 A cache storage account is a standard storage account in the same Azure region as the virtual machine being replicated. The cache storage account is used to hold replication changes temporarily, before the changes are moved to the recovery Azure region. High churn support is also available in Azure Site Recovery to get higher churn limits. To use this feature, create a *Premium Block Blob* type of storage accounts and then use it as the cache storage account.  
 
-You can choose to, but it's not necessary, to specify different cache storage accounts for the different disks of a virtual machine. If you use different cache storage accounts, ensure they are of the same type (Standard or Premium Block Blobs). For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
+You can choose to, but it's not necessary to specify different cache storage accounts for the different disks of a virtual machine. If you use different cache storage accounts, ensure that they are of the same type (Standard or Premium Block Blobs). For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
 
 ```powershell
 #Create Cache storage account for replication logs in the primary region
@@ -104,7 +104,7 @@ $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -Res
 
 ## Create network mappings
 
-A network mapping maps virtual networks in the primary region to virtual networks in the recovery region. The network mapping specifies the Azure virtual network in the recovery region, that a virtual machine in the primary virtual network should fail over to. One Azure virtual network can be mapped to only a single Azure virtual network in a recovery region.
+A network mapping maps virtual networks in the primary region to virtual networks in the recovery region. The network mapping specifies the Azure virtual network in the recovery region that a virtual machine in the primary virtual network should fail over to. One Azure virtual network can be mapped to only a single Azure virtual network in a recovery region.
 
 To create a network mapping, do the following:
 
@@ -117,7 +117,7 @@ To create a network mapping, do the following:
     $WestUSRecoveryNetwork = $WestUSRecoveryVnet.Id
    ```
 
-1. Retrieve the primary virtual network. The VNet that the virtual machine is connected to:
+1. Retrieve the primary virtual network that the virtual machine is connected as follows:
 
    ```powershell
     #Retrieve the virtual network that the virtual machine is connected to
@@ -141,7 +141,7 @@ To create a network mapping, do the following:
     $EastUSPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")
    ```
 
-1. Create network mapping between the primary virtual network and the recovery virtual network:
+1. Create a network mapping between the primary virtual network and the recovery virtual network:
 
    ```powershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
@@ -157,7 +157,7 @@ To create a network mapping, do the following:
     Write-Output $TempASRJob.State
    ```
 
-1. Create network mapping for the reverse direction (fail back):
+1. Create a network mapping for the reverse direction (fail back):
 
     ```powershell
     #Create an ASR network mapping for fail back between the recovery Azure virtual network and the primary Azure virtual network
@@ -197,7 +197,7 @@ $EnableJob1 = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -N
 -RecoveryProximityPlacementGroupId $ppg -RecoveryAzureNetworkId $networkId -LogStorageAccountId $storageId
 ```
 
-Replicate the Azure virtual machines with managed shared disks when disk details are available. To replicate the Azure virtual machines with managed shared disks, do the following:
+Replicate the Azure virtual machines with managed shared disks when disk details are available, as follows:
 
 ```powershell
 $disk1 = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $storageId ` 
@@ -288,7 +288,7 @@ Start-AzRecoveryServicesAsrClusterTestFailoverCleanupJob -ReplicationProtectionC
 
 ## Failover 
 
-Fail over the cluster to a specific recovery point. To failover, do the following:
+Fail over the cluster to a specific recovery point, as follows:
 
 ```powershell
 $rpi1 = Get-ASRReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName "sdgql1" 
