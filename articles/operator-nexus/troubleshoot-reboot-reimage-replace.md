@@ -9,9 +9,9 @@ author: eak13
 ms.author: ekarandjeff
 ---
 
-# Troubleshoot Azure Operator Nexus server problems
+# Troubleshoot Azure Operator Nexus Bare Metal Machine server problems
 
-This article describes how to troubleshoot server problems by using restart, reimage, and replace actions on Azure Operator Nexus bare metal machines (BMMs). You might need to take these actions on your server for maintenance reasons, which causes a brief disruption to specific BMMs.
+This article describes how to troubleshoot server problems by using restart, reimage, and replace actions on Azure Operator Nexus bare metal machines (BMMs). You might need to take these actions on your server for maintenance reasons, which may cause a brief disruption to specific BMMs.
 
 The time required to complete each of these actions is similar. Restarting is the fastest, whereas replacing takes slightly longer. All three actions are simple and efficient methods for troubleshooting.
 
@@ -56,7 +56,7 @@ It's recommended to start with the least invasive solution (restart) and escalat
 
 ## Troubleshoot with a restart action
 
-Restarting a BMM is a process of restarting the server through a simple API call. This action can be useful for troubleshooting problems when tenant virtual machines on the host aren't responsive or are otherwise stuck.
+Restarting a BMM is a process of restarting the server through a simple API call. This action can be useful for troubleshooting problems when Tenant Virtual Machines on the host aren't responsive or are otherwise stuck.
 
 The restart typically is the starting point for mitigating a problem.
 
@@ -174,7 +174,7 @@ az networkcloud baremetalmachine uncordon \
 
 Servers contain many physical components that can fail over time. It is important to understand which physical repairs require BMM replacement and when BMM replacement is recommended.
 
-A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the tenant data isn't modified during replacement.
+A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data isn't modified during replacement.
 
 > [!IMPORTANT]
 > Starting with the 2024-07-01 GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are additional physical disk and/or RAID controllers alerts.
