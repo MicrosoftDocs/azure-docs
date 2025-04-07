@@ -11,7 +11,7 @@ ms.author: ekarandjeff
 
 # Troubleshoot Azure Operator Nexus Bare Metal Machine server problems
 
-This article describes how to troubleshoot server problems by using restart, reimage, and replace actions on Azure Operator Nexus bare metal machines (BMMs). You might need to take these actions on your server for maintenance reasons, which may cause a brief disruption to specific BMMs.
+This article describes how to troubleshoot server problems by using Restart, Reimage, and Replace actions on Azure Operator Nexus Bare Metal Machines (BMMs). You might need to take these actions on your server for maintenance reasons, which may cause a brief disruption to specific BMMs.
 
 The time required to complete each of these actions is similar. Restarting is the fastest, whereas replacing takes slightly longer. All three actions are simple and efficient methods for troubleshooting.
 
@@ -37,9 +37,9 @@ The time required to complete each of these actions is similar. Restarting is th
 
 When troubleshooting a BMM for failures and determining the most appropriate corrective action, it is essential to understand the available options. This article provides a systematic approach to troubleshoot Azure Operator Nexus server problems using these three methods:
 
-1. **Restart** - Least invasive method, best for temporary glitches or unresponsive VMs
-2. **Reimage** - Intermediate solution, restores OS to known-good state without affecting data
-3. **Replace** - Most significant action, required for hardware component failures
+- **Restart** - Least invasive method, best for temporary glitches or unresponsive VMs
+- **Reimage** - Intermediate solution, restores OS to known-good state without affecting data
+- **Replace** - Most significant action, required for hardware component failures
 
 ### Troubleshooting decision tree
 
@@ -63,9 +63,9 @@ The restart typically is the starting point for mitigating a problem.
 ### Restart workflow
 
 1. **Assess impact** - Determine if restarting the BMM will impact critical workloads.
-1. **Power off** - If needed, power off the BMM (optional).
-1. **Start or restart** - Either start a powered-off BMM or restart a running BMM.
-1. **Verify status** - Check if the BMM is back online and functioning properly.
+2. **Power off** - If needed, power off the BMM (optional).
+3. **Start or restart** - Either start a powered-off BMM or restart a running BMM.
+4. **Verify status** - Check if the BMM is back online and functioning properly.
 
 > [!NOTE]
 > The restart operation is the fastest recovery method but may not resolve issues related to OS corruption or hardware failures.
@@ -118,9 +118,9 @@ A reimage action is the best practice for lowest operational risk to ensure the 
 ### Reimage workflow
 
 1. **Verify running workloads** - Before reimaging, check what workloads are running on the BMM.
-1. **Cordon and evacuate workloads** - Drain the BMM of workloads.
-1. **Perform reimage** - Execute the reimage operation.
-1. **Uncordon** - Make the BMM schedulable again after reimage completes.
+2. **Cordon and evacuate workloads** - Drain the BMM of workloads.
+3. **Perform reimage** - Execute the reimage operation.
+4. **Uncordon** - Make the BMM schedulable again after reimage completes.
 
 > [!WARNING]
 > Running more than one `baremetalmachine replace` or `reimage` command at the same time, or running a `replace`
@@ -182,10 +182,10 @@ A hardware validation process is invoked to ensure the integrity of the physical
 ### Replace workflow
 
 1. **Cordon and evacuate** - Remove workloads from the BMM before physical repair.
-1. **Perform physical repairs** - Replace hardware components as needed.
-1. **Execute replace command** - Run the replace command with required parameters.
-1. **Uncordon** - Make the BMM schedulable again after replacement completes.
-1. **Verify status** - Check that the BMM is properly functioning.
+2. **Perform physical repairs** - Replace hardware components as needed.
+3. **Execute replace command** - Run the replace command with required parameters.
+4. **Uncordon** - Make the BMM schedulable again after replacement completes.
+5. **Verify status** - Check that the BMM is properly functioning.
 
 **The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
 
@@ -256,11 +256,11 @@ Restarting, reimaging, and replacing are effective troubleshooting methods for a
 
 ### Best practices
 
-1. **Always follow the escalation path**: Start with restart, then reimage, then replace unless the issue clearly indicates otherwise.
-1. **Verify workloads before action**: Use the provided commands to identify running workloads before any disruptive action.
-1. **Cordon with evacuation**: When performing reimage or replace actions, always use `cordon` with `evacuate="True"` to safely move workloads.
-1. **Never run multiple operations simultaneously**: Ensure one operation completes before starting another to prevent server issues.
-1. **Verify resolution**: After performing any action, verify the BMM status and that the original issue is resolved.
+- **Always follow the escalation path**: Start with restart, then reimage, then replace unless the issue clearly indicates otherwise.
+- **Verify workloads before action**: Use the provided commands to identify running workloads before any disruptive action.
+- **Cordon with evacuation**: When performing reimage or replace actions, always use `cordon` with `evacuate="True"` to safely move workloads.
+- **Never run multiple operations simultaneously**: Ensure one operation completes before starting another to prevent server issues.
+- **Verify resolution**: After performing any action, verify the BMM status and that the original issue is resolved.
 
 More details about the BMM actions can be found in the [BMM actions](howto-baremetal-functions.md) article.
 
