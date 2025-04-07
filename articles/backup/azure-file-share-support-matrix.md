@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 03/11/2025
+ms.date: 03/24/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -58,9 +58,6 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 >[!Important]
 >The source Storage Account must have the **Allow storage account key access** setting enabled for successful Azure Files backup and restore.
 
-
->[!Note]
->Storage accounts with restricted network access aren't supported.   
 
 ---
 

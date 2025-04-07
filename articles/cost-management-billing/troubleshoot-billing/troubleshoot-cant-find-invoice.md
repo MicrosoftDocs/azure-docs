@@ -2,7 +2,7 @@
 title: Troubleshoot cant view invoice in the Azure portal
 description: Resolving an issue when trying to view your invoice in the Azure portal.
 services: cost-management-billing
-author: bandersmsft
+author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing

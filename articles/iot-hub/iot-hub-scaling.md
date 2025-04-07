@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 04/08/2024
+ms.date: 03/20/2025
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
 
@@ -20,13 +20,13 @@ To decide which IoT Hub tier is right for your solution, ask yourself two questi
 
 Azure IoT Hub offers two tiers, basic and standard, that differ in the features that they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves, then you should consider the standard tier.
 
-For a detailed breakdown of which features are included in each tier, continue to [Basic and standard tiers](#choose-your-features-basic-and-standard-tiers).
+For a detailed breakdown of which features are included in each tier, continue to [Choose your features: basic and standard tiers](#choose-your-features-basic-and-standard-tiers).
 
 **How much data do I plan to move daily?**
 
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in a day. These sizes are numerically identified as 1, 2, and 3. The size determines the baseline daily message limit, and then you can scale out an IoT hub by adding *units*. For example, each unit of a level 1 IoT hub can handle 400,000 messages a day. A level 1 IoT hub with five units can handle 2,000,000 messages a day. Or, go up to a level 2 hub where each unit has a 6,000,000 messages daily limit.
 
-For more details about determining your message requirements and limits, continue to [Tier editions and units](#choose-your-size-editions-and-units).
+For more details about determining your message requirements and limits, continue to [Choose your size: editions and units](#choose-your-size-editions-and-units).
 
 ## Choose your features: basic and standard tiers
 
@@ -62,7 +62,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Create or update device](/rest/api/iothub/service/devices/create-or-update-identity), [Get device](/rest/api/iothub/service/devices/get-identity), [Delete device](/rest/api/iothub/service/devices/delete-identity) | Yes | Yes |
 | [Create or update module](/rest/api/iothub/service/modules/create-or-update-identity), [Get module](/rest/api/iothub/service/modules/get-identity), [Delete module](/rest/api/iothub/service/modules/delete-identity) | Yes | Yes |
 | [Get registry statistics](/rest/api/iothub/service/statistics/get-device-statistics) | Yes | Yes |
-| [Get services statistics](/rest/api/iothub/service/statistics/get-service-statistics) | Yes | Yes |
+| [Get service statistics](/rest/api/iothub/service/statistics/get-service-statistics) | Yes | Yes |
 | [Query IoT Hub](/rest/api/iothub/iot-hub-resource/get) | Yes | Yes |
 | [Create file upload SAS URI](/rest/api/iothub/operation-groups) | Yes | Yes |
 | [Receive device bound notification](/rest/api/iothub/operation-groups) | Yes | Yes |
@@ -81,7 +81,7 @@ The difference in supported capabilities between the basic and standard tiers of
 
 ### Partitions
 
-Azure IoT hubs contain many core components from [Azure Event Hubs](../event-hubs/event-hubs-features.md), including [partitions](../event-hubs/event-hubs-features.md#partitions). Event streams for IoT hubs are populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams.
+Azure IoT hubs contain many core components from [Azure Event Hubs](../event-hubs/event-hubs-features.md), including [partitions](../event-hubs/event-hubs-features.md#partitions). Event streams for IoT hubs are populated with incoming telemetry data reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams.
 
 The partition limit is chosen when an IoT hub is created, and can't be changed. The maximum limit of device-to-cloud partitions for basic tier and standard tier IoT hubs is 32. Most IoT hubs only need four partitions. For more information on determining the partitions, see the [How many partitions do I need?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-) question in the FAQ for [Azure Event Hubs](../event-hubs/index.yml).
 
@@ -92,15 +92,15 @@ After you create your IoT hub, you can upgrade from the basic tier to the standa
 The partition configuration remains unchanged when you migrate from basic tier to standard tier.
 
 > [!NOTE]
-> The free tier does not support upgrading to basic or standard tier.
+> The free tier doesn't support upgrading to basic or standard tier.
 
 ## Choose your size: editions and units
 
-Once you've chosen the tier that provides the best features for your solution, determine the size that provides the best data capacity for your solution.
+Once you choose the tier that provides the best features for your solution, determine the size that provides the best data capacity for your solution.
 
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3.
 
-A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, including pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
+A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, including pricing details, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 
 Once you choose an edition for your IoT hub, you can multiple its messaging capacity by increasing the number of *units*.
 
@@ -114,7 +114,7 @@ The following table shows the capacity for device-to-cloud messages for each siz
 | 2    | 6,000,000                 | 22.8 GB               |
 | 3    | 300,000,000               | 1144.4 GB             |
 
-You can purchase up to 200 units for a size 1 or 2 IoT hub, or up to 10 units for a size 3 IoT hub. Your daily message limit and throttling limits are based on the combined capacity of all units. For example, buying one unit of size 2 gives you the same daily message limit as fifteen units of size 1.
+You can purchase up to 200 units for a size 1 or 2 IoT hub, or up to 10 units for a size 3 IoT hub. Your daily message limit and throttling limits are based on the combined capacity of all units. For example, buying one unit of size 2 gives you the same daily message limit as 15 units of size 1.
 
 For more information on the capacity and limits of each IoT Hub edition, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 

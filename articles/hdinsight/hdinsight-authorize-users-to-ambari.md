@@ -4,6 +4,9 @@ description: 'How to manage Ambari user and group permissions for HDInsight clus
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ms.date: 06/13/2024
 ---
 

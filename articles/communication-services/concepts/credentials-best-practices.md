@@ -1,5 +1,6 @@
 ---
-title: Azure Communication Services - Credentials best practices
+title: Credentials best practices
+titleSuffix: An Azure Communication Services article
 description: Learn more about the best practices for managing User Access Tokens in SDKs
 author: petrsvihlik
 manager: soricos
@@ -12,9 +13,9 @@ ms.service: azure-communication-services
 #Customer intent: As a developer, I want learn how to correctly handle Credential objects so that I can build applications that run efficiently.
 ---
 
-# Credentials in Communication SDKs
+# Credentials best practices
 
-This article provides best practices for managing [User Access Tokens](./authentication.md#user-access-tokens) in Azure Communication Services SDKs. Following this guidance will help you optimize the resources used by your application and reduce the number of roundtrips to the Azure Communication Identity API.
+This article provides best practices for managing [User Access Tokens](./authentication.md#user-access-tokens) in Azure Communication Services SDKs. Follow this guidance to optimize the resources used by your application and reduce the number of roundtrips to the Azure Communication Identity API.
 
 ## Communication Token Credential
 
@@ -28,7 +29,7 @@ Depending on your scenario, you may want to adjust the lifespan of tokens issued
 - Use a [callback function](#callback-function) for agents using the application for longer periods of time.
 
 ### Setting a custom token expiration time
-When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours but you can customize it by providing a value between an hour and 24 hours to the optional parameter as follows:
+When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions. We recommend longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours. You can customize the expiration time by providing a value between an hour and 24 hours to the optional parameter as follows:
 
 ```javascript
 const tokenOptions = { tokenExpiresInMinutes: 60 };
@@ -58,7 +59,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 ## Token refreshing
 
-To correctly implement the token refresher callback, the code must return a string with a valid JSON Web Token (JWT). It's necessary that the returned token is valid (its expiration date is set in the future) at all times. Some platforms, such as JavaScript and .NET, offer a way to abort the refresh operation, and pass `AbortSignal` or `CancellationToken` to your function. It's recommended to accept these objects, utilize them or pass them further.
+To correctly implement the token refresher callback, the code must return a string with a valid JSON Web Token (JWT). The returned token must always be valid and its expiration date set in the future. Some platforms, such as JavaScript and .NET, offer a way to abort the refresh operation, and pass `AbortSignal` or `CancellationToken` to your function. We recommended that you accept these objects, utilize them, or pass them further.
 
 ### Example 1: Refreshing a token for a Communication User
 
@@ -106,10 +107,10 @@ app.post('/getTokenForTeamsUser', async (req, res) => {
 });
 ```
 
-Next, we need to implement a token refresher callback in the client application, whose responsibility will be to:
+Next, we need to implement a token refresher callback in the client application, whose responsibility is to:
 
-1. Refresh the Microsoft Entra access token of the Teams User
-2. Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token
+1. Refresh the Microsoft Entra access token of the Teams User.
+2. Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token.
 
 ```javascript
 const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
@@ -171,7 +172,7 @@ const refreshAadToken = async function (abortSignal, username) {
 
 ## Providing an initial token
 
-To further optimize your code, you can fetch the token at the application's startup and pass it to the Credential directly. Providing an initial token will skip the first call to the refresher callback function while preserving all subsequent calls to it.
+To further optimize your code, you can fetch the token at the application's startup and pass it to the Credential directly. Providing an initial token skips the first call to the refresher callback function while preserving all subsequent calls to it.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -182,7 +183,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 ## Proactive token refreshing
 
-Use proactive refreshing to eliminate any possible delay during the on-demand fetching of the token. The proactive refreshing will refresh the token in the background at the end of its lifetime. When the token is about to expire, 10 minutes before the end of its validity, the Credential will start attempting to retrieve the token. It will trigger the refresher callback with increasing frequency until it succeeds and retrieves a token with long enough validity.
+Use proactive refreshing to eliminate any possible delay during the on-demand fetching of the token. The proactive refreshing updates the token in the background at the end of its lifetime. When the token is about to expire, 10 minutes before the end of its validity, the Credential start attempting to retrieve the token. It triggers the refresher callback with increasing frequency until it succeeds and retrieves a token with long enough validity.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -242,7 +243,7 @@ const publicClientApplication = new PublicClientApplication({
 ## Canceling refreshing
 
 For the Communication clients to be able to cancel ongoing refresh tasks, it's necessary to pass a cancellation object to the refresher callback.
-*Note that this pattern applies only to JavaScript and .NET.*
+*This pattern applies only to JavaScript and .NET.*
 
 ```javascript
 var controller = new AbortController();
@@ -286,7 +287,7 @@ If you want to cancel subsequent refresh tasks, [dispose](#cleaning-up-resources
 
 ### Cleaning up resources
 
-Since the Credential object can be passed to multiple Chat or Calling client instances, the SDK will make no assumptions about its lifetime and leaves the responsibility of its disposal to the developer. It's up to the Communication Services applications to dispose the Credential instance when it's no longer needed. Disposing the credential will also cancel scheduled refresh actions when the proactive refreshing is enabled.
+Since the Credential object can be passed to multiple Chat or Calling client instances, the SDK makes no assumptions about its lifetime and leaves the responsibility of its disposal to the developer. It's up to the Communication Services applications to dispose the Credential instance when it's no longer needed. Disposing the credential also cancels scheduled refresh actions when proactive refreshing is enabled.
 
 Call the `.dispose()` function.
 
@@ -309,14 +310,14 @@ Depending on your scenario, you may want to sign a user out from one or more ser
 
 ## Next steps
 
-In this article, you learned how to:
+This article described how to:
 
 > [!div class="checklist"]
 > * Correctly initialize and dispose of a Credential object
 > * Implement a token refresher callback
 > * Optimize your token refreshing logic
 
-To learn more, you may want to explore the following quickstart guides:
+## Related articles
 
 * [Create and manage access tokens](../quickstarts/identity/access-tokens.md)
 * [Manage access tokens for Teams users](../quickstarts/manage-teams-identity.md)

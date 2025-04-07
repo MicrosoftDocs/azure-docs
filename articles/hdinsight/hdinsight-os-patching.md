@@ -4,6 +4,10 @@ description: Learn how to configure OS patching schedule for Linux-based HDInsig
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+
 ms.date: 02/03/2025
 ---
 
