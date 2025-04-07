@@ -3,12 +3,12 @@ title: Guest OS family 1 retirement notice | Microsoft Docs
 description: Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if its retirement affects you.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: raiye
+author: SivaSun
 manager: timlt
 ms.service: azure-cloud-services-classic
 ms.topic: article
-ms.date: 04/03/2025
-ms.author: raiye
+ms.date: 04/07/2025
+ms.author: ssundara
 ms.custom: compute-evergreen
 ---
 
