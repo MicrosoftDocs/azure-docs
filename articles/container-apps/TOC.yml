@@ -76,6 +76,8 @@
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://youtu.be/OxmVds31qL8
+    - name: Communicate between multiple apps
+      href: connect-apps.md
     - name: Reduce cold-start times
       href: cold-start.md
 - name: Develop & deploy
@@ -97,7 +99,7 @@
             - name: Overview
               href: services.md
               displayName: Connecting to services overview
-        - name: Connect multiple apps
+        - name: Communicate between multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
           items:
