@@ -39,7 +39,7 @@ The API Center portal reference implementation provides:
     * [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
     * [Vite package](https://www.npmjs.com/package/vite)
 
-### Create Microsoft Entra app registration
+## Create Microsoft Entra app registration
 
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
 
