@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Prevent Phone Numbers from Being Flagged as Spam
+# Prevent phone numbers from being flagged as spam
 
 When phone numbers are flagged as spam, it can limit the ability of businesses to communicate with their customers. This issue arises when carriers detect patterns that resemble spam behavior, such as high volumes of calls or messages. This problem can also result from end-users reporting the number as spam. The consequences include:
 
@@ -21,20 +21,20 @@ When phone numbers are flagged as spam, it can limit the ability of businesses t
 
 ## Requirements and Best Practices for Voice Communications
 
-1. **Monitor Call Patterns:** Regularly monitor call patterns to identify any unusual activity that may trigger spam filters. Avoid making a high volume of calls in a short period.
-2. **Use Caller ID:** Ensure that the customer’s caller ID is correctly set up and displays accurate information. This practice helps recipients recognize the caller and reduces the likelihood of being reported as spam. You can apply the Azure Communication process for Caller Name Delivery (CNAM) set up in [Define your caller identity](../telephony/how-to-manage-your-calling-identity.md).
-3. **Obtain Consent:** Always obtain consent from recipients before making calls. This goal can be achieved through opt-in mechanisms where customers explicitly agree to receive calls from the customer’s business.
-4. **Provide Opt-Out Options:** Offer recipients an easy way to opt-out of receiving calls. This action can be done through automated systems or customer service representatives.
-5. **Maintain a Clean Contact List:** Remove inactive or incorrect numbers by regular update of customer’s contact list. This practice reduces the chances of calling numbers that may report customer’s calls as spam. Customers can use the Azure Communication Services Number Lookup API to help customers with this process. For more information, see [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md).
+-  **Monitor Call Patterns:** Regularly monitor call patterns to identify any unusual activity that may trigger spam filters. Avoid making a high volume of calls in a short period.
+-  **Use Caller ID:** Ensure that the customer’s caller ID is correctly set up and displays accurate information. This practice helps recipients recognize the caller and reduces the likelihood of being reported as spam. You can apply the Azure Communication process for Caller Name Delivery (CNAM) set up in [Define your caller identity](../telephony/how-to-manage-your-calling-identity.md).
+-  **Obtain Consent:** Always obtain consent from recipients before making calls. This goal can be achieved through opt-in mechanisms where customers explicitly agree to receive calls from the customer’s business.
+-  **Provide Opt-Out Options:** Offer recipients an easy way to opt-out of receiving calls. This action can be done through automated systems or customer service representatives.
+-  **Maintain a Clean Contact List:** Remove inactive or incorrect numbers by regular update of customer’s contact list. This practice reduces the chances of calling numbers that may report customer’s calls as spam. Customers can use the Azure Communication Services Number Lookup API to help customers with this process. For more information, see [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md).
 
 ## Prohibited uses of Communications Services
 
 The following activities are prohibited:
-1.	Using Communications Services in any manner that may expose Microsoft or any of its personnel to criminal or civil liability;
-2.	Reselling Calling Plan and Audio Conferencing subscription minutes;
-3.	Placing calls to or from Microsoft issued telephone numbers (whether singly, sequentially, or automatically) to generate income for yourself or others as a result of placing the call, other than for Customer’s business communications;
-4.	Placing calls in unusual calling patterns inconsistent with normal, individual subscription use. For example, placing regular calls of short durations or calls to multiple numbers in a short period of time.
-5.	Using Communications Services in violation of any applicable laws or regulations of any jurisdiction, including, but not limited to: (a) privacy or data protection laws or regulations; (b) laws requiring consent of participants to receive calls or text messages; (c) laws governing the recording or monitoring of telephone calls; (d) laws and regulations that prohibit unsolicited, unwanted or harassing communications; or (e) anti-spam laws such as the U.S. CAN SPAM Act of 2003 and the Do-Not-Call Implementation Act.
+-  Using Communications Services in any manner that may expose Microsoft or any of its personnel to criminal or civil liability;
+-  Reselling Calling Plan and Audio Conferencing subscription minutes;
+-  Placing calls to or from Microsoft issued telephone numbers (whether singly, sequentially, or automatically) to generate income for yourself or others as a result of placing the call, other than for Customer’s business communications;
+-  Placing calls in unusual calling patterns inconsistent with normal, individual subscription use. For example, placing regular calls of short durations or calls to multiple numbers in a short period of time.
+-  Using Communications Services in violation of any applicable laws or regulations of any jurisdiction, including, but not limited to: (a) privacy or data protection laws or regulations; (b) laws requiring consent of participants to receive calls or text messages; (c) laws governing the recording or monitoring of telephone calls; (d) laws and regulations that prohibit unsolicited, unwanted or harassing communications; or (e) anti-spam laws such as the U.S. CAN SPAM Act of 2003 and the Do-Not-Call Implementation Act.
 
 For the full list of applicable Azure Communication Services Terms, see [Service Specific Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#clause-2520-h3-1) and [Communications Services Tax Rates and Terms](https://www.microsoft.com/licensing/docs/view/Communications-Services-Tax-Rates-and-Terms?msockid=29591b22ce2367e3338a0afdcfe86647).
 
