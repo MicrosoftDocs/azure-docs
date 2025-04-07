@@ -18,8 +18,11 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+| Resource | Description |
+|---|---|
+| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure Storage account | A [blob storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) to store state for your Azure Functions. |
+| Azure Application Insights | An instance of [Azure Application Insights](/azure/azure-monitor/app/create-workspace-resource?tabs=portal) to collect data about your container app. |
 
 ## Create a Functions app
 
@@ -57,13 +60,11 @@ The following steps show you how to use a sample container image to create your 
     | Property | Value |
     |---|---|
     | Environment name | Enter **my-aca-functions-environment** |
-    | Zone redundancy | Disabled |
+    | Zone redundancy | Select **Disabled**. |
 
 1. Select **Create** to save your values.
 
 1. Select **Next: Container** to switch to the *Container* section.
-
-1. In the *Container* section, enter the following values:
 
 1. Next to *Use quickstart image*, leave this box unchecked.
 
@@ -73,7 +74,7 @@ The following steps show you how to use a sample container image to create your 
     |---|---|
     | Name | This box is prefilled with your selection in the last section. |
     | Image source | Select **Docker Hub or other registries** |
-    | Subscription  | Select your subscription |
+    | Subscription  | Select your subscription. |
     | Image type | Select **Public**. |
     | Registry login server  | Enter **mcr.microsoft.com** |
     | Image and tag | Enter **azure-functions/dotnet8-quickstart-demo:1.0** |
@@ -96,7 +97,7 @@ The following steps show you how to use a sample container image to create your 
 
     | Property | Value |
     |---|---|
-    | Ingress | Select the checkbox to enable ingress. |
+    | Ingress | Select the **Enabled** checkbox to enable ingress. |
     | Ingress traffic | Select **Accepting traffic from anywhere**. |
     | Ingress type | Select **HTTP**. |
     | Target port | Enter **80**. |
