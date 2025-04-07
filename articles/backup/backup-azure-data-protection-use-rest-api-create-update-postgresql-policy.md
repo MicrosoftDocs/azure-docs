@@ -65,7 +65,7 @@ The `{policyName}` and `{vaultName}` are provided in the URI. Additional, inform
 
 ## Create the request body
 
-For example, to create a policy for POstgreSQL backup, the request body needs the following components:
+For example, to create a policy for PostgreSQL backup, the request body needs the following components:
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
