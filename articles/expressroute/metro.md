@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/24/2024
+ms.date: 04/07/2025
 ms.author: duau
 ms.custom: references_regions, ai-usage
 ---
@@ -41,6 +41,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 | Metro location | Peering locations | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
 |--|--|--|--|--|--|--|
 | Amsterdam Metro | Amsterdam<br>Amsterdam2 | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>Digital Realty<br>Equinix<br>euNetworks<br><br>Megaport<br> |
+| Madrid Metro | Madird<br>Madrid2 | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Equinix |
 | Singapore Metro | Singapore<br>Singapore2 | Equinix SG1<br>Global Switch Tai Seng | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
 | Zurich Metro | Zurich<br>Zurich2 | Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
 
