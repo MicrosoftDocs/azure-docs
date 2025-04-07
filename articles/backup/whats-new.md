@@ -111,8 +111,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 Azure Backup now supports vaulted backups for block blob data in Azure Data Lake Storage (Gen 2 storage account with [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace)), enhancing data protection against ransomware and accidental loss. You can schedule backups, set retention policies, and store recovery points securely in the Backup vault for up to **10 years**. If there is data loss in the source storage account, you can  restore to an alternate account. Security features such as [Immutable vault](backup-azure-immutable-vault-concept.md?tabs=backup-vault) and [Soft delete](backup-azure-security-feature-cloud.md) protect your backup data.
 
 >[!Note]
->This feature is currently in limited preview and is available in specific regions only. See the supported regions.
->To enroll in this preview feature, fill this form and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 For more information, see [Overview of Azure Data Lake Storage backup (preview)](azure-data-lake-storage-backup-overview.md).
 

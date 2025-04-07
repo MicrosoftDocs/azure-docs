@@ -1,17 +1,17 @@
 ---
-title: Support matrix for Azure Data Lake Storage Gen2 backup
-description: Provides a summary of support settings and limitations when backing up Azure Data Lake Storage Gen2 files.
+title: Support matrix for Azure Data Lake Storage Gen2 vaulted backup (preview)
+description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage Gen2 (preview).
 ms.topic: reference
-ms.date: 04/03/2025
+ms.date: 04/16/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Support matrix for Azure Data Lake Storage Gen2 backup
+# Support matrix for Azure Data Lake Storage Gen2 vaulted backup (preview)
 
-This article summarizes the regional availability, supported scenarios, and limitations of vaulted backups of Azure Data Lake Storage Gen2.
+This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage Gen2 (preview).
 
 ## Supported regions
 
@@ -29,13 +29,16 @@ The following table lists the supported storage account details:
 
 ## Protection limits
 
-The following table lists the protection setting limits:
+The following table lists the protection setting limit:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------------------------------------------ | ----- |
 | Maximum number of containers in a storage account that can be protected | 100 |
 | Vault redundancy              | LRS/ZRS|
 
+### Supported protection scenarios
+
+The following protection scenarios are currently supported:
 
 - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
@@ -56,7 +59,8 @@ The following table lists the Backup setting limits:
 | Maximum number of on-demand backups per day             | 4|
 | Maximum number of scheduled backups per day             | 1|
 
-- If you suspend and resume protection or delete the **Object Replication policy** on the **source storage account**, the policy triggers a full backup.
+>[!Note]
+>If you suspend and resume protection or delete the **Object Replication policy** on the **source storage account**, the policy triggers a full backup.
 
 ## Retention limits
 
@@ -78,7 +82,12 @@ The following table lists the Retention setting limits:
 | Full restore             | You can restore the complete storage account to an alternate location.|
 | Containers restore       | You can select one or more containers or use prefix to filter specific containers to restore.|
 
-- Cool and Cold tier blobs are restored in Hot tier.
-- Restore to the source storage account is not supported. 
-- The target storage selected for restore should not have any container with same name.
+>[!Note]
+>- Cool and Cold tier blobs are restored in Hot tier.
+>- Restore to the source storage account is not supported. 
+>- The target storage selected for restore should not have any container with same name.
 
+## Next steps
+
+- [Configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal (preview)](azure-data-lake-storage-configure-backup.md).
+- [Restore Azure Data Lake Storage Gen  2 using Azure portal (preview)](azure-data-lake-storage-restore.md).

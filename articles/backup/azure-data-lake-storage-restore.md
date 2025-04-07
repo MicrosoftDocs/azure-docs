@@ -1,6 +1,6 @@
 ---
 title: Restore Azure Data Lake Storage Gen  2 using Azure portal (preview)
-description: Learn how to restore Azure Data Lake Storage Gen 2 from vaulted  backups using Azure portal (preview).
+description: Learn how to restore Azure Data Lake Storage Gen 2 vaulted  backups using Azure portal (preview).
 ms.topic: how-to
 ms.date: 04/16/2025
 author: jyothisuri
@@ -9,7 +9,7 @@ ms.author: jsuri
 
 # Restore Azure Data Lake Storage Gen  2 using Azure portal (preview)
 
-This article describes how to restore Azure Data Lake Storage Gen 2 from vaulted  backups using Azure portal (preview).
+This article describes how to restore [Azure Data Lake Storage Gen 2 vaulted  backups](azure-data-lake-storage-backup-overview.md) using Azure portal (preview).
 
 ## Prerequisites
 
@@ -27,22 +27,35 @@ Learn more about the [supported scenarios, limitations, and region availability 
 
 To  restore Azure Data Lake Storage Gen 2 from vaulted  backups, follow these steps:
 
-1. In the Azure portal, go to the **Backup vault**, and then select **Backup Instances**.
+1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **Backup Instances**.
 1. On the **Backup Instances** pane, select the storage account with Data Lake Storage, and then select **Restore**. 
+
+   :::image type="content" source="./media/azure-data-lake-storage-restore/start-restore.png" alt-text="Screenshot shows how to initiate the restore operation." lightbox="./media/azure-data-lake-storage-restore/start-restore.png":::
+
 1. On the **Restore** pane, on the **Restore point** tab, under **Restore Point**, click **Select restore point** to choose an alternate restore point.
+
+   :::image type="content" source="./media/azure-data-lake-storage-restore/select-restore-point.png" alt-text="Screenshot shows the selection of a restore point." lightbox="./media/azure-data-lake-storage-restore/select-restore-point.png":::
 
    By default, the latest restore point is selected. 
 
 1. On the **Select restore point** pane, select the required restore point from the list.
-1. On the **Restore parameters** tab, under **Restore configuration**, click **Select** to specify restore configuration parameters.
+1. On the **Restore** pane, on the **Restore parameters** tab, under **Restore configuration**, click **Select** to specify restore configuration parameters.
+
+   :::image type="content" source="./media/azure-data-lake-storage-restore/configure-restore-parameter.png" alt-text="Screenshot shows the configuration of restore parameters." lightbox="./media/azure-data-lake-storage-restore/configure-restore-parameter.png":::
+
 1. On the **Restore destination** pane, under **Select option to restore the blobs**,  choose one of these options:
 
    - **Restore all backed-up containers**: This option restores all backed-up containers in the storage account.
      Select the  **Target subscription**  in which the target storage account is present, and then select **Target storage account** where the data needs to be restored.
 
+     :::image type="content" source="./media/azure-data-lake-storage-restore/restore-all-backed-up-containers.png" alt-text="Screenshot shows how to restore all backed-up containers." lightbox="./media/azure-data-lake-storage-restore/restore-all-backed-up-containers.png":::
+
+
    - **Browse and select containers to restore**: This option allows you to browse and select up to **100 containers** to restore. 
     (Optional) Specify a set of prefixes to restore specific blobs within a container. To provide the list of prefixes, select **Add/Edit** containers corresponding to each container that you select for restore.
- 
+
+     :::image type="content" source="./media/azure-data-lake-storage-restore/browse-containers.png" alt-text="Screenshot shows how to browse and select specific containers for restore." lightbox="./media/azure-data-lake-storage-restore/browse-containers.png":::
+
    >[!Note]
    >You must have sufficient permission to view the containers in the storage account, or you can't see the contents of the storage account. 
 
@@ -50,6 +63,7 @@ To  restore Azure Data Lake Storage Gen 2 from vaulted  backups, follow these st
 
    If the validation fails, select **Assign missing roles** to grant permissions. See the [prerequisites](#prerequisites) for the required roles.
 1. After the validation succeeds, select **Review + restore** and restore the backups to the selected Data Lake Storage.
- 
+1. On the **Review + restore** tab, select **Restore** to start the restore operation.
+
 You can track the progress of restore under **Backup Jobs**. 
  

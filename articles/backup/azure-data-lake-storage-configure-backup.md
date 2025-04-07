@@ -1,22 +1,23 @@
 ---
-title: Configure backup for Azure Data Lake Storage using Azure portal (preview)
-description: Learn how to configure backup for Azure Data Lake Storage using Azure portal.
+title: Configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal (preview)
+description: Learn how to configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal.
 ms.topic: how-to
 ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Configure backup for Azure Data Lake Storage using Azure portal (preview)
+# Configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal (preview)
 
-This article describes how to configure backup for Azure Data Lake Storage using Azure portal (preview).
+This article describes how to configure [vaulted backup for Azure Data Lake Storage Gen 2](azure-data-lake-storage-backup-overview.md) using Azure portal (preview).
 
 ## Prerequisites
 
 Before you configure backup for Azure Data Lake Storage, ensure the following prerequisites are met:
 
 - The storage account must be in a supported region and of the required types. See the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
-- Vaulted backup restores are only possible to a different storage account. Ensure the target account has no containers with the same names as those in a recovery point—any conflicts will cause the restore to fail.
+- Vaulted backup restores are only possible to a different storage account.
+- The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
 
@@ -26,15 +27,18 @@ To back up Azure Data Lake Storage Gen2, ensure you have a Backup Vault in the s
 
 ## Create a backup policy
 
-A backup policy defines the schedule and frequency for backing up Azure Data Lake Storage. You can create a Backup policy on the go during the configure backup flow or create it from the Backup vault.
+A backup policy defines the schedule and frequency for backing up Azure Data Lake Storage. You can either create a backup policy from the Backup vault, or create it on the go during the backup configuration.
 
 To create a backup policy for Azure Data Lake Storage from the Backup vault, follow these steps:
 
-1. In the Azure portal, go to the **Backup vault** > **Backup policies**, and then select **+ Add**.
-1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**
+1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault** > **Backup policies**, and then select **+ Add**.
+1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-data-lake-storage-configure-backup/create-policy.png":::
+
 1. Select **Datasource type** as **Azure Data Lake Storage Gen2s (Preview)**, and then select **Continue**.
 1. On the **Schedule + retention** tab, under the **Backup schedule** section, set the **Backup Frequency** as **Daily** or **Weekly** and the schedule for creating recovery points for vaulted backups.
-1. Under the **Add retention** section,edit the default retention rule or add new rules to specify the retention of recovery points.
+1. Under the **Add retention** section, edit the default retention rule or add new rules to specify the retention of recovery points.
 1. Select **Review + create**.
 1. After the review succeeds, select **Create**.
 
@@ -50,13 +54,18 @@ To assign the required role for storage accounts that you want to protect, follo
 >[!Note]
 >You can also assign the roles to the vault at the Subscription or Resource Group levels according to your convenience.
 
-1. In the Azure portal, go to the storage account, and then select **Access Control (IAM)**.
+1. In the [Azure portal](https://portal.azure.com/), go to the storage account, and then select **Access Control (IAM)**.
 1. On the **Access Control (IAM)** pane, select **Add role assignments** to assign the required role.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-role-assignments.png" alt-text="Screenshot shows how to start assigning roles to the Backup vault." lightbox="./media/azure-data-lake-storage-configure-backup/add-role-assignments.png":::
+
 1. On the **Add role assignment** pane, do the following steps:
 
    - **Role**: Select **Storage Account Backup Contributor**.
    - **Assign access to**: Select **User, group, or service principal**.
    - **Backup vault selection**: Click **Select** and search for the Backup vault you created, and then select it from the search result to back up blobs in the underlying storage account.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-role.png" alt-text="Screenshot shows the selection of roles to access the storage account." lightbox="./media/azure-data-lake-storage-configure-backup/add-role.png":::
 
 1. Select **Save** to finish the role assignment.
  
@@ -69,18 +78,29 @@ You can configure backup on multiple Azure Data Lake Storage Gen2s.
 
 To configure backup, follow these steps:
 
-1. In the Azure portal, go to the **Backup vault**, and then select **+ Backup**. 
-1. On the **Configure Backup** pane, on the **Backup policy** tab,under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
+1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **+ Backup**. 
+1. On the **Configure Backup** pane, on the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
    If you want to create a new backup policy, select **Create new**.
  
 1. On the **Datasources** tab, Select**Add**. 
-1. On the **Select storage account container** pane, provide the **Backup Instance name**, and then click **Select**.
-1. On the **Select hierarchical namespace enabled storage account** pane,select the storage accounts with Azure Data Lake Storage Gen2 across subscriptions from the list that are in the same region as that of the vault.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png" alt-text="Screenshot shows how to add resources for backup." lightbox="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png":::
+
+1. On the **Select storage account container** pane, provide the **Backup Instance name**, and then click **Select** under **Storage account**.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png" alt-text="Screenshot shows how to provide the backup instance name." lightbox="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png":::
+
+1. On the **Select hierarchical namespace enabled storage account** pane, select the storage accounts with Azure Data Lake Storage Gen2 across subscriptions from the list that are in the region same as the vault.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/select-storage-account.png" alt-text="Screenshot shows the selection of storage accounts." lightbox="./media/azure-data-lake-storage-configure-backup/select-storage-account.png":::
+
 1. On the **Select storage account container** pane, choose to back up all containers or select specific ones.
 
-   After you add the resources, backup readiness validation starts. If the necessary roles are present, the  validation succeeds with a check completion message.
+   After you add the resources, backup readiness validation starts. If the necessary roles are present, the  validation succeeds with the **Success** message.
 
-If access permissions are missing,error messages appear. See the [required pre-requisites](#prerequisites).
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png" alt-text="Screenshot shows the success message for role assignments." lightbox="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png":::
+
+   If access permissions are missing, error messages appear. See the [required prerequisites](#prerequisites).
 
    Validation errors appear if the selected storage accounts don't have the **Storage Account Backup Contributor** role. Assign the role based on your permissions. Review the error messages and take necessary actions.
    | Error | Cause | Recommendation |
@@ -90,7 +110,7 @@ If access permissions are missing,error messages appear. See the [required pre-r
  
 1. Review the configuration details, and then select **Configure Backup**.
 
-You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy you have scheduled to create the recovery points.
+You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points.
 
 ## Next steps
 
