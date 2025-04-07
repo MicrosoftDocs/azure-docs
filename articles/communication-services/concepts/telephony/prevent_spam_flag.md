@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Prevent Phone Numbers from Being Flagged as Spam
 
-When phone numbers are flagged as spam, it can severely impact the ability of businesses to communicate with their customers. This issue arises when carriers detect patterns that resemble spam behavior, such as high volumes of calls or messages. This problem can also result from end-user reporting the number as spam. The consequences include:
+When phone numbers are flagged as spam, it can limit the ability of businesses to communicate with their customers. This issue arises when carriers detect patterns that resemble spam behavior, such as high volumes of calls or messages. This problem can also result from end-users reporting the number as spam. The consequences include:
 
 - **Blocked Calls:** Outbound calls may be blocked, preventing important communications.
 - **Reputation Damage:** Being flagged as a spammer can harm the business’ reputation and customer trust.
