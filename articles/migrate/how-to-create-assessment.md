@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/26/2025
 ms.custom: engagement-fy23
+monikerRange: migrate
 ---
 
 # Create an Azure VM assessment

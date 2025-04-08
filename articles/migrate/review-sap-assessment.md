@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 03/26/2025
 ms.custom: engagement-fy24
+monikerRange: migrate
 ---
 
 # Tutorial: Review a SAP assessment

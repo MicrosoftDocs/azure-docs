@@ -6,6 +6,7 @@ ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/26/2025
+monikerRange: migrate
 ---
 
 # General assessment properties 

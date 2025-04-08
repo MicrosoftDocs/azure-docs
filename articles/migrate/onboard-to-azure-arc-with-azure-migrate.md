@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/26/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy23
+monikerRange: migrate
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   

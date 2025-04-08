@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 03/26/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24
+monikerRange: migrate
 ---
 # Tutorial: Create web app assessment for modernization 
 
