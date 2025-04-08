@@ -106,6 +106,24 @@ The following example shows that credits were applied and pending estimated char
 > [!NOTE]
 > Partners can suspend or cancel a subscription if requested by a customer or in cases of nonpayment or fraud. For more information, see [Suspend or cancel a subscription](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
 
+## Cancel a Support plan in the Azure portal
+
+You can cancel your Azure support plan with the following steps: 
+
+1. Navigate to the Cost management + Billing Overview page. 
+
+1. Select “All billing subscription”  
+
+1. Select the support plan that you want to cancel from “All billing subscription” to open the Support plan details page 
+
+1. Select **Cancel** for the fly-out to appear 
+
+1. Select “**Off**” for your auto-renewal period so that the support plan will stop auto-renewal when it expires 
+
+![cancel-azure-support-plan](media/cancel-azure-subscription/cancel-azure-support-plan.png)
+
+If you cancel an Azure Support plan, you're billed for the rest of the month. **Cancelling a support plan doesn't result in a prorated refund.** For more information, see [Azure Support Plan FAQ](https://azure.microsoft.com/en-us/support/legal/faq/?msockid=2d6d1868e6cf6c2120fc0d3ae73f6d72) 
+
 ## What happens after subscription cancellation?
 
 After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final invoice on your typical invoice date after the period ends.
