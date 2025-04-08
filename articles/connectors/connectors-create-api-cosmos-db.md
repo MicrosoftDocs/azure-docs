@@ -110,10 +110,14 @@ To add an Azure Cosmos DB action to a Consumption workflow, follow these steps:
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Azure Cosmos DB account name** | Yes | Select either **Use connection settings (<*Azure-Cosmos-DB-account-name*>)**, or manually enter the name. | The account name for the Azure Cosmos DB account. |
-   | **Database ID** | Yes | <*database-ID*> | The database to connect. |
-   | **Collection ID** | Yes | <*collection-ID*> | The collection to query. |
+   | **Azure Cosmos DB account name** | Yes | <*Cosmos-DB-account-name*> | The account name for the Azure Cosmos DB account. |
+   | **Database ID** | Yes | <*Cosmos-DB-database-name*> | The database to connect. |
+   | **Collection ID** | Yes | <*Cosmost-DB-container-name*> | The container to query. |
    | **Document** | Yes | <*JSON-document*> | The JSON document to create. This example uses the request body from the trigger output. <br><br>**Tip**: If the HTTP trigger's **Body** token doesn't appear in the dynamic content list for you to add, next to the trigger name, select **See more**. <br><br>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the **`id`** property and the partition key property for your document. If a document with the specified **`id`** and partition key exists, the document is updated. Otherwise, a new document is created. |
+
+   For example:
+
+   :::image type="content" source="media/connectors-create-api-cosmos-db/action-consumption.png" alt-text="Screenshot shows Azure portal, designer for Consumption workflow, and action named Create or update document (V3).":::
 
 1. To add any other available parameters, open the **Advanced parameters** list.
 
