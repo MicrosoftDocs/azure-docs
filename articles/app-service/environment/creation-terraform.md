@@ -1,20 +1,22 @@
 ---
 title: 'Quickstart: Use Terraform to configure an Azure App Service Environment v3'
-description: In this quickstart, you create an Azure resource group, a virtual network, and a subnet with unique, randomly generated names to configure an Azure App Service Environment v3. 
+description: In this quickstart, you learn how to configure an Azure App Service Environment v3. 
 ms.topic: quickstart
-ms.date: 04/04/2025
+ms.date: 04/08/2025
 ms.custom: devx-track-terraform
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
-#customer intent: As a Terraform user, I want to learn how to create an Azure resource group, virtual network, and subnet to configure an Azure App Service Environment v3.
+#customer intent: As a Terraform user, I want to learn how to configure an Azure App Service Environment v3.
 content_well_notification: 
   - AI-contribution
 ---
 
-# 'Quickstart: Use Terraform to configure an Azure App Service Environment v3'
+# Quickstart: Use Terraform to configure an Azure App Service Environment v3
 
-App Service Environment is a single-tenant deployment of Azure App Service. You use it with an Azure virtual network. You need one subnet for a deployment of App Service Environment, and this subnet can't be used for anything else. In this quickstart, you use [Terraform](/azure/developer/terraform) to create a resource group, virtual network, and a subnet to configure an Azure App Service Environment v3. This code creates a resource group, a container that holds related resources for an Azure solution; a virtual network; and a subnet to provide network isolation and segmentation for the App Service Environment.
+In this quickstart, you use [Terraform](/azure/developer/terraform) to create an App Service Environment, single-tenant deployment of Azure App Service. You use it with an Azure virtual network. You need one subnet for a deployment of App Service Environment, and this subnet can't be used for anything else.  resource group, virtual network, and a subnet to configure an Azure App Service Environment v3.
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure resource group with a unique name.
@@ -32,6 +34,36 @@ App Service Environment is a single-tenant deployment of Azure App Service. You 
 - Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+
+## Before you create your App Service Environment
+
+After you create your App Service Environment, you can't change any of the following:
+
+- Location
+- Subscription
+- Resource group
+- Azure virtual network
+- Subnets
+- Subnet size
+- Name of your App Service Environment
+
+Make your subnet large enough to hold the maximum size that you'll scale your App Service Environment. The recommended size is a **/24** with **256 addresses**.
+
+## Deployment considerations
+
+Before you deploy your App Service Environment, think about the virtual IP (VIP) type and the deployment type.
+
+With an *internal VIP*, an address in your App Service Environment subnet reaches your apps. Your apps aren't on a public DNS. When you create your App Service Environment in the Azure portal, you have an option to create an Azure private DNS zone for your App Service Environment. With an *external VIP*, your apps are on an address facing the public internet, and they're in a public DNS.  For both *internal VIP* and *external VIP* you can specify *Inbound IP address*, you can select *Automatic* or *Manual* options. If you want to use the *Manual* option for an *external VIP*, you must first create a standard *Public IP address* in Azure. 
+
+For the deployment type, you can choose *single zone*, *zone redundant*, or *host group*. The single zone is available in all regions where App Service Environment v3 is available. With the single zone deployment type, you have a minimum charge in your App Service plan of one instance of Windows Isolated v2. As soon as you use one or more instances, then that charge goes away. It isn't an additive charge.
+
+In a zone redundant App Service Environment, your apps spread across three zones in the same region. Zone redundant is available in regions that support availability zones. With this deployment type, the smallest size for your App Service plan is three instances. That ensures that there's an instance in each availability zone. App Service plans can be scaled up one or more instances at a time. Scaling doesn't need to be in units of three, but the app is only balanced across all availability zones when the total instances are multiples of three.
+
+A zone redundant deployment has triple the infrastructure, and ensures that even if two of the three zones go down, your workloads remain available. Due to the increased system need, the minimum charge for a zone redundant App Service Environment is 18 cores. If you've fewer than this number of cores across all App Service plans in your App Service Environment, the difference is charged as Windows I1v2. If you've 18 or more cores, there's no added charge to have a zone redundant App Service Environment. To learn more about zone redundancy, see [Regions and availability zones](./overview-zone-redundancy.md). For sample calculations for zone redundant App Service Environment, see [App Service Environment pricing](overview.md#pricing).
+
+In a host group deployment, your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. With this type of deployment, you can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using App Service Environment on a dedicated host group, but you do have to pay for the host group when you're provisioning the App Service Environment. You also pay a discounted App Service plan rate as you create your plans and scale out.
+
+With a dedicated host group deployment, there are a finite number of cores available that are used by both the App Service plans and the infrastructure roles. This type of deployment can't reach the 200 total instance count normally available in App Service Environment. The number of total instances possible is related to the total number of App Service plan instances, plus the load-based number of infrastructure roles.
 
 ## Implement the Terraform code
 
