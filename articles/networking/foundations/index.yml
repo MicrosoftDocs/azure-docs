@@ -214,7 +214,7 @@ additionalContent:
     - title: Networking services
       items:
         - title: Load balancing and Content Delivery
-          url: /azure/networking/load-balancer-content-delivery/
+          url: /azure/networking/load-balancer-content-delivery/?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
         - title: Network security
           url: /azure/networking/security/
         - title: Hybrid connectivity
