@@ -14,6 +14,9 @@ ms.custom: compute-evergreen
 
 # Guest OS Family 1 retirement notice
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The retirement of OS Family 1 was first announced on June 1, 2013.
 
 **Sept 2, 2014** The Azure Guest operating system (Guest OS) Family 1.x, which is based on the Windows Server 2008 operating system, was officially retired. All attempts to deploy new services or upgrade existing services using Family 1 fail with an error message informing you that the Guest OS Family 1 is retired.
