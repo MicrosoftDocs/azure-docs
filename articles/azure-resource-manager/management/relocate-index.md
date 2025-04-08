@@ -17,7 +17,7 @@ The relocate guidance shows you how to set up a relocation project and relocate 
 
 ## What is relocation?
 
-Relocation is the process of moving a workload or workload component in Azure to a different Azure region. A workload is a collection of applications, environments, services, and data that support a defined process. A workload can have one or many applications. Relocating a single or multi-app workload to a different region is a type of migration and has similarities with the process defined in the [migration to Azure guidance](../migrate/index.md). But relocation also has its own solutions and considerations to implement, and the relocate guidance here outlines these distinctive features to help you navigate the relocation process.
+Relocation is the process of moving a workload or workload component in Azure to a different Azure region. A workload is a collection of applications, environments, services, and data that support a defined process. A workload can have one or many applications. Relocating a single or multi-app workload to a different region is a type of migration and has similarities with the process defined in the [migration to Azure guidance](/azure/cloud-adoption-framework/migrate/). But relocation also has its own solutions and considerations to implement, and the relocate guidance here outlines these distinctive features to help you navigate the relocation process.
 
 :::image type="content" source="./media/relocate/single-multi-workload.png" alt-text="Diagram showing a single-app workload and a multi-app workload. There's a workload with a single application in it. The other workload has n applications in it, representing an indefinite number of applications. The applications in each workload show a production and nonproduction environments. In each environment, there's three representational services, one for compute, one for the database, and the other for an indefinite number of other Azure services." lightbox="./media/relocate/single-multi-workload.png" border="false":::
 
@@ -53,7 +53,7 @@ These phases define the lifecycle of a relocation project. It's important to not
 
 You should read relocation best practices and use them as guidance for each workload relocation. The following articles detail how you should approach each step. The content highlights critical areas to focus on but also refers you to other documentation for deeper technical insight. It assumes a basic understanding of Azure regions and service availability. For more information, see:
 
-- [Azure regions selection guide](../ready/azure-setup-guide/regions.md)
+- [Azure regions selection guide](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions)
 - [Special conditions to consider when moving a resource](/azure/azure-resource-manager/management/move-support-resources)
 - [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/)
 - [Azure regions and availability zones](/azure/reliability/availability-zones-overview)

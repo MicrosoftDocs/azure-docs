@@ -42,7 +42,7 @@ You can begin migrating the services in your workload. For execution, follow ava
 - [Azure Resource Mover tutorials](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Azure Site Recovery tutorials](/azure/site-recovery/azure-to-azure-how-to-enable-replication)
 
-You can create infrastructure-as-code templates or scripts for resources you can't move. You can also execute deployments manually in the Azure portal. The specific steps you follow depend on the Azure services you use and their configuration. For more information, see [Infrastructure as code overview](../ready/considerations/infrastructure-as-code.md).
+You can create infrastructure-as-code templates or scripts for resources you can't move. You can also execute deployments manually in the Azure portal. The specific steps you follow depend on the Azure services you use and their configuration. For more information, see [Infrastructure as code overview](/devops/deliver/what-is-infrastructure-as-code).
 
 ## Migrate data
 

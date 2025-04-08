@@ -27,7 +27,7 @@ Cutover is when you direct traffic away from the source region and to the worklo
 
 ## Next steps
 
-**Repeat the Move phase for each workload.** If you have more workloads to relocate, return to the [Evaluate step](evaluate.md) and repeat the four steps of the Move phase until you complete the relocation project. Otherwise, you need to formally close the relocation project.
+**Repeat the Move phase for each workload.** If you have more workloads to relocate, return to the [Evaluate step](./relocate-evaluate.md) and repeat the four steps of the Move phase until you complete the relocation project. Otherwise, you need to formally close the relocation project.
 
 **Close project.** After you're done relocating, you should officially close the relocation project. Closure should take place two weeks after the final cutover. You need time to assess the success of the relocation and create a report for stakeholders to review. Business and technical stakeholders should review the report and approve.
 

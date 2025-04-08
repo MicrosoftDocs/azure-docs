@@ -44,7 +44,7 @@
       - name: Relocation overview
         href: relocate-index.md
       - name: Initiate relocation
-        href: relocate-portal.md
+        href: relocate-initiate.md
       - name: Evaluate workload
         href: relocate-evaluate.md
       - name: Select relocation strategy
