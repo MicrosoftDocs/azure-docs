@@ -98,6 +98,77 @@ For instance, in a group call where seven participants have their video cameras 
 
    Simulcast isn't supported on all browser devices. Currently, simulcast is unavailable when sending videos on mobile browsers or macOS Safari. If a participant attempts to render 720p video from a user on iOS Safari, Android Chrome, or macOS Safari and another participant on the call tries to render the same video at a smaller resolution, both receive the smaller resolution. This change happens because the devices prioritize smaller resolutions when simulcast send isn't supported.
 
+## How to configure to SEND 1080P
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
+
+[Version 1.35.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.35.1-beta.1) and higher of the public preview calling SDK supports sending a 1080P video.
+
+When using the WebJS SDK to send video at a 1080P resolution, you must use the [Video Constraints API](../voice-video-calling/get-started-video-constraints.md?pivots=platform-web) and specify that you want to use 1080P. If the Video Constraints API is not used and 1080P is not specified, the default video stream resolution will be 720P.
+
+```javascript
+    const callOptions = {
+        videoOptions: {
+            localVideoStreams: [...],
+            constraints: {
+                send: {
+                    height: {
+                        max: 1080
+                    }
+                }
+            }
+        },
+        audioOptions: {
+            muted: false
+        }
+    };
+    // make a call
+    this.callAgent.startCall(identitiesToCall, callOptions);
+```
+
+### Items to note when sending a 1080P video stream
+* The camera in use should be capable of sending a 1080P video. To check what resolutions your camera supports, you can use the following JavaScript example to determine the available resolutions.
+
+```javascript
+async function getSupportedResolutions() {
+  const constraints = {
+    video: {
+      width: { ideal: 4096 }, // Try to get the maximum width
+      height: { ideal: 2160 } // Try to get the maximum height
+    }
+  };
+ 
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    const videoTrack = stream.getVideoTracks()[0];
+    const settings = videoTrack.getSettings();
+    
+    console.log(`Supported resolution: ${settings.width}x${settings.height}`);
+    
+    // Stop the video track to release the camera
+    videoTrack.stop();
+  } catch (error) {
+    console.error('Error accessing media devices.', error);
+  }
+}
+ 
+getSupportedResolutions();
+```
+
+* The machine sending a 1080P must have a powerful enough machine to suppor sending a 1080P. 
+* The client that is on the  receiver side (people accepting of a 1080P video) must have a video render HTML5 element capable of 1080P to accept 1080P. If any participants on the call do not have a 1080P element enabled to receive the video, the call will adjust and negotiate down to a smaller resolution.
+* All the people on the call that are sending and receiving a 1080P video stream must have the bandwidth to support a 1080P stream.
+
+| **Resolution** | **Min framerate** | **Max framerate** |  **Max bitrate**  |
+|--|--|--|--|
+| 1080P | 30 | 30 | 4m |
+| 720P | 30 | 30 | 2.5M |
+| 540P | 30 | 30 | 2M |
+| 360P | 30 | 30 | 1M |
+| 240P | 15 | 15 | 650k |
+| 180P | 7.5 | 15 | 250k(350k if 15 FPS)|
+
+You can use the media quality statistics API within the WebJS SDK to determine the real time video send and receive resolution. See [here](../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web) for more details.
+
 ## Conclusion
 
 To determine how many videos to place on a web page, you need to carefully consider resolution, device type, bandwidth, and user experience. Follow these guidelines and best practices to create web apps that not only look appealing but also function seamlessly, providing an optimal viewing experience for users across various devices and connection speeds.

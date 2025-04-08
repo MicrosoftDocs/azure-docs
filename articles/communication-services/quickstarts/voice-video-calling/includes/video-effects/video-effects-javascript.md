@@ -24,7 +24,7 @@ The Video effects feature allows users to incorporate visual effects into their 
 
 
 > [!IMPORTANT]
-> Background blur and background replacement for **Android Chrome and Android Edge mobile browser** is available in General Availability starting in build [1.34.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1) and later WebJS SDK versions. You must use version [1.1.4](https://www.npmjs.com/package/@azure/communication-calling-effects) or higher of the calling effects package to impliment background effects on Android mobile browsers.
+> Background blur and background replacement for **Android Chrome and Android Edge mobile browser** is available in General Availability starting in build [1.34.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1) and later WebJS SDK versions. You must use version [1.1.4](https://www.npmjs.com/package/@azure/communication-calling-effects) or higher of the calling effects package to implement background effects on Android mobile browsers.
 
 Use the `npm install` command to install the Azure Communication Services Effects SDK for JavaScript.
 
