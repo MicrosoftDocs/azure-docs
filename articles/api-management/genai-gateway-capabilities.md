@@ -107,7 +107,7 @@ In API Management, enable semantic caching by using Azure Redis Enterprise or an
 
 ## Labs and samples
 
-* [Labs for the AI gateway capabilities of Azure API Management](https://github.com/Azure-Samples/genai-gateway)
+* [Labs for the AI gateway capabilities of Azure API Management](https://github.com/Azure-Samples/ai-gateway)
 * [Azure API Management (APIM) - Azure OpenAI Sample (Node.js)](https://github.com/Azure-Samples/genai-gateway-apim)
 * [Python sample code for using Azure OpenAI with API Management](https://github.com/Azure-Samples/openai-apim-lb/blob/main/docs/sample-code.md)
 
