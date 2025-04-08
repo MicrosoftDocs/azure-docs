@@ -37,21 +37,21 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is a community?
+          - text: "What is a community?"
             url: what-community.md
-          - text: What is a transit hub?
+          - text: "What is a transit hub?"
             url: what-transit-hub.md
-          - text: What is a Community Endpoint?
+          - text: "What is a Community Endpoint?"
             url: what-community-endpoint.md
-          - text: What is an enclave?
+          - text: "What is an enclave?"
             url: what-enclave.md
-          - text: What is a Enclave Endpoint?
+          - text: "What is a Enclave Endpoint?"
             url: what-enclave-endpoint.md
-          - text: What is a Enclave Connection?
+          - text: "What is a Enclave Connection?"
             url: what-enclave-connection.md
-          - text: What is a workload?
+          - text: "What is a workload?"
             url: what-workload.md
-          - text: What is a service catalog?
+          - text: "What is a service catalog?"
             url: what-service-catalog.md
 #  # Card
 #   - title: Deploy an Azure Virtual Enclaves Environment
