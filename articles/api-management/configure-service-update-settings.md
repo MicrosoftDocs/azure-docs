@@ -4,7 +4,7 @@ description: Learn how to configure settings for applying service updates to you
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 04/08/2025
 ms.author: danlep
 ---
 
@@ -13,9 +13,9 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
 
-This article shows you how to configure *service update* settings in your API Management instance. Azure periodically applies service updates automatically to API Management instances, using a phased rollout approach. These updates include new features, security enhancements, and reliability improvements. 
+This article shows you how to configure *service update* settings (preview) in your API Management instance. Azure periodically applies service updates automatically to API Management instances, using a phased rollout approach. These updates include new features, security enhancements, and reliability improvements. 
 
-You can't control exactly when Azure updates each instance, but in select service tiers API Management lets you choose an *update group* for your instance, and also a *maintenance window* during the day when you want your instance to receive updates. 
+You can't control exactly when Azure updates each API Management instance, but in select service tiers you can choose an *update group* for your instance so that it receives updates earlier or later than it usually would during an update rollout. You can also configure a *maintenance window* during the day when you want your instance to receive updates. 
 
 * **Update group** - A set of instances that receive API Management service updates during a production rollout, which can take from several days to several weeks to complete. 
 
