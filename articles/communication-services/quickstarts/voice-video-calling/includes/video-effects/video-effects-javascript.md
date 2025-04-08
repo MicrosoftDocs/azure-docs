@@ -5,7 +5,7 @@ description: Learn how to add video effects in your video calls using Azure Comm
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 02/14/2025
+ms.date: 04/08/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -23,8 +23,8 @@ The Video effects feature allows users to incorporate visual effects into their 
 > Background blur and background replacement for **Web Desktop browsers** is in GA availability. This quickstart uses the Azure Communication Services Calling SDK version of `1.13.1` (or greater) and the Azure Communication Services Calling Effects SDK version greater than or equal to `1.0.1`. Currently desktop browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
 
-> [!NOTE]
-> Background blur and background replacement for **Android Chrome and Android Edge mobile browser** is available in public preview starting in build [1.29.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1291-beta1-2024-08-26) and later beta WebJS SDK versions.
+> [!IMPORTANT]
+> Background blur and background replacement for **Android Chrome and Android Edge mobile browser** is available in General Availability starting in build [1.34.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1) and later WebJS SDK versions. You must use version [1.1.4](https://www.npmjs.com/package/@azure/communication-calling-effects) or higher of the calling effects package to impliment background effects on Android mobile browsers.
 
 Use the `npm install` command to install the Azure Communication Services Effects SDK for JavaScript.
 
@@ -143,5 +143,4 @@ For best results when preparing the frosted PNG image, keep in mind:
 
 * **Resolution**: Use 1920x1080 pixels for a high-quality background
 * **Avoid full opacity**: Colored content such as logos looks best with a little transparency. We recommend 75% opacity
-* **Defocus the image**: A Gaussian blur of radius 2 works well to simulate a bit of depth of field in the scene.
 * **Stencil mid-gray foreground**: For grayscale PNG with transparency, we recommend having the full image in mid-gray (value 128) so that the transparency pattern is visible on both light and dark backgrounds.
