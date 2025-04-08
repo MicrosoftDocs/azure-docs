@@ -1,6 +1,6 @@
 ---
-title: Connect to CICS Programs on IBM Mainframes
-description: Integrate CICS programs with Standard workflows in Azure Logic Apps by using the IBM CICS connector.
+title: Access CICS Programs from Standard Workflows
+description: Connect to CICS programs on IBM mainframes from Standard workflows in Azure Logic Apps by using the IBM CICS connector.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -58,7 +58,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
-  To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The CICS connector manages this process and data conversions. The conversions are used to provide input data from the workflow to the mainframe program and to send any output data generated from the mainframe program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
+  To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The CICS connector manages this process and data conversions. The conversions provide input data from the workflow to the mainframe program and send any output data generated from the mainframe program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
 
   To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods, parameters, and return values that you use in your workflow. You can also import COBOL or RPG program definitions (copybooks) that provide this information.
 
@@ -68,7 +68,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   The CICS connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the CICS connector actions. To get started, create a blank workflow in your Standard logic app resource.
 
-### Limitations
+## Limitations
 
 Currently, the CICS connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
@@ -151,7 +151,7 @@ Follow these steps to check your workflow and confirm the outputs:
 
 1. To run your workflow, on the designer toolbar, select **Run** > **Run**.
 
-   After your workflow finishes running, the workflow's run history appears. Successful steps show check marks, while unsuccessful steps show an exclamation point (**!**).
+   After your workflow finishes running, the workflow run history appears. Successful steps show check marks, while unsuccessful steps show an exclamation point (**!**).
 
 1. To review the inputs and outputs for each step, expand that step.
 
