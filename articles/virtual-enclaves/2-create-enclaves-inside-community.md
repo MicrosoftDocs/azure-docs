@@ -5,7 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
-ms.date: 01/31/2025
+ms.date: 04/08/2025
 ---
 
 # Tutorial 2: Create Enclaves in a Community on Azure Virtual Enclaves
