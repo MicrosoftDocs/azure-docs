@@ -25,7 +25,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **OS versions**            | SLES 12 with SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, SP5, and SP6 <br><br>  RHEL 7.4, 7.6, 7.7, 7.9, 8.1, 8.2, 8.4, 8.6, 8.8, 9.0, 9.2, and 9.4.               |                                             |
 | **HANA versions**          | SDC on HANA 1.x, MDC on HANA 2.x SPS 04, SPS 05 Rev <= 59, SPS 06 (validated for encryption enabled scenarios as well), SPS 07, and SPS 08.      |                                                            |
 | **Encryption** | SSLEnforce, HANA data encryption |            |
-| **HANA Instances**         | A single SAP HANA instance on a  single Azure VM – scale up only | Multiple SAP HANA instances on a  single VM. You can protect only one of these multiple instances at a time.                  |
+| **HANA Instances**         | - A single SAP HANA instance on a  single Azure VM – scale up only. <br><br> - Multiple SAP HANA instances on a  single VM. You can protect only one of these multiple instances at a time. |                            |
 | **HANA database types**    | Single Database Container (SDC)  ON 1.x, Multi-Database Container (MDC) on 2.x | MDC in HANA 1.x                                              |
 | **HANA database size**     | HANA database of size upto 40 TB (this isn't the memory size of the HANA system).               |                                                              |
 | **Backup types**           | Full, Differential, Incremental and Log backups, Snapshots |                                      |
