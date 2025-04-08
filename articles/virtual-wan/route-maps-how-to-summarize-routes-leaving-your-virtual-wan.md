@@ -52,21 +52,21 @@ In this scenario, a Route-map will summarize the routes being advertised to the 
 
 ## Workflow
 
-   1. Use the Route-map dashboard in hub 2 to verify the correct routes are currently being advertised to VPN branch 2 site.
+1. Use the Route-map dashboard in hub 2 to verify the correct routes are currently being advertised to VPN branch 2 site.
 
    :::image type="content" source="./media/route-maps-how-to-summarize/db-one.png" alt-text="Screenshot that shows routes before Route-Maps." lightbox="./media/route-maps-how-to-summarize/db-one.png"::: 
 
-   2. Create a Route-map to summarize the routes. Before you create your first time Route-map, see [How to configure Route-maps](route-maps-how-to.md) for more information.
+2. Create a Route-map to summarize the routes. Before you create your first time Route-map, see [How to configure Route-maps](route-maps-how-to.md) for more information.
 
    The Route-map has a match rule for contains 10.122.0.0/16. The action **Modify** is selected. Route Modification has a **Replace** for the **RoutePrefix** 10.122.0.0/16.
 
    :::image type="content" source="./media/route-maps-how-to-summarize/rm.png" alt-text="Screenshot to show the Route-Map." lightbox="./media/route-maps-how-to-summarize/rm.png":::
 
-   3. Apply the Route-map on the VPN branch 2 site connection. The Route-map will be applied in the outbound direction.
+3. Apply the Route-map on the VPN branch 2 site connection. The Route-map will be applied in the outbound direction.
 
    :::image type="content" source="./media/route-maps-how-to-summarize/apply.png" alt-text="Screenshot to show the Route-Map being applied." lightbox="./media/route-maps-how-to-summarize/apply.png":::
 
-   4. Using the Route-map dashboard in Hub 2, Verify that route 10.122.0.0/16 is being summarized.  
+4. Using the Route-map dashboard in Hub 2, Verify that route 10.122.0.0/16 is being summarized.  
 
    :::image type="content" source="./media/route-maps-how-to-summarize/db-after.png" alt-text="Screenshot to show routes after Route-map was applied." lightbox="./media/route-maps-how-to-summarize/db-after.png":::
 
