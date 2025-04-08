@@ -1,6 +1,6 @@
 ---
 title: Create Azure resources from the service catalog in an AVE Workload
-description: Create Azure resources from the service catalog in an AVE Workload
+description: Create Azure resources from the service catalog in an AVE Workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -25,7 +25,7 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 - A [deployed Community](./what-is-a-community.md), [deployed Virtual Enclave](./what-is-an-enclave.md), and [deployed Workload](./what-is-a-workload.md) and permissions to create resources inside the workload.
 - Complete the [prerequisites](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for a App Service Web App. Including subnet delegation for the
 
-![image1.png](./media/sc-appService-subnetDelegate.png)
+![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-4-service-catalog-app-service-subnet-delegate.png.png)
 
 ## Enable enclave maintenance mode
 
@@ -37,42 +37,42 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
    - **Justification:** Select `Networking`
    - Select `Save`
 
-![image2.png](./media/sc-appService-maintenanceMode-input.png)
+![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png)
 
 3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state
 
-![image3.png](./media/sc-appService-maintenanceMode-confirm.png)
+![Screenshow showing the popup confirmation box for maintenance mode confirmation.](./media/service-catalog-app-service-maintenance-mode-confirm.png)
 
 ## Create Azure web app resources from the service catalog
 
-5. Navigate to the `wl-webapp-ui` Workload to create an Azure App Service for your webapp.
+5. Navigate to the `wl-webapp-frontend` Workload to create an Azure App Service for your webapp.
 6. Select `Add an Azure service` button on the overview page.
 7. Select `App Service` from the Service Catalog drop down list and click `Next`.
 8. Enter all the required parameters on each tab.
-   - **Web App Site Name:** Enter `webapp-ui`
+   - **Web App Site Name:** Enter `webapp-frontend`
    - **App Service Sku Name:** Select an option from the drop down, `P1v2` or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
-![image4.png](./media/sc-appService-basics.png)
+![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png)
 
 9. Select `Next` to confirm the networking information was prepopulated by the Service Catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet does not.
    - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` which is the subnet delegated in the previous step.
    - **Private Link Subnet Name:** Enter `mySubnet`
 
-![image5.png](./media/sc-appService-networking.png)
+![Screenshot showing the networking input screen for an App Service web app.](./media/service-catalog-app-service-networking.png)
 
 10. Select `Review + Create` and then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to complete successfully before you take any actions within your deployed resources.
 
-![image6.png](./media/sc-appService-deployed.png)
+![Screenshot showing the deployed App Service resources.](./media/service-catalog-app-service-deployed.png)
 
 ## Validate the deployment
 
 1. Go to the specified Resource Group to confirm the intended resources were created.
 
-## (Optional) Deploy Web App Quickstart
+## Deploy Web App Quickstart (Optional)
 Azure App Service has quickstarts for many languages such as the [python quickstart](../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](../app-service/deploy-zip.md)
 
 ## Clean up resources
