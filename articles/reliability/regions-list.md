@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 03/21/2025
+ms.date: 04/07/2025
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -75,11 +75,11 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | UK South | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | UK West | London | United Kingdom |
 | UK West | | UK South | Cardiff | United Kingdom |
 | West Central US | | West US 2 | Wyoming | United States |
-| West Europe | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | North Europe | Netherlands | Europe |
+| West Europe | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | North Europe | Netherlands | Europe |
 | West India | | South India | Mumbai | India |
 | West US | | East US | California | United States |
-| West US 2 | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | West Central US | Washington | United States |
-| West US 3 | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | East US | Phoenix | United States |
+| West US 2 | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | West Central US | Washington | United States |
+| West US 3 | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | East US | Phoenix | United States |
 
 ## Related content
 
