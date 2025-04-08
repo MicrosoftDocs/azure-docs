@@ -16,7 +16,7 @@ ms.date: 04/08/2025
 
 From a workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that the workflow can use for operations in Azure Cosmos DB. For example, you can create or update, read, query, and delete documents.
 
-You can connect to Azure Cosmos DB from both Consumption and Standard logic app workflows by using the [*managed connector*](managed.md) operations, which run in global, multitenant Azure. For Standard workflows, Azure Cosmos DB also provides [*built-in* operations](/azure/logic-apps/connectors/built-in/reference/azurecosmosdb/), which are currently in preview, run alongside the runtime in Azure Logic Apps, and offer different functionality, better performance, and higher throughput. For example, if you're working with a Standard workflow, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in logic app workflows to enable scenarios such as event sourcing and general data processing.
+You can connect to Azure Cosmos DB from both Consumption and Standard logic app workflows by using the [*managed connector*](managed.md) operations, which run in global, multitenant Azure. For Standard workflows, Azure Cosmos DB also provides [*built-in* operations](/azure/logic-apps/connectors/built-in/reference/azurecosmosdb/) that run alongside the runtime in Azure Logic Apps. Built-in operations offer better performance, higher throughput, and sometimes different functionality. For example, in Standard workflow, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in logic app workflows to enable scenarios such as event sourcing and general data processing.
 
 ## Limitations
 
@@ -42,7 +42,7 @@ You can connect to Azure Cosmos DB from both Consumption and Standard logic app 
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met.
 
-If you're working with a Standard workflow, the built-in trigger named **When an item is created or modified** is available and is based on the [Azure Cosmos DB change feed pattern](/azure/cosmos-db/sql/change-feed-design-patterns). This trigger is unavailable for Consumption workflows.
+If you're working with a Standard workflow, the built-in trigger named **When an item is created or modified** is available and is based on the [Azure Cosmos DB change feed design pattern](/azure/cosmos-db/sql/change-feed-design-patterns). This trigger is unavailable for Consumption workflows.
 
 ### [Consumption](#tab/consumption)
 
@@ -50,7 +50,7 @@ No Azure Cosmos DB triggers are available for Consumption workflows.
 
 ### [Standard](#tab/standard)
 
-To add an Azure Cosmos DB built-in trigger to a Standard logic app workflow, follow these steps:
+To add an Azure Cosmos DB built-in trigger to a Standard workflow, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open the Standard workflow in the designer.
 
@@ -88,7 +88,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 ### [Consumption](#tab/consumption)
 
-To add an Azure Cosmos DB action, follow these steps:
+To add an Azure Cosmos DB action to a Consumption workflow, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption workflow in the designer.
 
@@ -121,7 +121,7 @@ To add an Azure Cosmos DB action, follow these steps:
 
 ### [Standard](#tab/standard)
 
-To add a Azure Cosmos DB built-in action to Standard workflow, follow these steps:
+To add an Azure Cosmos DB built-in action to a Standard workflow, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard workflow in the designer.
 
@@ -169,7 +169,7 @@ For a Consumption workflow, an Azure Cosmos DB connection requires the following
 | Parameter | Required | Value | Description |
 |-----------|----------|-------|-------------|
 | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection. |
-| **Authentication Type** | Yes | <*connection-type*> | The authentication type to use. This example uses **Access key**. <br><br>- If you select **Access Key**, provide the remaining required property values to create the connection. <br><br>- If you select **Microsoft Entra ID Integrated**, no other property values are required, but you have to configure the connection by following the steps for [Microsoft Entra authentication and Azure Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector). <br><br>- To set up and use a managed identity, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=consumption). |
+| **Authentication Type** | Yes | <*connection-type*> | The authentication type to use. This example uses **Access key**. <br><br>- If you select **Access Key**, provide the remaining required property values to create the connection. <br><br>- If you select **Microsoft Entra ID Integrated**, no other property values are required, but you have to configure the connection by following the steps for [Microsoft Entra authentication and Azure Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector). <br><br>- To set up a managed identity, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=consumption). |
 | **Account ID** | Yes | <*account-ID*> | The name for the Azure Cosmos DB account to use for this connection. |
 | **Access Key To Your Azure Cosmos DB Account** | Yes | <*access-key*> | The access key for the Azure Cosmos DB account to use for this connection. This value is either a read-write key or a read-only key. <br><br>**Note**: To find the key, go to the Azure Cosmos DB account page. In the account menu, under **Settings**, select **Keys**. Copy one of the available key values. |
 
