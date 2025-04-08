@@ -32,11 +32,10 @@ A backup policy defines the schedule and frequency for backing up Azure Data Lak
 To create a backup policy for Azure Data Lake Storage from the Backup vault, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault** > **Backup policies**, and then select **+ Add**.
-1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**.
+1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**, and then select **Datasource type** as **Azure Data Lake Storage Gen2s (Preview)**.
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-data-lake-storage-configure-backup/create-policy.png":::
 
-1. Select **Datasource type** as **Azure Data Lake Storage Gen2s (Preview)**, and then select **Continue**.
 1. On the **Schedule + retention** tab, under the **Backup schedule** section, set the **Backup Frequency** as **Daily** or **Weekly** and the schedule for creating recovery points for vaulted backups.
 1. Under the **Add retention** section, edit the default retention rule or add new rules to specify the retention of recovery points.
 1. Select **Review + create**.
@@ -61,11 +60,9 @@ To assign the required role for storage accounts that you want to protect, follo
 
 1. On the **Add role assignment** pane, do the following steps:
 
-   - **Role**: Select **Storage Account Backup Contributor**.
-   - **Assign access to**: Select **User, group, or service principal**.
-   - **Backup vault selection**: Click **Select** and search for the Backup vault you created, and then select it from the search result to back up blobs in the underlying storage account.
-
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-role.png" alt-text="Screenshot shows the selection of roles to access the storage account." lightbox="./media/azure-data-lake-storage-configure-backup/add-role.png":::
+   1. **Role**: Select **Storage Account Backup Contributor**.
+   1. **Assign access to**: Select **User, group, or service principal**.
+   1. **Members**: Click **+ Select members** and search for the Backup vault you created, and then select it from the search result to back up blobs in the underlying storage account.
 
 1. Select **Save** to finish the role assignment.
  
