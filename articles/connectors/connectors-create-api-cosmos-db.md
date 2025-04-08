@@ -156,7 +156,7 @@ To add an Azure Cosmos DB built-in action to a Standard workflow, follow these s
 
    The following example shows the action named **Create or update item**, which includes the **Item** and **Partition Key** parameter values from the output for the trigger named **When a HTTP request is received**:
 
-   :::image type="content" source="media/connectors-create-api-cosmos-db/create-action-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and action named Create or update item.":::
+   :::image type="content" source="media/connectors-create-api-cosmos-db/create-action-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and Azure Cosmos DB built-in action named Create or update item.":::
 
 1. Configure any other parameters or settings as needed.
 
@@ -230,6 +230,10 @@ The **Query items** built-in action in a Standard workflow has many dynamic cont
    | **Container Id** | Yes | <*container-ID*> | The container to query. |
    | **SQL Query** | Yes | <*sql-query*> | The SQL query for the request. |
 
+   The following example shows the **Query items** action:
+
+   :::image type="content" source="media/connectors-create-api-cosmos-db/query-action-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and Azure Cosmos DB built-in action named Query items.":::
+
 1. Configure any other parameters or settings as needed.
 
 1. Under the **Query items** action, follow [these general steps to add an action that you want to run on all the returned query items](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
@@ -244,9 +248,13 @@ The **Query items** built-in action in a Standard workflow has many dynamic cont
    
    1. From the **Query items** section in the list, select the output you want, or select **See more** for more outputs.
 
-      For example, you can select **Response Item Id** to populate the **Item Id** field with IDs from the query results.
+      For example, you can select **Response Items Item** to populate the **Item Id** field with IDs from the query results.
 
-   After you select the **Response Item Id**, the **For each** action is automatically added to iterate through all the query results. The **For each** loop contains the **Delete an item** action. You can add any other actions to the loop.
+      After you select the **Response Items Item**, the **For each** action is automatically added to iterate through all the query results. The **For each** loop contains the **Delete an item** action.
+
+      :::image type="content" source="media/connectors-create-api-cosmos-db/delete-item-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and Azure Cosmos DB built-in action named Delete an item.":::
+
+  1. Add any other actions that you want to the loop.
 
 1. On the designer toolbar, select **Save**.
 
