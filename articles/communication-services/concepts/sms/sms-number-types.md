@@ -88,7 +88,7 @@ Azure Communication Services provides the following phone number types:
    - Notifications: Order updates, delivery notifications, and account-related messages.
    - Marketing: Commonly used for branding in EMEA/APAC.
 - **Regulations**
-  - Some countries require registration for using alphanumeric sender IDs.
+  - Some countries/regions require registration for using alphanumeric sender IDs.
   - Opt-Out Management: While Alphanumeric IDs are typically one-way, businesses should still provide opt-out instructions in the message content.
   - France: Alphanumeric IDs are permitted only for transactional messaging, not marketing.
   - Australia: Alphanumeric Sender IDs are permitted, but opt-out instructions should be provided.
@@ -104,11 +104,11 @@ Azure Communication Services provides the following phone number types:
 | **Two-Way Communication**    | Supported                          | Supported                           | Supported                      | Not Supported (one-way only)                |
 | **Brand Visibility**         | Low                                | Moderate (localized presence)       | High                               | High (direct brand recognition)             |
 | **Use Case Examples**        | Customer support, notifications    | Local business communications, marketing & promotions | High-volume campaigns, 2FA       | Brand visibility, one-way notifications     |
-| **Compliance Requirements**  | SMS verification, opt-out support  | Campaign registration, opt-out support | Carrier approval, opt-in proof    | Varies by country (e.g., France restricts marketing messages) |
+| **Compliance Requirements**  | SMS verification, opt-out support  | Campaign registration, opt-out support | Carrier approval, opt-in proof    | Varies by country/region (e.g., France restricts marketing messages) |
 | **Format**                   | 1-800-XXX-XXXX                     | XXX-XXX-XXXX                        | 5-6 digits                          | Up to 11 characters (letters/numbers)       |
 | **Example**                  | 1-800-555-1234                     | 212-555-6789                        | 12345                               | MYBRAND123                                  |
 
-To send messages across multiple countries, customers must request different numbers based on the number types supported in each destination.
+To send messages across multiple countries/regions, customers must request different numbers based on the number types supported in each destination.
 
 ## Next steps
 

@@ -60,4 +60,4 @@ Once the request is approved by the carrier, it takes **48 hours to be published
 - This registration is available only for US local numbers. It doesn't support toll free numbers.
 - This service only applies to *outbound* calls for numbers that customer owns.
 - CNAM databases aren't always up to date and not consistently updated. There's a potential for misspellings.
-- There are multiple CNAM databases across the country and terminating carriers may subscribe to one or more databases.
+- There are multiple CNAM databases across the country/region and terminating carriers may subscribe to one or more databases.

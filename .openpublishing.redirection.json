@@ -6740,7 +6740,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/work-with-styx-objects-and-indicators.md",
+      "source_path": "articles/sentinel/work-with-styx-objects-and-indicators.md",
       "redirect_url": "/azure/sentinel/work-with-styx-objects-indicators",
       "redirect_document_id": false
     },

@@ -11,9 +11,7 @@ ms.author: danlep
 ms.custom: Include file
 ---
 
-## Enable sign-in to portal by Microsoft Entra users and groups 
-
-Users must sign in to see the APIs in your API center. To enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
+To enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
 
 > [!IMPORTANT]
 > By default, you and other administrators of the API center don't have access to APIs in the API Center portal. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  

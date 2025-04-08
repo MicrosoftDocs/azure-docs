@@ -5,7 +5,7 @@ author: seligj95
 ms.author: msangapu
 ms.topic: quickstart
 ms.custom: devx-track-bicep
-ms.date: 11/18/2022
+ms.date: 04/02/2025
 zone_pivot_groups: app-service-bicep
 ---
 

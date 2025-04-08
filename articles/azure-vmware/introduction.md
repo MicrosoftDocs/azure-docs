@@ -23,13 +23,22 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 You can deploy new or scale existing private clouds through the Azure portal or Azure CLI.
 
+## Azure VMware Solution deployment types
+
+Azure VMware Solution provides two different deployment types:
+
+1. Azure VMware Solution provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure datacenter facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
+
+2. [Azure VMware Solution in a Virtual Network](native-introduction.md) (Public Preview) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution in an **Azure Virtual Network** features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering in only supported on the AV64 SKU. 
+
+
 ## Azure VMware Solution private cloud extension with AV64 node size
 
-The AV64 is a new Azure VMware Solution host SKU, which is available to expand (not to create) the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
+The AV64 is an Azure VMware Solution host SKU, which is available to expand the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. If you want to deploy AV64 directly, refer to [Azure VMWare Solution in an Azure Virtual Network](native-introduction.md). Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
 
 :::image type="content" source="media/introduction/av64-mixed-sku-topology.png" alt-text="Diagram showing Azure VMware Solution private cloud with AV64 SKU in mixed SKU configuration." border="false" lightbox="media/introduction/av64-mixed-sku-topology.png":::
 
-### Prerequisite for AV64 usage 
+### Prerequisite for AV64 expansion on AV36, AV36P, and AV52 
 
 See the following prerequisites for AV64 cluster deployment. 
 
