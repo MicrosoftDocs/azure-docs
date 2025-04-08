@@ -137,15 +137,15 @@ Storage Explorer provides several ways to connect to Azure resources:
 
 Storage Explorer lets you connect to individual resources, such as an Azure Data Lake Storage container, using various authentication methods. Some authentication methods are only supported for certain resource types.
 
-| Resource type    | Microsoft Entra ID | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
-|------------------|--------------------|----------------------|--------------------------------|--------------------|
-| Storage accounts | Yes                | Yes                  | Yes (connection string or URL) | No                 |
-| Blob containers  | Yes                | No                   | Yes (URL)                      | Yes                |
+| Resource type                 | Microsoft Entra ID | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
+|-------------------------------|--------------------|----------------------|--------------------------------|--------------------|
+| Storage accounts              | Yes                | Yes                  | Yes (connection string or URL) | No                 |
+| Blob containers               | Yes                | No                   | Yes (URL)                      | Yes                |
 | Data Lake Storage containers  | Yes                | No                   | Yes (URL)                      | Yes                |
 | Data Lake Storage directories | Yes                | No                   | Yes (URL)                      | Yes                |
-| File shares      | No                 | No                   | Yes (URL)                      | No                 |
-| Queues           | Yes                | No                   | Yes (URL)                      | No                 |
-| Tables           | Yes                | No                   | Yes (URL)                      | No                 |
+| File shares                   | Yes                | No                   | Yes (URL)                      | No                 |
+| Queues                        | Yes                | No                   | Yes (URL)                      | No                 |
+| Tables                        | Yes                | No                   | Yes (URL)                      | No                 |
 
 Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
 
