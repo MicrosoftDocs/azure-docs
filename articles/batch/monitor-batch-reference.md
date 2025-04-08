@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Batch
 description: This article contains important reference material you need when you monitor Azure Batch.
-ms.date: 03/28/2024
+ms.date: 04/02/2025
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: azure-batch

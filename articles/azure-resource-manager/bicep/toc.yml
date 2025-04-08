@@ -1,3 +1,4 @@
+items:
 - name: Bicep documentation
   href: index.yml
 - name: Overview
@@ -112,7 +113,7 @@
   - name: Databases
     items:
     - name: Cache for Redis
-      href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../redis/redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/sql/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
@@ -250,7 +251,7 @@
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Redis Web App
-      href: ../../azure-cache-for-redis/cache-web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../redis/web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
@@ -338,6 +339,9 @@
     - name: File functions
       displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
       href: bicep-functions-files.md
+    - name: Flow-control functions
+      displayName: fail
+      href: bicep-functions-flow-control.md
     - name: Lambda functions
       displayName: filter,map,reduce,sort,toObject
       href: bicep-functions-lambda.md
