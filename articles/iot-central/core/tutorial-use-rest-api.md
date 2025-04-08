@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/20/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: devx-track-azurecli
 services: iot-central
 # Customer intent: As a solution developer, I want to learn how to use the REST API to manage and interact with and IoT Central application.

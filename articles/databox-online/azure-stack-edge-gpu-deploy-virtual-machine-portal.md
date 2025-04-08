@@ -4,8 +4,7 @@ description: Learn how to create and manage VMs on your Azure Stack Edge Pro GPU
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/01/2023

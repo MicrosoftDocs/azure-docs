@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: tutorial
-ms.date: 06/12/2024
+ms.date: 02/10/2025
 
 #CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server in my environment with DDoS protection so that the Route Server dynamically updates virtual machines (VMs) routing tables with any changes in the topology while it's protected by Azure DDoS protection.
 ---
@@ -35,7 +35,7 @@ In this section, you create an Azure DDoS protection plan to associate with the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **DDoS protection**. Select **DDoS protection plans** from the search results.
+2. In the search box at the top of the portal, enter ***DDoS protection***. Select **DDoS protection plans** from the search results.
 
 3. Select **+ Create**.
 
@@ -45,10 +45,10 @@ In this section, you create an Azure DDoS protection plan to associate with the 
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **RouteServerRG**. </br> Select **OK**. |
+    | Resource group | Select **Create new**. </br> Enter ***myResourceGroup***. </br> Select **OK**. |
     | **Instance details** |   |
-    | Name | Enter **myDDoSProtectionPlan**. |
-    | Region | Select **West US**. |
+    | Name | Enter ***myDDoSProtectionPlan***. |
+    | Region | Select **East US**. |
 
 5. Select **Review + create**.
 
@@ -58,7 +58,7 @@ In this section, you create an Azure DDoS protection plan to associate with the 
 
 In this section, you create an Azure Route Server. The virtual network and public IP address used for the route server are created during the deployment of the route server.
 
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** from the search results.
+1. In the search box at the top of the portal, enter ***Route Server***. Select **Route Servers** from the search results.
 
 2. Select **+ Create**.
 
@@ -68,31 +68,28 @@ In this section, you create an Azure Route Server. The virtual network and publi
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **RouteServerRG**. |
+    | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
-    | Name | Enter **myRouteServer**. |
-    | Region | Select **West US**. |
+    | Name | Enter ***myRouteServer***. |
+    | Region | Select **East US**. |
     | **Configure virtual networks** |   |
-    | Virtual network | Select **Create new**. </br> In **Name**, enter **myVNet**. </br> Leave the pre-populated **Address space** and **Subnets**. In the example for this article, the address space is **10.1.0.0/16** with a subnet of **10.1.0.0/24**. </br> In **Subnets**, for **Subnet name**, enter **RouteServerSubnet**. </br> In **Address range**, enter **10.1.1.0/27**. </br> Select **OK**.  |
+    | Virtual network | Select **Create new**. </br> In **Name**, enter ***myVNet***. </br> Leave the prepopulated **Address space** and **Subnets**. In the example for this article, the address space is **10.1.0.0/16** with a subnet of **10.1.0.0/24**. </br> In **Subnets**, for **Subnet name**, enter ***RouteServerSubnet***. </br> In **Address range**, enter ***10.1.1.0/27***. </br> Select **OK**.  |
     | Subnet | Select **RouteServerSubnet (10.1.1.0/27)**. |
     | **Public IP address** |  |
     | Public IP address | Select **Create new**. |
-    | Public IP address name | Enter **myPublicIP**. |
-
-    :::image type="content" source="./media/tutorial-protect-route-server/create-virtual-network.png" alt-text="Screenshot of create virtual network and subnets.":::
+    | Public IP address name | Enter ***myPublicIP***. |
 
 4. Select **Review + create**. 
 
 5. Select **Create**.
 
-    > [!NOTE]
-    > The deployment of the Route Server will take about 20 minutes.
+    [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
 ## Enable DDoS protection
 
-Azure DDoS Network is enabled at the virtual network where the resource you want to protect reside. 
+Azure DDoS Network is enabled at the virtual network where the resource you want to protect resides. 
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** from the search results.
+1. In the search box at the top of the portal, enter ***Virtual network***. Select **Virtual networks** from the search results.
 
 2. Select **myVNet**.
 
@@ -130,27 +127,27 @@ In this section, you set up the BGP peering with your NVA.
 
 You need the Azure Route Server's peer IPs and ASN to complete the configuration on your NVA to establish a BGP session. You can obtain this information from the overview page your Route Server.
 
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** from the search results.
+1. In the search box at the top of the portal, enter ***Route Server***. Select **Route Servers** from the search results.
 
 2. Select **myRouteServer**.
 
 3. On the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer IPs**.
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
+    :::image type="content" source="./media/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete the virtual network, DDoS protection plan, and Route Server with the following steps:
 
-1. In the search box at the top of the portal, enter ***RouteServerRG***. Select **RouteServerRG** from the search results.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
 1. Select **Delete resource group**.
 
-1. In **Delete a resource group**, enter ***RouteServerRG***, and then select **Delete**.
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure peering between Azure Route Server and network virtual appliance](tutorial-configure-route-server-with-quagga.md)
+> [Configure and manage Azure Route Server](configure-route-server.md)

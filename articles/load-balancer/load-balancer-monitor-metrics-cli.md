@@ -19,7 +19,7 @@ Complete reference documentation and other samples for retrieving metrics using 
 
 ## Table of metric names via CLI
 
-When you use CLI, Load Balancer metrics may use a different metric name for the CLI parameter value. When specifying the metric name via the `--metric dimension` parameter, use the CLI metric name instead. For example, the metric Data path availability would be used by specifying a parameter of `--metric VipAvaialbility`.
+When you use CLI, Load Balancer metrics may use a different metric name for the CLI parameter value. When specifying the metric name via the `--metric dimension` parameter, use the CLI metric name instead. For example, the metric Data path availability would be used by specifying a parameter of `--metric VipAvailability`.
 
 Here's a table of common Load Balancer metrics, the CLI metric name, and recommend aggregation values for queries:
 
@@ -140,4 +140,4 @@ az monitor metrics list --resource <resource_id> --metric DipAvailability --filt
 ## Next steps
 * [Review the metric definitions to better understand how each is generated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](./load-balancer-standard-diagnostics.md)
-* [Create your own workbooks](../azure-monitor/visualize/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
+* [Create your own workbooks](/azure/azure-monitor/visualize/workbooks-overview), you can take inspiration by clicking on the edit button in your detailed metrics dashboard

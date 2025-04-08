@@ -42,7 +42,7 @@ With network groups, your policy definition includes your conditional expression
       "then": {
         "effect": "addToNetworkGroup",
         "details": {
-          "networkGroupId": "/subscriptions/12345678-abcd-123a-1234-1234abcd7890/resourceGroups/myResourceGroup2/providers/Microsoft.Network/networkManagers/myAVNM/networkGroups/myNG"
+          "networkGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Network/networkManagers/myAVNM/networkGroups/myNG"
         }
       }
 }

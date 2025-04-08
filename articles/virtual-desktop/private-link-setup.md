@@ -1011,6 +1011,6 @@ To test that your users can connect to their remote resources:
 
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
-- Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md).
+- Understand how connectivity for the Azure Virtual Desktop service works at [Azure Virtual Desktop network connectivity](network-connectivity.md).
 
 - See the [Required URL list](safe-url-list.md) for the list of URLs you need to unblock to ensure network access to the Azure Virtual Desktop service.

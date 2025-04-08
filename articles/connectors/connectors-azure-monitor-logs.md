@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 03/21/2025
 # Customer intent: As a developer, I want to get log data from my Log Analytics workspace or telemetry from my Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 
@@ -50,7 +50,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
   | Max connector timeout | 110 seconds ||
   | Max query timeout | 100 seconds ||
 
-  To avoid reaching these limits, try aggregating data to reduce the results size, or adjusting the workflow recurrence to run more frequently across a smaller time range. However, due to caching, frequent queries with intervals less than 120 seconds aren't recommended.
+  To avoid reaching these limits, try aggregating data to reduce the results size, or adjusting the workflow recurrence to run more frequently across a smaller time range.
 
 - Visualizations on the Logs page and the connector use different charting libraries. So, the connector currently doesn't include some functionality.
 
@@ -58,7 +58,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) or [Application Insights resource](../azure-monitor/app/app-insights-overview.md) that you want to connect.
+- The [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) or [Application Insights resource](/azure/azure-monitor/app/app-insights-overview) that you want to connect.
 
 - The [Standard or Consumption logic app workflow](../logic-apps/logic-apps-overview.md#resource-environment-differences) from where you want to access your Log Analytics workspace or Application Insights resource. To use an Azure Monitor Logs action, start your workflow with any trigger. This guide uses the [**Recurrence** trigger](connectors-native-recurrence.md).
 
@@ -316,5 +316,5 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 ## Next steps
 
-- Learn more about [log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md)
-- Learn more about [queries for Log Analytics](../azure-monitor/logs/get-started-queries.md)
+- Learn more about [log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
+- Learn more about [queries for Log Analytics](/azure/azure-monitor/logs/get-started-queries)

@@ -4,7 +4,8 @@ description: 'This tutorial provides step-by-step instructions for transforming 
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 

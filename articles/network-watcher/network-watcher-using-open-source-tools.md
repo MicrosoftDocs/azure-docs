@@ -5,7 +5,7 @@ description: Learn how to use Network Watcher packet capture with CapAnalysis to
 author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 10/23/2024
 ms.author: halkazwini
 ---
 
@@ -51,8 +51,6 @@ The following list describes a few of the CapAnalysis features:
 
   The **Flows** tab lists flows in the packet data. For each flow, the tab shows information like the time stamp, source and destination IPs, and associated protocols.
 
-  ![capanalysis flow page][5]
-
 - Protocol overview
 
   The **Overview** tab shows the distribution of network traffic over the various protocols and geographies.
@@ -63,19 +61,13 @@ The following list describes a few of the CapAnalysis features:
 
   The **Statistics** tab shows network traffic statistics. This information includes bytes sent and received from source and destination IPs, flows for each of the source and destination IPs, protocols used for various flows, and the duration of flows.
 
-  ![capanalysis statistics][7]
-
 - Geographical map
 
   The **GeoMAP** tab provides a map view of your network traffic. Colors scale to the volume of traffic from each country/region. You can select highlighted countries/regions to view additional flow statistics, such as the proportion of data sent and received from IPs in a country/region.
 
-  ![geomap][8]
-
 - Filters
 
   CapAnalysis provides a set of filters for quick analysis of specific packets. For example, you can choose to filter the data by protocol to gain specific insights on that subset of traffic.
-
-  ![filters][11]
 
 To learn more about all the capabilities of CapAnalysis, go to the [tool's website](https://www.capanalysis.net/ca/#about).
 
@@ -91,8 +83,4 @@ You can use the Network Watcher packet capture feature to capture the necessary 
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
-[5]: ./media/network-watcher-using-open-source-tools/figure5.png
 [6]: ./media/network-watcher-using-open-source-tools/figure6.png
-[7]: ./media/network-watcher-using-open-source-tools/figure7.png
-[8]: ./media/network-watcher-using-open-source-tools/figure8.png
-[11]: ./media/network-watcher-using-open-source-tools/figure11.png

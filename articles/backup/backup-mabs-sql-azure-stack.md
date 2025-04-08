@@ -1,15 +1,15 @@
 ---
-title: Back up SQL Server workloads on Azure Stack by using Azure Backup
-description: In this article, learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
+title: Back up SQL Server on Azure Stack using Azure Backup
+description: Learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 ms.topic: how-to
-ms.date: 02/27/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 02/25/2025
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
 
-# Back up SQL Server on Azure Stack
+# Back up SQL Server on Azure Stack using Azure Backup
 
 This article describes how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 
@@ -21,7 +21,9 @@ Management of the SQL Server database backup to Azure and recovery from Azure in
 2. Create on-demand backup copies
 3. Recover the database from Disks, and from Azure
 
-## Prerequisites and limitations
+## Supported scenarios and limitations
+
+Before you back up SQL Server on Azure Stack, review the following supported scenarios and limitations:
 
 * If you've a database with files on a remote file share, protection will fail with Error ID 104. MABS doesn't support protection for SQL Server data on a remote file share.
 * MABS can't protect databases that are stored on remote SMB shares.
@@ -49,9 +51,9 @@ Management of the SQL Server database backup to Azure and recovery from Azure in
   * SQL server 2014 added a new feature to create a [database for on-premises SQL Server on Microsoft Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS can't be used to protect this configuration.
   * There are some known issues with "Prefer secondary" backup preference for the SQL Always On option. MABS always takes a backup from secondary. If no secondary can be found, then the backup fails.
 
-## Before you start
+## Prerequisites
 
-[Install and prepare Azure Backup Server](backup-mabs-install-azure-stack.md).
+Before you back up SQL Server on Azure Stack, [install and prepare Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 ## Create a backup policy
 
@@ -183,5 +185,5 @@ To recover a protected entity (SQL Server database) from Azure, follow these ste
 
 ## Next steps
 
-- [Back up files and application](backup-mabs-files-applications-azure-stack.md) article.
-- [Back up SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) article.
+- [Back up files and application](backup-mabs-files-applications-azure-stack.md).
+- [Back up SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md).

@@ -67,6 +67,8 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
+This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-isolated-process-guide.md#connection-configuration-with-aspire).
+
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
 
 # [Functions 2.x+](#tab/functionsv2/isolated-process)

@@ -139,7 +139,7 @@ To enable location services using Microsoft Intune:
 
 To enable location services without Intune, you can use Group Policy to configure registry values. You can also configure location redirection using Group Policy. Configuring location services this way doesn't prevent users from changing its settings.
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -175,7 +175,7 @@ To enable location services without Intune, you can use Group Policy to configur
 
    1. Enable individual Microsoft Store, MSIX, or Appx apps (this value needs to be set per user). Replace `<Package Family Name>` with the package family name of the app, for example `Microsoft.BingWeather_8wekyb3d8bbwe`. You can get a list of apps and their package family name using the [Get-AppxPackage](/powershell/module/appx/get-appxpackage) PowerShell cmdlet.
 
-      - **Key**: `HKEY_CURRENT_USER\oftware\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location\<Package Family Name>`
+      - **Key**: `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location\<Package Family Name>`
       - **Type**: `REG_SZ` (String value)
       - **Value name**: `Value`
       - **Value data**: `Allow`
@@ -221,7 +221,7 @@ To view redirection support in Windows App and the Remote Desktop app, see [Comp
 
 On Windows, you can enable location services in the Windows Settings app. For more information, see [Windows location service and privacy](https://support.microsoft.com/windows/windows-location-service-and-privacy-3a8eee0a-5b0b-dc07-eede-2a5ca1c49088). The steps in this article to enable location services in a remote session using Intune and Group Policy can also be applied to local Windows devices.
 
-To enable location services on other platforms, refer to the relevent manufacturer's documentation.
+To enable location services on other platforms, refer to the relevant manufacturer's documentation.
 
 ## Test location redirection
 
@@ -264,7 +264,7 @@ To test location redirection:
       }
       ```
       
-      The output is similar to the following output:
+      The output is similar to the following example:
 
       ```output
       Latitude           : 47.64354

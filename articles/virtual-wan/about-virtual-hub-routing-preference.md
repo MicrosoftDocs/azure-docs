@@ -4,8 +4,8 @@ titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN virtual hub routing preference.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
-ms.date: 03/27/2024
+ms.topic: concept-article
+ms.date: 12/10/2024
 ms.author: cherylmc
 ---
 # Virtual hub routing preference
@@ -41,7 +41,8 @@ You can select one of the three possible virtual hub routing preference configur
 
 * **AS Path**
 
-   1. Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements. Note: In vWANs with multiple remote virtual hubs, if there's a tie between remote ExpressRoute routes and remote site-to-site VPN routes, remote site-to-site VPN routes will be preferred.
+   1. Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements.
+      * Note: In vWANs with multiple remote virtual hubs, remote ExpressRoute routes will be selected last. This behavior is true regardless of AS-Path length.
 
    1. Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
    1. If there are routes from both ExpressRoute and Site-to-site VPN connections:
@@ -54,6 +55,7 @@ You can select one of the three possible virtual hub routing preference configur
 * When there are multiple virtual hubs in a Virtual WAN scenario, a virtual hub selects the best routes using the route selection algorithm described above, and then advertises them to the other virtual hubs in the virtual WAN.
 * For a given set of destination route-prefixes, if the ExpressRoute routes are preferred and the ExpressRoute connection subsequently goes down, then routes from S2S VPN or SD-WAN NVA connections will be preferred for traffic destined to the same route-prefixes. When the ExpressRoute connection is restored, traffic destined for these route-prefixes might continue to prefer the S2S VPN or SD-WAN NVA connections. To prevent this from happening, you need to configure your on-premises device to utilize AS-Path prepending for the routes being advertised to your S2S VPN Gateway and SD-WAN NVA, as you need to ensure the AS-Path length is longer for VPN/NVA routes than ExpressRoute routes.
 * When processing routes from remote hubs, routes learnt from hubs with routing intent private routing policies are always preferred over routes from hubs without routing intent. This is to ensure customer traffic takes the secure path when a secure path is available. To avoid asymmetric routing, enable Routing Intent on all hubs in Virtual WAN.
+* When a Virtual WAN hub advertises a route to another Virtual WAN hub, this route will have the ASNs 65520-65520 prepended to its AS-Path. For more details on routing in Virtual WAN, please see [Virtual WAN routing deep dive](routing-deep-dive.md) and [View Virtual Hub Effective Routes](effective-routes-virtual-hub.md).
 
 ## Routing scenarios
 

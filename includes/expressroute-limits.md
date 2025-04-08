@@ -25,10 +25,10 @@
 
 | Resource | Local / Standard SKU | Premium SKU |
 |--|--|--|
-| Maximum number of IPv4 routes advertised to Azure private peering from on-premises | 4,000 | 10,000 |
-| Maximum number of IPv6 routes advertised to Azure private peering from on-premises | 100 | 100 |
-| Maximum number of IPv4 routes advertised from Azure private peering from the VNet address space to ExpressRoute virtual network gateway | 1,000 | 1,000 |
-| Maximum number of IPv6 routes advertised from Azure private peering from the VNet address space to ExpressRoute virtual network gateway | 100 | 100 |
+| Maximum number of IPv4 on-prem routes advertised over Azure private peering to the ExpressRoute circuit | 4,000 | 10,000 |
+| Maximum number of IPv6 on-prem routes advertised over Azure private peering to the ExpressRoute circuit | 100 | 100 |
+| Maximum number of IPv4 Virtual Network routes advertised by the Gateway to the ExpressRoute circuit over Azure private peering | 1,000 | 1,000 |
+| Maximum number of IPv6 Virtual Network routes advertised by the Gateway to the ExpressRoute circuit over Azure private peering | 100 | 100 |
 | Maximum number of IPv4 routes advertised to Microsoft peering from on-premises | 200 | 200 |
 | Maximum number of IPv6 routes advertised to Microsoft peering from on-premises | 200 | 200 |
 

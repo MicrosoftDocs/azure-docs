@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Configure customer-managed keys for the FHIR service
 
-By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](/azure/key-vault/) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
+By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](/azure/key-vault/) to create and manage CMK, and then use the keys to encrypt the data stored by the FHIR&reg; service. 
 
 Customer-managed keys enable you to:
 
@@ -24,7 +24,7 @@ Customer-managed keys enable you to:
 
 - Verify you're assigned the [Azure Contributor](../../role-based-access-control/role-assignments-steps.md) RBAC role, which lets you create and modify Azure resources. 
 
-- Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
+- Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault). Customer-managed keys must meet the following requirements.
 
    - The key is versioned.
   
@@ -38,7 +38,7 @@ Customer-managed keys enable you to:
   
    - When using a key vault with a firewall to disable public access, the option to **Allow trusted Microsoft services to bypass this firewall** must be enabled.
 
-   - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over. 
+   - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default is 90 days) and block permanent deletion until that time is over. 
 
 > [!NOTE]
 >>The FHIR service supports attaching one identity type (either a system-assigned or user-assigned identity). Changing the identity type might impact background jobs such as export and import if the identity type is already mapped.
@@ -59,7 +59,7 @@ After you add the key, you need to update the FHIR service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
 
-You update the key for the FHIR service by using the Azure portal or an ARM template. During the update, you choose whether to use a system-assigned or user-assigned managed identity. For a system-assigned managed identity, make sure to assign the **Key Vault Crypto Service Encryption User** role. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+To update the key for the FHIR service, use the Azure portal or an ARM template. During the update, choose whether to use a system-assigned or user-assigned managed identity. For a system-assigned managed identity, make sure to assign the **Key Vault Crypto Service Encryption User** role. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### Update the key by using the Azure portal
 
@@ -67,9 +67,9 @@ You update the key for the FHIR service by using the Azure portal or an ARM temp
 
 1. Select **Customer-managed key** for the Encryption type.
 
-1. Select a key vault and key or enter the Key URI for the key that was created previously.  
+1. Select a key vault and key, or enter the Key URI for the key that was created previously.  
 
-1. Select an identity type, either System-assigned or User-assigned, that matches the type of managed identity configured previously.
+1. Select an identity type, either System-assigned or User-assigned, that matches the type of managed identity previously configured.
 
 1. Select **Save** to update the FHIR service to use the customer-managed key.  
 
@@ -257,7 +257,7 @@ If you use a user-assigned managed identity with the FHIR service, you can confi
    
 2. Choose **Next: Security**.  
 
-  :::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Create FHIR service view with the FHIR service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
+  :::image type="content" source="media/configure-customer-managed-keys/deploy-name.png" alt-text="Screenshot of the Created FHIR service view with the FHIR service name filled in." lightbox="media/configure-customer-managed-keys/deploy-name.png":::
 
 3. On the **Security** tab, in the **Encryption section** select **Customer-managed key**.
 
@@ -283,11 +283,11 @@ For the FHIR service to operate properly, it must always have access to the key 
 
 - The FHIR service system-assigned managed identity loses access to the key vault.
 
-In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. 
+In any scenario where the FHIR service can't access the key, API requests return `500` errors and the data is inaccessible until access to the key is restored. 
 
 If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. 
 
 ## Resolve common errors 
-Common errors that cause databases to become inaccessible are usually due to configuration issues. For more information, see [Common errors with customer-managed keys](/sql/relational-databases/security/encryption/troubleshoot-tde).
+Common errors that cause databases to become inaccessible are often due to configuration issues. For more information, see [Common errors with customer-managed keys](/sql/relational-databases/security/encryption/troubleshoot-tde).
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

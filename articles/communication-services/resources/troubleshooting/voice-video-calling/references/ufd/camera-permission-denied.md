@@ -21,7 +21,7 @@ The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK d
 | value type                            | DiagnosticFlag         |
 | possible values                       | true, false            |
 
-## Example code to catch a cameraPermissionDenided UFD event
+## Example code to catch a cameraPermissionDenied UFD event
 ```typescript
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'cameraPermissionDenied') {

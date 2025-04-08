@@ -2,11 +2,11 @@
 title: Azure Firewall Basic features
 description: Learn about Azure Firewall Basic features.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/14/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall Basic features
@@ -39,9 +39,9 @@ High availability is built in, so no extra load balancers are required and there
 
 Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons. For more information on availability, see the Azure Firewall [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
-There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no extra cost for a firewall deployed in more than one Availability Zone.
 
-Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../reliability/availability-zones-service-support.md).
+Azure Firewall Availability Zones are available in regions that support availability zones. For more information, see [Regions with availability zone support](../reliability/availability-zones-region-support.md).
 
 ## Application FQDN filtering rules
 

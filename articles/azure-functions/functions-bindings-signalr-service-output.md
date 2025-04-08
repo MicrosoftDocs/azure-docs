@@ -601,7 +601,7 @@ The following table explains the properties of the `SignalROutput` attribute.
 | Attribute property |Description|
 |---------|----------------------|
 |**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**ConnectionStringSetting**| The name of the app setting or settings collection that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 # [In-process model](#tab/in-process)
 
 The following table explains the properties of the `SignalR` output attribute.
@@ -609,7 +609,7 @@ The following table explains the properties of the `SignalR` output attribute.
 | Attribute property |Description|
 |---------|----------------------|
 |**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**ConnectionStringSetting**| The name of the app setting or settings collection that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 
 ---
@@ -625,7 +625,7 @@ The following table explains the supported settings for the `SignalROutput` anno
 |---------|--------|
 |**name**| Variable name used in function code for connection info object. |
 |**hubName**|This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**connectionStringSetting**|The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**connectionStringSetting**|The name of the app setting or settings collection that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
@@ -639,12 +639,16 @@ The following table explains the binding configuration properties that you set i
 |**direction**|Must be set to `out`.|
 |**name**|  Variable name used in function code for connection info object. |
 |**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**connectionStringSetting**| The name of the app setting or settings collection that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 
 ::: zone-end
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## Usage
+
+[!INCLUDE [functions-azure-signalr-authorization-note](../../includes/functions-azure-signalr-authorization-note.md)] 
 
 ## Next steps
 

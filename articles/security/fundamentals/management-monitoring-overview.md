@@ -2,7 +2,7 @@
 title: Management and monitoring security features - Microsoft Azure | Microsoft Docs
 description: This article provides an overview of the security features and services that Azure provides to aid in the management and monitoring of Azure cloud services and virtual machines.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
@@ -10,7 +10,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/20/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # Azure security management and monitoring overview

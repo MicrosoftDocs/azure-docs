@@ -1,6 +1,61 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/create-single-tenant-workflows-visual-studio-code.md",
+            "redirect_url": "/azure/logic-apps/create-standard-workflows-visual-studio-code",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/monitor-b2b-messages-log-analytics.md",
+            "redirect_url": "/azure/logic-apps/monitor-track-b2b-messages-consumption",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/tracking-schemas-as2-x12-custom.md",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/install-on-premises-data-gateway.md",
+            "redirect_url": "/data-integration/gateway/service-gateway-install",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/create-serverless-apps-visual-studio.md",
+            "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/biztalk-server-azure-integration-services-migration-approaches.md",
+            "redirect_url": "/azure/logic-apps/biztalk-server-migration-approaches",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/biztalk-server-to-azure-integration-services-overview.md",
+            "redirect_url": "/azure/logic-apps/biztalk-server-migration-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md",
+            "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-set-up-single-ip-address.md",
+            "redirect_url": "/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/add-artifacts-integration-service-environment-ise.md",
+            "redirect_url": "/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/ise-manage-integration-service-environment.md",
+            "redirect_url": "/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=standard",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/monitor-logic-apps.md",
             "redirect_url": "/azure/logic-apps/view-workflow-status-run-history",
             "redirect_document_id": true
@@ -512,17 +567,17 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
@@ -927,17 +982,17 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         }
     ]

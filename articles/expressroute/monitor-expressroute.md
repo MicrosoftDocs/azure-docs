@@ -3,7 +3,7 @@ title: Monitor Azure ExpressRoute
 description: Start here to learn how to monitor Azure ExpressRoute by using Azure Monitor. This article includes links to other resources.
 ms.date: 07/11/2024
 ms.custom: horz-monitor, subject-monitoring, FY 23 content-maintenance
-ms.topic: conceptual
+ms.topic: concept-article
 author: duongau
 ms.author: duau
 ms.service: azure-expressroute
@@ -24,7 +24,7 @@ For more information about the resource types for ExpressRoute, see [Azure Expre
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Azure ExpressRoute* are listed in [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Azure ExpressRoute* are listed in [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#resource-logs).
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -39,11 +39,11 @@ For a list of available metrics for ExpressRoute, see [Azure ExpressRoute monito
 
 ## Analyzing metrics
 
-You can analyze metrics for *Azure ExpressRoute* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for *Azure ExpressRoute* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metrics-page.png" alt-text="Screenshot of the metrics dashboard for ExpressRoute.":::
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 - To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. 
 - To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. 
@@ -59,14 +59,12 @@ After a metric is selected, the default aggregation is applied. Optionally, you 
 
 > [!IMPORTANT]
 > When viewing ExpressRoute metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
->
-> :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metric-granularity.png" alt-text="Screenshot of time granularity options.":::
 
 For the ExpressRoute metrics, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md).
 
 ### Aggregation Types
 
-Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
+Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](/azure/azure-monitor/essentials/metrics-charts#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
 
 - Sum: The sum of all values captured during the aggregation interval.
 - Count: The number of measurements captured during the aggregation interval.
@@ -99,9 +97,9 @@ You can also view ExpressRoute metrics by going to your ExpressRoute circuit res
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for ExpressRoute resource logs is found in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The schema for ExpressRoute resource logs is found in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas).
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform logging that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a platform logging that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 ExpressRoute stores data in the following tables.
 
@@ -123,7 +121,7 @@ To view these tables, navigate to your ExpressRoute circuit resource and select 
 
 ### Sample Kusto queries
 
-These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
+These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - Query for Border Gateway Protocol (BGP) route table learned over the last 12 hours.
 
@@ -199,19 +197,13 @@ The following table lists some suggested alert rules for ExpressRoute. These ale
 
 1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/monitor-overview.png" alt-text="Screenshot of the alerts option from the monitor overview page.":::
-
 1. Select **+ Create** > **Alert rule** and select the ExpressRoute gateway connection resource. Select **Next: Condition >** to configure the signal.
-
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/select-expressroute-gateway.png" alt-text="Screenshot of the selecting ExpressRoute virtual network gateway from the select a resource page.":::
 
 1. On the *Select a signal* page, select a metric, resource health, or activity log that you want to be alerted. Depending on the signal you select, you might need to enter additional information such as a threshold value. You can also combine multiple signals into a single alert. Select **Next: Actions >** to define who and how they get notify.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/signal.png" alt-text="Screenshot of list of signals that can be alerted for ExpressRoute gateways.":::
 
 1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who receives them.
-
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/action-group.png" alt-text="Screenshot of add action groups page.":::
 
 1. Select **Review + create** and then **Create** to deploy the alert into your subscription.
 

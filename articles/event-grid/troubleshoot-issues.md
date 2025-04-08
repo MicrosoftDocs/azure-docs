@@ -51,7 +51,7 @@ az eventgrid event-subscription create --name <event-grid-subscription-name> \
     --delivery-attribute-mapping Diagnostic-Id dynamic traceparent
 ```
 
-Azure Functions supports [distributed tracing with Azure Monitor](../azure-monitor/app/azure-functions-supported-features.md), which includes built-in tracing of executions and bindings, performance monitoring, and more.
+Azure Functions supports [distributed tracing with Azure Monitor](/azure/azure-monitor/app/azure-functions-supported-features), which includes built-in tracing of executions and bindings, performance monitoring, and more.
 
 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/) package version 3.1.0 or later enables correlation for CloudEvents between producer calls and Functions Event Grid trigger executions. For more information, see [Distributed tracing with Azure Functions and Event Grid triggers](https://devblogs.microsoft.com/azure-sdk/distributed-tracing-with-azure-functions-event-grid-triggers/).
 

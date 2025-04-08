@@ -1,5 +1,5 @@
 ---
-title: How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan
+title: How to Use VMware Spring Cloud Gateway Route Filters with the Azure Spring Apps Enterprise Plan
 description: Shows you how to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan to route requests to your applications.
 author: KarlErickson
 ms.author: karler
@@ -11,10 +11,9 @@ ms.custom: devx-track-java
 
 # How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article explains how to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan to route requests to your applications.
 

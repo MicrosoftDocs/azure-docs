@@ -25,6 +25,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**DNP. org**     |   DNP3      |
 |**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
+|**EVRoaming Foundation** | OCPI |
 |**FANUC**     |  FANUC FOCUS    |
 |**FieldComm Group**| HART-IP  |
 |**GE**     | ADL (MarkVIe) <br>Bentley Nevada (System 1 / BN3500)<br>ClassicSDI (MarkVle) <br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br> InterSite<br> SDI (MarkVle) <br>  SRTP (GE)<br> GE_CMP        |
@@ -50,7 +51,6 @@ OT network sensors can detect the following protocols when identifying assets an
 |**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet I/O<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7 - Firmware and model extraction<br> Siemens S7 – key state<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> FA-M3<br> Vnet/IP      |
-
 
 [!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 

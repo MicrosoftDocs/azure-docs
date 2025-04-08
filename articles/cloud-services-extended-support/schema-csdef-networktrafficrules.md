@@ -7,6 +7,7 @@ ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+# Customer intent: As a cloud architect, I want to configure network traffic rules for role-based communication within Azure Cloud Services, so that I can ensure secure and controlled internal endpoint access.
 ---
 
 # Azure Cloud Services (extended support) definition NetworkTrafficRules schema

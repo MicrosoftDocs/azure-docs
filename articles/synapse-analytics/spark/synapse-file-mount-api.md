@@ -7,7 +7,6 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
 ms.author: jingzh
-ms.reviewer: whhender
 ms.custom: subject-rbac-steps
 ---
 
@@ -19,7 +18,7 @@ The article shows you how to use mount/unmount APIs in your workspace. You'll le
 
 + How to mount Data Lake Storage Gen2 or Blob Storage.
 + How to access files under the mount point via the local file system API. 
-+ How to access files under the mount point by using the `mssparktuils fs` API. 
++ How to access files under the mount point by using the `mssparkutils fs` API. 
 + How to access files under the mount point by using the Spark read API.
 + How to unmount the mount point.
  
@@ -52,7 +51,7 @@ You can create a linked service for Data Lake Storage Gen2 or Blob Storage. Curr
 
     ![Screenshot of selections for creating a linked service by using an account key.](./media/synapse-file-mount-api/synapse-link-service-using-account-key.png)
 
-+ **Create a linked service by using a managed identity**
++ **Create a linked service using a system-assigned managed identity**
 
     ![Screenshot of selections for creating a linked service by using a managed identity.](./media/synapse-file-mount-api/synapse-link-service-using-managed-identity.png)
 

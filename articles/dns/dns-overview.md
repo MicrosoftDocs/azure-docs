@@ -43,7 +43,7 @@ Azure DNS enables multiple scenarios, including:
 * To learn about Public DNS zones and records, see [DNS zones and records overview](dns-zones-records.md).
 * To learn about Private DNS zones, see [What is an Azure Private DNS zone](private-dns-privatednszone.md).
 * To learn about private resolver endpoints and rulesets, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
-* For frequently asked questions about Azure DNS, see [Azure DNS FAQ](dns-faq-private.yml).
-* For frequently asked questions about Azure Private DNS, see [Azure Private DNS FAQ](dns-faq.yml).
+* For frequently asked questions about Azure DNS, see [Azure DNS FAQ](dns-faq.yml).
+* For frequently asked questions about Azure Private DNS, see [Azure Private DNS FAQ](dns-faq-private.yml).
 * For frequently asked questions about Traffic Manager, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-faqs)
 * Also see [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

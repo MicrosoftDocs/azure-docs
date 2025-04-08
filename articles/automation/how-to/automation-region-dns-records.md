@@ -3,21 +3,21 @@ title: Azure Datacenter DNS records used by Azure Automation | Microsoft Docs
 description: This article provides the DNS records required by Azure Automation features when restricting communication to a specific Azure region hosting that Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/29/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 
 # DNS records for Azure regions used by Azure Automation
 
-The [Azure Automation](../automation-intro.md) service uses many DNS (Domain Name System) records for features to connect to the service. If you have an Automation account configured for a specific region, you can restrict communication to that regional datacenter. You might need to know these records to allow the following Automation features to work when it's hosted behind a firewall:
+The [Azure Automation](../automation-intro.md) service uses many Domain Name System (DNS) records for features to connect to the service. If you have an Automation account configured for a specific region, you can restrict communication to that regional datacenter. You might need to know these records to allow the following Automation features to work when it's hosted behind a firewall:
 
 * Hybrid Runbook Worker
 * State Configuration
 * Webhooks
 
 >[!NOTE]
->Linux Hybrid Runbook Worker registration will fail with the new records unless it is version 1.6.10.2 or higher. You must upgrade to a newer version of the [Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux.md) in order for the machine to receive an updated version of the worker role and use these new records. Existing machines will continue working without any issues.  
+>Linux Hybrid Runbook Worker registration will fail with the new records unless it is version 1.6.10.2 or higher. You must upgrade to a newer version of the [Log Analytics agent for Linux](/azure/azure-monitor/agents/agent-linux) in order for the machine to receive an updated version of the worker role and use these new records. Existing machines will continue working without any issues.  
 
 ## DNS records per region
 

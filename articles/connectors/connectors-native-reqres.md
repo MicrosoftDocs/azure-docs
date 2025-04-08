@@ -146,7 +146,7 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
-   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`addtionalProperties`** property, and set the value to **`false`**.
+   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`additionalProperties`** property, and set the value to **`false`**.
 
       For example, the following schema specifies that the inbound message must have the **`msg`** field and not any other fields:
 
@@ -301,7 +301,7 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
-   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`addtionalProperties`** property, and set the value to **`false`**.
+   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`additionalProperties`** property, and set the value to **`false`**.
 
       For example, the following schema specifies that the inbound message must have the **`msg`** field and not any other fields:
 
@@ -357,6 +357,20 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
    > change your storage account and copy your workflow to the new storage account, the URL for 
    > the **Request** trigger also changes to reflect the new storage account. The same workflow has a different URL.
 
+
+### Schema validation for stateless workflows
+
+To enable schema validation for stateless workflows, make sure that the **host.json** file in the logic app resource or project has the following [host setting](../logic-apps/edit-app-settings-host-settings.md#manage-host-settings---hostjson):
+
+```json
+"extensions": {
+   "workflow": {
+      "Settings": {
+         "Runtime.StatelessFlowEvaluateTriggerCondition": "true"
+      }
+   }
+}
+```
 ---
 
 Now, continue building your workflow by adding another action as the next step. For example, you can respond to the request by [adding a Response action](#add-response), which you can use to return a customized response and is described later in this article.

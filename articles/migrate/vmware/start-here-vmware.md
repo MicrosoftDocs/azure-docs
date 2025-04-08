@@ -10,7 +10,7 @@ products:
   - vmware
   - azure-virtual-machines
   - azure-vmware-solution
-ms.date: 05/08/2024
+ms.date: 08/14/2024
 ms.custom: vmware-scenario-422
 
 # Customer intent - Overview  of the options for assessing an existing VMware deployment for migration
@@ -20,6 +20,8 @@ ms.custom: vmware-scenario-422
 # Start here to migrate from VMware to Azure
 
 There are several steps to using the Azure Migration Tools to migrate a VMware deployment to Azure. This article is a map to the steps of the process that are documented for this scenario.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 ## Prerequisites
 Make sure you check out the [support matrix](migrate-support-matrix-vmware.md) before getting started.

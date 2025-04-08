@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Mapping data flows performance and tuning guide
@@ -18,7 +18,7 @@ Mapping data flows in Azure Data Factory and Synapse pipelines provide a code-fr
 
 Watch the following video to see shows some sample timings transforming data with data flows.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=0c322fbc-bcd2-4698-b031-4a51b1d9d129]
 
 ## Monitoring data flow performance
 

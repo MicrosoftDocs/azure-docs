@@ -1,12 +1,12 @@
 ---
 title: Azure Health Data Services quickstart
 description: Learn how to create a workspace for Azure Health Data Services by using the Azure portal. The workspace is a centralized logical container for instances of the FHIR service, DICOM service, and MedTech service.
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: quickstart
 ms.date: 06/07/2024
-ms.author: jasteppe
+ms.author: kesheth
 ms.custom: mode-api
 ---
 
@@ -38,7 +38,7 @@ Before you create a workspace in the Azure portal, you need an Azure account sub
 
    :::image type="content" source="media/healthcare-apis-quickstart/create-health-data-services-workspace-basics-tab.png" alt-text="Screenshot showing the workspace settings on the Basics tab." lightbox="media/healthcare-apis-quickstart/create-health-data-services-workspace-basics-tab.png":::
    
-1. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all lowercase. Don't use a hyphen "-" as it's an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
+1. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all lowercase. Don't use a hyphen "-" as it's an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../reliability/availability-zones-overview.md).
 
 1. Select **Next: Networking >**. Connect a workspace publicly with the default **Public endpoint (all networks)** option selected. You can also connect a workspace using a private endpoint by selecting the **Private endpoint** option. For more information about accessing Azure Health Data Services over a private endpoint, see [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md).
 

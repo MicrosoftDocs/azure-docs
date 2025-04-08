@@ -2,14 +2,14 @@
 title: Penetration testing | Microsoft Docs
 description: The article provides an overview of the penetration testing process and how to perform a pen test against your app running in Azure infrastructure.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 ---
 
 # Penetration testing

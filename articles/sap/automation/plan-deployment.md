@@ -57,7 +57,7 @@ The control plane provides the following services:
 
 The control plane is defined by using two configuration files, one for the deployer and one for the SAP Library.
 
-The deployment configuration file defines the region, environment name, and virtual network information. For example:
+The deployer configuration file defines the region, environment name, and virtual network information. For example:
 
 ```tfvars
 # Deployer Configuration File
@@ -128,6 +128,7 @@ Before you design your workload zone layout, consider the following questions:
 * How many workload zones does your scenario require (development, quality assurance, and production)?
 * Are you deploying into new virtual networks or are you using existing virtual networks?
 * What storage type do you need for the shared storage (Azure Files NFS or Azure NetApp Files)?
+* Are you going to deploy NAT Gateway for outbound internet connectivity?
 
 The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` is for a development environment hosted in the West Europe region by using the SAP01 virtual network. `PRD-WEEU-SAP02-INFRASTRUCTURE` is for a production environment hosted in the West Europe region by using the SAP02 virtual network.
 
@@ -315,7 +316,7 @@ The following sample folder hierarchy shows how to structure your configuration 
 > | LANDSCAPE         | Configuration files for workload zone   | A folder with [configuration files for all workload zones](deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**.                      |
 > | SYSTEM            | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. For example, **PROD-WEEU-SAPO00-ABC**. |
 
-:::image type="content" source="./media/plan-deployment/folder-structure.png" alt-text="Screenshot that shows example folder structure, with separate folders for SAP HANA and multiple workload environments.":::
+:::image type="content" source="./media/plan-deployment/folder-structure.png" alt-text="Screenshot that shows example folder structure, with separate folders for SAP HANA and multiple workload environments." lightbox="./media/plan-deployment/folder-structure.png":::
 
 Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
 

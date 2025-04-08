@@ -1,8 +1,6 @@
 ---
 title: Overview of Microsoft Teams Direct Routing with Azure Communications Gateway
 description: Understand how Azure Communications Gateway works with Microsoft Teams Direct Routing and your fixed network.
-author: rcdun
-ms.author: rdunstan
 ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 03/31/2024

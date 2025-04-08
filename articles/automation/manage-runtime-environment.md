@@ -4,7 +4,7 @@ description: This article tells how to manage runbooks in Runtime environment an
 services: automation
 ms.subservice: process-automation
 ms.date: 07/24/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: references_regions
 ms.service: azure-automation
 ---

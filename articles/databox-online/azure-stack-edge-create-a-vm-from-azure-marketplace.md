@@ -4,8 +4,7 @@ description: Learn how to create a VM image using source images from Azure Marke
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 09/07/2023
 ms.author: alkohli

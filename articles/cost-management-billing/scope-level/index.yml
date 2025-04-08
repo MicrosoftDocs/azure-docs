@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Centrally managed Azure Hybrid Benefit
-summary: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
+summary: Azure Hybrid Benefit is an Azure discount that lets you allocate your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
 metadata:
   title: Azure Hybrid Benefit documentation
-  description: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
+  description: Azure Hybrid Benefit is an Azure discount that lets you allocate your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: landing-page
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/21/2024
+  ms.date: 11/21/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

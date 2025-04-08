@@ -4,7 +4,8 @@ description: Learn how to use a solution template to detect and mask PII data us
 author: n0elleli
 ms.author: noelleli
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # PII detection and masking

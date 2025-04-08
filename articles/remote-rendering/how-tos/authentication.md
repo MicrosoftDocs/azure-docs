@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Configure authentication
 
-Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). To access a given Azure Remote Rendering account, clients need to obtain an access token from Azure Mixed Reality Security Token Service (STS). Tokens obtained from STS have a lifetime of 24 hours. Clients need to set *one* of the following to call the REST APIs successfully:
+To access a given Azure Remote Rendering account, clients need to obtain an access token from Azure Mixed Reality Security Token Service (STS). Tokens obtained from STS have a lifetime of 24 hours. Clients need to set *one* of the following to call the REST APIs successfully:
 
 * **AccountKey**: can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. Account Keys are only recommended for development/prototyping.
     ![Account ID](./media/azure-account-primary-key.png)
@@ -36,7 +36,7 @@ Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial 
     {"AccessToken":"eyJhbGciOiJSUzI1<truncated>uLkO2FvA"}
     ```
 
-    Where the Authorization header is formatted as follows: `Bearer <Azure_AD_token>` or `Bearer <accoundId>:<accountKey>`. The former is preferable for security. The token returned from this REST call is the MR access token.
+    Where the Authorization header is formatted as follows: `Bearer <Azure_AD_token>` or `Bearer <accountId>:<accountKey>`. The former is preferable for security. The token returned from this REST call is the MR access token.
 
 ## Authentication for deployed applications
 
@@ -45,8 +45,6 @@ Account keys are recommended for quick prototyping, during development only. It'
 <a name='azure-ad-user-authentication'></a>
 
 ### Microsoft Entra user authentication
-
-Microsoft Entra authentication is described in the [Azure Spatial Anchors documentation](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication).
 
 Follow the steps to configure Microsoft Entra user authentication in the Azure portal.
 

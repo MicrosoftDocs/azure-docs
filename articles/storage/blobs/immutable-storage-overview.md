@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/01/2024
 ms.author: normesta
 ---
@@ -55,7 +55,7 @@ A time-based retention policy stores blob data in a WORM format for a specified 
 
 A time-based retention policy can be configured at the following scopes:
 
-- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container.
+- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container. If there is a legal hold on a container, Version-level WORM cannot be created for the same container. This is because the versions can't generated due to the legal hold.
 - Container-level WORM policy: A time-based retention policy configured at the container level applies to all blobs in that container. Individual blobs can't be configured with their own immutability policies.
 
 ### Retention interval for a time-based policy
@@ -179,7 +179,7 @@ If you fail to pay your bill and your account has an active time-based retention
 This feature is incompatible with point in time restore and last access tracking. This feature is compatible with customer-managed unplanned failover, however, any changes that are made to the immutable policy after the last sync time (such as locking a time based retention policy, extending it, etc.) will not be synced to the secondary region. Once failover is completed, you can redo the changes to the secondary region to ensure it is up-to-date with your immutability requirements.
 Immutability policies aren't supported in accounts that have Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
-Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern won't succeed. See the Allow protected append blob writes for more detail.
+Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern won't succeed. For more information, see [Allow protected append blob writes](immutable-container-level-worm-policies.md#allow-protected-append-blobs-writes).
 
 For more information, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 

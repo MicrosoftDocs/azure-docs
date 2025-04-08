@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud solutions architect, I want to understand the prerequisites for deploying cloud services with extended features, so that I can properly prepare configurations, eliminate deprecated components, and set up access controls for successful deployments.
 ---
 
 # Prerequisites for deploying Azure Cloud Services (extended support)

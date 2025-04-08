@@ -48,7 +48,7 @@ This quickstart shows you how to connect Azure Functions to other Cloud resource
 Use the Azure CLI [az functionapp connection](/cli/azure/functionapp/connection) command to create a service connection to a Blob Storage with a system-assigned managed identity, providing the following information:
 
 - **Source compute service resource group name:** the resource group name of the Function App.
-- **Function App name:** the name of your FunctioApp that connects to the target service.
+- **Function App name:** the name of your FunctionApp that connects to the target service.
 - **Target service resource group name:** the resource group name of the Blob Storage.
 - **Storage account name:** the account name of your Blob Storage.
 
@@ -60,6 +60,9 @@ az functionapp connection create storage-blob --system-identity
 > If you don't have a Blob Storage, you can run `az functionapp connection create storage-blob --new --system-identity` to provision a new one and directly get connected to your function app.
 
 #### [Using an access key](#tab/Using-access-key)
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 Use the Azure CLI [az functionapp connection create](/cli/azure/functionapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
 

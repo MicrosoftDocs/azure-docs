@@ -58,9 +58,9 @@ sections:
 
           Microsoft sends email notifications:
 
-          - Ninety days before expiration
-          - Thirty days before expiration
-          - Seven days before expiration
+          - Ninety days before review date
+          - Thirty days before review date
+          - Seven days before review date
 
           Before the license assignment expires, you can set the review date to a future date so that you continue to receive the benefit. When the license assignment expires, you're charged with pay-as-you-go prices. To change the review date, use the following steps:
 

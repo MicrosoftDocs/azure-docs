@@ -57,7 +57,7 @@ To deploy a confidential GPU VM instance, consider a [pay-as-you-go subscription
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
-To request a quota increase, [open an online customer support request](../azure-portal/supportability/per-vm-quota-requests.md). 
+To request a quota increase, [open an online customer support request](/azure/azure-portal/supportability/per-vm-quota-requests). 
 
 If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. You only incur charges for cores that you use.
 

@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 07/29/2024
-ms.topic: conceptual
+ms.topic: overview
 ms.author: normesta
 ms.reviewer: prishet
 ---

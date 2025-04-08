@@ -2,10 +2,10 @@
 title: Back up SAP HANA System Replication databases on Azure VMs using Azure Backup
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 10/01/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -16,7 +16,7 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#scenarios-to-protect-hsr-nodes-on-azure-backup).
 
 >[!Note]
->- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region.
+>- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region. To enable the backup operation of a Third Node that is in a different region, you need to configure the backup in a different vault as a standalone node.
 >- For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
 ## Prerequisites
@@ -47,7 +47,24 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    | SDC | Backup Admin | Reads the backup catalog. |
    | SAP_INTERNAL_HANA_SUPPORT |      | Accesses a few private tables. <br><br> Required only for single container database (SDC) and multiple container database (MDC) versions earlier than HANA 2.0 SPS04 Rev 46. It isn't required for HANA 2.0 SPS04 Rev 46 versions and later, because we receive the required information from public tables now after the fix from HANA team. |
 
+   **Example**:
+
+   ```HDBSQL
+   - hdbsql -t -U SYSTEMKEY CREATE USER USRBKP PASSWORD AzureBackup01 NO FORCE_FIRST_PASSWORD_CHANGE
+   - hdbsql -t -U SYSTEMKEY 'ALTER USER USRBKP DISABLE PASSWORD LIFETIME'
+   - hdbsql -t -U SYSTEMKEY 'ALTER USER USRBKP RESET CONNECT ATTEMPTS'
+   - hdbsql -t -U SYSTEMKEY 'ALTER USER USRBKP ACTIVATE USER NOW'
+   - hdbsql -t -U SYSTEMKEY 'GRANT DATABASE ADMIN TO USRBKP'
+   - hdbsql -t -U SYSTEMKEY 'GRANT CATALOG READ TO USRBKP'
+   ```
+
 1. Add the key to *hdbuserstore* for your custom backup user that enables the HANA backup plug-in to manage all operations (database queries, restore operations, configuring, and running backup). 
+
+   **Example**:
+
+   ```HDBSQL
+   - hdbuserstore set BKPKEY localhost:39013 USRBKP AzureBackup01
+   ```
 
 1. Pass the custom backup user key to the script as a parameter: 
 
@@ -69,11 +86,11 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    >
    >**Diagram shows the creation of the custom backup key using local host/IP.**
    >
-   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Diagram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
    >
    >**Diagram shows the creation of the custom backup key using Virtual IP (Load Balancer Frontend IP/Host).**
    >
-   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png" alt-text="Disgram explains the flow to create the custom backup key using Virtual IP." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png":::
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png" alt-text="Diagram explains the flow to create the custom backup key using Virtual IP." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png":::
 
 1. Create the same *Custom backup user* (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
    
@@ -83,6 +100,12 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    
    You must provide the same HSR ID on both VMs/nodes. This ID must be unique within a vault. It should be an alphanumeric value containing at least one digit, one lowercase letter, and one uppercase character, and it should contain from 6 to 35 characters.
 
+   **Example**:
+
+   ```HDBSQL
+   - ./script.sh -sk SYSTEMKEY -bk USRBKP -hn HSRlab001 -p 39013
+   ```
+
 1. While you're running the preregistration script on the secondary node, you must specify the SDC/MDC port as input. This is because SQL commands to identify the SDC/MDC setup can't be run on the secondary node. You must provide the port number as a parameter, as shown here: 
 
    `-p PORT_NUMBER` or `–port_number PORT_NUMBER`.
@@ -90,7 +113,14 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    - For MDC, use the format `3<instancenumber>13`.
    - For SDC, use the format `3<instancenumber>15`.
 
-1. If your HANA setup uses private endpoints, run the preregistration script with the `-sn` or `--skip-network-checks` parameter. Ater the preregistration script has run successfully, proceed to the next steps.
+   **Example**:
+
+   ```HDBSQL
+   - MDC: ./script.sh -sk SYSTEMKEY -bk USRBKP -hn HSRlab001 -p 39013
+   - SDC: ./script.sh -sk SYSTEMKEY -bk USRBKP -hn HSRlab001 -p 39015
+   ```
+
+1. If your HANA setup uses private endpoints, run the preregistration script with the `-sn` or `--skip-network-checks` parameter. After the preregistration script has run successfully, proceed to the next steps.
 
 1. Run the SAP HANA backup configuration script (preregistration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
 

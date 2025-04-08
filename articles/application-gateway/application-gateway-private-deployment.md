@@ -335,7 +335,7 @@ To create a route table and associate it to the Application Gateway subnet:
 
 2.	Select **Routes** and create the next hop rule for 0.0.0.0/0 and configure the destination to be the IP address of your VM:
 
- [ ![Screenshot of adding default route to network virtual applicance.](./media/application-gateway-private-deployment/default-route-nva.png) ](./media/application-gateway-private-deployment/default-route-nva.png#lightbox)
+ [ ![Screenshot of adding default route to network virtual appliance.](./media/application-gateway-private-deployment/default-route-nva.png) ](./media/application-gateway-private-deployment/default-route-nva.png#lightbox)
 
 3. Select **Subnets** and associate the route table to the Application Gateway subnet:
 

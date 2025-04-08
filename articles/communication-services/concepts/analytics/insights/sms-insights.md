@@ -24,7 +24,7 @@ The SMS Insights dashboard in your communication resource shows data visualizati
 ## Prerequisites
 
 - In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). You need to enable `SMS Operational Logs`
-- To use Workbooks, you need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
+- To use Workbooks, you need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
 
 ## Accessing Azure Insights for Communication Services
 
@@ -93,4 +93,4 @@ Editing these dashboards doesn't modify the **Insights** tab, but rather creates
 
 :::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
 
-For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md) documentation.
+For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) documentation.

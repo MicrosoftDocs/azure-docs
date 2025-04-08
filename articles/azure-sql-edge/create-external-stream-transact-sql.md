@@ -3,13 +3,15 @@ title: CREATE EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
 description: Learn about the CREATE EXTERNAL STREAM statement in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # CREATE EXTERNAL STREAM (Transact-SQL)
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 The EXTERNAL STREAM object has a dual purpose of both an input and output stream. It can be used as an input to query streaming data from event ingestion services such as Azure Event Hubs, Azure IoT Hub (or Edge Hub) or Kafka or it can be used as an output to specify where and how to store results from a streaming query.
@@ -288,6 +290,6 @@ CREATE EXTERNAL STREAM Stream_A (
             );
 ```
 
-## See also
+## Related content
 
 - [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md)

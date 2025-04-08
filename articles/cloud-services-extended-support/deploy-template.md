@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud developer, I want to deploy Cloud Services (extended support) using ARM templates, so that I can automate and customize the provisioning process for scalable and secure PaaS deployments in Azure.
 ---
 
 # Deploy Cloud Services (extended support) by using an ARM template
@@ -307,7 +308,7 @@ To deploy Cloud Services (extended support) by using a template:
           "type": "string",
           "defaultValue": "[concat(parameters('cloudServiceName'), 'VNet')]",
           "metadata": {
-            "description": "Name of vitual network"
+            "description": "Name of virtual network"
           }
         },
         "publicIPName": {

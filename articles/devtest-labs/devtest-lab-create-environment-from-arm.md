@@ -20,6 +20,8 @@ You can configure Azure DevTest Labs to use ARM templates from a public or priva
 
 :::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows how to create an environment with DevTest Labs by using an ARM template in a template repository." border="false" lightbox="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png":::
 
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
+
 ## Prerequisites
 
 - It's helpful to have experience configuring lab environments in DevTest Labs. If you're new to working with labs, start by reviewing the instructions in the [Configure public environment settings](#configure-public-environment-settings) section. You need to understand how to configure template repositories, enable or disable public environments, and select templates to create labs. 

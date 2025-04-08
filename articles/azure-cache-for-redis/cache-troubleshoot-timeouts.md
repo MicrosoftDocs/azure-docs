@@ -7,6 +7,8 @@ description: Learn how to resolve common latency and timeout issues with Azure C
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/02/2023
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
@@ -44,7 +46,7 @@ Here's the client-side troubleshooting.
 
 Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis server but not yet consumed on the client side. Check the metric "Errors" (Type: UnresponsiveClients) to validate if your client hosts can keep up with a sudden spike in traffic.
 
-Monitor how your `ThreadPool` statistics change over time using [an example `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can use  `TimeoutException` messages from StackExchange.Redis to further investigate:
+You can use  `TimeoutException` messages from StackExchange.Redis to further investigate:
 
 ```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
@@ -89,8 +91,6 @@ To mitigate a client's high CPU usage:
 
 Depending on the architecture of client machines, they might have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data isn't processed on the client side as quickly as the server is sending it. This situation can lead to timeouts.
 
-Monitor how your Bandwidth usage change over time using [an example `BandwidthLogger`](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). This code might not run successfully in some environments with restricted permissions (like Azure web sites).
-
 To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity. For more information, see [Large request or response size](cache-best-practices-development.md#large-request-or-response-size).
 
 ### TCP settings for Linux based client applications
@@ -99,7 +99,7 @@ Because of optimistic TCP settings in Linux, client applications hosted on Linux
 
 ### RedisSessionStateProvider retry timeout
 
-If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](../redis/aspnet-session-state-provider.md) and [ASP.NET Output Cache Provider for Azure Cache for Redis](../redis/aspnet-output-cache-provider.md).
 
 ```xml
 <add 
@@ -139,7 +139,7 @@ For more information on failovers, see [Failover and patching for Azure Cache fo
 
 High server load means the Redis server is unable to keep up with the requests, leading to timeouts. The server might be slow to respond and unable to keep up with request rates.
 
-[Monitor metrics](monitor-cache.md#monitor-azure-cache-for-redis) such as server load. Watch for spikes in `Server Load` usage that correspond with timeouts. [Create alerts](monitor-cache.md#create-alerts) on metrics on server load to be notified early about potential impacts.
+[Monitor metrics](../redis/monitor-cache.md#monitor-azure-cache-for-redis) such as server load. Watch for spikes in `Server Load` usage that correspond with timeouts. [Create alerts](../redis/monitor-cache.md#create-alerts) on metrics on server load to be notified early about potential impacts.
 
 There are several changes you can make to mitigate high server load:
 
@@ -190,7 +190,7 @@ event_no_wait_count:1
 
 Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough.
 
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](monitor-cache.md#view-cache-metrics) in the portal. [Create alerts](monitor-cache.md#create-alerts) on metrics like cache read or cache write to be notified early about potential impacts.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](../redis/monitor-cache.md#view-cache-metrics) in the portal. [Create alerts](../redis/monitor-cache.md#create-alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 
 To mitigate situations where network bandwidth usage is close to maximum capacity:
 
@@ -206,4 +206,4 @@ For more specific information to address timeouts when using StackExchange.Redis
 - [Troubleshoot Azure Cache for Redis client-side issues](cache-troubleshoot-client.md)
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
-- [Monitor Azure Cache for Redis](monitor-cache.md)
+- [Monitor Azure Cache for Redis](../redis/monitor-cache.md)

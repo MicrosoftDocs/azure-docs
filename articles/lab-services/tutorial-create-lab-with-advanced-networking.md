@@ -254,7 +254,7 @@ To enable ICMP, complete the following steps for each template VM in each lab.
 
     :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/lab-connect-to-template.png" alt-text="Screenshot of Azure Lab Services template page. The Connect to template menu button is highlighted.":::
 
-When you're logged in to the template VM, modify the firewall rules on the VM to allow ICMP.  Because you're using Windows 11, you can use PowerShell and the [Enable-NetFilewallRule](/powershell/module/netsecurity/enable-netfirewallrule) cmdlet. To open a PowerShell window:
+When you're logged in to the template VM, modify the firewall rules on the VM to allow ICMP.  Because you're using Windows 11, you can use PowerShell and the [Enable-NetFirewallRule](/powershell/module/netsecurity/enable-netfirewallrule) cmdlet. To open a PowerShell window:
 
 1. Select the Start button.
 1. Type "PowerShell"

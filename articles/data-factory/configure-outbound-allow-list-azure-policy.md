@@ -1,11 +1,12 @@
 ---
 title: Outbound network rules with Azure Policy (Preview)
 description: Learn about outbound network rules using Azure Policy (Preview).
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.author: abnarain
 author: nabhishek
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: security
 ---
 
 # Outbound network rules using Azure Policy (Preview)

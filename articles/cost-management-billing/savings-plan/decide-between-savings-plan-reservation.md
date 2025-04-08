@@ -2,13 +2,13 @@
 title: Decide between a savings plan and a reservation
 titleSuffix: Microsoft Cost Management
 description: Learn how to decide between a savings plan and a reservation.
-author: bandersmsft
-ms.author: banders
+author: nwokolo
+ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 01/07/2025
 ---
 
 # Decide between a savings plan and a reservation

@@ -4,8 +4,7 @@ description: Second tutorial to deploy Azure Data Box Gateway involves provision
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 12/20/2023
 ms.author: shaas

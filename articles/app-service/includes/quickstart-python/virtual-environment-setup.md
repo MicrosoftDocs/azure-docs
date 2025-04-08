@@ -6,7 +6,7 @@ ms.date: 01/29/2022
 ---
 #### [Windows](#tab/windows)
 
-```Cmd
+```Console
 py -m venv .venv
 .venv\scripts\activate
 ```

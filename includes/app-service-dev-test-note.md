@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 10/25/2024
 ms.author: cephalin
 ---
 > [!NOTE]

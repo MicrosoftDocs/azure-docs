@@ -397,6 +397,9 @@ Dimension for Express Direct:
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
+> [!NOTE]
+> Logs in Azure Log Analytics may take up to 24 hours to appear.
+
 ### ExpressRoute Microsoft.Network/expressRouteCircuits
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
@@ -415,11 +418,11 @@ The following table lists the operations related to ExpressRoute that might be c
 | Create or update ExpressRoute circuit | An ExpressRoute circuit was created or updated. |
 | Deletes ExpressRoute circuit | An ExpressRoute circuit was deleted.|
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
+For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## Schemas
 
-For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/essentials/resource-logs-schema.md).
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 When you review any metrics through Log Analytics, the output contains the following columns:
 

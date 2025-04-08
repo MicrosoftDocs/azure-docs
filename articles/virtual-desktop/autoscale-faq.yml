@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: dknappettmsft
   ms.topic: faq
-  ms.date: 02/28/2024
+  ms.date: 11/19/2024
   ms.author: daknappe
   ms.custom: docs_inherited 
 title: Azure Virtual Desktop autoscale FAQ
@@ -14,16 +14,6 @@ summary: This article answers frequently asked questions about how to use autosc
 sections:
   - name: General questions
     questions:
-      - question: |
-         Does autoscale create or delete virtual machines (VMs) based on service load?
-        answer: |
-         No.
-      
-      - question: |
-         Does autoscale change the SKU or size of VMs?
-        answer: |
-         No.
-
       - question: |
          Can I configure scaling for specific dates like holidays?
         answer: |
@@ -142,3 +132,40 @@ sections:
          What happens if I opt for personal desktops to get hibernated in my scaling plan, but my personal desktops don't have hibernate enabled?
         answer: |
          If you opt to have personal desktops hibernated in your personal scaling plan schedule, but the personal desktops don't have hibernate enabled, autoscale won't do anything to your session hosts (won't hibernate them and won't deallocate them).
+   
+  - name: Dynamic scaling (preview)
+    questions:
+      - question: |
+         Will the minimum host pool size defined in the scaling plan override the settings in the host pool? 
+        answer: |
+         Yes. The minimum host pool size will override the number of session hosts you defined in the host pool. 
+
+      - question: |
+         Do I need to specify whether to turn on or create session hosts in each phase?  
+        answer: |
+         No. You only need to define the session host limit with the minimum host pool size, the maximum host pool size, and the minimum percentage of active hosts (%). When the actual number of session hosts needed isn't larger than the minimum host pool size, autoscale will turn on session hosts if the used host pool capacity exceeds your defined capacity threshold. When the actual number of session hosts needed is larger than the minimum host pool size, autoscale will turn on the stopped session hosts and create additional session hosts. The total number of active session hosts won’t exceed the maximum host pool size defined in the scaling plan if the used host pool capacity exceeds your defined capacity threshold. 
+
+      - question: |
+         Which image version is used for the session hosts created by autoscale?
+        answer: |
+         Autoscale creates session hosts with the latest valid/stable image version defined in the default session host configuration, if you don’t already have an active session host configuration. 
+      
+      - question: |
+         How can I configure my scaling plan to only turn on and deallocate session hosts? 
+        answer: |
+         You can either choose power management autoscaling as the scaling method when you create your scaling plan, or with dynamic autoscaling you can set the same value for **Minimum host pool size** and **Maximum host pool size**.
+
+      - question: |
+         How can I configure my scaling plan to only create and delete session hosts? 
+        answer: |
+         You can set the **Minimum percentage of active hosts (%)** to 100. Autoscale only creates or delete session hosts if the used host pool capacity exceeds or drops below your defined capacity threshold. 
+
+      - question: |
+         What happens if the number of session hosts in the host pool exceeds the maximum host pool size?
+        answer: |
+         This might happen if the **Maximum host pool size** is configured differently in each phase. Autoscale deletes the active deallocated session hosts with no sessions to honor the **Maximum host pool size** setting in the current phase, and then continue to delete/deallocate session hosts based on the schedule and capacity threshold except in the ramp-up phase. No delete/deallocate action is taken as long as the number of session hosts in the host pool doesn't exceed the maximum host pool size. This behavior is consistent with the power management autoscaling scaling method, where session hosts aren't deallocated in the ramp-up phase for pooled host pools. 
+
+      - question: |
+         Can I still manually create and delete session hosts?
+        answer: |
+         Yes, but when autoscale deletes a session host that you manually created, it will honor the settings you set whether to automatically delete the NIC and/or disk. 

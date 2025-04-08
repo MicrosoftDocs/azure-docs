@@ -1,8 +1,9 @@
 ---
 title: Azure Key Vault as Event Grid source
-description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
-ms.topic: conceptual
-ms.date: 01/17/2024
+description: This article describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
+ms.topic: concept-article
+ms.date: 02/14/2025
+# Customer intent: As an architect or a developer, I want to know whether I can use Azure Key Vault as an Event Grid source. 
 ---
 
 # Azure Key Vault as Event Grid source
@@ -139,9 +140,8 @@ The data object has the following properties:
 | [Tutorial: Create and monitor Key Vault events with Event Grid](/azure/key-vault/general/event-grid-logicapps) | Learn how to set up Event Grid notifications for Key Vault. |
 
 
-## Next steps
+## Related content
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
 * For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
 * For more information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 

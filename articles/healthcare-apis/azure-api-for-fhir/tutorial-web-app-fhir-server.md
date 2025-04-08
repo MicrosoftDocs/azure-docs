@@ -12,23 +12,22 @@ ms.custom: devx-track-js
 
 ---
 
-# Deploy JavaScript app to read data from Azure API for FHIR
+# Deploy a JavaScript app to read data from Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-In this tutorial, you'll deploy a small JavaScript app, which reads data from a FHIR service. The steps in this tutorial are:
+In this tutorial, you deploy a small JavaScript app which reads data from a FHIR service. The steps in this tutorial are:
 
 1. Deploy a FHIR server
 1. Register a public client application
-1. Test access to the application
 1. Create a web application that reads this FHIR data
 
 ## Prerequisites
 
-Before starting this set of tutorials, you'll need the following items:
+You need the following before starting this set of tutorials.
 1. An Azure subscription
 1. A Microsoft Entra tenant
-1. [Postman](https://www.getpostman.com/) installed
+
 
 > [!NOTE]
 > For this tutorial, the FHIR service, Microsoft Entra application, and Microsoft Entra users are all in the same Microsoft Entra tenant. If this is not the case, you can still follow along with this tutorial, but may need to dive into some of the referenced documents to do additional steps.
@@ -51,4 +50,4 @@ Now that you have your Azure API for FHIR deployed, you're ready to register a p
 >[!div class="nextstepaction"]
 >[Register public client application](tutorial-web-app-public-app-reg.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

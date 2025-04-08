@@ -3,7 +3,7 @@ title: Event log options for Azure Virtual Network Manager
 description: This article covers the event log  options for Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-virtual-network-manager
 ms.date: 04/13/2024
 ---
@@ -100,11 +100,11 @@ This category emits one log per connectivity configuration change per virtual ne
 | time | Datetime when the event was logged. |
 | resourceId | Resource ID of the network manager. |
 | location | Location of the virtual network resource. |
-| operationName | Operation that resulted in the virtual network being added or removed. Always the Microsoft.Network/networkManagers/connectivityConfigurations/write operation. |
+| operationName | Operation that resulted in the virtual network being added or removed. |
 | category | Category of this log. Always ConnectivityConfigurationChange. |
 | resultType | Indicates successful or failed operation. |
 | correlationId | GUID that can help relate or debug logs. |
-| level | Always Info. |
+| level | Info or Warning. |
 | properties | Collection of properties of the log. |
 
 Within the `properties` attribute are several nested attributes:
@@ -114,6 +114,9 @@ Within the `properties` attribute are several nested attributes:
 | AppliedConnectivityConfigurations | Collection of what connectivity configuration(s) are applied to the virtual network at the time the log was emitted. There may be multiple connectivity configurations listed since a network group can have multiple connectivity configurations applied simultaneously, and a virtual network can belong to multiple network groups with multiple connectivity configurations applied simultaneously as well. |
 | TargetResourceIds | Resource ID of the virtual network that experienced a change in connectivity configuration application. |
 | Message | A static message stating if the connectivity configuration change was successful or unsuccessful. |
+
+> [!NOTE]
+> Connectivity configuration allows virtual networks with overlapping IP spaces within the same connected group, but communication to an overlapped IP address is dropped. In addition, when a connected group’s VNet is peered with an external VNet (a VNet not in the connected group) that has overlapping address spaces, these overlapping address spaces become inaccessible within the connected group. Traffic from the peered VNet to the overlapping address spaces is routed to the external VNet, while traffic from other VNets in the connected group to the overlapping address spaces is dropped. Logs will show a "Warning" level, with the `TargetResourceIds` field indicating the IDs of VNets with overlapping address spaces and a `message` indicating that either complete or partial address spaces are inaccessible due to overlapping addresses.
 
 Within the `AppliedConnectivityConfigurations` attribute are several nested attributes:
 
@@ -125,7 +128,7 @@ Within the `AppliedConnectivityConfigurations` attribute are several nested attr
 ## Accessing logs
 
 Depending on how you consume event logs, you need to set up a Log Analytics workspace or a storage account for storing your log events. 
-- Learn to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
+- Learn to [create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 - Learn to [create a storage account](../storage/common/storage-account-create.md).
 
 When setting up a Log Analytics workspace or a storage account, you need to select a region. If you’re using a storage account, it needs to be in the same region of the virtual network manager you’re accessing logs from. If you’re using a Log Analytics workspace, it can be in any region. 

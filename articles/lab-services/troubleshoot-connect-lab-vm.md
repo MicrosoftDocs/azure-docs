@@ -109,7 +109,7 @@ Consider removing the RDP/SSH restriction or add an exemption for the [lab publi
 #### Causes
 
 - Updating the IP Address to a static IP instead of specified as a dynamic IP
-- Disabling DCHP (preventing automatically getting an IP address)
+- Disabling DHCP (preventing automatically getting an IP address)
 - Specifying DNS servers 
 - Updating local user groups and permissions
 

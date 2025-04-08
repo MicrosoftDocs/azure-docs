@@ -19,23 +19,21 @@ Outbound email messages that are sent directly to external domains (such as outl
 
 ## Recommended method of sending email
 
-We recommend you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. (These relay services typically connect through TCP port 587, but they support other ports.) These services are used to maintain IP and domain reputation to minimize the possibility that external domains reject your messages or put them to the SPAM folder. [SendGrid](https://sendgrid.com/partners/azure/) is one such SMTP relay service, but there are others. You might also have an authenticated SMTP relay service on your on-premises servers.
+We recommend you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. Connections to authenticated SMTP relay services are typically on TCP port 587 which is not blocked. These services are used in part to maintain IP reputation which is critical for delivery reliability. [Azure Communication Services](/azure/communication-services/overview) offers an [authenticated SMTP relay service](/azure/communication-services/quickstarts/email/send-email-smtp/smtp-authentication). Ensure that the [default rate limits](/azure/communication-services/concepts/service-limits#rate-limits) are appropriate for your application and open a support case to raise them if needed.
 
-Using these email delivery services isn't restricted in Azure, regardless of the subscription type.
+Using these email delivery services on authenticated SMTP port 587 isn't restricted in Azure, regardless of the subscription type.
 
 ## Enterprise and MCA-E
 
 For VMs and Azure Firewall that are deployed in standard Enterprise Agreement or Microsoft Customer Agreement for enterprise (MCA-E) subscriptions, the outbound SMTP connections on TCP port 25 aren't blocked. However, there's no guarantee that external domains accept the incoming emails from the VMs and Azure Firewall. For emails rejected or filtered by the external domains, contact the email service providers of the external domains to resolve the problems. These problems aren't covered by Azure support.
 
-For Enterprise Dev/Test subscriptions, port 25 is blocked by default.
+For Enterprise Dev/Test subscriptions, port 25 is blocked by default. It's possible to have this block removed. To request to have the block removed, go to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** section in the Azure Virtual Network resource in the Azure portal and run the diagnostic. This process exempts the qualified enterprise dev/test subscriptions automatically.
 
-It's possible to have this block removed. To request to have the block removed, go to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** section in the Azure Virtual Network resource in the Azure portal and run the diagnostic. This process exempts the qualified enterprise dev/test subscriptions automatically.
-
-After the subscription is exempted from this block and the VMs are stopped and restarted, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that is routed directly to the internet. 
+After the subscription is exempted from this block, the VMs must be are stopped, de-allocated, and then restarted to get the new network policy, all VMs in that subscription are exempted going forward. If the a Virtual Ntwork owned by the exempted subscription has a delegated subnet (to an App Service Environment for example), you must add and remove a new temporary subnet in the Virtual Network. The exemption applies only to the subscription requested and only to VM traffic that is routed directly to the internet. 
 
 ## All Other Subscription Types 
 
-The Azure platform blocks outbound SMTP connections on TCP port 25 for deployed VMs. This block is to ensure better security for Microsoft partners and customers, protect Microsoft’s Azure platform, and conform to industry standards. 
+The Azure platform blocks outbound SMTP connections on TCP port 25 for deployed VMs. This block is to ensure better security for Microsoft partners and customers, protect Microsoft's Azure platform, and conform to industry standards. 
 
 If you're using a subscription type that isn't an Enterprise Agreement or MCA-E, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article.
 

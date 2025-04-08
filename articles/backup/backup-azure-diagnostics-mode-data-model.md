@@ -1,15 +1,15 @@
 ---
-title: Azure Monitor logs data model 
+title: Data Model for Legacy diagnostic events
 description: In this article, learn about the Azure Monitor Log Analytics data model details for Azure Backup data.
 ms.topic: how-to
-ms.date: 06/29/2024
+ms.date: 12/30/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Log Analytics data model for Azure Backup data
+# Data Model for Legacy diagnostic events
 
 This article describes the Log Analytics data model for Azure Backup that's added to the Azure Diagnostics table (if your vaults are configured with diagnostics settings to send data to a Log Analytics workspace in Azure Diagnostics mode). You can use this data model to write queries on Log Analytics data to create custom alerts or reporting dashboards.
 
@@ -500,4 +500,4 @@ To update your queries to remove dependency on V1 schema, follow these steps:
 
 ## Next step
 
-After the data model review is complete, start [creating custom queries](../azure-monitor/visualize/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.
+After the data model review is complete, start [creating custom queries](/azure/azure-monitor/visualize/tutorial-logs-dashboards) in Azure Monitor logs to build your own dashboard.

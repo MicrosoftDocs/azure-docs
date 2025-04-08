@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 08/22/2024
+ms.date: 01/28/2025
 ms.author: mbender
 ---
 
@@ -13,9 +13,12 @@ ms.author: mbender
 
 An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a load balancer’s frontend to one or more instances in the backend pool. These rules provide a 1:1 mapping between the load balancer’s frontend IP address and backend instances. There are currently two versions of Inbound NAT rules, version 1 and version 2.
 
+>[!Important]
+> On September 30, 2027, Inbound NAT rules v1 will be retired. If you are currently using Inbound NAT rules v1, make sure to upgrade to  Inbound NAT rules v2 prior to the retirement date.
+
 ## NAT rule version 1 
 
-[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down.  
+[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets (VMSS) instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down. For VMSS instances use the `Inbound NAT Pools` property to manage Inbound NAT rules version 1. 
 
 ## NAT rule version 2 
 
@@ -28,7 +31,15 @@ An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a lo
 
 ## How do I know if I’m using version 1 of Inbound NAT rules? 
 
-The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. If either the `InboundNATPool` property or the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules.  
+The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. Version 1 nat rules will have a **Type** value of *Azure Virtual Machine* with a defined **Target virtual machine** value.
+
+:::image type="content" source="media/load-balancer-nat-pool-migration/nat-rule-version-1.png" alt-text="Screenshot of NAT rule version 1 configuration in Azure portal.":::
+
+For version 2 NAT rules, the **Type** value will be *Backend pool* with a defined **Target backend pool** value.
+
+:::image type="content" source="media/load-balancer-nat-pool-migration/nat-rule-version-2.png" alt-text="Screenshot of NAT rule version 2 configuration in Azure portal.":::
+
+To programmatically determine if a deployment is using version 1 of Inbound NAT rules, inspect the load balancer’s configuration using the Azure CLI or PowerShell. If either the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules. Version 2 rules will have the `backendAddressPool` property instead of the `backendIPConfiguration` property.
 
 ## How to migrate from version 1 to version 2?  
 
@@ -61,7 +72,7 @@ az network lb inbound-nat-rule delete -g MyResourceGroup --lb-name MyLoadBalance
 
 az network nic ip-config inbound-nat-rule remove -g MyResourceGroup --nic-name MyNic -n MyIpConfig --inbound-nat-rule MyNatRule 
 
-az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 
+az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 --backend-address-pool MybackendPool
 
 ```
 
@@ -105,7 +116,7 @@ az vmss update -g MyResourceGroup -n MyVMScaleSet --remove virtualMachineProfile
 
 az vmss update-instances --instance-ids '*' --resource-group MyResourceGroup --name MyVMScaleSet 
 
-az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 
+az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 --backend-address-pool MybackendPool
 
 ```
 

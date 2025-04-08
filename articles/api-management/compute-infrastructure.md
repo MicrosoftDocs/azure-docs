@@ -3,7 +3,7 @@ title: Azure API Management compute platform
 description: Learn about the compute platform used to host your API Management service instance. Instances in the classic service tiers of API Management are hosted on the stv1 or stv2 compute platform.
 author: dlepow
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/26/2024
 ms.author: danlep
 ms.custom:
@@ -69,7 +69,7 @@ The v2 pricing tiers are a new set of tiers for API Management. Hosted on a new,
 
 The v2 tiers are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios. For more information, see [v2 tiers overview](v2-service-tiers-overview.md).
 
-## Next steps
+## Related content
 
 * [Migrate an API Management instance to the stv2 platform](migrate-stv1-to-stv2.md).
 * Learn more about [upcoming breaking changes](breaking-changes/overview.md) in API Management.

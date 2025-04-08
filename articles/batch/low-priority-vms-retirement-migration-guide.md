@@ -1,11 +1,11 @@
 ---
 title: Migrate low-priority VMs to spot VMs in Batch
 description: Learn how to migrate Azure Batch low-priority VMs to Spot VMs and plan for feature end of support.
-author: harperche
-ms.author: harpercheng
+author: padmalathas
+ms.author: padmalathas
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 02/25/2025
 ---
 
 # Migrate Batch low-priority VMs to Spot VMs

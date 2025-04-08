@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/27/2024
+ms.date: 03/04/2025
 ms.topic: troubleshooting
 ---
 
@@ -83,7 +83,7 @@ If you still have an issue with your duplicated and customized built-in policy d
 
 #### Issue
 
-A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the [Azure Activity log](../../../azure-monitor/data-sources.md#azure-resources).
+A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the [Azure Activity log](/azure/azure-monitor/data-sources#azure-resources).
 
 #### Cause
 
@@ -100,7 +100,7 @@ Troubleshoot your policy assignment's enforcement by doing the following steps:
    - The mode should be `all` for all resource types.
    - The mode should be `indexed` if the policy definition checks for tags or location.
 1. Ensure that the scope of the resource isn't [excluded](../concepts/assignment-structure.md#excluded-scopes) or [exempt](../concepts/exemption-structure.md).
-1. Verify that the resource payload matches the policy logic. This verification can be done by [capturing an HTTP Archive (HAR) trace](../../../azure-portal/capture-browser-trace.md) or reviewing the Azure Resource Manager template (ARM template) properties.
+1. Verify that the resource payload matches the policy logic. This verification can be done by [capturing an HTTP Archive (HAR) trace](/azure/azure-portal/capture-browser-trace) or reviewing the Azure Resource Manager template (ARM template) properties.
 1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -117,7 +117,7 @@ A policy assignment to the scope of your new or updated resource meets the crite
 
 #### Resolution
 
-The error message from a deny policy assignment includes the policy definition and policy assignment IDs. If the error information in the message is missed, it's also available in the [Activity log](../../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log). Use this information to get more details to understand the resource restrictions and adjust the resource properties in your request to match allowed values.
+The error message from a deny policy assignment includes the policy definition and policy assignment IDs. If the error information in the message is missed, it's also available in the [Activity log](/azure/azure-monitor/essentials/activity-log-insights#view-the-activity-log). Use this information to get more details to understand the resource restrictions and adjust the resource properties in your request to match allowed values.
 
 ### Scenario: Definition targets multiple resource types
 
@@ -333,12 +333,12 @@ Guest configuration relies on custom metadata added to policy definitions when c
 #### Resolution
 
 Instead of using the portal, duplicate the policy definition using the Policy
-Insights API. The following PowerShell sample provides an option.
+Insights API. The following PowerShell sample can copy the policy definition including the metadata using **Az.Resources 7.3.0** or higher.
 
 ```powershell
 # duplicates the built-in policy which audits Windows machines for pending reboots
-$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
-New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+$def = Get-AzPolicyDefinition -id "/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c"
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameter | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
 ```
 
 ### Scenario: Kubernetes resource gets created during connectivity failure despite deny policy being assigned
@@ -356,6 +356,15 @@ The GK fail-open model is by design and based on community feedback. Gatekeeper 
 In the prior event, the error case can be monitored from the [admission webhook metrics](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#admission-webhook-metrics) provided by the `kube-apiserver`. If evaluation is bypassed at creation time and an object is created, it's reported on Azure Policy compliance as non-compliant as a flag to customers.
 
 Regardless of the scenario, Azure policy retains the last known policy on the cluster and keeps the guardrails in place.
+
+### Scenario: The regex I provided in my policy assignment isn't matching the resources I expected it to match
+
+#### Cause
+The `regex.match` function in rego uses RE2, which is not the default flavor served by many online regex matchers. If you are testing your regex in an online matcher, you may see different results from what will be evaluated on the cluster.
+
+#### Resolution
+
+You will need to select the RE2 or golang flavor of regex in your matcher. See [the rego docs](https://docs.styra.com/opa/rego-by-example/builtins/regex/match) for more details on the RE2 flavor and what online tooling is recommended to test your regex.
 
 ## Next steps
 

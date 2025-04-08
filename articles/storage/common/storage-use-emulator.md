@@ -97,7 +97,7 @@ For more information on connection strings, see [Configure Azure Storage connect
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using [Storage Explorer](https://storageexplorer.com/) or another application that supports Shared Key authentication.
+You can create a SAS token using [Storage Explorer](https://storageexplorer.com/) or another application that supports Shared Key authentication.
 
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
 

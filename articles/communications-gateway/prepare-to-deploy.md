@@ -1,14 +1,15 @@
 ---
 title: Prepare to deploy Azure Communications Gateway
 description: Learn how to complete the prerequisite tasks required to deploy Azure Communications Gateway in Azure.
-author: rcdun
-ms.author: rdunstan
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 04/26/2024
 ---
 
 # Prepare to deploy Azure Communications Gateway
+
+> [!IMPORTANT]
+> The Azure Communications Gateway service will retire on October 30, 2025, and no new customers are being onboarded. To prevent any service disruption, please transition to another [Microsoft Teams Direct Routing certified Session Border Controller (SBC)](/microsoftteams/direct-routing-border-controllers) solution before October 30, 2025.
 
 This article guides you through each of the tasks you need to complete before you can start to deploy Azure Communications Gateway. For Operator Connect and Teams Phone Mobile, successful deployments depend on the state of your Operator Connect or Teams Phone Mobile environments.
 

@@ -3,7 +3,7 @@ title: Monitor Public IP addresses
 description: Start here to learn how to monitor Azure Public IP addresses by using Azure Monitor.
 ms.date: 07/21/2024
 ms.custom: horz-monitor, devx-track-azurecli, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network

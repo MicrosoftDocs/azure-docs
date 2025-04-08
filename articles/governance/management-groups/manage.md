@@ -37,7 +37,7 @@ You can change the name of the management group by using the Azure portal, Azure
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services**. In the **Filter services** text box, enter *Management groups* and select it from the list.
 
 1. Select the management group that you want to rename.
 
@@ -87,7 +87,7 @@ To delete a management group, you must meet the following requirements:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services**. In the **Filter services** text box, enter *Management groups* and select it from the list.
 
 1. Select the management group that you want to delete.
 
@@ -130,7 +130,7 @@ You can view any management group if you have a direct or inherited Azure role o
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services**. In the **Filter services** text box, enter *Management groups* and select it from the list.
 
 1. The page for management group hierarchy appears. On this page, you can explore all the
    management groups and subscriptions that you have access to. Selecting the group name takes you to a
@@ -258,13 +258,13 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services**. In the **Filter services** text box, enter *Management groups* and select it from the list.
 
 1. Select the management group that you want to be the parent.
 
 1. At the top of the page, select **Add subscription**.
 
-1. Select the subscription in the list with the correct ID.
+1. From **Add subscription** select the subscription in the list with the correct ID.
 
    :::image type="content" source="./media/add_context_sub.png" alt-text="Screenshot of the box for selecting an existing subscription to add to a management group." border="false":::
 
@@ -274,7 +274,7 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services**. In the **Filter services** text box, enter *Management groups* and select it from the list.
 
 1. Select the management group that's the current parent.
 
@@ -377,17 +377,16 @@ resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services**. In the **Filter services** text box, enter *Management groups* and select it from the list.
 
 1. Select the management group that you want to be the parent.
 
-1. At the top of the page, select **Add management group**.
+1. At the top of the page, select **Create**.
 
-1. On the **Add management group** pane, choose whether you want to use a new or existing management group:
+1. On the **Create management group** pane, choose whether you want to use a new or existing management group:
 
    - Selecting **Create new** creates a new management group.
-   - Selecting **Use existing** presents you with a dropdown list of all the management groups that you
-     can move to this management group.
+   - Selecting **Use existing** presents you with a dropdown list of all the management groups that you can move to this management group.
 
    :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot of the pane for adding a management group." border="false":::
 
@@ -413,7 +412,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## Audit management groups by using activity logs
 
-Management groups are supported in [Azure Monitor activity logs](../../azure-monitor/essentials/platform-logs-overview.md). You can query all
+Management groups are supported in [Azure Monitor activity logs](/azure/azure-monitor/essentials/platform-logs-overview). You can query all
 events that happen to a management group in the same central location as other Azure resources. For
 example, you can see all role assignments or policy assignment changes made to a particular
 management group.
@@ -447,7 +446,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](./create-management-group-portal.md)
+- [Quickstart: Create a management group](./create-management-group-portal.md)
 - [Review management groups in the Azure PowerShell Az.Resources module](/powershell/module/az.resources#resources)
 - [Review management groups in the REST API](/rest/api/managementgroups/managementgroups)
 - [Review management groups in the Azure CLI](/cli/azure/account/management-group)

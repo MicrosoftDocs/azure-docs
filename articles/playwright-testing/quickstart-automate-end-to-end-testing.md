@@ -3,14 +3,16 @@ title: 'Quickstart: Continuous end-to-end testing'
 description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Continuously validate that your web app runs correctly across browsers and operating systems.
 ms.topic: quickstart
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview, build-2024
+ms.custom: playwright-testing-preview, build-2024, ignite-2024
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
+zone_pivot_groups: microsoft-playwright-testing
 ---
 
 # Quickstart: Set up continuous end-to-end testing with Microsoft Playwright Testing Preview
 
-In this quickstart, you set up continuous end-to-end testing with Microsoft Playwright Testing Preview to validate that your web app runs correctly across different browsers and operating systems with every code commit. Learn how to add your Playwright tests to a continuous integration (CI) workflow, such as GitHub Actions, Azure Pipelines, or other CI platforms.
+In this quickstart, you set up continuous end-to-end testing with Microsoft Playwright Testing Preview to validate that your web app runs correctly across different browsers and operating systems with every code commit and troubleshoot tests easily using the service dashboard. Learn how to add your Playwright tests to a continuous integration (CI) workflow, such as GitHub Actions, Azure Pipelines, or other CI platforms.
 
-After you complete this quickstart, you have a CI workflow that runs your Playwright test suite at scale with Microsoft Playwright Testing.
+After you complete this quickstart, you have a CI workflow that runs your Playwright test suite at scale and helps you troubleshoot tests easily with Microsoft Playwright Testing.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -19,71 +21,20 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A Microsoft Playwright Testing workspace. Complete the [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md) to create a workspace.
+* A Microsoft Playwright Testing workspace. Complete the [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md) and create a workspace.
 
 # [GitHub Actions](#tab/github)
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository that contains your Playwright test specifications and GitHub Actions workflow. To create a repository, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 - A GitHub Actions workflow. If you need help with getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
+- Set up authentication from GitHub Actions to Azure. See [Use GitHub Actions to connect to Azure](/azure/developer/github/connect-from-azure)
 
 # [Azure Pipelines](#tab/pipelines)
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project).
 - A pipeline definition. If you need help with getting started with Azure Pipelines, see [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
+- Azure Resource Manager Service connection to securely authenticate to the service from Azure Pipelines, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure)
 
 ---
-
-## Configure a service access token
-
-Microsoft Playwright Testing uses access tokens to authorize users to run Playwright tests with the service. You can generate a service access token in the Playwright portal, and then specify the access token in the service configuration file.
-
-To generate an access token and store it as a CI workflow secret, perform the following steps:
-
-1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
-
-1. Select the workspace settings icon, and then go to the **Access tokens** page.
-
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png":::
-
-1. Select **Generate new token** to create a new access token for your CI workflow.
-
-1. Enter the access token details, and then select **Generate token**.
-
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-token.png":::
-
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-token.png":::
-
-1. Store the access token in a CI workflow secret to avoid specifying the token in clear text in the workflow definition:
-
-    # [GitHub Actions](#tab/github)
-    
-    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
-    1. Select **New repository secret**.
-    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
-    
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* |  
-        | **Value** | Paste the workspace access token you copied previously. |
-    
-    1. Select **OK** to create the workflow secret.
-
-    # [Azure Pipelines](#tab/pipelines)
-    
-    1. Go to your Azure DevOps project.
-    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
-    1. Locate the **Variables** for this pipeline.
-    1. Add a new variable.
-    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
-    
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* |
-        | **Value** | Paste the workspace access token you copied previously. |
-        | **Keep this value secret** | Check this value |
-    
-    1. Select **OK**, and then **Save** to create the workflow secret.
-    
-    ---
 
 ## Get the service region endpoint URL
 
@@ -108,22 +59,183 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
     | ----------- | ------------ |
     | *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
 
+::: zone pivot="playwright-test-runner"
 ## Add service configuration file
 
-If you haven't configured your Playwright tests yet for running them on cloud-hosted browsers, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
+If you don't have Playwright tests configured to run with the service, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
     Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/microsoft/playwright-testing-service/blob/main/samples/get-started/playwright.service.config.ts).
 
-1. Add the following content to it:
+2. Add the following content to it:
 
     :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
-1. Save and commit the file to your source code repository.
+   By default, the service configuration enables you to:
+   - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+   - Simplify troubleshooting with easy access to test results and artifacts published to the service.
+
+   However, you can choose to use either of these features or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirements. 
+
+3. Save and commit the file to your source code repository.
+
+## Update package.json file 
+
+Update the `package.json` file in your repository to add details about Microsoft Playwright Testing service package in `devDependencies` section.
+
+```typescript
+"devDependencies": {
+    "@azure/microsoft-playwright-testing": "^1.0.0-beta.6"
+}
+```
+
+## Enable artifacts in Playwright configuration 
+
+In the `playwright.config.ts` file of your project, make sure you're collecting all the required artifacts.
+```typescript
+  use: {
+    trace: 'on-first-retry',
+    video:'retain-on-failure',
+    screenshot:'on'
+  },
+  ```
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+## Set up service configuration 
+
+1. Create a new file `PlaywrightServiceSetup.cs` in the root directory of your project. This file facilitates authentication of your client with the service. 
+2. Add the following content to it:
+
+    :::code language="csharp" source="~/playwright-testing-service/samples/.NET/NUnit/PlaywrightServiceSetup.cs":::
+
+3. Save and commit the file to your source code repository.
+
+## Install service package
+
+In your project, install Microsoft Playwright Testing package. 
+
+```PowerShell
+dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
+```
+
+This command updates your project's `csproj` file by adding the service package details to the `ItemGroup` section. Remember to commit these changes.
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="Azure.Developer.MicrosoftPlaywrightTesting.NUnit" Version="1.0.0-beta.2" />
+  </ItemGroup>
+```
+
+## Add or update `.runsettings` file for your project. 
+
+If you haven't configured your Playwright tests yet for running them with service, add `.runsettings` file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
+
+1. Create a new `.runsettings` file.
+
+    Optionally, use the `.runsettings` file in the [sample repository](https://aka.ms/mpt/nunit-runsettings).
+
+2. Add the following content to it:
+
+    :::code language="xml" source="~/playwright-testing-service/samples/.NET/NUnit/.runsettings":::
+
+   The settings in this file enable you to:
+   - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+   - Publish test results and artifacts to the service for faster troubleshooting.
+
+   However, you can choose to use either of these features or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirements. 
+
+3. Save and commit the file to your source code repository.
+
+## Enable artifacts in your Playwright setup 
+
+Set up Playwright to capture artifacts such as screenshot, videos and traces. 
+- For screenshots, see [capture screenshots](https://playwright.dev/dotnet/docs/screenshots#introduction)
+- For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
+- For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
+
+Once you collect these artifacts, attach them to the `TestContext` to ensure they're available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample).
+::: zone-end
+
+## Set up authentication
+    
+The CI machine running Playwright tests must authenticate with Playwright Testing service to get the browsers to run the tests and to publish the test results and artifacts. 
+
+The service offers two authentication methods: Microsoft Entra ID and Access Tokens. We strongly recommend using Microsoft Entra ID to authenticate your pipelines. 
+
+#### Set up authentication using Microsoft Entra ID
+    
+  # [GitHub Actions](#tab/github)
+
+  If you're using GitHub Actions, you can connect to the service using GitHub OpenID Connect. Follow the steps to set up the integration:
+
+  ##### Prerequisites
+
+  **Option 1: Microsoft Entra application**
+
+  - Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+
+  - Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+
+  - Assign the `Owner` or `Contributor` role to the service principal created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
+
+  - [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
+
+  **Option 2: User-assigned managed identity**
+
+  - [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+
+  - Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+
+  - Assign the `Owner` or `Contributor` role to the user-assigned managed identity created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
+
+  - [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
+
+  ##### Create GitHub secrets
+
+  -  Add the values you got in the previous step as secrets to your GitHub repository. See [set up GitHub Action Secret](/azure/developer/github/connect-from-azure-openid-connect?branch=main#create-github-secrets). These variables are used in the GitHub Action workflow in subsequent steps. 
+
+  | GitHub Secret       | Source (Microsoft Entra Application or Managed Identity) |
+  |---------------------|----------------------------------------------------------|
+  | `AZURE_CLIENT_ID`    | Client ID                                                |
+  | `AZURE_SUBSCRIPTION_ID` | Subscription ID                                       |
+  | `AZURE_TENANT_ID`    | Directory (Tenant) ID                                    |
+
+  > [!NOTE] 
+  > For enhanced security, it is strongly recommended to use GitHub Secrets to store sensitive values rather than including them directly in your workflow file.
+
+  # [Azure Pipelines](#tab/pipelines)
+
+  If you're using Azure Pipelines, you can connect to the service using Service Connections. Follow the steps to set up the integration:
+
+  - [Create an app registration with workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
+
+  - Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
+
+---
+
+#### Set up authentication using access tokens
+
+> [!CAUTION]
+> We strongly recommend using Microsoft Entra ID for authentication to the service. If you're using access tokens, see [How to manage access tokens](./how-to-manage-access-tokens.md)
+
+You can generate an access token from your Playwright Testing workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
+
+1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens).
+
+2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens).
+
+3. Store the access token in a CI workflow secret and use it in the GitHub Actions workflow or Azure Pipeline yaml file. 
+
+| Secret name | Value |
+| ----------- | ------------ |
+| *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* | Paste the value of Access Token you created previously. | 
+
 
 ## Update the workflow definition
 
+::: zone pivot="playwright-test-runner"
 Update the CI workflow definition to run your Playwright tests with the Playwright CLI. Pass the [service configuration file](#add-service-configuration-file) as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
 
 1. Open the CI workflow definition
@@ -135,26 +247,54 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
     # [GitHub Actions](#tab/github)
 
     ```yml
-    - name: Install dependencies
-      working-directory: path/to/playwright/folder # update accordingly
-      run: npm ci
+    
+      # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
+      # Choose how to set up authentication to Azure from GitHub Actions. This is one example. 
+      name: Playwright Tests (Microsoft Playwright Testing)
+      on:
+        push:
+          branches: [main, master]
+        pull_request:
+          branches: [main, master]
 
-    - name: Run Playwright tests
-      working-directory: path/to/playwright/folder # update accordingly
-      env:
-        # Access token and regional endpoint for Microsoft Playwright Testing
-        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
-        PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-        PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
-      run: npx playwright test -c playwright.service.config.ts --workers=20
+      permissions: # Required when using Microsoft Entra ID to authenticate
+        id-token: write
+        contents: read
 
-    - name: Upload Playwright report
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: path/to/playwright/folder/playwright-report/ # update accordingly
-        retention-days: 10
+      jobs:
+        test:
+          timeout-minutes: 60
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@v4
+
+            - name: Login to Azure with AzPowershell (enableAzPSSession true)
+              uses: azure/login@v2
+              with:
+                client-id: ${{ secrets.AZURE_CLIENT_ID }} # GitHub Open ID connect values copied in previous steps
+                tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+                enable-AzPSSession: true
+
+            - name: Install dependencies
+              working-directory: path/to/playwright/folder # update accordingly
+              run: npm ci
+
+            - name: Run Playwright tests
+              working-directory: path/to/playwright/folder # update accordingly
+              env:
+                # Regional endpoint for Microsoft Playwright Testing
+                PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+                # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }} # Not recommended, use Microsoft Entra ID authentication. 
+              run: npx playwright test -c playwright.service.config.ts --workers=20
+
+            - name: Upload Playwright report
+              uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                name: playwright-report
+                path: path/to/playwright/folder/playwright-report/ # update accordingly
+                retention-days: 10
     ```
 
     # [Azure Pipelines](#tab/pipelines)
@@ -167,17 +307,134 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         targetType: 'inline'
         script: 'npm ci'
         workingDirectory: path/to/playwright/folder # update accordingly
-    
-    - task: PowerShell@2
-      enabled: true
-      displayName: "Run Playwright tests"
-      env:
-        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN)
+          
+    - task: AzureCLI@2
+      displayName: Run Playwright Test  
+        env:
         PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+        # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN) # Not recommended, use Microsoft Entra ID authentication. 
+
       inputs:
-        targetType: 'inline'
-        script: 'npx playwright test -c playwright.service.config.ts --workers=20'
-        workingDirectory: path/to/playwright/folder # update accordingly
+        azureSubscription: My_Service_Connection # Service connection used to authenticate this pipeline with Azure to use the service
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          npx playwright test -c playwright.service.config.ts --workers=20
+      addSpnToEnvironment: true
+      workingDirectory: path/to/playwright/folder # update accordingly
+
+    - task: PublishPipelineArtifact@1
+      displayName: Upload Playwright report
+      inputs:
+        targetPath: path/to/playwright/folder/playwright-report/ # update accordingly
+        artifact: 'Playwright tests'
+        publishLocation: 'pipeline'
+    ```
+
+    ---
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+Update the CI workflow definition to run your Playwright tests with the Playwright NUnit CLI. Pass the `.runsettings` file as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
+
+1. Open the CI workflow definition.
+
+1. Add the following steps to run your Playwright tests in Microsoft Playwright Testing.
+
+    The following steps describe the workflow changes for GitHub Actions or Azure Pipelines. Similarly, you can run your Playwright tests by using the Playwright CLI in other CI platforms.
+
+    # [GitHub Actions](#tab/github)
+
+    ```yml
+    on:
+      push:
+        branches: [ main, master ]
+      pull_request:
+        branches: [ main, master ]
+    permissions: # Required when using AuthType as EntraId
+      id-token: write
+      contents: read
+    jobs:
+      test:
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+          steps:
+          - uses: actions/checkout@v4
+        # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
+        # Choose how to set up authentication to Azure from GitHub Actions. This is one example. 
+          
+          - name: Login to Azure with AzPowershell (enableAzPSSession true) 
+            uses: azure/login@v2 
+            with: 
+              client-id: ${{ secrets.AZURE_CLIENT_ID }} # GitHub Open ID connect values copied in previous steps
+              tenant-id: ${{ secrets.AZURE_TENANT_ID }}  
+              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  
+              enable-AzPSSession: true 
+          
+          - name: Setup .NET
+            uses: actions/setup-dotnet@v4
+            with:
+              dotnet-version: 8.0.x
+          
+          - name: Restore dependencies
+            run: dotnet restore
+            working-directory: path/to/playwright/folder # update accordingly
+          
+          - name: Build
+            run: dotnet build --no-restore
+            working-directory: path/to/playwright/folder # update accordingly
+
+          - name: Run Playwright tests
+              working-directory: path/to/playwright/folder # update accordingly
+            env:
+              # Regional endpoint for Microsoft Playwright Testing
+              PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+              # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }} # Not recommended, use Microsoft Entra ID authentication. 
+            run: dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+
+          - name: Upload Playwright report
+            uses: actions/upload-artifact@v3
+            if: always()
+            with:
+              name: playwright-report
+              path: path/to/playwright/folder/playwright-report/ # update accordingly
+              retention-days: 10
+    ```
+
+    # [Azure Pipelines](#tab/pipelines)
+
+    ```yml
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '8.x'
+        installationPath: $(Agent.ToolsDirectory)/dotnet
+
+    - checkout: self
+
+    - script: dotnet restore
+      displayName: 'Restore dependencies'
+      workingDirectory: path/to/playwright/folder # update accordingly
+
+    - script: dotnet build --no-restore
+      displayName: 'Build'
+      workingDirectory: path/to/playwright/folder # update accordingly
+
+    - task: AzureCLI@2
+      displayName: Run Playwright Test  
+        env:
+        PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+        # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN) # Not recommended, use Microsoft Entra ID authentication. 
+
+      inputs:
+        azureSubscription: My_Service_Connection # Service connection used to authenticate this pipeline with Azure to use the service using Microsoft Entra ID.
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+      addSpnToEnvironment: true
+      workingDirectory: path/to/playwright/folder # update accordingly
 
     - task: PublishPipelineArtifact@1
       displayName: Upload Playwright report
@@ -189,158 +446,55 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     ---
 
-1. Save and commit your changes.
+::: zone-end
 
-    When the CI workflow is triggered, your Playwright tests will run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
+3. Save and commit your changes.
+
+    When the CI workflow is triggered, your Playwright tests run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers. The results and artifacts collected are published to the service and can be viewed on service portal.
+
+
+The settings for your test run can be defined in `.runsettings` file. For more information, see [how to use service package options](./how-to-use-service-config-file.md#config-options-in-runsettings-file)
+
+> [!NOTE]
+> Reporting feature is enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. For more information, see, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
 
 > [!CAUTION]
-> With Microsoft Playwright Testing, you get charged based on the number of total test minutes. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes.
->
-> After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
->
-> You can run a single test with the service by using the following command-line:
->
-> ```npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts```
+> With Microsoft Playwright Testing, you get charged based on the number of total test minutes consumed and test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes and test results.
 
-## Enable test results reporting
+After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
 
-Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. During preview access is only available by [invitation only](https://aka.ms/mpt/reporting-signup). 
-  
-> [!Important]
-> The reporting feature of Microsoft Playwright Testing service is free of charge during the invite-only preview. However, existing functionality of cloud-hosted browsers continues to bill per the [Azure pricing plan](https://aka.ms/mpt/pricing).   
+::: zone pivot="playwright-test-runner"
 
-Once you have access to the reporting tool, use the following steps to set up your tests.
-    
-1. From the workspace home page, navigate to *Settings*.
+You can run a single test with the service by using the following command-line:
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-select-settings.png" alt-text="Screenshot that shows settings selection for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-select-settings.png":::
+```powershell
+npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts
+```
 
-1. From *Settings*, select **General** and make sure reporting is **Enabled**.
+::: zone-end
+## View test runs and results in the Playwright portal
 
-   :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png" alt-text="Screenshot that shows how to enable reporting for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png":::
+You can now troubleshoot the CI pipeline in the Playwright portal,  
 
-1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+::: zone pivot="playwright-test-runner"
 
-    You need to provide `read:packages` permissions to the token. This token is referred to as `PAT_TOKEN_PACKAGE` for the rest of this article. 
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
 
-1. Store the GitHub token in a CI workflow secret to avoid specifying the token in clear text in the workflow definition:
+::: zone-end
 
-    # [GitHub Actions](#tab/github)
-    
-    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
-    1. Select **New repository secret**.
-    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
-    
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PAT_TOKEN_PACKAGE* |  
-        | **Value** | Paste the GitHub personal access token you copied previously. |
-    
-    1. Select **OK** to create the workflow secret.
+::: zone pivot="nunit-test-runner"
 
-    # [Azure Pipelines](#tab/pipelines)
-    
-    1. Go to your Azure DevOps project.
-    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
-    1. Locate the **Variables** for this pipeline.
-    1. Add a new variable.
-    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
-    
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PAT_TOKEN_PACKAGE* |
-        | **Value** | Paste the GitHub personal access token you copied previously. |
-        | **Keep this value secret** | Check this value |
-    
-    1. Select **OK**, and then **Save** to create the workflow secret.
-    
-    ---
-1. Update package.json file with the package.
-    
-    ```json
-        "dependencies": {
-            "@microsoft/mpt-reporter": "0.1.0-19072024-private-preview"
-        }
-    ```
-5. Update the Playwright config file.
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results-nunit.md)]
 
-    Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
-
-    ```typescript
-    import { defineConfig } from '@playwright/test';
-
-    export default defineConfig({
-        reporter: [
-        ['list'],
-        ['json', {  outputFile: 'test-results.json' }],
-        ['@microsoft/mpt-reporter'] // Microsoft Playwright Testing reporter
-        ],
-    });
-    ```
-    Make sure that the artifacts are enabled in the config for better troubleshooting.
-    
-    ```typescript
-    use: {
-        // ...
-        trace: 'on-first-retry',
-        video:'retain-on-failure',
-        screenshot:'only-on-failure',
-        }
-    ```
-  
-3. Update the CI workflow definition to install the reporting package before running the tests to publish the report of your Playwright tests in Microsoft Playwright Testing. 
+::: zone-end
 
 
-    # [GitHub Actions](#tab/github)
+> [!TIP]
+> You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. For details, see [How to use service features](./how-to-use-service-features.md).
 
-    ```yml
-    - name: Install reporting package
-      working-directory: path/to/playwright/folder # update accordingly
-      run: |
-        npm config set @microsoft:registry=https://npm.pkg.github.com
-        npm set //npm.pkg.github.com/:_authToken ${{secrets.PAT_TOKEN_PACKAGE}} 
-        npm install
+> [!NOTE]
+> The test results and artifacts that you publish are retained on the service for 90 days. After that, they are automatically deleted.  
 
-    - name: Run Playwright tests
-      working-directory: path/to/playwright/folder # update accordingly
-      env:
-        # Access token and regional endpoint for Microsoft Playwright Testing
-        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
-        PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-        PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
-      run: npx playwright test
-    ```
-
-    # [Azure Pipelines](#tab/pipelines)
-
-    ```yml
-    - task: PowerShell@2
-      enabled: true
-      displayName: "Install reporting package"
-      inputs:
-        targetType: 'inline'
-        script: |
-            'npm config set @microsoft:registry=https://npm.pkg.github.com'
-            'npm set //npm.pkg.github.com/:_authToken ${PAT_TOKEN_PACKAGE}'
-            'npm install'
-        workingDirectory: path/to/playwright/folder # update accordingly
-    
-    - task: PowerShell@2
-      enabled: true
-      displayName: "Run Playwright tests"
-      env:
-        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN)
-        PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
-        PLAYWRIGHT_SERVICE_RUN_ID: $(Build.DefinitionName) - $(Build.BuildNumber) - $(System.JobAttempt)
-      inputs:
-        targetType: 'inline'
-        script: 'npx playwright test -c playwright.service.config.ts --workers=20'
-        workingDirectory: path/to/playwright/folder # update accordingly
-    ```
-
-    ---
-    > [!TIP]
-    > You can use Microsoft Playwright Testing service to publish test results to the portal independent of the cloud-hosted browsers feature. 
 
 ## Related content
 

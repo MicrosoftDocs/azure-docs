@@ -3,9 +3,9 @@ title: Replace your tape infrastructure by using Azure Backup
 description: Learn how Azure Backup provides tape-like semantics that enable you to back up and restore data in Azure
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 03/29/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 12/24/2024
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -18,6 +18,8 @@ Azure Backup and System Center Data Protection Manager enable you to:
 * Back up data in schedules, which best suit the organizational needs.
 * Retain the backup data for longer periods.
 * Make Azure a part of your long-term retention needs (instead of tape).
+
+[!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
 ## What is the Backup Schedule?
 

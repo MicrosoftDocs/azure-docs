@@ -6,9 +6,9 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 02/15/2023
+ms.date: 12/10/2024
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ 
 ---
 
 # Query Parquet files using serverless SQL pool in Azure Synapse Analytics
@@ -39,7 +39,7 @@ Make sure that you can access this file. If your file is protected with SAS key 
 > `ALTER DATABASE CURRENT COLLATE Latin1_General_100_BIN2_UTF8;`
 > For more information on collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).
 
-If you use the `Latin1_General_100_BIN2_UTF8` collation you will get an additional performance boost compared to the other collations. The `Latin1_General_100_BIN2_UTF8` collation is compatible with parquet string sorting rules. The SQL pool is able to eliminate some parts of the parquet files that will not contain data needed in the queries (file/column-segment pruning). If you use other collations, all data from the parquet files will be loaded into Synapse SQL and the filtering is happening within the SQL process. The `Latin1_General_100_BIN2_UTF8` collation has additional performance optimization that works only for parquet and Cosmos DB. The downside is that you lose fine-grained comparison rules like case insensitivity.
+If you use the `Latin1_General_100_BIN2_UTF8` collation you'll get an extra performance boost compared to the other collations. The `Latin1_General_100_BIN2_UTF8` collation is compatible with parquet string sorting rules. The SQL pool is able to eliminate some parts of the parquet files that won't contain data needed in the queries (file/column-segment pruning). If you use other collations, all data from the parquet files will be loaded into Synapse SQL, and the filtering is happening within the SQL process. The `Latin1_General_100_BIN2_UTF8` collation has another performance optimization that works only for parquet and Cosmos DB. The downside is that you lose fine-grained comparison rules like case insensitivity.
 
 ### Data source usage
 
@@ -73,11 +73,11 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
+> Make sure that you are explicitly specifying some UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
 > Mismatch between text encoding in the file and string column collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
 > `ALTER DATABASE CURRENT COLLATE Latin1_General_100_BIN2_UTF8;`
-> You can easily set collation on the colum types, for example:
+> You can easily set collation on the column types, for example:
 >    `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 > For more information on collations, see [Collation types supported for Synapse SQL](../sql/reference-collation-types.md).
 
@@ -121,7 +121,7 @@ ORDER BY
 
 You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files.
 
-Have in mind that if you are reading number of files at once, the schema, column names and data types will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, please use OPENROWSET WITH clause.
+Have in mind that if you're reading number of files at once, the schema, column names, and data types will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema didn't contain these columns. To explicitly specify the schema, use OPENROWSET WITH clause.
 
 The following sample shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2018 without specifying a schema.
 
@@ -172,6 +172,7 @@ ORDER BY
 
 For Parquet type mapping to SQL native type check [type mapping for Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
-## Next steps
+## Next step
 
-Advance to the next article to learn how to [Query Parquet nested types](query-parquet-nested-types.md).
+> [!div class="nextstepaction"]
+> [How to query Parquet nested types](query-parquet-nested-types.md)

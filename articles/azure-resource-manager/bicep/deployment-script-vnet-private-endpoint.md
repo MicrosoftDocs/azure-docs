@@ -3,7 +3,7 @@ title: Run Bicep deployment script privately over a private endpoint
 description: Learn how to run Bicep deployment script privately over a private endpoint.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 09/26/2024
 ---
 
 # Run Bicep deployment script privately over a private endpoint
@@ -16,7 +16,7 @@ In this setup, the ACI created by deployment script runs within a virtual networ
 
 :::image type="content" source="./media/deployment-script-vnet-private-endpoint/bicep-deployment-script-vnet-private-endpoint-diagram.jpg" alt-text="Screenshot of high-level architecture showing how the infrastructure is connected to run deployment scripts privately.":::
 
-To run deployment scripts privately you need the following infrastructure as seen in the architecture diagram:
+To run deployment scripts privately, you need the following infrastructure as seen in the architecture diagram:
 
 - Create a virtual network with two subnets:
   - A subnet for the private endpoint.

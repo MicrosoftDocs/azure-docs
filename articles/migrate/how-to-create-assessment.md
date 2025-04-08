@@ -1,9 +1,6 @@
 ---
 title: Create an Azure VM assessment with Azure Migrate Discovery and assessment tool | Microsoft Docs
 description: Describes how to create an Azure VM assessment with the Azure Migrate Discovery and assessment tool
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 02/26/2024
@@ -39,7 +36,7 @@ There are two types of sizing criteria that you can use to create an Azure VM as
 
 Run an assessment as follows:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess.png" alt-text="Screenshot of Get started screen.":::
 

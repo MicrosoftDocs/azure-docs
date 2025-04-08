@@ -4,7 +4,7 @@ description: Learn how to use REST API with Azure SignalR Service following samp
 author: vicancy
 ms.service: azure-signalr-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 09/03/2024
 ms.author: lianwei
 ms.custom: mode-api
 ---
@@ -13,6 +13,8 @@ ms.custom: mode-api
 Azure SignalR Service provides [REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to support server-to-client communication scenarios such as broadcasting. You can choose any programming language that can make REST API calls. You can post messages to all connected clients, a specific client by name, or a group of clients.
 
 In this quickstart, you learn how to send messages from a command-line app to connected client apps in C#.
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Prerequisites
 
@@ -37,7 +39,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Clone the sample application
 
-While the service is being deployed, let's switch to prepare the code. Clone the [sample app from GitHub](https://github.com/aspnet/AzureSignalR-samples.git), set the SignalR Service connection string, and run the application locally.
+While the service is being deployed, let's get the code ready. First, clone the [sample app from GitHub](https://github.com/aspnet/AzureSignalR-samples.git). Next, set the SignalR Service connection string to the app. Finally, run the application locally.
 
 1. Open a git terminal window. Change to a folder where you want to clone the sample project.
 
@@ -68,6 +70,8 @@ dotnet publish -c Release -r osx.10.13-x64
 ```
 
 ### Start a client
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 ```bash
 cd bin/Release/netcoreapp2.1/osx.10.13-x64/

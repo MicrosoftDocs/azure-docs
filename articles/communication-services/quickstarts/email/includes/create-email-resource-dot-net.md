@@ -76,7 +76,7 @@ When creating an Email Services resource, you'll specify the resource group name
 ```csharp
 // this example assumes you already have this ResourceGroupResource created on azure
 // for more information of creating ResourceGroupResource, please refer to the document of ResourceGroupResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
 ResourceGroupResource resourceGroupResource = client.GetResourceGroupResource(resourceGroupResourceId);
@@ -108,7 +108,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ...
 // this example assumes you already have this EmailServiceResource created on azure
 // for more information of creating EmailServiceResource, please refer to the document of EmailServiceResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 ResourceIdentifier emailServiceResourceId = EmailServiceResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName);
@@ -137,7 +137,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```csharp
 // this example assumes you already have this ResourceGroupResource created on azure
 // for more information of creating ResourceGroupResource, please refer to the document of ResourceGroupResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
 ResourceGroupResource resourceGroupResource = client.GetResourceGroupResource(resourceGroupResourceId);
@@ -163,7 +163,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this SubscriptionResource created on azure
 // for more information of creating SubscriptionResource, please refer to the document of SubscriptionResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 ResourceIdentifier subscriptionResourceId = SubscriptionResource.CreateResourceIdentifier(subscriptionId);
 SubscriptionResource subscriptionResource = client.GetSubscriptionResource(subscriptionResourceId);
 
@@ -185,7 +185,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
 // for more information of creating EmailServiceResource, please refer to the document of EmailServiceResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 ResourceIdentifier emailServiceResourceId = EmailServiceResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName);

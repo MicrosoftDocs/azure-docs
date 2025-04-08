@@ -1,10 +1,10 @@
 ---
 title: Deploy secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the release and response phases of your web application project.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
-ms.date: 08/29/2023
+ms.author: mbaldwin
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -30,9 +30,9 @@ Check your application's performance before you launch it or deploy updates to p
 
 ### Install a web application firewall
 
-Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks and cross-site scripting attacks. Preventing these attacks in application code can be challenging. It might require rigorous maintenance, patching, and monitoring at many layers of the application topology. A centralized WAF helps make security management simpler. A WAF solution can also react to a security threat by patching a known vulnerability at a central location versus securing each individual web application.
+Web applications are frequent targets of malicious attacks, such as SQL injection and cross-site scripting. Preventing these attacks in application code can be complex, requiring rigorous maintenance, patching, and monitoring across multiple layers of the application. A centralized Web Application Firewall (WAF) simplifies security management by addressing vulnerabilities at a central point rather than securing each individual web application.
 
-The [Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md) provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
+The [Azure Web Application Firewall](../../web-application-firewall/overview.md) for [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) and [Azure Front Door](../../web-application-firewall/afds/afds-overview.md) offers centralized protection against common exploits and vulnerabilities. The WAF uses rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9 to provide robust security for your web applications.
 
 ### Create an incident response plan
 
@@ -65,7 +65,7 @@ Azure services that assist with application monitoring are:
 
 #### Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. Application Insights automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. Application Insights automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 #### Microsoft Defender for Cloud
 

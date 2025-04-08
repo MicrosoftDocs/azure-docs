@@ -9,10 +9,10 @@ metadata:
   description: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
   ms.service: security
   ms.topic: hub-page
-  author: TerryLanfear
-  ms.author: terrylan
+  author: msmbaldwin
+  ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 03/26/2024
+  ms.date: 10/20/2024
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

@@ -4,7 +4,7 @@ description: Configure the upgrade preference for the Azure App Service Environm
 author: madsd
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 06/25/2024
+ms.date: 11/05/2024
 zone_pivot_groups: app-service-cli-portal
 ---
 
@@ -13,10 +13,6 @@ zone_pivot_groups: app-service-cli-portal
 Azure App Service is regularly updated to provide new features, new runtime versions, performance improvements, and bug fixes. This is also known as planned maintenance. The upgrade happens automatically. The upgrades are applied progressively through the regions following [Azure Safe Deployment Practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Because of the isolated nature of App Service Environment, you have an opportunity to influence the upgrade process.
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
-
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
-> 
 
 With App Service Environment v3, you can specify your preference for when and how the planned maintenance is applied. The upgrade can be applied automatically or manually. Even with your preference set to automatic, you have some options to influence the timing.
 
@@ -32,12 +28,20 @@ In smaller regions, Early and Late upgrade preferences might be very close to ea
 
 ## Manual upgrade preference
 
-Manual upgrade preference gives you the option to receive a notification when an upgrade is available. The availability is also visible in the Azure portal. After the upgrade is available, you'll have 15 days to start the upgrade process. If you don't start the upgrade within the 15 days, the upgrade is processed with the remaining automatic upgrades in the region.
+Manual upgrade preference gives you the option to receive a notification when an upgrade is available. The availability is also visible in the Azure portal. After the upgrade is available, you'll typically have 15 days to start the upgrade process. If you don't start the upgrade within the 15 days, the upgrade is processed with the remaining automatic upgrades in the region.
+
+> [!NOTE]
+> Our goal is to provide you with a 15-day notice before the upgrade is applied automatically. In rare cases, the notice period is less than 15 days. The "End Time" for the planned maintenance event that you receive always indicates the end of the notice period.
+> 
 
 Upgrades normally don't affect the availability of your apps. The upgrade adds extra instances to ensure that the same capacity is available during upgrade. Patched and restarted instances are added back in rotation, and when you have workloads sensitive to restarts you should plan to start the maintenance during non-business hours. The full upgrade process normally finishes within 18 hours, but could take longer. Once the upgrade is started the upgrade runs until it's complete and isn't paused during standard business hours.
 
 > [!NOTE]
-> In rare cases the upgrade availability might be impacted by a security hotfix superseding the planned upgrade, or a regression found in the planned upgrade before it has been applied to your instance. In these rare cases, the available upgrade will be removed and will transition to automatic upgrade.
+> In rare cases, the upgrade availability might be impacted by a security hotfix superseding the planned upgrade, or a regression found in the planned upgrade before it has been applied to your instance. In these rare cases, the available upgrade will be removed and will transition to automatic upgrade.
+> 
+
+> [!IMPORTANT]
+> In rare cases, you might see an upgrade is available in the **Configuration** page for your App Service Environment, but you don't receive a **Service Health** notification (if you [configure notifications](#configure-notifications)). If you don't receive a Service Health notification, this available upgrade isn't required and the 15-day time limit doesn't apply. This is a known bug that we are working to fix.
 > 
 
 ## Configure notifications
@@ -48,7 +52,7 @@ When an upgrade is available, Azure adds a planned maintenance event in the Serv
 
 You can configure alerts to send a message to your email address and/or SMS phone number when an event is generated in Azure Monitor. You can also set up a trigger for your custom Azure Function or Logic App, which allows you to automatically take action on your resources. This action could be to automatically divert the traffic from your App Service Environment in one region that is upgraded to an App Service Environment in another region. Then, you can automatically change the traffic back to normal when an upgrade completes.
 
-To configure alerts for upgrade notifications, select the **Add service health alert** at the top of the dashboard. Learn more about [Azure Monitor Alerts](../../azure-monitor/alerts/alerts-overview.md). This how-to article guides you through [configuring alerts for service health events](../../service-health/alerts-activity-log-service-notifications-portal.md). Finally, you can follow this how-to guide to learn [how to create actions groups](../../azure-monitor/alerts/action-groups.md) that trigger based on the alert.
+To configure alerts for upgrade notifications, select the **Add service health alert** at the top of the dashboard. Learn more about [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview). This how-to article guides you through [configuring alerts for service health events](/azure/service-health/alerts-activity-log-service-notifications-portal). Finally, you can follow this how-to guide to learn [how to create actions groups](/azure/azure-monitor/alerts/action-groups) that trigger based on the alert.
 
 ### Send test notifications
 

@@ -6,12 +6,12 @@ description: Provides definitions for the cookies used in Azure Active Directory
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure AD B2C into my application, I want to understand the cookies used by Azure AD B2C, so that I can properly handle and manage them in my application's authentication flow.

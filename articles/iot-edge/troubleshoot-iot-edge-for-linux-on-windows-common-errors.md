@@ -5,13 +5,13 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/06/2024
 ms.topic: troubleshooting-general
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, linux-related-content
 ---
 # Common issues and resolutions for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use this article to help resolve common issues that can occur when deploying IoT Edge for Linux on Windows solutions. 
 

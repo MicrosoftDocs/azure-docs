@@ -105,3 +105,4 @@ You can only delete access tokens that you created in a workspace. To create an 
 ## Related content
 
 - Learn more about [managing access to a workspace](./how-to-manage-workspace-access.md).
+- Learn more about [managing authentication to the workspace](./how-to-manage-authentication.md)

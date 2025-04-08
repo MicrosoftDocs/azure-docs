@@ -3,11 +3,12 @@ title: Azure role-based access control
 titleSuffix: Microsoft Dev Box
 description: Learn how Microsoft Dev Box provides protection with Azure role-based access control (Azure RBAC) integration.
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
 ms.date: 07/31/2024
-
 #Customer intent: As a platform engineer, I want to understand how to assign permissions in Dev Box so that I can give dev managers and developers only the permissions they need.
 ---
 # Azure role-based access control in Microsoft Dev Box
@@ -238,7 +239,7 @@ access to the resources of their team.
 
 Microsoft Dev Box uses catalogs to enable developers to deploy
 customizations for dev boxes by using a catalog of tasks and a
-configuration file to install software, add extensions, clone
+customization file to install software, add extensions, clone
 repositories, and more. 
 
 Microsoft Dev Box stores catalogs in either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos). You can attach a catalog to a dev center or to a project.

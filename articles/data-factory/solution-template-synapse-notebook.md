@@ -4,7 +4,8 @@ description:  Learn how to use a solution template to call a Synapse pipeline wi
 ms.author: chugu
 author: chugugrace
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: integration-services
 ---
 
 # Call Synapse pipeline with a notebook activity

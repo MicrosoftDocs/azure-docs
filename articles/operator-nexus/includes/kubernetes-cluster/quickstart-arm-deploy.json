@@ -173,12 +173,58 @@
           }
         */
       },
+      "fabricPeeringEnabled": {
+        "type": "string",
+        "metadata": {
+          "description": "The indicator to specify if the load balancer peers with the network fabric."
+        },
+        "defaultValue": "True"
+      },
+      "bgpAdvertisements": {
+        "type": "array",
+        "metadata": {
+          "description": "The association of IP address pools to the communities and peers, allowing for announcement of IPs."
+        },
+        "defaultValue": []
+        /*
+          {
+            "advertiseToFabric": "True/False",
+            "communities": [
+              "string"
+            ],
+            "ipAddressPools": [
+              "string"
+            ],
+            "pools": [
+              "string"
+            ]
+          }
+        */
+      },
+      "bgpPeers": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined."
+        },
+        "defaultValue": []
+        /*
+          {
+            "bfdEnabled": "True/False",
+            "bgpMultiHop": "True/False",
+            "myAsn": 0-4294967295,
+            "name": "string",
+            "password": "string",
+            "peerAddress": "string",
+            "peerPort": 179
+          }
+        */
+      },
       "kubernetesVersion": {
         "type": "string",
         "metadata": {
           "description": "The version of Kubernetes to be used in the Nexus Kubernetes cluster"
         },
-        "defaultValue": "v1.24.9"
+        "defaultValue": "v1.27.1"
       },
       "controlPlaneCount": {
         "type": "int",
@@ -310,7 +356,7 @@
     "resources": [
       {
         "type": "Microsoft.NetworkCloud/kubernetesClusters",
-        "apiVersion": "2023-07-01",
+        "apiVersion": "2025-02-01",
         "name": "[parameters('kubernetesClusterName')]",
         "location": "[parameters('location')]",
         "tags": "[parameters('tags')]",
@@ -376,7 +422,10 @@
               "trunkedNetworks": "[if(empty(parameters('trunkedNetworks')), json('null'), parameters('trunkedNetworks'))]"
             },
             "bgpServiceLoadBalancerConfiguration": {
-              "ipAddressPools": "[if(empty(parameters('ipAddressPools')), json('null'), parameters('ipAddressPools'))]"
+              "ipAddressPools": "[if(empty(parameters('ipAddressPools')), json('null'), parameters('ipAddressPools'))]",
+              "fabricPeeringEnabled": "[if(empty(parameters('fabricPeeringEnabled')), json('null'), parameters('fabricPeeringEnabled'))]",
+              "bgpAdvertisements": "[if(empty(parameters('bgpAdvertisements')), json('null'), parameters('bgpAdvertisements'))]",
+              "bgpPeers": "[if(empty(parameters('bgpPeers')), json('null'), parameters('bgpPeers'))]"
             }
           }
         }

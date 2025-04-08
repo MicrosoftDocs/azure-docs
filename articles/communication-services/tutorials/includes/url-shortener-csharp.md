@@ -204,7 +204,7 @@ namespace Company.Function
 ## Test locally
 
 >[!NOTE]
-> You need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification.md) to send SMS messages with URLs. Once your verification applications is set to pending state (1-2 days), the phone number to be enabled to send URLs. The full verification will take 5-6 weeks. For more information on toll-free number verification, see [Toll Free Veritifcation FAQ](../../concepts/sms/sms-faq.md#toll-free-verification).
+> You need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification.md) to send SMS messages with URLs. Once your verification applications is set to pending state (1-2 days), the phone number to be enabled to send URLs. The full verification will take 5-6 weeks. For more information on toll-free number verification, see [Toll Free Verification FAQ](../../concepts/sms/sms-faq.md#toll-free-verification).
 
 You can now run your Azure Function locally by pressing `F5` in Visual Studio Code or by running the following command in the terminal:
 

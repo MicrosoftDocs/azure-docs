@@ -1,9 +1,6 @@
 ---
 title: Customize assessments for Azure Migrate | Microsoft Docs
 description: Describes how to customize assessments created with Azure Migrate
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 3/22/2024
@@ -17,14 +14,14 @@ This article describes how to customize assessments created by Azure Migrate Dis
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
-You can use the Azure Migrate Discovery and assessment tool to create assessments for on-premises VMware VMs and Hyper-V VMs, in preparation for migration to Azure. The Discovery and assessment tool assesses on-premises servers for migration to Azure IaaS virtual machines and Azure VMware Solution. 
+You can use the Azure Migrate Discovery and assessment tool to create assessments for on-premises VMware VMs and Hyper-V VMs, in preparation for migration to Azure. The Discovery and assessment tool assesses on-premises servers for migration to Azure IaaS virtual machines and Azure VMware Solution.
 
 ## About assessments
 
 Assessments that you create with the Discovery and assessment tool are a point-in-time snapshot of data. There are two types of assessments that you can create using Azure Migrate: Discovery and assessment.
 
 **Assessment Type** | **Details**
---- | --- 
+--- | ---
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.[Learn more](concepts-assessment-calculation.md).
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
@@ -49,7 +46,7 @@ An assessment done in Azure Migrate Discovery and assessment has three stages. A
 **Sizing criterion** | The criterion to be used to right-size VMs for Azure. You can either do *performance-based* sizing or size the VMs *as on-premises*, without considering the performance history.
 **Performance history** | The duration to consider for evaluating the performance data of machines. This property is only applicable when sizing criterion is *performance-based*.
 **Percentile utilization** | The percentile value of the performance sample set to be considered for right-sizing. This property is only applicable when sizing is *performance-based*.
-**VM series** | 	You can specify the VM series that you would like to consider for right-sizing. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series and the right-sizing is done only in the selected series.
+**VM series** |  You can specify the VM series that you would like to consider for right-sizing. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series and the right-sizing is done only in the selected series.
 **Comfort factor** | Azure VM assessment considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead.
 **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled to. Azure Migrate estimates the cost accordingly.
 **Currency** | Billing currency.
@@ -61,7 +58,6 @@ An assessment done in Azure Migrate Discovery and assessment has three stages. A
 
 Here's what's included in an Azure VMware Solution assessment:
 
-
 | **Property** | **Details** |
 | - | - |
 | **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.<br/><br/> Azure VMware Solution Assessment currently supports these target regions: East US, West Europe, and West US. |
@@ -69,8 +65,8 @@ Here's what's included in an Azure VMware Solution assessment:
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution. RIs are currently not supported for Azure VMware Solution nodes. |
 **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to map the on-premises VMs. Note that default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution. |
 **FTT Setting, RAID Level** | Specifies the applicable Failure to Tolerate (FTT) and Raid combinations. The selected FTT option combined with the on-premises VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. |
-**Sizing criterion** | Sets the criteria to be used to _right-size_ VMs for Azure VMware Solution. You can opt for _performance-based_ sizing or _as on-premises_ without considering the performance history. |
-**Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is _performance-based_. |
+**Sizing criterion** | Sets the criteria to be used to *right-size* VMs for Azure VMware Solution. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. |
+**Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is *performance-based*. |
 **Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based.|
 **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. |
 **Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly.|
@@ -105,12 +101,10 @@ To edit assessment properties after creating an assessment, do the following:
 1. In the Azure Migrate project, select **Servers, databases and web apps**.
 2. In **Azure Migrate: Discovery and assessment**, select the assessments count.
 3. In **Assessment**, select the relevant assessment > **Edit properties**.
-5. Customize the assessment properties in accordance with the tables above.
-6. Select **Save** to update the assessment.
-
+4. Customize the assessment properties in accordance with the tables above.
+5. Select **Save** to update the assessment.
 
 You can also edit the assessment properties when you're creating an assessment.
-
 
 ## Next steps
 

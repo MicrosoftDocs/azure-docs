@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: concept-article
 ms.date: 08/08/2024
+
+
+#Customer intent: As a security analyst, I want to monitor and protect SAP BTP applications so that I can detect and respond to security threats and suspicious activities effectively.
+
 ---
 
 # Microsoft Sentinel Solution for SAP BTP overview

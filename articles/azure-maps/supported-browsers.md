@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Find out how to check whether the Azure Maps Web SDK supports a browser. View a list of supported browsers. Learn how to use map services with legacy browsers.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/22/2023
+ms.date: 03/31/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: general
@@ -36,21 +36,6 @@ The Azure Maps Web SDK supports the following desktop browsers:
 
 See also [Target legacy browsers] later in this article.
 
-## Mobile
-
-The Azure Maps Web SDK supports the following mobile browsers:
-
-- Android
-  - Current version of Chrome on Android 6.0 and later
-  - Chrome WebView on Android 6.0 and later
-- iOS
-  - Mobile Safari on the current and previous major version of iOS
-  - UIWebView and WKWebView on the current and previous major version of iOS
-  - Current version of Chrome for iOS
-
-> [!TIP]
-> If you're embedding a map inside a mobile application by using a WebView control, you might prefer to use the [npm package of the Azure Maps Web SDK] instead of referencing the version of the SDK that's hosted on Azure Content Delivery Network. This approach reduces loading time because the SDK is already be on the user's device and doesn't need to be downloaded at run time.
-
 ## Node.js
 
 The following Web SDK modules are also supported in Node.js:
@@ -69,8 +54,6 @@ The [Render Azure Maps in Leaflet] Azure Maps sample shows how to render Azure M
 
 For more code samples using Azure Maps in Leaflet, see [Azure Maps Samples].
 
-For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
-
 ## Next steps
 
 Learn more about the Azure Maps Web SDK:
@@ -82,7 +65,6 @@ Learn more about the Azure Maps Web SDK:
 > [Services module]
 
 [atlas.isSupported]: /javascript/api/azure-maps-control/atlas#issupported-boolean-
-[Azure Maps community - Open-source projects]: open-source-projects.md#third-party-map-control-plugins
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps Samples]: https://samples.azuremaps.com/?search=leaflet
 [documentation]: how-to-use-services-module.md

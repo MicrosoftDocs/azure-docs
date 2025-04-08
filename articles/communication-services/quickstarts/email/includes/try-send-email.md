@@ -32,7 +32,7 @@ To send a message to a recipient, and to specify the message subject and body,
 
 2. Select one of the verified domains from drop-down.
 
-   :::image type="content" source="../media/try-email-domains-selected-domain.png" alt-text="Screenshot that shows the verfied domain from drop-down." lightbox="../media/try-email-domains-select.png":::
+   :::image type="content" source="../media/try-email-domains-selected-domain.png" alt-text="Screenshot that shows the verified domain from drop-down." lightbox="../media/try-email-domains-select.png":::
 
 3. Compose the email to send
     - Enter Recipient email address

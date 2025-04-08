@@ -3,11 +3,6 @@
   items:
   - name: Overview
     expanded: true
-    items:
-    - name: What is the Azure private MEC?
-      href: overview.md
-    - name: Azure Private MEC partner solutions
-      href: partner-programs.md   
   - name: Related
     items:
     - name: Azure Network Function Manager
@@ -26,6 +21,3 @@
       href: https://azure.microsoft.com/roadmap/?category=networking
     - name: Blog
       href: https://azure.microsoft.com/blog/topics/networking
-    
-
-   

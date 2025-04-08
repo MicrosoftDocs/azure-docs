@@ -19,7 +19,7 @@ This article describes reliability support in [Azure HDInsight](../hdinsight/hdi
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure HDInsight supports a [zonal deployment configuration](availability-zones-service-support.md#azure-services-with-availability-zone-support). Azure HDInsight cluster nodes are placed in a single zone that you select in the selected region. A zonal HDInsight cluster is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the HDInsight cluster, the cluster won't be available.  This deployment model provides inexpensive, low latency network connectivity within the cluster. Replicating this deployment model into multiple availability zones can provide a higher level of availability to protect against hardware failure.
+Azure HDInsight supports a [zonal deployment configuration](availability-zones-service-support.md). Azure HDInsight cluster nodes are placed in a single zone that you select in the selected region. A zonal HDInsight cluster is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the HDInsight cluster, the cluster won't be available.  This deployment model provides inexpensive, low latency network connectivity within the cluster. Replicating this deployment model into multiple availability zones can provide a higher level of availability to protect against hardware failure.
 
 >[!IMPORTANT]
 >For deployments where users don't specify a specific zone, node types are not zone resilient and can experience downtime during an outage in any zone in that region.
@@ -136,7 +136,7 @@ Improving business continuity using cross region high availability disaster reco
 |Area|Cause of complexity escalation|Optimization strategies|
 |----|------------------------|-----------------------|
 |Read Write patterns |Requiring both primary and secondary to be Read and Write enabled |Design the secondary to be read only|
-|Zero RPO & RTO |Requiring zero data loss (RPO=0) and zero downtime (RTO=0) |Design RPO and RTO in ways to reduce the number of components that need to fail over. For more information on RTO and RPO, see [Recovery objectives](./disaster-recovery-overview.md#recovery-objectives).|
+|Zero RPO & RTO |Requiring zero data loss (RPO=0) and zero downtime (RTO=0) |Design RPO and RTO in ways to reduce the number of components that need to fail over. For more information on RTO and RPO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).|
 |Business functionality |Requiring full business functionality of primary in secondary |Evaluate if you can run with bare minimum critical subset of the business functionality in secondary.|
 |Connectivity |Requiring all upstream and downstream systems from primary to connect to the secondary as well|Limit the secondary connectivity to a bare minimum critical subset.|
 
@@ -161,7 +161,7 @@ When you create your multi region disaster recovery plan, consider the following
 
 - Use Azure monitoring tools on HDInsight to detect abnormal behavior in the cluster and set corresponding alert notifications. You can deploy the pre-configured HDInsight cluster-specific management solutions that collect important performance metrics of the specific cluster type. For more information, see [Azure Monitoring for HDInsight](../hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-- Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Azure Service Health documentation](../service-health/index.yml).
+- Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Azure Service Health documentation](/azure/service-health/).
 
 
 ### Disaster recovery in single-region geography
@@ -214,8 +214,5 @@ functionality. Service incidents in one or more of the following services in a s
 * [Azure HDInsight business continuity architectures](../hdinsight/hdinsight-business-continuity-architecture.md)
 * [Azure HDInsight highly available solution architecture case study](../hdinsight/hdinsight-high-availability-case-study.md)
 * [What is Apache Hive and HiveQL on Azure HDInsight?](../hdinsight/hadoop/hdinsight-use-hive.md)
-
-
-* [Reliability for HDInsight on AKS](./reliability-hdinsight-on-aks.md)
 * [Reliability in Azure](./overview.md)
 

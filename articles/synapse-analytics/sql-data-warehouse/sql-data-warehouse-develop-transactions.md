@@ -8,7 +8,7 @@ ms.date: 03/22/2019
 author: KevinConanMSFT
 ms.author: kecona
 ms.custom: azure-synapse
-ms.reviewer: wiassaf
+
 ---
 
 # Use transactions in a SQL pool in Azure Synapse 

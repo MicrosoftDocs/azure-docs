@@ -5,10 +5,9 @@ description: This article describes the fundamentals of load balancing across mu
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/12/2024
 ms.author: mbender
-ms.custom: template-concept
 ---
 
 # Multiple frontends for Azure Load Balancer

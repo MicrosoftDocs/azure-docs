@@ -1,0 +1,34 @@
+items:
+- name: Neon Serverless Postgres
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Neon Serverless Postgres
+    href: overview.md
+  - name: Neon Postgres resources and developer tools
+    href: tools.md
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create 
+    href: create.md
+- name: How to
+  items:
+  - name: Manage 
+    href: manage.md
+  - name: Troubleshoot 
+    href: troubleshoot.md
+- name: SDKs and tools
+  items:
+  - name: Azure CLI
+    href: /cli/azure/neon
+  - name: Go
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/neonpostgres/armneonpostgres@v0.1.0
+  - name: Java
+    href: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-neonpostgres/1.0.0-beta.1
+  - name: JavaScript
+    href: https://www.npmjs.com/package/@azure/arm-neonpostgres/v/1.0.0-beta.1
+  - name: .NET
+    href: https://www.nuget.org/packages/Azure.ResourceManager.NeonPostgres/1.0.0-beta.1 
+  - name: Python  
+    href: https://pypi.org/project/azure-mgmt-neonpostgres/

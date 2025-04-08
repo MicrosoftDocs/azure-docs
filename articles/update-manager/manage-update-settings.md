@@ -6,7 +6,7 @@ ms.custom: linux-related-content
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.date: 03/07/2024
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Manage update configuration settings

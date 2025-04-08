@@ -7,7 +7,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/12/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
@@ -188,7 +188,7 @@ Port 8000 is exposed by default from the docker image. If a different nginx prox
 
 Another use case for the API proxy module is to enable IoT Edge devices in lower layers to upload blobs. This use case enables troubleshooting functionality on lower layer devices like uploading module logs or uploading the support bundle.
 
-This scenario uses the [Azure Blob Storage on IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-blob-storage.edge-azure-blob-storage) module at the top layer to handle blob creation and upload. In a nested scenario, up to five layers are supported. The *Azure Blob Storage on IoT Edge* module is required on the top layer device and optional for lower layer devices. For a sample multi-layer deployment, see the [Azure IoT Edge for Industrial IoT](https://github.com/Azure-Samples/iot-edge-for-iiot) sample.
+This scenario uses the [Azure Blob Storage on IoT Edge](https://hub.docker.com/r/microsoft/azure-blob-storage) module at the top layer to handle blob creation and upload. In a nested scenario, up to five layers are supported. The *Azure Blob Storage on IoT Edge* module is required on the top layer device and optional for lower layer devices. For a sample multi-layer deployment, see the [Azure IoT Edge for Industrial IoT](https://github.com/Azure-Samples/iot-edge-for-iiot) sample.
 
 Configure the following modules at the **top layer**:
 

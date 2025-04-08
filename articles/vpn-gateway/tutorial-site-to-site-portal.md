@@ -6,14 +6,14 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 08/13/2024
+ms.date: 01/15/2025
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
 ---
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
 
-In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
+In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). This configuration uses a specified pre-shared key for the connection between the Azure VPN gateway and your on-premises VPN device. You can also configure a site-to-site connection using [certificate authentication](site-to-site-certificate-authentication-gateway-portal.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
@@ -37,7 +37,7 @@ In this tutorial, you:
   * Verify that you have an externally facing public IPv4 address for your VPN device.
   * Verify that your VPN device supports active-active mode gateways. This article creates an active-active mode VPN gateway, which is recommended for highly available connectivity. Active-active mode specifies that both gateway VM instances are active and uses two public IP addresses, one for each gateway VM instance. You configure your VPN device to connect to the IP address for each gateway VM instance. If your VPN device doesn't support this mode, don't enable this mode for your gateway. For more information, see [Design highly available connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md) and [About active-active mode VPN gateways](about-active-active-gateways.md).
 
-## <a name="CreatVNet"></a>Create a virtual network
+## <a name="CreateVNet"></a>Create a virtual network
 
 In this section, you create a virtual network by using the following values:
 
@@ -145,17 +145,7 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
-## <a name="connectVM"></a>Connect to a virtual machine
-
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
-
 ## Optional steps
-
-### <a name="resize"></a>Resize a gateway SKU
-
-There are specific rules about resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
-
-[!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 
 ### <a name="reset"></a>Reset a gateway
 
@@ -174,7 +164,16 @@ A gateway can have multiple connections. If you want to configure connections to
 
 ### Update a connection shared key
 
-You can specify a different shared key for your connection. In the portal, go to the connection. Change the shared key on the **Authentication** page.
+You can specify a different shared key for your connection.
+
+1. In the portal, go to the connection.
+1. Change the shared key on the **Authentication** page.
+1. Save your changes.
+1. Update your VPN device with the new shared key as necessary.
+
+### <a name="resize"></a>Resize or change a gateway SKU
+
+You can resize a gateway SKU, or you can change the gateway SKU. There are specific rules regarding which option is available, depending on the SKU your gateway is currently using. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
 
 ### <a name="additional"></a>More configuration considerations
 
@@ -199,4 +198,4 @@ If you're not going to continue to use this application or go to the next tutori
 After you configure a site-to-site connection, you can add a point-to-site connection to the same gateway.
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site VPN connections](point-to-site-certificate-gateway.md)
