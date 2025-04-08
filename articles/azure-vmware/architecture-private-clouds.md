@@ -9,7 +9,7 @@ ms.custom: engagement-fy23, references_regions
 
 # Azure VMware Solution private cloud and cluster concepts
 
-Azure VMware Solution provides VMware-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, Azure CLI, or PowerShell.
+Azure VMware Solution provides VMware-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, the Azure CLI, or PowerShell.
 
 A private cloud includes clusters with:
 
@@ -28,17 +28,17 @@ The following diagram describes the architectural components of Azure VMware Sol
 
 Each Azure VMware Solution architectural component has the following function:
 
-- **Azure Subscription**: Provides controlled access, budget, and quota management for the Azure VMware Solution.
-- **Azure Region**: Groups datacenters into availability zones and then groups availability zones into regions.
-- **Azure Resource Group**: Places Azure services and resources into logical groups.
-- **Azure VMware Solution Private Cloud**: Offers compute, networking, and storage resources by using VMware software, including vCenter Server, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
-- **Azure VMware Solution Resource Cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
+- **Azure subscription**: Provides controlled access, budget, and quota management for Azure VMware Solution.
+- **Azure region**: Groups datacenters into availability zones and then groups availability zones into regions.
+- **Azure resource group**: Places Azure services and resources into logical groups.
+- **Azure VMware Solution private cloud**: Offers compute, networking, and storage resources by using VMware software, including vCenter Server, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
+- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Elastic SAN, and Pure Cloud Block Store are also supported.
 - **VMware HCX**: Delivers mobility, migration, and network extension services.
-- **VMware Site Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Replication. Non-Microsoft disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
+- **VMware Site Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Replication. Non-Microsoft disaster recovery solutions Zerto disaster recovery and JetStream Software disaster recovery are also supported.
 - **Dedicated Microsoft Enterprise Edge**: Router that connects Azure Cloud Services and the Azure VMware Solution private cloud instance.
 - **Azure Virtual Network**: Connects Azure services and resources together.
 - **Azure Route Server**: Exchanges dynamic route information with Azure networks.
-- **Azure Virtual Network Gateway**: Connects Azure services and resources to other private networks by using IPSec VPN, Azure ExpressRoute, and virtual network to virtual network.
+- **Azure Virtual Network gateway**: Connects Azure services and resources to other private networks by using IPSec virtual private network, Azure ExpressRoute, and virtual network to virtual network.
 - **Azure ExpressRoute**: Provides high-speed private connections between Azure datacenters and on-premises or colocation infrastructure.
 - **Azure Virtual WAN**: Combines networking, security, and routing functions into a single unified wide area network (WAN).
 
