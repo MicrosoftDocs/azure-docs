@@ -36,7 +36,7 @@ Here's information about the Azure Virtual Desktop Agent.
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.10806.600 (validation)
+## Version 1.0.11106.300 (validation)
 
 *Published: April 2025*
 
@@ -49,7 +49,7 @@ In this update, we made the following changes:
 - Added support for using Managed Service Identity (MSI) credentials to access external key vaults during session host provisioning. 
 - Addressed an issue with determining the initial version of RdrSxS after an agent restarts. 
   
-## Version 1.0.10806.600
+## Version 1.0.10806.600 (validation)
 
 *Published: March 2025*
 
