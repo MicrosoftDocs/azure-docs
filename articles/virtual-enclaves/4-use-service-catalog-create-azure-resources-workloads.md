@@ -22,7 +22,7 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 
 - This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
-- A [deployed Community](./what-is-a-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 - Complete the [prerequisites](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for an App Service Web App. Including subnet delegation for the
 
 ![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-four-service-catalog-app-service-subnet-delegate.png.png)
