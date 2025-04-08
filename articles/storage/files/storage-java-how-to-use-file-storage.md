@@ -4,7 +4,7 @@ description: Learn how to develop Java applications and services that use Azure 
 author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 04/08/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ms.author: pauljewell
 ---

@@ -5,7 +5,7 @@ description: Learn how to develop .NET applications and services that use Azure 
 author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/31/2025
+ms.date: 04/08/2025
 ms.author: pauljewell
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
