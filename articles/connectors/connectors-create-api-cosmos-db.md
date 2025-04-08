@@ -14,9 +14,9 @@ ms.date: 04/08/2025
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-From a workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that the workflow can use for operations in Azure Cosmos DB. For example, you can create or update, read, query, and delete documents.
+From a workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the **Azure Cosmos DB** connector. For example, you can use connector operations to create, update, read, query, or delete documents.
 
-You can connect to Azure Cosmos DB from both Consumption and Standard logic app workflows by using the [*managed connector*](managed.md) operations, which run in global, multitenant Azure. For Standard workflows, Azure Cosmos DB also provides [*built-in* operations](/azure/logic-apps/connectors/built-in/reference/azurecosmosdb/) that run alongside the runtime in Azure Logic Apps. Built-in operations offer better performance, higher throughput, and sometimes different functionality. For example, in Standard workflow, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in logic app workflows to enable scenarios such as event sourcing and general data processing.
+You can connect to Azure Cosmos DB from both Consumption and Standard logic app workflows by using the [*managed connector* operations](/connectors/documentdb/), which are hosted, managed, and run in global, multitenant Azure. For Standard workflows, Azure Cosmos DB also provides [*built-in* operations](/azure/logic-apps/connectors/built-in/reference/azurecosmosdb/) that run alongside the runtime for single-tenant Azure Logic Apps. Built-in operations offer better performance, higher throughput, and sometimes different functionality. For example, in a Standard workflow, you can use the built-in trigger to monitor an Azure Cosmos DB container for new or updated items. You can combine Azure Cosmos DB operations with others in a workflow to support scenarios like event sourcing and general data processing.
 
 ## Limitations
 
