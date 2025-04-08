@@ -6,7 +6,7 @@ ms.date: 03/20/2025
 ---
 # Mission Critical Workload Labeling
 
-Azure provides a robust, scalable cloud platform with various tools and services to help you manage and optimize your resources. One essential practice to ensure the efficiency and resiliency of your workload is tagging resources appropriately. This document outlines how to tag resources in an Azure tenant for identifying mission-critical workloads and determining potential resiliency improvements. Tagging your resources streamlines the onboarding of your workload definition for Microsoft assessments, providing a more concisely targeted review.
+Azure provides a robust, scalable cloud platform with various tools and services to help you manage and optimize your resources. This document outlines how to tag resources in an Azure tenant for identifying mission-critical workloads and determining potential resiliency improvements. Tagging your resources streamlines the onboarding of your workload definition for Microsoft assessments, providing a more concisely targeted review.
 
 ## Understanding Azure tags
 
