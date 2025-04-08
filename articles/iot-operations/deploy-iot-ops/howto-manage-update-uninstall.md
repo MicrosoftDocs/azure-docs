@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 10/24/2024
+ms.date: 04/08/2025
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
@@ -103,7 +103,7 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 ---
 
-### Update instance tags and description
+### Update instances and configuration
 
 #### [Azure portal](#tab/portal)
 
@@ -127,7 +127,17 @@ To delete all tags on an instance, set the tags parameter to a null value. For e
 az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
 ```
 
----
+To enable the preview connector configuration, run: 
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Enabled 
+```
+
+To disable the preview connector configuration, run: 
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Disabled  
+```
 
 ### Manage components
 

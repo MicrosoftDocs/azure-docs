@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/23/2024
+ms.date: 04/08/2025
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -145,6 +145,12 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
+   
+      * If you want to use the preview connector configuration, add the following parameter to the `create` command:
+
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
 
       * If you followed the optional prerequisites to prepare your cluster for observability, add the following parameters to the `create` command:
 
@@ -216,8 +222,14 @@ Use these steps if you chose the **Secure settings** option on the **Dependency 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
+   
+      * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
-      If you followed the optional prerequisites to prepare your cluster for observability, add the following optional parameters to the `create` command:
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
+
+      * If you followed the optional prerequisites to prepare your cluster for observability, add the following optional parameters to the `create` command:
 
       | Optional parameter | Value | Description |
       | --------- | ----- | ----------- |
