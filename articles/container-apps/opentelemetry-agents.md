@@ -572,6 +572,52 @@ The following example ARM template shows how to use an OTLP endpoint named `cust
 }
 ```
 
+## Configure System Components OpenTelemetry Signals 
+From api version 2024-08-02-preview, you might configure your container app environment to export system components OpenTelemetry signals.
+Now, we support Dapr traces and Keda metrics
+
+### Dapr Traces
+```json
+{
+  ...
+  "properties": {
+    ...
+    "openTelemetryConfiguration": {
+      ...
+      "tracesConfiguration": {
+        "destinations": [
+          "appInsights",
+          "customDashboard"
+        ]，
+        "includeDapr": true
+      }
+    }
+  }
+}
+```
+To learn more about how to use dapr in container apps [Dapr Overview](./dapr-overview.md)
+
+### Keda Metrics
+```json
+{
+  ...
+  "properties": {
+    ...
+    "openTelemetryConfiguration": {
+      ...
+      "metricsConfiguration": {
+        "destinations": [
+          "dataDog",
+          "customDashboard"
+        ]，
+        "includeKeda": true
+      }
+    }
+  }
+}
+```
+To learn more about KEDA support in container apps [Autoscale](scale-app.md)
+
 ## Example OpenTelemetry configuration
 
 The following example template shows how you might configure your container app to collect telemetry data using Azure Monitor Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
