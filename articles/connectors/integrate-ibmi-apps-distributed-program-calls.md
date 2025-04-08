@@ -84,7 +84,7 @@ After you download and install the HIS Designer for Azure Logic Apps, follow [th
 
 For your workflow to use the HIDX file, follow these steps:
 
-1. Browse to the folder where you saved your HIDX file, and copy the file.
+1. Go to the folder where you saved your HIDX file, and copy the file.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
