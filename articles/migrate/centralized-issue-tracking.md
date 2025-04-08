@@ -4,7 +4,7 @@ description: Describes how to track issues and provide resolutions from one tab.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: how-to
+ms.topic: Conceptual
 ms.date: 03/20/2025
 monikerRange: migrate
 ---
@@ -19,7 +19,7 @@ Azure Migrate offers a comprehensive platform for migrating, modernizing, and op
 
 The new **Action Center** feature in Azure Migrate addresses this challenge by offering a **centralized hub** where users can view and manage all migration-related issues, pending actions, and jobs across their projects. This includes issues related to **discovery**, **dependency visualization**, and **assessments**, streamlining the troubleshooting process by bringing together different types of issues in a single interface. This unified view helps users stay organized and prioritize their actions effectively, enabling faster issue resolution and a smoother migration experience.
 
-## How to access Action Center
+## Access Action Center
 
 The Action Center can be accessed directly from the Azure Migrate dashboard, providing an integrated and accessible solution for managing migration issues and actions.
 

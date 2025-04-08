@@ -32,7 +32,7 @@ This indicates the number of SQL servers, instances, and databases that were ass
 
 This indicates the different migration strategies that you can consider for your SQL deployments. You can review the readiness for target deployment types and the cost estimates for SQL Servers/Instances/Databases that are marked ready or ready with conditions: 
 
-- **Recommended deployment**: This is a strategy where an Azure SQL deployment type is the most compatible with your SQL instance. It is the most cost-effective and is recommended. Migrating to a Microsoft-recommended target reduces your overall migration effort. If your instance is ready for SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the target deployment type, which has the least migration readiness issues and is the most cost-effective is recommended.
+- **Recommended deployment**: This is a strategy where an Azure SQL deployment type is the most compatible with your SQL instance and it is the most cost-effective. Migrating to a Microsoft-recommended target reduces your overall migration effort. If your instance is ready for SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the target deployment type, which has the least migration readiness issues and is the most cost-effective.
 You can see the SQL Server instance readiness for different recommended deployment targets and monthly cost estimates for SQL instances marked *Ready* and *Ready with conditions*.
 
     - You can go to the Readiness report to:
@@ -110,6 +110,7 @@ The assessment summary shows the estimated monthly compute and storage costs for
 1. You can also drill down to the database list to review the Azure SQL configuration and cost estimates per database when an Azure SQL Database configuration is recommended.
 
 ### Review confidence rating
+
 Azure Migrate assigns a confidence rating to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. The rating is from one star (lowest) to five stars (highest).
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. Confidence ratings are as follows:
 
