@@ -54,7 +54,7 @@ The following table summarizes the parameters for the **Parse Host File Contents
 
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
-
+
 
 | **HIDX Name** | Yes | String | Select the mainframe host file HIDX file that you want to use. |
 | **Schema Name** | Yes | String | Select the host file schema in the HIDX file that you want to use. |
@@ -62,10 +62,9 @@ The following table summarizes the parameters for the **Parse Host File Contents
 
 ### Generate Host File Contents action
 
-The following table summarizes the parameters for the **Generate Host File Contents** action:
+|-----------|----------|------|-------------|
 
-|-----------|----------|------|-------------|
-
+
 |-----------|----------|------|-------------|
 
 | **HIDX Name** | Yes | String | Select the mainframe host file HIDX file that you want to use. |
@@ -224,11 +223,13 @@ Follow these steps to add a Generate Host File Contents action:
 
    :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows the host file schema in the HIDX file." lightbox="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png":::
 
-   1. Configure the **HIDX Name** and **Schema Name** with values from the HIDX file:
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png":::
 
+
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png" alt-text="Screenshot shows the Generate Host File Contents action with selected HIDX file and schema." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png":::
 
-      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png":::
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png":::
+
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account.":::
 
