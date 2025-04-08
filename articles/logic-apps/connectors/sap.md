@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/16/2025
+ms.date: 03/24/2025
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -167,7 +167,15 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   * For a Standard workflow in single-tenant Azure Logic Apps, see [Single-tenant prerequisites](#single-tenant-prerequisites).
 
-* By default, the SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../../connectors/enable-stateful-affinity-built-in-connectors.md).
+* By default, the SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](/azure/connectors/enable-stateful-affinity-built-in-connectors).
+
+  Stateful communications must stay with the same workflow instance during processing. A Standard logic app can use [scale out](/azure/connectors/enable-stateful-affinity-built-in-connectors#prevent-context-loss-during-resource-scale-in-events) to distribute the workload over multiple workflow instances when needed. This requirement applies to the following kinds of operations:
+
+  *  All actions that specify a **Session ID** value, such as **[BAPI] Commit transaction**.
+
+  *  All actions that specify a **Transaction ID** value, except for the following actions: **[IDOC - RFC] Confirm transaction Id** and **[IDoc] Get IDoc list for transaction**.
+
+  *  **Respond to SAP server**
 
 * To use either the SAP managed or built-in connector trigger named **When a message is received**, complete the following tasks:
 
@@ -199,7 +207,9 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
     In Standard workflows, the SAP built-in trigger named **When a message is received** uses the Azure Functions trigger instead, and shows only the actual callbacks from SAP.
 
-  * For the SAP built-in connector trigger named **When a message is received**, you have to enable virtual network integration and private ports by following the article at [Enabling Service Bus and SAP built-in connectors for stateful Logic Apps in Standard](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/enabling-service-bus-and-sap-built-in-connectors-for-stateful/ba-p/3820381). You can also run the workflow in Visual Studio Code to fire the trigger locally. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
+  * For the SAP built-in connector trigger named **When a message is received**, you have to enable virtual network integration and private ports by following the steps in [Enable stateful mode for stateless built-in connectors in Azure Logic Apps](/azure/connectors/enable-stateful-affinity-built-in-connectors). Otherwise, without these requirements, the action named **Respond to SAP server** might lack the necessary state to properly work.
+  
+    To locally fire the trigger, you can run the workflow in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create Standard workflows in Azure Logic Apps with Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code). You must also set up the following environment variables on the computer where you install Visual Studio Code:
  
    - **WEBSITE_PRIVATE_IP**: Set this environment variable value to **127.0.0.1** as the localhost address. 
    - **WEBSITE_PRIVATE_PORTS**: Set this environment variable value to two free and usable ports on your local computer, separating the values with a comma (**,**), for example, **8080,8088**.
@@ -422,7 +432,7 @@ To download the current **CommonCryptoLib** package, follow these steps:
 
 For a Consumption workflow in multitenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](../connect-on-premises-data-sources.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
 
-1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](../install-on-premises-data-gateway.md).
+1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](../install-on-premises-data-gateway-workflows.md).
 
    The data gateway helps you securely access on-premises data and resources. Make sure to use a supported version of the gateway. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
 
@@ -856,7 +866,7 @@ If you're using the SAP managed connector, you can find full error messages by c
 
 ## Set up extended SAP logging in on-premises data gateway (Managed connector only)
 
-If you use an [on-premises data gateway for Azure Logic Apps](../install-on-premises-data-gateway.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
+If you use an [on-premises data gateway for Azure Logic Apps](../install-on-premises-data-gateway-workflows.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
 
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 

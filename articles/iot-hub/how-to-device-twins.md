@@ -2,8 +2,8 @@
 title: Get started with Azure IoT Hub device twins
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDKs to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 manager: lizross
 ms.service: azure-iot-hub
 ms.devlang: csharp
@@ -42,7 +42,7 @@ This article shows you how to develop two types of applications:
 
 * A registered device
 
-* If your application uses the MQTT protocol, make sure that port 8883 is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* If your application uses the MQTT protocol, make sure that port 8883 is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 :::zone pivot="programming-language-csharp"
 

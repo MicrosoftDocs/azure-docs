@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you develop and host web applicat
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 01/22/2025
+ms.date: 03/18/2025
 ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
@@ -18,7 +18,7 @@ author: msangapu-msft
 
 App Service adds the power of Microsoft Azure to your application, including improved security, load balancing, autoscaling, and automated management. Additionally, you can take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, package management, staging environments, custom domains, and TLS/SSL certificates.
 
-With App Service, you pay for the Azure compute resources you use. The compute resources you use are determined by the *App Service plan* that you run your apps on. For more information, see [Azure App Service plans overview](overview-hosting-plans.md).
+With App Service, you pay for the Azure compute resources you use. The *App Service plan* that you run your apps on determines the compute resources you use. For more information, see [Azure App Service plans overview](overview-hosting-plans.md).
 
 ## Why use App Service?
 
@@ -27,7 +27,7 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 * **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, ASP.NET Core, Java, Node.js, Python, and PHP. You can also run [PowerShell and other scripts or executables](webjobs-create.md) as background services.
 * **Managed production environment** - App Service automatically [patches and maintains the OS and language frameworks](overview-patch-os-runtime.md) for you. Spend time writing great apps and let Azure worry about the platform.
 * **Containerization and Docker** - Dockerize your app and host a custom Windows or Linux container in App Service. Run sidecar containers of your choice. Migrate your Docker skills directly to App Service.
-* **DevOps optimization** - Set up [continuous integration and deployment](deploy-continuous-deployment.md) with Azure DevOps, GitHub, BitBucket, Docker Hub, or Azure Container Registry. Promote updates through [test and staging environments](deploy-staging-slots.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azure/) or the [cross-platform command-line interface (CLI)](/cli/azure/install-azure-cli).
+* **DevOps optimization** - Set up [continuous integration and deployment](deploy-continuous-deployment.md) with Azure DevOps, GitHub, Bitbucket, Docker Hub, or Azure Container Registry. Promote updates through [test and staging environments](deploy-staging-slots.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azure/) or the [cross-platform command-line interface (CLI)](/cli/azure/install-azure-cli).
 * **Global scale with high availability** - Scale [up](manage-scale-up.md) or [out](/azure/azure-monitor/autoscale/autoscale-get-started) manually or automatically. Host your apps anywhere in the global Microsoft datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 * **Connections to SaaS platforms and on-premises data** - Choose from [many hundreds of  connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for enterprise systems (such as SAP), SaaS services (such as Salesforce), and internet services (such as Facebook). Access on-premises data using [Hybrid Connections](app-service-hybrid-connections.md) and [Azure Virtual Network](./overview-vnet-integration.md).
 * **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trust-center). Create [IP address restrictions](app-service-ip-restrictions.md) and [managed service identities](overview-managed-identity.md). [Protect against subdomain takeovers](reference-dangling-subdomain-prevention.md).

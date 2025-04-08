@@ -2,13 +2,13 @@
 title: Permissions to buy an Azure savings plan
 titleSuffix: Microsoft Cost Management
 description: This article provides you with information to understand who can buy an Azure savings plan.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Permissions to buy an Azure savings plan

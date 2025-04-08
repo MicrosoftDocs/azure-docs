@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Database for Postgr
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 01/16/2025
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -16,15 +16,13 @@ ms.custom: has-adal-ref, synapse
 
 This article provides suggestions to troubleshoot common problems with the Azure Database for PostgreSQL connector in Azure Data Factory and Azure Synapse.
 
-<a name="error-code-AzurePostgreSqlNpgsqlDataTypeNotSupported"></a>
-## Error code: 23704 - AzurePostgreSqlNpgsqlDataTypeNotSupported
+## <a name="error-code-azurepostgresqlnpgsqlpartitioncolumnnamenotprovided"></a> Error code: 23704 - AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
 
 - **Message**: `Partition column name must be specified.`
 
 - **Cause**: No partition column name is provided, and it couldn't be decided automatically.
 
-<a name="error-code-AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided"></a>
-## Error code: 23705 - AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
+## <a name="error-code-azurepostgresqlnpgsqldatatypenotsupported"></a> Error code: 23705 - AzurePostgreSqlNpgsqlDataTypeNotSupported
 
 - **Message**: `The data type of the chosen Partition Column, '%partitionColumn;', is '%dataType;' and this data type is not supported for partitioning.`
 

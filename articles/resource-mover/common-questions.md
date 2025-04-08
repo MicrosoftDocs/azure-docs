@@ -38,7 +38,7 @@ Using Resource Mover, you can currently move the following resources across regi
 - Network Interface Cards
 - Availability sets 
 - Azure virtual networks 
-- Public IP addresses (Public IP are be retained across Azure region)
+- Public IP addresses (Public IP will not be retained across regions)
 - Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools

@@ -18,7 +18,7 @@ ms.author: alkohli
 
 Your Azure Stack Edge Pro device contains one or more Graphics Processing Unit (GPU). GPUs are a popular choice for AI computations as they offer parallel processing capabilities and are faster at image rendering than Central Processing Units (CPUs). For more information on the GPU contained in your Azure Stack Edge Pro device, go to [Azure Stack Edge Pro device technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md).
 
-This article describes how to configure and run a module on the GPU on your Azure Stack Edge Pro device. In this article, you will use a publicly available container module **Digits** written for Nvidia T4 GPUs. This procedure can be used to configure any other modules published by Nvidia for these GPUs.
+This article describes how to configure and run a module on the GPU on your Azure Stack Edge Pro device. In this article, you will use a publicly available container module **Digits** written for NVIDIA T4 GPUs. This procedure can be used to configure any other modules published by NVIDIA for these GPUs.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
 10. In the **Add IoT Edge Module** tab:
 
-    1. Provide the **Image URI**. You will use the publicly available Nvidia module **Digits** here. 
+    1. Provide the **Image URI**. You will use the publicly available NVIDIA module **Digits** here. 
     
     2. Set **Restart policy** to **always**.
     
@@ -97,7 +97,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
        ![Configure module to use GPU 11](media/azure-stack-edge-gpu-configure-gpu-modules/configure-gpu-7.png)
 
-       For more information on environment variables that you can use with the Nvidia GPU, go to [nVidia container runtime](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
+       For more information on environment variables that you can use with the NVIDIA GPU, go to [NVIDIA container runtime](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
     > A module can use one, both or no GPUs.
@@ -125,4 +125,4 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
 ## Next steps
 
-- Learn more about [Environment variables that you can use with the Nvidia GPU](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
+- Learn more about [Environment variables that you can use with the NVIDIA GPU](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).

@@ -22,7 +22,6 @@ Subscribe to any Azure Native ISV Service through [Microsoft Azure Marketplace](
 |[Elastic](elastic/overview.md)                   |Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.                    |
 |[Dynatrace](dynatrace/dynatrace-overview.md)     |Get deep cloud observability, advanced AIOps, and continuous runtime application security.                                                |
 |[New Relic](new-relic/new-relic-overview.md)     |Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring, and more.|
-|[Logz.io](logzio/overview.md)                    |Centralize log, metrics, and tracing analytics in one observability platform.                                                                                  |
 
 ## Data and storage
 

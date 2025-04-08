@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 01/27/2025
 ---
 
 # Connect to an SFTP file server from workflows in Azure Logic Apps

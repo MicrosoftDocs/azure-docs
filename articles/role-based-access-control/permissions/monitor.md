@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Monit
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -670,7 +670,6 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/write | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
 > | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
 > | Microsoft.OperationalInsights/workspaces/delete | Deletes a workspace. If the workspace was linked to an existing workspace at creation time then the workspace it was linked to is not deleted. |
-> | Microsoft.OperationalInsights/workspaces/generateRegistrationCertificate/action | Generates Registration Certificate for the workspace. This Certificate is used to connect Microsoft System Center Operation Manager to the workspace. |
 > | Microsoft.OperationalInsights/workspaces/failback/action | Initiates workspace failback. |
 > | Microsoft.OperationalInsights/workspaces/sharedkeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | Microsoft.OperationalInsights/workspaces/listKeys/action | Retrieves the list keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
@@ -932,6 +931,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/ASRJobs/read | Read data from the ASRJobs table |
 > | Microsoft.OperationalInsights/workspaces/query/ASRReplicatedItems/read | Read data from the ASRReplicatedItems table |
 > | Microsoft.OperationalInsights/workspaces/query/ATCExpressRouteCircuitIpfix/read | Read data from the ATCExpressRouteCircuitIpfix table |
+> | Microsoft.OperationalInsights/workspaces/query/ATCMicrosoftPeeringMetadata/read | Read data from the ATCMicrosoftPeeringMetadata table |
 > | Microsoft.OperationalInsights/workspaces/query/ATCPrivatePeeringMetadata/read | Read data from the ATCPrivatePeeringMetadata table |
 > | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Read data from the AuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AUIEventsAudit/read | Read data from the AUIEventsAudit table |
@@ -1391,6 +1391,8 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/ThreatIntelIndicators/read | Read data from the ThreatIntelIndicators table |
 > | Microsoft.OperationalInsights/workspaces/query/ThreatIntelligenceIndicator/read | Read data from the ThreatIntelligenceIndicator table |
 > | Microsoft.OperationalInsights/workspaces/query/ThreatIntelObjects/read | Read data from the ThreatIntelObjects table |
+> | Microsoft.OperationalInsights/workspaces/query/TOUserAudits/read | Read data from the TOUserAudits table |
+> | Microsoft.OperationalInsights/workspaces/query/TOUserDiagnostics/read | Read data from the TOUserDiagnostics table |
 > | Microsoft.OperationalInsights/workspaces/query/TSIIngress/read | Read data from the TSIIngress table |
 > | Microsoft.OperationalInsights/workspaces/query/UAApp/read | Read data from the UAApp table |
 > | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | Read data from the UAComputer table |

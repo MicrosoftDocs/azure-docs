@@ -5,10 +5,10 @@ services: synapse analytics
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 12/17/2024
+ms.date: 02/10/2025
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Query Delta Lake (v1) files using serverless SQL pool in Azure Synapse Analytics
@@ -18,7 +18,7 @@ Delta Lake is an open-source storage layer that brings ACID (atomicity, consiste
 You can learn more from the [how to query delta lake tables video](https://www.youtube.com/watch?v=LSIVX0XxVfc).
 
 > [!IMPORTANT]
-> The serverless SQL pools can query [Delta Lake version 1.0](https://github.com/delta-io/delta/releases/tag/v1.0.1). The changes that are introduced since the [Delta Lake 1.2](https://github.com/delta-io/delta/releases/tag/v1.2.0) version like renaming columns are not supported in serverless. If you are using the higher versions of Delta with delete vectors, v2 checkpoints, and others, you should consider using other query engine like [Microsoft Fabric SQL endpoint for Lakehouses](/fabric/data-engineering/lakehouse-sql-analytics-endpoint).
+> The serverless SQL pools can query [Delta Lake version 1.0](https://github.com/delta-io/delta/releases/tag/v1.0.1). The changes that have been introduced since the [Delta Lake 1.2](https://github.com/delta-io/delta/releases/tag/v1.2.0) version (like renaming columns) aren't supported in serverless. If you're using the higher versions of Delta with delete vectors, v2 checkpoints, and others, you should consider using other query engine like [Microsoft Fabric SQL endpoint for Lakehouses](/fabric/data-engineering/lakehouse-sql-analytics-endpoint).
 
 The serverless SQL pool in Synapse workspace enables you to read the data stored in Delta Lake format, and serve it to reporting tools. 
 A serverless SQL pool can read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.
@@ -28,18 +28,49 @@ Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake f
 > [!IMPORTANT]
 > Querying Delta Lake format using the serverless SQL pool is **Generally available** functionality. However, querying Spark Delta tables is still in public preview and not production ready. There are known issues that might happen if you query Delta tables created using the Spark pools. See the known issues in [Serverless SQL pool self-help](resources-self-help-sql-on-demand.md#delta-lake).
 
-## Quickstart example
+## Prerequisites
+
+> [!IMPORTANT]
+> Data sources can be created only in custom databases (not in the master database or the databases replicated from Apache Spark pools). 
+
+To use the samples in this article, you'll need to complete the following steps:
+1. **Create a database** with a datasource that references [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) storage account. 
+1. Initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on the database you created in step 1. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
+
+If you created your database, and switched the context to your database (using `USE database_name` statement or dropdown for selecting database in some query editor), you can create 
+your external data source containing the root URI to your data set and use it to query Delta Lake files. For example:
+
+```sql
+CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
+WITH ( LOCATION = 'https://<yourstorageaccount>.blob.core.windows.net/delta-lake/' );
+GO
+
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
+    ) as rows;
+```
+
+If a data source is protected with SAS key or custom identity, you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+You can create an external data source with the location that points to the root folder of the storage. Once you've created the external data source, use the data source and the relative path to the file in the `OPENROWSET` function. This way you don't need to use the full absolute URI to your files. You can also then define custom credentials to access the storage location.
+
+## Read Delta Lake folder
+
+>[!IMPORTANT]
+>Use the setup script in the [prerequisites](#prerequisites) to set up the sample data sources and tables.
 
 The [OPENROWSET](develop-openrowset.md) function enables you to read the content of Delta Lake files by providing the URL to your root folder.
-
-### Read Delta Lake folder
 
 The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Microsoft Entra identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
 
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
+    BULK '/covid/',
+    DATA_SOURCE = 'DeltaLakeStorage',
     FORMAT = 'delta') as rows;
 ```
 
@@ -50,7 +81,7 @@ The URI in the `OPENROWSET` function must reference the root Delta Lake folder t
 > [!div class="mx-imgBorder"]
 >![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
 
-If you don't have this subfolder, you aren't using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark Python script:
+If you don't have this subfolder, you aren't using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using a script like the following example Apache Spark Python script:
 
 ```python
 %%pyspark
@@ -67,40 +98,12 @@ To improve the performance of your queries, consider specifying explicit types i
 Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you'll need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
-> Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in Delta Lake files are encoded using UTF-8 encoding.
+> Ensure you're using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in Delta Lake files are encoded using UTF-8 encoding.
 > A mismatch between the text encoding in the Delta Lake file and the collation may cause unexpected conversion errors.
 > You can easily change the default collation of the current database using the following T-SQL statement:
 > `ALTER DATABASE CURRENT COLLATE Latin1_General_100_BIN2_UTF8;`
 > For more information on collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).
 
-### Data source usage
-
-The previous examples used the full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage. Once you've created the external data source, use the data source and the relative path to the file in the `OPENROWSET` function. This way you don't need to use the full absolute URI to your files. You can also then define custom credentials to access the storage location.
-
-> [!IMPORTANT]
-> Data sources can be created only in custom databases (not in the master database or the databases replicated from Apache Spark pools). 
-
-To use the samples below, you'll need to complete the following step:
-1. **Create a database** with a datasource that references [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) storage account. 
-1. Initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on the database you created in step 1. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
-
-If you created your database, and switched the context to your database (using `USE database_name` statement or dropdown for selecting database in some query editor), you can create 
-your external data source containing the root URI to your data set and use it to query Delta Lake files:
-
-```sql
-CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
-WITH ( LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
-GO
-
-SELECT TOP 10 *
-FROM OPENROWSET(
-        BULK 'covid',
-        DATA_SOURCE = 'DeltaLakeStorage',
-        FORMAT = 'delta'
-    ) as rows;
-```
-
-If a data source is protected with SAS key or custom identity, you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
 
 ### Explicitly specify schema
 
@@ -122,7 +125,7 @@ FROM OPENROWSET(
 With the explicit specification of the result set schema, you can minimize the type sizes and use the more precise types VARCHAR(6) for string columns instead of pessimistic VARCHAR(1000). Minimization of types might significantly improve performance of your queries.
 
 > [!IMPORTANT]
-> Make sure that you are explicitly specifying a UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set a UTF-8 collation at the database level.
+> Make sure that you're explicitly specifying a UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set a UTF-8 collation at the database level.
 > Mismatch between text encoding in the file and string column collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
 >   `alter database current collate Latin1_General_100_BIN2_UTF8`

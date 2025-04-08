@@ -960,10 +960,11 @@ When the cluster health attribute is set for a node, the location constraint tri
    ```bash
    sudo pcs resource create health-azure-events \
    ocf:heartbeat:azure-events-az \
+   meta failure-timeout=120s \
    op monitor interval=10s timeout=240s \
    op start timeout=10s start-delay=90s
 
-   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
    ```
 
 6. Take the Pacemaker cluster out of maintenance mode.

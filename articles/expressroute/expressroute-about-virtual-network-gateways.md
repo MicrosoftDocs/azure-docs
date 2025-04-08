@@ -30,7 +30,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a higher-capacity gateway SKU, you can use the Seamless Gateway Migration tool in either the Azure portal or PowerShell. The following upgrades are supported:
+If you want to upgrade your gateway to a higher-capacity gateway SKU, you can use the [Gateway Migration tool](expressroute-about-virtual-network-gateways.md) in either the Azure portal or PowerShell. The following upgrades are supported:
 
 * Non-Az-enabled SKU on Basic IP to Non-Az-enabled SKU on Standard IP
 * Non-Az-enabled SKU on Basic IP to Az-enabled SKU on Standard IP

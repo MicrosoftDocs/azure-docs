@@ -2,12 +2,11 @@
 title: Server variables
 titleSuffix: Azure Front Door
 description: This article provides a list of the server variables available in Azure Front Door rule sets.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 05/07/2024
-ms.author: duau
 ---
 
 # Azure Front Door Rule set server variables

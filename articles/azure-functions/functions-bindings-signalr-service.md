@@ -112,6 +112,8 @@ In this case, prefix your settings with `Azure__SignalR__Endpoints__{endpointNam
 
 For more information about multiple endpoints, see [Scale SignalR Service with multiple instances](../azure-signalr/signalr-howto-scale-multi-instances.md?pivots=serverless-mode#for-signalr-functions-extensions)
 
+[!INCLUDE [functions-azure-signalr-authorization-note](../../includes/functions-azure-signalr-authorization-note.md)] 
+
 ## Next steps
 
 For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).

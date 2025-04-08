@@ -24,7 +24,7 @@ highlightedContent:
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: Azure Networking blogs
       itemType: concept
-      url: https://azure.microsoft.com/blog/topics/networking/
+      url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure Networking services overview
       itemType: concept 
       url: /azure/networking/

@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial: Add security headers with Rules Engine - Azure Front Door'
 description: This tutorial teaches you how to configure a security header via Rules Engine on Azure Front Door
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: tutorial
 ms.date: 11/15/2024
-ms.author: duau
-ms.custom: template-tutorial, engagement-fy23
+
 # Customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine.
 ---
 
@@ -32,8 +31,6 @@ In this tutorial, you will learn how to:
 
 1. In your Azure Front Door resource, go to **Settings** and select **Rules engine configuration**. Choose the rules engine where you want to add the security header.
 
-    :::image type="content" source="media/front-door-security-headers/front-door-rules-engine-configuration.png" alt-text="Screenshot showing rules engine configuration page of Azure Front Door.":::
-
 2. Click **Add rule** to create a new rule. Name the rule and then select **Add an Action** > **Response Header**.
 
 3. Set the Operator to **Append** to add this header to all incoming requests for this route.
@@ -55,8 +52,6 @@ In this tutorial, you will learn how to:
 ## Clean up resources
 
 If you no longer need the security header rule configured in the previous steps, you can remove it. To do this, go to the rules engine in your Azure Front Door resource and select **Delete rule**.
-
-:::image type="content" source="./media/front-door-security-headers/front-door-delete-security-header.png" alt-text="Screenshot showing how to delete the security rule.":::
 
 ## Next steps
 

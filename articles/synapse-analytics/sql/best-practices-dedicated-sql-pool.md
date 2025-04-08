@@ -1,9 +1,9 @@
 ---
 title: Best practices for dedicated SQL pools
 description: Recommendations and best practices you should know as you work with dedicated SQL pools.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.date: 09/22/2022
+author: azaricstefan
+ms.author: stefanazaric
+ms.date: 02/18/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: concept-article

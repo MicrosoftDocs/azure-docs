@@ -2,7 +2,7 @@
 title: "Radiflow iSID via AMA connector for Microsoft Sentinel"
 description: "Learn how to install the connector Radiflow iSID via AMA to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

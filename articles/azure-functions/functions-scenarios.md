@@ -97,11 +97,11 @@ For example, using the event hubs trigger to read from an event hub and the outp
 public static async Task Run(
     [EventHubTrigger(
         "%Input_EH_Name%",
-        Connection = "InputEventHubConnectionString",
+        Connection = "InputEventHubConnectionSetting",
         ConsumerGroup = "%Input_EH_ConsumerGroup%")] EventData[] inputMessages,
     [EventHub(
         "%Output_EH_Name%",
-        Connection = "OutputEventHubConnectionString")] IAsyncCollector<SensorDataRecord> outputMessages,
+        Connection = "OutputEventHubConnectionSetting")] IAsyncCollector<SensorDataRecord> outputMessages,
     PartitionContext partitionContext,
     ILogger log)
 {

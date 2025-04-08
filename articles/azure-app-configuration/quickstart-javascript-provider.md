@@ -329,7 +329,7 @@ run().catch(console.error);
     ```
 
     ### [Connection string](#tab/connection-string)
-    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
@@ -409,3 +409,8 @@ In this quickstart, you created a new App Configuration store and learned how to
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-javascript.md)
+
+For the full feature rundown of the JavaScript configuration provider library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript configuration provider](./reference-javascript-provider.md)

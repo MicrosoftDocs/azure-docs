@@ -1,12 +1,13 @@
 ---
-title: Quickstart - Deploy your first web application to Azure Spring Apps
+title: Quickstart - Deploy Your First Web Application to Azure Spring Apps
 description: Describes how to deploy a web application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 10/31/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions, devx-track-extended-azdevcli
-ms.author: xiada
+ms.author: karler
+ms.reviewer: xiada
 zone_pivot_groups: spring-apps-plan-selection
 ---
 

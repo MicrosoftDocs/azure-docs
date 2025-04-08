@@ -24,8 +24,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -49,7 +49,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |ProductName|Name of the product.|
 | 28 |SubscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -64,9 +64,9 @@ The following information lists the cost and usage details (formerly known as us
 | 42 |pricingCurrency|Currency used when rating based on negotiated prices.|
 | 43 |costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 | 44 |costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-| 45 |costInUsd|  |
-| 46 |paygCostInBillingCurrency|  |
-| 47 |paygCostInUsd|  |
+| 45 |costInUsd| Cost of the charge in USD currency before credits or taxes. |
+| 46 |paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+| 47 |paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 | 48 |exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 | 49 |exchangeRateDate|Date the exchange rate was established.|
 | 50 |isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -74,7 +74,7 @@ The following information lists the cost and usage details (formerly known as us
 | 52 |serviceInfo2|Legacy field with optional service-specific metadata.|
 | 53 |additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 | 54 |tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-| 55 |PayGPrice|Retail price for the resource.|
+| 55 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 56 |frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 57 |term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 | 58 |reservationId|Unique identifier for the purchased reservation instance.|
@@ -84,7 +84,7 @@ The following information lists the cost and usage details (formerly known as us
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 63 |benefitId| Unique identifier for the purchased savings plan instance. |
 | 64 |benefitName| Unique identifier for the purchased savings plan instance. |
-| 65 |provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
+| 65 |provider|Identifier for product category or Line of Business. For example, Azure and Microsoft 365.|
 
 ## Version 2021-10-01
 
@@ -94,8 +94,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -119,7 +119,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |ProductName|Name of the product.|
 | 28 |SubscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -134,9 +134,9 @@ The following information lists the cost and usage details (formerly known as us
 | 42 |pricingCurrency|Currency used when rating based on negotiated prices.|
 | 43 |costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 | 44 |costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-| 45 |costInUsd|  |
-| 46 |paygCostInBillingCurrency|  |
-| 47 |paygCostInUsd|  |
+| 45 |costInUsd| Cost of the charge in USD currency before credits or taxes. |
+| 46 |paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+| 47 |paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 | 48 |exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 | 49 |exchangeRateDate|Date the exchange rate was established.|
 | 50 |isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -144,7 +144,7 @@ The following information lists the cost and usage details (formerly known as us
 | 52 |serviceInfo2|Legacy field with optional service-specific metadata.|
 | 53 |additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 | 54 |tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-| 55 |PayGPrice|Retail price for the resource.|
+| 55 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 56 |frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 57 |term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 | 58 |reservationId|Unique identifier for the purchased reservation instance.|
@@ -154,7 +154,7 @@ The following information lists the cost and usage details (formerly known as us
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 63 |benefitId| Unique identifier for the purchased savings plan instance. |
 | 64 |benefitName|Unique identifier for the purchased savings plan instance.  |
-| 65 |provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
+| 65 |provider|Identifier for product category or Line of Business. For example, Azure and Microsoft 365.|
 
 ## Version 2021-01-01
 
@@ -164,8 +164,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -189,7 +189,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |ProductName|Name of the product.|
 | 28 |SubscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -204,9 +204,9 @@ The following information lists the cost and usage details (formerly known as us
 | 42 |pricingCurrency|Currency used when rating based on negotiated prices.|
 | 43 |costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 | 44 |costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-| 45 |costInUsd|  |
-| 46 |paygCostInBillingCurrency|  |
-| 47 |paygCostInUsd|  |
+| 45 |costInUsd| Cost of the charge in USD currency before credits or taxes. |
+| 46 |paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+| 47 |paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 | 48 |exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 | 49 |exchangeRateDate|Date the exchange rate was established.|
 | 50 |isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -214,7 +214,7 @@ The following information lists the cost and usage details (formerly known as us
 | 52 |serviceInfo2|Legacy field with optional service-specific metadata.|
 | 53 |additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 | 54 |tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-| 55 |PayGPrice|Retail price for the resource.|
+| 55 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 56 |frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 57 |term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 | 58 |reservationId|Unique identifier for the purchased reservation instance.|
@@ -231,8 +231,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -256,7 +256,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |product|Name of the product.|
 | 28 |subscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -271,9 +271,9 @@ The following information lists the cost and usage details (formerly known as us
 | 42 |pricingCurrency|Currency used when rating based on negotiated prices.|
 | 43 |costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 | 44 |costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-| 45 |costInUsd|  |
-| 46 |paygCostInBillingCurrency|  |
-| 47 |paygCostInUsd|  |
+| 45 |costInUsd| Cost of the charge in USD currency before credits or taxes. |
+| 46 |paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+| 47 |paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 | 48 |exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 | 49 |exchangeRateDate|Date the exchange rate was established.|
 | 50 |isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -281,7 +281,7 @@ The following information lists the cost and usage details (formerly known as us
 | 52 |serviceInfo2|Legacy field with optional service-specific metadata.|
 | 53 |additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 | 54 |tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-| 55 |payGPrice|Retail price for the resource.|
+| 55 |payGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 56 |frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 57 |term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 | 58 |reservationId|Unique identifier for the purchased reservation instance.|
@@ -296,8 +296,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |PreviousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |BillingAccountId|Unique identifier for the root billing account.|
 | 4 |BillingAccountName|Name of the billing account.|
-| 5 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |InvoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |ResellerName|The name of the reseller associated with the subscription.|
@@ -321,7 +321,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |Product|Name of the product.|
 | 28 |SubscriptionGuid|Unique identifier for the Azure subscription.|
 | 29 |SubscriptionName|Name of the Azure subscription.|
-| 30 |PublisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |PublisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |ResourceGroup|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -336,9 +336,9 @@ The following information lists the cost and usage details (formerly known as us
 | 42 |PricingCurrencyCode|Currency used when rating based on negotiated prices.|
 | 43 |CostInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 | 44 |CostInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-| 45 |CostInUSD|  |
-| 46 |PaygCostInBillingCurrency|  |
-| 47 |PaygCostInUSD|  |
+| 45 |CostInUSD| Cost of the charge in USD currency before credits or taxes. |
+| 46 |PaygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+| 47 |PaygCostInUSD| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 | 48 |ExchangeRate|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 | 49 |ExchangeRateDate|Date the exchange rate was established.|
 | 50 |IsAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|

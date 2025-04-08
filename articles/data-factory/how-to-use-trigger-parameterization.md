@@ -5,7 +5,7 @@ ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Reference trigger metadata in pipeline runs

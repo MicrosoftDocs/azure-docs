@@ -27,9 +27,9 @@ In the operations experience web UI, an _instance_ represents an Azure IoT Opera
 This article describes how to use the operations experience web UI and the Azure CLI to:
 
 - Define the asset endpoints that connect assets to your Azure IoT Operations instance.
-- Add assets, and define their tags and events to enable dataflow from OPC UA servers to the MQTT broker.
+- Add assets, and define their tags and events to enable data flow from OPC UA servers to the MQTT broker.
 
-These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and dataflows.
+These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
 
 ## Prerequisites
 

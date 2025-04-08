@@ -90,7 +90,7 @@ Key tools for debugging and monitoring WordPress sites include:
 - **[SSH Access](configure-linux-open-ssh-session.md?pivots=container-linux)**
 
 ### PhpMyAdmin
-WordPress on App Service utilizes an Azure Database for MySQL flexible server, which is integrated into a VNET. This setup restricts database access to within the VNET. WordPress on App Service includes phpMyAdmin by default. You can access it at: https://`<your-site-link>`/phpmyadmin. 
+WordPress on App Service utilizes an Azure Database for MySQL Flexible Server, which is integrated into a VNET. This setup restricts database access to within the VNET. WordPress on App Service includes phpMyAdmin by default. You can access it at: https://`<your-site-link>`/phpmyadmin. 
  
 If you are using Managed Identities, you can log in to phpMyAdmin by using the value from DATABASE_USERNAME environment variable as the username and the token as the password. To find the token use your Kudu SSH to run the following command: 
  

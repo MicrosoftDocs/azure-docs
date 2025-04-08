@@ -1,11 +1,12 @@
 ---
 title: Create a mapping data flow
 description: How to create an Azure Data Factory mapping data flow
-author: kromerm
-ms.author: makromer
+author: whhender
+ms.author: whhender
+ms.reviewer: makromer
 ms.subservice: data-flows
 ms.topic: quickstart
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Create Azure Data Factory data flows

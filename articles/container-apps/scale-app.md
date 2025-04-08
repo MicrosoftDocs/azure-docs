@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 03/07/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -14,6 +14,8 @@ zone_pivot_groups: arm-azure-cli-portal
 # Set scaling rules in Azure Container Apps
 
 Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app revision scales out, new instances of the revision are created on-demand. These instances are known as replicas.
+
+To support this scaling behavior, Azure Container Apps is powered by KEDA (Kubernetes Event-driven Autoscaling). KEDA supports scaling against a variety of metrics like HTTP requests, queue messages, CPU and memory load, and event sources like Azure Service Bus, Azure Event Hubs, Apache Kafka, and Redis. For more information, see [Scalers in the KEDA documentation](https://keda.sh/docs/scalers/).
 
 Adding or editing scaling rules creates a new revision of your container app. A revision is an immutable snapshot of your container app. To learn which types of changes trigger a new revision, see revision [change types](./revisions.md#change-types).
 
@@ -50,7 +52,10 @@ Scaling is driven by three different categories of triggers:
 
 - [HTTP](#http): Based on the number of concurrent HTTP requests to your revision.
 - [TCP](#tcp): Based on the number of concurrent TCP connections to your revision.
-- [Custom](#custom): Based on CPU, memory, or supported event-driven data sources such as:
+- [Custom](#custom): Based on custom metrics like:
+  - CPU
+  - Memory
+  - Supported event-driven data sources:
     - Azure Service Bus
     - Azure Event Hubs
     - Apache Kafka
@@ -114,7 +119,7 @@ Define an HTTP scale rule using the `--scale-rule-http-concurrency` parameter in
 |---|---|---|---|---|
 | `--scale-rule-http-concurrency`| When the number of concurrent HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `max-replicas` amount. | 10 | 1 | n/a |
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -206,7 +211,7 @@ Define a TCP scale rule using the `--scale-rule-tcp-concurrency` parameter in th
 |---|---|---|---|---|
 | `--scale-rule-tcp-concurrency`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas continue to be added up to the `max-replicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -229,6 +234,9 @@ az containerapp create \
 Not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#tcp) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#tcp) to configure a TCP scale rule.
 
 ::: zone-end
+
+> [!NOTE]
+> TCP scaling rules are not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#authentication) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#authentication) to configure TCP scaling rules.
 
 ## Custom
 

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: azure-iot
 services: iot
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 02/14/2025
 ms.author: dobett
 
 ---
@@ -136,7 +136,7 @@ To view the data the device is sending in your IoT Central application:
 1. Sign in to your IoT Central application and navigate to the **Devices** page. Your device is automatically assigned to the **Smartphone** device template.
 
     > [!TIP]
-    > You may need to refresh the page in your web browser to see when the device is assigned to the **Smartphone** device template.
+    > You might need to refresh the page in your web browser to see when the device is assigned to the **Smartphone** device template.
 
 1. On the list of devices, click on the device name and then select **Overview**. The **Overview** page shows the telemetry from the smartphone sensors:
 

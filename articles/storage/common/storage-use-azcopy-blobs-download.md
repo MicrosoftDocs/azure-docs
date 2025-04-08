@@ -27,7 +27,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 ## Download a blob
 
-Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Download a blob by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -53,7 +53,7 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFil
 
 ## Download a directory
 
-Download a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Download a directory by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -107,7 +107,7 @@ You can download specific blobs by using complete file names, partial names with
 
 #### Specify multiple complete blob names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual blob names by using a semicolon (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual blob names by using a semicolon (`;`).
 
 **Syntax**
 
@@ -127,11 +127,11 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirec
 
 In this example, AzCopy transfers the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory and the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt` file. Include the `--recursive` option to transfer all blobs in the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory.
 
-You can also exclude blobs by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude blobs by using the `--exclude-path` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 #### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
 
 **Syntax**
 
@@ -149,13 +149,13 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDire
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'
 ```
 
-You can also exclude blobs by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude blobs by using the `--exclude-pattern` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to blob names and not to the path.  If you want to copy all of the text files (blobs) that exist in a directory tree, use the `-recursive` option to get the entire directory tree, and then use the `-include-pattern` and specify `*.txt` to get all of the text files.
 
 #### Download blobs that were modified before or after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
 
 The following examples download files that were modified on or after the specified date.
 
@@ -175,7 +175,7 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDire
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'
 ```
 
-For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 #### Download previous versions of a blob
 
@@ -189,7 +189,7 @@ First, create a text file that contains a list of [version IDs](../blobs/version
 2020-08-17T05:50:36.7607103Z
 ```
 
-Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).
+Then, use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).
 
 #### Download a blob snapshot
 
@@ -224,7 +224,7 @@ You can tweak your download operation by using optional flags. Here's a few exam
 |Specify how detailed you want your copy-related log entries to be.|**--log-level**=[WARNING\|ERROR\|INFO\|NONE]|
 |Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=[true\|false\|ifSourceNewer\|prompt]|
 
-For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
 ## Download static website contents
 

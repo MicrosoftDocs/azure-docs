@@ -19,7 +19,7 @@ No. Azure Managed Grafana hosts a commercial version called [Grafana Enterprise]
 > [!NOTE]
 > [Grafana Enterprise plugins](https://grafana.com/grafana/plugins/?enterprise=1&orderBy=weight&direction=asc) aren't included in the base service. They're purchasable as a separately licensed [add-on option](./how-to-grafana-enterprise.md) for Azure Managed Grafana.
 
-## Does Managed Grafana encrypt my data?
+## Does Azure Managed Grafana encrypt my data?
 
 Yes. Azure Managed Grafana always encrypts all data at rest and in transit. It supports [encryption at rest](./encryption.md) using Microsoft-managed keys. All network communication is over TLS 1.2. You can further restrict network traffic using a [private link](./how-to-set-up-private-access.md) for connecting to Grafana and [managed private endpoints](./how-to-connect-to-data-source-privately.md) for data sources.
 
@@ -33,7 +33,7 @@ No. Azure Managed Grafana uses its implementation for Microsoft Entra authentica
 
 ## Can I install more plugins?
 
-No. Currently all Grafana plugins are preinstalled. Managed Grafana supports all popular plugins for Azure data sources.
+No. Currently all Grafana plugins are preinstalled. Azure Managed Grafana supports all popular plugins for Azure data sources.
 
 ## In terms of pricing, what constitutes an active user in Azure Managed Grafana?
 

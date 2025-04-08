@@ -98,7 +98,7 @@ Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesIn
 Only transfer syntaxes with explicit Value Representations are accepted.
 
 > [!NOTE]
-> Requests are limited to 4GB. No single DICOM file or combination of files might exceed this limit.
+> Requests are limited to 4 GB. No single DICOM file or combination of files might exceed this limit.
 
 #### Store changes from v1
 In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request fails only if **required attributes** fail validation.
@@ -107,6 +107,26 @@ Failed validation of attributes not required by the API results in the file bein
 When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
 
 If an attribute is padded with nulls, the attribute is indexed when searchable and is stored as is in dicom+json metadata. No validation warning is provided.
+
+#### Store DICOM file with external metadata
+
+The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to store DICOM file with external metadata.
+
+#### Store DICOM file with Expiry
+Expiry headers allow users to specify a future deletion time when storing.
+
+In order to set an expiry time, the following headers must be set on POST or PUT requests.
+
+| Header                                | Accepted Values    | Description                                                                                  | Required |
+| :------------------------------------ | :----------------- | :------------------------------------------------------------------------------------------- | :------- |
+| `msdicom-expiry-time-milliseconds`    | `Integer Value`> 0 | The number of milliseconds after which the study should be deleted.                          | Yes      |
+| `msdicom-expiry-option`               | `RelativeToNow`    | How the deletion time is calculated. Currently the only supported option is `RelativeToNow`  | No       |
+| `msdicom-expiry-level`                | `Study`            | The level at which the expiry should be set. Currently only supported at the `Study` level.  | No       |
+
+
+At this time, expiry is only supported at the study level, meaning that all instances of a study will be deleted at the same time. If multiple instances are stored for the same study in separate requests, the deletion will be based on the expiry headers sent in the last STOW request. In the case that the last STOW request doesn't specify expiry headers, the study won't be scheduled for deletion and any previously sent expiry headers will be ignored.
+
+The `RelativeToNow` expiry option will calculate the expiry time based on the time the request is received by the DICOM service. The deletion may not happen at the exact time calculated, but within a few hours of the calculated time. 
 
 #### Store response status codes
 
@@ -377,6 +397,9 @@ Retrieving metadata doesn't return attributes with the following value represent
 
 Retrieved metadata includes the null character when the attribute was padded with nulls and stored as is.
 
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to retrieve DICOM file with external metadata.
+
 ### Retrieve metadata cache validation (for study, series, or instance)
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as an `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists.
@@ -485,7 +508,7 @@ We support searching the following attributes and search types.
 | `SOPInstanceUID`                  |             |            |       X       |                |         X         |            X            |
 
 > [!NOTE]
-> We do not support searching using empty string for any attributes.
+> We don't support searching using empty string for any attributes.
 
 #### Search matching
 
@@ -510,6 +533,9 @@ Tags can be encoded in several ways for the query parameter. We partially implem
 Example query searching for instances:
 
 `../instances?Modality=CT&00280011=512&includefield=00280010&limit=5&offset=0`
+
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to query DICOM file with external metadata.
 
 ### Search response
 
@@ -615,7 +641,7 @@ The query API returns one of the following status codes in the response.
 | `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
-| `414 (URI Too Long)` | URI exceeded maximum supported length of 8192 characters. |
+| `414 (URI Too Long)` | URI exceeded maximum supported length of 8,192 characters. |
 | `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
@@ -646,7 +672,7 @@ Parameters `study`, `series`, and `instance` correspond to the DICOM attributes 
 There are no restrictions on the request's `Accept` header, `Content-Type` header, or body content.
 
 > [!NOTE]
-> After a Delete transaction, the deleted instances will not be recoverable.
+> After a Delete transaction, the deleted instances won't be recoverable.
 
 ### Response status codes
 
@@ -927,7 +953,7 @@ We support searching on the following attributes.
 | `StudyInstanceUID`                                         |
 
 > [!NOTE]
-> We do not support searching using empty string for any attributes.
+> We don't support searching using empty string for any attributes.
 
 ##### Search Matching
 

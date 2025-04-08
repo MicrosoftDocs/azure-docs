@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 11/04/2024
+ms.date: 02/04/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -218,6 +218,23 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 ### Private endpoint traffic
 
 Traffic can't be recorded at the private endpoint itself. You can capture traffic to a private endpoint at the source VM. The traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. You can use `PrivateEndpointResourceId` field to identify traffic flowing to a private endpoint. For more information, see [Traffic analytics schema](traffic-analytics-schema.md?tabs=vnet#traffic-analytics-schema).
+
+### Incompatible services
+
+Currently, these Azure services don't support virtual network flow logs:
+
+- [Azure Container Instances](/azure/container-instances/container-instances-overview)
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+- [Azure Functions](../azure-functions/functions-overview.md)
+- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
+- [App Service](../app-service/overview.md)
+- [Azure Database for MariaDB](/azure/mariadb/overview)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
+
+> [!NOTE]
+> App services deployed under an Azure App Service plan don't support virtual network flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
 
 ## Pricing
 

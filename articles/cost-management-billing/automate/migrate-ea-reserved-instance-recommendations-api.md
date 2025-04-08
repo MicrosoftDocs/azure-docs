@@ -2,13 +2,13 @@
 title: Migrate from the EA Reserved Instance Recommendations API
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Recommendations API.
-author: bandersmsft
-ms.author: banders
+author: maddieminn
+ms.author: maminn
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: maminn
 ---
 
 # Migrate from EA Reserved Instance Recommendations API

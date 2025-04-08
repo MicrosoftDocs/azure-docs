@@ -23,7 +23,7 @@ This section describes the three main components for deploying to App Service.
 
 ### Deployment source
 
-A *deployment source* is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source might be [a project on your local machine](deploy-local-git.md).
+A *deployment source* is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, Bitbucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source might be [a project on your local machine](deploy-local-git.md).
 
 ### Build pipeline
 

@@ -1,8 +1,18 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/api-center/enable-platform-api-catalog-vscode-extension.md",
+      "redirect_url": "/azure/api-center/enable-api-center-portal-vs-code-extension",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-center/use-vscode-extension-copilot.md",
       "redirect_url": "/azure/api-center/use-vscode-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-center/enable-api-center-portal.md",
+      "redirect_url": "/azure/api-center/self-host-api-center-portal",
       "redirect_document_id": false
     }
   ]

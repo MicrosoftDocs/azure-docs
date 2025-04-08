@@ -3,7 +3,7 @@ title: Incrementally copy multiple tables using PowerShell
 description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to Azure SQL Database.
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: douglasl, jburchel
+ms.reviewer: douglasl, whhender
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 10/03/2024
@@ -225,7 +225,7 @@ END
 
 ### Azure PowerShell
 
-Install the latest Azure PowerShell modules by following the instructions in [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Install the latest Azure PowerShell modules by following the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Create a data factory
 

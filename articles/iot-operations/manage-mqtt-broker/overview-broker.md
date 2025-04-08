@@ -1,6 +1,6 @@
 ---
 title: Publish and subscribe MQTT messages using MQTT broker
-description: Use MQTT broker to publish and subscribe to messages. Destinations include other MQTT brokers, dataflows, and Azure cloud services.
+description: Use MQTT broker to publish and subscribe to messages. Destinations include other MQTT brokers, data flows, and Azure cloud services.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -191,7 +191,7 @@ To customize the default Broker during deployment:
 
 # [Portal](#tab/portal)
 
-When you follow the guide to [deploy IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration**. Here, you can [customize cardinality and memory profile settings](./howto-configure-availability-scale.md). To configure other settings, including disk-backed message buffer and advanced MQTT client options, use the Azure CLI.
+When you follow the guide to [deploy IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration**. Here, you can [customize cardinality and memory profile settings](./howto-configure-availability-scale.md). To configure other settings, including disk-backed message buffer, and advanced MQTT client options, use the Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -206,6 +206,11 @@ Use the Azure portal or the Azure CLI to customize the default Broker resource.
 Use the Azure portal or the Azure CLI to customize the default Broker resource.
 
 ---
+
+> [!IMPORTANT] 
+> You can't update the broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or disk buffer aren't allowed post-deployment.
+>
+> As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
 ### View default Broker settings
 

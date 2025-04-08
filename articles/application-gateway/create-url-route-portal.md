@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 09/03/2024
+ms.date: 02/05/2025
 ms.author: greglin
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
@@ -25,14 +25,11 @@ In this article, you learn how to:
 
 :::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/application-gateway-create-url-route-portal/scenario.png":::
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - An Azure subscription
-
 
 ## Create virtual machines
 
@@ -125,7 +122,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multitenant backends like Azure App Service.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -159,21 +156,22 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
-5. For the **HTTP setting**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. 
+5. For the **Backend settings**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. 
 
-6. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window.
+6. In the **Add Backend setting** window that opens, enter *myHTTPSetting* for the **Backend settings name**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window.
 7. Under **Path-based routing**, select **Add multiple targets to create a path-based rule**.
-8. For **Path**, type */images/*\*.
-9. For **Target name**, type *Images*.
-10. For **HTTP setting**, select **myHTTPSetting**
-11. For **Backend target**, select **Images**.
-12. Select **Add** to save the path rule and return to the **Add a routing rule** tab.
-13. Repeat to add another rule for Video.
-14. Select **Add** to add the routing rule and return to the **Configuration** tab.
-15. Select **Next: Tags** and then **Next: Review + create**.
+1. Under **Path based rules**, select **Add multiple targets to create a path-based rule**.
+1. For **Path**, type */images/*\*.
+1. For **Target name**, type *Images*.
+1. For **Backend settings**, select **myHTTPSetting**
+1. For **Backend target**, select **myBackendPool**.
+1. Select **Add** to save the path rule and return to the **Add a routing rule** tab.
+1. Repeat to add another rule for Video.
+1. Select **Add** to add the routing rule and return to the **Configuration** tab.
+1. Select **Next: Tags** and then **Next: Review + create**.
 
 > [!NOTE]
-> You do not need to add a custom */** path rule to handle default cases. This is automatically handled by the default backend pool.
+> You don't need to add a custom */** path rule to handle default cases. This is automatically handled by the default backend pool.
 
 > [!NOTE]
 > Wildcard delimiter **\*** is only honored at the end of the rule. For more information and supported path based rules examples, see [URL Path Based Routing overview](url-route-overview.md#pathpattern).
@@ -187,7 +185,7 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 1. Select **All resources**, and then select **myAppGateway**.
 
-    ![Screenshot of record application gateway public IP address.](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+    :::image type="content" source="./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of record application gateway public IP address.":::
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//203.0.113.10:8080.
 

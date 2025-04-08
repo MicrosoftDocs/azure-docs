@@ -3,9 +3,9 @@ title: Retrieve the IP address of a Workflow Orchestration Manager cluster
 description: This article provides step-by-step instructions to retrieve the IP address of a Workflow Orchestration Manager's cluster.
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 02/13/2025
 ---
 
 # Retrieve the IP address of a Workflow Orchestration Manager cluster

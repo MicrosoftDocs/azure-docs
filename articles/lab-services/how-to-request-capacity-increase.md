@@ -7,13 +7,14 @@ ms.service: azure-lab-services
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/06/2024
+ms.date: 02/27/2025
 #customer intent: As an administrator and subscription owner, I want to learn how to request an increase in cores available for my subscription in order to meet my lab needs.
 ---
 
 # Request a core limit increase
 
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+> [!Important]
+> Azure Lab Services will be retired on June 28, 2027. For more information, see the [retirement guide](https://aka.ms/azlabs-retirementguide). Quota requests for lab account will no longer be processed.
 
 This article describes how you can submit a support request to increase the number of cores for Azure Lab Services in your Azure subscription. First, collect the necessary information for the request.
 
@@ -69,26 +70,6 @@ The current number of cores for the Small/Medium/Large size group is `20 (Small)
 
 The total number of VM cores for 20 more Medium VMs is `100 + (4 cores per Medium VM) * 20 = 180 cores`.
 
-## [Lab account](#tab/LabAccounts/)
-
-### Determine the regions for your labs
-
-Azure Lab Services resources can exist in different regions. You can choose to deploy resources in multiple regions close to the lab users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
-
-### Determine the number of VM cores in your request
-
-In your support request, provide the number of *additional* VM cores. Each VM size has a number of VM cores. Azure Lab Services groups VM sizes together in size groups. You request VM cores for a specific size group.
-
-- Small / Medium / Large cores
-- Medium (Nested Virtualization) / Large (Nested Virtualization) cores
-- Small (GPU Compute) cores
-- Small GPU (Visualization) cores
-- Medium GPU (Visualization) cores
-
-To determine the total number of cores for your request: `total VM cores = (# cores for the selected VM size) * (# VMs)`
-
-For example, you need more capacity for 20 *Medium* VMs. The number of extra VM cores for 20 Medium VMs is then 80: `(4 cores per VM * 20)`.
-
 ---
 
 ## Best practices for requesting a core limit increase
@@ -99,7 +80,7 @@ For example, you need more capacity for 20 *Medium* VMs. The number of extra VM 
 
 You can follow these steps to request a core limit increase:  
 
-1. In the Azure portal, navigate to your lab plan or lab account, and then select **Request core limit increase**.
+1. In the Azure portal, navigate to your lab plan, and then select **Request core limit increase**.
 
     :::image type="content" source="./media/how-to-request-capacity-increase/request-from-lab-plan.png" alt-text="Screenshot of the Lab plan overview page in the Azure portal, highlighting the Request core limit increase button." lightbox="./media/how-to-request-capacity-increase/request-from-lab-plan.png":::
 
@@ -119,7 +100,7 @@ You can follow these steps to request a core limit increase:
 
 When you request a core limit increase, supply information to help the Azure Lab Services team evaluate and act on your request as quickly as possible. The more information you supply and the earlier you supply it, the quicker the Azure Lab Services team can process your request.
 
-Depending on whether you use lab accounts or lab plans, you need to provide different information on the **Quota details** page.
+You need to provide required information on the **Quota details** page.
 
 #### [Lab plan](#tab/Labplans/)
 
@@ -132,22 +113,6 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 | **Does your virtual network reside in the same region as above?** | Select *Yes*, *No*, or *N/A*, depending on whether you use [advanced networking](./how-to-connect-peer-virtual-network.md) and have virtual networks in the region you selected. |
 | **Virtual machine size** | Select the virtual machine size that you require for the new cores. |
 | **Requested total core limit** | Enter the total number of cores you require. This number includes your existing cores and the number of extra cores you're requesting. To learn how to calculate the total number of cores, see [Determine the total number of cores in your request](#prepare-to-submit-a-request). |
-
-#### [Lab account](#tab/LabAccounts/)
-
-:::image type="content" source="./media/how-to-request-capacity-increase/lab-account-pane.png" alt-text="Screenshot of the Quota details page for Lab accounts." lightbox="./media/how-to-request-capacity-increase/lab-account-pane.png":::
-
-| Name      | Value     |
-| --------- | --------- |
-| **Deployment Model** | *Lab Account (Classic)* |
-| **Region** | Select one or more regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you want the extra cores. |
-| **Alternate regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services), in case your preferred regions have no available capacity. |
-| **Virtual network regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you might host virtual networks for [advanced networking](./how-to-connect-peer-virtual-network.md). |
-| **Virtual machine size** | Select the VM size for which you need more capacity. |
-| **Requested additional core limit** | Enter the number of extra cores for your subscription. |
-| **What is the lab account name?** | Select the lab account name. This option only applies if you're adding cores to an existing lab. |
-| **What's the month-by-month usage plan for the requested cores?** | Enter the rate at which you want to add the extra cores, on a monthly basis. |
-| **Additional details** | Provide more information to make it easier for the Azure Lab Services team to process your request. For example, you could include your preferred date for the new cores to be available or if you plan to use GPU VM sizes. |
 
 ---
 

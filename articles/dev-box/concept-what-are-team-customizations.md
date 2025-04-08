@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 11/06/2024
+ms.date: 01/29/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to understand how to use Dev Box team customizations so that I can create efficient, ready-to-code configurations for my development teams.
 ---
@@ -79,7 +79,9 @@ When you're working with Dev Box team customizations, you should be familiar wit
   - Consists of one or more PowerShell scripts and a task.yaml file.
 - **Customization file**:
   - Defines tasks for dev boxes and is YAML based.
-  - Provides an image definition when it's shared across a team by specifying the base image and customization options for a dev box.
+  - Provides an image definition when shared across a team by specifying the base image and customization options for a dev box.
+ 
+You can find instructions for creating a customization file in the [Write a customization file for a dev box](how-to-write-customization-file.md) article, along with links to example customization files.
 
 ## Related content
 

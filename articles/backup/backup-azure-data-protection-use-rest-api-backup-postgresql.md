@@ -2,7 +2,7 @@
 title: Back up Azure PostgreSQL databases using Azure data protection REST API
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure PostgreSQL databases using REST API.
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 02/09/2025
 ms.service: azure-backup
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
 author: jyothisuri
@@ -35,7 +35,7 @@ Fetch the Azure Resource Manager ID (ARM ID) of the PostgreSQL database to be pr
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/servers/testpostgresql/databases/empdb11"
 ```
 
-#### Azure key vault
+#### Azure Key Vault
 
 The Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault. Then the Azure Backup service will access the key vault, read the keys, and access the database. Note the secret identifier of the relevant key. The following example uses bash.
 
@@ -516,3 +516,4 @@ For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Get started with Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Manage backup jobs using REST API](backup-azure-arm-userestapi-managejobs.md).

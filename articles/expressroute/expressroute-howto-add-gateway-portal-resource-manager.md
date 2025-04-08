@@ -54,8 +54,6 @@ The steps for this tutorial use the values in the following configuration refere
 1. In the **Settings** section of your virtual network, select **Subnets** to expand the Subnet settings.
 
 1. Select **+ Gateway subnet** to add a gateway subnet. 
-   
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Screenshot that shows the button to add the gateway subnet.":::
 
 1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. **You need to create the GatewaySubnet with a /27 or larger** (/26, /25, and so on.). /28 or smaller subnets are not supported for new deployments. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
@@ -63,15 +61,11 @@ The steps for this tutorial use the values in the following configuration refere
 
     Then, select **OK** to save the values and create the gateway subnet.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Screenshot of the create an ExpressRoute gateway page with ErGwScale SKU selected.":::
-
 ## Create the virtual network gateway
 
 1. In the portal, on the left side, select **Create a resource**, and type 'Virtual Network Gateway' in search. Locate **Virtual network gateway** in the search return and select the entry. On the **Virtual network gateway** page, select **Create**.
 
 1. On the **Create virtual network gateway** page, enter or select these settings:
-
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/create-gateway.png" alt-text="Screenshot that shows the Add subnet page for adding  the gateway subnet.":::
 
     | Setting | Value |
     | --------| ----- |
@@ -124,8 +118,6 @@ These steps will need to be completed on all virtual networks that need to commu
 ## Clean up resources
 
 If you no longer need the ExpressRoute gateway, locate the gateway in the virtual network resource group and select **Delete**. Ensure the gateway doesn't have any connections to a circuit.
-
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Screenshot that shows how to delete the virtual network gateway.":::
 
 ## Next steps
 

@@ -57,17 +57,17 @@ This section compares some of the fundamental queuing capabilities provided by S
 | Ordering guarantee | No <br/><br>For more information, see the first note in the [Additional Information](#additional-information) section.</br> | Yes - First-In-First-Out (FIFO)<br/><br>(by using [message sessions](message-sessions.md)) |
 | Delivery guarantee |At-Least-Once |At-Least-Once (using PeekLock receive mode. It's the default) <br/><br/>At-Most-Once (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Atomic operation support |No |Yes<br/><br/> |
-| Receive behavior |Non-blocking<br/><br/>(completes immediately if no new message is found) |Blocking with or without a timeout<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>Non-blocking<br/><br/>(using .NET managed API only) |
+| Receive behavior |Nonblocking<br/><br/>(completes immediately if no new message is found) |Blocking with or without a time-out<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>Nonblocking<br/><br/>(using .NET managed API only) |
 | Push-style API |No |Yes<br/><br/>Our .NET, Java, JavaScript, and Go SDKs provide push-style API. |
 | Receive mode |Peek & Lease |Peek & Lock<br/><br/>Receive & Delete |
 | Exclusive access mode |Lease-based |Lock-based |
 | Lease/Lock duration |30 seconds (default)<br/><br/>7 days (maximum) (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |30 seconds (default)<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
-| Lease/Lock precision |Message level<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |Queue level<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
-| Batched receive |Yes<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |Yes<br/><br/>(implicitly enabling a pre-fetch property or explicitly by using transactions) |
+| Lease/Lock precision |Message level<br/><br/>Each message can have a different time-out value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |Queue level<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
+| Batched receive |Yes<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |Yes<br/><br/>(implicitly enabling a prefetch property or explicitly by using transactions) |
 | Batched send |No |Yes<br/><br/>(by using transactions or client-side batching) |
 
 ### Additional information
-* Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-timeout duration of a message expires because a client application crashed while processing a message. When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
+* Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-time-out duration of a message expires because a client application crashed while processing a message. When the visibility time out expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
 * The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. If the application crashes while it's processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after the session's lock duration expires.
 * Storage queues are designed to support standard queuing scenarios, such as the following ones:
     - Decoupling application components to increase scalability and tolerance for failures
@@ -78,8 +78,8 @@ This section compares some of the fundamental queuing capabilities provided by S
 * Service Bus queues provide support for local transactions in the context of a single queue.
 * The **Receive and Delete** mode supported by Service Bus provides the ability to reduce the messaging operation count (and associated cost) in exchange for lowered delivery assurance.
 * Storage queues provide leases with the ability to extend the leases for messages. This feature allows the worker processes to maintain short leases on messages. So, if a worker crashes, the message can be quickly processed again by another worker. Also, a worker can extend the lease on a message if it needs to process it longer than the current lease time.
-* Storage queues offer a visibility timeout that you can set upon the enqueuing or dequeuing of a message. Also, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata. However, you can renew the message lock for the pre-defined lock duration manually or use the automatic lock renewal feature where the client manages lock renewal for you.
-* The maximum timeout for a blocking receive operation in Service Bus queues is 24 days. However, REST-based timeouts have a maximum value of 55 seconds.
+* Storage queues offer a visibility time-out that you can set upon the enqueuing or dequeuing of a message. Also, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock time-outs are defined in the queue metadata. However, you can renew the message lock for the pre-defined lock duration manually or use the automatic lock renewal feature where the client manages lock renewal for you.
+* The maximum time-out for a blocking receive operation in Service Bus queues is 24 days. However, REST-based time-outs have a maximum value of 55 seconds.
 * Client-side batching provided by Service Bus enables a queue client to batch multiple messages into a single send operation. Batching is only available for asynchronous send operations.
 * Features such as the 200-TB ceiling of Storage queues (more when you virtualize accounts) and unlimited queues make it an ideal platform for SaaS providers.
 * Storage queues provide a flexible and performant delegated access control mechanism.
@@ -91,7 +91,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 | --- | --- | --- |
 | Scheduled delivery |Yes |Yes |
 | Automatic dead lettering |No |Yes |
-| Increasing queue time-to-live value |Yes<br/><br/>(via in-place update of visibility timeout) |Yes<br/><br/>(provided via a dedicated API function) |
+| Increasing queue time-to-live value |Yes<br/><br/>(via in-place update of visibility time-out) |Yes<br/><br/>(provided via a dedicated API function) |
 | Poison message support |Yes |Yes |
 | In-place update |Yes |Yes |
 | Server-side transaction log |Yes |No |
@@ -122,19 +122,19 @@ This section compares Storage queues and Service Bus queues from the perspective
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Maximum queue size |500 TB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(Premium or Standard tier with partitioning)|
-| Maximum message size |64 KB<br/><br/>(48 KB when using Base 64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB, 1 MB or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
+| Maximum queue size |5 PiB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(Premium or Standard tier with partitioning)|
+| Maximum message size |64 KB<br/><br/>(48 KB when using Base 64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB, 1 MB, or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
 | Maximum message TTL |Infinite (api-version 2017-07-27 or later) |TimeSpan.MaxValue |
 | Maximum number of queues |Unlimited |10,000 (Standard tier)<br/>1000 / Messaging Unit (Premium tier)<br/>(per service namespace) |
 | Maximum number of concurrent clients |Unlimited |5,000 |
 
 ### Additional information
 * Service Bus enforces queue size limits. The maximum queue size is specified when creating a queue. It can be between 1 GB and 80 GB. If the queue's size reaches this limit, additional incoming messages will be rejected and the caller receives an exception. For more information about quotas in Service Bus, see [Service Bus Quotas](service-bus-quotas.md).
-* In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. When enabling partitioning in the Standard tier, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB.  You can see the maximum size of your partitioned queue or topic in the [Azure portal].
+* In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. When you enable partitioning in the Standard tier, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB. You can see the maximum size of your partitioned queue or topic in the [Azure portal].
 * With Storage queues, if the content of the message isn't XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 * With Service Bus queues, each message stored in a queue is composed of two parts: a header and a body. The total size of the message can't exceed the maximum message size supported by the service tier.
 * When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, requests for additional connections will be rejected and an exception will be received by the calling code. This limit isn't imposed on clients connecting to the queues using REST-based API.
-* To scale beyond 10,000 queues with Service Bus Standard SKU or 1000 queues/Messaging Unit with Service Bus Premium SKU, you can also create additional namespaces using the [Azure portal].
+* To scale beyond 10,000 queues with Service Bus Standard Stock Keeping Unit (SKU) or 1000 queues/Messaging Unit with Service Bus Premium SKU, you can also create additional namespaces using the [Azure portal].
 
 ## Management and operations
 This section compares the management features provided by Storage queues and Service Bus queues.
@@ -165,13 +165,13 @@ This section discusses the authentication and authorization features supported b
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Authentication | [Symmetric key](../storage/common/storage-account-keys-manage.md) and [Role-based access control (RBAC)](../storage/queues/assign-azure-role-data-access.md) |[Symmetric key](service-bus-authentication-and-authorization.md#shared-access-signature) and [Role-based access control (RBAC)](service-bus-authentication-and-authorization.md#azure-active-directory) |
+| Authentication | [Symmetric key](../storage/common/storage-account-keys-manage.md) and [Role-based access control (RBAC)](../storage/queues/assign-azure-role-data-access.md) |[Symmetric key](service-bus-authentication-and-authorization.md#shared-access-signature) and [Role-based access control (RBAC)](service-bus-authentication-and-authorization.md#microsoft-entra-id) |
 | Identity provider federation | Yes | Yes |
 
 ### Additional information
 * Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access aren't supported. 
 * Using shared access signature (SAS) authentication, you can create a shared access authorization rule on a queue that can give users a write-only, read-only, or full access. For more information, see [Azure Storage - SAS authentication](../storage/common/storage-sas-overview.md) and [Azure Service Bus - SAS authentication](service-bus-sas.md).
-* Both queues support authorizing access using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there's no need to store the tokens in your code and risk potential security vulnerabilities. For more information, see [Azure Storage - Microsoft Entra authentication](../storage/queues/assign-azure-role-data-access.md) and [Azure Service Bus - Microsoft Entra authentication](service-bus-authentication-and-authorization.md#azure-active-directory). 
+* Both queues support authorizing access using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there's no need to store the tokens in your code and risk potential security vulnerabilities. For more information, see [Azure Storage - Microsoft Entra authentication](../storage/queues/assign-azure-role-data-access.md) and [Azure Service Bus - Microsoft Entra authentication](service-bus-authentication-and-authorization.md#microsoft-entra-id). 
 
 ## Conclusion
 By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on many factors. These factors depend heavily on the individual needs of your application and its architecture. 

@@ -2,7 +2,7 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via REST API
 description: Learn how to use REST API to back up SQL server databases in Azure VMs in the Recovery Services vault
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 02/09/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -542,7 +542,7 @@ Once the operation is complete, it returns 200 (OK) with the ID of the resulting
 }
 ```
 
-As the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+As the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-job).
 
 ## Next steps
 

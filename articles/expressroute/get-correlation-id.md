@@ -23,8 +23,6 @@ The Azure Resource Manager Activity Log provides information about resource modi
 
 1. Navigate to your ExpressRoute resource in the Azure portal. Select **Activity log** from the left menu.
 
-    :::image type="content" source="./media/get-correlation-id/circuit-overview.png" alt-text="Screenshot of the Activity log button on the left menu pane on the overview page of an ExpressRoute circuit." lightbox="./media/get-correlation-id/circuit-overview.png":::
-
 1. On the Activity log page, apply filters to narrow down the results. For example, filter by **operation type**, **resource type**, or **date/time range** to show activities for a specific ExpressRoute resource. By default, the Activity Log shows all activities for the selected resource.
 
     :::image type="content" source="./media/get-correlation-id/filter-log.png" alt-text="Screenshot of the activity log filters section for an ExpressRoute circuit." lightbox="./media/get-correlation-id/filter-log.png":::

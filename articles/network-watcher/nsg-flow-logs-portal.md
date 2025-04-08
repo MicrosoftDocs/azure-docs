@@ -17,7 +17,7 @@ ms.date: 09/26/2024
 
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-In this article, you learn how to create, change, disable, or delete an NSG flow log using the Azure portal. You can learn how to manage an NSG flow log using [PowerShell](nsg-flow-logs-powershell.md), [Azure CLI](nsg-flow-logs-cli.md), [REST API](nsg-flow-logs-rest.md), or [ARM template](nsg-flow-logs-azure-resource-manager.md).
+In this article, you learn how to create, change, disable, or delete an NSG flow log using the Azure portal. You can learn how to manage an NSG flow log using [PowerShell](nsg-flow-logs-powershell.md), [Azure CLI](nsg-flow-logs-cli.md), or [ARM template](nsg-flow-logs-template.md).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/subscriptions.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/nsg-flow-logs-portal/subscriptions.png":::
+    :::image type="content" source="./media/subscriptions-portal-search.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/subscriptions-portal-search.png":::
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
@@ -45,7 +45,7 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal.":::
+    :::image type="content" source="./media/register-microsoft-insights.png" alt-text="Screenshot that shows how to register Microsoft Insights provider in the Azure portal." lightbox="./media/register-microsoft-insights.png":::
 
 ## Create a flow log
 
