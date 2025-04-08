@@ -58,7 +58,7 @@ productDirectory:
     - title: Load balancing and content delivery
       imageSrc: ./media/index/load-balancing-and-content-delivery.svg
       summary: Distribute network traffic to load balance workloads with Azure application delivery services.
-      url: ./load-balancer-content-delivery/index.yml
+      url: ./load-balancer-content-delivery/index.yml?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
     # Card
     - title: Hybrid connectivity
       imageSrc: ./media/index/hybrid-connectivity.svg
