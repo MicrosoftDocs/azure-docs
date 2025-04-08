@@ -32,7 +32,8 @@ This indicates the number of SQL servers, instances, and databases that were ass
 
 This indicates the different migration strategies that you can consider for your SQL deployments. You can review the readiness for target deployment types and the cost estimates for SQL Servers/Instances/Databases that are marked ready or ready with conditions: 
 
-- **Recommended deployment**: This is a strategy where an Azure SQL deployment type is the most compatible with your SQL instance and it is the most cost-effective. Migrating to a Microsoft-recommended target reduces your overall migration effort. If your instance is ready for SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the target deployment type, which has the least migration readiness issues and is the most cost-effective.
+- **Recommended deployment**This strategy involves selecting an Azure SQL deployment type that is both highly compatible with your SQL instance and cost-effective. By migrating to a Microsoft-recommended target, you can significantly reduce your overall migration effort. If your instance is prepared for SQL Server on Azure VM, Azure SQL Managed Instance, and Azure SQL Database, it is advisable to choose the deployment type that presents the fewest migration readiness issues and offers the best cost-efficiency.
+
 You can see the SQL Server instance readiness for different recommended deployment targets and monthly cost estimates for SQL instances marked *Ready* and *Ready with conditions*.
 
     - You can go to the Readiness report to:

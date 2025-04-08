@@ -9,7 +9,7 @@ ms.date: 03/19/2025
 ms.custom: engagement-fy23
 ---
 
-# Quickstart: Create an Azure Migrate project using Portal
+# Quickstart: Create an Azure Migrate project using portal
 
 This article describes how to create, manage, and delete [projects](migrate-services-overview.md). 
 

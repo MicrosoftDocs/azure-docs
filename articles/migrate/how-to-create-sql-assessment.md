@@ -14,11 +14,6 @@ ms.custom: engagement-fy23
 
 This article to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive recommended target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
 
-* Set up your Azure Migrate environment to assess web applications.
-* Select a set of related applications discovered using Azure Migrate appliance.
-* Provide assessment configuration, including preferred Azure targets, target regions, and Azure reserved instances.
-* Create a web assessment with a recommended modernization path.
-
 ## Prerequisites
 
 * Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
