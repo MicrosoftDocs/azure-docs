@@ -24,9 +24,9 @@ This article describes the following aspects about the CICS connector:
 * Prerequisites and setup for using the CICS connector
 * Steps for adding CICS connector actions to your Standard logic app workflow
 
-## Explore the CICS connector and usage scenarios
+## Review the connector usage scenarios
 
-CICS systems were one of the first mission-critical systems that run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to CICS systems using TCP/IP, HTTP, and APPC LU6.2. Customers have used the HIS Transaction Integrator to integrate CICS systems with Windows on-premises for many years. The **CICS Program Call** connector uses TCP/IP and HTTP [programming models](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with CICS transaction programs.
+CICS systems were one of the first mission-critical systems that run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to CICS systems using TCP/IP, HTTP, and APPC LU6.2. Customers have used the HIS Transaction Integrator to integrate CICS systems with on-premises Windows for many years. The **CICS Program Call** connector uses TCP/IP and HTTP [programming models](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with CICS transaction programs.
 
 The following diagram shows how the CICS connector interacts with an IBM mainframe system:
 
