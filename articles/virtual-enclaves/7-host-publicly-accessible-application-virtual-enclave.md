@@ -18,9 +18,9 @@ Web applications can be hosted inside of a Virtual Enclave and made publicly acc
 
 ## Steps to make your web app accessible from the internet in Azure Virtual Enclaves
 
-1. Deploy a Virtual Enclave to host the public Web Application (Enclave-WebApp)
+1. Deploy a Virtual Enclave to host the public Web Application (`Enclave-WebApp`)
 
-1. Deploy a Virtual Enclave to host an Application Gateway (Enclave-DMZ) 
+1. Deploy a Virtual Enclave to host an Application Gateway (`Enclave-DMZ`) 
 
 1. Deploy a workload + the resources required to host the web application into `Enclave-WebApp`
 
@@ -36,9 +36,9 @@ Web applications can be hosted inside of a Virtual Enclave and made publicly acc
     - **Destination Enclave**:`Enclave-WebApp`
     - **Destination Endpoint**:`endpoint-MyService`
 
-## Public Web Application in the PLx Managed Service
+## Public Web Application in the PLX Managed Service
 
-![Graphic showing the architecture for securely hosting an application in PLx Managed Service.](./media/secure-webapp-architecture-plx.png)
+![Graphic showing the architecture for securely hosting an application in PLX Managed Service.](./media/secure-webapp-architecture-plx.png)
 
 ## Steps to make your web app accessible from the internet in the Gates managed service
 
@@ -50,7 +50,7 @@ Web applications can be hosted inside of a Virtual Enclave and made publicly acc
 
 1. Create an outbound NSG rule on the subnet hosting the Application Gateway in Enclave-DMZ that allows traffic from the Application Gateway IP Address over port 443 and/or 80 into `Enclave-WebApp` (`endpoint-MyService`) to the Web Application IP/Subnet
 
-1. Create a FW rule that allows traffic from `Enclave-DMZ` into `Enclave-WebApp` that allows traffic to the web application's IP Address over port 443 and/or 80 into `Enclave-WebApp` (`endpoint-MyService`)
+1. Create a firewall rule that allows traffic from `Enclave-DMZ` into `Enclave-WebApp` that allows traffic to the web application's IP Address over port 443 and/or 80 into `Enclave-WebApp` (`endpoint-MyService`)
 
 1. Create an inbound NSG rule on the subnet hosting the Web App in Enclave-WebApp that allows traffic from the Application Gateway IP Address over port 443 and/or 80 into `Enclave-WebApp` (`endpoint-MyService`) to the Web Application IP/Subnet
 

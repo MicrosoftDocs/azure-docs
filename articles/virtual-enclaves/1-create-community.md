@@ -18,12 +18,12 @@ Communities are isolated hub networks that can securely and logically group seve
 
 ## Get started
 
-In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second Enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [Enclave Endpoint](./what-enclave-endpoint.md) for the Web App and establishing an [Enclave Connection](./what-enclave-connection.md) between the Web App enclave and secodn enclaves enables the networking behavior described above.
+In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second Enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [Enclave Endpoint](./what-enclave-endpoint.md) for the Web App and establishing an [Enclave Connection](./what-enclave-connection.md) between the Web App enclave and second enclaves enables the networking behavior described above.
 
 You learn how to:
 - ✅ Deploy a central community hub network
-- ✅ Create several isolated enclave spoke networks
-- ✅ Provision Azure resources into workloads within enclaves
+- ✅ Create several isolated enclaves as spokes in the hub-and-spoke network
+- ✅ Create Azure resources into workloads within enclaves
 - ✅ Utilize service catalog to quickly create apps in workloads
 - ✅ Authorize and design complex business networking requirements across your community
 - ✅ Monitor your community, enclaves, workloads, and other resources
@@ -50,7 +50,7 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
    - **Region**: `East US`
    - **Community address space** - `10.0.0.0/16`
 
-4. Click `Review + create`, ensure the details for your Enclave are correct, and click `Create`.
+4. Select `Review + create`, ensure the details for your Enclave are correct, and select `Create`.
 
 ![Screenshot showing the create Community screen with the basics inputs for the tutorial environment.](./media/tutorial-step-one-create-community-screen-basics-input.png)
 

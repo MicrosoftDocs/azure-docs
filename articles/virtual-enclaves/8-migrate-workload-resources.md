@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Tutorial 8: Migrate Resources into or within AVE
 
-This article covers how to [move resources](../azure-resource-manager/management/move-resource-group-and-subscription.md) when those resources are linked to AVE resources (e.g. Enclaves or Workloads).
+This article covers how to [move resources](../azure-resource-manager/management/move-resource-group-and-subscription.md) when those resources are linked to AVE resources (for example Enclaves or Workloads).
 
 ## Supported Resources
 Ensure your resources are included in this [moveable resources](../azure-resource-manager/management/move-support-resources.md) list.

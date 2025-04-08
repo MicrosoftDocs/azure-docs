@@ -14,7 +14,7 @@ An enclave is an isolated Azure Virtual Network that is part of a community in w
 
 In this tutorial, part two of eight, you deploy enclaves into a community. You learn how to:
 
-- ✅ Create several isolated enclave spoke networks
+- ✅ Create several isolated enclaves as spokes in the hub-and-spoke network
 - ✅ View enclaves in Azure portal
 
 ## Before you begin
@@ -44,7 +44,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 
 ![Screenshot showing the create WebApp Enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png)
 
-4. Click `Review + create`, ensure the details for your Enclave are correct, and click `Create`.
+4. Select `Review + create`, ensure the details for your Enclave are correct, and select `Create`.
 
 5. Now, to deploy another Enclave -- **repeat Steps 1 and 2.** Once you are on the **Enclave Create** page, Enter these basic details for your second Enclave:
    - **Subscription**: Select an existing Subscription

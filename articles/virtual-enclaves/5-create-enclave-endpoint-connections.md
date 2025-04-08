@@ -40,13 +40,13 @@ If you haven't created those resources yet, return to those earlier tutorials.
    - Enclave Endpoint name: Name of the enclave endpoint `endpoint-MyService`
    - Select `Add` to add Endpoint Rules that represent how to access your app/service
       - Name: `WebAppEndpointRules`
-      - Destination: `<See the information box that gives your enclave subnet range (e.g. 10.0.2.0/26)>`
+      - Destination: `<See the information box that gives your enclave subnet range (for example 10.0.2.0/26)>`
       - Port: `443`
       - Protocol: `ANY`
 
 ![Screenshot showing the enclave endpoint creation screen with endpoint rule dialog open as well.](./media/tutorial-step-five-enclave-webapp-endpoint-rule.png)
 
-5. Select `Yes`, select `Review + Create`, and click `Create`
+5. Select `Yes`, select `Review + Create`, and select `Create`
 
 6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp `Enclave Endpoints`.
 
@@ -75,7 +75,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 4. Select `Save`
 
-5. Select `Yes`, select `Review + Create`, and click `Create`
+5. Select `Yes`, select `Review + Create`, and select `Create`
 
 ![Screenshot showing Community Endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png)
 
@@ -95,12 +95,12 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 4. Enter the details for your app/service
    - Enclave connection name: Name of the connection `fabrikam-external-connection`
-   - Community: Select `fabrikam` from the drop down
+   - Community: Select `fabrikam` from the dropdown
    - Source Type: Select `Enclave`
-   - Source enclave: Select `Enclave-WebApp` from the drop down
-   - Source IP addresses/CIDR range(s): `<See the information box that gives your enclave subnet range (e.g. 10.0.2.0/26)>`
+   - Source enclave: Select `Enclave-WebApp` from the dropdown
+   - Source IP addresses/CIDR range(s): `<See the information box that gives your enclave subnet range (for example 10.0.2.0/26)>`
    - Destination Endpoint Type: Select `Community Endpoint`
-   - Destination endpoint: Select `fabrikam-endpoint-website` from the drop down
+   - Destination endpoint: Select `fabrikam-endpoint-website` from the dropdown
 
 ![Screenshot showing the required information entered into the Enclave Connection page.](./media/tutorial-step-five-fabrikam-connection-input.png)
 
@@ -121,4 +121,4 @@ In this tutorial, you deployed community and enclave endpoints using Azure porta
 
 - [Create connections](./what-enclave-connection.md)
 
-In the [next tutorial](./7-monitor-your-enclaves.md), you'll learn how to create connections using these endpoints.
+In the [next tutorial](./6-monitor-your-enclaves.md), you'll learn how to create connections using these endpoints.

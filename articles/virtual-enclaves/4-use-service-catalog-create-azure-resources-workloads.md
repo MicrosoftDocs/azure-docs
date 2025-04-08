@@ -47,10 +47,10 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 
 5. Navigate to the `wl-webapp-frontend` Workload to create an Azure App Service for your webapp.
 6. Select `Add an Azure service` button on the overview page.
-7. Select `App Service` from the Service Catalog drop down list and select `Next`.
+7. Select `App Service` from the Service Catalog dropdown list and select `Next`.
 8. Enter all the required parameters on each tab.
    - **Web App Site Name:** Enter `webapp-frontend`
-   - **App Service Sku Name:** Select an option from the drop down, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
+   - **App Service Sku Name:** Select an option from the dropdown, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
