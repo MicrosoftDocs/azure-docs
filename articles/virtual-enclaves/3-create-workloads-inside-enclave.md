@@ -19,7 +19,7 @@ In this tutorial, part three of eight, you deploy workloads into an enclave. You
 - ✅ View workloads in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./2-create-enclaves-within-a-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 2 - Create enclaves within a community](./2-create-enclaves-within-a-community.md).
+In the previous [tutorial](./2-create-enclaves-inside-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 2 - Create enclaves within a community](./2-create-enclaves-inside-community.md).
 
 ## Create a workload using Azure Virtual Enclaves
 Before creating your resources, you need to create the AVE Workload resource. Workloads are logical groups of Azure resources, similar to an Azure Resource Group, that you define to create and audit connections in Azure Virtual Enclaves.
@@ -31,7 +31,7 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
 
 1. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
 
-2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./2-create-enclaves-within-a-community.md).
+2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./2-create-enclaves-inside-community.md).
 
 ![Screenshot showing the WebApp Enclave overview list.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-deployed.png)
 
@@ -73,4 +73,4 @@ If you need to delete your enclaves created after completing this tutorial, this
 
 
 ## Next steps
-In this tutorial, you created sample workloads using Azure portal. In the [next tutorial](./4-use-service-catalog-to-create-azure-resources-in-workloads.md), you'll learn how to use the service catalog to deploy Azure resources and apps into your enclave workloads.
+In this tutorial, you created sample workloads using Azure portal. In the [next tutorial](./4-use-service-catalog-create-azure-resources-workloads.md), you'll learn how to use the service catalog to deploy Azure resources and apps into your enclave workloads.

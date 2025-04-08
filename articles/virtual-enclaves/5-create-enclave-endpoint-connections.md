@@ -19,7 +19,7 @@ In this tutorial, part six of eight, you create community and enclave endpoint r
 - ✅ View your endpoints in Azure portal
 
 ## Before you begin
-In the previous tutorials, you created a [community](./1-deploy-a-community.md) and an [enclave](./2-create-enclaves-within-a-community.md) using the Azure portal.
+In the previous tutorials, you created a [community](./1-deploy-community.md) and an [enclave](./2-create-enclaves-inside-community.md) using the Azure portal.
 
 If you haven't created those resources yet, return to those earlier tutorials.
 
@@ -121,6 +121,6 @@ If you haven't created those resources yet, return to those earlier tutorials.
 ## Next steps
 In this tutorial, you deployed community and enclave endpoints using Azure portal. You also learned how to:
 
-- [Create connections](./what-is-an-enclave-connection.md)
+- [Create connections](./what-enclave-connection.md)
 
 In the [next tutorial](./7-monitor-your-enclaves.md), you'll learn how to create connections using these endpoints.
