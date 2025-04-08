@@ -39,9 +39,16 @@ The root directory contains the following directory structure:
 > [!IMPORTANT]
 > When a node is removed from the pool, all of the files that are stored on the node are removed.
 
-## Root directory location
+## Batch root directory location
 
-Batch root directory location is different between different VMSizes. For VMSize which supports local temporary disk, `AZ_BATCH_NODE_ROOT_DIR` will be `D:\batch` in Windows and `/mnt/batch` or `/mnt/resource/batch` in Linux, for VMSize which doesn't support local temporary disk, `AZ_BATCH_NODE_ROOT_DIR` will be `C:\batch\data` in Windows and `/opt/batch/data` in Linux.
+The value of the `AZ_BATCH_NODE_ROOT_DIR` compute node environment variable will be determined by the VM size and the presence of a local temporary disk.
+
+|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_NODE_ROOT_DIR` Value|
+|:---|:---|:---|
+|No|Linux|`/opt/batch/data`|
+|Yes|Linux|`/mnt/batch` or `/mnt/resource/batch`|
+|No|Windows|`C:\batch\data`|
+|Yes|Windows|`D:\batch`|
 
 ## Next steps
 

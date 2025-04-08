@@ -90,7 +90,7 @@ az batch pool supported-images list
 > For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM image selection.
 
 > [!TIP]
-> Batch Nodes' `AZ_BATCH_NODE_ROOT_DIR` depends on if VMSize support local temporary disk or not. To check the detail, see [Root directory location](files-and-directories.md#root-directory-location).
+> Batch Nodes' `AZ_BATCH_NODE_ROOT_DIR` depends on if VMSize support local temporary disk or not. To check the detail, see [Batch root directory location](files-and-directories.md#batch-root-directory-location).
 
 ## Next steps
 
