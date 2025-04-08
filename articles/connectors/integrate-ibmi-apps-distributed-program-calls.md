@@ -1,6 +1,6 @@
 ---
-title: Connect COBOL, RPG Programs on IBM Midrange Systems
-description: Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps by using the IBM i connector.
+title: Access COBOL & RPG Programs from Standard Workflows
+description: Connect to COBOL and RPG programs on IBM midrange systems from Standard workflows in Azure Logic Apps by using the IBM i connector.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -24,7 +24,7 @@ This article describes the following aspects about the IBM i connector:
 * Prerequisites and setup for using the IBM i connector
 * Steps for adding IBM i connector actions to your Standard logic app workflow
 
-## Explore the IBM i connector and usage scenarios
+## Review usage scenarios for the IBM i connector
 
 More than 50 years ago, IBM released the first midrange systems. IBM advertised them as "Small in size, small in price and Big in performance. It is a system for now and for the future." Over the years, the midrange systems evolved and became pervasive in medium-sized businesses or in large enterprises to extend mainframe environments. Midrange systems that run IBM i, typically Power Systems, support TCP/IP and SNA.
 
@@ -72,7 +72,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   The IBM i connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the IBM i connector action. To get started, create a blank workflow in your Standard logic app resource.
 
-### Limitations
+## Limitations
 
 Currently, the IBM i connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
@@ -86,7 +86,9 @@ For your workflow to use the HIDX file, follow these steps:
 
 1. Browse to the folder where you saved your HIDX file, and copy the file.
 
-1. Go to the [Azure portal](https://portal.azure.com), and [upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app menu, under **Artifacts**, [upload the HIDX file as a map to the logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 1. Continue to the next section to [add an IBM i action to your workflow](#add-an-ibm-i-action).
 
