@@ -38,7 +38,7 @@ This article to create SQL assessments for migration to Azure, targeting differe
 
     :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Screenshot of sql assessment page on how to select webapp and add.":::
 
-1. **Review the selected workloads** and then select **Next**.
+1. Select **Review the selected workloads** and then select **Next**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Screenshot of sql assessment page on how to review the selected workloads.":::
 

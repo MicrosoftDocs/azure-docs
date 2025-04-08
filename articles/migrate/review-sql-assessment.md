@@ -36,9 +36,9 @@ This indicates the different migration strategies that you can consider for your
 
 You can see the SQL Server instance readiness for different recommended deployment targets and monthly cost estimates for SQL instances marked *Ready* and *Ready with conditions*.
 
-    - You can go to the Readiness report to:
-        - Review the recommended Azure SQL configurations for migrating to SQL Server on Azure VM and/or Azure SQL databases and/or Azure SQL Managed Instances.
-        - Understand details around migration issues/warnings that you can remediate before migration to the different Azure SQL targets. [Learn More](concepts-azure-sql-assessment-calculation.md).
+- You can go to the Readiness report to:
+    - Review the recommended Azure SQL configurations for migrating to SQL Server on Azure VM and/or Azure SQL databases and/or Azure SQL Managed Instances.
+    - Understand details around migration issues/warnings that you can remediate before migration to the different Azure SQL targets. [Learn More](concepts-azure-sql-assessment-calculation.md).
     - You can go to the cost estimates report to review cost of each of the SQL instance after migrating to the recommended deployment target.
 
    > [!NOTE]
