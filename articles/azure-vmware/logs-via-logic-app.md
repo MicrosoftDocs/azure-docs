@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Send VMware syslogs to log management server using Azure Logic Apps
 
-Azure Logic Apps enables you to automate workflows by integrating various Azure services and third-party applications. You can use Logic Apps to collect and forward VMware syslogs from your Azure VMware Solution private cloud to any log management service of your choice. This allows for centralized log storage, analysis, and monitoring across your preferred tools.
+Azure Logic Apps enables you to automate workflows by integrating various Azure services and third-party applications. You can use Logic Apps to collect and forward VMware syslogs from your Azure VMware Solution private cloud to any log management service of your choice. This approach allows for centralized log storage, analysis, and monitoring across your preferred tools.
 
 In this article, learn how to configure an Azure Logic Apps workflow to capture VMware syslogs and send them to your chosen log management service.
 
@@ -31,17 +31,17 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-2.png" alt-text="Screenshot showing which hosting option of Azure Logic Apps to select." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-2.png":::
 
-3. Enter the Subscription you intend to use, the Resource Group chosen to house this instance. Give it a name and select a region. The default Windows plan is **Workflow Standard WS1 (210 total ACU, 3.5 Gb memory, 1 vCPU)** which should be enough to handle log volumes from large workloads. This can always be adjusted later, as needed. After filing these details, select **Review + create**.
+3. Enter the Subscription you intend to use, the Resource Group chosen to house this instance. Give it a name and select a region. The default Windows plan is **Workflow Standard WS1 (210 total ACU, 3.5 Gb memory, 1 vCPU)** which should be enough to handle log volumes from large workloads. This option can always be adjusted later, as needed. After filing these details, select **Review + create**.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-3.png" alt-text="Screenshot showing the fields that need to be populated when creating an Azure Logic App." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-3.png":::
 
-4. Review the details of the Logic App instance. Select **Create**. This will initialize the deployment of the Logic App instance. Once complete, the deployment status will read "Your deployment is complete".
+4. Review the details of the Logic App instance. Select **Create**. Clicking this button initializes the deployment of the Logic App instance. Once complete, the deployment status will read "Your deployment is complete".
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-4.png" alt-text="Screenshot showing the summary of the Logic App creation." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-4.png":::
 
 ## Set up the Azure Logic App workflow
 
-1. Once deployed, navigate to the Logic App instance. Select **Workflows**, then click on **Workflows**. Select **Add**, then click on **Add from Template**. This will take you to the template catalog available in Azure Logic Apps. 
+1. Once deployed, navigate to the Logic App instance. Select **Workflows**, then click on **Workflows**. Select **Add**, then click on **Add from Template**. This action takes you to the template catalog available in Azure Logic Apps. 
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-5.png" alt-text="Screenshot showing the Workflows blade of Azure Logic App." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-5.png":::
 
@@ -73,14 +73,14 @@ c. If added successfully, the Status for the Event Hub should read **Connected**
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-12.png" alt-text="Screenshot showing the necessary parameters needed for the Azure Logic App template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-12.png":::
 
-6. Finally, review the information provided, then click **Create**. This will now save the workflow that can be used to send the log messages from Azure VMware Solution to any syslog endpoint.
+6. Finally, review the information provided, then click **Create**. This action saves the workflow that can be used to send the log messages from Azure VMware Solution to any syslog endpoint.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-13.png" alt-text="Screenshot showing the review page before creating the Azure Logic App template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-13.png":::
 
 ## (Optional) Adding certificates, updating HTTP headers, and configuring notifications
 
 ### Certificates
-If Azure Logic Apps requires that the certificate from the log management server be recognizable, you may need to add this in the Logic Apps instance for the log transmission to work. This is a necessary step when using tools such as VMware Cloud Foundation Operations for Logs, for example. You may add this to the Azure Logic App instance using the following approach: 
+If Azure Logic Apps requires the certificate from the log management server to be trusted, you may need to add the certificate to the Logic Apps instance to enable successful log transmission.k. This is a necessary step when using tools such as VMware Cloud Foundation Operations for Logs, for example. You may add this to the Azure Logic App instance using the following approach: 
 
 1. Export the certificate from the log management server and save it as a .cer file. 
 
@@ -92,11 +92,11 @@ If Azure Logic Apps requires that the certificate from the log management server
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-15.png" alt-text="Screenshot showing where to add the Public key certificate in the Azure Logic App instance and giving it a name." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-15.png":::
 
-4. Once saved, copy the **Thumbprint** value. We will need that to for our environment variable in Step 4. 
+4. Once saved, copy the **Thumbprint** value. We need that for our environment variable in Step 5. 
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-16.png" alt-text="Screenshot showing where to copy the thumbrint of the newly added certificate." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-16.png":::
 
-5. Under **Settings**, select **Environment variables**, then select **Add**. The name of the environment variable to add is **WEBSITE_LOAD_ROOT_CERTIFICATES** and the value is going to be the thumbprint you just copied. Select **Apply** at the bottom of the panel to save the changes and **Apply** again at the bottom of the list of environment variables to apply these changes. The new environment variable should take effect.
+5. Under **Settings**, select **Environment variables**, then select **Add**. The name of the environment variable to add is **WEBSITE_LOAD_ROOT_CERTIFICATES** and the value is going to be the thumbprint you copied. Select **Apply** at the bottom of the panel to save the changes and **Apply** again at the bottom of the list of environment variables to apply these changes. The new environment variable should take effect.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-17.png" alt-text="Screenshot showing the successfully added environment variable" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-17.png":::
 
@@ -104,7 +104,7 @@ If Azure Logic Apps requires that the certificate from the log management server
 By default, the **HTTP-Trigger-to-Log-Destination** trigger in the workflow you created has the following key-value pairs under Headers: 
  - **Content-Type** : **application/json**
 
-This will work by itself for log management tools such as VMware Cloud Foundation Operations for Logs. You may need to verify the log management server's ingestion cURL command to see if there are other headers that may need to be added. If you see other ones, please add them here and click **Save** at the top, so that the logs can be ingested properly into you log management server. 
+This works by itself for log management tools such as VMware Cloud Foundation Operations for Logs. You may need to verify the log management server's ingestion cURL command to see if there are other headers that may need to be added. If you see other headers, add them here and click **Save** at the top, so that the logs can be ingested properly into your log management server. 
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-18.png" alt-text="Screenshot showing where headers can be modified inside the workflow" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-18.png":::
 
