@@ -33,9 +33,9 @@ For more information, see the following articles:
 
 - [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md)
 - [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard)
-- [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview.md)
-- [View and manage incidents and alerts in Microsoft Defender multitenant management](/unified-secops-platform/mto-incidents-alerts.md)
-- [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting.md)
+- [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview)
+- [View and manage incidents and alerts in Microsoft Defender multitenant management](/unified-secops-platform/mto-incidents-alerts)
+- [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting)
 
 ## March 2025
 
