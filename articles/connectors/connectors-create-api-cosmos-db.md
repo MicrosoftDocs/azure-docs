@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Cosmos DB from workflows
-description: Access, create, and process documents in Azure Cosmos DB from workflows in Azure Logic Apps.
+title: Connect to Azure Cosmos DB from Workflows
+description: Access, create, or process documents in Azure Cosmos DB using workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: jcocchi
@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Process and create Azure Cosmos DB documents using Azure Logic Apps
+# Access, create, or process documents in Azure Cosmos DB with workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that your workflow can use for operations in Azure Cosmos DB. For example, you can create or update, read, query, and delete documents.
+From a workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that the workflow can use for operations in Azure Cosmos DB. For example, you can create or update, read, query, and delete documents.
 
-You can connect to Azure Cosmos DB from both Consumption and Standard logic app workflows by using the [*managed connector*](managed.md) operations, which run in global, multitenant Azure. For Standard workflows, Azure Cosmos DB also provides [*built-in* operations](/azure/logic-apps/connectors/built-in/reference/azurecosmosdb/), which are currently in preview, run alongside the runtime in Azure Logic Apps, and offer different functionality, better performance, and higher throughput. For example, if you're working with a Standard workflow, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in your logic app workflows to enable scenarios such as event sourcing and general data processing.
+You can connect to Azure Cosmos DB from both Consumption and Standard logic app workflows by using the [*managed connector*](managed.md) operations, which run in global, multitenant Azure. For Standard workflows, Azure Cosmos DB also provides [*built-in* operations](/azure/logic-apps/connectors/built-in/reference/azurecosmosdb/), which are currently in preview, run alongside the runtime in Azure Logic Apps, and offer different functionality, better performance, and higher throughput. For example, if you're working with a Standard workflow, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in logic app workflows to enable scenarios such as event sourcing and general data processing.
 
 ## Limitations
 
@@ -30,7 +30,7 @@ You can connect to Azure Cosmos DB from both Consumption and Standard logic app 
 
 - An [Azure Cosmos DB account](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
-- A logic app workflow from which you want to access your Azure Cosmos DB account. To use the Azure Cosmos DB built-in trigger, you need to start with a blank workflow.
+- A logic app workflow from where you want to access an Azure Cosmos DB account. To use the Azure Cosmos DB built-in trigger, you need to start with a blank workflow.
 
 ## Connector technical reference
 
@@ -52,7 +52,7 @@ No Azure Cosmos DB triggers are available for Consumption workflows.
 
 To add an Azure Cosmos DB built-in trigger to a Standard logic app workflow, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open the Standard workflow in the designer.
 
 1. Follow [these general steps to add the trigger named **When an item is created or modified**](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger).
 
@@ -76,7 +76,7 @@ To add an Azure Cosmos DB built-in trigger to a Standard logic app workflow, fol
 
 1. Configure any other parameters or settings as needed.
 
-1. Add any other actions that you want to your workflow.
+1. Add any other actions that you want to the workflow.
 
 1. On the designer toolbar, select **Save**.
 
@@ -84,7 +84,7 @@ To add an Azure Cosmos DB built-in trigger to a Standard logic app workflow, fol
 
 ## Add Azure Cosmos DB action
 
-In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action. The Azure Cosmos DB connector offers actions for both Consumption and Standard workflows. The following examples show how to use an action that creates or updates a document.
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in a workflow that follows a trigger or another action. The Azure Cosmos DB connector offers actions for both Consumption and Standard workflows. The following examples show how to use an action that creates or updates a document.
 
 ### [Consumption](#tab/consumption)
 
@@ -92,7 +92,7 @@ To add an Azure Cosmos DB action, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption workflow in the designer.
 
-1. If your workflow is blank, add any trigger that you want.
+1. If the workflow is blank, add any trigger that you want.
 
    This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
 
@@ -117,7 +117,7 @@ To add an Azure Cosmos DB action, follow these steps:
 
 1. On the designer toolbar, select **Save**.
 
-1. Test your workflow to confirm that the action creates a document in the specified container.
+1. Test the workflow to confirm that the action creates a document in the specified container.
 
 ### [Standard](#tab/standard)
 
@@ -125,7 +125,7 @@ To add a Azure Cosmos DB built-in action to Standard workflow, follow these step
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard workflow in the designer.
 
-1. If your workflow is blank, add any trigger that you want.
+1. If the workflow is blank, add any trigger that you want.
 
    This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create.
 
@@ -152,7 +152,7 @@ To add a Azure Cosmos DB built-in action to Standard workflow, follow these step
 
 1. On the designer toolbar, select **Save**.
 
-1. Test your workflow to confirm that the action creates a document in the specified container.
+1. Test the workflow to confirm that the action creates a document in the specified container.
 
 ---
 
@@ -160,7 +160,7 @@ To add a Azure Cosmos DB built-in action to Standard workflow, follow these step
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-Before you can configure your [Azure Cosmos DB trigger](#add-azure-cosmos-db-trigger) or [Azure Cosmos DB action](#add-azure-cosmos-db-action), you need to connect to a database account.
+Before you can configure an [Azure Cosmos DB trigger](#add-azure-cosmos-db-trigger) or [Azure Cosmos DB action](#add-azure-cosmos-db-action), you need to connect to a database account.
 
 ### [Consumption](#tab/consumption)
 
@@ -169,13 +169,13 @@ For a Consumption workflow, an Azure Cosmos DB connection requires the following
 | Parameter | Required | Value | Description |
 |-----------|----------|-------|-------------|
 | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection. |
-| **Authentication Type** | Yes | <*connection-type*> | The authentication type to use. This example uses **Access key**. <br><br>- If you select **Access Key**, provide the remaining required property values to create the connection. <br><br>- If you select **Microsoft Entra ID Integrated**, no other property values are required, but you have to configure your connection by following the steps for [Microsoft Entra authentication and Azure Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector). <br><br>- To set up and use a managed identity, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=consumption). |
+| **Authentication Type** | Yes | <*connection-type*> | The authentication type to use. This example uses **Access key**. <br><br>- If you select **Access Key**, provide the remaining required property values to create the connection. <br><br>- If you select **Microsoft Entra ID Integrated**, no other property values are required, but you have to configure the connection by following the steps for [Microsoft Entra authentication and Azure Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector). <br><br>- To set up and use a managed identity, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=consumption). |
 | **Account ID** | Yes | <*account-ID*> | The name for the Azure Cosmos DB account to use for this connection. |
 | **Access Key To Your Azure Cosmos DB Account** | Yes | <*access-key*> | The access key for the Azure Cosmos DB account to use for this connection. This value is either a read-write key or a read-only key. <br><br>**Note**: To find the key, go to the Azure Cosmos DB account page. In the account menu, under **Settings**, select **Keys**. Copy one of the available key values. |
 
 > [!NOTE]
 >
-> After you create your connection, if you have a different Azure Cosmos DB connection
+> After you create the connection, if you have a different Azure Cosmos DB connection
 > that you want to use instead, or if you want to create a new connection, select
 > **Change connection** in the **Parameters** tab on the trigger or action information pane.
 
@@ -190,7 +190,7 @@ For a Standard workflow, an Azure Cosmos DB connection (built-in) requires the f
 
 > [!NOTE]
 >
-> After you create your connection, if you have a different Azure Cosmos DB connection
+> After you create the connection, if you have a different Azure Cosmos DB connection
 > that you want to use instead, or if you want to create a new connection, select
 > **Change connection** in the **Parameters** tab on the trigger or action information pane.
 
@@ -200,54 +200,49 @@ For a Standard workflow, an Azure Cosmos DB connection (built-in) requires the f
 
 ### Get iterable results from the Query items action
 
-The built-in **Query items** action in a **Logic App (Standard)** workflow has many dynamic content outputs available for use in subsequent actions. To get the query result items or item metadata as an iterable object, use the following steps:
+The **Query items** built-in action in a Standard workflow has many dynamic content outputs available for use in subsequent actions. To get the query result items or item metadata as an iterable object, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard workflow in the designer.
 
-1. If your workflow is blank, add any trigger that you want.
+1. If the workflow is blank, add any trigger that you want.
 
    This example starts with the [**Recurrence** trigger](connectors-native-recurrence.md).
 
-1. Under the trigger or action where you want to add the Azure Cosmos DB action, select **Insert a new step** (**+**) > **Add an action**.
-
-1. On the designer, make sure that **Add an operation** is selected. In the **Add an action** pane that opens, under the **Choose an operation** search box, select **Built-in** to find the **Azure Cosmos DB** actions.
-
-1. In the search box, enter `Azure Cosmos DB`. Select the **Query items (preview)** action.
+1. Under the trigger or action where you want to add the Azure Cosmos DB action, follow [these general steps to add the **Azure Cosmos DB** action named **Query items**](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
 1. If you're prompted for connection details, [create a connection to your Azure Cosmos DB account](#connect-to-azure-cosmos-db).
 
-1. Provide the necessary information for the action.
+1. In the action information pane, on the **Parameters** tab, provide the following necessary information:
 
-   | Properties | Required | Value | Description |
+   | Parameters | Required | Value | Description |
    |------------|----------|-------|-------------|
-   | **Database Id** | Yes | <*database-ID*> | The database that you want to connect. |
-   | **Container Id** | Yes | <*container-ID*> | The container that you want to query. |
-   | **SQL Query** | Yes | <*sql-query*> | The SQL query for your request. |
-   |||||
+   | **Database Id** | Yes | <*database-ID*> | The database to connect. |
+   | **Container Id** | Yes | <*container-ID*> | The container to query. |
+   | **SQL Query** | Yes | <*sql-query*> | The SQL query for the request. |
 
-   The following image shows an example action:
+1. Configure any other parameters or settings as needed.
 
-   :::image type="content" source="./media/connectors-create-api-cosmos-db/standard-query-action.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Azure Cosmos DB 'Query items' action and parameters configuration.":::
+1. Under the **Query items** action, follow [these general steps to add an action that you want to run on all the returned query items](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
-1. Configure any other action settings as needed.
+   This example uses the Azure Cosmos DB built-in action named **Delete an item**.
 
-1. Under the action, select **Insert a new step** (**+**) > **Add an action**. In the **Add an action** pane that opens, select the action that you want to run on all of the query result items.
+1. In the **Delete an item** action, you can access outputs from the **Query items** action by following these steps:
 
-This example uses the Azure Cosmos DB built-in action named **Delete an item (preview)**.
+   1. Select inside any input field to show the available options.
 
-1. In the action that you previously added, you can access data from the query action output. Click inside any of the input fields in that action so that the dynamic content list appears. Select any of the available response items or select **See more** for more options.
+   1. Select the lightning icon to open the dynamic content list.
+   
+   1. From the **Query items** section in the list, select the output you want, or select **See more** for more outputs.
 
-This example uses the **Response Item Id** in the **Item Id** field to populate IDs based on the query results.
+      For example, you can select **Response Item Id** to populate the **Item Id** field with IDs from the query results.
 
-   :::image type="content" source="./media/connectors-create-api-cosmos-db/standard-query-output.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Azure Cosmos DB **Query items** action dynamic content outputs.":::
-
-1. After you select a response item, the **For each** action is automatically added to iterate through all the query results. The **For each** loop contains the action that you previously added. You can add any other actions that you want to the loop.
+   After you select the **Response Item Id**, the **For each** action is automatically added to iterate through all the query results. The **For each** loop contains the **Delete an item** action. You can add any other actions to the loop.
 
 1. On the designer toolbar, select **Save**.
 
-1. Test your logic app to make sure your workflow returns the output that you expect.
+1. Test the workflow to confirm that the actions return the output that you expect.
 
-## Next steps
+## Related content
 
 * [Managed connectors for Azure Logic Apps](managed.md)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
