@@ -58,7 +58,7 @@ The sign-up and sign-in user flow handles both experiences with a single configu
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
-1. Under **Policies**, select **User flows**, and then select **New user flow**.
+1. <a name="new_user_flow"></a>Under **Policies**, select **User flows**, and then select **New user flow**.
 
     ![Screenshot of the User flows page from the Azure portal with New user flow button highlighted.](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 

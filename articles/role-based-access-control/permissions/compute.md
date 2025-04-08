@@ -460,6 +460,19 @@ Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
 > | Microsoft.AVS/privateClouds/rotateNsxtPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
 > | Microsoft.AVS/privateClouds/rotateNsxtCloudAdminPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
 
+## Microsoft.AzureFleet
+
+Azure service: [Azure Compute Fleet](/azure/azure-compute-fleet/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AzureFleet/register/action | Registers Subscription with Microsoft.AzureFleet resource provider |
+> | Microsoft.AzureFleet/unregister/action | Unregisters Subscription with Microsoft.AzureFleet resource provider |
+> | Microsoft.AzureFleet/fleets/read | Get properties of Azure Fleet resource |
+> | Microsoft.AzureFleet/fleets/write | Creates a new Azure Fleet resource or updates an existing one |
+> | Microsoft.AzureFleet/fleets/delete | Deletes all compute resources of Azure Fleet resource |
+
 ## Microsoft.Batch
 
 Cloud-scale job scheduling and compute management.
