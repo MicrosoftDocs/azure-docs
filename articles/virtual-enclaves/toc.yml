@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-    - name: What is Azure Virtual Enclaves?
+    - name: "What is Azure Virtual Enclaves?"
       href: what-azure-virtual-enclaves.md
 #     - name: Why use Azure Virtual Enclaves?
 #       href: why-azure-virtual-enclaves.md
@@ -26,21 +26,21 @@
 #       href: easy-button-deployments.md
 - name: Concepts
   items:
-    - name: What is a community?
+    - name: "What is a community?"
       href: what-community.md
-    - name: What is a transit hub?
+    - name: "What is a transit hub?"
       href: what-transit-hub.md
-    - name: What is a Community Endpoint?
+    - name: "What is a Community Endpoint?"
       href: what-community-endpoint.md
-    - name: What is an enclave?
+    - name: "What is an enclave?"
       href: what-enclave.md
-    - name: What is an Enclave Endpoint?
+    - name: "What is an Enclave Endpoint?"
       href: what-enclave-endpoint.md
-    - name: What is an Enclave Connection?
+    - name: "What is an Enclave Connection?"
       href: what-enclave-connection.md
-    - name: What is a workload?
+    - name: "What is a workload?"
       href: what-workload.md
-    - name: What is the service catalog?
+    - name: "What is the service catalog?"
       href: what-service-catalog.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
