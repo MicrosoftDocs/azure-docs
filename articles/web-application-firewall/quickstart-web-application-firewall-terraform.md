@@ -40,9 +40,9 @@ In this quickstart, you use Terraform to create an Azure Application Gateway wit
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Install and configure Terraform.](/azure/developer/terraform/quickstart-configure)
+- Terraform. For more information, see [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
 
@@ -157,7 +157,7 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
 
-## Next steps
+## Related content
 
 - [Create Web Application Firewall policies for Application Gateway](/azure/web-application-firewall/ag/create-waf-policy-ag)
 - [Associate a WAF policy with an existing Application Gateway](/azure/web-application-firewall/ag/associate-waf-policy-existing-gateway)
