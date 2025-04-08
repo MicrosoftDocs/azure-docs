@@ -54,6 +54,8 @@ The following table summarizes the parameters for the **Parse Host File Contents
 
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
+
+
 | **HIDX Name** | Yes | String | Select the mainframe host file HIDX file that you want to use. |
 | **Schema Name** | Yes | String | Select the host file schema in the HIDX file that you want to use. |
 | **Binary contents** | Yes | Binary | Select the binary data with a fixed length record extracted from the mainframe. |
@@ -62,8 +64,10 @@ The following table summarizes the parameters for the **Parse Host File Contents
 
 The following table summarizes the parameters for the **Generate Host File Contents** action:
 
-| Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
+
+|-----------|----------|------|-------------|
+
 | **HIDX Name** | Yes | String | Select the mainframe host file HIDX file that you want to use. |
 | **Schema Name** | Yes | String | Select the host file schema in the HIDX file that you want to use. |
 | **Rows** | Yes | JSON | Select the Array or individual rows. To enter an entire data object in JSON format, you can select the **Switch to input entire array** option. |
@@ -224,7 +228,7 @@ Follow these steps to add a Generate Host File Contents action:
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png" alt-text="Screenshot shows the Generate Host File Contents action with selected HIDX file and schema." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png":::
 
-   1. For the **Rows** > **Rows Item - 1**, select the dynamic content list (lightning icon), and select the **Response from read blob action Content** option:
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png":::
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account.":::
 
