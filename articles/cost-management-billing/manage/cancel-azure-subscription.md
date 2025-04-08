@@ -111,18 +111,14 @@ The following example shows that credits were applied and pending estimated char
 You can cancel your Azure support plan with the following steps: 
 
 1. Navigate to the Cost management + Billing Overview page. 
+2. Select **All Billing Subscription  **.
+3. Select the support plan that you want to cancel from **All Billing Subscription  ** to open the Support plan details page.
+4. Select **Cancel** for the fly-out to appear.
+5. Select **Off** for your auto-renewal period so that the support plan will stop auto-renewal when it expires.
 
-1. Select “All billing subscription”  
+![Screenshot for cancel support plan](media/cancel-azure-subscription/cancel-azure-support-plan.png)
 
-1. Select the support plan that you want to cancel from “All billing subscription” to open the Support plan details page 
-
-1. Select **Cancel** for the fly-out to appear 
-
-1. Select “**Off**” for your auto-renewal period so that the support plan will stop auto-renewal when it expires 
-
-![cancel-azure-support-plan](media/cancel-azure-subscription/cancel-azure-support-plan.png)
-
-If you cancel an Azure Support plan, you're billed for the rest of the month. **Cancelling a support plan doesn't result in a prorated refund.** For more information, see [Azure Support Plan FAQ](https://azure.microsoft.com/en-us/support/legal/faq/?msockid=2d6d1868e6cf6c2120fc0d3ae73f6d72) 
+If you cancel an Azure Support plan, you're billed for the rest of the month. **Cancelling a support plan doesn't result in a prorated refund.** For more information, see [Azure Support Plan FAQ](https://azure.microsoft.com/support/legal/faq).
 
 ## What happens after subscription cancellation?
 
