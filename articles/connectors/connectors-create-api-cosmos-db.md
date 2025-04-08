@@ -46,7 +46,7 @@ If you're working with a Standard workflow, the built-in trigger named **When an
 
 ### [Consumption](#tab/consumption)
 
-No Azure Cosmos DB triggers are available for Consumption workflows.
+No Azure Cosmos DB triggers are available for Consumption workflows. Instead, add a trigger that works for your scenario.
 
 ### [Standard](#tab/standard)
 
@@ -127,7 +127,9 @@ To add an Azure Cosmos DB built-in action to a Standard workflow, follow these s
 
 1. If the workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create.
+   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create:
+
+   :::image type="content" source="./media/connectors-create-api-cosmos-db/http-trigger-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and trigger named When a HTTP request is received.":::
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, follow [these general steps to add the **Azure Cosmos DB** action that you want](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
