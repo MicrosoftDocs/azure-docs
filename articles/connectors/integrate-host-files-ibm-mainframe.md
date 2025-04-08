@@ -60,6 +60,7 @@ The following table summarizes the parameters for the **Parse Host File Contents
 
 ### Generate Host File Contents action
 
+| Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
 | **HIDX Name** | Yes | String | Select the mainframe host file HIDX file that you want to use. |
 | **Schema Name** | Yes | String | Select the host file schema in the HIDX file that you want to use. |
