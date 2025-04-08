@@ -6,6 +6,7 @@ ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
+ms.custom: references_region
 ---
 
 # Tutorial 2: Create Enclaves in a Community on Azure Virtual Enclaves

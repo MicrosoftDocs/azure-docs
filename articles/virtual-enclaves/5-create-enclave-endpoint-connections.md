@@ -114,7 +114,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![Screenshot showing the pending connection approval.](./media/tutorial-step-five-fabrikam-connection-approval-pending.png)
 
-7. Approve the pending approvals and the connection state will automatically update to the `connected` state.
+8. Approve the pending approvals and the connection state will automatically update to the `connected` state.
 
 ## Next steps
 In this tutorial, you deployed community and enclave endpoints using Azure portal. You also learned how to:

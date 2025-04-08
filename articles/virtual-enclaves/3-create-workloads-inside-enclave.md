@@ -33,7 +33,7 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
 
 2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./2-create-enclaves-inside-community.md).
 
-![Screenshot showing the WebApp Enclave overview list.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-deployed.png)
+![Screenshot showing the WebApp Enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png)
 
 3. Go to the `Workloads` on the left underneath the `Enclave resources` section in the left-hand menu.
 
@@ -46,7 +46,7 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
    - **Workload name**: Name of the Workload for this tutorial `wl-webapp-frontend`.
    - **Add**: Select to add a resource group
       - **Create new**: Select and enter the name `rg-webapp-frontend` then select `Ok`
-> Note:
+> [!Note]
 >
 > Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming.md).
 

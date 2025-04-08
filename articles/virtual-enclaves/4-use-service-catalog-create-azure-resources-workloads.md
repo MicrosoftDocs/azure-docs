@@ -16,7 +16,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 - ✅ Deploy a Service Catalog template for an Azure resource into an existing Workload from the Portal
 
-NOTE: The sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
+> [!NOTE] The sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
 
@@ -25,7 +25,7 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 - A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 - Complete the [prerequisites](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for an App Service Web App. Including subnet delegation for the
 
-![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-four-service-catalog-app-service-subnet-delegate.png.png)
+![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-four-service-catalog-app-service-subnet-delegate.png)
 
 ## Enable enclave maintenance mode
 
@@ -45,10 +45,10 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 
 ## Create Azure web app resources from the service catalog
 
-5. Navigate to the `wl-webapp-frontend` Workload to create an Azure App Service for your webapp.
-6. Select `Add an Azure service` button on the overview page.
-7. Select `App Service` from the Service Catalog dropdown list and select `Next`.
-8. Enter all the required parameters on each tab.
+1. Navigate to the `wl-webapp-frontend` Workload to create an Azure App Service for your webapp.
+2. Select `Add an Azure service` button on the overview page.
+3. Select `App Service` from the Service Catalog dropdown list and select `Next`.
+4. Enter all the required parameters on each tab.
    - **Web App Site Name:** Enter `webapp-frontend`
    - **App Service Sku Name:** Select an option from the dropdown, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
    - **App Service Sku Tier:** Enter `PremiumV2`.
@@ -56,13 +56,13 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 
 ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png)
 
-9. Select `Next` to confirm the networking information prepopulated by the Service Catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
+5. Select `Next` to confirm the networking information prepopulated by the Service Catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
    - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` which is the subnet delegated in the previous step.
    - **Private Link Subnet Name:** Enter `mySubnet`
 
 ![Screenshot showing the networking input screen for an App Service web app.](./media/service-catalog-app-service-networking.png)
 
-10. Select `Review + Create` and then `Create`.
+6. Select `Review + Create` and then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to complete successfully before you take any actions within your deployed resources.
 
@@ -70,7 +70,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 
 ## Validate the deployment
 
-1. Go to the specified Resource Group to confirm the intended resources were created.
+Go to the specified Resource Group to confirm the intended resources were created.
 
 ## Deploy Web App Quickstart (Optional)
 Azure App Service has quickstarts for many languages such as the [python quickstart](../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](../app-service/deploy-zip.md)
