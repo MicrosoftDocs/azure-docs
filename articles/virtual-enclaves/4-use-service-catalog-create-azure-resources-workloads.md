@@ -16,7 +16,9 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 - ✅ Deploy a Service Catalog template for an Azure resource into an existing Workload from the Portal
 
-> [!NOTE] The sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
+> [!NOTE] 
+> 
+> The sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
 
