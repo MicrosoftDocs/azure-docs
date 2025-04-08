@@ -16,7 +16,7 @@ For an introduction to tagging of Azure resources and to learn about requirement
 
 ## Why identify mission critical workloads?
 
-Identifying mission critical related resources brings numerous benefits including resource management, cost management and optimization, security, automation and workload optimization. By tagging these resources, you can group them as part of a mission-critical workload. These tags help in accurately identifying and managing these essential workloads. You can read more about tagging usage here [Resource naming and tagging decision guide - Cloud Adoption Framework | Microsoft Learn](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide).
+Identifying mission critical related resources brings numerous benefits including resource management, cost management and optimization, security, automation and workload optimization. By tagging these resources, you can group them as part of a mission critical workload. These tags help in accurately identifying and managing these essential workloads. You can read more about tagging usage here [Resource naming and tagging decision guide - Cloud Adoption Framework | Microsoft Learn](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide).
 
 This article aligns with workload optimization, where tagging can help inform of opportunities to improve resiliency and further enhance your Service Level Objectives.
 
