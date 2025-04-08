@@ -9,7 +9,7 @@ ms.date: 03/19/2025
 ms.custom: engagement-fy23
 ---
 
-# Quickstart: Create project using Portal
+# Quickstart: Create an Azure Migrate project using Portal
 
 This article describes how to create, manage, and delete [projects](migrate-services-overview.md). 
 
@@ -83,12 +83,10 @@ If you already have a project and you want to create an additional project, do t
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
    
-2. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
+1. On the Azure Migrate dashboard, elect **All Projects** on the upper left.
+1. Select a **Create Project**. 
 
     :::image type="content" source="./media/quickstart-create-project/switch-project.png" alt-text="Screenshot containing Create Project button." lightbox="./media/quickstart-create-project/switch-project.png"::::::
-
-3. To create a new project, select **Click here**.
-
 
 ## Find a project
 
