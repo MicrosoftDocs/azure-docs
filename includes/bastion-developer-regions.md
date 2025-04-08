@@ -15,3 +15,4 @@ Bastion Developer is currently available in the following regions:
 * North Central US
 * West US
 * North Europe
+* Australia East
