@@ -52,7 +52,7 @@ In this scenario, the goal is to drop routes being advertised from VPN branch si
 
 ## Workflow
 
-1.  Use the Route-Map dashboard in hub 1 to verify what routes are being advertised from the VPN branch. 
+1. Use the Route-Map dashboard in hub 1 to verify what routes are being advertised from the VPN branch. 
 
    :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/db-before.png" alt-text="Screenshot that shows routes before Route-maps." lightbox="./media/route-maps-drop-inbound-branch-sites/db-before.png"::: 
    
@@ -70,7 +70,7 @@ In this scenario, the goal is to drop routes being advertised from VPN branch si
 
    :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/apply.png" alt-text="Screenshot showing the Route-Map being applied." lightbox="./media/route-maps-drop-inbound-branch-sites/apply.png":::
 
- 4. Using the Route-Map dashboard in Hub 1, Verify that routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 are being dropped.   
+4. Using the Route-Map dashboard in Hub 1, Verify that routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 are being dropped.   
 
    :::image type="content" source="./media/route-maps-drop-inbound-branch-sites/db-after.png" alt-text="Screenshot showing routes after the Route-Map being applied." lightbox="./media/route-maps-drop-inbound-branch-sites/db-after.png":::
 
