@@ -111,7 +111,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure API for FHIR
 - Azure Automation
 - Azure Container Apps
-- Azure CosmosDB for MongoDB
+- Azure Cosmos DB for MongoDB
 - Azure Cosmos DB for NoSQL
 - Azure Cosmos DB for PostgreSQL
 - Azure Data Share
