@@ -24,7 +24,7 @@ This how-to guide describes the following aspects about the **IBM Host File** co
 * Prerequisites and setup for using the **IBM Host File** connector
 * Steps for adding the **IBM Host File** connector actions to your Standard logic app workflow
 
-## Explore the IBM Host File connector and usage scenarios
+## Review the connector usage scenarios
 
 On IBM mainframes, *access methods*, which are special components in the operating system, handle file processing. In the 1970s, Virtual Storage Access Method (VSAM) was built and became the most widely used access method on IBM mainframes. VSAM provides specific types of files, including entry-sequenced datasets, key-sequenced datasets, and relative record datasets.
 
@@ -154,16 +154,16 @@ Follow these steps to add a Parse Host File Contents action:
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting binary data to read from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png":::
 
-   1. Now, add another action to handle the result.
+      The complete **Parse Host File Contents** action looks like the following example:
+
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-complete.png" alt-text="Screenshot shows the completed Parse Host File Contents action." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-complete.png":::
+
+   1. Now, add another action to handle the result:
    
       This example adds an action to create a file on a File Transfer Protocol (FTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-ftp-server.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting to create a file on an FTP server." lightbox="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-ftp-server.png":::
    
-   After your configuration, the **Parse Host File Contents** action looks like the following example:
-
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-complete.png" alt-text="Screenshot shows the completed Parse Host File Contents action." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-complete.png":::
-
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### Test your workflow
@@ -228,16 +228,16 @@ Follow these steps to add a Generate Host File Contents action:
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png":::
 
+      The complete **Generate Host File Contents** action looks like the following example:
+
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png" alt-text="Screenshot shows the completed Generate Host File Contents action." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png":::
+
    1. Now, add another action to handle the result.
    
       This example adds an action to create a file on a File Transfer Protocol (FTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-ftp-server.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting to create a file on an FTP server." lightbox="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-ftp-server.png":::
    
-   After your configuration, the **Generate Host File Contents** action looks like the following example:
-
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png" alt-text="Screenshot shows the completed Generate Host File Contents action." lightbox="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-complete.png":::
-
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### Test your workflow
