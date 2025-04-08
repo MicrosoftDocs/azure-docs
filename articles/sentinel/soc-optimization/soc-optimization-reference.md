@@ -49,12 +49,14 @@ The following table lists the available types of data value SOC optimization rec
 
 If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics) or a [threat intelligence matching analytics rule](/azure/sentinel/use-matching-analytics-to-detect-threats), SOC optimization doesn't recommend any changes in ingestion.
 
-### Unused columns 
+### Unused columns (Preview)
 
-SOC optimization also surfaces unused columns in your tables. If the columns have not been used in the last 30 days, we recommend that you stop data ingestion for these columns. This recommendation is available for the  **ConditionalAccessPolicies** column in these tables:
+SOC optimization also surfaces unused columns in your tables. The following table lists the available types of columns available for SOC optimization recommendations:
 
-- **SignInLogs**
-- **AADNonInteractiveUserSignInLogs** 
+| Type of observation | Action |
+|---------|---------|
+| The **ConditionalAccessPolicies** column in the **SignInLogs** table or the **AADNonInteractiveUserSignInLogs** table is not in use.  | Stop data ingestion for the column. |
+ 
 
 > [!IMPORTANT]
 > When making changes to ingestion plans, we recommend always ensuring that the limits of your ingestion plans are clear, and that the affected tables aren't ingested for compliance or other similar reasons.
