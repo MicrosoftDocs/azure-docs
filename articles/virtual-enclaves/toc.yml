@@ -5,25 +5,25 @@
   items:
     - name: "What is Azure Virtual Enclaves?"
       href: what-azure-virtual-enclaves.md
-#     - name: Why use Azure Virtual Enclaves?
-#       href: why-azure-virtual-enclaves.md
-#     - name: Quotas and region availability
-#       href: quotas-and-region-availability-in-azure-virtual-enclaves.md
-# - name: Quickstarts
-#   expanded: true
-#   items:
-#     - name: Onboard to AVE
-#       href: onboard-to-ave.md
-#     - name: Deploy an AVE Community with Enclaves
-#       href: deploy-an-ave-community-with-enclaves.md
-#     - name: Create a Community Endpoint
-#       href: create-a-community-endpoint-in-the-azure-portal.md
-#     - name: Create an Enclave
-#       href: create-an-enclave-in-the-azure-portal.md
-#     - name: Create a Workload
-#       href: create-a-workload-in-the-azure-portal.md
-#     - name: Easy Button Deployments
-#       href: easy-button-deployments.md
+    - name: Why use Azure Virtual Enclaves?
+      href: why-azure-virtual-enclaves.md
+    - name: Quotas and region availability
+      href: quotas-and-region-availability-in-azure-virtual-enclaves.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Onboard to AVE
+      href: onboard-to-ave.md
+    - name: Deploy an AVE Community with Enclaves
+      href: deploy-an-ave-community-with-enclaves.md
+    - name: Create a Community Endpoint
+      href: create-a-community-endpoint-in-the-azure-portal.md
+    - name: Create an Enclave
+      href: create-an-enclave-in-the-azure-portal.md
+    - name: Create a Workload
+      href: create-a-workload-in-the-azure-portal.md
+    - name: Easy Button Deployments
+      href: easy-button-deployments.md
 - name: Concepts
   items:
     - name: "What is a community?"
@@ -42,18 +42,18 @@
       href: what-workload.md
     - name: "What is the service catalog?"
       href: what-service-catalog.md
-#     - name: Understanding Enclave Networking
-#       href: networking.md
-#     - name: Designing intra-enclave network isolation
-#       href: designing-intra-enclave-network-isolation.md
-#     - name: Concepts and best practices
-#       href: concepts-and-best-practices.md
-#     - name: Defense in Depth
-#       href: defense-in-depth.md
-#     - name: Workload and Application Planning
-#       href: workload-and-application-planning.md
-#     - name: Built in RBAC Roles
-#       href: built-in-rbac-roles.md
+    - name: Understanding Enclave Networking
+      href: networking.md
+    - name: Designing intra-enclave network isolation
+      href: designing-intra-enclave-network-isolation.md
+    - name: Concepts and best practices
+      href: concepts-and-best-practices.md
+    - name: Defense in Depth
+      href: defense-in-depth.md
+    - name: Workload and Application Planning
+      href: workload-and-application-planning.md
+    - name: Built in RBAC Roles
+      href: built-in-rbac-roles.md
   - name: Tutorials
     items:
     - name: Tutorial 1 Create a community
