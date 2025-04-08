@@ -201,4 +201,4 @@ Lear more about:
 -   [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Capacity metric](api-management-capacity.md) for scaling decisions
 -   [Observability capabilities](observability.md) in API Management
--   [GenAI gateway capabilities](genai-gateway-capabilities.md) in API Management
+-   [AI gateway capabilities](genai-gateway-capabilities.md) in API Management
