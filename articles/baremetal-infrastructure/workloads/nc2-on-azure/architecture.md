@@ -6,7 +6,7 @@ description: Learn about the architecture of several configurations of BareMetal
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 03/28/2025
+ms.date: 04/08/2025
 ms.service: azure-baremetal-infrastructure
 ---
 
@@ -17,7 +17,7 @@ NC2 provides Nutanix-based private clouds in Azure. The private cloud hardware a
 A private cloud includes clusters with:
 
 - Dedicated bare-metal server hosts provisioned with Nutanix AHV hypervisor
-- Nutanix Prism Central for managing Nutanix Prism Element, Nutanix AHV and Nutanix AOS.
+- Nutanix Prism Central for managing Nutanix Prism Element, Nutanix AHV, and Nutanix AOS.
 - Nutanix Flow software-defined networking for Nutanix AHV workload VMs
 - Nutanix AOS software-defined storage for Nutanix AHV workload VMs
 - Nutanix Move for workload mobility
@@ -27,7 +27,7 @@ Private clouds are installed and managed within an Azure subscription. The numbe
 
 The following diagram describes the architectural components of the NC2 on Azure.
 
-:::image type="content" source="media/nc2-on-azure-architecture-overview.png" alt-text="Diagram illustrating the NC2 on Azure architecutural overview." border="false"  lightbox="media/nc2-on-azure-architecture-overview.png":::
+:::image type="content" source="media/nc2-on-azure-architecture-overview.png" alt-text="Diagram illustrating the NC2 on Azure architectural overview." border="false"  lightbox="media/nc2-on-azure-architecture-overview.png":::
 
 Each NC2 on Azure architectural component has the following function:
 
@@ -39,8 +39,8 @@ Each NC2 on Azure architectural component has the following function:
 - Nutanix Disaster Recovery: Provides disaster recovery automation and storage replication services.
 - Nutanix Files: Provides filer services.
 - Nutanix Self Service: Provides application lifecycle management and cloud orchestration.
-- Nutanix Cost Governance: Provides multi-cloud optimization to reduce cost & enhance cloud security.
-- Azure Virtual Network (VNet): Private network used to connect AHV hosts, Azure services and resources together.
+- Nutanix Cost Governance: Provides multicloud optimization to reduce cost & enhance cloud security.
+- Azure Virtual Network (VNet): Private network used to connect AHV hosts, Azure services, and resources together.
 - Azure Route Server: Enables network appliances to exchange dynamic route information with Azure networks.
 - Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPsec VPN, ExpressRoute, and VNet to VNet.
 - Azure ExpressRoute: Provides high-speed private connections between Azure data centers and on-premises or colocation infrastructure.
@@ -62,7 +62,7 @@ Applications move with no changes, allowing for flexible operations and minimum 
 
 ### Disaster recovery
 
-Use Azure as a disaster recovery site to provision nodes and failover your Nutanix VMs and workloads. The hardware is available on-demand and in the cloud without requring you to invest in pre-provisioning a secondary data center environment. 
+Use Azure as a disaster recovery site to provision nodes and failover your Nutanix VMs and workloads. The hardware is available on-demand and in the cloud without requiring you to invest in pre-provisioning a secondary data center environment. 
  
 ### On-demand elasticity
 
@@ -104,7 +104,7 @@ The following table describes the network topologies supported by each network f
 |Connectivity to BareMetal Infrastructure (BMI) in a local VNet| Yes |
 |Connectivity to BMI in a peered VNet (Same region)|Yes |
 |Connectivity to BMI in a peered VNet\* (Cross region or global peering) with VWAN\*|Yes |
-|Connectivity to BM in a peered VNet* (Cross region or global peering)* without VWAN| No|
+|Connectivity to BMI in a peered VNet* (Cross region or global peering)* without VWAN| No|
 |On-premises connectivity to Delegated Subnet via Global and Local Expressroute |Yes|
 |ExpressRoute (ER) FastPath |No |
 |Connectivity from on-premises to BMI in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes |
@@ -124,14 +124,14 @@ The following table describes the network topologies supported by each network f
 
 The following table describes what’s supported for each network features configuration:
 
-|Features |Basic network features |
+|Features |Support or Limit|
 | :------------------- | -------------------: |
 |Delegated subnet per VNet |1|
-|[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
 |[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| Yes|
-|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in the same Vnet on Azure-delegated subnets|No|
-|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in a different spoke Vnet connected to vWAN|Yes|
+|Connectivity from BareMetal to to [service endpoints](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
+|Connectivity from BareMetal to [service endpoints](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
+|[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
@@ -141,3 +141,6 @@ Learn more:
 
 > [!div class="nextstepaction"]
 > [Getting Started](get-started.md)
+
+
+[def]: ../../../private-link/private-endpoint-overview.md
