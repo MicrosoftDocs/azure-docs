@@ -160,12 +160,12 @@ getSupportedResolutions();
 
 | **Resolution** | **Min framerate** | **Max framerate** |  **Max bitrate**  |
 |--|--|--|--|
-| 1080p | 30 | 30 | 4m |
+| 1080p | 30 | 30 | 4M |
 | 720p | 30 | 30 | 2.5M |
 | 540p | 30 | 30 | 2M |
 | 360p | 30 | 30 | 1M |
-| 240p | 15 | 15 | 650k |
-| 180p | 7.5 | 15 | 250k(350k if 15 FPS)|
+| 240p | 15 | 15 | 650K |
+| 180p | 7.5 | 15 | 250K(350K if 15 FPS)|
 
 You can use the media quality statistics API within the WebJS SDK to determine the real time video send and receive resolution. See [here](../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web) for more details.
 
