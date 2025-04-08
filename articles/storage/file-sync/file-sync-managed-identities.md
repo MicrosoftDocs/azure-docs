@@ -34,7 +34,7 @@ To configure your Azure File Sync deployment to utilize system-assigned managed 
 
  
   
-  -	**Az.StorageSync [PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync) version 2.2.0 or later** must be installed on the machine that will be used to configure Azure File Sync to use managed identities. To install the latest Az.StorageSync PowerShell module, run the following command from an elevated PowerShell window:
+-	**Az.StorageSync [PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync) version 2.5.0 or later** must be installed on the machine that will be used to configure Azure File Sync to use managed identities. To install the latest Az.StorageSync PowerShell module, run the following command from an elevated PowerShell window:
 
     ```powershell
     Install-Module Az.StorageSync -Force

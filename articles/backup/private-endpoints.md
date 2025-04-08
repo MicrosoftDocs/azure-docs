@@ -2,7 +2,7 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 04/04/2025
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
 author: jyothisuri
@@ -555,7 +555,7 @@ The following diagram shows a setup (while using the Azure Private DNS zones) wi
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server.png":::
 
-3. To auto-update the MARS Agent allow access to the `*.login.microsoft.com` domain.
+3. To auto-update the MARS Agent allow access to `download.microsoft.com/download/MARSagent/*`.
 
 ### Create DNS entries when the DNS server/DNS zone is present in another subscription
 
