@@ -219,13 +219,13 @@ Add the range of IP addresses to configure the DHCP settings that can apply to a
 
 ## Configure a backup server
 
-Configure your backup server correctly otherwise a false-positive [Malware engine alert](alert-engine-messages.md#malware-engine-alerts) might be triggered.
+If you have a backup server for your OT sensor it must be correctly configured . If the backup server is misconfigured traffic might be falsely recognized as malware and trigger a [Malware engine alert](alert-engine-messages.md#malware-engine-alerts). Once the backup server is running follow this procedure to check the settings are correct.
 
 **To configure the backup server:**
 
 1. Sign into your OT sensor console and select **System settings** > **Sensor management** > **Advanced configurations**.
 
-1. Select the **Global** category. Ensure the parameter **is_reduce_backup_malware_enabled=1** is set correctly. (Note: **true** is also an acceptable parameter.)
+1. Select the **Global** category. Ensure the parameter **is_reduce_backup_malware_enabled** is set to **1** or **true**.
 
 1. Select the **Vulnerability assessment** category. Ensure **backup_servers** lists the backup server device's IP address.
 
