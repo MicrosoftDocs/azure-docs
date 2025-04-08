@@ -51,7 +51,7 @@ In this scenario, the goal is to tag route 10.5.0.192/26 form virtual network 3 
 
 ## Workflow
 
-   1. Use the Route-Map dashboard in hub 2 to verify the BGP community on the route 10.5.0.192/26 being advertised from the virtual network connection.
+1. Use the Route-Map dashboard in hub 2 to verify the BGP community on the route 10.5.0.192/26 being advertised from the virtual network connection.
 
    :::image type="content" source="./media/route-maps-tag-routes/db-before.png" alt-text="Screenshot that shows routes before Route-map." lightbox="./media/route-maps-tag-routes/db-before.png"::: 
 
@@ -59,17 +59,17 @@ In this scenario, the goal is to tag route 10.5.0.192/26 form virtual network 3 
 
    :::image type="content" source="./media/route-maps-tag-routes/db-before-two.png" alt-text="Screenshot that shows routes for VPN branch." lightbox="./media/route-maps-tag-routes/db-before-two.png":::   
 
-   2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
+2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
    The Route-Map will have a match rule for route 10.5.0.192/26. The action **modify** will be selected. Route Modification has an **add** for **community** 3356:70.  
 
    :::image type="content" source="./media/route-maps-tag-routes/rm.png" alt-text="Screenshot that shows the Route-map." lightbox="./media/route-maps-tag-routes/rm.png":::
 
-   3. Apply the Route-Map on the virtual network 3 connection. The Route-Map will be applied in the inbound direction. 
+3. Apply the Route-Map on the virtual network 3 connection. The Route-Map will be applied in the inbound direction. 
 
    :::image type="content" source="./media/route-maps-tag-routes/apply.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="./media/route-maps-tag-routes/apply.png":::
 
-   4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has the BGP community of 3356:70 added on the virtual network 3 connection.    
+4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has the BGP community of 3356:70 added on the virtual network 3 connection.    
 
    :::image type="content" source="./media/route-maps-tag-routes/db-after.png" alt-text="Screenshot that shows routes after Route-map being applied." lightbox="./media/route-maps-tag-routes/db-after.png":::
 
