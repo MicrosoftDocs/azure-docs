@@ -72,6 +72,10 @@ To add an Azure Cosmos DB built-in trigger to a Standard workflow, follow these 
    > The trigger creates a workflow run for each item created or modified in Azure Cosmos DB, 
    > so the dynamic content output of this trigger is always a single item.
 
+   The following example shows the **When an item is created or modified** trigger:
+
+   :::image type="content" source="media/connectors-create-api-cosmos-db/trigger-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and trigger named When an item is created or modified.":::
+
 1. To add any other available parameters, open the **Advanced parameters** list.
 
 1. Configure any other parameters or settings as needed.
@@ -148,7 +152,11 @@ To add an Azure Cosmos DB built-in action to a Standard workflow, follow these s
    |-----------|----------|-------|-------------|
    | **Database Id** | Yes | <*database-ID*> | The database to connect. |
    | **Container Id** | Yes | <*container-ID*> | The container to query. |
-   | **Item** | Yes | <*JSON-document*> | The JSON document to create. This example uses the request body from the trigger output. <br><br>**Tip**: If the HTTP trigger's **Body** token doesn't appear in the dynamic content list for you to add, next to the trigger name, select **See more**. <br><br>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the **`id`** property and the partition key property for your document. If a document with the specified **`id`** and partition key exists, the document is updated. Otherwise, a new document is created. |
+   | **Item** | Yes | <*JSON-document*> | The JSON document to create. This example uses the **id** output from the Request trigger. <br><br>**Note**: If you use the **body** trigger output, make sure that the body content is well-formed JSON, and at a minimum, contains the **`id`** attribute and the **`partitionKey`** attribute for your document. If a document with these attributes exist, the document is updated. Otherwise, a new document is created. |
+
+   The following example shows the action named **Create or update item**, which includes the **Item** and **Partition Key** parameter values from the output for the trigger named **When a HTTP request is received**:
+
+   :::image type="content" source="media/connectors-create-api-cosmos-db/create-action-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and action named Create or update item.":::
 
 1. Configure any other parameters or settings as needed.
 
