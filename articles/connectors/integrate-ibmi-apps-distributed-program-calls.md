@@ -24,7 +24,7 @@ This article describes the following aspects about the IBM i connector:
 * Prerequisites and setup for using the IBM i connector
 * Steps for adding IBM i connector actions to your Standard logic app workflow
 
-## Review usage scenarios for the IBM i connector
+## Review the connector usage scenarios
 
 More than 50 years ago, IBM released the first midrange systems. IBM advertised them as "Small in size, small in price and Big in performance. It is a system for now and for the future." Over the years, the midrange systems evolved and became pervasive in medium-sized businesses or in large enterprises to extend mainframe environments. Midrange systems that run IBM i, typically Power Systems, support TCP/IP and SNA.
 
