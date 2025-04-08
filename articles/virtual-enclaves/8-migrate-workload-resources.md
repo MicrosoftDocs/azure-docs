@@ -1,6 +1,6 @@
 ---
 title: Migrate Resources into or within AVE
-description: Migrate Resources into or within AVE
+description: Migrate Resources into or within AVE.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 01/31/2025
 ---
 
-# Migrate Resources into or within AVE
+# Tutorial 8: Migrate Resources into or within AVE
 
 This article covers how to [move resources](../azure-resource-manager/management/move-resource-group-and-subscription.md) when those resources are linked to AVE resources (e.g. Enclaves or Workloads).
 

@@ -1,6 +1,6 @@
 ---
 title: Monitor your enclaves in Azure Virtual Enclaves
-description: Monitor your enclaves in Azure Virtual Enclaves
+description: Monitor your enclaves in Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 01/31/2025
 ---
 
-# Tutorial 7: Monitor your enclaves in Azure Virtual Enclaves
+# Tutorial 6: Monitor your enclaves in Azure Virtual Enclaves
 
 Many Azure services offer comprehensive monitoring solutions for collecting, analyzing, and responding to monitoring data. With Azure Virtual Enclaves, you can leverage the monitoring capabilities of each underlying Azure service that gets deployed with each Azure Virtual Enclave resource. 
 

@@ -1,6 +1,6 @@
 ---
 title: Host a publicly accessible application in an enclave
-description: Host a publicly accessible application in an enclave
+description: Host a publicly accessible application in an enclave.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 01/31/2025
 ---
 
-# Tutorial 8: Host a publicly accessible application in an enclave
+# Tutorial 7: Host a publicly accessible application in an enclave
 
 Web applications can be hosted inside of a Virtual Enclave and made publicly accessible by routing traffic through a separate DMZ Enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address, creating an **Enclave Endpoint** for the Web App, and establishing an **enclave connection** between the Web App and DMZ enclaves.
 
