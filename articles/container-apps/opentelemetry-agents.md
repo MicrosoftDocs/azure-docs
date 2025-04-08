@@ -572,7 +572,7 @@ The following example ARM template shows how to use an OTLP endpoint named `cust
 }
 ```
 
-## Configure System Components OpenTelemetry Signals 
+## Configure Export System Components OpenTelemetry Signals 
 From api version 2024-08-02-preview, you might configure your container app environment to export system components OpenTelemetry signals to your data destinations.
 Now, we support Dapr Traces and Keda Metrics
 
