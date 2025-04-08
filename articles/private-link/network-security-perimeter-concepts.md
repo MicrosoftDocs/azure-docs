@@ -113,12 +113,12 @@ Network security perimeter supports the following access rule types:
 
 ## Limitations of a network security perimeter
 
-### Regional limitations
+### Logging limitations
 
 Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 > [!NOTE]
-> For PaaS resource logs, use **Storage and Event Hub** as the log destination for any region associated to the same perimeter.
+> For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource logs.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 
