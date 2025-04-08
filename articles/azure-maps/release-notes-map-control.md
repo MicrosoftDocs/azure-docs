@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.6.1] (CDN: April 7, 2025, npm: TBA)
+### [3.6.1] (CDN: April 7, 2025, npm: April 9, 2025)
 
 #### Bug fixes
 * Fix the issue where `maxBounds` wasn't included in `map.getCamera()`, causing it to be unset when `setCamera()` is called.
