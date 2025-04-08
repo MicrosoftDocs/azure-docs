@@ -578,6 +578,7 @@ From api version 2024-08-02-preview, you might configure your container app envi
 Now, we support Dapr Traces and Keda Metrics
 
 ### Dapr Traces
+The following example ARM template shows how to export Dapr Traces to your traces destinations
 ```json
 {
   ...
@@ -599,6 +600,7 @@ Now, we support Dapr Traces and Keda Metrics
 To learn more about how to use dapr in container apps [Dapr Overview](./dapr-overview.md)
 
 ### Keda Metrics
+The following example ARM template shows how to export Keda Metrics to your metrics destinations
 ```json
 {
   ...
