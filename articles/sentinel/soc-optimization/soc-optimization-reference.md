@@ -1,13 +1,13 @@
 ---
 title: SOC optimization reference
 description: Learn about the Microsoft Sentinel SOC optimization recommendations available to help you optimize your security operations.
-ms.author: bagol
-author: batamig
-manager: raynew
+ms.author: abbyweisberg
+author: AbbyMSFT
+manager: orspod
 ms.collection:
   - usx-security
 ms.topic: reference
-ms.date: 12/18/2024
+ms.date: 04/08/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -23,9 +23,11 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 Microsoft Sentinel SOC optimizations include the following types of recommendations:
 
+- **Data value recommendations** suggest ways to improve your data use, such as a better data plan for your organization.
+
 - **Threat-based recommendations** suggest adding security controls that help you close coverage gaps.
 
-- **Data value recommendations** suggest ways to improve your data use, such as a better data plan for your organization.
+- **Risk-based recommendations** suggest adding security controls that help you protect against Operational, Financial, Reputational, Compliance and Legal business risks. 
 
 - **Similar organizations recommendations** suggest ingesting data from the types of sources used by organizations which have similar ingestion trends and industry profiles to yours.
 
@@ -67,6 +69,20 @@ The following table lists the available types of threat-based SOC optimization r
 | There are data sources, but detections are missing.     | Turn on analytics rule templates based on the threat: Create a rule using an analytics rule template, and adjust the name, description, and query logic to suit your environment. <br><br>For more information, see [Threat detection in Microsoft Sentinel](../threat-detection.md). |
 | Templates are turned on, but data sources are missing.     | Connect new data sources.     |
 | There are no existing detections or data sources.     | Connect detections and data sources or install a solution.      |
+
+## Risk-based optimization recommendations
+
+Organizations often struggle to align security measures with business risks, leading to inefficient resource allocation and vulnerabilities. The Risk-Based Optimization feature helps manage security coverage based on business risks. It prioritizes security measures by evaluating the potential impact and likelihood of risks, ensuring resources are allocated effectively. 
+
+Risk-based optimizations consider real world security scenarios with a set of business risks associated with it, including Operational, Financial, Reputational, Compliance and Legal risks. The recommendations are based on the Microsoft Sentinel risk-based approach to security.
+
+The following table lists the available types of threat-based SOC optimization recommendations:
+
+| Type of observation | Action |
+|---------|---------|
+|      |  |
+|      |      |
+|    |      |
 
 ## Similar organizations recommendations
 

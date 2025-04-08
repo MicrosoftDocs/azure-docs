@@ -69,7 +69,7 @@ Supported metrics at the top of the **Overview** tab include:
 | **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last three months. |
 |**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
-Select **See all threat scenarios** to view the full list of relevant threats, percentages of active and recommended analytics rules, and coverage levels.
+Select **See all threat scenarios** to view the full list of relevant threat and risk-based scenarios , percentages of active and recommended analytics rules, and coverage levels.
 
 ### [Defender portal](#tab/defender-portal)
 
@@ -77,7 +77,7 @@ Select **See all threat scenarios** to view the full list of relevant threats, p
 |---------|---------|
 |**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
 |**Data ingested**     | Shows the total data ingested in your workspace over the last 90 days. |
-|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
+|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threat and risk-based scenarios, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
 |**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
 ---
