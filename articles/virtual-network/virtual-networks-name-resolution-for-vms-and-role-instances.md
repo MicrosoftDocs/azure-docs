@@ -12,7 +12,7 @@ ms.custom: fasttrack-edit, linux-related-content
 
 # Name resolution for resources in Azure virtual networks
 
-You can use Azure to host infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions. To facilitate communication between the virtual machines (VMs) and other resources deployed in a virtual network, it might be necessary to allow them to communicate with each other. The use of easily remembered and unchanging names simplifies the communication process, rather than relying on IP addresses.
+You can host infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions on Azure. To enable communication between VMs and other resources in a virtual network, you should allow them to communicate with each other. Using easily remembered and consistent names simplifies the communication process, rather than relying on IP addresses.
 
 When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:
 

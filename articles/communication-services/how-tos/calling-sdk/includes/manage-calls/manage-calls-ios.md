@@ -238,6 +238,8 @@ var videoStreams = remoteParticipant.videoStreams // [RemoteVideoStream, RemoteV
 > [!NOTE]
 > To use this API please use the Azure Communication Services Calling iOS SDK version 2.13.0 or higher. 
 
+Now when a PSTN participant is muted, they should get an announcement that they have been muted and that they can press a key combination (e.g. *6) to unmute themselves. When they press *6, they should be unmuted.
+
 To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
 
 ```swift

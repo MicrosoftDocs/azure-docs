@@ -2,14 +2,13 @@
 title: 'Connect Azure Front Door Premium to an Azure API Management origin with Private Link'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to an Azure API Management privately.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 09/26/2024
-ms.author: duau
-zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 ms.custom: ai-usage
+zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 ---
 
 # Connect Azure Front Door Premium to an Azure API Management with Private Link

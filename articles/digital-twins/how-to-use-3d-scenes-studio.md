@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Use 3D Scenes Studio (preview)
 titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/06/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Build 3D scenes with 3D Scenes Studio (preview) for Azure Digital Twins
@@ -141,7 +135,7 @@ This selection opens the **Data history explorer** for the property. For more in
 
 The viewer component can also be embedded into custom applications outside of 3D Scenes Studio, and can work along with third party components.
 
-[!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
+[!INCLUDE [digital-twins-3d-embed.md](includes/digital-twins-3d-embed.md)]
 
 ## Add elements
 
@@ -258,7 +252,7 @@ Choose a **Display name** for the rule.
 
 Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you get a text box where you can write a custom JavaScript expression using one or more properties. The result of your expression must match the result type that you specify in the **Type** field. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
-[!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+[!INCLUDE [digital-twins-visual-property-error-note.md](includes/digital-twins-visual-property-error-note.md)]
 
 Once you define your property expression, select **Add condition** to define the conditional visual effects.
 
@@ -292,7 +286,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
-    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+    [!INCLUDE [digital-twins-visual-property-error-note.md](includes/digital-twins-visual-property-error-note.md)]
 
 * **Link**: For including externally referenced content via a linked URL
 
@@ -308,7 +302,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
 
-    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+    [!INCLUDE [digital-twins-visual-property-error-note.md](includes/digital-twins-visual-property-error-note.md)]
 
     Following is an example of a value widget that checks if the `InFlow` value of the primary twin exceeds 99. If so, it outputs a string with an expression containing the twin's `$dtId`. Otherwise, there's no expression in the output, so no backticks are required. 
 
@@ -324,7 +318,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png" alt-text="Screenshot of creating a new data history widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png":::
 
-    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+    [!INCLUDE [digital-twins-visual-property-error-note.md](includes/digital-twins-visual-property-error-note.md)]
 
 ### Use custom (advanced) expressions
 

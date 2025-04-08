@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/28/2025
+ms.date: 03/18/2025
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -148,6 +148,8 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
+Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. Use these metrics to understand usage and performance.
+
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
     Aggregation metrics (for example, min, max) aren't supported for percentage volume consumed size.
@@ -184,7 +186,6 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
         Consider repurposing the volume and delegating a different volume with a larger size and/or in a higher service level to meet your application requirements. If it's an NFS volume, consider changing mount options to reduce data flow if your application supports those changes.
 
     :::image type="content" source="./media/azure-netapp-files-metrics/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="./media/azure-netapp-files-metrics/throughput-limit-reached.png":::
-
 
 ## Performance metrics for volumes
 

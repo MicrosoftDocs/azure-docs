@@ -25,7 +25,7 @@
     href: quick-create-terraform.md
 - name: Design
   items:
-  - name: Well-Architected review of Application Gateway
+  - name: Architecture best practices for Azure Application Gateway v2
     href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
   - name: Basics
     items:
@@ -59,7 +59,6 @@
       href: redirect-overview.md
     - name: Rewrite HTTP headers and URL
       href: rewrite-http-headers-url.md
-
   - name: TCP/TLS proxy
     href: tcp-tls-proxy-overview.md
   - name: Support for working remotely
@@ -96,6 +95,10 @@
     href: ssl-certificate-management.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+  - name: TLS 1.0 and 1.1 retirement
+    href: application-gateway-tls-version-retirement.md
+  - name: Network security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Deploy
   items:
   - name: Host multiple sites
@@ -368,6 +371,8 @@
     href: /azure/templates/microsoft.network/applicationgateways
 - name: Resources
   items:
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Author templates
     displayName: ARM
     href: ../azure-resource-manager/templates/syntax.md

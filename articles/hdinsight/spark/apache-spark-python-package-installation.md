@@ -4,6 +4,9 @@ description: Step-by-step instructions on how to use script action to configure 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: devx-track-python
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 02/03/2025
 ---
 

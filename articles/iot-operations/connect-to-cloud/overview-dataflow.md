@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 03/17/2025
 
 #CustomerIntent: As an operator, I want to understand how I can use data flows to connect data sources.
 ---
@@ -62,9 +62,15 @@ By using data flows, you can efficiently manage your data paths. You can ensure 
 
 Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. Southbound connectors like the connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI.
 
-Data flows uses messages schemas to transform the message into the format expected by the destination endpoint.
+Data flows use message schemas to transform the message into the format expected by the destination endpoint.
 
 For more information, see [Understand message schemas](./concept-schema-registry.md).
+
+## Local MQTT broker endpoint message storage
+
+When you use the local MQTT broker as a source endpoint in a data flow, messages are stored during a loss of connectivity between the data flow and the destination endpoint. As an example scenario, assume you create a data flow using the default local MQTT broker as the source endpoint and Azure Event Hubs as the destination endpoint. If connectivity between the data flow and Azure Event Hubs is lost, messages are stored in the MQTT broker subscriber message queue. When connectivity is restored, the data flow sends the messages in the subscriber message queue to Azure Event Hubs.
+
+The local MQTT broker message queue is stored in memory by default. You can configure the MQTT broker to store messages on disk by using the disk-backed message buffer configuration. For more information about the MQTT broker configuration, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md). For more information about the disk-backed message buffer, see [Configure disk-backed message buffer behavior](../manage-mqtt-broker/howto-disk-backed-message-buffer.md).
 
 ## Related content
 

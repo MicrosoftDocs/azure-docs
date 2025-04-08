@@ -101,11 +101,21 @@ A network security perimeter-aware private link resource is a PaaS resource that
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
 
+## Supported access rules' types
+
+Network security perimeter supports the following access rule types:
+
+| Direction | Access rule type | 
+|---------------------------|---------------|
+| Inbound | Subscription based rules |
+| Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
+| Outbound | FQDN based rules |
+
 ## Limitations of a network security perimeter
 
 ### Regional limitations
 
-Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions. Currently, those regions are **East US**, **East US 2**, **North Central US**, **South Central US**, **West US**, and **West US 2**.
+Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 > [!NOTE]
 > For PaaS resource logs, use **Storage and Event Hub** as the log destination for any region associated to the same perimeter.

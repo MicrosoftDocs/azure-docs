@@ -25,22 +25,9 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected. Select **Create new** resource group and type **`myResourceGroup`** for the name.
 
-     :::image type="content" source="./media/quickstart-wordpress/04-wordpress-basics-project-details.png?text=Azure portal WordPress Project Details" alt-text="Screenshot of WordPress project details.":::
-
 1. Under **Hosting details**,  select a **Region** you want to serve your app from, then type a globally unique name for your web app. Under **Hosting plans**, select **Standard**. Select **Change plan** to view features and price comparisons.
 
-     :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details.":::
-
-1. <a name="wordpress-setup"></a>Under **WordPress setup**, choose your preferred **Site Language**, then type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** is used for WordPress administrative sign-in only. Clear the **Enable multisite** checkbox.
-
-     :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings on Azure App Service..":::
-
-1. Select the **Advanced** tab. If you're unfamiliar with an [Azure CDN](../cdn/cdn-overview.md), [Azure Front Door](../frontdoor/front-door-overview.md), or [Blob Storage](../storage/blobs/storage-blobs-overview.md), then clear the checkboxes. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
-
-    :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings.":::
-    
-   > [!NOTE]
-   > The WordPress app requires a virtual network with an address space of /23 at minimum. 
+1. <a name="wordpress-setup"></a>Under **WordPress setup**, choose your preferred **Site Language**, then type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** is used for WordPress administrative sign-in only.
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  

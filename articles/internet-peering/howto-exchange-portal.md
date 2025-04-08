@@ -14,8 +14,6 @@ ms.date: 03/03/2025
 
 In this article, you learn how to create a Microsoft Exchange peering using the Azure portal. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
 
-If you prefer, you can complete this guide by using [PowerShell](howto-exchange-powershell.md).
-
 ## Prerequisites
 
 - Review the [Prerequisites to set up peering with Microsoft](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
@@ -126,7 +124,7 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
 
 ## Deprovision an Exchange peering
 
-[!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
+Currently, deprovisioning isn't supported using the Azure portal or PowerShell. To deprovision, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
 
 ## Related content
 

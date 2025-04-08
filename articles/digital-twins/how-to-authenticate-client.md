@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Write app authentication code
 titleSuffix: Azure Digital Twins
 description: Learn how to write authentication code in a client application
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 02/24/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Write client app authentication code
@@ -68,11 +62,11 @@ Here's a code sample to add a `DefaultAzureCredential` to your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
 
-[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](includes/digital-twins-defaultazurecredential-note.md)]
 
 #### Set up local Azure credentials
 
-[!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](../../includes/digital-twins-local-credentials-inner.md)]
+[!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](includes/digital-twins-local-credentials-inner.md)]
 
 ### ManagedIdentityCredential method
 
@@ -145,21 +139,21 @@ When you're finished with your function code, including adding authentication an
 
 Finally, complete the following configuration steps for a published Azure function to make sure it can access your Azure Digital Twins instance.
 
-[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
+[!INCLUDE [digital-twins-configure-function-app-cli.md](includes/digital-twins-configure-function-app-cli.md)]
 
 ## Authenticate across tenants
 
 Azure Digital Twins is a service that only supports one [Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md): the main tenant from the subscription where the Azure Digital Twins instance is located.
 
-[!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
+[!INCLUDE [digital-twins-tenant-limitation](includes/digital-twins-tenant-limitation.md)]
 
 If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different tenant from the instance, you can have each federated identity from another tenant request a **token** from the Azure Digital Twins instance's "home" tenant. 
 
-[!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
+[!INCLUDE [digital-twins-tenant-solution-1](includes/digital-twins-tenant-solution-1.md)]
 
 You can also specify the home tenant in the credential options in your code.
 
-[!INCLUDE [digital-twins-tenant-solution-2](../../includes/digital-twins-tenant-solution-2.md)]
+[!INCLUDE [digital-twins-tenant-solution-2](includes/digital-twins-tenant-solution-2.md)]
 
 ## Other credential methods
 
