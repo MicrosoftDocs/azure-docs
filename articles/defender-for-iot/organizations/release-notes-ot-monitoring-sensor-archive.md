@@ -91,7 +91,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 This version includes the following updates and enhancements:
 
-- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](release-notes-archive.md#ot-network-sensors-now-run-on-debian-11)
+- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new-archive.md#ot-network-sensors-now-run-on-debian-11)
 - [The legacy, privileged default *support* user is replaced by the default *admin* user](roles-on-premises.md#legacy-users)
 
 > [!IMPORTANT]
@@ -146,7 +146,7 @@ This version includes bug fixes for stability improvements.
 
 This version includes:
 
-- [Improved monitoring and support for OT sensor logs](release-notes-archive.md#improved-monitoring-and-support-for-ot-sensor-logs)
+- [Improved monitoring and support for OT sensor logs](whats-new-archive.md#improved-monitoring-and-support-for-ot-sensor-logs)
 - Bug fixes for stability improvements.
 
 ### 22.3.8
@@ -276,7 +276,7 @@ This version includes the following new updates and fixes:
 This version includes the following new updates and fixes:
 
 - [Define and view OT sensor settings from the Azure portal](configure-sensor-settings-portal.md)
-- [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors)
+- [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors-with-the-latest-ot-monitoring-software)
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)

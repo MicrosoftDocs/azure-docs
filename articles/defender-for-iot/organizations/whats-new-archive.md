@@ -538,7 +538,7 @@ For more information, see [Manage SSL/TLS certificates](how-to-manage-individual
 
 Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
+You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors-with-the-latest-ot-monitoring-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -678,11 +678,11 @@ For more information, see:
 
 ### Update sensor software from the Azure portal (Public preview)
 
-For cloud-connected sensor versions [22.2.3](ot-sensor-archive.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
+For cloud-connected sensor versions [22.2.3](release-notes-ot-monitoring-sensor-archive.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
 
 :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
 
-For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors).
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors-with-the-latest-ot-monitoring-software).
 
 ### Azure connectivity status shown on OT sensors
 

@@ -159,7 +159,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Malicious URL path alert](release-notes-ot-monitoring-sensor-archive.md#malicious-url-path-alert)
+- [Malicious URL path alert](whats-new-archive.md#malicious-url-path-alert)
 - The following CVE is resolved in this version:
   - CVE-2024-38089
 
@@ -171,7 +171,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Sensor time drift detection](release-notes-ot-monitoring-sensor-archive.md#sensor-time-drift-detection)
+- [Sensor time drift detection](whats-new-archive.md#sensor-time-drift-detection)
 - Bug fixes for stability improvements
 - The following CVEs are resolved in this version:
   - CVE-2024-29055
@@ -206,7 +206,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new.md#ot-network-sensors-now-run-on-debian-11)
+- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new-archive.md#ot-network-sensors-now-run-on-debian-11)
 - [The legacy, privileged default *support* user is replaced by the default *admin* user](roles-on-premises.md#legacy-users)
 
 > [!IMPORTANT]
@@ -261,7 +261,7 @@ This version includes bug fixes for stability improvements.
 
 This version includes:
 
-- [Improved monitoring and support for OT sensor logs](whats-new.md#improved-monitoring-and-support-for-ot-sensor-logs)
+- [Improved monitoring and support for OT sensor logs](whats-new-archive.md#improved-monitoring-and-support-for-ot-sensor-logs)
 - Bug fixes for stability improvements.
 
 ### 22.3.8
@@ -552,4 +552,4 @@ This version includes the following new updates and fixes:
 
 ## Next steps
 
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-ot-monitoring-sensor-archive.md.md).
+For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](whats-new-archive.md.md).
