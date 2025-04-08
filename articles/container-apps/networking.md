@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/03/2025
+ms.date: 04/08/2025
 ms.author: cshoe
 ---
 
@@ -95,10 +95,11 @@ Azure networking policies are supported with the public network access flag.
 
 ## Outbound features
 
-|Feature  |Learn how to  |
+|Feature  |Learn how to |
 |---------|---------|
 |[Using Azure Firewall](using-azure-firewall.md) | Use Azure Firewall to control outbound traffic from your container app. |
 |[Securing a existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
+|[NAT gateway integration](custom-virtual-networks.md#nat-gateway-integration)| Use NAT Gateway to simplify outbound internet connectivity in your virtual network in a workload profiles environment. |
 
 ## Environment security
 

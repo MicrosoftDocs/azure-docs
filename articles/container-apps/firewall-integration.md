@@ -4,12 +4,12 @@ description: Firewall settings to secure a virtual network in Azure Container Ap
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic:  reference
-ms.date: 01/09/2025
+ms.topic: reference
+ms.date: 04/08/2025
 ms.author: cshoe
 ---
 
-# Securing a virtual network in Azure Container Apps  with Network Security Groups
+# Securing a virtual network in Azure Container Apps with Network Security Groups
 
 Network Security Groups (NSGs) needed to configure virtual networks closely resemble the settings required by Kubernetes.
 
@@ -87,14 +87,16 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | TCP | Your container app's subnet | \* | `Storage.<Region>` | `443` | Only required when using `Azure Container Registry` to host your images. |
 | TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
 
-
 ---
 
 <sup>1</sup> This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.  
 <sup>2</sup> If you're using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Azure Container Apps to pull images through the virtual network. You don't need to add an NSG rule for ACR when configured with private endpoints.
 
-
 #### Considerations
 
 - If you're running HTTP servers, you might need to add ports `80` and `443`.
 - Don't explicitly deny the Azure DNS address `168.63.129.16` in the outgoing NSG rules, or your Container Apps environment doesn't function.
+
+## Next steps
+
+- [Use a private endpoint](how-to-use-private-endpoint.md)
