@@ -25,7 +25,7 @@ Connectivity to on-premises is performed using a standard ExpressRoute connectio
 > [!NOTE]
 > You can connect through VPN, but that information is out of scope for this article.
 
-:::image type="content" source="./media/native-connectivity/native-connect-on-premise.png" alt-text="Diagram of an Azure VMware Solution connection to on-premise environment." lightbox="media/native-connectivity/native-connect-on-premise.png":::
+:::image type="content" source="./media/native-connectivity/native-connect-on-premises.png" alt-text="Diagram of an Azure VMware Solution connection to on-premise environment." lightbox="media/native-connectivity/native-connect-on-premises.png":::
 
 ## Related topics
 
