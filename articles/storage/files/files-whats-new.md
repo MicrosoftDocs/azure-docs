@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/28/2025
+ms.date: 04/01/2025
 ms.author: kendownie
 ---
 
@@ -14,7 +14,17 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2025
 
+### 2025 quarter 2 (April, May, June)
+
+#### Metadata caching for SSD SMB file shares is now generally available
+
+Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-ssd-file-shares).
+
 ### 2025 quarter 1 (January, February, March)
+
+#### Azure File Sync support for system-assigned managed identities is now generally available
+
+Azure File Sync support for managed identities is now generally available, enabling customers to be secure by default. Using managed identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. [Learn more](../file-sync/file-sync-managed-identities.md).
 
 #### Azure Files vaulted backup is now generally available
 
