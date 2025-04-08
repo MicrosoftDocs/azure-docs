@@ -5,7 +5,7 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/04/2025
+ms.date: 04/08/2025
 ms.author: greglin
 ---
 
