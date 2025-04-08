@@ -36,11 +36,11 @@ You can use this integration in two different experience:
 
 - [Security Copilot portal](https://securitycopilot.microsoft.com) (standalone experience)
 
-    :::image type="content" source="media/firewall-copilot/security-copilot-overview.png" alt-text="Screenshot of the Security Copilot portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/security-copilot-overview-image.png":::
+    :::image type="content" source="media/firewall-copilot/security-copilot-overview.png" alt-text="Screenshot of the Security Copilot portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/security-copilot-overview.png":::
 
 - [Copilot in Azure](/azure/copilot/overview) (embedded experience) in the Azure portal:
 
-    :::image type="content" source="media/firewall-copilot/azure-copilot-overview-image.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/azure-copilot-overview-image-new.png"::: 
+    :::image type="content" source="media/firewall-copilot/azure-copilot-overview-image.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/azure-copilot-overview-image.png"::: 
 
 For more information, see  [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot) and [Microsoft Copilot in Azure capabilities](/azure/copilot/capabilities).
 
