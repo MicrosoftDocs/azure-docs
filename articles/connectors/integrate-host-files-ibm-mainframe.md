@@ -1,6 +1,6 @@
 ---
-title: Parse and Generate IBM Host Files
-description: Learn how to parse and generate offline IBM host files from IBM mainframes for Standard workflows in Azure Logic Apps with the IBM Host File connector.
+title: Process IBM Host Files in Standard Workflows
+description: Parse and generate offline IBM host files from IBM mainframes through Standard workflows in Azure Logic Apps by using the IBM Host File connector.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -16,33 +16,13 @@ ms.date: 04/08/2025
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To parse and generate new IBM host files and i Series physical files from Standard workflows in Azure Logic Apps, you can use the **IBM Host File** built-in, service provider-based connector. Since the introduction of mainframe systems, ubiquitous host files have been used to store abundant data for mission critical systems. Although this connector doesn't require access to an IBM mainframe or midrange system, you must make the host file available to a Standard workflow. You can make the file available via FTP, blob storage, Host Integration Server, or a partner software appliance. The **IBM Host File** connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
+To parse and generate new IBM host files and i Series physical files from Standard workflows in Azure Logic Apps, you can use the **IBM Host File** built-in, service provider-based connector. Since the introduction of mainframe systems, developers used ubiquitous host files to store abundant data for mission critical systems. Although this connector doesn't require access to an IBM mainframe or midrange system, you must make the host file available to a Standard workflow. You can make the file available through FTP, Azure Blob storage, Host Integration Server, or a partner software appliance. The **IBM Host File** connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
 This how-to guide describes the following aspects about the **IBM Host File** connector:
 
 * Scenarios for using the **IBM Host File** connector in Azure Logic Apps
 * Prerequisites and setup for using the **IBM Host File** connector
 * Steps for adding the **IBM Host File** connector actions to your Standard logic app workflow
-
-## Prerequisites
-
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **IBM Host File** connector to recognize the host file data structure.
-
-  To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
-
-  To effectively parse and generate host files, your workflow needs to understand the host file metadata. However, as a key difference between a host file and a database table, the host file doesn't have the metadata that describes the data structure. To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the host file structure that your workflow uses. You can also import COBOL definitions (copybooks) that provide these data structures.
-
-  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to recognize the host file data structure. If you use the HIS, you can use the HIS Transaction Integrator (TI) Designer to create the HIDX file.
-
-* The Standard logic app workflow where you want to parse or generate the host file.
-
-  The **IBM Host File** connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Azure Blob Storage** trigger. You can then add the **IBM Host File** connector actions. To get started, create a blank workflow in your Standard logic app resource.
-
-### Limitations
-
-Currently, this connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
 ## Explore the IBM Host File connector and usage scenarios
 
@@ -64,13 +44,13 @@ To extend hybrid cloud scenarios, the **IBM Host File** connector works with the
 
 After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. With this approach, your workflow can access your app's metadata when you add an **IBM Host File** connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the binary file's structure to use with the **IBM Host File** connector actions in your workflow.
 
-## Review the technical reference
+## Connector technical reference
 
 This section describes the available operations for the **IBM Host File** connector. Currently, two actions are supported: **Parse Host File Contents** and **Generate Host File Contents**.
 
 ### Parse Host File Contents action
 
-The following table summarizes the usage for the **Parse Host File Contents** action:
+The following table summarizes the parameters for the **Parse Host File Contents** action:
 
 | Parameter | Required | Type | Description |
 |-----------|----------|-------|-------------|
@@ -80,13 +60,33 @@ The following table summarizes the usage for the **Parse Host File Contents** ac
 
 ### Generate Host File Contents action
 
-The following table summarizes the usage for the **Generate Host File Contents** action:
+The following table summarizes the parameters for the **Generate Host File Contents** action:
 
 | Parameter | Required | Type | Description |
 |-----------|----------|-------|-------------|
 | **HIDX Name** | Yes | String | Select the mainframe host file HIDX file that you want to use. |
 | **Schema Name** | Yes | String | Select the host file schema in the HIDX file that you want to use. |
 | **Rows** | Yes | JSON | Select the Array or individual rows. To enter an entire data object in JSON format, you can select the **Switch to input entire array** option. |
+
+## Prerequisites
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **IBM Host File** connector to recognize the host file data structure.
+
+  To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
+
+  To effectively parse and generate host files, your workflow needs to understand the host file metadata. However, as a key difference between a host file and a database table, the host file doesn't have the metadata that describes the data structure. To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the host file structure that your workflow uses. You can also import COBOL definitions (copybooks) that provide these data structures.
+
+  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to recognize the host file data structure. If you use the HIS, you can use the HIS Transaction Integrator (TI) Designer to create the HIDX file.
+
+* The Standard logic app workflow where you want to parse or generate the host file.
+
+  The **IBM Host File** connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Azure Blob Storage** trigger. You can then add the **IBM Host File** connector actions. To get started, create a blank workflow in your Standard logic app resource.
+
+## Limitations
+
+Currently, this connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
 ## Define and generate metadata
 
@@ -96,9 +96,9 @@ After you download and install the HIS Designer for Azure Logic Apps, follow [th
 
 For your workflow to use the HIDX file, follow these steps:
 
-1. Browse to the folder where you saved your HIDX file, and copy the file.
+1. Go to the folder where you saved your HIDX file, and copy the file.
 
-1. Go to the [Azure portal](https://portal.azure.com) and [upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+1. In the [Azure portal](https://portal.azure.com), [upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 1. Continue to the next section to [add an **IBM Host File** action to your workflow](#add-a-parse-host-file-contents-action).
 
@@ -154,11 +154,11 @@ Follow these steps to add a Parse Host File Contents action:
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting binary data to read from JSON file in Blob Storage account." lightbox="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png":::
 
-   1. Add a final action to create a file on a Secure File Transfer Protocol (SFTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
+   1. Now, add another action to handle the result.
+   
+      This example adds an action to create a file on a File Transfer Protocol (FTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
 
-      <!-- Reviewer: Current article doesn't indicate how to add the "Create file" step. The text indicates that the action creates a file on an "SFTP" server, but it looks like an FTP server in the image. I chose the "SFTP server (NOT In-app)" option for this refresh. Let me know if an alternate action is required. -->
-
-      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-sftp-server.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting to create a file on an SFTP server." lightbox="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-sftp-server.png":::
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-ftp-server.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting to create a file on an FTP server." lightbox="./media/integrate-host-files-ibm-mainframe/parse-create-file-on-ftp-server.png":::
    
    After your configuration, the **Parse Host File Contents** action looks like the following example:
 
@@ -168,7 +168,7 @@ Follow these steps to add a Parse Host File Contents action:
 
 ### Test your workflow
 
-Follow these steps and confirm the **Parse Host File Contents** workflow runs as expected:
+Follow these steps to confirm that the workflow runs as expected:
 
 1. To run your workflow, on the designer toolbar, select **Run** > **Run**.
 
@@ -228,11 +228,11 @@ Follow these steps to add a Generate Host File Contents action:
 
       :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account.":::
 
-   1. Add a final action to create a file on a Secure File Transfer Protocol (SFTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
+   1. Now, add another action to handle the result.
+   
+      This example adds an action to create a file on a File Transfer Protocol (FTP) server by following [these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action):
 
-      <!-- Reviewer: Current article doesn't indicate how to add the "Create file" step. The text indicates that the action creates a file on an "SFTP" server, but it looks like an FTP server in the image. I chose the "SFTP server (NOT In-app)" option for this refresh. Let me know if an alternate action is required. -->
-
-      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-sftp-server.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting to create a file on an SFTP server." lightbox="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-sftp-server.png":::
+      :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-ftp-server.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting to create a file on an FTP server." lightbox="./media/integrate-host-files-ibm-mainframe/generate-create-file-on-ftp-server.png":::
    
    After your configuration, the **Generate Host File Contents** action looks like the following example:
 
@@ -242,7 +242,7 @@ Follow these steps to add a Generate Host File Contents action:
 
 ### Test your workflow
 
-Follow these steps and confirm the **Generate Host File Contents** workflow runs as expected:
+Follow these steps to confirm that the workflow runs as expected:
 
 1. To run your workflow, on the designer toolbar, select **Run** > **Run**.
 
