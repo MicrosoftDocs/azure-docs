@@ -163,5 +163,5 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 - [Associate a WAF policy with an existing Application Gateway](/azure/web-application-firewall/ag/associate-waf-policy-existing-gateway)
 - [Customize Web Application Firewall rules](/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal)
 
-- > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [See more articles about Application Gateway.](/search/?terms=Azure%20application%20gateway%20and%20terraform)
