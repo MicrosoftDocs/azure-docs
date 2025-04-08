@@ -77,6 +77,21 @@ You can also set Autoscale modes using the Azure CLI. The following commands cre
 
 For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
+## Set up Autoscale settings for Blue-green deployments
+
+If you have blue and green deployments of one application, follow these steps to setup autoscale settings scaling based on metrics:
+
+1. Create separate autoscale rules for both deployments
+Set up one rule for the blue deployment and another for the green deployment.
+
+1. Set **Deployment** dimension to one deployment only
+In each rule, after selecting **App** dimension, add the **Deployment** dimension and set the value to either the blue or green deployment name, not "All values".
+
+1. Set **Instance** dimension to "All values"
+This ensures the rule applies to all instances within the selected deployment.
+
+This setup allows each deployment scale based on its own metrics, avoiding conflicts or unexpected behavior during rollouts.
+
 ## Upgrade to the Standard plan
 
 If you're on the Basic plan and constrained by one or more of these limits, you can upgrade to the Standard plan. To upgrade, go to the **Pricing** plan menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
