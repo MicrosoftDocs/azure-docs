@@ -26,7 +26,7 @@ Azure VMware Solution allows you to configure DNS forward lookup zones in two wa
 
 DNS forward lookup zone can be configured at the time of creation or changed after the private cloud is created. The following diagram shows the configuration page for the DNS forward lookup zone. 
 
-:::image type="content" source="./media/native-connectivity/native-connect-dns-lookup.png" alt-text="Diagram showing an Azure VMware Solution DNS forward lookup."::: 
+:::image type="content" source="./media/native-connectivity/native-connect-dns-lookup.png" alt-text="Diagram showing an Azure VMware Solution DNS forward lookup." lightbox="media/native-connectivity/native-connect-dns-lookup.png":::
 
 ## Configuring Private DNS for your Azure VMware Solution Private Cloud in an Azure Virtual Network  
  
@@ -34,7 +34,7 @@ If you select the Private DNS option, the private cloud will be resolvable from 
  
  ### Prerequisite
  
- First, create two /28 subnets to delegate to the Azure DNS Private Resolver service. As an example. they can be named dns-in and dns-out. 
+ First, create two /28 subnets to delegate to the Azure DNS Private Resolver service. As an example. They can be named dns-in and dns-out. 
  
  ### Deploy Azure DNS Private Resolver
  
@@ -69,7 +69,7 @@ You can now resolve your private cloud DNS records from any workload using the I
 
 ## Related topics
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
-- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Connect to on-premises environment](native-connect-on-premises.md)
 - [Internet connectivity options](native-internet-connectivity-design-considerations.md)
 - [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
 - [Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud](native-connect-private-cloud-previous-edition.md)

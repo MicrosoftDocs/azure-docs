@@ -8,7 +8,7 @@ ms.author: jacobjaygbay
 #customer intent: As a cloud administrator, I want to connect Azure VMware Solution on Native private cloud to previous edition of Azure VMware Solution private cloud so that I can enable seamless communication between private clouds.
 ---
 
-# Connect Azure VMware Solution in an Azure Network Network private cloud to previous edition of Azure VMware Solution private cloud
+# Connect Azure VMware Solution in an Azure Virtual Network private cloud to previous edition of Azure VMware Solution private cloud
 
 In this article, you learn how to connect Azure VMware Solution private cloud in an Azure Virtual Network to the previous edition of Azure VMware Solution private cloud. After you deploy Azure VMware Solution in an Azure Virtual Network private clouds, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or the internet.  
 
@@ -18,7 +18,7 @@ This article discusses how the Azure VMware Solution in an Azure Virtual Network
 
 Have Azure VMware Solution in an Azure Virtual Network and previous edition of the private cloud deployed successfully.
 
-## Connect Azure VMware Solution in an Azure Network Network private cloud to previous edition of Azure VMware Solution private cloud
+## Connect Azure VMware Solution in an Azure Network private cloud to previous edition of Azure VMware Solution private cloud
 
 Azure VMware Solution in an Azure Virtual Network can be connected to the previous edition of Azure VMware Solution using a standard ExpressRoute connection, similar to how earlier Azure VMware Solution editions connect to the Virtual Network.
 
@@ -30,11 +30,11 @@ For more information about how to connect Virtual Networks using ExtressRoute, s
 3. Ensure an ExpressRoute gateway is present or create one on the Azure VNET/peered Virtual Network where Azure VMware Solution in an Azure Virtual Network is deployed.
 4. Add a connection to the ExpressRoute gateway using the ER authorization key and ExpressRoute ID from the previous step.
 
-:::image type="content" source="./media/native-connectivity/native-connect-express-route-previous-edition.png" alt-text="Diagram showing an Azure VMware Solution connection to previous edition of private cloud."::: 
+:::image type="content" source="./media/native-connectivity/native-connect-express-route-previous-edition.png" alt-text="Diagram showing an Azure VMware Solution connection to previous edition of private cloud." lightbox="media/native-connectivity/native-connect-express-route-previous-edition.png":::
 
 ## Related topics
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
-- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Connect to on-premises environment](native-connect-on-premises.md)
 - [Internet connectivity options](native-internet-connectivity-design-considerations.md)
 - [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
 - [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)

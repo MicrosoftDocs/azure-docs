@@ -9,11 +9,11 @@ ms.author: jacobjaygbay
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in a Virtual Network so that I can understand the features and benefits of this offering.
 ---
 
-# What's Azure VMware Solution in an Azure Virtual Network (Public Preview) 
+# What's Azure VMware Solution in an Azure Virtual Network (Public preview) 
 
-Azure VMware Solution private clouds can now be deployed inside an Azure Virtual Network, conforming Azure VMware Solution to Azure networking standards. This architecture simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. Users can now deploy Azure VMware Solution private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, or AV52 cluster. The same Azure VMware Solution limits apply as decribed in [Scale clusters in a Private Cloud](tutorial-scale-private-cloud.md).
+Azure VMware Solution private clouds can now be deployed inside an Azure Virtual Network, conforming Azure VMware Solution to Azure networking standards. This architecture simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. Users can now deploy Azure VMware Solution private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, or AV52 cluster. The same Azure VMware Solution limits apply as described in [Scale clusters in a Private Cloud](tutorial-scale-private-cloud.md).
 
-:::image type="content" source="./media/native-connectivity/azure-virtual-network-connectivity.png" alt-text="Diagram showing an Azure VMware Solution Virtual Network connectivity."::: 
+:::image type="content" source="./media/native-connectivity/azure-virtual-network-connectivity.png" alt-text="Diagram showing an Azure VMware Solution Virtual Network connectivity." lightbox="media/native-connectivity/azure-virtual-network-connectivity.png"::: 
 
 > [!NOTE]
 > The product name may change when General Availability is announced.

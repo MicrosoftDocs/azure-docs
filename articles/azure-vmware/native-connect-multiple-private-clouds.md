@@ -24,11 +24,11 @@ Private clouds deployed in different Azure Virtual Networks can be connected usi
 
 Depending on the location of the private cloud, you may require local Virtual Network peering or a global Virtual Network peering.
 
-:::image type="content" source="./media/native-connectivity/native-connect-multiple-solutions-onpremise.png" alt-text="Diagram of an Azure VMware Solution connection to on-premise environment":::
+:::image type="content" source="./media/native-connectivity/native-connect-multiple-solutions-on-premise.png" alt-text="Diagram of an Azure VMware Solution connection to on-premise environment." lightbox="media/native-connectivity/native-connect-multiple-solutions-on-premise.png":::
 
 ## Related topics 
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
-- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Connect to on-premises environment](native-connect-on-premises.md)
 - [Internet connectivity options](native-internet-connectivity-design-considerations.md)
 - [Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud](native-connect-private-cloud-previous-edition.md)
 - [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)

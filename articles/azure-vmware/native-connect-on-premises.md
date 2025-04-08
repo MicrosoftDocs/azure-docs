@@ -1,5 +1,5 @@
 ---
-title: Connect to On-Premises environment
+title: Connect to on-premises environment
 description: Learn how to connect your on-premises environment to Azure VMware Solution using ExpressRoute or Site-to-Site VPN for seamless integration.
 ms.topic: how-to
 ms.service: azure-vmware
@@ -25,7 +25,7 @@ Connectivity to on-premises is performed using a standard ExpressRoute connectio
 > [!NOTE]
 > You can connect through VPN, but that information is out of scope for this article.
 
-:::image type="content" source="./media/native-connectivity/native-connect-onpremise.png" alt-text="Diagram of an Azure VMware Solution connection to on-premise environment":::
+:::image type="content" source="./media/native-connectivity/native-connect-on-premise.png" alt-text="Diagram of an Azure VMware Solution connection to on-premise environment." lightbox="media/native-connectivity/native-connect-on-premise.png":::
 
 ## Related topics
 

@@ -20,7 +20,7 @@ After you deploy Azure VMware Solution in an Azure Virtual Network, you may requ
 
 Azure VMware Solution provides necessary internet connectivity to SDDC appliances like vCenter, NSX Manager, and HCX Manager for management functions. This private cloud relies on the internet connectivity configured on the Virtual Network it's deployed in. The customer workload can connect to the internet through either virtual WAN, Azure Firewall, or third-party Network Virtual Appliances. The standard Azure Supported topology for virtual WAN, Azure Firewall, and third-party Network Virtual Appliances are supported.
 
-:::image type="content" source="./media/native-connectivity/native-connect-private-cloud-internet.png" alt-text="Diagram showing an Azure VMware Solution connection to other virtual networks."::: 
+:::image type="content" source="./media/native-connectivity/native-connect-private-cloud-internet.png" alt-text="Diagram showing an Azure VMware Solution connection to other virtual networks." lightbox="media/native-connectivity/native-connect-private-cloud-internet.png":::
 
 Azure VMware Solution internet connectivity using Azure Firewall is similar to the way Azure virtual network internet connectivity is achieved, which is described in more detail in the Azure Firewall documentation. The only thing specific to the Azure VMware solution is the subnets which need to be associated with a user-defined route table (UDR) to point to Azure Firewall or third-party Network Virtual Appliance for internet connectivity.
 
@@ -35,7 +35,7 @@ Azure VMware Solution internet connectivity using Azure Firewall is similar to t
 
 Related topics
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
-- [Connect to on-premises environment](native-connect-onpremises.md)
+- [Connect to on-premises environment](native-connect-on-premises.md)
 - [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
 - [Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud](native-connect-private-cloud-previous-edition.md)
 - [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)

@@ -7,7 +7,7 @@ ms.date: 4/3/2025
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in an Azure Virtual Network design consideration so that I can make informed decisions about my Azure VMware Solution deployment.
 ---
 
-# Azure VMware Solution in an Azure Virtual Network design considerations (Public Preview)
+# Azure VMware Solution in an Azure Virtual Network design considerations (Public preview)
 
 In this article, you learn about design considerations for Azure VMware Solution in an Azure Virtual Network. It discusses what this solution offers in a VMware private cloud environment that your applications can access from on-premises and Azure-based environments or resources. There are several considerations to review before you set up your Azure VMware Solution private cloud in an Azure Virtual Network. This article provides solutions for use cases that you might encounter when you're using the private cloud type.
 
@@ -22,7 +22,7 @@ The following functionality is limited during this time. These limitations will 
 - You can only deploy **1 Private Cloud per Azure Virtual Network**.
 - You can only create **1 SDDC per Resource Group**. Multiple Private Clouds in a single Resource Group are not supported. 
 - Your Private Cloud and Virtual Network for your Private Cloud must be in the *same* Resource Group.
-- You can not move your Private Cloud from one Resource Group to another after the Private Cloud is created.
+- You cannot move your Private Cloud from one Resource Group to another after the Private Cloud is created.
 - Virtual Network Service Endpoints direct connectivity from Azure VMware Solution workloads is not supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints is not supported.
 - **vSAN Stretched Clusters** is not supported.
@@ -42,7 +42,6 @@ The following 1st-party and 3rd-party integrations won't be available during Pub
 Azure VMware Solution in an Azure Virtual Network provides a VMware private cloud environment accessible to users and applications from on-premises and Azure-based environments or resources. Connectivity is delivered through standard Azure Networking. Specific network address ranges and firewall ports are required to enable these services. This section helps you configure your networking to work with Azure VMware Solution. 
 
 The private cloud connects to your Azure virtual network using standard Azure networking. Azure VMware Solution private clouds require a minimum /22 CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, vMotion, and Replication networks are provisioned automatically within this address block as subnets inside your Virtual Network.
-
 
 > [!Note]
 > Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16. Replication network is not applicable to AV64 nodes and is planned for general deprecation at a future date.
