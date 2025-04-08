@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: conceptual 
 ms.date: 03/26/2025
 ms.custom: engagement-fy24 
+monikerRange: migrate
 --- 
 
 # Assessment Report 
