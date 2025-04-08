@@ -38,8 +38,9 @@ messages that are larger than the message size limit.
 Only actions that support chunking can access the message content in these outputs.
 So, an action that handles large messages must meet *either* these criteria:
 
-* Natively support chunking when that action belongs to a connector.
-* Have chunking support enabled in that action's runtime configuration.
+* The action must natively support chunking when that action belongs to a connector.
+
+* The action must have chunking support enabled in that action's runtime configuration.
 
 Otherwise, you get a runtime error when you try to access large content output.
 To enable chunking, see [Set up chunking support](#set-up-chunking).
@@ -49,7 +50,7 @@ To enable chunking, see [Set up chunking support](#set-up-chunking).
 Services that communicate with Azure Logic Apps can have their own message size limits.
 These limits are often smaller than the Azure Logic Apps limit. For example, assuming that
 a connector supports chunking, a connector might consider a 30-MB message as large,
-while Azure Logic Apps does not. To comply with this connector's limit, Azure Logic Apps splits any message larger than 30 MB into smaller chunks.
+while Azure Logic Apps doesn't. To comply with this connector's limit, Azure Logic Apps splits any message larger than 30 MB into smaller chunks.
 
 For connectors that support chunking, the underlying chunking protocol is invisible to end users.
 However, not all connectors support chunking, so these connectors generate runtime
@@ -171,9 +172,7 @@ downloading chunked content from an endpoint to your workflow:
 
 2. The endpoint responds with the "206" status code and an HTTP message body.
 
-    Details about the content in this chunk appear in the response's `Content-Range` header,
-    including information that helps Azure Logic Apps determine the start and end for the chunk,
-    plus the total size of the entire content before chunking.
+    Details about the content in this chunk appear in the response's `Content-Range` header. These details include information that helps Azure Logic Apps determine the start and end for the chunk, plus the total size of the entire content before chunking.
 
 3. Your logic app automatically sends follow-up HTTP GET requests.
 
@@ -216,7 +215,9 @@ up by sending HTTP PATCH requests that contain the content chunks.
 The following steps describe the detailed process that Azure Logic Apps uses for uploading
 chunked content from your logic app to an endpoint:
 
-1. Your workflow sends an initial HTTP POST or PUT request with an empty message body. The request header, includes the following information about the content that your logic app wants to upload in chunks:
+1. Your workflow sends an initial HTTP POST or PUT request with an empty message body.
+
+   The request header includes the following information about the content that your logic app wants to upload in chunks:
 
    | Request header field | Value | Type | Description |
    |----------------------|-------|------|-------------|
