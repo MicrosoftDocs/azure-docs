@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to configure Azure Web Application Firewall v2 on Azure Application Gateway'
 description: In this quickstart, you use Terraform to create an Azure Application Gateway with an Azure Web Application Firewall (WAF) v2 policy. A virtual network with a subnet, a static public IP address, a WAF policy with custom rules, and Azure Application Gateway with autoscaling work together to block specific IP addresses.
 ms.topic: quickstart
-ms.date: 04/07/2025
+ms.date: 04/08/2025
 ms.custom: devx-track-terraform
 ms.service: azure-web-application-firewall
 author: halkazwini
@@ -46,10 +46,7 @@ In this quickstart, you use Terraform to create an Azure Application Gateway wit
 
 ## Implement the Terraform code
 
-> [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-web-application-firewall). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-web-application-firewall/TestRecord.md).
-> 
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-web-application-firewall). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-web-application-firewall/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
@@ -64,6 +61,13 @@ In this quickstart, you use Terraform to create an Azure Application Gateway wit
 
 1. Create a file named `variables.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-web-application-firewall/variables.tf":::
+
+> [!IMPORTANT]
+> If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+>
+> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
+>
+> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
 
 ## Initialize Terraform
 
