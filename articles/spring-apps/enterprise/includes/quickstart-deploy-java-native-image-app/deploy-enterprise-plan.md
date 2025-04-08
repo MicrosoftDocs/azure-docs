@@ -110,7 +110,7 @@ Azure Spring Apps is used to host the Spring Petclinic app. Use the following st
        --build-pool-size S7
    ```
 
-1. Create a *builder-native.json* file in the current directory and then add the following content:
+1. Create a **builder-native.json** file in the current directory and then add the following content:
 
    ```json
    {

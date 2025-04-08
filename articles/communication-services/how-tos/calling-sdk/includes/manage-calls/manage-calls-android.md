@@ -10,7 +10,7 @@ ms.author: rifox
 ## Place a call
 
 To create and start a call you need to call the `CallAgent.startCall()` method and provide the `Identifier` of the callee(s).
-To join a group call you need to call the `CallAgent.join()` method and provide the groupId. Group Ids must be in GUID or UUID format.
+To join a group call you need to call the `CallAgent.join()` method and provide the groupId. Group IDs must be in GUID or UUID format.
 
 Call creation and start are synchronous. The call instance allows you to subscribe to all events on the call.
 
@@ -176,7 +176,7 @@ call.unmute(appContext).get();
 
 While you are in a call, the hardware volume keys on the phone should allow the user to change the call volume.
 This is done by using the method `setVolumeControlStream` with the stream type `AudioManager.STREAM_VOICE_CALL` on the Activity where the call is being placed.
-This allows the hardware volume keys to change the volume of the call (denoted by a phone icon or something similar on the volume slider), preventing to change the volume for other sound profiles, like alarms, media or system wide volume. For more information, you can check [Handling changes in audio output
+This allows the hardware volume keys to change the volume of the call (denoted by a phone icon or something similar on the volume slider), preventing changing the volume for other sound profiles, like alarms, media or system wide volume. For more information, you can check [Handling changes in audio output
  | Android Developers](https://developer.android.com/guide/topics/media-apps/volume-and-earphones).
 
 ```java
@@ -267,6 +267,8 @@ State can be one of
 > [!NOTE]
 > To use this API please use the Azure Communication Services Calling Android SDK version 2.11.0 or higher. 
 
+Now when a PSTN participant is muted, they should get an announcement that they have been muted and that they can press a key combination (e.g. *6) to unmute themselves. When they press *6, they should be unmuted.
+
 To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
 
 ```java
@@ -296,7 +298,7 @@ call = callAgent.startCall(context, participants, options);
 startService(yourForegroundServiceIntent);
 ```
 
-And stop the Foreground Service when you hangup the call or the call's status is Disconnected, for example:
+And stop the Foreground Service when you hang up the call or the call's status is Disconnected, for example:
 
 ```java
 call.hangUp(new HangUpOptions()).get();

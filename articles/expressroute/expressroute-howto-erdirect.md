@@ -200,8 +200,6 @@ Reference the recently created ExpressRoute Direct resource, input a customer na
 
 1. Select the **Upload/Download** button and then select **Download**. Select the `loa.pdf` file and select Download.
 
-    :::image type="content" source="./media/expressroute-howto-erdirect/download.png" alt-text="Screenshot of download button from Azure Cloud Shell.":::
-
 ## <a name="state"></a>Change Admin State of links
    
 This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.

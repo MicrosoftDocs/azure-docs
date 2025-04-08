@@ -4,9 +4,6 @@ description: Start here to learn how to monitor Azure Resource Manager. Learn ab
 ms.date: 01/22/2025
 ms.custom: horz-monitor, devx-track-arm-template
 ms.topic: conceptual
-author: mumian
-ms.author: jgao
-ms.service: azure-resource-manager
 ---
 
 # Monitor Azure Resource Manager

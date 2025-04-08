@@ -3,7 +3,7 @@ title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 10/16/2024
+ms.date: 02/12/2025
 ---
 
 # Use Azure portal to export a template
@@ -32,11 +32,11 @@ To export one or more resources from a resource group:
 
 1. Select **Export template** from the top menu. The **Export template** from the left menu exports all the resources in the group to a template.
 
-1. The exported template is displayed, and is available to download and deploy.
+1. Select **ARM Template**. The exported template is displayed, and is available to download and deploy.
 
    :::image type="content" source="./media/export-template-portal/show-template.png" alt-text="Screenshot of the displayed exported template in Azure portal.":::
 
-   **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
+   **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you'd like to author your own parameters, toggle this checkbox to not include them.
 
 ## Export template from a resource
 
@@ -72,6 +72,6 @@ You can export the template that was used to deploy existing resources. The temp
 
 ## Next steps
 
-* Learn how to export templates with [Azure CLI](export-template-cli.md), [Azure PowerShell](export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+* Learn how to export Bicep files with the [Azure portal](../bicep/export-bicep-portal.md).
+* Learn how to export templates with [Azure CLI](./export-template-cli.md), [Azure PowerShell](./export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 * To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).
-* To learn how to develop templates, see the [step-by-step tutorials](../index.yml).

@@ -188,6 +188,8 @@ items:
       href: how-to-integrate-web-pubsub.md
     - name: Apache Kafka on Confluent Cloud
       href: how-to-integrate-confluent-kafka.md
+    - name: Neon Serverless Postgres
+      href: how-to-integrate-neon-postgres.md
 - name: Reference
   expanded: false
   items: 

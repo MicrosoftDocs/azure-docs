@@ -21,13 +21,13 @@ Azure Redis can be used as a trigger for Azure Functions, allowing you to initia
 
 You can integrate Azure Redis and Azure Functions to build functions that react to events from Azure Redis or external systems.
 
-| Action  | Direction |  Support level |
-|---------|-----------|-----|
-| [Trigger on Redis pub sub messages](functions-bindings-cache-trigger-redispubsub.md)   | Trigger | Preview |
-| [Trigger on Redis lists](functions-bindings-cache-trigger-redislist.md)  | Trigger | Preview |
-| [Trigger on Redis streams](functions-bindings-cache-trigger-redisstream.md) | Trigger | Preview |
-| [Read a cached value](functions-bindings-cache-input.md) | Input | Preview |
-| [Write a values to cache](functions-bindings-cache-output.md) | Output | Preview |  
+| Action  | Direction |
+|---------|-----------|
+| [Trigger on Redis pub sub messages](functions-bindings-cache-trigger-redispubsub.md)   | Trigger |
+| [Trigger on Redis lists](functions-bindings-cache-trigger-redislist.md)  | Trigger |
+| [Trigger on Redis streams](functions-bindings-cache-trigger-redisstream.md) | Trigger |
+| [Read a cached value](functions-bindings-cache-input.md) | Input |
+| [Write a values to cache](functions-bindings-cache-output.md) | Output |  
 
 ## Scope of availability for functions triggers and bindings
 
@@ -211,5 +211,5 @@ Connections using Service Principal Secrets are only available during local deve
 ## Related content
 
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)

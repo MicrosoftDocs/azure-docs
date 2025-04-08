@@ -4,6 +4,9 @@ description: Archived release notes for Azure HDInsight. Get development tips an
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 01/24/2025
 ---
 

@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 12/23/2024
+ms.date: 03/13/2025
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
@@ -186,11 +186,10 @@ following requirements apply:
 
 > [!NOTE]
 > If private endpoints are not enabled on storage account, protection would still be successful. However, replication traffic would transit to Azure Site Recovery public endpoints. To ensure replication traffic flows via private links, storage account must be enabled with private endpoints.
-
-> [!NOTE]
-> Private endpoint for storage can only be created on a **General Purpose v2** storage accounts. For
-> pricing information, see
-> [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+>
+> Private endpoint for storage can only be created on a **General Purpose v2** storage accounts. For pricing information, see [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+>
+> For Cache Storage Account, assigning a Private Endpoint (PE) to the cache storage account and adding a static IP functions correctly if the source machine maintains a network line of sight. This doesn't apply to Site Recovery. 
 
 Follow the
 [guidance for creation of private storage](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint)

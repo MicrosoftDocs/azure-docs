@@ -53,7 +53,7 @@ These tables contain more information about some of the metrics in the preceding
 | **Tunnel Egress TS Mismatch Packet Drop** | Outgoing packet drop count from traffic selector mismatch of a tunnel.|
 | **Tunnel Ingress TS Mismatch Packet Drop** | Incoming packet drop count from traffic selector mismatch of a tunnel.|
 
-#### IPSec metrics
+#### IPsec metrics
 
 | Metric | Description |
 |:-------|:------------|
@@ -205,8 +205,6 @@ Replace the following values, after the `==`, as needed based on the tables in t
 - RouteDiagnosticLog
 
 In order to run the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
-
-:::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
 
 For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, you can investigate the diagnostic data without manually writing any Log Analytics query.
 

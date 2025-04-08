@@ -60,8 +60,6 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dic
 ---
 ## Next steps
 
-[Access the FHIR service by using Postman](./fhir/use-postman.md)
-
 [Access the FHIR service by using REST client](./fhir/using-rest-client.md)
 
 [Access the DICOM service by using cURL](dicom/dicomweb-standard-apis-curl.md)

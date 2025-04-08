@@ -20,8 +20,6 @@ You may want to advertise custom routes to all of your point-to-site VPN clients
 
 You can advertise custom routes using the Azure portal on the point-to-site configuration page. You can also view and modify/delete custom routes as needed using these steps. If you want to configure forced tunneling, see the [Forced tunneling](#forced-tunneling) section in this article.
 
-:::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/additional-routes.png" alt-text="Screenshot showing additional routes in the portal." lightbox= "./media/vpn-gateway-p2s-advertise-custom-routes/additional-routes.png":::
-
 1. Go to the virtual network gateway.
 1. Select **Point-to-site configuration** in the left pane.
 1. On the Point-to-site configuration page, add the routes. Don't use any spaces.

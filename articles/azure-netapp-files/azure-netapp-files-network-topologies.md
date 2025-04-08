@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/05/2024
+ms.date: 04/03/2025
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -33,6 +33,9 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 
 ### Constraints
 
+>[!IMPORTANT]
+>Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features. 
+
 The following table describes what’s supported for each network features configuration:
 
 |      Features     |      Standard network features     |      Basic network features     |
@@ -40,15 +43,14 @@ The following table describes what’s supported for each network features confi
 |     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as virtual machines (VMs)](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
+| [NSG support for private endpoints](../private-link/disable-private-endpoint-network-policy.md) | Yes | No | 
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
-|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes*    |     No    |
+|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes    |     No    |
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Yes  |     No    |
 |     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 |    Traffic routed via NVA from peered VNet | Yes    | No |
-
-\* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
 ### Supported network topologies
 

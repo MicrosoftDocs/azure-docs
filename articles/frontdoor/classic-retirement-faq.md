@@ -1,13 +1,11 @@
 ---
 title: Azure Front Door (classic) retirement FAQ
-titleSuffix:  Azure Front Door
 description: Common questions about the retirement of Azure Front Door (classic).
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: faq
 ms.date: 03/27/2024
-ms.author: duau
 ms.custom: ai-usage
 ---
 
@@ -95,8 +93,6 @@ If you have a support plan and you need technical assistance, you can create a [
 * *Resource*, select the **Azure Front Door resource**.
 * *Summary*, describe the problem you’re experiencing with the migration.
 * *Problem type*, select **Migrating Front Door Classic to Front Door Standard or Premium**
-
-:::image type="content" source="./media/classic-retirement-faq/support-request.png" alt-text="Screenshot of a new support request for Azure Front Door (classic) migration issue.":::
 
 ## Next steps
 

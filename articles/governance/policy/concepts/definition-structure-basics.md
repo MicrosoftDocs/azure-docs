@@ -1,7 +1,7 @@
 ---
 title: Details of Azure Policy definition structure basics
 description: Describes how Azure Policy definition basics are used to establish conventions for Azure resources in your organization.
-ms.date: 07/10/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

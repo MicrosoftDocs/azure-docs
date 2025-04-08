@@ -28,7 +28,7 @@ With the new plugin, you can:
 - Perform ingestion-time transformations like filtering or enrichment. 
 - Ingest custom logs into a custom table, or ingest a Syslog input stream into the Log Analytics Syslog table.
 
-Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](data-transformation.md#data-transformation-support-for-custom-data-connectors).
+Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](/azure/azure-monitor/logs/logs-ingestion-api-overview#supported-tables).
 
 To learn more about working with the Logstash data collection engine, see [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
@@ -497,7 +497,7 @@ For more information on *plugin_flush_interval*, see the [Optional Configuration
 
 ## Limitations
 
-- Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](data-transformation.md#data-transformation-support-for-custom-data-connectors).
+- Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](/azure/azure-monitor/logs/logs-ingestion-api-overview#supported-tables).
 - The columns of the input stream in the `streamDeclarations` property must start with a letter. If you start a column with other characters (for example `@` or `_`), the operation fails.
 - The `TimeGenerated` datetime field is required. You must include this field in the KQL transform.
 - For additional possible issues, review the [troubleshooting section](/azure/azure-monitor/logs/tutorial-logs-ingestion-code#troubleshooting) in the tutorial. 

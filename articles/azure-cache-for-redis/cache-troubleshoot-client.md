@@ -6,6 +6,8 @@ description: Learn how to resolve common client issues, such as client memory pr
 
 ms.topic: troubleshooting
 ms.date: 12/31/2021
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # Troubleshoot Azure Cache for Redis client-side issues
 

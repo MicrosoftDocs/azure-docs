@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
-ms.topic: article
+ms.topic: reference
 ms.date: 12/13/2024
 ms.author: danlep
 ---
@@ -17,7 +17,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of responses to Azure OpenAI Chat Completion API and Completion API requests from a configured external cache, based on vector proximity of the prompt to previous requests and a specified similarity score threshold. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
+Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of responses to Azure OpenAI Chat Completion API requests from a configured external cache, based on vector proximity of the prompt to previous requests and a specified similarity score threshold. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > * This policy must have a corresponding [Cache responses to Azure OpenAI API requests](azure-openai-semantic-cache-store-policy.md) policy. 
@@ -45,7 +45,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| score-threshold	| Similarity score threshold used to determine whether to return a cached response to a prompt. Value is a decimal between 0.0 and 1.0. [Learn more](../azure-cache-for-redis/cache-tutorial-semantic-cache.md#change-the-similarity-threshold). | Yes |	N/A |
+| score-threshold	| Similarity score threshold used to determine whether to return a cached response to a prompt. Value is a decimal between 0.0 and 1.0. [Learn more](../redis/tutorial-semantic-cache.md#change-the-similarity-threshold). | Yes |	N/A |
 | embeddings-backend-id | [Backend](backends.md) ID for OpenAI embeddings API call. |	Yes |	N/A |
 | embeddings-backend-auth | Authentication used for Azure OpenAI embeddings API backend. | Yes. Must be set to `system-assigned`. | N/A |
 | ignore-system-messages | Boolean. If set to `true`, removes system messages from a GPT chat completion prompt before assessing cache similarity. | No | false |

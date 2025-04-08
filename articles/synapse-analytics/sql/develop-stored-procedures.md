@@ -3,11 +3,11 @@ title: Use stored procedures
 description: Tips for implementing stored procedures using Synapse SQL in Azure Synapse Analytics for solution development.
 author: mstehrani
 ms.author: emtehran
-ms.reviewer: wiassaf
-ms.date: 11/03/2020
+
+ms.date: 02/28/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Stored procedures using Synapse SQL in Azure Synapse Analytics
@@ -20,7 +20,7 @@ In this article you will find some tips for implementing stored procedures in Sy
 Synapse SQL supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution. In this article, you will learn about the features that you can place in stored procedures.
 
 > [!NOTE]
-> In the procedure body you can use only the features that are supported in Synapse SQL surface area. Review [this article](overview-features.md) to identify objects, statement that can be used in stored procedures. The examples in these articles use generic features that are available both in serverless and dedicated surface area. See additional [limitations in provisioned and serverless Synapse SQL pools](#limitations) at the end of this article.
+> In the procedure body you can use only the features that are supported in Synapse SQL surface area. Review [this article](overview-features.md) to identify objects, statement that can be used in stored procedures. The examples in these articles use generic features that are available both in serverless and dedicated surface area. See other [limitations in provisioned and serverless Synapse SQL pools](#limitations) at the end of this article.
 
 To maintain the scale and performance of SQL pool, there are also some features and functionality that have behavioral differences and others that aren't supported.
 
@@ -199,6 +199,6 @@ There are some aspects of Transact-SQL stored procedures that aren't implemented
 | Return statement | No | Yes |
 | INSERT INTO .. EXEC | No | Yes |
 
-## Next steps
+## Related content
 
 For more development tips, see [development overview](develop-overview.md).

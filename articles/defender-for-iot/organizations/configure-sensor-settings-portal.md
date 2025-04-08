@@ -120,6 +120,7 @@ The **Type** settings are:
 - [Local subnets](#local-subnets)
 - [VLAN naming](#vlan-naming)
 - [Public addresses](#public-addresses)
+- [Single sign-on](#single-sign-on)
 - [DHCP ranges](#dhcp-ranges)
 
 To add a new setting **Type**, select **Sites and sensors** > **Sensor settings**. Select the setting from the **Type** drop down, for example:
@@ -197,6 +198,10 @@ Add the public addresses of internal devices into this configuration to ensure t
 1. In the **Apply** tab, select sites, and toggle the **Add selection by specific zone/sensor** to optionally apply the IP addresses to specific zones and sensors.
 1. Select **Next**.
 1. Review the details and select **Create** to add the address to the public addresses list.
+
+### Single sign-on
+
+With Single sign-on (SSO), users simply sign into the sensor console and don't need multiple login credentials across different sensors and sites. For more information, see [create SSO configuration](set-up-sso.md#create-sso-configuration).
 
 ### DHCP ranges
 

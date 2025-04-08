@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ---
 # Disaster recovery for Azure Data Share
 
@@ -15,17 +15,15 @@ This article explains how to configure a disaster recovery environment for Azure
 
 To be prepared for a data center outage, the data provider can have a data share environment provisioned in a secondary region. Measures can be taken to ensure a smooth failover if a data center outage does occur.
 
-Data providers can create secondary Azure Data Share resources in another region. These Data Share resources can be configured to include shares and datasets that exist in the primary Azure Data Share resource. They can invite data consumers to the secondary shares when configuring the DR environment or at a later time (i.e as part of manual failover steps).
+Data providers can create secondary Azure Data Share resources in another region. These Data Share resources can be configured to include shares and datasets that exist in the primary Azure Data Share resource. They can invite data consumers to the secondary shares when configuring the DR environment or at a later time (for example, as part of manual failover steps).
 
 If the data consumers have active share subscriptions in a secondary environment provisioned for DR purposes, they can enable snapshot schedule as part of failover. If the data consumers don't want to subscribe to a secondary region for DR purposes, they can be invited into the secondary share at a later time.
 
 Data consumers can either have an active share subscription that is idle for DR purposes, or data providers can invite them at a later time as part of manual failover procedures.
 
-## Related information
+## Related content
 
 - [Business Continuity and Disaster Recovery](../reliability/cross-region-replication-azure.md)
 - [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
-
-## Next steps
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.

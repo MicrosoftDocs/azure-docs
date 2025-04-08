@@ -1,6 +1,6 @@
 ---
 title: How to connect to a data source privately in Azure Managed Grafana
-description: Learn how to connect an Azure Managed Grafana instance to a data source using Managed Private Endpoint
+description: Learn how to connect an Azure Managed Grafana workspace to a data source using Managed Private Endpoint
 ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
@@ -10,7 +10,7 @@ ms.date: 02/05/2024
 
 # Connect to a data source privately
 
-In this guide, you learn how to connect your Azure Managed Grafana instance to a data source using Managed Private Endpoint. Azure Managed Grafana’s managed private endpoints are endpoints created in a Managed Virtual Network that the Azure Managed Grafana service uses. They establish private links from that network to your Azure data sources. Azure Managed Grafana sets up and manages these private endpoints on your behalf. You can create managed private endpoints from your Azure Managed Grafana to access other Azure managed services (for example, Azure Monitor private link scope or Azure Monitor workspace) and your own self-hosted data sources (for example, connecting to your self-hosted Prometheus behind a private link service).
+In this guide, you learn how to connect your Azure Managed Grafana workspace to a data source using Managed Private Endpoint. Azure Managed Grafana’s managed private endpoints are endpoints created in a Managed Virtual Network that the Azure Managed Grafana service uses. They establish private links from that network to your Azure data sources. Azure Managed Grafana sets up and manages these private endpoints on your behalf. You can create managed private endpoints from your Azure Managed Grafana to access other Azure managed services (for example, Azure Monitor private link scope or Azure Monitor workspace) and your own self-hosted data sources (for example, connecting to your self-hosted Prometheus behind a private link service).
 
 When you use managed private endpoints, traffic between your Azure Managed Grafana and its data sources traverses exclusively over the Microsoft backbone network without going through the internet. Managed private endpoints protect against data exfiltration. A managed private endpoint uses a private IP address from your Managed Virtual Network to effectively bring your Azure Managed Grafana workspace into that network. Each managed private endpoint is mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to only resources approved by their organizations.
 
@@ -28,23 +28,22 @@ While managed private endpoints are free, there may be charges associated with p
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
-- Azure Cosmos DB for Mongo DB ([Only for Request Unit (RU) architecture](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture))
+- Azure Cosmos DB for Mongo DB ([RU](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture) and [vCore](/azure/cosmos-db/mongodb/introduction#vcore-architecture-recommended) architectures)
 - Azure Cosmos DB for PostgreSQL
 - Azure Data Explorer
 - Azure Monitor private link scope (for example, Log Analytics workspace)
 - Azure Monitor workspace, for Managed Service for Prometheus
-- Azure SQL managed instance
+- Azure SQL managed Instance
 - Azure SQL server
-- Private link services
 - Azure Databricks
-- Azure Database for PostgreSQL flexible servers ([Only for servers that have public access networking](/azure/postgresql/flexible-server/concepts-networking-private-link))
+- Private link services
 
 ## Prerequisites
 
 To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance in the Standard tier. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana workspace in the Standard tier. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
 
 ## Create a managed private endpoint for Azure Monitor workspace
 

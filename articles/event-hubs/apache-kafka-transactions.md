@@ -2,7 +2,8 @@
 title: Transactions for Apache Kafka in Event Hubs on Azure Cloud
 description: Learn about the transactional API in Apache Kafka and how to use that in Apache Kafka applications with Event Hubs service on Azure Cloud.
 ms.topic: overview
-ms.date: 04/29/2024
+ms.subservice: kafka
+ms.date: 03/06/2025
 ---
 
 # Transactions in Apache Kafka for Azure Event Hubs
@@ -29,7 +30,7 @@ In cloud native environments, applications must be made resilient to network dis
 
 Apache Kafka provides a transactional API to ensure this level of processing guarantees across the same or different set of topic/partitions.
 
-Transactions apply to the below cases: 
+Transactions apply to the following cases: 
 
   * Transactional producers.
   * Exactly once processing semantics.
@@ -46,13 +47,13 @@ To ensure that a producer is transactional, `enable.idempotence` should be set t
     KafkaProducer<String, String> producer = new KafkaProducer(producerProps);
 ```
 
-Once the producer is initialized, the below call ensures that the producer registers with the broker as a transactional producer -
+Once the producer is initialized, the following call ensures that the producer registers with the broker as a transactional producer -
 
 ```java
     producer.initTransactions();
 ```
 
-The producer must then begin a transaction explicitly, perform send operations across different topics and partitions as normal, and then commit the transaction with the below call –
+The producer must then begin a transaction explicitly, perform send operations across different topics and partitions as normal, and then commit the transaction with the following call –
 
 ```java
     producer.beginTransaction();
@@ -62,7 +63,7 @@ The producer must then begin a transaction explicitly, perform send operations a
     producer.commitTransaction();
 ```
 
-If the transaction needs to be aborted due to a fault or a timeout, then the producer can call the `abortTransaction()` method.
+If the transaction needs to be aborted due to a fault or a time out, then the producer can call the `abortTransaction()` method.
 
 ```java
 	producer.abortTransaction();
@@ -85,7 +86,7 @@ First the transactional producer is instantiated -
 
 ```
 
-Then, the consumer must be configured to read only nontransactional messages, or committed transactional messages by setting the below property –
+Then, the consumer must be configured to read only nontransactional messages, or committed transactional messages by setting the following property –
 
 ```java
 
@@ -139,11 +140,11 @@ In any exception, the transaction is aborted and the producer retries the proces
 ```
 
 > [!WARNING]
->If the transaction is neither committed or aborted before the `max.transaction.timeout.ms`, the transaction will be aborted by Event Hubs automatically. The default `max.transaction.timeout.ms` is set to **15 minutes** by Event Hubs, but the producer can override it to a lower value by setting the `transaction.timeout.ms` property in the producer configuration properties.
+>If the transaction is not committed or aborted before the `max.transaction.timeout.ms`, the transaction is aborted by Event Hubs automatically. The default `max.transaction.timeout.ms` is set to **15 minutes** by Event Hubs, but the producer can override it to a lower value by setting the `transaction.timeout.ms` property in the producer configuration properties.
 
 ## Migration Guide
 
-If you have existing Kafka applications that you’d like to use with Azure Event Hubs, please review the [Kafka migration guide for Azure Event Hubs](apache-kafka-migration-guide.md) to hit the ground running quickly.
+If you have existing Kafka applications that you’d like to use with Azure Event Hubs, see the [Kafka migration guide for Azure Event Hubs](apache-kafka-migration-guide.md) to hit the ground running quickly.
 
 ## Next steps
 

@@ -116,7 +116,7 @@ If you didn't install the GPU extension when you created the VM, follow these st
 ![Illustration showing 2 steps to use the "Plus Add Extension" button on the virtual machine "Details" pane to add a GPU extension to a VM on an Azure Stack Edge device.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-after-deployment-02.png)
 
 > [!Note]
-> You can't remove a GPU extension via the portal. Instead, use the [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension?view=azurermps-6.13.0&preserve-view=true) cmdlet in Azure PowerShell. For instructions, see [Remove GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md#remove-gpu-extension)
+> You can't remove a GPU extension via the portal. Instead, use the [Remove-AzureRmVMExtension](/powershell/azure/uninstall-az-ps) cmdlet in Azure PowerShell. For instructions, see [Remove GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md#remove-gpu-extension)
 
 ### [Templates](#tab/templates)
 

@@ -1,8 +1,8 @@
 ---
 title: How to use raw HTTPS in Azure IoT Hub Device Provisioning Service
 description: This article shows how to use symmetric keys over HTTPS in your Device Provisioning Service (DPS) instance
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 10/27/2022
 ms.topic: how-to
 ms.service: azure-iot-hub

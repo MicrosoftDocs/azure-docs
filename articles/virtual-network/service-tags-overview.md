@@ -59,7 +59,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
-| **AzureDatabricks** | Azure Databricks. | Both | No | Yes |
+| **[AzureDatabricks](/azure/databricks/resources/ip-domain-region)** | Azure Databricks. | Both | No | Yes |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | Yes |
 | **[AzureDeviceUpdate](/azure/iot-hub-device-update/network-security)** | Device Update for IoT Hub. | Both | No | Yes |
 | **[AzureDevOps](/azure/devops/organizations/security/allow-list-ip-url)** | Azure DevOps. | Inbound | Yes | Yes |
@@ -164,7 +164,7 @@ The following is a list of tags currently unsupported for use with user defined 
 
 ## Service tags on-premises  
 
-You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. You can obtain the information programmatically or via a JSON file download, as described in the following sections.
+You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. You should obtain the information programmatically or via a JSON file download, as described in the following sections.
 
 ### Use the Service Tag Discovery API
 

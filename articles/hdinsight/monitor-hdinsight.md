@@ -5,6 +5,9 @@ ms.date: 10/15/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: azure-hdinsight
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Monitor Azure HDInsight

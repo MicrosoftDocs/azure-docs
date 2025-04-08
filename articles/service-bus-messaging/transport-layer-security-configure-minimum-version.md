@@ -144,11 +144,14 @@ The response should look something like the below, with the minimumTlsVersion se
 }
 ```
 
-## Test the minimum TLS version from a client
+## TLS version used by a client
 
-To test that the minimum required TLS version for a Service Bus namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
+To test that the minimum required TLS version for a Service Bus namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. 
 
-When a client accesses a Service Bus namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Service Bus returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Service Bus namespace.
+> [!NOTE]
+> The runtime automatically uses the most recent TLS version available on the client applications' host machine. We recommend that you don't override this behavior. For more information, see [Select TLS version](/dotnet/core/extensions/sslstream-best-practices#select-tls-version).
+
+When a client accesses a Service Bus namespace using a TLS version that doesn't meet the minimum TLS version configured for the namespace, Azure Service Bus returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Service Bus namespace.
 
 > [!NOTE]
 > When you configure a minimum TLS version for a Service Bus namespace, that minimum version is enforced at the application layer. Tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the Service Bus namespace endpoint.
@@ -158,5 +161,4 @@ When a client accesses a Service Bus namespace using a TLS version that does not
 See the following documentation for more information.
 
 - [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md)
-- [Configure Transport Layer Security (TLS) for a Service Bus client application](transport-layer-security-configure-client-version.md)
 - [Use Azure Policy to audit for compliance of minimum TLS version for a Service Bus namespace](transport-layer-security-audit-minimum-version.md)

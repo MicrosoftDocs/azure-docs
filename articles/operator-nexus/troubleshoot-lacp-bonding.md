@@ -13,6 +13,8 @@ ms.date: 11/15/2024
 
 On physical host startup, the two Mellanox cards are bonded to a pair of Arista switches by the Link Aggregation Control Protocol (LACP). If LACP isn't properly negotiated between the server's cards and the switches, it can cause strange packet loss or load-balancing behavior. These errors might not be noticeable until a tenant workload attempts to pass traffic. They occur because of the hashing/load-balancing nature of LACP.
 
+If there's an issue with LACP bonding on a given host, an appropriate 'degraded' message is included in the 'Detailed status message' for the corresponding Bare Metal Machine (BMM) resource. For more information, see the [Troubleshoot Degraded status](./troubleshoot-bare-metal-machine-degraded.md) guide.
+
 ## Diagnosis
 
 If LACP isn't negotiated correctly, traffic loss can occur. But traffic can pass for some flows too. This behavior can manifest itself as a virtual machine that can't get on the network, or even as object attribute memory (OAM) or storage outages.

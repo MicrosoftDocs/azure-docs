@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 03/07/2025
 ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---

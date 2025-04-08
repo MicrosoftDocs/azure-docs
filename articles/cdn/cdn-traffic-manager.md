@@ -1,14 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: Fail over across multiple endpoints with Traffic Manager
 titleSuffix: Azure Content Delivery Network
 description: Learn how to configure failover across multiple Azure Content Delivery Network endpoints by using Azure Traffic Manager.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ---
 
 # Failover across multiple endpoints with Azure Traffic Manager

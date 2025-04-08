@@ -42,7 +42,7 @@ To take the steps in this article, the prerequisites are as follows:
 
 After you create the subscription, it appears in the list on the **Subscriptions** page. Two API keys are provided to access the APIs. One key is primary, and one is secondary. 
 
-## Next steps
+## Related content
 Get more information on API Management:
 
 + Learn other [concepts](api-management-terminology.md) in API Management.

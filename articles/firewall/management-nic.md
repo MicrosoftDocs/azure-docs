@@ -2,11 +2,11 @@
 title: Azure Firewall Management NIC
 description: You can configure a Management NIC to support the Forced Tunneling and Packet Capture features.
 services: firewall
-author: vhorne
+author: duongau
 ms.date: 11/6/2024
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall Management NIC
