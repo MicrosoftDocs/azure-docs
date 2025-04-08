@@ -3,7 +3,7 @@ title: Bicep modules
 description: This article describes how to define a module in a Bicep file and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/21/2025
+ms.date: 03/25/2025
 ---
 
 # Bicep modules
@@ -91,7 +91,7 @@ module <symbolic-name> '<path-to-file>' = {
 }
 ```
 
-To *conditionally deploy a module*, add an `if` expression. The use is similar to [conditionally deploying a resource](conditional-resource-deployment.md).
+To *conditionally deploy a module*, add an `if` expression. This is similar to [conditionally deploying a resource](conditional-resource-deployment.md).
 
 ```bicep
 // conditional deployment
@@ -116,7 +116,7 @@ module <symbolic-name> '<path-to-file>' = [for <item> in <collection>: {
 }]
 ```
 
-Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies because they're determined implicitly. If you need to set an explicit dependency, add `dependsOn` to the module definition. To learn more about dependencies, see [Resource dependencies](resource-dependencies.md).
+Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies because they're determined implicitly. If you need to set an explicit dependency, add `dependsOn` to the module definition. To learn more about dependencies, see [Resource dependencies in Bicep](resource-dependencies.md).
 
 ```bicep
 module <symbolic-name> '<path-to-file>' = {
@@ -136,7 +136,7 @@ The file for the module can be either a local file or an external file. The exte
 
 ### Local file
 
-If the module is a *local file*, provide a relative path to that file. All paths in Bicep must be specified by using the forward slash (/) directory separator to ensure consistent compilation across platforms. The Windows backslash (\\) character is unsupported. Paths can contain spaces.
+If the module is a *local file*, provide a relative path to that file. All paths in Bicep must be specified by the forward slash (/) directory separator to ensure consistent compilation across platforms. The Windows backslash (\\) character isn't supported. Paths can contain spaces.
 
 For example, to deploy a file that's up one level in the directory from your main file, use:
 
@@ -160,7 +160,7 @@ There are public and private module registries.
 
 [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) are prebuilt, pretested, and preverified modules that you can use to deploy resources on Azure. Microsoft employees created and own these modules. They were designed to simplify and accelerate the deployment process for common Azure resources and configurations. The modules also align to best practices like Azure Well-Architected Framework.
 
-Browse to the [Azure Verified Modules Bicep Index](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) to see the list of modules that are available. Select the highlighted numbers in the following screenshot to go directly to that filtered view.
+Browse [Bicep Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) to see the list of modules that are available. Select the highlighted numbers in the following screenshot to go directly to that filtered view:
 
 :::image type="content" source="./media/modules/bicep-azure-verified-modules-avm.png" alt-text="Screenshot that shows Azure Verified Modules.":::
 
@@ -174,9 +174,9 @@ To link to a public module, specify the module path with the following syntax:
 module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
 ```
 
-- **br/public**: Is the alias for public modules. You can customize this alias in the [Bicep configuration file](./bicep-config-modules.md).
-- **file path**: Can contain segments that you can separate by the `/` character.
-- **tag**: Is used for specifying a version for the module.
+- **br/public**: This is the alias for public modules. You can customize this alias in the [Bicep configuration file](./bicep-config-modules.md).
+- **file path**: This can contain segments that you can separate with the `/` character.
+- **tag**: This is used for specifying a version for the module.
 
 For example:
 
@@ -205,8 +205,8 @@ If you [published a module to a registry](bicep-cli.md#publish), you can link to
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
-- **br**: Is a scheme name for a Bicep registry.
-- **file path**: Is called `repository` in Azure Container Registry. The file path can contain segments that are separated by the `/` character.
+- **br**: This is a scheme name for a Bicep registry.
+- **file path**: This is called `repository` in Azure Container Registry. The file path can contain segments that are separated by the `/` character.
 - **tag**: Is used to specify a version for the module.
 
 For example:
@@ -220,7 +220,7 @@ module stgModule 'br:exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
 }
 ```
 
-When you reference a module in a registry, the Bicep extension in Visual Studio Code automatically calls [bicep restore](bicep-cli.md#restore) to copy the external module to the local cache. It takes a few moments to restore the external module. If IntelliSense for the module doesn't work immediately, wait for the restore to complete.
+When you reference a module in a registry, the Bicep extension in Visual Studio Code automatically calls [`bicep restore`](bicep-cli.md#restore) to copy the external module to the local cache. It takes a few moments to restore the external module. If IntelliSense for the module doesn't work immediately, wait for the restore to complete.
 
 The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, [configure aliases in the bicepconfig.json file](bicep-config-modules.md#aliases-for-modules). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
 
@@ -273,7 +273,7 @@ module stgModule 'ts/ContosoSpecs:storageSpec:2.0' = {
 
 ## Use decorators
 
-Decorators are written in the format `@expression` and are placed above module declarations. The following table shows the available decorators for modules.
+Decorators are written in the format `@expression` and are placed above module declarations. The following table shows the available decorators for modules:
 
 | Decorator | Argument | Description |
 | --------- | ----------- | ------- |
@@ -450,7 +450,7 @@ module storage2 '../create-storage-account/main.bicep' = {
 }
 ```
 
-Set the `scope` property to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. Or you can use the scope functions to get a valid scope.
+Set the `scope` property to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. Or, you can use the scope functions to get a valid scope.
 
 Those functions are:
 
@@ -474,7 +474,7 @@ module mgDeploy 'main.bicep' = {
 
 You can get values from a module and use them in the main Bicep file. To get an output value from a module, use the `outputs` property on the module object.
 
-The first example creates a storage account and returns the primary endpoints.
+The first example creates a storage account and returns the primary endpoints:
 
 ```bicep
 @minLength(3)
@@ -512,7 +512,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-When the property is used as a module, you can get that output value.
+When the property is used as a module, you can get that output value:
 
 ```bicep
 targetScope = 'subscription'
@@ -539,5 +539,5 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
 ## Related content
 
-- For a tutorial, see [Deploy Azure resources by using Bicep templates](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
-- To pass a sensitive value to a module, use the [getSecret](bicep-functions-resource.md#getsecret) function.
+- For a tutorial, see [Build your first Bicep template](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
+- To pass a sensitive value to a module, use the [`getSecret`](bicep-functions-resource.md#getsecret) function.

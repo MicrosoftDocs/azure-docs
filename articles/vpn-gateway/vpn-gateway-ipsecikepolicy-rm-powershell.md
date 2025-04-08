@@ -5,7 +5,7 @@ description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-V
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -100,7 +100,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### 2. Create the virtual network, VPN gateway, and local network gateway
 
-The following samples create the virtual network, TestVNet1, with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails. It can take 45 minutes or more for the virtual network gateway to create. During this time, if you are using Azure Cloud Shell, your connection may time out. This doesn't affect the gateway create command.
+The following samples create the virtual network, TestVNet1, with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails. It can take 45 minutes or more for the virtual network gateway to create. During this time, if you're using Azure Cloud Shell, your connection might time out. This doesn't affect the gateway create command.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -119,7 +119,7 @@ $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $sub
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-Create the local network gateway. You may need to reconnect and declare the following variables again if Azure Cloud Shell timed out.
+Create the local network gateway. You might need to reconnect and declare the following variables again if Azure Cloud Shell timed out.
 
 Declare variables.
 
@@ -172,7 +172,7 @@ You can optionally add "-UsePolicyBasedTrafficSelectors $True" to the create con
 > Once an IPsec/IKE policy is specified on a connection, the Azure VPN gateway will only send or accept
 > the IPsec/IKE proposal with specified cryptographic algorithms and key strengths on that particular
 > connection. Make sure your on-premises VPN device for the connection uses or accepts the exact
-> policy combination, otherwise the S2S VPN tunnel will not establish.
+> policy combination, otherwise the S2S VPN tunnel won't establish.
 
 ## <a name ="vnet2vnet"></a>Create a VNet-to-VNet connection with IPsec/IKE policy
 
@@ -229,7 +229,7 @@ It can take about 45 minutes or more to create the VPN gateway.
 
 ### Step 2: Create a VNet-toVNet connection with the IPsec/IKE policy
 
-Similar to the S2S VPN connection, create an IPsec/IKE policy, then apply the policy to the new connection. If you used Azure Cloud Shell, your connection may have timed out. If so, re-connect and state the necessary variables again.
+Similar to the S2S VPN connection, create an IPsec/IKE policy, then apply the policy to the new connection. If you used Azure Cloud Shell, your connection might have timed out. If so, re-connect and state the necessary variables again.
 
 ```azurepowershell-interactive
 $GWName1 = "VNet1GW"
@@ -270,7 +270,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 > Once an IPsec/IKE policy is specified on a connection, the Azure VPN gateway will only send or accept
 > the IPsec/IKE proposal with specified cryptographic algorithms and key strengths on that particular
 > connection. Make sure the IPsec policies for both connections are the same, otherwise the
-> VNet-to-VNet connection will not establish.
+> VNet-to-VNet connection won't establish.
 
 After you complete these steps, the connection is established in a few minutes, and you'll have the following network topology as shown in the beginning:
 
@@ -287,7 +287,7 @@ The last section shows you how to manage IPsec/IKE policy for an existing S2S or
 The same steps apply to both S2S and VNet-to-VNet connections.
 
 > [!IMPORTANT]
-> IPsec/IKE policy is supported on *Standard* and *HighPerformance* route-based VPN gateways only. It does not work on the Basic gateway SKU or the policy-based VPN gateway.
+> IPsec/IKE policy is supported on *Standard* and *HighPerformance* route-based VPN gateways only. It doesn't work on the Basic gateway SKU or the policy-based VPN gateway.
 
 ### 1. Show an IPsec/IKE policy for a connection
 

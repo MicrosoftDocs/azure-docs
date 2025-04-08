@@ -2,13 +2,13 @@
 title: Automatically renew your Azure savings plan
 titleSuffix: Microsoft Cost Management
 description: Learn how you can automatically renew an Azure saving plan to continue getting discounts.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Automatically renew your Azure savings plan

@@ -122,10 +122,6 @@ Get started with creating and using a notification hub by following the [Tutoria
 
 [Kindle]: ./notification-hubs-android-push-notification-google-fcm-get-started.md
 
-[Xamarin.iOS]: ./xamarin-notification-hubs-ios-push-notification-apns-get-started.md
-
-[Xamarin.Android]: ./xamarin-notification-hubs-push-notifications-android-gcm.md
-
 [Microsoft.WindowsAzure.Messaging.NotificationHub]: /previous-versions/azure/reference/dn339221(v=azure.100)
 
 [Microsoft.ServiceBus.Notifications]: /previous-versions/azure/

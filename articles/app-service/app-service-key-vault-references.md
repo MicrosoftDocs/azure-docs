@@ -56,6 +56,8 @@ If your vault is configured with [network restrictions](/azure/key-vault/general
 
 2. Make sure that the vault's configuration allows the network or subnet that your app uses to access it.
 
+Note that even if you have correctly configured the vault to accept traffic from your virtual network the vault's audit logs may still show a failed (403 - Forbidden) SecretGet event from the app's public outbound IP. This will be followed by a successful SecretGet event from the app's private IP, and is by design.
+
 ### Access vaults with a user-assigned identity
 
 Some apps need to reference secrets at creation time, when a system-assigned identity isn't available yet. In these cases, you can create a user-assigned identity and give it access to the vault in advance.
