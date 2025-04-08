@@ -1,13 +1,13 @@
 ---
 title: Cancel and delete your Azure subscription
 description: Describes how to cancel or deleted your Azure subscription, like the Free Trial subscription.
-author: bandersmsft
-ms.reviewer: tomasa
+author: macyso
+ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/17/2025
-ms.author: banders
+ms.date: 04/08/2025
+ms.author: macyso
 ---
 
 # Cancel and delete your Azure subscription
@@ -105,6 +105,20 @@ The following example shows that credits were applied and pending estimated char
 
 > [!NOTE]
 > Partners can suspend or cancel a subscription if requested by a customer or in cases of nonpayment or fraud. For more information, see [Suspend or cancel a subscription](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
+
+## Cancel a Support plan in the Azure portal
+
+You can cancel your Azure support plan with the following steps: 
+
+1. Navigate to the Cost management + Billing Overview page. 
+2. Select **All Billing Subscription**.
+3. Select the support plan that you want to cancel from **All Billing Subscription** to open the Support plan details page.
+4. Select **Cancel** for the fly-out to appear.
+5. Select **Off** for your auto-renewal period so that the support plan will stop auto-renewal when it expires.
+
+![Screenshot for cancel support plan.](media/cancel-azure-subscription/cancel-azure-support-plan.png)
+
+If you cancel an Azure Support plan, you're billed for the rest of the month. **Cancelling a support plan doesn't result in a prorated refund.** For more information, see [Azure Support Plan FAQ](https://azure.microsoft.com/support/legal/faq).
 
 ## What happens after subscription cancellation?
 

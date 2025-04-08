@@ -217,7 +217,7 @@
       href: grpc-api.md
     - name: Azure OpenAI and LLM APIs
       items:
-      - name: GenAI gateway capabilities in API Management
+      - name: AI gateway capabilities in API Management
         href: genai-gateway-capabilities.md
       - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
