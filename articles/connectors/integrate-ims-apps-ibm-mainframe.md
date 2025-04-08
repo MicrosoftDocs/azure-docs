@@ -1,6 +1,6 @@
 ---
-title: Connect to IMS Programs on IBM Mainframes
-description: Integrate IMS programs with Standard workflows in Azure Logic Apps by using the IBM IMS connector.
+title: Access IMS Programs from Standard Workflows
+description: Connect to IMS programs on IBM mainframes from Standard workflows in Azure Logic Apps by using the IBM IMS connector.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -58,7 +58,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   To create this HIDX file, [download and install the Host Integration Server (HIS) Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
-  To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The IMS connector manages the process and data conversions. The conversions are used to provide input data from the workflow to the mainframe program and to send any output data generated from the mainframe program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
+  To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The IMS connector manages the process and data conversions. These conversions provide input data from the workflow to the mainframe program and send any output data generated from the mainframe program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
 
   To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods, parameters, and return values that you can use in your workflow. The tool also allows you to import COBOL or RPG program definitions (copybooks) that provide this information.
 
@@ -68,7 +68,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   The IMS connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the IMS connector actions. To get started, create a blank workflow in your Standard logic app resource.
 
-### Limitations
+## Limitations
 
 Currently, the IMS connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
