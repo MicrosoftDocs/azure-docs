@@ -12,6 +12,10 @@ ms.author: ssundara
 ms.custom: compute-evergreen
 ---
 # Azure Guest OS releases and SDK compatibility matrix
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it isn't vital that you read this page.
 
 > [!IMPORTANT]
