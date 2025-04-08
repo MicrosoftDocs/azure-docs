@@ -29,11 +29,11 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 2. While in your Enclave's page, select `Enclave endpoints` in the left menu.
 
-![image1.png](./media/enclave-webapp-endpointblade.png)
+![image1.png](./media/enclave-webapp-endpoint-list.png)
 
 3. Select `Create`
 
-![image2.png](./media/enclave-webapp-endpointblade-create.png)
+![image2.png](./media/enclave-webapp-endpoint-list-create.png)
 
 4. Enter the details for your app/service and then select `Save`
    - Enclave: Select the existing Enclave "Enclave-WebApp".
@@ -58,7 +58,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 1. Navigate to the `fabrikam` community, select `Community Endpoints`
 
-![image6.png](./media/fabrikam-endpoint-blade.png)
+![image6.png](./media/fabrikam-endpoint-list.png)
 
 2. Select `Create`
 
@@ -89,7 +89,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 1. From the `fabrikam` community, select  `Enclave connections`
 
-![image11.png](./media/fabrikam-connection-blade.png)
+![image11.png](./media/fabrikam-connection-list.png)
 
 3. Select `Create`
 
@@ -112,7 +112,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![image14.png](./media/fabrikam-connection-deployed-disconnected.png)
 
-7. Review the pending approvals in the `Approvals` blade for the enclave.
+7. Review the pending approvals in `Approvals` on the left for the enclave.
 
 ![image15.png](./media/fabrikam-connection-approval-pending.png)
 

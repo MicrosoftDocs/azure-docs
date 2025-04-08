@@ -19,7 +19,7 @@ In this tutorial, part three of eight, you deploy workloads into an enclave. You
 - ✅ View workloads in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./2-create-enclaves-within-a-community.md), you used Azure portal to create a simple enclave. If you haven't created the enclave yet, return to [Tutorial 2 - Create enclaves within a community](./2-create-enclaves-within-a-community.md).
+In the previous [tutorial](./2-create-enclaves-within-a-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 2 - Create enclaves within a community](./2-create-enclaves-within-a-community.md).
 
 ## Create a workload using Azure Virtual Enclaves
 Before creating your resources, you need to create the AVE Workload resource. Workloads are logical groups of Azure resources, similar to an Azure Resource Group, that you define to create and audit connections in Azure Virtual Enclaves.
@@ -33,13 +33,13 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
 
 2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./2-create-enclaves-within-a-community.md).
 
-![Screenshot showing the WebApp Enclave overview blade.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-blade-deployed.png)
+![Screenshot showing the WebApp Enclave overview list.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-deployed.png)
 
-3. Go to the `Workloads` blade underneath the `Enclave resources` section in the left-hand menu.
+3. Go to the `Workloads` on the left underneath the `Enclave resources` section in the left-hand menu.
 
 4. On the Workloads page, select `Create`
 
-![Screenshot showing the WebApp enclave workloads blade with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-blade-create.png)
+![Screenshot showing the WebApp enclave workloads list with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-list-create.png)
 
 5. Enter the basic details for your Workload
    - **Enclave**: Select an existing Enclave. This value is automatically applied from `Enclave-WebApp` you were currently browsing.

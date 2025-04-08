@@ -31,7 +31,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 
 1. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
 
-![Screenshot showing the Azure Virtual Enclaves portal page with the Enclaves blade selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-blade.png)
+![Screenshot showing the Azure Virtual Enclaves portal page with the Enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
 
 2. On the `Enclaves` page, select `Create`.
 
@@ -57,7 +57,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 
 6. After the Enclave resources have been created, you can view them in Azure portal from the fabrikam community.
 
-![Screenshot showing created enclaves on listed on enclaves page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-blade-both-deployed.png)
+![Screenshot showing created enclaves on listed on enclaves page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-both-deployed.png)
 
 7. Select an enclave name to view and manage the enclave
    
@@ -66,7 +66,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 ## Clean up resources
 If you need to delete your enclaves created after completing this tutorial, this can be also done from the Azure portal.
 
-![Screenshot showing the completed enclave in the Azure Virtual Enclaves portal page Communities blade.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-blade-deployed.png)
+![Screenshot showing the completed enclave in the Azure Virtual Enclaves portal page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-deployed.png)
 
 ## Next steps
 In this tutorial, you created two sample Enclaves using Azure portal. In the next tutorial, you learn how to create several workloads within your enclave.

@@ -39,7 +39,7 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 1. In the **Azure Virtual Enclaves** page, select the **Communities** option in the left menu.
 
-![Screenshot showing the Azure Virtual Enclaves portal page with the Communities blade selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-blade.png)
+![Screenshot showing the Azure Virtual Enclaves portal page with the Communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
 
 2. On the `Communities` page, select `Create`.
 
@@ -61,7 +61,7 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 ## Clean up resources
 If you need to delete your community created after completing this tutorial, this can be also done from the Azure portal.
 
-![Screenshot showing the completed community in the Azure Virtual Enclaves portal page Communities blade.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-blade-deployed.png)
+![Screenshot showing the completed community in the Azure Virtual Enclaves portal page Communities list.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list-deployed.png)
 
 ## Next steps
 In this tutorial, you created two sample Enclaves using Azure portal. In the next tutorial, you'll learn how to create several workloads within your enclave.

@@ -23,7 +23,7 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 - This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 - A [deployed Community](./what-is-a-community.md), [deployed Virtual Enclave](./what-is-an-enclave.md), and [deployed Workload](./what-is-a-workload.md) and permissions to create resources inside the workload.
-- Complete the [prerequisites](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for a App Service Web App. Including subnet delegation for the
+- Complete the [prerequisites](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for an App Service Web App. Including subnet delegation for the
 
 ![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-4-service-catalog-app-service-subnet-delegate.png.png)
 
@@ -47,16 +47,16 @@ NOTE: The sample deployment is just for demonstration purposes and doesn't repre
 
 5. Navigate to the `wl-webapp-frontend` Workload to create an Azure App Service for your webapp.
 6. Select `Add an Azure service` button on the overview page.
-7. Select `App Service` from the Service Catalog drop down list and click `Next`.
+7. Select `App Service` from the Service Catalog drop down list and select `Next`.
 8. Enter all the required parameters on each tab.
    - **Web App Site Name:** Enter `webapp-frontend`
-   - **App Service Sku Name:** Select an option from the drop down, `P1v2` or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
+   - **App Service Sku Name:** Select an option from the drop down, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
 ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png)
 
-9. Select `Next` to confirm the networking information was prepopulated by the Service Catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet does not.
+9. Select `Next` to confirm the networking information prepopulated by the Service Catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
    - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` which is the subnet delegated in the previous step.
    - **Private Link Subnet Name:** Enter `mySubnet`
 
