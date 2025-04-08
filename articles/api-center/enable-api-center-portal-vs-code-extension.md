@@ -46,7 +46,6 @@ Enterprise developers must sign in with a Microsoft account to see the API Cente
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 
-### For API center administrators
 ## Steps for enterprise developers to access the API Center portal 
 
 Developers can follow these steps to connect and sign in to view an API Center portal using the Visual Studio Code extension. Settings to connect to the API center need to be provided by the API center administrator.
