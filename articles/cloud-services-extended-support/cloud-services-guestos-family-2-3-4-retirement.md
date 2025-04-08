@@ -14,6 +14,9 @@ ms.custom: compute-evergreen
 
 # Guest OS Family 2, 3, and 4 retirement notice
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The retirement of Azure Guest OS Families 2, 3, and 4 was announced in July 2024, with the following end-of-life dates: 
 - **Windows Server 2008 R2:** December 2024 
 - **Windows Server 2012 and Windows Server 2012 R2:** February 2025 
