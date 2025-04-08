@@ -31,7 +31,7 @@ The following versions of Windows support the latest versions of Storage Explore
 
 Other requirements include:
 - Your Windows installation must support 64-bit applications (starting with Storage Explorer 1.30.0).
-- You must have a .NET 8 runtime installed (starting with Storage Explorer 1.34.0) which matches the architecture of your Storage Explorer install. The Storage Explorer installer will install a .NET 8 runtime if you do not already have one installed, but it may not be the latest version available. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 8 runtime from [here](https://dotnet.microsoft.com/download/dotnet/8.0). 
+- You must have a .NET 8 runtime installed (starting with Storage Explorer 1.34.0) which matches the architecture of your Storage Explorer install. The Storage Explorer installer installs a .NET 8 runtime if you don't already have one installed, but it might not be the latest version available. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 8 runtime from [here](https://dotnet.microsoft.com/download/dotnet/8.0). 
 
 # [macOS](#tab/macos)
 
@@ -74,7 +74,7 @@ For more help installing Storage Explorer on RHEL, see [Storage Explorer depende
 # [SUSE Linux Enterprise Server (SLES)](#tab/linux-sles)
 
 > [!NOTE]
-> Storage Explorer has not been tested for SLES. You may try using Storage Explorer on your system, but we cannot guarantee that Storage Explorer will work as expected.
+> Storage Explorer hasn't been tested for SLES. You can try using Storage Explorer on your system, but we can't guarantee that Storage Explorer works as expected.
 
 Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
 
