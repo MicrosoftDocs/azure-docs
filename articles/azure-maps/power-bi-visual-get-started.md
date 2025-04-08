@@ -123,14 +123,14 @@ The following settings are available in the **Style** section:
 | Setting     | Description  |
 |-------------|--------------|
 | Style       | The style of the map. The dropdown list contains [blank and blank accessible], [grayscale dark], [grayscale light], [high contrast dark], [high contrast light], [night], [road], [road shaded relief], [satellite] and [satellite road labels]. |
-| Labels | A toggle switch that enables you to either show or hide map labels. For more information, see list item number five in the previous section. |
+| Labels | A toggle switch that allows you to show or hide map labels. For more information, see list item number five in the previous section. |
 | Country borders | A toggle switch that controls the visibility of country borders. |
 | State or province borders | A toggle switch that controls the visibility of the borders for the first-level administrative divisions, such as state or province borders. |
 | County borders | A toggle switch that controls the visibility of the borders for the second-level administrative divisions, such as county borders. |
 | Buildings | A toggle switch that controls the visibility of building footprints |
 | Road details | A toggle switch that adjusts the level of detail for visible roads. Turning this off will reduce the number of roads shown on the map. |
 
-The availibity of the above toggles depends on the style you select. Here is a table that shows the supported options for different styles:
+The availability of the above toggles depends on the selected style. Below is a table showing the supported options for different styles:
 
 | Map styles | Labels | Country borders | State or province borders | County borders | Buildings | Road details |
 |-|-|-|-|-|-|-|
@@ -145,7 +145,7 @@ The availibity of the above toggles depends on the style you select. Here is a t
 | [satellite] | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [satellite road labels] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-If an option is not supported by the current selected style, it simply has no effect until you select another style that supports it.
+If an option is not supported by the currently selected style, it will have no effect until you choose a style that supports it.
 
 
 ### View
