@@ -24,7 +24,7 @@ This article describes the following aspects about the IMS connector:
 * Prerequisites and setup for using the IMS connector
 * Steps for adding IMS connector actions to your Standard logic app workflow
 
-## Explore the IMS connector and usage scenarios
+## Review the connector usage scenarios
 
 IMS systems were one of the first mission-critical systems to run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IMS systems by following two models: IMS Connect and APPC LU6.2. Customers have used the HIS Transaction Integrator to integrate their IMS systems with Windows on-premises for many years. The **IMS Program Call** connector uses the IMS Connect model to interact with IMS transaction programs through TCP/IP.
 
