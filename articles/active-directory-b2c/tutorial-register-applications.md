@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: tutorial
-ms.date: 11/13/2023
+ms.date: 10/10/2024
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As a developer or IT admin, I want to register my web application in Azure AD B2C so that I can enable my users to sign up, sign in, and manage their profiles.
 
@@ -77,13 +77,20 @@ For a web application, you need to create an application secret. The client secr
 
 ## Enable ID token implicit grant
 
-If you register this app and configure it with [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
+You can enable implicit grant flow to use this app registration to [test a user flow for testing purposes](add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow#test-the-user-flow).
 
-1. In the left menu, under **Manage**, select **Authentication**.
+1. Select the app registration you created.
+
+1. Under **Manage**, select **Authentication**.
 
 1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
+
+
+> [!NOTE]
+> If you enable implicit grant to test a user flow, make sure you disable the implicit grant flow settings before you deploy your app to production.
+
 
 ## Next steps
 

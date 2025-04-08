@@ -59,7 +59,7 @@ There are two different traffic controls that can be added to the map. The first
 The following code shows how to add the traffic controls to the map.
 
 ```JavaScript
-//Att the traffic control toogle button to the top right corner of the map.
+//Att the traffic control toggle button to the top right corner of the map.
 map.controls.add(new atlas.control.TrafficControl(), { position: 'top-right' });
 
 //Att the traffic legend control to the bottom left corner of the map.

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Interactive map search with Azure Maps'
-titeSuffix: Microsoft Azure Maps
+titleSuffix: Microsoft Azure Maps
 description: A quickstart that demonstrates how to create interactive, searchable maps.
 author: sinnypan
 ms.author: sipa
@@ -18,8 +18,6 @@ This quickstart demonstrates how to use Azure Maps to create a map that gives us
 * Create your own Azure Maps account.
 * Get your Azure Maps subscription key to use in the demo web application.
 * Download and open the demo map application.
-
-This quickstart uses the Azure Maps Web SDK, however the Azure Maps service can be used with any map control, such as these popular [open-source map controls] that the Azure Maps team has created plugin's for.
 
 ## Prerequisites
 
@@ -102,7 +100,6 @@ In this quickstart, you created an Azure Maps account and a demo application. Ta
 > [!div class="nextstepaction"]
 > [Search nearby points of interest with Azure Maps]
 
-[Azure Active Directory]: azure-maps-authentication.md#azure-ad-authentication
 [Azure portal]: https://portal.azure.com
 [Find an address with Azure Maps search service]: how-to-search-for-address.md
 [free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

@@ -1,11 +1,11 @@
 ---
 title: Restore Azure PostgreSQL databases via Azure data protection REST API
 description: Learn how to restore Azure PostGreSQL databases using Azure Data Protection REST API.
-ms.topic: conceptual
-ms.date: 01/24/2022
+ms.topic: how-to
+ms.date: 02/09/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure PostgreSQL databases using Azure data protection REST API
@@ -51,12 +51,12 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 For example, this API translates to:
 
 ```http
-GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149/recoveryPoints?api-version=2021-07-01
+GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/recoveryPoints?api-version=2021-07-01
 ```
 
 #### Responses for list of recovery points
 
-Once you submit the *GET* request, this returns response as 200 (OK), and the list of all discrete recovery points with all the relevant details.
+Once you submit the `GET` request, this returns response as 200 (OK), and the list of all discrete recovery points with all the relevant details.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -125,7 +125,7 @@ There're various restore options for a PostgreSQL database. You can restore the 
 
 #### Restore as database
 
-Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created with the target PostgreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostgreSQL database name. For example, a PostgreSQL database can be named **emprestored21** under a target PostgreSQL server **targetossserver** in resource group **targetrg** with a different subscription.
+Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created with the target PostgreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server `targetossserver` in resource group `targetrg` with a different subscription.
 
 ```http
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
@@ -226,7 +226,7 @@ For an archive-based recovery point, you need to:
 
 #### Restore as files
 
-Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
+Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named `testcontainerrestore` under a storage account `testossstorageaccount` with a different subscription.
 
 ```http
 "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
@@ -289,7 +289,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 For example, this API translates to:
 
 ```http
-POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149/ValidateRestore?api-version=2021-07-01"
+POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/ValidateRestore?api-version=2021-07-01"
 ```
 
 [Learn more](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body) about the request body for this POST API.
@@ -342,7 +342,7 @@ We have constructed a section of the same in the [above section](#create-a-reque
 
 ##### Response to validate restore requests
 
-The _validate restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
+The `validate restore request` is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
 
 It returns two responses: 202 (Accepted) when another operation is created. Then 200 (OK) when that operation completes.
 
@@ -377,12 +377,12 @@ X-Powered-By: ASP.NET
 Track the _Azure-AsyncOperation_ header with a simple *GET* request. When the request is successful, it returns 200 (OK) with a status response.
 
 ```http
-GET https://management.azure.com/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==?api-version=2021-07-01
+GET https://management.azure.com/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==?api-version=2021-07-01
 ```
 
 ```http
 {
-  "id": "/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==",
+  "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==",
   "name": "YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==",
   "status": "Inprogress",
   "startTime": "2021-10-22T20:22:41.0305623Z",
@@ -412,7 +412,7 @@ Server: Microsoft-IIS/10.0
 X-Powered-By: ASP.NET
 
 {
-  "id": "/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==",
+  "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==",
   "name": "YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==",
   "status": "Failed",
   "error": {
@@ -468,7 +468,7 @@ Server: Microsoft-IIS/10.0
 X-Powered-By: ASP.NET
 
 {
-  "id": "/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzU0NDI4YzdhLTJjNWEtNDNiOC05ZjBjLTM2NmQ3ZWVjZDUxOQ==",
+  "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzU0NDI4YzdhLTJjNWEtNDNiOC05ZjBjLTM2NmQ3ZWVjZDUxOQ==",
   "name": "YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzU0NDI4YzdhLTJjNWEtNDNiOC05ZjBjLTM2NmQ3ZWVjZDUxOQ==",
   "status": "Succeeded",
   "startTime": "2021-10-22T20:28:24.3820169Z",
@@ -487,7 +487,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 For example, the API translates to:
 
 ```http
-POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149/restore?api-version=2021-07-01"
+POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/restore?api-version=2021-07-01"
 ```
 
 ##### Create a request body for restore operations
@@ -583,7 +583,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
   "startTime": "2021-07-08T20:46:52.4110868Z",
   "endTime": "2021-07-08T20:46:56Z",
   "properties": {
-    "jobId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/c4bd49a1-0645-4eec-b207-feb818962852",
+    "jobId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a",
     "objectType": "OperationJobExtendedInfo"
   }
 }
@@ -596,7 +596,7 @@ The _trigger restore requests_ trigger the restore job. To track the resultant J
 Use the simple *GET* command to track the _JobId_ present in the [trigger restore response](#example-response-to-trigger-restore-request) above.
 
 ```http
- GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/c4bd49a1-0645-4eec-b207-feb818962852?api-version=2021-07-01
+ GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a?api-version=2021-07-01
 ```
 
 The job status mentioned above will indicate that the restore job is complete.
@@ -604,3 +604,4 @@ The job status mentioned above will indicate that the restore job is complete.
 ## Next steps
 
 - [Azure PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)
+- [Manage restore jobs using REST API](backup-azure-arm-userestapi-managejobs.md).

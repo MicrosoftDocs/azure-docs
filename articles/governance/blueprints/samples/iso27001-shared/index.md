@@ -39,9 +39,9 @@ composed of:
     [Azure Policy](../../../policy/overview.md) definitions, and other security-related rights
   - SysOps role has the necessary rights to define [Azure Policy](../../../policy/overview.md)
     definitions within the subscription, manage
-    [Log Analytics](../../../../azure-monitor/overview.md) for the entire environment, among other
+    [Log Analytics](/azure/azure-monitor/overview) for the entire environment, among other
     operational rights
-- [Log Analytics](../../../../azure-monitor/overview.md) is deployed as the first Azure service to
+- [Log Analytics](/azure/azure-monitor/overview) is deployed as the first Azure service to
   ensure all actions and services log to a central location from the moment you start your secure
   deployment
 - A virtual network supporting subnets for connectivity back to an on-premises datacenter, an

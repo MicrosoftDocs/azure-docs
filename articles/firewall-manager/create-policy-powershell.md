@@ -3,8 +3,8 @@ title: 'Quickstart: Create and update an Azure Firewall policy using Azure Power
 description: In this quickstart, you learn how create and update an Azure Firewall policy using Azure PowerShell.
 services: firewall-manager
 author: vaboya
-ms.author: victorh
-ms.date: 08/16/2021
+ms.author: duau
+ms.date: 01/10/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
 ms.custom: mode-api, devx-track-azurepowershell

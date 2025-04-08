@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a Web PubSub service instance
 > * Configure event handler settings for Azure Web PubSub
-> * Hanlde events in the app server and build a real-time chat app
+> * Handle events in the app server and build a real-time chat app
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -37,6 +37,8 @@ In this tutorial, you learn how to:
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
 ### Get the ConnectionString for future use
+
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
@@ -904,7 +906,7 @@ Open `http://localhost:8080/index.html`. You can input your user name and start 
 
 In previous sections, we demonstrate how to use [negotiate](#add-negotiate-endpoint) endpoint to return the Web PubSub service URL and the JWT access token for the clients to connect to Web PubSub service. In some cases, for example, edge devices that have limited resources, clients might prefer direct connect to Web PubSub resources. In such cases, you can configure `connect` event handler to lazy auth the clients, assign user ID to the clients, specify the groups the clients join once they connect, configure the permissions the clients have and WebSocket subprotocol as the WebSocket response to the client, etc. Details please refer to [connect event handler spec](./reference-cloud-events.md#connect). 
 
-Now let's use `connect` event handler to acheive the similar as what the [negotiate](#add-negotiate-endpoint) section does.
+Now let's use `connect` event handler to achieve the similar as what the [negotiate](#add-negotiate-endpoint) section does.
 
 ### Update hub settings
 
@@ -923,7 +925,7 @@ az webpubsub hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --
 
 Now let's update upstream logic to handle connect event. We could also remove the negotiate endpoint now. 
 
-As similar to what we do in negotiate endpoint as demo purpose, we also read id from the query parameters. In connect event, the original client query is preserved in connect event requet body.
+As similar to what we do in negotiate endpoint as demo purpose, we also read id from the query parameters. In connect event, the original client query is preserved in connect event request body.
 
 # [C#](#tab/csharp)
 

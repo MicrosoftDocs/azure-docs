@@ -52,11 +52,6 @@ The following service APIs aren't currently available in Azure Maps:
 * Nearest Roads - Achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but isn't currently available as a service.
 * Static street view
 
-Azure Maps has several other REST web services that may be of interest:
-
-* [Spatial operations]: Offload complex spatial calculations and operations, such as geofencing, to a service.
-* [Traffic]: Access real-time traffic flow and incident data.
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account] before you begin.
@@ -428,9 +423,9 @@ This table cross-references the Google Maps API parameters with the comparable A
 
 | Google Maps API parameter      | Comparable Azure Maps API parameter  |
 |--------------------------------|--------------------------------------|
-| `arrivial_time`                | `arriveAt`                           |
+| `arrival_time`                 | `arriveAt`                           |
 | `avoid`                        | `avoid`                              |
-| `depature_time`                | `departAt`                           |
+| `departure_time`               | `departAt`                           |
 | `destinations`                 | `destination` – specify in the `POST` request body as GeoJSON. |
 | `key`                          | `subscription-key` – For more information, see [Authentication with Azure Maps]. |
 | `language`                     | `language` – For more information, see [Localization support in Azure Maps].  |

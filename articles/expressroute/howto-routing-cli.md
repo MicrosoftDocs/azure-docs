@@ -72,7 +72,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
    "circuitProvisioningState": "Enabled",
    "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
    "gatewayManagerEtag": null,
-   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
    "location": "westus",
    "name": "MyCircuit",
    "peerings": [],
@@ -138,7 +138,7 @@ The output is similar to the following example:
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
   "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzureMicrosoftPeering",
+  "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzureMicrosoftPeering",
   "lastModifiedBy": "Customer",
   "microsoftPeeringConfig": {
     "advertisedPublicPrefixes": [
@@ -212,7 +212,7 @@ This section helps you create, get, update, and delete the Azure private peering
    "circuitProvisioningState": "Enabled",
    "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
    "gatewayManagerEtag": null,
-   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
    "location": "westus",
    "name": "MyCircuit",
    "peerings": [],
@@ -276,9 +276,9 @@ The output is similar to the following example:
 {
   "azureASN": 12076,
   "connections": [],
-  "etag": "W/\"abcdef12-3456-7890-abcd-ef1234567890\"",
+  "etag": "W/\"cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a\"",
   "gatewayManagerEtag": "",
-  "id": "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
+  "id": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
   "lastModifiedBy": "Customer",
   "microsoftPeeringConfig": {
     "advertisedCommunities": [],

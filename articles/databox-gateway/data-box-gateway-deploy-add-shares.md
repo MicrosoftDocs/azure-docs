@@ -4,8 +4,7 @@ description: Learn how to add and connect to shares on your Azure Data Box Gatew
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: shaas

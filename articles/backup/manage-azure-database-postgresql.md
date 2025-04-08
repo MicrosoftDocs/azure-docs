@@ -1,11 +1,11 @@
 ---
 title: Manage Azure Database for PostgreSQL server 
 description: Learn about managing Azure Database for PostgreSQL server.
-ms.topic: conceptual
-ms.date: 01/24/2022
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage Azure Database for PostgreSQL server
@@ -24,6 +24,10 @@ You can change the associated policy with a backup instance.
 1. Select the new policy that you wish to apply to the database.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
+
+> [!NOTE]
+>
+> Changing a backup policy assigned to a backup instance does not affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
 
 ## Stop protection
 
@@ -85,7 +89,7 @@ There are three ways to stop protecting an Azure Database for PostgreSQL server.
 If you have selected the **Stop Protection and Retain data** option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server.
 
 >[!Note]
->When you start protecting a database, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
+>When you resume protecting a backup instance, the existing backup policy will start applying to new recovery points only. Recovery points that have already expired based on their original retention duration, as defined by the backup policy in effect at the time of their creation, will be cleaned up.
 
 Follow these steps:
 

@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 08/24/2023
+ms.date: 01/07/2025
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -50,7 +50,7 @@ In this section, you create a NAT gateway resource. You select the IP address yo
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroupNAT**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **myResourceGroupNAT**.</br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myNATgateway**. |
     | Region | Select **(US) West US 2**. |
@@ -103,7 +103,7 @@ To change the IP, you associate a new public IP address created previously with 
 Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,512 ephemeral ports to NAT gateway for connecting outbound.
 
 > [!NOTE] 
-> When assigning a public IP prefix to a NAT gateway, the entire range will be used. 
+> When assigning a public IP prefix to a NAT gateway, the entire range is used. 
 
 In this section, you change the outbound IP configuration to use a public IP prefix you created previously.
 
@@ -139,7 +139,7 @@ In this section, you change the outbound IP configuration to use a public IP pre
     > [!NOTE] 
     > Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md).
 
-* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md#timers).
+* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives. If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md#timers).
 
 ## Caveats
 

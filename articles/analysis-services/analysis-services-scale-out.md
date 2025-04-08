@@ -61,7 +61,7 @@ Use SSMS to set ReplicaSyncMode in Advanced Properties. The possible values are:
 - `1` (default): Full replica database rehydration in stages (incremental). 
 - `2`: Optimized synchronization in parallel. 
 
-![RelicaSyncMode setting](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
+![ReplicaSyncMode setting](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
 
 When setting **ReplicaSyncMode=2**, depending on how much of the cache needs to be updated, more memory may be consumed by the query replicas. To keep the database online and available for queries, depending on how much of the data has changed, the operation can require up to *double the memory* on the replica because both the old and new segments are kept in memory simultaneously. Replica nodes have the same memory allocation as the primary node, and there's normally extra memory on the primary node for refresh operations, so it may be unlikely that the replicas would run out of memory. Additionally, the common scenario is that the database is incrementally updated on the primary node, and therefore the requirement for double the memory should be uncommon. If the Sync operation does encounter an out of memory error, it retries using the default technique (attach/detach two at a time). 
 

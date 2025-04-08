@@ -41,7 +41,7 @@ For more information, see the [Spring Boot documentation on data access](https:/
 ::: zone pivot="java-tomcat"
 
 > [!TIP]
-> By default, the Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the cooresponding shared database to */usr/local/tomcat/conf/context.xml* for you, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
+> By default, the Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared database to */usr/local/tomcat/conf/context.xml*, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
 
 These instructions apply to all database connections. You need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -95,6 +95,96 @@ Next, determine if the data source should be available to one application or to 
     ```
 
 ### Shared server-level resources
+
+# [Linux](#tab/linux)
+
+Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follows:
+
+1. Upload a [startup script](./faq-app-service-linux.yml) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
+
+Your startup script makes an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
+
+```sh
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+apk add --update libxslt
+
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
+```
+
+The following example XSL file adds a new connector node to the Tomcat server.xml.
+
+```xml
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="xml" indent="yes"/>
+
+  <xsl:template match="@* | node()" name="Copy">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="@* | node()" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                 contains(., '&lt;Connector') and
+                                 (contains(., 'scheme=&quot;https&quot;') or
+                                  contains(., &quot;scheme='https'&quot;))]">
+    <xsl:value-of select="." disable-output-escaping="yes" />
+  </xsl:template>
+
+  <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                   comment()[contains(., '&lt;Connector') and
+                                             (contains(., 'scheme=&quot;https&quot;') or
+                                              contains(., &quot;scheme='https'&quot;))]
+                                  )]
+                      ">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Add the new connector after the last existing Connector if there's one -->
+  <xsl:template match="Connector[last()]" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+
+    <xsl:call-template name="AddConnector" />
+  </xsl:template>
+
+  <!-- ... or before the first Engine if there's no existing Connector -->
+  <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                mode="insertConnector">
+    <xsl:call-template name="AddConnector" />
+
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template name="AddConnector">
+    <!-- Add new line -->
+    <xsl:text>&#xa;</xsl:text>
+    <!-- This is the new connector -->
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+               maxThreads="150" scheme="https" secure="true" 
+               keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
+               clientAuth="false" sslProtocol="TLS" />
+  </xsl:template>
+  
+</xsl:stylesheet>
+```
+
+#### Finalize configuration
+
+Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
+
+1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
+
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
+```
+
+If you created a server-level data source, restart the App Service Linux application. Tomcat resets `CATALINA_BASE` to `/home/tomcat` and uses the updated configuration.
 
 # [Windows](#tab/windows)
 
@@ -227,7 +317,7 @@ Add an XSL transform file called *configure.ps1* to the *%HOME%_\site* directory
       </xsl:copy>
     </xsl:template>
   
-    <!-- Add the new connector after the last existing Connnector if there's one -->
+    <!-- Add the new connector after the last existing Connector if there's one -->
     <xsl:template match="Connector[last()]" mode="insertConnector">
       <xsl:call-template name="Copy" />
   
@@ -281,142 +371,36 @@ Finally, you place the driver JARs in the Tomcat classpath and restart your App 
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --target-path <jar-name>.jar
 ```
 
-# [Linux](#tab/linux)
-
-Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follows:
-
-1. Upload a [startup script](./faq-app-service-linux.yml) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
-
-Your startup script makes an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
-
-```sh
-# Install libxslt. Also copy the transform file to /home/tomcat/conf/
-apk add --update libxslt
-
-# Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
-```
-
-The following example XSL file adds a new connector node to the Tomcat server.xml.
-
-```xml
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output method="xml" indent="yes"/>
-
-  <xsl:template match="@* | node()" name="Copy">
-    <xsl:copy>
-      <xsl:apply-templates select="@* | node()"/>
-    </xsl:copy>
-  </xsl:template>
-
-  <xsl:template match="@* | node()" mode="insertConnector">
-    <xsl:call-template name="Copy" />
-  </xsl:template>
-
-  <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
-                                 contains(., '&lt;Connector') and
-                                 (contains(., 'scheme=&quot;https&quot;') or
-                                  contains(., &quot;scheme='https'&quot;))]">
-    <xsl:value-of select="." disable-output-escaping="yes" />
-  </xsl:template>
-
-  <xsl:template match="Service[not(Connector[@scheme = 'https'] or
-                                   comment()[contains(., '&lt;Connector') and
-                                             (contains(., 'scheme=&quot;https&quot;') or
-                                              contains(., &quot;scheme='https'&quot;))]
-                                  )]
-                      ">
-    <xsl:copy>
-      <xsl:apply-templates select="@* | node()" mode="insertConnector" />
-    </xsl:copy>
-  </xsl:template>
-
-  <!-- Add the new connector after the last existing Connnector if there's one -->
-  <xsl:template match="Connector[last()]" mode="insertConnector">
-    <xsl:call-template name="Copy" />
-
-    <xsl:call-template name="AddConnector" />
-  </xsl:template>
-
-  <!-- ... or before the first Engine if there's no existing Connector -->
-  <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
-                mode="insertConnector">
-    <xsl:call-template name="AddConnector" />
-
-    <xsl:call-template name="Copy" />
-  </xsl:template>
-
-  <xsl:template name="AddConnector">
-    <!-- Add new line -->
-    <xsl:text>&#xa;</xsl:text>
-    <!-- This is the new connector -->
-    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
-               maxThreads="150" scheme="https" secure="true" 
-               keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
-               clientAuth="false" sslProtocol="TLS" />
-  </xsl:template>
-  
-</xsl:stylesheet>
-```
-
-#### Finalize configuration
-
-Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
-
-1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
-
-```azurecli-interactive
-az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
-```
-
-If you created a server-level data source, restart the App Service Linux application. Tomcat resets `CATALINA_BASE` to `/home/tomcat` and uses the updated configuration.
-
 ---
 
 ::: zone-end
 
 ::: zone pivot="java-jboss"
 
-There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): uploading the JDBC driver, adding the JDBC driver as a module, and registering the module. App Service is a stateless hosting service, so the configuration commands for adding and registering the data source module must be scripted and applied as the container starts.
+> [!TIP]
+> By default, the Linux JBoss containers can automatically configure shared data sources for you in the JBoss server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared data source, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a JBoss web app with Azure App Service on Linux and MySQL](tutorial-java-jboss-mysql-app.md).
 
-1. Obtain your database's JDBC driver.
-2. Create an XML module definition file for the JDBC driver. The following example shows a module definition for PostgreSQL.
+There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): 
 
-    ```xml
-    <?xml version="1.0" ?>
-    <module xmlns="urn:jboss:module:1.1" name="org.postgres">
-        <resources>
-        <!-- ***** IMPORTANT : REPLACE THIS PLACEHOLDER *******-->
-        <resource-root path="/home/site/deployments/tools/postgresql-42.2.12.jar" />
-        </resources>
-        <dependencies>
-            <module name="javax.api"/>
-            <module name="javax.transaction.api"/>
-        </dependencies>
-    </module>
-    ```
+1. Upload the JDBC driver.
+1. Add the JDBC driver as a module.
+1. Add a data source with the module. 
 
-1. Put your JBoss CLI commands into a file named `jboss-cli-commands.cli`. The JBoss commands must add the module and register it as a data source. The following example shows the JBoss CLI commands for PostgreSQL.
+App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL, MySQL, and SQL Database as an examples:
 
-    ```bash
-    #!/usr/bin/env bash
-    module add --name=org.postgres --resources=/home/site/deployments/tools/postgresql-42.2.12.jar --module-xml=/home/site/deployments/tools/postgres-module.xml
+# [PostgreSQL](#tab/postgresql)
 
-    /subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+[!INCLUDE [configure-jboss-postgresql](includes/configure-language-java-data-sources/configure-jboss-postgresql.md)]
 
-    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
-    ```
+# [MySQL](#tab/mysql)
 
-1. Create a startup script, `startup_script.sh` that calls the JBoss CLI commands. The following example shows how to call your `jboss-cli-commands.cli`. Later, you'll configure App Service to run this script when the container starts.
+[!INCLUDE [configure-jboss-mysql](includes/configure-language-java-data-sources/configure-jboss-mysql.md)]
 
-    ```bash
-    $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
-    ```
+# [SQL Database](#tab/sqldatabase)
 
-1. Using an FTP client of your choice, upload your JDBC driver, `jboss-cli-commands.cli`, `startup_script.sh`, and the module definition to `/site/deployments/tools/`.
-2. Configure your site to run `startup_script.sh` when the container starts. In the Azure portal, navigate to **Configuration** > **General Settings** > **Startup Command**. Set the startup command field to `/home/site/deployments/tools/startup_script.sh`. **Save** your changes.
+[!INCLUDE [configure-jboss-sqldatabase](includes/configure-language-java-data-sources/configure-jboss-sql-database.md)]
 
-To confirm that the datasource was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
+---
 
 ::: zone-end
 

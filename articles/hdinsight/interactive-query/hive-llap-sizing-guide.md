@@ -3,9 +3,10 @@ title: HDInsight Interactive Query Cluster(LLAP) sizing guide
 description: LLAP sizing guide 
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-author: reachnijel 
-ms.author: nijelsf
-ms.date: 12/08/2023
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
+ms.date: 12/02/2024
 ---
 
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide
@@ -63,7 +64,7 @@ For D14 v2 worker nodes, the recommended value is **102400 MB**
 #### **3. Determining maximum amount of `vcores` per YARN container request**  
 Configuration: ***yarn.scheduler.maximum-allocation-vcores***  
 
-This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of `vcores` then this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available `vcores`. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
+This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of `vcores` than this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available `vcores`. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
 There are `16 vcores` on D14 v2 VMs and 75% of total `16 vcores` can be used by LLAP daemon container.  
 For D14 v2, the recommended value is **12**.  
 
@@ -228,7 +229,7 @@ If setting these values didn't resolve your issue, visit one of the following...
 
 * Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
 
 * ##### **Other References:**
   * [Configure other LLAP properties](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/performance-tuning/content/hive_setup_llap.html)  

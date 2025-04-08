@@ -5,7 +5,7 @@ description: This article shows how to deploy virtual machine scale sets with IP
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
+ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.topic: how-to
 ---
@@ -17,7 +17,7 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) Virtual Machine 
 2.    Create a dual stack load balancer.  
 3.    Create network security group (NSG) rules.  
 
-The only step that is different from individual VMs is creating the network interface (NIC) configuration that uses the virtual machine scale set resource:  networkProfile/networkInterfaceConfigurations. The JSON structure is similar to that of the Microsoft.Network/networkInterfaces object used for individual VMs with the addition of setting the NIC and the IPv4 IpConfiguration as the primary interface using the **"primary": true**  attribute as seen in the following example:
+The only step that is different from individual VMs is creating the network interface (NIC) configuration that uses the virtual machine scale set resource:  `networkProfile/networkInterfaceConfigurations`. The JSON structure is similar to that of the `Microsoft.Network/networkInterfaces` object used for individual VMs with the addition of setting the NIC and the IPv4 IpConfiguration as the primary interface using the `"primary": true`  attribute as seen in the following example:
 
 ```json
   "networkProfile": {

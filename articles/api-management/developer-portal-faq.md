@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 # API Management developer portal - frequently asked questions
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 ## What if I need functionality that isn't supported in the portal?
 

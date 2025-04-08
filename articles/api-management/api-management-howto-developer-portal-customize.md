@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 # Tutorial: Access and customize the developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, and request access.
 
@@ -42,7 +42,7 @@ For more information about developer portal features and options, see [Azure API
 Follow these steps to access the managed version of the developer portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. If you created your instance in a v2 service tier that supports the developer portal, first enable the developer portal. 
+1. If you created your instance in a v2 service tier, first enable the developer portal. 
     1. In the left menu, under **Developer portal**, select **Portal settings**. 
     1. In the **Portal settings** window, select **Enabled**. Select **Save**. 
     

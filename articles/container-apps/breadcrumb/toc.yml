@@ -6,3 +6,6 @@ items:
   - name: Azure Container Apps
     tocHref: /reliability/
     topicHref: /azure/container-apps/index
+  - name: Azure Container Apps
+    tocHref: /azure
+    topicHref: /azure/container-apps/index

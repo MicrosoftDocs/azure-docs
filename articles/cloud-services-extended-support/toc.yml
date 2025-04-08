@@ -12,7 +12,7 @@ items:
   - name: Frequently asked questions
     href: faq.yml
 - name: Quickstarts
-  items: 
+  items:
   - name: Deploy the cloud service - Portal
     href: deploy-portal.md
   - name: Deploy the cloud service - PowerShell
@@ -25,19 +25,13 @@ items:
     href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Concepts
-  items: 
+  items:
   - name: Extensions
     href: extensions.md
   - name: Available VM sizes
     href: available-sizes.md
   - name: Power and Provisioning States
     href: states.md
-  - name: Guest OS patches
-    href: ../cloud-services/cloud-services-guestos-msrc-releases.md?context=/azure/cloud-services-extended-support/context/context
-  - name: Guest OS retirement
-    href: ../cloud-services/cloud-services-guestos-retirement-policy.md?context=/azure/cloud-services-extended-support/context/context
-  - name: Guest OS release news
-    href: ../cloud-services/cloud-services-guestos-update-matrix.md?context=/azure/cloud-services-extended-support/context/context
   - name: XML schema
     items:
     - name: Csdef XML schema
@@ -98,8 +92,24 @@ items:
     href: swap-cloud-service.md
   - name: Override SKU details
     href: override-sku.md
+  - name: Manage service
+    items:
+    - name: Guest OS
+      items:
+      - name: Guest OS patches
+        href: cloud-services-guestos-microsoft-security-response-center-releases.md
+      - name: Guest OS retirement
+        items:
+        - name: Retirement policy
+          href: cloud-services-guestos-retirement-policy.md
+        - name: Family 1 retirement notice
+          href: cloud-services-guestos-family-1-retirement.md
+        - name: Family 2, 3, 4 retirement notice
+          href: cloud-services-guestos-family-2-3-4-retirement.md
+      - name: Guest OS release news
+        href: cloud-services-guestos-update-matrix.md
 - name: Samples
-  items: 
+  items:
   - name: Sample templates
     href: https://github.com/Azure-Samples/cloud-services-extended-support
   - name: Create a new cloud service

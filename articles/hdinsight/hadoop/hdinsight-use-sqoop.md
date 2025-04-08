@@ -4,6 +4,9 @@ description: Learn how to use Azure PowerShell from a workstation to run Sqoop i
 ms.service: azure-hdinsight
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

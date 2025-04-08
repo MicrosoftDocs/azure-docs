@@ -6,16 +6,13 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 06/23/2022
+ms.date: 11/26/2024
 ms.author: chrupa
 ---
 
 # Tutorial: Consume FHIR events with Logic Apps
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
-This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services FHIR events. Logic Apps creates and runs automated workflows to process event data from other applications. Learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform a service operation.
+This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services FHIR&reg; events. Logic Apps creates and runs automated workflows to process event data from other applications. Learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform a service operation.
 
 Here's an example of a Logic App workflow:
 
@@ -52,7 +49,7 @@ Follow these steps:
 7. Specify **Tags**.
 8. **Review and create** your Logic App.
 
-You now need to fill out the details of your Logic App. Specify information for these five categories. They are in separate tabs:
+You now need to fill out the details of your Logic App. Specify information for the five categories listed in the separate tabs.
 
 :::image type="content" source="media/events-logic-apps/events-logic-tabs.png" alt-text="Screenshot of the five tabs for specifying your Logic App." lightbox="media/events-logic-apps/events-logic-tabs.png":::
 
@@ -147,17 +144,17 @@ Your proposed Logic app displays the following details:
 
 If you're satisfied with the proposed configuration, select **Create**. If not, select **Previous** to go back and specify new details.
 
-First you'll see an alert telling you that deployment is initializing. Next you'll see a new page telling you that the deployment is in progress.
+First you see an alert telling you that deployment is initializing. Next you see a new page telling you that the deployment is in progress.
 
 :::image type="content" source="media/events-logic-apps/events-logic-progress.png" alt-text="Screenshot of the notification telling you your deployment is in progress." lightbox="media/events-logic-apps/events-logic-progress.png":::
 
-If there are no errors, you'll finally see a notification telling you that your deployment is complete.
+If there are no errors, you'll see a notification telling you that your deployment is complete.
 
 :::image type="content" source="media/events-logic-apps/events-logic-complete.png" alt-text="Screenshot of the notification telling you your deployment is complete." lightbox="media/events-logic-apps/events-logic-complete.png":::
 
 #### Your Logic App dashboard
 
-Azure creates a dashboard when your Logic App is complete. The dashboard shows you the status of your app. You can return to your dashboard by selecting **Overview** in the Logic App menu. Here's a Logic App dashboard:
+Azure creates a dashboard when your Logic App is complete. The dashboard shows you the status of your app. You can return to your dashboard by selecting **Overview** in the Logic App menu. Following is an image of the Logic App dashboard:
 
 :::image type="content" source="media/events-logic-apps/events-logic-overview.png" alt-text="Screenshot of your Logic Apps overview dashboard." lightbox="media/events-logic-apps/events-logic-overview.png":::
 
@@ -187,7 +184,7 @@ When your Logic App is running, follow these steps to create a Logic App workflo
 
 ### Initializing your workflow
 
-Before you begin, you'll need to have a Logic App configured and running correctly.
+Before you begin, you need to have a Logic App configured and running correctly.
 
 Once your Logic App is running, you can create and configure a workflow. To initialize a workflow, follow these steps:
 
@@ -212,9 +209,9 @@ To set up a new workflow, fill in these details:
 - Workflow Name
 - State type
 
-Specify a new name for your workflow. Indicate whether you want the workflow to be stateful or stateless. Stateful is for business processes and stateless is for processing IoT events.
+Provide a new name for your workflow. Indicate whether you want the workflow to be stateful or stateless. Stateful is for business processes and stateless is for processing IoT events.
 
-When you've specified the details, select **Create** to begin designing your workflow.
+When you specify the details, select **Create** to begin designing your workflow.
 
 ### Designing the workflow
 
@@ -222,11 +219,11 @@ In your new workflow, select the name of the enabled workflow.
 
 You can write code to design a workflow for your application, but for this tutorial, choose the **Designer** option on the **Developer** menu.
 
-Next, select **Choose an operation** to display the **Add a Trigger** blade on the right. Then search for "Azure Event Grid" and select the **Azure** tab below. The Event Grid isn't a Logic App Built-in.
+Next, select **Choose an operation** to display the **Add a Trigger** blade on the right. Then search for "Azure Event Grid" and select the following **Azure** tab. The Event Grid isn't a Logic App Built-in.
 
 :::image type="content" source="media/events-logic-apps/events-logic-grid.png" alt-text="Screenshot of the search results for Azure Event Grid." lightbox="media/events-logic-apps/events-logic-grid.png":::
 
-When you see the "Azure Event Grid" icon, select on it to display the **Triggers and Actions** available from Event Grid. For more information about Event Grid, see [What is Azure Event Grid?](./../../event-grid/overview.md).
+When you see the "Azure Event Grid" icon, select it to display the **Triggers and Actions** available from Event Grid. For more information about Event Grid, see [What is Azure Event Grid?](./../../event-grid/overview.md).
 
 Select **When a resource event occurs** to set up a trigger for the Azure Event Grid.
 
@@ -239,21 +236,21 @@ You need to specify the parameters for the trigger:
 - Subscription
 - Resource Type
 - Resource Name
-- Event type item(s)
+- Event type items
 
 Fill in the details for subscription, resource type, and resource name. Then you must specify the event types you want to respond to. The event types used in this article are:
 
-- Resource created
-- Resource deleted
-- Resource updated
+- Resource created.
+- Resource deleted.
+- Resource updated.
 
 For more information about supported event types, see [Frequently asked questions about events](events-faqs.md).
 
 ### Adding an HTTP action
 
-Once you've specified the trigger events, you must add more details. Select the **+** below the **When a resource event occurs** button.
+Once you specify the trigger events, you must add more details. Select the **+** below the **When a resource event occurs** button.
 
-You need to add a specific action. Select **Choose an operation** to continue. Then, for the operation, search for "HTTP" and select on **Built-in** to select an HTTP operation. The HTTP action will allow you to query the FHIR service.
+You need to add a specific action. Select **Choose an operation** to continue. Then, for the operation, search for "HTTP" and select **Built-in** to select an HTTP operation. The HTTP action allows you to query the FHIR service.
 
 The options in this example are:
 
@@ -266,11 +263,11 @@ The options in this example are:
 
 At this point, you need to give the FHIR Reader access to your app, so it can verify that the event details are correct. Follow these steps to give it access:
 
-1. The first step is to go back to your Logic App and select the **Identity** menu item.
+1. Go back to your Logic App and select the **Identity** menu.
 
 2. In the System assigned tab, make sure the **Status** is "On".
 
-3. Select on Azure role assignments. Select **Add role assignment**.
+3. Select Azure role assignments. Select **Add role assignment**.
 
 4. Specify the following options:
 
@@ -278,17 +275,17 @@ At this point, you need to give the FHIR Reader access to your app, so it can ve
    - Subscription = your subscription
    - Role = FHIR Data Reader.
 
-When you've specified the first four steps, add the role assignment by Managed identity, using Subscription, Managed identity (Logic App Standard), and select your Logic App by selecting the name and then selecting the **Select** button. Finally, select **Review + assign** to assign the role.
+When you've specified the first four steps, add the role assignment by Managed identity, using **Subscription, Managed identity (Logic App Standard)**, and select your Logic App by selecting the name and then the **Select** button. Finally, select **Review + assign** to assign the role.
 
 ### Add a condition
 
-After you have given FHIR Reader access to your app, go back to the Logic App workflow Designer. Then add a condition to determine whether the event is one you want to process. Select the **+** below HTTP to "Choose an operation". On the right, search for the word **Condition**. Select on **Built-in** to display the Control icon. Next select **Actions** and choose **Condition**.
+After giving FHIR Reader access to your app, go back to the Logic App workflow Designer. Then add a condition to determine whether the event is one you want to process. Select the **+** below HTTP and select "Choose an operation". On the right, search for the word **Condition**. Select **Built-in** to display the Control icon. Next select **Actions** and choose **Condition**.
 
 When the condition is ready, you can specify what actions happen if the condition is true or false.
 
 ### Choosing a condition criteria
 
-In order to specify whether you want to take action for the specific event, begin specifying the criteria by selecting on **Condition** in the workflow. A set of condition choices are then displayed.
+In order to specify whether you want to take action for the specific event, begin specifying the criteria by selecting **Condition** in the workflow. A set of condition choices are displayed.
 
 Under the **And** box, add these two conditions:
 
@@ -303,7 +300,7 @@ The expression for getting the resourceType is `body('HTTP')?['resourceType']`.
 
 You can select **Event Type** from the Dynamic Content.
 
-Here's an example of the Condition criteria:
+Here's an example of the Condition criteria.
 
 :::image type="content" source="media/events-logic-apps/events-logic-condition.png" alt-text="Screenshot of the condition criteria for your workflow." lightbox="media/events-logic-apps/events-logic-condition.png":::
 
@@ -313,7 +310,7 @@ When you've entered the condition criteria, save your workflow.
 
 #### Workflow dashboard
 
-To check the status of your workflow, select **Overview** in the workflow menu. Here's a dashboard for a workflow:
+To check the status of your workflow, select **Overview** in the workflow menu. A workflow dashboard appears as follows.
 
 :::image type="content" source="media/events-logic-apps/events-logic-dashboard.png" alt-text="Screenshot of the Logic App workflow dashboard." lightbox="media/events-logic-apps/events-logic-dashboard.png":::
 
@@ -329,14 +326,14 @@ You can do the following operations from your workflow dashboard:
 
 Save your workflow by selecting the **Save** button.
 
-To test your new workflow, do the following steps:
+To test your new workflow, do the following.
 
 1. Add a new Patient FHIR Resource to your FHIR Service.
-2. Wait a moment or two and then check the Overview webpage of your Logic App workflow.
+2. Allow time for the update to complete, then check the Overview webpage of your Logic App workflow.
 3. The event should be shaded in green if the action was successful.
 4. If it failed, the event is shaded in red.
 
-Here's an example of a workflow trigger success operation:
+Following is an example of a workflow trigger success operation.
 
 :::image type="content" source="media/events-logic-apps/events-logic-success.png" alt-text="Screenshot showing workflow success indicated by green highlighting of the workflow name." lightbox="./media/events-logic-apps/events-logic-success.png":::
 
@@ -354,4 +351,4 @@ To learn about the Events frequently asked questions (FAQs), see
 > [!div class="nextstepaction"]
 > [Frequently asked questions about events](events-faqs.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR and DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

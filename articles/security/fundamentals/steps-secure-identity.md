@@ -37,7 +37,7 @@ The recommendations in this document are aligned with the [Identity Secure Score
 
 ## Before you begin: Protect privileged accounts with MFA
 
-Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. In Microsoft Entra we observe 50 million password attacks daily, yet only 20% of users and 30% of global admins are using strong authentications such as multifactor authentication (MFA). These statistics are based on data as of August 2021. In Microsoft Entra ID, users who have privileged roles, such as administrators, are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the effects of a compromise. 
+Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. In Microsoft Entra we observe 50 million password attacks daily, yet only a fraction of users and administrators are using strong authentications such as multifactor authentication (MFA). These statistics are based on data as of August 2021. In Microsoft Entra ID, users who have privileged roles, such as administrators, are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the effects of a compromise. 
 
 Attackers who get control of privileged accounts can do tremendous damage, so it's critical to [protect these accounts before proceeding](../../active-directory/authentication/how-to-authentication-find-coverage-gaps.md). Enable and require [Microsoft Entra multifactor authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) for all administrators in your organization using [Microsoft Entra Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) or [Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-admin-mfa.md). It's critical.
 
@@ -172,7 +172,7 @@ For Identity Protection to be able to perform the best risk detection possible, 
 
 Learn more about Microsoft Threat Protection and the importance of integrating different domains, in the following short video.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Bzww]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a729be92-46e7-4c9b-89c4-cc2de0bc851f]
 
 ### Set up monitoring and alerting
 

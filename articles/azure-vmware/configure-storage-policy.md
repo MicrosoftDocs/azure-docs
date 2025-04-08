@@ -3,7 +3,7 @@ title: Configure storage policy
 description:  Learn how to configure storage policy for your Azure VMware Solution virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2023
+ms.date: 01/08/2025
 ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want set the VMware vSAN storage policies to determine how storage is allocated to the VM.
@@ -35,7 +35,7 @@ In this article learn how to:
 
 ## Prerequisites
 
-Make sure that the [minimum level of hosts are met](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vsphere.vmc-aws-manage-data-center-vms.doc/GUID-EDBB551B-51B0-421B-9C44-6ECB66ED660B.html).
+Make sure that the [minimum level of hosts are met](https://techdocs.broadcom.com/us/en/vmware-cis/cloud/vmware-cloud-on-aws/SaaS/operations-guide/managing-sddc-hosts-and-clusters/vsan-storage-in-vmware-cloud-on-aws/virtual-san-policies-aws.html).
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
@@ -83,7 +83,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
+> You can't use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-VMStoragePolicy**.
 
@@ -104,7 +104,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 Run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies on all VMs in a location where a location is the name of a cluster, resource pool, or folder. For example, if you have 3 VMs in Cluster-3, supplying "Cluster-3" would change the storage policy on all three VMs.
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
+> You can't use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-LocationStoragePolicy**.
 
@@ -140,14 +140,18 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage poli
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
+> [!NOTE]
+> Changing the default cluster policy will only affect new VMs.  Existing VMs will retain the policy they're currently configured/deployed with.
 
 ## Create custom AVS storage policy
 
 Run the `New-AVSStoragePolicy` cmdlet to create or overwrite an existing policy.
 This function creates a new or overwrites an existing vSphere Storage Policy. Non vSAN-Based, vSAN Only, VMEncryption Only, Tag Only based and/or any combination of these policy types are supported.
 > [!NOTE]
-> You cannot modify existing AVS default storage policies.
+> You can't modify existing AVS default storage policies.
 > Certain options enabled in storage policies will produce warnings to associated risks.
+> Modifying existing storage policies will make existing associated vsan objects (vms/vmdks/iso/etc) appear as 'out of compliance'.
+> This simply means existing objects are running against premodified policy settings.  Reapply storage policy to objects to update to match modified policy settings.
 
 1. Select **Run command** > **Packages** > **New-AVSStoragePolicy**.
 

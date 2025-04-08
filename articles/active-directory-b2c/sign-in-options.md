@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Learn about the sign-up and sign-in options you can use with Azure Active Directory B2C, including username and password, email, phone, or federation with social or external identity providers.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: concept-article
 ms.date: 03/22/2024
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer Intent: As a developer integrating Azure AD B2C into my application, I want to understand the different sign-in options available so that I can choose the appropriate method for my users and configure the sign-in flow accordingly.
 
@@ -44,7 +44,7 @@ Your local account identity provider includes a Username option that lets users 
 
 Phone sign-in is a passwordless option in your local account identity provider settings. This method lets users sign up for your app using a phone number as their primary identifier. One-time passwords are sent to your users via SMS text messages. Users will have the following experience during sign-up and sign-in:
 
-- **Sign-in**: If the user has an existing account with phone number as their identifier, the user enters their phone number and selects *Sign in*. They confirm the country and phone number by selecting *Continue*, and a one-time verification code is sent to their phone. The user enters the verification code and selects *Continue* to sign in.
+- **Sign-in**: If the user has an existing account with phone number as their identifier, the user enters their phone number and selects *Sign in*. They confirm the country/region and phone number by selecting *Continue*, and a one-time verification code is sent to their phone. The user enters the verification code and selects *Continue* to sign in.
 - **Sign-up**: If the user doesn't already have an account for your application, they can create one by clicking on the *Sign up now* link.
     1. A sign-up page appears, where the user selects their *Country*, enters their phone number, and selects *Send Code*. 
     1. A one-time verification code is sent to the user's phone number. The user enters the *Verification Code* on the sign-up page, and then selects *Verify Code*. (If the user can't retrieve the code, they can select *Send New Code*).

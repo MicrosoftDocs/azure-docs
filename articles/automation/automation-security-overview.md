@@ -4,8 +4,8 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 10/04/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: overview 
 ms.custom:
 ms.service: azure-automation
 ---
@@ -88,7 +88,7 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 >[!NOTE]
 >Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=5584e967-5b9f-474b-91cd-4e4342b19812]
 
 ## Role-based access control
 

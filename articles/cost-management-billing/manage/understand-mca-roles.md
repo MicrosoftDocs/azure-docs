@@ -1,13 +1,13 @@
 ---
 title: Billing roles for Microsoft Customer Agreements - Azure
 description: Learn about billing roles for billing accounts in Azure for Microsoft Customer Agreements.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/21/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: jkinma
 ---
 
 # Understand Microsoft Customer Agreement administrative roles in Azure
@@ -144,9 +144,11 @@ The following tables show what role you need to complete tasks in the context of
 |Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice manager|Billing account owner|Billing account contributor|Billing account reader
 |---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for the billing profile|✔|✔|✔|✔|✔|✔|✔|
-|Create new Azure subscriptions|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|
+|Create new Azure subscriptions|✔|✔|✘|✔|✔|✔|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|
 |Change billing profile for the Azure subscriptions|✔|✔|✘|✘|✔|✔|✘|
+
+¹ Invoice manager can only cancel the subscriptions they created.
 
 ## Invoice section roles and tasks
 

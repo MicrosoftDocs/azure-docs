@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: gwallace
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/12/2024
 ms.author: danlep
 ---
@@ -25,7 +25,7 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 The following sample YAML configuration deploys StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway then publishes metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
 
 > [!NOTE]
-> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
+> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](/azure/container-registry/buffer-gate-public-content)
 
 ```yaml
 apiVersion: v1
@@ -201,7 +201,7 @@ The self-hosted gateway outputs logs to `stdout` and `stderr` by default. You ca
 kubectl logs <pod-name>
 ```
 
-If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics.
+If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-overview) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics.
 
 The self-hosted gateway also supports many protocols including `localsyslog`, `rfc5424`, and `journal`. The following table summarizes all the options supported.
 
@@ -296,7 +296,7 @@ spec:
 
 When configuring to use local syslog on Azure Kubernetes Service, you can choose two ways to explore the logs:
 
-- Use [Syslog collection with Container Insights](./../azure-monitor/containers/container-insights-syslog.md)
+- Use [Syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog)
 - Connect & explore logs on the worker nodes
 
 #### Consuming logs from worker nodes
@@ -310,13 +310,13 @@ For example, you can filter all syslogs to just the ones from the self-hosted ga
 
 ```shell
 $ cat host/var/log/syslog | grep "apimuser"
-May 15 05:54:20 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:20.0445178Z, isRequestSuccess=True, totalTime=290, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:20.0445178Z, region=Repro, correlationId=b28565ec-73e0-41e6-9312-efcdd6841846, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=287, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
-May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:21.1189171Z, isRequestSuccess=True, totalTime=150, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:21.1189171Z, region=Repro, correlationId=ab4d7464-acee-40ae-af95-a521cc57c759, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=148, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
+May 15 05:54:20 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:20.0445178Z, isRequestSuccess=True, totalTime=290, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:20.0445178Z, region=Repro, correlationId=aaaa0000-bb11-2222-33cc-444444dddddd, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=287, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
+May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:21.1189171Z, isRequestSuccess=True, totalTime=150, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:21.1189171Z, region=Repro, correlationId=bbbb1111-cc22-3333-44dd-555555eeeeee, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=148, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
 ```
 > [!NOTE]
 > If you have changed the root with `chroot`, for example `chroot /host`, then the above path needs to reflect that change.
 
-## Next steps
+## Related content
 
 * Learn about the [observability capabilities of the Azure API Management gateways](observability.md).
 * Learn more about the [Azure API Management self-hosted gateway](self-hosted-gateway-overview.md).

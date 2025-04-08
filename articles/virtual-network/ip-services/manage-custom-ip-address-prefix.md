@@ -2,14 +2,14 @@
 title: Manage a custom IP address prefix
 titleSuffix: Azure Virtual Network
 description: Learn about custom IP address prefixes and how to manage and delete them.
-services: virtual-network
+services: azure-virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
+ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 
@@ -35,13 +35,13 @@ For information on provisioning an IP address, see [Create a custom IP address p
 
 ## Create a public IP prefix from a custom IP prefix
 
-When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range.
+When a unified (or regional) model custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range.
 
 Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix.
 
-|Tool|Command|
+|**Tool**|**Command**|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
 > [!NOTE]
@@ -74,9 +74,9 @@ If another network advertises the provisioned range to the Internet, you should 
 
 * Alternatively, the ranges can be commissioned first and then changed. This process doesn't work for all resource types with public IPs. In those cases, a new resource with the provisioned public IP must be created.
 
-### Use the regional commissioning feature
+### Use the regional commissioning feature for unified model custom IP prefixes
 
-When a custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there's the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which places an onboarded range into a **CommissionedNoInternetAdvertise** state where it's only advertised from within a single Azure region.  This state allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet, and fits well with Method 1 in the previous section.
+When a unified model custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there's the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which places an onboarded range into a **CommissionedNoInternetAdvertise** state where it's only advertised from within a single Azure region.  This state allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet, and fits well with Method 1 in the previous section.
 
 Use the following steps in the Azure portal to put a custom IP prefix into this state:
 
@@ -103,9 +103,7 @@ Update-AzCustomIpPrefix
 
 To view a custom IP prefix, the following commands can be used in Azure CLI and Azure PowerShell. All public IP prefixes created under the custom IP prefix are displayed.
 
-**Commands**
-
-|Tool|Command|
+|**Tool**|**Command**|
 |---|---|
 |CLI|[az network custom-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-list) to list custom IP prefixes<br>[az network custom-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-show) to show settings and any derived public IP prefixes<br>
 |PowerShell|[Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) to retrieve a custom IP prefix object and view its settings and any derived public IP prefixes|
@@ -115,15 +113,13 @@ To view a custom IP prefix, the following commands can be used in Azure CLI and 
 A custom IP prefix must be decommissioned to turn off advertisements.
 
 > [!NOTE]
-> All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, see the following section on regional commissioning.
+> All public IP prefixes created from a provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, see the following section on regional commissioning.
 > 
 > The estimated time to fully complete the decommissioning process is 3-4 hours.
 
 The following commands can be used in Azure CLI and Azure PowerShell to begin the process to stop advertising the range from Azure. The operation is asynchronous, use view commands to retrieve the status. The **CommissionedState** field initially shows the prefix as **Decommissioning**, followed by **Provisioned** as it transitions to the earlier state. Advertisement removal is a gradual process, and the range is partially advertised while still in **Decommissioning**.
 
-**Commands**
-
-|Tool|Command|
+|**Tool**|**Command**|
 |---|---|
 |Azure portal|Use the **Decommission** option in the Overview section of a Custom IP Prefix |
 |CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with `--state` flag set to decommission |
@@ -133,7 +129,7 @@ Alternatively, a custom IP prefix can be decommissioned via the Azure portal usi
 
 ### Use the regional commissioning feature to assist decommission
 
-A custom IP prefix must be clear of public IP prefixes before it can be put into **Decommissioning** state.  To ease a migration, you can reverse the regional commissioning feature. You can change a globally commissioned range back to a regionally commissioned status. This change allows you to ensure the range is no longer advertised beyond the scope of a single region before removing any public IP addresses from their respective resources.
+A unified (or regional) model custom IP prefix must be clear of public IP prefixes before it can be put into **Decommissioning** state.  To ease a migration, you can reverse the regional commissioning feature. You can change a globally commissioned range back to a regionally commissioned status. This change allows you to ensure the range is no longer advertised beyond the scope of a single region before removing any public IP addresses from their respective resources.
 
 The command is similar as the one from earlier on this page:
 
@@ -146,20 +142,24 @@ Update-AzCustomIpPrefix
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **InternetDecommissioningInProgress**, followed in the future by **CommissionedNoInternetAdvertise**. The advertisement to the Internet isn't binary and the range is partially advertised while still in the **InternetDecommissioningInProgress** status.
 
+> [!NOTE]
+> There is no need to regionally commission regional ("child") prefixes when using the glboal/regional model, as their inherent nature means that they will only advertise from within the region, and the commissioning of the global ("parent") prefix is what will advertise the range to the Internet and other Azure regions.
+
 ## Deprovision/Delete a custom IP prefix
 
 To fully remove a custom IP prefix, it must be deprovisioned and then deleted. 
 
+> [!IMPORTANT]
+> It is strongly recommended to decommission the range **prior** to modifying/deleting the Route Origin Authorization (ROA) you created with your Routing Internet Registry. Failure to do this will mean Microsoft will still be advertising your range when not authorized to do so. Please see the [creation documentation](create-custom-ip-address-prefix-powershell.md) for more information about ROAs.
+
 > [!NOTE]
-> If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the first region before a new custom IP prefix with the same address range can be created in another region.
+> If there is a requirement to migrate a provisioned range from one region to the other, the original custom IP prefix must be fully removed from the first region before a new custom IP prefix with the same address range can be created in another region.
 >
 > The estimated time to complete the deprovisioning process is anywhere from 30 to 60 minutes.
 
 The following commands can be used in Azure CLI and Azure PowerShell to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field initially shows the prefix as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
 
-**Commands**
-
-|Tool|Command|
+|**Tool**|**Command**|
 |---|---|
 |Azure portal|Use the **Deprovision** option in the Overview section of a Custom IP Prefix |
 |CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-update) with the `--state` flag set to deprovision <br>[az network custom-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-delete) to remove|
@@ -171,7 +171,7 @@ Alternatively, a custom IP prefix can be decommissioned via the Azure portal usi
 
 For permissions to manage public IP address prefixes, your account must be assigned to the [network contributor](../../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role. 
 
-| Action                                                            | Name                                                           |
+| **Action**                                                            | **Name**                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/customIPPrefixes/read                           | Read a custom IP address prefix                                |
 | Microsoft.Network/customIPPrefixes/write                          | Create or update a custom IP address prefix                    |
@@ -184,11 +184,11 @@ This section provides answers for common questions about custom IP prefix resour
 
 ### A "ValidationFailed" error is returned after a new custom IP prefix creation
 
-A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the given subscription. To view the specific error, review the **FailedReason** field in the custom IP prefix resource (in the JSON view in the portal) and review the Status messages section in the following section.
+A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the given subscription. To view the specific error, review the **FailedReason** field in the custom IP prefix resource (in the JSON view in the portal) and review the **Status message**s section in the following section.
 
 ### After updating a custom IP prefix to advertise, it transitions to a "CommissioningFailed" status
 
-If a custom IP prefix is unable to be fully advertised, it moves to a **CommissioningFailed** status. To view the specific error, review the **FailedReason** field in the custom IP prefix resource (in the JSON view in the portal) and review the Status messages section as follows, which helps determine at what point the commission process failed.
+If a custom IP prefix is unable to be fully advertised, it moves to a **CommissioningFailed** status. To view the specific error, review the **FailedReason** field in the custom IP prefix resource (in the JSON view in the portal) and review the **Status message**s section as follows, which helps determine at what point the commission process failed.
 
 ### I’m unable to decommission a custom IP prefix
 
@@ -204,18 +204,18 @@ To migrate a custom IP prefix, it must first be deprovisioned from one region. A
 
 ### Are there any special considerations when using IPv6
 
-Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  For more information, see [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-portal.md).
+Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  For more information, see [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-powershell.md).
 
 ### Status messages
 
-When you onboard or remove a custom IP prefix from Azure, the system updates the **FailedReason** attribute of the resource. If the Azure portal is used, the message is shown as a top-level banner. The following tables list the status messages when onboarding or removing a custom IP prefix.
+When you onboard or remove a custom IP prefix from Azure, the system updates the **FailedReason** attribute of the resource. If the Azure portal is used, the message is shown as a top-level banner. The following tables list the **status message**s when onboarding or removing a custom IP prefix.
 
 > [!NOTE]
 > If the **FailedReason** is **OperationNotFailed**, the custom IP prefix is in a stable state (e.g. Provisioned, Commissioned) with no apparent issues.
 
 #### Validation failures
 
-| Failure message | Explanation |
+| **Failure message** | **Explanation** |
 | --------------- | ----------- |
 | CustomerSignatureNotVerified | The signed message can't be verified against the authentication message using the Whois/RDAP record for the prefix. |
 | NotAuthorizedToAdvertiseThisPrefix </br> or </br> ASN8075NotAllowedToAdvertise | ASN8075 isn't authorized to advertise this prefix. Make sure your route origin authorization (ROA) is submitted correctly. |
@@ -238,7 +238,7 @@ When you onboard or remove a custom IP prefix from Azure, the system updates the
 
 #### Commission status
 
-| Status message | Explanation |
+| **Status message** | **Explanation** |
 | --------------- | ----------- |
 | RegionalCommissioningInProgress | The range is being commissioned to advertise regionally within Azure. |
 | CommissionedNoInternetAdvertise | The range is now advertising regionally within Azure. |
@@ -246,14 +246,14 @@ When you onboard or remove a custom IP prefix from Azure, the system updates the
 
 #### Decommission status
 
-| Status message | Explanation |
+| **Status message** | **Explanation** |
 | -------------- | ----------- |
 | InternetDecommissioningInProgress | The range is currently being decommissioned. The range is no longer advertised to the internet. |
 | RegionalDecommissioningInProgress | The range is no longer advertised to the internet and is currently being decommissioned. The range is no longer advertised regionally within Azure. |
 
 #### Commission failures
 
-| Failure message | Explanation |
+| **Failure message** | **Explanation** |
 | --------------- | ----------- |
 | CommissionFailedRangeNotAdvertised | The range was unable to be advertised regionally within Azure or to the internet. |
 | CommissionFailedRangeRegionallyAdvertised | The range was unable to be advertised to the internet but is being advertised within Azure. |
@@ -261,7 +261,7 @@ When you onboard or remove a custom IP prefix from Azure, the system updates the
 
 #### Decommission failures
 
-| Failure message | Explanation |
+| **Failure message** | **Explanation** |
 | --------------- | ----------- |
 | DecommissionFailedRangeInternetAdvertised | The range was unable to be decommissioned and is still advertised to the internet and within Azure. |
 | DecommissionFailedRangeRegionallyAdvertised | The range was unable to be decommissioned and is still advertised within Azure but is no longer advertised to the internet. |

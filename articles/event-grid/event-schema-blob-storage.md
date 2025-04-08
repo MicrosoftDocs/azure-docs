@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 10/25/2024
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -47,10 +47,11 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",
     "storageDiagnostics": {
@@ -75,6 +76,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
     "contentType": "text/plain",
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
     "sequencer": "0000000000000281000000000002F5CA",
     "storageDiagnostics": {
@@ -101,6 +103,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+		"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -152,7 +156,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -208,6 +212,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+        	"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -290,7 +296,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -461,7 +467,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -663,7 +669,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
   "data": {
     "api": "SftpCommit",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "application/octet-stream",
     "contentLength": 0,
     "contentOffset": 0,
@@ -880,7 +886,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
   "data": {
     "api": "SftpCommit",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "application/octet-stream",
     "contentLength": 0,
     "contentOffset": 0,
@@ -1132,6 +1138,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "successCount": 0,
             "errorList": ""
         },
+        "tierToColdSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
         "tierToArchiveSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
@@ -1184,6 +1195,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""
@@ -1246,6 +1262,8 @@ The data object has the following properties:
 | `contentType` | string | The content type specified for the blob. |
 | `contentLength` | integer | The size of the blob in bytes. |
 | `blobType` | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
+| `accessTier`     | string    | The target tier of the blob. Appears only for the event BlobTierChanged.                                                                                                                                     |
+| `previousTier`   | string    | The source tier of the blob. Appears only for the event BlobTierChanged. If the blob is inferring the tier from the storage account, this field will not appear.                                          |
 | `contentOffset` | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `destinationUrl` |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `destinationUrl` property contains the url of the new file name. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `sourceUrl` |string | The url of the file that exists before the operation is done. For example, if a file is renamed, the `sourceUrl` contains the url of the original file name before the rename operation. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |

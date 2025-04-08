@@ -2,13 +2,13 @@
 title: Identify anomalies and unexpected changes in cost
 titleSuffix: Microsoft Cost Management
 description: Learn how to identify anomalies and unexpected changes in cost.
-author: bandersmsft
-ms.reviewer: micflan
+author: shasulin
+ms.reviewer: shasulin
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 03/19/2024
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: shasulin
 ---
 
 # Identify anomalies and unexpected changes in cost
@@ -122,7 +122,7 @@ Continue reading the following sections for more techniques to determine who own
 
 ### Analyze the audit logs for the resource
 
-If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log).
+If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](/azure/azure-monitor/essentials/activity-log-insights#view-the-activity-log).
 
 ### Analyze user permissions to the resource's parent scope
 

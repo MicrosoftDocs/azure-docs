@@ -37,7 +37,9 @@ Use these steps to update the project on your local computer:
 
 1. Ensure you have [installed the target version of the .NET SDK](https://dotnet.microsoft.com/download/dotnet).
 
-1. Update your references to the latest stable versions of: [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/).
+    If you are targeting a preview version, consult the [Functions guidance for preview .NET versions](./dotnet-isolated-process-guide.md#preview-net-versions) to ensure that the version is supported. Additional steps may be required for .NET previews.
+
+1. Update your references to the latest versions of: [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/).
 
 1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the `.csproj` file. See [Target frameworks](/dotnet/standard/frameworks) for specifics related to the chosen version.
 

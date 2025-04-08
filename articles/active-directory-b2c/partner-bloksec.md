@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with BlokSec for
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 06/21/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with BlokSec for passwordless authentication. I need to configure integration, so I can simplify user sign-in and protect against identity-related attacks.
@@ -38,7 +38,7 @@ BlokSec integration includes the following components:
 * **BlokSec Decentralized Identity Router** – gateway for services that apply BlokSec DIaaS to route authentication and authorization requests to user Personal Identity Provider (PIdP) applications
   * It's an OpenID Connect (OIDC) identity provider in Azure AD B2C
 * **BlokSec SDK-based mobile app** – user PIdP in the decentralized authentication scenario. 
-  * If you're not using the BlokSec SDK, go to Google Play for the free [BlokSec yuID](https://play.google.com/store/apps/details?id=com.bloksec)
+  * If you're not using the BlokSec SDK, go to Google Play for the free [BlokSec yuID](https://play.google.com/store/apps/details/Google?id=com.google.android.googlequicksearchbox&hl=en-US)
 
 The following architecture diagram illustrates the sign-up, sign-in flow in the BlokSec solution implementation.
 
@@ -199,7 +199,7 @@ To define BlokSec as a claims provider, add it to the **ClaimsProvider** element
           <Metadata>
             <Item Key="METADATA">https://api.bloksec.io/oidc/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the BlokSec Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="response_mode">form_post</Item>

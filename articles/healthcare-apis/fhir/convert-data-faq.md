@@ -2,11 +2,11 @@
 title: $convert-data FAQ for the FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about the $convert-data operation.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: faq
 ms.date: 05/13/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # $convert-data FAQ
@@ -36,11 +36,11 @@ There's an example published in the [Azure Data Factory template gallery](../../
 >
 > In a scenario with batch processing of HL7v2 messages, this template doesn't take sequencing into account. Post processing is needed if sequencing is a requirement. 
 
-## How can I persist the converted data into the FHIR service by using Postman?
+## How can I persist the converted data into the FHIR service?
 
 You can use the FHIR service's APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
 
-For more information, see [Access the FHIR service in Azure Health Data Services by using Postman](use-postman.md).
+For more information, see [Access the FHIR service in Azure Health Data Services by using REST Client](using-rest-client.md).
 
 ## What's the difference between the $convert-data endpoint in Azure API for FHIR versus the FHIR service in Azure Health Data Services?
 
@@ -82,7 +82,7 @@ Depending on the version of `$convert-data` you’re using, you can:
 
 * Use the [troubleshooting guide](convert-data-troubleshoot.md) for the FHIR service in Azure Health Data Services version of the `$convert-data` operation.
 
-* Open a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) for the FHIR service in Azure Health Data Service FHIR Services version of the `$convert-data` operation.
+* Open a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) for the FHIR service in Azure Health Data Service FHIR Services version of the `$convert-data` operation.
 
 * Leave a comment on the [GitHub repository](https://github.com/microsoft/FHIR-Converter/issues) for the open source version of the FHIR converter.
 

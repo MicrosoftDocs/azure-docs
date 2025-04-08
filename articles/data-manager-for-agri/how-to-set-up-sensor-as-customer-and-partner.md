@@ -17,7 +17,7 @@ Follow the below steps to register as a sensor partner so that you can start pus
 1. Sensor integration should be enabled before it can be initiated. This step provisions required internal Azure resources for sensor integration for Data Manager for Agriculture instance. This can be done by running following <a href="https://github.com/projectkudu/ARMClient" target=" blank">armclient</a> command.
 
 ```armclient 
-armclient patch /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>?api-version=2023-04-01-preview "{properties:{sensorIntegration:{enabled:'true'}}}"
+armclient patch /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>?api-version=2023-06-01-preview "{properties:{sensorIntegration:{enabled:'true'}}}"
 ```
 
 Sample output:
@@ -54,7 +54,7 @@ Sample output:
 2. The above job might take a few minutes to complete. To know the status of job, the following armclient command should be run:
 
 ```armclient 
-armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>?api-version=2023-04-01-preview
+armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>?api-version=2023-06-01-preview
 ```
 
 3. To verify whether it's completed, look at the highlighted attribute. It should be updated as “Succeeded” from “Creating” in the earlier step. The attribute that indicates that the sensor integration is enabled is indicated by **provisioningState inside the sensorIntegration object**. 

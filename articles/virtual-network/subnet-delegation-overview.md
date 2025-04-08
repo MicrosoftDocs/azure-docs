@@ -3,7 +3,7 @@ title: What is subnet delegation in Azure virtual network?
 description: Learn about subnet delegation in Azure virtual network
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/08/2023
 ms.author: allensu
 ---
@@ -56,7 +56,7 @@ Each Azure service defines their own deployment model, where they can define wha
 
 - Requires delegation to be removed before the subnet or virtual network can be deleted.
 
-- Can't be used with a private endpoint if the subnet is delegated.
+- Can't be used with a private endpoint if the subnet is delegated. As a consequence, private endpoint network policies should not be configured in these subnets.
 
 Injected services can also add their own policies as follows:
 

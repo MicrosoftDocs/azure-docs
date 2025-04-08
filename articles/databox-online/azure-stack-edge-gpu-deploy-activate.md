@@ -4,8 +4,7 @@ description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to activa
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 05/31/2022
 ms.author: alkohli

@@ -6,7 +6,7 @@ ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/01/2024
+ms.date: 01/28/2025
 ---
 
 # Tutorial: Connect to Azure storage account in Azure Kubernetes Service (AKS) with Service Connector using workload identity
@@ -20,9 +20,6 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 > * Clone a sample application that will talk to the Azure storage account from an AKS cluster.
 > * Deploy the application to a pod in AKS cluster and test the connection.
 > * Clean up resources.
-
-> [!IMPORTANT]
-> Service Connect within AKS is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -70,7 +67,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --sku Standard_LRS
     ```
 
-1. Create an Azure container registry with the following command, or referring to the [tutorial](../container-registry/container-registry-get-started-portal.md). The registry hosts the container image of the sample application, which will be consumed by the AKS pod definition.
+1. Create an Azure container registry with the following command, or referring to the [tutorial](/azure/container-registry/container-registry-get-started-portal). The registry hosts the container image of the sample application, which will be consumed by the AKS pod definition.
 
     ```azurecli
     az acr create \
@@ -95,7 +92,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --name MyIdentity
     ```
 
-## Create service connection with Service Connector (preview)
+## Create service connection with Service Connector
 
 Create a service connection between an AKS cluster and an Azure storage account using the Azure portal or the Azure CLI.
 

@@ -30,11 +30,11 @@ These factors are controlled by four tunables. Each tunable can be tuned dynamic
 
 ### `vm.dirty_ratio | vm.dirty_bytes` 
 
-These two tunables define the amount of RAM made usable for data modified but not yet written to stable storage. Whichever tunable is set automatically sets the other tunable to zero; RedHat advises against manually setting either of the two tunables to zero. The option `vm.dirty_ratio` (the default of the two) is set by Redhat to either 20% or 30% of physical memory depending on the OS, which is a significant amount considering the memory footprint of modern systems. Consideration should be given to setting `vm.dirty_bytes` instead of `vm.dirty_ratio` for a more consistent experience regardless of memory size. For example, ongoing work with SAS GRID determined 30 MiB an appropriate setting for best overall mixed workload performance. 
+These two tunables define the amount of RAM made usable for data modified but not yet written to stable storage. Whichever tunable is set automatically sets the other tunable to zero; RedHat advises against manually setting either of the two tunables to zero. The option `vm.dirty_ratio` (the default of the two) is set by Red Hat to either 20% or 30% of physical memory depending on the OS, which is a significant amount considering the memory footprint of modern systems. Consideration should be given to setting `vm.dirty_bytes` instead of `vm.dirty_ratio` for a more consistent experience regardless of memory size. For example, ongoing work with SAS GRID determined 30 MiB an appropriate setting for best overall mixed workload performance. 
 
 ### `vm.dirty_background_ratio | vm.dirty_background_bytes` 
 
-These tunables define the starting point where the Linux write-back mechanism begins flushing dirty blocks to stable storage. Redhat defaults to 10% of physical memory, which, on a large memory system, is a significant amount of data to start flushing. With SAS GRID as an example, historically the recommendation was to set `vm.dirty_background` to 1/5 size of `vm.dirty_ratio` or `vm.dirty_bytes`. Considering how aggressively the `vm.dirty_bytes` setting is set for SAS GRID, no specific value is being set here. 
+These tunables define the starting point where the Linux write-back mechanism begins flushing dirty blocks to stable storage. Red Hat defaults to 10% of physical memory, which, on a large memory system, is a significant amount of data to start flushing. With SAS GRID as an example, historically the recommendation was to set `vm.dirty_background` to 1/5 size of `vm.dirty_ratio` or `vm.dirty_bytes`. Considering how aggressively the `vm.dirty_bytes` setting is set for SAS GRID, no specific value is being set here. 
 
 ### `vm.dirty_expire_centisecs` 
 

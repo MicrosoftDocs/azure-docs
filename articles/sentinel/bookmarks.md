@@ -9,6 +9,10 @@ ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a security analyst, I want to create and manage hunting bookmarks so that I can preserve and collaborate on relevant threat investigation data.
+
 ---
 
 # Keep track of data during hunting with Microsoft Sentinel
@@ -116,7 +120,7 @@ View bookmarked queries, results, or their history.
 
    :::image type="content" source="media/bookmarks/bookmark-logs.png" alt-text="Screenshot of bookmark logs command.":::
 
-This view shows all your bookmarks with associated metadata. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kql-quick-reference) queries to filter down to the latest version of the specific bookmark you're looking for.
+This view shows all your bookmarks with associated metadata. You can use [Kusto Query Language (KQL)](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true) queries to filter down to the latest version of the specific bookmark you're looking for.
 
 There can be a significant delay (measured in minutes) between the time you create a bookmark and when it's displayed in the **Bookmarks** tab.
 

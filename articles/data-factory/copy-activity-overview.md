@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/02/2024
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 
@@ -46,7 +46,17 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 ### Supported file formats
 
-[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+Azure Data Factory supports the following file formats. Refer to each article for format-based settings.
+
+- [Avro format](format-avro.md)
+- [Binary format](format-binary.md)
+- [Delimited text format](format-delimited-text.md)
+- [Excel format](format-excel.md)
+- [Iceberg format](format-iceberg.md) (only for Azure Data Lake Storage Gen2)
+- [JSON format](format-json.md)
+- [ORC format](format-orc.md)
+- [Parquet format](format-parquet.md)
+- [XML format](format-xml.md)
 
 You can use the Copy activity to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. In addition, you can also parse or generate files of a given format, for example, you can perform the following:
 

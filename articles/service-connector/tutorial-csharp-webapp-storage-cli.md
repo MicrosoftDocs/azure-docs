@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector'
-description: Create a web app connected to Azure Blob Storage with Service Connector.
+title: Deploy a webapp connected to Azure Blob Storage
+description: This tutorial guides you through creating and deploying a web application that connects to Azure Blob Storage using Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 11/20/2023
+ms.date: 12/18/2024
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector
 
-Learn how to access Azure Blob Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities. In this tutorial, you'll use the Azure CLI to complete the following tasks:
+In this tutorial, you learn how to access Azure Blob Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities. In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ az webapp browse --name <app-name>
 
 The sample code is a web application. Each time you refresh the index page, the application creates or updates a blob with the text `Hello Service Connector! Current is {UTC Time Now}` to the storage container and reads back to show it in the index page.
 
-## Next steps
+## Next step
 
 To learn more about Service Connector, read the guide below.
 

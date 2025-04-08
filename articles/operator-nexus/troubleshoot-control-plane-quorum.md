@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot control plane quorum loss
-description: Document how to restore control plane quorum loss
+description: Learn how to restore control plane quorum loss.
 ms.topic: article
 ms.date: 01/18/2024
 author: matthewernst
@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 # Troubleshoot control plane quorum loss
 
-Follow this troubleshooting guide when multiple control plane nodes are offline or unavailable:
+Follow the steps in this troubleshooting article when multiple control plane nodes are offline or unavailable.
 
 ## Prerequisites
 
@@ -19,53 +19,56 @@ Follow this troubleshooting guide when multiple control plane nodes are offline 
 - Gather the following information:
   - Subscription ID
   - Cluster name and resource group
-  - Bare metal machine name
-- Ensure you're logged using `az login`
-
+  - Bare-metal machine name
+- Ensure that you're signed in by using `az login`.
 
 ## Symptoms
 
-- Kubernetes API isn't available
-- Multiple control plane nodes are offline or unavailable
+- The Kubernetes API isn't available.
+- Multiple control plane nodes are offline or unavailable.
 
 ## Procedure
 
-1. Identify the Nexus Management Node
-- To identify the management nodes, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name>`
-- Log in to the identified server
-- Ensure the ironic-conductor service is present on this node using `crictl ps -a |grep -i ironic-conductor`
-  Example output:
+1. Identify the Azure Operator Nexus management nodes:
+   - To identify the management nodes, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name>`.
+   - Sign in to the identified server.
+   - Ensure that the ironic-conductor service is present on this node by using `crictl ps -a |grep -i ironic-conductor`. Here's example output:
 
-~~~
-testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
-<id>       <id>       6 hours ago       Running       ironic-conductor       0       <id>
-~~~
+        ~~~
+        testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
+        <id>       <id>       6 hours ago       Running       ironic-conductor       0       <id>
+        ~~~
 
-2. Determine the iDRAC IP of the server
-- Run the command `az networkcloud cluster list -g <RG_Name>`
-- The output of the command is a JSON with the iDRAC IP
+1. Determine the integrated Dell remote access controller (iDRAC) IP of the server:
+   - Run the command `az networkcloud cluster list -g <RG_Name>`.
+   - The output of the command is JSON with the iDRAC IP.
 
-    ~~~
-    {
-            "bmcConnectionString": "redfish+https://xx.xx.xx.xx/redfish/v1/Systems/System.Embedded.1",
-            "bmcCredentials": {
-              "username": "<username>"
-            },
-            "bmcMacAddress": "<bmcMacAddress>",
-            "bootMacAddress": "<bootMacAddress",
-            "machineDetails": "extraDetails",
-            "machineName": "<machineName>",
-            "rackSlot": <rackSlot>,
-            "serialNumber": "<serialNumber>"
-    },
-    ~~~
+        ~~~
+        {
+                "bmcConnectionString": "redfish+https://xx.xx.xx.xx/redfish/v1/Systems/System.Embedded.1",
+                "bmcCredentials": {
+                  "username": "<username>"
+                },
+                "bmcMacAddress": "<bmcMacAddress>",
+                "bootMacAddress": "<bootMacAddress",
+                "machineDetails": "extraDetails",
+                "machineName": "<machineName>",
+                "rackSlot": <rackSlot>,
+                "serialNumber": "<serialNumber>"
+        },
+        ~~~
 
-3. Access the iDRAC GUI using the IP in your browser to shut down impacted management servers
+1. Access the integrated iDRAC graphical user interface (GUI) by using the IP in your browser to shut down affected management servers.
 
-   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-shutdown.png" alt-text="Screenshot of an iDRAC GUI and the button to perform a graceful shutdown." lightbox="media\troubleshoot-control-plane-quorum\graceful-shutdown.png":::
+   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-shutdown.png" alt-text="Screenshot that shows an iDRAC GUI and the button to perform a graceful shutdown." lightbox="media\troubleshoot-control-plane-quorum\graceful-shutdown.png":::
 
-4. When all impacted management servers are down, turn on the servers using the iDRAC GUI
+1. When all affected management servers are down, turn on the servers by using the iDRAC GUI.
 
-   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-power-on.png" alt-text="Screenshot of an iDRAC GUI and the button to perform power on command." lightbox="media\troubleshoot-control-plane-quorum\graceful-power-on.png":::
+   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-power-on.png" alt-text="Screenshot that shows an iDRAC GUI and the button to perform the power command." lightbox="media\troubleshoot-control-plane-quorum\graceful-power-on.png":::
 
-5. The servers should now be restored. If not, engage Microsoft support.
+The servers should now be restored.
+
+## Related content
+
+- If you still have questions, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).

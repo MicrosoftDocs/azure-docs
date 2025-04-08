@@ -1,13 +1,13 @@
 ---
-author: xfz11
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 05/21/2023
-ms.author: xiaofanzhou
 ---
 
-### Install the Service Connector passwordless extension
+## Install the Service Connector passwordless extension
 
 [!INCLUDE [CLI-samples-clean-up](./install-passwordless-extension.md)]
 
@@ -74,7 +74,7 @@ az webapp connection create postgres-flexible \
 Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad). You can use the following command to create a user-assigned managed identity:
 
 ```azurecli-interactive
-USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
+USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGED_IDENTITY_NAME>
 IDENTITY_RESOURCE_ID=$(az identity create \
     --name $USER_IDENTITY_NAME \
     --resource-group $RESOURCE_GROUP \

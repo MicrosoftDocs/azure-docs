@@ -5,15 +5,11 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 03/27/2025
 # Customer intent: As a developer, I want to use a template as a faster way to build my Standard logic app workflow that runs in single-tenant Azure Logic Apps.
 ---
 
-# Create a Standard logic app workflow from a prebuilt template (Preview)
-
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create a Standard logic app workflow from a prebuilt template 
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 

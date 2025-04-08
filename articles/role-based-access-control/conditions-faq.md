@@ -2,11 +2,11 @@
 title: FAQ for Azure role assignment conditions - Azure ABAC
 description: Frequently asked questions for Azure role assignment conditions
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 02/26/2025
 ms.author: rolyon
 ---
 
@@ -63,7 +63,7 @@ A condition can be up to 8 KB long.
 
 **What are the limits for a description?**
 
-A description can be up to 2 KB long.
+A description has a recommended maximum of 512 characters.
 
 **Is it possible to create a role assignment with and without a condition, but using the same tuple of security principal, role definition, and scope?**
 

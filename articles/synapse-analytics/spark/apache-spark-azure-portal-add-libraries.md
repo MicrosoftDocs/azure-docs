@@ -3,9 +3,9 @@ title: Manage Apache Spark packages
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 author: shuaijunye
 ms.service: azure-synapse-analytics
-ms.reviewer: whhender, whhender, eskot
+ms.reviewer:  eskot
 ms.topic: how-to
-ms.date: 04/15/2023
+ms.date: 11/15/2024
 ms.author: shuaijunye
 ms.subservice: spark
 ms.custom: kr2b-contr-experiment, devx-track-azurepowershell
@@ -120,7 +120,6 @@ To learn more about how to manage session-scoped packages, see the following art
 
 - [R session packages](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview): Within your session, you can install packages across all nodes within your Spark pool by using `install.packages` or `devtools`.
 
-
 ## Automate the library management process through Azure PowerShell cmdlets and REST APIs
 
 If your team wants to manage libraries without visiting the package management UIs, you have the option to manage the workspace packages and pool-level package updates through Azure PowerShell cmdlets or REST APIs for Azure Synapse Analytics.
@@ -130,7 +129,7 @@ For more information, see the following articles:
 - [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-ui.md#manage-packages-through-rest-apis)
 - [Manage your Spark pool libraries through Azure PowerShell cmdlets](apache-spark-manage-packages-outside-ui.md#manage-packages-through-azure-powershell-cmdlets)
 
-## Next steps
+## Related content
 
 - [View the default libraries and supported Apache Spark versions](apache-spark-version-support.md)
 - [Troubleshoot library installation errors](apache-spark-troubleshoot-library-errors.md)

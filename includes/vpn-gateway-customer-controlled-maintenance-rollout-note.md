@@ -9,4 +9,4 @@ ms.topic: include
 ---
 
 > [!NOTE]
-> Customer-controlled gateway maintenance (Preview) is currently rolling out to all regions.
+> Customer-controlled gateway maintenance for User VPN (Point-to-Site VPN) in Virtual WAN is in Preview, and currently rolling out to all regions.

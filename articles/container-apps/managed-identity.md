@@ -2,12 +2,12 @@
 title: Managed identities in Azure Container Apps
 description: Using managed identities in Container Apps
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/25/2023
-ms.author: v-wellsjason
+ms.author: cshoe
 ---
 
 # Managed identities in Azure Container Apps
@@ -305,7 +305,7 @@ A raw HTTP `GET` request looks like the following example.
 Obtain the token endpoint URL from the `IDENTITY_ENDPOINT` environment variable. `x-identity-header` contains the GUID that is stored in the `IDENTITY_HEADER` environment variable.
 
 ```http
-GET http://localhost:42356/msi/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
+GET http://${IDENTITY_ENDPOINT}?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
 x-identity-header: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 

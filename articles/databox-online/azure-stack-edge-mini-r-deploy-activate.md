@@ -4,8 +4,7 @@ description: Tutorial to deploy Azure Stack Edge Mini R instructs you to encrypt
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: alkohli

@@ -1,9 +1,0 @@
-{
-  "redirections": [
-    {
-      "source_path_from_root": "/articles/api-center/use-vscode-extension-copilot.md",
-      "redirect_url": "/azure/api-center/use-vscode-extension",
-      "redirect_document_id": false
-    }
-  ]
-}

@@ -7,7 +7,7 @@ ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Transform data from an SAP ODP source using the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
@@ -17,7 +17,7 @@ ms.date: 01/05/2024
 This article outlines how to use mapping data flow to transform data from an SAP ODP source using the SAP CDC connector. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md). For an introduction to transforming data with Azure Data Factory and Azure Synapse analytics, read [mapping data flow](concepts-data-flow-overview.md) or the [tutorial on mapping data flow](tutorial-data-flow.md).
 
 >[!TIP]
->To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
+>To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
 
 ## Supported capabilities
 
@@ -33,7 +33,8 @@ This SAP CDC connector uses the SAP ODP framework to extract data from SAP sourc
 
 The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT). For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#verify-sap-system-requirements).  
 
-The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured.
+The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured. For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 
 ## Current limitations
 
@@ -79,7 +80,7 @@ Next, specify a staging linked service and staging folder in Azure Data Lake Gen
 The **Checkpoint Key** is used by the SAP CDC runtime to store status information about the change data capture process. This, for example, allows SAP CDC mapping data flows to automatically recover from error situations, or know whether a change data capture process for a given data flow has already been established. It is therefore important to use a unique **Checkpoint Key** for each source. Otherwise status information of one source will be overwritten by another source.
 
 >[!NOTE]
-   > - To avoid conflicts, a unique id is generated as **Checkpoint Key** by default.
+   > - To avoid conflicts, a unique ID is generated as **Checkpoint Key** by default.
    > - When using parameters to leverage the same data flow for multiple sources, make sure to parametrize the **Checkpoint Key** with unique values per source.
    > - The **Checkpoint Key** property is not shown if the **Run mode** within the SAP CDC source is set to **Full on every run** (see next section), because in this case no change data capture process is established.
 

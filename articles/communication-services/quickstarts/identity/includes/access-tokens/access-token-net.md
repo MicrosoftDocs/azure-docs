@@ -20,25 +20,27 @@ ms.author: tchladek
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../../create-communication-resource.md).
 
 ## Final code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart).
+
+Find the finalized code at [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart).
 
 ## Set up your environment
 
 ### Create a new C# application
 
-In a Command Prompt window, such as cmd, PowerShell, or Bash, run the `dotnet new` command to create a new console app with the name `AccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file, *Program.cs*.
+1. In a command prompt window, such as cmd, PowerShell, or Bash, run the `dotnet new` command to create a new console app with the name `AccessTokensQuickstart`. This command creates a simple Hello World C# project with a single source file, `Program.cs`.
 
-```console
-dotnet new console -o AccessTokensQuickstart
-```
+   ```console
+   dotnet new console -o AccessTokensQuickstart
+   ```
 
-Change your directory to the newly created app folder, and use the `dotnet build` command to compile your application.
+2. Change your directory to the newly created app folder, and use the `dotnet build` command to compile your application.
 
-```console
-cd AccessTokensQuickstart
-dotnet build
-```
-A simple "Hello World" output should be displayed. If it is, your setup is working correctly, and you can get started writing your Azure Communication Services-specific code.
+   ```console
+   cd AccessTokensQuickstart
+   dotnet build
+   ```
+
+   A simple `Hello World` output displays. If it displays correctly, your setup is working and you can get started writing your Azure Communication Services code.
 
 ### Install the package
 
@@ -50,11 +52,11 @@ dotnet add package Azure.Communication.Identity
 
 ### Set up the app framework
 
-In the project directory, do the following:
+In the project directory, complete the following steps:
 
-1. Open the *Program.cs* file in a text editor.
+1. Open the `Program.cs` file in a text editor.
 1. Add a `using` directive to include the `Azure.Communication.Identity` namespace.
-1. Update the `Main` method declaration to support async code.
+1. To support async code, update the `Main` method declaration.
 
 To begin, run the following code:
 
@@ -77,11 +79,12 @@ namespace AccessTokensQuickstart
     }
 }
 ```
+
 ## Authenticate the client
 
 Initialize `CommunicationIdentityClient` with your connection string. The following code, which you add to the `Main` method, retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. 
 
-For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string).
+For more information, see [Create and manage Communication Services resources > Store your connection string](../../../create-communication-resource.md#store-your-connection-string).
 
 ```csharp
 // This code demonstrates how to retrieve your connection string
@@ -100,7 +103,7 @@ string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_AC
 var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
 ```
 
-If you've already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
+If you already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
 
 ```csharp
 TokenCredential tokenCredential = new DefaultAzureCredential();
@@ -109,14 +112,15 @@ var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential)
 
 ## Create an identity
 
-To create access tokens, you need an identity. Azure Communication Services maintains a lightweight identity directory for this purpose. Use the `createUser` method to create a new entry in the directory with a unique `Id`. The identity is required later for issuing access tokens.
+To create access tokens, you need an identity. Azure Communication Services maintains a lightweight identity directory for this purpose. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Use the identity later to issue access tokens.
 
 ```csharp
 var identityResponse = await client.CreateUserAsync();
 var identity = identityResponse.Value;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
-Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
+
+Store the received identity with mapping to your application users (for example, by storing it in your application server database).
 
 ## Issue an access token
 
@@ -133,11 +137,11 @@ Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {
 Console.WriteLine(token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expiresOn` property indicates the lifetime of the access token.
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application user experience. The `expiresOn` property indicates the lifetime of the access token.
 
 ## Set a custom token expiration time
 
-The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `tokenExpiresIn`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `tokenExpiresIn`. When requesting a new token, specify the expected typical length of a communication session for the token expiration time.
 
 ```csharp
 // Issue an access token with a validity of an hour and the "voip" scope for an identity 
@@ -165,7 +169,7 @@ Console.WriteLine(token);
 
 ## Refresh an access token
 
-To refresh an access token, pass an instance of the `CommunicationUserIdentifier` object into `GetTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUserIdentifier`, you can do so by passing your stored `Id` into the `CommunicationUserIdentifier` constructor as follows:
+To refresh an access token, pass an instance of the `CommunicationUserIdentifier` object into `GetTokenAsync`. If you stored this `Id` and need to create a new `CommunicationUserIdentifier`, you can do so by passing your stored `Id` into the `CommunicationUserIdentifier` constructor as follows:
 
 ```csharp
 var identityToRefresh = new CommunicationUserIdentifier(identity.Id);
@@ -174,7 +178,7 @@ var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new []
 
 ## Revoke access tokens
 
-You might occasionally need to explicitly revoke an access token. For example, you would do so when application users change the password they use to authenticate to your service. The `RevokeTokensAsync` method invalidates all active access tokens that were issued to the identity.
+You might need to explicitly revoke an access token. For example, when application users change the password they use to authenticate to your service. The `RevokeTokensAsync` method invalidates all active access tokens that were issued to the identity.
 
 ```csharp
 await client.RevokeTokensAsync(identity);
@@ -183,7 +187,7 @@ Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with I
 
 ## Delete an identity
 
-When you delete an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content that's associated with the identity.
+When you delete an identity, you revoke all active access tokens and prevent the further issue of access tokens for the identity. Doing so also removes all persisted content associated with the identity.
 
 ```csharp
 await client.DeleteUserAsync(identity);
@@ -192,7 +196,7 @@ Console.WriteLine($"\nDeleted the identity with ID: {identity.Id}");
 
 ## Run the code
 
-When you've finished creating the access token, you can run the application from your application directory by using the `dotnet run` command.
+When you finish creating the access token, you can run the application from your application directory using the `dotnet run` command.
 
 ```console
 dotnet run

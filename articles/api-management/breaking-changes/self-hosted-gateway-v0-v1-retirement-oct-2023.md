@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 09/06/2022
+ms.date: 09/25/2024
 ms.author: danlep
 ---
 
@@ -13,7 +13,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev](../../../includes/api-management-availability-premium-dev.md)]
 
-The [self-hosted gateway](../self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway included in every API Management service. On 1 October 2023 we're removing support for the v0 and v1 versions of the self-hosted gateway container image. If you've deployed the self-hosted gateway using either of these container images, you need to take the steps below to continue using the self-hosted gateway by migrating to the v2 container image and configuration API.
+The [self-hosted gateway](../self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway included in every API Management service. On 1 October 2023 we removed support for the v0 and v1 versions of the self-hosted gateway container image. If you've deployed the self-hosted gateway using either of these container images, you need to take the steps below to continue using the self-hosted gateway by migrating to the v2 container image and configuration API.
 
 ## Is my service affected by this?
 
@@ -33,7 +33,7 @@ We highly recommend customers to use ["All Recommendations" overview in Azure Ad
 
 ## What is the deadline for the change?
 
-**Support for the v1 configuration API and for the v0 and v1 container images of the self-hosted gateway will retire on 1 October 2023.**   
+**Support for the v1 configuration API and for the v0 and v1 container images of the self-hosted gateway retired on 1 October 2023.**   
 
 Version 2 of the configuration API and container image is already available, and includes the following improvements:  
 
@@ -45,7 +45,7 @@ If you are using version 0 or version 1 of the self-hosted gateway, you will nee
 
 ## What do I need to do?
 
-Migrate all your existing deployments of the self-hosted gateway using version 0 or version 1 to the newest v2 container image and v2 configuration API by 1 October 2023.
+Migrate all your existing deployments of the self-hosted gateway using version 0 or version 1 to the newest v2 container image and v2 configuration API.
 
 Follow the [migration guide](../self-hosted-gateway-migration-guide.md) for a successful migration.
 

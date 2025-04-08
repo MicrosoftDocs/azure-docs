@@ -1,13 +1,13 @@
 ---
 title: Assign Enterprise Agreement roles to service principals
 description: This article helps you assign EA roles to service principals by using PowerShell and REST APIs.
-author: bandersmsft
-ms.reviewer: sapnakeshari
+author: prashantsaini4
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/13/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: prsaini
 ---
 
 # Assign Enterprise Agreement roles to service principals
@@ -24,7 +24,7 @@ Before you begin, ensure that you're familiar with the following articles:
 
 You need a way to call REST APIs. Some popular ways to query the API are:
 
-- [Visual studio](/aspnet/core/test/http-files)
+- [Visual Studio](/aspnet/core/test/http-files)
 - [Insomnia](https://insomnia.rest/)
 - [Bruno](https://www.usebruno.com/)
 - PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)

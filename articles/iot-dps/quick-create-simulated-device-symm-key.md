@@ -1,21 +1,22 @@
 ---
 title: Quickstart - Provision a simulated symmetric key device to Microsoft Azure IoT Hub
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 04/06/2023
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
 ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want to connect a device to an IoT hub using the SDK, to learn how secure provisioning works with symmetric keys.
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Provision a simulated symmetric key device
 
-In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use the [symmetric key attestation](concepts-symmetric-key-attestation.md) mechanism for authentication. After you've configured your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
+In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use the [symmetric key attestation](concepts-symmetric-key-attestation.md) mechanism for authentication. After you configure your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
@@ -62,7 +63,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 
 <a id="setupdevbox"></a>
@@ -108,7 +109,7 @@ In this section, you prepare a development environment that's used to build the 
     ```
 
     >[!TIP]
-    >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    >If `cmake` does not find your C++ compiler, you may get build errors while running the previous command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 8. When the build completes successfully, the last few output lines look similar to the following output:
 
@@ -311,7 +312,7 @@ The sample provisioning code accomplishes the following tasks:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -337,7 +338,7 @@ To update and run the provisioning sample with your device information:
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 
-5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
+5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file. No changes are needed.
 
 6. Build and run the sample code using the following command:
 
@@ -380,7 +381,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -402,9 +403,9 @@ To update and run the provisioning sample with your device information:
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it's not needed with for this quickstart. A custom payload would be required you wanted to use a custom allocation function to assign your device to an IoT hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You can comment out this payload code for this quickstart. A custom payload would be required if you wanted to use a custom allocation function to assign your device to an IoT hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
-     The `provisioningClient.register()` method attempts the registration of your device.
+    The `provisioningClient.register()` method attempts the registration of your device.
 
     No further changes are needed.
 
@@ -468,7 +469,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -567,7 +568,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -708,7 +709,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 2. Select your IoT hub.
 
-3. In the **Explorers** menu, select **IoT devices**.
+3. In the **Device management** menu, select **Devices**.
 
 4. Select the check box next to the device ID of the device you registered in this quickstart.
 

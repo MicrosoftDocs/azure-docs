@@ -2,8 +2,8 @@
 title: "Proofpoint On Demand Email Security (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Proofpoint On Demand Email Security (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
-ms.date: 04/26/2024
+ms.topic: generated-reference
+ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -55,14 +55,14 @@ ProofpointPOD
 To integrate with Proofpoint On Demand Email Security (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
-- **Websocket API Credentials/permissions**: **ProofpointClusterID**, **ProofpointToken** is required. [See the documentation to learn more about API](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API).
+- **WebSocket API Credentials/permissions**: **ProofpointClusterID**, **ProofpointToken** is required. [See the documentation to learn more about API](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API).
 
 
 ## Vendor installation instructions
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to the Proofpoint Websocket API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This connector uses Azure Functions to connect to the Proofpoint WebSocket API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
@@ -71,9 +71,9 @@ To integrate with Proofpoint On Demand Email Security (using Azure Functions) ma
 >This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-proofpointpod-parser) to create the Kusto functions alias, **ProofpointPOD**
 
 
-**STEP 1 - Configuration steps for the Proofpoint Websocket API**
+**STEP 1 - Configuration steps for the Proofpoint WebSocket API**
 
-1. Proofpoint Websocket API service requires Remote Syslog Forwarding license. Please refer the [documentation](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API) on how to enable and check PoD Log API. 
+1. Proofpoint WebSocket API service requires Remote Syslog Forwarding license. Please refer the [documentation](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API) on how to enable and check PoD Log API. 
 2. You must provide your cluster id and security token.
 
 
@@ -85,7 +85,7 @@ To integrate with Proofpoint On Demand Email Security (using Azure Functions) ma
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Proofpoint On Demand Email Security data connector using an ARM Tempate.
+Use this method for automated deployment of the Proofpoint On Demand Email Security data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
@@ -120,7 +120,7 @@ If you're already signed in, go to the next step.
 
 	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. ProofpointXXXXX).
 
-	e. **Select a runtime:** Choose Python 3.8.
+	e. **Select a runtime:** Choose Python 3.11.
 
 	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 

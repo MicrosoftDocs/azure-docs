@@ -1,10 +1,14 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
+
+## Sample code
+
+You can find the sample code for many of the IoT Plug and Play constructs described in this article in the [Azure IoT C SDKs and libraries](https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples/pnp) GitHub repository.
 
 ## Model ID announcement
 

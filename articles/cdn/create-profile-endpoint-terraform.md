@@ -1,11 +1,12 @@
 ---
+ROBOTS: NOINDEX
 title: 'Quickstart: Create an Azure CDN profile and endpoint using Terraform'
 titleSuffix: Azure Content Delivery Network
 description: In this article, you create an Azure CDN profile and endpoint using Terraform
 services: cdn
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
@@ -15,6 +16,8 @@ ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure CDN profile and endpoint using Terraform
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 This article shows how to use Terraform to create an [Azure CDN profile and endpoint](/azure/cdn/cdn-overview) using [Terraform](/azure/developer/terraform/quickstart-configure).
 

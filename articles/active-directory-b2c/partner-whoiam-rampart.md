@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with WhoIAM Rampart
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 07/31/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating WhoIAM Rampart with Azure AD B2C. I need to configure and integrate Rampart with Azure AD B2C using custom policies. My goal is to enable an integrated helpdesk and invitation-gated user registration experience for my application.
 
@@ -28,7 +28,7 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
 * An Azure DevOps Server instance
 * A SendGrid account
-  * Go to sengrid.com to [Start for Free](https://sendgrid.com/)
+  * Go to sendgrid.com to [Start for Free](https://sendgrid.com/)
 * A WhoIAM trial account 
   * Go to whoaim.ai [Contact us](https://www.whoiam.ai/contact-us/) to get started
 

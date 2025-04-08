@@ -40,4 +40,4 @@ You can also check the Network tab of the Developer tools to see the size of req
 If the issue is due to the long duration of the signaling request, you should be able to see some requests taking very long time from the network trace.
 
 If you need to file a support ticket, we may request the browser HAR file.
-To learn how to collect a HAR file, see [Capture a browser trace for troubleshooting](../../../../../azure-portal/capture-browser-trace.md).
+To learn how to collect a HAR file, see [Capture a browser trace for troubleshooting](/azure/azure-portal/capture-browser-trace).

@@ -1,9 +1,10 @@
 ---
-title: "Quickstart - Load application secrets using Key Vault"
+title: "Quickstart - Load Application Secrets Using Key Vault"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to use Azure Key Vault to securely load secrets for apps running the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/27/2024
@@ -12,10 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, service-connector, devx-tr
 
 # Quickstart: Load application secrets using Key Vault
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows you how to securely load secrets using Azure Key Vault for apps running the Azure Spring Apps Enterprise plan.
 
@@ -38,6 +38,8 @@ Every application has properties that connect it to its environment and supporti
 The following instructions describe how to create a Key Vault and securely save application secrets.
 
 1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
    ```azurecli
    export RESOURCE_GROUP=<resource-group-name>
@@ -77,6 +79,8 @@ The following instructions describe how to create a Key Vault and securely save 
 
 1. Use the following commands to store the database login credentials in Key Vault:
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
    ```azurecli
    az keyvault secret set \
        --vault-name ${KEY_VAULT_NAME} \
@@ -91,6 +95,8 @@ The following instructions describe how to create a Key Vault and securely save 
 
 1. Use the following command to store the database connection string in Key Vault for the Order Service application:
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
    ```azurecli
    az keyvault secret set \
        --vault-name ${KEY_VAULT_NAME} \
@@ -99,6 +105,8 @@ The following instructions describe how to create a Key Vault and securely save 
    ```
 
 1. Use the following commands to retrieve Redis connection properties and store them in Key Vault:
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
    ```azurecli
    export REDIS_HOST=$(az redis show \
@@ -259,6 +267,8 @@ After granting access to read secrets from Key Vault, use the following steps to
    ```
 
 1. Use the following command to update the Order Service environment with the URI to access Key Vault:
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
    ```azurecli
    az spring app update \

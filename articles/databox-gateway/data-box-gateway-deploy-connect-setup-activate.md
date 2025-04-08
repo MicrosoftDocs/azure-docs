@@ -4,8 +4,7 @@ description: Third tutorial to deploy Data Box Gateway instructs you to connect,
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: shaas

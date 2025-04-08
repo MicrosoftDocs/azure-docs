@@ -13,13 +13,13 @@ ms.author: kesheth
 
 # Find identity object IDs for authentication configuration in Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this article, learn how to find the identity object IDs needed to configure the Azure API for FHIR service to [use an external or secondary Active Directory tenant](configure-local-rbac.md) for data plane.
 
 ## Find user object ID
 
-If you have a user with user name `myuser@contoso.com`, you can locate the user's `ObjectId` by using a Microsoft Graph PowerShell command or the Azure Command-Line Interface (CLI).
+If you have a user with user name `myuser@contoso.com`, you can locate the user's `ObjectId` by using a Microsoft Graph PowerShell command or the Azure Command-Line Interface (CLI) as follows.
 
 #### [PowerShell](#tab/powershell)
 
@@ -37,7 +37,7 @@ az ad user show --id myuser@contoso.com --query id --out tsv
 
 ## Find service principal object ID
 
-Suppose you registered a [service client app](register-service-azure-ad-client-app.md) and you want to allow this service client to access the Azure API for FHIR. Find the object ID for the client service principal with a Microsoft Graph PowerShell command or the Azure CLI.
+If you registered a [service client app](register-service-azure-ad-client-app.md) and you want to allow this service client to access the Azure API for FHIR. Find the object ID for the client service principal with a Microsoft Graph PowerShell command or the Azure CLI as follows.
 
 #### [PowerShell](#tab/powershell)
 
@@ -61,7 +61,7 @@ az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query id --out tsv
 
 ## Find a security group object ID
 
-If you would like to locate the object ID of a security group, you can use a Microsoft Graph PowerShell command or the Azure CLI.
+If you would like to locate the object ID of a security group, you can use a Microsoft Graph PowerShell command or the Azure CLI as follows.
 
 #### [PowerShell](#tab/powershell)
 
@@ -83,4 +83,4 @@ az ad group show --group "mygroup" --query id --out tsv
 
 [Configure local RBAC settings](configure-local-rbac.md)
 
-[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

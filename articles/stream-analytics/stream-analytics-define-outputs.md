@@ -5,7 +5,7 @@ author: AliciaLiMicrosoft
 ms.author: ali 
 ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 01/25/2024
+ms.date: 12/17/2024
 ---
 
 # Outputs from Azure Stream Analytics

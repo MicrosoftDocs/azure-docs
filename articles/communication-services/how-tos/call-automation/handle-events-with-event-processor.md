@@ -69,7 +69,7 @@ CreateCallEventResult eventResult = await createCallResult.WaitForEventProcessor
 CallConnected returnedEvent = eventResult.SuccessResult;
 ```
 
-With EventProcessor, we can easily wait CallConnected event until the call is established. If the call was never established (that is, callee never picked up the phone), it throws Timeout Exception.
+With EventProcessor, we can easily wait CallConnected event until the call is established. If the call was never established (that is, callee never picked up the phone), it throws Timeout Exception.  If the creation of the call otherwise fails, you will receive the `CallDisconnected` and `CreateCallFailed` events with error codes to further troubleshoot (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on Call Automation error codes).
 
 > [!NOTE]
 > If specific timeout was not given when waiting on EventProcessor, it will wait until its default timeout happens. The default timeout is 4 minutes.
@@ -100,7 +100,7 @@ else
 ```
 
 > [!WARNING]
-> EventProcessor utilizes OperationContext to track event with its related request. If OperationContext was not set during request, EventProcessor will set generated GUID to track future events to the request. If you are setting your own OperationContext during reuest, EventProcessor will still work - but it's advised to set them differently from request to request, to allow EventProcessor to distinguish request 1's event and request 2's event.
+> EventProcessor utilizes OperationContext to track event with its related request. If OperationContext was not set during request, EventProcessor will set generated GUID to track future events to the request. If you are setting your own OperationContext during request, EventProcessor will still work - but it's advised to set them differently from request to request, to allow EventProcessor to distinguish request 1's event and request 2's event.
 
 ## Handling events with Ongoing EventProcessor
 
@@ -110,10 +110,10 @@ Some events could happen anytime during the call, such as CallDisconnected or Pa
 // Use your call automation client that established the call
 CallAutomationEventProcessor eventProcessor = callAutomationClient.GetEventProcessor();
 
-// attatch ongoing EventProcessor for this particular call,
+// attach ongoing EventProcessor for this particular call,
 // then prints out # of participants in the call
-eventProcessor.AttachOngoingEventProcessor<ParticipantsUpdated>(callConnectionId, recievedEvent => {
-    logger.LogInformation($"Number of participants in this Call: [{callConnectionId}], Number Of Participants[{recievedEvent.Participants.Count}]");
+eventProcessor.AttachOngoingEventProcessor<ParticipantsUpdated>(callConnectionId, receivedEvent => {
+    logger.LogInformation($"Number of participants in this Call: [{callConnectionId}], Number Of Participants[{receivedEvent.Participants.Count}]");
 });
 ```
 
@@ -130,7 +130,7 @@ If you would like to wait for specific event with given predicate without relyin
 // Use your call automation client that established the call
 CallAutomationEventProcessor eventProcessor = callAutomationClient.GetEventProcessor();
 
-// With given matching informations, wait for this specific event
+// With given matching information, wait for this specific event
 CallDisconnected disconnectedEvent = (CallDisconnected)await eventProcessor.WaitForEvent(predicate
 =>
     predicate.CallConnectionId == myConnectionId

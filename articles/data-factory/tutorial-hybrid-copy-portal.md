@@ -4,7 +4,8 @@ description: Learn how to copy data from an on-premises data store to the cloud 
 ms.author: abnarain
 author: nabhishek
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage

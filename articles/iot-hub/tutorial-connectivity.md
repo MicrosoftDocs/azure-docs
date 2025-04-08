@@ -2,12 +2,12 @@
 title: Tutorial - Check device connectivity to Azure IoT Hub
 description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-azurecli]
 ms.date: 02/01/2023
 ms.topic: tutorial
-ms.service: iot-hub
+ms.service: azure-iot-hub
 #Customer intent: As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 
@@ -50,7 +50,7 @@ In this tutorial, you learn how to:
 
 * Clone or download the sample Node.js project from [Azure IoT samples for Node.js](https://github.com/Azure-Samples/azure-iot-samples-node).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -117,7 +117,7 @@ In some scenarios, such as in a cloud protocol gateway or as part of a custom au
 > [!NOTE]
 > The SimulatedDevice-2.js sample includes examples of generating a SAS token both with and without the SDK.
 
-1. Run the [az iot hub genereate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) command to generate a known-good SAS token using the CLI:
+1. Run the [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) command to generate a known-good SAS token using the CLI:
 
    ```azurecli-interactive
    az iot hub generate-sas-token --device-id {your_device_id} --hub-name {your_iot_hub_name}

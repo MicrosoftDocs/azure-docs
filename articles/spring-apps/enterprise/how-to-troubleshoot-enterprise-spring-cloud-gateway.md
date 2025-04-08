@@ -1,8 +1,9 @@
 ---
-title: How to troubleshoot VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan
+title: How to Troubleshoot VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise Plan
 description: Shows you how to troubleshoot VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: jiec
+ms.author: karler
+ms.reviewer: jiec
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 01/10/2024
@@ -11,10 +12,9 @@ ms.custom: devx-track-java
 
 # Troubleshoot VMware Spring Cloud Gateway
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan. To learn more about VMware Spring Cloud Gateway, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
@@ -25,9 +25,9 @@ This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu
 
 ## Check Gateway metrics
 
-For more information on how to check metrics on the Azure portal, see the [Common metrics page](./concept-metrics.md#common-metrics-page) section of [Metrics for Azure Spring Apps](concept-metrics.md).
+For more information on how to check metrics on the Azure portal, see the [Common metrics page](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#common-metrics-page) section of [Metrics for Azure Spring Apps](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
-For more information on each supported metric, see the [Gateway](./concept-metrics.md#gateway) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
+For more information on each supported metric, see the [Gateway](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#gateway) section of [Metrics for Azure Spring Apps](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Check Gateway logs
 
@@ -137,7 +137,7 @@ Use the following steps to adjust the log levels:
 
 ## Setup alert rules
 
-You can create alert rules based on logs and metrics. For more information, see [Create or edit a metric alert rule](../../azure-monitor/alerts/alerts-create-metric-alert-rule.yml).
+You can create alert rules based on logs and metrics. For more information, see [Create or edit a metric alert rule](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule).
 
 Use the following steps to directly create alert rules from the Azure portal for Azure Spring Apps:
 

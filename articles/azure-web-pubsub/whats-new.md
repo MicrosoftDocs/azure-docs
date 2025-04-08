@@ -13,6 +13,28 @@ ms.custom: mode-other
 
 On this page, you can read about recent updates about Azure Web PubSub. As we make continuous improvements to the capabilities and developer experience of the service, we welcome any feedback and suggestions. Reach out to the service team at **awps@microsoft.com**
 
+## Q3 2024
+
+### Serverless mode for Socket.IO in public preview
+
+This new serverless mode eliminates the need for developers to maintain persistent connections on their application servers, offering a more streamlined and scalable approach. In addition to the existing **default mode**, developers can now deploy Socket.IO applications in a serverless environment using Azure Functions. This provides a stateless, highly scalable infrastructure, simplifying the development of real-time features while reducing both operational costs and maintenance overhead.
+
+This capability is not natively supported by [Socket.IO library](http://socket.io) and is made possible by Azure Web PubSub for Socket.IO. It is part of our ongoing commitment to enhancing Socket.IO developers' experience and simplifying developing real-time applications.
+
+> [!div class="nextstepaction"]
+> [Learn more about serverless mode for Socket.IO](./socket-io-serverless-overview.md)
+
+## Q2 2024
+
+### MQTT support in public preview
+Web applications that communicate using MQTT over WebSocket can seamlessly connect to Azure Web PubSub to publish and receive messages. The service recognizes and translates MQTT messages into its native protocol, enabling cross-communication between MQTT web clients and other Web PubSub clients. 
+
+This new capability addresses two key use cases: 
+- **Real-time Applications With Mixed Protocols**: You can allow clients using different real-time protocols to exchange data through the Azure Web PubSub service. 
+- **Support For Additional Programming Languages**: You can use any MQTT library to connect with the service, making it possible to integrate with applications written in languages like C++, beyond the existing SDKs in C#, JavaScript, Python, and Java. 
+
+> [!div class="nextstepaction"]
+> [Learn more about MQTT support](./overview-mqtt.md)
 
 ## Q1 2024
 

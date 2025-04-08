@@ -6,8 +6,8 @@ ms.date: 07/18/2024
 ms.reviewer: sooryar
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Save and manage MARS agent passphrase securely in Azure Key Vault
@@ -160,7 +160,7 @@ Get-AzRoleDefinition | Format-Table -Property Name, IsCustom, Id
 #Assign role to Recovery Services Vault identity 
 Get-AzRoleDefinition -Name <roleName>
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 00001111-aaaa-2222-bbbb-3333cccc4444} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 
 ```
 
@@ -175,7 +175,7 @@ az ad sp list --all --filter "displayname eq '<my recovery vault name>' and serv
 az role definition list --query "[].{name:name, roleType:roleType, roleName:roleName}" --output tsv
 az role definition list --name "{roleName}"
 #Assign role to Recovery Services Vault identity 
-az role assignment create --role "Key Vault Secrets Officer" --assignee "<application id>" {i.e "55555555-5555-5555-5555-555555555555"} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+az role assignment create --role "Key Vault Secrets Officer" --assignee "<application id>" {i.e "11112222-bbbb-3333-cccc-4444dddd5555"} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 
 ```
 

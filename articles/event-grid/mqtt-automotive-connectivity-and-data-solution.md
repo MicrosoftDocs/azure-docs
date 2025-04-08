@@ -1,6 +1,6 @@
 ---
 title: 'Automotive messaging, data & analytics reference architecture'
-description: 'Describes the use case of automotive messaging'
+description: 'Describes the use case of a sample Internet of Things (IoT) solutions - automotive messaging'
 ms.topic: conceptual
 ms.custom:
   - ignite-2023

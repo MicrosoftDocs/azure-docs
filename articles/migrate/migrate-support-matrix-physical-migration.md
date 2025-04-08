@@ -6,13 +6,13 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/18/2024
-ms.custom: engagement-fy24
+ms.date: 01/27/2025
+ms.custom: engagement-fy25
 ---
 
 # Support matrix for migration of physical servers, AWS VMs, and GCP VMs
 
-This article summarizes support settings and limitations for migrating physical servers, Amazon Web Services (AWS) virtual machines (VMs), and Google Cloud Platform (GCP) VMs to Azure with [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing physical servers for migration to Azure, see the [assessment support matrix](migrate-support-matrix-physical.md).
+This article summarizes support settings and limitations for migrating physical servers, Amazon Web Services (AWS) virtual machines (VMs), and Google Cloud Platform (GCP) VMs to Azure with [Migration and modernization](migrate-services-overview.md) . If you're looking for information about assessing physical servers for migration to Azure, see the [assessment support matrix](migrate-support-matrix-physical.md).
 
 ## Migrate machines as physical
 
@@ -74,7 +74,7 @@ Component | Requirements | Details
 --- | --- | ---
 Guest operating system | Verifies supported operating systems.<br/> You can migrate any workload running on a supported OS. | Check fails if unsupported.
 Guest operating system architecture | 64 bit. | Check fails if unsupported.
-Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
+Operating system disk size | Up to 2TB for Gen1 VM and 4TB for Gen2 VM. | Check fails if unsupported.
 Operating system disk count | 1. | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
 Data disk size | Up to 32 TB. | Check fails if unsupported.

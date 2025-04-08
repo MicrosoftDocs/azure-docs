@@ -1,12 +1,11 @@
 ---
 title: Set up VMware disaster recovery to Azure in a multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
-description: Describes how to set up VMware disaster recovery in a multi-tenant environment with Azure Site Recovery.
+description: Describes how to set up VMware disaster recovery in a multitenant environment with Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 04/03/2022
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 
@@ -16,7 +15,7 @@ The [CSP program](https://partner.microsoft.com/cloud-solution-provider) fosters
 
 With [Azure Site Recovery](site-recovery-overview.md), as partners you can manage disaster recovery for customers directly through CSP. Alternately, you can use CSP to set up Site Recovery environments, and let customers manage their own disaster recovery needs in a self-service manner. In both scenarios, partners are the liaison between Site Recovery and their customers. Partners service the customer relationship, and bill customers for Site Recovery usage.
 
-This article describes how you as a partner can create and manage tenant subscriptions through CSP, for a multi-tenant VMware replication scenario.
+This article describes how you as a partner can create and manage tenant subscriptions through CSP, for a multitenant VMware replication scenario.
 
 ## Prerequisites
 
@@ -24,7 +23,7 @@ To set up VMware replication, you need to do the following:
 
 - [Prepare](tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
 - [Prepare](vmware-azure-tutorial-prepare-on-premises.md) on-premises VMware servers and VMs.
-- For each tenant, create a separate management server that can communicate with the tenant VMs, and your vCenter servers. Only you as a partner should have access rights to this management server. Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md).
+- For each tenant, create a separate management server that can communicate with the tenant VMs, and your vCenter servers. Only you as a partner should have access rights to this management server. Learn more about [multitenant environments](vmware-azure-multi-tenant-overview.md).
 
 ## Create a tenant account
 
@@ -95,9 +94,9 @@ The following steps describe how to assign a role to a user. For detailed steps,
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-## Multi-tenant environments
+## Multitenant environments
 
-There are three major multi-tenant models:
+There are three major multitenant models:
 
 * **Shared Hosting Services Provider (HSP)**: The partner owns the physical infrastructure, and uses shared resources (vCenter, datacenters, physical storage, and so on) to host multiple tenant VMs on the same infrastructure. The partner can provide disaster-recovery management as a managed service, or the tenant can own disaster recovery as a self-service solution.
 
@@ -105,10 +104,10 @@ There are three major multi-tenant models:
 
 * **Managed Services Provider (MSP)**: The customer owns the physical infrastructure that hosts the VMs, and the partner provides disaster-recovery enablement and management.
 
-By setting up tenant subscriptions as described in this article, you can quickly start enabling customers in any of the relevant multi-tenant models. You can learn more about the different multi-tenant models and enabling on-premises access controls [here](vmware-azure-multi-tenant-overview.md).
+By setting up tenant subscriptions as described in this article, you can quickly start enabling customers in any of the relevant multitenant models. You can learn more about the different multitenant models and enabling on-premises access controls [here](vmware-azure-multi-tenant-overview.md).
 
 ## Next steps
 - Learn more about [Azure role-based access control (Azure RBAC)](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
 - Learn more about VMware to Azure [replication architecture](vmware-azure-architecture.md).
 - [Review the tutorial](vmware-azure-tutorial.md) for replicating VMware VMs to Azure.
-Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.
+Learn more about [multitenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.

@@ -12,10 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java, subject-rbac-steps
 
 # Access Config Server and Service Registry
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps using Microsoft Entra role-based access control (RBAC).
 
@@ -50,8 +49,8 @@ After the role is assigned, the assignee can access the Spring Cloud Config Serv
 
 1. Compose the endpoint. We support the default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps.
 
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/{path}'*
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'*
+    * `https://SERVICE_NAME.svc.azuremicroservices.io/eureka/<path>`
+    * `https://SERVICE_NAME.svc.azuremicroservices.io/config/<path>`
 
     >[!NOTE]
     > If you're using Microsoft Azure operated by 21Vianet, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Microsoft Azure operated by 21Vianet developer guide](/azure/china/resources-developer-guide).
@@ -78,9 +77,9 @@ After the role is assigned, you can register Spring Boot apps to Spring Cloud Co
 
 For more information, see the samples [Access Azure Spring Apps managed Config Server](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-config-server-client) and [Access Azure Spring Apps managed Service Registry](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-eureka-client). The following sections explain some important details in these samples.
 
-**In *AccessTokenManager.java*:**
+In **AccessTokenManager.java**:
 
-`AccessTokenManager` is responsible for getting an access token from Microsoft Entra ID. Configure the service principal's sign-in information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token. You can find this file in both samples.
+`AccessTokenManager` is responsible for getting an access token from Microsoft Entra ID. Configure the service principal's sign-in information in the **application.properties** file and initialize `ApplicationTokenCredentials` to get the token. You can find this file in both samples.
 
 ```java
 prop.load(in);
@@ -92,7 +91,7 @@ credentials = new ApplicationTokenCredentials(
     clientId, tenantId, secret, AzureEnvironment.AZURE);
 ```
 
-**In *CustomConfigServiceBootstrapConfiguration.java*:**
+In **CustomConfigServiceBootstrapConfiguration.java**:
 
 `CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Microsoft Entra ID as `Authorization` headers. You can find this file in the [Config Server sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-config-server-client).
 
@@ -112,7 +111,7 @@ public class RequestResponseHandlerInterceptor implements ClientHttpRequestInter
 }
 ```
 
-**In *CustomRestTemplateTransportClientFactories.java*:**
+In **CustomRestTemplateTransportClientFactories.java**:
 
 The previous two classes are for the implementation of the custom REST template for Spring Cloud Service Registry. The `intercept` part is the same as in the Config Server above. Be sure to add `factory.mappingJacksonHttpMessageConverter()` to the message converters. You can find this file in the [Spring Cloud Service Registry sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-eureka-client).
 
@@ -142,4 +141,4 @@ eureka.instance.prefer-ip-address=true
 
 * [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli)
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
-* [Create roles and permissions](../enterprise/how-to-permissions.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Create roles and permissions](how-to-permissions.md)

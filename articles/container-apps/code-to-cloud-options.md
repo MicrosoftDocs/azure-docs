@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 10/14/2024
 ms.author: cshoe
 ---
 
@@ -39,7 +39,7 @@ If your application currently doesn't use a container, consider using the Contai
 
 ## Code editor
 
-If you spend most your time editing code and favor rapid iteration of your applications, then you might want to use [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/). These editors allow you to easily build Docker files a deploy your applications directly to Azure Container Apps.
+If you spend most your time editing code and favor rapid iteration of your applications, then you might want to use [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/). These editors allow you to easily build Docker files and deploy your applications directly to Azure Container Apps.
 
 This approach allows you to experiment with configuration options made in the early stages of an application's life.
 

@@ -3,10 +3,10 @@ title: Create Recovery Services vaults using REST API for Azure Backup
 description: In this article, learn how to manage backup and restore operations of Azure VM Backup using REST API.
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 01/17/2025
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 # Create Azure Recovery Services vault using REST API for Azure Backup
@@ -17,7 +17,10 @@ A Recovery Services vault is a storage entity in Azure that houses data. The dat
 
 ## Before you start
 
-The creation of an Azure Recovery Services vault using REST API is outlined in [create vault REST API](/rest/api/recoveryservices/vaults/createorupdate) article. Let's use this article as a reference to create a vault named `testVault` in `West US`.
+Before you start creating the Recovery Services vault, review the following details:
+
+- The vault creation process  uses `api-version=2016-06-01`.
+- The creation of an Azure Recovery Services vault using REST API is outlined in [create vault REST API](/rest/api/recoveryservices/vaults/createorupdate) article. Let's use this article as a reference to create a vault named `testVault` in `West US`.
 
 To create or update an Azure Recovery Services vault, use the following *PUT* operation:
 

@@ -6,7 +6,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 07/15/2022
 ---
 
@@ -83,7 +83,7 @@ You can use these features without writing any code, or you can add custom code 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline.png" border="true" alt-text="Screenshot of an example of a Data Factory pipeline." lightbox="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline-lrg.png":::
 
 >[!TIP]
->Data Factory lets you to build scalable data integration pipelines without code.
+>Data Factory lets you build scalable data integration pipelines without code.
 
 Implement Data Factory pipeline development from any of several places, including:
 
@@ -236,7 +236,7 @@ Azure Machine Learning studio is a fully managed cloud service that lets you bui
 
 #### Azure Machine Learning
 
-Azure Machine Learning provides an SDK and services for Python that supports can help you quickly prepare data and also train and deploy machine learning models. You can use Azure Machine Learning in Azure notebooks using Jupyter Notebook, with open-source frameworks, such as PyTorch, TensorFlow, scikit-learn, or Spark MLlib&mdash;the machine learning library for Spark. Azure Machine Learning provides an AutoML capability that automatically tests multiple algorithms to identify the most accurate algorithms to expedite model development. 
+Azure Machine Learning provides an SDK and services for Python that supports can help you quickly prepare data and also train and deploy machine learning models. You can use Azure Machine Learning in Azure notebooks using Jupyter Notebook, with open-source frameworks, such as PyTorch, TensorFlow, scikit-learn, or Spark MLlib&mdash;the machine learning library for Spark.
 
 >[!TIP]
 >Azure Machine Learning provides an SDK for developing machine learning models using several open-source frameworks.

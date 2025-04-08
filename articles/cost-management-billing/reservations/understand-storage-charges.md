@@ -2,11 +2,10 @@
 title: Understand how reservation discounts are applied to Azure storage services | Microsoft Docs
 description: Learn about how reserved capacity discounts are applied to Azure Blob storage, Azure Files, and Azure Data Lake Storage Gen2 resources.
 author: akashdubey-ms
-
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/27/2024
+ms.date: 03/26/2025
 ms.author: akashdubey
 ---
 

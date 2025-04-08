@@ -1,7 +1,7 @@
 ---
 title: Chat metrics definitions for Azure Communication Service
-titleSuffix: An Azure Communication Services concept document
-description: This document covers definitions of chat metrics available in the Azure portal.
+titleSuffix: An Azure Communication Services article
+description: This article defines of chat metrics available in the Azure portal.
 author: mkhribech
 services: azure-communication-services
 ms.author: mkhribech
@@ -10,23 +10,24 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
+
 # Chat metrics overview
 
-Azure Communication Services currently provides metrics for all Communication Services primitives. You can use [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) to:
+Azure Communication Services currently provides metrics for all Communication Services services. You can use [Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started) to:
 
 - Plot your own charts.
 - Investigate abnormalities in your metric values.
-- Understand your API traffic by using the metrics data that Chat requests emit.
+- Understand your API traffic using the metrics data that Chat requests emit.
 
 ## Where to find metrics
 
-Primitives in Communication Services emit metrics for API requests. To find these metrics, see the **Metrics** tab under your Communication Services resource. You can also create permanent dashboards by using the workbooks tab under your Communication Services resource.
+Each service emits metrics for API requests. To find these metrics, see the **Metrics** tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource.
 
 ## Metric definitions
 
 All API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together by using the `Count` aggregation type. They support all standard Azure Aggregation time series, including `Sum`, `Average`, `Min`, and `Max`.
 
-For more information on supported aggregation types and time series aggregations, see [Advanced features of Azure Metrics Explorer](../../../azure-monitor/essentials/metrics-charts.md#aggregation).
+For more information on supported aggregation types and time series aggregations, see [Advanced features of Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-charts#aggregation).
 
 - **Operation**: All operations or routes that can be called on the Communication Services Chat gateway.
 - **Status Code**: The status code response sent after the request.
@@ -55,8 +56,8 @@ The following operations are available on Chat API request metrics.
 | AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
 | RemoveChatThreadParticipant   | Removes a member from a thread. |
 
-If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
+If a request to an operation isn't recognized, you receive a "Bad Route" value response.
 
 ## Next steps
 
-Learn more about [Data Platform Metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
+Learn more about [Data Platform Metrics](/azure/azure-monitor/essentials/data-platform-metrics).

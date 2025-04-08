@@ -105,6 +105,17 @@ Azure Operator Nexus automatically streams the metrics and logs from the operato
 
 Log Analytics has rich analytical tools that operators can use for troubleshooting or correlating for operational insights. Operators can also use Azure Monitor to specify alerts.
 
+### Regions available
+
+Nexus service is available in numerous regions to ensure users can access resources with minimal latency, regardless of their location.
+
+Use the commands below to verify Nexus availability in an Azure region. The output includes a list of resources supported by Network Cloud and Managed Network Fabric, the available API versions, and the locations where these resources can be created.
+
+```azurecli
+az provider show -n Microsoft.NetworkCloud -o json
+az provider show -n Microsoft.ManagedNetworkFabric -o json
+```
+
 ## Next steps
 
 * Learn more about Azure Operator Nexus [resource models](./concepts-resource-types.md).
