@@ -12,10 +12,10 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-The Video effects feature allows users to incorporate visual effects into their video calls, providing developers with the ability to integrate background visual effects and background video replacement into their calling experience. Background blur offers users a way to eliminate distractions behind them, facilitating communication without disruptive activities or confidential information appearing in the background. This is helpful in telehealth contexts, where providers or patients may wish to obscure their surroundings to protect sensitive or personally identifiable information. Background blur can be applied across various virtual appointment scenarios, such as telebanking and virtual hearings, to enhance user privacy or to hide a messy office. In addition to improving confidentiality, background blur enables greater creative expression by allowing users to upload custom backgrounds for a more engaging and personalized calling experience.lows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
+The Video effects feature lets users add visual effects to video calls, including background blur and video replacement. This helps eliminate distractions and protect sensitive information, especially in contexts like telehealth, telebanking, and virtual hearings. Background blur enhances privacy and allows for custom backgrounds, making calls more engaging and personalized.
 
 > [!NOTE]
-> The calling effect library can't be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
+> The [calling effect library](https://www.npmjs.com/package/@azure/communication-calling-effects)is designed to work exclusively with the [Azure Communication Calling client library for WebJS](https://www.npmjs.com/package/@azure/communication-calling) and cannot be used independently. 
 
 ## Using video effects
 ### Install the package
@@ -31,7 +31,7 @@ Use the `npm install` command to install the Azure Communication Services Effect
 ```console
 npm install @azure/communication-calling-effects --save
 ```
-For more information, see [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
 
 > [!NOTE]
 > Currently there are two available video effects:
