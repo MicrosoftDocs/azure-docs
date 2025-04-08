@@ -90,7 +90,7 @@ DESCRIPTION
     Gets an Azure CDN profile and all related information.
 
 RELATED LINKS
-    https://docs.microsoft.com/powershell/module/az.cdn/get-azcdnprofile
+    https://learn.microsoft.com/powershell/module/az.cdn/get-azcdnprofile
 
 REMARKS
     To see the examples, type: "get-help Get-AzCdnProfile -examples".
