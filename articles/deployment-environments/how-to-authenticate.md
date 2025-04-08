@@ -79,6 +79,6 @@ The token is a Base64 string. The token is valid for at least five minutes. The 
 
 To access REST APIs, you must set the authorization header on your request. The header value should be the string `Bearer` followed by a space and the token you received in the previous step.
 
-## Related resources
+## Related content
 
 - [Microsoft Entra ID fundamentals](../../articles/active-directory/fundamentals/whatis.md)
