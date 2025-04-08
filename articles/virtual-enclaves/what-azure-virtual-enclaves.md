@@ -90,6 +90,7 @@ Here are some other articles to learn about Azure Virtual Enclaves:
 2. [Create an enclave](./create-enclave-azure-portal.md)
 
 ### Create Workloads within Enclaves from a template
+
 3. [Create a workload](./create-a-workload-in-the-azure-portal.md)
 
 ### Design Endpoints and Transit Hub connections
