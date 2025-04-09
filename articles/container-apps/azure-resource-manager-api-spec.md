@@ -458,7 +458,7 @@ properties:
       enableApiLogging: true
       appHealth: 
         - enabled: true
-        - path": "/health"
+        - path: "/health"
         - probeIntervalSeconds: 3
         - probeTimeoutMilliseconds: 1000
         - threshold: 3
