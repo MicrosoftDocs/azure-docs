@@ -8,9 +8,8 @@ metadata:
   ms.service: azure-synapse-analytics
   ms.subservice: overview 
   ms.topic: landing-page
-
-  author: WilliamDAssafMSFT
-  ms.author: wiassaf
+  author: juluczni
+  ms.author: juluczni
   ms.date: 07/19/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

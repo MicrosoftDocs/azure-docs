@@ -5,8 +5,8 @@ description: This topic describes how to deal with Binary format in Azure Data F
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: jianleishen
 ---
 
@@ -14,9 +14,9 @@ ms.author: jianleishen
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Binary format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+Binary format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md), and [SFTP](connector-sftp.md).
 
-You can use Binary dataset in [Copy activity](copy-activity-overview.md), [GetMetadata activity](control-flow-get-metadata-activity.md), or [Delete activity](delete-activity.md). When using Binary dataset, the service does not parse file content but treat it as-is. 
+You can use Binary dataset in [Copy activity](copy-activity-overview.md), [GetMetadata activity](control-flow-get-metadata-activity.md), or [Delete activity](delete-activity.md). When using Binary dataset, the service doesn't parse file content but treat it as-is. 
 
 >[!NOTE]
 >When using Binary dataset in copy activity, you can only copy from Binary dataset to Binary dataset.
@@ -31,7 +31,7 @@ For a full list of sections and properties available for defining datasets, see 
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
 | type | The compression codec used to read/write binary files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Tar**, or **TarGzip**. <br>**Note** when using copy activity to decompress **ZipDeflate**/**TarGzip**/**Tar** file(s) and write to file-based sink data store, by default files are extracted to the folder:`<path specified in dataset>/<folder named as source compressed file>/`, use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` on [copy activity source](#binary-as-source) to control whether to preserve the name of the compressed file(s) as folder structure.| No       |
-| level | The compression ratio. Apply when dataset is used in Copy activity sink.<br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
+| level | The compression ratio. Apply when dataset is used in Copy activity sink.<br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file isn't optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
 
 Below is an example of Binary dataset on Azure Blob Storage:
 

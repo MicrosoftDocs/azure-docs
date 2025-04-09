@@ -145,13 +145,13 @@ Different environment types have different subnet requirements:
 
     | Subnet Size | Available IP Addresses<sup>1</sup> | Max nodes (Dedicated workload profile)<sup>2</sup>| Max replicas (Consumption workload profile)<sup>2</sup> |
     |--|--|--|--|
-    | /23 | 500 | 250 | 2,500 |
-    | /24 | 244 | 122 | 1,220 |
-    | /25 | 116 | 58 | 580 |
-    | /26 | 52 | 26 | 260 |
-    | /27 | 20 | 10 | 100 |
+    | /23 | 495 | 247 | 2,470 |
+    | /24 | 239 | 119 | 1,190 |
+    | /25 | 111 | 55 | 550 |
+    | /26 | 47 | 23 | 230 |
+    | /27 | 15 | 7 | 70 |
     
-    <sup>1</sup> The available IP addresses are the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure and 5 IP addresses reserved by the subnet.  
     <sup>2</sup> This is accounting for apps in single revision mode.  
 
 # [Consumption only environment](#tab/consumption-only-env)
@@ -271,7 +271,7 @@ You can use NAT Gateway to simplify outbound connectivity for your outbound inte
 
 When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
-### <a name="public-network-access"></a>Public network access
+### <a name="public-network-access"></a>Public network access (preview)
 
 The public network access setting determines whether your container apps environment is accessible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
@@ -384,6 +384,20 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 ```
 
 ---
+
+### Rule-based routing (preview)
+
+With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
+
+- Isolation: By routing different paths to different container apps, you can deploy and update individual components without affecting the entire application.
+
+- Scalability: With rule-based routing, you can scale individual container apps independently based on the traffic each container app receives.
+
+- Custom Routing Rules: You can, for example, redirect users to different versions of your application or implement A/B testing.
+
+- Security: You can implement security measures tailored to each container app. This helps you to reduce the attack surface of your application.
+
+To learn how to configure rule-based routing on your container apps environment, see [Use rule-based routing](rule-based-routing.md).
 
 ## DNS
 

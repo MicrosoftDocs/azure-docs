@@ -1,8 +1,8 @@
 ---
 title: PowerShell & REST APIs for dedicated SQL pool (formerly SQL DW)
 description: Top PowerShell cmdlets for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics including how to pause and resume a database.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 04/17/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

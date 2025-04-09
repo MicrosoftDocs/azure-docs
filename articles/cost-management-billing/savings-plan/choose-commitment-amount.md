@@ -2,13 +2,13 @@
 title: Choose an Azure saving plan commitment amount
 titleSuffix: Microsoft Cost Management
 description: This article helps you determine how to choose an Azure saving plan commitment amount.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Choose an Azure saving plan commitment amount

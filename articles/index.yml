@@ -1450,7 +1450,7 @@ productDirectory:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
     # Card
-    - title: Microsoft Copilot in Azure (Preview)
+    - title: Microsoft Copilot in Azure
       summary: Simplify operations and management from cloud to edge with an AI companion
       imageSrc: ./media/index/azure-copilot.svg
       azureCategories:

@@ -1,20 +1,21 @@
 ---
-title: Troubleshoot - Azure Web Application Firewall
+title: Troubleshoot
+titleSuffix: Azure Web Application Firewall
 description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 03/05/2024
+ms.date: 03/31/2025
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
 
-There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
+If your Web Application Firewall (WAF) is blocking requests that should be allowed, there are a few steps you can take.
 
-First, ensure you’ve read the [WAF overview](ag-overview.md) and the [WAF configuration](application-gateway-waf-configuration.md) documents. Also, make sure you’ve enabled [WAF monitoring](../../application-gateway/application-gateway-diagnostics.md) These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
+Start by reviewing the [WAF overview](ag-overview.md) and [WAF configuration](application-gateway-waf-configuration.md) documentation, and ensure [WAF monitoring](../../application-gateway/application-gateway-diagnostics.md) is enabled. These articles explain how the WAF operates, how the rule sets work, and how to access WAF logs.
 
-The OWASP rulesets are designed to be strict out of the box, and to be tuned to suit the specific needs of the application or organization using WAF. It's entirely normal, and expected in many cases, to create exclusions, custom rules, and even disable rules that may be causing issues or false positives. Per-site and per-URI policies allow for these changes to only affect specific sites/URIs. So any changes shouldn’t have to affect other sites that may not be running into the same issues. 
+The OWASP rule sets are designed to be strict out of the box, and to be tuned to suit the specific needs of the application or organization using WAF. It's entirely normal, and expected in many cases, to create exclusions, custom rules, and even disable rules that may be causing issues or false positives. Per-site and per-URI policies allow for these changes to only affect specific sites/URIs. So changes shouldn’t have to affect other sites that may not be running into the same issues.
 
 ## Understanding WAF logs
 
@@ -133,9 +134,7 @@ The final two log entries show the request was blocked because the anomaly score
 
 With this information, and the knowledge that rule 942130 is the one that matched the `1=1` string, you can do a few things to stop this from blocking your traffic:
 
-- Use an exclusion list
-
-   For more information about exclusion lists, see [WAF configuration](application-gateway-waf-configuration.md).
+- Use an exclusion list. For more information about exclusion lists, see [WAF exclusion lists](application-gateway-waf-configuration.md).
 
 - Disable the rule.
 
@@ -145,13 +144,13 @@ To make an informed decision about handling a false positive, it’s important t
 
 One benefit of using an exclusion list is that only a specific part of a request is being disabled. However, this means that a specific exclusion is applicable to all traffic passing through your WAF because it's a global setting. For example, this could lead to an issue if *1=1* is a valid request in the body for a certain app, but not for others. Another benefit is that you can choose between body, headers, and cookies to be excluded if a certain condition is met, as opposed to excluding the whole request.
 
-Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Microsoft Entra ID. This token, *__RequestVerificationToken*, usually get passed in as a Request Cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or `arg`. If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
+Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Microsoft Entra ID. *__RequestVerificationToken* is usually passed in as a request cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or `arg`. If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
 
-![Exclusions](../media/web-application-firewall-troubleshoot/exclusion-list.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/exclusion-list.png" alt-text="Screenshot that shows the exclusion list.":::
 
 In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
 
-![WAF exclusion lists](../media/web-application-firewall-troubleshoot/waf-config.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-config.png" alt-text="Screenshot that shows how to configure WAF exclusion lists.":::
 
 You can create exclusions for WAF in Application Gateway at different scope levels. For more information, see [Web Application Firewall exclusion lists](application-gateway-waf-configuration.md#exclusion-scopes).
 
@@ -169,11 +168,11 @@ With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individ
 
 In this example, you can see that the field where the *1=1* string was entered is called **text1**.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1." border="false":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1.":::
 
 This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall exclusion lists](application-gateway-waf-configuration.md). You can exclude the evaluation in this case by configuring the following exclusion:
 
-![WAF exclusion](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-exclusion-02.png" alt-text="Screenshot that shows WAF exclusion.":::
 
 You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, resource logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
@@ -298,7 +297,7 @@ Fiddler is a useful tool once again to find request header names. In the followi
 
 Another way to view request and response headers is to look inside the developer tools of Chrome. You can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load a web page, and select the request you want to inspect.
 
-![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-f12.png" alt-text="Screenshot that shows the result of clicking F12 in a Chrome browser.":::
 
 ## Finding request cookie names
 
@@ -314,9 +313,9 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
 - Disable maximum request body limit
 
-  By disabling max request body limit, large request bodies can be processed by the WAF without being rejected for being too large. This may be useful if you regularly have large requests.
+  By disabling max request body limit, WAF can process large request bodies without rejecting them for exceeding the size limit. This setting is useful if you regularly have large requests.
 
-  When you disable this option, the request body will only be inspected up to the max request body inspection limit. If there is malicious content in the request beyond the max request body inspection limit the WAF will not detect it.
+  When you disable this option, the request body will only be inspected up to the max request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit the WAF won't detect it.
 
 - Disable maximum file size limits
 
@@ -326,9 +325,9 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
    > If you know that your app will never need any file upload above a given size, you can restrict that by setting a limit.
 
    > [!WARNING]
-   > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment.
+   > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment.
 
-## Firewall Metrics (WAF_v1 only)
+## Firewall Metrics (WAF v1 only)
 
 For v1 Web Application Firewalls, the following metrics are now available in the portal: 
 
@@ -341,6 +340,7 @@ For v1 Web Application Firewalls, the following metrics are now available in the
      
 To enable metrics, select the **Metrics** tab in the portal, and select one of the three metrics.
 
-## Next steps
+## Next step
 
-See [How to configure web application firewall on Application Gateway](tutorial-restrict-web-traffic-powershell.md).
+> [!div class="nextstepaction"]
+> [Configure Web Application Firewall on Application Gateway](tutorial-restrict-web-traffic-powershell.md)

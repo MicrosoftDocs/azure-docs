@@ -30,10 +30,10 @@ Operating systems where the module can be installed:
 The module can be installed on a machine running PowerShell 7.x. Install the versions of PowerShell
 listed in the following table for your operating system.
 
-|    OS     |   PowerShell Version   |
-| --------- | ---------------------- |
-| Windows   | [PowerShell 7.1.3][01] |
-| Ubuntu 18 | [PowerShell 7.2.4][02] |
+| OS         | Minimum Required PowerShell Version | Installation                           |
+|------------|:-----------------------------------:|----------------------------------------|
+| Windows    |               `7.1.3`               | [Installing PowerShell on Windows][01] |
+| Ubuntu 18+ |               `7.2.4`               | [Installing PowerShell on Ubuntu][02]  |
 
 The **GuestConfiguration** module requires the following software:
 
@@ -64,6 +64,6 @@ Get-Command -Module 'GuestConfiguration'
 > [Create a custom machine configuration package](./2-create-package.md)
 
 <!-- Reference link definitions -->
-[01]: https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3
-[02]: https://github.com/PowerShell/PowerShell/releases/tag/v7.2.4
+[01]: /powershell/scripting/install/installing-powershell-on-windows
+[02]: /powershell/scripting/install/install-ubuntu
 [03]: /powershell/azure/install-az-ps
