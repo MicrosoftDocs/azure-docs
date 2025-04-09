@@ -39,11 +39,9 @@ The root directory contains the following directory structure:
 > [!IMPORTANT]
 > When a node is removed from the pool, all of the files that are stored on the node are removed.
 
-## Batch task related files and directories location
+## Batch root directory location
 
-Numbers of compute node environment variables' value will be determined by the VM size and the presence of a local temporary disk.
-
-### AZ_BATCH_NODE_ROOT_DIR
+The value of the `AZ_BATCH_NODE_ROOT_DIR` compute node environment variable will be determined by the VM size and the presence of a local temporary disk.
 
 |Local Temporary Disk Present|Operating System Type|`AZ_BATCH_NODE_ROOT_DIR` Value|
 |:---|:---|:---|
@@ -51,86 +49,6 @@ Numbers of compute node environment variables' value will be determined by the V
 |Yes|Linux|`/mnt/batch` or `/mnt/resource/batch`|
 |No|Windows|`C:\batch\data`|
 |Yes|Windows|`D:\batch`|
-
-
-### AZ_BATCH_NODE_STARTUP_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_NODE_STARTUP_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/startup`|
-|Yes|Linux|`/mnt/batch/startup` or `/mnt/resource/batch/startup`|
-|No|Windows|`C:\batch\data\startup`|
-|Yes|Windows|`D:\batch\startup`|
-
-
-### AZ_BATCH_NODE_SHARED_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_NODE_SHARED_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/shared`|
-|Yes|Linux|`/mnt/batch/shared` or `/mnt/resource/batch/shared`|
-|No|Windows|`C:\batch\data\shared`|
-|Yes|Windows|`D:\batch\shared`|
-
-
-### AZ_BATCH_NODE_MOUNTS_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_NODE_MOUNTS_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/fsmounts`|
-|Yes|Linux|`/mnt/batch/fsmounts` or `/mnt/resource/batch/fsmounts`|
-|No|Windows|`C:\batch\data\fsmounts`|
-|Yes|Windows|`D:\batch\fsmounts`|
-
-
-### AZ_BATCH_JOB_PREP_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_JOB_PREP_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/tasks/workitems/jobprepreleasesamplejob/job-1/jobpreparation`|
-|Yes|Linux|`/mnt/batch/tasks/workitems/jobprepreleasesamplejob/job-1/jobpreparation` or `/mnt/resource/batch/tasks/workitems/jobprepreleasesamplejob/job-1/jobpreparation`|
-|No|Windows|`C:\batch\data\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation`|
-|Yes|Windows|`D:\batch\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation`|
-
-
-### AZ_BATCH_JOB_PREP_WORKING_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_JOB_PREP_WORKING_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/tasks/workitems/jobprepreleasesamplejob/job-1/jobpreparation/wd`|
-|Yes|Linux|`/mnt/batch/tasks/workitems/jobprepreleasesamplejob/job-1/jobpreparation/wd` or `/mnt/resource/batch/tasks/workitems/jobprepreleasesamplejob/job-1/jobpreparation/wd`|
-|No|Windows|`C:\batch\data\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd`|
-|Yes|Windows|`D:\batch\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd`|
-
-
-### AZ_BATCH_TASK_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_TASK_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/tasks/workitems/batchjob001/job-1/task001`|
-|Yes|Linux|`/mnt/batch/tasks/workitems/batchjob001/job-1/task001` or `/mnt/resource/batch/tasks/workitems/batchjob001/job-1/task001`|
-|No|Windows|`C:\batch\data\tasks\workitems\batchjob001\job-1\task001`|
-|Yes|Windows|`D:\batch\tasks\workitems\batchjob001\job-1\task001`|
-
-
-### AZ_BATCH_TASK_WORKING_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_TASK_WORKING_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/tasks/workitems/batchjob001/job-1/task001/wd`|
-|Yes|Linux|`/mnt/batch/tasks/workitems/batchjob001/job-1/task001/wd` or `/mnt/resource/batch/tasks/workitems/batchjob001/job-1/task001/wd`|
-|No|Windows|`C:\batch\data\tasks\workitems\batchjob001\job-1\task001\wd`|
-|Yes|Windows|`D:\batch\tasks\workitems\batchjob001\job-1\task001\wd`|
-
-
-### AZ_BATCH_TASK_SHARED_DIR
-
-|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_TASK_SHARED_DIR` Value|
-|:---|:---|:---|
-|No|Linux|`/opt/batch/data/tasks/workitems/batchjob001/job-1/task001`|
-|Yes|Linux|`/mnt/batch/tasks/workitems/batchjob001/job-1/task001` or `/mnt/resource/batch/tasks/workitems/batchjob001/job-1/task001`|
-|No|Windows|`C:\batch\data\tasks\workitems\batchjob001\job-1\task001`|
-|Yes|Windows|`D:\batch\tasks\workitems\batchjob001\job-1\task001`|
 
 ## Next steps
 
