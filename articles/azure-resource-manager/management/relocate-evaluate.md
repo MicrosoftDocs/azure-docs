@@ -1,5 +1,5 @@
 ---
-title: How to evaluate a cloud workload for relocation.
+title: How to evaluate a cloud workload for relocation
 description: How to evaluate a workload for relocation so you can select the best relocation strategy.
 author: SomilGanguly
 ms.author: ssumner
