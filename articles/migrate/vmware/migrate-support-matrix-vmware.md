@@ -10,8 +10,8 @@ ms.date: 04/04/2025
 ms.custom:
   - vmware-scenario-422
   - engagement-fy24
-  - migration
-  - aws-to-azure
+ms.collection:
+ - migration
 ---
 
 # Support matrix for VMware discovery
