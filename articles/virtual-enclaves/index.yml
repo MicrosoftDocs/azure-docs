@@ -62,12 +62,12 @@ landingContent:
 #         links:
 #           - text: Onboard to AVE
 #             url: Onboard-to-AVE.md
-#           - text: Deploy an AVE Community with Enclaves
-#             url: Deploy-an-AVE-Community-with-Enclaves.md
+#           - text: Create a Community
+#             url: create-community-portal.md
 #           - text: Create a Community Endpoint
 #             url: Create-a-Community-Community-Endpoint-in-the-Azure-Portal.md
 #           - text: Create an Enclave
-#             url: Create-an-Enclave-in-the-Azure-Portal.md
+#             url: create-enclave-azure-portal.md
 #           - text: Create a Workload
 #             url: Create-a-Workload-in-the-Azure-Portal.md
 #           - text: Migrate workload resources

@@ -14,12 +14,12 @@
 #     items:
 #     - name: Onboard to AVE
 #       href: onboard-to-ave.md
-#     - name: Deploy an AVE Community with Enclaves
-#       href: deploy-an-ave-community-with-enclaves.md
+#     - name: Create a Community
+#       href: create-community-portal.md
 #     - name: Create a Community Endpoint
 #       href: create-a-community-endpoint-in-the-azure-portal.md
 #     - name: Create an Enclave
-#       href: create-an-enclave-in-the-azure-portal.md
+#       href: create-enclave-azure-portal.md
 #     - name: Create a Workload
 #       href: create-a-workload-in-the-azure-portal.md
 #     - name: Easy Button Deployments
