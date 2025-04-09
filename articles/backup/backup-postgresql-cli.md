@@ -56,7 +56,7 @@ After the vault is created, let's create a Backup policy to protect Azure Postgr
 
 ## Create a Backup policy
 
-### Understanding PostGreSQL backup policy
+### Understanding PostgreSQL backup policy
 
 While disk backup offers multiple backups per day and blob backup is a _continuous_ backup with no trigger, PostgreSQL backup offers Archive protection. The backup data that's first sent to the vault can be then moved to the _archive_ tier as per a defined rule or a _lifecycle_. In this context, let's understand the backup policy object for PostgreSQL.
 
@@ -268,7 +268,7 @@ Once the vault and policy are created, there are three critical points that you 
 
 ### Key entities involved
 
-#### PostGreSQL database to be protected
+#### PostgreSQL database to be protected
 
 Fetch the Azure Resource Manager ID (ARM ID) of PostgreSQL to be protected. This serves as the identifier of the database. We'll use an example of a database named **empdb11** under a PostgreSQL server **testposgresql**, which is present in the resource group **ossrg** under a different subscription.
 

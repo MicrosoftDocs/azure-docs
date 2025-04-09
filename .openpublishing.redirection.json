@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-advanced-http-reports.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-advanced-http-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-preload-endpoint.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-preload-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-real-time-stats.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-real-time-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-token-auth.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-token-auth",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/edgio-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
       "redirect_document_id": false
