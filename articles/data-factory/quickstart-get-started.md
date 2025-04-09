@@ -4,14 +4,14 @@ description: Get started with your first data factory to copy data from one Azur
 author: whhender
 ms.subservice: data-movement
 ms.devlang: bicep
-ms.topic: quickstart
+ms.topic: get-started
 ms.date: 02/13/2025
 ms.author: whhender
 ms.reviewer: xupzhou
 ms.custom: subject-armqs
 ---
 
-# Quickstart: Get started with Azure Data Factory
+# Get started with Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -110,7 +110,7 @@ All the resources in this demo are created in the new resource group, so you can
 
 ## Clean up resources
 
-You can clean up all the resources that you created in this quickstart in either of two ways:
+You can clean up all the resources that you created in this article in either of two ways:
 
 - You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.
 - If you want to keep some resources intact, go to the resource group and delete only the specific resources that you want to remove.
@@ -119,7 +119,7 @@ You can clean up all the resources that you created in this quickstart in either
 
 ## Related content
 
-In this quickstart, you created a data factory that contained a pipeline with a copy activity. To learn more about Azure Data Factory, continue on to the following article and training module:
+In this article, you created a data factory that contained a pipeline with a copy activity. To learn more about Azure Data Factory, continue on to the following article and training module:
 
 - [Quickstart: Use the copy data tool in the Azure Data Factory Studio to copy data](quickstart-hello-world-copy-data-tool.md)
 - [Training module: Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory/)

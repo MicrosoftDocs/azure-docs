@@ -86,7 +86,7 @@ The Copy Data tool has five pages that walk you through the task of copying data
 1. Under **Source data store**:
 
    1. For **Connection**, select the newly created connection.
-   1. In the **File or folder** section, select **Browse** to go to the **adftutorial/input** folder. Select the **emp.txt** file, and then select **OK**.
+   1. In the **File or folder** section, select **Browse** to go to the **adftutorial/input** folder. Select the **moviesDB2.csv** file, and then select **OK**.
    1. Select the **Binary copy** checkbox to copy the file as is.
    1. Select **Next**.
 
