@@ -3,13 +3,13 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title:       # Azure Native Pure Storage Cloud
-description: # Learn how to use Azure Native Pure Storage Cloud with Azure VMware Solution.
+title:       Azure Native Pure Storage Cloud
+description: Learn how to use Azure Native Pure Storage Cloud with Azure VMware Solution.
 author:      jkpravinkumar # GitHub alias
 ms.author:   pjeyakumar # Microsoft alias
-ms.service:  # azure-vmware
+ms.service:  azure-vmware
 # ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    # how-to
+ms.topic:    how-to
 ms.date:     03/31/2025
 ---
 
