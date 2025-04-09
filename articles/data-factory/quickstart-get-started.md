@@ -17,7 +17,7 @@ ms.custom: subject-armqs
 
 Welcome to Azure Data Factory! This article helps you create your first data factory and pipeline within five minutes.
 
-The Azure Resource Manger template (ARM template) in this article creates and configures everything you need. Then you can go to your demo data factory and trigger the pipeline, which moves some sample data from one Azure Blob Storage folder to another.
+The Azure Resource Manager template (ARM template) in this article creates and configures everything you need. Then you can go to your demo data factory and trigger the pipeline, which moves some sample data from one Azure Blob Storage folder to another.
 
 ## Prerequisites
 
