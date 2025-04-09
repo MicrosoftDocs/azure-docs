@@ -87,7 +87,7 @@ items:
   - name: Assessments
     items:
     - name: Overview # talk about what is an assessment - types of assessments- Scope creation - Readiness/costing/right-sizing
-      href: concepts-assessment-overview.md
+      href: concepts-overview.md
     - name: Prerequisites
       href: assessment-prerequisites.md
     - name: Review assessment report
