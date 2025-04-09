@@ -22,6 +22,9 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 
 ## Prerequisites
 
+> [!NOTE]
+> At this time Trusted Signing is only available to organizations based in the USA and Canada that have a verifiable history of three years or more.
+
 To complete this quickstart, you need:
 
 - A Microsoft Entra tenant ID.
@@ -203,16 +206,13 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 
 ---
 
-## Create an identity validation request
+## Create an identity validation request - Organization
 
 You can complete your own identity validation by filling in the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
 > [!NOTE]
 > You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier role to proceed with identity validation.
-> [!NOTE]
-> At this time Trusted Signing can only onboard organizations that were incorporated more than 3 years ago and were incorporated in USA and Canada.
 
-### Identity Validation - Organization
 
 To create an identity validation request for an Organization:
 
