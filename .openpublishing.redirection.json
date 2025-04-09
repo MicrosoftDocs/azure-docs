@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-advanced-http-reports.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-advanced-http-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-preload-endpoint.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-preload-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-real-time-stats.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-real-time-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-token-auth.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-token-auth",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/edgio-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
       "redirect_document_id": false
@@ -6471,27 +6491,27 @@
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family-2-3-4-retirement.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family-2-3-4-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-2-3-4-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family1-retirement.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family1-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-1-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-msrc-releases.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-msrc-releases",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-microsoft-security-response-center-releases",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-retirement-policy.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-retirement-policy",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-retirement-policy",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-update-matrix.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-update-matrix",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-update-matrix",
       "redirect_document_id": false
     },
     {
@@ -6740,7 +6760,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/work-with-styx-objects-and-indicators.md",
+      "source_path": "articles/sentinel/work-with-styx-objects-and-indicators.md",
       "redirect_url": "/azure/sentinel/work-with-styx-objects-indicators",
       "redirect_document_id": false
     },

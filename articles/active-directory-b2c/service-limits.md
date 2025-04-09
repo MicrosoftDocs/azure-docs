@@ -196,7 +196,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 233 |	Ghana|	10	| 30 |
 | 234 | Nigeria | 20 | 100 |
 | 236 |	Central African Republic  |	10	| 30 |
-| 238 | Cape Verde | 10 | 30 |
+| 238 | Cabo Verde | 10 | 30 |
 | 249 |  Sudan | 10  |  30  |
 | 251 |	Ethiopia  |	10	| 30 |
 | 252 |  Somalia   | 10  |  30  |  
