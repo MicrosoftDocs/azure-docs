@@ -1,5 +1,5 @@
 ---
-title: Configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal (preview)
+title: Configure Vaulted Backup for Azure Data Lake Storage Gen 2 using Azure Portal (preview)
 description: Learn how to configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal.
 ms.topic: how-to
 ms.date: 04/16/2025

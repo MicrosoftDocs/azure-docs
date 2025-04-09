@@ -1,5 +1,5 @@
 ---
-title: Support matrix for Azure Data Lake Storage Gen2 vaulted backup (preview)
+title: Support matrix for Azure Data Lake Storage Gen2 Vaulted Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage Gen2 (preview).
 ms.topic: reference
 ms.date: 04/16/2025

@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Data Lake Storage Gen  2 using Azure portal (preview)
+title: Restore Azure Data Lake Storage Gen  2 using Azure Portal (preview)
 description: Learn how to restore Azure Data Lake Storage Gen 2 vaulted  backups using Azure portal (preview).
 ms.topic: how-to
 ms.date: 04/16/2025

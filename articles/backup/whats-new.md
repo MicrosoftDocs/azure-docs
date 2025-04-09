@@ -112,7 +112,7 @@ Azure Backup now supports vaulted backups for block blob data in Azure Data Lake
 
 >[!Note]
 >- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
->- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>- To enroll in this preview feature, fill [this signup form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 For more information, see [Overview of Azure Data Lake Storage backup (preview)](azure-data-lake-storage-backup-overview.md).
 

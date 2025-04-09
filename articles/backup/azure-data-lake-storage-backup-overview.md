@@ -1,5 +1,5 @@
 ---
-title: About Azure Data Lake Storage Gen 2 vaulted backup (preview)
+title: About Azure Data Lake Storage Gen 2 Vaulted Backup (preview)
 description: Learn how the Azure Data Lake Storage Gen2 vaulted backup works
 ms.topic: overview
 ms.date: 04/16/2025
