@@ -83,13 +83,13 @@ On reviewing the **Dependencies** column for any server, you see one of the foll
 
 1. **Credentials not available:** when no server credentials provided on the appliance configuration manager can be used to perform dependency analysis
 2. **Validation in progress:** when the prerequisite validation checks have still not been completed on the server 
-3. **Validation failed:** when the validation checks on the server have failed. You can select the status to review error message which would mostly be related to missing prerequisites like insufficient credential permissions or invalid credentials etc.
+3. **Validation failed:** when the validation checks on the server have failed. You can select the status to review error message which would mostly be related to missing prerequisites like insufficient credential permissions or invalid credentials etc. 
 
 After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
 
-4. **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
-5. **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1,000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
-6. **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
+- **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
+- **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1,000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
+- **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
 
 ## Visualize dependencies
 ::: moniker range="migrate-classic"
@@ -196,7 +196,7 @@ If you're an existing user who has already set up an Azure Migrate project, perf
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
 3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
-4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project have been upgraded to version <> or above.
+4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project have been upgraded to version or above.
 5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]

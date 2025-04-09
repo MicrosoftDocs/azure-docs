@@ -1,6 +1,6 @@
 ---
-title: Review discovered inventory (preview) in Azure Migrate. 
-description:  This article describes on how to review discovered inventory across All inventory, Infrastructure, Databases, and web application inventory views. 
+title: Review discovered inventory (preview) in Azure Migrate 
+description:  This article describes how to review discovered inventory across All inventory, Infrastructure, Databases, and web application inventory views. 
 author: vikram1988
 ms.author: vibansa
 ms.manager: ronai
