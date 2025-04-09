@@ -12,7 +12,7 @@ ms.date: 04/04/2024
 
 # Quickstart: Create and run a load test with Visual Studio Code and GitHub Copilot
 
-Learn how to use the Azure Load Testing extension for Visual Studio Code to easily create Locust load tests using Copilot, iterate locally, and scale effortlessly in Azure. Whether you're new to Locust or a performance testing expert, the Azure Load Testing extension streamlines test creation, iteration, and scaling, right from your VS Code environment. Azure Load Testing is a managed service that lets you run a load test at cloud scale. [Locust](https://locust.io/) is an open source load testing tool that enables you to describe all your test in Python code.
+Learn how to use the Azure Load Testing extension for Visual Studio Code to easily create Locust load tests using Copilot, iterate locally, and scale effortlessly in Azure. Whether you're new to Locust or a performance testing expert, the Azure Load Testing extension streamlines test creation, iteration, and scaling, right from your VS Code environment. Azure Load Testing is a managed service that lets you run a load test at cloud scale. [Locust](https://locust.io/) is an open source load testing tool that enables you to write all your tests in Python code.
 
 This quickstart guides you through generating, refining, and running realistic load tests. By the end, you have a fully functional load test script generated from a **Postman collection**, **Insomnia collection**, or **.http file**, enhanced with Copilot-powered improvements, and ready to scale in **Azure Load Testing**.
 
@@ -162,9 +162,11 @@ To execute a large-scale test:
 
     - Commit this file in your repository to reuse and automate future load test executions.  
 
-1. Copilot validates the configuration before execution. Follow any instructions provided in the chat window. Otherwise, if everything checks out, the test script and its related artifacts are uploaded to Azure Load Testing and prepared for execution. This process may take up to a minute, progress is shown in the **Output** panel.
+1. Copilot validates the configuration before execution. Follow any instructions provided in the chat window. Otherwise, if everything checks out, the test script and its related artifacts are uploaded to Azure Load Testing and prepared for execution. This process may take up to a minute, and progress is shown in the **Output** panel.
+
 
     :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/load-test-progress.png" alt-text="Screenshot that shows the load test progress in VS Code output console." lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/load-test-progress.png":::
+1. When the test starts, a notification (toast message) appears in the bottom-right corner of VS Code. Click the **Open in Azure Portal** button to monitor test execution in real time.  
 
 1. When the test starts, a notification (toast message) appears in the bottom-right corner. Click the **Open in Azure Portal** button to monitor test execution in real time.  
 
@@ -173,13 +175,14 @@ To execute a large-scale test:
 > [!TIP]
 > To quickly access test results from previous runs, use the command: **Load Testing: View load test runs**.
 
-## Next Steps
+In this quickstart, sensitive variables like `API_KEY` were stored in a `.env` file and uploaded to the cloud service. However, as a best practice, secrets should be securely managed in **Azure Key Vault**. The extension provides guidance on setting this up.
 
 So far in this quickstart, sensitive variables like `API_KEY` were stored in a `.env` file and uploaded to the cloud service. However, as a best practice, secrets should be securely managed in **Azure Key Vault**. The extension provides guidance on setting this up.
 
-### Secure Secrets with Azure Key Vault
+1. Open the **Copilot Chat** window, type `@testing /setupLoadTestSecretsInAzure` and press Enter.
 
-1. Open the **Copilot Chat** window, type `@testing /setupLoadTestSecretsInAzure` and hit Enter.
+1. Copilot guides you through the following steps:
+
 
 1. Copilot guides you through:
     - Creating an Azure Key Vault.
