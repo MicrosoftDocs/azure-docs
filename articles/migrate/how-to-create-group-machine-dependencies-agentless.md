@@ -15,23 +15,31 @@ ms.custom: engagement-fy25
 
 This article describes how to set up agentless dependency analysis using Azure Migrate: Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
 
+::: moniker range="migrate"
  > [!Note]
  > In this article, you'll explore the new experience with agentless dependency analysis. You should continue only if you've upgraded to the new experience by following these [prerequisites](./how-to-create-group-machine-dependencies-agentless.md#switch-to-new-visualization).
+::: moniker-end
 
+::: moniker range="migrate-classic"
 ## Current limitations
 
 - In the dependency analysis view, currently you can't add or remove a server from a group.
 - A dependency map for a group of servers isn't currently available.
+::: moniker-end
 
+::: moniker range="migrate"
 ## What's New?
 
 - Dependency analysis is automatically enabled on 1,000 servers discovered by each Azure Migrate appliance that has passed the prerequisite checks. You no longer need to enable the dependency analysis on servers manually as before.
 - The enhanced dependency visualization helps you review additional information about the servers, connections, and processes. You can filter the view by process type to analyze key dependencies in the visualization.
 - In the new visualization, after identifying key dependencies, you can group servers into an application by tagging them.
+::: moniker-end
 
 ## Before you start
 
+::: moniker range="migrate"
 The existing users can follow steps provided [here](how-to-create-group-machine-dependencies-agentless.md#switch-to-new-visualization)
+::: moniker-end
 
 The new users need to follow the below steps:
 
@@ -68,14 +76,22 @@ The new users need to follow the below steps:
 
  After the server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory) on the servers. During software inventory, the discovered servers are validated to check if they meet the prerequisites and can be enabled for agentless dependency analysis.
  
+::: moniker range="migrate"
  > [!Note]
  > Agentless dependency analysis feature is automatically enabled for the discovered servers when the prerequisite checks are successful. Unlike before, you no longer need to manually enable this feature on servers.
+::: moniker-end
 
- After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours. You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+::: moniker range="migrate-classic" 
+After servers are enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours. You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+::: moniker-end
+
+::: moniker range="migrate"
+After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours. You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+::: moniker-end
 
 ## Review dependency status
 
-After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. It's recommended to wait for **atleast 24 hours** to allow for enough dependendency data to be gathered for your servers and show in a visualization. 
+After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. We recommend that you wait for **atleast 24 hours** to allow for enough dependendency data to be gathered for your servers and show in a visualization. 
 
 In the project, you can review dependencies for each server either through the **All inventory** or **Infrastructure inventory** view. 
 
@@ -85,11 +101,15 @@ On reviewing the **Dependencies** column for any server, you see one of the foll
 2. **Validation in progress:** when the prerequisite validation checks have still not been completed on the server 
 3. **Validation failed:** when the validation checks on the server have failed. You can select the status to review error message which would mostly be related to missing prerequisites like insufficient credential permissions or invalid credentials etc. 
 
+::: moniker range="migrate"
 After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
+::: moniker-end
 
 - **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
+::: moniker range="migrate"
 - **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1,000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
 - **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
+::: moniker-end
 
 ## Visualize dependencies
 ::: moniker range="migrate-classic"
@@ -186,6 +206,7 @@ Destination application | Name of the application on the destination server
 Destination process | Name of the process on the destination server  
 Destination port | Port number on the destination server
 
+::: moniker range="migrate"
 ## Switch to new visualization
 
 If you're an existing user who has already set up an Azure Migrate project, performed discovery and manually enabled dependency analysis on some servers, you need to perform following steps to get the new enhanced visualization:
@@ -226,6 +247,7 @@ Dependency analysis is auto-enabled on all discovered servers which have passed 
 
 > [!NOTE]
 > Currently, it isn't possible to disable dependendency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
+::: moniker-end
 
 ### Log in to Azure
 
