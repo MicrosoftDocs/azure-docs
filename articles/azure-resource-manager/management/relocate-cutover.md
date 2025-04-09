@@ -1,5 +1,5 @@
 ---
-title: How to cut over a cloud workload.
+title: How to cut over a cloud workload
 description: How to cut over a cloud workload and application.
 author: SomilGanguly
 ms.author: ssumner
