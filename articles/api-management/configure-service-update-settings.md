@@ -23,7 +23,6 @@ You can't control exactly when Azure updates each API Management instance, but i
     * **Early** - Receive updates early in the rollout, for testing and early access to new features. This option is not recommended for production deployments.
     * **Default** - Receive updates as part of the regular release rollout. This option is recommended for most services, including production deployments.
     * **Late** - Receive updates later than the previous groups, typically weeks after the initial rollout. This option is recommended for mission-critical deployments only.
-    * **AI Gateway Early** (GenAI release) - Get early access to the latest [AI gateway features and updates](genai-gateway-capabilities.md) before they reach other update groups. Receive other service updates as part of the **Late** rollout group.
 
     > [!NOTE]
     > Azure deploys all updates using a [safe deployment practices (SDP) framework](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). Updates released early in a rollout might be less stable and replaced later by stable releases. All instances are eventually updated to the most stable release builds.
