@@ -53,6 +53,111 @@ Storage accounts have two properties, kind and SKU, which dictate the billing mo
 
 If you're creating an HDD file share, you can choose between the provisioned v2 and pay-as-you-go billing models. Both models are fully supported, however, we recommend provisioned v2 for new file share deployments. Provisioned v2 file shares are currently available in a limited subset of regions; see [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
 
+To view region supportability on different billing models on CLI, use the following command.
+# [PowerShell](#tab/azure-powershell)
+### To view Region supportability on different billing models (PowerShell)
+```powershell
+# Login to Azure account
+Connect-AzAccount
+
+# Track down the subscription ID in GUID format
+$subscriptionID = "your-subscription-id-number"
+
+# Get Token
+$token = Get-AzAccessToken
+
+# Invoke SRP list SKU API, and get the returned SKU list
+$result = Invoke-RestMethod -Method Get -Uri "https://management.azure.com/subscriptions/$($subscriptionID)/providers/Microsoft.Storage/skus?api-version=2024-01-01" -Headers @{"Authorization" = "Bearer $($token.Token)"}
+
+# Filter the SKU list to get the required information, customization requried here to get the best result.
+$filteredResult = $result | `
+    Select-Object -ExpandProperty value | `
+    Where-Object {
+        $_.resourceType -eq "storageAccounts" -and
+        # Filter based on your needs. FileStorage kind includes pv2, and pv1 file share, where StorageV2 kind include PayGO file shares.
+        $_.kind -in @("FileStorage", "StorageV2") -and
+        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for pv1 file shares.
+        # $_.name.StartsWith("StandardV2_") -and
+        # Change region based on your need to see if we currently support the region (all small cases, no space in between).
+        # $_.locations -eq "italynorth" -and
+        $_.name -notin @("Standard_RAGRS", "Standard_RAGZRS")
+    }
+
+if ($filteredResult.Count -eq 0) {
+    Write-Output "No results found."
+} else {
+    $filteredResult | `
+        Select-Object `
+            -Property `
+                @{
+                    Name = "sku";
+                    Expression = { $_.name }
+                }, `
+                kind, `
+                @{
+                    Name = "mediaTier";
+                    Expression = {
+                        if ($_.tier -eq "Premium") {
+                            "SSD"
+                        } elseif ($_.tier -eq "Standard") {
+                            "HDD"
+                        } else {
+                            "Unknown"
+                        }
+                    }
+                }, `
+                @{
+                    Name = "billingModel";
+                    Expression = {
+                        if ($_.name.StartsWith("StandardV2_") -or
+                            $_.name.StartsWith("PremiumV2_")
+                        ) {
+                            "ProvisionedV2"
+                        } elseif ($_.name.StartsWith("Premium_")) {
+                            "ProvisionedV1"
+                        } else {
+                            "PayAsYouGo"
+                        }
+                    }
+                }, `
+                @{
+                    Name = "location";
+                    Expression = { $_.locations | Select-Object -First 1 }
+                } | ft sku, kind, mediaTier, billingModel, location
+}
+```
+
+# [Azure CLI](#tab/azure-cli)
+### To view Region supportability on different billing models (Azure CLI)
+This script use jq command line JSON processor, to download, please visit https://jqlang.org/download/
+```bash
+# Login to Azure account
+Az login
+
+# Track down the subscription ID in GUID format and set subscription ID
+subscriptionID="your-subscription-id-number"
+
+# Get Token
+token=$(az account get-access-token --query accessToken --output tsv)
+
+# Invoke SRP list SKU API, and get the returned SKU list
+result=$(az rest --method get --uri "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2024-01-01" --headers "Authorization=Bearer $token")
+
+# Filter the SKU list to get the required information, customization required here to get the best result.
+filteredResult=$(echo $result | jq '.value[] | select(.resourceType == "storageAccounts" and (.kind == "FileStorage" or .kind == "StorageV2") and (.name | test("^(?!Standard_RAGRS|Standard_RAGZRS)")))' )
+
+if [ -z "$filteredResult" ]; then
+    echo "No results found."
+else
+    # Print the table header
+    printf "%-30s %-15s %-10s %-20s %-15s\n" "SKU" "Kind" "MediaTier" "BillingModel" "Location"
+    # Print the filtered results
+    echo $filteredResult | jq -r '. | "\(.name)\t\(.kind)\t\(.tier | if . == "Premium" then "SSD" elif . == "Standard" then "HDD" else "Unknown" end)\t\(.name | if test("^StandardV2_|^PremiumV2_") then "ProvisionedV2" elif test("^Premium_") then "ProvisionedV1" else "PayAsYouGo" end)\t\(.locations)"' | while IFS=$'\t' read -r sku kind mediaTier billingModel location; do
+        printf "%-30s %-15s %-10s %-20s %-15s\n" "$sku" "$kind" "$mediaTier" "$billingModel" "$location"
+    done
+fi
+```
+
 # [Portal](#tab/azure-portal)
 To create a storage account via the Azure portal, use the search box at the top of the Azure portal to search for **storage accounts** and select the matching result. 
 
@@ -178,6 +283,12 @@ $storageAccountSku = "StandardV2_LRS"
 New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -SkuName $storageAccountSku -Kind $storageAccountKind -Location $region
 ```
 
+To view the settings and statistics of the Provisiond V2 storage account, use the following command. 
+
+```powershell
+Get-AzStorageFileServiceUsage -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+```
+
 ### Create a provisioned v1 or pay-as-you-go storage account (PowerShell)
 To create a provisioned v1 or pay-as-you-go storage account using PowerShell, use the `New-AzStorageAccount` cmdlet in the Az.Storage PowerShell module. This cmdlet has many options; only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
 
@@ -225,6 +336,12 @@ storageAccountKind="FileStorage"
 storageAccountSku="StandardV2_LRS"
 
 az storage account create --resource-group $resourceGroupName --name $storageAccountName --location $region --kind $storageAccountKind --sku $storageAccountSku --output none
+```
+
+To view the settings and statistic of the Provisiond V2 storage account, use the following command. 
+
+```bash
+az storage account file-service-usage --account-name $storageAccountName -g $resourceGroupName
 ```
 
 ### Create a provisioned v1 or pay-as-you-go storage account (Azure CLI)
