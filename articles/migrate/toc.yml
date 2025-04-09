@@ -188,16 +188,18 @@ items:
     items:
     - name: Migrate VMware servers 
       items:
-        - name: Create Business case and assessment
-          href: tutorial-discover-import.md
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
+        - name: Migrate to Azure Local 
+          href: /azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate Hyper-V servers 
       items:
 #       - name: Create Business case and assessment
 #         href: tutorial-assess-hyper-v.md
-        - name: Migrate
+        - name: Migrate to Azure Cloud
           href: tutorial-migrate-hyper-v.md
+        - name: Migrate to Azure Local
+          href: /azure-local/migrate/migration-azure-migrate-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate physical servers
       items:
         - name: Create Business case and assessment
