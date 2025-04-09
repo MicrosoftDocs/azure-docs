@@ -16,6 +16,7 @@ Communities are isolated hub networks that can securely and logically group seve
 
 ![Diagram showing a simplified view of a Community with the community managed resources and three enclaves.](./media/simple-community-managed-resources-three-enclaves.png)
 
+
 Communities come with the following primary platform-managed and platform-deployed resources:
 - Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](https://learn.microsoft.com/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud).
 - [Azure Firewall](../firewall/overview.md). By default, all Communities are deployed with a secure-by-default Azure Firewall in which all Community network traffic is routed through.
