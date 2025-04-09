@@ -410,7 +410,7 @@ Be sure to use Azure Maps authentication details from the Azure Government cloud
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
 * [Azure Maps React Component] - A react wrapper for the Azure Maps control.
 * [Vue Azure Maps] - An Azure Maps component for Vue application.
