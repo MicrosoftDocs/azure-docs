@@ -14,6 +14,10 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (April 2025)
+
+Public Preview: Explore inventory of discovered workloads across the Infrastructure, Data, and Web tiers. Utilize the new experience of the dependency analysis to identify application boundaries and group workloads into applications using Tags. [Learn more](how-to-review-discovered-inventory.md).
+
 ## Update (February 2025)
 
 Public Preview: Azure Migrate now supports discovery and assessment of MySQL databases. You can use this capability to discover MySQL instances and their attributes within your environment, assess their readiness for migration to Azure Database for MySQL, and obtain recommendations on the suitable compute and storage options, along with the associated costs. [Learn more](assessments-overview-migrate-to-azure-db-mysql.md).

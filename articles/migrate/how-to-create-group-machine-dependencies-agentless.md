@@ -83,15 +83,16 @@ On reviewing the **Dependencies** column for any server, you see one of the foll
 
 1. **Credentials not available:** when no server credentials provided on the appliance configuration manager can be used to perform dependency analysis
 2. **Validation in progress:** when the prerequisite validation checks have still not been completed on the server 
-3. **Validation failed:** when the validation checks on the server have failed. You can select the status to review error message which would mostly be related to missing prerequisites like insufficient credential permissions or invalid credentials etc.
+3. **Validation failed:** when the validation checks on the server have failed. You can select the status to review error message which would mostly be related to missing prerequisites like insufficient credential permissions or invalid credentials etc. 
 
 After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
 
-4. **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
-5. **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1,000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
-6. **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
+- **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
+- **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1,000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
+- **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
 
 ## Visualize dependencies
+::: moniker range="migrate-classic"
 
 1. In **Azure Migrate: Discovery and assessment**, select **Discovered servers**.
 1. Choose the **Appliance name** whose discovery you want to review.
@@ -106,50 +107,54 @@ After the validation succeeds, dependency analysis are auto-enabled and you see 
 
 1. Expand the selected server to view process-level details for each dependency.
    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
+::: moniker-end
 
+::: moniker range="migrate"
 1. In the new experience, go to project overview. Select the workloads count in **All inventory** to review the discovered workloads. In the view, you can see **Dependencies** column with status values as covered in section above.
-2. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
-3. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
+1. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
+1. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
 
-4. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**.
-5. Change the time period for which you want to view the map using the **Time range** filter. You can choose between **Last 7 days**/**Last 30 days** or select a **Custom range**.
-6. You can choose to change the process type from any of the following:
+1. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
+1. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
+1. Change the time period for which you want to view the map using the **Time range** filter. You can choose between **Last 7 days**/**Last 30 days** or select a **Custom range**. 
+1. You can choose to change the process type from any of the following:
 
-**Process** | **Type**
---- | --- 
-Resolvable (Default) | To filter by processes having resolvable connections
-Essentials | To filter by non-redundant key processes
-All | to filter by all processes including those with unresolved connections
+    **Process** | **Type**
+    --- | --- 
+    Resolvable (Default) | To filter by processes having resolvable connections
+    Essentials | To filter by non-redundant key processes
+    All | to filter by all processes including those with unresolved connections
 
-7. In the view, you find the servers and connections represented as follows:
+1. In the view, you find the servers and connections represented as follows:
 
-**Representation** | **Details**
---- | --- 
-Windows symbol | Representing a Windows server in the view
-Linux symbol | Representing a Linux server in the view
-Connection symbol | Representing the direction of dependency between servers with strength of the connection represented by grading of dots on the connection
-Process count | Representing the count of processes as per the process type filter
+    **Representation** | **Details**
+    --- | --- 
+    Windows symbol | Representing a Windows server in the view
+    Linux symbol | Representing a Linux server in the view
+    Connection symbol | Representing the direction of dependency between servers with strength of the connection represented by grading of dots on the connection
+    Process count | Representing the count of processes as per the process type filter
 
-8. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
+1. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png" alt-text="The screenshot illustrated how the details are shown on hover." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png":::
 
-9. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
-10. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
+1. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
+1. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png" alt-text="The screenshot shows the server details on expanding. " lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png":::
 
-11. Similarly you can also select the connection to see more details like which source and destination processes have the dependency over which destination port no. 
-12. You can expand the Server to see the list of processes basis the selected process type filter.
-13. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
+1. Similarly you can also select the connection to see more details like which source and destination processes have the dependency over which destination port no. 
+1. You can expand the Server to see the list of processes basis the selected process type filter.
+1. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
 
 
 > [!NOTE]
 > Process information for a dependency isn't always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
+::: moniker-end
 
 ## Export dependency data
 
@@ -191,7 +196,7 @@ If you're an existing user who has already set up an Azure Migrate project, perf
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
 3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
-4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project have been upgraded to version <> or above.
+4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project has been upgraded to version or above.
 5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]
