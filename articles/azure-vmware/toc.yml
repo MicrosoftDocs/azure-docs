@@ -91,36 +91,6 @@ items:
         href: tutorial-scale-private-cloud.md
       - name: 9 - Delete a private cloud
         href: tutorial-delete-private-cloud.md
-- name: Azure VMware Solution in an Azure Virtual Network (Public Preview)
-  items:
-  - name: What's Azure VMware Solution in an Azure Virtual Network (Public Preview)  
-    href: native-introduction.md
-  - name: Tutorial
-    items:
-    - name: Create an Azure VMware Solution in an Azure Virtual Network (Public Preview) 
-      href: native-create-azure-vmware-virtual-network-private-cloud.md
-  - name: Architecture
-    items:
-    - name: Azure VMware Solution in an Azure Virtual Network design consideration (Public Preview)  
-      href: native-network-design-consideration.md
-  - name: Security
-    items:
-    - name: Enable first-party application service principal for Azure VMware Solution in an Azure Virtual Network 
-      href: native-first-party-principle-security.md
-  - name: Networking
-    items:
-    - name: Connectivity to an Azure Virtual Network
-      href: native-network-connectivity.md
-    - name: Connect to on-premises environment
-      href: native-connect-on-premises.md
-    - name: Internet connectivity options
-      href: native-internet-connectivity-design-considerations.md
-    - name: Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds
-      href: native-connect-multiple-private-clouds.md
-    - name: Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud
-      href: native-connect-private-cloud-previous-edition.md
-    - name: Public and Private DNS forward lookup zone configuration
-      href: native-dns-forward-lookup-zone.md
 - name: Cost optimization
   items:
   - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
