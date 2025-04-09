@@ -218,6 +218,6 @@ sections:
           Check if disaster recovery is enabled for the FHIR resource. If it is, disable the disaster recovery feature.  
 
       - question: |
-          What should i do if I recieve HTTP status code 429 from Azure API for FHIR service?
+          What should I do if I receive HTTP status code 429 from Azure API for FHIR service?
         answer: |
          Check the RU consumption associated with the FHIR instance. In case of high RU consumption (around 100%), check if the throttling error corresponds to the time of high RU usage. If it does, consider enabling autoscaling for your service and increasing the RU allocated to your service. Refer to [autoscaling Azure API for FHIR](autoscale-azure-api-fhir.md) for more details.
