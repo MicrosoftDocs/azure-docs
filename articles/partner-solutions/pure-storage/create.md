@@ -14,7 +14,7 @@ This quickstart shows you how to create a Pure Storage Cloud (preview) resource 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [Subscribe to Azure Native Pure Storage Cloud (preview)](overview.md#subscribe-to-azure-native-pure-storage-cloud-preview).
+- You must [Subscribe to Azure Native Pure Storage Cloud (preview)](overview.md#subscribe-to-azure-native-pure-storage-cloud-preview)
 
 ## Create a resource
 
