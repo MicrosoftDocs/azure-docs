@@ -18,7 +18,8 @@ In this article, learn how to configure an Azure Logic Apps workflow to capture 
 
 ## Prerequisites
 
-Make sure you have an Azure VMware Solution private cloud set up that is streaming its syslogs to an Azure Event Hubs instance. For more information, see
+Make sure you have an Azure VMware Solution private cloud set up that is streaming its syslogs to an Azure Event Hubs instance. 
+
 [Configure VMware syslogs - Stream to Microsoft Azure Event Hubs](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-vmware-syslogs#stream-to-microsoft-azure-event-hubs).
 
 ## Create an Azure Logic Apps instance
@@ -57,17 +58,17 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-8.png" alt-text="Screenshot showing the Event Hubs connection portion of the Azure VMware Solution template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-8.png":::
 
-a. In a separate brower tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
+   - In a separate brower tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
     
-    :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-9.png" alt-text="Screenshot showing the Primary connection string on Azure Event Hub." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-9.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-9.png" alt-text="Screenshot showing the Primary connection string on Azure Event Hub." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-9.png":::
 
-b. Navigate back to the browser tab with the Logic App and paste what you just copied into the **Connection String** field. Click **Add Connection**.
+   - Navigate back to the browser tab with the Logic App and paste what you just copied into the **Connection String** field. Click **Add Connection**.
 
-    :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-10.png" alt-text="Screenshot showing the pasting of the Primary connection string on Azure Logic Apps template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-10.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-10.png" alt-text="Screenshot showing the pasting of the Primary connection string on Azure Logic Apps template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-10.png":::
 
-c. If added successfully, the Status for the Event Hub should read **Connected**. At this point, click **Next** to proceed forward.
+   - If added successfully, the Status for the Event Hub should read **Connected**. At this point, click **Next** to proceed forward.
 
-    :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-11.png" alt-text="Screenshot showing successful Connected message on Azure Logic Apps template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-11.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-11.png" alt-text="Screenshot showing successful Connected message on Azure Logic Apps template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-11.png":::
 
 5. Add the name of the event hub instance under **Event hub name**. The exact name of the Event hub can be found under **Entities**, then **Event Hubs** in your Event Hub tab. Add the URI of the log server you intend to use under **Log destination URI**. Click **Next**.
 
@@ -77,10 +78,10 @@ c. If added successfully, the Status for the Event Hub should read **Connected**
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-13.png" alt-text="Screenshot showing the review page before creating the Azure Logic App template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-13.png":::
 
-## (Optional) Adding certificates, updating HTTP headers, and configuring notifications
+## Adding certificates, updating HTTP headers, and configuring notifications
 
 ### Certificates
-If Azure Logic Apps requires the certificate from the log management server to be trusted, you may need to add the certificate to the Logic Apps instance to enable successful log transmission.k. This is a necessary step when using tools such as VMware Cloud Foundation Operations for Logs, for example. You may add this to the Azure Logic App instance using the following approach: 
+If Azure Logic Apps requires the certificate from the log management server to be trusted, you may need to add the certificate to the Logic Apps instance to enable successful log transmission. This is a necessary step when using tools such as VMware Cloud Foundation Operations for Logs, for example. You may add this to the Azure Logic App instance using the following approach: 
 
 1. Export the certificate from the log management server and save it as a .cer file. 
 
@@ -114,6 +115,6 @@ The Run History section of a workflow in Azure Logic Apps provides a detailed lo
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-20.png" alt-text="Screenshot showing Run History can be accessed" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-20.png":::
 
 ### Configuring Notifications
-You will notice in the last step of the workflow that there is an optional item called **Optional-Notification (README)**. You may replace this item with one of the plethora of actions available in Azure Logic Apps, such as Outlook emails or Teams messages, to notify you in the event there is a failure sending your logs to your log management server.
+You will notice in the last step of the workflow that there is an optional item called **Optional-Notification (README)**. You may replace this item with one of the available actions in Azure Logic Apps, such as Outlook emails or Teams messages, to notify you in the event there is a failure sending your logs to your log management server.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-19.png" alt-text="Screenshot showing where notifications can be added inside the workflow" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-19.png":::
