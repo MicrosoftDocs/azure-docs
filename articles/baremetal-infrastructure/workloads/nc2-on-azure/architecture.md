@@ -129,8 +129,8 @@ The following table describes what’s supported for each network features confi
 |Delegated subnet per VNet |1|
 |VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
 |[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| Yes|
-|Connectivity from BareMetal to [service endpoints](https://learn.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
-|Connectivity from BareMetal to [service endpoints](https://learn.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
+|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
+|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
 |[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
