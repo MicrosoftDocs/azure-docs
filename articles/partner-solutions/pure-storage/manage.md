@@ -34,23 +34,23 @@ Below the essentials, you can navigate to other details about your resource by s
 - Documentation on Microsoft Learn
 - Pure Storage support
 
-### Create a Storage Pool
+## Create a Storage Pool
 
-One you've created a resource, you can create a storage pool. 
+Once you create a resource, you can create a storage pool. 
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-1. Select **Settings > Storage Pool** from the service menu.
+3. Select **Settings > Storage Pool** from the service menu.
 
-1. Select **Create a new storage pool** from the working pane's command bar. 
+4. Select **Create a new storage pool** from the working pane's command bar. 
 
     The *Create a Storage Pool* window appears.
     There are required fields that you need to fill out.
 
     > [!NOTE]
-    > The storage pool will default to the same region as your Pure Storage resource.
+    > The storage pool defaults to the same region as your Pure Storage resource.
 
-1. Enter the values for each required setting.
+5. Enter the values for each required setting.
   
     | Setting                            | Action                                |
     |------------------------------------|---------------------------------------|
@@ -61,18 +61,18 @@ One you've created a resource, you can create a storage pool.
     | Virtual network                    | Choose a virtual network.             |
     | Delegated subnet                   | Choose a delegated subnet.            |
 
-1. Select the **Create** button.
+6. Select the **Create** button.
 
     > [!NOTE]
     > It can take up to 1 hour for deployment to complete.
 
-### Connect a Storage Pool to an Azure VMWare Solution resource
+### Connect a Storage Pool to an Azure VMware Solution resource
 
-Once you've created a storage pool, you can link the storage pool to an Azure VMware Solution resource from the Azure portal.
+Once you create a storage pool, you can link the storage pool to an Azure VMware Solution resource from the Azure portal.
 
 > [!IMPORTANT]
 > In order to connect your storage pool to an Azure VMware Solution resource, you must be an "Owner" or "RBACAdministrator" in your subscription.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-To connect a storage pool to an Azure VMWare Solution resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
+To connect a storage pool to an Azure VMware Solution resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
