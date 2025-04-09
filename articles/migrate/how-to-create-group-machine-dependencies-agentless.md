@@ -81,11 +81,17 @@ The new users need to follow the below steps:
  > Agentless dependency analysis feature is automatically enabled for the discovered servers when the prerequisite checks are successful. Unlike before, you no longer need to manually enable this feature on servers.
 ::: moniker-end
 
- After servers are enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours. You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+::: moniker range="migrate-classic" 
+After servers are enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours. You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+::: moniker-end
+
+::: moniker range="migrate"
+After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours. You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+::: moniker-end
 
 ## Review dependency status
 
-After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. It's recommended to wait for **atleast 24 hours** to allow for enough dependendency data to be gathered for your servers and show in a visualization. 
+After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. We recommend that you wait for **atleast 24 hours** to allow for enough dependendency data to be gathered for your servers and show in a visualization. 
 
 In the project, you can review dependencies for each server either through the **All inventory** or **Infrastructure inventory** view. 
 
