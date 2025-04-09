@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/08/2025
+ms.date: 04/09/2025
 ms.author: cshoe
 ai-usage: ai-generated
 ---
@@ -42,6 +42,8 @@ The container ecosystem includes several key components:
 Docker is the most popular containerization platform, and is well-supported in the Azure ecosystem through Azure Container Apps.
 
 ## Set up your development environment
+
+This section guides you through installing the necessary tools and configuring your development environment to build, run, and debug containerized Java applications.
 
 ### Install required tools
 
@@ -198,7 +200,7 @@ Debugging containerized Java applications is sometimes challenging because your 
 
 Standard debugging approaches don't always directly apply, but with the right configuration, you can establish a remote debugging connection to your application. This section shows you how to configure your containers for debugging, connect your development tools to running containers, and troubleshoot common container-related issues.
 
-### Setting Up Remote Debugging
+### Set up remote debugging
 
 Debugging containerized Java applications requires exposing a debug port and configuring your IDE to connect to it:
 
@@ -231,7 +233,7 @@ Debugging containerized Java applications requires exposing a debug port and con
 
 1. Start your container with port `5005` mapped to your host, then launch the debugger in Visual Studio Code.
 
-### Troubleshooting Container Issues
+### Troubleshoot container issues
 
 When containers don't behave as expected, you can inspect your app's logs to investigate the issue.
 
@@ -268,13 +270,13 @@ Common issues include:
 | Permission problems | Verify file system permissions. |
 | Classpath issues | Check JAR structure and dependencies. |
 
-## Optimizing Java Containers
+## Optimize Java containers
 
 Java applications in containers require special consideration for optimal performance. The JVM was designed before containers were common, which can lead to resource allocation issues if not properly configured.
 
 By fine-tuning memory settings, optimizing image size, and configuring garbage collection, you can significantly improve the performance and efficiency of your containerized Java applications. This section covers essential optimizations for Java containers with a focus on memory management, startup time, and resource utilization.
 
-### JVM Memory Configuration in Containers
+### JVM memory configuration in containers
 
 The JVM doesn't automatically detect container memory limits in Java 8. For Java 9+, container awareness is enabled by default.
 
@@ -347,11 +349,11 @@ For Spring Boot applications, include the Actuator dependency for comprehensive 
 
 Configure your application to output logs in a format (like JSON) suitable for container environments.
 
-## Deploying to Azure Container Apps
+## Deploy to Azure Container Apps
 
 This section guides you through preparing your Java containers for Azure Container Apps deployment and highlights key configuration considerations.
 
-### Preparing Your Container for Azure
+### Prepare your container for Azure
 
 - **Port configuration**: Ensure your container listens on the port provided by Azure:
 
