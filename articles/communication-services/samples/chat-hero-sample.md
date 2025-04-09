@@ -6,7 +6,7 @@ author: kperla97
 manager: chpalm
 services: azure-communication-services
 
-ms.author: awang119
+ms.author: anniewang
 ms.date: 6/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
