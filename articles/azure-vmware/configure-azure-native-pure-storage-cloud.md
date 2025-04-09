@@ -28,4 +28,4 @@ For more information, see the following resources:
 - [Azure Native Pure Storage Cloud - Overview](https://learn.microsoft.com/en-us/azure/partner-solutions/pure-storage/overview)
 - [Azure Native Pure Storage Cloud - Deployment Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/deployment/c_psc_deployment.html)
 - [Azure Native Pure Storage Cloud - Management Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html)
-- [Azure Native Pure Storage Cloud support articles](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html)
+- [Azure Native Pure Storage Cloud - Troubleshooting Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html)
