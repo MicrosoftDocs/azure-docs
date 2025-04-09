@@ -42,7 +42,7 @@ To get started, export a Resource Manager template. This template contains setti
 
 In the diagram below, the red flow lines illustrate redeployment of the target instance along with configuration movement.
 
-:::image type="content" source="media/relocation/automation/automation-pattern-design.png" alt-text="Diagram illustrating cold standby redeployment with configuration movement.":::
+:::image type="content" source="media/automation/automation-pattern-design.png" alt-text="Diagram illustrating cold standby redeployment with configuration movement.":::
 
 **To deploy the template to create an Automation instance in the target region:**
 

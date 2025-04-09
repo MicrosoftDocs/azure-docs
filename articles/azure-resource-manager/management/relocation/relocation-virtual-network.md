@@ -60,7 +60,7 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 To plan for your relocation of an Azure Virtual Network, you must understand whether you're relocating your virtual network in a connected or disconnected scenario. In a connected scenario, the virtual network has a routed IP connection to an on-premises datacenter using a hub, VPN Gateway, or an ExpressRoute connection. In a disconnected scenario, the virtual network is used by workload components to communicate with each other.
 
-:::image type="content" source="media/relocation/vnet-connected-scenarios.png" alt-text="Diagrams showing both connect scenario and disconnect scenarios for virtual network.":::
+:::image type="content" source="media/vnet-connected-scenarios.png" alt-text="Diagrams showing both connect scenario and disconnect scenarios for virtual network.":::
 
 ### Disconnected scenario
 
@@ -74,11 +74,11 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 #### Disconnected relocation with the same IP-address range
 
-:::image type="content" source="media/relocation/vnet-disconnected-relocation-no-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with no vNet IP address range change.":::
+:::image type="content" source="media/vnet-disconnected-relocation-no-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with no vNet IP address range change.":::
 
 #### Disconnected relocation with  a new IP-address range
 
-:::image type="content" source="media/relocation/vnet-disconnected-relocation-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with vNet IP address range change.":::
+:::image type="content" source="media/vnet-disconnected-relocation-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with vNet IP address range change.":::
 
 ### Connected Scenario
 
@@ -92,11 +92,11 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 #### Connected relocation with the same IP-address range
 
-:::image type="content" source="media/relocation/vnet-connected-relocation-no-ip-address-change.png" alt-text="Diagram showing connected workload relocation with no vNet IP address range change.":::
+:::image type="content" source="media/vnet-connected-relocation-no-ip-address-change.png" alt-text="Diagram showing connected workload relocation with no vNet IP address range change.":::
 
 #### Connected relocation with a new IP-address range
 
-:::image type="content" source="media/relocation/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change.":::
+:::image type="content" source="media/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change.":::
 
 ## Prepare
 

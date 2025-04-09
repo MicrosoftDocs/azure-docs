@@ -61,14 +61,14 @@ You can move resources to another region using a couple of different methods:
 
 To move resources that aren't supported by Azure Resource Mover or to move any service manually, see [Azure services relocation guidance overview](/azure/operational-excellence/overview-relocation).
 
-As Microsoft continues to expand Azure global infrastructure and launch new Azure regions worldwide, there's an increasing number of options available for you to relocate your workloads into new regions.  Region relocation options vary by service and by workload architecture.  To successfully relocate a workload to another region, you need to plan your relocation strategy with an understanding of what each service in your workload requires and supports.
+As Microsoft continues to expand Azure global infrastructure and launch new Azure regions worldwide, there's an increasing number of options available for you to relocate your workloads into new regions. Region relocation options vary by service and by workload architecture. To successfully relocate a workload to another region, you need to plan your relocation strategy with an understanding of what each service in your workload requires and supports.
 
-Azure region relocation documentation (Preview) contains service-specific relocation guidance for Azure products and services. The relocation documentation set is founded on both [Azure Cloud Adoption Framework - Relocate cloud workloads](/azure/cloud-adoption-framework/relocate/) as well as the following Well-architected Framework (WAF) Operational Excellence principles:
+Azure region relocation documentation (Preview) contains service-specific relocation guidance for Azure products and services. The relocation documentation set is founded on both [Azure Cloud Adoption Framework - Relocate cloud workloads](/azure/cloud-adoption-framework/relocate/) and the following Well-architected Framework (WAF) Operational Excellence principles:
 
 * [Deploy with confidence](/azure/well-architected/operational-excellence/principles#deploy-with-confidence)
 * [Adopt safe deployment practices](/azure/well-architected/operational-excellence/principles#adopt-safe-deployment-practices)  
 
-Each service specific guide can contain service-specific information on topics such as:
+Each service specific guide can contain service-specific information on articles such as:
 
 * [Service-relocation automation tools](/azure/cloud-adoption-framework/relocate/select#select-service-relocation-automation).
 * [Data relocation automation](/azure/cloud-adoption-framework/relocate/select#select-data-relocation-automation).
@@ -175,7 +175,7 @@ The following tables provide links to each Azure service relocation document. Th
 |[Azure NetApp Files](./relocation/relocation-netapp.md)| ✅ | ✅|  ❌  |
 |[Azure Storage Account](./relocation/relocation-storage-account.md)| ✅ | ✅| ❌ |
 
-See the folloiwng articles for additional information
+For more information, see the following articles:
 
 * [Azure Resources Mover documentation](/azure/resource-mover/)
 * [Azure Resource Manager (ARM) documentation](/azure/azure-resource-manager/templates/)

@@ -47,13 +47,16 @@ Deploy the template to create an Event Hubs dedicated cluster in the target regi
 1. Update the value of the `location` property to point to the new region. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
 1. Select **Save** to save the template.
 1. On the **Custom deployment** page, follow these steps:
+
     1. Select an Azure **subscription**.
     1. Select an existing **resource group** or create one.
     1. Select the target **location** or region. If you selected an existing resource group, this setting is read-only.
     1. In the **SETTINGS** section, do the following steps:
+
         1. Enter the new **cluster name**.
 
-            :::image type="content" source="../../../event-hubs/media/move-cluster-across-regions/deploy-template.png" alt-text="Screenshot showing Deploy Resource Manager template":::
+            :::image type="content" source="../../../event-hubs/media/move-cluster-across-regions/deploy-template.png" alt-text="Screenshot showing Deploy Resource Manager template.":::
+
     1. Select **Review + create** at the bottom of the page.
     1. On the **Review + create** page, review settings, and then select **Create**.  
 

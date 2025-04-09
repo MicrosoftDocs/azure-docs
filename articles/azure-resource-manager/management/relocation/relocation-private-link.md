@@ -36,7 +36,7 @@ Identify all resources that are used by Private Link Service, such as Standard l
 1. Redeploy the private endpoint into the relocated virtual network.
 1. Configure your DNS settings by following guidance in [Private DNS zone values](/azure/private-link/private-endpoint-dns?branch=main).
 
-:::image type="content" source="media/relocation/consumer-provider-endpoint.png" alt-text="Diagram that illustrates relocation process for Private Link service.":::
+:::image type="content" source="media/consumer-provider-endpoint.png" alt-text="Diagram that illustrates relocation process for Private Link service.":::
 
 ## Next steps
 

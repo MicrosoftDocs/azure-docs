@@ -57,14 +57,14 @@ Before you begin the relocation planning stage, first review the following prere
 
 Before you begin the cluster relocation process, make sure to complete the following preparations:
 
-1. To accommodate the AKS cluster nodes and pods, if using Azure CNI networking, deploy the virtual network with many subnets of sufficient size.
-1. If you're using Azure Key Vault, [Deploy the Key Vault](./relocation-key-vault.md).
-1. Ensure that the relevant TLS ingress certificates are available for deployment, ideally in a secure store such as Azure Key Vault.
-1. Deploy a container registry. Either sync the source registry images automatically or rebuild and push new images to the target registry using a CI/CD pipeline or script.
-1. [Deploy an Azure Monitor workspace](./relocation-log-analytics.md).
-1. (Optional) [Deploy Azure Application Gateway](./relocation-app-gateway.md) to handle ingress traffic Application Gateway Ingress Controller (AGIC) can tightly integrate with the cluster
-1. Deploy any data sources required by the cluster workload and restore or sync the source data.
-1. Execute existing IaC artifacts defined in a CI/CD pipeline that were used to deploy the source cluster and the services it depends upon. Change the code or template input parameters to redeploy to a different resource group and Azure region.
+-. To accommodate the AKS cluster nodes and pods, if using Azure CNI networking, deploy the virtual network with many subnets of sufficient size.
+-. If you're using Azure Key Vault, [Deploy the Key Vault](./relocation-key-vault.md).
+-. Ensure that the relevant TLS ingress certificates are available for deployment, ideally in a secure store such as Azure Key Vault.
+-. Deploy a container registry. Either sync the source registry images automatically or rebuild and push new images to the target registry using a CI/CD pipeline or script.
+-. [Deploy an Azure Monitor workspace](./relocation-log-analytics.md).
+-. (Optional) [Deploy Azure Application Gateway](./relocation-app-gateway.md) to handle ingress traffic Application Gateway Ingress Controller (AGIC) can tightly integrate with the cluster
+-. Deploy any data sources required by the cluster workload and restore or sync the source data.
+-. Execute existing IaC artifacts defined in a CI/CD pipeline that were used to deploy the source cluster and the services it depends upon. Change the code or template input parameters to redeploy to a different resource group and Azure region.
 
 ## Redeploy
 

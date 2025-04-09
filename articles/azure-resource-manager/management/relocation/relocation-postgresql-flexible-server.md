@@ -55,8 +55,8 @@ To get started, export a Resource Manager template. This template contains setti
 
 1. Adjust the exported template parameters to match the destination region.
 
-  > [!IMPORTANT]  
-  > The target server must be different from the name of the source server. You must reconfigure clients to point to the new server.
+    > [!IMPORTANT]  
+    > The target server must be different from the name of the source server. You must reconfigure clients to point to the new server.
 
 1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
 
@@ -69,8 +69,8 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
 
 1. Adjust the exported template parameters to match the destination region.
 
-  > [!IMPORTANT]  
-  > The target server name must be different from the source server name. You must reconfigure clients to point to the new server.
+    > [!IMPORTANT]  
+    > The target server name must be different from the source server name. You must reconfigure clients to point to the new server.
 
 1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
 1. On the compute resource provisioned for the migration, install the PostgreSQL client tools for the PostgreSQL version to be migrated. The following example uses PostgreSQL version 13 on an Azure VM that runs Ubuntu 20.04 LTS:

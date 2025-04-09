@@ -62,7 +62,7 @@ To get started, export a Resource Manager template. This template contains setti
 1. In the [Azure portal](https://portal.azure.com), navigate to your source registry.
 1. In the menu, under **Automation**, select **Export template** > **Download**.
 
-    :::image type="content" source="media/relocation/container-registry/export-template.png" alt-text="Screenshot of export template for container registry.":::
+    :::image type="content" source="media/container-registry/export-template.png" alt-text="Screenshot of export template for container registry.":::
 
 1. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 

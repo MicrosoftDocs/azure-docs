@@ -36,15 +36,15 @@ To get started, export a Resource Manager template for the domain.
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, type **Event Grid Domains**, and select **Event Grid Domains** from the results list.
 
-    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/search-domains.png" alt-text="Screenshot of Search for and select Event Grid domains.":::
+    :::image type="content" source="media/event-grid/move-domains-across-regions/search-domains.png" alt-text="Screenshot of Search for and select Event Grid domains.":::
 
 1. Select the **domain** that you want to export to a Resource Manager template.
 
-    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/select-domain.png" alt-text="Screenshot of select the domain page.":::
+    :::image type="content" source="media/event-grid/move-domains-across-regions/select-domain.png" alt-text="Screenshot of select the domain page.":::
 
 1. On the **Event Grid Domain** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar.
 
-    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/export-template-download.png" alt-text="Screenshot of export template -> Download page." lightbox="media/relocation/event-grid/move-domains-across-regions/export-template-download.png":::
+    :::image type="content" source="media/event-grid/move-domains-across-regions/export-template-download.png" alt-text="Screenshot of export template -> Download page." lightbox="media/event-grid/move-domains-across-regions/export-template-download.png":::
 
     > [!IMPORTANT]
     > Domain and domain topics are exported. Subscriptions for domain topics aren't exported. So, you need to create subscriptions for domain topics after you move domain topics.
@@ -80,7 +80,7 @@ Deploy the template to create the domain and domain topics in the target region.
     1. For the **domain name**, enter a new name for the domain.
     1. Select **Review + create**.
 
-        :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/deploy-template.png" alt-text="Screenshot of deploy template page.":::
+        :::image type="content" source="media/event-grid/move-domains-across-regions/deploy-template.png" alt-text="Screenshot of deploy template page.":::
 
     1. After the validation of the template succeeds, select **Create** at the bottom of the page to deploy the resource.
     1. After the deployment succeeds, select **Go to resource group** to navigate to the resource group page. Confirm that there's a domain in the resource group. Select the domain. Confirm that there are domain topics in the domain.

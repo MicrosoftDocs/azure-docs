@@ -17,7 +17,7 @@ Log Analytics workspace doesn't natively support migrating workspace data from o
 
 The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
 
-:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics workspace relocation pattern.":::
+:::image type="content" source="media/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics workspace relocation pattern.":::
 
 ## Relocation to availability zone support
 
