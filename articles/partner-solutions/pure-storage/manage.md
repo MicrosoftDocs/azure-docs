@@ -64,9 +64,9 @@ One you've created a resource, you can create a storage pool.
 1. Select the **Create** button.
 
     > [!NOTE]
-    > It can take up to 1 hour for deployment to complete. 
+    > It can take up to 1 hour for deployment to complete.
 
-### Connect a Storage Pool to an Azure VMware resource
+### Connect a Storage Pool to an Azure VMWare Solution resource
 
 Once you've created a storage pool, you can link the storage pool to an Azure VMware resource from the Azure portal.
 
@@ -75,4 +75,4 @@ Once you've created a storage pool, you can link the storage pool to an Azure VM
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-To connect a storage pool to an Azure VMware resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
+To connect a storage pool to an Azure VMWare Solution resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
