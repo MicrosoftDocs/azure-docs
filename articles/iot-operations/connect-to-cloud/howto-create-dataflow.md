@@ -663,8 +663,6 @@ If the `temperature` field is greater than 20, the data is passed to the next st
 
 To map the data to another field with optional conversion, you can use the `map` operation. The conversion is specified as a formula that uses the fields in the source data.
 
-# [Operations experience](#tab/portal)
-
 In the operations experience, mapping is currently supported using **Compute**, **Rename**, and **New property** transforms.
 
 #### Compute
