@@ -59,7 +59,7 @@ The resultant PowerShell object is as follows:
 > [!IMPORTANT]
 > Currently, updating or modifying an existing policy isn't supported. Instead, create a new policy with the required details and assign it to the relevant backup instance.
 
-To create an backup policy, use the following `PUT` operation:
+To create a backup policy, use the following `PUT` operation:
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupPolicies/{policyName}?api-version=2021-01-01
@@ -147,7 +147,7 @@ The policy says:
 ```
 
 > [!IMPORTANT]
-> The time formats support only `DateTime`. `Time` is not supported. The time of the day indicates the backup start time, not the finish time.
+> The time formats support only `DateTime`. `Time` is not supported. The time of the day indicates the backup start time, not the end time.
 
 Let's update the preceding JSON with two changes:
 

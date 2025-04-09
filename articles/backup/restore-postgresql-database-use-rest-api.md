@@ -1,6 +1,6 @@
 ---
 title: Restore PostgreSQL Databases by Using the Data Protection REST API
-description: Learn how to restore PostgreSQL databases in Azure Database for PostgreSQL by using the Azure Backup Data Protection REST API.
+description: Learn how to restore Azure Database for PostgreSQL by using the Azure Backup Data Protection REST API.
 ms.topic: how-to
 ms.date: 02/09/2025
 ms.service: azure-backup
@@ -16,21 +16,21 @@ Because a PostgreSQL database is a platform as a service (PaaS) database, the Or
 
 ## Prerequisites
 
-- [Create a backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
+- [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 - [Create a PostgreSQL database backup policy](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md)
 - [Configure a PostgreSQL database backup](backup-azure-data-protection-use-rest-api-backup-postgresql.md)
 
-The examples in this article refer to an existing backup vault named `TestBkpVault` under the resource group `testBkpVaultRG`.
+The examples in this article refer to an existing Backup vault named `TestBkpVault` under the resource group `testBkpVaultRG`.
 
 ## Restore a backed-up PostgreSQL database
 
 ### Set up permissions
 
-A backup vault uses a managed identity to access other Azure resources. To restore from a backup, a backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
+A Backup vault uses a managed identity to access other Azure resources. To restore from a backup, a Backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
 
 To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-restore).
 
-To restore the recovery point as files to a storage account, the backup vault's system-assigned managed identity needs [access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, the Backup vault's system-assigned managed identity needs [access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
 ### Fetch the relevant recovery point
 

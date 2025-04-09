@@ -1,6 +1,6 @@
 ---
 title: Back Up PostgreSQL Databases by Using Azure PowerShell
-description: Learn how to back up databases in Azure Database for PostgreSQL by using Azure PowerShell.
+description: Learn how to back up Azure Database for PostgreSQL by using Azure PowerShell.
 ms.topic: how-to
 ms.date: 03/18/2025
 ms.custom: devx-track-azurepowershell
@@ -11,17 +11,17 @@ ms.author: jsuri
 
 # Back up PostgreSQL databases by using Azure PowerShell
 
-This article explains how to back up PostgreSQL databases in [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using Azure PowerShell.
+This article describes how to back up  [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using Azure PowerShell.
 
 Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) for backing up PostgreSQL databases in Azure Database for PostgreSQL.
 
-## Create a backup vault
+## Create a Backup vault
 
-A backup vault is a storage entity in Azure. It stores the backup data for various new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, Azure disks, and Azure blobs. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
+A Backup vault is a storage entity in Azure. It stores the backup data for various new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, Azure disks, and Azure blobs. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before you create a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location.
+Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location.
 
-In this article, you create a backup vault named `TestBkpVault`, in the `westus` region, under the resource group `testBkpVaultRG`. Use the [`New-AzDataProtectionBackupVault`](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a backup vault. [Learn more about creating a backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
+In this article, you create a Backup vault named `TestBkpVault`, in the `westus` region, under the resource group `testBkpVaultRG`. Use the [`New-AzDataProtectionBackupVault`](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a Backup vault. [Learn more about creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurepowershell-interactive
 $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant/GeoRedundant -DataStoreType VaultStore
@@ -236,9 +236,9 @@ $keyURI = "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-You need to connect the backup vault to the PostgreSQL server and then access the database via the keys present in the key vault. So, the backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
+You need to connect the Backup vault to the PostgreSQL server and then access the database via the keys present in the key vault. So, the Backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's managed identity.
 
-[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the backup vault's managed identity on the PostgreSQL server and Azure Key Vault, where the keys to the database are stored.
+[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the Backup vault's managed identity on the PostgreSQL server and Azure Key Vault, where the keys to the database are stored.
 
 ### Prepare the request
 
@@ -297,7 +297,7 @@ Backup-AzDataProtectionBackupInstanceAdhoc -BackupInstanceName $AllInstances[0].
 
 Track all jobs by using the [`Get-AzDataProtectionJob`](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
 
-You can also use `Az.ResourceGraph` to track all jobs across all backup vaults. Use the [`Search-AzDataProtectionJobInAzGraph`](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to fetch the relevant jobs across any backup vault:
+You can also use `Az.ResourceGraph` to track all jobs across all Backup vaults. Use the [`Search-AzDataProtectionJobInAzGraph`](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to fetch the relevant jobs across any Backup vault:
 
 ```azurepowershell-interactive
   $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureDisk -Operation OnDemandBackup

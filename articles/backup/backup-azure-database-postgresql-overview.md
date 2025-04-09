@@ -1,5 +1,5 @@
 ---
-title: What Is Azure Database for PostgreSQL Backup?
+title: Overview of Azure Database for PostgreSQL Backup
 description: Get an overview of the Azure Database for PostgreSQL backup solution.
 ms.topic: overview
 ms.date: 03/18/2025
