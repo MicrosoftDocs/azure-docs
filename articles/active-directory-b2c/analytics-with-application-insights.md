@@ -138,7 +138,7 @@ Open the *TrustFrameworkExtensions.xml* file from the starter pack. Add the tech
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <!-- The ApplicationInsights instrumentation key, which you use for logging the events -->
-        <Item Key="InstrumentationKey">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Item>
+        <Item Key="ConnectionString">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Item>
         <Item Key="DeveloperMode">false</Item>
         <Item Key="DisableTelemetry ">false</Item>
       </Metadata>

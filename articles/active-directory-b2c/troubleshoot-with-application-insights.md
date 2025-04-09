@@ -77,7 +77,7 @@ To create an instance of Application Insights in your subscription, follow these
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the Application Insights **Instrumentation Key** that you recorded earlier.
 
     ```xml
-    <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+    <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="{Your Application Insights ConnectionString}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
     * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline. Good for development, but constrained at high volumes. In production, set the `DeveloperMode` to `false`.
@@ -102,7 +102,7 @@ To create an instance of Application Insights in your subscription, follow these
          <Endpoint Id="Token" UserJourneyReferenceId="RedeemRefreshToken" />
       </Endpoints>
       <UserJourneyBehaviors>
-        <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+        <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="{Your Application Insights ConnectionString}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
     </TrustFrameworkPolicy>
@@ -195,7 +195,7 @@ To improve your production environment performance and better user experience, i
 
    ```xml
    <UserJourneyBehaviors>
-     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+     <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="{Your Application Insights ConnectionString}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
    </UserJourneyBehaviors>
    ```
    
