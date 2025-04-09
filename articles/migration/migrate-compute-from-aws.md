@@ -5,7 +5,9 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 03/25/2025
 ms.topic: conceptual
-ms.custom: migration
+ms.collection:
+ - migration
+ - aws-to-azure
 ---
 
 # Migrate compute from Amazon Web Services to Azure

@@ -71,8 +71,8 @@ items:
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-    - name: Tutorials
-      items:
+  - name: Tutorials
+    items:
       - name: 1 - Network planning checklist
         href: tutorial-network-checklist.md
       - name: 2 - Create a private cloud
