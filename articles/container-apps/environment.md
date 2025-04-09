@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 08/29/2023
+ms.date: 04/09/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
