@@ -17,7 +17,7 @@ For information on the supported scenarios, limitations, and authentication mech
 
 ## Prerequisites
 
-- [Create a backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
+- [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 - [Create a PostgreSQL backup policy](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md)
 
 ## Configure backup
@@ -46,9 +46,9 @@ The following example uses Bash. Note the secret identifier of the relevant key.
 
 #### Backup vault
 
-A backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, the backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
+A Backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, the Backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's managed identity.
 
-You need to grant permissions to the backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database. [Learn more](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup).
+You need to grant permissions to the Backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database. [Learn more](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup).
 
 ### Prepare the request
 
@@ -291,7 +291,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ### Configure a backup request
 
-After the request is validated, you can submit the request to the [Create Backup Instance API](/rest/api/dataprotection/backup-instances/create-or-update). One of the Azure Backup data protection services helps protect the backup instance within the backup vault. Here, the PostgreSQL database is the backup instance. Use the previously validated request body with minor additions.
+After the request is validated, you can submit the request to the [Create Backup Instance API](/rest/api/dataprotection/backup-instances/create-or-update). One of the Azure Backup data protection services helps protect the backup instance within the Backup vault. Here, the PostgreSQL database is the backup instance. Use the previously validated request body with minor additions.
 
 Use a unique name for the backup instance. We recommend that you use a combination of the resource name and a unique identifier. For example, the following operation uses `testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149` and marks it as the name of the backup instance.
 

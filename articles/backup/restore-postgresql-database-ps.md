@@ -15,7 +15,7 @@ This article explains how to use Azure PowerShell to restore PostgreSQL database
 
 Because a PostgreSQL database is a platform as a service (PaaS) database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure Database for PostgreSQL server or in any other PostgreSQL server. This option is called Alternate-Location Recovery (ALR). ALR helps to keep both the source database and the restored (new) database.
 
-The examples in this article refer to an existing backup vault named `TestBkpVault` under the resource group `testBkpVaultRG`:
+The examples in this article refer to an existing Backup vault named `TestBkpVault` under the resource group `testBkpVaultRG`:
 
 ```azurepowershell-interactive
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
@@ -25,11 +25,11 @@ $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -Resourc
 
 ### Set up permissions
 
-A backup vault uses a managed identity to access other Azure resources. To restore from a backup, the backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
+A Backup vault uses a managed identity to access other Azure resources. To restore from a backup, the Backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
 
 To assign the relevant permissions for a vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-restore).
 
-To restore the recovery point as files to a storage account, the [backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
 ### Fetch the relevant recovery point
 
@@ -127,7 +127,7 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2]
 
 Track jobs by using the [`Get-AzDataProtectionJob`](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
 
-You can also use `Az.ResourceGraph` to track jobs across all backup vaults. Use the [`Search-AzDataProtectionJobInAzGraph`](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to get the relevant job that's across all backup vaults:
+You can also use `Az.ResourceGraph` to track jobs across all Backup vaults. Use the [`Search-AzDataProtectionJobInAzGraph`](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to get the relevant job that's across all Backup vaults:
 
 ```azurepowershell-interactive
 $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureDatabaseForPostgreSQL -Operation OnDemandBackup

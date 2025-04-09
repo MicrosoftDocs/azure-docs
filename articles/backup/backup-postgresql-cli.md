@@ -15,13 +15,13 @@ This article describes how to back up PostgreSQL databases in [Azure Virtual Mac
 
 Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) for backing up Azure Database for PostgreSQL.
 
-## Create a backup vault
+## Create a Backup vault
 
-A backup vault is a storage entity in Azure. It stores the backup data for new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, blobs in a storage account, and Azure disks. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
+A Backup vault is a storage entity in Azure. It stores the backup data for new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, blobs in a storage account, and Azure disks. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before you create a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location.
+Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location.
 
-In this article, you create a backup vault with the name `TestBkpVault`, in the `westus` region, under the resource group `testBkpVaultRG`. Use the [`az dataprotection vault create`](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command to create a backup vault. [Learn more about creating a backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
+In this article, you create a Backup vault with the name `TestBkpVault`, in the `westus` region, under the resource group `testBkpVaultRG`. Use the [`az dataprotection vault create`](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command to create a Backup vault. [Learn more about creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
@@ -293,9 +293,9 @@ keyURI="https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-A backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, the backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
+A Backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, the Backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's managed identity.
 
-[Read about the permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database.
+[Read about the permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the Backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database.
 
 ### Prepare the request
 
@@ -435,7 +435,7 @@ az dataprotection backup-instance adhoc-backup --name "ossrg-empdb11" --rule-nam
 
 Track all jobs by using the [`az dataprotection job list`](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use `Az.ResourceGraph` to track all jobs across all backup vaults. Use the [`az dataprotection job list-from-resourcegraph`](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to fetch the relevant jobs across backup vaults:
+You can also use `Az.ResourceGraph` to track all jobs across all Backup vaults. Use the [`az dataprotection job list-from-resourcegraph`](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to fetch the relevant jobs across Backup vaults:
 
 ```azurecli
 az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL --status Completed

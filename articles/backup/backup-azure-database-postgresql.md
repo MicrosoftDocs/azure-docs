@@ -39,7 +39,7 @@ You can configure a backup on multiple PostgreSQL databases across multiple Azur
    :::image type="content" source="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-inline.png" alt-text="Screenshot that shows the pane for choosing an Azure Database for PostgreSQL server." lightbox="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-expanded.png":::
 
    > [!NOTE]
-   > You don't need to back up the databases **azure_maintenance** and **azure_sys**. Additionally, you can't back up a database that's already backed up to a backup vault.
+   > You don't need to back up the databases **azure_maintenance** and **azure_sys**. Additionally, you can't back up a database that's already backed up to a Backup vault.
    >
    > You can back up private endpoint-enabled Azure Database for PostgreSQL servers by allowing trusted Microsoft services in the network settings.
 
@@ -55,7 +55,7 @@ You can configure a backup on multiple PostgreSQL databases across multiple Azur
 
       :::image type="content" source="./media/backup-azure-database-postgresql/enter-secret-uri-inline.png" alt-text="Screenshot that shows how to get a secret U R I." lightbox="./media/backup-azure-database-postgresql/enter-secret-uri-expanded.png":::
 
-      However, with this option, Azure Backup has no visibility into the key vault that you referenced. Access permissions on the key vault can't be granted inline. For the backup operation to succeed, the backup admin, along with the PostgreSQL and/or key vault admin, needs to ensure that the backup vault's [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-key-vault) outside the [configure backup](#configure-a-backup-on-postgresql-databases) flow.
+      However, with this option, Azure Backup has no visibility into the key vault that you referenced. Access permissions on the key vault can't be granted inline. For the backup operation to succeed, the backup admin, along with the PostgreSQL and/or key vault admin, needs to ensure that the Backup vault's [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-key-vault) outside the [configure backup](#configure-a-backup-on-postgresql-databases) flow.
 
    - **Select from key vault**: Use this option if you know the key vault and secret names. Then click **Select a key vault and secret** and enter the details.
 
@@ -87,17 +87,17 @@ You can configure a backup on multiple PostgreSQL databases across multiple Azur
 
      :::image type="content" source="./media/backup-azure-database-postgresql/role-assignment-not-done-inline.png" alt-text="Screenshot that shows the error about the role assignment not done." lightbox="./media/backup-azure-database-postgresql/role-assignment-not-done-expanded.png":::
 
-1. Select **Assign missing roles** on the action menu and assign roles. After the process starts, the [missing access permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the key vault and/or the Azure Database for PostgreSQL server are granted to the backup vault. In the **Scope** area, you can define the scope at which the access permissions should be granted. When the action is complete, revalidation starts.
+1. Select **Assign missing roles** on the action menu and assign roles. After the process starts, the [missing access permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the key vault and/or the Azure Database for PostgreSQL server are granted to the Backup vault. In the **Scope** area, you can define the scope at which the access permissions should be granted. When the action is complete, revalidation starts.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/assign-missing-roles-inline.png" alt-text="Screenshot that shows the button for assigning missing roles." lightbox="./media/backup-azure-database-postgresql/assign-missing-roles-expanded.png":::
 
    :::image type="content" source="./media/backup-azure-database-postgresql/define-scope-of-access-permission-inline.png" alt-text="Screenshot that shows the box for defining the scope of access permissions." lightbox="./media/backup-azure-database-postgresql/define-scope-of-access-permission-expanded.png":::
 
-   The backup vault accesses secrets from the key vault and runs a test connection to the database to validate that the credentials were entered correctly. The privileges of the database user are also checked to see [if the database user has backup-related permissions on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
+   The Backup vault accesses secrets from the key vault and runs a test connection to the database to validate that the credentials were entered correctly. The privileges of the database user are also checked to see [if the database user has backup-related permissions on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
 
    If a low-privileged user doesn't have backup/restore permissions on the database, the validations fail. A PowerShell script is dynamically generated for each record or selected database. [Run the PowerShell script to grant these privileges to the database user on the database](#create-a-secret-in-the-key-vault). Alternatively, you can assign these privileges by using the pgAdmin or PSQL tool.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-inline.png" alt-text="Screenshot that shows a backup vault accessing secrets from a key vault." lightbox="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-inline.png" alt-text="Screenshot that shows a Backup vault accessing secrets from a key vault." lightbox="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-expanded.png":::
 
    :::image type="content" source="./media/backup-azure-database-postgresql/run-test-connection.png" alt-text="Screenshot that shows the process to start a test connection.":::
 
