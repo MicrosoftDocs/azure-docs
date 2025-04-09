@@ -6,6 +6,7 @@ ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/05/2024
+monikerRange: migrate
 ---
 
 # Review an application assessment
