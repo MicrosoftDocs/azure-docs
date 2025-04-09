@@ -5,7 +5,7 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 03/04/2025
+ms.date: 04/08/2025
 ms.author: greglin
 ---
 
@@ -69,7 +69,12 @@ Application Gateway V1 SKU only supports the older "Custom" policy. Beyond Augus
 
 ## Backend TLS connections
 
-You don't need to configure anything on your Application Gateway for the backend connection's TLS version as the selection of TLS policy has no control over the backend TLS connections. After retirement, the connections to backend servers will always be with preferred TLS v1.3 and up to TLS v1.2. You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
+You don't need to configure anything on your Application Gateway for the backend connection's TLS version as the selection of TLS policy has no control over the backend TLS connections. After the retirement, 
+
+* For V2 SKUs: the connections to backend servers will always be with preferred TLS v1.3 and minimum up to TLS v1.2
+* For V1 SKUs: the connections to backend servers will always be with TLS v1.2
+
+You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
 
 ## Next steps
 

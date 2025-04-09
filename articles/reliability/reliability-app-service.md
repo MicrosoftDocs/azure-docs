@@ -160,7 +160,7 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 ### Normal operations
 
-The following information describes what happens when you have a zone-redundant App Service plan and all availability zones are operational:
+This section describes what to expect when Azure App Service plans are configured for zone redundancy and all availability zones are operational.
 
 - **Traffic routing between zones:** During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
 
@@ -168,7 +168,7 @@ The following information describes what happens when you have a zone-redundant 
 
 ### Zone-down experience
 
-The following information describes what happens when you have a zone-redundant App Service plan and there's an availability zone outage:
+This section describes what to expect when an Azure App Service plan is configured for zone redundancy and there's an availability zone outage:
 
 - **Detection and response:** The App Service platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
 

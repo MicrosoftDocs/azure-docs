@@ -160,7 +160,7 @@ When the private endpoint is created, five fully qualified domain names (FQDNs) 
 
 The five domain names are formatted in this pattern:
 
-`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
+`{Vault-ID}-asr-pod01-{type}.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
 ### Approve private endpoints for site recovery
 
@@ -299,7 +299,7 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
       private DNS zone.
 
       These fully qualified domain names match this pattern:
-      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      `{Vault-ID}-asr-pod01-{type}.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Screenshot that shows the Add record set page.":::
 
