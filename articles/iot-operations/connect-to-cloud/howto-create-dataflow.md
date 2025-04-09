@@ -780,6 +780,101 @@ builtInTransformationSettings:
 
 To learn more, see [Map data by using data flows](concept-dataflow-mapping.md) and [Convert data by using data flows](concept-dataflow-conversions.md).
 
+#### Remove
+
+By default, all datapoints are included in the output schema. You can remove any datapoint from the destination using the **Remove** transform.
+
+1. Under **Transform (optional)**, select **Remove**. 
+1. Select the datapoint to remove from the output schema.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-remove.png" alt-text="Screenshot using operations experience to remove the weight datapoint the output schema.":::
+
+1. Select **Apply**.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: [
+        '*'
+      ]
+      output: '*'
+    }
+    {
+      inputs: [
+        'weight'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.SourceTimestamp'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.Value'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Code'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Symbol'
+      ]
+      output: ''
+    }
+  ]
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+builtInTransformationSettings:
+  map:
+    - type: PassThrough
+      inputs:
+        - "*"
+      output: "*"
+    - inputs:
+        - weight
+      output: ""
+    - inputs:
+        - weight.SourceTimestamp
+      output: ""
+    - inputs:
+        - weight.Value
+      output: ""
+    - inputs:
+        - weight.StatusCode
+      output: ""
+    - inputs:
+        - weight.StatusCode.Code
+      output: ""
+    - inputs:
+        - weight.StatusCode.Symbol
+      output: ""
+```
+
+---
+
+To learn more, see [Map data by using data flows](concept-dataflow-mapping.md) and [Convert data by using data flows](concept-dataflow-conversions.md).
+
 ### Serialize data according to a schema
 
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
