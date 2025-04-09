@@ -68,7 +68,7 @@ One you've created a resource, you can create a storage pool.
 
 ### Connect a Storage Pool to an Azure VMWare Solution resource
 
-Once you've created a storage pool, you can link the storage pool to an Azure VMware resource from the Azure portal.
+Once you've created a storage pool, you can link the storage pool to an Azure VMware Solution resource from the Azure portal.
 
 > [!IMPORTANT]
 > In order to connect your storage pool to an Azure VMware Solution resource, you must be an "Owner" or "RBACAdministrator" in your subscription.
