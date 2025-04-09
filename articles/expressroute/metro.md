@@ -38,12 +38,15 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 ## ExpressRoute Metro locations
 
-| Metro location | Peering locations | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
-|--|--|--|--|--|--|--|
-| Amsterdam Metro | Amsterdam<br>Amsterdam2 | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>Digital Realty<br>Equinix<br>euNetworks<br><br>Megaport<br> |
-| Madrid Metro | Madird<br>Madrid2 | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Equinix |
-| Singapore Metro | Singapore<br>Singapore2 | Equinix SG1<br>Global Switch Tai Seng | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
-| Zurich Metro | Zurich<br>Zurich2 | Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
+| Metro location | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
+|--|--|--|--|--|--|
+| Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>Digital Realty<br>Equinix<br>euNetworks<br><br>Megaport<br> |
+| Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Equinix |
+| Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; |  |
+| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Equinix |
+| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Equinix |
+| Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
+| Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
 
 <sup>1<sup> These service providers will be available in the future.
 
