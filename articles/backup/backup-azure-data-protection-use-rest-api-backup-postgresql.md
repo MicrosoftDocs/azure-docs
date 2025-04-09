@@ -510,7 +510,7 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 ## Next steps
 
-[Restore data from an Azure PostGreSQL database backup](restore-postgresql-database-use-rest-api.md)
+[Restore data from an Azure PostgreSQL database backup](restore-postgresql-database-use-rest-api.md)
 
 For more information on the Azure Backup REST APIs, see the following articles:
 

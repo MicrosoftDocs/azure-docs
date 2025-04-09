@@ -27,7 +27,7 @@ Azure VMware Solution creates the following read-only management subnets within 
 
 ## Other Virtual Networks
 
-Azure VMware Solution's connectivity to non-local Virtual Networks follows the same procedure as Azure Virtual Network users use to connect their workloads between Virtual Networks. The Virtual Network can be connected to other non-local Virtual Networks using Azure Virtual Network peering as described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
+Azure VMware Solution's connectivity to nonlocal Virtual Networks follows the same procedure as Azure Virtual Network users use to connect their workloads between Virtual Networks. The Virtual Network can be connected to other nonlocal Virtual Networks using Azure Virtual Network peering as described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
 
 Both regional Virtual Network peering and global Virtual Network peering is supported for Azure VMware Solution.
 
