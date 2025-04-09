@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 03/24/2025
+ms.date: 04/09/2025
 ---
 
 # Upgrade plan for Azure Data Factory connectors
@@ -30,8 +30,10 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [Salesforce (V1)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | To be determined | /| 
 | [Salesforce Service Cloud (V1)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | To be determined |/ | 
 | [PostgreSQL (V1)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support and GA version available |October 31, 2024 | /  | 
+| [Presto (version 1.0)](connector-presto.md)   | [Link](connector-presto.md#upgrade-the-presto-connector)| Preview version available |To be determined | /  | 
 | [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | To be determined | / | 
 | [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | To be determined | /  | 
+| [Spark (version 1.0)](connector-spark.md)   | [Link](connector-spark.md#upgrade-the-spark-connector)| Preview version available |To be determined | /  | 
 | [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | GA version available | To be determined | /  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
@@ -70,10 +72,12 @@ The following V1 connectors or version 1.0 now have new updated versions availab
 - [MySQL](connector-mysql.md#upgrade-the-mysql-driver-version)
 - [Oracle](connector-oracle.md#upgrade-the-oracle-connector)
 - [PostgreSQL](connector-postgresql.md#upgrade-the-postgresql-linked-service)
+- [Presto](connector-presto.md#upgrade-the-presto-connector)
 - [Salesforce](connector-salesforce.md#upgrade-the-salesforce-linked-service)
 - [Salesforce Service Cloud](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service)
 - [ServiceNow](connector-servicenow.md#upgrade-your-servicenow-linked-service)
 - [Snowflake](connector-snowflake.md#upgrade-the-snowflake-linked-service)
+- [Spark](connector-spark.md#upgrade-the-spark-connector)
 - [Vertica](connector-vertica.md#upgrade-the-vertica-version)
 
 ## Connectors that are at End of Support stage
