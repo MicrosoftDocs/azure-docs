@@ -206,7 +206,7 @@ For the **SN-Workload** subnet, configure the outbound default route to go throu
 7. For **Protocol**, select **TCP**.
 8. For **Source type**, select **IP address**.
 9. For **Source**, type *.
-10. For **Destination Addresses**, type the firewall's public or private IP address.
+10. For **Destination Addresses**, type the firewall's public IP address.
 11. For **Destination ports**, type **3389**.
 12. For **Translated Address**, type the private IP address of the Srv-Workload virtual machine.
 13. For **Translated port**, type **3389**.

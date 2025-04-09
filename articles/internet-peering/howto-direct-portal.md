@@ -126,7 +126,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 
 ## Deprovision a Direct peering
 
-[!INCLUDE [peering-direct-delete-portal](./includes/delete.md)]
+Currently, deprovisioning isn't supported using the Azure portal or PowerShell. To deprovision, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
 
 ## Related content
 
