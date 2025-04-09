@@ -39,7 +39,7 @@ In Azure API Management, use *workspaces* to implement federated API management.
 * Teams' access to resources within a workspace is managed through Azure's role-based access control (RBAC) with built-in or custom roles assignable to Microsoft Entra accounts and scoped to a workspace. 
 * Each workspace is associated with one or more [workspace gateways](#workspace-gateway) for routing API traffic to the backend services of APIs in the workspace.
 * The platform team can apply API policies spanning APIs in workspaces and implement a centralized API discovery experience with a developer portal.
-* Each workspace team can gather and analyze gateway resource logs to monitor their own workspace APIs, while the platform team can access federated logs for the API Management service, providing oversight, security, and compliance across their API ecosystem.
+* Each workspace team can gather and analyze gateway resource logs to monitor their own workspace APIs, while the platform team has federated access to logs across all workspaces in the API Management service, providing oversight, security, and compliance across their API ecosystem.
 
 :::image type="content" source="media/workspaces-overview/workspace-concept.png" alt-text="Conceptual diagram of API Management service with workspaces.":::
 

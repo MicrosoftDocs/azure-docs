@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 04/07/2025
+ms.date: 04/0/2025
 ms.custom:
 ---
 
@@ -117,7 +117,7 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 
 ## Enable diagnostic settings for Azure Monitor logs
 
-Configure settings to collect Azure Monitor log for the workspace and send them to a Log Analytics workspace so that the workspace team can monitor their own APIs. To collect Azure Monitor logs for the workspace, diagnostic settings are needed at both the service and workspace levels.
+Configure settings to collect Azure Monitor log for the workspace and send them to a Log Analytics workspace so that the workspace team can monitor their own APIs while the API platform team can access centralized logs for the API Management instance. To collect Azure Monitor logs for the workspace, diagnostic settings are needed at both the service and workspace levels.
 
 1. First, enable a diagnostics setting at the *service level* for collection of API Management gateway logs, if a setting isn't already enabled. We recommend sending logs to a Log Analytics workspace. For more information, see [Configure diagnostic settings for API Management](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -138,8 +138,8 @@ To configure a workspace diagnostic setting for collection of workspace-level ga
 
     1. **Diagnostic setting name**: Enter a descriptive name.
     1. **Category groups**: Optionally make a selection for your scenario.
-    1. Under **Categories**: Select **Logs related to ApiManagement Gateway** to collect logs for most requests to the workspace gateways. 
-    1. Under **Destination details**, select to send logs to an Azure Log Analytics workspace
+    1. Under **Categories**: Select **Logs related to ApiManagement Gateway** to collect gateway logs for APIs in this workspace.
+    1. Under **Destination details**, select to send logs to the same Azure Log Analytics workspace specified in the service-level diagnostic setting and in other workspace-level diagnostic settings. 
     1. Select **Save**.
 
 > [!NOTE]
