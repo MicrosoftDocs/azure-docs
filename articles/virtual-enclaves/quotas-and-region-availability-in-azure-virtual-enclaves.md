@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 # Quota and region availability in Azure Virtual Enclaves
 
 All Azure services set default limits and quotas for resources and features, such as usage restrictions for certain virtual machine (VM) SKUs.
-Example: [DS_v5 series](https://learn.microsoft.com/en-us/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations)
+Example: [DS_v5 series](https://learn.microsoft.com/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations)
 
 This article details the default resource limits for Azure Virtual Enclaves (AVE) resources and the availability of AVE in Azure regions.
 
@@ -61,7 +61,7 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 [^8]: This is limited by the number of NSG rules per NSG. Assuming the source enclave doesn't come with any enclave endpoints, there's a maximum of 993 remaining NSG rules. Each enclave connection will create an additional outbound NSG rule on the source enclave.
 
 ## Provisioned infrastructure
-All other network, compute, and storage limitations apply to the provisioned infrastructure. For the relevant limits, see [Azure subscription and service limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits).
+All other network, compute, and storage limitations apply to the provisioned infrastructure. For the relevant limits, see [Azure subscription and service limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## Next steps
 You can increase certain default limits and quotas. If your resource supports an increase, request the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (for **Issue type**, select **Quota**).
