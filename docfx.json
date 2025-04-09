@@ -1507,7 +1507,7 @@
       },
       "migrate": {
         "dest": "migrate",
-        "moniker_range": ">=migrate-classic <=migrate"
+        "moniker_range": "<=migrate-classic >=migrate"
       }
     },
     "dest": "azure",
