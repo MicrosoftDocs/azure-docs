@@ -463,7 +463,13 @@ items:
       href: invoke-openapi-web-app-from-azure-ai-agent-service.md
 - name: WebJobs
   items:
-    - name: Create WebJobs
+    - name: Overview 
+      href: overview-webjobs.md 
+      displayname: WebJobs overview
+    - name: Create a scheduled WebJob
+      displayName: WebJobs
+      href: quickstart-webjobs.md
+    - name: WebJobs How-to
       href: webjobs-create.md
     - name: Develop WebJobs using VS
       href: webjobs-dotnet-deploy-vs.md
