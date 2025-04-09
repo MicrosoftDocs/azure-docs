@@ -42,6 +42,19 @@ See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spo
 
 1. Select **Save**.
 
+## To Ensure the Migration is Correctly Applied:
+```azurecli-interactive
+az batch pool show 
+
+--account-name <your-batch-account-name> 
+
+--account-endpoint "https://<your-batch-account-name>.<region>.batch.azure.com" 
+
+--pool-id <your-pool-id> 
+
+--query "{PoolID:id, VMSize:vmSize, SpotNodes:scaleSettings.targetLowPriorityNodes}"
+```
+
 ## FAQs
 
 - How do I create a user subscription pool allocation Batch account?

@@ -51,7 +51,7 @@ Use the following steps to create a dev center so you can manage your dev box re
 
 [!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
-### Create a project
+## Create a project
 
 Dev box projects enable you to manage team-level settings. These settings include providing access to development teams so developers can create dev boxes. Each dev center needs at least one project.
 

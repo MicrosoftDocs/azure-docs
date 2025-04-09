@@ -5,17 +5,17 @@ description: Learn how to add video effects in your video calls using Azure Comm
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 02/14/2025
+ms.date: 04/08/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-The Video effects feature allows users to incorporate visual effects into their video calls, providing developers with the ability to integrate background visual effects and background video replacement into their calling experience. Background blur offers users a way to eliminate distractions behind them, facilitating communication without disruptive activities or confidential information appearing in the background. This is helpful in telehealth contexts, where providers or patients may wish to obscure their surroundings to protect sensitive or personally identifiable information. Background blur can be applied across various virtual appointment scenarios, such as telebanking and virtual hearings, to enhance user privacy or to hide a messy office. In addition to improving confidentiality, background blur enables greater creative expression by allowing users to upload custom backgrounds for a more engaging and personalized calling experience.lows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
+The Video effects feature lets users add visual effects to video calls, including background blur and video replacement. This helps eliminate distractions and protect sensitive information, especially in contexts like telehealth, telebanking, and virtual hearings. Background blur enhances privacy and allows for custom backgrounds, making calls more engaging and personalized.
 
 > [!NOTE]
-> The calling effect library can't be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
+> The [calling effect library](https://www.npmjs.com/package/@azure/communication-calling-effects)is designed to work exclusively with the [Azure Communication Calling client library for WebJS](https://www.npmjs.com/package/@azure/communication-calling) and cannot be used independently. 
 
 ## Using video effects
 ### Install the package
@@ -23,15 +23,15 @@ The Video effects feature allows users to incorporate visual effects into their 
 > Background blur and background replacement for **Web Desktop browsers** is in GA availability. This quickstart uses the Azure Communication Services Calling SDK version of `1.13.1` (or greater) and the Azure Communication Services Calling Effects SDK version greater than or equal to `1.0.1`. Currently desktop browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
 
-> [!NOTE]
-> Background blur and background replacement for **Android Chrome and Android Edge mobile browser** is available in public preview starting in build [1.29.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1291-beta1-2024-08-26) and later beta WebJS SDK versions.
+> [!IMPORTANT]
+> Background blur and background replacement for **Android Chrome and Android Edge mobile browser** is available in General Availability starting in build [1.34.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1) and later WebJS SDK versions. You must use version [1.1.4](https://www.npmjs.com/package/@azure/communication-calling-effects) or higher of the calling effects package to implement background effects on Android mobile browsers.
 
 Use the `npm install` command to install the Azure Communication Services Effects SDK for JavaScript.
 
 ```console
 npm install @azure/communication-calling-effects --save
 ```
-For more information, see [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
 
 > [!NOTE]
 > Currently there are two available video effects:
@@ -143,5 +143,4 @@ For best results when preparing the frosted PNG image, keep in mind:
 
 * **Resolution**: Use 1920x1080 pixels for a high-quality background
 * **Avoid full opacity**: Colored content such as logos looks best with a little transparency. We recommend 75% opacity
-* **Defocus the image**: A Gaussian blur of radius 2 works well to simulate a bit of depth of field in the scene.
 * **Stencil mid-gray foreground**: For grayscale PNG with transparency, we recommend having the full image in mid-gray (value 128) so that the transparency pattern is visible on both light and dark backgrounds.

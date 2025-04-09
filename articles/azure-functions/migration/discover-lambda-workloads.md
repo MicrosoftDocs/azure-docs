@@ -4,6 +4,9 @@ description: Learn how to conduct a detailed discovery process to inventory curr
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
+ms.collection: 
+ - migration
+ - aws-to-azure
 ms.topic: how-to
 ms.date: 03/18/2025
 #customer intent: As a developer, I want to evaluate existing AWS Lambda workloads so that I can migrate serverless applications to Azure Functions efficiently.
