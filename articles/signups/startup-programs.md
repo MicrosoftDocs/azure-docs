@@ -6,7 +6,7 @@ author: jesscraze
 ms.author: jecru
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/04/2025
+ms.date: 04/08/2025
 
 ---
 
@@ -25,8 +25,8 @@ These two paths are designed to make accessing Azure credits and resources easie
 
 To qualify for the [startup credit offer](/overview.md), you must meet the following criteria:
 
-- You must be a new customer with no prior Azure account.
-- You must sign up or sign in using a valid personal Microsoft account (MSA).
+- You must be a new Azure customer with no prior Azure account.
+- You must sign up or sign in using a valid personal Microsoft Account (MSA).
 - You must be in a country/region where this Azure offer is available.
 
 ### How do I apply for Microsoft for Startups?
@@ -35,6 +35,6 @@ Learn more about [how to apply, explore program benefits, and find answers to co
 
 ### Can I receive the startup credit offer and join Microsoft for Startups?
 
-Yes! Founders that begin with the Azure startup credit offer can apply for Microsoft for Startups once they incorporate or register as a legal entity.
+Yes! Startups that begin with the Azure startup credit offer can apply for Microsoft for Startups once they incorporate or register as a legal entity.
 
 If you have already redeemed Azure credits through Microsoft for Startups, you aren't eligible for the startup credit offer.

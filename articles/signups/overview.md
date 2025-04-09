@@ -6,7 +6,7 @@ author: jesscraze
 ms.author: jecru
 ms.service: azure
 ms.topic: overview
-ms.date: 04/04/2025
+ms.date: 04/08/2025
 
 ---
 
@@ -18,8 +18,8 @@ Eligible startups can receive $1,000 USD in Azure credits to explore the latest 
 
 To qualify for the startup credit offer, you must meet the following criteria:
 
-- You must be a new customer with no prior Azure account.
-- You must sign up or sign in using a valid personal Microsoft account (MSA).
+- You must be a new Azure customer with no prior Azure account.
+- You must sign up or sign in using a valid personal Microsoft Account (MSA).
 - You must be in a country/region where this Azure offer is available.
 
 Learn more about the [Azure sponsorship offer](https://azure.microsoft.com/pricing/offers/ms-azr-0036p/) and review the [Azure Service Agreement & Terms](https://azure.microsoft.com/support/legal/).
@@ -34,7 +34,7 @@ By redeeming the startup credit offer, you agree not to facilitate, engage in, o
 
 ### How do I redeem my startup credit offer?
 
-Get started at [microsoft.com/startups](https://microsoft.com/startups). Sign in with your personal Microsoft account (MSA) to redeem the $1,000 startup credit offer for eligible startups directly in the Azure portal. Once you sign up, your credits are automatically applied to your Azure Sponsorship subscription. You can start using your credits immediately for eligible Azure services.
+Get started at [microsoft.com/startups](https://microsoft.com/startups). Sign in with your personal Microsoft Account (MSA) to redeem the $1,000 startup credit offer for eligible startups directly in the Azure portal. Once you sign up, your credits are automatically applied to your Azure Sponsorship subscription. You can start using your credits immediately for eligible Azure services.
 
 ### Why do I need a credit card to redeem my startup credit offer?
 
@@ -50,7 +50,7 @@ Learn how to [troubleshoot credit card issues](/azure/cost-management-billing/tr
 
 ### How long do I have to use my startup credit offer?
 
-You have 90 days after creating your Azure Sponsorship subscription to use your startup credits. Unused credits will expire after 90 days.
+You have 90 days after activating your startup credit offer to use your credits. Any unused credits will expire after 90 days.
 
 ### What happens when my $1,000 startup credit runs out or expires?
 
@@ -66,7 +66,7 @@ No, Azure benefits are applied on an account level and can't be shared or merged
 
 ### I signed in but I'm seeing an error about my eligibility. What should I do?
 
-The startup credit offer is only available for new customers using a personal Microsoft account (MSA). If you see an eligibility error:
+The startup credit offer is only available for new Azure customers using a personal Microsoft Account (MSA). If you see an eligibility error:
 
 - Check your account type. If signed in with a work or school account, sign out and switch to an MSA.
 - Check your Azure account. If you have an existing Azure subscription, you aren't eligible for the startup credit offer.

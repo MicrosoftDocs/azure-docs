@@ -1,6 +1,6 @@
 - name: Overview
   items:
-  - name: Overview of startup credit offer
+  - name: Overview of Azure startup credit offer
     href: overview.md
 - name: Concepts
   items: 
