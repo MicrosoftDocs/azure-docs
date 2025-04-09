@@ -34,7 +34,7 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | To be determined | / | 
 | [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | To be determined | /  | 
 | [Spark (version 1.0)](connector-spark.md)   | [Link](connector-spark.md#upgrade-the-spark-connector)| Preview version available |To be determined | /  | 
-| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | GA version available | To be determined | /  | 
+| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | GA version available | July 31, 2025 | /  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
