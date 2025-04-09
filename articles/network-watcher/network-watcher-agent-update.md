@@ -22,6 +22,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 [!INCLUDE [Network Watcher agent version](../../includes/network-watcher-agent-version.md)].
 
+> [!NOTE] 
+> When automatic extension upgrade is enabled, there may be a delay of up to 30 days between the release of a new extension version and its automatic upgrade on your virtual machines and scale sets.
+
 ### Identify latest version
 
 Use [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list) command to identify the latest version of the Network Watcher extension for your VM's operating system.

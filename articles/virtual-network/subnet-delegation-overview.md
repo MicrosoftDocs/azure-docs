@@ -56,7 +56,7 @@ Each Azure service defines their own deployment model, where they can define wha
 
 - Requires delegation to be removed before the subnet or virtual network can be deleted.
 
-- Can't be used with a private endpoint if the subnet is delegated.
+- Can't be used with a private endpoint if the subnet is delegated. As a consequence, private endpoint network policies should not be configured in these subnets.
 
 Injected services can also add their own policies as follows:
 

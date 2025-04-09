@@ -254,7 +254,7 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-|PostgreSql data type | Interim service data type for PostgreSQL V2 | Interim service data type for PostgreSQL V1 |
+|PostgreSQL data type | Interim service data type for PostgreSQL V2 | Interim service data type for PostgreSQL V1 |
 |:---|:---|:---|
 |`SmallInt`|`Int16`|`Int16`|
 |`Integer`|`Int32`|`Int32`|

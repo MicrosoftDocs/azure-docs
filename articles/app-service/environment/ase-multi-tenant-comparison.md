@@ -2,7 +2,7 @@
 title: App Service Environment v3 and App Service Public Multitenant Comparison
 description: This article provides an overview of the differences between App Service Environment v3 and the public multitenant offering of App Service.
 author: seligj95
-ms.date: 7/8/2024
+ms.date: 04/02/2025
 ms.author: jordanselig
 ms.topic: concept-article
 ---
