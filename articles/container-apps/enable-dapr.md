@@ -61,18 +61,18 @@ When using an IaC template, specify the following arguments in the `properties.c
    appId: 'nodeapp'
    appProtocol: 'http'
    appPort: 3000
-   httpReadBufferSize": 30
-   httpMaxRequestSize": 10
+   httpReadBufferSize: 30
+   httpMaxRequestSize: 10
    logLevel: 'debug'
-   enableApiLogging": true
-   appHealth": {
-     enabled": true
-     path": "/health"
+   enableApiLogging: true
+   appHealth: {
+     enabled: true
+     path: '/health'
      probeIntervalSeconds: 3
      probeTimeoutMilliseconds: 1000
      threshold: 3
    },
-   "maxConcurrency": 10
+   maxConcurrency: 10
   }
 ```
 
