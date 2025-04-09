@@ -5,7 +5,7 @@ author: padmalathas
 ms.author: padmalathas
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 02/25/2025
+ms.date: 04/09/2025
 ---
 
 # Migrate Batch low-priority VMs to Spot VMs
