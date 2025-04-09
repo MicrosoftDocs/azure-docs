@@ -14,7 +14,7 @@ Web applications can be hosted inside of a Virtual Enclave and made publicly acc
 
 ## Public Web Applications in Azure Virtual Enclaves
 
-![Graphic showing the architecture for securely hosting an application in Azure Virtual Enclaves.](./media/secure-webapp-architecture-ave.png)
+![Diagram showing the architecture for securely hosting an application in Azure Virtual Enclaves.](./media/secure-webapp-architecture-ave.png)
 
 ## Steps to make your web app accessible from the internet in Azure Virtual Enclaves
 
@@ -38,7 +38,7 @@ Web applications can be hosted inside of a Virtual Enclave and made publicly acc
 
 ## Public Web Application in the PLX Managed Service
 
-![Graphic showing the architecture for securely hosting an application in PLX Managed Service.](./media/secure-webapp-architecture-plx.png)
+![Diagram showing the architecture for securely hosting an application in PLX Managed Service.](./media/secure-webapp-architecture-plx.png)
 
 ## Steps to make your web app accessible from the internet in the Gates managed service
 

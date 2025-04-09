@@ -89,11 +89,11 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![Screenshot showing no existing Enclave Connections.](./media/tutorial-step-five-fabrikam-connection-list.png)
 
-3. Select `Create`
+2. Select `Create`
 
 ![Screenshot showing the Enclave Connection create button highlighted.](./media/tutorial-step-five-fabrikam-connection-create.png)
 
-4. Enter the details for your app/service
+3. Enter the details for your app/service
    - Enclave connection name: Name of the connection `fabrikam-external-connection`
    - Community: Select `fabrikam` from the dropdown
    - Source Type: Select `Enclave`
@@ -104,13 +104,13 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![Screenshot showing the required information entered into the Enclave Connection page.](./media/tutorial-step-five-fabrikam-connection-input.png)
 
-5. Select `Review + Create` and then `Create`
+4. Select `Review + Create` and then `Create`
 
-6. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave connections`. However, it's in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
+5. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave connections`. However, it's in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
 
 ![Screenshot showing the Enclave Connection created but in a disconnected state while pending approval.](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png)
 
-7. Review the pending approvals in `Approvals` on the left for the enclave.
+6. Review the pending approvals in `Approvals` on the left for the enclave.
 
 ![Screenshot showing the pending connection approval.](./media/tutorial-step-five-fabrikam-connection-approval-pending.png)
 
