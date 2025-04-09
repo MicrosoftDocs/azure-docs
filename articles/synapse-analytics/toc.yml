@@ -817,7 +817,7 @@ items:
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
       - name: Collect Apache Spark applications logs and metrics by certificate and service principal
-        href: ./spark/how-to-use-certsp-emit-log-to-eventhub.md
+        href: ./spark/how-to-use-certificate-with-service-principalp-emit-log-event-hubs.md
       - name: Manage Apache Spark configuration
         href: ./spark/apache-spark-azure-create-spark-configuration.md
       - name: Apache Spark Advisor

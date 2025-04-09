@@ -1,6 +1,6 @@
 ---
-title: How to use cert+sp emit log to eventhub
-description: Learn to setting up Azure services, particularly focusing on integrating Azure Synapse with Event Hubs and Key Vault.
+title: How to use certificate and Service Principal emit log to Azure Event Hubs
+description: Learn to setting up Azure services, particularly focusing on integrating Azure Synapse with Azure Event Hubs and Key Vault.
 author: jejiang
 ms.author: jejiang
 ms.reviewer: whhender
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 03/24/2025
 ---
 
-# How to use certificate and Service Principal emit log to eventhub
+# How to use certificate and service principal emit log to Azure Event Hubs
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Synapse Analytics workspace](/azure/synapse-analytics/get-started-create-workspace)
-- If you are new to Azure Event Hubs, read through [Event Hubs overview](/azure/event-hubs/event-hubs-about) and [Event Hubs features](/azure/event-hubs/event-hubs-features).
+- An Azure subscription. You can also [create a free account](https://azure.microsoft.com/free/) before you get started.
+- [Synapse Analytics workspace](/azure/synapse-analytics/get-started-create-workspace).
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about).
 - [Azure Key Vault](/azure/key-vault/general/overview)
 - [App Registration](https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 
@@ -28,17 +28,17 @@ ms.date: 03/24/2025
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to [App registrations](/entra/identity-platform/quickstart-register-app#register-an-application).
 2. Create a new app registration for your Synapse workspace.
 
-     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\create-a-new-app-registration.png" alt-text="Screenshot showing create a new app registration.":::
+     :::image type="content" source="media\how-to-use-certificate-with-service-principalp-emit-log-event-hubs\create-a-new-app-registration.png" alt-text="Screenshot showing create a new app registration.":::
 
-## Step 2. Generate a Certificate in Key Vault
+## Step 2. Generate a certificate in Key Vault
 
 1. Navigate to Key Vault.
 2. Expand the **Object**, and select the **Certificates**.
 3. Click on **Generate/Import**. 
 
-     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\generate-a-new-certificate.png" alt-text="Screenshot showing generate a new certificate for app.":::
+     :::image type="content" source="media\how-to-use-certificate-with-service-principalp-emit-log-event-hubs\generate-a-new-certificate.png" alt-text="Screenshot showing generate a new certificate for app.":::
 
-## Step 3. Trust the Certificate in the Application 
+## Step 3. Trust the certificate in the application 
 
 1. Go to the app created in Step 1 -> **Manage** -> **Manifest**. 
 2. Append the certificate details to the manifest file to establish trust. 
@@ -53,27 +53,27 @@ ms.date: 03/24/2025
           ] 
      ```
 
-     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\trust-the-certificate.png" alt-text="Screenshot showing trust the certificate in the application.":::
+     :::image type="content" source="media\how-to-use-certificate-with-service-principalp-emit-log-event-hubs\trust-the-certificate.png" alt-text="Screenshot showing trust the certificate in the application.":::
 
 ## Step 4. Assign Azure Event Hubs Data Sender Role 
 
-1. In Event Hub, navigate to Access control (IAM).
-2. Assign the app (Service Principal) with the Azure Event Hubs Data Sender role. 
+1. In Azure Event Hubs, navigate to Access control (IAM).
+2. Assign the Azure Event Hubs data sender role to the application (service principal).
 
-     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\assign-azure-event-hubs-data-sender-role.png" alt-text="Screenshot showing assign azure event hubs data sender role.":::
+     :::image type="content" source="media\how-to-use-certificate-with-service-principalp-emit-log-event-hubs\assign-azure-event-hubs-data-sender-role.png" alt-text="Screenshot showing assign Azure event hubs data sender role.":::
 
-## Step 5. Create a Linked Service in Synapse
+## Step 5. Create a linked service in Synapse
 
-1. In Synapse Analytics workspace, go to **Manage** -> **Linked service**.
-2. Create a new **Linked Service** in Synapse to connect to **Key Vault**. 
+1. In Synapse Analytics workspace, go to **Manage** -> **linked service**.
+2. Create a new **linked Service** in Synapse to connect to **Key Vault**. 
 
-     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\create-a-linked-service-in-synapse.png" alt-text="Screenshot showing create a linked service in synapse.":::
+     :::image type="content" source="media\how-to-use-certificate-with-service-principalp-emit-log-event-hubs\create-a-linked-service-in-synapse.png" alt-text="Screenshot showing create a linked service in synapse.":::
 
-## Step 6. Assign Reader Role to Linked Service in Key Vault
+## Step 6. Assign reader role to linked service in Key Vault
 
-1. Get the workspace managed identity ID from the linked service. The **managed identity name** and **object ID** for the linked service is under **Edit Linked Service**. 
+1. Get the workspace managed identity ID from the linked service. The **managed identity name** and **object ID** for the linked service is under **Edit linked service**. 
 
-     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\managed-identity-name-and-object-id.png" alt-text="Screenshot showing managed identity name and object id are in edit linked service.":::
+     :::image type="content" source="media\how-to-use-certificate-with-service-principalp-emit-log-event-hubs\managed-identity-name-and-object-id.png" alt-text="Screenshot showing managed identity name and object ID are in edit linked service.":::
 
 2. In **Key Vault**, assign the linked service a **Reader** role. 
 
@@ -84,10 +84,10 @@ Gather the following values and add to the Apache Spark configuration.
 - **<EMITTER_NAME>**: The name for the emmiter.
 - **<CERTIFICATE_NAME>**: The certificate name that you generated in the key vault.
 - **<LINKED_SERVICE_NAME>**: The Azure Key vault linked service name.
-- **<EVENT_HUB_HOST_NAME>**: The Event Hub host name, you can find it in Event Hubs Namespace -> Overview -> Host name.
-- **<SERVICE_PRINCIPAL_TENANT_ID>**: The service principal tenant id, you can find it in App registrations -> your app name -> Overview -> Directory (tenant) ID
-- **<SERVICE_PRINCIPAL_CLIENT_ID>**: The service principal client id, you can find it in registrations -> your app name -> Overview -> Application(client) ID
-- **<EVENT_HUB_ENTITY_PATH>**: The Event Hub entity path, you can find it in Event Hubs Namespace -> Overview -> Host name.
+- **<EVENT_HUB_HOST_NAME>**: The Azure Event Hubs host name, you can find it in Azure Event Hubs Namespace -> Overview -> Host name.
+- **<SERVICE_PRINCIPAL_TENANT_ID>**: The service principal tenant ID, you can find it in App registrations -> your app name -> Overview -> Directory (tenant) ID
+- **<SERVICE_PRINCIPAL_CLIENT_ID>**: The service principal client ID, you can find it in registrations -> your app name -> Overview -> Application(client) ID
+- **<EVENT_HUB_ENTITY_PATH>**: The Azure Event Hubs entity path, you can find it in Azure Event Hubs Namespace -> Overview -> Host name.
 
 ```
      "spark.synapse.diagnostic.emitters": <EMITTER_NAME>,
