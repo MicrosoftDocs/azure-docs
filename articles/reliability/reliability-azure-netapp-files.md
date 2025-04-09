@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure NetApp Files
 description: Find out about reliability in Azure NetApp Files, including availability zones and multi-region deployments.  #Required; 
-author: b-ahibard
+author: b-ahibbard
 ms.author: anfdocs
 ms.topic: reliability-article #Required
 ms.custom: subject-reliability, references_regions #Required  - use references_regions if specific regions are mentioned.
@@ -149,7 +149,7 @@ TODO: Add your cost information
 
 ### Configure availability zone support 
 
-To configure availability zone support in Azure NetApp Files, see [Manage availability zone volume placement for Azure NetApp Files](../azure-netapp-files/manage-availability-zone-volume-placement.md) and [Create cross-zone replication relationships for Azure NetApp Files](../azure/azure-netapp-files/create-cross-zone-replication.md).
+To configure availability zone support in Azure NetApp Files, see [Manage availability zone volume placement for Azure NetApp Files](../azure-netapp-files/manage-availability-zone-volume-placement.md) and [Create cross-zone replication relationships for Azure NetApp Files](../azure-netapp-files/create-cross-zone-replication.md).
 
 ### Capacity planning and management 
 TODO: Optional. Add your capacity planning and management 
@@ -369,7 +369,7 @@ You must include the following caveat:
 
 - [Use availability zone volume placement for application high availability with Azure NetApp Files](../azure-netapp-files/use-availability-zones.md)
 - [Manage availability zone volume placement for Azure NetApp Files](../azure-netapp-files/manage-availability-zone-volume-placement.md)
-- [Create cross-zone replication relationships for Azure NetApp Files](../azure/azure-netapp-files/create-cross-zone-replication.md).
+- [Create cross-zone replication relationships for Azure NetApp Files](../azure-netapp-files/create-cross-zone-replication.md).
 - [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md)
 - [Supported regions for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#supported-region-pairs)
 - [Requirements and considerations for using cross-region replication in Azure NetApp Files](../azure-netapp-files/cross-region-replication-requirements-considerations.md)
