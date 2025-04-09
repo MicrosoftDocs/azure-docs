@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 monikerRange: migrate
 --- 
 
-# Assessment overview
+# Overview of assessment
 
 This article provides an overview of Azure Migrate assessments. An Azure Migrate assessment evaluates your workloads hosted on your on-premises datacenter or other public clouds for migration to Azure. Each Azure Migrate assessment analyzes your source workloads for:
 
@@ -85,6 +85,7 @@ Apart from configuration and performance data, Azure Migrate assessment also con
 Review the best practices for creating an assessment with Azure Migrate.
 
 ## Next steps
+
 Review best practices for creating assessments.
 * Learn about running assessments for servers running in VMware and Hyper-V environment, and physical servers.
 * Learn about assessing servers imported with a CSV file.
