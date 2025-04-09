@@ -1,20 +1,20 @@
 ---
-title: Track and log Azure Data Box, Azure Data Box Heavy events for export order| Microsoft Docs
-description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy export order.
+title: Track and log Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy events for export order| Microsoft Docs
+description: Describes how to track and log events at the various stages of your Azure Data Box, Data Box Next Gen, and Data Box Heavy export order.
 services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 
 # Tracking and event logging for your Azure Data Box and Azure Data Box Heavy export orders
 
-A Data Box or Data Box Heavy export order goes through the following steps: order, set up, data copy, return, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
+A Data Box export order goes through the following steps: order, set up, data copy, return, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
-This article describes in detail the various mechanisms or tools available to track and audit export orders for Data Box or Data Box Heavy. The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
+This article describes in detail the various mechanisms or tools available to track and audit export orders for Data Box. The information in this article applies to both Data Box 120, Data Box 525, and Data Box. In the subsequent sections, any references to Data Box apply to all SKUs.
 
 The following table shows a summary of the Data Box export order steps and the tools available to track and audit the order during each step.
 
@@ -45,7 +45,7 @@ For more information on suggested Azure RBAC use, see [Best practices for Azure 
 
 ## Enable verbose log in the order
 
-When placing an export order for Data Box, you have the option to enable the collection of a verbose log. Here is the order screen where you can enable the verbose log:
+When placing an export order for Data Box, you have the option to enable the collection of a verbose log. The following is the order screen where you can enable the verbose log:
 
 ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
@@ -82,7 +82,7 @@ Before you copy data from your Data Box, you can download and review *copy log* 
 
 Before you copy the data from your Data Box, download the copy log from the **Connect and copy** page.
 
-Here is a sample output of *copy log* when there were no errors and all the files were copied during the data copy from Azure to Data Box device.
+The following is a sample output of *copy log* when there were no errors and all the files were copied during the data copy from Azure to Data Box device.
 
 ```output
 <CopyLog Summary="Summary">
@@ -185,9 +185,9 @@ After the data is erased from the Data Box disks as per the NIST SP 800-88 Revis
 
 ### Chain of custody audit logs
 
-The chain of custody audit logs contain information about powering on and accessing shares on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+The chain of custody audit logs contain information about powering on and accessing shares on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
 
-Here is a sample of the audit log from a Data Box:
+The following is a sample of the audit log from a Data Box:
 
 ```output
 9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
@@ -249,7 +249,7 @@ If you scroll through the order history, you see:
 - Events with *SecureErase* activity. These events correspond to the erasure of the data on the disk.
 - Data Box log links. The paths for the *audit logs*, *copy logs*, and *BOM* files are presented.
 
-Here is a sample of the order history log from Azure portal:
+The following is a sample of the order history log from Azure portal:
 
 ```
 -------------------------------
@@ -300,4 +300,4 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 
 ## Next steps
 
-- Learn how to [Troubleshoot issues on your Data Box and Data Box Heavy](data-box-troubleshoot.md).
+- Learn how to [Troubleshoot issues on your Data Box](data-box-troubleshoot.md).

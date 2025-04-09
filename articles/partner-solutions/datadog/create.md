@@ -20,7 +20,7 @@ In this quickstart, you create a new instance of Datadog.
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
-## Create a New Relic resource
+## Create a Datadog resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
@@ -98,17 +98,7 @@ Select the **Next** button at the bottom of the page.
 
 ### Single sign-on tab (optional)
 
-If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. 
-
-To establish single sign-on through Microsoft Entra ID:
-
-1. Select the checkbox.
-
-    The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID, which matches the Enterprise app you provided previously. 
-
-1. Select the Datadog app name.
-
-Select the **Next** button at the bottom of the page.
+[!INCLUDE [sso](../includes/sso.md)]
 
 ### Tags tab (optional)
 
@@ -120,5 +110,5 @@ Select the **Next** button at the bottom of the page.
 
 ## Next steps
 
-- [Manage the Datadog resource](manage.md)
+- [Manage Datadog resources](manage.md)
 

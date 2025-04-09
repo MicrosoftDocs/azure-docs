@@ -6,8 +6,8 @@ ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: juluczni
+ms.author: juluczni
 ms.date: 02/04/2022
 ---
 

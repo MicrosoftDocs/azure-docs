@@ -1,8 +1,8 @@
 ---
 title: Use External Tables with Synapse SQL
 description: Reading or writing data files with external tables in Synapse SQL.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: jovanpop, periclesrocha
 ms.date: 02/19/2025
 ms.service: azure-synapse-analytics
@@ -37,7 +37,7 @@ The key differences between Hadoop and native external tables:
 | CETAS (exporting/transformation) | Yes | CETAS with the native tables as a target works only in the serverless SQL pool. You can't use the dedicated SQL pools to export data using native tables. |
 
 > [!NOTE]
-> The native external tables are the recommended solution in the pools where they're generally available. If you need to access external data, always use the native tables in serverless pools. In dedicated pools, you should switch to the native tables for reading Parquet files once they are in GA. Use the Hadoop tables only if you need to access some types that aren't supported in native external tables (for example - ORC, RC), or if the native version isn't available.
+> The native external tables are the recommended solution in the pools where they're generally available. If you need to access external data, always use the native tables in serverless or dedicated pools. Use the Hadoop tables only if you need to access some types that aren't supported in native external tables (for example - ORC, RC), or if the native version isn't available.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 

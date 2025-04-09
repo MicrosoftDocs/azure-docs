@@ -13,7 +13,7 @@ ms.date: 03/31/2022
 
 This article describes causes and resolution steps for various "parse failed" errors while running [az dt](/cli/azure/dt) commands in the Azure CLI.
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 ## Symptoms
 

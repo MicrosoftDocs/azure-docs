@@ -151,7 +151,7 @@ kubectl apply -f <FILE>.yaml
 # [Portal](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
 

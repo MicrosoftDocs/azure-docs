@@ -229,6 +229,7 @@ func start
 npm install
 npm start     
 ```
+
 ::: zone-end
 ::: zone pivot="programming-language-python" 
 This command must be [run in a virtual environment](./create-first-function-cli-python.md).
@@ -243,6 +244,10 @@ Host.Functions.MyHttpTrigger
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 </pre>
+
+::: zone pivot="programming-language-typescript,programming-language-javascript"
+How your functions are loaded depends on your project configuration. To learn more, see [Registering a function](functions-reference-node.md#registering-a-function). 
+::: zone-end
 
 Keep in mind the following considerations when running your functions locally:
 

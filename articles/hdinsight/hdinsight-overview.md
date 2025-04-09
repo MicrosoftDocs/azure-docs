@@ -3,6 +3,9 @@ title: What is Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop and Apache Spark technology stack and components, including Kafka, Hive, and HBase for big data analysis.
 ms.service: azure-hdinsight
 ms.topic: overview
+author: reachnijel
+ms.author: nijelsf
+ms.reviewer: sairamyeturi
 ms.date: 02/24/2025
 #Customer intent: As a data analyst, I want understand what is Azure HDInsight and Hadoop and how it is offered in so that I can decide on using HDInsight instead of on premises clusters.
 ---

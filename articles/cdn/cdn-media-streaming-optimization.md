@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Media streaming optimization with Azure Content Delivery Network
 description: Learn about options to optimize streaming media in Azure Content Delivery Network, such as partial cache sharing and cache fill wait time.
 services: cdn
@@ -7,7 +8,7 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ---
 
 # Media streaming optimization with Azure Content Delivery Network

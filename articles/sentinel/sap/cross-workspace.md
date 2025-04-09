@@ -31,8 +31,6 @@ This article discusses how to work with the Microsoft Sentinel solution for SAP 
 > [!IMPORTANT]
 > Working with multiple workspaces is currently in preview. This feature is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!NOTE]
-> Multi-workspace support is available only with the data connector agent, and isn't supported with the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
 
 ## SAP and SOC data maintained in separate workspaces
 

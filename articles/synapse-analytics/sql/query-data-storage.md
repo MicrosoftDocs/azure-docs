@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 01/23/2025
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ 
 ---
 
 # Query storage files using serverless SQL pool

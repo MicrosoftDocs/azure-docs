@@ -3,7 +3,6 @@ title: Virtual network connections for DPS
 titleSuffix: Azure IoT Device Provisioning Service
 description: How to use the virtual networks connectivity pattern with Azure IoT Device Provisioning Service (DPS)
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
@@ -43,7 +42,7 @@ Before proceeding ensure that the following prerequisites are met:
 
 * Your DPS resource is already created and linked to your IoT hubs. For guidance on setting up a new DPS resource, see, [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md)
 
-* You have provisioned an Azure VNET with a subnet in which the private endpoint will be created. For more information, see, [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md).
+* You provisioned an Azure VNET with a subnet in which the private endpoint is created. For more information, see, [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md).
 
 * For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
 
@@ -61,7 +60,7 @@ Note the following current limitations for DPS when using private endpoints:
 
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment.
 
-* Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. Once public access is disabled, you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the VNET(s)/private endpoint(s) configured on the DPS instance.
+* Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. Once public access is disabled, you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside one or more VNETs/private endpoints configured on the DPS instance.
 
 * When using private endpoints, we recommend deploying DPS in one of the regions that support [Availability Zones](iot-dps-ha-dr.md). Otherwise, DPS instances with private endpoints enabled may see reduced availability in the event of outages.
 
@@ -155,9 +154,9 @@ You can request a private endpoint to a DPS instance by resource ID. In order to
     ![Screenshot that shows the DPS Properties tab.](./media/virtual-network-support/dps-properties.png)
 
     > [!CAUTION]
-    > Be aware that the resource ID does contain the subscription ID.
+    > The resource ID does contain the subscription ID.
 
-2. Once you have the resource ID, follow the steps above in [Set up a private endpoint](#set-up-a-private-endpoint) to step 3 on the _Create a private endpoint Resource_ page. Select **Connect to an Azure resource by resource ID or alias** and enter the information in the following table. 
+2. Once you have the resource ID, follow the steps in [Set up a private endpoint](#set-up-a-private-endpoint) to step 3 on the _Create a private endpoint Resource_ page. Select **Connect to an Azure resource by resource ID or alias** and enter the information in the following table. 
 
     | Field | Value |
     | :---- | :-----|
@@ -183,7 +182,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Next steps
 
-Use the links below to learn more about DPS security features:
+Learn more about DPS security features:
 
 * [Security](./concepts-service.md#attestation-mechanism)
 * [TLS 1.2 Support](tls-support.md)
