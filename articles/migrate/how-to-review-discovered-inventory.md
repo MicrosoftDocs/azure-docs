@@ -12,7 +12,6 @@ monikerRange: migrate
 
 ---
 
-
 # Review discovered inventory (preview)
 
 This article describes the new experience to review inventory discovered using Azure Migrate: Discovery and assessment tool. 
@@ -48,7 +47,7 @@ The new users need to follow steps given below:
 ## Deploy and configure the Azure Migrate appliance
 
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
-2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
+1. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
     - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you've enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
@@ -56,7 +55,7 @@ The new users need to follow steps given below:
 ### Add credentials and initiate discovery
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
-2. Navigate to the **Manage credentials and discovery sources** panel.
+1. Navigate to the **Manage credentials and discovery sources** panel.
 1.  In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
 1. In **Step 2: Provide discovery source details**, select on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 
@@ -67,7 +66,7 @@ The new users need to follow steps given below:
     > [!Note]
     > If you want to perform guest based discovery features later, you can provide your intent by disabling the slider on the appliance configuration manager and proceed to start discovery of the servers from your environment.
 
-1. Select **Start discovery**, to initiate discovery.
+1. Select **Start discovery** to initiate discovery.
 
  After the discovery is complete, you can go to Azure portal and refresh the **Overview** in your project to see the count of the discovered workloads.
  
@@ -131,7 +130,7 @@ By default, searching for a workload also shows the associated workloads so that
 :::image type="content" source="./media/how-to-review-discovered-inventory/show-associated-workloads.png" alt-text="The screenshot shows the option to disable the show associated workloads option" lightbox="./media/how-to-review-discovered-inventory/show-associated-workloads.png":::
 
 
-### User actions on All inventory
+### User actions on all inventory
 
 You can perform any of the following actions after reviewing the inventory:
 
@@ -147,7 +146,7 @@ Columns | Choose optional attributes for the discovered workloads
 Refresh | Refresh the view to review any updates in discovery
 Feedback | Provide your feedback about the view and its utility
 
-### Export All inventory data
+### Export all inventory data
 
 You can export and review all inventoried workloads with associated attributes and tags. The following table summarizes the fields in the exported CSV.
 
@@ -179,11 +178,11 @@ DB engine status |
 User databases | Number of databases running on the instance
 HADR configuration | 
 
-## Review Infrastructure inventory
+## Review infrastructure inventory
 
 You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or using CSV import.
 
-**Infrastructure Inventory** view helps you review all the servers discovered from your datacenter including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
+**Infrastructure inventory** view helps you review all the servers discovered from your datacenter including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
 
 ### Default columns
 
@@ -234,7 +233,7 @@ You can perform actions on all or a scoped set of servers, similar to those list
  > [!Note]
  > When creating assessment for discovered servers, you can create assessment for Azure VMs and Azure VMware Solution (AVS) [Learn more]().
 
- ### Export Server inventory data
+ ### Export server inventory data
 
 You can export and review the server inventory with their associated attributes and tags. The following table summarizes the fields in the exported CSV.
 
@@ -272,7 +271,7 @@ Discovery source | Source of discovery between appliance and import
 Support ends in (Days) | Number of days for support to end
 Appliance name | Name of the appliance used to discover the workload.
 
-## Review Web apps inventory
+## Review web apps inventory
 
 You can select the name of a web app to see all the attributes and another metadata discovered for that workload in a detailed view. Here you can also add tags to an individual server. Here are the details you can review for each web app: 
 
@@ -281,7 +280,7 @@ You can select the name of a web app to see all the attributes and another metad
 Overview    |Provides overview of the Web App with basic details like Web app name, server, protocol framework, and discovery details. 
 Tags | List of custom tags applied to the web app with an option to edit or delete existing tags and add new tags. 
 
-### Scoping Web app data 
+### Scoping web app data 
 
 After reviewing the web apps and their attributes, you can either **Select all workloads across pages** or scope the list using **Search** and **Filter** capabilities to perform required action on the server inventory. 
 
