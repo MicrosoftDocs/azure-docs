@@ -196,7 +196,7 @@ If you're an existing user who has already set up an Azure Migrate project, perf
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
 3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
-4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project have been upgraded to version or above.
+4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project has been upgraded to version or above.
 5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]

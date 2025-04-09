@@ -68,7 +68,7 @@ items:
             href: add-server-credentials.md
           - name: Discover SQL servers and Webapps
             href: how-to-discover-sql-existing-project.md
-          - name: Discover sofware, databases, and web apps
+          - name: Discover software, databases, and web apps
             href: how-to-discover-applications.md
           - name: Appliance diagnostics
             href: troubleshoot-appliance-diagnostic.md
