@@ -90,6 +90,8 @@ items:
       href: concepts-assessment-overview.md
     - name: Prerequisites
       href: assessment-prerequisites.md
+    - name: Review assessment report
+      href: assessment-report.md
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
       href: cost-estimation.md   
     - name: Target right sizing # help users understand how perf data is used in depth
@@ -99,10 +101,11 @@ items:
     - name: Application assessment
       items:
         - name: Create assessment
+          href: create-application-assessment.md
         - name: Customize assessment settings
           href: assessment-properties.md
         - name: Review assessment report
-          href: assessment-report.md
+          href: review-application-assessment.md
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment
@@ -126,9 +129,7 @@ items:
       - name: Webapp assessment
         items:
         - name: Create a Webapp assessment
-          href: tutorial-assess-webapps.md
-        - name: Customize assessment settings
-          href: assessment-properties.md
+          href: create-web-app-assessment.md
         - name: Review assessment report
           href: review-web-app-assessment.md
 #     - name: AVS assessment
@@ -163,9 +164,7 @@ items:
         href: vmware/tutorial-migrate-vmware.md
       - name: Agentless migrations using scripts
         href: vmware/tutorial-migrate-vmware-powershell.md
-    - name: Webapp migration
-      href: tutorial-modernize-asp-net-aks.md
-    - name: Limitations
+#   - name: Limitations
 - name: Modernize applications
   items:
   - name: Web App Migration and Modernization
