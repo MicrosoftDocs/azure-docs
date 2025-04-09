@@ -12,8 +12,8 @@ ms.service:  # Add the ms.service or ms.prod value
 ms.topic:    # Add the ms.topic value
 ms.date:     03/31/2025
 ---
- 
-# Configure Azure Native Pure Storage Cloud (Preview)
+
+ # Configure Azure Native Pure Storage Cloud (Preview)
 
 ## Azure Native Pure Storage Cloud for Azure VMware Solution
 
