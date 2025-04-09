@@ -27,7 +27,7 @@ Here are the key capabilities provided by the Pure Storage Cloud integration:
 - **Flexible volumes** - Multiple hosts can simultaneously access the same storage volume.
 - **Snapshots** - Quickly recover from data loss or corruption.
 
-## Subscribe to Pure Storage Cloud (preview)
+## Subscribe to Azure Native Pure Storage Cloud (preview)
 
 You can [subscribe to Pure Storage Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/purestoragemarketplaceadmin.psc_contact_me?tab=Overview) in Azure Marketplace.
 
@@ -57,7 +57,7 @@ You can [subscribe to Pure Storage Cloud](https://azuremarketplace.microsoft.com
 
     The status updates to *Registered* once the process is complete.
 
-## Pure Storage Cloud links
+## Azure Native Pure Storage Cloud links
 
 For more information, see [Pure Storage Cloud documentation](https://www.purestorage.com/solutions/cloud.html).
 
