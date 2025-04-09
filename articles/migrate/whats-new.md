@@ -16,7 +16,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (April 2025)
 
-Public Preview: This is a comprehensive approach to discover, assess, and migrate on-premises applications, and workloads to the Microsoft Azure. It facilitates a more streamlined and efficient decide, plan and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
+Public Preview: This is a comprehensive approach to discover, assess, and migrate on-premises applications, and workloads to the Microsoft Azure. It facilitates a more streamlined and efficient decide, plan, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
 
 ## Update (February 2025)
 
