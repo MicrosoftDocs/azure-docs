@@ -718,6 +718,8 @@ You can rename a datapoint using the **Rename** transform. This operation is use
 
 You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the data flow.
 
+# [Operations experience](#tab/portal)
+
 1. Under **Transform (optional)**, select **New property** > **Add**. 
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
@@ -783,6 +785,8 @@ To learn more, see [Map data by using data flows](concept-dataflow-mapping.md) a
 #### Remove
 
 By default, all datapoints are included in the output schema. You can remove any datapoint from the destination using the **Remove** transform.
+
+# [Operations experience](#tab/portal)
 
 1. Under **Transform (optional)**, select **Remove**. 
 1. Select the datapoint to remove from the output schema.
