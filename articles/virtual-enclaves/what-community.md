@@ -5,7 +5,7 @@ author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
-ms.date: 01/31/2025
+ms.date: 04/08/2025
 ---
 
 # What is a Community?
@@ -42,4 +42,4 @@ See [template documentation](./ave-templates.md#community-template)
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
 - [What is an Enclave?](./what-enclave.md)
 - [Best practices of Azure Virtual Enclaves](./best-practices.md)
-- [Tutorial: Create a Community](./1-deploy-community.md)
+- [Tutorial: Create a Community](./1-create-community.md)
