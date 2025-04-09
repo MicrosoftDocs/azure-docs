@@ -13,9 +13,9 @@ Azure CycleCloud Workspace for Slurm is a free Marketplace application that prov
 The main steps to deploy and configure CycleCloud Workspace for Slurm including Open OnDemand are:
 1. Before starting review these instructions [Plan your CycleCloud Workspace for Slurm Deployment.](./how-to/ccws/plan-your-deployment.md).
 1. Deploy a CycleCloud Workspace for Slurm environment using the Azure marketplace (this quickstart).
-1. Register an Entra ID application for Open OnDemand authentication, see instructions [How to register an Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md)
-1. Configure Open OnDemand to use the Entra ID application [How to configure Open OnDemand with CycleCloud](./how-to/ccws/configure-ood.md)
-1. Add users in CycleCloud [How to add users for Open OnDemand](./how-to/ccws/ood-add-users.md)
+1. Register an Entra ID application for Open OnDemand authentication, see instructions [Register an Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md)
+1. Configure Open OnDemand to use the Entra ID application [Configure Open OnDemand with CycleCloud](./how-to/ccws/configure-ood.md)
+1. Add users in CycleCloud [Add users for Open OnDemand](./how-to/ccws/ood-add-users.md)
 
 ## Prerequisites
 
@@ -210,6 +210,9 @@ Next, establish connectivity between your client machine and the CycleCloud VM. 
 
 ## Resources
 
+* [Register an Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md)
+* [Configure Open OnDemand with CycleCloud](./how-to/ccws/configure-ood.md)
+* [Add users for Open OnDemand](./how-to/ccws/ood-add-users.md)
 * [How to connect to the CycleCloud Portal through Bastion.](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
 * [How to connect to a Login Node through Bastion.](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)
 * [How to deploy a CycleCloud Workspace for Slurm environment using the CLI.](/azure/cyclecloud/how-to/ccws/deploy-with-cli)

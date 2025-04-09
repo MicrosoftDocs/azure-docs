@@ -1,12 +1,12 @@
 ---
-title: How to configure Open OnDemand with CycleCloud
+title: Configure Open OnDemand with CycleCloud
 description: How to configure Open OnDemand with CycleCloud
 author: xpillons
 ms.date: 04/09/2025
 ms.author: padmalathas
 ---
 
-# How to configure Open OnDemand with CycleCloud
+# Configure Open OnDemand with CycleCloud
 Open OnDemand is a web-based interface providing a user-friendly way to interact with the Slurm cluster deployed by CycleCloud. When deploying CycleCloud workspace for Slurm, Open OnDemand is automatically installed and configured, but there are still few manual steps to be executed.
 
 ## Update settings for Entra ID authentication
@@ -25,3 +25,4 @@ Press Save and then Start cluster and wait for the Open OnDemand virtual machine
 ![Screenshot of Open OnDemand cluster configuration](../../images/ccws/ood-advanced-settings.png)
 
 ## Resources
+* [Add users for Open OnDemand](./ood-add-users.md)

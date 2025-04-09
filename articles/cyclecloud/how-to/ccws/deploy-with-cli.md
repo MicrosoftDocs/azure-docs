@@ -46,5 +46,7 @@ az deployment sub create --template-file ./cyclecloud-slurm-workspace/bicep/main
 
 ## Resources
 
+* [Configure Open OnDemand with CycleCloud](./configure-ood.md)
+* [Add users for Open OnDemand](./ood-add-users.md)
 * [How to connect to the CycleCloud Portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
 * [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)

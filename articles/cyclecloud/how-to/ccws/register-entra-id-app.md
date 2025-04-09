@@ -1,12 +1,12 @@
 ---
-title: How to add users for Open OnDemand
-description: How to add users for Open OnDemand
+title: Register an Entra ID application for Open OnDemand Authentication
+description: How to register an Entra ID application for Open OnDemand Authentication
 author: xpillons
 ms.date: 04/08/2025
 ms.author: padmalathas
 ---
 
-# How to add users for Open OnDemand
+# Register an Entra ID application for Open OnDemand Authentication
 The Open OnDemand front end use Open ID Connect (OIDC) for authentication. The OIDC provider is an Entra ID application that you need to register which uses Federated credentials with a User-Assigned Managed Identity to avoid storing secrets in the Open OnDemand configuration. The following steps describe how to register an Entra ID application for Open OnDemand authentication.
 
 ## Entra ID Application Registration right after a successful deployment
@@ -63,4 +63,5 @@ az deployment group create -g $resource_group --template-uri https://raw.githubu
 ```
 
 ## Resources
-- [How to configure Open OnDemand with CycleCloud](./configure-ood.md)
+* [Configure Open OnDemand with CycleCloud](./configure-ood.md)
+* [Add users for Open OnDemand](./ood-add-users.md)

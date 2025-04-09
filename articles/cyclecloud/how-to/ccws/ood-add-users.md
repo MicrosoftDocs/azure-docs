@@ -1,12 +1,12 @@
 ---
-title: How to add users for Open OnDemand
+title: Add users for Open OnDemand
 description: How to add users for Open OnDemand
 author: xpillons
 ms.date: 04/08/2025
 ms.author: padmalathas
 ---
 
-# How to add users for Open OnDemand
+# Add users for Open OnDemand
 Once authenticated with Entra ID, Open OnDemand will map the user to a local user account managed by CycleCloud. This is done by creating a local cluster user account with the same name as the Entra ID user. The following steps describe how to add cluster users for Open OnDemand.
 1. Browse to the CycleCloud web portal, and select the top right geat icon to open the menu. Select the **Users** option.
 1. Click on the **Add** button to add a new user. See instructions for more details on user management in CycleCloud. [User Management](../../concepts/user-management.md)
