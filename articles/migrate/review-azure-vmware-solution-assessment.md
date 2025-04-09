@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 11/07/2024
 ms.custom: engagement-fy24
+monikerRange: migrate
 ---
 
 # Review an Azure VMware Solution (AVS) assessment

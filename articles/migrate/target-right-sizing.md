@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/26/2025
+monikerRange: migrate
 ---
 
 # Target right-sizing 
