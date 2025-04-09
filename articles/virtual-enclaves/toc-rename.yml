@@ -3,15 +3,15 @@
 - name: Overview
   expanded: true
   items:
-    - name: What is Azure Virtual Enclaves?
-      href: what-is-azure-virtual-enclaves.md
-#     - name: Why use Azure Virtual Enclaves?
-#       href: why-azure-virtual-enclaves.md
-#     - name: Quotas and region availability
-#       href: quotas-and-region-availability-in-azure-virtual-enclaves.md
-# - name: Quickstarts
-#   expanded: true
-#   items:
+  - name: "What is Azure Virtual Enclaves?"
+    href: what-azure-virtual-enclaves.md
+#   - name: Why use Azure Virtual Enclaves?
+#     href: why-azure-virtual-enclaves.md
+#   - name: Quotas and region availability
+#     href: quotas-and-region-availability-in-azure-virtual-enclaves.md
+#   - name: Quickstarts
+#     expanded: true
+#     items:
 #     - name: Onboard to AVE
 #       href: onboard-to-ave.md
 #     - name: Deploy an AVE Community with Enclaves
@@ -24,36 +24,54 @@
 #       href: create-a-workload-in-the-azure-portal.md
 #     - name: Easy Button Deployments
 #       href: easy-button-deployments.md
-# - name: Concepts
-#   items:
+  - name: Concepts
+    items:
+    - name: "What is a community?"
+      href: what-community.md
+    - name: "What is a transit hub?"
+      href: what-transit-hub.md
+    - name: "What is a Community Endpoint?"
+      href: what-community-endpoint.md
+    - name: "What is an enclave?"
+      href: what-enclave.md
+    - name: "What is an Enclave Endpoint?"
+      href: what-enclave-endpoint.md
+    - name: "What is an Enclave Connection?"
+      href: what-enclave-connection.md
+    - name: "What is a workload?"
+      href: what-workload.md
+    - name: "What is the service catalog?"
+      href: what-service-catalog.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
 #     - name: Designing intra-enclave network isolation
 #       href: designing-intra-enclave-network-isolation.md
-#     - name: Concepts and best practices
-#       href: concepts-and-best-practices.md
+#     - name: Best practices
+#       href: best-practices.md
 #     - name: Defense in Depth
 #       href: defense-in-depth.md
 #     - name: Workload and Application Planning
 #       href: workload-and-application-planning.md
 #     - name: Built in RBAC Roles
 #       href: built-in-rbac-roles.md
-#     - name: What is a community?
-#       href: what-is-a-community.md
-#     - name: What is a transit hub?
-#       href: what-is-a-transit-hub.md
-#     - name: What is a Community Endpoint?
-#       href: what-is-a-community-endpoint.md
-#     - name: What is an enclave?
-#       href: what-is-an-enclave.md
-#     - name: What is an Enclave Endpoint?
-#       href: what-is-an-enclave-endpoint.md
-#     - name: What is an Enclave Connection?
-#       href: what-is-an-enclave-connection.md
-#     - name: What is a workload?
-#       href: what-is-a-workload.md
-#     - name: What is the service catalog?
-#       href: what-is-the-service-catalog.md
+  - name: Tutorials
+    items:
+    - name: Tutorial 1 Create a community
+      href: 1-create-community.md
+    - name: Tutorial 2 Create enclaves inside a community
+      href: 2-create-enclaves-inside-community.md
+    - name: Tutorial 3 Create workloads inside an enclave
+      href: 3-create-workloads-inside-enclave.md
+    - name: Tutorial 4 Use the service catalog to create Azure resources inside a workload
+      href: 4-use-service-catalog-create-azure-resources-workloads.md
+    - name: Tutorial 5 Create an enclave endpoint and connection
+      href: 5-create-enclave-endpoint-connections.md
+    - name: Tutorial 6 Monitor your enclaves
+      href: 6-monitor-your-enclaves.md
+    - name: Tutorial 7 Host a publicly accessible application in a virtual enclave
+      href: 7-host-publicly-accessible-application-virtual-enclave.md
+    - name: Tutorial 8 Migrate workload resources
+      href: 8-migrate-workload-resources.md
 # - name: Governance, Security, and Compliance
 #   items:
 #     - name: Just-In-Time Access
