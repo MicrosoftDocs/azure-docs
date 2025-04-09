@@ -25,6 +25,8 @@ This Azure VMware Solution private cloud deployment is hosted in an Azure Virtua
 
 Azure VMware Solution creates the following read-only management subnets within the hosted Virtual Network to host required private cloud components. These Management Subnets are allocated from the management address block specified for private cloud creation. The following  are sample subnets derived from an SDDC with a 10.74.64.0/22 address block.
 
+:::image type="content" source="./media/native-connectivity/native-connectivity-private-vnet-peering.png" alt-text="Diagram showing an Azure VMware Solution connection to other Virtual Networks." lightbox="media/native-connectivity/native-virtual-network-management-subnets.png":::
+
 ## Other Virtual Networks
 
 Azure VMware Solution's connectivity to nonlocal Virtual Networks follows the same procedure as Azure Virtual Network users use to connect their workloads between Virtual Networks. The Virtual Network can be connected to other nonlocal Virtual Networks using Azure Virtual Network peering as described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
