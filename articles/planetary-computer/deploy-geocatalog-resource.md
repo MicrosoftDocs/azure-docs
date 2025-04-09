@@ -17,7 +17,7 @@ There are two ways to deploy a Microsoft Planetary Computer GeoCatalog:
 1. Using the Azure Portal.  
 1. Using the Azure Rest API.  
 
-Additional resources provided in this tutorial include some guidance on assigning Azure Roles. Consult the "Known Issues" section of this document to help troubleshoot deployment issues you may encounter.  
+Extra resources provided in this tutorial include some guidance on assigning Azure Roles. Consult the "Known Issues" section of this document to help troubleshoot deployment issues you may encounter.  
 
 ## Method 1: Azure Portal deployment
 
@@ -27,11 +27,11 @@ Additional resources provided in this tutorial include some guidance on assignin
 
    :::image type="content" source="media/search-for-geocatalogs.png" alt-text="Screenshot of searching for GeoCatalogs in the Azure Portal.":::
 
-1. Start the workflow to create a new GeoCatalog by either clicking the "Create" button at the top left of the screen, or clicking the "Create geocatalog" button in the lower center of the screen. Note that the "Create geocatalog" button won't appear if you have one or more existing GeoCatalogs.
+1. Start the workflow to create a new GeoCatalog by either selecting the "Create" button at the top left of the screen, or selecting the "Create geocatalog" button in the lower center of the screen. Note that the "Create geocatalog" button won't appear if you have one or more existing GeoCatalogs.
 
    :::image type="content" source="media/create-geocatalogs-button.png" alt-text="Screenshot of the Create GeoCatalog button in the Azure Portal.":::
 
-1. From the "Basics" tab of the "Create GeoCatalog Resource" workflow, select the Subscription and Resource Group to which you would like to deploy your GeoCatalog. Provide a unique Name for your GeoCatalog resource, and select the Azure Region you wish to deploy into. Click "Next" to proceed to the next tab.
+1. From the "Basics" tab of the "Create GeoCatalog Resource" workflow, select the Subscription and Resource Group to which you would like to deploy your GeoCatalog. Provide a unique Name for your GeoCatalog resource, and select the Azure Region you wish to deploy into. Select "Next" to proceed to the next tab.
 
    > [!NOTE]
    > During the Public Preview period we support deployment to the following regions:
@@ -43,7 +43,7 @@ Additional resources provided in this tutorial include some guidance on assignin
 
    :::image type="content" source="media/complete-basics-tab-geocatalog.png" alt-text="Screenshot of the Basics tab in the Create GeoCatalog Resource workflow.":::
 
-1. From the "Networking" tab, select your networking options. Click "Next" to proceed to the next tab.
+1. From the "Networking" tab, select your networking options. Select "Next" to proceed to the next tab.
 
    > [!NOTE]
    > In Public Preview the only supported networking option is "Enable public access from all networks."
@@ -54,15 +54,15 @@ Additional resources provided in this tutorial include some guidance on assignin
 
    :::image type="content" source="media/create-geocatalog-tags.png" alt-text="Screenshot of the Tags tab in the Create GeoCatalog Resource workflow.":::
 
-1. From the "Review and create" tab, review selections made in the previous step. If you need to make corrections, you can go back by either clicking the "Previous" button at the bottom of the page, or navigating directly to a tab in the workflow by clicking on that tab's name. Once you are satisfied with your settings and selections, click the "Create" button.
+1. From the "Review and create" tab, review selections made in the previous step. If you need to make corrections, you can go back by either selecting the "Previous" button at the bottom of the page, or navigating directly to a tab in the workflow by selecting on that tab's name. Once you are satisfied with your settings and selections, select the "Create" button.
 
    :::image type="content" source="media/review-create-geocatalog-resource.png" alt-text="Screenshot of the Review and create tab in the Create GeoCatalog Resource workflow.":::
 
-1. You'll be presented with a "Deployment is in progress" page while you wait for your GeoCatalog deployment to complete. This process can take **10 or more minutes**. The "Status" of the resource deployment will read as "Created" even before the deployment is actually complete.
+1. You see a "Deployment is in progress" page while you wait for your GeoCatalog deployment to complete. This process can take **10 or more minutes**. The "Status" of the resource deployment shows "Created" even before the deployment is actually complete.
 
    :::image type="content" source="media/geocatalog-deployment-in-progress.png" alt-text="Screenshot of the Deployment is in progress page in the Azure Portal.":::
 
-1. The deployment page will update to "Your deployment is complete" when the deployment has finished. You can click "Go to resource" to navigate directly to your newly created GeoCatalog resource.
+1. The deployment page updates to "Your deployment is complete" when the deployment finishes. You can select "Go to resource" to navigate directly to your newly created GeoCatalog resource.
 
    :::image type="content" source="media/geocatalog-deployment-complete.png" alt-text="Screenshot of the Your deployment is complete page in the Azure Portal.":::
 
@@ -73,7 +73,7 @@ Additional resources provided in this tutorial include some guidance on assignin
 1. Select Bash mode and run the following commands to provision an instance of GeoCatalog:
 
    ```bash
-   # Change the active subscription using the subscription name or id, which has been whitelisted for GeoCatalog preview
+   # Change the active subscription using the subscription name or id, which has been allowed for GeoCatalog preview
    az account set --subscription "sub_name or sub_id"
 
    # Register Microsoft.Orbital resource provider even if it's already registered to take effect for GeoCatalog.
