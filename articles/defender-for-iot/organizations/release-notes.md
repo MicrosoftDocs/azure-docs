@@ -552,4 +552,4 @@ This version includes the following new updates and fixes:
 
 ## Next steps
 
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](whats-new-archive.md.md).
+For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](whats-new-archive.md).
