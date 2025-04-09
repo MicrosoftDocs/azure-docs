@@ -7,7 +7,7 @@ ms.author: whhender
 ms.reviewer: susabat, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 10/20/2023
+ms.date: 03/31/2025
 ---
 
 # Quickstart: Create an Azure Data Factory using ARM template
@@ -19,7 +19,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 > [!NOTE]
-> This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
+> This article doesn't provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -104,7 +104,7 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
 1. On the **Containers** page, select **Upload**.
 
-2. In te right pane, select the **Files** box, and then browse to and select the **emp.txt** file that you created earlier.
+2. In the right pane, select the **Files** box, and then browse to and select the **emp.txt** file that you created earlier.
 
 3. Expand the **Advanced** heading.
 

@@ -477,8 +477,6 @@ items:
     href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Migrate to availability zones
     href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Move an App Service app to another region
-    href: manage-disaster-recovery.md
 - name: Samples
   items:
     - name: Azure CLI
