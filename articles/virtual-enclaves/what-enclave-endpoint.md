@@ -14,7 +14,7 @@ Enclave Endpoints define how workloads can be accessed from outside of an Enclav
 
 ## Architecture of an enclave endpoint
 
-![Graphic showing enclave resource connections and access from another enclave and from an external resource.](./media/community-two-enclaves-connections-externally.png)
+![Diagram showing enclave resource connections and access from another enclave and from an external resource.](./media/community-two-enclaves-connections-externally.png)
 
 ## Enclave Endpoint Rules
 Enclave endpoint rules have the following three components:

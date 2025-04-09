@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 The Service Catalog enables customers to quickly deploy tailored Azure Resource Manager (ARM) templates of Azure services into Azure Virtual Enclaves (AVE) while being compliant with Policy Guardrails and enclave isolation requirements. The Service Catalog helps customers springboard their setups within the secure boundary of AVE without getting blocked by the security they want.
 
-![Graphic showing how service catalog templates deploy resources into customer workloads.](./media/service-catalog-process-overview.png)
+![Diagram showing how service catalog templates deploy resources into customer workloads.](./media/service-catalog-process-overview.png)
 
 Diagram Description: The user/admin accesses the Service Catalog through the portal. Once they select the Service Catalog template they want to deploy, the Service Catalog will read the correct template and deploy the resources specified in the template according to the parameter inputs the user provides.
 

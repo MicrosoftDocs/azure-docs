@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: jadean-msft
   ms.author: jadean
-  ms.date: 03/028/2025
+  ms.date: 04/08/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,8 +24,10 @@ landingContent:
         links:
           - text: What is Azure Virtual Enclaves?
             url: what-azure-virtual-enclaves.md
-      #     - text: Why use Azure Virtual Enclaves?
-      #       url: why-azure-virtual-enclaves.md
+          - text: Why use Azure Virtual Enclaves?
+            url: why-azure-virtual-enclaves.md
+          - text: Quotas and region availability
+            url: quotas-and-region-availability-in-azure-virtual-enclaves.md
       # - linkListType: learn
       #   links:
       #     - text: Understanding Enclave Networking
@@ -39,19 +41,19 @@ landingContent:
         links:
           - text: "What is a community?"
             url: what-community.md
-          - text: "What is a transit hub?"
+          - text: "What is a Transit Hub?"
             url: what-transit-hub.md
           - text: "What is a Community Endpoint?"
             url: what-community-endpoint.md
-          - text: "What is an enclave?"
+          - text: "What is an Enclave?"
             url: what-enclave.md
           - text: "What is a Enclave Endpoint?"
             url: what-enclave-endpoint.md
           - text: "What is a Enclave Connection?"
             url: what-enclave-connection.md
-          - text: "What is a workload?"
+          - text: "What is a Workload?"
             url: what-workload.md
-          - text: "What is a service catalog?"
+          - text: "What is the Service Catalog?"
             url: what-service-catalog.md
 #  # Card
 #   - title: Deploy an Azure Virtual Enclaves Environment
@@ -83,19 +85,19 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Tutorial 1 Create a community
+          - text: Tutorial 1 Create a Community
             url: 1-create-community.md
-          - text: Tutorial 2 Create enclaves inside a community
+          - text: Tutorial 2 Create Enclaves inside a community
             url: 2-create-enclaves-inside-community.md
           - text: Tutorial 3 Create workloads inside an enclave
-            url: 3-create-workloads-inside-enclave.md
-          - text: Tutorial 4 Use the service catalog to create Azure resources inside a workload
+            url: 3-create-Workloads-inside-enclave.md
+          - text: Tutorial 4 Use the service catalog to create Azure resources inside a Workload
             url: 4-use-service-catalog-create-azure-resources-workloads.md
           - text: Tutorial 5 Create an enclave endpoint and connection
             url: 5-create-enclave-endpoint-connections.md
           - text: Tutorial 6 Monitor your enclaves
             url: 6-monitor-your-enclaves.md
-          - text: Tutorial 7 Host a publicly accessible application in a virtual enclave
+          - text: Tutorial 7 Host a publicly accessible application in an Enclave
             url: 7-host-publicly-accessible-application-virtual-enclave.md
           - text: Tutorial 8 Migrate workload resources
             url: 8-migrate-workload-resources.md
