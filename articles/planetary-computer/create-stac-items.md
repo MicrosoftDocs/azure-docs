@@ -3,7 +3,7 @@ title: Create a STAC item - Microsoft Planetary Computer
 description: Learn how to create STAC Items for geospatial data using Microsoft Planetary Computer. This tutorial covers metadata extraction, STAC item creation, and integration with the Planetary Computer ecosystem.
 author: meaghanlewis
 ms.author: prasadko
-ms.service: mpcpro
+ms.service: planetary-computer
 ms.topic: tutorial
 ms.date: 04/08/2025
 ---

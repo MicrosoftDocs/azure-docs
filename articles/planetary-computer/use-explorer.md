@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Use the Microsoft Planetary Computer Pro Explorer"
-description: "This quickstart provides guidance on how to interact with the Microsoft Planetary Computer Pro Explorer."
+description: This quickstart provides guidance on how to interact with the Microsoft Planetary Computer Pro Explorer.
 author: beharris
 ms.author: brentharris
-ms.service: mpcpro
+ms.service: planetary-computer
 ms.topic: quickstart
 ms.date: 04/09/2025
 #customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my data in the UI.

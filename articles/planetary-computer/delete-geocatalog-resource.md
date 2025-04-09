@@ -3,7 +3,7 @@ title: Delete a GeoCatalog resource - Microsoft Planetary Computer
 description: Learn how to delete a GeoCatalog resource using Azure Portal or Azure Rest API, assign roles, and troubleshoot known issues.
 author: meaghanlewis
 ms.topic: how-to
-ms.service: mpcpro
+ms.service: planetary-computer
 ms.date: 04/08/2025
 ms.author: prasadko
 ---
