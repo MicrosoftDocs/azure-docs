@@ -12,7 +12,7 @@ ms.author: presharm
 
 # Manage Azure subscription policies
 
-This article helps you to configure Azure subscription policies to control the movement of Azure subscriptions from and into directories. The default behavior of these two policies is set to "Allow Everyone”. Please note that the setting of “Allow Everyone” allows all authorized users, including authorized guest users on a subscription to be able to transfer them. It does not mean all users of a directory.    
+This article helps you to configure Azure subscription policies to control the movement of Azure subscriptions from and into directories. The default behavior of these two policies is set to **Allow Everyone**. Note that the setting of **Allow Everyone** allows all authorized users, including authorized guest users on a subscription to be able to transfer them. It does not mean all users of a directory.    
 
 ## Prerequisites
 
@@ -27,14 +27,14 @@ Use the following policy settings to control the movement of Azure subscriptions
 ### Subscriptions leaving a Microsoft Entra ID directory
 
 The policy allows or stops users from moving subscriptions out of the current directory. [Subscription owners](../../role-based-access-control/built-in-roles.md#owner) can [change the directory of an Azure subscription](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) or use transfer features available on the Azure portal and API’s to another directory where they're a member. Global administrators can allow or disallow directory users from changing the directory or transfer of subscriptions.
-- Set this policy to “Permit no one” if you do not want subscriptions to be transferred out of your directory. This policy applies to all authorized subscriptions users including authorized guest users of your directory. 
-- Set this policy to “Allow Everyone” if you want all authorized users including authorized guest users to be able to transfer subscriptions out of your directory.   
+- Set this policy to **Permit no one** if you do not want subscriptions to be transferred out of your directory. This policy applies to all authorized subscriptions users including authorized guest users of your directory. 
+- Set this policy to **Allow Everyone** if you want all authorized users including authorized guest users to be able to transfer subscriptions out of your directory.   
 
 ### Subscriptions entering a Microsoft Entra ID directory
 
 The policy allows or stops users from other directories, who have access in the current directory, to move subscriptions into the current directory. [Subscription owners](../../role-based-access-control/built-in-roles.md#owner) can [change the directory of an Azure subscription](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) or transfer them to another directory where they're a member. Global administrators can allow or disallow directory users from transferring these subscriptions.
-- Set this policy to “Permit no one” if you do not want subscriptions to be transferred into your directory. This policy applies to all authorized users, including authorized guest users of your directory. 
-- Set this policy to “Allow Everyone” if you want all authorized users, including authorized guest users in your directory to be able to transfer subscriptions into your directory.   
+- Set this policy to **Permit no one** if you do not want subscriptions to be transferred into your directory. This policy applies to all authorized users, including authorized guest users of your directory. 
+- Set this policy to **Allow Everyone** if you want all authorized users, including authorized guest users in your directory to be able to transfer subscriptions into your directory.   
 
 ### Exempted Users
 
@@ -42,8 +42,8 @@ For governance reasons, global administrators can block all subscription directo
 
 #### Important note 
 Authorized users (including guest users) in your directory can create Azure subscriptions in another directory where they have billing permissions and then transfer those subscriptions into your Entra ID directory.  If you don't want to allow this, you should set one or both of the following policies: 
-- Subscriptions leaving Entra ID directory should be set to 'Permit no one'.
-- Subscriptions entering Entra ID directory should be set to 'Permit no one'.  
+- Subscriptions leaving Entra ID directory should be set to **Permit no one**.
+- Subscriptions entering Entra ID directory should be set to **Permit no one**.  
 
 ## Setting subscription policy
 
