@@ -315,7 +315,7 @@
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Enable Dapr on an existing container app
+        - name: Configure Dapr on an existing container app
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
