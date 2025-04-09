@@ -5,10 +5,10 @@
   items:
   - name: "What is Azure Virtual Enclaves?"
     href: what-azure-virtual-enclaves.md
-#   - name: Why use Azure Virtual Enclaves?
-#     href: why-azure-virtual-enclaves.md
-#   - name: Quotas and region availability
-#     href: quotas-and-region-availability-in-azure-virtual-enclaves.md
+  - name: Why use Azure Virtual Enclaves?
+    href: why-azure-virtual-enclaves.md
+  - name: Quotas and region availability
+    href: quotas-and-region-availability-in-azure-virtual-enclaves.md
 #   - name: Quickstarts
 #     expanded: true
 #     items:
