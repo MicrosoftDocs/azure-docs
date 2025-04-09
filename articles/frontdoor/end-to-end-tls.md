@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 03/26/2025
+ms.date: 04/09/2025
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -35,9 +35,9 @@ Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 a
 > [!IMPORTANT]
 > As of March 1, 2025, TLS 1.0 and 1.1 are not allowed on new Azure Front Door profiles. 
 
-For Azure Front Door Standard and Premium, you can configure predefined TLS policy or choose the TLS cipher suite based on your organazation's security needs. You can refer to [Azure Front Door TLS policy](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/tls-policy) and [configure TLS policy on a Front oor custom domain] (https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/tls-policy-configure).
+For Azure Front Door Standard and Premium, you can configure predefined TLS policy or choose the TLS cipher suite based on your organization's security needs. For more information, see [Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) and [configure TLS policy on a Front oor custom domain](/azure/frontdoor/standard-premium/tls-policy-configure).
 
-For Azure Front Door classic and Microsoft CDN classic, you can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). For a minimum TLS version 1.2, the negotiation will attempt to establish TLS 1.3 and then TLS 1.2. When Azure Front Door initiates TLS traffic to the origin, it will attempt to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2 and TLS 1.3. If you want to custom the cipher suite per needs, please [migrate Front Door classic]([https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/tls-policy-configure](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) and [Microsoft CDN classic](https://learn.microsoft.com/en-us/azure/cdn/tier-migration?toc=%2Fazure%2Ffrontdoor%2FTOC.json) to Azure Front Door standard and premium.
+For Azure Front Door classic and Microsoft CDN classic, you can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). For a minimum TLS version 1.2, the negotiation will attempt to establish TLS 1.3 and then TLS 1.2. When Azure Front Door initiates TLS traffic to the origin, it will attempt to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2 and TLS 1.3. If you want to custom the cipher suite per needs, [migrate Front Door classic](/azure/frontdoor/tier-migration) and [Microsoft CDN classic](/azure/cdn/tier-migration?toc=/azure/frontdoor/TOC.json) to Azure Front Door standard and premium.
 
 > [!NOTE]
 > - Clients with TLS 1.3 enabled are required to support one of the Microsoft SDL compliant EC Curves, including Secp384r1, Secp256r1, and Secp521, in order to successfully make requests with Azure Front Door using TLS 1.3.
