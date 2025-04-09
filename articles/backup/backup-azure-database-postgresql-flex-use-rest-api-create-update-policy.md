@@ -322,7 +322,7 @@ After including all changes, the policy JSON will appear as follows:
 
 ```
 
-For more details about policy creation, see the [PostGreSQL database Backup policy document](backup-azure-database-postgresql.md#create-backup-policy).
+For more details about policy creation, see the [PostgreSQL database Backup policy document](backup-azure-database-postgresql.md#create-backup-policy).
 
 ### Responses
 

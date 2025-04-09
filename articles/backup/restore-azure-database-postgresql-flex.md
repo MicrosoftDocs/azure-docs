@@ -28,7 +28,7 @@ Before you restore from Azure Database for PostgreSQL Flexible server backups, r
 
 Follow these steps:
 
-1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL-Flex server to be restored and select **Restore**.
+1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL - Flexible server to be restored and select **Restore**.
 
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/restore.png" alt-text="Screenshot showing how to restore a database.":::
 
@@ -43,7 +43,7 @@ Follow these steps:
 1. Once the validation is successful, select **Review + restore**.
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/review-restore.png" alt-text="Screenshot showing the restore parameter process.":::
 
-1. After final review of the parameters, select **Restore** to restore the selected PostgreSQL-Flex server backup in target storage account.
+1. After final review of the parameters, select **Restore** to restore the selected PostgreSQL - Flexible server backup in target storage account.
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/review.png" alt-text="Screenshot showing the review process page."::: 
    
 1. Submit the Restore operation and track the triggered job under **Backup jobs**.

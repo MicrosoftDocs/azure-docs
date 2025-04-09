@@ -72,6 +72,13 @@ For data extraction, use the bulk `$export` operation as specified in the [HL7 F
 
 For more information on export operations, see [Export your FHIR data](export-data.md).
 
+## Storing binary data in FHIR resources
+* **Do** storing small payloads (up to 2MB) as base64-encoded strings within the FHIR resource.
+* **Consider** using external storage solutions for larger binary data. Store binary data in a blob storage and reference it in the FHIR resource using a URL to avoid inefficiencies.
+* **Consider** breaking up large binary files into smaller chunks (less than 2MB) and storing them as separate binary resources, which can then be linked together using a FHIR resource.
+* **Avoid** storing large binary data directly within the FHIR resource, as it can lead to limitations and inefficiencies in FHIR service capabilities such as import, export, and search.
+
+
 By applying these best practices you can enhance the performance and efficiency of data ingestion, bundle processing, query execution, and data extraction in Azure FHIR service.
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

@@ -6,7 +6,10 @@ ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
-ms.collection: sentinel-data-connector
+ms.collection:
+ - sentinel-data-connector
+ - migration
+ - gcp-to-azure
 ---
 
 # Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
