@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 04/09/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -101,7 +101,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Elisa](https://elisa.fi/)** |&check; |&check; | Stockholm |
 | **[Embratel](https://www.embratel.com.br/rede-de-dados/cloud-interconnect)** |&check; |&check; | Sao Paulo |
 | **[Epsilon Global Communications](https://epsilontel.com/solutions/cloud-connect/)** | &check; | &check; | Hong Kong2<br/>London2<br/>Singapore<br/>Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>London2<br/>Los Angeles2<br/>Madrid2<br/>Melbourne<br/>Miami<br/>Milan<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Quebec City<br/>Queretaro (Mexico)<br/>Rio de Janeiro<br/>Santiago<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Washington DC<br/>Warsaw<br/>Zurich</br>Zurich2</br></br> |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>London2<br/>Los Angeles2<br/>Madrid2<br/>Madrid Metro<br/>Melbourne<br/>Miami<br/>Milan<br/>Milan Metro<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Quebec City<br/>Queretaro (Mexico)<br/>Rio de Janeiro<br/>Santiago<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Washington DC<br/>Warsaw<br/>Zurich</br>Zurich2</br></br> |
 | **Etisalat UAE** |&check; |&check; | Abu Dhabi<br/>Dubai |
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>London<br/>Paris |
 | **Exatel** |&check; |&check; | Warsaw |
