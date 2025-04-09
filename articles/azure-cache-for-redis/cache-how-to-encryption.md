@@ -6,6 +6,8 @@ description: Learn about disk encryption when using Azure Cache for Redis.
 
 ms.topic: how-to
 ms.date: 02/28/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 
 ---

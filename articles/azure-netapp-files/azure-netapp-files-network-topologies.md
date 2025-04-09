@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 03/20/2025
+ms.date: 04/03/2025
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -32,6 +32,9 @@ You can create new volumes or modify existing volumes to use *Standard* or *Basi
 You should understand a few considerations when you plan for Azure NetApp Files network.
 
 ### Constraints
+
+>[!IMPORTANT]
+>Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features. 
 
 The following table describes what’s supported for each network features configuration:
 

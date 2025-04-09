@@ -3,7 +3,7 @@ title: Restore a dedicated SQL pool from a geo-backup
 description: How-to guide for geo-restoring a dedicated SQL pool in Azure Synapse Analytics
 author: joannapea
 ms.author: joanpo
-ms.reviewer: wiassaf
+
 ms.date: 11/13/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

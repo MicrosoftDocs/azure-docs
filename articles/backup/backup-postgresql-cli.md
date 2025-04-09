@@ -56,7 +56,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 
 After you create a vault, you can create a backup policy to help protect PostgreSQL databases.
 
-### Understand the PostGreSQL backup policy
+### Understand the PostgreSQL backup policy
 
 Whereas disk backup offers multiple backups per day and blob backup is a *continuous* backup with no trigger, PostgreSQL backup offers archive protection. The backup data that's first sent to the vault can be moved to the archive tier in accordance with a defined rule or a life cycle.
 
@@ -273,7 +273,7 @@ After you create the vault and policy, you need to consider three critical point
 
 ### Understand key entities
 
-#### PostGreSQL database to be backed up
+#### PostgreSQL database to be backed up
 
 Fetch the Resource Manager ID of the PostgreSQL database to be backed up. This ID serves as the identifier of the database. The following example uses a database named `empdb11` under the PostgreSQL server `testposgresql`, which is present in the resource group `ossrg` under a different subscription. The example uses Bash.
 

@@ -3,7 +3,7 @@ title: Best practices for serverless SQL pool
 description: Recommendations and best practices for working with serverless SQL pools in Azure Synapse Analytics.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: whhender, wiassaf
+
 ms.date: 11/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql

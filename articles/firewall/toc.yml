@@ -42,7 +42,7 @@ items:
   - name: Performance
     href: firewall-performance.md
   - name: TCP idle timeout behavior
-    href: long-running-sessions.md
+    href: tcp-session-behavior.md
   - name: Explicit Proxy
     href: explicit-proxy.md
   - name: Multi hub and spoke

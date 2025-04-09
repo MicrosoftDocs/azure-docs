@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: rosouz
-ms.reviewer: whhender
+
 ---
 
 # Analyze complex data types in Azure Synapse Analytics

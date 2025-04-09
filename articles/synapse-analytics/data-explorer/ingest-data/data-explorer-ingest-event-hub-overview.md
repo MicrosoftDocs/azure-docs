@@ -2,14 +2,17 @@
 title: Event Hubs data connection for Azure Synapse Data Explorer (Preview)
 description: This article provides an overview of how to ingest (load) data into Azure Synapse Data Explorer from Event Hubs.
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ---
+
 # Event Hubs data connection (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 [Azure Event Hubs](../../../event-hubs/event-hubs-about.md) is a big data streaming platform and event ingestion service. Azure Synapse Data Explorer offers continuous ingestion from customer-managed Event Hubs.
 
