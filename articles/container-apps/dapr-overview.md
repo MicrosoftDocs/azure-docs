@@ -27,7 +27,7 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 
 ## Versioning
 
-Dapr in Azure Container Apps doesn't follow a fixed release schedule for new features. Instead, the release of new Dapr versions for new functionality depends on the prioritization and stability of the Dapr binaries. [Learn more about Dapr versions released in Azure Container Apps.](./faq.yml#how-often-are-dapr-versions-released-for-azure-container-apps-)
+Instead of following a fixed release schedule, Dapr in Azure Container Apps releases new features and functionality based on the prioritization and stability of the Dapr binaries. [Learn more about Dapr releases in Azure Container Apps.](./faq.yml#how-often-are-dapr-versions-released-for-azure-container-apps-)
 
 Dapr versions in Azure Container Apps include:
 - A semantic versioning prefix, such as `1.13.6`, which denotes compatibility with the corresponding OSS Dapr runtime version APIs and related tools like SDKs, CLI, etc.
