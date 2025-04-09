@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 12/30/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
-ms.collection: 
+ms.collection:
  - migration
  - gcp-to-azure
 ---

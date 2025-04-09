@@ -6,7 +6,7 @@ ms.author: doveychase
 ms.reviewer: prwilk, chkittel
 ms.date: 03/25/2025
 ms.topic: conceptual
-ms.collection: 
+ms.collection:
  - migration
  - aws-to-azure
 ---

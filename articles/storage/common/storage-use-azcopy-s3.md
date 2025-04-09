@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.collection: 
+ms.collection:
  - migration
  - aws-to-azure
 ---

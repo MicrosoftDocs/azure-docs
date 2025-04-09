@@ -5,7 +5,7 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025
 ms.topic: conceptual
-ms.collection: 
+ms.collection:
  - migration
  - gcp-to-azure
 ---

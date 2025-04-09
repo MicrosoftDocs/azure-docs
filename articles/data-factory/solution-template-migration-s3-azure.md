@@ -6,7 +6,7 @@ ms.author: yexu
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-movement
-ms.collection: 
+ms.collection:
  - migration
  - aws-to-azure
 ---

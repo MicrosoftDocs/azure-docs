@@ -9,7 +9,7 @@ ms.date: 12/31/2024
 ms.custom:
   - MVC
   - engagement-fy25
-ms.collection: 
+ms.collection:
  - migration
  - aws-to-azure
 ---
