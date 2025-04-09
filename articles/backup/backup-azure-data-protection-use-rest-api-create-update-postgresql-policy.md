@@ -65,7 +65,7 @@ The `{policyName}` and `{vaultName}` are provided in the URI. Additional, inform
 
 ## Create the request body
 
-For example, to create a policy for POstgreSQL backup, the request body needs the following components:
+For example, to create a policy for PostgreSQL backup, the request body needs the following components:
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
@@ -368,7 +368,7 @@ After including all changes, the policy JSON will appear as follows:
 
 ```
 
-For more details about policy creation, see the [PostGreSQL database Backup policy](backup-azure-database-postgresql.md#create-backup-policy) document.
+For more details about policy creation, see the [PostgreSQL database Backup policy](backup-azure-database-postgresql.md#create-backup-policy) document.
 
 ## Responses
 

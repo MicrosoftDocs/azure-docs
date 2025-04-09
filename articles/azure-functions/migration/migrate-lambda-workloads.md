@@ -4,6 +4,9 @@ description: Learn about the steps to complete your AWS Lambda to Azure Function
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
+ms.collection: 
+ - migration
+ - aws-to-azure
 ms.topic: how-to
 ms.date: 03/18/2025
 #customer intent: As a developer, I want to adapt function code for compatibility and best practices so that I can migrate serverless applications from AWS Lambda to Azure Functions efficiently.

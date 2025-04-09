@@ -124,6 +124,8 @@ A test engine is computing infrastructure, managed by Microsoft that runs the te
 
 The test engines are hosted in the same location as your Azure Load Testing resource. You can configure the Azure region when you create the Azure load testing resource.
 
+Azure Load Testing uses Standard_D4d_v4 size virtual machines with four vCPUs, 16GB memory and Azure Linux operating system as the test engines. For JMeter based tests, the test engines use JDK 21 and Apache JMeter version 5.6.3. For Locust based tests, the test engines use Python 3.9.19 and Locust version 2.33.2. 
+
 While the test script runs, Azure Load Testing collects and aggregates the testing framework logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-diagnose-failing-load-test.md).
 
 ### App component

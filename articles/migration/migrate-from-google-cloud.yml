@@ -11,7 +11,9 @@ metadata:
   ms.author: robbymillsap
   ms.reviewr: robbymillsap, chkittel, prwilk
   ms.date: 03/26/2025
-  ms.custom: migration
+  ms.collection:
+   - migration
+   - gcp-to-azure
 
 landingContent:
   - title: Migration strategy
