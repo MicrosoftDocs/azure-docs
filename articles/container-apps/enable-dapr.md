@@ -1,12 +1,12 @@
 ---
-title: Enable Dapr on an existing container app
-description: Enable Dapr on your existing Azure Container App service.
+title: Configure Dapr on an existing container app
+description: Configure Dapr on your existing Azure Container App service.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-bicep
 ms.topic: conceptual
-ms.date: 11/25/2024
+ms.date: 04/08/2025
 ---
 
 # Enable Dapr on an existing container app
@@ -29,6 +29,13 @@ The following table outlines the currently supported list of Dapr sidecar config
 | `--dapr-read-buffer-size` | `dapr.httpReadBufferSize` | Set the max size of http header read buffer in to handle when sending multi-KB headers. The default 4 KB.                    |
 | `--dapr-api-logging`      | `dapr.enableApiLogging`   | Enables viewing the API calls from your application to the Dapr sidecar.                                                     |
 | `--dapr-log-level`        | `dapr.logLevel`           | Set the log level for the Dapr sidecar. Allowed values: debug, error, info, warn. Default is `info`.                         |
+| `--dapr-app-health-enabled` | `dapr.appHealth.enabled`| Enable app health checks for your container app using Boolean format. Default setting is `false`.                                |
+| `--dapr-app-health-enabled` | `dapr.appHealth.enabled`| Enable app health checks for your container app using Boolean format. Default setting is `false`.                                |
+| `--dapr-app-health-path`    | `dapr.appHealth.path`| Set the path that Dapr invokes for health probes when the app channel is HTTP. This value is ignored if the app channel is using gRPC.                                |
+| `--dapr-app-health-probe-interval` | `dapr.appHealth.probeIntervalSeconds`| Number of seconds between each health probe.                                |
+| `--dapr-app-health-probe-timeout` | `dapr.appHealth.probeTimeoutMilliseconds`| Timeout in milliseconds for health probe requests.                                |
+| `--dapr-app-health-threshold` | `dapr.appHealth.threshold`| Max number of consecutive failures before the app is considered healthy.                                |
+| `--dapr-max-concurrency`  | `dapr.maxConcurrency`     | Limit the concurrency of your application. A valid value is any number larger than `0`. Default value is `-1`, meaning no concurrency.                         |
 
 ## Using the CLI
 
