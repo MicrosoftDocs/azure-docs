@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/06/2025
+ms.date: 04/09/2025
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a a data flow profile to control a data flow behavior.
 ---
@@ -21,10 +21,15 @@ The most important setting is the instance count, which determines the number of
 
 ## Default data flow profile
 
-By default, a data flow profile named *default* is created when Azure IoT Operations is deployed. This data flow profile has a single instance count. You can use this data flow profile to get started with Azure IoT Operations.
+A data flow profile named *default* is created when Azure IoT Operations is deployed. This data flow profile has a single instance count. You can use this data flow profile to get started with Azure IoT Operations.
 
-> [!IMPORTANT]
-> Currently, the default data flow profile is the only profile supported by the [operations experience web UI](https://iotoperations.azure.com/). All data flows created using the operations experience use the default data flow profile.
+# [Portal](#tab/portal)
+
+1. To view the default data flow profile, go to your IoT Operations instance in the Azure portal.
+1. In the left pane under **Components**, select **Data flow profiles**.
+1. Select the **default** data flow profile.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/default-profile.png" alt-text="Screenshot of the Azure portal displaying the default data flow profile details, including instance count and configuration options.":::
 
 # [Bicep](#tab/bicep)
 
@@ -70,6 +75,50 @@ spec:
 
 ---
 
+Unless you need additional throughput or redundancy, you can use the default data flow profile for your data flows. If you need to adjust the instance count or other settings, you can create a new data flow profile.
+
+## Create a new data flow profile
+
+To create a new data flow profile, specify the name of the profile and the instance count.
+
+> [!IMPORTANT]
+> Data profile name length must be between 1 and 39 characters.
+
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. In the left pane under **Components**, select **Data flow profiles**.
+1. Select **+ Data flow profile** to create a new data flow profile.
+1. In the **Create data flow profile** pane, enter a name for the data flow profile and set the instance count. You can also set other settings such as diagnostics settings.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/create-profile.png" alt-text="Screenshot of the Azure portal displaying the create data flow profile pane, including fields for name, instance count, and configuration options.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
+  parent: aioInstance
+  name: '<NAME>'
+  properties: {
+    instanceCount: <COUNT>
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1
+kind: DataflowProfile
+metadata:
+  name: '<NAME>'
+  namespace: azure-iot-operations
+spec:
+  instanceCount: <COUNT>
+```
+
+---
 
 ## Scaling
 
@@ -78,6 +127,15 @@ You can scale the data flow profile to adjust the number of instances that run t
 Scaling can also improve the resiliency of the data flows by providing redundancy in case of failures.
 
 To manually scale the data flow profile, specify the number of instances you want to run. For example, to set the instance count to 3:
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. In the left pane under **Components**, select **Data flow profiles**.
+1. Select the data flow profile you want to configure.
+1. Use the slider to set the instance count.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/profile-scale.png" alt-text="Screenshot of the Azure portal displaying data flow details and the instance count slider set to 3.":::
 
 # [Bicep](#tab/bicep)
 
@@ -105,7 +163,13 @@ In most cases, the default settings are sufficient. However, you can override th
 
 To learn how to configure these diagnostic settings, see [ProfileDiagnostics](/rest/api/iotoperations/dataflow-profile/create-or-update?#profilediagnostics).
 
-For example, to set the log level to debug:
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. Under **Components**, select **Data flow profiles**.
+1. Select the data flow profile you want to configure.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/profile-diagnostics.png" alt-text="Screenshot of the Azure portal displaying data flow details and the log level options listed.":::
 
 # [Bicep](#tab/bicep)
 
