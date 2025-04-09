@@ -10,9 +10,9 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: devx-track-dotnet
 ---
-# Quickstart: Send email with SMTP using .NET
+# Quickstart: Send email with SMTP and XOAuth2 using .NET
 
-This articles hows how to use OAuth for authentication when sending emails using the Simple Mail Transfer Protocal (SMTP) and Azure Communication Services.
+This articles hows how to use XOAuth2 for authentication when sending emails using the Simple Mail Transfer Protocal (SMTP) and Azure Communication Services.
 
 ## Prerequisites
 
