@@ -8,6 +8,7 @@ ms.date: 03/24/2025
 ---
 
 # Manage Azure Native Pure Storage resources (preview)
+# Manage Azure Native Pure Storage resources (preview)
 
 This article describes how to manage the settings for Pure Storage for Azure.
 
