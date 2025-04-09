@@ -8,7 +8,14 @@ ms.author: padmalathas
 
 # Quickstart - Deploy Azure CycleCloud Workspace for Slurm using the Marketplace
 
-Azure CycleCloud Workspace for Slurm is a free Marketplace application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and AI workloads. In this quickstart, you install CycleCloud Workspace for Slurm using the Marketplace application. 
+Azure CycleCloud Workspace for Slurm is a free Marketplace application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and AI workloads. In this quickstart, you install CycleCloud Workspace for Slurm using the Marketplace application.
+
+The main steps to deploy and configure CycleCloud Workspace for Slurm including Open OnDemand are:
+1. Before starting review these instructions [Plan your CycleCloud Workspace for Slurm Deployment.](./how-to/ccws/plan-your-deployment.md).
+1. Deploy a CycleCloud Workspace for Slurm environment using the Azure marketplace (this quickstart).
+1. Register an Entra ID application for Open OnDemand authentication, see instructions [How to register an Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md)
+1. Configure Open OnDemand to use the Entra ID application [How to configure Open OnDemand with CycleCloud](./how-to/ccws/configure-ood.md)
+1. Add users in CycleCloud [How to add users for Open OnDemand](./how-to/ccws/ood-add-users.md)
 
 ## Prerequisites
 
@@ -16,6 +23,8 @@ For this quickstart, you need:
 
 1. An Azure account with an active subscription
 1. The **Contributor** and **User Access Administrator** roles at the subscription level
+1. If deploying Open OnDemand, direct connectivity with a VPN to the Virtual Network, to be built or used, is required
+1. Permission to register an application in Entra ID if you want to use Open OnDemand
 
 ## How to deploy?
 
@@ -83,9 +92,14 @@ Before using an existing virtual network, check for the prerequisites in [Plan y
 
 ![Screenshot of the Networking options for using an existing one.](./images/ccws/marketplace-networking-002.png)
 
+Please specify how you would like to manage the registration of the Private Endpoint used for the storage account created to store CycleCloud projects in a Private DNS zone. You can choose to use an existing Private DNS zone, create a new one, or opt not to register it.
+
+![Screenshot of the Networking options for Private DNS zone.](./images/ccws/marketplace-networking-003.png)
+
+
 ### Slurm Settings
 
-Specify the VM size and image to use for the Scheduler and the Login nodes. Images are the HPC Images provided in the Azure Marketplace with the associated URIs:
+Specify the virtual machine size and image to use for the Scheduler and the Login nodes. Images are the HPC Images provided in the Azure Marketplace with the associated URIs:
 
 | Image Name | URI |
 |------------|-----|
@@ -98,7 +112,8 @@ If you choose a `Custom Image`, you must then specify an image URN for an existi
 
 You can also check the `Use image on all nodes` if you want the Scheduler, Login Nodes, and compute nodes to use the same image.
 
-Specify the number of login nodes you want to provision initially and the maximum number allowed. Enabling health checks  automatically executes node health checks for the HPC and GPU partitions, removing any unhealthy nodes when they start.
+Specify the number of login nodes you want to provision initially and the maximum number allowed. 
+Enabling health checks automatically executes node health checks for the HPC and GPU partitions, removing any unhealthy nodes when they start.
 
 ![Screenshot of the Slurm settings.](./images/ccws/marketplace-slurm.png)
 
@@ -120,6 +135,18 @@ Azure CycleCloud Workspace for Slurm comes with 3 defined Slurm partitions:
 You can configure the image and the maximum number of nodes for each partition that CycleCloud dynamically provisions. Only the HTC partition allows the use of spot instances, as spot instances aren't suitable for HPC and GPU jobs.
 
 ![Screenshot of the Partition Settings options.](./images/ccws/marketplace-partitions.png)
+
+### Open OnDemand
+To utilize Open OnDemand, please select the checkbox and provide the required details: 
+- the image name, 
+- the domain name (`contoso.com`) used to extract the user name (`user@contoso.com`) to match linux local account (`user`) managed by CycleCloud and used for authentication, 
+- the fully qualified domain name (FQDN) of the Open OnDemand web server (leave blank if you intend to use the private IP), 
+- indicate whether you plan to use an existing Entra ID application or register one manually at a later stage.
+
+>[!NOTE]
+>An Entra ID application is necessary for user authentication. If an application has not been previously created by our scripts, please create one manually. See [How to register an Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md) for more information.
+
+![Screenshot of the Open OnDemand options.](./images/ccws/marketplace-ood.png)
 
 ### Tags
 
