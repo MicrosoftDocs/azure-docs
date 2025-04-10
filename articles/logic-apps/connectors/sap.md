@@ -1038,7 +1038,7 @@ You can control this tracing capability at the application level by adding the f
 
    > [!NOTE]
    >
-   > If you download a log or trace file currently open in your logic app workflow,
+   > If you download a log or trace file currently opened or used by your logic app workflow, 
    > your download might result in an empty file.
 
 ## Enable SAP Common Crypto Library (CCL) tracing (built-in connector only)
