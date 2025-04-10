@@ -1,15 +1,15 @@
 ---
-title: "High performance computing (HPC) end-user entry point migration overview"
+title: "End-user entry point migration overview"
 description: Get a high level idea of the steps involved when migrating end-user entry point components during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# High performance computing (HPC) end-user entry point migration overview
+# End-user entry point migration overview
 
 Providing a consistent end-user entry point is crucial for ensuring a smooth transition from on-premises to the cloud in an HPC environment. Whether users access resources through an SSH sign-in node or a web portal, maintaining a familiar experience helps minimize disruptions.
 

@@ -1,9 +1,9 @@
 ---
-title: "High performance computing (HPC) proof-of-concept migration overview"
+title: "Proof-of-concept migration overview"
 description: Learn what a high performance computing proof-of-concept migration entails.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
