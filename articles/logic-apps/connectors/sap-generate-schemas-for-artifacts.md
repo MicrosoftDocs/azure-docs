@@ -219,7 +219,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 1. On the logic app menu, select **Overview**. On the **Run history** tab, select the workflow run.
 
-1. Next, locate the **Generate schemas** action, and review the action's outputs.
+1. Select the **Generate schemas** action to review the action's outputs.
 
    The outputs show the generated schemas for the specified messages.
 
