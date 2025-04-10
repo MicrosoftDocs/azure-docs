@@ -364,7 +364,7 @@ For Consumption workflows in multitenant Azure Logic Apps that use the on-premis
 
    :::image type="content" source="./media/sap/gateway-account.png" alt-text="Screenshot that shows the on-premises data gateway installer and Service Settings page with button to change gateway service account selected." lightbox="./media/sap/gateway-account.png":::
 
-For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
+For more information about enabling SNC, see [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
 ### [Standard](#tab/standard)
 
