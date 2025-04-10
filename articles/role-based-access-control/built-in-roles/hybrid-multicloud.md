@@ -13,7 +13,7 @@ ms.custom: generated
 
 # Azure built-in roles for Hybrid + multicloud (Azure Stack HCI)
 
-This article lists the Azure Stack HCI built-in roles in the Hybrid + multicloud category.
+This article lists the Azure built-in roles in the Hybrid + multicloud category (Azure Stack HCI).
 
 
 ## Resource Bridge Deployment Role for Azure Stack HCI
