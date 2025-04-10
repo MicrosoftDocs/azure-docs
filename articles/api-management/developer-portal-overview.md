@@ -76,9 +76,6 @@ The developer portal's administrative interface provides a visual editor for pub
 
 [!INCLUDE [api-management-developer-portal-add](../../includes/api-management-developer-portal-add.md)]
 
-[!INCLUDE [api-management-developer-portal-wordpress](../../includes/api-management-developer-portal-wordpress.md)]
-
-
 ### Layouts and pages
 
 Layouts define how pages are displayed. For example, in the default content, there are two layouts: one applies to the home page, and the other to all remaining pages. You can modify these layouts and add more layouts to suit your needs.
