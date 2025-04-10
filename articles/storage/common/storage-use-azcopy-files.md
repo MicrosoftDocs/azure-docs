@@ -237,11 +237,22 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 
 `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>`
 
-**Example**
+#### [Azure Files SMB](#tab/smb-uploaddatetime)
 
 ```azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true
 ```
+
+#### [Azure Files NFS](#tab/nfs-uploaddatetime)
+
+```azcopy
+azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true --nfs
+```
+
+---
+
+<a id="uploaddatetime"></a>
+
 
 For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
