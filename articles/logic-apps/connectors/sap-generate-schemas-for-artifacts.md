@@ -97,7 +97,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
    By default, when you create a connection for an SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. For more information about strong typing, see [Safe Typing setting](sap-create-example-scenario-workflows.md#safe-typing). For other available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-consumption.png" alt-text="Screenshot shows Consumption workflow and SAP managed action named Generate schemas." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-consumption.png":::
 
