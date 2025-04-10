@@ -2,10 +2,10 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 12/22/2023
+ms.date: 04/09/2025
 ms.author: danlep
 ---
 
 
 > [!NOTE]
-> We recently improved the portal editor interface to boost your productivity and enhance the interactions with your favorite features and tools. We also redesigned the API and product details widgets to elevate the portal experience for visitors.
+> We're introducing some improvements to the underlying website components of the developer portal, and some cosmetic changes to the placeholder content you see when you first launch the developer portal. Your portal may appear different than the screenshots in this article, but the functionality is the same.

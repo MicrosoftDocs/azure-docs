@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 For more information about developer portal features and options, see [Azure API Management developer portal overview](developer-portal-overview.md).
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." :::
 
 ## Prerequisites
 
