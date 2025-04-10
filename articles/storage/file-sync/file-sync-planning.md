@@ -59,7 +59,7 @@ Each Windows Server can only be registered to one Storage Sync Service. After re
 
 When designing Azure File Sync topologies, ensure that you isolate data clearly at the Storage Sync Service level. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, you should create a dedicated Storage Sync Service for each group. Avoid placing sync groups for both business groups within the same Storage Sync Service, as that would not ensure complete isolation.
 
-For additional guidance on data isolation using separate subscriptions or resource groups in Azure, refer to the following Azure documentation: Review the [Azure guidance for secure isolation](../azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle) for more details.
+For additional guidance on data isolation using separate subscriptions or resource groups in Azure, refer to the following Azure documentation: Review the [Azure guidance for secure isolation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle) for more details.
 
 ## Plan for balanced sync topologies
 
