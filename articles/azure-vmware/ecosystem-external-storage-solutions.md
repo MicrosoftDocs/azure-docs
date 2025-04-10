@@ -65,5 +65,5 @@ Providing the same consistent external block storage architecture in the cloud i
 - Learn about [Azure NetApp Files](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 - Learn about [Azure Elastic SAN](./configure-azure-elastic-san.md)
 - Learn about [Pure Cloud Block Store](./configure-pure-cloud-block-store.md)
-- Learn about [Azure Native Pure Storage Cloud](./azure/azure-vmware/configure-azure-native-pure-storage-cloud.md)
+- Learn about [Azure Native Pure Storage Cloud](./configure-azure-native-pure-storage-cloud.md)
 
