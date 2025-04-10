@@ -16,13 +16,11 @@ ms.custom: generated
 This article lists the Azure Stack HCI built-in roles in the Hybrid + multicloud category.
 
 
-## Azure Stack HCI Resource Bridge Deployment Role
+## Resource Bridge Deployment Role for Azure Stack HCI
 
 > [!IMPORTANT] 
 > This deployment role only applies to Azure Stack HCI. It does not apply to any other Arc Private Cloud and does not work for other private clouds.
 
-
-[Learn more](/azure-stack/hci/deploy/deployment-azure-resource-manager-template)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
