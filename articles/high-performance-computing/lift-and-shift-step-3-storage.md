@@ -1,15 +1,15 @@
 ---
-title: "Storage options during a high performance computing (HPC) architecture migration"
+title: "Storage migration options"
 description: Learn what storage options to consider during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Storage options during a high performance computing (HPC) architecture migration
+# Storage migration options
 
 When migrating HPC environments to the cloud, it's essential to define and implement an effective storage strategy that meets your performance, scalability, and cost requirements. An effective storage strategy ensures that your HPC workloads can access and process data efficiently, securely, and reliably. This approach includes considering different types of storage solutions for various needs such as long-term data archiving, high-performance scratch space, and shared storage for collaborative work.
 
