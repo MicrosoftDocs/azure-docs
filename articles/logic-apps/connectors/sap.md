@@ -81,7 +81,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   
     This capability addresses a problem with the SAP managed connector where the outcome from the autocommit behavior is silent and observable only through logs.
 
-* Longer time out at 5 minutes compared to managed connector.
+* A longer time out at 5 minutes compared to the managed connector.
 
   The SAP built-in connector doesn't use the shared or global connector infrastructure, which means time-outs are longer at 5 minutes compared to the SAP managed connector (two minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
 
