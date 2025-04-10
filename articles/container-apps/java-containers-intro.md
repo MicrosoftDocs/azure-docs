@@ -160,14 +160,12 @@ Most Java applications interact with databases, caches, or other services. Docke
 #### What is Docker Compose?
 
 Docker Compose is a tool that:
+
 - Defines multi-container applications in a single file
 - Manages application lifecycle (start, stop, rebuild)
 - Maintains isolated environments
 - Creates networks for service communication
 - Persists data using volumes
-
-> [!NOTE]
-> Docker Compose is now integrated as a plugin to the Docker command itself (using `docker compose`) rather than as a separate utility. The preferred configuration filename is `compose.yml` instead of the legacy `docker-compose.yml`.
 
 #### Example: Java application with database
 
@@ -448,9 +446,9 @@ This section guides you through preparing your Java containers for Azure Contain
 
 - **Probe for health**: Implement [health probes](health-probes.md) for Azure's liveness and readiness checks
 
-- **Log configuration**: Configure logging to output to `stdout`/`stderr`.
+- **Log configuration**: Configure [logging](logging.md) to output to `stdout`/`stderr`.
 
-- **Plan for the unexpected**: Set up proper graceful shutdown handling with time out configuration
+- **Plan for the unexpected**: Set up proper [graceful shutdown handling](./application-lifecycle-management.md) with time out configuration.
 
 ## Related content
 
