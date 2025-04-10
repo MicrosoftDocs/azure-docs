@@ -12,6 +12,10 @@ ms.date: 04/03/2025
 
 Azure Virtual Enclaves (AVE) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive workloads. AVE is design for commercial and air-gapped environments.
 
+> [!IMPORTANT]
+> Azure Virtual Enclaves is currently in Public Preview and is provided without a service-level agreement. At this time, **Azure Virtual Enclaves shouldn't be used for production workloads**. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the full [Azure Virtual Enclaves Terms](./public-preview-terms.md) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 AVE takes a multi-layered and hierarchical approach to virtual boundary protection. A **community** serves as a central hub for networking, governance, and monitoring for a collection of isolated networks known as **enclaves**. The community itself hosts a centralized, virtual hub network (Azure VWAN) secured by an intelligent firewall security platform (Azure Firewall), through which all enclave traffic is routed, logged, and monitored. Enclaves are isolated, zero-trust software-defined networks (Azure Virtual Network), hosting customer workloads deployed through Azure Cloud products. Enclaves and customer workloads are securely governed through policy configuration management (Azure Policy).
 
 ![Graphic that shows Communities and Virtual Enclaves example architecture.](./media/communities-virtual-enclaves.svg)
