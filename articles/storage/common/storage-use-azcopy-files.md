@@ -291,11 +291,21 @@ This section contains the following examples:
 
 `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' '<local-file-path>'`
 
-**Example**
+#### [Azure Files SMB](#tab/smb-downloadfile)
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
 ```
+
+#### [Azure Files NFS](#tab/smb-downloadfile)
+
+```azcopy
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --nfs
+```
+
+---
+
+<a id="downloadfile"></a>
 
 ### Download a directory
 
