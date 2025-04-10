@@ -102,6 +102,18 @@
       href: Prevent-overlapping-ip-address-space-policy-ipam.md
     - Name: Create IP address pools with IPAM
       href: how-to-manage-ip-addresses-network-manager.md
+- name: Security
+  items:
+  - name: Secure network traffic with security admin rules
+    items:
+    - name: Using network groups as source and destination
+      href: how-to-create-security-admin-rule-network-group.md
+    - name: Block network traffic - Portal
+      href: how-to-block-network-traffic-portal.md
+    - name: Block network traffic -PowerShell
+      href: how-to-block-network-traffic-powershell.md
+    - name: Protect high-risk network ports with security admin rules and exceptions
+      href: how-to-block-high-risk-ports.md
 - name: Troubleshoot
   items:
     - name: Event Log Options for Azure Virtual Network Manager
@@ -118,18 +130,6 @@
         href: concept-virtual-network-verifier.md
       - name: Verify resource reachability with Virtual Network Verifier
         href: how-to-verify-reachability-with-virtual-network-verifier.md
-- name: Security
-  items:
-  - name: Secure network traffic with security admin rules
-    items:
-    - name: Using network groups as source and destination
-      href: how-to-create-security-admin-rule-network-group.md
-    - name: Block network traffic - Portal
-      href: how-to-block-network-traffic-portal.md
-    - name: Block network traffic -PowerShell
-      href: how-to-block-network-traffic-powershell.md
-    - name: Protect high-risk network ports with security admin rules and exceptions
-      href: how-to-block-high-risk-ports.md
 - name: Reference
   items:
   - name: Code samples
