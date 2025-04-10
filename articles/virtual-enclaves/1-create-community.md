@@ -40,9 +40,11 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 1. In the **Azure Virtual Enclaves** page, select the **Communities** option in the left menu.
 
-![Screenshot showing the Azure Virtual Enclaves portal page with the Communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
+![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png)
 
 2. On the `Communities` page, select `Create`.
+
+![Screenshot showing the Azure Virtual Enclaves portal page with the Communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
 
 3. Enter the basic details for your Community:
    - **Subscription**: Select an existing Subscription
