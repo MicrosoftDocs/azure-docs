@@ -5,7 +5,7 @@ author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 04/09/2025
 ms.custom: template-how-to-pattern, devx-track-bicep
 ---
 
