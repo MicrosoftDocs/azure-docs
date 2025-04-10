@@ -20,7 +20,7 @@ In this quickstart, you create a new instance of Datadog.
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
-## Create a New Relic resource
+## Create a Datadog resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 

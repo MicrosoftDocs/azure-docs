@@ -2,13 +2,13 @@
 title: Azure Storage Explorer Accessibility
 description: Understand accessibility in Azure Storage Explorer. Review what screen readers are available, the zoom capability, high contrast themes, and shortcut keys.
 services: storage
-author: MrayermannMSFT
-manager: jinglouMSFT
+author: jinglouMSFT
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: azure-storage
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: marayerm
+ms.author: jinglou
+ms.reviewer: cralvord,richardgao
 ---
 
 # Storage Explorer Accessibility

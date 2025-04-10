@@ -336,7 +336,7 @@ Select the relevant tab for your scenario and follow the steps.
 1. Download the installation files for the Agent and the Agent Boot Loader by using the following links. If you need to unblock them, right-click each file, select **Properties**, select **Unblock**, and finally select **OK**.
 
    - [Azure Virtual Desktop Agent](https://go.microsoft.com/fwlink/?linkid=2310011)
-   - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+   - [Azure Virtual Desktop Agent Bootloader](https://go.microsoft.com/fwlink/?linkid=2311028)
 
    > [!TIP]
    > The Azure Virtual Desktop Agent download link is for the latest production version in [non-validation environments](terminology.md#validation-environment). This download link is updated after the automatic production rollout is complete, so you might see a delay between the release of a production version and the update of the download link. After you install the Azure Virtual Desktop Agent, it's updated automatically. For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent?](whats-new-agent.md#latest-available-versions).
@@ -372,23 +372,24 @@ You can use `msiexec` to install the agent and the boot loader from the command 
    ```powershell
    $uris = @(
        "https://go.microsoft.com/fwlink/?linkid=2310011"
-       "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH"
+       "https://go.microsoft.com/fwlink/?linkid=2311028"
    )
 
    $installers = @()
    foreach ($uri in $uris) {
-       $download = Invoke-WebRequest -Uri $uri -UseBasicParsing
+       $expandedUri = (Invoke-WebRequest -MaximumRedirection 0 -Uri $uri -ErrorAction SilentlyContinue).Headers.Location
+       $fileName = ($expandedUri).Split('/')[-1]
 
-       $fileName = ($download.Headers.'Content-Disposition').Split('=')[1].Replace('"','')
-       $output = [System.IO.FileStream]::new("$pwd\$fileName", [System.IO.FileMode]::Create)
-       $output.write($download.Content, 0, $download.RawContentLength)
-       $output.close()
-       $installers += $output.Name
+       Invoke-WebRequest -Uri $expandedUri -UseBasicParsing -OutFile $fileName
+       $installers += "$pwd\$fileName"
    }
 
    foreach ($installer in $installers) {
        Unblock-File -Path "$installer"
    }
+
+   Write-Host "`nFiles downloaded:`n"
+   $installers
    ```
 
    > [!TIP]

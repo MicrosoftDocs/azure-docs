@@ -5,7 +5,7 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
 ms.date: 01/25/2025
 ms.custom: generated
@@ -41,6 +41,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [microsoft.app](./permissions/compute.md#microsoftapp) |  | [Azure Container Apps](/azure/container-apps/) |
 > | [Microsoft.AppPlatform](./permissions/compute.md#microsoftappplatform) | A fully managed Spring Cloud service, built and operated with Pivotal. | [Azure Spring Apps](/azure/spring-apps/) |
 > | [Microsoft.AVS](./permissions/compute.md#microsoftavs) |  | [Azure VMware Solution](/azure/azure-vmware/introduction) |
+> | [Microsoft.AzureFleet](./permissions/compute.md#microsoftazurefleet) |  | [Azure Compute Fleet](/azure/azure-compute-fleet/overview) |
 > | [Microsoft.Batch](./permissions/compute.md#microsoftbatch) | Cloud-scale job scheduling and compute management. | [Batch](/azure/batch/) |
 > | [Microsoft.ClassicCompute](./permissions/compute.md#microsoftclassiccompute) |  | Classic deployment model virtual machine |
 > | [Microsoft.Compute](./permissions/compute.md#microsoftcompute) | Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use. | [Virtual Machines](/azure/virtual-machines/)<br/>[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |

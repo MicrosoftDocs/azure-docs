@@ -4,6 +4,9 @@ description: Learn how to use the selective logging feature with a script action
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: references-regions
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 
@@ -152,7 +155,7 @@ For example, assume that `spark HDInsightSecurityLogs` is a table that has two l
 If you need to disable two tables and two source types, use the following syntax:
 
 - Spark: `InteractiveHiveMetastoreLog` log type in the `HDInsightHiveAndLLAPLogs` table
-- Hbase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
+- HBase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
 - Hadoop: `HDInsightHiveAndLLAPMetrics` table
 - Hadoop: `HDInsightHiveTezAppStats` table
 

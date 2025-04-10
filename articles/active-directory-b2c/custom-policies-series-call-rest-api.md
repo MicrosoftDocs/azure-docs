@@ -1,7 +1,7 @@
 ---
-title: Call a REST API by using Azure Active Directory B2C custom policy
+title: Call a REST API by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
-description: Learn how to make an HTTP call to external API by using Azure Active Directory B2C custom policy.
+description: Learn how to call a REST API using Azure AD B2C custom policy. Make HTTP calls to external APIs to send and receive data from external services.
 
 author: kengaderdus
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -93,7 +93,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
                     "requestId": "requestId",
                     "userMessage" : "The access code you entered is incorrect. Please try again.",
                     "developerMessage" : `The provided code ${req.body.accessCode} does not match the expected code for user.`,
-                    "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+                    "moreInfo" :"https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
                 res.status(409).send(errorResponse);                
             }
@@ -138,7 +138,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
             "requestId": "requestId",
             "userMessage": "The access code you entered is incorrect. Please try again.",
             "developerMessage": "The provided code 54321 does not match the expected code for user.",
-            "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+            "moreInfo": "https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
 Your REST service can return HTTP 4xx status code, but the value of `status` in the JSON response must be `409`.
@@ -313,7 +313,7 @@ If your REST API returns data, which you want to include as claims in your polic
 
 Use the steps in [Receiving data](api-connectors-overview.md?pivots=b2c-custom-policy#receiving-data) to learn how to format the data the custom policy expects, how to handle nulls values, and how to parse REST the API's nested JSON body.
 
-## Next steps
+## Related content
 
 Next, learn:
 

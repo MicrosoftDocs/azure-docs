@@ -22,7 +22,10 @@ This article shows you how to set up the *API Center portal* (preview), an Azure
 > [!TIP]
 > Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](#api-management-and-api-center-portals)
 
+
 [!INCLUDE [api-center-portal-prerequisites](includes/api-center-portal-prerequisites.md)]
+
+## Create Microsoft Entra app registration
 
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
 
@@ -53,6 +56,8 @@ To make only specific APIs visible, go to the **API visibility** tab in the API 
 
 :::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::
 
+## Enable sign-in to portal by Microsoft Entra users and groups 
+
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 
 [!INCLUDE [api-center-portal-compare-apim-dev-portal](includes/api-center-portal-compare-apim-dev-portal.md)]
@@ -60,4 +65,4 @@ To make only specific APIs visible, go to the **API visibility** tab in the API 
 
 ## Related content
 
-* [Enable and view Azure API Center platform API catalog](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view Azure API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)

@@ -1,19 +1,26 @@
 ---
 title: Create and deploy workflows with Azure Arc-enabled Logic Apps
-description: Create and deploy single-tenant based logic app workflows that run anywhere that Kubernetes can run.
+description: Create and deploy Standard logic app workflows that run anywhere that Kubernetes can run.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 03/22/2025
 ms.custom: devx-track-azurecli
-#Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
+#Customer intent: As a developer, I want to learn how to create and deploy automated Azure Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 
 # Create and deploy single-tenant based logic app workflows with Azure Arc-enabled Logic Apps (Preview)
 
 > [!NOTE]
-> This capability is in preview and is subject to the 
+>
+> Standard workflows can now deploy and run in partially connected environments hosted on your own infrastructure. 
+> For more information, see the following documentation:
+>
+> - [Set up your own infrastructure for Standard logic app workflows using hybrid deployment](/azure/logic-apps/set-up-standard-workflows-hybrid-deployment-requirements)
+> - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment?tabs=azure-portal)
+>
+> The following capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 With Azure Arc-enabled Logic Apps, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that is mapped to an Azure Arc-enabled Kubernetes cluster where you installed and enabled the Azure App Service platform extensions bundle.
