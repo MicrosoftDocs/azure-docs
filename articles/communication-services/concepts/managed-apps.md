@@ -57,8 +57,9 @@ For more information about the sample applications, see GitHub Azure Samples [Ma
 
 ## Next steps
 
-???
+> [!div class="nextstepaction"]
+> [Create an Azure Communication Services managed application](https://github.com/Azure-Samples/communication-services-azure-managed-apps/blob/fca4bcad7516cf6c001c171272aceda4ed62c7a0/ManagedApplicationSamples/readme.md)
 
 ## Related articles
 
-???
+[Azure managed applications overview](https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview)
