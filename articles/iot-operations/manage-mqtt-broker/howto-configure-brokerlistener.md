@@ -264,7 +264,7 @@ Use the [az iot ops broker listener apply](/cli/azure/iot/ops/broker/listener#az
 az iot ops broker listener apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name <ListenerName> --config-file <ConfigFilePathAndFileName>
 ```
 
-The --config-file parameter is the path and file name of a JSON configuration file containing the resource properties.
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
 
 In this example, assume a configuration file named `loadbalancer-listener.json` with the following content stored in the user's home directory:
 
