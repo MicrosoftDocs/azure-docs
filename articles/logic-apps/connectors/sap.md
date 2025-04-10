@@ -602,7 +602,11 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 #### Create a connection with the SAP built-in connector
 
-Follow these steps for the SAP *built-in* connector. To create a connection with the SAP managed connector, see the [steps to enable SNC for an SAP connection in a Standard workflow](sap.md?tabs=standard#enable-secure-network-communications).
+For the SAP *built-in* connector, follow these steps that apply only to this connector version.
+
+> [!NOTE]
+>
+> For the SAP *managed* connector, follow the [same steps to enable SNC for an SAP connection in a Consumption workflow](sap.md?tabs=consumption#enable-secure-network-communications).
 
 1. On your logic app resource menu, under **Workflows**, select **Workflows**.
 
