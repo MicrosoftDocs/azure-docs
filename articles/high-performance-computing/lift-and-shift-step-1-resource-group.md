@@ -1,17 +1,17 @@
 ---
-title: "Resource group configuration during a high performance computing (HPC) architecture migration"
+title: "Resource group configuration"
 description: Learn how to configure resource groups during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Resource group configuration during a high performance computing (HPC) architecture migration
+# Resource group configuration
 
-Resource groups in Azure serve as containers that hold related resources for an Azure solution. In an HPC environment, organizing resources into appropriate resource groups is essential for effective management, access control, and cost tracking.
+A key aspect of this process is the configuration of resource groups. Resource groups in Azure serve as containers that hold related resources for an Azure solution. In an HPC environment, organizing resources into appropriate resource groups is essential for effective management, access control, and cost tracking. This part of the guide covers the needs and best practices associated with your resource groups.
 
 ## Define resource group needs
 
