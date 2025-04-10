@@ -12,7 +12,7 @@ ms.date: 04/09/2025
 #customer intent: As a developer, I want to create a workflow that can generate schemas for SAP artifacts by using Azure Logic Apps.
 ---
 
-# Generate schemas for SAP artifacts in Azure Logic Apps
+# Generate schemas for SAP artifacts by using workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
