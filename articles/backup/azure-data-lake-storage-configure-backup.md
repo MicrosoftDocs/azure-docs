@@ -1,29 +1,31 @@
 ---
-title: Configure Vaulted Backup for Azure Data Lake Storage Gen 2 using Azure Portal (preview)
-description: Learn how to configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal.
+title: Configure Vaulted Backup for Azure Data Lake Storage Gen2 using Azure Portal (preview)
+description: Learn how to configure vaulted backup for Azure Data Lake Storage Gen2 (preview) using Azure portal.
 ms.topic: how-to
 ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Configure vaulted backup for Azure Data Lake Storage Gen 2 using Azure portal (preview)
+# Configure vaulted backup for Azure Data Lake Storage Gen2 using Azure portal (preview)
 
-This article describes how to configure [vaulted backup for Azure Data Lake Storage Gen 2](azure-data-lake-storage-backup-overview.md) using Azure portal (preview).
+This article describes how to configure vaulted backup for Azure Data Lake Storage Gen2 (preview) using Azure portal.
 
 ## Prerequisites
 
 Before you configure backup for Azure Data Lake Storage, ensure the following prerequisites are met:
 
-- The storage account must be in a supported region and of the required types. See the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
-- Vaulted backup restores are only possible to a different storage account.
+- The storage account must be in a [supported region and of the required types](azure-data-lake-storage-backup-support-matrix.md).
 - The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
+
+>[!Note]
+>Vaulted backup restores are only possible to a different storage account.
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
 
 ## Create a Backup vault
 
-To back up Azure Data Lake Storage Gen2, ensure you have a Backup Vault in the same region. You can use an existing vault, or create a new one. Learn how to [create a Backup vault](create-manage-backup-vault.md#create-backup-vault).
+To back up Azure Data Lake Storage Gen2, ensure you have a Backup Vault in the same region. You can use an existing vault, or [create a new one](create-manage-backup-vault.md#create-backup-vault).
 
 ## Create a backup policy
 
@@ -32,7 +34,7 @@ A backup policy defines the schedule and frequency for backing up Azure Data Lak
 To create a backup policy for Azure Data Lake Storage from the Backup vault, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault** > **Backup policies**, and then select **+ Add**.
-1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**, and then select **Datasource type** as **Azure Data Lake Storage Gen2s (Preview)**.
+1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**, and then select **Datasource type** as **Azure Data Lake Storage Gen2 (Preview)**.
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-data-lake-storage-configure-backup/create-policy.png":::
 
@@ -76,14 +78,15 @@ You can configure backup on multiple Azure Data Lake Storage Gen2s.
 To configure backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **+ Backup**. 
-1. On the **Configure Backup** pane, on the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
-   If you want to create a new backup policy, select **Create new**.
+1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasouce type** is selected as **Azure Data Lake Storage Gen2 (preview)**.
+1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
+   If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](#create-a-backup-policy).
  
 1. On the **Datasources** tab, Select**Add**. 
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png" alt-text="Screenshot shows how to add resources for backup." lightbox="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png":::
 
-1. On the **Select storage account container** pane, provide the **Backup Instance name**, and then click **Select** under **Storage account**.
+1. On the **Select storage account container** pane, provide the **Backup instance name**, and then click **select** under **Storage account**.
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png" alt-text="Screenshot shows how to provide the backup instance name." lightbox="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png":::
 
@@ -112,7 +115,7 @@ You can track the progress of the backup configuration under **Backup instances*
 
 ## Next steps
 
-[Restore Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-restore.md).
+[Restore Azure Data Lake Storage Gen2 using Azure portal (preview)](azure-data-lake-storage-restore.md).
  
 
 
