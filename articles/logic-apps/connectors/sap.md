@@ -716,7 +716,7 @@ This destination identifies your logic app workflow as the receiver port.
       >
       > For more information from SAP, see the following notes:
       >
-      > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
+      > * [2399329 - Function IDOC_INBOUND_ASYNCHRONOUS not found in SM58](https://me.sap.com/notes/2399329)
       > * [https://me.sap.com/notes/353597](https://me.sap.com/notes/353597)
 
    1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
