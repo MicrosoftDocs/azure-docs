@@ -412,7 +412,7 @@ The previous example also shows how to encode binary arrays for the SAP data typ
 > appears as valid base64 values. For example, the string value `01020304` also decodes as a valid base64 
 > encoded value, but results in a different binary array `[d3][5d][36][d3][7d][38]`, and not the binary array `[01][02][03][04]`.
 
-The following example includes prefixes for the namespaces. You can declare all prefixes at one time, or you can declare any number of prefixes as attributes of a node. The RFC namespace alias named `ns0` is used as the root and parameters for the basic type.
+The following example includes prefixes for the namespaces. You can declare all the prefixes at one time, or you can declare any number of prefixes as attributes of a node. The RFC namespace alias named `ns0` is used as the root and parameters for the basic type.
 
 > [!NOTE]
 >
