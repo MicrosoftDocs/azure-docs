@@ -1,0 +1,33 @@
+- name: Durable Task Scheduler documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Durable Task Scheduler
+    href: durable-task-scheduler.md
+  - name: Choose your orchestration framework
+    href: durable-task-scheduler-framework.md
+  - name: Billing
+    href: durable-task-scheduler-dedicated-sku.md
+- name: Getting started
+  expanded: true
+  items:
+  - name: Configure for Durable Functions
+    displayName: get started
+    href: quickstart-durable-task-scheduler.md
+  - name: Configure for the portable Durable Task SDKs
+    displayName: get started
+    href: quickstart-portable-durable-task-sdks.md
+- name: Durable Task Scheduler for Durable Functions
+  items:
+  - name: Develop
+    href: develop-with-durable-task-scheduler.md
+  - name: Manage and monitor
+    href: durable-task-scheduler-dashboard.md
+- name: Durable Task Scheduler for portable SDKs
+  items:
+  - name: Use the portable SDKs with Azure computes
+    href: durable-task-scheduler-dashboard.md #placeholder
+- name: Reference
+  items:
+  - name: Troubleshooting
+    href: troubleshoot-durable-task-scheduler.md
