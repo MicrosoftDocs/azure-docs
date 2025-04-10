@@ -131,7 +131,7 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myf
 #### [Azure Files NFS](#tab/nfs-uploaddirectorynew)
 
 ```azcopy
-azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
 ```
 
 ---
