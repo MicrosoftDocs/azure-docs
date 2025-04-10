@@ -1,15 +1,15 @@
 ---
-title: "High performance computing (HPC) basic infrastructure migration overview"
+title: "Basic infrastructure migration overview"
 description: Get a high level idea of the steps involved when migrating basic infrastructure components during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# High performance computing (HPC) basic infrastructure migration overview
+# Basic infrastructure migration overview
 
 The critical foundational components required to establish a landing zone in the cloud for an HPC environment are outlined here. The focus is on setting up resource groups, networking, and basic storage, which serve as the backbone of a successful HPC lift-and-shift deployment.
 
