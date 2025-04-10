@@ -67,13 +67,11 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. On the **Overview** page of your instance, you can see the properties of your instance. For example, you can see the status of the **preview connectors**, which can be enabled or disabled. To change the status of the preview connectors, click on **Edit**. 
 
-    :::image type="content" source="media/howto-deploy-iot-operations/view-enable-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster."lightbox="media/howto-deploy-iot-operations/view-enable-connectors.png":::
+    :::image type="content" source="media/howto-deploy-iot-operations/view-enable-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster and how to enable connectors."lightbox="media/howto-deploy-iot-operations/view-enable-connectors.png":::
 
     This action opens the a configuration panel where you can enable or disable the [ONVIF preview connector](../discover-manage-assets/overview-onvif-connector.md).
 
-    :::image type="content" source="media/howto-deploy-iot-operations/configuration-pane-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster."lightbox="media/howto-deploy-iot-operations/configuration-pane-connectors.png":::
-
-1. On the **Overview** page, the **Resource Summary** tab displays the resources that were deployed to your cluster.
+1. The **Resource Summary** tab displays the resources that were deployed to your cluster.
 
 #### [Azure CLI](#tab/cli)
 
