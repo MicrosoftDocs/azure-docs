@@ -148,11 +148,21 @@ You can upload the contents of a directory without copying the containing direct
 
 `azcopy copy '<local-directory-path>/*' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>'`
 
-**Example**
+#### [Azure Files SMB](#tab/smb-uploaddirectorycontents)
 
 ```azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --preserve-permissions=true --preserve-info=true
 ```
+
+#### [Azure Files NFS](#tab/nfs-uploaddirectorycontents)
+
+```azcopy
+azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --preserve-permissions=true --preserve-info=true --nfs
+```
+
+---
+
+<a id="uploaddirectorycontents"></a>
 
 > [!NOTE]
 > Append the `--recursive` flag to upload files in all sub-directories.
@@ -169,13 +179,25 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 
 `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' --include-path <semicolon-separated-file-list>`
 
-**Example**
+#### [Azure Files SMB](#tab/smb-uploadspecificfiles)
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-path 'photos;documents\myFile.txt' --preserve-permissions=true --preserve-info=true
 ```
 
 In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
+
+#### [Azure Files NFS](#tab/nfs-uploadspecificfiles)
+
+```azcopy
+azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-path 'photos;documents/myFile.txt' --preserve-permissions=true --preserve-info=true --nfs
+```
+
+In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
+
+---
+
+<a id="uploadspecificfiles"></a>
 
 You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
