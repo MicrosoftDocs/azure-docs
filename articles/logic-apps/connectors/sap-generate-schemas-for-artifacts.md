@@ -1,36 +1,45 @@
 ---
-title: SAP Artifact Schemas
-description: Explore sample SAP artifacts for workflows in Azure Logic Apps, including reviewing and generating schemas for the artifacts.
+title: Generate Schemas for SAP Artifacts via Workflows
+description: Create a workflow to generate schemas for SAP artifacts by using Azure Logic Apps.
+ms.service: azure-logic-apps
 services: logic-apps
 ms.suite: integration
 author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/09/2025
+ms.date: 04/11/2025
 
-#customer intent: As a developer, I want to explore sample SAP artifacts so I can use the artifacts with workflows in Azure Logic Apps.
+#customer intent: As a developer, I want to create a workflow that can generate schemas for SAP artifacts by using Azure Logic Apps.
 ---
 
-# Generate schemas for SAP artifacts in Azure Logic Apps
+# Generate schemas for SAP artifacts by using workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
-This how-to guide shows how to create an example logic app workflow that generates schemas for SAP artifacts. The workflow starts with a **Request** trigger that can receive HTTP POST requests from your SAP server. The workflow then generates schemas for the specified IDoc and BAPI by using the SAP action named **Generate schemas** that sends a request to your SAP server. To send this request, you can use either the generic SAP managed connector action named **Send message to SAP**, or you can use the specific SAP managed or built-in action named **[BAPI] Call method in SAP**. This SAP action returns an [XML schema](#sample-xml-schemas) and not the contents or data of the XML document itself. Schemas returned in the response are uploaded to an integration account by using the Azure Resource Manager connector. Schemas contain the following parts:
+This how-to guide shows how to create an example logic app workflow that generates schemas for SAP artifacts. The workflow starts with a **Request** trigger that can receive HTTP POST requests from your SAP server. The workflow then generates schemas for the specified IDoc and BAPI by using the SAP action named **Generate schemas** that sends a request to your SAP server. To send this request, you can use either the generic SAP managed connector action named **Send message to SAP**, or you can use the specific SAP managed or built-in action named **[BAPI] Call method in SAP**. This SAP action returns an [XML schema](#sample-xml-schemas) without the contents or data in the XML document itself. The workflow then uploads the schemas returned by the response to an integration account by using a Azure Resource Manager connector operation.
+
+Schemas contain the following parts:
 
 | Component | Description |
 |-----------|-------------|
-| Request message structure | Use this information to form your BAPI `get` list. |
+| Request message structure | Use this information to form your BAPI **`get`** list. |
 | Response message structure | Use this information to parse the response. |
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector hosted and run in multitenant Azure. Standard workflows also offer the preview SAP *built-in* connector hosted and run in single-tenant Azure Logic Apps. However, this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Connector technical reference](sap.md#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector, which is hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector, which is hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
 
 ## Prerequisites
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
-- If you want to upload your generated schemas to a repository, such as an [integration account](../enterprise-integration/create-integration-account.md), make sure the repository already exists.
+- If you want to upload your generated schemas to a repository, such as an [integration account](../enterprise-integration/create-integration-account.md), make sure that the repository exists.
 
+- Either a Consumption logic app resource with a blank workflow or a Standard logic app resource with a blank workflow. If you don't have one, create this resource:
+
+  - [Create an example Consumption logic app workflow using the Azure portal](/azure/logic-apps/quickstart-create-example-consumption-workflow)
+  
+  - [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal)
+  
 [!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Generate schemas for an SAP artifact
@@ -41,11 +50,11 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 To have your workflow receive requests from your SAP server over HTTP, you can use the [Request built-in trigger](../../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP POST requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
 
-Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps.
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps.
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource and blank workflow, which opens in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and blank workflow in the designer.
 
 1. In the designer, follow [these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
@@ -59,7 +68,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), create a Standard logic app resource and a blank workflow, which opens in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
 1. In the designer, follow [these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
@@ -75,21 +84,20 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ### Add an SAP action to generate schemas
 
-Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps.
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps.
 
 ### [Consumption](#tab/consumption)
 
-1. In the workflow designer, under the **Request** trigger, select **New step**.
 
-1. In the designer, follow [these general steps to find and add the SAP managed action named **Generate schemas**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. In the workflow designer, under the **Request** trigger, follow [these general steps to find and add the SAP managed action named **Generate schemas**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    For more information about this SAP managed action, see [Generate schemas](/connectors/sap/#generate-schemas).
 
 1. If prompted, provide the [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue to the next step to set up the SAP action.
 
-   By default, when you create a connection for an SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. For more information about type setting, see [Safe Typing setting](sap-create-example-scenario-workflows.md#safe-typing). For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
+   By default, when you create a connection for an SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. For more information about strong typing, see [Safe Typing setting](sap-create-example-scenario-workflows.md#safe-typing). For other available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-consumption.png" alt-text="Screenshot shows Consumption workflow and SAP managed action named Generate schemas." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-consumption.png":::
 
@@ -99,7 +107,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
       > [!NOTE]
       >
-      > If you receive a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
+      > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
 
       :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-consumption.png" alt-text="Screenshot shows Consumption workflow, Generate schemas action, and selecting IDOC." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-consumption.png":::
 
@@ -116,7 +124,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
       > [!TIP]
       >
       > For the **Body ActionUri** parameter, you can use the expression editor to provide the parameter value. 
-      > This approach enables you to use the same SAP action for different message types.
+      > This approach lets you use the same SAP action for different message types.
 
       For more information about this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
@@ -132,9 +140,8 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ### [Standard](#tab/standard)
 
-1. In the workflow designer, under the **Request** trigger, select the plus symbol (**+**) > **Add an action**.
+1. In the workflow designer, under the **Request** trigger, follow [these general steps to find and add the SAP built-in action named **Generate Schema**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. In the designer, follow [these general steps to find and add the SAP built-in action named **Generate Schema**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    For more information about this SAP built-in action, see [Generate Schema](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)).
 
@@ -152,13 +159,13 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
    For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-standard.png" alt-text="Screenshot shows Standard workflow and SAP built-in action named Generate Schema." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-standard.png":::
 
    > [!NOTE]
    >
-   > If you receive a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
+   > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
 
 1. In the [**Generate Schema** action](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)), provide the following information about the artifact for which to generate the schema.
 
@@ -174,7 +181,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-standard.png" alt-text="Screenshot shows Standard workflow, Generate Schema action, and IDoc artifact information." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-standard.png":::
 
-   For more information about schemas for this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+   For more information about the schemas for this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -182,7 +189,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ### Test your workflow for schema generation
 
-Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps.
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps.
 
 ### [Consumption](#tab/consumption)
 
@@ -210,9 +217,9 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    > Your workflow might time out if all the steps required for the response don't finish within the [request time-out limit](../logic-apps-limits-and-config.md). 
    > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check workflow status and view run history in Azure Logic Apps](../view-workflow-status-run-history.md?tabs=consumption).
 
-1. On your logic app's **Overview** pane, under **Runs history**, find, and open the workflow run.
+1. On the logic app menu, select **Overview**. On the **Run history** tab, select the workflow run.
 
-1. Next, locate the **Generate schemas** action, and review the action's outputs.
+1. Select the **Generate schemas** action to review the action's outputs.
 
    The outputs show the generated schemas for the specified messages.
 
@@ -222,7 +229,7 @@ For more information about reviewing workflow run history, see [Check workflow s
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
-1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
+1. On the workflow designer toolbar, select **Run** > **Run** to manually start your workflow.
 
 1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
@@ -244,9 +251,11 @@ For more information about reviewing workflow run history, see [Check workflow s
    > Your workflow might time out if all the steps required for the response don't finish within the [request time-out limit](../logic-apps-limits-and-config.md). 
    > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check workflow status and view run history in Azure Logic Apps](../view-workflow-status-run-history.md?tabs=standard).
 
-1. On your workflow's **Overview** pane, under **Run History**, find, and open the workflow run.
+1. On your workflow menu, under **Tools**, select **Run history**.
 
-1. Find the **Generate Schema** action, and review the action's outputs.
+1. On the **Run history**page, on the **Run history** tab, select the workflow run.
+
+1. Select the **Generate Schema** action to review the action's outputs.
 
    The outputs show the generated schemas for the specified messages.
 
@@ -256,7 +265,7 @@ For more information about reviewing workflow run history, see [Check workflow s
 
 ## Upload schemas to an integration account
 
-Optionally, you can download or store the generated schemas in repositories, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md) or Azure storage account like a blob container. Integration accounts provide a first-class experience with XML actions for workflows in Azure Logic Apps. As an option, you can upload generated schemas to an existing integration account within the same workflow that generates those schemas by using the Azure Resource Manager action named **Create or update a resource**.
+Optionally, you can download or store the generated schemas in repositories, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md) or Azure storage account like a blob container. Integration accounts provide a first-class experience with XML actions for workflows in Azure Logic Apps. You can optionally upload generated schemas to an existing integration account within the same workflow that generates those schemas by using the Azure Resource Manager action named **Create or update a resource**.
 
 > [!NOTE]
 >
@@ -271,23 +280,24 @@ Optionally, you can download or store the generated schemas in repositories, suc
 > }
 > ```
 
-For this task, you need an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one. Follow the corresponding steps based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps. The procedure uploads schemas to an integration account from your workflow after schema generation.
+For this task, you need an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one. Follow the corresponding steps based on whether you have a Consumption or Standard workflow. The procedure uploads schemas to an integration account from your workflow after schema generation.
 
 ### [Consumption](#tab/consumption)
 
-1. In the workflow designer, under the SAP managed action named **Generate schemas**, select **New step**.
+1. In the workflow designer, under the **Generate schemas** action, follow [these general steps to add the Azure Resource Manager managed action named **Create or update a resource**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Follow [these general steps to find and add the Azure Resource Manager managed action named **Create or update a resource**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action). If you're prompted to sign in with your credentials, go ahead and continue.
+1. If you're prompted to sign in, do that now and continue.
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears:
+
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png" alt-text="Screenshot shows Consumption workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png":::
 
 1. In the **Create or update a resource** action, provide the [required information](/connectors/arm/#create-or-update-a-resource).
 
-   1. You can include any outputs from previous steps in the workflow. Select inside the parameter where you want to include the output, open the dynamic content list (lightning icon), and select the output to include.
+   1. You can include any outputs from previous steps in the workflow. Select inside the parameter where you want to include the output. Select the lightning icon to open the dynamic content list, and select the output to include.
 
-   1. From the **Add new parameter** list, select the **Location** and **Properties** parameters.
+   1. If the **Location** and **Properties** parameters don't appear on the **Parameters** tab, open the **Advanced parameters** list, and add those parameters.
 
    1. Provide values for the added parameters, for example:
 
@@ -301,19 +311,19 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 ### [Standard](#tab/standard)
 
-1. In the workflow designer, under the SAP built-in action named **Generate Schema**, select the plus symbol (**+**) > **Add an action**.
+1. In the workflow designer, under the **Generate Schema** action, follow [these general steps to add the Azure Resource Manager managed action named **Create or update a resource**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. Follow [these general steps to find and add the Azure Resource Manager managed action named **Create or update a resource**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action). If you're prompted to sign in with your credentials, go ahead and continue.
+1. If you're prompted to sign in, do that now and continue.
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears:
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png" alt-text="Screenshot shows Standard workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png":::
 
 1. In the **Create or update a resource** action, provide the [required information](/connectors/arm/#create-or-update-a-resource).
 
-   1. You can include any outputs from previous steps in the workflow. Select inside the parameter where you want to include the output, open the dynamic content list (lightning icon), and select the output to include.
+   1. You can include any outputs from previous steps in the workflow. Select inside the parameter where you want to include the output. Select the lightning icon to open the dynamic content list, and select the output to include.
 
-   1. From the **Add new parameter** list, select the **Location** and **Properties** parameters.
+   1. If the **Location** and **Properties** parameters don't appear on the **Parameters** tab, open the **Advanced parameters** list, and add those parameters.
 
    1. Provide values for the added parameters, for example:
 
@@ -403,7 +413,7 @@ The previous example also shows how to encode binary arrays for the SAP data typ
 > appears as valid base64 values. For example, the string value `01020304` also decodes as a valid base64 
 > encoded value, but results in a different binary array `[d3][5d][36][d3][7d][38]`, and not the binary array `[01][02][03][04]`.
 
-The following example includes prefixes for the namespaces. You can declare all prefixes at one time, or you can declare any number of prefixes as attributes of a node. The RFC namespace alias named `ns0` is used as the root and parameters for the basic type.
+The following example includes prefixes for the namespaces. You can declare all the prefixes at one time, or you can declare any number of prefixes as attributes of a node. The RFC namespace alias named `ns0` is used as the root and parameters for the basic type.
 
 > [!NOTE]
 >
