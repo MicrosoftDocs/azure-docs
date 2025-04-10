@@ -297,7 +297,7 @@ This section contains the following examples:
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
 ```
 
-#### [Azure Files NFS](#tab/smb-downloadfile)
+#### [Azure Files NFS](#tab/nfs-downloadfile)
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --nfs
@@ -313,13 +313,25 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFi
 
 `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>' '<local-directory-path>' --recursive`
 
-**Example**
+#### [Azure Files SMB](#tab/smb-downloaddirectory)
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' 'C:\myDirectory'  --recursive --preserve-permissions=true --preserve-info=true
 ```
 
 This example results in a directory named `C:\myDirectory\myFileShareDirectory` that contains all of the downloaded files.
+
+#### [Azure Files NFS](#tab/nfs-downloaddirectory)
+
+```azcopy
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --nfs
+```
+
+This example results in a directory named `/myDirectory/myFileShareDirectory` that contains all of the downloaded files.
+
+---
+
+<a id="downloaddirectory"></a>
 
 ### Download the contents of a directory
 
