@@ -3,7 +3,7 @@ title: Send VMware syslogs to log management server using Azure Logic Apps
 description: Learn how to use Azure Logic Apps to collect and send VMware syslogs from your Azure VMware Solution private cloud to any log management service of your choice.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 4/9/2025
+ms.date: 4/10/2025
 ms.custom: engagement-fy25
 
 #Customer intent: As an Azure service administrator, I want to use Azure Logic Apps to send VMware syslogs from my Azure VMware Solution private cloud to my preferred log management service for centralized logging and analysis.
@@ -60,23 +60,23 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-8.png" alt-text="Screenshot showing the Event Hubs connection portion of the Azure VMware Solution template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-8.png":::
 
-   - In a separate browser tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
+5. In a separate brower tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
     
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-9.png" alt-text="Screenshot showing the Primary connection string on Azure Event Hub." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-9.png":::
 
-   - Navigate back to the browser tab with the Logic App and paste what you just copied into the **Connection String** field. Click **Add Connection**.
+6. Navigate back to the browser tab with the Logic App and paste what you just copied into the **Connection String** field. Click **Add Connection**.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-10.png" alt-text="Screenshot showing the pasting of the Primary connection string on Azure Logic Apps template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-10.png":::
 
-   - If added successfully, the Status for the Event Hub should read **Connected**. At this point, click **Next** to proceed forward.
+7.  If added successfully, the Status for the Event Hub should read **Connected**. At this point, click **Next** to proceed forward.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-11.png" alt-text="Screenshot showing successful Connected message on Azure Logic Apps template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-11.png":::
 
-5. Add the name of the event hub instance under **Event hub name**. The exact name of the Event hub can be found under **Entities**, then **Event Hubs** in your Event Hub tab. Add the URI of the log server you intend to use under **Log destination URI**. Click **Next**.
+8. Add the name of the event hub instance under **Event hub name**. The exact name of the Event hub can be found under **Entities**, then **Event Hubs** in your Event Hub tab. Add the URI of the log server you intend to use under **Log destination URI**. Click **Next**.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-12.png" alt-text="Screenshot showing the necessary parameters needed for the Azure Logic App template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-12.png":::
 
-6. Finally, review the information provided, then click **Create**. This action saves the workflow that can be used to send the log messages from Azure VMware Solution to any syslog endpoint.
+9. Finally, review the information provided, then click **Create**. This action saves the workflow that can be used to send the log messages from Azure VMware Solution to any syslog endpoint.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-13.png" alt-text="Screenshot showing the review page before creating the Azure Logic App template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-13.png":::
 
