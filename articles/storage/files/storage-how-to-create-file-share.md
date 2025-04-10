@@ -160,6 +160,9 @@ else
     done
 fi
 ```
+
+---
+
 ### Storage account creation
 # [Portal](#tab/azure-portal)
 To create a storage account via the Azure portal, use the search box at the top of the Azure portal to search for **storage accounts** and select the matching result. 
