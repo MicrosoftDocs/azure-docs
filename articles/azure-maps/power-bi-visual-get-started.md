@@ -123,7 +123,7 @@ The following settings are available in the **Style** section:
 | Setting     | Description  |
 |-------------|--------------|
 | Style       | The style of the map. The dropdown list contains [blank and blank accessible], [grayscale dark], [grayscale light], [high contrast dark], [high contrast light], [night], [road], [road shaded relief], [satellite] and [satellite road labels]. |
-| Labels | A toggle switch that allows you to show or hide map labels. For more information, see list item number five in the previous section. |
+| Labels | A toggle switch that allows you to show or hide map labels. For more information, see item number five in the previous section titled [Use the Azure Maps Power BI visual](#use-the-azure-maps-power-bi-visual). |
 | Country borders | A toggle switch that controls the visibility of country borders. |
 | State or province borders | A toggle switch that controls the visibility of the borders for the first-level administrative divisions, such as state or province borders. |
 | County borders | A toggle switch that controls the visibility of the borders for the second-level administrative divisions, such as county borders. |
