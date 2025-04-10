@@ -229,7 +229,7 @@ For more information about reviewing workflow run history, see [Check workflow s
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
-1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
+1. On the workflow designer toolbar, select **Run** > **Run** to manually start your workflow.
 
 1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
