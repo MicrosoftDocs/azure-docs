@@ -1,5 +1,5 @@
 ---
-title: Azure IoT glossary of terms | Microsoft Docs
+title: Azure IoT glossary of terms
 description: Developer guide - a glossary explaining some of the common terms used in the Azure IoT articles.
 author: dominicbetts
 ms.author: dobett

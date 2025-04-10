@@ -1,8 +1,6 @@
 ---
 title: Getting started with Azure Communications Gateway
 description: Learn how to plan for and deploy Azure Communications Gateway.
-author: GemmaWakeford
-ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 02/16/2024

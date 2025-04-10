@@ -29,7 +29,7 @@ The most recent stable release of the Azure Maps services.
 | [Search] |  2025-01-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
 | [Spatial] |  2022-08-01  | Use geofences, great circle distances, and other spatial operations to analyze location data.<br>The Spatial service is deprecated and will be retired on 9/30/25. |
 | [Timezone] |  1.0  | Get time zone and sunrise/sunset information for specified locations. |
-| [Traffic] |  1.0  | Get current traffic information including traffic flow and traffic incident details. |
+| [Traffic] |  2025-01-01  | Provides traffic incident data, such as construction, traffic congestion, accidents, and more, within a specified bounding box. |
 | [Weather] |  1.1  | Get current, forecasted, and historical weather conditions, air quality, tropical storm details, and weather along a route. |
 
 ## Previous releases
@@ -43,6 +43,7 @@ There are previous stable releases of an Azure Maps service that are still in us
 | [Route][Route v1] |  1.0  | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
 | [Search][Search v1] |  1.0  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
 | [Search] |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
+| [Traffic][Traffic v1] |  1.0  | Get current traffic information including traffic flow and traffic incident details. |
 
 ## Latest preview
 
@@ -70,6 +71,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 [Render v1]: /rest/api/maps/render?view=rest-maps-1.0
 [Route v1]: /rest/api/maps/route?view=rest-maps-1.0
 [Search v1]: /rest/api/maps/search?view=rest-maps-1.0
+[Traffic v1]: /rest/api/maps/traffic?view=rest-maps-1.0
 
 <!--- 2024-07-01-preview is the latest preview release of the Route service,
       currently the only Azure Maps service in Preview -------------------------->

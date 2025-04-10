@@ -5,7 +5,7 @@ description: Learn how to change a gateway SKU.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---

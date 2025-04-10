@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/create-single-tenant-workflows-visual-studio-code.md",
+            "redirect_url": "/azure/logic-apps/create-standard-workflows-visual-studio-code",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/monitor-b2b-messages-log-analytics.md",
             "redirect_url": "/azure/logic-apps/monitor-track-b2b-messages-consumption",
             "redirect_document_id": true

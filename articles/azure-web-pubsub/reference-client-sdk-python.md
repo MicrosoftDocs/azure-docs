@@ -48,7 +48,7 @@ As shown in the diagram, the client has the permissions to send messages to and 
 ```python
 from azure.messaging.webpubsubclient import WebPubSubClient
 
-client = WebPubSubClient("<<client-access-url>>")
+client = WebPubSubClient("<client-access-url>")
 with client:
     # The client can join/leave groups, send/receive messages to and from those groups all in real-time
     ...
@@ -59,11 +59,13 @@ with client:
 A client can only receive messages from groups that it has joined and you need to add a callback to specify the logic when receiving messages.
 
 ```python
+from azure.messaging.webpubsubclient.models import CallbackType
+
 # ...continues the code snippet from above
 
 # Registers a listener for the event 'group-message' early before joining a group to not miss messages
 group_name = "group1";
-client.on("group-message", lambda e: print(f"Received message: {e.data}"));
+client.subscribe(CallbackType.GROUP_MESSAGE, lambda e: print(f"Received message: {e.data}"));
 
 # A client needs to join the group it wishes to receive messages from
 client.join_group(groupName);
@@ -85,19 +87,25 @@ client.send_to_group(group_name, "hello world", "text");
 1. When a client is successfully connected to your Web PubSub resource, the `connected` event is triggered.
 
     ```python
-    client.on("connected", lambda e: print(f"Connection {e.connection_id} is connected"))
+    from azure.messaging.webpubsubclient.models import CallbackType
+
+    client.subscribe(CallbackType.CONNECTED, lambda e: print(f"Connection {e.connection_id} is connected"))
     ```
 
 2. When a client is disconnected and fails to recover the connection, the `disconnected` event is triggered.
 
     ```python
-    client.on("disconnected", lambda e: print(f"Connection disconnected: {e.message}"))
+    from azure.messaging.webpubsubclient.models import CallbackType
+
+    client.subscribe(CallbackType.DISCONNECTED, lambda e: print(f"Connection disconnected: {e.message}"))
     ```
 
 3. The `stopped` event is triggered when the client is disconnected **and** the client stops trying to reconnect. This usually happens after the `client.stop()` is called, or `auto_reconnect` is disabled or a specified limit to trying to reconnect has reached. If you want to restart the client, you can call `client.start()` in the stopped event.
 
     ```python
-    client.on("stopped", lambda : print("Client has stopped"))
+    from azure.messaging.webpubsubclient.models import CallbackType
+
+    client.subscribe(CallbackType.STOPPED, lambda : print("Client has stopped"))
     ```
 
 ### A client consumes messages from the application server or joined groups
@@ -105,11 +113,13 @@ client.send_to_group(group_name, "hello world", "text");
 A client can add callbacks to consume messages from your application server or groups. Note, for `group-message` event the client can _only_ receive group messages that it has joined.
 
   ```python
+  from azure.messaging.webpubsubclient.models import CallbackType
+
   # Registers a listener for the "server-message". The callback is invoked when your application server sends message to the connectionID, to or broadcast to all connections.
-  client.on("server-message", lambda e: print(f"Received message {e.data}"))
+  client.subscribe(CallbackType.CONNECTED, lambda e: print(f"Received message {e.data}"))
 
   # Registers a listener for the "group-message". The callback is invoked when the client receives a message from the groups it has joined.
-  client.on("group-message", lambda e: print(f"Received message from {e.group}: {e.data}"))
+  client.subscribe(CallbackType.GROUP_MESSAGE, lambda e: print(f"Received message from {e.group}: {e.data}"))
   ```
 ---
 ### Handle rejoin failure
@@ -120,11 +130,13 @@ However, you should be aware of `auto_rejoin_groups`'s limitations.
 - "rejoin group" operations may fail due to various reasons, for example, the client doesn't have permission to join the groups. In such cases, you need to add a callback to handle this failure.
 
 ```python
+from azure.messaging.webpubsubclient.models import CallbackType
+
 # By default auto_rejoin_groups=True. You can disable it by setting to False.
 client = WebPubSubClient("<client-access-url>", auto_rejoin_groups=True);
 
 # Registers a listener to handle "rejoin-group-failed" event
-client.on("rejoin-group-failed", lambda e: print(f"Rejoin group {e.group} failed: {e.error}"))
+client.subscribe(CallbackType.REJOIN_GROUP_FAILED, lambda e: print(f"Rejoin group {e.group} failed: {e.error}"))
 ```
 
 ### Operation and retry
@@ -133,9 +145,9 @@ By default, the operation such as `client.join_group()`, `client.leave_group()`,
 
 ```python
 try:
-  client.join_group(group_name)
+    client.join_group(group_name)
 except SendMessageError as e:
-  client.join_group(group_name, ack_id=e.ack_id)
+    client.join_group(group_name, ack_id=e.ack_id)
 ```
 
 ## Troubleshooting

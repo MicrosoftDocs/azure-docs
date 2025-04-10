@@ -35,7 +35,7 @@ items:
     - name: Portal - Templates gallery
       href: create-single-tenant-workflows-templates.md
     - name: Visual Studio Code
-      href: create-single-tenant-workflows-visual-studio-code.md
+      href: create-standard-workflows-visual-studio-code.md
 - name: Tutorials
   items:
   - name: Create Consumption schedule-based workflow
@@ -447,6 +447,8 @@ items:
     items:
     - name: Manage logic apps - Azure portal
       href: manage-logic-apps-with-azure-portal.md
+    - name: Manage logic apps - Visual Studio Code
+      href: manage-logic-apps-visual-studio-code.md
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts

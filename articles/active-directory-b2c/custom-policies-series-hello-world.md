@@ -1,7 +1,7 @@
 ---
 title: Write your first Azure AD B2C custom policy - Hello World! 
 titleSuffix: Azure AD B2C
-description: Learn how to write your first custom policy. A custom that shows of returns Hello World message. 
+description: Learn how to write your first Azure AD B2C custom policy. Configure keys, build the policy file, upload it to Azure, and test the custom policy.
 
 author: kengaderdus
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -286,7 +286,7 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
 
 Notice the `message` and `sub` claims, which we set as [output claims](relyingparty.md#outputclaims) in the `RelyingParty` section. 
 
-## Next steps
+## Related content
 
 In this article, you learned and used four sections that are included in an Azure AD B2C custom policy. These sections are added as child elements the `TrustFrameworkPolicy` root element: 
 

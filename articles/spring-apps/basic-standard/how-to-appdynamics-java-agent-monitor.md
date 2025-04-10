@@ -220,7 +220,7 @@ You can define more metrics for the JVM, as shown in this screenshot of the **Me
 
 ## View AppDynamics Agent logs
 
-By default, Azure Spring Apps prints the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the `info` level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the AppDynamics Agent from the following locations:
 
