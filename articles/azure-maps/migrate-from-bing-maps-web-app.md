@@ -1230,11 +1230,11 @@ map.setTraffic({
 });
 ```
 
-![Azure Maps traffic](media/migrate-bing-maps-web-app/azure-maps-traffic.jpg)
+![Azure Maps Traffic](media/migrate-bing-maps-web-app/azure-maps-traffic.jpg)
 
 If you select one of the traffic icons in Azure Maps, more information displays in a popup.
 
-![Azure Maps traffic popup](media/migrate-bing-maps-web-app/azure-maps-traffic-popup.jpg)
+![Azure Maps Traffic popup](media/migrate-bing-maps-web-app/azure-maps-traffic-popup.jpg)
 
 **More resources**
 
