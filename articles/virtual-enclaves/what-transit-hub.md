@@ -14,7 +14,7 @@ A Transit hub establishes a virtual hub within a Community vWAN that serves as a
 
 ## Architecture of a Transit Hub
 
-![Graphic showing example connection through a Transit Hub with a VPN connection to resources external to the Community.](./media/transit-hub-vpn-connection.png)
+![Diagram showing example connection through a Transit Hub with a VPN connection to resources external to the Community.](./media/transit-hub-vpn-connection.png)
 
 ## Transit hub types
 
