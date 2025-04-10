@@ -68,12 +68,14 @@ items:
             href: add-server-credentials.md
           - name: Discover SQL servers and Webapps
             href: how-to-discover-sql-existing-project.md
-          - name: Enable applications/roles/features discovery
+          - name: Discover software, databases, and web apps
             href: how-to-discover-applications.md
           - name: Appliance diagnostics
             href: troubleshoot-appliance-diagnostic.md
     - name: Discovered metadata
       href: discovered-metadata.md
+    - name: Review discovered inventory
+      href: how-to-review-discovered-inventory.md
     - name: Tags 
       href: resource-tagging.md
 - name: Create Business case
@@ -275,10 +277,6 @@ items:
       href: how-to-arc-enable-inventory.md
     - name: How to add server credentials
       href: add-server-credentials.md
-    - name: Discover applications/roles/features
-      href: how-to-discover-applications.md
-    - name: Discover SQL instances and web apps in an existing project
-      href: how-to-discover-sql-existing-project.md
     - name: Migrate to Azure Monitor agent
       href: azure-monitor-agent-migration.md
     - name: Analyze machine dependencies (agent-based)
