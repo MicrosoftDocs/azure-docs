@@ -280,7 +280,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 > }
 > ```
 
-For this task, you need an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one. Follow the corresponding steps based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps. The procedure uploads schemas to an integration account from your workflow after schema generation.
+For this task, you need an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one. Follow the corresponding steps based on whether you have a Consumption or Standard workflow. The procedure uploads schemas to an integration account from your workflow after schema generation.
 
 ### [Consumption](#tab/consumption)
 
