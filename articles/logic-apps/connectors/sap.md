@@ -419,7 +419,7 @@ To download the current **CommonCryptoLib** package, follow these steps:
 
    > [!TIP]
    >
-   > If you're unfamiliar with the **SAPCAR** utility, review the following SAP blog post, 
+   > If you're unfamiliar with the **SAPCAR** utility, see the following SAP blog post, 
    > [Easily extract SAR files](https://community.sap.com/t5/additional-blogs-by-members/easily-extract-sar-files/ba-p/12847103).
 
    The following batch file is an improved version that extracts archives to a subdirectory with the same name:
