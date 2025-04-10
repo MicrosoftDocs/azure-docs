@@ -22,7 +22,8 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 > [!NOTE]
 >
-> This guide shares links to the SAP website, including SAP Support Notes and KnowledgeBase articles. In most cases, you need to sign in to access the full content.
+> This guide shares links to the SAP website for SAP Support Notes and Knowledge 
+> Base articles. In most cases, you need to sign in to access the full content.
 
 ## SAP compatibility
 
