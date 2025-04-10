@@ -1,21 +1,17 @@
 ---
-title: "Identity management configuration during a high performance computing (HPC) architecture migration"
+title: "Identity management configuration"
 description: Learn how to configure identity management during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Identity management configuration during a high performance computing (HPC) architecture migration
+# Identity management configuration
 
-Component to handle user identity and access levels. Identity management system should:
-
-- Allow creation/deletion of users and groups;
-- Allow update/reset of password;
-- Support single sign-on.
+A key aspect of your high performance computing migration is identity management configuration. Your identity management system ensures secure access to resources, seamless integration, and compliance with organizational policies. It should allow the creation and deltion of users and groups, allow updating and resetting of passwords, and support single sign-on. This part of the guide covers the needs, tools, services, and best practices associated with identity management.
 
 ## Define identity management needs
 

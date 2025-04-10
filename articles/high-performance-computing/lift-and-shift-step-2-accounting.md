@@ -1,17 +1,19 @@
 ---
-title: "Accouting configuration during a high performance computing (HPC) architecture migration"
+title: "Accounting configuration"
 description: Learn how to configure accounting during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Accouting configuration during a high performance computing (HPC) architecture migration
+# Accounting configuration
 
-Accounting in HPC environments involves tracking and managing resource usage to ensure efficient utilization, cost management, and compliance. Slurm Accounting is a powerful tool that helps administrators monitor and report on job and resource usage, providing insights into workload performance and user activity.
+A key aspect of your high performance computing migration is the configuration of accounting systems. Your accounting components ensure efficient resource utilization, cost management, and compliance. This part of the guide covers the needs, tools, services, and best practices associated with your accounting systems.
+
+Slurm Accounting is a powerful tool that helps administrators monitor and report on job and resource usage, providing insights into workload performance and user activity.
 
 ## Define accounting needs
 
@@ -29,7 +31,7 @@ Accounting in HPC environments involves tracking and managing resource usage to 
 
 ## Tools and services
 
-**Slurm accounting:**
+**Slurm Accounting:**
   - Use Slurm Accounting to track and manage job and resource usage in HPC environments.
   - To collect and store accounting data, configure Slurm Accounting with the necessary settings.
   - Generate reports and analyze accounting data to optimize resource utilization and cost management.

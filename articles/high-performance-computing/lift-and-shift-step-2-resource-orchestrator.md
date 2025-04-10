@@ -1,15 +1,15 @@
 ---
-title: "Resource orchestration configuration during a high performance computing (HPC) architecture migration"
+title: "Resource orchestration"
 description: Learn how to configure resource orchestration during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Resource orchestration configuration during a high performance computing (HPC) architecture migration
+# Resource orchestration
 
 Typically, resources in an on-premises environment are fully available for usage. When you migrate to the cloud, resources need to be provisioned (that is, set-up and configured). This requirement is a core difference between on-premises and cloud environments. Resource orchestrator's provisions the compute nodes and other components (for example, storage and network), **on demand**, to allow the execution of user jobs. In the context of a lift and shift architecture, this component would:
 

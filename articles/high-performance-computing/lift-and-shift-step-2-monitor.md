@@ -1,15 +1,15 @@
 ---
-title: "Monitoring configuration during a high performance computing (HPC) architecture migration"
+title: "Monitoring configuration"
 description: Learn how to configure monitoring during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Monitoring configuration during a high performance computing (HPC) architecture migration
+# Monitoring configuration
 
 Monitoring is a crucial aspect of managing an HPC environment in the cloud, ensuring optimal performance, reliability, and security. Effective monitoring allows administrators to gain real-time insights into system performance, detect and address issues promptly, and make informed decisions to optimize resource utilization. Key metrics such as CPU and memory usage, job execution times, and network throughput provide valuable information about the health and efficiency of the infrastructure.
 

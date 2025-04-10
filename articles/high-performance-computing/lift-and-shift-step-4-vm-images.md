@@ -1,15 +1,15 @@
 ---
-title: "Virtual machine (VM) image configuration during a high performance computing (HPC) architecture migration"
+title: "Virtual machine (VM) image configuration"
 description: Learn how to configure VM images during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Virtual machine (VM) image configuration during a high performance computing (HPC) architecture migration
+# Virtual machine (VM) image configuration
 
 A Virtual Machine (VM) image is a snapshot of a virtual machine's operating system, software, configurations, and data stored at a specific point in time. It's a valuable asset that encapsulates most of what is required to enable virtual machines to run end-user jobs.
 
