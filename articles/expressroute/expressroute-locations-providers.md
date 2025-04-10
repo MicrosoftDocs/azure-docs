@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 04/09/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -58,6 +58,8 @@ The following table shows connectivity locations and the service providers for e
 | **Auckland** | [Vocus Group NZ Albany](https://www.2degrees.nz/business/business-services/data-centres) | 2 | New Zealand North | &check; | Devoli<br/>Kordia<br/>Megaport<br/>REANNZ<br/>Spark NZ<br/>Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | &cross; | &check; | AIS<br/>National Telecom UIH |
 | **Berlin** | [NTT GDC](https://services.global.ntt/en-us/newsroom/ntt-ltd-announces-access-to-microsoft-azure-expressroute-at-ntts-berlin-1-data-center) | 1 | Germany North | &check; | Colt<br/>Equinix<br/>NTT Global DataCenters EMEA |
+| **Brussels** | [Digital Realty BRU4](https://www.digitalrealty.com/data-centers/emea/brussels/bru4) | 1 | &cross; | &check; | Digital Realty |
+| **Brussels2** | [LCL Brussels-North](https://www.lcl.be/) | 1 | &cross; | &check; |  |
 | **Busan** | [LG CNS](https://www.lgcns.com/business/cloud/datacenter/) | 2 | Korea South | &cross; | LG CNS |
 | **Campinas** | [Ascenty](https://www.ascenty.com/en/data-centers-en/campinas/) | 3 | Brazil South | &check; | Ascenty |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Central | &check; | CDC<br/>Telstra Corporation |

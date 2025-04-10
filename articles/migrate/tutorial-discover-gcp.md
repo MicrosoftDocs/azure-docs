@@ -8,6 +8,9 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/07/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.collection:
+ - migration
+ - gcp-to-azure
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
 

@@ -4,6 +4,9 @@ description: Learn how to map AWS Lambda features to Azure Functions and develop
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
+ms.collection: 
+ - migration
+ - aws-to-azure
 ms.topic: how-to
 ms.date: 03/18/2025
 #customer intent: As a developer, I want to ensure compatibility between features and create a detailed migration plan so that I can migrate serverless applications from AWS Lambda to Azure Functions efficiently.
