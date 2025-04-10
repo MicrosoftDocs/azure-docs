@@ -104,11 +104,21 @@ This example copies a directory (and all of the files in that directory) to a fi
 
 `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive`
 
-**Example**
+#### [Azure Files SMB](#tab/smb-uploaddirectory)
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true
 ```
+
+#### [Azure Files NFS](#tab/nfs-uploaddirectory)
+
+```azcopy
+azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
+```
+
+---
+
+<a id="uploaddirectory"></a>
 
 To copy to a directory within the file share, just specify the name of that directory in your command string.
 
