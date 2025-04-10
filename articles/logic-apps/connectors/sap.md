@@ -137,7 +137,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 * In the action named **\[BAPI] Call method in SAP**, the autocommit feature doesn't commit the BAPI changes if at least one warning exists in the **CallBapiResponse** object returned by the action. To commit BAPI changes despite any warnings, follow these steps:
 
   1. Create a session explicitly by using the action named **\[BAPI - RFC] Create stateful session**.
-  1. In the action named **\[BAPI] Call method in SAP**, disable the autocommit feature.
+  1. In the action named **\[BAPI] Call method in SAP**, disable the **Auto Commit** option.
   1. Call the action named **\[BAPI] Commit transaction** instead.
 
 ### IP-based connections to SAP Message Server (load-balanced configuration)
