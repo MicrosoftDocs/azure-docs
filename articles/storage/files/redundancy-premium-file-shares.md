@@ -82,8 +82,8 @@ LRS for SSD Azure file shares is supported in the following Azure regions:
 - (North America) East US
 - (North America) East US 2
 - (North America) Mexico Central
-- (North America) North US
-- (North America) South US
+- (North America) North Central US
+- (North America) South Central US
 - (North America) South US 2
 - (North America) Southeast US
 - (North America) Southeast US 3
@@ -111,7 +111,9 @@ ZRS for SSD Azure file shares is supported in the following subset of Azure regi
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Korea Central
 - (Asia Pacific) East Asia
+- (Asia Pacific) Indonesia Central
 - (Asia Pacific) Japan East
+- (Asia Pacific) Japan West  
 - (Asia Pacific) Central India
 - (Canada) Canada Central
 - (Europe) France Central
