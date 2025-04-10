@@ -85,20 +85,10 @@ Learn more about how Azure Virtual Enclaves incorporates [defense-in-depth](./de
 ## Next steps
 Here are some other articles to learn about Azure Virtual Enclaves:
 
-### Create a Community and Enclaves
 1. [Create a community](./create-community-azure-portal.md) 
 2. [Create an enclave](./create-enclave-azure-portal.md)
-
-### Create Workloads within Enclaves from a template
-
 3. [Create a workload](./create-a-workload-in-the-azure-portal.md)
-
-### Design Endpoints and Transit Hub connections
-
 4. [Create a community endpoint](./create-community-endpoint-azure-portal.md)
 5. [Create an enclave endpoint](./create-enclave-endpoint-azure-portal.md)
 6. [Create a transit hub](./create-transit-hub-azure-portal.md)
-
-### Connect Enclaves and Enclave Endpoints
-
-6. [Create an enclave connection](./create-enclave-connection-azure-portal.md)
+7. [Create an enclave connection](./create-enclave-connection-azure-portal.md)
