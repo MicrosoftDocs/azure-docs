@@ -71,9 +71,9 @@ To assign the required role for storage accounts that you want to protect, follo
 >[!Note]
 > The role assignment might take up to **30 minutes** to take effect.
 
-## Configure backup on the Azure Data Lake Storage Gen2
+## Configure backup for the Azure Data Lake Storage Gen2 (preview)
 
-You can configure backup on multiple Azure Data Lake Storage Gen2s.
+You can configure backup on multiple Azure Data Lake Storage Gen2.
 
 To configure backup, follow these steps:
 
