@@ -232,7 +232,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 * For scenarios where you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program** so that your workflow doesn't time out.
 
-  If your SAP system is under load, the queued IDoc calls time out. An example of this scenario is when your workflow sends a batch of IDocs all at one time to SAP. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time out, by default.
+  If your SAP system is under load, the queued IDoc calls for a time out. An example scenario is when your workflow sends a batch of IDocs all at one time to SAP. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time out, by default.
 
   To change your SAP system's processing mode, follow these steps:
 
