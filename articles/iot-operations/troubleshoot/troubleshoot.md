@@ -72,6 +72,60 @@ A deployment can fail if the cluster doesn't have sufficient resources for the s
 
 To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
+### You want to enable resource sync rules on an existing instance
+
+Currently, you can't use the `az iot ops` command to enable resource sync rules on an existing instance. To work around this limitation, you can use the `az rest` command as follows:
+
+To create the device registry rule:
+
+1. Create a file called *rsr_device_registry.json* with the following content. Replace the `<placeholder>` values with your own values:
+
+    ```json
+    {
+        "location": "<custom location region>",
+        "properties": {
+            "targetResourceGroup": "/subscriptions/<subscription Id>/resourceGroups/<resource group name>",
+            "priority": 200,
+            "selector": {
+                "matchLabels": {
+                    "management.azure.com/provider-name": "Microsoft.DeviceRegistry"
+                }
+            }
+        }
+    }
+    ```
+
+1. Run the following command to create the device registry resource sync rule. Replace the `<placeholder>` values with your own values:
+
+    ```azcli
+    az rest --url /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.ExtendedLocation/customLocations/<custom location name>/resourceSyncRules/<rule name>?api-version=2021-08-31-preview --method PUT --body "@rsr_device_registry.json"
+    ```
+
+To create the instance rule:
+
+1. Create a file called *rsr_instance.json* with the following content. Replace the `<placeholder>` values with your own values:
+
+    ```json
+    {
+        "location": "<custom location region>",
+        "properties": {
+            "targetResourceGroup": "/subscriptions/<subscription Id>/resourceGroups/<resource group name>",
+            "priority": 400,
+            "selector": {
+                "matchLabels": {
+                    "management.azure.com/provider-name": "microsoft.iotoperations"
+                }
+            }
+        }
+    }
+    ```
+
+1. Run the following command to create the instance resource sync rule. Replace the `<placeholder>` values with your own values:
+
+    ```azcli
+    az rest --url /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.ExtendedLocation/customLocations/<custom location name>/resourceSyncRules/<rule name>?api-version=2021-08-31-preview --method PUT --body "@rsr_instance.json"
+    ```
+
 ## Troubleshoot Azure Key Vault secret management
 
 If you see the following error message related to secret management, you need to update your Azure Key Vault contents:
