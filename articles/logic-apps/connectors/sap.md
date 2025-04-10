@@ -152,7 +152,7 @@ For this problem, the following workarounds or solutions exist:
 
 #### Problem context or background
 
-SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way that the connector requests connections to backend servers from message servers. The connector now uses a new API for application server resolution by the message server unless you force the connector to use the previous API through the setting named **ms/lg_with_hostname=0`**. For more information, see [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://userapps.support.sap.com/sap/support/knowledge/3305039).
+SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way that the connector requests connections to backend servers from message servers. The connector now uses a new API for application server resolution by the message server unless you force the connector to use the previous API through the setting named **`ms/lg_with_hostname=0`**. For more information, see [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://userapps.support.sap.com/sap/support/knowledge/3305039).
 
 ## Prerequisites
 
@@ -164,7 +164,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
     For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDoc), see [SAP Note: 460089 - Minimum authorization profiles for external RFC programs](https://me.sap.com/notes/460089).
 
-  * Your SAP user account needs access to the `RFC_METADATA` function group and the respective function modules for the following operations:
+  * Your SAP user account needs access to the **`RFC_METADATA`** function group and the respective function modules for the following operations:
 
     | Operations | Access to function modules |
     |------------|----------------------------|
@@ -212,11 +212,11 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   * In the **Configuration of RFC Connections** (T-Code SM59) dialog box, create an RFC connection with the **TCP/IP** type. Make sure that the **Activation Type** is set to **Registered Server Program**. Set the RFC connection's **Communication Type with Target System** value to **Unicode**.
 
-  * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` property in your flat file schema by setting the value to `true`.
+  * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md), you have to use the **`early_terminate_optional_fields`** property in your flat file schema by setting the value to **`true`**.
 
-    This requirement is necessary because the flat file IDoc data record sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the **Flat File Decode** action, the schema provided to the action must match.
+    This requirement is necessary because the flat file IDoc data record sent by SAP on the tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the **Flat File Decode** action, the schema provided to the action must match.
 
-  * In Consumption and Standard workflows, the SAP managed trigger named **When a message is received** uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
+  * In Consumption and Standard workflows, the SAP managed trigger named **When a message is received** uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP **`PATCH`** method, while the unsubscribe operation uses the HTTP **`DELETE`** method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses **`PATCH`** as the HTTP method, not **`DELETE`**.
 
     In Standard workflows, the SAP built-in trigger named **When a message is received** uses the Azure Functions trigger instead, and shows only the actual callbacks from SAP.
 
@@ -572,7 +572,7 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
    | **SNC My Name** | In most cases, you can omit this value. The installed SNC solution usually knows its own SNC name. In the case where your solution supports multiple identities, you might have to specify the identity to use for this particular destination or server. |
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
    | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The back-end system defines the default value. The security product used for SNC defines the maximum value. |
-   | **SNC Certificate** | Enter the base64-encoded *public* key for the certificate to use for identifying your client to SAP. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private key for the client certificate here. Your Personal Security Environment (PSE) must contain the matching private key for this certificate and might contain other private certificates. For more information, see the next parameter. |
+   | **SNC Certificate** | Enter the base64-encoded *public* key for the certificate to use for identifying your client to SAP. <br><br>**Note**: Make sure to follow this guidance: <br><br>- Don't include the PEM header or footer. <br><br>- Don't enter the private key for the client certificate here. Your Personal Security Environment (PSE) must contain the matching private key for this certificate and might contain other private certificates. For more information, see the next parameter. |
    | **PSE** | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the **SNC Certificate** parameter. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. |
 
    :::image type="content" source="./media/sap/sap-connection-snc-consumption.png" alt-text="Screenshot shows SAP connection parameters with SNC enabled for Consumption workflow." lightbox="./media/sap/sap-connection-snc-consumption.png":::
@@ -583,7 +583,7 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
 ### [Standard](#tab/standard)
 
-For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=standard#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=standard#snc-prerequisites). For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you meet all the necessary [prerequisites](sap.md?tabs=standard#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=standard#snc-prerequisites). For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 #### Set up your SNC personal security environment and password
 
@@ -632,7 +632,7 @@ For the SAP *built-in* connector, follow these steps that apply only to this con
    | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The back-end system defines the default value. The security product used for SNC defines the maximum value. |
    | **SNC Type** | Select the SNC authentication to use. |
    | **Certificate User** | Enter the user to connect when you have a certificate assigned to multiple users. |
-   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. This parameter specifies the certificates that this connection must use. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the Personal Security Environment (PSE) might contain multiple private certificates. You specify this PSE by using the **SAP_PSE** app setting for your Standard logic app resource. <br><br>- If you use more than one SNC client certificate for your logic app resource, you must provide the same PSE for all connections. |
+   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. This parameter specifies the certificates that this connection must use. <br><br>**Note**: Make sure to follow this guidance: <br><br>- Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the Personal Security Environment (PSE) might contain multiple private certificates. You specify this PSE by using the **SAP_PSE** app setting for your Standard logic app resource. <br><br>- If you use more than one SNC client certificate for your logic app resource, you must provide the same PSE for all connections. |
 
    :::image type="content" source="media/sap/sap-connection-snc-standard.png" alt-text="Screenshot shows SAP built-in connection parameters with SNC enabled for Standard workflows.":::
 
@@ -673,7 +673,7 @@ For the SAP *built-in* connector, follow these steps that apply only to this con
 
 ### Set up and test sending IDocs from SAP to your workflow
 
-To send IDocs from SAP to your logic app workflow, follow these steps to set up and test your SAP configuration with your logic app workflow. These steps apply only to testing as production environments require other configuration.
+To send IDocs from SAP to your logic app workflow, follow these steps to set up and test your SAP configuration with your logic app workflow. These steps apply only to testing because production environments require other configuration.
 
 To send IDocs from SAP to your workflow, you need to set up the minimum configuration by following these steps:
 
@@ -901,7 +901,7 @@ To work with the resulting ETL files, you can use [PerfView](https://github.com/
 
 1. In the PerfView menu, select **Collect** > **Collect** to capture the events.
 
-1. In the **Additional Provider** parameter, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
+1. In the **Additional Provider** parameter, enter **`*Microsoft-LobAdapter`** to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
 
 1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** parameter.
 
@@ -1134,7 +1134,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](/azure/azure-monitor/app/connection-strings) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](/azure/azure-monitor/app/connection-strings) by uncommenting the line with the **`<InstrumentationKey></InstrumentationKey>`** element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>
@@ -1181,11 +1181,11 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
 1. On the resource menu, under **Monitoring**, select **Logs**.
 
-   The following screenshot shows the Azure portal with Application Insights, which is open to the **Logs** pane:
+   The following screenshot shows the Azure portal where the Application Insights resource has the **Logs** page open:
 
    :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the Logs pane for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
 
-1. On the **Logs** pane, you can create a [query](/kusto/query/) by using the [Kusto Query Language (KQL)](/kusto/concepts/) based on your specific requirements.
+1. On the **Logs** page, you can create a [query](/kusto/query/) by using the [Kusto Query Language (KQL)](/kusto/concepts/) based on your specific requirements.
 
    You can use a query pattern similar to the following example query:
 
