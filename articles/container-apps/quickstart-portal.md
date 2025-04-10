@@ -58,18 +58,14 @@ In the *Basics* tab, do the following actions.
 
 1. Select the **Container** tab.
 
-1. Select *Use quickstart image*.
+1. Select **Use quickstart image**.
 
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
 
-### Verify deployment
+4. The following message appears in your browser.
 
-Select **Go to resource** to view your new container app.
-
-Select the link next to *Application URL* to view your application. The following message appears in your browser.
-
-:::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
+    :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
 
 ## Clean up resources
 

@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: conceptual
-ms.custom: engagement-fy23
-ms.date: 12/13/2023
+ms.date: 03/27/2025
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -16,6 +15,7 @@ ms.date: 12/13/2023
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference or process the values in these expressions, you can use *expression functions* provided by the [Workflow Definition Language](logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
+>
 > This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
 > Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
 > these functions work for both flows and logic app workflows. For more information about functions 

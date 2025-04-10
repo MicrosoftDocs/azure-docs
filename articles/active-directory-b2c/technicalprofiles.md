@@ -1,7 +1,7 @@
 ---
-title: Technical profiles
+title: Custom policy technical profiles
 titleSuffix: Azure AD B2C
-description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
+description: Specify the TechnicalProfiles element of a custom policy in Azure AD B2C. Understand different types of technical profiles for user creation, authentication, and more.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 

@@ -4,12 +4,18 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/4/2025
+ms.date: 4/4/2025
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
+
+## April 2025
+
+Public Preview of the next generation of Azure VMware Solution is here. Azure VMware Solution in an Azure Virtual Network is now available in East US, UK South, Switzerland North, and Japan East on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required.
+
+Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage.
 
 ## March 2025
 

@@ -2,7 +2,7 @@
 title: Environment Variables and App Settings Reference
 description: This article describes the commonly used environment variables in Azure App Service, and which ones can be modified with app settings.
 ms.topic: conceptual
-ms.date: 10/16/2024
+ms.date: 03/19/2025
 author: cephalin
 ms.author: cephalin
 ---
@@ -27,7 +27,7 @@ The following environment variables are related to the app environment in genera
 | `HOME` | Read-only. Path to the home directory (for example, `D:\home` for Windows). |
 | `SERVER_PORT` | Read-only. Port that the app should listen to. |
 | `WEBSITE_WARMUP_PATH` | Relative path to ping to warm up the app, beginning with a slash. The default is `/robots933456.txt`.<br/><br/>Whenever the platform starts up a container, the orchestrator makes repeated requests against this endpoint. The platform considers any response from this endpoint as an indication that the container is ready. When the platform considers the container to be ready, it starts forwarding organic traffic to the newly started container. Unless `WEBSITE_WARMUP_STATUSES` is configured, the platform considers any response from the container at this endpoint (even error codes such as 404 or 502) as an indication that the container is ready.<br/><br/>This app setting doesn't change the path that Always On uses. |
-| `WEBSITE_WARMUP_STATUSES` | Comma-delimited list of HTTP status codes that are considered successful when the platform makes warm-up pings against a newly started container. Used in conjunction with `WEBSITE_WARMUP_PATH`.<br/><br/>By default, any status code is considered an indication that the container is ready for organic traffic. You can use this app to require a specific response before organic traffic is routed to the container.<br/><br/>An example is `200,202`. If pings against the app's configured warm-up path receive a response with a 200 or 202 status code, organic traffic is routed to the container. If a status code that isn't in the list is received (such as 502), the platform continues to make pings until a 200 or 202 is received, or until the container startup timeout limit is reached. (See `WEBSITES_CONTAINER_START_TIME_LIMIT` later in this table.)<br/><br/>If the container doesn't respond with an HTTP status code that's in the list, the platform eventually fails the startup attempt and retries, which results in 503 errors. |
+| `WEBSITE_WARMUP_STATUSES` | Comma-delimited list of HTTP status codes that are considered successful when the platform makes warm-up pings against a newly started container. Used with `WEBSITE_WARMUP_PATH`.<br/><br/>By default, any status code is considered an indication that the container is ready for organic traffic. You can use this app to require a specific response before organic traffic is routed to the container.<br/><br/>An example is `200,202`. If pings against the app's configured warm-up path receive a response with a 200 or 202 status code, organic traffic is routed to the container. If a status code that isn't in the list is received (such as 502), the platform continues to make pings until a 200 or 202 is received, or until the container startup timeout limit is reached. (See `WEBSITES_CONTAINER_START_TIME_LIMIT` later in this table.)<br/><br/>If the container doesn't respond with an HTTP status code that's in the list, the platform eventually fails the startup attempt and retries, which results in 503 errors. |
 | `WEBSITE_COMPUTE_MODE` | Read-only. Specifies whether the app runs on dedicated (`Dedicated`) or shared (`Shared`) virtual machines (VMs). |
 | `WEBSITE_SKU` | Read-only. Pricing tier of the app. Possible values are `Free`, `Shared`, `Basic`, and `Standard`. |
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32 bit (`x86`) or 64 bit (`AMD64`). |
@@ -41,7 +41,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively corrected when it uses more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance triggers one of these rules, the recovery process is an overlapping restart of the instance.<br/><br/>Set to `false` to disable this recovery behavior. The default is `true`.<br/><br/>For more information, see the [Introducing Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html) blog post. |
 | `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance. The debugger process collects a memory dump when the worker process crashes again. This memory dump is then analyzed, and the call stack of the thread that caused the crash is logged in your App Service logs.<br/><br/>Set to `false` to disable this automatic monitoring behavior. The default is `true`.<br/><br/>For more information, see the [Proactive Crash Monitoring in Azure App Service](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html) blog post. |
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the shared access signature (SAS) URI. |
-| `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`.<br/><br/>This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. |
+| `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`.<br/><br/>This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. |
 | `WEBSITE_CRASHMONITORING_SETTINGS` | JSON with the following format:`{"StartTimeUtc": "2020-02-10T08:21","MaxHours": "<elapsed-hours-from-StartTimeUtc>","MaxDumpCount": "<max-number-of-crash-dumps>"}`. Required to configure [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) if `WEBSITE_CRASHMONITORING_ENABLED` is specified. To log the call stack without saving the crash dump in the storage account, add `,"UseStorageAccount":"false"` in the JSON. |
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. |
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring).<br/><br/>Example: `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
@@ -140,7 +140,7 @@ Oryx build configuration applies to Linux apps and is used to control the behavi
 
 ## Language-specific settings
 
-This section shows the configurable runtime settings for each supported language framework. Additional settings are available during [build automation](#build-automation) at deployment time.
+This section shows the configurable runtime settings for each supported language framework. More settings are available during [build automation](#build-automation) at deployment time.
 
 # [.NET](#tab/dotnet)
 
@@ -165,13 +165,13 @@ This section shows the configurable runtime settings for each supported language
 | Setting name | Description |
 |-|-|
 | `JAVA_HOME` | Path of the Java installation directory. |
-| `JAVA_OPTS` | For Java SE apps, environment variables to pass into the `java` command. They can contain system variables. For Tomcat, use `CATALINA_OPTS`.<br/><br/>Example: `-Dmysysproperty=%DRIVEPATH%` |
+| `JAVA_OPTS` | For Java Standard Edition (SE) apps, environment variables to pass into the `java` command. They can contain system variables. For Tomcat, use `CATALINA_OPTS`.<br/><br/>Example: `-Dmysysproperty=%DRIVEPATH%` |
 | `AZURE_JAVA_APP_PATH` | Environment variable that custom scripts can use so that they have a location for `app.jar` after it's copied to a local location. |
 | `SKIP_JAVA_KEYSTORE_LOAD` | Set a value of 1 to disable App Service from loading the certificates into the key store automatically. |
 | `WEBSITE_JAVA_JAR_FILE_NAME` | The .jar file to use. Appends `.jar` if the string doesn't end in `.jar`. Defaults to `app.jar`. |
 | `WEBSITE_JAVA_WAR_FILE_NAME` | The .war file to use. Appends `.war` if the string doesn't end in `.war`. Defaults to `app.war`. |
 | `JAVA_ARGS` | `JAVA_OPTS` value required by a different Java web server. Defaults to `-noverify -Djava.net.preferIPv4Stack=true`. |
-| `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Environment variables used by popular Java web frameworks for server ports. Frameworks include Spring, Micronaut, Grails, MicroProfile Thorntail, Helidon, Ratpack, and Quarkus. |
+| `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Environment variables used by popular Java web frameworks for server ports. Frameworks include Spring, Micronaut, Grails, Helidon, Ratpack, and Quarkus. |
 | `JAVA_TMP_DIR` | Added to Java arguments as `-Dsite.tempdir`. Defaults to `TEMP`. |
 | `WEBSITE_SKIP_LOCAL_COPY` | By default, the deployed `app.jar` file is copied from `/home/site/wwwroot` to a local location. To disable this behavior and load `app.jar` directly from `/home/site/wwwroot`, set this variable to `1` or `true`. This setting has no effect if local cache is enabled. |
 | `TOMCAT_USE_STARTUP_BAT` | Native Windows apps only. By default, the Tomcat server is started with its `startup.bat` file. To set the Tomcat server to start by using its `catalina.bat` file instead, set the value to `0` or `False`.<br/><br/>Example: `%LOCAL_EXPANDED%\tomcat` |
@@ -183,9 +183,9 @@ This section shows the configurable runtime settings for each supported language
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters that App Service added, set to `1`. |
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. |
 | `PORT` | Read-only. For Linux apps, the port that the Java runtime listens to in the container. |
-| `WILDFLY_VERSION` | Read-only. For JBoss (Linux) apps, the WildFly version. |
+| `WILDFLY_VERSION` | Read-only. For JBoss Enterprise Application Platform (EAP) Linux apps, the WildFly version. |
 | `TOMCAT_VERSION` | Read-only. For Linux Tomcat apps, the Tomcat version. |
-| `JBOSS_HOME` | Read-only. For JBoss (Linux) apps, the path of the WildFly installation. |
+| `JBOSS_HOME` | Read-only. For JBoss EAP (Linux) apps, the path of the WildFly installation. |
 | `AZURE_JETTY9_CMDLINE` | Read-only. For native Windows apps, the command-line arguments for starting Jetty 9. |
 | `AZURE_JETTY9_HOME` | Read-only. For native Windows apps, the path to the Jetty 9 installation. |
 | `AZURE_JETTY93_CMDLINE` | Read-only. For native Windows apps, specifies the command-line arguments for starting Jetty 9.3. |
@@ -199,7 +199,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_TOMCAT90_CMDLINE` | Read-only. For native Windows apps, specifies the command-line arguments for starting Tomcat 9. |
 | `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, the path to the Tomcat 9 installation. |
 | `AZURE_SITE_HOME` | Value added to the Java arguments as `-Dsite.home`. The default is the value of `HOME`. |
-| `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
+| `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
 | `AZURE_LOGGING_DIR` | For Windows Apps, added to Java arguments as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. |
 
 <!-- 
@@ -339,7 +339,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description |
 |-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux containers, if this app setting is not specified, the `/home` directory is shared across scaled instances by default. You can set it to `false` to disable sharing.<br/><br/>For Windows containers, set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers. |
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux containers, if this app setting isn't specified, the `/home` directory is shared across scaled instances by default. You can set it to `false` to disable sharing.<br/><br/>For Windows containers, set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers. |
 | `WEBSITES_CONTAINER_STOP_TIME_LIMIT` | Amount of time, in seconds, to wait for the container to terminate gracefully. Default is `5`. You can increase to a maximum of `120`. |
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server when you're running a custom container in App Service. For security, this variable isn't passed on to the container.<br/><br/>Example: `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable isn't passed on to the container. |
@@ -589,8 +589,9 @@ The following environment variables are related to [health checks](monitor-insta
 
 | Setting name | Description |
 |-|-|
-| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | Maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you're scaling up or out, App Service pings the health check's path to ensure that new instances are ready. For more information, see [Health check](monitor-instances-health-check.md). |
+| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | Maximum number of failed pings before removing the instance. Set to a value between `2` and `10`. When you're scaling up or out, App Service pings the health check's path to ensure that new instances are ready. For more information, see [Health check](monitor-instances-health-check.md). |
 | `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances are excluded. For example, if an App Service plan is scaled to four instances and three are unhealthy, at most two are excluded. The other two instances (one healthy and one unhealthy) continue to receive requests. In the worst-case scenario where all instances are unhealthy, none are excluded.<br/><br/>To override this behavior, set to a value between `1` and `100`. A higher value means more unhealthy instances are removed. The default is `50` (50%). |
+
 
 ## Push notifications
 
@@ -604,7 +605,7 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. |
 
 > [!NOTE]
-> The preceding table refers to *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> The preceding table refers to *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings

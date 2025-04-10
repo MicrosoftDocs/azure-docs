@@ -214,7 +214,7 @@ services:
       - "5300:5300"
     environment:
       SQL_SERVER: sqledge
-      MSSQL_SA_PASSWORD: "${SQL_PASSWORD}"  # Password should be same as what is set for SQL Edge  
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Edge  
       ACCEPT_EULA: ${ACCEPT_EULA}
       SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
     depends_on:
@@ -232,7 +232,7 @@ services:
               - "sqledge"
         environment:
           ACCEPT_EULA: ${ACCEPT_EULA}
-          MSSQL_SA_PASSWORD: "${SQL_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
+          MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
 
 networks:
   sb-emulator:

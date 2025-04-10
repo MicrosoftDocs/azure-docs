@@ -27,8 +27,6 @@ Azure assigns service categories as foundational, mainstream, and strategic at g
 
 Azure services are presented in the following lists by category. Note that some services are non-regional, which means that they're available globally regardless of region. For information and a complete list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-
-
 ## ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services
 - Azure Application Gateway
 - Azure Backup
@@ -42,7 +40,8 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Service Bus
 - Azure Service Fabric
 - Azure Site Recovery
-- Azure SQL
+- Azure SQL Database
+- Azure SQL Managed Instance
 - Azure Storage Accounts
 - Azure Storage Data Lake Storage
 - Azure Storage: Blob Storage
@@ -60,7 +59,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Virtual Machines: Edv5 and Edsv5-series
 - Virtual Machines: Ev3 and Esv3-series
 - Virtual Machines: Ev5 and Esv5-series
-
 
 ## ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services 
 
@@ -108,8 +106,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Virtual Machines: M-series
 
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
-
-
 
 - Azure AI services
 - Azure Analysis Services

@@ -1,7 +1,7 @@
 ---
 title: Single sign-on session providers using custom policies
 titleSuffix: Azure AD B2C
-description: Learn how to manage single sign-on sessions using custom policies in Azure AD B2C.
+description: Learn how to manage single sign-on sessions using custom policies in Azure AD B2C. Customize SSO behavior and control the flow of your custom policy.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -313,6 +313,6 @@ To suppress single sign on behavior of a technical profile, add a reference to `
 </TechnicalProfile>
 ```
 
-## Next steps
+## Related content
 
 Learn how to [configure session behavior](session-behavior.md).

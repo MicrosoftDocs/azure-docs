@@ -73,13 +73,13 @@ this.callLobby.addOnLobbyParticipantsUpdatedListener(this::OnLobbyParticipantsUp
 private void OnLobbyParticipantsUpdated(ParticipantsUpdatedEvent args) {
     if(!args.getAddedParticipants().isEmpty()){
         for(RemoteParticipant addedParticipant : args.getAddedParticipants()){
-            Log.i(TAG, String.format("Participant %s joins lobby", addedParticipant.getDiaplayName()));
+            Log.i(TAG, String.format("Participant %s joins lobby", addedParticipant.getDisplayName()));
         }
     }
 
     if(!args.getRemovedParticipants().isEmpty()){
         for(RemoteParticipant removedParticipant : args.getRemovedParticipants()){
-            Log.i(TAG, String.format("Participant %s leaves lobby", removedParticipant.getDiaplayName()));
+            Log.i(TAG, String.format("Participant %s leaves lobby", removedParticipant.getDisplayName()));
         }
     }
 }
