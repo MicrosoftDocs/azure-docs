@@ -34,6 +34,12 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - If you want to upload your generated schemas to a repository, such as an [integration account](../enterprise-integration/create-integration-account.md), make sure that the repository exists.
 
+- Either a Consumption logic app resource with a blank workflow or a Standard logic app resource with a blank workflow. If you don't have one, create this resource:
+
+  - [Create an example Consumption logic app workflow using the Azure portal](/azure/logic-apps/quickstart-create-example-consumption-workflow)
+  
+  - [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal)
+  
 [!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Generate schemas for an SAP artifact
