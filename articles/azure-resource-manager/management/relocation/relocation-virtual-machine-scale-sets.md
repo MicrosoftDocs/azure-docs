@@ -67,7 +67,7 @@ In this section, follow the instructions to prepare for relocating a Virtual Mac
 
 1. Edit the template:
 
-    1. Remove associated resources if they’re present in the template, such as Log Analytics Workspace in the **Monitoring** section.
+    1. Remove associated resources if they're present in the template, such as Log Analytics Workspace in the **Monitoring** section.
 
     1. Make any necessary changes to the template, such as updating all occurrences of the name and the location for the relocated source Virtual Machine Scale Set.
 

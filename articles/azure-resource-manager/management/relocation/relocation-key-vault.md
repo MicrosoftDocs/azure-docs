@@ -39,7 +39,7 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 The virtual network service endpoints for Azure Key Vault restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Key Vault from outside those sources is denied access. If Service endpoints were configured in the source region for the Key Vault resource, the same would need to be done in the target one.
 
-For a successful recreation of the Key Vault to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
+For a successful recreation of the Key Vault to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won't be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
 ## Consideration for Private Endpoint
 
@@ -49,7 +49,7 @@ For a successful recreation of the Key Vault in the target region, the VNet and 
 
 ### Consideration for Azure Private Endpoint DNS Integration
 
-It’s important to correctly configure your DNS settings to resolve the private endpoint IP address to the fully qualified domain name (FQDN) of the connection string.
+It's important to correctly configure your DNS settings to resolve the private endpoint IP address to the fully qualified domain name (FQDN) of the connection string.
 
 Existing Microsoft Azure services might already have a DNS configuration for a public endpoint. This configuration must be overridden to connect using your private endpoint.
 
@@ -166,7 +166,7 @@ To deploy the template by using Azure portal:
    }
    ```
 
-1. In case you configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region.
+1. In case you configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn't configured in the target region.
 
     **parameter.json**
 
@@ -248,7 +248,7 @@ To deploy the template by using PowerShell:
    }
    ```
 
-1. In case you have configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region.
+1. In case you have configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn't configured in the target region.
 
    **parameter.json**
 

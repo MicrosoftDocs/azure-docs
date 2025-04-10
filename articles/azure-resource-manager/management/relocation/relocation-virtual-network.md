@@ -9,19 +9,17 @@ ms.custom: subject-relocation, devx-track-azurepowershell
 
 # Relocate Azure Virtual Network to another region
 
-This article shows you how to relocate a virtual network to a new region by redeploying the virtual network. Redeployment supports both independent relocation of multiple workloads and private IP address range change in the target region.  It's recommended that you use a Resource Manager template to relocate your virtual network.
+This article shows you how to relocate a virtual network to a new region by redeploying the virtual network. Redeployment supports both independent relocation of multiple workloads and private IP address range change in the target region. Using an Azure Resource Manager (ARM) template is recommended to relocate your virtual network.
 
-However, can also choose to move your virtual network with Azure Resource Mover. However, if you choose to move your virtual network with Azure Resource Mover, make sure that you understand the following considerations:
-
-**If you choose to use Resource Mover:**
+If you choose to move your virtual network with Azure Resource Mover, make sure that you understand the following considerations:
 
 - All workloads in a virtual network must be relocated together.
 - A relocation using Azure Resource Mover doesn't support private IP address range change.
-- Azure Resource Mover can move resources such as Network Security Group and User Defined Route along with the virtual network. However, it's recommended that you move them separately. Moving them altogether can lead to failure of the Validate dependencies stage.
+- Azure Resource Mover can move resources such as Network Security Group and User Defined Route along with the virtual network. However, moving them separately is recommended. Moving them altogether can lead to failure of the Validate dependencies stage.
 - Resource Mover can't directly move NAT gateway instances from one region to another. To work around this limitation, see Create and configure NAT gateway after moving resources to another region.
-- Azure Resource Mover doesn’t support any changes to the address space during the relocation process. As a result, when movement completes, both source and target have the same, and thus conflicting, address space. It's recommended that you do manual update of address space as soon as relocation completes.
-- Virtual Network Peering must be reconfigured after the relocation. It's recommended that you move the peering virtual network either before or with the source virtual network.
-- While performing the Initiate move steps with Azure Resource Mover, resources may be temporarily unavailable.
+- Azure Resource Mover doesn't support any changes to the address space during the relocation process. As a result, when movement completes, both source and target have the same, and thus conflicting, address space. As soon as the relocation is completed, update the address space manually.
+- Virtual Network Peering must be reconfigured after the relocation. Move the peering virtual network either before or with the source virtual network.
+- While performing the initiate move steps with Azure Resource Mover, resources may be temporarily unavailable.
 
 To learn how to move your virtual network using Resource Mover, see [Move Azure VMs across regions](/azure/resource-mover/tutorial-move-region-virtual-machines).
 
@@ -45,7 +43,7 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
 - Confirm that your subscription has enough resources to support the addition of virtual networks for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#azure-networking-limits).
 - Understand the following considerations:
 
-  - If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other, 
+  - If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other.
   - The redeployment method supports the option to enable and disable private IP address range change in the target region.
   - If you don't enable private IP address change in the target region, data migration scenarios that require communication between source and target region can only be established using public endpoints (public IP addresses).
 
@@ -66,37 +64,37 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 | Relocation with no IP Address Change  | Relocation with IP Address Change    |
 | -----------------------------|-----------|
-| No other IP address ranges are needed.      | Other IP Address ranges are needed.     |
+| No other IP address ranges are needed.      | Other IP Address ranges are needed.|
 | No IP Address change for resources after relocation.        | IP Address change of resources after relocation         |
 | All workloads in a virtual network must be relocated together.     | Workload relocation without considering dependencies or partial relocation is possible (Take communication latency into account)    |
 | Virtual Network in the source region needs to be disconnected or removed before the Virtual Network in the target region can be connected. | Enable communication shortcuts between source and target region using vNetwork peering.                                                                              |
-| No support for data migration scenarios where you need communication between source and target region. | If communication between source and target region is required in data migration scenarios, you can establish network peering during relocation. |
+| No support for data migration scenarios where you need communication between source and target region. | If communication between source and target region is required in data migration scenarios, you can establish network peering during relocation.|
 
 #### Disconnected relocation with the same IP-address range
 
-:::image type="content" source="media/vnet-disconnected-relocation-no-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with no vNet IP address range change.":::
+:::image type="content" source="media/vnet-disconnected-relocation-no-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with no virtual network IP address range change.":::
 
 #### Disconnected relocation with  a new IP-address range
 
-:::image type="content" source="media/vnet-disconnected-relocation-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with vNet IP address range change.":::
+:::image type="content" source="media/vnet-disconnected-relocation-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with virtual network IP address range change.":::
 
 ### Connected Scenario
 
 | Relocation with no IP Address Change  | Relocation with IP Address Change |
 |--|--|
 | No other IP address ranges are needed.| Other IP Address ranges are needed. |
-| No IP Address change for resources after relocation.  | IP Address change of resources after relocation. 
+| No IP Address change for resources after relocation.  | IP Address change of resources after relocation.
 | All workloads with dependencies on each other need to be relocated together.   | Workload relocation without considering dependencies possible (Take communication latency into account).  |
 | No communication between the two virtual networks in the source and target regions is possible. | Possible to enable communication between source and target region using vNetwork peering.|
-| Data migrations where communication between source and target region isn't possible or can only established through public endpoints. | If communication between source and target region is required in data migration scenarios, you can establish network peering during relocation.|
+| Data migrations where communication between source and target region isn't possible or can only be established through public endpoints. | If communication between source and target region is required in data migration scenarios, you can establish network peering during relocation.|
 
 #### Connected relocation with the same IP-address range
 
-:::image type="content" source="media/vnet-connected-relocation-no-ip-address-change.png" alt-text="Diagram showing connected workload relocation with no vNet IP address range change.":::
+:::image type="content" source="media/vnet-connected-relocation-no-ip-address-change.png" alt-text="Diagram showing connected workload relocation with no virtual network IP address range change.":::
 
 #### Connected relocation with a new IP-address range
 
-:::image type="content" source="media/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change.":::
+:::image type="content" source="media/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with virtual network IP address range change.":::
 
 ## Prepare
 
@@ -110,7 +108,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 **To export the virtual network and deploy the target virtual network by using the Azure portal:**
 
-1. Remove any virtual network peers. Virtual network peerings can't be re-created, and they'll fail if they're still present in the template. In the [Redeploy](#redeploy) section, you'll reconfigure peerings at the target virtual network.
+1. Remove any virtual network peers. Virtual network peerings can't be re-created, and they fail if they're still present in the template. In the [Redeploy](#redeploy) section, you'll reconfigure peerings at the target virtual network.
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource Groups**.
 1. Locate the resource group that contains the source virtual network, and then select it.
 1. Select **Automation** > **Export template**.
@@ -213,7 +211,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
         To change the address prefix in the *template.json* file, edit it in two places:
 
-        - In the code in the preceding section
+        - In preceding code.
         - In the **type** section of the following code.
 
         Also, change the **addressPrefix** property in the following code to match the **addressPrefix** property in the code in the preceding section.
@@ -258,7 +256,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 **To export the virtual network and deploy the target virtual network by using PowerShell:**
 
-1. Remove any virtual network peers. Virtual network peerings can't be re-created, and they'll fail if they're still present in the template. In the [Redeploy](#redeploy) section, you'll reconfigure peerings at the target virtual network.
+1. Remove any virtual network peers. Virtual network peerings can't be re-created, and they fail if they're still present in the template. In the [Redeploy](#redeploy) section, you'll reconfigure peerings at the target virtual network.
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command, and then follow the on-screen directions:
 
     ```azurepowershell-interactive
@@ -298,7 +296,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
     }
     ```
 
-1. To edit the target region where the virtual network will be moved, change the **location** property under resources:
+1. To edit the target region where the virtual network is moved to, change the **location** property under resources:
 
     ```json
     "resources": [
@@ -427,8 +425,8 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 # [Portal](#tab/azure-portal)
 
-1. To choose the subscription where the target virtual network will be deployed, select **Basics** > **Subscription**.
-1. To choose the resource group where the target virtual network will be deployed, select **Basics** > **Resource group**.
+1. To choose the subscription where the target virtual network is deployed, select **Basics** > **Subscription**.
+1. To choose the resource group where the target virtual network is deployed, select **Basics** > **Resource group**.
 
     If you need to create a new resource group for the target virtual network, select **Create new**. Make sure that the name isn't the same as the source resource group name in the existing virtual network.
 
@@ -438,10 +436,10 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 1. To deploy the target virtual network, select **Purchase**.
 1. [Reconfigure Virtual Network Peering](/azure/virtual-network/virtual-network-manage-peering).
 1. Enable Connection Monitor by following the guidelines in ([Migrate to Connection monitor from Network performance monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)).  
-1. Enable the DDoS Protection Plan. After the move, the auto-tuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
+1. Enable the DDoS Protection Plan. After the move, the autotuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
 
-    - (Optional) Reconfigure the Network security Group (NSG), Application Security Group (ASG) and User Defined Route (UDR) to the target virtual Network subnet which was previously associated to source virtual Network subnet and now moved to target region.
-    - (Optional) Reconfigure the NAT-Gateway to the target virtual Network subnet which was previously associated to source virtual Network subnet and now moved to target region.
+    - (Optional) Reconfigure the Network security Group (NSG), Application Security Group (ASG), and User Defined Route (UDR) to the target virtual network subnet which was previously associated to source virtual network subnet and now moved to target region.
+    - (Optional) Reconfigure the NAT-Gateway to the target virtual network subnet which was previously associated to source virtual network subnet and now moved to target region.
     - (Optional) Diagnostic settings: Reconfigure the diagnostic setting for the target virtual network to send the logs to log analytic workspace/storage account/event hub which was relocated as mentioned in prepare.
 
 # [PowerShell](#tab/azure-powershell)
@@ -470,7 +468,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 1. [Reconfigure Virtual Network Peering](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks).
 1. Enable Connection Monitor by following the guidelines in ([Migrate to Connection monitor from Network performance monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)).  
-1. Enable the DDoS Protection Plan. After the move, the auto-tuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
+1. Enable the DDoS Protection Plan. After the move, the autotuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
 
 ---
 
@@ -500,7 +498,7 @@ To commit the changes and complete the virtual network move, you delete the sour
 
 # [PowerShell](#tab/azure-powershell)
 
-To commit your changes and complete the virtual network move, do either of the following:
+To commit your changes and complete the virtual network move, do either of the following step:
 
 - Delete the resource group by using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 

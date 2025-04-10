@@ -23,14 +23,14 @@ This article describes how to either:
 - An app registration must be created with delegated permission to the source and target resource group instance and “API permission” for “User.ReadBasic.All”.
 - The selected Cosmos DB API must remain same from source to target. This document uses SQL DB API.
 - Account names must be limited to 44 characters, all lowercase.
-- When you add or remove locations to an Azure Cosmos account, you can’t simultaneously modify other properties.
+- When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties.
 - Identify all Cosmos DB dependent resources.
 
 ## Considerations for Service Endpoints
 
 The virtual network service endpoints for Azure Cosmos DB restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Event Hubs from outside those sources is denied access. If Service endpoints were configured in the source region for the Event Hubs resource, the same would need to be done in the target one.
 
-For a successful recreation of the Azure Cosmos DB to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
+For a successful recreation of the Azure Cosmos DB to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won't be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
 ## Redeploy without data
 

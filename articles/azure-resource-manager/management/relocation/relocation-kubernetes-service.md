@@ -20,7 +20,7 @@ This article covers guidance for relocating an [Azure Kubernetes Service cluster
 Before you begin the relocation planning stage, first review the following prerequisites:
 
 - Ensure that the target region has enough capacity (VM SKUs) to accommodate the new cluster nodes.
-- Validate that you have resource creation permissions to the target subscription. Check that Azure policy isn’t restricting the regions to which AKS can be deployed.
+- Validate that you have resource creation permissions to the target subscription. Check that Azure policy isn't restricting the regions to which AKS can be deployed.
 - (Optional) Collect the Infrastructure as code (IaC) templates or scripts with which you provisioned the source AKS cluster.
 - Collect the Kubernetes manifests in order to re-create the application workload within the target cluster.
 
@@ -48,7 +48,7 @@ Before you begin the relocation planning stage, first review the following prere
   - [Azure Container registry](relocation-container-registry.md) can replicate images between ACR instances. For optimal performance when pulling images, the registry should exist in the target region.
 
       >[!NOTE]
-      >If you use Azure Container Registry to authenticate to the container registry, the new AKS cluster’s managed identity can be the granted `AcrPull` RBAC role.
+      >If you use Azure Container Registry to authenticate to the container registry, the new AKS cluster's managed identity can be the granted `AcrPull` RBAC role.
 
   - Azure Managed Disks
   - Azure Files

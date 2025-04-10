@@ -19,17 +19,17 @@ This article shows you how to relocate Azure Container Registry resources to ano
 
 ## Considerations for Service Endpoints
 
-The virtual network service endpoints for Azure Container Registry restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the registry from outside those sources is denied access. If Service endpoints were configured in the source region for the registry resource, the same would need to be done in the target one. The steps for this scenario are mentioned below:
+The virtual network service endpoints for Azure Container Registry restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the registry from outside those sources is denied access. If Service endpoints were configured in the source region for the registry resource, the same would need to be done in the target one. The steps for this scenario are:
 
-- For a successful recreation of the registry to the target region, the VNet and Subnet must be created beforehand. If the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically and so you'll need to provide manual configuration.
-- Secondly, changes need to be made in the IaC of the Azure Container Registry. In `networkAcl` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to False, so that the IaC fails to deploy the Azure Container Registry in case the service endpoint isn’t configured in the target region. This will ensure that the prerequisites in the target region are met
+- For a successful recreation of the registry to the target region, the virtual network and subnet must be created beforehand. If the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints can't be configured automatically, and so you need to provide manual configuration.
+- Secondly, changes need to be made in the IaC of the Azure Container Registry. In `networkAcl` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to False, so that the IaC fails to deploy the Azure Container Registry in case the service endpoint isn't configured in the target region. This ensures that the prerequisites in the target region are met
 
 [!INCLUDE [considerations-for-private-endpoint](includes/private-endpoint-include.md)]
 
 - Azure Container Registry must be configured in the target region with premium tier.
 - When public network access to a registry is disabled, registry access by certain trusted services - including Azure Security Center -  requires enabling a network setting to bypass the network rules.
-- If the registry has an approved private endpoint and public network access is disabled, repositories and tags can’t be listed outside the virtual network using the Azure portal, Azure CLI, or other tools.
-- In case the case of a new replica, its imperative to manually add a new DNS record for the data endpoint in the target region.
+- If the registry has an approved private endpoint and public network access is disabled, repositories and tags can't be listed outside the virtual network using the Azure portal, Azure CLI, or other tools.
+- In case the case of a new replica, it's imperative to manually add a new Domain Name System (DNS) record for the data endpoint in the target region.
 
 ## Downtime
 
@@ -37,10 +37,10 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 ## Prepare
 
->[!NOTE]
->If you only want to relocate a Container Registry that doesn't hold any client specific data and is to be moved alone, you can simply redeploy the registry by using [Bicep](/azure/templates/microsoft.containerregistry/registries?tabs=bicep&pivots=deployment-language-arm-template) or [JSON](/azure/templates/microsoft.containerregistry/registries?tabs=json&pivots=deployment-language-arm-template).
+> [!NOTE]
+> If you only want to relocate a Container Registry that doesn't hold any client specific data and is to be moved alone, you can redeploy the registry by using [Bicep](/azure/templates/microsoft.containerregistry/registries?tabs=bicep&pivots=deployment-language-arm-template) or [JSON](/azure/templates/microsoft.containerregistry/registries?tabs=json&pivots=deployment-language-arm-template).
 >
->To view other availability configuration templates, go to [Define resources with Bicep, ARM templates, and Terraform AzAPI provider](/azure/templates/)
+> To view other availability configuration templates, go to [Define resources with Bicep, ARM templates, and Terraform AzAPI provider](/azure/templates/)
 
 **To prepare for relocation with data migration:**
 
@@ -98,7 +98,6 @@ Inspect the registry properties in the template JSON file you downloaded, and ma
     ```
 
 - Validate all the associated resources detail in the downloaded template such as Registry scopeMaps, replications configuration, Diagnostic settings like log analytics.
-
 - If the source registry is encrypted, then [encrypt the target registry using a customer-managed key](/azure/container-registry/tutorial-enable-customer-managed-keys#enable-a-customer-managed-key-by-using-a-resource-manager-template) and update the template with settings for the required managed identity, key vault, and key.  You can only enable the customer-managed key when you deploy the registry.
 
 ### Create resource group
@@ -132,7 +131,7 @@ After creating the registry in the target region:
 1. Run the import command for individual artifacts, or script it to run over a list of artifacts.
 
     The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](/azure/container-registry/container-registry-import-images).
-    
+
     ```azurecli
     #!/bin/bash
     # Modify registry names for your environment
@@ -173,11 +172,10 @@ Confirm the following information in your target registry:
 
 ## Delete original registry
 
-After you have successfully deployed the target registry, migrated content, and verified registry settings, you may delete the source registry.
+After you deploy the target registry, migrated content, and verified registry settings, you can delete the source registry.
 
 ## Related content
 
 - To move registry resources to a new resource group either in the same subscription or a [new subscription], see [Move Azure resources to a new resource group or subscription](../move-resource-group-and-subscription.md).
-
 - Learn more about [importing container images](/azure/container-registry/container-registry-import-images) to an Azure container registry from a public registry or another private registry.
 - See the [Resource Manager template reference](/azure/templates/microsoft.containerregistry/registries) for Azure Container Registry.

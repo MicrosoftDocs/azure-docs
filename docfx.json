@@ -266,7 +266,6 @@
         "articles/azure-resource-manager/custom-providers/**/*.md": "MSEvanhi",
         "articles/azure-resource-manager/managed-applications/**/*.md": "MSEvanhi",
         "articles/azure-resource-manager/management/**/*.md": "mumian",
-        "articles/azure-resource-manager/management/relocation/**/*.md": "ssumner",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "mumian",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",

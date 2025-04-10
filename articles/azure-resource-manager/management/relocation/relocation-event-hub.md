@@ -1,6 +1,6 @@
 ---
 title: Relocate Azure Event Hubs to another region
-description: Learn how to relocate Azure Event Hubs to a another region
+description: Learn how to relocate Azure Event Hubs to another region
 ms.date: 01/24/2024
 ms.topic: how-to
 ms.custom: subject-relocation
@@ -8,16 +8,16 @@ ms.custom: subject-relocation
 
 # Relocate Azure Event Hubs to another region
 
-This article shows you how to to copy an Event Hubs namespace and configuration settings to another region. 
+This article shows you how to to copy an Event Hubs namespace and configuration settings to another region.
 
-If you have other resources in the Azure resource group that contains the Event Hubs namespace, you may want to export the template at the resource group level so that all related resources can be moved to the new region in one step.  To learn how to export a **resource group** to the template, see [Move resources across regions(from resource group)](/azure/resource-mover/move-region-within-resource-group).
+If you have other resources in the Azure resource group that contains the Event Hubs namespace, you can export the template at the resource group level so that all related resources can be moved to the new region in one step.  To learn how to export a **resource group** to the template, see [Move resources across regions(from resource group)](/azure/resource-mover/move-region-within-resource-group).
 
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
 - If you have **capture feature** enabled for event hubs in the namespace, move [Azure Storage or Azure Data Lake Store Gen 2](../../../storage/common/storage-account-move.md) accounts before moving the Event Hubs namespace. You can also move the resource group that contains both Storage and Event Hubs namespaces to the other region by following steps similar to the ones described in this article.
 - If the Event Hubs namespace is in an **Event Hubs cluster**, [move the dedicated cluster](../../../event-hubs/move-cluster-across-regions.md) to the **target region** before you go through steps in this article. You can also use the [quickstart template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-cluster-namespace-eventhub/) to create an Event Hubs cluster. In the template, remove the namespace portion of the JSON to create only the cluster.
-- Identify all resources dependencies. Depending on how you've deployed Event Hubs, the following services *may* need deployment in the target region:
+- Identify all resources dependencies. Depending on how you deploy Event Hubs, the following services *may* need deployment in the target region:
 
   - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
   - [Virtual Network](./relocation-virtual-network.md)
@@ -38,13 +38,13 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 The virtual network service endpoints for Azure Event Hubs restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Event Hubs from outside those sources is denied access. If Service endpoints were configured in the source region for the Event Hubs resource, the same would need to be done in the target one.
 
-For a successful recreation of the Event Hubs to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
+For a successful recreation of the Event Hubs to the target region, the virtual network and subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints can't be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
 ## Considerations for Private Endpoint
 
 Azure Private Link provides private connectivity from a virtual network to [Azure platform as a service (PaaS), customer-owned, or Microsoft partner services](/azure/private-link/private-endpoint-overview). Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 
-For a successful recreation of the Event Hubs in the target region, the VNet and Subnet must be created before the actual recreation occurs.
+For a successful recreation of the Event Hubs in the target region, the virtual network and subnet must be created before the actual recreation occurs.
 
 ## Prepare
 
@@ -171,7 +171,7 @@ Modify the template by changing the Event Hubs namespace name and region.
     }
    ```
 
-1. If you configured a service endpoint in your Event Hubs, in the `networkrulesets` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint`_ flag is set to `False`, so that the IaC fails to deploy the Event Hubs in case the service endpoint isn’t configured in the target region.
+1. If you configured a service endpoint in your Event Hubs, in the `networkrulesets` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint`_ flag is set to `False`, so that the IaC fails to deploy the Event Hubs in case the service endpoint isn't configured in the target region.
 
     **parameter.json**
 
@@ -327,7 +327,7 @@ Modify the template by changing the Event Hubs namespace name and region.
     }
    ```
 
-1. If you configured a service endpoint in your Event Hubs, in the `networkrulesets` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to False, so that the IaC fails to deploy the Event Hubs in case the service endpoint isn’t configured in the target region.
+1. If you configured a service endpoint in your Event Hubs, in the `networkrulesets` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to False, so that the IaC fails to deploy the Event Hubs in case the service endpoint isn't configured in the target region.
 
     **parameter.json**
 
@@ -411,7 +411,7 @@ Modify the template by changing the Event Hubs namespace name and region.
     1. Select **Review + create** at the bottom of the page.
     1. On the **Review + create** page, review settings, and then select **Create**.
 
-1. Network configuration settings (private endpoints) need to be re-configured in the new Event Hubs.
+1. Network configuration settings (private endpoints) need to be reconfigured in the new Event Hubs.
 
 ## Discard or clean up
 
@@ -430,7 +430,7 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
 
 ## Next steps
 
-In this how-to, you learned how to move an Event Hubs namespace from one region to another.
+In this article, you learned how to move an Event Hubs namespace from one region to another.
 
 For instructions on moving an Event Hubs cluster from one region to another region, see [Relocate Event Hubs to another region](relocation-event-hub-cluster.md) article.
 

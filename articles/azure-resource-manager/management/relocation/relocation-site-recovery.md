@@ -44,7 +44,7 @@ There's no first-class way to move an existing Recovery Services vault configura
 
 - Determine network bandwidth need vs. RPO assessment
 
-  - Estimated network bandwidth that’s required for delta replication
+  - Estimated network bandwidth that's required for delta replication
   - Throughput that Site Recovery can get from on-premises to Azure
   - Number of VMs to batch, based on the estimated bandwidth to complete initial replication in a given amount of time
   - RPO that can be achieved for a given bandwidth
