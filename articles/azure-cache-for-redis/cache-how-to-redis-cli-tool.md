@@ -19,7 +19,7 @@ Access to an Azure Cache for Redis server instance.
 
 ## Install redis-cli
 
-The redis-cli tool installs automatically with the Redis package, which is available for Linux, macOS, and Windows. For detailed installation instructions, see the open-source [Install Redis](https://redis.io/docs/install/install-redis/) guide.
+The redis-cli tool installs automatically with the Redis package, which is available for Linux, macOS, and Windows. For detailed installation instructions, see the open-source [Redis documentation](https://redis.io/docs).
 
 ### Install on Linux
 
@@ -34,7 +34,7 @@ sudo apt-get install redis
 
 The best way to use redis-cli on Windows is to install the [Windows Subsystem for Linux](/windows/wsl/about) (WSL), which allows you to run Linux tools directly on Windows. To install WSL, see [How to install Linux on Windows with WSL](/windows/wsl/install).
 
-Once installed, use WSL to install a Linux distro, and then install redis-cli by using the available package management for the Linux distro you chose. The default distro for WSL is Ubuntu. For more information, see [Install Redis on Windows](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/).
+Once installed, use WSL to install a Linux distro, and then install redis-cli by using the available package management for the Linux distro you chose. The default distro for WSL is Ubuntu. For more information, see the open-source [Redis documentation](https://redis.io/docs).
 
 ## Connect using redis-cli
 
