@@ -284,7 +284,9 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 ### [Consumption](#tab/consumption)
 
-1. In the workflow designer, under the SAP managed action named **Generate schemas**, select **New step**.
+1. In the workflow designer, under the **Generate schemas** action, follow [these general steps to add the Azure Resource Manager managed action named **Create or update a resource**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+1. If you're prompted to sign in, do that now and continue.
 
 
    After Azure Logic Apps sets up and tests your connection, the action information pane appears:
