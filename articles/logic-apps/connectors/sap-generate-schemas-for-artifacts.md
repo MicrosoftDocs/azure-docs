@@ -118,7 +118,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
       > [!TIP]
       >
       > For the **Body ActionUri** parameter, you can use the expression editor to provide the parameter value. 
-      > This approach enables you to use the same SAP action for different message types.
+      > This approach lets you use the same SAP action for different message types.
 
       For more information about this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
