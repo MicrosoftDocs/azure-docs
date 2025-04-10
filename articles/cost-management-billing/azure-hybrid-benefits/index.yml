@@ -9,9 +9,9 @@ metadata:
   description: Learn about the Azure Hybrid Benefit product and deployment documentation.
   ms.service: cost-management-billing
   ms.topic: hub-page
-  author: bandersmsft
-  ms.author: banders
-  ms.reviewer: kyleikeda
+  author: pri-mittal
+  ms.author: primittal
+  ms.reviewer: primittal
   ms.date: 01/21/2025
 
 highlightedContent:
