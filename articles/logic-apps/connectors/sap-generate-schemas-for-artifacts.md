@@ -50,7 +50,7 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 To have your workflow receive requests from your SAP server over HTTP, you can use the [Request built-in trigger](../../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP POST requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
 
-Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps.
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps.
 
 ### [Consumption](#tab/consumption)
 
