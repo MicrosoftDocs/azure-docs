@@ -1,17 +1,19 @@
 ---
-title: "Network access configuration during a high performance computing (HPC) architecture migration"
+title: "Network access configuration"
 description: Learn how to configure network access during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Network access configuration during a high performance computing (HPC) architecture migration
+# Network access configuration
 
-Mechanism to allow users access cloud environment in a secure way. It's a common practice in production environments to have resources with private IP addresses, and with rules to define how resources should be accessed.
+A key aspect of your high performance computing migration is the configuration of network access. Proper network access configration ensures secure, efficient, and uninterrupted communication between computational resources. This part of the guide covers the needs, tools, services, and best practices associated with your network access configuration.
+
+It's a common practice in production environments to have resources with private IP addresses, and with rules to define how resources should be accessed.
 
 This component should:
 
