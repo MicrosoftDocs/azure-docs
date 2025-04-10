@@ -18,7 +18,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## March 2025
 ### FHIR Service
 **Selectable search parameters in GA**
-The selectable search parameter capability available for preview allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries.
+The selectable search parameter capability allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries.
 
 Learn more:[Selectable search parameters for the FHIR service](fhir/selectable-search-parameters.md)
 

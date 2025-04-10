@@ -1000,7 +1000,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | No | No | No |
+> | actiongroups | Yes | Yes | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |

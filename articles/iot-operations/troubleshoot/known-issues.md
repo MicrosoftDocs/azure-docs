@@ -285,30 +285,6 @@ To work around this issue, you need to manually delete the CRD and finish the un
 
 1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
 
-## OPC PLC simulator issues
-
-This section lists current known issues for the OPC PLC simulator.
-
-### The simulator doesn't send data to the MQTT broker after you create an asset
-
----
-
-Issue ID: 4224
-
----
-
-Log signature: N/A
-
----
-
-The OPC PLC simulator doesn't send data to the MQTT broker after you create a new asset.
-
-To work around this issue,  restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
-
-```bash
-kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
-```
-
 ## Data flows issues
 
 This section lists current known issues for data flows.
