@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/09/2025
+ms.date: 04/10/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -106,6 +106,5 @@ For the most up-to-date limits and quotas, refer to the [Azure Container Apps se
 
 ## Related content
 
-- [Create a Container Apps environment](create-environment.md)
 - [Containers in Azure Container Apps](containers.md)
 - [Networking in Container Apps](networking.md)
