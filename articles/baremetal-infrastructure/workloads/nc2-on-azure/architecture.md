@@ -6,7 +6,7 @@ description: Learn about the architecture of several configurations of BareMetal
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 08/15/2024
+ms.date: 03/28/2025
 ms.service: azure-baremetal-infrastructure
 ---
 
@@ -55,76 +55,19 @@ Learn about use cases and supported scenarios for NC2 on Azure, including cluste
 That operations and cluster management be nearly identical to on-premises is critical to customers.
 Customers can update capacity, monitor alerts, replace hosts, monitor usage, and more by combining the respective strengths of Microsoft and Nutanix.
 
-### Disaster recovery
-
-Disaster recovery is critical to cloud functionality.
-A disaster can be any of the following:
-
-- Cyber attack
-- Data breach
-- Equipment failure
-- Natural disaster
-- Data loss
-- Human error
-- Malware and viruses
-- Network and internet blips
-- Hardware and/or software failure
-- Weather catastrophes
-- Flooding
-- Office vandalism
-
-When a disaster strikes, the goal of any DR plan is to ensure operations run as normally as possible.
-While the business will be aware of the crisis, ideally, its customers and end-users shouldn't be affected.
-
-### On-demand elasticity
-
-Scale up and scale out as you like.
-We provide the flexibility that means you don't have to procure hardware yourself - with just a click of a button you can get additional nodes in the cloud nearly instantly.
-
 ### Lift and shift
 
 Move applications to the cloud and modernize your infrastructure.
 Applications move with no changes, allowing for flexible operations and minimum downtime.
 
-## Supported SKUs and instances
+### Disaster recovery
 
-The following table presents component options for each available SKU.
+Use Azure as a disaster recovery site to provision nodes and failover your Nutanix VMs and workloads. The hardware is available on-demand and in the cloud without requring you to invest in pre-provisioning a secondary data center environment. 
+ 
+### On-demand elasticity
 
-| Component |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
-| :------------------- | -------------------: |:---------------:|
-|Core|Intel 6140, 36 Core, 2.3 GHz|Intel 6240, 36 Core, 2.6 GHz|
-|vCPUs|72|72|
-|RAM|576 GB|768 GB|
-|Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|20.7 TB (2x750 GB Optane, 6x3.2-TB NVMe)|
-|Network (available bandwidth between nodes)|25 Gbps|25 Gbps|
-
-Nutanix Clusters on Azure supports:
-
-* Minimum of three bare metal nodes per cluster.
-* Maximum of 28 bare metal nodes per cluster.
-* Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure.
-* Prism Central instance deployed on Nutanix Clusters on Azure to manage the Nutanix clusters in Azure.
-
-## Supported regions
-
-When planning your NC2 on Azure design, use the following table to understand what SKUs are available in each Azure region.
-
-| Azure region | SKU   |
-| :---         | :---: |
-| Australia East | AN36P |
-| Central India | AN36P |
-| East US | AN36 |
-| East US 2 | AN36P |
-| Germany West Central | AN36P |
-| Japan East | AN36P |
-| North Central US | AN36P |
-| Qatar Central | AN36P |
-| Southeast Asia | AN36P |
-| South India | AN36P |
-| UAE North | AN36P |
-| UK South | AN36P |
-| West Europe | AN36P |
-| West US 2 | AN36 |
+Scale up and scale out as you like.
+We provide the flexibility that means you don't have to procure hardware yourself - with just a click of a button you can get additional nodes in the cloud nearly instantly.
 
 ## Deployment example
 
