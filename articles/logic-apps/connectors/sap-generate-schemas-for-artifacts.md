@@ -288,7 +288,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 1. Follow [these general steps to find and add the Azure Resource Manager managed action named **Create or update a resource**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action). If you're prompted to sign in with your credentials, go ahead and continue.
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears:
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png" alt-text="Screenshot shows Consumption workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png":::
 
