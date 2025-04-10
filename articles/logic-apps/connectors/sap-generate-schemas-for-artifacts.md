@@ -32,7 +32,7 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
-- If you want to upload your generated schemas to a repository, such as an [integration account](../enterprise-integration/create-integration-account.md), make sure the repository already exists.
+- If you want to upload your generated schemas to a repository, such as an [integration account](../enterprise-integration/create-integration-account.md), make sure that the repository exists.
 
 [!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
