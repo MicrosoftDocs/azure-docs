@@ -88,7 +88,6 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 ### [Consumption](#tab/consumption)
 
-1. In the workflow designer, under the **Request** trigger, select **New step**.
 
 1. In the workflow designer, under the **Request** trigger, follow [these general steps to find and add the SAP managed action named **Generate schemas**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
