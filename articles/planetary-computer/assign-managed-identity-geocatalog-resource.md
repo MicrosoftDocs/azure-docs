@@ -1,16 +1,16 @@
 ---
-title: Assign a User-assigned managed identity to a Microsoft Planetary Computer GeoCatalog
+title: Assign a user-assigned managed identity to a Microsoft Planetary Computer GeoCatalog
 description: Learn how to assign a User-assigned managed identity to a Microsoft Planetary Computer GeoCatalog using either PowerShell or Bash.
 author: prasadko
-ms.topic: quickstart
+ms.topic: how-to
 ms.service: planetary-computer
 ms.date: 04/09/2025
 ms.author: prasadkomma
 ---
 
-# Quickstart: Assign a user-assigned managed identity to a GeoCatalog
+# Assign a user-assigned managed identity to a GeoCatalog
 
-This Quickstart shows how to use the [Azure Command Line Interface (CLI)](/cli/azure/) through the command terminal of your choice to assign a managed identity to a GeoCatalog resource.  
+This guide shows how to use the [Azure Command Line Interface (CLI)](/cli/azure/) through the command terminal of your choice to assign a managed identity to a GeoCatalog resource.  
 
 Select either PowerShell or Bash instructions to assign the managed identity.
 

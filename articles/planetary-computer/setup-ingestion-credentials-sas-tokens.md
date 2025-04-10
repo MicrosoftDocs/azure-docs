@@ -1,28 +1,26 @@
 ---
-title: "Quickstart: Set up ingestion credentials using SAS Tokens"
+title: Set up ingestion credentials Microsoft Planetary Computer using SAS tokens
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer.
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 04/09/2025
 
 #customer intent: Help customers understand how credentials work and how to add them ahead of an ingestion for SAS Tokens.
 
 ---
 
-# Quickstart: Setup ingestion credentials for Microsoft Planetary Computer using SAS tokens
+# Setup ingestion credentials for Microsoft Planetary Computer using SAS tokens
 
 Loading new data into the Microsoft Planetary Computer GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion sources, to access data that is stored externally to the GeoCatalog resource.
   
-In this Quickstart, you learn how to:
+In this guide, you learn how to:
 
 - Setup credentials through Azure portal
 - Setup credentials through the Microsoft Planetary Computer API using the Azure Python SDK
 
 ## Prerequisites
-
-To complete this Quickstart, you need:
 
 - A Microsoft Planetary Computer GeoCatalog deployed to your Azure Subscription. See [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
@@ -41,7 +39,7 @@ Data ingestion is specific to a Blob Container, and SAS tokens from the root sto
 
 ## Set up credentials through the UI
 
-SAS tokens can be obtained multiple ways; in this Quickstart, we do so using the [Azure portal](https://portal.azure.com/).
+SAS tokens can be obtained multiple ways; in this guide, we do so using the [Azure portal](https://portal.azure.com/).
 Azure Storage Explorer is also an alternative UI-driven approach which works on a local machine. See [Azure Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer/?msockid=06a2c34a3959646b380ed330385d65fb)
 
 ### Navigate to your storage resource

@@ -1,21 +1,19 @@
 ---
-title: "Quickstart: Set up an ingestion source for Microsoft Planetary Computer Pro"
+title: Setup an ingestion source for Microsoft Planetary Computer using managed identity
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer using managed identities.
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 04/09/2025
-
 #customer intent: Help customers understand how ingestion sources work and how to add them ahead of an ingestion. 
-
 ---
 
-# Quickstart: Setup Ingestion Credentials for Planetary Computer
+# Setup Ingestion Credentials for Planetary Computer using managed identity
 
 Loading new data into the Microsoft Planetary Computer GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion Sources, to access data that is stored externally to the GeoCatalog resource.
   
-In this Quickstart, you learn how to:
+In this guide, you learn how to:
 
 - [Create a user assigned managed identity](#create-a-user-assigned-managed-identity)
 - [Give a user assigned managed identity Storage Blob Data Reader to Azure Blob Storage](#give-a-user-assigned-managed-identity-storage-blob-data-reader-to-azure-blob-storage)
@@ -30,7 +28,6 @@ All four steps are required to setup your GeoCatalog resource to read data from 
 
 - An Azure Blob container setup with the correct permissions to assign managed identities. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 
-
 ## Managed identity vs. SAS tokens
 
 [Managed identities](/entra/identity/managed-identities-azure-resources/overview) provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication.
@@ -41,7 +38,7 @@ Managed identities are a more secure, automated mechanism for establishing persi
 
 Managed identities only work within a single Microsoft Entra tenant, therefore the SAS Token approach is useful when moving data from storage that is in a storage account outside of your tenant. Data ingestion is specific to a Blob Container, and SAS tokens from the root storage resource aren't permitted. 
 
-This Quickstart show how to use the managed identity approach. If SAS tokens are more appropriate for your use case, see how to [setup ingestion credentials using SAS](./setup-ingestion-credentials-sas-tokens.md).
+This guide show how to use the managed identity approach. If SAS tokens are more appropriate for your use case, see how to [setup ingestion credentials using SAS](./setup-ingestion-credentials-sas-tokens.md).
 
 ## Create a user assigned managed identity
 
