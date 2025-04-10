@@ -255,7 +255,7 @@ For more information about reviewing workflow run history, see [Check workflow s
 
 1. On the **Run history**page, on the **Run history** tab, select the workflow run.
 
-1. Find the **Generate Schema** action, and review the action's outputs.
+1. Select the **Generate Schema** action to review the action's outputs.
 
    The outputs show the generated schemas for the specified messages.
 
