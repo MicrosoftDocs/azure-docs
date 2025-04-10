@@ -108,7 +108,7 @@ Ensure that you have installed Az CLI to execute the required commands by follow
 
 After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
 
-1. Login to the Azure tenant and set the Subscription.
+1. Log in to the Azure tenant and set the Subscription.
     - az login --tenant <TENANT_ID>
     - az account set --subscription <SUBSCRIPTION_ID>
 1. Register the Dependency Map private preview feature on the Subscription.
@@ -154,7 +154,7 @@ Follow the steps to find a project:
     :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows how to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select-project.png" :::
 ::: moniker-end
 
-1. . In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*. 
+1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*. 
 1. In Azure Migrate dashboard, select **Servers, databases and webapps** > **Current project** from the upper right corner.
  
    :::image type="content" source="./media/create-manage-projects/current-project.png" alt-text="Screenshot to select the current project." lightbox="./media/create-manage-projects/current-project.png" :::
