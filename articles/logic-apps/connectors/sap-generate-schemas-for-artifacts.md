@@ -159,7 +159,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
    For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-standard.png" alt-text="Screenshot shows Standard workflow and SAP built-in action named Generate Schema." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-standard.png":::
 
