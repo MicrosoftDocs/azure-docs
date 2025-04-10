@@ -20,13 +20,13 @@ Your startup credit offer includes a [Basic support plan](https://azure.microsof
 
 ## Microsoft Q&A
 
-Find answers to your Azure-related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/503/azure-startups), a trusted platform for technical discussions on Azure services. Browse existing answers to see if your question has already been addressed or ask a new question to get guidance from Azure engineers and Community Champions.
+Find answers to your Azure-related questions on [Microsoft Q&A](/answers/tags/133/azure), a trusted platform for technical discussions on Azure services. Browse existing answers to see if your question has already been addressed or ask a new question to get guidance from Azure engineers and Community Champions.
 
 ## Frequently asked questions
 
 ### How do I ask a question on Microsoft Q&A?
 
-To ask a question, sign in to Microsoft Learn with the account linked to your Azure Sponsorship subscription, then choose "Ask a question" and post your question on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/503/azure-startups).
+To ask a question, sign in to Microsoft Learn with the account linked to your Azure Sponsorship subscription, then choose "Ask a question" and post your question on [Microsoft Q&A](/answers/tags/133/azure).
 
 ### How do I create a support request?
 

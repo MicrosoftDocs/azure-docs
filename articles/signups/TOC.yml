@@ -12,7 +12,9 @@
     href: startup-programs.md
 - name: Resources
   items:
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Microsoft for Startups
+    href: https://www.microsoft.com/startups
   - name: Azure AI Foundry
     href: https://ai.azure.com/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
