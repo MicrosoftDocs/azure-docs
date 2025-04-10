@@ -145,13 +145,13 @@ For this problem, the following workarounds or solutions exist:
 
 #### Problem context or background
 
-SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way that the connector requests connections to backend servers from message servers. The connector now uses a new API for application server resolution by the message server unless you force the connector to use the previous API through the setting named **ms/lg_with_hostname=0`**. For more information, see [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://userapps.support.sap.com/sap/support/knowledge/en/3305039).
+SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way that the connector requests connections to backend servers from message servers. The connector now uses a new API for application server resolution by the message server unless you force the connector to use the previous API through the setting named **ms/lg_with_hostname=0`**. For more information, see [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://userapps.support.sap.com/sap/support/knowledge/3305039).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/docs/SAP_NETWEAVER_700/108e05856c5310149156b7d475ca5796/47c2e77bb8fd3020e10000000a42189d.html?version=7.0.37&q=message+server) that you want to access from Azure Logic Apps.
+* The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/docs/SAP_NETWEAVER_700/108e05856c5310149156b7d475ca5796/47c2e77bb8fd3020e10000000a42189d.html?version=7.0.37) that you want to access from Azure Logic Apps.
 
   * Set up your SAP server and user account to allow the use of RFC.
 
@@ -234,11 +234,11 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   1. On the **Inbound options** tab, under **Processing by Function Module**, change the setting to **Trigger by background program** from **Trigger immediately**.
 
-     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://userapps.support.sap.com/sap/support/knowledge/en/1777090).
+     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://userapps.support.sap.com/sap/support/knowledge/1777090).
 
   For more information, see the following resources:
 
-  * [SAP Support Note 1845390 - Poor performance when posting IDocs with report RBDAPP01 - SAP for Me](https://userapps.support.sap.com/sap/support/knowledge/en/1845390)
+  * [SAP Support Note 1845390 - Poor performance when posting IDocs with report RBDAPP01 - SAP for Me](https://userapps.support.sap.com/sap/support/knowledge/1845390)
   * [Improving ALE Performance (Optimise processing of inbound and outbound idocs) - SAP for Me](https://help.sap.com/docs/SUPPORT_CONTENT/abapconn/3354079741.html)
 
 <a name="network-prerequisites"></a>
@@ -1045,7 +1045,7 @@ You can control this tracing capability at the application level by adding the f
 
 1. Browse to a location under **C:\home\site\wwwroot**, and create a text file, for example: **CCLPROFILE.txt**.
 
-   For more information about logging parameters, see [SAP KB Article 3192871 - How to check CommonCryptoLib version information in ABAP system](https://userapps.support.sap.com/sap/support/knowledge/en/3192871). The following sample provides an example tracing configuration:
+   For more information about logging parameters, see [SAP KB Article 3192871 - How to check CommonCryptoLib version information in ABAP system](https://userapps.support.sap.com/sap/support/knowledge/3192871). The following sample provides an example tracing configuration:
    
    ```
    ccl/trace/directory=C:\home\LogFiles\CCLLOGS
