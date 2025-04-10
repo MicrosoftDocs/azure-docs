@@ -326,7 +326,7 @@
         "articles/migrate/**/*.md": "SnehaSudhirG",
         "articles/migrate/**/*.yml": "SnehaSudhirG",
         "articles/migration/**/*.md": "robbyatmicrosoft",
-        "articles/migration/**/*.yml": "robbyatmicrosoft",        
+        "articles/migration/**/*.yml": "robbyatmicrosoft",
         "articles/network-watcher/**/*.md": "halkazwini",
         "articles/network-watcher/**/*.yml": "halkazwini",
         "articles/notebooks/*.md": "j-martens",
