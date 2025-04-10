@@ -8,7 +8,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/09/2025
+ms.date: 04/11/2025
 
 #customer intent: As a developer, I want to create a workflow that can generate schemas for SAP artifacts by using Azure Logic Apps.
 ---
@@ -68,7 +68,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), create a Standard logic app resource and a blank workflow, which opens in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
 1. In the designer, follow [these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
