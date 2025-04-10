@@ -2,10 +2,11 @@
 title: Customize Sign-ins and Sign-outs
 description: Use the built-in authentication and authorization in Azure App Service and at the same time customize the sign-in and sign-out behavior.
 ms.topic: how-to
-ms.date: 07/08/2024
+ms.date: 04/03/2025
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+#customer intent: As an app developer, I want to customize my sign-in and sign-out options to provide links to different providers and to enhance the user experience in Azure App Service.
 ---
 
 # Customize sign-ins and sign-outs in Azure App Service authentication
@@ -14,13 +15,15 @@ This article shows you how to customize user sign-ins and sign-outs while using 
 
 ## Use multiple sign-in providers
 
-The Azure portal configuration doesn't offer a turnkey way to present multiple sign-in providers to your users (such as both Facebook and X). To add the functionality of using multiple sign-in providers to your app:
+The Azure portal configuration doesn't offer a turnkey way to present multiple sign-in providers to your users. For instance, you might want to offer both Facebook and X as options. To add multiple sign-in providers to your app:
 
-1. In the Azure portal, on the **Authentication / Authorization** page, configure each identity provider that you want to enable.
+1. In the Azure portal, in your web app, select **Settings** > **Authentication**.
 
-1. In **Action to take when request is not authenticated**, select **Allow Anonymous requests (no action)**.
+1. For **Authentication settings**, select **Edit**.
 
-1. On the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers that you enabled (`/.auth/login/<provider>`). For example:
+1. For **Restrict access**, select **Allow unauthenticated access**.
+
+1. On the sign-in page, the navigation bar, or any other location in your app, add a sign-in link to each of the providers that you enabled (`/.auth/login/<provider>`). For example:
 
    ```html
    <a href="/.auth/login/aad">Log in with Microsoft Entra</a>
@@ -32,19 +35,22 @@ The Azure portal configuration doesn't offer a turnkey way to present multiple s
 
 When the user selects one of the links, the respective page opens for sign-in.
 
-To redirect the user to a custom URL after sign-in, use the `post_login_redirect_uri` query string parameter. (Don't confuse this parameter with the redirect URI in your identity provider configuration.) For example, to move the user to `/Home/Index` after sign-in, use the following HTML code:
+To redirect the user to a custom URL after sign-in, use the `post_login_redirect_uri` query string parameter.  For example, to move the user to `/Home/Index` after sign-in, use the following HTML code:
 
 ```html
 <a href="/.auth/login/<provider>?post_login_redirect_uri=/Home/Index">Log in</a>
 ```
 
+> [!NOTE]
+> Don't confuse this value with the redirect URI in your identity provider configuration.
+
 ## <a name = "client-directed-sign-in"></a> Use client-directed sign-in
 
-In a client-directed sign-in, the application signs in the user to the identity provider by using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) by using an HTTP `POST` request. This validation itself doesn't grant users access to the desired app resources, but a successful validation gives users a session token that they can use to access app resources.
+In a client-directed sign-in, the application signs in the user to the identity provider by using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation by using an HTTP `POST` request. This validation itself doesn't grant users access to the desired app resources. A successful validation gives users a session token that they can use to access app resources. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
 To validate the provider token, the App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
-```
+```https
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
 Content-Type: application/json
 
@@ -54,17 +60,16 @@ Content-Type: application/json
 The token format varies slightly according to the provider:
 
 | Provider value | Required in request body | Comments |
-|-|-|-|
+|:-|:-|:-|
 | `aad` | `{"access_token":"<access_token>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
 | `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When you specify `authorization_code`, you can optionally accompany it with a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<access_token_secret>"}` | |
-| | | |
 
 > [!NOTE]
-> The GitHub provider for App Service authentication does not support customized sign-in and sign-out.
+> The GitHub provider for App Service authentication doesn't support customized sign-in and sign-out.
 
-If the provider token is validated successfully, the API returns with an `authenticationToken` value in the response body. This value is your session token. To get more information on the user claims, see [Work with user identities in Azure App Service authentication](configure-authentication-user-identities.md).
+If the provider token is validated successfully, the API returns with an `authenticationToken` value in the response body. This value is your session token. For more information on user claims, see [Work with user identities in Azure App Service authentication](configure-authentication-user-identities.md).
 
 ```json
 {
@@ -77,7 +82,7 @@ If the provider token is validated successfully, the API returns with an `authen
 
 After you have this session token, you can access protected app resources by adding the `X-ZUMO-AUTH` header to your HTTP requests. For example:
 
-```
+```https
 GET https://<appname>.azurewebsites.net/api/products/1
 X-ZUMO-AUTH: <authenticationToken_value>
 ```
@@ -88,7 +93,7 @@ Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/lo
 
 - Clears authentication cookies from the current session.
 - Deletes the current user's tokens from the token store.
-- For Microsoft Entra and Google, performs a server-side sign-out on the identity provider.
+- Performs a server-side sign-out on the identity provider for Microsoft Entra and Google.
 
 Here's a simple sign-out link on a webpage:
 
@@ -98,15 +103,15 @@ Here's a simple sign-out link on a webpage:
 
 By default, a successful sign-out redirects the client to the URL `/.auth/logout/complete`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
-```
+```https
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
 We recommend that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
 
-When you're using fully qualified URLs, the URL must be either hosted in the same domain or configured as an allowed external redirect URL for your app. The following example redirects to an `https://myexternalurl.com` URL that's not hosted in the same domain:
+When you use fully qualified URLs, the URL must be hosted in the same domain or configured as an allowed external redirect URL for your app. The following example redirects to an `https://myexternalurl.com` URL that's not hosted in the same domain:
 
-```
+```https
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
@@ -156,19 +161,21 @@ This setting appends the `domain_hint` query string parameter to the sign-in red
 
 ## Authorize or deny users
 
-App Service takes care of the simplest authorization case (for example, reject unauthenticated requests). But your app might require more fine-grained authorization behavior, such as limiting access to only a specific group of users.
+App Service takes care of the simplest authorization case, for example, reject unauthenticated requests. Your app might require more fine-grained authorization behavior, such as limiting access to only a specific group of users.
 
-In certain cases, you need to write custom application code to allow or deny access to the signed-in user. In other cases, App Service or your identity provider might be able to help without requiring code changes.
+You might need to write custom application code to allow or deny access to the signed-in user. In some cases, App Service or your identity provider might be able to help without requiring code changes.
 
 ### Server level (Windows apps only)
 
-For any Windows app, you can define authorization behavior of the IIS web server by editing the `Web.config` file. Linux apps don't use IIS and can't be configured through `Web.config`.
+For any Windows app, you can define authorization behavior of the IIS web server by editing the `web.config` file. Linux apps don't use IIS and can't be configured through `web.config`.
 
-1. Go to `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
+1. To go to the Kudu debug console for your app, select **Development Tools** > **Advanced Tools** and select **Go**. Then select **Debug console**.
 
-1. In the browser explorer of your App Service files, go to `site/wwwroot`. If `Web.config` doesn't exist, create it by selecting **+** > **New File**.
+   You can also open this page with this URL: `https://<app-name>-<random-hash>.scm.<region>.azurewebsites.net/DebugConsole`. To get the random hash and region values, in your app **Overview**, copy **Default domain**.
 
-1. Select the pencil for `Web.config` to edit the file. Add the following configuration code, and then select **Save**. If `Web.config` already exists, just add the `<authorization>` element with everything in it. In the `<allow>` element, add the accounts that you want to allow.
+1. In the browser explorer of your App Service files, go to `site/wwwroot`. If `web.config` doesn't exist, create it by selecting **+** > **New File**.
+
+1. Select the pencil for `web.config` to edit the file. Add the following configuration code, and then select **Save**. If `web.config` already exists, just add the `<authorization>` element with everything in it. In the `<allow>` element, add the accounts that you want to allow.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -186,8 +193,8 @@ For any Windows app, you can define authorization behavior of the IIS web server
 
 The identity provider might provide certain turnkey authorization. For example:
 
-- You can [manage enterprise-level access](../active-directory/manage-apps/what-is-access-management.md) directly in Microsoft Entra. For instructions, see [Remove user access to applications](../active-directory/manage-apps/methods-for-removing-user-access.md).
-- For [Google](configure-authentication-provider-google.md), Google API projects that belong to an [organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) can be configured to allow access only to users in your organization. See the [Manage OAuth Clients](https://support.google.com/cloud/answer/6158849?hl=en) Google support page.
+- For Microsoft Entra, you can [manage enterprise-level access](../active-directory/manage-apps/what-is-access-management.md) directly. For more information, see [Remove user access to applications](../active-directory/manage-apps/methods-for-removing-user-access.md).
+- For [Google](configure-authentication-provider-google.md), Google API projects that belong to an [organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) can be configured to allow access only to users in your organization. For more information, see [Manage OAuth Clients](https://support.google.com/cloud/answer/6158849?hl=en).
 
 ### Application level
 
