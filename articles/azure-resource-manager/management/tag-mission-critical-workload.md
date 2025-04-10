@@ -22,6 +22,16 @@ This article aligns with workload optimization, where tagging can help inform of
 
 *This documentation supports a Microsoft assessment of your environment using the tagging approach described. Your Microsoft contact reviews this tagging approach with you at the beginning of the assessment. If you don't have an engagement with Microsoft, you can still follow the guidance to realize the benefits outlined earlier.*
 
+The term workload refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple services, such as APIs and data stores, working together to deliver specific end-to-end functionality.
+
+Mission critical workload resources are often spread across multiple resource groups and subscriptions. Regardless of the resource location, each resource within the mission critical workload should be included in the workload definition and tagged appropriately.
+
+In a scenario where a mission critical workload depends on a service that is shared across multiple workloads, such as an ExpressRoute gateway or an Azure Firewall, the shared resources should also be included in the workload definition and tagged appropriately. See the example in the previous section for tag values to be used on shared services.
+
+For further insights into defining a workload, refer to the following article.
+
+[Azure Well-Architected Framework workloads - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/workloads)
+
 ## Mission critical predefined tags
 
 To enable use by Microsoft in a workload assessment, the tags used for mission critical workloads must use the following tag name and adhere to the value format.
@@ -52,18 +62,6 @@ To enable use by Microsoft in a workload assessment, the tags used for mission c
 | **Workload B** | Azure.MissionCriticalWorkload | HR-Workload |
 | **Shared Services** | Azure.MissionCriticalWorkload | SharedServices-Firewall |
 | **Shared Services** | Azure.MissionCriticalWorkload | SharedServices-ExpressRoute |
-
-## Identify your mission critical workload resources
-
-The term workload refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple services, such as APIs and data stores, working together to deliver specific end-to-end functionality.
-
-Mission critical workload resources are often spread across multiple resource groups and subscriptions. Regardless of the resource location, each resource within the mission critical workload should be included in the workload definition and tagged appropriately.
-
-In a scenario where a mission critical workload depends on a service that is shared across multiple workloads, such as an ExpressRoute gateway or an Azure Firewall, the shared resources should also be included in the workload definition and tagged appropriately. See the example in the previous section for tag values to be used on shared services.
-
-For further insights into defining a workload, refer to the following article.
-
-[Azure Well-Architected Framework workloads - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/workloads)
 
 ## How to apply Azure tags
 
