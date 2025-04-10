@@ -357,6 +357,23 @@ Log signature: N/A
 
 When you create a data flow, you can specify a schema in the source configuration. However, deserializing and validating messages using a schema isn't supported yet. Specifying a schema in the source configuration only allows the operations experience to display the list of data points, but the data points aren't validated against the schema.
 
+### X.509 secret incorrectly encoded in operations experience web UI
+
+---
+
+Issue ID: 8841
+
+---
+
+Log signature: N/A
+
+---
+
+<!-- TODO: double check -->
+When you create an X.509 secret in the operations experience, the secret is created with incorrectly encoded data.
+
+To work around this issue, create the [multi-line secrets through Azure Key Vault](/azure/key-vault/secrets/multiline-secrets), then select it from the list of secrets in the operations experience.
+
 ### Connection failures with Azure Event Grid
 
 ---
