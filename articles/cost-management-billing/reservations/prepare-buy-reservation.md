@@ -24,7 +24,7 @@ You can't buy a reservation if you have a custom role that mimics owner role or 
 
 Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu.
 
-Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu under **Billing Profile**.
+Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Beginning in June, Microsoft Customer Agreement (MCA), Billing Profile, and Billing Account Owners will have the ability to purchase Reservations even if the Reserved Instances policy option is disabled in the Azure portal. To change settings, navigate to the **Policies** menu under **Billing Profile**.
 
 EA admins or Billing Profile Owners must have owner or reservation purchaser access on at least one EA or MCA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
