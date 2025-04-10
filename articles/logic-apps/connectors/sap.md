@@ -162,8 +162,6 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   * Set up your SAP server and user account to allow the use of RFC.
 
-    <!-- Reviewer: Link for 460089 returns 404 within SAP site. Recommend replacement. -->
-
     For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDoc), see [SAP Note: 460089 - Minimum authorization profiles for external RFC programs](https://me.sap.com/notes/460089).
 
   * Your SAP user account needs access to the `RFC_METADATA` function group and the respective function modules for the following operations:
@@ -702,8 +700,6 @@ This destination identifies your logic app workflow as the receiver port.
    1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
 
    1. For **Program ID**, enter a value. In your SAP server, your workflow's trigger is registered by using this identifier.
-
-      <!-- Reviewer: Links for 2399329 and 353597 return 404 within SAP site. Recommend replacements. -->
 
       > [!IMPORTANT]
       >
