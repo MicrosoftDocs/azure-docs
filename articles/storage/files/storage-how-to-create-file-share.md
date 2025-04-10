@@ -53,6 +53,7 @@ Storage accounts have two properties, kind and SKU, which dictate the billing mo
 
 If you're creating an HDD file share, you can choose between the provisioned v2 and pay-as-you-go billing models. Both models are fully supported, however, we recommend provisioned v2 for new file share deployments. Provisioned v2 file shares are currently available in a limited subset of regions; see [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
 
+### Region supportability base on different billing models
 To view region supportability on different billing models on CLI, use the following command.
 # [PowerShell](#tab/azure-powershell)
 ### To view Region supportability on different billing models (PowerShell)
@@ -157,7 +158,7 @@ else
     done
 fi
 ```
-
+### Storage account creation
 # [Portal](#tab/azure-portal)
 To create a storage account via the Azure portal, use the search box at the top of the Azure portal to search for **storage accounts** and select the matching result. 
 
