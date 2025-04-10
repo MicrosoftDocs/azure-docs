@@ -1,6 +1,6 @@
 ---
-title: Weather services concepts in Microsoft Azure Maps
-description: Learn about the concepts that apply to Microsoft Azure Maps Weather services.
+title: Weather service concepts in Microsoft Azure Maps
+description: Learn about the concepts that apply to Microsoft Azure Maps Weather service.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 09/10/2020
@@ -9,9 +9,9 @@ ms.service: azure-maps
 ms.subservice: weather
 ---
 
-# Weather services in Azure Maps
+# Weather service in Azure Maps
 
-This article introduces concepts that apply to Azure Maps [Weather services]. We recommend going through this article before starting out with the weather APIs.
+This article introduces concepts that apply to Azure Maps [Weather service]. We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
@@ -632,18 +632,18 @@ The following table lists the available Index groups (indexGroupId):
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services frequently asked questions (FAQ)]
+> [Azure Maps Weather service frequently asked questions (FAQ)]
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services coverage]
+> [Azure Maps Weather service coverage]
 
 > [!div class="nextstepaction"]
-> [Weather services API]
+> [Weather service API]
 
-[Azure Maps Weather services coverage]: weather-coverage.md
-[Azure Maps Weather services frequently asked questions (FAQ)]: weather-services-faq.yml
+[Azure Maps Weather service coverage]: weather-coverage.md
+[Azure Maps Weather service frequently asked questions (FAQ)]: weather-services-faq.yml
 [Get Daily Indices API]: /rest/api/maps/weather
 [Get Map Tile v2 API]: /rest/api/maps/render/get-map-tile
 [Index IDs and index groups IDs]: #index-ids-and-index-groups-ids
-[Weather services API]: /rest/api/maps/weather
-[Weather services]: /rest/api/maps/weather
+[Weather service API]: /rest/api/maps/weather
+[Weather service]: /rest/api/maps/weather
