@@ -1,6 +1,6 @@
 ---
-title: Datacube enrichment for Microsoft Planetary Computer
-description: Learn about datacube enrichment for STAC assets in Microsoft Planetary Computer. This article explains how to enable, and disable datacube enrichment.
+title: Datacube enrichment for Microsoft Planetary Computer Pro
+description: Learn about datacube enrichment for STAC assets in Microsoft Planetary Computer Pro. This article explains how to enable, and disable datacube enrichment.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer
@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 04/09/2025
 ---
 
-# Datacube enrichment of STAC assets for Microsoft Planetary Computer
+# Datacube enrichment of STAC assets for Microsoft Planetary Computer Pro
 
 When a STAC item containing NetCDF or HDF5 assets is ingested, those assets can be enriched with datacube functionality. When datacube functionality is enabled, a Kerchunk manifest is generated and stored in blob storage alongside the asset, enabling more efficient data access.
 

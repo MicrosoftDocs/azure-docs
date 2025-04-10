@@ -1,6 +1,6 @@
 ---
-title: Render configuration for Microsoft Planetary Computer
-description: Learn how to configure render settings for geospatial data visualization in the Microsoft Planetary Computer data explorer.
+title: Render configuration for Microsoft Planetary Computer Pro
+description: Learn how to configure render settings for geospatial data visualization in the Microsoft Planetary Computer Pro data explorer.
 author: MarcLichtman
 ms.author: marclichtman
 ms.service: planetary-computer
@@ -8,19 +8,19 @@ ms.topic: concept-article
 ms.date: 04/09/2025
 ---
 
-# Render configuration for Microsoft Planetary Computer
+# Render configuration for Microsoft Planetary Computer Pro
 
-For the Microsoft Planetary Computer data explorer, and Tiler API to work together, a render configuration must be set up along with a definition of the **item assets** inside the collection JSON ([collection item assets](#collection-item_assets-field)). 
+For the Microsoft Planetary Computer Pro (MPC Pro) data explorer, and Tiler API to work together, a render configuration must be set up along with a definition of the **item assets** inside the collection JSON ([collection item assets](#collection-item_assets-field)). 
 
 ## Prerequisites
 
-- You have a [STAC collection with Microsoft Planetary Computer GeoCatalog](./create-stac-collection.md)
+- You have a [STAC collection with MPC Pro GeoCatalog](./create-stac-collection.md)
 
 ## Render configuration overview
 
 A render configuration describes how your geospatial data can be visualized. For example, if your data assigns classes like forest, or non-forest to positions in time and space, the render configuration assigns a specific color to each class. If your data indicates a continuous variable like elevation, the render configuration specifies a colormap spanning the possible values, for example, blue for 0m - red for 9000m. If your dataset has multiple datapoints - bands or variables for every position in time and space, a render configuration describes how those bands are combined into a visualization.
 
-In Microsoft Planetary Computer, each STAC collection has one or more render configuration options. The list of these options can be set, accessed, updated and deleted through endpoints using the Microsoft Planetary Computer API or in the Microsoft Planetary Computer web interface. 
+In MPC Pro, each STAC collection has one or more render configuration options. The list of these options can be set, accessed, updated and deleted through endpoints using the MPC Pro API or in the MPC Pro web interface. 
 
 A render config with two options might look like:
 
@@ -67,7 +67,7 @@ To demonstrate the `colormap_name` and `rescale` fields, consider the following 
   }
 ```
 
-The `id` field is used internally in Microsoft Planetary Computer. The `name` field is what appears in the Explore pulldown menu, and the `options` field contains the syntax used to generate the image. A transparent pixel indicates no people live there (or that no data was available), a deep indigo corresponds to less than 100 people, while a bright yellow means 1000 or more people within that pixel of the map, due to our `rescale=0,1000`.
+The `id` field is used internally in MPC Pro. The `name` field is what appears in the Explore pulldown menu, and the `options` field contains the syntax used to generate the image. A transparent pixel indicates no people live there (or that no data was available), a deep indigo corresponds to less than 100 people, while a bright yellow means 1000 or more people within that pixel of the map, due to our `rescale=0,1000`.
 
 ![Screenshot of render configuration showing population density using a plasma colormap](media/pop_density_plasma.png)
 
@@ -222,7 +222,7 @@ The `options` contain most of the render settings/behavior, and is assembled fro
 
 ## Setting your render configuration
 
-Within the Microsoft Planetary Computer web interface, under the collection of interest, you can configure the render config by selecting the "Configuration" button and then selecting the "Render" tab.
+Within the MPC Pro web interface, under the collection of interest, you can configure the render config by selecting the "Configuration" button and then selecting the "Render" tab.
 
 ![Screenshot of the render configuration web GUI displaying options for setting up render configurations](media/renderconfig_webgui.png)
 

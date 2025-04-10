@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Add a STAC collection to GeoCatalog using Python"
-description: Learn how to add and use STAC collections in Microsoft Planetary Computer GeoCatalog using Python.
+description: Learn how to add and use STAC collections in Microsoft Planetary Computer Pro GeoCatalog using Python.
 author: TomAugspurger
 ms.author: taugspurger
 ms.service: planetary-computer
@@ -9,9 +9,9 @@ ms.date: 04/08/2025
 #customer intent: As a user of geospatial data, I want to create a STAC collection so that I can organize metadata for geospatial assets for later querying.
 ---
 
-# Quickstart: Create a STAC collection with Microsoft Planetary Computer GeoCatalog using Python
+# Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog using Python
  
-In this quickstart, you learn how to create a SpatioTemporal Asset Catalog (STAC) collection and add it to the Microsoft Planetary Computer GeoCatalog using Python. By following this guide, you'll set up the necessary prerequisites, create collection metadata, authenticate with the GeoCatalog, and configure your collection for optimal use. This quickstart is ideal for users of geospatial data who want to streamline their workflows and enhance data accessibility.
+In this quickstart, you learn how to create a SpatioTemporal Asset Catalog (STAC) collection and add it to the Microsoft Planetary Computer Pro (MPC Pro) GeoCatalog using Python. By following this guide, you'll set up the necessary prerequisites, create collection metadata, authenticate with the GeoCatalog, and configure your collection for optimal use. This quickstart is ideal for users of geospatial data who want to streamline their workflows and enhance data accessibility.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ python3 -m pip install requests azure-identity
 
 ## Create collection metadata
 
-Fist, get the metadata for the STAC collection you want to create. This example gets the collection metadata from the Microsoft Planetary Computer's STAC API. If you already have a STAC collection, you can skip to the next section.
+Fist, get the metadata for the STAC collection you want to create. This example gets the collection metadata from the MPC Pro's STAC API. If you already have a STAC collection, you can skip to the next section.
 
 ```python
 import requests
@@ -47,7 +47,7 @@ To visualize the data assets in the Explorer, the collection metadata should inc
 
 ## Get an access token
 
-Microsoft Planetary Computer GeoCatalog requires an access token to authenticate requests. Using the
+MPC Pro GeoCatalog requires an access token to authenticate requests. Using the
 [azure-identity](/python/api/overview/azure/identity-readme) client library for Python.
 
 ```python
@@ -67,7 +67,7 @@ This can be provided as a Bearer token in the `Authorization` header in requests
 With the STAC metadata, a token, and the URL to your GeoCatalog, make a request to the STAC API to add the Collection.
 
 ```python
-# Put the URL to your Microsoft Planetary Computer GeoCatalog (not including '/api' or a trailing '/' ) here
+# Put the URL to your MPC Pro GeoCatalog (not including '/api' or a trailing '/' ) here
 geocatalog_url = "<your-geocatalog-url>"
 
 response = requests.post(

@@ -1,26 +1,26 @@
 ---
-title: Manage access to Microsoft Planetary Computer
-description: This article shows you how to manage role-based access control (RBAC) access to Microsoft Planetary Computer.
+title: Manage access to Microsoft Planetary Computer Pro
+description: This article shows you how to manage role-based access control (RBAC) access to Microsoft Planetary Computer Pro.
 author: kuncheng
 ms.author: kuncheng
 ms.service: planetary-computer
 ms.topic: how-to
 md.date: 04/09/2025
-#customer intent: I want to manage access to Microsoft Planetary Computer.
+#customer intent: I want to manage access to Microsoft Planetary Computer Pro.
 ---
 
-# Manage access to Microsoft Planetary Computer
+# Manage access to Microsoft Planetary Computer Pro
 
-This article shows you how to manage identities in Microsoft Entra ID, and configure via Microsoft Planetary Computer's role-based access control (RBAC) to grant the Microsoft Entra identities access to an Microsoft Planetary Computer resource. We focus on two common types of Microsoft Entra identities that need to access Microsoft Planetary Computer: **users** and **applications**.
+This article shows you how to manage identities in Microsoft Entra ID, and configure via Microsoft Planetary Computer Pro's (MPC Pro) role-based access control (RBAC) to grant the Microsoft Entra identities access to an MPC Pro resource. We focus on two common types of Microsoft Entra identities that need to access MPC Pro: **users** and **applications**.
 
 ## Prerequisites
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - An existing GeoCatalog resource.
 
-## Users access to Microsoft Planetary Computer
+## Users access
 
-(Optional) For organizations who are moving their directory from on-premises to the cloud, they first need to decide on which authentication methods to choose, see [Choose the correct authentication method for your Microsoft Entra hybrid identity solution](/azure/active-directory/hybrid/choose-ad-authn). Microsoft Entra ID allows different types of users to be created in your tenant. Follow [How to create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users) to create and manage your desired type of users that you want to grant access to Microsoft Planetary Computer. Once you have the users created, you need to grant proper permissions to them to access Microsoft Planetary Computer resource via RBAC configuration. Microsoft Planetary Computer defines two resource specific roles, in addition to Azure built in roles:
+(Optional) For organizations who are moving their directory from on-premises to the cloud, they first need to decide on which authentication methods to choose, see [Choose the correct authentication method for your Microsoft Entra hybrid identity solution](/azure/active-directory/hybrid/choose-ad-authn). Microsoft Entra ID allows different types of users to be created in your tenant. Follow [How to create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users) to create and manage your desired type of users that you want to grant access to MPC Pro. Once you have the users created, you need to grant proper permissions to them to access MPC Pro resource via RBAC configuration. MPC Pro defines two resource specific roles, in addition to Azure built in roles:
 
 > [!NOTE]
 > The **GeoCatalog Administrator** allows the user to read, write, and delete against the GeoCatalog, but not allowed to manage RBAC. The **GeoCatalog Reader** allows the user to read GeoCatalogs only. For more details of each role, you may run az command like 'az role definition list --name "GeoCatalog Administrator"'
@@ -28,9 +28,9 @@ This article shows you how to manage identities in Microsoft Entra ID, and confi
 > [!NOTE]
 > Other Azure built-in roles including "Owner", "User Access Administrator", and "Role Based Access Control Administrator" allow users to manage RBAC.
 
-Here's an example of how to configure Microsoft Planetary Computer RBAC to grant "GeoCatalog Administrator" role to a user.
+Here's an example of how to configure MPC Pro RBAC to grant "GeoCatalog Administrator" role to a user.
 
-1. Within Azure portal, go to Microsoft Planetary Computer resource IAM blade:
+1. Within Azure portal, go to MPC Pro resource IAM blade:
 
     ![RBAC IAM blade screenshot](media/RBAC_IAM_blade.png)
 
@@ -46,27 +46,27 @@ Here's an example of how to configure Microsoft Planetary Computer RBAC to grant
 
 1. Select on "Next" to verify the information and finish "review + assign".
 
-Now the selected users are able to access Microsoft Planetary Computer resource, either through Azure portal or APIs.
+Now the selected users are able to access MPC Pro resource, either through Azure portal or APIs.
 
-## Applications access to Microsoft Planetary Computer
+## Applications access to MPC Pro
 
-Depending on the type of the application, and how you want the application to authenticate its users against Microsoft Planetary Computer resource, we recommend the following guidance in this section. Note for applications that use Azure AD B2C or Microsoft Entra External ID supporting features like social identity providers, the applications need to continue using these identity solutions to proxy authentication traffic since Microsoft Planetary Computer doesn't support non Entra ID authentication today.  
+Depending on the type of the application, and how you want the application to authenticate its users against MPC Pro resource, we recommend the following guidance in this section. Note for applications that use Azure AD B2C or Microsoft Entra External ID supporting features like social identity providers, the applications need to continue using these identity solutions to proxy authentication traffic since MPC Pro doesn't support non Entra ID authentication today.  
 
 ### Applications running on Azure
 
-For applications that are running on Azure, we recommend you create a type of Microsoft Entra identity called user-assigned Managed Identity to access Microsoft Planetary Computer resource. The applications can use the managed identities to obtain Microsoft Entra tokens (see section [Acquire access token to access Microsoft Planetary Computer](#acquire-access-token-to-access-mpc-pro)) without having to manage any credentials. For more information of Managed Identities and which type to choose, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). To create user-assigned managed identities for your application running on Azure, follow [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity?tabs=portal%2Chttp).
+For applications that are running on Azure, we recommend you create a type of Microsoft Entra identity called user-assigned Managed Identity to access MPC Pro resource. The applications can use the managed identities to obtain Microsoft Entra tokens (see section [Acquire access token to access MPC Pro](#acquire-access-token-to-access-mpc-pro)) without having to manage any credentials. For more information of Managed Identities and which type to choose, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). To create user-assigned managed identities for your application running on Azure, follow [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity?tabs=portal%2Chttp).
 
 ### Applications not running on Azure
 
 For applications that aren't running on Azure, such as on-premises or hosted on other cloud providers, we recommend you [register the application](/entra/identity-platform/quickstart-register-app?tabs=certificate) in Microsoft Entra admin center, including a redirect URI to receive security tokens, to establish a trust relationship between your app and Microsoft identity platform. Registering the app in Microsoft Entra will automatically create a Service Principal for the app, which you can assign RBAC roles later. If your application has a setting to configure Microsoft Entra ID authentication, you can use the registered app's "Application (client) ID" and "Directory (tenant) ID" to do so.
 
-If you can't register the application in Microsoft Entra as recommended previously, you have another option of running the application in an Azure VM or Container app. You can create a user-assigned managed identity and assign it to the VM or Container app as described here - [Configure managed identities on Azure virtual machines (VMs)](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm) and [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity?tabs=portal%2Cdotnet). The application would be able to sign in with the managed identity to access Microsoft Planetary Computer resource. For example, for the application to run inside a VM using a user-assigned managed identity, you can use:
+If you can't register the application in Microsoft Entra as recommended previously, you have another option of running the application in an Azure VM or Container app. You can create a user-assigned managed identity and assign it to the VM or Container app as described here - [Configure managed identities on Azure virtual machines (VMs)](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm) and [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity?tabs=portal%2Cdotnet). The application would be able to sign in with the managed identity to access MPC Pro resource. For example, for the application to run inside a VM using a user-assigned managed identity, you can use:
 
 ```console
 !az login  --identity --username <client_id|object_id|resource_id> 
 ```
 
-You may find the client ID, object ID, or resource ID of the managed identity from Azure portal. As an alternative to the CLI, sample Python code is under the section [Acquire access token to access Microsoft Planetary Computer](#acquire-access-token-to-access-mpc-pro).
+You may find the client ID, object ID, or resource ID of the managed identity from Azure portal. As an alternative to the CLI, sample Python code is under the section [Acquire access token to access MPC Pro](#acquire-access-token-to-access-mpc-pro).
 
 ```python
 azure.identity.DefaultAzureCredential(managed_identity_client_id=<client_id>)
@@ -76,11 +76,11 @@ After creating a user-assigned managed identity or a service principal for your 
 
 ### App-only access
 
-In this access scenario, the application acts on its own with no user signed in. This is the default behavior. You can proceed to the section [Microsoft Planetary Computer RBAC configuration for applications]() to assign the appropriate roles to the application.
+In this access scenario, the application acts on its own with no user signed in. This is the default behavior. You can proceed to the section [MPC Pro RBAC configuration for applications]() to assign the appropriate roles to the application.
 
 ### Delegated access
 
-In this access scenario, a user has signed into a client application. The client application accesses the resource on behalf of the user. You need to ensure the users of the application are assigned proper RBAC roles as described under the section of [Users Access to Microsoft Planetary Computer](#users-access-to-mpc-pro) above. You also need to configure the application's API permissions with delegated permissions following these steps:  
+In this access scenario, a user has signed into a client application. The client application accesses the resource on behalf of the user. You need to ensure the users of the application are assigned proper RBAC roles as described under the section of [Users Access to MPC Pro](#users-access-to-mpc-pro) above. You also need to configure the application's API permissions with delegated permissions following these steps:  
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/)
 1. Browse to Identity > Applications > App registrations, and then select your client application
@@ -88,18 +88,18 @@ In this access scenario, a user has signed into a client application. The client
 1. Select "Add a permission"
 1. Select the "APIs my organization uses" tab
 1. Type "Azure Orbital Planetary Computer" in the search field
-1. Select on the matching entry (app ID should be 6388acc4-795e-43a9-a320-33075c1eb83b). It shows up as "Azure Orbital Microsoft Planetary Computer".
+1. Select on the matching entry (app ID should be 6388acc4-795e-43a9-a320-33075c1eb83b). It shows up as "Azure Orbital Microsoft Planetary Computer Pro".
 1. Select on "Delegated permissions" box. Check the box next to "user_impersonation".
 1. Select "Add permissions"
 1. Select the "Grant admin consent" link (assuming your intent is to grant admin consent in the tenant for this permission)
 
-### Microsoft Planetary Computer RBAC configuration for applications
+### MPC Pro RBAC configuration for applications
 
-Once you have created a Managed identity for an application running on Azure, or a service principal for an application not running on Azure but registered in Microsoft Entra, you need to grant proper permissions to the identities to access Microsoft Planetary Computer resource via RBAC configuration.  
+Once you have created a Managed identity for an application running on Azure, or a service principal for an application not running on Azure but registered in Microsoft Entra, you need to grant proper permissions to the identities to access MPC Pro resource via RBAC configuration.  
 
-The following is an example of how to configure Microsoft Planetary Computer RBAC to grant "GeoCatalog Administrator" role to a User-assigned managed identity for an application. You may follow the same UI experience to configure it for a service principal of an application.
+The following is an example of how to configure MPC Pro RBAC to grant "GeoCatalog Administrator" role to a User-assigned managed identity for an application. You may follow the same UI experience to configure it for a service principal of an application.
 
-1. On Azure portal go to Microsoft Planetary Computer resource IAM blade.
+1. On Azure portal go to Microsoft Planetary Computer Pro resource IAM blade.
 
     ![RBAC IAM blade screenshot](media/RBAC_IAM_blade.png)
 
@@ -117,7 +117,7 @@ The following is an example of how to configure Microsoft Planetary Computer RBA
 
 1. Select on "Next" to verify the information and finish "review + assign".
 
-### Acquire access token to access Microsoft Planetary Computer
+### Acquire access token to access Microsoft Planetary Computer Pro
 
 After you configure RBAC to grant your application proper permissions, the application needs to acquire an access token to authenticate requests. Python sample code below: 
 

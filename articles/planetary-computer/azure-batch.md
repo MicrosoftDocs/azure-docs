@@ -1,24 +1,24 @@
 ---
-title: "Use Microsoft Planetary Computer GeoCatalog in Azure Batch"
-description: This quickstart shows you how to use Microsoft Planetary Computer GeoCatalog in Azure Batch to process geospatial data.
+title: "Use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch"
+description: This quickstart shows you how to use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch to process geospatial data.
 author: meaghanlewis
 ms.topic: quickstart
 ms.service: planetary-computer
 ms.date: 04/08/2025
 ms.author: emiliod
-#customer intent: I want to use Microsoft Planetary Computer GeoCatalog in Azure Batch to process geospatial data.
+#customer intent: I want to use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch to process geospatial data.
 ---
 
-# Quickstart: Use Microsoft Planetary Computer GeoCatalog in Azure Batch
+# Quickstart: Use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch
 
-In this quickstart, you learn how to use Microsoft Planetary Computer GeoCatalog in Azure Batch to process geospatial data. Microsoft Planetary Computer GeoCatalog is a geospatial data catalog that provides a unified view of your geospatial data assets across your organization. You can use Microsoft Planetary Computer GeoCatalog to discover, manage, and analyze your geospatial data.
+In this quickstart, you learn how to use Microsoft Planetary Computer Pro (MPC Pro) GeoCatalog in Azure Batch to process geospatial data. MPC Pro GeoCatalog is a geospatial data catalog that provides a unified view of your geospatial data assets across your organization. You can use MPC Pro GeoCatalog to discover, manage, and analyze your geospatial data.
 
 ## Prerequisites
 
 Before you begin, ensure you meet the following requirements to complete this quickstart:
 
 1. An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. A Microsoft Planetary Computer GeoCatalog resource.
+2. A MPC Pro GeoCatalog resource.
 3. A Linux machine with the following tools installed:
     - [Azure CLI](/cli/azure/install-azure-cli)
     - `perl` package.

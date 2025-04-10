@@ -1,6 +1,6 @@
 ---
-title: Setup an ingestion source for Microsoft Planetary Computer using managed identity
-description: Learn how to add credentials and ingest data into Microsoft Planetary Computer using managed identities.
+title: Setup an ingestion source for Microsoft Planetary Computer Pro using managed identity
+description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro using managed identities.
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer
@@ -9,9 +9,9 @@ ms.date: 04/09/2025
 #customer intent: Help customers understand how ingestion sources work and how to add them ahead of an ingestion. 
 ---
 
-# Setup Ingestion Credentials for Planetary Computer using managed identity
+# Setup Ingestion Credentials for Microsoft Planetary Computer Pro using managed identity
 
-Loading new data into the Microsoft Planetary Computer GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion Sources, to access data that is stored externally to the GeoCatalog resource.
+Loading new data into the Microsoft Planetary Computer Pro GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion Sources, to access data that is stored externally to the GeoCatalog resource.
   
 In this guide, you learn how to:
 
@@ -24,7 +24,7 @@ All four steps are required to setup your GeoCatalog resource to read data from 
 
 ## Prerequisites
 
-- A Microsoft Planetary Computer GeoCatalog deployed to your Azure Subscription. See [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md).
+- A Microsoft Planetary Computer Pro GeoCatalog deployed to your Azure Subscription. See [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 - An Azure Blob container setup with the correct permissions to assign managed identities. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 

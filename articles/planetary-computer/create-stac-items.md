@@ -1,6 +1,6 @@
 ---
-title: Create a STAC item - Microsoft Planetary Computer
-description: Learn how to create STAC Items for geospatial data using Microsoft Planetary Computer. This tutorial covers metadata extraction, STAC item creation, and integration with the Planetary Computer ecosystem.
+title: Create a STAC item - Microsoft Planetary Computer Pro
+description: Learn how to create STAC Items for geospatial data using Microsoft Planetary Computer Pro. This tutorial covers metadata extraction, STAC item creation, and integration with the Planetary Computer ecosystem.
 author: meaghanlewis
 ms.author: prasadko
 ms.service: planetary-computer
@@ -48,7 +48,7 @@ To complete this quickstart, you need:
 - **Streamlined Data Management**: Automated tools reduce manual effort in maintaining metadata.
 - **Future-Proofing**: Extensible nature adapts to new data types and technologies.
 
-**Microsoft Planetary Computer** uses STAC as its core indexing standard to provide interoperability between data sets. This tutorial shows users how to create STAC Items from scratch using common open source libraries.
+**Microsoft Planetary Computer Pro (MC Pro)** uses STAC as its core indexing standard to provide interoperability between data sets. This tutorial shows users how to create STAC Items from scratch using common open source libraries.
 
 The [STAC Item Specification](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md) details how STAC Items are constructed and the required minimum metadata that must be populated. STAC is a flexible standard, allowing users to decide which data they want to include as part of the metadata. Metadata that can be used to populate a STAC Item maybe included in the data asset, in a sidecar file (.XML, .JSON, .TXT etc.), or even in locations such as the filename. Users should consider the types of metadata users may want to search and sort through in the future when deciding which metadata to include. 
 
@@ -820,7 +820,7 @@ The stac item:
 
 ## Add the STAC Item to a Collection
 
-Microsoft Planetary Computer Pro requires all STAC Items have a reference to the parent STAC Collection ID they'll be ingested into. For this tutorial, the STAC Collection ID is the name of the satellite and the data product.
+MC Pro requires all STAC Items have a reference to the parent STAC Collection ID they'll be ingested into. For this tutorial, the STAC Collection ID is the name of the satellite and the data product.
 
 Using **PySTAC**, it's easy to use some of the metadata we've already collected to populate the key fields for the STAC Collection and use the built-in validation functions. 
 
@@ -919,9 +919,9 @@ except Exception as e:
     ✅ STAC item saved at: stac_catalog/goes-18-ABI-L2-LSTC/items/OR_ABI-L2-LSTC-M6_G18_s20232080001177_e20232080003550_c20232080004568_DQF.json
 
 
-## Add your new STAC Items to Microsoft Planetary Computer
+## Add your new STAC Items to MC Pro
 
-Now that we have a STAC Collection and STAC Item created, we can use add this data to the Microsoft Planeteary Computer. 
+Now that we have a STAC Collection and STAC Item created, we can use add this data to the MC Pro.
 
 - To add the entire catalog, follow the [Bulk Ingestion Quickstart](bulk-ingestion-api.md)
 

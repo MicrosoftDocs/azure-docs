@@ -1,6 +1,6 @@
 ---
-title: Queryables for Microsoft Planetary Computer data explorer custom search filters
-description: Get an overview of queryables and see how to configure, define, and use queryables in Microsoft Planetary Computer data explorer.
+title: Queryables for Microsoft Planetary Computer Pro data explorer custom search filters
+description: Get an overview of queryables and see how to configure, define, and use queryables in Microsoft Planetary Computer Pro data explorer.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer
@@ -9,7 +9,7 @@ ms.date: 04/09/2025
 #customer intent: help customers setup the mosaic configurations. 
 ---
 
-# Queryables for Microsoft Planetary Computer data explorer custom search filters
+# Queryables for Microsoft Planetary Computer Pro data explorer custom search filters
 
 ## Overview
 
@@ -20,7 +20,7 @@ Each STAC Collection contains a set of STAC Items, and many of these items have 
 
 ## What can be a queryable?
 
-A queryable is a property from the STAC Item metadata that is promoted to be searchable in the Microsoft Planetary Computer data explorer.
+A queryable is a property from the STAC Item metadata that is promoted to be searchable in the Microsoft Planetary Computer Pro data explorer.
 
 For example, from this `properties` block in a STAC Item:
 

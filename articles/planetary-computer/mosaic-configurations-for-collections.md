@@ -1,6 +1,6 @@
 ---
-title: Mosaic configurations for collections in Microsoft Planetary Computer
-description: See examples of how to setup mosaic in Microsoft Planetary Computer collection configuration.
+title: Mosaic configurations for collections in Microsoft Planetary Computer Pro
+description: See examples of how to setup mosaic in Microsoft Planetary Computer Pro collection configuration.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer
@@ -9,7 +9,7 @@ ms.date: 04/09/2025
 #customer intent: help customers setup the mosaic configurations. 
 ---
 
-# Mosaic configurations for collections in Microsoft Planetary Computer
+# Mosaic configurations for collections in Microsoft Planetary Computer Pro
 
 For any STAC collection, you can define **multiple mosaic configurations**. A **mosaic** returns and visualizes within the Explorer a set of STAC items based on some specific search criteria — for example, filtering by datetime or cloud cover.
 
