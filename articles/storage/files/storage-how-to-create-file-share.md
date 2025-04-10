@@ -55,7 +55,7 @@ If you're creating an HDD file share, you can choose between the provisioned v2 
 
 ### Region supportability base on different billing models
 To view region supportability on different billing models on CLI, use the following command.
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell1)
 ### To view Region supportability on different billing models (PowerShell)
 ```powershell
 # Login to Azure account
@@ -128,7 +128,7 @@ if ($filteredResult.Count -eq 0) {
 }
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli1)
 ### To view Region supportability on different billing models (Azure CLI)
 This script use jq command line JSON processor, to download, please visit https://jqlang.org/download/
 ```bash
