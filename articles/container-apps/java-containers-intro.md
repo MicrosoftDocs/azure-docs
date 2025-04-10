@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/09/2025
+ms.date: 04/10/2025
 ms.author: cshoe
 ai-usage: ai-generated
 ---
@@ -62,7 +62,7 @@ After installing Docker Desktop, you can verify your installation with the follo
 
 ```bash
 docker --version
-docker-compose --version
+docker compose version
 ```
 
 ### Configure Visual Studio Code for container development
@@ -76,7 +76,7 @@ For instance, the following example configuration defines a Java build:
 ```json
 {
     "name": "Java Development",
-    "image": "mcr.microsoft.com/devcontainers/java:11",
+    "image": "mcr.microsoft.com/devcontainers/java:21",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -107,10 +107,10 @@ Choosing the right base image is crucial. Consider these options:
 
 | Description | Name | Remarks |
 |---|---|---|
-| **Microsoft Java development Image** | `mcr.microsoft.com/java/jdk:11-zulu-ubuntu` | Full Java development kit (JDK) and optimized for Azure |
-| **Microsoft Java production Image** | `mcr.microsoft.com/java/jre:11-zulu-ubuntu` | Runtime only and optimized for Azure |
-| **Official OpenJDK development Image** | `openjdk:11-jdk` | Full JDK |
-| **Official OpenJDK production Image** | `openjdk:11-jre` | Runtime only |
+| **Microsoft Java development Image** | `mcr.microsoft.com/java/jdk:21-zulu-ubuntu` | Full Java development kit (JDK) and optimized for Azure |
+| **Microsoft Java production Image** | `mcr.microsoft.com/java/jre:21-zulu-ubuntu` | Runtime only and optimized for Azure |
+| **Official OpenJDK development Image** | `openjdk:21-jdk` | Full JDK |
+| **Official OpenJDK production Image** | `openjdk:21-jre` | Runtime only |
 
 For development environments, use a full JDK image. For production, use JRE or distroless images to minimize size and attack surface of your application.
 
@@ -121,7 +121,7 @@ The Microsoft Java images come with Azure-specific optimizations and are regular
 The following example shows a simple Dockerfile for a Java application:
 
 ```dockerfile
-FROM mcr.microsoft.com/java/jdk:11-zulu-ubuntu
+FROM mcr.microsoft.com/java/jdk:21-zulu-ubuntu
 WORKDIR /app
 COPY target/myapp.jar app.jar
 EXPOSE 8080
@@ -131,7 +131,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 For Spring Boot applications, you can setup your Dockerfile with the following base:
 
 ```dockerfile
-FROM mcr.microsoft.com/java/jdk:11-zulu-ubuntu
+FROM mcr.microsoft.com/java/jdk:21-zulu-ubuntu
 WORKDIR /app
 COPY target/*.jar app.jar
 EXPOSE 8080
@@ -141,7 +141,7 @@ ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-jar", "app.jar"]
 For production deployments, use the JRE image to reduce the size and minimize the attack surface of your application:
 
 ```dockerfile
-FROM mcr.microsoft.com/java/jre:11-zulu-ubuntu
+FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
 WORKDIR /app
 COPY target/*.jar app.jar
 EXPOSE 8080
@@ -155,27 +155,39 @@ Containers are meant to execute in various contexts. In this section, you learn 
 
 ### Use Docker Compose for multi-container applications
 
-Most Java applications interact with databases, caches, or other services.
+Most Java applications interact with databases, caches, or other services. Docker Compose helps you define and orchestrate multi-container applications using a simple YAML configuration file.
 
-Docker Compose helps you define and manage multi-container Docker applications. It allows you to configure your application's services, networks, and volumes using a simple YAML file named `docker-compose.yml`. With Docker Compose, you can start, stop, and manage all the containers in your application as a single unit.
+#### What is Docker Compose?
 
-The following example demonstrates how to configure Docker Compose to prepare a database connection to your application.
+Docker Compose is a tool that:
+- Defines multi-container applications in a single file
+- Manages application lifecycle (start, stop, rebuild)
+- Maintains isolated environments
+- Creates networks for service communication
+- Persists data using volumes
+
+> [!NOTE]
+> Docker Compose is now integrated as a plugin to the Docker command itself (using `docker compose`) rather than as a separate utility. The preferred configuration filename is `compose.yml` instead of the legacy `docker-compose.yml`.
+
+#### Example: Java application with database
+
+Here's an example `compose.yml` that configures a Java application with a PostgreSQL database:
 
 ```yaml
 version: '3.8'
 services:
   app:
-    build: .
+    build: .                              # Build from Dockerfile in current directory
     ports:
-      - "8080:8080"
-      - "5005:5005"
+      - "8080:8080"                       # Map HTTP port
+      - "5005:5005"                       # Map debug port
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/myapp
     volumes:
-      - ./target:/app/target
+      - ./target:/app/target              # Mount target directory for hot reloads
     depends_on:
-      - db
+      - db                                # Ensure database starts first
   
   db:
     image: postgres:13
@@ -184,15 +196,84 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=myapp
     ports:
-      - "5432:5432"
+      - "5432:5432"                       # Expose PostgreSQL port
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data  # Persist database data
 
 volumes:
-  postgres-data:
+  postgres-data:                          # Named volume for database persistence
 ```
 
-This configuration creates two containers: one for the Java application and one for a PostgreSQL database. It also sets up networking between them, mounts volumes for persistence, and exposes necessary ports.
+In this example:
+
+- Services can reference each other by name (like `db` in the JDBC URL)
+- Docker Compose automatically creates a network for the services
+- The Java application waits for the database to start due to `depends_on`
+- The database data persists across restarts using a named volume
+
+#### Common Docker Compose commands
+
+Once you've created your `compose.yml` file, manage your application with these commands:
+
+```bash
+# Build images without starting containers
+docker compose build
+
+# Start all services defined in compose.yml
+docker compose up
+
+# Start in detached mode (run in background)
+docker compose up -d
+
+# View running containers managed by compose
+docker compose ps
+
+# View logs from all containers
+docker compose logs
+
+# View logs from a specific service
+docker compose logs app
+
+# Stop all services
+docker compose down
+
+# Stop and remove volumes (useful for database resets)
+docker compose down -v
+```
+
+#### Development workflow
+
+A typical Java development workflow with Docker Compose looks like:
+
+1. Create `compose.yml` and `Dockerfile`
+2. Run `docker compose up` to start all services
+3. Make changes to your Java code
+4. Rebuild your application (depending on configuration, you might need to restart containers)
+5. Test the changes in the containerized environment
+6. When finished, run `docker compose down`
+
+### Running single containers with Docker
+
+For simpler scenarios when you don't need multiple interconnected services, you can use the `docker run` command to start individual containers.
+
+Here are some common examples for Java applications:
+
+```bash
+# Run a Java application JAR directly
+docker run -p 8080:8080 myapp:latest
+
+# Run with environment variables
+docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=prod" myapp:latest
+
+# Run in detached mode (background)
+docker run -d -p 8080:8080 myapp:latest
+
+# Run with a name for easy reference
+docker run -d -p 8080:8080 --name my-java-app myapp:latest
+
+# Run with volume mount for persistent data
+docker run -p 8080:8080 -v ./data:/app/data myapp:latest
+```
 
 ## Debugging containerized applications
 
@@ -207,7 +288,7 @@ Debugging containerized Java applications requires exposing a debug port and con
 1. To enable debugging, modify your Dockerfile or container startup command:
 
     ```dockerfile
-    FROM mcr.microsoft.com/java/jdk:11-zulu-ubuntu
+    FROM mcr.microsoft.com/java/jdk:21-zulu-ubuntu
     WORKDIR /app
     COPY target/*.jar app.jar
     EXPOSE 8080 5005
@@ -283,16 +364,15 @@ The JVM doesn't automatically detect container memory limits in Java 8. For Java
 Configure your JVM to respect container limits:
 
 ```dockerfile
-FROM mcr.microsoft.com/java/jre:11-zulu-ubuntu
+FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
 WORKDIR /app
 COPY target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]
 ```
 
 Key JVM flags for containerized applications:
 
-- `-XX:+UseContainerSupport`: Makes JVM container-aware (default in Java 10+)
 - `-XX:MaxRAMPercentage=75.0`: Sets maximum heap as a percentage of available memory
 - `-XX:InitialRAMPercentage=50.0`: Sets initial heap size
 - `-Xmx` and `-Xms`: Are also available, but requires fixed values
@@ -312,7 +392,7 @@ Secure your containerized Java applications with these practices:
 - **Default security context**: Run your application as a non-root user:
 
     ```dockerfile
-    FROM mcr.microsoft.com/java/jre:11-zulu-ubuntu
+    FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
     WORKDIR /app
     COPY target/*.jar app.jar
     RUN addgroup --system javauser && adduser --system --ingroup javauser javauser
@@ -358,7 +438,7 @@ This section guides you through preparing your Java containers for Azure Contain
 - **Port configuration**: Ensure your container listens on the port provided by Azure:
 
     ```dockerfile
-    FROM mcr.microsoft.com/java/jre:11-zulu-ubuntu
+    FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
     WORKDIR /app
     COPY target/*.jar app.jar
     ENV PORT=8080
