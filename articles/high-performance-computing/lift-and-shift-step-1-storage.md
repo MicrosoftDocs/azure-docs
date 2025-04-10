@@ -1,17 +1,17 @@
 ---
-title: "Basic storage infrastructure options during a high performance computing (HPC) architecture migration"
+title: "Storage options"
 description: Learn what basic storage infrastructure options to consider during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 03/20/2025
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Basic storage infrastructure options during a high performance computing (HPC) architecture migration
+# Storage options
 
-In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations are addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs.
+In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations are addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs. This part of the guide covers the needs, tools, services, and best practices associated with your basic storage infrastructure.
 
 ## Define basic storage needs
 
