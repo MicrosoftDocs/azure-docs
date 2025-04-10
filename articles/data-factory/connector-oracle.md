@@ -673,4 +673,4 @@ The Oracle connector version 2.0 (Preview) offers new functionalities and is com
 | Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
 | Using `?` as a placeholder for script activity query parameters is not support. You can use the named parameter (such as `:paramA`) or the positional parameter (such as `:1`) as a replacement.    | Support using `?` as a placeholder for script activity query parameters.  | 
 | Support TLS 1.3.| TLS 1.3 is not supported. | 
-
+| Supports SSL authentication with Oracle SSO wallet. For more information, see this [article](https://docs.oracle.com/en/database/oracle/oracle-database/21/dbseg/configuring-secure-sockets-layer-authentication.html#GUID-85027CCD-62A0-4E95-8B02-020745D50900)| SSL authentication with Oracle wallet is not supported. | 
