@@ -251,7 +251,9 @@ For more information about reviewing workflow run history, see [Check workflow s
    > Your workflow might time out if all the steps required for the response don't finish within the [request time-out limit](../logic-apps-limits-and-config.md). 
    > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check workflow status and view run history in Azure Logic Apps](../view-workflow-status-run-history.md?tabs=standard).
 
-1. On your workflow's **Overview** pane, under **Run History**, find, and open the workflow run.
+1. On your workflow menu, under **Tools**, select **Run history**.
+
+1. On the **Run history**page, on the **Run history** tab, select the workflow run.
 
 1. Find the **Generate Schema** action, and review the action's outputs.
 
