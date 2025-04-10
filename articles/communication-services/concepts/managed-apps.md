@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: pgrandhi
 ms.date: 04/09/2025
-ms.topic: concept
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
