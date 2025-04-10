@@ -212,7 +212,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    > Your workflow might time out if all the steps required for the response don't finish within the [request time-out limit](../logic-apps-limits-and-config.md). 
    > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check workflow status and view run history in Azure Logic Apps](../view-workflow-status-run-history.md?tabs=consumption).
 
-1. On your logic app's **Overview** pane, under **Runs history**, find, and open the workflow run.
+1. On the logic app menu, select **Overview**. On the **Run history** tab, select the workflow run.
 
 1. Next, locate the **Generate schemas** action, and review the action's outputs.
 
