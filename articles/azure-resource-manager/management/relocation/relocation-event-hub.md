@@ -15,11 +15,8 @@ If you have other resources in the Azure resource group that contains the Event 
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
-
 - If you have **capture feature** enabled for event hubs in the namespace, move [Azure Storage or Azure Data Lake Store Gen 2](../../../storage/common/storage-account-move.md) accounts before moving the Event Hubs namespace. You can also move the resource group that contains both Storage and Event Hubs namespaces to the other region by following steps similar to the ones described in this article.
-
 - If the Event Hubs namespace is in an **Event Hubs cluster**, [move the dedicated cluster](../../../event-hubs/move-cluster-across-regions.md) to the **target region** before you go through steps in this article. You can also use the [quickstart template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-cluster-namespace-eventhub/) to create an Event Hubs cluster. In the template, remove the namespace portion of the JSON to create only the cluster.
-
 - Identify all resources dependencies. Depending on how you've deployed Event Hubs, the following services *may* need deployment in the target region:
 
   - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)

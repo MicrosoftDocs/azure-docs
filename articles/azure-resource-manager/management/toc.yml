@@ -125,7 +125,7 @@
             href: ./relocation/relocation-postgresql-flexible-server.md
         - name: Integration
           items:
-          - name: Azure API Management*
+          - name: Azure API Management
             href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
           - name: Azure Logic apps
             href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json

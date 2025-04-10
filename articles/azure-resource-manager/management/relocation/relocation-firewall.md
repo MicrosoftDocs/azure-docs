@@ -56,29 +56,29 @@ To prepare for relocation, you need to first export and modify the template from
 
 1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions:
 
-  ```azurecli
-  Connect-AzAccount
-  ```
+    ```azurecli
+    Connect-AzAccount
+    ```
 
 1. If your identity is associated with more than one subscription, then set your active subscription to subscription of the Azure Firewall resource that you want to move.
 
-  ```azurepowershell
-  $context = Get-AzSubscription -SubscriptionId <subscription-id>
-  Set-AzContext $context
-  ```
+    ```azurepowershell
+    $context = Get-AzSubscription -SubscriptionId <subscription-id>
+    Set-AzContext $context
+    ```
 
 1. Export the template of your source Azure Firewall resource by running the following commands:
 
-  ```azurepowershell
-  $resource = Get-AzResource `
-    -ResourceGroupName <resource-group-name> `
-    -ResourceName <resource-name> `
-    -ResourceType <resource-type>
-  
-  Export-AzResourceGroup `
-    -ResourceGroupName <resource-group-name> `
-    -Resource $resource.ResourceId
-  ```
+    ```azurepowershell
+    $resource = Get-AzResource `
+      -ResourceGroupName <resource-group-name> `
+      -ResourceName <resource-name> `
+      -ResourceType <resource-type>
+    
+    Export-AzResourceGroup `
+      -ResourceGroupName <resource-group-name> `
+      -Resource $resource.ResourceId
+    ```
 
 1. Locate the `template.json` in your current directory.
 
@@ -124,14 +124,14 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
 
 1. Edit the `location` property in the `template.json` file to the target region (The following example sets the target region to `centralus`.):
 
-  ```json
-  "resources": [
-  {
-    "type": "Microsoft.Network/azureFirewalls",
-    "apiVersion": "2023-09-01",
-    "name": "[parameters('azureFirewalls_fw_name')]",
-    "location": "centralus",}]
-  ```
+    ```json
+    "resources": [
+    {
+      "type": "Microsoft.Network/azureFirewalls",
+      "apiVersion": "2023-09-01",
+      "name": "[parameters('azureFirewalls_fw_name')]",
+      "location": "centralus",}]
+    ```
 
 To find the location code for your target region, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 
@@ -165,16 +165,16 @@ To find the location code for your target region, see [Data residency in Azure](
 
 1. Edit the `location` property in the `template.json` file to the target region (The following example sets the target region to `centralus`.):
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.Network/azureFirewalls",
-      "apiVersion": "2023-09-01",
-      "name": "[parameters('azureFirewalls_fw_name')]",
-      "location": "centralus",
-    }
-  ]
-  ```
+    ```json
+    "resources": [
+      {
+        "type": "Microsoft.Network/azureFirewalls",
+        "apiVersion": "2023-09-01",
+        "name": "[parameters('azureFirewalls_fw_name')]",
+        "location": "centralus",
+      }
+    ]
+    ```
 
 To find the location code for your target region, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 

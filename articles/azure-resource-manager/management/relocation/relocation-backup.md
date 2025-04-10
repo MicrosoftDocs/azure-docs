@@ -91,9 +91,7 @@ When an Azure Virtual Machine (VM) protected by a Recovery Services vault is mov
 You can also choose to write a customized script for bulk VM protection:
 
 ```azurepowershell
-
 https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
-
 ```
 
 1. Prepare Azure Virtual Machines (VMs) for relocation:
@@ -101,8 +99,8 @@ https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaul
     1. See the [prerequisites associated with VM relocation](../../../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) and ensure that the VM is eligible for relocation.
     1. [Select the VM on the **Backup Items** tab](../../../backup/backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of existing vault’s dashboard and select **Stop protection** followed by retain/delete data as per your requirement. When the backup data for a VM is stopped with retain data, the recovery points remain forever and don’t adhere to any policy.
   
-        >[!Note]
-        >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using the  [Delete data option](../../../backup/backup-azure-manage-vms.md#delete-backup-data).
+        > [!NOTE]
+        > Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using the  [Delete data option](../../../backup/backup-azure-manage-vms.md#delete-backup-data).
   
     1. Ensure that the VMs are turned on. All VMs’ disks that need to be available in the destination region are attached and initialized in the VMs.
     1. Ensure that VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do so:
@@ -126,8 +124,8 @@ https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaul
 1. When Azure File Share is copied across regions, its associated snapshots don’t relocate along with it. To relocate the snapshots data to the new region, you need to relocate the individual files and directories of the snapshots to the Storage Account in the new region by using [AzCopy](../../../storage/common/storage-use-azcopy-files.md#copy-all-file-shares-directories-and-files-to-another-storage-account).
 1. Choose whether you want to retain or delete the snapshots (and the corresponding recovery points) of the original Azure File Share by selecting your file share on the [Backup Items tab](../../../backup/backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of the original vault’s dashboard. When the backup data for Azure File Share is stopped with retain data, the recovery points remain forever and don’t adhere to any policy.
 
->[!NOTE]
->While configuring File Share, if the Recovery Service Vault isn't available, check to see whether it is associated with another Recovery Service vault.
+> [!NOTE]
+> While configuring File Share, if the Recovery Service Vault isn't available, check to see whether it is associated with another Recovery Service vault.
 
 ### Back up SQL Server/SAP HANA in Azure VM
 
@@ -157,6 +155,6 @@ When you relocate a VM that runs SQL or SAP HANA servers, you will no longer be 
 
 1. To backup files, folders, and system state for VMs (Hyper-V & VMware) and other on-premises workloads, see [About the Microsoft Azure Recovery Services (MARS)](../../../backup/backup-azure-about-mars.md).
 1. Download vault credentials to register the server in the vault.
-    :::image type="content" source="media\relocation\backup\mars-agent-credential-download.png" alt-text="Screenshot showing how to download vault credentials to register the server in the vault.":::
+    :::image type="content" source="./media/backup/mars-agent-credential-download.png" alt-text="Screenshot showing how to download vault credentials to register the server in the vault.":::
 1. Reconfigure backup agent on on-premises virtual machine.
-    :::image type="content" source="media\relocation\backup\mars-register-to-target-rsv.png" alt-text="Screenshot showing how to reconfigure an on premise virtual machine.":::
+    :::image type="content" source="./media/backup/mars-register-to-target-rsv.png" alt-text="Screenshot showing how to reconfigure an on premise virtual machine.":::

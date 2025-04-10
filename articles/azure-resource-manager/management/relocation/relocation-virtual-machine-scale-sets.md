@@ -45,7 +45,7 @@ In this section, follow the instructions to prepare for relocating a Virtual Mac
 
 1. Locate the image reference used by the source Virtual Machine Scale Set and replicate it to the Image Gallery in the target region.
 
-    :::image type="content" source="media\relocation\virtual-machine-scale-sets\image-replication.png" alt-text="Screenshot showing how to locate image of virtual machine.":::
+    :::image type="content" source="media/virtual-machine-scale-sets/image-replication.png" alt-text="Screenshot showing how to locate image of virtual machine.":::
 
 1. Relocate the Load Balancer, along with the public IP by doing one of the following methods:
 
@@ -57,7 +57,7 @@ In this section, follow the instructions to prepare for relocating a Virtual Mac
 
 1. Manually set the source Virtual Machine Scale Set instance count to 0.
 
-    :::image type="content" source="media\relocation\virtual-machine-scale-sets\set-instance-count.png" alt-text="Screenshot showing how to set Virtual Machine Scale Set instance count to 0.":::
+    :::image type="content" source="media/virtual-machine-scale-sets/set-instance-count.png" alt-text="Screenshot showing how to set Virtual Machine Scale Set instance count to 0.":::
 
 1. Export the source Virtual Machine Scale Set template from Azure portal:
 

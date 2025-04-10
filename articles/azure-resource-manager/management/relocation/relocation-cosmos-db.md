@@ -26,8 +26,6 @@ This article describes how to either:
 - When you add or remove locations to an Azure Cosmos account, you can’t simultaneously modify other properties.
 - Identify all Cosmos DB dependent resources.
 
-## Downtime
-
 ## Considerations for Service Endpoints
 
 The virtual network service endpoints for Azure Cosmos DB restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Event Hubs from outside those sources is denied access. If Service endpoints were configured in the source region for the Event Hubs resource, the same would need to be done in the target one.

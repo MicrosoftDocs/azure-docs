@@ -15,7 +15,6 @@ This article shows you how to relocate Azure Container Registry resources to ano
 ## Prerequisites
 
 - You can only relocate a registry within the same Active Directory tenant. This limitation applies to registries that are encrypted and unencrypted with a [customer-managed key](/azure/container-registry/tutorial-enable-customer-managed-keys).
-
 - If the source registry has [availability zones](../../../reliability/availability-zones-overview.md) enabled, then the target region must also support availability zones. For more information on availability zone support for Azure Container Registry, see [Enable zone redundancy in Azure Container Registry](/azure/container-registry/zone-redundancy).
 
 ## Considerations for Service Endpoints
@@ -115,8 +114,10 @@ az group create --name myResourceGroup --location eastus
 Use the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to deploy the target registry, using the template:
 
 ```azurecli
-az deployment group create --resource-group myResourceGroup \
-   --template-file template.json --name mydeployment
+az deployment group create \
+  --name mydeployment \
+  --resource-group myResourceGroup \
+  --template-file template.json 
 ```
 
 > [!NOTE]
@@ -130,27 +131,27 @@ After creating the registry in the target region:
 1. Use the Azure CLI commands [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) and [az acr repository show-tags](/cli/azure/acr/repository#az-acr-repository-show-tags), or Azure PowerShell equivalents, to help enumerate the contents of your source registry.
 1. Run the import command for individual artifacts, or script it to run over a list of artifacts.
 
-The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](/azure/container-registry/container-registry-import-images).
-
-```azurecli
-#!/bin/bash
-# Modify registry names for your environment
-SOURCE_REG=myregistry
-TARGET_REG=targetregistry
-
-# Get list of source repositories
-REPO_LIST=$(az acr repository list \
-    --name $SOURCE_REG --output tsv)
-
-# Enumerate tags and import to target registry
-for repo in $REPO_LIST; do
-    TAGS_LIST=$(az acr repository show-tags --name $SOURCE_REG --repository $repo --output tsv);
-    for tag in $TAGS_LIST; do
-        echo "Importing $repo:$tag";
-        az acr import --name $TARGET_REG --source $SOURCE_REG.azurecr.io/$repo":"$tag;
+    The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](/azure/container-registry/container-registry-import-images).
+    
+    ```azurecli
+    #!/bin/bash
+    # Modify registry names for your environment
+    SOURCE_REG=myregistry
+    TARGET_REG=targetregistry
+    
+    # Get list of source repositories
+    REPO_LIST=$(az acr repository list \
+        --name $SOURCE_REG --output tsv)
+    
+    # Enumerate tags and import to target registry
+    for repo in $REPO_LIST; do
+        TAGS_LIST=$(az acr repository show-tags --name $SOURCE_REG --repository $repo --output tsv);
+        for tag in $TAGS_LIST; do
+            echo "Importing $repo:$tag";
+            az acr import --name $TARGET_REG --source $SOURCE_REG.azurecr.io/$repo":"$tag;
+        done
     done
-done
-```
+    ```
 
 1. Associate the dependent resources to the target Azure Container Registry such as log analytics workspace in Diagnostic settings.
 1. Configure Azure Container Registry integration with both type of AKS clusters, provisioned or yet to be provisioned by running the following command:
