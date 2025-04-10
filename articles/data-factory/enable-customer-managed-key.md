@@ -104,7 +104,7 @@ To learn more about user-assigned managed identity, see [Managed identity types]
 1. Provide the url for the customer managed key stored in Key Vault
 
     >[!TIP]
-    >If you don't pass the key version in the URL after the final '/' (for example: https://mykeyvault.vault.azure.net/keys/cmk/), the version will always default to the latest if the key is updated in the future.
+    >If you don't pass the key version in the URL after the final '/' (for example: `https://mykeyvault.vault.azure.net/keys/cmk/`), the version will always default to the latest if the key is updated in the future.
     >
     >Currently this is only supported using the Azure portal.
 
