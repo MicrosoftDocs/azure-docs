@@ -145,9 +145,9 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
 
 - **Feature parity:** Some features might not be available in the durable task scheduler backend yet. For example, at the time of writing, the durable task scheduler doesn't support the following features:
 
-    - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
-    - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)
-    - [Management operations using the Azure Functions Core Tools](../durable-functions-instance-management.md#azure-functions-core-tools)
+    - [Orchestration rewind](../durable/durable-functions-instance-management.md#rewind-instances-preview)
+    - [Extended sessions](../durable/durable-functions-azure-storage-provider.md#extended-sessions)
+    - [Management operations using the Azure Functions Core Tools](../durable/durable-functions-instance-management.md#azure-functions-core-tools)
 
     > [!NOTE]
     > Feature availability is subject to change as the durable task scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [durable task scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
