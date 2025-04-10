@@ -5,7 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 03/26/2025
 ---
 
 # Azure Virtual Enclaves Public Preview Terms
