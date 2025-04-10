@@ -77,7 +77,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ### Add an SAP action to generate schemas
 
-Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps.
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps.
 
 ### [Consumption](#tab/consumption)
 
