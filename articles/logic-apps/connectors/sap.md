@@ -372,7 +372,7 @@ For more information about enabling SNC, see [Enable Secure Network Communicatio
 
 <a name="snc-prerequisites-standard"></a>
 
-The SAP built-in connector supports only SNC X.509 authentication, not single sign-on (SSO) authentication. Make sure that you install the SNC and common crypto library assemblies as part of your [single-tenant prerequisites](#single-tenant-prerequisites) and [network connectivity prerequisites](#network-prerequisites). For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
+The SAP built-in connector supports only SNC X.509 authentication, not single sign-on (SSO) authentication. Make sure that you install the SNC and common crypto library assemblies as part of your [single-tenant prerequisites](#single-tenant-prerequisites) and [network connectivity prerequisites](#network-prerequisites). For more information about enabling SNC, see [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
 For SNC from SAP, you need to download the following files and have them ready to upload to your logic app resource. 
 
