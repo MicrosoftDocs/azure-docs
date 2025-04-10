@@ -296,7 +296,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    1. You can include any outputs from previous steps in the workflow. Select inside the parameter where you want to include the output, open the dynamic content list (lightning icon), and select the output to include.
 
-   1. From the **Add new parameter** list, select the **Location** and **Properties** parameters.
+   1. If the **Location** and **Properties** parameters don't appear on the **Parameters** tab, open the **Advanced parameters** list, and add those parameters.
 
    1. Provide values for the added parameters, for example:
 
