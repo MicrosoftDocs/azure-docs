@@ -50,7 +50,7 @@ To use the SAP connector operations, you have to first authenticate your connect
 
 * The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/docs/SAP_NETWEAVER_731_BW_ABAP/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
 
-You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, review the [SNC prerequisites](#snc-prerequisites).
+You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, see the [SNC prerequisites](#snc-prerequisites).
 
 ## Connector technical reference
 
