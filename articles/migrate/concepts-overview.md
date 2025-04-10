@@ -40,7 +40,7 @@ This article provides an overview of Azure Migrate assessments. An Azure Migrate
 * If you're an EA customer, ensure that you have access to the required subscriptions.
 * For better results, in the case of appliance-based discovery, ensure that the appliances are in a connected state and performance data is flowing.
 
-## Discovery Sources
+## Discovery sources
 
 The discovery source may vary for different assessments depending on the data required for creating the assessments. You can discover your on-premises workloads using either of the following methods:
 
@@ -79,7 +79,7 @@ Apart from configuration and performance data, Azure Migrate assessment also con
 | Percentile utilization | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing. |
 | Comfort factor | The buffer used during assessment. It's applied to the CPU, memory, disk, and network right-sizing. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0, the result is a four-core VM instead. |
 | VM uptime | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration. The default values are 31 days per month and 24 hours per day. |
-| Azure Hybrid Benefit | ASpecifies whether you have software assurance and are eligible for Azure Hybrid Benefit to use your existing OS and SQL licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing and SQL license cost isn't considered in SQL target costing. |
+| Azure Hybrid Benefit | Specifies whether you have software assurance and are eligible for Azure Hybrid Benefit to use your existing OS and SQL licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing and SQL license cost isn't considered in SQL target costing. |
 | Security |Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value Yes, with Microsoft Defender for Cloud, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud.|
 
 Review the best practices for creating an assessment with Azure Migrate.
