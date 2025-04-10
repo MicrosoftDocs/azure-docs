@@ -372,11 +372,21 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 
 `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>`
 
-**Example**
+#### [Azure Files SMB](#tab/smb-downloadspecificfiles)
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive --preserve-permissions=true --preserve-info=true
 ```
+
+#### [Azure Files NFS](#tab/nfs-downloadspecificfiles)
+
+```azcopy
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' '/myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive --preserve-permissions=true --preserve-info=true --nfs
+```
+
+---
+
+<a id="downloaddirectorycontent"></a>
 
 In this example, AzCopy transfers the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` directory and the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` file. Include the `--recursive` option to transfer all files in the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` directory.
 
