@@ -265,7 +265,7 @@ For more information about reviewing workflow run history, see [Check workflow s
 
 ## Upload schemas to an integration account
 
-Optionally, you can download or store the generated schemas in repositories, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md) or Azure storage account like a blob container. Integration accounts provide a first-class experience with XML actions for workflows in Azure Logic Apps. As an option, you can upload generated schemas to an existing integration account within the same workflow that generates those schemas by using the Azure Resource Manager action named **Create or update a resource**.
+Optionally, you can download or store the generated schemas in repositories, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md) or Azure storage account like a blob container. Integration accounts provide a first-class experience with XML actions for workflows in Azure Logic Apps. You can optionally upload generated schemas to an existing integration account within the same workflow that generates those schemas by using the Azure Resource Manager action named **Create or update a resource**.
 
 > [!NOTE]
 >
