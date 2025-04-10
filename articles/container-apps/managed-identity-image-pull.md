@@ -866,7 +866,7 @@ This command deploys the following.
 - A container to store the image.
 - A container app based on the image.
 
-If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep file file has the extension `.bicep`.
+If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep file has the extension `.bicep`.
 
 ## Additional resources
 

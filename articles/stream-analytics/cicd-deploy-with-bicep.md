@@ -30,7 +30,7 @@ azure-streamanalytics-cicd build --v2 --project ./asaproj.json --outputPath ./De
 ```
 
 The **build** command does a keyword syntax check and generates Bicep files. If the project is built successfully, you see two files created under the output folder:
-* **Bicep file file**: [ProjectName].JobTemplate.bicep
+* **Bicep file**: [ProjectName].JobTemplate.bicep
 * **Bicep parameter file**: [ProjectName].JobTemplate.bicep.parameters.json
 
 The default values for **parameters.json** file come from your project settings. If you want to deploy to another environment, replace the values accordingly.

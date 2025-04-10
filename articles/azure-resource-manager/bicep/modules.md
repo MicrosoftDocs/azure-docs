@@ -539,5 +539,5 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
 ## Related content
 
-- For a tutorial, see [Build your first Bicep file](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
+- For a tutorial, see [Build your first Bicep file](/training/modules/deploy-azure-resources-by-using-bicep-files/).
 - To pass a sensitive value to a module, use the [`getSecret`](bicep-functions-resource.md#getsecret) function.
