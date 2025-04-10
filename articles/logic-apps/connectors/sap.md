@@ -708,7 +708,7 @@ This destination identifies your logic app workflow as the receiver port.
       > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
       > * **Non-ABAP RFC client (partner type) not supported**
       >
-      > For more information from SAP, review the following notes:
+      > For more information from SAP, see the following notes:
       >
       > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
       > * [https://me.sap.com/notes/353597](https://me.sap.com/notes/353597)
