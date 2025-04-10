@@ -21,10 +21,10 @@ Azure Synapse Analytics allows Apache Spark pools in the same workspace to share
 
 The feature works with Spark 3.3. The following table shows the supported Hive Metastore versions for each Spark version.
 
-| Spark Version | HMS 2.3.x | HMS 3.1.X |
-|---------------|-----------|-----------|
-| 3.3           | Yes       | Yes       |
-| 3.4           | Yes       | Yes       |
+| Spark Version  | HMS 2.3.x | HMS 3.1.X |
+|----------------|-----------|-----------|
+| 3.3(deprecated)| Yes       | Yes       |
+| 3.4            | Yes       | Yes       |
 
 ## Set up linked service to Hive Metastore 
 
@@ -33,7 +33,7 @@ The feature works with Spark 3.3. The following table shows the supported Hive M
 
 Follow below steps to set up a linked service to the external Hive Metastore in Synapse workspace.
 
-# [Azure SQL Database](#tab/azure-sql-database)
+### Azure SQL Database
 
 1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
@@ -53,7 +53,7 @@ Follow below steps to set up a linked service to the external Hive Metastore in 
 
 8. Click **Create** to create the linked service. 
 
-# [Azure Database for MySQL](#tab/azure-database-for-mysql)
+### Azure Database for MySQL
 
 1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
