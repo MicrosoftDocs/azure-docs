@@ -675,7 +675,7 @@ For the SAP *built-in* connector, follow these steps that apply only to this con
 
 To send IDocs from SAP to your logic app workflow, follow these steps to set up and test your SAP configuration with your logic app workflow. These steps apply only to testing as production environments require other configuration.
 
-To send IDocs from SAP to your workflow, you need the following minimum configuration, completed in the indicated order:
+To send IDocs from SAP to your workflow, you need to set up the minimum configuration by following these steps:
 
 1. [Create an RFC destination](#create-rfc-destination).
 1. [Create an ABAP connection](#create-abap-connection).
