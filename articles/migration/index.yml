@@ -219,6 +219,9 @@ additionalContent:
     - title: Read migration blogs and articles from community members
       summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
       items:
+        - summary: Why we built the Azure Migration Hub—and how it helps teams move with clarity, not chaos.
+          title: The Smarter Way to Migrate to Azure
+          url: https://techcommunity.microsoft.com/blog/azuremigrationblog/the-smarter-way-to-migrate-to-azure/4401641
         - summary: Boost your growth and access more customers by replicating your AWS app to Azure and selling through Azure Marketplace.
           title: "Embracing the multicloud advantage: a guide to replicating your app from AWS to Azure"
           url: https://techcommunity.microsoft.com/blog/marketplace-blog/embracing-the-multicloud-advantage-a-guide-to-replicating-your-app-from-aws-to-a/4385153
@@ -228,6 +231,4 @@ additionalContent:
         - summary: "A three-step process for secure migration to Azure: Establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience."
           title: "Mastering secure migration: Essentials for modernizing and innovating on Azure"
           url: https://techcommunity.microsoft.com/blog/azuremigrationblog/mastering-secure-migration-essentials-for-modernizing-and-innovating-on-azure/4284215
-        - summary: The Azure Migration Blog on Microsoft's Tech Community provides insights, best practices, and resources for organizations looking to migrate their workloads to Azure effectively and securely.
-          title: Azure Migration and Modernization Blog
-          url: https://techcommunity.microsoft.com/category/azure/blog/azuremigrationblog
+
