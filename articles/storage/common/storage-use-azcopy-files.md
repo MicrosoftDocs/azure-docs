@@ -122,11 +122,21 @@ azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfil
 
 To copy to a directory within the file share, just specify the name of that directory in your command string.
 
-**Example**
+#### [Azure Files SMB](#tab/smb-uploaddirectorynew)
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true
 ```
+
+#### [Azure Files NFS](#tab/smb-uploaddirectorynew)
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
+```
+
+---
+
+<a id="uploaddirectorynew"></a>
 
 If you specify the name of a directory that doesn't exist in the file share, AzCopy creates a new directory by that name.
 
