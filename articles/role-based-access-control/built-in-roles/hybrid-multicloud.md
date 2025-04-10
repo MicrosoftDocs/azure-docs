@@ -1,6 +1,6 @@
 ---
-title: Azure Stack HCI built-in roles for Hybrid + multicloud - Azure RBAC
-description: This article lists the Azure Stack HCI built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category. It lists Actions, NotActions, DataActions, and NotDataActions.
+title: Azure built-in roles for Hybrid + multicloud (Azure Stack HCI) -  Azure RBAC
+description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category (Azure Stack HCI). It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.date: 01/25/2025
 ms.custom: generated
 ---
 
-# Azure Stack HCI built-in roles for Hybrid + multicloud
+# Azure built-in roles for Hybrid + multicloud (Azure Stack HCI)
 
 This article lists the Azure Stack HCI built-in roles in the Hybrid + multicloud category.
 
