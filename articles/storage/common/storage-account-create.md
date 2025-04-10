@@ -523,17 +523,17 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
-1. Create a file named `main.tf`, and insert the following code:
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/main.tf":::
-
-1. Create a file named `outputs.tf`, and insert the following code:
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/outputs.tf":::
-
 1. Create a file named `providers.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/providers.tf":::
 
+1. Create a file named `main.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/main.tf":::
+
 1. Create a file named `variables.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/variables.tf":::
+
+1. Create a file named `outputs.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/outputs.tf":::
 
     > [!IMPORTANT]
     > If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
