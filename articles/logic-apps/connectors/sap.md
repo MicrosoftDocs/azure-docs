@@ -1175,7 +1175,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    The following screenshot shows the Azure portal with Application Insights, which is open to the **Logs** pane:
 
-   :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the "Logs" pane for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
+   :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the Logs pane for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
 
 1. On the **Logs** pane, you can create a [query](/kusto/query/) by using the [Kusto Query Language (KQL)](/kusto/concepts/) based on your specific requirements.
 
