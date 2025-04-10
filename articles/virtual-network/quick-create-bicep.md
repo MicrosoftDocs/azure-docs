@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Use Bicep templates to create a virtual network'
+title: 'Quickstart: Use Bicep files to create a virtual network'
 titleSuffix: Azure Virtual Network
-description: Use Bicep templates to create a virtual network and virtual machines, and deploy Azure Bastion to securely connect from the internet.
+description: Use Bicep files to create a virtual network and virtual machines, and deploy Azure Bastion to securely connect from the internet.
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: quickstart
-ms.date: 02/28/2024
+ms.date: 04/09/2025
 ms.author: allensu
 ms.custom: mode-arm, devx-track-bicep
 ---
 
-# Quickstart: Use Bicep templates to create a virtual network
+# Quickstart: Use Bicep files to create a virtual network
 
-This quickstart shows you how to create a virtual network with two virtual machines (VMs), and then deploy Azure Bastion on the virtual network, by using Bicep templates. You then securely connect to the VMs from the internet by using Bastion and start private communication between the VMs.
+This quickstart shows you how to create a virtual network with two virtual machines (VMs), and then deploy Azure Bastion on the virtual network, by using Bicep files. You then securely connect to the VMs from the internet by using Bastion and start private communication between the VMs.
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
@@ -47,7 +47,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 ## Create the virtual network and VMs
 
-This quickstart uses the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to create the virtual network, resource subnet, and VMs. The Bicep template defines the following Azure resources:
+This quickstart uses the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep file from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to create the virtual network, resource subnet, and VMs. The Bicep file defines the following Azure resources:
 
 - [Microsoft.Network virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
 - [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet for the VMs.
@@ -61,7 +61,7 @@ Review the Bicep file:
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep" :::
 
-### Deploy the Bicep template
+### Deploy the Bicep file
 
 1. Save the Bicep file to your local computer as *main.bicep*.
 1. Deploy the Bicep file by using either the Azure CLI or Azure PowerShell:
@@ -95,7 +95,7 @@ Bastion uses your browser to connect to VMs in your virtual network over Secure 
 > [!NOTE]
 > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
-Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Bastion in your virtual network. This Bicep template defines the following Azure resources:
+Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep file from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Bastion in your virtual network. This Bicep file defines the following Azure resources:
 
 - [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an **AzureBastionSubnet** subnet.
 - [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Bastion host.
@@ -106,7 +106,7 @@ Review the Bicep file:
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/azure-bastion/main.bicep" :::
 
-### Deploy the Bicep template
+### Deploy the Bicep file
 
 1. Save the Bicep file to your local computer as *bastion.bicep*.
 1. Use a text or code editor to make the following changes in the file:
