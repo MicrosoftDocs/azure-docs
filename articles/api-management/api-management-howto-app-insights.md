@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 04/09/2025
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
 ---
