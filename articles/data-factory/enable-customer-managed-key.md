@@ -5,7 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 10/20/2023
+ms.date: 04/10/2025
 ms.reviewer: mariozi
 ms.custom: mode-other
 ---
@@ -103,33 +103,52 @@ To learn more about user-assigned managed identity, see [Managed identity types]
 
 1. Provide the url for the customer managed key stored in Key Vault
 
-1. Select an appropriate user assigned managed identity to authenticate with Key Vault
+  >[!TIP]
+  >If you don't pass the key version in the URL after the final '/' (for example: https://mykeyvault.vault.azure.net/keys/cmk/), the version will always default to the latest if the key is updated in the future.
+  >
+  >Currently this is only supported using the Azure portal.
 
-1. Continue with factory deployment
+1. Select an appropriate user assigned managed identity to authenticate with Azure Key Vault.
+
+1. Continue with you factory deployment.
 
 ## Update Key Version
 
-When you create a new version of a key, update data factory to use the new version. Follow similar steps as described in section [Data Factory UI](#post-factory-creation-in-data-factory-ui), including:
+When you create a new version of a key, update data factory to use the new version:
 
-1. Locate the URI for the new key version through Azure Key Vault Portal
+1. Locate the URI for the new key version through Azure Key Vault Portal:
+  1. Navigate to Azure Key Vault, and select the Keys setting.
+  1. Select the wanted key, then select the key to view its versions.
+  1. Select a key version to view the settings.
 
-1. Navigate to __Customer-managed key__ setting
+1. Copy the value of the Key Identifier field, which provides the URI.
 
-1. Replace and paste in the URI for the new key
+1. Launch Azure Data Factory portal, and using the navigation bar on the left, select the Data Factory Management Portal.
 
-1. Click __Save__ and Data Factory will now encrypt with the new key version
+1. Select the __Customer-managed key__ setting.
 
-## Use a Different Key
+1. Enter the URI for customer-managed key that you copied before.
 
-To change key used for Data Factory encryption, you have to manually update the settings in Data Factory. Follow similar steps as described in section [Data Factory UI](#post-factory-creation-in-data-factory-ui), including:
+1. Select __Save__ and Data Factory will now encrypt with the new key version.
 
-1. Locate the URI for the new key through Azure Key Vault Portal
+## Use a different key
 
-1. Navigate to __Customer managed key__ setting
+To change key used for Data Factory encryption, you have to manually update the settings in Azure Data Factory:
 
-1. Replace and paste in the URI for the new key
+1. Locate the URI for the new key version through Azure Key Vault Portal:
+  1. Navigate to Azure Key Vault, and select the Keys setting.
+  1. Select the wanted key, then select the key to view its versions.
+  1. Select a key version to view the settings.
 
-1. Click __Save__ and Data Factory will now encrypt with the new key
+1. Copy the value of the Key Identifier field, which provides the URI.
+
+1. Launch Azure Data Factory portal, and using the navigation bar on the left, select the Data Factory Management Portal.
+
+1. Select the __Customer-managed key__ setting.
+
+1. Enter the URI for customer-managed key that you copied before.
+
+1. Select __Save__ and Data Factory will now encrypt with the new key version.
 
 ## Disable Customer-managed Keys
 
