@@ -314,7 +314,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 1. If you're prompted to sign in, do that now and continue.
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears:
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png" alt-text="Screenshot shows Standard workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png":::
 
