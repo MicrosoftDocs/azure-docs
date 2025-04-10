@@ -294,7 +294,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 1. In the **Create or update a resource** action, provide the [required information](/connectors/arm/#create-or-update-a-resource).
 
-   1. You can include any outputs from previous steps in the workflow. Select inside the parameter where you want to include the output, open the dynamic content list (lightning icon), and select the output to include.
+   1. You can include any outputs from previous steps in the workflow. Select inside the parameter where you want to include the output. Select the lightning icon to open the dynamic content list, and select the output to include.
 
    1. If the **Location** and **Properties** parameters don't appear on the **Parameters** tab, open the **Advanced parameters** list, and add those parameters.
 
