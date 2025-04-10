@@ -16,20 +16,38 @@ In this article, you learn how to automatically discover and configure OPC UA as
 
 ## Prerequisites
 
-- A deployed instance of Azure IoT Operations with resource sync rules enabled. You can only enable resource sync rules when you create your Azure IoT Operations instance. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
+A deployed instance of Azure IoT Operations with resource sync rules enabled. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
 
-  > [!NOTE]
-  > By default, the [deployment quickstart](../get-started-end-to-end-sample/quickstart-deploy.md) instructions do not enable resource sync rules.
+> [!TIP]
+> By default, the [deployment quickstart](../get-started-end-to-end-sample/quickstart-deploy.md) instructions do not enable resource sync rules. If resource sync rules aren't enabled on your instance, see [Enable resource sync rules on an existing instance](../troubleshoot/troubleshoot.md#you-want-to-enable-resource-sync-rules-on-an-existing-instance).
 
-- The custom location in the resource group where you deployed Azure IoT Operations must have the **Azure Kubernetes Service Arc Contributor Role** role enabled with **K8 Bridge** as a member. For example:
+The custom location in the resource group where you deployed Azure IoT Operations must have the **Azure Kubernetes Service Arc Contributor Role** role enabled with **K8 Bridge** as a member: For example:
 
-  ```bash
-  CUSTOM_LOCATION_NAME=$(az iot ops list -g <YOUR RESOURCE GROUP> --query "[0].extendedLocation.name" -o tsv)
-  
-  ASSIGNEE=$(az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv)
-  
-  az role assignment create --role "Azure Kubernetes Service Arc Contributor Role" --assignee $ASSIGNEE --scope $CUSTOM_LOCATION_NAME
-  ```
+# [Azure portal](#tab/portal)
+
+1. Go to the custom location for your Azure IoT Operations instance in the Azure portal.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add > Add role assignment**.
+
+1. Search for and select the **Azure Kubernetes Service Arc Contributor Role** role. Then click **Next**.
+
+1. Select **Select members**. Search for and select **K8 Bridge**. Then click **Review + Assign**.
+
+1. To finish adding the role assignment, select **Review + assign** again.
+
+# [Azure CLI](#tab/cli)
+
+```bash
+CUSTOM_LOCATION_NAME=$(az iot ops list -g <YOUR RESOURCE GROUP> --query "[0].extendedLocation.name" -o tsv)
+
+ASSIGNEE=$(az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv)
+
+az role assignment create --role "Azure Kubernetes Service Arc Contributor Role" --assignee $ASSIGNEE --scope $CUSTOM_LOCATION_NAME
+```
+
+---
 
 ## Deploy the preview connectors
 
