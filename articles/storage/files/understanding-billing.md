@@ -141,6 +141,7 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - US Gov Arizona*
 - US Gov Texas*
 - Poland Central
+- West US 3
 
 Storage accounts in regions flagged with an asterisks (*) can only be created using Azure PowerShell or Azure CLI. See [create a storage account](./storage-how-to-create-file-share.md) for more information.
 
