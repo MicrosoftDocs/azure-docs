@@ -132,7 +132,7 @@ To sign-in to a local installation of `azd` or Codespaces environment, run the [
 
 # [Terraform](#tab/terraform)
 
-[Authenticate Terraform to Azure](/terraform/authenticate-to-azure)
+[Authenticate Terraform to Azure](/developer/terraform/authenticate-to-azure)
 
 ---
 
