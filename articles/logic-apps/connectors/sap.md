@@ -73,7 +73,13 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
 
-  The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and the BAPI commit or BAPI rollback response as well and if you use autocommit. This capability addresses the problem with the SAP managed connector where the outcome from the autocommit is silent and observable only through logs.
+  The **Call BAPI** action includes up to two responses with the returned JSON:
+  
+  - The XML response from the called BAPI.
+
+  - The BAPI commit or BAPI rollback response, if you enable the **Auto Commit** option.
+  
+    This capability addresses a problem with the SAP managed connector where the outcome from the autocommit behavior is silent and observable only through logs.
 
 * Longer time out at 5 minutes compared to managed connector.
 
