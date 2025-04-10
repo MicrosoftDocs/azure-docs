@@ -100,18 +100,19 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
     1. Stop all database activity on the source server.
     1. Replace credentials information, source server, target server, and database name in the following script:
 
-      ```bash
-          export USER=admin_username
-          export PGPASSWORD=admin_password
-          export SOURCE=pgsql-arpp-source.postgres.database.azure.com
-          export TARGET=pgsql-arpp-target.postgres.database.azure.com
-          export DATABASE=database_name
-          pg_dump -h $SOURCE -U $USER --create --exclude-schema=pg_catalog $DATABASE | psql -h $TARGET -U $USER postgres
-      ```
+        ```bash
+        export USER=admin_username
+        export PGPASSWORD=admin_password
+        export SOURCE=pgsql-arpp-source.postgres.database.azure.com
+        export TARGET=pgsql-arpp-target.postgres.database.azure.com
+        export DATABASE=database_name
+        pg_dump -h $SOURCE -U $USER --create --exclude-schema=pg_catalog $DATABASE | psql -h $TARGET -U $USER postgres
+        ```
 
     1. To migrate the database, run the script.
     1. Configure the clients to point to the target server.
     1. Perform functional tests on the applications.
+
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so the IaC fails to deploy the database when the service endpoint isn't configured in the target region.
 
 ## Related content

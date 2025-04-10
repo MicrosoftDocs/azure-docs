@@ -13,16 +13,16 @@ This article shows you how to relocate an Azure Firewall that protects an Azure 
 
 ## Prerequisites
 
-- We highly recommend that you use Premium SKU. If you are on Standard SKU, consider [migrating from an existing Standard SKU Azure Firewall to Premium SKU](/azure/firewall-manager/migrate-to-policy) before you being relocation.
+- We highly recommend that you use Premium SKU. If you are on Standard SKU, consider [migrating from an existing Standard SKU Azure Firewall to Premium SKU](/azure/firewall-manager/migrate-to-policy) before relocation.
 - The following information must be collected in order to properly plan and execute an Azure Firewall relocation:
 
   - **Deployment model.** *Classic Firewall Rules* or *Firewall policy*.
   - **Firewall policy name.** (If *Firewall policy* deployment model is used).
   - **Diagnostic setting at the firewall instance level.** (If Log Analytics workspace is used).
-  - **TLS (Transport Layer Security) Inspection configuration.**: (If Azure Key Vault, Certificate and Managed Identity is used.)
+  - **TLS (Transport Layer Security) Inspection configuration.**: (If Azure Key Vault, Certificate and Managed Identity are used.)
   - **Public IP control.** Assess that any external identity relying on Azure Firewall public IP remains fixed and trusted.
 
-- Azure Firewall Standard and Premium tiers have the following dependencies that you may need to be deploy in the target region:
+- Azure Firewall Standard and Premium tiers have the following dependencies that can be deployed in the target region:
 
   - [Azure Virtual Network](./relocation-virtual-network.md)
   - (If used) [Log Analytics Workspace](./relocation-log-analytics.md)
@@ -86,7 +86,7 @@ To prepare for relocation, you need to first export and modify the template from
 
 ### Modify template
 
-In this section, you learn how to modify the template that you generated in the previous section. 
+In this section, you learn how to modify the template that you generated in the previous section.
 
 If you're running classic firewall rules without Firewall policy, migrate to Firewall policy before proceeding with the steps in this section. To learn how to migrate from classic firewall rules to Firewall policy, see [Migrate Azure Firewall configuration to Azure Firewall policy using PowerShell](/azure/firewall-manager/migrate-to-policy).
 
@@ -95,7 +95,7 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you're using Premium SKU with TLS Inspection enabled,
 
-    1. [Relocate the key vault](./relocation-key-vault.md) that's used for TLS inspection into the new target region.  Then, follow [the procedures](../../../application-gateway/key-vault-certs.md) to move certificates or generate new certificates for TLS inspection into the new key vault in the target region.
+    1. [Relocate the key vault](./relocation-key-vault.md) that's used for TLS inspection into the new target region. Then, follow [the procedures](../../../application-gateway/key-vault-certs.md) to move certificates or generate new certificates for TLS inspection into the new key vault in the target region.
     1. [Relocate managed identity](/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move) into the new target region. Reassign the corresponding roles for the key vault in the target region and subscription.
 
 1. In the Azure portal, select **Create a resource**.
@@ -112,15 +112,15 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
 
 1. [Create a new firewall policy](/azure/firewall-manager/create-policy-powershell) using the configuration of the source region and reflect changes introduced by the new target region (IP Address Ranges, Public IP, Rule Collections).
 1. If you're using Premium SKU and you want to enable TLS Inspection, update the newly created firewall policy and enable TLS inspection by following [the instructions here](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723).
-1. Review and update the configuration for the topics below to reflect the changes required for the target region.
+1. Review and update the following settings to reflect the changes required for the target region.
 
     - **IP Groups.** To include IP addresses from the target region, if different from the source, *IP Groups* should be reviewed. The IP addresses included in the groups must be modified.
     - **Zones.**  Configure the [availability Zones (AZ)](../../../reliability/availability-zones-overview.md) in the target region.
     - **Forced Tunneling.**  [Ensure that you've relocated the virtual network](./relocation-virtual-network.md) and that the firewall *Management Subnet* is present before the Azure Firewall is relocated.   Update the IP Address in the target region of the Network Virtual Appliance (NVA) to which the Azure Firewall should redirect the traffic, in the User Defined Route (UDR).
-    - **DNS.** Review IP Addresses for your custom custom *DNS Servers* to reflect your target region. If the *DNS Proxy* feature is enabled, be sure to configure your virtual network DNS server settings and set the Azure Firewall's private IP address as a *Custom DNS server*.
+    - **DNS.** Review IP Addresses for your custom *DNS Servers* to reflect your target region. If the *DNS Proxy* feature is enabled, be sure to configure your virtual network DNS server settings and set the Azure Firewall's private IP address as a *Custom DNS server*.
     - **Private IP ranges (SNAT).** - If custom ranges are defined for SNAT, it's recommended that you review and eventually adjust to include the target region address space.
-    - **Tags.** - Verify and eventually update any tag that may reflect or refer to the new firewall location.
-    - **Diagnostic Settings.**  When recreating the Azure Firewall in the target region, be sure to review the *Diagnostic Setting* adn configure it to reflect the target region (Log Analytics workspace, storage account, Event Hub, or 3rd-party partner solution).
+    - **Tags.** - Verify and update any tags that reflect or refer to the new firewall location.
+    - **Diagnostic Settings.**  When recreating the Azure Firewall in the target region, be sure to review the *Diagnostic Setting* and configure it to reflect the target region (Log Analytics workspace, storage account, event hubs, or 3rd-party partner solution).
 
 1. Edit the `location` property in the `template.json` file to the target region (The following example sets the target region to `centralus`.):
 
@@ -133,7 +133,7 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
       "location": "centralus",}]
     ```
 
-To find the location code for your target region, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
+    To find the location code for your target region, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 
 1. Save the `template.json` file.
 
@@ -153,15 +153,15 @@ To find the location code for your target region, see [Data residency in Azure](
     - `firewallPolicy.id` with your policy ID.
 
 1. [Create a new firewall policy](/azure/firewall-manager/create-policy-powershell) using the configuration of the source region and reflect changes introduced by the new target region (IP Address Ranges, Public IP, Rule Collections).
-1. Review and update the configuration for the topics below to reflect the changes required for the target region.
+1. Review and update the following properties to reflect the changes required for the target region.
 
     - **IP Groups.** To include IP addresses from the target region, if different from the source, *IP Groups* should be reviewed. The IP addresses included in the groups must be modified.
     - **Zones.**  Configure the [availability Zones (AZ)](../../../reliability/availability-zones-overview.md) in the target region.
     - **Forced Tunneling.**  [Ensure that you've relocated the virtual network](./relocation-virtual-network.md) and that the firewall *Management Subnet* is present before the Azure Firewall is relocated.   Update the IP Address in the target region of the Network Virtual Appliance (NVA) to which the Azure Firewall should redirect the traffic, in the User Defined Route (UDR).
-    - **DNS.** Review IP Addresses for your custom custom *DNS Servers* to reflect your target region. If the *DNS Proxy* feature is enabled, be sure to configure your virtual network DNS server settings and set the Azure Firewall's private IP address as a *Custom DNS server*.
+    - **DNS.** Review IP Addresses for your custom *DNS Servers* to reflect your target region. If the *DNS Proxy* feature is enabled, be sure to configure your virtual network DNS server settings and set the Azure Firewall's private IP address as a *Custom DNS server*.
     - **Private IP ranges (SNAT).** - If custom ranges are defined for SNAT, it's recommended that you review and eventually adjust to include the target region address space.
-    - **Tags.** - Verify and eventually update any tag that may reflect or refer to the new firewall location.
-    - **Diagnostic Settings.**  When recreating the Azure Firewall in the target region, be sure to review the *Diagnostic Setting* adn configure it to reflect the target region (Log Analytics workspace, storage account, Event Hub, or 3rd-party partner solution).
+    - **Tags.** - Verify and update any tags that reflect or refer to the new firewall location.
+    - **Diagnostic Settings.**  When recreating the Azure Firewall in the target region, be sure to review the *Diagnostic Setting* and configure it to reflect the target region (Log Analytics workspace, storage account, event hub, or 3rd-party partner solution).
 
 1. Edit the `location` property in the `template.json` file to the target region (The following example sets the target region to `centralus`.):
 
