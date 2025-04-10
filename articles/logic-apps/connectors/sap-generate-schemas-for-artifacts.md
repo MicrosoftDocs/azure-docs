@@ -142,7 +142,6 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 1. In the workflow designer, under the **Request** trigger, follow [these general steps to find and add the SAP built-in action named **Generate Schema**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. In the designer, follow [these general steps to find and add the SAP built-in action named **Generate Schema**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    For more information about this SAP built-in action, see [Generate Schema](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)).
 
