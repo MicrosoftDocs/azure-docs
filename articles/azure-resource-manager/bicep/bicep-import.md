@@ -97,4 +97,4 @@ Both `az` and `sys` are Bicep built-in namespaces. They're imported by default. 
 - To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
 - To learn about how to use the Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
 - To go through a Kubernetes extension tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension.](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
-- To learn about how to use the Microsoft Graph extension, see [Bicep templates for Microsoft Graph](https://aka.ms/graphbicep).
+- To learn about how to use the Microsoft Graph extension, see [Bicep files for Microsoft Graph](https://aka.ms/graphbicep).

@@ -165,7 +165,7 @@ In the following sections, you'll learn how to opt out of classic backup alert s
 
 #### Using Azure Resource Manager (ARM)/ Bicep/ REST API/ Azure Policy
 
-The **monitoringSettings** vault property helps you specify if you want to disable classic alerts. You can create a custom ARM/Bicep template or Azure Policy to modify this setting for your vaults.
+The **monitoringSettings** vault property helps you specify if you want to disable classic alerts. You can create a custom ARM/Bicep file or Azure Policy to modify this setting for your vaults.
 
 The following example of the vault settings property shows that the classic alerts are disabled and built-in Azure Monitor alerts are enabled for all job failures.
 
@@ -214,7 +214,7 @@ You can use the following standard programmatic interfaces supported by Azure Mo
 
 #### Using Azure Resource Manager (ARM)/ Bicep/ REST API
 
-You can use [these sample ARM and Bicep templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-create-alert-processing-rule) that create an alert processing rule and action group associated to all Recovery Services vaults in the selected subscription.
+You can use [these sample ARM and Bicep files](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-create-alert-processing-rule) that create an alert processing rule and action group associated to all Recovery Services vaults in the selected subscription.
 
 #### Using Azure PowerShell
 

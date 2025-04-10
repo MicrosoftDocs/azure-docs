@@ -215,7 +215,7 @@ az group delete --name <ResourceGroupName>
 For example: `az group delete --resource-group BicepTestDeployment`
 
 > [!TIP]
-> For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Build your first Bicep template](/training/modules/build-first-bicep-template/).
+> For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Build your first Bicep file](/training/modules/build-first-bicep-template/).
 
 ## Next steps
 

@@ -133,7 +133,7 @@ Deleting content from your repository doesn't delete it from your Microsoft Sent
 
 ## Remove a repository connection
 
-This procedure describes how to remove the connection to a source control repository from Microsoft Sentinel. In order to use Bicep templates, your repository connection must be newer than November 1, 2024. Use this procedure to remove the connection and recreate it in order to update the connection.
+This procedure describes how to remove the connection to a source control repository from Microsoft Sentinel. In order to use Bicep files, your repository connection must be newer than November 1, 2024. Use this procedure to remove the connection and recreate it in order to update the connection.
 
 **To remove your connection**:
 

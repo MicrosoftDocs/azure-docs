@@ -250,7 +250,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP248' />BCP248 | Error | Using lambda variables inside the \<function-name> function isn't currently supported. Found the following lambda variable(s) being accessed: {ToQuotedString(variableNames)}. |
 | <a id='BCP249' />BCP249 | Error | Expected loop variable block to consist of exactly 2 elements (item variable and index variable), but found {actualCount}. |
 | <a id='BCP250' />BCP250 | Error | Parameter "{identifier}" is assigned multiple times. Remove or rename the duplicates. |
-| <a id='BCP256' />BCP256 | Error | The using declaration is missing a Bicep template file path reference. |
+| <a id='BCP256' />BCP256 | Error | The using declaration is missing a Bicep file path reference. |
 | <a id='BCP257' />BCP257 | Error | Expected a Bicep file path string. This should be a relative path to another Bicep file, e.g. 'myModule.bicep' or '../parent/myModule.bicep' |
 | <a id='BCP258' />BCP258 | Warning | The following parameters are declared in the Bicep file but are missing an assignment in the params file: {ToQuotedString(identifiers)}. |
 | <a id='BCP259' />BCP259 | Error | The parameter "{identifier}" is assigned in the params file without being declared in the Bicep file. |

@@ -23,7 +23,7 @@ An environment definition is composed of at least two files:
 
 - A template from an IaC framework. For example:
     - An Azure Resource Manager (ARM) template might use a file called *azuredeploy.json*.
-    - A Bicep template might use a file called *main.bicep*.
+    - A Bicep file might use a file called *main.bicep*.
     - A Terraform template might use a file called *azuredeploy.tf*.
 - A configuration file that provides metadata about the template. This file should be named *environment.yaml*.
 

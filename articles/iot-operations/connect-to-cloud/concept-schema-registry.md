@@ -13,7 +13,7 @@ ms.date: 11/14/2024
 
 Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
 
-The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep templates.
+The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep files.
 
 Edge services use message schemas to filter and transform messages as they're routed across your industrial edge scenario.
 
@@ -126,7 +126,7 @@ To upload an output schema, see [Upload schema](#upload-schema).
 
 ## Upload schema
 
-Input schema can be uploaded in the operations experience web UI as described in the [Input schema](#input-schema) section of this article. You can also upload a schema using the Azure CLI or a Bicep template. 
+Input schema can be uploaded in the operations experience web UI as described in the [Input schema](#input-schema) section of this article. You can also upload a schema using the Azure CLI or a Bicep file. 
 
 ### Upload schema with the CLI
 
@@ -157,7 +157,7 @@ Once the `create` command is completed, you should see a blob in your storage ac
 
 You can see more options with the helper command `az iot ops schema -h`.
 
-### Upload schema with a Bicep template
+### Upload schema with a Bicep file
 
 Create a Bicep `.bicep` file, and add the schema content to it at the top as a variable. This example is a Delta schema that corresponds to the OPC UA data from [quickstart](../get-started-end-to-end-sample/quickstart-add-assets.md).
 
@@ -301,7 +301,7 @@ resource opcuaSchemaVersion 'Microsoft.DeviceRegistry/schemaRegistries/schemas/s
 }
 ```
 
-After you've defined the schema content and resources, you can deploy the Bicep template to create the schema in the schema registry.
+After you've defined the schema content and resources, you can deploy the Bicep file to create the schema in the schema registry.
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep

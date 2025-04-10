@@ -19,10 +19,10 @@ items:
     href: installation-troubleshoot.md
 - name: Quickstarts
   items:
-  - name: Create Bicep templates - VS Code
+  - name: Create Bicep files - VS Code
     displayName: vscode,vs code
     href: quickstart-create-bicep-use-visual-studio-code.md
-  - name: Create Bicep templates - Visual Studio
+  - name: Create Bicep files - Visual Studio
     href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
