@@ -22,7 +22,7 @@ In this quickstart, you deploy an instance of the de-identification service in y
 - The Azure azure-health-deidentification [Python package](https://learn.microsoft.com/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview)
 
 
-## Create a Resource
+## Create a resource
 
 To deploy an instance of the de-identification service, start at the Azure portal home page.
 
@@ -57,7 +57,7 @@ After you complete the configuration, you can deploy the de-identification servi
 
 Note your Subscription, Subscription ID, and Service URL.
 
-## Set Role-based access control (RBAC)
+## Set role-based access control (RBAC)
 
 Now that the resource is deployed, assign yourself as an owner using RBAC. To use the synchronous and asynchronous/Batch API, you need to be a DeID Data Owner. If you only need real-time or batch, you can assign yourself as a DeID Realtime Data User and/or DeID Batch Data Owner, respectively.
 
@@ -111,7 +111,7 @@ else:
 
 ```
 
-## Example Input & Output
+## Example input & output
 
    | Input        | Output          |
    |----------------|---------|
