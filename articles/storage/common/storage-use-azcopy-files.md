@@ -91,8 +91,10 @@ azcopy copy '/myDirectory/myTextFile.txt' 'https://mystorageaccount.file.core.wi
 
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'/myDirectory/*.txt'`.
 
-<a id="uploadfile"></a>
 
+---
+
+<a id="uploadfile"></a>
 
 ### Upload a directory
 
