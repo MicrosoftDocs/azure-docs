@@ -2,7 +2,7 @@
 title: Azure Functions durable task scheduler backend for durable functions (preview)
 description: Learn about the characteristics of the Azure Functions durable task scheduler backend.
 ms.topic: conceptual
-ms.date: 03/19/2025
+ms.date: 04/10/2025
 ms.author: azfuncdf
 author: hhunter-ms
 ms.subservice: durable
@@ -12,7 +12,7 @@ ms.subservice: durable
 
 The Azure Functions durable task scheduler is a fully managed backend for durable function apps. It provides several key benefits not available in the "bring your own (BYO)" backend options for durable functions today. This document discusses different aspects of the managed backend including architecture, concepts, and key features.
 
-For an in-depth comparison between the supported storage providers for durable function apps, see the [storage providers](../durable-functions-storage-providers.md) documentation.
+For an in-depth comparison between the supported storage providers for durable function apps, see the [storage providers](../durable/durable-functions-storage-providers.md) documentation.
 
 ## Architecture
 
@@ -64,7 +64,7 @@ Aside from monitoring, you can also perform management operations on the dashboa
 
 ### Multiple task hubs
 
-Durable function state is durably persisted in a *task hub*. A [task hub](../durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. One scheduler instance allows for the creation of multiple task hubs, each of which can be used by different apps. Access to a task hub requires that the caller's identity has the required role-based access control (RBAC) permissions.
+Durable function state is durably persisted in a *task hub*. A [task hub](../durable/durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. One scheduler instance allows for the creation of multiple task hubs, each of which can be used by different apps. Access to a task hub requires that the caller's identity has the required role-based access control (RBAC) permissions.
 
 Creating multiple task hubs allows you to isolate different workloads and manage them independently. For example, you can create a task hub for each environment (dev, test, prod) or for different teams within your organization. Creating multiple task hubs in a single scheduler instance is also a way to reduce costs, as you can share the same scheduler resources across multiple task hubs. However, task hubs under the same scheduler instance share the same resources, so if one task hub is heavily loaded, it might affect the performance of the other task hubs.
 
