@@ -64,7 +64,7 @@ To view or edit the default listener, follow these steps.
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker listener show](/cli/azure/iot/ops/broker#az-iot-ops-broker-listener-show) command to view the local MQTT broker default listener.
+Use the [az iot ops broker listener show](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-show) command to view the local MQTT broker default listener.
 
 ```azurecli
 az iot ops broker listener show --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name default 
@@ -258,7 +258,7 @@ This example shows how to create a new listener with the `LoadBalancer` service 
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker listener apply](/cli/azure/iot/ops/broker#az-iot-ops-broker-listener-apply) command to create a new MQTT broker listener.
+Use the [az iot ops broker listener apply](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-apply) command to create a new MQTT broker listener.
 
 ```azurecli
 az iot ops broker listener apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name <ListenerName> --config-file <ConfigFilePathAndFileName>
@@ -620,7 +620,7 @@ The following example is a BrokerListener resource that enables TLS on port 8884
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker#az-iot-ops-broker-listener-port-add) command to add or change a TCP port configuration to an MQTT broker listener service.
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to add or change a TCP port configuration to an MQTT broker listener service.
 
 ```azurecli
 az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-issuer-ref name=<IssuerName> kind=<IssuerKind> group=<IssuerGroup>
@@ -838,7 +838,7 @@ The following example shows a BrokerListener resource that enables TLS on port 8
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker#az-iot-ops-broker-listener-port-add) command to add or change the port configuration for an MQTT broker listener service.
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to add or change the port configuration for an MQTT broker listener service.
 
 ```azurecli
 az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-man-secret-ref <SecretReferenceName>
