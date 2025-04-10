@@ -17,7 +17,7 @@ This article provides coverage information for the Azure Maps Route service. Upo
 
 ## Routing information supported
 
-The following information is available in the [Azure Maps routing coverage tables]:
+The following information is available in the [Azure Maps Route service coverage tables]:
 
 ::: zone pivot="service-previous"
 <!-----------------------------  ROUTING v1   ---------------------------------------------------------------------------->
@@ -624,7 +624,7 @@ For more coverage tables, see:
 - Check out coverage for [Traffic].  
 - Check out coverage for [Render].
 
-[Azure Maps routing coverage tables]: #azure-maps-routing-coverage-tables
+[Azure Maps Route service coverage tables]: #azure-maps-route-service-coverage-tables
 [Azure Maps Route Service]: /rest/api/maps/route/
 [Geocoding]: geocoding-coverage.md
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
