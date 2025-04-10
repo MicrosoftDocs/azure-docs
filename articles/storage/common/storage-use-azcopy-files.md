@@ -62,7 +62,7 @@ This section contains the following examples:
 > |Scenario|Flag|
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
-> |Copy SMB property information along with the files.|**--preserve-info**=\[true\|false\]|
+> |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 >
 > For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
@@ -277,7 +277,7 @@ This section contains the following examples:
 > |Scenario|Flag|
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
-> |Copy SMB property information along with the files.|**--preserve-info**=\[true\|false\]|
+> |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 > |Automatically decompress files.|**--decompress**|
 >
 > For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
@@ -515,7 +515,7 @@ This section contains the following examples:
 > |Scenario|Flag|
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
-> |Copy SMB property information along with the files.|**--preserve-info**=\[true\|false\]|
+> |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 >
 > For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
@@ -611,7 +611,7 @@ You can synchronize the contents of a local file system with a file share or syn
 > |Scenario|Flag|
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
-> |Copy SMB property information along with the files.|**--preserve-info**=\[true\|false\]|
+> |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 > |Exclude files based on a pattern.|**--exclude-path**|
 > |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 >
