@@ -5,7 +5,8 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 03/13/2025
+ms.date: 04/08/2025
+
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -70,6 +71,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
+   | **Connectors** | *Optional*: Select the ONVIF connector to deploy. The [ONVIF connector](../discover-manage-assets/overview-onvif-connector.md) is a preview feature that enables you to connect to ONVIF-compliant cameras.|
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-basics.png" alt-text="A screenshot that shows the first tab for deploying Azure IoT Operations from the portal.":::
 
