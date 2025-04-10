@@ -23,7 +23,7 @@ Schemas contain the following parts:
 
 | Component | Description |
 |-----------|-------------|
-| Request message structure | Use this information to form your BAPI `get` list. |
+| Request message structure | Use this information to form your BAPI **`get`** list. |
 | Response message structure | Use this information to parse the response. |
 
 Both Standard and Consumption logic app workflows offer the SAP *managed* connector hosted and run in multitenant Azure. Standard workflows also offer the preview SAP *built-in* connector hosted and run in single-tenant Azure Logic Apps. However, this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Connector technical reference](sap.md#connector-technical-reference).
