@@ -1,6 +1,6 @@
 ---
 title: Understand Azure Files performance
-description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth, and how to optimize performance for your workload.
+description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
@@ -73,7 +73,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **IOPS and throughput requirements:** SSD file shares support larger IOPS and throughput limits than HDD file shares. See [file share scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets) for more information.
 
-- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are be less likely to achieve the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
+- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to achieve the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
 
 - **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, SSD file shares provide a clear advantage over HDD file shares: SMB Multichannel. See [Improve SMB Azure file share performance](smb-performance.md) for more information.
 
@@ -93,7 +93,7 @@ The difference between **SuccessE2ELatency** and **SuccessServerLatency** values
 
 It's common to confuse client latency with service latency (in this case, Azure Files performance). For example, if the service latency is reporting low latency and the end-to-end is reporting [very high latency for requests](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#very-high-latency-for-requests), that suggests that all the time is spent in transit to and from the client, and not in the Azure Files service.
 
-Furthermore, as the diagram illustrates, the farther you are away from the service, the slower the latency experience is, and the more difficult it is be to achieve performance scale limits with any cloud service. This is especially true when accessing Azure Files from on premises. While options like ExpressRoute are ideal for on-premises, they still don't match the performance of an application (compute + storage) that's running exclusively in the same Azure region.
+Furthermore, as the diagram illustrates, the farther you're away from the service, the slower the latency experience is, and the more difficult it's to achieve performance scale limits with any cloud service. This is especially true when accessing Azure Files from on premises. While options like ExpressRoute are ideal for on-premises, they still don't match the performance of an application (compute + storage) that's running exclusively in the same Azure region.
 
 > [!TIP]
 > Using a VM in Azure to test performance between on-premises and Azure is an effective and practical way to baseline the networking capabilities of the connection to Azure. Undersized or incorrectly routed ExpressRoute circuits or VPN gateways can significantly slow down workloads running on Azure Files.
