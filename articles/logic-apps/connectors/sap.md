@@ -1,5 +1,5 @@
 ---
-title: Connect to SAP
+title: Access SAP from workflows
 description: Connect to an SAP server from a Consumption or Standard workflow in Azure Logic Apps, review prerequisites, and explore known issues and limitations.
 services: logic-apps
 ms.suite: integration
