@@ -8,8 +8,8 @@ metadata:
   description: Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
   ms.service: azure
   ms.topic: hub-page
-  ms.author: prwilk
-  author: PageWriter-MSFT
+  ms.author: robbymillsap
+  author: robbyatmicrosoft
   ms.date: 03/11/2025
   adobe-target: true
   ms.custom: migration
