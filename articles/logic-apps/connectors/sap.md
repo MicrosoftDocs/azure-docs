@@ -315,7 +315,7 @@ To use the SAP connector, you have to install the SAP Connector NCo client libra
 
     Make sure that you copy the assembly files to the data gateway's *installation folder*. Otherwise, your SAP connection might fail with the error message, **Please check your account info and/or permissions and try again**. You can troubleshoot further issues by using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location.
 
-  * For Standard workflows, copy the following assembly (.dll) files to a location from where you can upload them to your logic app resource or project where you're building your workflow. The location might be either in the Azure portal or locally in Visual Studio Code. The SAP NCo 3.1 client library includes the following assemblies:
+  * For Standard workflows, copy the following assembly (.dll) files to a location from where you can upload them to your logic app resource in the Azure portal or to your local logic app project in Visual Studio Code. The SAP NCo 3.1 client library includes the following assemblies:
 
     - **rscp4n.dll**
     - **sapnco.dll**
