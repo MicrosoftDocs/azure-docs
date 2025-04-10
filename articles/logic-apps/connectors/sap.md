@@ -909,7 +909,7 @@ To work with the resulting ETL files, you can use [PerfView](https://github.com/
 
 1. Select **Start Collection** to begin your trace.
 
-1. After you reproduce your issue or collected enough analysis data, select **Stop Collection**.
+1. After you reproduce your issue or collect enough analysis data, select **Stop Collection**.
 
 1. To share your data with another party, such as Azure support engineers, compress the ETL file.
 
