@@ -16,7 +16,11 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (April 2025)
 
+
+Public Preview: This is a comprehensive approach to discover, assess, and migrate on-premises applications, and workloads to the Microsoft Azure. It facilitates a more streamlined and efficient decide, plan, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
+
 Public Preview: Explore inventory of discovered workloads across the Infrastructure, Data, and Web tiers. Utilize the new experience of the dependency analysis to identify application boundaries and group workloads into applications using Tags. [Learn more](how-to-review-discovered-inventory.md).
+
 
 ## Update (February 2025)
 
