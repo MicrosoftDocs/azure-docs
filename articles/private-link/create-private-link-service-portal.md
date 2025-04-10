@@ -86,7 +86,7 @@ During the creation of the load balancer, you configure:
 1. Select **NIC** for **Backend Pool Configuration**.
 
     > [!NOTE]
-    > Private Link service is supported on Standard Load Balancers with backend pools configured by NICs. It is not supported when backend pools are configured using IP addresses. For more information, see [Limitations](private-link-service-overview.md#limitations)
+    > Private Link service is supported on Standard Load Balancers with backend pools configured by NICs. It is not supported when backend pools are configured using IP addresses. For more information, see [Private Link service limitations](private-link-service-overview.md#limitations).
 
 1. Select **Save**.
 
