@@ -98,7 +98,7 @@ In addition to Azure Monitor and Prometheus, you can also use other monitoring s
 
 ## Tutorial
 
-We provide the following tutorials to demonstrate the end-to-end experience of running applications on AKS. These tutorial is meant for reference, and since AKS is highly flexible, you need to choose configurations and customizations based on your specific requirements.
+We provide the following tutorials to demonstrate the end-to-end experience of running applications on AKS. These tutorials are meant for reference, and because AKS is highly flexible, you need to choose configurations and customizations based on your specific requirements.
 
 - ACME Fitness Store Application: This tutorial offers practical guidance for running the ACME Fitness store application on AKS. For more information, see [acme-fitness-store/azure-kubernetes-service](https://github.com/Azure-Samples/acme-fitness-store/tree/Azure/azure-kubernetes-service).
 - Spring PetClinic Microservices: This tutorial showcases the distributed version of the Spring PetClinic application built with Spring Cloud. For more information, see [spring-petclinic-microservices/azure-kubernetes-service](https://github.com/Azure-Samples/spring-petclinic-microservices/tree/azure/azure-kubernetes-service). 
