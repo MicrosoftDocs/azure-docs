@@ -107,7 +107,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
       > [!NOTE]
       >
-      > If you receive a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
+      > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
 
       :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-consumption.png" alt-text="Screenshot shows Consumption workflow, Generate schemas action, and selecting IDOC." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-consumption.png":::
 
@@ -166,7 +166,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
    > [!NOTE]
    >
-   > If you receive a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
+   > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
 
 1. In the [**Generate Schema** action](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)), provide the following information about the artifact for which to generate the schema.
 
