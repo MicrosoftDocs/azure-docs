@@ -47,11 +47,11 @@ Sign-in to the Azure portal at https://portal.azure.com.
 >
 > Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
-8. Click `Next`.
+8. Select `Next`.
 
 9. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Workload.
 
-10. Click `Review + create`, ensure the details for your Workload are correct, and click `Create`.
+10. Select `Review + create`, ensure the details for your Workload are correct, and select `Create`.
 
 
 **References**

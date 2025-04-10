@@ -34,12 +34,12 @@ Refer to this guidance for more information on the different types of Transit Hu
 
 ![image2.png](./media/image-14edd692-5097-4194-9c4b-a05c238c576b.png)
 
-1. Click next, add any tags, and click review + create.
+1. Select `next`, add any tags, and select `Review + Create`.
 
-1. Click `Review + Create` and click `Create`
+1. Select `Review + Create` and select `Create`
 
 ![image3.png](./media/image-9ee9d2cd-617a-45ee-9470-5214b1fc5481.png)
 
-`
-Note: Transit Hub connectivity may be a "break-glass" scenario due to configuration variability of transit connections. 
-`
+> [!NOTE]
+> 
+> Transit Hub connectivity may be a "break-glass" scenario due to configuration variability of transit connections. 

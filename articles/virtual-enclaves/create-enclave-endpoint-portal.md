@@ -45,8 +45,8 @@ Sign-in to the Azure portal at https://portal.azure.com.
 >
 > Endpoints are primarily based on another underlying Azure service called [Network security groups](../virtual-network/network-security-groups-overview.md).
 
-1. Click `Next`.
+1. Select `Next`.
 
 2. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Endpoint.
 
-3.  Click `Review + create`, ensure the details for your Endpoint are correct, and click `Create`.
+3.  Select `Review + create`, ensure the details for your Endpoint are correct, and select `Create`.

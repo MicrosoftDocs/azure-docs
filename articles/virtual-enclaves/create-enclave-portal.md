@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Create an Enclave in the Azure portal
 
-An [Enclave](./what-is-an-enclave.md) is a completely isolated Virtual Network that is part of a Community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the Community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
+An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is part of a Community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the Community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 ![image2.png](./media/image-d72eba0f-2de1-4d23-91d9-144f87485f1a.png)
 
-6. Click `Next`.
+6. Select `Next`.
 
 7. Select a network size for your Enclave. Learn more about [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md), and how to use [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -53,14 +53,14 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 >
 > Enclave Owners can choose to provide a custom CIDR address when creating their enclaves. Azure Virtual Enclaves will automatically allocate the next best fit block of network addressable space based on the existing networks allocated to the community that the enclave is targeting.
 
-8. Click `Next`.
+8. Select `Next`.
 
 9. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Enclave.
 
-10. Click `Review + create`, ensure the details for your Enclave are correct, and click `Create`.
+10. Select `Review + create`, ensure the details for your Enclave are correct, and select `Create`.
 
 **References**
-- [What is an Enclave](./what-is-an-enclave.md)
+- [What is an Enclave](./what-enclave.md)
 - [Create a Community](./create-community-azure-portal.md)
 - [Best practices](./best-practices.md)
 - [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md)
