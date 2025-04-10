@@ -54,9 +54,11 @@ Storage accounts have two properties, kind and SKU, which dictate the billing mo
 If you're creating an HDD file share, you can choose between the provisioned v2 and pay-as-you-go billing models. Both models are fully supported, however, we recommend provisioned v2 for new file share deployments. Provisioned v2 file shares are currently available in a limited subset of regions; see [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
 
 ### Region supportability base on different billing models
-To view region supportability on different billing models on CLI, use the following command.
-# [PowerShell](#tab/azure-powershell1)
-### To view Region supportability on different billing models (PowerShell)
+# [Portal](#tab/azure-portal)
+To view region supportability based on different billing models, use Azure PowerShell or Azure CLI.
+
+# [PowerShell](#tab/azure-powershell)
+### Region supportability on different billing models (PowerShell)
 ```powershell
 # Login to Azure account
 Connect-AzAccount
@@ -128,8 +130,8 @@ if ($filteredResult.Count -eq 0) {
 }
 ```
 
-# [Azure CLI](#tab/azure-cli1)
-### To view Region supportability on different billing models (Azure CLI)
+# [Azure CLI](#tab/azure-cli)
+### Region supportability on different billing models (Azure CLI)
 This script use jq command line JSON processor, to download, please visit https://jqlang.org/download/
 ```bash
 # Login to Azure account
@@ -284,7 +286,7 @@ $storageAccountSku = "StandardV2_LRS"
 New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -SkuName $storageAccountSku -Kind $storageAccountKind -Location $region
 ```
 
-To view the settings and statistics of the Provisiond V2 storage account, use the following command. 
+To view the settings and service usage for the Provisiond V2 storage account, use the following command. 
 
 ```powershell
 Get-AzStorageFileServiceUsage -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
@@ -339,7 +341,7 @@ storageAccountSku="StandardV2_LRS"
 az storage account create --resource-group $resourceGroupName --name $storageAccountName --location $region --kind $storageAccountKind --sku $storageAccountSku --output none
 ```
 
-To view the settings and statistic of the Provisiond V2 storage account, use the following command. 
+To view the settings and service usage for the Provisiond V2 storage account, use the following command.
 
 ```bash
 az storage account file-service-usage --account-name $storageAccountName -g $resourceGroupName
