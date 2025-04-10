@@ -26,7 +26,7 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 ## Create an Azure Logic Apps instance
 
-1. From your Azure Portal, select **Create a resource**, then search for **Logic App**. Find the one called **Logic App**, select **Create**, then click **Logic App**.
+1. From your Azure portal, select **Create a resource**, then search for **Logic App**. Find the one called **Logic App**, select **Create**, then click **Logic App**.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-1.png" alt-text="Screenshot showing where to procure an instance of Azure Logic Apps." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-1.png":::
 
@@ -60,7 +60,7 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-8.png" alt-text="Screenshot showing the Event Hubs connection portion of the Azure VMware Solution template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-8.png":::
 
-   - In a separate brower tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
+   - In a separate browser tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
     
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-9.png" alt-text="Screenshot showing the Primary connection string on Azure Event Hub." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-9.png":::
 
@@ -87,7 +87,7 @@ If Azure Logic Apps requires the certificate from the log management server to b
 
 1. Export the certificate from the log management server and save it as a .cer file. 
 
-2. In the Azure Logic App, navigate tp  **Settings > Certificates**. Navigate to the tab that says **Public key certificates (.cer)** and click on **Add certificate**. 
+2. In the Azure Logic App, navigate to  **Settings > Certificates**. Navigate to the tab that says **Public key certificates (.cer)** and click on **Add certificate**. 
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-14.png" alt-text="Screenshot showing where to add the Public key certificate in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-14.png":::
 
@@ -97,11 +97,11 @@ If Azure Logic Apps requires the certificate from the log management server to b
 
 4. Once saved, copy the **Thumbprint** value. We need that for our environment variable in Step 5. 
 
-:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-16.png" alt-text="Screenshot showing where to copy the thumbrint of the newly added certificate." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-16.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-16.png" alt-text="Screenshot showing where to copy the thumbprint of the newly added certificate." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-16.png":::
 
 5. Under **Settings**, select **Environment variables**, then select **Add**. The name of the environment variable to add is **WEBSITE_LOAD_ROOT_CERTIFICATES** and the value is going to be the thumbprint you copied. Select **Apply** at the bottom of the panel to save the changes and **Apply** again at the bottom of the list of environment variables to apply these changes. The new environment variable should take effect.
 
-:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-17.png" alt-text="Screenshot showing the successfully added environment variable" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-17.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-17.png" alt-text="Screenshot showing the successfully added environment variable." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-17.png":::
 
 ### HTTP Headers
 By default, the **HTTP-Trigger-to-Log-Destination** trigger in the workflow you created has the following key-value pairs under Headers: 
@@ -109,14 +109,14 @@ By default, the **HTTP-Trigger-to-Log-Destination** trigger in the workflow you 
 
 This works by itself for log management tools such as VMware Cloud Foundation Operations for Logs. You may need to verify the log management server's ingestion cURL command to see if there are other headers that may need to be added. If you see other headers, add them here and click **Save** at the top, so that the logs can be ingested properly into your log management server. 
 
-:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-18.png" alt-text="Screenshot showing where headers can be modified inside the workflow" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-18.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-18.png" alt-text="Screenshot showing where headers can be modified inside the workflow." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-18.png":::
 
 ### Run History
 The Run History section of a workflow in Azure Logic Apps provides a detailed log of workflow executions, helping you track successful runs, diagnose failures, and troubleshoot issues. By reviewing the timestamps, status codes, and error messages, you can ensure your Azure VMware Solution syslog forwarding process is running smoothly and quickly identify any disruptions.
 
-:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-20.png" alt-text="Screenshot showing Run History can be accessed" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-20.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-20.png" alt-text="Screenshot showing Run History can be accessed." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-20.png":::
 
 ### Configuring Notifications
 You will notice in the last step of the workflow that there is an optional item called **Optional-Notification (README)**. You may replace this item with one of the available actions in Azure Logic Apps, such as Outlook emails or Teams messages, to notify you in the event there is a failure sending your logs to your log management server.
 
-:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-19.png" alt-text="Screenshot showing where notifications can be added inside the workflow" border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-19.png":::
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-19.png" alt-text="Screenshot showing where notifications can be added inside the workflow." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-19.png":::
