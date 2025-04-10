@@ -59,12 +59,12 @@ Note your Subscription, Subscription ID, and Service URL.
 
 ## Set Role-based access control (RBAC)
 
-Now that the resource is deployed, you will need to assign yourself as an owner using RBAC. To use the synchronous and asynchronous/Batch API, you will need to be a “DeID Data Owner.” If you only need real-time or batch, you can assign yourself as a “DeID Realtime Data User” and/or “DeID Batch Data Owner,” respectively.
+Now that the resource is deployed, assign yourself as an owner using RBAC. To use the synchronous and asynchronous/Batch API, you need to be a DeID Data Owner. If you only need real-time or batch, you can assign yourself as a DeID Realtime Data User and/or DeID Batch Data Owner, respectively.
 
 1. On the left panel, select **Access control (IAM).** 
 1. Click **Add** and **Add role assignment.** 
 1. Select **DeID Data Owner** and then select **Members** on the top panel. 
-1. Select **+ Select members,** and a panel will appear on the right. Search for your own name and press **Select.** 
+1. Select **+ Select members,** and a panel will appear. Search for your own name and press **Select.** 
 1. Back in the **Members** panel, select **Review + assign** at the bottom left.
 
 ## Install the package
