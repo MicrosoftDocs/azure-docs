@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-python
 
 # Tutorial: Join sensor data with weather forecast data using Jupyter Notebooks (Python)
 
-Wind power is one alternative energy source for fossil fuels to combat against climate change. Because wind isn't consistent by nature, wind power operators need to build machine learning (ML) models to predict the wind power capacity. This prediction is necessary to meet electricity demand and ensure the grid stability. In this tutorial, we walk through how Azure Maps Weather forecast data is combined with demo data for weather readings. Weather forecast data is requested by calling Azure Maps Weather services.
+Wind power is one alternative energy source for fossil fuels to combat against climate change. Because wind isn't consistent by nature, wind power operators need to build machine learning (ML) models to predict the wind power capacity. This prediction is necessary to meet electricity demand and ensure the grid stability. In this tutorial, we walk through how Azure Maps weather forecast data is combined with demo data for weather readings. Weather forecast data is requested by calling Azure Maps Weather services.
 
 In this tutorial, you will:
 
