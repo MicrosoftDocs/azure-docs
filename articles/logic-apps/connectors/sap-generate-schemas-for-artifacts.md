@@ -312,7 +312,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 1. In the workflow designer, under the SAP built-in action named **Generate Schema**, select the plus symbol (**+**) > **Add an action**.
 
-1. Follow [these general steps to find and add the Azure Resource Manager managed action named **Create or update a resource**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action). If you're prompted to sign in with your credentials, go ahead and continue.
+1. If you're prompted to sign in, do that now and continue.
 
    After Azure Logic Apps sets up and tests your connection, the action information box appears:
 
