@@ -73,9 +73,9 @@ None.
 
 # [Terraform](#tab/terraform)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- You need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Terraform. [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ---
 
@@ -519,29 +519,29 @@ Initialize and run the template for this quickstart using the following steps:
 
 # [Terraform](#tab/terraform)
 
-The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-aks-extended-zones). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-aks-extended-zones/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `main.tf`, and insert the following code:
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-aks-extended-zones/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/main.tf":::
 
 1. Create a file named `outputs.tf`, and insert the following code:
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-aks-extended-zones/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/outputs.tf":::
 
 1. Create a file named `providers.tf`, and insert the following code:
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-aks-extended-zones/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/providers.tf":::
 
 1. Create a file named `variables.tf`, and insert the following code:
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-aks-extended-zones/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/variables.tf":::
 
-> [!IMPORTANT]
-> If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
->
-> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
->
-> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
-
+    > [!IMPORTANT]
+    > If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+    >
+    > One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
+    >
+    > For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
+    
 1. Initialize Terraform.
     [!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 
