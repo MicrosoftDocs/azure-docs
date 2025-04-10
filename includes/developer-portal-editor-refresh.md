@@ -8,4 +8,4 @@ ms.author: danlep
 
 
 > [!NOTE]
-> We're introducing some improvements to the underlying website components of the developer portal, and some cosmetic changes to the placeholder content you see when you first launch the developer portal. The appearance of your portal may vary from the screenshots in this article, but the functionality is the same.
+> We're introducing improvements to the underlying website components of the developer portal, and changing the placeholder content you see when you first launch it. The appearance of your portal may vary from the screenshots in this article, but the functionality is the same.

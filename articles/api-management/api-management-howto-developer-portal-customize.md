@@ -49,6 +49,8 @@ Follow these steps to access the managed version of the developer portal.
     It might take a few minutes to enable the developer portal.
 1. In the left menu, under **Developer portal**, select **Portal overview**. Then select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
+[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
+
 ## Understand the portal's administrative interface
 
 [!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]

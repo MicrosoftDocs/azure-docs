@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/09/2025
+ms.date: 04/10/2025
 ms.author: danlep 
 ---
 
@@ -76,17 +76,17 @@ The developer portal's administrative interface provides a visual editor for pub
 
 [!INCLUDE [api-management-developer-portal-add](../../includes/api-management-developer-portal-add.md)]
 
-### Layouts and pages
+### Pages and layouts
 
-Layouts define how pages are displayed. For example, in the default content, there are two layouts: one applies to the home page, and the other to all remaining pages. You can modify these layouts and add more layouts to suit your needs.
+The pre-provisioned content in the developer portal showcases pages with commonly used features. Find them on the **Pages** panel. You can modify the content of these pages or add new ones to suit your needs.
+
+Select **Layouts** on the **Pages** panel to define how pages are displayed. The developer portal comes with a default layout that's applied to the pages. You can modify this layout and add more layouts to suit your needs.
 
 A layout gets applied to a page by matching its URL template to the page's URL. For example, a layout with a URL template of `/wiki/*` is applied to every page with the `/wiki/` segment in the URL: `/wiki/getting-started`, `/wiki/styles`, etc.
 
 In the following image, content belonging to the layout is outlined in blue, while the page-specific content is outlined in red. 
 
 :::image type="content" source="media/developer-portal-overview/pages-layouts.png" alt-text="Screenshot of layout content in the developer portal." :::
-
-The pre-provisioned content in the developer portal showcases pages with commonly used features. You can modify the content of these pages or add new ones to suit your needs.
 
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
