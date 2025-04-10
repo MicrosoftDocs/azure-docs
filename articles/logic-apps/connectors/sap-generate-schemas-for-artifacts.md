@@ -176,7 +176,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-standard.png" alt-text="Screenshot shows Standard workflow, Generate Schema action, and IDoc artifact information." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-standard.png":::
 
-   For more information about schemas for this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+   For more information about the schemas for this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
