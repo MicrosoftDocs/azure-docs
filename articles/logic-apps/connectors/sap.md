@@ -240,7 +240,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   1. On the **Inbound options** tab, under **Processing by Function Module**, change the setting to **Trigger by background program** from **Trigger immediately**.
 
-     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://userapps.support.sap.com/sap/support/knowledge/1777090).
+     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP KB Article 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20](https://userapps.support.sap.com/sap/support/knowledge/1777090).
 
   For more information, see the following resources:
 
