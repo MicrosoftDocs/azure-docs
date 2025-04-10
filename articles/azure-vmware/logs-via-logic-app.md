@@ -60,7 +60,7 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-8.png" alt-text="Screenshot showing the Event Hubs connection portion of the Azure VMware Solution template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-8.png":::
 
-5. In a separate brower tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
+5. In a separate browser tab, open the Event Hub instance that contains the log messages. Select **Settings**, then click on **Shared access policies**. Select **RootManagerSharedAccessKey** and click on the copy icon next to **Primary connection string**.
     
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-9.png" alt-text="Screenshot showing the Primary connection string on Azure Event Hub." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-9.png":::
 
