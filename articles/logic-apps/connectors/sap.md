@@ -276,7 +276,8 @@ The SAP system-required network connectivity includes the following servers and 
 
 Redirection of requests from Application Server, Dispatcher service to Gateway Server, Gateway service automatically happens within the SAP .NET Connector (NCo) library. This redirection occurs even if only the Application Server, Dispatcher service information is provided in the connection parameters.
 
-If you use a load balancer in front of your SAP system, you must redirect all the services to their respective servers. 
+If you use a load balancer in front of your SAP system, you must redirect all the services to their respective servers.
+
 For more information about SAP services and ports, see [TCP/IP Ports of All SAP Products](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16).
 
 > [!NOTE]
