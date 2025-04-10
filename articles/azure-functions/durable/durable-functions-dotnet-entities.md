@@ -72,7 +72,7 @@ The `Run` function contains the boilerplate required for using the class-based s
 The `EntityTrigger` Function, `Run` in this sample, doesn't need to reside within the Entity class itself. It can reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. However, if nested deeper (e.g, the Function is declared inside a *nested* class), then this Function won't be recognized by the latest runtime.
 
 > [!NOTE]
-> The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
+> The state of a class-based entity is **created implicitly** before the entity processes an operation and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
 ::: zone-end
 
 ::: zone pivot="isolated"

@@ -557,8 +557,8 @@ For more information, see [Configure a proxy](connect-sensors.md#configure-proxy
 
 ### Enrich Windows workstation and server data with a local script (Public preview)
 
-Use a local script, available from the OT sensor UI, to enrich Microsoft Windows workstation and server data on your OT sensor. The script runs as a utility to detect devices and enrich data, and can be run manually or using standard automation tools.
- 
+Use a local script, available from the OT sensor UI, to enrich Microsoft Windows workstation and server data on your OT sensor. The script runs as a utility to detect devices and enrich data and can be run manually or by using standard automation tools.
+
 For more information, see [Enrich Windows workstation and server data with a local script](detect-windows-endpoints-script.md).
 
 ### Automatically resolved OS notifications

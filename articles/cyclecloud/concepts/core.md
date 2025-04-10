@@ -54,7 +54,7 @@ Additionally, CycleCloud provides the following features:
 
 - **Monitoring**
 
-    Node-level metrics are collected and displayed in the CycleCloud UI. These are useful for monitoring the load on the system, and can be hooked into reporting and alerting services.
+    Node-level metrics are collected and displayed in the CycleCloud UI. These are useful for monitoring the load on the system and can be hooked into reporting and alerting services.
 
 - **Logging**
 

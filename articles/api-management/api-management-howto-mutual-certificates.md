@@ -69,7 +69,7 @@ After the certificate is uploaded, it shows in the **Certificates** window. If y
 > This change is effective immediately, and calls to operations of that API will use the certificate to authenticate on the backend server.
 
 > [!TIP]
-> When a certificate is specified for gateway authentication for the backend service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.
+> When a certificate is specified for gateway authentication for the backend service of an API, it becomes part of the policy for that API and can be viewed in the policy editor.
 
 ## Disable certificate chain validation for self-signed certificates
 

@@ -137,7 +137,7 @@ The interactive Azure Maps map controls use vector tiles in the map styles to po
 | Map style  | Color contrast | Screen reader | Notes |
 |------------|----------------|---------------|-------|
 | `blank` | N/A | No | A blank canvas useful for developers who want to use their own tiles as the base map, or want to view their data without any background. The screen reader doesn't rely on the vector tiles for descriptions.  |
-| `blank_accessible` | N/A  | Yes | This map style continues to load the vector tiles used to render the map, but makes that data transparent. This way the data still loads, and can be used to power the screen reader. |
+| `blank_accessible` | N/A  | Yes | This map style continues to load the vector tiles used to render the map, but makes that data transparent. This way the data still loads and can be used to power the screen reader. |
 | `grayscale_dark` | Partial | Yes | Primarily designed for business intelligence scenarios. Also useful for overlaying colorful layers such as weather radar imagery. |
 | `grayscale_light` | Partial | Yes | This map style is primarily designed for business intelligence scenarios. |
 | `high_contrast_dark` | Yes | Yes | Fully accessible map style for users in high contrast mode with a dark setting. When the map loads, high contrast settings are automatically detected. |

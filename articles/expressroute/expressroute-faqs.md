@@ -379,7 +379,7 @@ The following tables show the ExpressRoute limits and the number of VNets and Ex
 
 ### How do I enable ExpressRoute premium?
 
-ExpressRoute premium features can be enabled when the feature is enabled, and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time, or can call the REST API / PowerShell cmdlet.
+ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time, or can call the REST API / PowerShell cmdlet.
 
 ### How do I disable ExpressRoute premium?
 

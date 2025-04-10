@@ -131,7 +131,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 ### Example 2: Adding a publicIpAddress endpoint using `New-AzTrafficManagerEndpoint`
 
-In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
+In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured and can be bound either to the NIC of a VM or to a load balancer.
 
 ```powershell
 $ip = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG

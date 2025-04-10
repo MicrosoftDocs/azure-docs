@@ -115,7 +115,7 @@ Generally speaking, each entity insight displayed on the entity page is accompan
 
 ## How to use entity pages
 
-Entity pages are designed to be part of multiple usage scenarios, and can be accessed from incident management, the investigation graph, bookmarks, or directly from the entity search page under **Entity behavior** in the Microsoft Sentinel main menu.
+Entity pages are designed to be part of multiple usage scenarios and can be accessed from incident management, the investigation graph, bookmarks, or directly from the entity search page under **Entity behavior** in the Microsoft Sentinel main menu.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Diagram of areas from which you can access entity pages, corresponding with use cases.":::
 

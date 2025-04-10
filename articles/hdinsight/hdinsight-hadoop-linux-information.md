@@ -218,7 +218,7 @@ Script Actions are Bash scripts. The scripts run during cluster creation, and ar
 
 ### Jar files
 
-Some Hadoop technologies provide self-contained jar files. These files contain functions used as part of a MapReduce job, or from inside Pig or Hive. They often don't require any setup, and can be uploaded to the cluster after creation and used directly. If you want to make sure the component survives reimaging of the cluster, store the jar file in the cluster default storage.
+Some Hadoop technologies provide self-contained jar files. These files contain functions used as part of a MapReduce job, or from inside Pig or Hive. They often don't require any setup and can be uploaded to the cluster after creation and used directly. If you want to make sure the component survives reimaging of the cluster, store the jar file in the cluster default storage.
 
 For example, if you want to use the latest version of [Apache DataFu](https://datafu.incubator.apache.org/), you can download a jar containing the project and upload it to the HDInsight cluster. Then follow the DataFu documentation on how to use it from Pig or Hive.
 

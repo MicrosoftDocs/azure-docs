@@ -51,7 +51,7 @@ To manually update mobility agent on multiple protected items, follow these step
    >If prerequisites to upgrade Mobility service aren't met, then the virtual machine can't be selected. See information on [how to resolve](#resolve-blocking-issues-for-agent-upgrade).
 
 
-4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation, and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
+4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
 
 ### Update mobility agent for a single protected machine through portal
 

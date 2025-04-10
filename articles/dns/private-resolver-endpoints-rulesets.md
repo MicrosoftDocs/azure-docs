@@ -133,7 +133,7 @@ The ruleset link design scenario is best suited to a [distributed DNS architectu
 
 ### Inbound endpoints as custom DNS
 
-**Inbound endpoints** are able to process inbound DNS queries, and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
+**Inbound endpoints** are able to process inbound DNS queries and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
 
 The custom DNS design scenario is best suited to a [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture) where DNS resolution and network traffic flow are mostly to a hub VNet, and is controlled from a central location. 
 

@@ -215,7 +215,7 @@ Order = 1 # optional
 
 This would apply both the `common` and `scheduler` specs to the scheduler node, while only applying the `common` and `execute` specs to the execute nodearray.
 
-By default, the specs will be run in the order they are shown in the template, running inherited specs first. `Order` is an optional integer set to a default of 1000, and can be used to define the order of the specs.
+By default, the specs will be run in the order they are shown in the template, running inherited specs first. `Order` is an optional integer set to a default of 1000 and can be used to define the order of the specs.
 
 If only one name is specified in the `[[[cluster-init]]]` definition, it will be assumed to be the spec name. For example:
 

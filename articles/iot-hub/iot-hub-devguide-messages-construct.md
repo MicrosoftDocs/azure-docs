@@ -35,7 +35,7 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 
 * Device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days.
 
-* Device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
+* Device-to-cloud messages can be at most 256 KB and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
 
 * IoT Hub doesn't allow arbitrary partitioning. Device-to-cloud messages are partitioned based on their originating **deviceId**.
 
