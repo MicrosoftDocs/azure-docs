@@ -62,4 +62,4 @@ For more information about the sample applications, see GitHub Azure Samples [Ma
 
 ## Related articles
 
-[Azure managed applications overview](https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview)
+[Azure managed applications overview](/azure/azure-resource-manager/managed-applications/overview)
