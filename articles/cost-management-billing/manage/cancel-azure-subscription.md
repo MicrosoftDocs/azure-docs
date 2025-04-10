@@ -140,7 +140,9 @@ The **Delete subscription** option isn't available until **3 days** (shown in sc
 1. Select your subscription on the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
 1. Select the subscription that you want to delete.
 1. At the top of the subscription page, select **Delete**.  
-![Screenshot of 3 days delay for deleting subscriptions.](media/cancel-azure-subscription/delete-subscription-3-days.png)
+![Screenshot of 3 days delay for deleting subscriptions.](media/cancel-azure-subscription/cancel-subscription-3-days.png)
+
+
 
 
 1. If necessary, type the name of the subscription and then select **Delete**.
