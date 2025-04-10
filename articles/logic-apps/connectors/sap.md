@@ -208,7 +208,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
     **Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <*host-name*> not allowed**
 
-    For more information, review [SAP Note 1850230 - GW: "Registration of tp \<program ID\> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/1850230).
+    For more information, see [SAP KB Article 1850230 - GW: "Registration of tp \<program ID\> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/1850230).
 
   * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help article for setting up gateway logging](https://help.sap.com/docs/SAP_NETWEAVER_731_BW_ABAP/62b4de4187cb43668d15dac48fc00732/48b2a710ca1c3079e10000000a42189b.html?version=7.31.25).
 
