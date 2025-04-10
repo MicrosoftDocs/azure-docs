@@ -76,7 +76,7 @@ python -m pip install azure-health-deidentification
 ```
 
 ## Test the service
-In terminal, [login to Microsoft azure.](https://learn.microsoft.com/cli/azure/authenticate-azure-cli) 
+In terminal, [log in to Microsoft azure.](https://learn.microsoft.com/cli/azure/authenticate-azure-cli) 
 Now, write “python” to open a python shell and paste the following code. 
 Be sure to replace your Service URL with the URL you noted when creating a resource. 
 You can also change the operation type between REDACT, TAG, or SURROGATE.
