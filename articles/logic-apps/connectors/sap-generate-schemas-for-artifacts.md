@@ -9,7 +9,7 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/09/2025
 
-#customer intent: As a developer, I want to explore sample SAP artifacts so I can use the artifacts with workflows in Azure Logic Apps.
+#customer intent: As a developer, I want to create a workflow that can generate schemas for SAP artifacts by using Azure Logic Apps.
 ---
 
 # Generate schemas for SAP artifacts in Azure Logic Apps
