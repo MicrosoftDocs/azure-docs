@@ -273,7 +273,7 @@ To copy data from Vertica, set the source type in the copy activity to **Vertica
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## <a name="#upgrade-the-vertica-version"></a> Upgrade the Vertica connector
+## <a name="upgrade-the-vertica-version"></a> Upgrade the Vertica connector
 
 Here are steps that help you upgrade your Vertica version: 
 
