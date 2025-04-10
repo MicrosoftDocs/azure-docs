@@ -1090,7 +1090,7 @@ You can control this tracing capability at the application level by adding the f
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
-In the August 2021 (and later) update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](/azure/azure-monitor/app/app-insights-overview). This feature is a capability in Azure Monitor. The telemetry primarily includes the following data:
+Starting with the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](/azure/azure-monitor/app/app-insights-overview). This feature is a capability in Azure Monitor. The telemetry primarily includes the following data:
 
 * Metrics and traces based on SAP NCo metrics and monitors
 * Traces from Microsoft SAP Adapter
