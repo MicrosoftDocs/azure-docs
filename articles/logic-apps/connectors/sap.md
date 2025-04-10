@@ -244,7 +244,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   For more information, see the following resources:
 
-  * [SAP Support Note 1845390 - Poor performance when posting IDocs with report RBDAPP01 - SAP for Me](https://userapps.support.sap.com/sap/support/knowledge/1845390)
+  * [SAP KB Article 1845390 - Poor performance when posting IDocs with report RBDAPP01](https://userapps.support.sap.com/sap/support/knowledge/1845390)
   * [Improving ALE Performance (Optimise processing of inbound and outbound idocs) - SAP for Me](https://help.sap.com/docs/SUPPORT_CONTENT/abapconn/3354079741.html)
 
 <a name="network-prerequisites"></a>
