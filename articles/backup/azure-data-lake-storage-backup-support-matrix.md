@@ -29,19 +29,19 @@ The following table lists the supported storage account details:
 
 ## Protection limits
 
-The following table lists the protection setting limit:
+The following table lists the protection limits:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------------------------------------------ | ----- |
 | Maximum number of containers in a storage account that can be protected | 100 |
 | Vault redundancy              | LRS/ZRS|
 
-### Support scenarios for protection
+### Supported and unsupported scenarios for Azure Data Lake Storage Gen2 protection (preview)
 
 Azure Data Lake Storage Gen2 protection (preview) has the following supported and unsupported scenarios:
 
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
-- The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
+- The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
 - The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2). 
 - If you delete and recreate a container with the same name, **Object Replication** doesn't track the change, and future Recovery Points still include the previous blobs and versions.
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
@@ -52,7 +52,7 @@ Azure Data Lake Storage Gen2 protection (preview) has the following supported an
 
 ## Backup limits
 
-The following table lists the Backup setting limits:
+The following table lists the Backup limits:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------ | ------------------------------------------------------------ |
@@ -64,7 +64,7 @@ The following table lists the Backup setting limits:
 
 ## Retention limits
 
-The following table lists the Retention setting limits:
+The following table lists the Retention limits:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------ | ------------------------------------------------------------ |
@@ -73,9 +73,9 @@ The following table lists the Retention setting limits:
 | Maximum retention of monthly recovery points             | 120 months|
 | Maximum retention of yearly recovery points             | 10 years|
 
-## Supported restore methods
+## Restore method limits
 
-The following table lists the Retention setting limits:
+The following table lists the restore method limits:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------ | ------------------------------------------------------------ |

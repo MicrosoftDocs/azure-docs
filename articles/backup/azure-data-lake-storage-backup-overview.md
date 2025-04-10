@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 
 # About Azure Data Lake Storage Gen2 vaulted backup (preview)
 
-[Azure Data Lake Storage (ADLS)](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup (preview) is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
+[Azure Data Lake Storage (ADLS)](/azure/storage/blobs/data-lake-storage-introduction) Gen2 vaulted backup (preview) is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
 
 >[!Note]
 >- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
@@ -28,9 +28,9 @@ When you configure protection, Azure Backup sets up a destination storage accoun
 
 Learn about the [supported scenarios and limitations for Azure Data Lake Storage Gen2 backup](azure-data-lake-storage-backup-support-matrix.md).
 
-## ADLS backup configuration and retention
+## ADLS Gen2 backup configuration and retention (preview)
 
-The ADLS backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level, with the option to exclude containers. 
+The ADLS Gen2 backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level, with the option to exclude containers. 
 >[!Note]
 >If an account has over 100 containers, reduce the count to **<= 100**. Learn [about the supported container count for backup](azure-data-lake-storage-backup-support-matrix.md#protection-limits).
 
@@ -44,7 +44,7 @@ Azure Backup automatically runs scheduled jobs, replicating block blobs from the
 
 ### Backup management 
 
-After the ADLS backup configuration is complete, a backup instance is created in the Backup vault. Use it to initiate restores, monitor activity, stop protection, and perform other backup operations.
+After the ADLS Gen2 backup configuration is complete, a backup instance is created in the Backup vault. Use it to initiate restores, monitor activity, stop protection, and perform other backup operations.
 
 The Backup vault's managed identity needs specific permissions on storage accounts for backup and restore operations. These permissions are bundled into the **Storage Account Backup Contributor** role for ease of management.
 
@@ -53,7 +53,7 @@ Learn more about [managed identities](/azure/active-directory/managed-identities
 
 ### Restoration from backups
 
-You can restore data from any point in time where a recovery point exists. Recovery points are created when a storage account is in a protected state, and remain available for restoration as long as they fall within the retention period defined by the backup policy. You can choose to perform a granular recovery by selecting specific containers, applying a prefix-based filter, or restore the entire storage account.
+You can restore data from any point in time where a recovery point exists. Recovery points are created when a storage account is in a protected state, and remain available for restoration as long as they fall within the retention period defined by the backup policy. You can do a granular recovery by selecting specific containers, applying a prefix-based filter, or restore the entire storage account.
 
 
 Azure Backup allows restoring data from any recovery point within the retention period set by the backup policy. Recovery points are created when the storage account is in protected state, and can be used to restore until they expire as per the retention policy. This solution allows performing granular recovery by selecting containers, applying a prefix-based filter, or restoring the full storage account.
