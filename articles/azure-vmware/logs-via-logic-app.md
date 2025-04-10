@@ -16,6 +16,8 @@ Azure Logic Apps enables you to automate workflows by integrating various Azure 
 
 In this article, learn how to configure an Azure Logic Apps workflow to capture VMware syslogs and send them to your chosen log management service.
 
+:::image type="content" source="media/logs-to-logic-app/logic-app-arch-diagram.png" alt-text="Architecture flow of Azure VMware Solution logs to syslog server via Azure Logic Apps." border="false"  lightbox="media/logs-to-logic-app/logic-app-arch-diagram.png":::
+
 ## Prerequisites
 
 Make sure you have an Azure VMware Solution private cloud set up that is streaming its syslogs to an Azure Event Hubs instance. 
