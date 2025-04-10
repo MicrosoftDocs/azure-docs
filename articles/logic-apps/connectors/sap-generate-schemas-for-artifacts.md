@@ -1,5 +1,5 @@
 ---
-title: SAP Artifact Schemas
+title: Generate Schemas for SAP Artifacts via Workflows
 description: Create a workflow to generate schemas for SAP artifacts by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
