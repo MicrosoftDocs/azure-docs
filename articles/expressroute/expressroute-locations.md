@@ -80,7 +80,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |&check; |&check; | Miami |
 | **Cloudflare** |&check; |&check; | Los Angeles |
 | **[Cologix](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** | &check; | &check; | Chicago<br/>Dallas<br/>Minneapolis<br/>Montreal<br/>Toronto<br/>Vancouver<br/>Washington DC |
-| **[Colt](https://www.colt.net/direct-connect/azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Berlin<br/>Chicago<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong<br/>London<br/>London2<br/>Marseille<br/>Milan<br/>Munich<br/>Newport<br/>Osaka<br/>Paris<br/>Paris2<br/>Seoul<br/>Silicon Valley<br/>Singapore2<br/>Tokyo<br/>Tokyo2<br/>Washington DC<br/>Zurich |
+| **[Colt](https://www.colt.net/product/direct-connect/azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Berlin<br/>Chicago<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong<br/>London<br/>London2<br/>Marseille<br/>Milan<br/>Munich<br/>Newport<br/>Osaka<br/>Paris<br/>Paris2<br/>Seoul<br/>Silicon Valley<br/>Singapore2<br/>Tokyo<br/>Tokyo2<br/>Washington DC<br/>Zurich |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** | &check; | &check; | Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | &check; | &check; | Chicago<br/>Chicago2<br/>Denver<br/>Los Angeles<br/>New York<br/>Silicon Valley<br/>Silicon Valley2<br/>Washington DC<br/>Washington DC2 |
 | **[Cox Business Cloud Port](https://www.cox.com/business/networking/cloud-connectivity.html)** | &check; | &check; | Dallas<br/>Phoenix<br/>Silicon Valley<br/>Washington DC |
@@ -361,7 +361,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
-| **[Spectrum Enterprise](https://enterprise.spectrum.com/services/internet-networking/wan/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 
+| **[Spectrum Enterprise](https://enterprise.spectrum.com/products/networking/connectivity/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 
 | **[Tamares Telecom](https://www.tamarestelecom.com/services/)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
 | **[TDC Erhverv](https://tdc.dk/)** | Equinix | Amsterdam | 
@@ -431,7 +431,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australia |
 | **[MOQdigital](https://www.brennanit.com.au/solutions/cloud-services/)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
-| **[Nelite](https://www.exakis-nelite.com/offres/)** | Europe |
+| **[Nelite](https://www.exakis-nelite.com/cloud-infrastructure-management/)** | Europe |
 | **[New Signature](https://www.cognizant.com/us/en/services/cloud-solutions/microsoft-business-group)** | Europe |
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Asia |
 | **Orange Networks** | Europe |
