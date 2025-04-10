@@ -1,5 +1,5 @@
 ---
-title:  Microsoft Azure Maps Weather services coverage
+title:  Microsoft Azure Maps Weather service coverage
 description: Learn about Microsoft Azure Maps Weather services coverage
 author: farazgis
 ms.author: fsiddiqui
@@ -10,7 +10,7 @@ ms.subservice: weather
 ms.custom: references_regions
 ---
 
-# Azure Maps Weather services coverage
+# Azure Maps Weather service coverage
 
 This article provides coverage information for Azure Maps [Weather services].
 
