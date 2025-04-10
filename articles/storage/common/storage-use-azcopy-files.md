@@ -193,7 +193,7 @@ In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the 
 azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-path 'photos;documents/myFile.txt' --preserve-permissions=true --preserve-info=true --nfs
 ```
 
-In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
+In this example, AzCopy transfers the `/myDirectory/photos` directory and the `/myDirectory/documents/myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `/myDirectory/photos` directory.
 
 ---
 
