@@ -163,7 +163,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
     <!-- Reviewer: Link for 460089 returns 404 within SAP site. Recommend replacement. -->
 
-    For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDoc), review the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089).
+    For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDoc), see [SAP Note: 460089 - Minimum authorization profiles for external RFC programs](https://me.sap.com/notes/460089).
 
   * Your SAP user account needs access to the `RFC_METADATA` function group and the respective function modules for the following operations:
 
