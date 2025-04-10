@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 monikerRange: migrate
 ---
 
-# Review an Azure VMware Solution (AVS) assessment
+# Tutorial: Review an Azure VMware Solution (AVS) assessment
 
 An Azure VMware Solution (AVS) assessment describes:
 
@@ -39,7 +39,7 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
 
 2. Review the server status:
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
-    - **Ready with conditions**: There might be some compatibility issues, for example, internet protocol or deprecated OS in VMware, and need to be remediated before migrating to Azure VMware Solution. To fix any readiness issuesc, follow the remediation guidance the assessment suggests.
+    - **Ready with conditions**: There might be some compatibility issues, for example, internet protocol or deprecated OS in VMware, and need to be remediated before migrating to Azure VMware Solution. To fix any readiness issues, follow the remediation guidance the assessment suggests.
     - **Not ready for AVS**: The VM will not start in AVS. For example, if the on-premises VMware VM has an external device attached such as a cd-rom the VMware vMotion operation will fail (if using VMware vMotion).
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 

@@ -51,7 +51,7 @@ To view tags, select the workload for which you wish to view the tags assigned.
 
 To filter using tags, follow these steps:
 
-1.	Select **Add filter** button beside the search bar.
+1.	Select **Add filter** beside the search bar.
 
 2.	Select the tag key that you want to filter with.
 

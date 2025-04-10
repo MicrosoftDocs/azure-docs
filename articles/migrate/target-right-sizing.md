@@ -4,7 +4,7 @@ description: Describes how Azure Migrate provides sizing recommendations for the
 author: rashi-ms
 ms.author: v-uhabiba
 ms.service: azure-migrate
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/26/2025
 monikerRange: migrate
 ---
@@ -37,7 +37,7 @@ If you use the appliance for discovery, it collects performance data directly fr
 
 3. The assessment stores all the 10-minute data points for the last month. All the peaks are arranged in the ascending order to identify the appropriate data point to use for right sizing.  
 
-### How is performance data collected for import-based discovery?  
+### Performance data collected for import-based discovery  
 
 If you import servers using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS, and throughput) are used if you choose performance-based sizing. You won't be able to provide performance history and percentile information.  
 
@@ -45,7 +45,7 @@ This method is especially helpful if you've over-allocated the on-premises serve
 
 If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.  
 
-### How is the performance data used for right-sizing? 
+### Performance data used for right-sizing
 
 When you create an assessment, the assessment identifies the appropriate level of utilization to consider for right-sizing. It's identified based on the performance history and percentile utilization. The performance history specifies the duration used when performance data is evaluated, and percentile utilization specifies the percentile value of the performance sample used for right-sizing. 
 

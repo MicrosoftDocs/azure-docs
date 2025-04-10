@@ -17,7 +17,7 @@ This article describes the various components of an Azure VM assessment and how 
 
 Once you create the Azure VM assessment, you can review it at **Decide and plan** > **Assessments** > **Workloads**.  
 
-If it's a performance-based assessment with servers discovered using appliance, you can review the confidence rating of the assessment before you look at the report. The confidence rating is an indicator of the quality of the data that was available for creating assessments. [Learn more](confidence-ratings.md)
+If it's a performance-based assessment with servers discovered using appliance, you can review the confidence rating of the assessment before you look at the report. The confidence rating is an indicator of the quality of the data that was available for creating assessments. [Learn more](confidence-ratings.md).
 
 On the **Overview** page, you can review the overall readiness and estimated monthly cost of hosting the VMs on Azure after migration using the lift and shift method. 
 
@@ -28,9 +28,9 @@ For each source server, you can review the Azure readiness. Azure readiness is d
 
 - **Ready for Azure**: The workloads can be migrated as-is to Azure without any changes. It will start in Azure with full Azure support. 
 
-- **Conditionally ready for Azure**: The workloads might start in Azure but might not have full Azure support. For example, Azure doesn't support a server that's running an old version of Windows Server. You must be careful before you migrate these servers to Azure. To fix any readiness issue, follow the remediation guidance the assessment suggests. 
+- **Conditionally ready for Azure**: The workloads might start in Azure but might not have full Azure support. For example, Azure doesn't support a server that's running an old version of Windows Server. You must be careful before you migrate these servers to Azure. To fix any readiness issues, follow the remediation guidance the assessment suggests. 
 
-- **Not ready for Azure**: The server won't start in Azure. For example, if an on-premises server's disk stores more than 64 TB, Azure can't host the server. Follow the remediation guidance to fix the issue before migration. 
+- **Not ready for Azure**: The server won't start in Azure. For example, if an on-premises server's disk stores more than 64 TB, Azure can't host the server. Follow the remediation guidance to fix the issues before migration. 
 
 - **Readiness unknown**: Azure Migrate can't determine the readiness of the server because of insufficient metadata. 
 
@@ -134,7 +134,7 @@ The cost for Standard or Premium disks is calculated based on the selected/recom
 
 ### Ultra disk 
 
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](/pricing/details/managed-disks/)
+The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](/pricing/details/managed-disks/).
 
 The cost is calculated using the following logic: 
 
@@ -142,7 +142,7 @@ The cost is calculated using the following logic:
 - Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price.
 - Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price.
 
-The Ultra disk VM reservation fee isn't added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/) 
+The Ultra disk VM reservation fee isn't added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 The assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings. 
 

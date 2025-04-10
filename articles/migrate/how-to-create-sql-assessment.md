@@ -14,13 +14,6 @@ ms.custom: engagement-fy23
 
 This article to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive recommended target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
 
-In this article, you'll learn how to:
-
-* Set up your Azure Migrate environment to assess web applications.
-* Select a set of related applications discovered using Azure Migrate appliance.
-* Provide assessment configuration, including preferred Azure targets, target regions, and Azure reserved instances.
-* Create a web assessment with a recommended modernization path.
-
 ## Prerequisites
 
 * Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
@@ -29,23 +22,23 @@ In this article, you'll learn how to:
 
 ## Create a workload assessment for webapps
 
-1. On the **Azure Migrate** project overview page, under **Decide and plan**, select **Assessments**
+1. On the **Azure Migrate** project overview page, under **Decide and plan**, select **Assessments**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text=" Screenshot of assessment page on how to sql create an assessment.":::
 
-1. In **Assessments** page, select **Create assessment**
+1. In **Assessments** page, select **Create assessment**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/create-assessment.png" alt-text="Screenshot of assessment page on how to create an assessment.":::
 
-1. Provide a suitable name for the assessment, then select **Add workloads**
+1. Provide a suitable name for the assessment, then select **Add workloads**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Screenshot of sql assessment page on how to add the workloads.":::
 
-1. Use the appropriate filters, select the webapp and then select **Add**
+1. Use the appropriate filters, select the webapp and then select **Add**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Screenshot of sql assessment page on how to select webapp and add.":::
 
-1. **Review the selected workloads** and then select **Next**.
+1. Select **Review the selected workloads** and then select **Next**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Screenshot of sql assessment page on how to review the selected workloads.":::
 

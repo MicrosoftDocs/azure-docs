@@ -95,7 +95,7 @@ The assessment aggregates all the configuration and performance data to identify
 
 **As on-premises sizing calculation**
 
-The instances to SQL Server on Azure VM assessment report outline the ideal approach for migrating SQL Server instances to SQL Server on Azure VM, adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size)
+The instances to SQL Server on Azure VM assessment report outline the ideal approach for migrating SQL Server instances to SQL Server on Azure VM, adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
 
 **Storage sizing**
 
@@ -119,7 +119,7 @@ After identifying storage disks, the assessment considers CPU and memory require
 
 ## Performance-based sizing calculation
 
-If the source is a SQL Server Always On Failover Cluster Instance (FCI), the assessment report outlines the approach for migrating to a two-node SQL Server Failover Cluster Instance. This approach preserves high availability and disaster recovery objectives while adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices?view=azuresql&preserve-view=true&tabs=windows2012)
+If the source is a SQL Server Always On Failover Cluster Instance (FCI), the assessment report outlines the approach for migrating to a two-node SQL Server Failover Cluster Instance. This approach preserves high availability and disaster recovery objectives while adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices?view=azuresql&preserve-view=true&tabs=windows2012).
 
 **Storage sizing**
 

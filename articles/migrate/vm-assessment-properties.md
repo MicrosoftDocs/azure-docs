@@ -25,7 +25,7 @@ This section describes the various components that are part of an assessment.
 | | **Azure Hybrid Benefit**| Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](/pricing/hybrid-benefit/) to use your existing OS licenses. For Azure VM assessments, you can bring in both Windows and Linux licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing.  |
 
 > [!Note] 
-> In Azure Government, it is important to review the [[supported target](supported-geographies.md)] assessment locations. VM size recommendations in assessments will use the VM series specifically designed for Government Cloud regions.  [Learn more](/explore/global-infrastructure/products-by-region/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines).
+> In Azure Government, it is recommended to review the [[supported target](supported-geographies.md)] assessment locations. VM size recommendations in assessments will use the VM series specifically designed for Government Cloud regions.  [Learn more](/explore/global-infrastructure/products-by-region/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines).
 
 ## Next Steps
 [Review](best-practices-assessment.md) the best practices for creating an assessment with Azure Migrate. 
