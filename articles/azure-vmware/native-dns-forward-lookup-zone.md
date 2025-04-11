@@ -1,20 +1,20 @@
 ---
 title: Private and Public DNS forward lookup zone configuration
-description: Learn about DNS forward lookup zone for Azure VMware Solution in an Azure Virtual Network.
+description: Learn about DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/14/2025
 ms.custom: engagement-fy25
-# customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution in an Azure Virtual Network so that I can manage domain name resolution for private cloud appliances.
+# customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds so that I can manage domain name resolution for private cloud appliances.
 ---
 
 # Private and Public DNS forward lookup zone configuration
 
-In this article, you learn how to configure a Domain Name System (DNS) forward lookup zones for Azure VMware Solution private cloud appliances. It explains the options and behaviors for domain name resolution within an Azure Virtual Network. 
+In this article, you learn how to configure a Domain Name System (DNS) forward lookup zones for Azure VMware Solution Generation (Gen) 2 private cloud appliances. It explains the options and behaviors for domain name resolution within an Azure Virtual Network. 
 
 ## Prerequisite
 
-Azure VMware Solution private cloud successfully deployed in an Azure Virtual Network. 
+Gen 2 private cloud successfully deployed. 
 
 ## DNS forward lookup zone configuration options 
 
@@ -28,7 +28,7 @@ DNS forward lookup zone can be configured at the time of creation or changed aft
 
 :::image type="content" source="./media/native-connectivity/native-connect-dns-lookup.png" alt-text="Diagram showing an Azure VMware Solution DNS forward lookup." lightbox="media/native-connectivity/native-connect-dns-lookup.png":::
 
-## Configuring Private DNS for your Azure VMware Solution Private Cloud in an Azure Virtual Network  
+## Configuring Private DNS for your Azure VMware Solution Generation 2 Private Cloud  
  
 If you select the Private DNS option, the private cloud will be resolvable from the Virtual Network where the private cloud is provisioned. This is done by linking the private DNS zone to your Virtual Network. If you need to enable this zone to be resolvable outside of this Virtual Network, such as in your on-premises environment, you need to configure an Azure DNS Private Resolver, or deploy your own DNS server in your Virtual Network. Private DNS will use the Azure DNS Service (168.63.129.16) to resolve your private cloud FQDNs. This section explains configuring an Azure DNS Private Resolver. 
  
