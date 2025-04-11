@@ -883,7 +883,7 @@ az iot ops broker authn apply --resource-group <ResourceGroupName> --instance <A
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
 
-In this example, assume a configuration file named `my-authn-policy.json` with an Kubernetes SAT method is stored in the user's home directory:
+In this example, assume a configuration file named `my-authn-policy.json` with a Kubernetes SAT method is stored in the user's home directory:
 
 ```json
 {
@@ -900,7 +900,7 @@ In this example, assume a configuration file named `my-authn-policy.json` with a
 }
 ```
 
-An example command to create a new authentication policy named `my-policy` with an Kubernetes SAT method is as follows:
+An example command to create a new authentication policy named `my-policy` with a Kubernetes SAT method is as follows:
 
 ```azurecli
 az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-policy --config-file ~/my-authn-policy.json
@@ -1046,7 +1046,7 @@ az iot ops broker authn apply --resource-group <ResourceGroupName> --instance <A
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
 
-In this example, assume a configuration file named `my-authn-policy.json` with an custom method is stored in the user's home directory:
+In this example, assume a configuration file named `my-authn-policy.json` with a custom method is stored in the user's home directory:
 
 ```json
 {
@@ -1078,7 +1078,7 @@ In this example, assume a configuration file named `my-authn-policy.json` with a
 }
 ```
 
-An example command to create a new authentication policy named `my-policy` with an Kubernetes SAT method is as follows:
+An example command to create a new authentication policy named `my-policy` with a Kubernetes SAT method is as follows:
 
 ```azurecli
 az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-policy --config-file ~/my-authn-policy.json
