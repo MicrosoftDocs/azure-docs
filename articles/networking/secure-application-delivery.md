@@ -1,8 +1,8 @@
 ---
 title: Choose a secure application delivery service
 description: Learn how you can use a decision tree to help choose a secure application delivery service.
-author: duongau
-ms.author: duau
+ms.author: mbender
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/17/2024

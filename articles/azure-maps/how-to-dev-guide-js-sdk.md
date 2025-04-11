@@ -70,10 +70,10 @@ mapsDemo
 
 ## Create and authenticate a MapsSearchClient
 
-You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either a Microsoft Entra credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
+You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps Search APIs. You can use either a Microsoft Entra credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
 
 > [!TIP]
-> The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search client library][JS-SDK] to learn more about the search methods available.
+> The`MapsSearchClient` is the primary interface for developers using the Azure Maps Search library. See [Azure Maps Search client library][JS-SDK] to learn more about the search methods available.
 
 <a name='using-an-azure-ad-credential'></a>
 

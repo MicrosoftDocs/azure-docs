@@ -31,9 +31,9 @@ const onload = () => {
     authOptions: {
       // Use Azure Active Directory authentication.
       authType: "aad",
-      clientId: "<Your Azure Maps Client Id>",
-      aadAppId: "<Your Azure Active Directory Client Id>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      clientId: "<Your Azure Maps Client ID>",
+      aadAppId: "<Your Azure Active Directory Client ID>",
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
@@ -48,7 +48,7 @@ const onload = () => {
     };
 
     // Create a Search client.
-    const client = MapsSearch(credential, "<Your Azure Maps Client Id>");
+    const client = MapsSearch(credential, "<Your Azure Maps Client ID>");
 
     // Create a data source and add it to the map.
     const datasource = new atlas.source.DataSource();
@@ -124,9 +124,9 @@ const onload = () => {
     authOptions: {
       // Use Azure Active Directory authentication.
       authType: "aad",
-      clientId: "<Your Azure Maps Client Id>",
-      aadAppId: "<Your Azure Active Directory Client Id>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      clientId: "<Your Azure Maps Client ID>",
+      aadAppId: "<Your Azure Active Directory Client ID>",
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
@@ -139,7 +139,7 @@ const onload = () => {
     const resultLayer = new atlas.layer.SymbolLayer(datasource);
     map.layers.add(resultLayer);
 
-    // Send a request to Azure Maps search API
+    // Send a request to Azure Maps Search API
     let url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1";
     url += "&query=gasoline%20station";
@@ -151,7 +151,7 @@ const onload = () => {
     fetch(url, {
       headers: {
         Authorization: "Bearer " + map.authentication.getToken(),
-        "x-ms-client-id": "<Your Azure Maps Client Id>"
+        "x-ms-client-id": "<Your Azure Maps Client ID>"
       }
     })
       .then((response) => response.json())

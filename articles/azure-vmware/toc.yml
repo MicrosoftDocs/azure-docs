@@ -298,6 +298,8 @@ items:
     href: using-run-command.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
+  - name: Send syslogs to log management solutions via Azure Logic Apps
+    href: logs-via-logic-app.md
   - name: Configure alerts and work with metrics
     href: configure-alerts-for-azure-vmware-solution.md
   - name: Configure Newest Metrics for Azure VMware Solution
