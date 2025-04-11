@@ -22,8 +22,8 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png)
 
-2. Select the `Create a community` button. The community deployment may take around 25 minutes to complete.
-3. Enter the basic details for your community:
+3. Select the `Create a community` button. The community deployment can take around 25 minutes to complete.
+4. Enter the basic details for your community:
    - **Subscription**: Select an Azure Subscription
    - **Resource Group**: Create a new or select an existing Resource group
    - **Community**: Name of the Community (for example `My-Community`)
@@ -34,8 +34,8 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
    
    ![Screenshot showing the create Community screen with the basics inputs for the tutorial environment.](./media/tutorial-step-one-create-community-screen-basics-input.png)
 
-4. Select `Next`.
-5. Customize your Policy Management settings as needed.
+5. Select `Next`.
+6. Customize your Policy Management settings as needed.
 
 ![Screenshot of Policy Management page where a user can manage policies on a selection of Azure services.](./media/community-creation-governance.png)
 
@@ -44,8 +44,8 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 > 
 > In the context of governance for Communities, the following settings can be specified for each service:
 > - Enforcement: This setting determines whether the rules defined for a service are actively enforced. When enforcement is enabled, any action that violates the rules will be blocked or flagged.
-> - Audit Mode: This option allows for the monitoring of services without actively enforcing the rules. It's useful for understanding the impact of potential governance policies by logging all actions that would violate the rules if enforcement were > enabled.
-> - Options: This setting declares wheter the service is:
+> - Audit Mode: This option allows for the monitoring of services without actively enforcing the rules. It's useful for understanding the change to potential governance policies by logging all actions that would violate the rules if enforcement were > enabled.
+> - Options: This setting declares whether the service is:
 > - - Allow: The service is allowed in the policies
 > - - Deny: The service isn't allowed in the policies
 > - - ExceptionOnly: The service isn't allowed in the policies, but manual [Policy Exemptions](../governance/policy/concepts/exemption-structure.md) can be made.
