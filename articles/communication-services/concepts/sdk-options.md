@@ -117,7 +117,7 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Xamarin Mac 3.8
 
 > [!NOTE]
-> [Unpackaged app](https://learn.microsoft.com/windows/apps/package-and-deploy/) is currently not supported
+> [Unpackaged app](/windows/apps/package-and-deploy/) is currently not supported
 
 #### SDK package size
 

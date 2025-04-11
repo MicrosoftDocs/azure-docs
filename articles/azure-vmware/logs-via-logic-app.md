@@ -22,7 +22,7 @@ In this article, learn how to configure an Azure Logic Apps workflow to capture 
 
 Make sure you have an Azure VMware Solution private cloud set up that is streaming its syslogs to an Azure Event Hubs instance. 
 
-[Configure VMware syslogs - Stream to Microsoft Azure Event Hubs](https://learn.microsoft.com/azure/azure-vmware/configure-vmware-syslogs#stream-to-microsoft-azure-event-hubs).
+[Configure VMware syslogs - Stream to Microsoft Azure Event Hubs](/azure/azure-vmware/configure-vmware-syslogs#stream-to-microsoft-azure-event-hubs).
 
 ## Create an Azure Logic Apps instance
 
