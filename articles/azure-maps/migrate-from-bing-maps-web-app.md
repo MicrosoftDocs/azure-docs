@@ -27,7 +27,7 @@ Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure
 
 If developing using a JavaScript framework, one of the following open-source projects can be useful:
 
-* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
 * [Azure Maps React Component] - A react wrapper for the Azure Maps control.
 * [Vue Azure Maps] - An Azure Maps component for Vue application.
@@ -1204,7 +1204,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 ### Show traffic data
 
-Traffic data can be overlaid both Bing and Azure maps.
+Traffic data can be overlaid both Bing and Azure Maps.
 
 **Before: Bing Maps**
 
@@ -1244,7 +1244,7 @@ If you select one of the traffic icons in Azure Maps, more information displays 
 
 ### Add a ground overlay
 
-Both Bing and Azure maps support overlaying georeferenced images on the map that they move and scale as you pan and zoom the map. In Bing Maps these are known as ground overlays, in Azure Maps they're referred to as image layers. Image layers are great for building floor plans, overlaying old maps, or imagery from a drone.
+Both Bing and Azure Maps support overlaying georeferenced images on the map that they move and scale as you pan and zoom the map. In Bing Maps these are known as ground overlays, in Azure Maps they're referred to as image layers. Image layers are great for building floor plans, overlaying old maps, or imagery from a drone.
 
 **Before: Bing Maps**
 
