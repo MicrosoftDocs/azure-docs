@@ -27,33 +27,37 @@ You can use the Durable Task Scheduler with the following orchestration framewor
 
 ## Architecture
 
-For all Durable Task Scheduler orchestration frameworks, instances of the Durable Task Scheduler can be created using Azure Resource Manager and are of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers). Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
+For all Durable Task Scheduler orchestration frameworks, you can create instances of the Durable Task Scheduler of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers) using Azure Resource Manager. Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
 
 - Dispatching orchestrator, activity, and entity work items
 - Storing and querying history at scale with minimal latency
 - Providing a rich monitoring experience through [the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
 
-Unlike [the BYO storage providers](../durable/durable-functions-storage-providers.md), the Durable Task Scheduler provider is a purpose-built backend-as-a-service optimized for the specific needs of the Durable Task Framework.
+Unlike [the BYO storage providers](../durable/durable-functions-storage-providers.md), the Durable Task Scheduler provider is a purpose-built backend-as-a-service optimized for the specific needs of the [Durable Task Framework](https://github.com/Azure/durabletask).
 
 The following diagram shows the architecture of the Durable Task Scheduler backend and its interaction with connected apps.
 
 :::image type="content" source="media/durable-task-scheduler/architecture.png" alt-text="Diagram of the Durable Task Scheduler architecture.":::
 
-### Separation of concerns
+### Operational separation
 
-The Durable Task Scheduler runs in Azure as a separate resource from the app. This separation allows the scheduler to scale independently of the app and provides better isolation between the two components. This isolation is important for several reasons:
+The Durable Task Scheduler runs in Azure as a separate resource from your app. This isolation is important for several reasons:
 
-- **Reduced resource consumption:** BYO storage providers can consume a significant amount of CPU and memory resources. This resource consumption is due to the overhead of managing partitions and other complex state store interactions. Using a managed scheduler instead of a BYO storage provider allows your app instances to run more efficiently and with less resource contention.
+- **Reduced resource consumption**  
+    Using a managed scheduler like Durable Task Scheduler reduces CPU and memory resource consumption caused by the overhead of managing partitions and other complex state store interactions. Using a managed scheduler (instead of a BYO storage provider, for example) allows your app instances to run more efficiently with less resource contention.
 
-- **Fault isolation:** Stability or availability issues in the Durable Task Scheduler won't affect the stability or availability of your connected apps. With BYO storage providers, instability in the backend provider (which is a complex component) can create instability in the app logic. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
+- **Fault isolation**  
+    when Durable Task Scheduler experiences stability or availability issues, it won't affect the stability or availability of your connected apps. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
 
-- **Independent scaling:** The scheduler resource can be scaled independently of the app, allowing for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, improving overall resource utilization. This capability is especially useful for organizations with multiple teams or projects that require Durable Functions.
+- **Independent scaling**  
+    The scheduler resource can be scaled independently of the app, allowing for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, improving overall resource utilization. This capability is especially useful for organizations with multiple teams or projects.
 
-- **Improved support experience:** The Durable Task Scheduler is a managed service, which means that Azure can provide better support and diagnostics for issues related to the scheduler. When using a BYO storage provider, you might need to troubleshoot issues related to the backend provider, which can be complex and time-consuming. A managed service allows Azure to take care of the underlying infrastructure and provide a more streamlined support experience.
+- **Improved support experience**  
+    The Durable Task Scheduler is a managed service, providing a more streamlined support and diagnostics for issues regarding the underlying infrastructure.
 
 ### App connectivity
 
-Your Durable Function apps connect to the scheduler resource via a gRPC connection. The endpoint address is in the form `{scheduler-name}.{region}.durabletask.io`. For example, `myscheduler-123.westus2.durabletask.io`. The connection is secured using TLS and the app's identity is used to authenticate the connection.
+Your apps connect to the scheduler resource via a gRPC connection, secured using TLS and authenticated by the app's identity. The endpoint address is in a format similar to `{scheduler-name}.{region}.durabletask.io`. For example, `myscheduler-123.westus2.durabletask.io`. 
 
 Work items are streamed from the scheduler to the app using a push model, removing the need for polling and improving end-to-end latency. Your apps can process multiple work items in parallel and send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
 
@@ -92,41 +96,6 @@ docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft
 > [!NOTE]
 > The emulator internally stores orchestration and entity state in local memory, so it isn't suitable for production use.
 
-## Work item throughput
-
-The Durable Task Scheduler was benchmarked against other storage providers, including the Azure Storage, MSSQL, and Netherite providers. The results show the Durable Task Scheduler provides better work item throughput than the other options, which translates into more orchestrator, entity, and activity tasks being processed in a given time period.
-
-The following table shows the results of a series of benchmarks ran to compare the relative throughput of the Durable Task Scheduler provider vs. the default Azure Storage provider. The Azure Storage provider was chosen as the comparison because it's currently the default and most commonly used backend option for Durable Function apps.
-
-:::image type="content" source="media/durable-task-scheduler/performance.png" alt-text="Bar chart comparing throughput of Durable Task Scheduler vs Azure Storage providers.":::
-
-> [!NOTE]
-> The results shown in the chart are for an early preview version of the Durable Task Scheduler feature, configured with the lowest available scale settings. The results are expected to improve as the backend provider matures and gets closer to general availability.
-
-To test the relative throughput of the backend providers, these benchmarks were run using a standard orchestrator function that calls five activity functions, one for each city, in a sequence. Each activity simply returns a "Hello, {cityName}!" string value and doesn't do any other work.
-
-The intent of the benchmark is to measure the overhead of each backend without doing anything too complicated. This type of sequential orchestration was chosen due to its commonality in function apps that include Durable Functions.
-
-### Test details
-
-The test consists of the following criteria:  
-
-- The function app used for this test runs on **one to four Elastic Premium EP2 instances**. 
-- The orchestration code was written in C# using the **.NET Isolated worker model on NET 8**. 
-- The same app was used for all storage providers, and the only change was the backend storage provider configuration.
-- The test is triggered using an HTTP trigger which starts **5,000 orchestrations concurrently**. 
-
-After the test completes, the throughput is calculated by dividing the total number of completed orchestrations by the total execution time. The test was run multiple times for each storage provider configuration to ensure the results were consistent.
-
-This benchmark showed that the Durable Task Scheduler is roughly **five times faster** than the Azure Storage provider. Your results might vary depending on:
-
-- The complexity of your orchestrations and activities
-- The number of orchestrations running concurrently
-- The size of the data payloads being passed between orchestrations and activities
-- Other factors such as the virtual machine size. 
-
-> [!NOTE]
-> These results are meant to provide a rough comparison of the relative performance of the storage provider backends at the time the test was run. These results shouldn't be taken as definitive.
 
 ## Limitations and considerations
 
