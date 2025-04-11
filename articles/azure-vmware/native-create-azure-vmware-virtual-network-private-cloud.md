@@ -77,3 +77,7 @@ az feature registration create --namespace "Microsoft.AVS" --name "FleetGreenfie
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of Succeeded when the deployment is finished. 
 1. Connect to vCenter and NSX Manager using the VMware credentials shown in your Private Cloud. For more information, see [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md). 
+
+## Next steps
+  
+- Learn more about [Azure VMware Solution Gen 2 private cloud design considerations](native-network-design-consideration.md)
