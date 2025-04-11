@@ -1,5 +1,5 @@
 ---
-title: Mount SMB Azure file share on macOS
+title: Mount an Azure file share on macOS
 description: Learn how to mount an Azure file share over SMB with macOS using Finder or Terminal.
 author: khdownie
 ms.service: azure-file-storage
@@ -8,9 +8,9 @@ ms.date: 12/13/2024
 ms.author: kendownie
 ---
 
-# Mount SMB Azure file share on macOS
+# Mount an Azure file share on macOS
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted with the industry standard SMB 3 protocol by macOS High Sierra 10.13+. This article shows two different ways to mount an Azure file share on macOS: with the Finder UI and using the Terminal.
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted with the industry standard SMB 3 protocol by macOS High Sierra 10.13+.
 
 > [!WARNING]
 > Mounting a file share using storage account keys carries inherent security risks. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md). Azure Files doesn't currently support using identity-based authentication to mount a file share on macOS.
@@ -42,12 +42,12 @@ ms.author: kendownie
 1. **Open Finder**: Finder is open on macOS by default, but you can ensure that it's the currently selected application by clicking the macOS face icon on the dock:  
     ![The macOS face icon](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-1. **Select "Connect to Server" from the "Go" Menu**: Using the UNC path, convert the beginning double backslash (`\\`) to `smb://` and all other backslashes (`\`) to forward slashes (`/`). Your link should look like the following:
+1. **Select "Connect to Server" from the "Go" Menu**: Using the UNC path, convert the beginning double backslash (`\\`) to `smb://` and all other backslashes (`\`) to forward slashes (`/`).
     ![The "Connect to Server" dialog](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 1. **Use the storage account name and storage account key when prompted for a username and password**: If desired, you can persist the storage account name and storage account key in your macOS Keychain.
 
-1. **Use the Azure file share as desired**: After substituting the share name and storage account key for the username and password, the share is be mounted. You can use this as you would normally use a local folder, including dragging and dropping files into the file share:
+1. **Use the Azure file share as desired**: After substituting the share name and storage account key for the username and password, the share is be mounted. You can use the file share as you would normally use a local folder, including dragging and dropping files into the file share:
 
     ![A snapshot of a mounted Azure file share](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
