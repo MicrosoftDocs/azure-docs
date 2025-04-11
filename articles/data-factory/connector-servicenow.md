@@ -116,7 +116,7 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ServiceNowV2Object** | Yes |
 | tableName | Name of the table. | Yes |
-| valueType | ServiceNow sysparm_display_value type. The value of this property can be `display` or `actual` (default).  | No |
+| valueType | The type of ServiceNow table values. The value of this property can be `display` or `actual` (default).  | No |
 
 **Example**
 
@@ -286,7 +286,7 @@ The ServiceNow V2 connector offers new functionalities and is compatible with mo
 | SQL-based queries are not supported. | Support SQL-based queries. | 
 | sortBy queries are not supported in **Query builder**. | Support sortBy queries in **Query**. | 
 | You can view the schema in the dataset. | You can't view the schema in the dataset. |
-| Display type of sysparm_display_value is supported. |Display type of     sysparm_display_value is not supported. |  
+|The Display type of ServiceNow table values is supported. |The Display type of ServiceNow table values is not supported. |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
