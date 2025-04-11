@@ -9,7 +9,7 @@ ms.date: 04/14/2025
 
 Azure provides a robust, scalable cloud platform with various tools and services to help you manage and optimize your resources. This document outlines how to tag resources in an Azure tenant to identify mission-critical workloads and determine potential resiliency improvements. Tagging your resources streamlines how your workload definitions are onboarded for Microsoft assessments, providing a more concisely targeted review.
 
-## Understanding Azure tags
+## Understand Azure tags
 
 For an introduction about tagging Azure resources and to learn about requirements and limitations, refer to [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources).
 
