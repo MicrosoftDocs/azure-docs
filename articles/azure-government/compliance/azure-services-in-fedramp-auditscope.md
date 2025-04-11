@@ -263,7 +263,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Local) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting your Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
 
 ## Azure Government services by audit scope
-*Last updated: August 2024*
+*Last updated: April 2025*
 
 ### Terminology used
 
@@ -325,7 +325,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Local](/azure-stack/hci/)  **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; |  |
 | [Azure Video Indexer](/azure/azure-video-indexer/)  | &#x2705; | &#x2705; | &#x2705; | | |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; | &#x2705; |  |  |
+| [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |  |
 | [Backup](../../backup/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Bastion](../../bastion/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Batch](../../batch/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

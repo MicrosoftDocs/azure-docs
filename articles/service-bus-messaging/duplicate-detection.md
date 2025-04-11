@@ -37,7 +37,7 @@ The `MessageId` can always be some GUID, but anchoring the identifier to the bus
 
 ## Duplicate detection window size
 
-Apart from just enabling duplicate detection, you can also configure the size of the duplicate detection history time window during which message IDs are retained. This value defaults to 10 minutes for queues and topics, with a minimum value of 20 seconds to maximum value of 7 days.
+Apart from enabling duplicate detection, you can also configure the size of the duplicate detection history time window during which message IDs are retained. This value defaults to 1 minute for queues and topics, with a minimum value of 20 seconds and a maximum value of 7 days.
 
 Enabling duplicate detection and the size of the window directly impact the queue (and topic) throughput, since all recorded message IDs must be matched against the newly submitted message identifier.
 

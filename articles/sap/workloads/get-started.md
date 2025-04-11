@@ -55,7 +55,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-
+- April 9, 2025: Add timeout and fail action to IP resource configuration for SAP HANA in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md) and [High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server](./sap-hana-high-availability-scale-out-hsr-suse.md)
 - March 31, 2025: Updated Azure NetApp Files Application Volume Group guidelines for SAP HANA in [FAQs for Virtual Machine Scale Set for SAP workload](./virtual-machine-scale-set-sap-faq.md)
 - March 27, 2025: Update meta attributes for health-azure-events resource and clone, to correctly operate with unhealthy nodes with pacemaker versions 2.1.3 and higher. Documents [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md) and [Set up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md).
 - March 20, 2025: Spun off troubleshooting section from [New Version of Azure VM extension for SAP solutions](./vm-extension-for-sap-new.md) to its own article: [Troubleshooting the Azure VM Extension for SAP](./vm-extension-for-sap-troubleshooting.md) and added tab panels to [New Version of Azure VM extension for SAP solutions](./vm-extension-for-sap-new.md) for better readability.
