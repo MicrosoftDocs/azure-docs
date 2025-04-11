@@ -52,7 +52,7 @@ This value is multiplied by the comfort factor(taken as an input in assessment s
 
 ### Monthly costs 
 
-After right-sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Migrate assessments. 
+After right sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Migrate assessments. 
 
 ### Confidence ratings (performance-based) 
 

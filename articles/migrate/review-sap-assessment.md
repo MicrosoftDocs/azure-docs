@@ -17,8 +17,8 @@ This tutorial explains how to review assessments created for your on-premises SA
 In this tutorial, you'll learn: 
 
 * Step-by-step instructions to review assessments created for on-premises SAP systems using Azure Migrate. 
-* Navigate to the Azure Migrate page to access the relevant options to view assessments for SAP systems.
-* Navigate Assessments page to view detailed information, including SAP system essentials, assessed entities, and cost estimates.
+* How to navigate Azure Migrate page to access the relevant options to view assessments for SAP systems.
+* How to navigate Assessments page to view detailed information, including SAP system essentials, assessed entities, and cost estimates.
 
 ## Review an assessment 
  
@@ -36,7 +36,7 @@ To review an assessment, follow these steps:
     :::image type="content" source="./media/tutorial-assess-sap-systems/sap-on-azure.png" alt-text="Screenshot that shows to select SAP on Azure." lightbox="./media/tutorial-assess-sap-systems/sap-on-azure.png":::
 
 > [!NOTE]
-> When you update any of the assessment settings, it triggers a new assessment, which takes a few minutes to reflect the updates.
+> When you update any of the assessment settings, it triggers a new assessment. It takes a few minutes to reflect the updates.
 
 ## Next steps
 Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
