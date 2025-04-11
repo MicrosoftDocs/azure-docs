@@ -11,12 +11,12 @@ monikerRange: migrate
 
 # Prerequisites for assessments 
  
-Azure Migrate assessments identifies the readiness and right-sized Azure targets using the configuration and performance data collected from the source workloads. The quality of assessments depends on the quality of the data available for assessments. Thus, to get high quality assessments ensure you have all the prerequisites satisfied. Before creating the assessments, ensure the following: 
+Azure Migrate assessments identifies the readiness and right-sized Azure targets using the configuration and performance data collected from the source workloads. The quality of assessments depends on the quality of the data available for assessments. Thus, to get high quality assessments ensure you have all the prerequisites fulfilled. Before creating the assessments, ensure the following: 
 
 - You discovered the inventory of all the workloads and applications you intend to assess. 
 - You resolved any data collection issues that your workloads are flagged for.
 - You have enough performance data collected before you create the assessment. You can create assessments anytime, but we recommend letting the appliance collect the performance data for at least 24 hours.  
-- For better results, in the case of appliance-based discovery, ensure that the appliances are in a connected state and performance data is flowing. 
+- In the case of appliance-based discovery, for better results. Ensure that the appliances are in a connected state and performance data is flowing. 
 - If you have an Enterprise agreement with Microsoft and want to use the negotiated prices to identify the resource cost, ensure that you have access to the required subscriptions. 
 
 ## Discovery sources 
