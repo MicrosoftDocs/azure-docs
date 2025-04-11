@@ -39,18 +39,8 @@ Azure Commercial, Gov, Secret, and Top Secret
 
 * Templates combine existing Azure products together in a best-practice fashion. RPs provide new functionality that can also be added to templates.
 
-|                                     | AVE      | MLZ      | ALZ      | SLZ      | MSISR    | MSWB     |
-|------
-------
-------
-------
--|------
--|------
--|------
--|------
--|------
--|------
--|
+|  | AVE | MLZ | ALZ | SLZ | MSISR | MSWB     |
+|-------------------------|-------|-------|-------|-------|-------|-------|
 | **Deploy Method**                   | RP       | Template | Template | Template |          | RP       |
 | **Approvals**                       | X        |          |          |          |          |          |
 | **Service Catalog**                 | X        |          |          |          |          |          |
