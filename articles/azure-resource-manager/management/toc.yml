@@ -147,7 +147,8 @@
             href: ./relocation/relocation-site-recovery.md  
         - name: Networking
           items:
-          - name: Azure Application Gateway and Web Application Firewall
+          - name: Azure App Gateway and Web App Firewall
+            displayname: Azure Application Gateway, Web Application Firewall
             href: ./relocation/relocation-app-gateway.md
           - name: Azure Load Balancer
             href: ../../load-balancer/move-across-regions-external-load-balancer-portal.md?toc=/azure/azure-resource-manager/management/toc.json
@@ -261,6 +262,7 @@
   - name: Resource group insights
     href: resource-group-insights.md
   - name: Configure data boundary
+    displayName: eudb
     href: manage-data-boundary.md
 - name: Reference
   items:

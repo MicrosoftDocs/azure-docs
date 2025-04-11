@@ -199,19 +199,19 @@ Deploy the template to create a new Azure Firewall in the target region.
 
 1. Obtain the subscription ID where you want to deploy the target public IP by running the following command:
 
-  ```azurepowershell
-  Get-AzSubscription
-  ```
+    ```azurepowershell
+    Get-AzSubscription
+    ```
 
 1. Run the following commands to deploy your template:
 
-  ```azurepowershell
-  $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-  $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
-  
-  New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-  New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"
-  ```
+    ```azurepowershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
+    
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"
+    ```
 
 1. The Azure Firewall is now deployed with the adopted configuration to reflect the needed changes in the target region.
 1. Verify configuration and functionality.
