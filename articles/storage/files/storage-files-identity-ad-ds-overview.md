@@ -33,7 +33,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 
 ## Supported scenarios and restrictions
 
-- To assign share-level RBAC permissions to specific users or groups, on-premises AD DS identities must be synced to Microsoft Entra ID using Entra Connect Sync. If identities are not synced, share-level authorization can only be done using [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities), which apply to all authenticated users. Password hash synchronization is not required.
+- To assign share-level RBAC permissions to specific users or groups, on-premises AD DS identities must be synced to Microsoft Entra ID using Entra Connect Sync. If identities aren't synced, you must [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities), which applies to all authenticated users. Password hash synchronization isn't required.
 - Azure file shares can be managed with Azure File Sync.
 - Kerberos authentication is available with Active Directory using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
 - Single sign-on (SSO) is supported.
