@@ -1181,13 +1181,13 @@ For testing, you can disable authentication for a broker listener port. We don't
 Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authentication for a port. To disable authentication, don't include the `--authn-ref` parameter.
 
 ```azurecli
-az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name <ListenerName> --port <ListenerServicePort>
+az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort>
 ```
 
 The following example disables authentication for port 8884 to the listener named `aio-broker-loadbalancer`:
 
 ```azurecli
-az iot ops broker listener port add --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name aio-broker-loadbalancer --port 8884
+az iot ops broker listener port add --resource-group myResourceGroupName --instance myAioInstanceName --broker default --listener aio-broker-loadbalancer --port 8884
 ```
 
 # [Bicep](#tab/bicep)
