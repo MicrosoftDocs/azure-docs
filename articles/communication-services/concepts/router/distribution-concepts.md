@@ -2,11 +2,10 @@
 title: Distribution mode concepts for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router distribution mode concepts.
-author: williamzhao
-manager: bgao
 services: azure-communication-services
-
-ms.author: williamzhao
+manager: chpalm
+ms.author: chpalm
+author: tophpalmer
 ms.date: 05/06/2022
 ms.topic: conceptual
 ms.service: azure-communication-services

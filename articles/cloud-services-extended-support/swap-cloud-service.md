@@ -14,7 +14,7 @@ ms.date: 11/21/2024
 # Swap or switch deployments in Azure Cloud Services (extended support)
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 You can swap between two independent cloud service deployments in Azure Cloud Services (extended support). Unlike in Azure Cloud Services (classic), the Azure Resource Manager model in Azure Cloud Services (extended support) doesn't use deployment slots. In Azure Cloud Services (extended support), when you deploy a new release of a cloud service, you can make the cloud service "swappable" with an existing cloud service in Azure Cloud Services (extended support).
 

@@ -65,10 +65,11 @@ Reservation discounts apply to the following eligible subscriptions and offer ty
 - Microsoft Customer Agreement subscriptions.
 - Individual plans with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)
 - CSP subscriptions
+- Microsoft Azure Sponsorship subscriptions (offer number: MS-AZR-0036P)
 
 Resources that run in a subscription with other offer types don't receive the reservation discount.
 
-Some Azure services do not support Reserved Instance (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless
+Some Azure services do not support Reservation (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless
 
 ## Purchase reservations
 

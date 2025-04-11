@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # Override SKU settings in .cscfg and .csdef files for Cloud Services (extended support)
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This article describes how to update the role size and instance count in Azure Cloud Services by using the **allowModelOverride** property. When you use this property, you don't need to update the service configuration (.cscfg) and service definition (.csdef) files. So you can scale the cloud service up, down, in, or out without repackaging and redeploying it.
 
