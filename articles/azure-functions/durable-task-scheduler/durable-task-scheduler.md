@@ -1,11 +1,11 @@
 ---
-title: Azure Functions Durable Task Scheduler backend for Durable Functions (preview)
+title: Azure Functions Durable Task Scheduler (preview)
 description: Learn about the characteristics of the Azure Functions Durable Task Scheduler backend.
 ms.topic: conceptual
 ms.date: 04/10/2025
 ---
 
-# Azure Functions Durable Task Scheduler backend for Durable Functions (preview)
+# Azure Functions Durable Task Scheduler (preview)
 
 The Durable Task Scheduler provides durable execution in Azure. Durable execution is a fault-tolerant approach to running code that handles failures and interruptions through automatic retries and state persistence. Scenarios where durable execution is required:
 - Distributed transactions
@@ -19,28 +19,21 @@ The Durable Task Scheduler, coupled with a developer orchestration framework lik
 
 You can use the Durable Task Scheduler with the following orchestration frameworks:
 
-- [Durable Functions](./quickstart-durable-task-scheduler.md)
+- Durable Functions
 - Durable Task SDKs, or "portable SDKs"
-- [Durable Task Framework](https://github.com/Azure/durabletask)
+- Durable Task Framework
 
-### Durable Task Scheduler for Durable Functions
-
-The Durable Task Scheduler is a fully managed backend for Durable Function apps. Compared with other Durable Functions storage providers, the scheduler provides several key benefits, including management, observability, performance, and security. 
-
-[Learn how to configure the Durable Task Scheduler for your Durable Function app.](./quickstart-durable-task-scheduler.md)
-
-## Durable 
-
+[Learn which orchestration works better for your project.](./durable-task-scheduler-framework.md)
 
 ## Architecture
 
-For both the Durable Task Scheduler service for Durable Functions and the Durable Task SDKs, instances of the Durable Task Scheduler can be created using Azure Resource Manager and are of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers). Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
+For all Durable Task Scheduler orchestration frameworks, instances of the Durable Task Scheduler can be created using Azure Resource Manager and are of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers). Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
 
 - Dispatching orchestrator, activity, and entity work items
 - Storing and querying history at scale with minimal latency
-- Providing a rich monitoring experience through the Durable Task Scheduler dashboard.
+- Providing a rich monitoring experience through [the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
 
-Unlike the BYO storage providers, the Durable Task Scheduler provider is a purpose-built backend-as-a-service optimized for the specific needs of the Durable Task Framework.
+Unlike [the BYO storage providers](../durable/durable-functions-storage-providers.md), the Durable Task Scheduler provider is a purpose-built backend-as-a-service optimized for the specific needs of the Durable Task Framework.
 
 The following diagram shows the architecture of the Durable Task Scheduler backend and its interaction with connected apps.
 
