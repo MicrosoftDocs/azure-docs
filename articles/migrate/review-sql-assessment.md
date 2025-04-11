@@ -19,11 +19,12 @@ This article describes the various components of a SQL assessment and how you ca
 Follow these steps to view the assessment that you created.
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment.
-2. Select the assessment name, which you wish to view. For example, estimations and costs.
+2. Select the assessment name, which you wish to view. *For example*, estimations and costs.
       
       :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary-inline.png" alt-text="Screenshot of Overview of SQL assessment." lightbox="./media/tutorial-assess-sql/assessment-sql-summary-expanded.png":::
 
-3. Review the assessment summary. You can also edit the assessment settings or recalculate the assessment.
+3. Review the assessment summary. 
+    You can also edit the assessment settings or recalculate the assessment.
 
 ### Discovered entities
 
@@ -33,7 +34,7 @@ This indicates the number of SQL servers, instances, and databases that were ass
 
 This indicates the different migration strategies that you can consider for your SQL deployments. You can review the readiness for target deployment types and the cost estimates for SQL Servers/Instances/Databases that are marked ready or ready with conditions: 
 
-- **Recommended deployment**This strategy involves selecting an Azure SQL deployment type that is both highly compatible with your SQL instance and cost-effective. By migrating to a Microsoft-recommended target, you can significantly reduce your overall migration effort. If your instance is prepared for SQL Server on Azure VM, Azure SQL Managed Instance, and Azure SQL Database, it is advisable to choose the deployment type that presents the fewest migration readiness issues and offers the best cost-efficiency.
+- **Recommended deployment**: Azure SQL deployment offers the best compatibility and cost-effectiveness for your SQL instance. Choosing a Microsoft-recommended target minimizes migration effort. If your instance supports SQL Server on Azure VM, Azure SQL Managed Instance, and Azure SQL Database, the most cost-effective and migration-ready option is recommended. This includes readiness checks and monthly cost estimates for instances marked as *Ready or Ready* with conditions.
 
 You can see the SQL Server instance readiness for different recommended deployment targets and monthly cost estimates for SQL instances marked *Ready* and *Ready with conditions*.
 
@@ -81,15 +82,15 @@ You can review readiness reports for different migration strategies:
     
     **Migration strategy** | **Readiness Columns (Respective deployment target)**
     --- | --- 
-    Recommended | MI readiness (Azure SQL MI), VM readiness (SQL Server on Azure VM), DB readiness (Azure SQL DB).
-    Instances to Azure SQL MI | MI readiness (Azure SQL Managed Instance)
-    Instances to SQL Server on Azure VM | VM readiness (SQL Server on Azure VM).
-    Servers to SQL Server on Azure VM | Azure VM readiness (SQL Server on Azure VM).
-    Databases to Azure SQL DB | DB readiness (Azure SQL Database)
+    Recommended | MI readiness (Azure SQL MI), VM readiness (SQL Server on Azure VM), DB readiness (Azure SQL DB).|
+    |Instances to Azure SQL MI | MI readiness (Azure SQL Managed Instance)|
+    |Instances to SQL Server on Azure VM | VM readiness (SQL Server on Azure VM).|
+    | Servers to SQL Server on Azure VM | Azure VM readiness (SQL Server on Azure VM).|
+    | Databases to Azure SQL DB | DB readiness (Azure SQL Database)|
 
 1. Review the readiness for the assessed SQL instances/SQL Servers/Databases:
     - **Ready**: The instance/server is ready to be migrated to SQL Server on Azure VM/Azure SQL MI/Azure SQL DB without any migration issues or warnings. 
-        - Ready: The instance is ready to be migrated to Azure VM/Azure SQL MI/Azure SQL DB without any migration issues but has some migration warnings that you need to review. You can select the hyperlink to review the migration warnings and the recommended remediation guidance.
+        - Ready: The instance is ready to be migrated to Azure VM/Azure SQL MI/Azure SQL DB without any migration issues but has some migration warnings that you need to review. Select **Ready** to review the migration warnings and the recommended remediation guidances.
     - **Ready with conditions**: The instance/server has one or more migration issues for migrating to Azure VM/Azure SQL MI/Azure SQL DB. You can select the hyperlink and review the migration issues and the recommended remediation guidance.
     - **Not ready**: The assessment could not find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. Select the hyperlink to review the recommendation to make the instance/server ready for the desired target deployment type.
     - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, contact [Microsoft support](https://support.microsoft.com).
