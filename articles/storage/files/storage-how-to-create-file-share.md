@@ -132,7 +132,7 @@ if ($filteredResult.Count -eq 0) {
 
 # [Azure CLI](#tab/azure-cli)
 ### Region supportability on different billing models (Azure CLI)
-This script use jq command line JSON processor, to download, please visit https://jqlang.org/download/
+This script uses jq command line JSON processor. To download it, visit https://jqlang.org/download/
 ```bash
 # Login to Azure account
 Az login
