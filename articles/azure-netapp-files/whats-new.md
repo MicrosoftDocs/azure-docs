@@ -18,12 +18,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     [Subscription quota metrics](azure-netapp-files-metrics.md#subscription-quota-metrics) display subscription-level quotas relative to the imposed [resource limits](azure-netapp-files-resource-limits.md) within your subscription. These metrics are displayed in two columns: the current limit (Current) and the consumption by your subscription (Used). These metrics enable you to proactively monitor and increase these limits via support request when needed. The used column includes the following consumed metrics:
 
+    - Regional capacity quota per subscription
     - Number of NetApp accounts per Azure region per subscription
     - Number of capacity pools per subscription
     - Maximum number of volumes that can be backed up per subscription
     - Number of cool access volumes per subscription
     - Number of cross-region replication data protection volumes (destination volumes)
-    - Regional capacity quota per subscription
 
 ## April 2025
 
