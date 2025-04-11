@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure startup credit offer documentation
-summary: Eligible startups can receive $1,000 USD in Azure credits to explore the latest AI models and start building on Azure.
+summary: Eligible startups can receive $1,000 USD in Azure credits to explore the latest AI models and start building on Azure. Get started at [microsoft.com/startups](https://microsoft.com/startups).
 
 metadata:
   title: Azure startup credit offer documentation | Microsoft Learn # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -38,7 +38,7 @@ landingContent:
   # Card
   - title: Join Microsoft for Startups
     linkLists:
-      - linkListType: learn
+      - linkListType: overview
         links:
           - text: What is Microsoft for Startups?
             url: /microsoft-for-startups/overview
