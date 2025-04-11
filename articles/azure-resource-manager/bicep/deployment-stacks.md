@@ -506,7 +506,7 @@ az stack group delete \
   --action-on-unmanage '<deleteAll/deleteResources/detachAll>'
 ```
 
-# [Azure portal](#tab=azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. From the Azure portal, open the resource group that contains the deployment stacks.
 1. From the left menu, select `Deployment stacks`, select the deployment stack to delete, and then select `Delete stack`.
