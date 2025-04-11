@@ -34,6 +34,9 @@ The command lines executed by tasks on compute nodes don't run under a shell. Th
 > [!NOTE]
 > `AZ_BATCH_AUTHENTICATION_TOKEN` is deprecated and will be retired on September 30, 2024. See the [announcement](https://azure.microsoft.com/updates/azure-batch-task-authentication-token-will-be-retired-on-30-september-2024/) for details and alternative implementation.
 
+> [!NOTE]
+> The real directories and files location in example may change, using environment variable to access directories and files managed by batch is better.
+
 
 | Variable name                     | Description                                                              | Availability | Example |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
