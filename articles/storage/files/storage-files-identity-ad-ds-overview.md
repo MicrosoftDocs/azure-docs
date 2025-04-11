@@ -39,7 +39,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 - Single sign-on (SSO) is supported.
 - Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
 - Access is limited to the Active Directory forest where the storage account is registered. Users in other domains within the same forest can access the file share if they have appropriate permissions.
-- By default, only one AD DS forest is supported. To enable access from additional forests, a forest trust must be configured. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
+- By default, only one AD DS forest is supported. To enable access from additional forests, you must configure a forest trust. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 - Share-level RBAC permissions can't be assigned to computer accounts. Use a default share-level permission or a service logon account instead.
 - Identity-based authentication isn't currently supported for NFS file shares.
 
