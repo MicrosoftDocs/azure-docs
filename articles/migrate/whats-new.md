@@ -20,7 +20,7 @@ Public preview: Azure Migrate supports Application Awareness, offering an enhanc
 
 - Updated Inventory View: Explore the inventory of discovered workloads across the Infrastructure, Data, and Web tiers. [Learn more](how-to-review-discovered-inventory.md).
 
-- Tags in Azure Migrate Tages in Azure Migrate enhances analysis by allowing customers to group and visualize related resources based on specific properties. [Learn more](resource-tagging.md).
+- Tags in Azure Migrate Tags in Azure Migrate enhances analysis by allowing customers to group and visualize related resources based on specific properties. [Learn more](resource-tagging.md).
 
 - Enhanced Dependency Analysis: Leverage the new dependency analysis experience to identify application boundaries and group workloads accordingly. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
 
