@@ -36,8 +36,8 @@ Use the `placementGroup` resource to run a job with InfiniBand connected network
 -R "span[ptile=2] select[nodearray=='ondemandmpi' && cyclecloudmpi] same[placementgroup]"
 ```
 
-For GPUs, we recommend using LSF support for extended GPU syntax. Typically requires adding two
-Set the attributes to _lsf.conf_: `LSB_GPU_NEW_SYNTAX=extend` and `LSF_GPU_AUTOCONFIG=Y`. With support
+For GPUs, we recommend using LSF support for extended GPU syntax. Typically, you add
+these attributes to _lsf.conf_: `LSB_GPU_NEW_SYNTAX=extend` and `LSF_GPU_AUTOCONFIG=Y`. With support
 for extended syntax enabled, use the placementGroup along with `-gpu` to run a tightly coupled job with GPU 
 acceleration.
 
