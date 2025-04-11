@@ -78,7 +78,7 @@ Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open. Conn
 
 To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path). 
 
-This article uses the storage account key to mount the file share, which is only appropriate for admin access. Mounting the share with the Active Directory or Micosoft Entra identity of the user is preferred. See [identity-based authentication overview](storage-files-active-directory-overview.md).
+This article uses the storage account key to mount the file share, which is only appropriate for admin access. Mounting the share with the Active Directory or Microsoft Entra identity of the user is preferred. See [identity-based authentication overview](storage-files-active-directory-overview.md).
 
 A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
