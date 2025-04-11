@@ -127,22 +127,6 @@ MQTT broker resources created in your cluster using Kubernetes aren't visible in
 
 There's currently no workaround for this issue.
 
-### Probe event errors
-
----
-
-Issue ID: 1567
-
----
-
-Log signature: `"Path verification failed for probe event with operation type 'Publish'"`
-
----
-
-Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics might affect the probe or self-test checks resulting in invalid results. Invalid results might be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the message `Path verification failed for probe event with operation type 'Publish'` in the diagnostics-probe logs.
-
-There's currently no workaround for this issue.
-
 ## Azure IoT Layered Network Management (preview) issues
 
 This section lists current known issues for  Azure IoT Layered Network Management.
@@ -202,20 +186,6 @@ Log signature: N/A
 ---
 
 When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod does not restart and therefore the old flow for the correctly configured assets stops as well.
-
-### OPC UA servers reject application certificate
-
----
-
-Issue ID: 7679
-
----
-
-Log signature: N/A
-
----
-
-The subject name and application URI must exactly match the provided certificate. Because there's no cross-validation, any errors could cause the OPC UA servers to reject the application certificate.  
 
 ## Connector for media and connector for ONVIF issues
 
