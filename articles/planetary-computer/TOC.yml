@@ -1,0 +1,55 @@
+- name: Microsoft Planetary Computer Pro
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Microsoft Planetary Computer Pro?
+    href: microsoft-planetary-computer-pro-overview.md
+  - name: STAC overview
+    href: stac-overview.md  
+  expanded: true
+- name: Quickstarts
+  items:
+  - name: Deploy a GeoCatalog resource
+    href: deploy-geocatalog-resource.md
+  - name: Add STAC Items to a Collection
+    href: add-stac-item-to-collection.md
+  - name: Create a STAC collection with GeoCatalog using Python
+    href: create-stac-collection.md
+  - name: Use GeoCatalog in Azure Batch
+    href: azure-batch.md
+  - name: Use the Microsoft Planetary Computer Pro Explorer
+    href: use-explorer.md
+- name: How-to-guides
+  items:
+  - name: Assign a user-assigned managed identity to a GeoCatalog resource
+    href: assign-user-assigned-managed-identity.md
+  - name: Add STAC Items to a Collection
+    href: add-stac-item-to-collection.md  
+  - name: Delete a GeoCatalog resource
+    href: delete-geocatalog-resource.md
+  - name: Setup an ingestion source using managed identity
+    href: setup-ingestion-source-using-managed-identity.md 
+  - name: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
+    href: setup-ingestion-credentials-sas-tokens.md
+  - name: Visualize assets
+    href: visualize-assets.md  
+- name: Tutorials
+  items:
+  - name: Create a STAC item
+    href: create-stac-item.md
+- name: Concepts
+  items:
+  - name: Datacube enrichment
+    href: datacube-enrichment.md
+  - name: Ingestion source
+    href: ingestion-source.md
+  - name: Manage access
+    href: manage-access.md
+  - name: Mosaic configurations for collections
+    href: mosaic-configurations-for-collections.md
+  - name: Queryables for data explorer custom search filters
+    href: queryables-for-data-explorer-custom-search-filters.md
+  - name: Render configuration
+    href: render-configuration.md
+  - name: Tile settings
+    href: tile-settings.md  

@@ -16,15 +16,15 @@ This quickstart provides instructions on how to interact with the Microsoft Plan
 ## Prerequisites
 
 * An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* An [Azure Microsoft Planetary Computer GeoCatalog](./deploy-geocatalog-resource.md)
+* An [Azure Microsoft Planetary Computer Pro GeoCatalog](./deploy-geocatalog-resource.md)
 * A Geocatalog collection with:
   * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.mdd).
-  * Items ingested. Learn how to [ingest STAC items]() or use [bulk ingestion]().
+  * Items ingested. Learn how to [ingest STAC items](./ingestion-source).
   * Visualization configurations set:
-    * [Create a Render Configuration]().
-    * [Configure Colleciton Tile Settings]().
-    * [Mosaic Configuration]()
-    * [Queryables Configuration]()
+    * [Create a Render Configuration](./render-configuration.md).
+    * [Configure Colleciton Tile Settings](./tile-settings.md).
+    * [Mosaic Configuration](./mosaic-configurations-for-collections.md)
+    * [Queryables Configuration](./queryables-for-explorer-custom-search-filter.md)
 
 ## Open a GeoCatalog
 
@@ -41,7 +41,7 @@ The Data Explorer can be opened in two ways:
 1. From the collection overview page, click Launch in Explorer. This loads this collection in the Explorer.
 
 > [!NOTE]
-> If the "Launch In Explorer" button is grey, you must [Create a Render Configuration](./render-config.md).
+> If the "Launch In Explorer" button is grey, you must [Create a Render Configuration](./render-configuration.md).
 
 ## Select a dataset to explore
 
@@ -136,11 +136,10 @@ You can set a thumbnail for a collection, the image that represents that collect
 
 ## Related content
 
-* [Create a Microsoft Planetary Computer GeoCatalog](./deploy-geocatalog-resource.md)
-* [Create a collection]()
-* [Ingest STAC items]()
-* [Bulk ingestion]()
-* [Create a Render Configuration]()
-* [Configure collection Tile Settings]()
-* [Mosaic Configuration]()
-* [Queryables Configuration]()
+* [Create a GeoCatalog](./deploy-geocatalog-resource.md)
+* [Create a collection](./create-stac-collection.md)
+* [Ingest STAC items](./ingestion-source.md)
+* [Create a Render Configuration](./render-configuration.md)
+* [Configure collection Tile Settings](./tile-settings.md)
+* [Mosaic Configuration](./mosaic-configurations-for-collections.md)
+* [Queryables Configuration](./queryables-for-explorer-custom-search-filter.md)

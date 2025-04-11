@@ -1,6 +1,6 @@
 ---
-title: Set up ingestion credentials Microsoft Planetary Computer using SAS tokens
-description: Learn how to add credentials and ingest data into Microsoft Planetary Computer.
+title: Setup ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
+description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro.
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer
@@ -11,18 +11,18 @@ ms.date: 04/09/2025
 
 ---
 
-# Setup ingestion credentials for Microsoft Planetary Computer using SAS tokens
+# Setup ingestion credentials for Microsoft Planetary Computer Pro using SAS tokens
 
-Loading new data into the Microsoft Planetary Computer GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion sources, to access data that is stored externally to the GeoCatalog resource.
+Loading new data into the Microsoft Planetary Computer Pro (MPC Pro) GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion sources, to access data that is stored externally to the GeoCatalog resource.
   
 In this guide, you learn how to:
 
 - Setup credentials through Azure portal
-- Setup credentials through the Microsoft Planetary Computer API using the Azure Python SDK
+- Setup credentials through the Microsoft Planetary Computer Pro API using the Azure Python SDK
 
 ## Prerequisites
 
-- A Microsoft Planetary Computer GeoCatalog deployed to your Azure Subscription. See [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md).
+- A Microsoft Planetary Computer Pro GeoCatalog deployed to your Azure Subscription. See [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 - An Azure Blob container setup with the correct permissions to assign managed identities and to request a SAS Token. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 
@@ -44,7 +44,7 @@ Azure Storage Explorer is also an alternative UI-driven approach which works on 
 
 ### Navigate to your storage resource
 
-In the Azure portal, find the Storage Resource containing the Azure Blob Container with the data you wish to ingest into Microsoft Planetary Computer. In the Resource settings, select the **"Containers"** setting under **"Data Storage"**.
+In the Azure portal, find the Storage Resource containing the Azure Blob Container with the data you wish to ingest into MPC Pro. In the Resource settings, select the **"Containers"** setting under **"Data Storage"**.
 
 ![Screenshot of the Azure portal showing the Containers section under Data Storage for a selected Storage Account.](media/select-containers.png)
 
@@ -64,13 +64,13 @@ Ensure these settings are set up correctly:
 
 Once the settings are verified, select the **"Generate SAS Token and URL"** button. You see two elements generated: the **Blob SAS Token** and the **Blob SAS URL**. Keep your window/tab open as you'll need this information for the next section. 
 
-### Navigate to Microsoft Planetary Computer Settings
+### Navigate to settings
 
-Use the URL of your Microsoft Planetary Computer to navigate to the landing page and select the **"Settings"** tab from the navigation bar. 
+Use the URL of your MPC Pro to navigate to the landing page and select the **"Settings"** tab from the navigation bar. 
 
 NEED NEW SCREENSHOT.
 
-![Screenshot of the Microsoft Planetary Computer Settings page showing the Create Credential button and fields for entering the Container URL and Credential Token.](media/credentials_4.png)
+![Screenshot of the MPC Pro Settings page showing the Create Credential button and fields for entering the Container URL and Credential Token.](media/credentials_4.png)
 
 ### Create your credentials
 
@@ -82,13 +82,13 @@ NEED NEW SCREENSHOT.
 
 NEED NEW SCREENSHOT
 
-![Screenshot of the Microsoft Planetary Computer Settings page showing a successfully created credential. The page displays the Container URL, Credential Token, and an expiration date for the credential.](media/credentials_5.png)
+![Screenshot of the MPC Pro Settings page showing a successfully created credential. The page displays the Container URL, Credential Token, and an expiration date for the credential.](media/credentials_5.png)
 
 Your credential is now set up to support ingestions.
 
 NEED NEW SCREENSHOT
 
-![Screenshot of the Microsoft Planetary Computer Settings page showing a list of created credentials. Each credential entry displays the Container URL, Credential Token, expiration date, and options to edit or delete the credential.](media/credentials_6.png)
+![Screenshot of the MPC Pro Settings page showing a list of created credentials. Each credential entry displays the Container URL, Credential Token, expiration date, and options to edit or delete the credential.](media/credentials_6.png)
 
 If your credential expires or you need to add credentials for a different Blob Container, repeat the previous process. 
 
@@ -99,7 +99,7 @@ Credentials can also be set through the API using the Azure SDK [Storage Service
 The following block of code imports required libraries and sets up key variables. 
 
 - Change **CONTAINER_URL** to be the Azure Blob Container URL containing the data you wish to ingest. 
-- Change **GEOCATALOG_URL** to be your Microsoft Planetary Computer resource endpoint. 
+- Change **GEOCATALOG_URL** to be your MPC Pro resource endpoint. 
 - Change **EXPIRATION_HOURS** to how many hours you want the credential to be alive (default is 7 days / 168 hours)
 
 ```python
@@ -128,7 +128,7 @@ GEOCATALOG_URL = "https://tc-demo.bxfqdqh5dagmbgez.uksouth.geocatalog.spatio.azu
 EXPIRATION_HOURS = 7 * 24
 ```
 
-The next block of code uses the Azure SDK to request a SAS Token for the specified Blob Container.
+The next block of code uses the Azure SDK to request a SAS token for the specified Blob Container.
 
 ```python
 # Parse the container URL
@@ -150,7 +150,7 @@ with azure.storage.blob.BlobServiceClient(
             key_start_time=now + timedelta(hours=-1),
             key_expiry_time=now + timedelta(hours = EXPIRATION_HOURS), )
 
-# Generate the SAS Token
+# Generate the SAS token
 sas_token = azure.storage.blob.generate_container_sas(
     account_name=account_name,
     container_name=container_name,
@@ -163,7 +163,7 @@ sas_token = azure.storage.blob.generate_container_sas(
     expiry=now + timedelta(hours = EXPIRATION_HOURS),)
 ```
 
-The next block of code uses the Microsoft Planetary Computer API to post the credential.
+The next block of code uses the MPC Pro API to post the credential.
 
 ```python
 # Obtain an access token
@@ -199,4 +199,4 @@ else:
 
 ## Related content
 
-- [Ingestion overview]()
+- [Ingestion overview](./ingestion-source.md)

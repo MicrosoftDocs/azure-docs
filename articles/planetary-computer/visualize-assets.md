@@ -1,6 +1,6 @@
 ---
-title: Visualize assets for Microsoft Planetary Computer
-description: Learn how to visualize geospatial assets using the Microsoft Planetary Computer's tiler. This guide includes examples for working with GRIB and NetCDF datasets.
+title: Visualize assets for Microsoft Planetary Computer Pro
+description: Learn how to visualize geospatial assets using the Microsoft Planetary Computer Pro's tiler. This guide includes examples for working with GRIB and NetCDF datasets.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 04/09/2025
 ---
 
-# Visualize assets for Microsoft Planetary Computer
+# Visualize assets for Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer includes a tiler that can be used to visualize assets.
+Microsoft Planetary Computer Pro includes a tiler that can be used to visualize assets.
 
 ## Supported media types
 

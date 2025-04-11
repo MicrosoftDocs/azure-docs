@@ -1,6 +1,6 @@
 ---
-title: STAC overview for Microsoft Planetary Computer
-description: This article provides an overview of the Spatiotemporal Asset Catalog (STAC) specification and how it is used by Microsoft Planetary Computer.
+title: STAC overview for Microsoft Planetary Computer Pro
+description: This article provides an overview of the Spatiotemporal Asset Catalog (STAC) specification and how it is used by Microsoft Planetary Computer Pro.
 author: beharris
 ms.author: brentharris
 ms.service: mpcpro
@@ -9,9 +9,9 @@ ms.date: 04/09/2025
 #customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
 ---
 
-# STAC overview for Microsoft Planetary Computer
+# STAC overview for Microsoft Planetary Computer Pro
 
-This article provides an overview of the Spatiotemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer.
+This article provides an overview of the Spatiotemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro (MC Pro).
 
 ## STAC specification
 
@@ -28,15 +28,15 @@ The STAC specification consists of four complimentary standards for describing g
 - [STAC Items](https://github.com/radiantearth/stac-spec/tree/master/item-spec)
 - [STAC API](https://github.com/radiantearth/stac-api-spec/)
 
-Microsoft Planetary Computer uses the STAC specification across all aspects of data management.
+MC Pro uses the STAC specification across all aspects of data management.
 
 ![Diagram showing the STAC specification components and their relationships, including STAC Catalog, STAC collection, STAC Items, and STAC API, with arrows showing how they interconnect.](media/stac_summary2.drawio.png)
 
-## STAC Catalogs in Microsoft Planetary Computer
+## STAC catalogs
 
 ### Introduction to GeoCatalogs
 
-Microsoft Planetary Computer allows you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md), to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets on Azure.  A GeoCatalog is an Azure resource that, from a STAC API perspective, is logically eqivalent to a STAC Catalog. A STAC Catalog is the top-level object in the STAC hierarchy that logically groups STAC collections and STAC Items.  You can see the STAC Catalog JSON for a specific Microsoft Planetary Computer GeoCatalog resource using the JSON web viewer by going to `https://<your geocatalog uri>/json-api?path=/`.  Refer to [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec) to learn more about the STAC Catalog specification.
+MC Pro allows you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md), to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets on Azure. A GeoCatalog is an Azure resource that, from a STAC API perspective, is logically eqivalent to a STAC Catalog. A STAC Catalog is the top-level object in the STAC hierarchy that logically groups STAC collections and STAC Items.  You can see the STAC Catalog JSON for a specific MC Pro GeoCatalog resource using the JSON web viewer by going to `https://<your geocatalog uri>/json-api?path=/`.  Refer to [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec) to learn more about the STAC Catalog specification.
 
 A GeoCatalog Azure resource is defined using the following information:
 
@@ -47,7 +47,7 @@ A GeoCatalog Azure resource is defined using the following information:
 | Name | Name of a GeoCatalog instance |
 | Region | Azure region where a GeoCatalog instance is deployed.|
 
-Currently Microsoft Planetary Computer can be deployed in the following Azure regions:
+Currently MC Pro can be deployed in the following Azure regions:
 
 - East US
 - North Central US
@@ -56,19 +56,19 @@ Currently Microsoft Planetary Computer can be deployed in the following Azure re
 
 A GeoCatalog can be provisioned using Azure Portal, or the Azure Rest API. To learn how to deploy a GeoCatalog into your Azure subscription, read [create a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
-## STAC collections in Microsoft Planetary Computer
+## STAC collections
 
 ### Introduction to collections
 
-Microsoft Planetary Computer allows you to create collections to store and organize geospatial datasets on Azure. A STAC collection is used to describe a group of STAC Items that share properties and metadata, such as a common geographic area or sensor. Refer to the [STAC collection Spec](https://github.com/radiantearth/stac-spec/tree/master/collection-spec) to learn more about the STAC collection concept.
+MC Pro allows you to create collections to store and organize geospatial datasets on Azure. A STAC collection is used to describe a group of STAC Items that share properties and metadata, such as a common geographic area or sensor. Refer to the [STAC collection Spec](https://github.com/radiantearth/stac-spec/tree/master/collection-spec) to learn more about the STAC collection concept.
 
 ### Collection definition
 
-Microsoft Planetary Computer adheres to the STAC collection specification which defines a set of common fields to describe the dataset and included Items.
+MC Pro adheres to the STAC collection specification which defines a set of common fields to describe the dataset and included Items.
 
-Within a collection you can specify the type and structure of data stored in that collection. You can also add [render configuration settings](./render-configuration.md) to visualize data within the collection using Microsoft Planetary Computer's Explorer.
+Within a collection you can specify the type and structure of data stored in that collection. You can also add [render configuration settings](./render-configuration.md) to visualize data within the collection using MC Pro's Explorer.
 
-Collections in Microsoft Planetary Computer are defined in JSON format and include the following fields:
+Collections in MC Pro are defined in JSON format and include the following fields:
 
 | Field | Description |
 | ------------- | ------------- |
@@ -126,7 +126,7 @@ For a slightly more complex example JSON check out [this example describing an o
 
 ### Collection configuration
 
-In order to visualize collections in the Microsoft Planetary Computer Explorer, there are several configurations that must be defined, including:
+In order to visualize collections in the MC Pro Explorer, there are several configurations that must be defined, including:
 
 - Mosaic definition
 - [Render configuration](./render-configuration.md)
@@ -135,7 +135,7 @@ In order to visualize collections in the Microsoft Planetary Computer Explorer, 
 
 ### Item assets
 
-The `item_assets` field, at the collection level, provides a way to determine what assets (datafiles) are available in any child Item.  Otherwise a random Item would need to be examined to determine assets available, but that random Item might not be representative of the reset. Assets included at the collection level do not imply that all assets are available from all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in Microsoft Planetary Computer via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. Item Assets are required for Microsoft Planetary Computer collections to visualize Items in the Explorer.
+The `item_assets` field, at the collection level, provides a way to determine what assets (datafiles) are available in any child Item.  Otherwise a random Item would need to be examined to determine assets available, but that random Item might not be representative of the reset. Assets included at the collection level do not imply that all assets are available from all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in MC Pro via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. Item Assets are required for MC Pro collections to visualize Items in the Explorer.
 
 The `item_assets` field is itself an object, with at least two of the following fields:
 
@@ -146,15 +146,15 @@ The `item_assets` field is itself an object, with at least two of the following 
 | type | string | [Media type](https://github.com/radiantearth/stac-spec/tree/v1.0.0-rc.1/catalog-spec/catalog-spec.md#media-types) of the asset. |
 | roles | list of strings | The semantic roles of the asset, similar to the use of rel in links. |
 
-## STAC items in Microsoft Planetary Computer
+## STAC items
 
 ### Introduction to STAC items
 
-Microsoft Planetary Computer allows you to create Items to store and organize geospatial datasets on Azure.  A STAC Item is the core object in a GeoCatalog's collection, containing metadata for a scene and links to assets (i.e., files). An Item's metadata allows Microsoft Planetary Computer to search and query spatial assets.  Refer to [STAC Item Spec](https://github.com/radiantearth/stac-spec/tree/master/item-spec) to learn more about the STAC Items.
+MC Pro allows you to create Items to store and organize geospatial datasets on Azure.  A STAC Item is the core object in a GeoCatalog's collection, containing metadata for a scene and links to assets (i.e., files). An Item's metadata allows MC Pro to search and query spatial assets.  Refer to [STAC Item Spec](https://github.com/radiantearth/stac-spec/tree/master/item-spec) to learn more about the STAC Items.
 
 ### Item definition
 
-Microsoft Planetary Computer adheres to the STAC Item Specification which defines a set of common fields to describe an Item, such as time range and the assets related to the Item. Items are defined in JSON format and can be flexibly expanded to include additional metadata.
+MC Pro adheres to the STAC Item Specification which defines a set of common fields to describe an Item, such as time range and the assets related to the Item. Items are defined in JSON format and can be flexibly expanded to include additional metadata.
 
 A valid STAC Item requires the following fields:
 
@@ -260,17 +260,17 @@ The following is a basic example of an item JSON.
 }
 ```
 
-## STAC extensions in Microsoft Planetary Computer
+## STAC extensions
 
-Currently, Microsoft Planetary Computer automatically adds the following extensions to all ingested collections:
+Currently, MC Pro automatically adds the following extensions to all ingested collections:
 
 - [item-assets](https://github.com/stac-extensions/item-assets)
 - [table](https://github.com/stac-extensions/table)
 
-Users are free to add any other STAC extensions they want, but Microsoft Planetary Computer does not currently validate the extensions, and there are no Explorer features based on any extensions other than those listed above.
+Users are free to add any other STAC extensions they want, but MC Pro doesn't currently validate the extensions.
 
-For a full list of STAC extensions, including the maturity of each one, reference [this page](https://stac-extensions.github.io/).
+For a full list of STAC extensions, including the maturity of each one, see [the STAC extensions page on GitHub](https://stac-extensions.github.io/).
 
-## STAC API in Microsoft Planetary Computer
+## STAC API
 
-Microsoft Planetary Computer's APIs conform to the [STAC API specification](https://github.com/radiantearth/stac-api-spec/), making it possible for you to quickly and easily search petabyte-scale datasets to find specific data assets that meet your needs. Once these assets are identified, you can view or download the assets using Microsoft Planetary Computer APIs.
+MC Pro's APIs conform to the [STAC API specification](https://github.com/radiantearth/stac-api-spec/), making it possible for you to quickly and easily search petabyte-scale datasets to find specific data assets that meet your needs. Once these assets are identified, you can view or download the assets using MC Pro APIs.

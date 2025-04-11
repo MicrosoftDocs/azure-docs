@@ -1,6 +1,6 @@
 ---
-title: Tile settings for Microsoft Planetary Computer
-description: This article provides an overview of the tile settings for Microsoft Planetary Computer. It explains how to configure mosaic behavior, such as default location and zoom levels, using JSON settings.
+title: Tile settings for Microsoft Planetary Computer Pro
+description: This article provides an overview of the tile settings for Microsoft Planetary Computer Pro. It explains how to configure mosaic behavior, such as default location and zoom levels, using JSON settings.
 author: MarcLichtman
 ms.author: marclichtman
 ms.service: planetary-computer
@@ -8,21 +8,21 @@ ms.topic: concept-article
 ms.date: 04/09/2025
 ---
 
-# Tile settings for Microsoft Planetary Computer
+# Tile settings for Microsoft Planetary Computer Pro
 
-For each collection in Microsoft Planetary Computer, you can configure the tile settings, which determine mosaic behavior such as the default location, and minimum zoom level.
+For each collection in Microsoft Planetary Computer Pro, you can configure the tile settings, which determine mosaic behavior such as the default location, and minimum zoom level.
 
-In this article, see where to find and modify tile settings for Microsoft Planetary Computer.
+In this article, see where to find and modify tile settings for Microsoft Planetary Computer Pro.
 
 ## Prerequisites
 
-- You have a [STAC collection with Microsoft Planetary Computer GeoCatalog](./create-stac-collection.md)
+- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md)
 
 ## Find tile settings
 
 The tile settings are found by going to the Collection page and selecting the Configuration button.
 
-![Screenshot of the tile settings tab in the Microsoft Planetary Computer interface](media/tilesettings1.png)
+![Screenshot of the tile settings tab in the Microsoft Planetary Computer Pro interface](media/tilesettings1.png)
 
 The settings are in the form of a JSON object.
 
