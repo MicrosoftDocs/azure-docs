@@ -1,5 +1,6 @@
 ---
 ms.service: azure-functions
+ms.subservice: durable-task-scheduler
 ms.topic: include
 ms.date: 03/17/2025
 ---

@@ -17,12 +17,14 @@
   - name: Configure for the portable Durable Task SDKs
     displayName: get started
     href: quickstart-portable-durable-task-sdks.md
+- name: Key concepts
+  items:
+  - name: Manage and monitor
+    href: durable-task-scheduler-dashboard.md
 - name: Durable Task Scheduler for Durable Functions
   items:
   - name: Develop
     href: develop-with-durable-task-scheduler.md
-  - name: Manage and monitor
-    href: durable-task-scheduler-dashboard.md
 - name: Durable Task Scheduler for portable SDKs
   items:
   - name: Use the portable SDKs with Azure computes
@@ -31,3 +33,5 @@
   items:
   - name: Troubleshooting
     href: troubleshoot-durable-task-scheduler.md
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

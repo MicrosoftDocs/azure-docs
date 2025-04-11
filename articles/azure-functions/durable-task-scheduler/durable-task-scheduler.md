@@ -3,9 +3,6 @@ title: Azure Functions durable task scheduler backend for durable functions (pre
 description: Learn about the characteristics of the Azure Functions durable task scheduler backend.
 ms.topic: conceptual
 ms.date: 04/10/2025
-ms.author: azfuncdf
-author: hhunter-ms
-ms.subservice: durable
 ---
 
 # Azure Functions durable task scheduler backend for durable functions (preview)

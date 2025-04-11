@@ -1,11 +1,8 @@
 ---
 title: "Quickstart: Set a durable functions app to use Azure Functions durable task scheduler (preview)"
 description: Learn how to configure an existing durable functions app to use Azure Functions durable task scheduler.
-author: lilyjma
 ms.topic: how-to
 ms.date: 04/10/2025
-ms.author: jiayma
-ms.reviewer: azfuncdf
 zone_pivot_groups: dts-runtime
 ---
 
