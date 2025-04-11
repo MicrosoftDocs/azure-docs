@@ -1,11 +1,8 @@
 ---
 title: Develop with the Azure Functions durable task scheduler (preview)
 description: Learn how to develop with the Azure Functions durable task scheduler and task hub resources.
-author: lilyjma
 ms.topic: how-to
 ms.date: 03/19/2025
-ms.author: jiayma
-ms.reviewer: azfuncdf
 zone_pivot_groups: dts-devexp
 ---
 

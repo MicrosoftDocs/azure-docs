@@ -1,27 +1,24 @@
 ---
 title: "Quickstart: Set a durable functions app to use Azure Functions durable task scheduler (preview)"
 description: Learn how to configure an existing durable functions app to use Azure Functions durable task scheduler.
-author: lilyjma
 ms.topic: how-to
-ms.date: 03/17/2025
-ms.author: jiayma
-ms.reviewer: azfuncdf
+ms.date: 04/10/2025
 zone_pivot_groups: dts-runtime
 ---
 
 # Quickstart: Set a durable functions app to use Azure Functions durable task scheduler (preview)
 
-Write stateful functions in a serverless environment using durable functions, a feature of [Azure Functions](../../functions-overview.md). Scenarios where durable functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
+Write stateful functions in a serverless environment using durable functions, a feature of [Azure Functions](../functions-overview.md). Scenarios where durable functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
 
-Durable functions supports several [storage providers](../durable-functions-storage-providers.md), also known as *backends*, for storing orchestration and entity runtime state. 
+Durable functions supports several [storage providers](../durable/durable-functions-storage-providers.md), also known as *backends*, for storing orchestration and entity runtime state. 
 
-In this quickstart, you configure a durable functions app to use the [durable task scheduler](../durable-functions-storage-providers.md#dts) as the backend and deploy the app to Azure using **Visual Studio Code**. 
+In this quickstart, you configure a durable functions app to use the [durable task scheduler](../durable/durable-functions-storage-providers.md#dts) as the backend and deploy the app to Azure using **Visual Studio Code**. 
 
 > [!NOTE]
 >
-> - To learn more about the benefit of using durable task scheduler, see [durable functions backend providers overview](../durable-functions-storage-providers.md).
+> - To learn more about the benefit of using durable task scheduler, see [durable functions backend providers overview](../durable/durable-functions-storage-providers.md).
 >
-> - Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers currently isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the durable task scheduler. Similarly, the task hub contents that are created by using the scheduler resource can't be preserved if you switch to a different backend provider.
+> - Migrating [task hub data](../durable/durable-functions-task-hubs.md) across backend providers currently isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the durable task scheduler. Similarly, the task hub contents that are created by using the scheduler resource can't be preserved if you switch to a different backend provider.
 >
 > - Durable task scheduler currently only supports durable functions running on **Functions Premium** and **App Service** plans. 
 
@@ -29,31 +26,31 @@ In this quickstart, you configure a durable functions app to use the [durable ta
 
 This quickstart assumes you already have an Azure Functions project on your local computer with:
 - Durable functions added to your project including:
-  - An [orchestrator function](../durable-functions-bindings.md#orchestration-trigger). 
-  - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the durable functions app.
+  - An [orchestrator function](../durable/durable-functions-bindings.md#orchestration-trigger). 
+  - A [client function](../durable/durable-functions-bindings.md#orchestration-client) that triggers the durable functions app.
 - The project configured for local debugging.
 
 If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts to set up a local Functions project:
 
 ::: zone pivot="csharp"  
 
-- [Create a durable functions app - C#](../durable-functions-isolated-create-first-csharp.md)
+- [Create a durable functions app - C#](../durable/durable-functions-isolated-create-first-csharp.md)
 
 ::: zone-end 
 
 ::: zone pivot="other"  
 
-- [Create a durable functions app - JavaScript](../quickstart-js-vscode.md)
-- [Create a durable functions app - Python](../quickstart-python-vscode.md)
-- [Create a durable functions app - PowerShell](../quickstart-powershell-vscode.md)
-- [Create a durable functions app - Java](../quickstart-java.md)
+- [Create a durable functions app - JavaScript](../durable/quickstart-js-vscode.md)
+- [Create a durable functions app - Python](../durable/quickstart-python-vscode.md)
+- [Create a durable functions app - PowerShell](../durable/quickstart-powershell-vscode.md)
+- [Create a durable functions app - Java](../durable/quickstart-java.md)
 
 ::: zone-end 
 
 You also need:
 - [Docker](https://docs.docker.com/engine/install/) installed to run the durable task scheduler emulator. 
-- [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite) installed.
-- An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
+- [Azurite](../../storage/common/storage-use-azurite.md#run-azurite) installed.
+- An [HTTP test tool](../functions-develop-local.md#http-test-tools) that keeps your data secure.
 
 ## Add the durable task scheduler package
 
@@ -165,7 +162,7 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
 
-1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using the [HTTP test tool](../../functions-develop-local.md#http-test-tools) you chose. 
+1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using the [HTTP test tool](../functions-develop-local.md#http-test-tools) you chose. 
 
 1. Copy the URL value for `statusQueryGetUri` and paste it in your browser's address bar. You should see the status on the orchestration instance:
 
@@ -209,7 +206,7 @@ Resource deployment could take around 15 to 20 minutes. Once that is finished, y
 
 ### Deploy your function app to Azure
 
-[!INCLUDE [functions-publish-project-vscode](../../../../includes/functions-deploy-project-vs-code.md)]
+[!INCLUDE [functions-publish-project-vscode](../../../includes/functions-deploy-project-vs-code.md)]
 
 #### Apps on Functions Premium plan
 

@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure Functions Durable Task Scheduler documentation # <60 chars
+summary: Azure Functions Durable Task Scheduler is a fully managed backend providing with management, observability, performance, and security for your Azure compute services. # < 160 chars
+
+metadata:
+  title: Azure Functions Durable Task Scheduler documentation
+  description: Azure Functions Durable Task Scheduler is a fully managed backend providing with management, observability, performance, and security for your Azure compute services.
+  ms.service: azure-functions 
+  ms.topic: landing-page
+  author: hhunter-ms 
+  ms.author: hannahhunter 
+  ms.date: 04/10/2025 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Durable Task Scheduler
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Durable Task Scheduler?
+            url: durable-task-scheduler.md
+          - text: Choose your orchestration framework
+            url: durable-task-scheduler-framework.md
+      - linkListType: concept
+        links:
+          - text: Compare with other Durable Functions storage providers
+            url: ../durable/durable-functions-storage-providers.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Configure for Durable Functions
+            url: quickstart-durable-task-scheduler.md
+          - text: Configure for the portable Durable Task SDKs
+            url: quickstart-portable-durable-task-sdks.md
+        
+  # Card
+  - title: Portable Durable Task SDKs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Durable Task Scheduler for portable SDKs
+            url: durable-task-scheduler-dashboard.md #placeholder
