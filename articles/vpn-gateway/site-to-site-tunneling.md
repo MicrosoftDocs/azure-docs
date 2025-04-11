@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 ---
 # Configure forced tunneling using Default Site for site-to-site connections

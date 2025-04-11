@@ -24,7 +24,7 @@ Heres the list of all of the data fields found in your price sheet.
 | 2   | billingAccountId | Unique identifier for the billing account. |
 | 3   | billingAccountName | Name of the billing account. |
 | 4   | billingCurrency | Currency in which charges are posted. |
-| 5   | billingProfileId | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
+| 5   | billingProfileId | Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile. |
 | 6   | billingProfileName | Name of the billing profile that is set up to receive invoices. The prices in the price sheet are associated with this billing profile. |
 | 7   | currency | Currency in which all the prices are reflected. |
 | 8   | discount | The price discount offered for Graduation Tier, Free Tier, Included Quantity, or Negotiated discounts when applicable. Represented as a percentage. Not available in the updated version of the price sheet. |
