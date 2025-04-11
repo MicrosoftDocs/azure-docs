@@ -71,5 +71,5 @@ You can now resolve your private cloud DNS records from any workload using the I
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
 - [Connect to on-premises environment](native-connect-on-premises.md)
 - [Internet connectivity options](native-internet-connectivity-design-considerations.md)
-- [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)
-- [Connect Azure VMware Solution private cloud in a Virtual Network to the previous edition of Azure VMware Solution private cloud](native-connect-private-cloud-previous-edition.md)
+- [Connect multiple Gen 2 private clouds](native-connect-multiple-private-clouds.md)
+- [Connect Gen 2 and Gen 1 private clouds](native-connect-private-cloud-previous-edition.md)
