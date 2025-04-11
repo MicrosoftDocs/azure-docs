@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog using Python"
 description: Learn how to add and use STAC collections in Microsoft Planetary Computer Pro GeoCatalog using Python.
-author: TomAugspurger
-ms.author: taugspurger
+author: Prasad Komma
+ms.author: prasadkomma
 ms.service: planetary-computer
 ms.topic: quickstart
 ms.date: 04/08/2025
@@ -60,7 +60,7 @@ headers = {
 }
 ```
 
-This can be provided as a Bearer token in the `Authorization` header in requests made to the service.
+This credential can be provided as a Bearer token in the `Authorization` header in requests made to the service.
 
 ## Add a collection to a GeoCatalog
 
@@ -97,7 +97,7 @@ You can also visit your GeoCatalog in your Explorer to see the new collection.
 
 Each collection in a GeoCatalog includes some configuration that controls how the Item metadata is stored, indexed, and visualized.
 
-1. Define a render configuration for the collection. This controls how the assets are rendered when visualized in the Explorer. The appropriate values to use here depend on the assets in your collection.
+1. Define a render configuration for the collection. This render configuration controls how the assets are rendered when visualized in the Explorer. The appropriate values to use here depend on the assets in your collection.
 
     ```python
     import json
@@ -215,7 +215,7 @@ print(response.status_code)
 A status code of `204` indicates that your Collection was deleted.
 
 > [!WARNING]
-> If you delete a collection, you must wait at least 45 seconds before attempting to create a new collection with an identical name/id. If you attempt to create a new collection using the same name as the deleted collection you'll receive an error. If this error occurs, please try to recreate the collection after a 45 second wait.
+> If you delete a collection, you must wait at least 45 seconds before attempting to create a new collection with an identical name/id. If you attempt to create a new collection using the same name as the deleted collection, you'll receive an error. If this error occurs, try to recreate the collection after a 45-second wait.
 
 
 ## Next step
