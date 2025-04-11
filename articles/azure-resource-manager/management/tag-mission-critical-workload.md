@@ -37,7 +37,6 @@ For further insights into defining a workload, refer to the following article.
 To enable use by Microsoft in a workload assessment, the tags used for mission critical workloads must use the following tag name and adhere to the value format.
 
 > [!Important]
-
 > Tag values must **NOT** contain numeric or non-English characters.
 > Tag values must conform to this RegEx pattern: ^[A-Za-z]+-[A-Za-z]+
 
