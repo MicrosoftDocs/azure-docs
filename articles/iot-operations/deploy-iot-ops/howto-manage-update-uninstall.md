@@ -139,6 +139,8 @@ To disable the preview connector configuration, run:
 az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Disabled  
 ```
 
+---
+
 ### Manage components
 
 Each Azure IoT Operations instance includes several components, like the MQTT broker, connector for OPC UA, and data flows. To learn more about managing these components, see their respective articles. For example, to manage the MQTT broker, start with [Broker overview](../manage-mqtt-broker/overview-broker.md).

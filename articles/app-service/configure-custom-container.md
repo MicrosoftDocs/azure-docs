@@ -489,7 +489,7 @@ For more troubleshooting information, see the Azure App Service blog: [Enabling 
 ## Configure multi-container apps
 
 > [!NOTE]
-> Sidecar containers succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
+> The Docker Compose feature will be retired on March 31, 2027. Sidecar containers succeed multi-container apps in App Service. For new services, refer to [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md). For existing multi-container apps in App Service, refer to [Migrating your Docker Compose applications to the Sidecar feature](https://azure.github.io/AppService/2025/04/01/Docker-compose-migration.html).
 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)

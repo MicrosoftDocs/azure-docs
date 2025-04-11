@@ -242,7 +242,7 @@ The following screenshot shows an advisor recommendation for an Azure Cache for 
 
 :::image type="content" source="media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
 
-To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale]/azure-cache-for-redis/cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier]/azure-cache-for-redis/cache-overview.md#choosing-the-right-tier).
+To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](../azure-cache-for-redis/cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](../azure-cache-for-redis/cache-overview.md#choosing-the-right-tier).
 
 ## Related content
 

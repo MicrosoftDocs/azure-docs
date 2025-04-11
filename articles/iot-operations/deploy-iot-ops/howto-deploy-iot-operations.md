@@ -99,6 +99,8 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
       Schema registry requires an Azure Storage account with hierarchical namespace and public network access enabled. When creating a new storage account, choose a **General purpose v2** storage account type and set **Hierarchical namespace** to **Enabled**.
 
+      For more information on configuring your storage account, see [Production deployment guidelines](concept-production-guidelines.md#schema-registry-and-storage).
+
    1. Select a container in your storage account or select **Container** to create one.
 
    1. Select **Apply** to confirm the schema registry configurations.

@@ -21,8 +21,8 @@ This article lists all of the data fields available in the Microsoft Customer Ag
 | 1 |Amount|The charge of the transaction.|
 | 2 |ArmSkuName|The Azure Resource Manager SKU name. It can be used to join with the `serviceType` field in `additionalinfo` in usage records.|
 | 3 |BillingFrequency|The billing frequency, which can be either one-time or recurring.|
-| 4 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 5 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 4 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 5 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 6 |Currency|The ISO currency in which the transaction is charged, for example, USD.|
 | 7 |Description|The description of the transaction.|
 | 8 |EventDate|The date of the transaction.|
