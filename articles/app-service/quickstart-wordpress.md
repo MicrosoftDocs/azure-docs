@@ -6,8 +6,7 @@ keywords: app service, azure app service, wordpress, wordpress hosting, azure wo
 author: msangapu-msft
 ms.subservice: wordpress
 ms.topic: quickstart
-ms.date: 02/21/2025
-# ms.devlang: wordpress
+ms.date: 04/11/2025
 ms.author: msangapu
 ms.custom: mvc, linux-related-content
 ---
@@ -29,13 +28,8 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
 1. <a name="wordpress-setup"></a>Under **WordPress setup**, choose your preferred **Site Language**, then type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** is used for WordPress administrative sign-in only.
 
-1. (Optional) Select the **Add-ins** tab. Recommended settings are already enabled by default in the Add-ins tab.
-   - Managed Identities remove the overhead of managing sensitive credentials to access Azure resources, making your website highly secure.
-   - Azure Communication Service enables application-to-person, high-volume emails with Azure Communication Services.
-   - Azure Content Delivery Network helps in improving performance, availability, and security by using a distributed network of servers that can store cached content in point-of-presence locations, close to end users.
-   - Azure Front Door (AFD) provides dynamic site acceleration that reduces response times while also allowing content delivery by caching at nearest edge servers for faster media downloads.
-   - Azure Blob Storage allows you to store and access images, videos and other files. This effectively reduces the load on your web server thereby improving performance and user experience.
-   
+1. (Optional) Select the **Add-ins** tab. Recommended settings (including Managed Identity) are already enabled by default. See [Configure WordPress add-ins](#configure-wordpress-add-ins) for more information.
+
    If you're unfamiliar with an Azure CDN, Azure Front Door, Blob Storage, or ACS Email then clear the checkboxes. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
@@ -62,6 +56,15 @@ When no longer needed, you can delete the resource group, App service, and all r
 1. From the *resource group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
     :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group.":::
+
+## Configure WordPress add-ins
+
+In the Add-ins tab, recommended settings are already enabled by default:
+   - Managed Identities remove the overhead of managing sensitive credentials to access Azure resources, making your website highly secure.
+   - Azure Communication Service enables application-to-person, high-volume emails with Azure Communication Services.
+   - Azure Content Delivery Network helps in improving performance, availability, and security by using a distributed network of servers that can store cached content in point-of-presence locations, close to end users.
+   - Azure Front Door (AFD) provides dynamic site acceleration that reduces response times while also allowing content delivery by caching at nearest edge servers for faster media downloads.
+   - Azure Blob Storage allows you to store and access images, videos and other files. This effectively reduces the load on your web server thereby improving performance and user experience.
 
 ## Manage the MySQL flexible server, username, or password (optional)
 
