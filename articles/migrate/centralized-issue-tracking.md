@@ -29,7 +29,7 @@ The Action Center can be accessed directly from the Azure Migrate dashboard, pro
 
     ![Screenshot of Action Center.](./media/centralized-issue-tracking/action-center.png)
 
-- **Comprehensive issue tracking:** Users can see detailed information for each issue, including **severity level, affected workloads, affected features,** and **timestamps**. Each issue is accompanied by specific messages, allowing users to understand the nature of the problem and respond accordingly. Users can also sort and filter issues based on **severity, affected workload(s), timestamps**, and other parameters, enabling efficient prioritization of tasks and quick identification of high-severity issues that require immediate attention. Moreover, users can also have a view by affected workloads, where they can identify different issues by workloads.
+- **Comprehensive issue tracking:** Users can see detailed information for each issue, including **severity level, affected workloads, affected features,** and **timestamps**. Each issue is accompanied by specific messages, allowing users to understand the nature of the problem and respond accordingly. Users can also sort and filter issues based on **severity, affected workload(s), timestamps**, and other parameters, enabling efficient prioritization of tasks and quick identification of high-severity issues that require immediate attention. Users can also have a view by affected workloads, where they can identify different issues by workloads.
 
     [ ![Screenshot of affected workloads view.](./media/centralized-issue-tracking/view-affected-workloads-inline.png) ](./media/centralized-issue-tracking/view-affected-workloads-expanded.png#lightbox)
 

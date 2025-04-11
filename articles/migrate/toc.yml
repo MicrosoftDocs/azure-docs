@@ -205,7 +205,7 @@ items:
       items:
         - name: Create Business case and assessment
           href: tutorial-assess-physical.md
-        - name: Migrate
+        - name: Migrate Physical servers to Azure
           href: tutorial-migrate-physical-virtual-machines.md
     - name: Migrate servers hosted on public cloud
       items:
@@ -215,7 +215,7 @@ items:
           href: tutorial-discover-gcp.md
   #     - name: Create Business case and assessment
   #       href: tutorial-assess-aws.md
-        - name: Migrate
+        - name: Migrate AWS EC2 to Azure
           href: tutorial-migrate-aws-virtual-machines.md
   #  - name: Migrate Spring Boot applications
   #    items:

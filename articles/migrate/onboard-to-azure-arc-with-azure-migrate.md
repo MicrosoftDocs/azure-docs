@@ -62,7 +62,7 @@ Before you set up the appliance,
 
 ## Configure the appliance and start discovery  
 
-Use [this article](./tutorial-discover-vmware.md#start-continuous-discovery) to configure the Azure Migrate appliance and kick off the vCenter Server discovery. 
+This section explains [how to configure the Azure Migrate appliance](./tutorial-discover-vmware.md#start-continuous-discovery) and kick off the vCenter Server discovery. 
 
 As you configure the appliance for discovery, you need to specify the  details in the appliance configuration manager:
 
@@ -78,6 +78,9 @@ After the discovery has been successfully completed, it takes around 15 minutes 
 > Software inventory must be completed before onboarding your discovered servers to Azure Arc. 
 
 Once the vCenter Server discovery has been completed, software inventory (discovery of installed applications) will be automatically initiated. During software inventory, the server credentials provided will be iterated and validated against the discovered servers. You can start onboarding after the software inventory has been completed and the credentials have been mapped. It may take up to 6 hours for software inventory to complete after it is turned on.  
+
+Follow these steps: 
+
 1. Navigate to the **Onboard to Azure Arc** panel. 
 
     ![Arc onboarding](./media/onboard-to-azure-arc-with-azure-migrate/azure-arc-onboarding-panel-after-being-enabled.png)
@@ -114,13 +117,13 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 ## Troubleshooting Azure Arc onboarding errors
 
-If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following section can help identify the probable cause and suggested steps to resolve your problem. 
+If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following information can help identify the probable cause and suggested steps to resolve your problem. 
 
-If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](/azure/azure-arc/servers/troubleshoot-agent-onboard).
+If you don't see the error code listed below or if the error code starts with **_AZCM_**, see [this guide for troubleshooting Azure Arc](/azure/azure-arc/servers/troubleshoot-agent-onboard).
 
 ### Error 60001 - UnableToConnectToPhysicalServer  
 
-**Possible causes**  
+**Possible cause**  
 Either the [prerequisites](./migrate-support-matrix-physical.md) to connect to the server have not been met or there are network issues in connecting to the server, for instance some proxy settings.
 
 **Recommended actions**   
@@ -134,7 +137,7 @@ Either the [prerequisites](./migrate-support-matrix-physical.md) to connect to t
 
 ### Error 60002 - InvalidServerCredentials  
 
-**Possible causes**  
+**Possible cause**  
 Unable to connect to server. Either you have provided incorrect credentials on the appliance or the credentials previously provided have expired.
 
 **Recommended actions**  
@@ -144,7 +147,7 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 
 ### Error 60005 - SSHOperationTimeout  
 
-**Possible causes**  
+**Possible cause**  
 - The operation took longer than expected either due to network latency issues or due to the lack of latest updates on the server. 
 
 **Recommended actions**  
@@ -155,7 +158,7 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 
 ### Error 60108 - SoftwareInventoryCredentialNotAssociated  
 
-**Possible causes**  
+**Possible cause**  
 - No credentials were found to be associated with the server.
 
 **Recommended actions**  
@@ -165,34 +168,34 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 
 ### Error 60109 - ArcOsNotSupported  
 
-**Possible causes**  
+**Possible cause**  
 - The server hosts an unsupported operating system for Azure Arc onboarding.
 
-**Recommended actions**  
+**Recommended action**  
 - [Review the supported operating systems](/azure/azure-arc/servers/prerequisites#supported-operating-systems) for Azure Arc. 
  
 ### Error 10002 - ScriptExecutionTimedOutOnVm  
 
-**Possible causes**  
+**Possible cause**  
 - The onboarding task did not complete in time. Then execution took longer than expected. 
 
-**Recommended actions**  
+**Recommended action**  
 - The issue should automatically resolve in some time. If the issue persists, contact Microsoft Support.  
  
 ### Error 50000 - AccessDenied 
 
-**Possible causes**  
+**Possible cause**  
 - The operation could not be completed due to forbidden access on the server. The user account provided on the appliance to access the server does not have the required permissions or the credentials are incorrect. WinRM error code: 0x80070005
 
-**Recommended actions**  
+**Recommended action**  
 - Validate the possible causes and retry the operation. If the issue persists, contact support.
 
 ### Error 960/951/60009/60078 - NullResult/UnhandledException/ServerUnknownError/UnhandledError
 
-**Possible causes**  
+**Possible cause**  
 - The operation failed due to an internal error. 
 
-**Recommended actions**  
+**Recommended action**  
 - Retry the operation after some time. If the issue persists, contact support and provide the appliance machine ID (available in the **footer** of the appliance configuration manager).
 
 ## Next steps 

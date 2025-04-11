@@ -27,7 +27,7 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VMware Solution**.
 
-1. In **Assessments**, select an assessment to open it. For example, estimations and costs:
+1. In **Assessments**, select an assessment to open it. *For example*, estimations and costs:
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-inline.png" alt-text="Screenshot of AVS Assessment summary." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-expanded.png":::
 
@@ -39,11 +39,11 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
 
 2. Review the server status:
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
-    - **Ready with conditions**: There might be some compatibility issues, for example, internet protocol or deprecated OS in VMware, and need to be remediated before migrating to Azure VMware Solution. To fix any readiness issues, follow the remediation guidance the assessment suggests.
-    - **Not ready for AVS**: The VM will not start in AVS. For example, if the on-premises VMware VM has an external device attached such as a cd-rom the VMware vMotion operation will fail (if using VMware vMotion).
+    - **Ready with conditions**: There might be some compatibility issues, for example, Internet protocol or deprecated OS in VMware, and need to be remediated before migrating to Azure VMware Solution. To fix any readiness issues, follow the remediation guidance the assessment suggests.
+    - **Not ready for AVS**: The VM will not start in AVS. *For example*, if the on-premises VMware VM has an external device attached such as a CD-ROM the VMware vMotion operation will fail (if using VMware vMotion).
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 
-3. Review the Suggested tool:
+3. Review the suggested tool:
     - **VMware HCX Advanced or Enterprise**: For VMware vSphere VMs, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/configure-vmware-hcx.md).
     - **Unknown**: For servers imported via a CSV or RVTools file, the default migration tool is unknown. Though for VMware vSphere VMs, it's suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
 
@@ -61,7 +61,7 @@ This view shows the estimated cost of running servers in Azure VMware Solution.
     
 2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.
 
-3. You can drill down to see details for specific servers.
+3. You can drill-down to see details for specific servers.
 
 
 ### Review confidence rating

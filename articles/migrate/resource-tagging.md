@@ -9,7 +9,7 @@ ms.date: 03/20/2025
 monikerRange: migrate
 ---
 
-# Tagging in Azure Migrate
+# Tags in Azure Migrate
 
 ## Overview
 
