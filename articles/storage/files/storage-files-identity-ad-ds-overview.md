@@ -43,7 +43,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 - Share-level RBAC permissions can't be assigned to computer accounts. Use a default share-level permission or a service logon account instead.
 - Identity-based authentication isn't currently supported for NFS file shares.
 
-When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. This capability can be enabled with an AD DS environment hosted either on-premises machines or hosted on a virtual machine (VM) in Azure.
+When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. The AD DS environment can be hosted either on-premises or on a virtual machine (VM) in Azure.
 
 ## Videos
 
