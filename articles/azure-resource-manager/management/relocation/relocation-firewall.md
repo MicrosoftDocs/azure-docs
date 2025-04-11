@@ -216,6 +216,8 @@ Deploy the template to create a new Azure Firewall in the target region.
 1. The Azure Firewall is now deployed with the adopted configuration to reflect the needed changes in the target region.
 1. Verify configuration and functionality.
 
+---
+
 ## Related content
 
 - [Move resources to a new resource group or subscription](../move-resource-group-and-subscription.md)
