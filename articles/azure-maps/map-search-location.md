@@ -33,7 +33,7 @@ const onload = () => {
       authType: "aad",
       clientId: "<Your Azure Maps Client ID>",
       aadAppId: "<Your Azure Active Directory Client ID>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
@@ -126,7 +126,7 @@ const onload = () => {
       authType: "aad",
       clientId: "<Your Azure Maps Client ID>",
       aadAppId: "<Your Azure Active Directory Client ID>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
