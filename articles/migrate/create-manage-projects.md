@@ -100,7 +100,7 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 
 After you have created the project, perform the following steps to try out the new agentless dependency analysis enhancements:
 
-Ensure that you have installed Az CLI to execute the required commands by following the steps provided in the documentation [here](https://learn.microsoft.com/cli/azure/install-azure-cli)
+Ensure that you have installed Az CLI to execute the required commands by following the steps provided in the documentation [here](/cli/azure/install-azure-cli).
 
 After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
 
