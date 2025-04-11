@@ -574,6 +574,13 @@ items:
   - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
+    items:
+    - name: B2B and EDI
+      tocHref: /azure/logic-apps/enterprise-integration
+      topicHref: /azure/logic-apps/enterprise-integration
+    - name: Rules Engine
+      tocHref: /azure/logic-apps/rules-engine
+      topicHref: /azure/logic-apps/rules-engine
   - name: Machine Learning
     tocHref: /azure/machine-learning
     topicHref: /azure/machine-learning/
