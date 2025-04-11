@@ -87,11 +87,14 @@ To create a load test for a Locust-based test in the Azure portal:
     | **Host endpoint**   | (Optional) The HTTP endpoint URL. For example, https://www.contoso.com/products.|
     | **Test engine instances** | Select the number of parallel test engine instances. |
 
-The optional inputs can be provided in the load configuration, in the Locust test script, or in the Locust configuration file. For more information, see [Configure for high scale loads](./how-to-high-scale-load.md)
+    The optional inputs can be provided in the load configuration, in the Locust test script, or in the Locust configuration file. For more information, see [Configure for high scale loads](./how-to-high-scale-load.md)
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
 You can update the test configuration at any time, for example to upload a different Locust test file, or to modify the load parameters. Choose your test in the list of tests, and then select **Edit**.
+
+> [!NOTE]
+> Azure Load Testing runs your Locust script in *LocalRunner* mode on all the engine instances. 
 
 ## Run the load test
 

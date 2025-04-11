@@ -40,7 +40,19 @@
     - name: Move across resource groups/subscriptions
       href: move-resource-group-and-subscription.md
     - name: Move across regions
-      href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
+      items: 
+      - name: Relocation overview
+        href: relocate-index.md
+      - name: Initiate relocation
+        href: relocate-initiate.md
+      - name: Evaluate workload
+        href: relocate-evaluate.md
+      - name: Select relocation strategy
+        href: relocate-select.md
+      - name: Migrate workload
+        href: relocate-migrate.md
+      - name: Cut over traffic
+        href: relocate-cutover.md
     - name: Resources supported for move
       href: move-support-resources.md
     - name: Azure services
@@ -149,6 +161,8 @@
       href: tag-support.md
     - name: Azure Resource Graph queries
       href: ./resource-graph-samples.md
+    - name: Mission critical workload labeling
+      href: tag-mission-critical-workload.md
   - name: Private link access
     items:
     - name: Create - portal

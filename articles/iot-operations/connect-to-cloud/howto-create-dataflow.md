@@ -663,8 +663,6 @@ If the `temperature` field is greater than 20, the data is passed to the next st
 
 To map the data to another field with optional conversion, you can use the `map` operation. The conversion is specified as a formula that uses the fields in the source data.
 
-# [Operations experience](#tab/portal)
-
 In the operations experience, mapping is currently supported using **Compute**, **Rename**, and **New property** transforms.
 
 #### Compute
@@ -717,6 +715,8 @@ You can rename a datapoint using the **Rename** transform. This operation is use
 #### New property
 
 You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the data flow.
+
+# [Operations experience](#tab/portal)
 
 1. Under **Transform (optional)**, select **New property** > **Add**. 
 
@@ -774,6 +774,103 @@ builtInTransformationSettings:
     - inputs:
       - $context(assetDataset).location  
       output: location
+```
+
+---
+
+To learn more, see [Map data by using data flows](concept-dataflow-mapping.md) and [Convert data by using data flows](concept-dataflow-conversions.md).
+
+#### Remove
+
+By default, all datapoints are included in the output schema. You can remove any datapoint from the destination using the **Remove** transform.
+
+# [Operations experience](#tab/portal)
+
+1. Under **Transform (optional)**, select **Remove**. 
+1. Select the datapoint to remove from the output schema.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-remove.png" alt-text="Screenshot using operations experience to remove the weight datapoint the output schema.":::
+
+1. Select **Apply**.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: [
+        '*'
+      ]
+      output: '*'
+    }
+    {
+      inputs: [
+        'weight'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.SourceTimestamp'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.Value'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Code'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Symbol'
+      ]
+      output: ''
+    }
+  ]
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+builtInTransformationSettings:
+  map:
+    - type: PassThrough
+      inputs:
+        - "*"
+      output: "*"
+    - inputs:
+        - weight
+      output: ""
+    - inputs:
+        - weight.SourceTimestamp
+      output: ""
+    - inputs:
+        - weight.Value
+      output: ""
+    - inputs:
+        - weight.StatusCode
+      output: ""
+    - inputs:
+        - weight.StatusCode.Code
+      output: ""
+    - inputs:
+        - weight.StatusCode.Symbol
+      output: ""
 ```
 
 ---

@@ -127,22 +127,6 @@ MQTT broker resources created in your cluster using Kubernetes aren't visible in
 
 There's currently no workaround for this issue.
 
-### Probe event errors
-
----
-
-Issue ID: 1567
-
----
-
-Log signature: `"Path verification failed for probe event with operation type 'Publish'"`
-
----
-
-Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics might affect the probe or self-test checks resulting in invalid results. Invalid results might be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the message `Path verification failed for probe event with operation type 'Publish'` in the diagnostics-probe logs.
-
-There's currently no workaround for this issue.
-
 ## Azure IoT Layered Network Management (preview) issues
 
 This section lists current known issues for  Azure IoT Layered Network Management.
@@ -285,30 +269,6 @@ To work around this issue, you need to manually delete the CRD and finish the un
 
 1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
 
-## OPC PLC simulator issues
-
-This section lists current known issues for the OPC PLC simulator.
-
-### The simulator doesn't send data to the MQTT broker after you create an asset
-
----
-
-Issue ID: 4224
-
----
-
-Log signature: N/A
-
----
-
-The OPC PLC simulator doesn't send data to the MQTT broker after you create a new asset.
-
-To work around this issue,  restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
-
-```bash
-kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
-```
-
 ## Data flows issues
 
 This section lists current known issues for data flows.
@@ -356,23 +316,6 @@ Log signature: N/A
 ---
 
 When you create a data flow, you can specify a schema in the source configuration. However, deserializing and validating messages using a schema isn't supported yet. Specifying a schema in the source configuration only allows the operations experience to display the list of data points, but the data points aren't validated against the schema.
-
-### X.509 secret incorrectly encoded in operations experience web UI
-
----
-
-Issue ID: 8841
-
----
-
-Log signature: N/A
-
----
-
-<!-- TODO: double check -->
-When you create an X.509 secret in the operations experience, the secret is created with incorrectly encoded data.
-
-To work around this issue, create the [multi-line secrets through Azure Key Vault](/azure/key-vault/secrets/multiline-secrets), then select it from the list of secrets in the operations experience.
 
 ### Connection failures with Azure Event Grid
 
