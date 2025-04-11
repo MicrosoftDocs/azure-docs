@@ -370,7 +370,7 @@ This section discusses limitations to consider.
 If you're importing servers by using an RVTools XLSX file and building a business case, here are a few limitations:
 
 - Performance history duration in Azure settings aren't applicable.
-- Servers are classified as unknown in the business case utilization insights chart and are sized as is without right sizing for Azure or Azure VMware Solution cost.
+- Servers are classified as unknown in the business case utilization insights chart and are sized as is without right-sizing for Azure or Azure VMware Solution cost.
 
 #### [Assessment considerations](#tab/assessmentcase)
 

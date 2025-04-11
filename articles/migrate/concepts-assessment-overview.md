@@ -66,7 +66,7 @@ If you're using the appliance for discovery, it collects performance data using 
 1. The assessment stores all the 10-minute data points for the last month. 
  
 1. The created assessment identifies the appropriate data point to use for rightsizing. Identification is based on the percentile value for *performance history* and *percentile utilization*. 
-    - For example,  If you selected performance history as one week and percentile utilization as 95th percentile while creating the assessments, all the data points are sorted in ascending order and the 95th percentile value is picked for right sizing. 
+    - For example,  If you selected performance history as one week and percentile utilization as 95th percentile while creating the assessments, all the data points are sorted in ascending order and the 95th percentile value is picked for right-sizing. 
     - The 95th percentile value makes sure you ignore any outliers, which might be included if you picked the 99th percentile.  
     - If you want to consider all the outliers while calculating the assessments, select 99th percentile as percentile utilization. 
  

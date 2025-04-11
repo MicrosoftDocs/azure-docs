@@ -35,7 +35,7 @@ If you use the appliance for discovery, it collects performance data directly fr
 
 2. The appliance combines the sample points to create a single data point every 10 minutes for VMware and Hyper-V servers, and every 5 minutes for physical servers. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure. 
 
-3. The assessment stores all the 10-minute data points for the last month. All the peaks are arranged in the ascending order to identify the appropriate data point to use for right sizing.  
+3. The assessment stores all the 10-minute data points for the last month. All the peaks are arranged in the ascending order to identify the appropriate data point to use for right-sizing.  
 
 ### Performance data collected for import-based discovery  
 

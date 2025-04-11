@@ -83,8 +83,8 @@ The appliance collects the following performance data for compute settings:
 - The appliance collects a real-time sample point. For MySQL instances, it collects a sample point every 30 seconds.
 - The appliance aggregates the sample data points collected every 30 seconds over 10 minutes. To create the data point, the appliance selects the peak values from all samples. It sends the max and means for each counter to Azure.
 - Azure Migrate stores all the 10-minute data points for the last month.
-- When you create an assessment, Azure Migrate identifies the appropriate data point to use for right sizing. Identification is based on the percentile values for performance history and percentile utilization.
-    - For example, if the performance history spans a week and the utilization is at 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for right sizing.
+- When you create an assessment, Azure Migrate identifies the appropriate data point to use for right-sizing. Identification is based on the percentile values for performance history and percentile utilization.
+    - For example, if the performance history spans a week and the utilization is at 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for right-sizing.
     - The 95th percentile value ensures you ignore any outliers, which might be included if you picked the 99th percentile.
     - If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile for percentile utilization.
 - This value is multiplied by the comfort factor to get the effective performance utilization data for these metrics that the appliance collects:
