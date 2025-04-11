@@ -225,7 +225,7 @@ For client-side web applications (e.g., single-page apps) and mobile apps, embed
      </validate-jwt>
      ```
 
-   - Optionally, disable **Subscription required** under **Settings** to bypass subscription keys.
+   - Disable **Subscription required** under **Settings** to bypass subscription keys. (Optionally) you can enable this but you will be storing your subscription key inside your web app code accesible web browser whether authenticated or anonymous.
 
 4. **Implement Authentication**:
    - Use **MSAL.js** (web) or **MSAL Mobile** (iOS/Android) for PKCE flows.
