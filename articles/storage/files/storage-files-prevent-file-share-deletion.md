@@ -32,7 +32,7 @@ When soft delete is enabled, deleted file shares are retained in a soft deleted 
 > [!IMPORTANT]
 > Soft delete only works on a file share level. If you want to be able to restore deleted files, you can use [share snapshots](storage-snapshots-files.md) or [Azure file share backup](../../backup/azure-file-share-backup-overview.md).
 
-Soft delete for file shares is enabled at the storage account level so the soft delete settings apply to all file shares within a storage account. New storage accounts have soft delete enabled by default, but you can enabled or disable soft delete as desired for new or existing storage accounts. If you disable soft delete, any file shares deleted before disabling soft delete can still be undeleted.
+Soft delete for file shares is enabled at the storage account level so the soft delete settings apply to all file shares within a storage account. New storage accounts have soft delete enabled by default, but you can enable or disable soft delete as desired for new or existing storage accounts. If you disable soft delete, any file shares deleted before disabling soft delete can still be undeleted.
 
 By default, the retention period for file shares is 7 days, but you can specify any retention period between 1 and 365 days. The retention period clock starts when the file share is deleted. You can change the soft delete retention period at any time. Shares deleted before the retention period update expire based on the retention period that was configured when that data was deleted.
 
@@ -114,7 +114,7 @@ To restore a soft deleted file share:
 
     This displays any shares currently in a **Deleted** state.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="If the status column, the column next to the name column, is set to Deleted, then your file share is in a soft deleted state, and is be permanently deleted after your specified retention period.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Screenshot of the undelete option on a deleted file share in the Azure portal.":::
 
 1. Select the share and select **undelete** to restore the share.
 
