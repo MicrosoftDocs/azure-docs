@@ -115,7 +115,9 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 #### [Azure CLI](#tab/cli2)
 
-Use the `az iot ops update` command to edit the tags and description parameters of your Azure IoT Operations instance. The values provided in the `update` command replace any existing tags or description
+Use the `az iot ops update` command to edit the features of your Azure IoT Operations instance.
+
+To update tags and description parameters of an instance, run:
 
 ```azurecli
 az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --desc "<INSTANCE_DESCRIPTION>" --tags <TAG_NAME>=<TAG-VALUE> <TAG_NAME>=<TAG-VALUE>
