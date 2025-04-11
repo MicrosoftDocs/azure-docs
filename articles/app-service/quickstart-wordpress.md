@@ -28,9 +28,7 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
 1. <a name="wordpress-setup"></a>Under **WordPress setup**, choose your preferred **Site Language**, then type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** is used for WordPress administrative sign-in only.
 
-1. (Optional) Select the **Add-ins** tab. Recommended settings (including Managed Identity) are already enabled by default. See [Configure WordPress add-ins](#configure-wordpress-add-ins) for more information.
-
-   If you're unfamiliar with an Azure CDN, Azure Front Door, Blob Storage, or ACS Email then clear the checkboxes. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
+1. (_Optional_) Select the **Add-ins** tab. Recommended settings (including Managed Identity) are already enabled by default. Clear the checkboxes if you're unfamiliar with these settings. See [Configure WordPress add-ins](#configure-wordpress-add-ins) for more information.
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  
