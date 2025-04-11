@@ -19,4 +19,4 @@ When selecting a media tier for your workload, consider your performance and usa
 
 Once you've created a file share in a storage account, you can't directly move it to a different media tier. For example, to move an HDD file share to the SSD media tier, you must create a new SSD file share and copy the data from your original share to the new file share. See [migrate files from one file share to another](../articles/storage/files/migrate-files-between-shares.md)
 
-More information on the SSD and and HDD media tiers can be found in [Understanding Azure Files billing](../articles/storage/files/understanding-billing.md) and [Understanding Azure Files performance](../articles/storage/files/understand-performance.md).
+More information on the SSD and HDD media tiers can be found in [Understanding Azure Files billing](../articles/storage/files/understanding-billing.md) and [Understanding Azure Files performance](../articles/storage/files/understand-performance.md).
