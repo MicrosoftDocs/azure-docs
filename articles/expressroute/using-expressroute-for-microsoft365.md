@@ -55,7 +55,7 @@ Therefore, in scenarios where you have widely distributed SaaS clients or client
 
 ## When to use ExpressRoute for Microsoft 365?
 
-We no longer recommend the use of ExpressRoute for Microsoft 365 traffic. For more information, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute?view=o365-worldwide).
+We no longer recommend the use of ExpressRoute for Microsoft 365 traffic. For more information, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute?view=o365-worldwide&preserve-view=true).
 
 ## Next steps
 
