@@ -623,13 +623,13 @@ The following example is a BrokerListener resource that enables TLS on port 8884
 Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to add or change a TCP port configuration to an MQTT broker listener service. If the listener exists, the command updates the existing listener. If the listener doesn't exist, the command creates a new listener.
 
 ```azurecli
-az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-issuer-ref name=<IssuerName> kind=<IssuerKind> group=<IssuerGroup>
+az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-issuer-ref name=<IssuerName> kind=<IssuerKind> group=<IssuerGroup>
 ```
 
 The following example adds a new TLS port 8884 to the listener named `aio-broker-loadbalancer`:
 
 ```azurecli
-az iot ops broker listener port add --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name aio-broker-loadbalancer --port 8884 --authn-ref default --tls-issuer-ref name=my-issuer kind=Issuer group=cert-manager.io
+az iot ops broker listener port add --resource-group myResourceGroupName --instance myAioInstanceName --broker default --listener aio-broker-loadbalancer --port 8884 --authn-ref default --tls-issuer-ref name=my-issuer kind=Issuer group=cert-manager.io
 ```
 
 # [Bicep](#tab/bicep)
