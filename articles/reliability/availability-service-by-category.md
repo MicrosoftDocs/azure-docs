@@ -30,6 +30,7 @@ Azure services are presented in the following lists by category. Note that some 
 ## ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services
 - Azure Application Gateway
 - Azure Backup
+- Azure Cosmos DB for NoSQL
 - Azure Event Hubs
 - Azure ExpressRoute
 - Azure Key Vault
