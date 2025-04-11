@@ -144,13 +144,13 @@ Note:
 
 By default, the FHIR service in Azure Health Data Services is set to lenient handling. This means that the server ignores any unknown or unsupported parameters. If you want to use strict handling, you can include the `Prefer` header and set `handling=strict`.
 
-#### _include and _revinclude searches
+### _include and _revinclude searches
 
 The FHIR service supports search queries using the `_include` and `_revinclude` parameters. These parameters allow for the retrieval of reference resources in the search results.
 
-The `_include` search parameter enables the retrieval of a particular clinical resource, as well as any other resources that are referenced by it. When included in the query, the `_include` parameter will return both the specified resource and its referenced resources.
+The `_include` search parameter enables the retrieval of a particular clinical resource, as well as any other resources that it references. When included in the query, the `_include` parameter will return both the specified resource and its referenced resources.
 
-The `_revinclude` search parameter operates in reverse order, allowing the retrieval of a resource along with any other resources that reference it. This provides a way to search for resources based on their relationships with other resources. For detailed information on include and revinclude in search parameters, refer to the [FHIR Search Documentation](https://www.hl7.org/fhir/R4/search.html#revinclude).
+The `_revinclude` search parameter allows for the retrieval of a resource along with any other resources that reference it. This provides a way to search for resources based on their relationships with other resources. For detailed information on `_include` and `_revinclude` in search parameters, refer to the [FHIR Search Documentation](https://www.hl7.org/fhir/R4/search.html#revinclude).
 
 ##### Request parameters
 
@@ -161,7 +161,7 @@ When executing a search request with the `_include` and `_revinclude` parameter,
 | `_count` | Default value: 10, Max value: 1000 | The value represents the number of targeted resources to be retrieved per request. The value can be set up to 1000. When the parameter is not provided, it is set to 10. |
 | `_includesCount` | Default value: 1000 | The value represents the number of matching resources referenced by target resources to be retrieved per request. |
 
-For matched items from `_include` and `_revinclude` searches, a maximum of 1000 items will be included in the response. If the number of matched items exceeds this limit, a related link will be provided that encompasses the $include operation. The provided link will allow you to traverse through the complete result set of matched items. 
+For matched items from `_include` and `_revinclude` searches, a maximum of 1000 items will be included in the response. If the number of matched items exceeds this limit, a related link will be provided that encompasses the $include operation. The provided link will allow you to move through the complete result set. 
 
 Example:
 
