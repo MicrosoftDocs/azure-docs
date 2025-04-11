@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-http-variables.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-http-variables",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/cdn-advanced-http-reports.md",
       "redirect_url": "/previous-versions/azure/cdn/cdn-advanced-http-reports",
       "redirect_document_id": false

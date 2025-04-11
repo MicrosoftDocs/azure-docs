@@ -127,22 +127,6 @@ MQTT broker resources created in your cluster using Kubernetes aren't visible in
 
 There's currently no workaround for this issue.
 
-### Probe event errors
-
----
-
-Issue ID: 1567
-
----
-
-Log signature: `"Path verification failed for probe event with operation type 'Publish'"`
-
----
-
-Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics might affect the probe or self-test checks resulting in invalid results. Invalid results might be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the message `Path verification failed for probe event with operation type 'Publish'` in the diagnostics-probe logs.
-
-There's currently no workaround for this issue.
-
 ## Azure IoT Layered Network Management (preview) issues
 
 This section lists current known issues for  Azure IoT Layered Network Management.
