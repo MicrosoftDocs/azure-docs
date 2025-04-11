@@ -19,7 +19,7 @@ In this quickstart, you deploy an instance of the de-identification service in y
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure subscription with write permissions
 - Python 3.8 or later  
-- The Azure azure-health-deidentification [Python package](https://learn.microsoft.com/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview)
+- The Azure azure-health-deidentification [Python package](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview)
 
 
 ## Create a resource
@@ -69,14 +69,14 @@ Now that the resource is deployed, assign yourself as an owner using RBAC. To us
 
 ## Install the package
 
-Install the Azure Health Deidentification client library for Python. More information is available [here.](https://learn.microsoft.com/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview)
+Install the Azure Health Deidentification client library for Python. More information is available [here.](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview)
 
 ```Bash
 python -m pip install azure-health-deidentification
 ```
 
 ## Test the service
-In terminal, [log in to Microsoft azure.](https://learn.microsoft.com/cli/azure/authenticate-azure-cli) 
+In terminal, [log in to Microsoft azure.](/cli/azure/authenticate-azure-cli) 
 Now, write “python” to open a python shell and paste the following code. 
 Be sure to replace your Service URL with the URL you noted when creating a resource. 
 You can also change the operation type between REDACT, TAG, or SURROGATE.
