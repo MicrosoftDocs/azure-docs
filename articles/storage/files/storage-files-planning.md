@@ -60,14 +60,6 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 ## Management concepts
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-When deploying Azure file shares into storage accounts, we recommend:
-
-- Only deploying Azure file shares into storage accounts with other Azure file shares. Although GPv2 storage accounts allow you to have mixed purpose storage accounts, because storage resources such as Azure file shares and blob containers share the storage account's limits, mixing resources together may make it more difficult to troubleshoot performance issues later on. 
-
-- Paying attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you should map file shares 1:1 with storage accounts. However, this may not always be possible due to various limits and restrictions, both from your organization and from Azure. When it is not possible to have only one file share deployed in one storage account, consider which shares are highly active and which shares are less active to ensure that the hottest file shares don't get put in the same storage account together.
-
-- Only deploying GPv2 and FileStorage accounts, and upgrading GPv1 and classic storage accounts when you find them in your environment. 
-
 ## Identity
 
 To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
