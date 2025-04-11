@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2023
+ms.date: 04/02/2025
 ms.author: jianleishen
 ---
 # Copy data from Presto using Azure Data Factory or Synapse Analytics
@@ -83,7 +83,7 @@ The Presto linked service supports the following properties when apply version 2
 | password | The password corresponding to the user name. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is true.  | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. <br>Always use System Trust Store. The default value is true. | No |
-| timeZoneID | The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is null.  | No |
+| timeZoneID | The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the Presto system time zone.  | No |
 
 **Example:**
 
@@ -130,7 +130,7 @@ The Presto linked service supports the following properties when apply version 1
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |
 | allowHostNameCNMismatch | Specifies whether to require a CA-issued TLS/SSL certificate name to match the host name of the server when connecting over TLS. The default value is false.  | No |
 | allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
-| timeZoneID | The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.  | No |
+| timeZoneID | The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the Azure Data Factory time zone.  | No |
 
 **Example:**
 
@@ -281,6 +281,10 @@ The Presto connector version 2.0 (Preview) offers new functionalities and is com
 
 | Version 2.0 (Preview)  | Version 1.0 | 
 | :----------- | :------- |
+| `serverVersion` is not supported. | `serverVersion` is supported. |
+| The default value of `port` is 8443. | The default value of `port` is 8080. |
+| The default value of `enableSSL` is true.<br><br> `enableServerCertificateValidation` is supported. <br><br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false.<br><br>`enableServerCertificateValidation` is not supported. <br><br> `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` is supported. |
+| The default value of `timeZoneID` is the Presto system time zone. | The default value of `timeZoneID` is the Azure Data Factory time zone. |
 | The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Date <br>DECIMAL (Precision >= 28) -> Decimal <br> DOUBLE -> Double <br>INTERVAL_DAY_TO_SECOND -> TimeSpan <br>INTERVAL_YEAR_TO_MONTH -> String<br>IPADDRESS -> String<br>TIME -> Time<br>TIMESTAMPWITHTIMEZONE -> Datetimeoffset<br>TINYINT -> SByte<br>UUID -> Guid| The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Datetime <br>DECIMAL (Precision >= 28) -> String <br>DOUBLE -> Decimal <br>TIME -> TimeSpan<br>TINYINT -> Int16<br> Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. |  
 
 ## Related content

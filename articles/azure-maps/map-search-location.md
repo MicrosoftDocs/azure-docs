@@ -139,7 +139,7 @@ const onload = () => {
     const resultLayer = new atlas.layer.SymbolLayer(datasource);
     map.layers.add(resultLayer);
 
-    // Send a request to Azure Maps search API
+    // Send a request to Azure Maps Search API
     let url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1";
     url += "&query=gasoline%20station";
