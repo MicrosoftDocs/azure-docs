@@ -2,13 +2,13 @@
 title: Create project
 description: Describes how to create project
 author: ankitsurkar06
-ms.author: v-umhabiba
+ms.author: umhabiba
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/11/2025
 ---
 
-# Create and manage projects
+# Create project
 
 ::: moniker range="migrate"
 
@@ -99,7 +99,7 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 
 After you have created the project, perform the following steps to try out the new agentless dependency analysis enhancements:
 
-Ensure that you have installed Az CLI to execute the required commands by following the steps provided in the documentation [here](https://learn.microsoft.com/cli/azure/install-azure-cli)
+Ensure that you have installed Az CLI to execute the required commands by following the steps provided in the documentation [here](/cli/azure/install-azure-cli).
 
 After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
 
