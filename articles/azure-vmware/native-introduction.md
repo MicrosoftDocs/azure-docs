@@ -63,6 +63,6 @@ Azure VMware Solution Gen 2 private clouds are available in the following region
 
 - Get started with configuring your Azure VMware Solution service principal as a prerequisite. To learn how, see the [Enabling Azure VMware Solution service principal](native-first-party-principle-security.md) quickstart.
   
-- Follow a tutorial for [Creating an Azure VMware Private Cloud in an Azure Virtual Network](native-create-azure-vmware-virtual-network-private-cloud.md)
+- Follow a tutorial for [Creating an Azure VMware Gen 2 private cloud](native-create-azure-vmware-virtual-network-private-cloud.md)
 
-- Learn more about [Azure VMware Solution in an Azure Virtual Network design considerations](native-network-design-consideration.md)
+- Learn more about [Azure VMware Solution Gen 2 private cloud design considerations](native-network-design-consideration.md)
