@@ -12,9 +12,9 @@ appliesto:
 
 If an Azure Cache for Redis cache failure occurs, data loss is possible when nodes are down. [Redis persistence](https://redis.io/topics/persistence) allows you to persist the data stored in cache instances. If there's a hardware failure, the cache instance rehydrates with data from the persistence file when it comes back online.
 
-This article describes Redis persistence, and how to configure and manage data persistence in your Premium and Enterprise tier cache instances. The data persistence feature isn't available in Basic or Standard tiers, and is in preview in Enterprise and Enterprise Flash tiers.
+This article describes Redis persistence, and how to configure and manage data persistence in your Premium and Enterprise-tier Azure Redis cache instances. The data persistence feature isn't available in Basic or Standard tiers, and is in preview in Enterprise and Enterprise Flash tiers.
 
-The ability to persist data is an important way to boost the durability of a cache instance, because it stores all cache data in memory. Persistence should be a key part of your Azure Redis [high availability and disaster recovery](cache-high-availability.md) (HADR) strategy.
+The ability to persist data is an important way to boost the durability of a cache instance, because it stores all cache data in memory. Persistence should be a key part of your Azure Redis [high availability and disaster recovery](cache-high-availability.md) strategy.
 
 ## Types of Redis data persistence
 
@@ -63,7 +63,7 @@ For the Premium tier, data streams directly from the cache instance to Azure Sto
 
 #### [Enterprise tiers](#tab/enterprise)
 
-For the Enterprise and Enterprise Flash tiers, data is stored on a managed disk mounted to the cache instance. By default, the OS disk and the disk holding the persistence data are encrypted using MMKs, but you can also use CMKs. For more information, see [Encryption on Enterprise tier caches](cache-how-to-encryption.md).
+For the Enterprise and Enterprise Flash tiers, data is stored on a managed disk mounted to the cache instance. By default, the OS disk and the disk holding the persistence data are encrypted using Microsoft-managed keys (MMKs), but you can also use customer-managed keys (CMKs). For more information, see [Encryption on Enterprise tier caches](cache-how-to-encryption.md).
 
 ---
 
@@ -74,7 +74,7 @@ You can use the Azure portal, Azure Resource Manager (ARM) templates, PowerShell
 ### Prerequisites
 
 - To create and add persistence to Azure Redis caches, you need write access and permissions to create Premium or Enterprise-level caches in an Azure subscription.
-- For Premium-tier caches, you need an [Azure Storage account](/azure/storage/common/storage-account-create) in the same region as your cache to store the cache data. If you use [managed identity](cache-managed-identity.md) as an authentication method, you can use a storage account in a different subscription than your cache.
+- For Premium-tier caches, you need an [Azure Storage account](/azure/storage/common/storage-account-create) in the same region as your cache to store the cache data. If you use [managed identity](cache-managed-identity.md) as the authentication method, you can use a storage account in a different subscription than your cache.
 - For the Azure PowerShell procedures, you need [Azure PowerShell installed](/powershell/azure/install-azure-powershell), or use [Azure Cloud Shell](/azure/cloud-shell/get-started/ephemeral?tabs=powershell) with the PowerShell environment in the Azure portal.
 - For the Azure CLI procedures, you need [Azure CLI installed](/cli/azure/install-azure-cli), or use [Azure Cloud Shell](/azure/cloud-shell/get-started/ephemeral?tabs=azurecli) with the Bash environment in the Azure portal.
 
