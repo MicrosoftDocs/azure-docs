@@ -144,7 +144,7 @@ Note:
 
 By default, the FHIR service in Azure Health Data Services is set to lenient handling. This means that the server ignores any unknown or unsupported parameters. If you want to use strict handling, you can include the `Prefer` header and set `handling=strict`.
 
-#### _include and _revinclude searches
+##### _include and _revinclude searches
 
 The FHIR service supports search queries using the `_include` and `_revinclude` parameters. These parameters allow for the retrieval of reference resources in the search results.
 
