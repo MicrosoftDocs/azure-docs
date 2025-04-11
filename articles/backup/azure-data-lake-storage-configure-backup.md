@@ -78,7 +78,7 @@ You can configure backup on multiple Azure Data Lake Storage Gen2.
 To configure backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **+ Backup**. 
-1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasouce type** is selected as **Azure Data Lake Storage Gen2 (preview)**.
+1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasource type** is selected as **Azure Data Lake Storage Gen2 (preview)**.
 1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
    If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](#create-a-backup-policy-for-azure-data-lake-storage-gen2-preview).
  
