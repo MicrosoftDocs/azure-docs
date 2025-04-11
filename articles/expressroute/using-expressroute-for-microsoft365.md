@@ -2,12 +2,11 @@
 title: 'Using ExpressRoute for Microsoft 365 Services | Microsoft Docs'
 description: This document discusses objectively on using ExpressRoute circuit for Microsoft 365 SaaS services.
 services: expressroute
-author: rambk
-manager: tracsman
+ms.author: mbender
+author: mbender-ms
 ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 6/11/2024
-ms.author: rambala
 ---
 
 # Using ExpressRoute for routing Microsoft 365 traffic
