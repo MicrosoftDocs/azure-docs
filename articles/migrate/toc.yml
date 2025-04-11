@@ -9,8 +9,8 @@ items:
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Create an Azure Migrate project
-    href: create-manage-projects.md
+  - name: Create a project
+    href: create-project.md
   - name: Create a project - ARM template
     href: quickstart-create-migrate-project.md
   - name: Create a project - Portal
