@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: quickstart
-ms.date: 8/11/2023
+ms.date: 08/11/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
