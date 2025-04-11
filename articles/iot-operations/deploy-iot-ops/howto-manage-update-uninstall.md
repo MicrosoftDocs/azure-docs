@@ -107,9 +107,9 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 ---
 
-### Update instance tags and description
+### Update instances and configuration
 
-#### [Azure portal](#tab/portal)
+#### [Azure portal](#tab/portal2)
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
 
@@ -117,9 +117,11 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 1. On the **Overview** page of your instance, select **Add tags** or **edit** to modify tags on your instance.
 
-#### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli2)
 
-Use the `az iot ops update` command to edit the tags and description parameters of your Azure IoT Operations instance. The values provided in the `update` command replace any existing tags or description
+Use the `az iot ops update` command to edit the features of your Azure IoT Operations instance.
+
+To update tags and description parameters of an instance, run:
 
 ```azurecli
 az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --desc "<INSTANCE_DESCRIPTION>" --tags <TAG_NAME>=<TAG-VALUE> <TAG_NAME>=<TAG-VALUE>
@@ -129,6 +131,18 @@ To delete all tags on an instance, set the tags parameter to a null value. For e
 
 ```azurecli
 az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
+```
+
+To enable the preview connector configuration, run: 
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Enabled 
+```
+
+To disable the preview connector configuration, run: 
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Disabled  
 ```
 
 ---
