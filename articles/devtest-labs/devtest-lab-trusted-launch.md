@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 Trusted Launch provides a seamless solution to enhance the security of Generation 2 (Gen 2) virtual machines (VMs) by protecting against advanced and persistent attack techniques. This feature is composed of several coordinated infrastructure technologies that can be enabled independently, each adding an additional layer of defense against sophisticated threats. With Trusted Launch, you can securely deploy VMs with verified boot loaders, operating system (OS) kernels, and drivers, as well as protect keys, certificates, and secrets within the VMs. Additionally, it offers insights and confidence in the integrity of the entire boot chain, ensuring that workloads are trusted and verifiable.
 
-To learn more about Trusted Launch, please visit [Trusted Launch for Azure VMs](/azure/virtual-machines/trusted-launch)
+For more information about Trusted Launch, see [Trusted Launch for Azure VMs](/azure/virtual-machines/trusted-launch).
 
 This article explains how to use Trusted Launch for Gen 2 VMs in Azure DevTest Labs.
 
