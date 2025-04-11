@@ -25,7 +25,7 @@ You can deploy new or scale existing private clouds through the Azure portal or 
 
 ## Azure VMware Solution private cloud types
 
-Azure VMware Solution provides two different private cloud types:
+Azure VMware Solution provides two different private cloud generations:
 
 1. Azure VMware Solution Generation 1 provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure datacenter facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
 
