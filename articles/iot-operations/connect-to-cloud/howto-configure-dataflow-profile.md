@@ -17,11 +17,11 @@ ms.date: 04/09/2025
 
 Data flow profiles can be used to group data flows together so that they share the same configuration. You can create multiple data flow profiles to manage sets of different data flow configurations. 
 
-The most important setting is the instance count, which determines the number of instances that run the data flows. For example, you might have a data flow profile with a single instance for development and testing, and another profile with multiple instances for production. Or, you might use a data flow profile with low instance count for low-throughput data flows and a profile with high instance count for high-throughput data flows. Similarly, you can create a data flow profile with different diagnostic settings for debugging purposes.
+The most important setting is the instance count. For a given data flow, the instance count determines the number of copies that run on your cluster. For example, you might have a data flow profile with a single instance for development and testing, and another profile with multiple instances for production. Or, you might use a data flow profile with low instance count for low-throughput data flows and a profile with high instance count for high-throughput data flows. Similarly, you can create a data flow profile with different diagnostic settings for debugging purposes.
 
 ## Default data flow profile
 
-A data flow profile named *default* is created when Azure IoT Operations is deployed. This data flow profile has a single instance count. You can use this data flow profile to get started with Azure IoT Operations.
+A data flow profile named *default* is created when Azure IoT Operations is deployed. You can use this data flow profile to get started with Azure IoT Operations.
 
 # [Portal](#tab/portal)
 
@@ -122,7 +122,7 @@ spec:
 
 ## Scaling
 
-You can scale the data flow profile to adjust the number of instances that run the data flows. Increasing the instance count can improve the throughput of the data flows by creating multiple clients to process the data. When using data flows with cloud services that have rate limits per client, increasing the instance count can help you stay within the rate limits.
+You can scale the data flow profile to adjust the number of instances that run the data flows. For a given data flow, instance count is the number of copies that run on your cluster. Increasing the instance count can improve the throughput of the data flows by creating multiple clients to process the data. When using data flows with cloud services that have rate limits per client, increasing the instance count can help you stay within the rate limits.
 
 Scaling can also improve the resiliency of the data flows by providing redundancy in case of failures.
 
@@ -157,7 +157,7 @@ spec:
 
 ## Diagnostic settings
 
-You can configure other diagnostics settings for a data flow profile such as log level and metrics interval. 
+You can configure other diagnostics settings for a data flow profile such as log level.
 
 In most cases, the default settings are sufficient. However, you can override the log level or other settings for debugging. 
 
