@@ -116,7 +116,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                 language: 'en-US',
                 authOptions: {
                     authType: 'aad',
-                    clientId: '<Your Microsoft Entra Client Id>',
+                    clientId: '<Your Microsoft Entra Client ID>',
                     aadAppId: '<Your Microsoft Entra App Id>',
                     aadTenant: '<Your Microsoft Entra tenant Id>'
                 }
@@ -216,7 +216,7 @@ map = new atlas.Map('myMap', {
 
     authOptions: {
         authType: 'aad',
-        clientId: '<Your AAD Client Id>',
+        clientId: '<Your AAD Client ID>',
         aadAppId: '<Your AAD App Id>',
         aadTenant: '<Your AAD Tenant Id>'
     }
