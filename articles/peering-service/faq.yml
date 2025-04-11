@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-peering-service
   ms.topic: faq
-  ms.date: 10/08/2024
+  ms.date: 04/11/2025
 title: Azure Peering Service frequently asked questions (FAQ)
 summary: |
 
@@ -27,7 +27,7 @@ sections:
       - question: |
           How does Internet Routing Preference impact Peering Service?
         answer: |
-          Internet Routing Preference directs public IP traffic to exit the Microsoft network as close as possible to the associated Azure public resource. This approach contrasts with Peering Service, which optimizes routing within the Microsoft network and ensures traffic is handed off at a preferred location through a designated provider. As a result, Internet Routing Preference and Peering Service are not compatible and cannot be used together.
+          Internet Routing Preference directs public IP traffic to exit the Microsoft network as close as possible to the associated Azure public resource. This approach contrasts with Peering Service, which optimizes routing within the Microsoft network and ensures traffic is handed off at a preferred location through a designated provider. As a result, Internet Routing Preference and Peering Service aren't compatible and can't be used together.
           For more information about public IP routing preference, see [What is routing preference?](/azure/virtual-network/ip-services/routing-preference-overview)
           
       - question: |
