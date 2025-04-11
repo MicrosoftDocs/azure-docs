@@ -161,7 +161,7 @@ When executing a search request with the `_include` and `_revinclude` parameter,
 | `_count` | Default value: 10, Max value: 1000 | The value represents the number of targeted resources to be retrieved per request. The value can be set up to 1000. When the parameter isn't provided, it's set to 10. |
 | `_includesCount` | Default value: 1000 | The value represents the number of matching resources referenced by target resources to be retrieved per request. |
 
-For matched items from `_include` and `_revinclude` searches, a maximum of 1,000 items is included in the response. If the number of matched items exceeds this limit, a related link is provided which encompasses the $include operation. The provided link allows you to move through the complete result set. 
+For matched items from `_include` and `_revinclude` searches, a maximum of 1,000 items is included in the response. If the number of matched items exceeds 1,000, a link is provided which allows you to navigate the complete result set. 
 
 Example:
 
