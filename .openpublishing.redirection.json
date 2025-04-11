@@ -6809,5 +6809,10 @@
       "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/storage/files/storage-files-enable-soft-delete.md",
+      "redirect_url": "/azure/storage/files/storage-files-prevent-file-share-deletion",
+      "redirect_document_id": false
+    }
   ]
 }
