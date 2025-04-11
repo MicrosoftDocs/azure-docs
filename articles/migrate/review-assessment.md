@@ -43,7 +43,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 | **Performance-based** | The compute recommendation is based on CPU and memory utilization data. <br> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Available disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.  |
 | **As-is on-premises** | The compute recommendation is based on the on-premises server size. <br> The recommended storage is based on the selected storage type for the assessment.|
 
-You can review the source properties that were used for right-sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right sizing and disk size, read IO/s, and throughput for storage recommendations.  
+You can review the source properties that were used for right sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right sizing and disk size, read IO/s, and throughput for storage recommendations.  
 
 On the **Target recommendations** page, you can review the target configuration and the recommendation reasoning for each target component like compute, storage, network etc.  
 
@@ -56,7 +56,7 @@ If you use as-is on-premises sizing, the assessment doesn't consider the perform
 - **Storage and disk sizing**: The assessment recommends the appropriate disk type based on the storage type specified in the assessment properties. Available storage types are Standard HDD, Standard SSD, Premium, and Ultra disk.  
 - **Network sizing**: The assessment considers the network adapter on the on-premises server. 
 
-## Calculate sizing (performance-based) 
+## Calculate sizing for performance-based assessment
 
 If you use performance-based sizing in an Azure VM assessment, the assessment makes sizing recommendations as follows: 
 
@@ -88,8 +88,8 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
     - Provisioned IOPS is calculated using the following logic: 
       - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS.
       - Else, provisioned IOPS is calculated using IOPS to be provisioned = (source disk throughput) *1024/256 
-      - Provisioned throughput range is dependent on provisioned IOPS 
-
+      - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#confidence-ratings-performance-based)
+      
 ### Network sizing 
 
 For an Azure VM assessment, the assessment tries to find an Azure VM that supports the number and required performance of network adapters attached to the on-premises server. 
@@ -107,7 +107,7 @@ After it calculates storage and network requirements, the assessment considers C
 - If a suitable size is found, Azure Migrate applies storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation. 
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended. 
 
-After sizing recommendations are completed, an Azure VM assessment in Azure Migrate calculates compute and storage costs for after migration. 
+After sizing recommendations are completed, an Azure VM assessment in Azure Migrate calculates compute and storage costs for migration. 
 
 ## Compute cost 
 
