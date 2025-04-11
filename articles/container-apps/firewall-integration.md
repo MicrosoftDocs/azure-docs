@@ -15,7 +15,12 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./using-azure-firewall.md) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking-configuration.md#ports-and-ip-addresses) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
+In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./using-azure-firewall.md) are supported.
+
+> [!NOTE]
+> For a guide on how to set up UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the how to for [Container Apps and Azure Firewall](user-defined-routes).
+
+When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking-configuration.md#ports-and-ip-addresses) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
 
 In the Consumption only environment, express routes aren't supported, and custom user-defined routes (UDRs) have limited support. For more information on the level of UDR support available in a Consumption-only environment, see the [FAQ](faq.yml#do-consumption-only-environments-support-custom-user-defined-routes-).
 
@@ -50,7 +55,6 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 <sup>1</sup> This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.   
 <sup>2</sup> The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated. Once created, the required ports are two immutable, static values, and you can update your NSG rules.
-
 
 ### Outbound 
 

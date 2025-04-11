@@ -5,59 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/03/2025
+ms.date: 04/11/2025
 ms.author: cshoe
 ---
 
 # Networking configuration in Azure Container Apps environment
 
 Azure Container Apps run in the context of an environment, with its own virtual network (VNet). This VNet creates a secure boundary around your Azure Container Apps [environment](environment.md). This article tells you how to configure your VNet.
-
-## HTTP edge proxy behavior
-
-Azure Container Apps uses an edge HTTP proxy that terminates Transport Layer Security (TLS) and routes requests to each application.
-
-HTTP applications scale based on the number of HTTP requests and connections. Envoy routes internal traffic inside clusters.
-
-Downstream connections support HTTP1.1 and HTTP2 and Envoy automatically detects and upgrades connections if the client connection requires an upgrade.
-
-Upstream connections are defined by setting the `transport` property on the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) object.
-
-### Ingress configuration
-
-Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) section, you can configure the following settings:
-
-- Ingress: You can enable or disable ingress for your container app.
-
-- Ingress traffic: You can accept traffic to your container app from anywhere, or you can limit it to traffic from within the same Container Apps environment.
-
-- Traffic split rules: You can define traffic splitting rules between different revisions of your application. For more information, see [Traffic splitting](traffic-splitting.md).
-
-For more information about different networking scenarios, see [Ingress in Azure Container Apps](ingress-overview.md).
-
-## Portal dependencies
-
-For every app in Azure Container Apps, there are two URLs.
-
-The Container Apps runtime initially generates a fully qualified domain name (FQDN) used to access your app. See the *Application Url* in the *Overview* window of your container app in the Azure portal for the FQDN of your container app.
-
-A second URL is also generated for you. This location grants access to the log streaming service and the console. If necessary, you may need to add `https://azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
-
-## Ports and IP addresses
-
-The following ports are exposed for inbound connections.
-
-| Protocol | Port(s) |
-|--|--|
-| HTTP/HTTPS | 80, 443 |
-
-IP addresses are broken down into the following types:
-
-| Type | Description |
-|--|--|
-| Public inbound IP address | Used for application traffic in an external deployment, and management traffic in both internal and external deployments. |
-| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Outbound IPs may change over time. Using a NAT gateway or other proxy for outbound traffic from a Container Apps environment is only supported in a [workload profiles environment](workload-profiles-overview.md). |
-| Internal load balancer IP address | This address only exists in an [internal environment](networking.md#accessibility-level). |
 
 ## Managed resources
 

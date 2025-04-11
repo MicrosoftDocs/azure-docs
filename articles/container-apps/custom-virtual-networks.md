@@ -123,6 +123,30 @@ If you're using the CLI, the parameter to define the subnet resource ID is `infr
 
 If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
+## <a name="private-endpoint"></a>Private endpoint (preview)
+
+Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
+
+This feature is supported for both Consumption and Dedicated plans in workload profile environments.
+
+#### Tutorials
+- To learn more about how to configure private endpoints in Azure Container Apps, see the [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md) tutorial.
+- Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
+
+#### Considerations
+- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
+- To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
+- Your private endpoint's VNet can be separate from the VNet integrated with your container app.
+- You can add a private endpoint to both new and existing workload profile environments.
+
+In order to connect to your container apps through a private endpoint, you must configure a private DNS zone.
+
+| Service | subresource | Private DNS zone name |
+|--|--|--|
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
+
+You can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway. This feature is in preview.
+
 ## NAT gateway integration
 
 You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in a workload profiles environment.
