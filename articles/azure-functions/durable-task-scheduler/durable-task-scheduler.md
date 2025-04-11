@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler (preview)
 description: Learn about the characteristics of the Azure Functions Durable Task Scheduler backend.
 ms.topic: conceptual
-ms.date: 04/10/2025
+ms.date: 04/11/2025
 ---
 
 # Azure Functions Durable Task Scheduler (preview)
@@ -59,35 +59,46 @@ The Durable Task Scheduler runs in Azure as a separate resource from your app. T
 
 Your apps connect to the scheduler resource via a gRPC connection, secured using TLS and authenticated by the app's identity. The endpoint address is in a format similar to `{scheduler-name}.{region}.durabletask.io`. For example, `myscheduler-123.westus2.durabletask.io`. 
 
-Work items are streamed from the scheduler to the app using a push model, removing the need for polling and improving end-to-end latency. Your apps can process multiple work items in parallel and send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
+Work items are streamed from the scheduler to the app using a push model, improving end-to-end latency and removing the need for polling. Your apps can process multiple work items in parallel and send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
 
 ### State management
 
-The scheduler manages the state of orchestrations and entities internally. It doesn't require you to provide a separate storage account for state management. The internal state store is highly optimized for use with Durable Functions, allowing for better performance and reduced latency compared to BYO storage providers.
+The Durable Task Scheduler manages the state of orchestrations and entities internally, without a separate storage account for state management. The internal state store is highly optimized for use with Durable Functions and the portable SDKs, resulting in better durability and reliability and reduced latency.
 
-The scheduler internally uses a combination of in-memory and persistent storage to manage state. The in-memory store is used for short-lived state, while the persistent store is used for recovery and for multi-instance query operations. This bespoke design, heavily inspired by the [Netherite storage architecture](https://www.vldb.org/pvldb/vol15/p1591-burckhardt.pdf), allows the scheduler to provide low-latency access to state while still ensuring durability and reliability.
+The scheduler uses a combination of in-memory and persistent internal storage to manage state. 
+- The in-memory store is used for short-lived state.
+- The persistent store is used for recovery and for multi-instance query operations. 
 
 ## Feature highlights
 
+When you implement any of the Durable Task Scheduler orchestration frameworks, you benefit from several key highlights.
+
 ### Durable task scheduler dashboard
 
-When a scheduler resource is created, a corresponding dashboard is provided out-of-the-box. The dashboard provides an overview of all orchestrations and entity instances and allows you to quickly filter by different criteria. You can easily gather data about an orchestration instance, such as status, duration, input/output, etc. You can also drill into an instance to get data about sub-orchestrations and activities.
+When a scheduler resource is created, a corresponding dashboard is provided out-of-the-box. The dashboard provides an overview of all orchestrations and entity instances and allows you to:
+- Quickly filter by different criteria. 
+- Gather data about an orchestration instance, such as status, duration, input/output, etc. 
+- Drill into an instance to get data about sub-orchestrations and activities.
 
 Aside from monitoring, you can also perform management operations on the dashboard, such as pausing, terminating, or restarting an orchestration instance. For more information about the dashboard, see [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
 
-[Access to the dashboard](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard) is secured by identity and role-based access controls. 
+Access to the dashboard is secured by identity and role-based access controls. 
 
 ### Multiple task hubs
 
-Durable function state is durably persisted in a *task hub*. A [task hub](../durable/durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. One scheduler instance allows for the creation of multiple task hubs, each of which can be used by different apps. Access to a task hub requires that the caller's identity has the required role-based access control (RBAC) permissions.
+State is durably persisted in a *task hub*. A [task hub](../durable/durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. With one scheduler instance, you can create multiple task hubs that can be used by different apps. To access a task hub, the caller's identity *must* have the required role-based access control (RBAC) permissions.
 
-Creating multiple task hubs allows you to isolate different workloads and manage them independently. For example, you can create a task hub for each environment (dev, test, prod) or for different teams within your organization. Creating multiple task hubs in a single scheduler instance is also a way to reduce costs, as you can share the same scheduler resources across multiple task hubs. However, task hubs under the same scheduler instance share the same resources, so if one task hub is heavily loaded, it might affect the performance of the other task hubs.
+Creating multiple task hubs isolates different workloads that can be managed independently. For example, you can create a task hub for each environment (dev, test, prod) or for different teams within your organization. 
+
+Create these task hubs in a single scheduler instance as a way to reduce costs by sharing the same scheduler resources across multiple task hubs. Be aware that task hubs under the same scheduler instance share the same resources, so if one task hub is heavily loaded, it might affect the performance of the other task hubs.
 
 ### Emulator for local development
 
-The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-durable-task-scheduler-emulator) is a lightweight version of the scheduler backend that runs locally in a Docker container. It allows you to develop and test your Durable Function app without needing to deploy it to Azure. The emulator provides a local version of the management dashboard, so you can monitor and manage your orchestrations and entities just like you would in Azure.
+The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-durable-task-scheduler-emulator) is a lightweight version of the scheduler backend that runs locally in a Docker container. With it, you can:
+- Develop and test your Durable Function app without needing to deploy it to Azure. 
+- Monitor and manage your orchestrations and entities just like you would in Azure.
 
-By default, the emulator exposes a single task hub named `default`. You can expose multiple task hubs by specifying the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names when starting the emulator. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
+By default, the emulator exposes a single task hub named `default`. To expose multiple task hubs, specify the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names when starting the emulator. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
 
 ```bash
 docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft.com/dts/dts-emulator:latest
@@ -96,12 +107,7 @@ docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft
 > [!NOTE]
 > The emulator internally stores orchestration and entity state in local memory, so it isn't suitable for production use.
 
-
 ## Limitations and considerations
-
-- **Supported hosting plans**: The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
-
-  The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
 
 - **Available regions:** Durable task scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
 
@@ -132,6 +138,13 @@ docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft
     > [!NOTE]
     > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
 
+### Specific to Durable Task Scheduler for Durable Functions
+
+- **Supported hosting plans**: The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
+
+  The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
+
 ## Next steps
 
-Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).
+> [!div class="nextstepaction"]
+> [Choose your orchestration framework](./durable-task-scheduler-framework.md)
