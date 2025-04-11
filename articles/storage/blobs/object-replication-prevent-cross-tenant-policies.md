@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Prevent cross-tenant object replication
 services: storage
 author: normesta
-
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/08/2023
-ms.author: nachakra
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
