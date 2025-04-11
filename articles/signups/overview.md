@@ -48,6 +48,14 @@ Your credit card is required for:
 
 Learn how to [troubleshoot credit card issues](/azure/cost-management-billing/troubleshoot-billing/troubleshoot-declined-card).
 
+### I signed in but I'm seeing an error about my eligibility. What should I do?
+
+The startup credit offer is only available for new Azure customers using a personal Microsoft Account (MSA). If you see an eligibility error:
+
+- Check your account type. If signed in with a work or school account, sign out and switch to an MSA.
+- Check your Azure account. If you have an existing Azure subscription, you aren't eligible for the startup credit offer.
+- Continue without credits. Explore relevant services and AI templates to build your startup on Azure.
+
 ### How long do I have to use my startup credit offer?
 
 You have 90 days after activating your startup credit offer to use your credits. Any unused credits will expire after 90 days.
@@ -60,21 +68,17 @@ Your Azure Sponsorship subscription will automatically convert to pay-as-you-go 
 
 No, any unused credits will expire after 90 days.
 
-### Can I apply my startup credits to multiple accounts?
-
-No, Azure benefits are applied on an account level and can't be shared or merged with multiple accounts.
-
-### I signed in but I'm seeing an error about my eligibility. What should I do?
-
-The startup credit offer is only available for new Azure customers using a personal Microsoft Account (MSA). If you see an eligibility error:
-
-- Check your account type. If signed in with a work or school account, sign out and switch to an MSA.
-- Check your Azure account. If you have an existing Azure subscription, you aren't eligible for the startup credit offer.
-- Continue without credits. Explore relevant services and AI templates to build your startup on Azure.
-
 ### How can I get more Azure credits?
 
 Startups that are incorporated or registered as a legal entity are invited to [join Microsoft for Startups](/microsoft-for-startups/) to receive Azure credits, dedicated support, and discounted first- and third-party products and services.
+
+### Can I transfer my startup credits to a different Microsoft Account (MSA)?
+
+No, startup credits can’t be transferred between accounts. Once your credits are activated, they’re tied to the MSA you used during redemption and can’t be moved to another account.
+
+### Can I apply my startup credits to multiple accounts?
+
+No, Azure benefits are applied on an account level and can't be shared or merged with multiple accounts.
 
 ### How can I get help accessing my Microsoft Account (MSA)?
 
