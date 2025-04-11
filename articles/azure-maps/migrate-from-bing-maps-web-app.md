@@ -71,9 +71,9 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Spatial math             | [Microsoft.Maps.SpatialMath]        | ✓ [atlas.math samples] or [turf js]                                   |
 | Custom map styles        |                                     | Partial, [Choose a map style]                                          |
 
-Azure Maps more [open-source modules for the web SDK] that extend its capabilities.
+Azure Maps more [open-source modules for the Web SDK] that extend its capabilities.
 
-## Notable differences in the web SDKs
+## Notable differences in the Web SDKs
 
 The following are some of the key differences between the Bing Maps and Azure Maps Web SDKs to be aware of:
 
@@ -1415,7 +1415,7 @@ Running this code in a browser displays a map that looks like the following imag
 
 **After: Azure Maps**
 
-In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports rendering most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
+In Azure Maps, GeoJSON is the main data format used in the Web SDK, more spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports rendering most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
 
 ```html
 <!DOCTYPE html>
@@ -1739,7 +1739,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Microsoft.Maps.SpatialMath]: /bingmaps/v8-web-control/modules/spatial-math-module/
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
 [open-source Azure Maps Web SDK modules]: open-source-projects.md#open-source-web-sdk-modules
-[open-source modules for the web SDK]: open-source-projects.md#open-source-web-sdk-modules
+[open-source modules for the Web SDK]: open-source-projects.md#open-source-web-sdk-modules
 [Overlay a tile layer]: #overlay-a-tile-layer
 [Overlay an image]: map-add-image-layer.md
 [Polygon layer options]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions

@@ -348,7 +348,7 @@ Sample response
 
 ## Call Azure Maps Route Directions API for routing
 
-After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
+After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and Web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
 
 :::image type="content" source="media/multi-itinerary-optimization-service/multi-itinerary-route.png" alt-text="A screenshot showing the multi-itinerary route on a map.":::
 
