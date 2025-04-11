@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 03/31/2025
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
@@ -232,6 +232,9 @@ The range of *RoutingWeight* is 0 to 32000. The default value is 0.
 
 ## Configure ExpressRoute FastPath 
 You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. 
+
+> [!NOTE]
+> When you enable FastPath on new or existing connections, the Gateway bypass is enabled after the ExpressRoute Gateway and Circuit connection is established. This will briefly route the on-premises traffic through the gateway.
 
 **Configure FastPath on a new connection**
 

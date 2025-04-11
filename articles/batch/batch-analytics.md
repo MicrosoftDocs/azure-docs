@@ -2,7 +2,7 @@
 title: Azure Batch Analytics
 description: The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 ms.topic: reference
-ms.date: 10/08/2020
+ms.date: 04/02/2025
 ---
 
 # Batch Analytics

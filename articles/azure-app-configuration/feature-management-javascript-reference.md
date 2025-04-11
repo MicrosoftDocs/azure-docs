@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.custom: devx-track-javascript
 ms.topic: tutorial
-ms.date: 01/20/2025
+ms.date: 04/06/2025
 zone_pivot_groups: feature-management
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
@@ -125,9 +125,38 @@ import { load } from "@azure/app-configuration-provider";
 import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
 const appConfig = await load("YOUR_APP-CONFIG-ENDPOINT",
                              new DefaultAzureCredential(), // For more information: https://learn.microsoft.com/javascript/api/overview/azure/identity-readme
-                             {featureFlagOptions: { enabled: true }}); // load feature flags from Azure App Configuration service
+                             { featureFlagOptions: { enabled: true } }); // load feature flags from Azure App Configuration service
 const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
 const featureManager = new FeatureManager(featureProvider);
+```
+
+#### Use Azure App Configuration to dynamically control the state of the feature flag
+
+Azure App Configuration is not only a solution to externalize storage and centralized management of your feature flags, but also it allows to dynamically turn on/off the feature flags.
+
+To enable the dynamic refresh for feature flags, you need to configure the `refresh` property of `featureFlagOptions` when loading feature flags from Azure App Configuration.
+
+``` typescript
+const appConfig = await load("YOUR_APP-CONFIG-ENDPOINT",  new DefaultAzureCredential(),  { 
+    featureFlagOptions: { 
+        enabled: true,
+        refresh: {
+            enabled: true, // enable the dynamic refresh for feature flags
+            refreshIntervalInMs: 30_000
+        }
+    } 
+});
+
+const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+const featureManager = new FeatureManager(featureProvider);
+```
+
+You need to call the `refresh` method to get the latest feature flag state.
+
+```typescript
+await appConfig.refresh(); // Refresh to get the latest feature flags
+const isBetaEnabled = await featureManager.isEnabled("Beta");
+console.log(`Beta is enabled: ${isBetaEnabled}`);
 ```
 
 > [!NOTE]
@@ -276,10 +305,14 @@ The following snippet demonstrates how to implement a customized feature filter 
     }
 ```
 
-You need to register the custom filter when creating the `FeatureManager`.
+You need to register the custom filter under the `customFilters` property of the `FeatureManagerOptions` object passed to the `FeatureManager` constructor.
 
 ```typescript
-const featureManager = new FeatureManager(ffProvider, {customFilters: [new MyCriteriaFilter()]});
+const featureManager = new FeatureManager(ffProvider, {
+    customFilters: [
+        new MyCriteriaFilter() // add custom feature filters under FeatureManagerOptions.customFilters
+    ]
+});
 ```
 
 ### Parameterized feature filters
@@ -307,7 +340,7 @@ The feature filter can take advantage of the context that is passed in when `isE
 
 ## Built-in feature filters
 
-There are two feature filters that come with the `FeatureManagement` package: `TimeWindowFilter`, and `TargetingFilter`.
+There are two feature filters that come with the `FeatureManagement` package: `TimeWindowFilter` and `TargetingFilter`. All built-in feature filters will be added by default when constructing `FeatureManager`.
 
 Each of the built-in feature filters has its own parameters. Here's the list of feature filters along with examples.
 

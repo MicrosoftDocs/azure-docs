@@ -329,7 +329,7 @@ The following table lists the redundancy options available for storage account t
 
 ### Protocol support
 
-You can't convert storage accounts to zone-redundancy (ZRS or GZRS) if storage account contains NFS file shares with public endpoint access enabled
+You can't convert storage accounts to zone-redundancy (ZRS or GZRS) if storage account contains NFS file shares with public endpoint access enabled.
 
 Converting **NFSv4.1 shares with public endpoints enabled isn't supported**. To change redundancy for NFS shares with public endpoints, follow these steps in order:
 
