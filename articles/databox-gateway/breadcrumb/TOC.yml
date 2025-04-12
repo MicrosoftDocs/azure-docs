@@ -1,7 +1,0 @@
-- name:  Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Storage / Data Box Gateway
-    tocHref: /azure/databox-online/
-    topicHref: /azure/databox-gateway/index

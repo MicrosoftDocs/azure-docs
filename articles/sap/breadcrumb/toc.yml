@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: SAP
-    tocHref: /azure/sap/
-    topicHref: /azure/sap/index

@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Managed CCF
-    tocHref: /azure/
-    topicHref: /azure/managed-ccf/index

@@ -1,1 +1,0 @@
-**APPLIES TO:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Blob Storage :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Lake Storage Gen1 :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Lake Storage Gen2

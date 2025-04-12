@@ -1,9 +1,0 @@
-{
-  "redirections": [
-    {
-      "source_path_from_root": "/articles/azure-fluid-relay/concepts/containers-runtime.md",
-      "redirect_url": "/azure/azure-fluid-relay/concepts/architecture",
-      "redirect_document_id": false
-    }
-  ]
-}
