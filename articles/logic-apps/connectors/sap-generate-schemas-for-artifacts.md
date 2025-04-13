@@ -175,7 +175,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 1. In the [**Generate Schema**](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)) action,  provide a path to the SAP action for which you want to generate a schema.
 
-   For **Operation Type**, this example selects **Idoc**. If you select a different operation type, the available parameters change based on your selection.
+   For **Operation Type**, this example selects **IDoc**. If you select a different operation type, the available parameters change based on your selection.
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
@@ -259,7 +259,7 @@ For more information about reviewing workflow run history, see [Check workflow s
 
 1. On your workflow menu, under **Tools**, select **Run history**.
 
-1. On the **Run history**page, on the **Run history** tab, select the workflow run.
+1. On the **Run history** page, on the **Run history** tab, select the workflow run.
 
 1. Select the **Generate Schema** action to review the action's outputs.
 
@@ -294,10 +294,9 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 1. If you're prompted to sign in, do that now and continue.
 
-
    After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png" alt-text="Screenshot shows Consumption workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-consumption.png" alt-text="Screenshot shows Consumption workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-consumption.png":::
 
 1. In the **Create or update a resource** action, provide the [required information](/connectors/arm/#create-or-update-a-resource).
 
@@ -307,11 +306,11 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    1. Provide values for the added parameters, for example:
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-consumption.png" alt-text="Screenshot shows Consumption workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-consumption.png":::
+      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-consumption.png" alt-text="Screenshot shows Consumption workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-consumption.png":::
 
    The **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop around the Azure Resource Manager action, for example:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-consumption.png" alt-text="Screenshot shows Consumption workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-consumption.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-consumption.png" alt-text="Screenshot shows Consumption workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -323,7 +322,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png" alt-text="Screenshot shows Standard workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-standard.png" alt-text="Screenshot shows Standard workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-standard.png":::
 
 1. In the **Create or update a resource** action, provide the [required information](/connectors/arm/#create-or-update-a-resource).
 
@@ -333,11 +332,11 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    1. Provide values for the added parameters, for example:
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-standard.png" alt-text="Screenshot shows Standard workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-standard.png":::
+      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-standard.png" alt-text="Screenshot shows Standard workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-standard.png":::
 
    The **Generate Schema** action generates schemas as a collection, so the designer automatically adds a **For each** loop around the Azure Resource Manager action, for example:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-standard.png" alt-text="Screenshot shows Standard workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-standard.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-standard.png" alt-text="Screenshot shows Standard workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-standard.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
