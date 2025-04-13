@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In Azure API Management(APIM), *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
+In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
 
 > [!NOTE]
 > An API Management subscription is used specifically to call APIs through API Management using a subscription key. It's not the same as an Azure subscription.
@@ -109,7 +109,7 @@ A subscriber can use an API Management subscription key in one of two ways:
 
 ## Enable or disable subscription requirement for API or product access
 
-By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.
+By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.å
 
 > [!CAUTION]
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
