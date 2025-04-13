@@ -107,7 +107,7 @@ Network security perimeter supports the following access rule types:
 
 | Direction | Access rule type | 
 |---------------------------|---------------|
-| Inbound | Subscription based rules |
+| Inbound | Subscription based rules. Approves connections from clients using a Managed Identity that belongs to the subscription specified.  |
 | Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
 | Outbound | FQDN based rules |
 
