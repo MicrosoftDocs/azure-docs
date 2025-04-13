@@ -45,6 +45,9 @@ Once you create a resource, you can create a storage pool.
 4. Select **Create a new storage pool** from the working pane's command bar. 
 
     The *Create a Storage Pool* window appears.
+
+    :::image type="content" source="media/manage/storage-pool.png" alt-text="A screenshot of the Create a storage pool options inside Azure portal.":::
+
     There are required fields that you need to fill out.
 
     > [!NOTE]
