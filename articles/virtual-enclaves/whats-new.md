@@ -48,7 +48,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 ## Preview
 
-The following features are currently in gated public preview. After working with the listed articles, you have questions or require support, reach out to the contact alias (if available) that corresponds to the feature.
+The following features are currently in gated preview. After working with the listed articles, you have questions or require support, reach out to the contact alias (if available) that corresponds to the feature.
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|

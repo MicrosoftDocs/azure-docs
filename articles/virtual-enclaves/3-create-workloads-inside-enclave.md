@@ -29,7 +29,7 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
 
 
-1. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
+1. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
 
 2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./2-create-enclaves-inside-community.md).
 

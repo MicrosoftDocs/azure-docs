@@ -30,7 +30,7 @@ Before creating an enclave instance, you need a resource group. An Azure resourc
 
 Enclave deployments take around 30-45 minutes to complete. Once it completes, open your Enclave and verify that the Status is `succeeded`.
 
-1. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
+1. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
 
 ![Screenshot showing the Azure Virtual Enclaves portal page with the Enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
 

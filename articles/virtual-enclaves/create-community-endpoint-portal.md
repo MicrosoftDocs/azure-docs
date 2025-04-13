@@ -18,7 +18,7 @@ Quickly create a Community Endpoint in the Azure portal.
 - All access to Azure Virtual Enclaves takes place through a Community or an Enclave. For this how-to article, create a [Community](./create-community-azure-portal.md) and [Enclave](./create-enclave-azure-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
-Sign-in to the Azure portal at https://portal.azure.com.
+Sign-in to the [Azure portal](https://portal.azure.com).
 
 ## Create Community Endpoint
 

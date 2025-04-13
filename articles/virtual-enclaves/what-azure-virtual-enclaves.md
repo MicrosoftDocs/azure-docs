@@ -54,7 +54,7 @@ With Azure Virtual Enclaves, you can easily connect your communities, enclaves, 
 - [**Enclave Endpoints**](./what-enclave-endpoint.md) are collections of networking rules that enable simplified and standardized connectivity to an Enclave or an individual Workload.
 - [**Community Endpoints**](./what-community-endpoint.md) are collections of networking rules that enable external connectivity to trusted destinations including public websites, well-known services, and external private networks.
 - [**Transit Hubs**](./what-transit-hub.md) can be associated with Community Endpoint rules to allow secure site-to-site connectivity to external private networks via VPN Gateway or ExpressRoute.
-- [**Enclave Connections**](./what-enclave-connection.md) are associated with a Community or Enclave endpoint and allow network traffic based on the rules defined within the Endpoint.
+- [**Enclave Connections**](./what-enclave-connection.md) are associated with a Community or Enclave Endpoint and allow network traffic based on the rules defined within the Endpoint.
 
 ## Multi-layered governance, security, and monitoring
 

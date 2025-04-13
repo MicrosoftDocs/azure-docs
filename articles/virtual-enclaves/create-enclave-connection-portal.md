@@ -1,6 +1,6 @@
 ---
 title: Create an Enclave Connection from the Azure portal
-description: Azure Virtual Enclaves Documentation
+description: Create an Enclave Connection from the Azure portal.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -16,10 +16,12 @@ Enclave Connections enable network traffic to flow into, out of, and between AVE
 
 1. From the portal, navigate to the enclave resource and select the "Enclave Connections" blade.
 
-2. Select "Create Enclave Connection"
+2. Select `Create`.
+
+![Screenshot showing the Enclave Connection create button highlighted.](./media/tutorial-step-five-fabrikam-connection-create.png)
 
 3. Enter the required information to make a connection from the new enclave to the community endpoint
 
-![image1.png](./media/image-a0e843f6-42cc-444f-bc2b-1e5e6c77254a.png)
+![Screenshot showing the required information entered into the Enclave Connection page.](./media/tutorial-step-five-fabrikam-connection-input.png)
 
-4. Select "Review + Create" and then "Create"
+4. Select `Review + Create` and then `Create`

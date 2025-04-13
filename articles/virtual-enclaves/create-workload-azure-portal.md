@@ -10,14 +10,14 @@ ms.date: 04/08/2025
 
 # Quickstart: Create a Workload in the Azure portal
 
-[Workloads](./what-is-a-workload.md) are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves.
+[Workloads](./what-workload.md) are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves.
 
 ## Prerequisites
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - All access to Azure Virtual Enclaves takes place through a community or an enclave. For this how-to article, create a [community](./create-community-azure-portal.md) and [enclave](./create-enclave-azure-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
-Sign-in to the Azure portal at https://portal.azure.com.
+Sign-in to the [Azure portal](https://portal.azure.com).
 
 ## Create workload
 
@@ -25,9 +25,9 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 2. Under `Services`, select `Azure Virtual Enclaves`.
 
-3. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
+3. In the `Azure Virtual Enclaves` page, select `Workloads` in the left menu.
 
-4. On the `Enclaves` page, select your Enclave's name.
+4. On the `Workloads` page, select `Create`.
 
 ![image1.png](./media/image-76edc3e8-cbde-48e8-b702-2b5c1c13ebf3.png)
 
@@ -55,7 +55,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 
 **References**
-- [What is a Workload?](./what-is-a-workload.md)
+- [What is a Workload?](./what-workload.md)
 - [Create an Enclave](./create-enclave-azure-portal.md)
 - [Best practices](./best-practices.md)
 - [Defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)

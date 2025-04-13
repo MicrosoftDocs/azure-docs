@@ -19,7 +19,7 @@ An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is
 - **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. 
 
 ## Sign-in to Azure
-Sign-in to the Azure portal at https://portal.azure.com.
+Sign-in to the [Azure portal](https://portal.azure.com).
 
 ## Create enclave
 Enclave deployments will take around 30-45 minutes to complete. Once it completes, open your Enclave and verify that the Status is `succeeded`.
@@ -28,9 +28,9 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 2. Under `Services`, select `Azure Virtual Enclaves`.
 
-3. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
+3. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
 
-![image1.png](./media/image-ab58e732-2ccc-4826-aa52-b6d4b5322e29.png)
+![Screenshot showing the Azure Virtual Enclaves portal page with the Enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
 
 4. On the `Enclaves` page, select `Create`.
 
@@ -38,10 +38,10 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
    - Subscription: Select an existing Subscription
    - Resource Group: Create a new or select an existing Resource Group
    - Enclave name: Name of the Virtual Enclave (for example `My-Enclave`)
-   - Region: Azure region the Virtual Enclave will be created in. Ensure that the region matches the Community's region selected below.
+   - Region: Azure region the Virtual Enclave will be created in.
    - Select a Community: Select an existing `Community` 
 
-![image2.png](./media/image-d72eba0f-2de1-4d23-91d9-144f87485f1a.png)
+![Screenshot showing the create WebApp Enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png)
 
 6. Select `Next`.
 

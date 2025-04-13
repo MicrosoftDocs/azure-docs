@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Tutorial 5: Create Enclave or Community Endpoint resources in Azure Virtual Enclaves
 
-Community endpoints enable enclaves in a community to establish connections to resources outside of the Community boundary to include public websites, public IP addresses, and external private networks through Site-to-Site (S2S) VPN or ExpressRoute connections. Enclave endpoints enable others to connect to your service by defining the means by which inbound traffic is allowed to flow into a given enclave once a connection is made.
+Community endpoints enable enclaves in a community to establish connections to resources outside of the Community boundary to include public websites, public IP addresses, and external private networks through Site-to-Site (S2S) VPN or ExpressRoute connections. Enclave Endpoints enable others to connect to your service by defining the means by which inbound traffic is allowed to flow into a given enclave once a connection is made.
 
 In this tutorial, part six of eight, you create community and enclave endpoint resources. You learn how to:
 
@@ -27,7 +27,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 1. Navigate to an Enclave hosting a service you want to make available to other Enclaves in the Community
 
-2. While in your Enclave's page, select `Enclave endpoints` in the left menu.
+2. While in your Enclave's page, select `Enclave Endpoints` in the left menu.
 
 ![Screenshot showing the empty list of enclave endpoints for the WebApp enclave.](./media/tutorial-step-five-enclave-webapp-endpoint-list.png)
 

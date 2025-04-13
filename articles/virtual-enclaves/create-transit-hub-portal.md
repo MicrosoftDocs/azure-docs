@@ -16,7 +16,7 @@ ms.date: 04/08/2025
 - All access to Azure Virtual Enclaves takes place through a Community or an enclave. For this how-to article, create a [community](./create-community-azure-portal.md) and [enclave](./create-enclave-azure-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
-Sign-in to the Azure portal at https://portal.azure.com.
+Sign-in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Transit Hub
 

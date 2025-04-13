@@ -13,7 +13,7 @@ ms.date: 04/08/2025
 [Communities](./what-community.md) are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A Community Owner can enable other Communities or on-premises networks to connect through Transit Hubs or Endpoints.
 
 ## Prerequisites
-To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) and sign-in to the Azure portal at https://portal.azure.combefore you begin.
+To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) and sign-in to the [Azure portal](https://portal.azure.com) before you begin.
 
 ## Create community
 
