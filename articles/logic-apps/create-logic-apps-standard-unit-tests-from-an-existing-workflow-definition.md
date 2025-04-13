@@ -69,7 +69,7 @@ The following list includes basic but important concepts about unit tests for St
       
     A new folder named **Tests** now appears in your project workspace. This folder has the following structure:
 
-    ![](media/media/create-logic-apps-standard-unit-tests-from-an-existing-workflow-definition/project-structure.png)
+    ![](media/create-logic-apps-standard-unit-tests-from-an-existing-workflow-definition/project-structure.png)
 
 | **Folder hierarchy and item**                                                                                                           | **Description**                                                                                                                                                                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
