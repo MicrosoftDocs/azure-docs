@@ -1,11 +1,12 @@
 ---
-title: Migrate Spring Cloud Gateway for VMWare Tanzu to a Managed Gateway for Spring in Azure Container Apps
-description: Describes how to migrate Spring Cloud Gateway for VMWare Tanzu to a managed gateway for Spring in Azure Container Apps.
+title: Migrate Spring Cloud Gateway for VMWare Tanzu to the Managed Gateway for Spring in Azure Container Apps
+description: Describes how to migrate Spring Cloud Gateway for VMWare Tanzu to the managed Gateway for Spring in Azure Container Apps.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: dixue
+ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 04/04/2025
+ms.date: 04/14/2025
 ms.custom: devx-track-java
 ---
 
@@ -15,9 +16,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
-This article shows you how to migrate a Spring Cloud Gateway for VMWare Tanzu project running on an Azure Spring Apps Enterprise plan to a project running as a self-hosted, open source software (OSS) Spring Cloud Gateway project running as an Azure Container Apps application.
+This article shows you how to migrate a Spring Cloud Gateway for VMWare Tanzu project running on the Azure Spring Apps Enterprise plan to a self-hosted, open source software (OSS) Spring Cloud Gateway project running as an Azure Container Apps application.
 
-The OSS version of Spring Cloud Gateway mentioned in this page is provided as an example for reference. Users can choose other distributions of Spring Cloud Gateway based on their requirements.
+The OSS version of Spring Cloud Gateway mentioned in this page is provided as an example for reference. You can choose other distributions of Spring Cloud Gateway based on your requirements.
 
 > [!NOTE]
 > The features offered by Spring Cloud Gateway for VMWare Tanzu are more extensive than the features in the OSS version. Be sure to examine the differences and ensure compatibility before moving to production.
@@ -25,9 +26,9 @@ The OSS version of Spring Cloud Gateway mentioned in this page is provided as an
 ## Prerequisites
 
 - An Azure Spring Apps Enterprise plan instance with Spring Cloud Gateway enabled.
-- An Azure Container Apps instance. For more information, see [Quickstart: Deploy your first container app using the Azure portal](/azure/container-apps/quickstart-portal).
+- An Azure Container Apps instance. For more information, see [Quickstart: Deploy your first container app using the Azure portal](../../container-apps/quickstart-portal.md).
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure container registry with sufficient permissions to build and push Docker images. For more information, see [Create a container registry](/azure/container-registry/container-registry-get-started-azure-cli#create-a-container-registry).
+- An Azure container registry instance with sufficient permissions to build and push Docker images. For more information, see [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli).
 
 ## Prepare the code of the self-hosted Spring Cloud Gateway application
 
@@ -143,7 +144,7 @@ spring:
         - StripPrefix=1
 ```
 
-Spring Cloud Gateway for VMWare Tanzu sets `StripPrefix=1` by default on every route. To migrate to a Spring Cloud Gateway, you need to explicitly set `StripPrefix=1` in the filter configuration.
+Spring Cloud Gateway for VMWare Tanzu sets `StripPrefix=1` by default on every route. To migrate to Spring Cloud Gateway, you need to explicitly set `StripPrefix=1` in the filter configuration.
 
 To enable your Spring Cloud Gateway application to access other applications through the app name, you need to enable ingress for your Azure Container App applications. You can also set the accessible fully qualified domain name (FQDN) of the Azure Container Apps application to be the URI of the route, following the format `https://<app-name>.<container-app-env-name>.<region>.azurecontainerapps.io`.
 
@@ -165,7 +166,7 @@ spring:
           size: <response-cache-size>
 ```
 
-If you enable the response cache for the route, you can use the [`LocalResponseCache`](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#local-cache-response-filter) filter in the routing rule configuration of the managed gateway for your Spring project by using the following example:
+If you enable the response cache for the route, you can use the [`LocalResponseCache`](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#local-cache-response-filter) filter in the routing rule configuration of the managed Gateway for Spring by using the following example:
 
 ```yaml
 spring:
@@ -194,7 +195,7 @@ To build and push the Docker image, use the following steps:
 
 1. In the Spring Cloud Gateway project directory, create a **Dockerfile** with the following contents:
 
-    > [!Note]
+    > [!NOTE]
     > Alternatively, use the [ACME Fitness Store sample Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile).
 
     ```dockerfile
@@ -257,11 +258,11 @@ Access the FQDN of the Spring Cloud Gateway application to verify that it's runn
 
 If you encounter issues when running the Spring Cloud Gateway application, you can view real-time and historical logs of the `gateway` application in Azure Container Apps. For more information, see [Application Logging in Azure Container Apps](/azure/container-apps/logging).
 
-You can also monitor a gateway application's metrics. For more information, see [Monitor Azure Container Apps metrics](/azure/container-apps/metrics)
+You can also monitor a gateway application's metrics. For more information, see [Monitor Azure Container Apps metrics](/azure/container-apps/metrics).
 
 ## Known limitation
 
-As far as we know, Spring Cloud Gateway doesn't support the following commercial features:
+The OSS Spring Cloud Gateway doesn't natively support the following commercial features:
 
 - Metadata used to generate OpenAPI documentation.
 - Single sign-on (SSO) functionality.
