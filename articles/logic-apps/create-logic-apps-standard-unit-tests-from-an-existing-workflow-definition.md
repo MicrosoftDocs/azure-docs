@@ -64,12 +64,12 @@ The following list includes basic but important concepts about unit tests for St
 2.  In your project, expand the workflow definition folder.
 3.  From the shortcut menu for **workflow.json** file, select **Open Designer**.
 4.  On the designer toolbar, select **Create unit test**.  
-    ![](media/create-logic-apps-standard-unit-tests-from-an-existing-workflow-definition/logic-apps-standard-designer-vscode.png)
+    ![](media/create-logic-apps-standard-unit-tests-from-an-existing-workflow-definition/designer-vscode.png)
 5.  Provide a name to use for the unit test, unit test class, and C\# file.  
       
     A new folder named **Tests** now appears in your project workspace. This folder has the following structure:
 
-    ![](media/media/create-logic-apps-standard-unit-tests-from-an-existing-workflow-definition/unit-test-folder-structure.png)
+    ![](media/media/create-logic-apps-standard-unit-tests-from-an-existing-workflow-definition/project-structure.png)
 
 | **Folder hierarchy and item**                                                                                                           | **Description**                                                                                                                                                                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
