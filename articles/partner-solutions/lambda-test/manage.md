@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 04/14/2025
 ---
 
-# Manage a LambdaTest - HyperExecute resource
+# Manage a LambdaTest - HyperExecute resource (preview)
 
 This article describes how to manage the settings for LambdaTest - HyperExecute resources.
 
