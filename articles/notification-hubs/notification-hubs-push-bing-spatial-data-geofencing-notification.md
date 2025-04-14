@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to deliver location-based push noti
 services: notification-hubs
 keywords: push notifications,push notifications
 author: sethmanheim
-manager: femila
+manager: lizross
 editor: jwargo
 
 ms.service: azure-notification-hubs

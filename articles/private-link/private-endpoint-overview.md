@@ -6,7 +6,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 11/05/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: references_regions, ignite-2024
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
@@ -121,6 +121,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Storage | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)<BR> Dfs (dfs, dfs_secondary) |
 | Azure Synapse | Microsoft.Synapse/privateLinkHubs | web |
 | Azure Synapse Analytics | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev |
+| Azure AI Video Indexer | Microsoft.VideoIndexer/accounts | account |
 | Azure Virtual Desktop - host pools | Microsoft.DesktopVirtualization/hostpools | connection |
 | Azure Virtual Desktop - workspaces | Microsoft.DesktopVirtualization/workspaces | feed<br />global |
 | Device Update for IoT Hub | Microsoft.DeviceUpdate/accounts | DeviceUpdate |

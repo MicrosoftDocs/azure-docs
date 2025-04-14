@@ -4,7 +4,10 @@ description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/14/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  06/14/2024
 ---
 
 # Migrate Apache HBase to an HDInsight 5.1 and new storage account
@@ -73,7 +76,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 
 1. Stop ingestion to the source HBase cluster.
 
-1. Check Hbase hbck to verify cluster health
+1. Check HBase hbck to verify cluster health
    
    1. Verify HBCK Report page on HBase UI.  Healthy cluster does not show any inconsistencies
 
@@ -119,7 +122,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
       >
       > For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
       >
-      > Stopping HBase in the previous steps mentioned how Hbase avoids creating new master proc WALs.
+      > Stopping HBase in the previous steps mentioned how HBase avoids creating new master proc WALs.
 
 1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL directory under HDFS by running the following commands from an SSH session on any source cluster Zookeeper node or worker node.
    
@@ -240,7 +243,7 @@ You can download AzCopy from [Get started with AzCopy](../../storage/common/stor
 ## Troubleshooting
 
 ### Use case 1: 
-If Hbase masters and region servers up and regions stuck in transition, or only one region i.e. `hbase:meta` region is assigned, and waiting for other regions to assign
+If HBase masters and region servers up and regions stuck in transition, or only one region i.e. `hbase:meta` region is assigned, and waiting for other regions to assign
 
 **Solution:** 
 

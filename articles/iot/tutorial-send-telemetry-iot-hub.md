@@ -71,5 +71,3 @@ As a next step, explore the following articles to learn more about building devi
 
 > [!div class="nextstepaction"]
 > [Control a device connected to an IoT hub](../iot-hub/quickstart-control-device.md)
-> [!div class="nextstepaction"]
-> [Build a device solution with IoT Hub](set-up-environment.md)

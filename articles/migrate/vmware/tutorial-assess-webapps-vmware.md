@@ -1,8 +1,6 @@
 ---
 title: Tutorial to assess web apps in VMware VMs for migration to Azure App Service
 description: Learn how to create assessment for Azure App Service in VMware VMs using Azure Migrate
-author: rashi-ms
-ms.author: rajosh
 ms.topic: tutorial
 ms.date: 08/24/2023
 ms.service: azure-migrate

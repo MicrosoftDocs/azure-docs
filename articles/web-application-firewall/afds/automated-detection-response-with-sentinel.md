@@ -28,7 +28,6 @@ You install a Sentinel playbook named *Block-IPAzureWAF* from a template on GitH
 You install the playbook from a template on GitHub.
 1. Go to the [GitHub repository](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Playbook%20-%20WAF%20Sentinel%20Playbook%20Block%20IP%20-%20New) and select **Deploy to Azure** to launch the template.
 1. Fill in the required parameters. You can get your Front Door ID from the Azure portal. The Front Door ID is the resource ID of the Front Door resource.
-   :::image type="content" source="../media/automated-detection-response-with-sentinel/playbook-template.png" alt-text="Screenshot showing the playbook template.":::
 1. Select **Review + create** and then **Create**.
 
 ## Authorize the API connection
@@ -40,8 +39,6 @@ An API connection named *azuresentinel-Block-IPAzureWAF* is created as part of t
 1. Under **Display Name**, type your Azure ID.
 1. Select **Authorize**.
 1. Select **Save**.
-
-:::image type="content" source="../media/automated-detection-response-with-sentinel/authorize-api.png" alt-text="Screenshot showing the API authorization screen."lightbox="../media/automated-detection-response-with-sentinel/authorize-api.png":::
 
 ## Configure the Contributor role assignment
 

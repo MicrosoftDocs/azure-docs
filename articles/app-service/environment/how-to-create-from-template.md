@@ -11,9 +11,6 @@ ms.author: madsd
 
 App Service Environment can be created using an Azure Resource Manager template allowing you to do repeatable deployment.
 
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans.
-
 ## Overview
 
 Azure App Service Environment can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure Virtual Network. When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The App Service Environment on an internal IP address is called an ILB ASE. The App Service Environment with a public endpoint is called an External ASE. 

@@ -1,9 +1,8 @@
 ---
 title: Troubleshooting Guide for Azure Synapse Link Initial Snapshot Issues for Azure SQL Database and SQL Server
 description: Learn how to troubleshoot Azure Synapse Link initial snapshot issues for Azure SQL Database and SQL Server
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: imotiwala, prpasunu
+author: im-microsoft
+ms.author: imotiwala
 ms.date: 12/02/2024
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link

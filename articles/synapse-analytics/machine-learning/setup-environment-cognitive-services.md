@@ -3,9 +3,9 @@ title: "Setup environment for Azure AI services for big data"
 description: Set up your SynapseML or MMLSpark pipeline with Azure AI services in Azure Databricks and run a sample.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
-ms.reviewer: whhender, garye, negust, ruxu
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+ms.reviewer:  negust, ruxu
+author: NelGson
+ms.author: negust
 ms.topic: how-to
 ms.date: 7/18/2023
 ms.devlang: python

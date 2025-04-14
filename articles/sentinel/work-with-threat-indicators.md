@@ -2,10 +2,11 @@
 title: Work with threat intelligence
 titleSuffix: Microsoft Sentinel
 description: This article explains how to view, create, manage, and visualize threat intelligence in Microsoft Sentinel.
-author: austinmccollum
+author: guywi-ms
 ms.topic: how-to
 ms.date: 02/21/2025
-ms.author: austinmc
+ms.author: guywild
+ms.reviewer: alsheheb
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -133,7 +134,7 @@ In the following image, multiple sources were used to search by placing them in 
 
 :::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence." lightbox="media/work-with-threat-indicators/advanced-search.png":::
 
-Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Threat intelligence life cycle](understand-threat-intelligence.md#threat-intelligence-life-cycle).
+Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Threat intelligence lifecycle](understand-threat-intelligence.md#threat-intelligence-lifecycle).
 
 IP and domain name indicators are enriched with extra `GeoLocation` and `WhoIs` data so you can provide more context for any investigations where indicator is found.
 
@@ -164,8 +165,10 @@ This procedure describes how to view your threat intelligence with queries, rega
 Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
 >[!IMPORTANT]
->Tables supporting the new STIX object schema aren't available publicly. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
->
+> On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+>**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> For information on using and migrating to the new tables, see (Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview))[work-with-styx-objects-and-indicators.md]. 
+
 
 #### [Defender portal](#tab/defender-portal)
 

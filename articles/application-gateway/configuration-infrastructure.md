@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/01/2024
+ms.date: 03/07/2025
 ms.author: greglin
 ---
 
@@ -161,6 +161,9 @@ After you configure *active public and private listeners* (with rules) *with the
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
 |GatewayManager|Any|Any|`<as per SKU given above>`|TCP|Allow|
+
+> [!TIP]
+> The communication with Gateway Manager service is regional by default.
 
 **Azure Load Balancer probes**: Allow incoming traffic from the source as the **AzureLoadBalancer** service tag. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway.
 

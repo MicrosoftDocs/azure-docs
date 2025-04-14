@@ -25,7 +25,7 @@ This document provides the list of software versioning supported in Release 2407
 |                         | **4.32.2FX-NX**                          | 4.0.0                                    |
 |                         | MD5 checksum: c02f7cd5429c9aa0e4109b542388eb31 |                                          |
 |                         | **EOS-4.33.1F**                          | 5.0.0                                    |
-|                         | MD5 checksum: 92bd63991108dbfb6f8ef3d2c15e9028 |                                          |
+|                         | **32bit version EOS-4.33.1F.swi:** MD5 Checksum 92bd63991108dbfb6f8ef3d2c15e9028<br> **64bit version EOS64-4.33.1F.swi:** MD5 Checksum 108401f80963ebbf764d4fd1a6273a52 |                                          |
 | **Instance Cluster AKS** | NC4.1.4                                  | NC Runtime is 1.30.7                                  |
 | **Azure Linux (aka Mariner)** | NC4.1.4                          | NC Runtime is 3.0.20250102                             |
 | **Purity**              | 6.5.1, 6.5.4, 6.5.6, 6.5.8               |                                          |
