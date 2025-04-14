@@ -34,7 +34,7 @@ Azure Native LambdaTest - HyperExecute helps organizations with:
 
 ## Subscribe to Azure Native LambdaTest - HyperExecute
 
-[!INCLUDE [subscribe](../includes/subscribe.md)], *LambdaTest*.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *LambdaTest*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
