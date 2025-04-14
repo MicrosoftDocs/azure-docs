@@ -6,4 +6,4 @@ ms.topic: include
 ms.date: 09/16/2024
 ---
 > [!IMPORTANT]
-> Ensure you peer the NVA with both route server instance IPs to ensure that virtual network routes are advertised over the NVA connections and achieve high availability.
+> Peer the NVA with both route server instance IPs to ensure virtual network routes are advertised over the NVA connections and achieve high availability.
