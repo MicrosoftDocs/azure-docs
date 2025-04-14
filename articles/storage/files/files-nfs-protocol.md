@@ -103,7 +103,7 @@ The status of items that appear in this table might change over time as support 
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)|  ✔️ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
-| [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
+| [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ✔️ |
 | Azure Storage Explorer| ⛔ |
 | Azure Storage Explorer on Azure portal| ⛔ |
 | Support for more than 16 groups| ⛔ |
