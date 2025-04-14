@@ -15,7 +15,7 @@ appliesto:
 ---
 # Quickstart: Use Azure Redis in Node.js
 
-In this quickstart, you incorporate Azure Managed Redis (preview) or Azure Cache for Redis into a Node.js app. The app has access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Managed Redis or Azure Cache for Redis into a Node.js app. The app has access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ In this quickstart, you incorporate Azure Managed Redis (preview) or Azure Cache
 
 ::: zone pivot="azure-managed-redis"
 
-## Create an Azure Managed Redis (preview) instance
+## Create an Azure Managed Redis instance
 
 [!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 
@@ -50,7 +50,7 @@ npm install redis
 
 ## Create a Node.js app to access a cache
 
-Create a Node.js app that uses either Microsoft Entra ID or access keys to connect to an Azure Managed Redis (preview) instance. We recommend you use Microsoft Entra ID.
+Create a Node.js app that uses either Microsoft Entra ID or access keys to connect to an Azure Managed Redis instance. We recommend you use Microsoft Entra ID.
 
 ## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
@@ -714,7 +714,7 @@ Get the [Node.js quickstart](https://github.com/Azure-Samples/azure-cache-redis-
 
 ## Related content
 
-In this quickstart, you learned how to use either Azure Managed Redis (preview) or Azure Cache for Redis from a Node.js application. Learn more about the Azure Redis offerings:
+In this quickstart, you learned how to use either Azure Managed Redis or Azure Cache for Redis from a Node.js application. Learn more about the Azure Redis offerings:
 
 - [Azure Managed Redis overview](overview.md)
 - [Azure Cache for Redis overview](/azure-cache-for-redis/cache-overview.md)

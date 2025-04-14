@@ -1,5 +1,5 @@
 ---
-title: Configure active geo-replication for Azure Managed Redis (preview) instances
+title: Configure active geo-replication for Azure Managed Redis instances
 description: Learn how to replicate your Azure Managed Redis instances across Azure regions.
 
 
@@ -11,11 +11,11 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Configure active geo-replication for Azure Managed Redis (preview) instances
+# Configure active geo-replication for Azure Managed Redis instances
 
 In this article, you learn how to configure an active geo-replicated cache using the Azure portal.
 
-Active geo-replication groups up to five instances of Azure Managed Redis (preview) into a single cache that spans across Azure regions. All instances act as the local, primary caches. An application decides which instance or instances to use for read and write requests.
+Active geo-replication groups up to five instances of Azure Managed Redis into a single cache that spans across Azure regions. All instances act as the local, primary caches. An application decides which instance or instances to use for read and write requests.
 
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).

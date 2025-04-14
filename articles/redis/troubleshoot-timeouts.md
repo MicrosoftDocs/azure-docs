@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Managed Redis (preview) latency and timeouts
+title: Troubleshoot Azure Managed Redis latency and timeouts
 description: Learn how to resolve common latency and timeout issues with Azure Managed Redis, such as Redis server patching and timeout exceptions.
 
 
@@ -11,11 +11,11 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Troubleshoot Azure Managed Redis (preview) latency and timeouts
+# Troubleshoot Azure Managed Redis latency and timeouts
 
 A client operation that doesn't receive a timely response can result in a high latency or timeout exception. An operation could time out at various stages. Where the timeout comes from helps to determine the cause and the mitigation.
 
-This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Managed Redis (preview).
+This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Managed Redis.
 
 - [Client-side troubleshooting](#client-side-troubleshooting)
   - [Traffic burst and thread pool configuration](#traffic-burst-and-thread-pool-configuration)

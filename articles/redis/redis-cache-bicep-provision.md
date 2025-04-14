@@ -59,7 +59,7 @@ The following resources are defined in the Bicep file:
 
     When the deployment finishes, you see a message indicating the deployment succeeded.
 
-## Azure Managed Redis (preview)
+## Azure Managed Redis
 
 ### Review the Bicep file
 

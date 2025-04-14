@@ -1,5 +1,5 @@
 ---
-title: Migrate to Azure Managed Redis (preview)
+title: Migrate to Azure Managed Redis
 description: Learn how to migrate your existing cache to Azure Managed Redis
 
 
@@ -12,9 +12,9 @@ appliesto:
   - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
 ---
-# Migrate to Azure Managed Redis (preview)
+# Migrate to Azure Managed Redis
 
-This article describes a number of approaches to migrate an existing Redis cache running on-premises or in another cloud service to Azure Managed Redis (preview).
+This article describes a number of approaches to migrate an existing Redis cache running on-premises or in another cloud service to Azure Managed Redis.
 
 ## Migration scenarios
 

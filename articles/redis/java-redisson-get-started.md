@@ -31,7 +31,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 ::: zone pivot="azure-managed-redis"
 
-## Create an Azure Managed Redis (preview) instance
+## Create an Azure Managed Redis instance
 
 [!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 

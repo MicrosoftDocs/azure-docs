@@ -11,7 +11,7 @@ appliesto:
 #CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
 ---
 
-# Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis (preview) from your application hosted on Azure Kubernetes Service
+# Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis from your application hosted on Azure Kubernetes Service
 
 In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis or Azure Managed Redis(preview) instance.
 

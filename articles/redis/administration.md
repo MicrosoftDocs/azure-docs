@@ -1,5 +1,5 @@
 ---
-title: How to administer Azure Managed Redis (preview)
+title: How to administer Azure Managed Redis
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Managed Redis
 
 ms.service: azure-managed-redis
@@ -10,9 +10,9 @@ ms.date: 11/15/2024
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# How to administer Azure Managed Redis (preview)
+# How to administer Azure Managed Redis
 
-This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Managed Redis (preview)instances.
+This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Managed Redisinstances.
 
 ## Reboot
 

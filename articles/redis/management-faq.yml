@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Managed Redis (preview) management FAQs
+  title: Azure Managed Redis management FAQs
   description: Learn the answers to common questions that help you manage Azure Managed Redis
   ms.date: 11/15/2024
   ms.topic: faq
@@ -8,7 +8,7 @@ metadata:
   appliesto:
   - ✅ Azure Managed Redis
   
-title: Azure Managed Redis (preview) management FAQs
+title: Azure Managed Redis management FAQs
 summary: This article provides answers to common questions about how to manage Azure Managed Redis.
 
 sections:
@@ -20,7 +20,7 @@ sections:
           Using TLS is recommended as a best practice across virtually all Redis use-cases. The option to connect without TLS is included for backwards compatibility purposes. 
           
           >[!NOTE]
-          >The non-TLS port is disabled by default for new Azure Managed Redis (preview) instances. If your client doesn't support TLS, then you must enable the non-TLS port by following the directions in the [Access ports](configure.md#access-ports) section of the [Configure a cache in Azure Managed Redis](configure.md) article.
+          >The non-TLS port is disabled by default for new Azure Managed Redis instances. If your client doesn't support TLS, then you must enable the non-TLS port by following the directions in the [Access ports](configure.md#access-ports) section of the [Configure a cache in Azure Managed Redis](configure.md) article.
           >
           >
           

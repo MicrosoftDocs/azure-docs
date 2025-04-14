@@ -690,9 +690,9 @@ The following command exports data from an Azure Managed Redis instance into the
     pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 ```
 
-## To reboot an Azure Managed Redis (preview)
+## To reboot an Azure Managed Redis
 
-You can reboot your Azure Managed Redis (preview) instance using the `Reset-AzRedisEnterpriseCache` cmdlet.
+You can reboot your Azure Managed Redis instance using the `Reset-AzRedisEnterpriseCache` cmdlet.
 
 To see a list of available parameters and their descriptions for `Reset-AzRedisEnterpriseCache`, run the following command.
 

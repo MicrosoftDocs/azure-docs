@@ -133,7 +133,7 @@ It's a security best practice to avoid storing passwords in clear text in source
 
     You can find the connection string for open source Redis tiers by selecting **Authentication** on the **Resource** menu. Here's an example string: `<Azure_redis_name>.redis.cache.windows.net:6380,password=<Azure_redis_primary_accesskey>,ssl=True,abortConnect=False`.
 
-    You can find the access keys for Redis Enterprise or Azure Managed Redis (Preview) by selecting **Access keys** on the **Resource** menu. The connection string can be derived with other Redis information from the **Overview** section of the **Resource** menu. Here's an example string: `<Azure_redis_name>.<Azure_region>.redisenterprise.cache.azure.net:10000,password=<Azure_redis_primary_accesskey>,ssl=True,abortConnect=False`.
+    You can find the access keys for Redis Enterprise or Azure Managed Redis by selecting **Access keys** on the **Resource** menu. The connection string can be derived with other Redis information from the **Overview** section of the **Resource** menu. Here's an example string: `<Azure_redis_name>.<Azure_region>.redisenterprise.cache.azure.net:10000,password=<Azure_redis_primary_accesskey>,ssl=True,abortConnect=False`.
 
 1. Set the Redis connection for the web application by using the Azure CLI:
 

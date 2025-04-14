@@ -1,5 +1,5 @@
 ---
-title: How to upgrade the Redis version of Azure Managed Redis (preview)
+title: How to upgrade the Redis version of Azure Managed Redis
 description: Learn how to upgrade the version of Azure Managed Redis.
 
 ms.service: azure-managed-redis
@@ -11,11 +11,11 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# How to upgrade the version of your Azure Managed Redis (Preview) instance
+# How to upgrade the version of your Azure Managed Redis instance
 
 New versions of Redis server software are frequently released with new features, more commands, and stability improvements. Maintaining Redis instances using the latest version of Redis is a good way to ensure that you get the best possible Redis experience.
 
-This article details how to upgrade your Redis instance to the latest version of Redis available in Azure Managed Redis (preview).
+This article details how to upgrade your Redis instance to the latest version of Redis available in Azure Managed Redis.
 
 > [!IMPORTANT]
 > Following the [standard Redis versioning](https://redis.io/about/releases/), this article only covers upgrades to the _major_ version of Redis, not the _minor_ or _patch_ versions. Updates to the minor and patch versions are made automatically during the normal patching cycle each month.

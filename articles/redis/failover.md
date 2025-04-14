@@ -1,6 +1,6 @@
 ---
-title: Failover and patching - Azure Managed Redis (preview)
-description: Learn about failover, patching, and the update process for Azure Managed Redis (preview).
+title: Failover and patching - Azure Managed Redis
+description: Learn about failover, patching, and the update process for Azure Managed Redis.
 
 
 
@@ -12,9 +12,9 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Failover and patching for Azure Managed Redis (preview)
+# Failover and patching for Azure Managed Redis
 
-To build resilient and successful client applications, it's critical to understand failover in the Azure Managed Redis (preview)service. A failover can be a part of planned management operations, or it might be caused by unplanned hardware or network failures. A common use of cache failover comes when the management service patches the Azure Managed Redis binaries.
+To build resilient and successful client applications, it's critical to understand failover in the Azure Managed Redisservice. A failover can be a part of planned management operations, or it might be caused by unplanned hardware or network failures. A common use of cache failover comes when the management service patches the Azure Managed Redis binaries.
 
 In this article, you find this information:
 

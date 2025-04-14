@@ -1,5 +1,5 @@
 ---
-title: Scale an Azure Managed Redis (preview) instance
+title: Scale an Azure Managed Redis instance
 description: Learn how to scale your Azure Managed Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
 
 
@@ -12,9 +12,9 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Scale an Azure Managed Redis (preview) instance
+# Scale an Azure Managed Redis instance
 
-Azure Managed Redis (preview) has different SKU and tier offerings that provide flexibility in the choice of cache size and performance. You can scale up to a larger memory size or change to a tier with more compute performance. This article shows you how to scale your cache using the Azure portal, plus tools such as Azure PowerShell and Azure CLI.
+Azure Managed Redis has different SKU and tier offerings that provide flexibility in the choice of cache size and performance. You can scale up to a larger memory size or change to a tier with more compute performance. This article shows you how to scale your cache using the Azure portal, plus tools such as Azure PowerShell and Azure CLI.
 
 > [!NOTE]
 > Because each tier of Azure Managed Redis has virtually the same features, scaling is typically used just to change memory and performance characteristics.

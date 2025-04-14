@@ -1,5 +1,5 @@
 ---
-title: Best practices for memory management for Azure Managed Redis (preview)
+title: Best practices for memory management for Azure Managed Redis
 description: Learn how to manage your Azure Managed Redis memory effectively with Azure Managed Redis.
 
 ms.service: azure-managed-redis
@@ -11,11 +11,11 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Memory management for Azure Managed Redis (preview)
+# Memory management for Azure Managed Redis
 
 ## Eviction policy
 
-Choose an [eviction policy](https://redis.io/topics/lru-cache)that works for your application. The default policy for Azure Managed Redis (preview) is `volatile-lru`, which means that only keys that have a TTL value set with a command like [EXPIRE](https://redis.io/commands/expire) are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
+Choose an [eviction policy](https://redis.io/topics/lru-cache)that works for your application. The default policy for Azure Managed Redis is `volatile-lru`, which means that only keys that have a TTL value set with a command like [EXPIRE](https://redis.io/commands/expire) are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
 
 ## Keys expiration
 

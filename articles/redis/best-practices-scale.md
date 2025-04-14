@@ -1,5 +1,5 @@
 ---
-title: Best practices for scaling for Azure Managed Redis (preview)
+title: Best practices for scaling for Azure Managed Redis
 description: Learn how to scale your Azure Managed Redis.
 
 ms.service: azure-managed-redis
@@ -11,7 +11,7 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Best Practices for Scaling in Azure Managed Redis (preview)
+# Best Practices for Scaling in Azure Managed Redis
 
 ## Scale before load is too high
 

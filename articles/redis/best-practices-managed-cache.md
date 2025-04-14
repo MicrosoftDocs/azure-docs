@@ -11,9 +11,9 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# What are the best practices for the Azure Managed Redis (preview)
+# What are the best practices for the Azure Managed Redis
 
-Here are some best practices for Azure Managed Redis (preview).
+Here are some best practices for Azure Managed Redis.
 
 ## Zone redundancy
 

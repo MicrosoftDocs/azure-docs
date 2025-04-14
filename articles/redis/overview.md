@@ -1,5 +1,5 @@
 ---
-title: What is Azure Managed Redis (preview)?
+title: What is Azure Managed Redis?
 description: Learn about Azure Managed Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
 
 ms.service: azure-managed-redis
@@ -11,9 +11,9 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# What is Azure Managed Redis (preview)?
+# What is Azure Managed Redis?
 
-Azure Managed Redis (preview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Redis Enterprise improves the performance and reliability of the community edition of Redis, while maintaining compatibility. Microsoft operates the service, hosted on Azure, and usable by any application within or outside of Azure.
+Azure Managed Redis provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Redis Enterprise improves the performance and reliability of the community edition of Redis, while maintaining compatibility. Microsoft operates the service, hosted on Azure, and usable by any application within or outside of Azure.
 For more information on how Azure Managed Redis is built, see [Azure Managed Redis Architecture](architecture.md).
 
 > [!IMPORTANT]

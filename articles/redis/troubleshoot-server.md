@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Managed Redis (preview) server issues
-description: Learn how to resolve common server issues, such as memory pressure, high CPU, long running commands, or bandwidth limitations, when using Azure Managed Redis (preview).
+title: Troubleshoot Azure Managed Redis server issues
+description: Learn how to resolve common server issues, such as memory pressure, high CPU, long running commands, or bandwidth limitations, when using Azure Managed Redis.
 
 
 ms.service: azure-managed-redis
@@ -12,9 +12,9 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Troubleshoot Azure Managed Redis (preview) server issues
+# Troubleshoot Azure Managed Redis server issues
 
-This section discusses troubleshooting issues caused by conditions on an Azure Managed Redis (preview) server or any of the virtual machines hosting it.
+This section discusses troubleshooting issues caused by conditions on an Azure Managed Redis server or any of the virtual machines hosting it.
 
 - [High CPU](#high-cpu)
   - [Scale up or move to a higher performance tier](#scale-up-or-move-to-a-higher-performance-tier)

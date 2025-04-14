@@ -1,5 +1,5 @@
 ---
-title: Use redis-cli with Azure Managed Redis (preview)
+title: Use redis-cli with Azure Managed Redis
 description: Learn how to use *redis-cli* as a command-line tool for interacting with an Azure Managed Redis as a client
 
 ms.service: azure-managed-redis
@@ -10,9 +10,9 @@ ms.date: 11/15/2024
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Use the Redis command-line tool with Azure Managed Redis (preview)
+# Use the Redis command-line tool with Azure Managed Redis
 
-Use the [redis-cli command-line tool](https://redis.io/docs/connect/cli/) to interact with an Azure Managed Redis (preview) as a client. Use this tool to directly interact with your Azure Managed Redis instance and for debugging and troubleshooting.
+Use the [redis-cli command-line tool](https://redis.io/docs/connect/cli/) to interact with an Azure Managed Redis as a client. Use this tool to directly interact with your Azure Managed Redis instance and for debugging and troubleshooting.
 
 ## Install redis-cli
 

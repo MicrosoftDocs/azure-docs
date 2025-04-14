@@ -1,5 +1,5 @@
 ---
-title: Move from Azure Cache for Redis to Azure Managed Redis (preview)
+title: Move from Azure Cache for Redis to Azure Managed Redis
 description: Why and how to move from Azure Cache for Redis to Azure Managed Redis.
 
 ms.service: azure
@@ -14,9 +14,9 @@ appliesto:
 
 #CustomerIntent: As a developer, I want to see how to move from Azure Cache for Redis to Azure Managed Redis.
 ---
-# Move from Azure Cache for Redis to Azure Managed Redis (preview)
+# Move from Azure Cache for Redis to Azure Managed Redis
 
-In this article, you learn to migrate from Azure Cache for Redis instance to an Azure Managed Redis (preview) instance.
+In this article, you learn to migrate from Azure Cache for Redis instance to an Azure Managed Redis instance.
 
 > [!IMPORTANT]
 > Azure Managed Redis is currently in PREVIEW.
@@ -27,7 +27,7 @@ In this article, you learn to migrate from Azure Cache for Redis instance to an 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - An instance of any Azure Cache for Redis
 
-## Feature comparison between Azure Cache for Redis and Azure Managed Redis (preview)
+## Feature comparison between Azure Cache for Redis and Azure Managed Redis
 
 | Feature Description | Basic | Standard | Premium | Balanced (preview) | Memory Optimized (preview) | Compute Optimized (preview) |
 | ------------------- | :-----: | :------: | :---: | :---: | :---: |:---: |
@@ -52,7 +52,7 @@ In this article, you learn to migrate from Azure Cache for Redis instance to an 
 
 Here are some other differences that aren't covered by the previous mapping. Consider these client application changes:
 
-| Feature Description | Azure Cache for Redis | Azure Managed Redis (preview) |
+| Feature Description | Azure Cache for Redis | Azure Managed Redis |
 |:-------------------- |:--------------------|:---------------------------|
 | DNS suffix (only for PROD cloud)| `.redis.cache.windows.net`|`<region>.redis.azure.net`|
 | TLS port | 6380 | 10000 |
@@ -124,11 +124,11 @@ Azure Managed Redis is current supported in the following regions. This list is 
 
 ### Migration options
 
-Client applications should be able to use an Azure Managed Redis instance that has different clustering modes and endpoints. Azure Cache for Redis and Azure Managed Redis (preview) are compatible so no application code changes other than connection configurations are required for most scenarios.
+Client applications should be able to use an Azure Managed Redis instance that has different clustering modes and endpoints. Azure Cache for Redis and Azure Managed Redis are compatible so no application code changes other than connection configurations are required for most scenarios.
 
 Learn more at:
 
-- [Scale an Azure Managed Redis (preview) instance](../how-to-scale.md)
+- [Scale an Azure Managed Redis instance](../how-to-scale.md)
 
 #### Options for Migrating Azure Cache for Redis to Azure Managed Redis
 

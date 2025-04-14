@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure Managed Redis (preview)
+title: How to configure Azure Managed Redis
 description: Understand the default Redis configuration for Azure Managed Redis and learn how to configure your Azure Managed Redis instances.
 
 
@@ -11,9 +11,9 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# How to configure Azure Managed Redis (preview)
+# How to configure Azure Managed Redis
 
-This article describes the configurations available for your Azure Managed Redis (preview) instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Managed Redis instances.
+This article describes the configurations available for your Azure Managed Redis instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Managed Redis instances.
 
 
 ## Configure Azure Managed Redis settings

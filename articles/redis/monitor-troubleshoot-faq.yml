@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Managed Redis (preview) common error FAQs
-  description: Learn the answers to common questions that help you monitor and troubleshoot Azure Managed Redis (preview).
+  title: Azure Managed Redis common error FAQs
+  description: Learn the answers to common questions that help you monitor and troubleshoot Azure Managed Redis.
   ms.date: 11/15/2024
   ms.topic: faq
   ms.custom:
@@ -9,8 +9,8 @@ metadata:
   appliesto:
   - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
-title: Azure Managed Redis (preview) monitoring and troubleshooting FAQs
-summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Managed Redis (preview).
+title: Azure Managed Redis monitoring and troubleshooting FAQs
+summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Managed Redis.
 
 
 sections:

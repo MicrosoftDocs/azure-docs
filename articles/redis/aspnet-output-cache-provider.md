@@ -55,7 +55,7 @@ Configure the attributes in the first column with the values from your cache in 
 | Attribute | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | _host* | string | "localhost" | The Redis server IP address or host name |
-| _port_ | positive integer | 6379 (non-TLS/SSL)<br/>6380 (TLS/SSL)<br/>10000 for Redis Enterprise and Azure Managed Redis (Preview) | Redis server port |
+| _port_ | positive integer | 6379 (non-TLS/SSL)<br/>6380 (TLS/SSL)<br/>10000 for Redis Enterprise and Azure Managed Redis | Redis server port |
 | _accessKey_ | string | "" | Redis server password when Redis authorization is enabled. The value is an empty string by default, which means the session state provider doesn't use any password when it connects to Redis server. **If your Redis server is in a publicly accessible network like Azure Cache for Redis, be sure to enable Redis authorization to improve security, and provide a secure password.** |
 | _ssl_ | boolean | **false** | Whether to connect to Redis server via TLS. This value is **false** by default because Redis doesn’t support TLS by default. **If you're using Azure Cache for Redis, which supports SSL by default, be sure to set this value to true to improve security.**<br/><br/>The non-TLS port is disabled by default for new caches. Specify **true** for this setting to use the non-TLS port. For more information about enabling the non-TLS port, see the [Access Ports](configure.md#access-ports) section in the [Configure a cache](configure.md) article. |
 | _databaseIdNumber_ | positive integer | 0 | _This attribute can be specified only through either web.config or AppSettings._<br/><br/>Specify which Redis database to use. |

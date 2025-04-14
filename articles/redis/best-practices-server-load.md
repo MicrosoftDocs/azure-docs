@@ -1,5 +1,5 @@
 ---
-title: Best practices for Using and Monitoring the Server Load for Azure Managed Redis (preview)
+title: Best practices for Using and Monitoring the Server Load for Azure Managed Redis
 description: Learn how to use and monitor your server load for Azure Managed Redis.
 
 
@@ -11,13 +11,13 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Manage Server Load for Azure Managed Redis (preview)
+# Manage Server Load for Azure Managed Redis
 
 ## Value sizes
 
 The design of your client application determines whether you should store many small values or a smaller number of larger values. From a Redis server perspective, smaller values give better performance. We recommend keeping value size smaller than 100 kB.
 
-If your design requires you to store larger values in the Azure Managed Redis (preview), the server load will be higher. In this case, you might need to use a higher cache tier to ensure CPU usage doesn't limit throughput.
+If your design requires you to store larger values in the Azure Managed Redis, the server load will be higher. In this case, you might need to use a higher cache tier to ensure CPU usage doesn't limit throughput.
 
 Even if the cache has sufficient CPU capacity, larger values do increase latencies, so follow the guidance in [Configure appropriate timeouts](best-practices-connection.md#configure-appropriate-timeouts).
 

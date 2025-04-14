@@ -66,7 +66,7 @@ To check for the latest templates, see [Azure Quickstart Templates](https://azur
 
 1. Select **I agree to the terms and conditions stated above**, and the select **Purchase**.
 
-## Azure Managed Redis (preview)
+## Azure Managed Redis
 
 ### Review the template
 Modify the `cachename` and `region` parameters. Copy it to a file `azuredeploy.json`.

@@ -1,5 +1,5 @@
 ---
-title: Using Redis modules with Azure Managed Redis (preview)
+title: Using Redis modules with Azure Managed Redis
 description: You can use Redis modules with your Azure Managed Redis instances to extend your caching use cases.
 
 
@@ -11,9 +11,9 @@ ms.custom: template-concept, ignite-2024
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Use Redis modules with Azure Managed Redis (preview)
+# Use Redis modules with Azure Managed Redis
 
-With Azure Managed Redis (preview), you can use Redis modules to add more data structures and functionality to the core Redis software. These extend the use-cases of Redis by adding functionality like search capabilities and data structures like bloom and cuckoo filters. You add the modules at the time you're creating your Azure Managed Redis instance.
+With Azure Managed Redis, you can use Redis modules to add more data structures and functionality to the core Redis software. These extend the use-cases of Redis by adding functionality like search capabilities and data structures like bloom and cuckoo filters. You add the modules at the time you're creating your Azure Managed Redis instance.
 
 For more information on creating an AMR cache, see [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Managed Redis (preview) Architecture
+title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
 
 ms.service: azure-managed-redis
@@ -11,9 +11,9 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Azure Managed Redis (preview) Architecture
+# Azure Managed Redis Architecture
 
-Azure Managed Redis (preview) runs on the [Redis Enterprise](https://redis.io/technology/advantages/) stack, which offers significant advantages over the community edition of Redis. The following information provides greater detail about how Azure Managed Redis is architected, including information that can be useful to power users.
+Azure Managed Redis runs on the [Redis Enterprise](https://redis.io/technology/advantages/) stack, which offers significant advantages over the community edition of Redis. The following information provides greater detail about how Azure Managed Redis is architected, including information that can be useful to power users.
 
 > [!IMPORTANT]
 > Azure Managed Redis is currently in PREVIEW.

@@ -27,7 +27,7 @@ Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/
 
 This table contains the information for vector search availability in different tiers.
 
-| Tier      | Basic / Standard | Premium | Enterprise | Enterprise Flash | Azure Managed Redis (preview) |
+| Tier      | Basic / Standard | Premium | Enterprise | Enterprise Flash | Azure Managed Redis |
 |-----------|:----------------:|:-------:|:----------:|:----------------:|:-----------------------------:|
 | Available | No               | No      | Yes        | Yes (preview)    | Yes                           |
 

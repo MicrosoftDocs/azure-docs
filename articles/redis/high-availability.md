@@ -1,5 +1,5 @@
 ---
-title: High availability for Azure Managed Redis (preview)
+title: High availability for Azure Managed Redis
 description: Learn about Azure Managed Redis high availability features and options for Azure Managed Redis
 
 
@@ -10,11 +10,11 @@ ms.custom: references_regions, ignite-2024
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# High availability and disaster recovery with Azure Managed Redis (preview)
+# High availability and disaster recovery with Azure Managed Redis
 
 As with any cloud systems, unplanned outages can occur that result in a virtual machines (VM) instance, an Availability Zone, or a complete Azure region going down. We recommend customers have a plan in place to handle zone or regional outages.
 
-This article presents the information for customers to create a _business continuity and disaster recovery plan_ for their Azure Managed Redis (preview) implementation.
+This article presents the information for customers to create a _business continuity and disaster recovery plan_ for their Azure Managed Redis implementation.
 
 High availability options:
 

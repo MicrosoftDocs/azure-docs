@@ -1,5 +1,5 @@
 ---
-title: Best practices for hosting a Kubernetes client application for Azure Managed Redis (preview)
+title: Best practices for hosting a Kubernetes client application for Azure Managed Redis
 description: Learn how to host a Kubernetes client application that uses Azure Managed Redis.
 
 ms.service: azure-managed-redis
@@ -10,7 +10,7 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Kubernetes-hosted client application with Azure Managed Redis (preview)
+# Kubernetes-hosted client application with Azure Managed Redis
 
 ## Client connections from multiple pods
 
@@ -28,7 +28,7 @@ A pod running the client application can be affected by other pods running on th
 
 ## Linux-hosted client applications and TCP settings
 
-If your Azure Managed Redis (preview) client application runs on a Linux-based container, we recommend updating some TCP settings. These settings are detailed in [TCP settings for Linux-hosted client applications](best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).
+If your Azure Managed Redis client application runs on a Linux-based container, we recommend updating some TCP settings. These settings are detailed in [TCP settings for Linux-hosted client applications](best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).
 
 ## Related content
 

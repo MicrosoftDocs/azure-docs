@@ -1,5 +1,5 @@
 ---
-title: Prepay for compute with reservations - Azure Managed Redis (preview)
+title: Prepay for compute with reservations - Azure Managed Redis
 description: Prepay for Azure Managed Redis compute resources with reservations
 
 ms.service: azure-managed-redis

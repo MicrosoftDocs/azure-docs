@@ -32,7 +32,7 @@ With this Bicep file, you deploy:
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites)
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms)
 
-### Azure Managed Redis (Preview)
+### Azure Managed Redis
 
 ```bicep
 @description('Describes plan\'s pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/')

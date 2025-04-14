@@ -6,7 +6,7 @@ ms.custom:
   - ignite-2024
 ---
 
-1. To create an Azure Managed Redis (preview) instance, sign in to the Azure portal and select **Create a resource**.
+1. To create an Azure Managed Redis instance, sign in to the Azure portal and select **Create a resource**.
 
 1. On the **New** page, in the search box type **Azure Cache for Redis**.
   
@@ -42,7 +42,7 @@ ms.custom:
    If you're using **Active geo-replication**, it must be configured during creation. For more information, see [Configure active geo-replication for Azure Managed Redis instances](../how-to-active-geo-replication.md).
 
    > [!IMPORTANT]
-   > You can't change the clustering policy of an Azure Managed Redis (preview) instance after you create it. If you're using [RediSearch](../redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported.
+   > You can't change the clustering policy of an Azure Managed Redis instance after you create it. If you're using [RediSearch](../redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported.
    >
 
    > [!IMPORTANT]

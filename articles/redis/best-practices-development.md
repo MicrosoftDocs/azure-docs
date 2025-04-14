@@ -1,5 +1,5 @@
 ---
-title: Best practices for development for Azure Managed Redis (preview)
+title: Best practices for development for Azure Managed Redis
 description: Learn how to develop code for Azure Managed Redis.
 
 ms.service: azure-managed-redis
@@ -19,7 +19,7 @@ When developing client applications, be sure to consider the relevant best pract
 
 ## Consider more keys and smaller values
 
-Azure Managed Redis (preview) works best with smaller values. To spread the data over multiple keys, consider dividing bigger chunks of data in to smaller chunks. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
+Azure Managed Redis works best with smaller values. To spread the data over multiple keys, consider dividing bigger chunks of data in to smaller chunks. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
 
 ## Large request or response size
 

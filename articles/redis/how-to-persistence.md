@@ -1,5 +1,5 @@
 ---
-title: Configure data persistence - Azure Managed Redis (preview)
+title: Configure data persistence - Azure Managed Redis
 description: Learn how to configure and manage data persistence your Azure Managed Redis instances
 
 
@@ -11,9 +11,9 @@ ms.date: 11/15/2024
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Configure data persistence for an Azure Managed Redis (preview) instance
+# Configure data persistence for an Azure Managed Redis instance
 
-[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your [high availability and disaster recovery](high-availability.md) strategy with Azure Managed Redis (preview).
+[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your [high availability and disaster recovery](high-availability.md) strategy with Azure Managed Redis.
 
 > [!IMPORTANT]
 >
