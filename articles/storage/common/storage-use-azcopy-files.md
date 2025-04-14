@@ -697,6 +697,15 @@ azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-0
 
 To learn more about share snapshots, see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md).
 
+## Properties and Permissions to be preserved 
+
+| **Type**                | **Properties (--preserve-info)**                                                                 | **Permissions (--preserve-permissions)** |
+|-------------------------|--------------------------------------------------------------------------------------------------|------------------------------------------|
+| **Azure Files SMB**     | NTFSFileAttributes (ReadOn ReadOnly, Hidden, System, Directory, Archive, None, Temporary, Offline, NotContentIndexed, NoScrubData) (x-ms-file-attributes) <br> CreationTime (x-ms-file-creation-time) <br> LastWriteTime (x-ms-file-last-write-time) | Acls (x-ms-file-permission)              |
+| **Azure Files NFS**     | CreationTime (x-ms-file-creation-time) <br> LastWriteTime (x-ms-file-last-write-time)                                                | Owner (x-ms-owner) <br> Group (x-ms-group) <br> FileMode (x-ms-mode) |
+
+
+
 ## Next steps
 
 Find more examples in any of these articles:
