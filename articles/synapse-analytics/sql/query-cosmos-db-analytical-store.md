@@ -52,11 +52,11 @@ OPENROWSET(
 
 The SQL connection string for Azure Cosmos DB includes the following components:
 - **Account Name** - The name of the Azure Cosmos DB account you are targeting.
-- **Database Name** - The container name, specified without quotation marks in the OPENROWSET syntax. If the container name contains special characters (e.g., a dash -), it should be enclosed in square brackets ([]).
+- **Database Name** - The container name, specified without quotation marks in the OPENROWSET syntax. If the container name contains special characters (for example, a dash -), it should be enclosed in square brackets ([]).
 - **Region Name** (optional) - The region of your CosmosDB analytical storage. If omitted, the container's primary region is used.
 - **AuthType** - set this option to `ManagedIdentity` if accessing CosmosDB using the Synapse workspace Managed Identity instead of the account key.
 - **Key** - The master key for accessing CosmosDB data, used if not utilizing the Synapse workspace managed identity.
-- **Endpoint** (optionsl) - required if your CosmosDB account does not follow the standard `*.documents.azure.com` format.
+- **Endpoint** (optional) - required if your CosmosDB account does not follow the standard `*.documents.azure.com` format.
 
 Some of this information can be derived from the standard Azure Cosmos DB connection string:
 
@@ -113,7 +113,7 @@ Database account master key is placed in server-level credential or database sco
 
 ## Sample dataset
 
-The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](/azure/open-datasets/dataset-ecdc-covid-cases) and [COVID-19 Open Research Dataset (CORD-19)](/azure/open-datasets/dataset-covid-19-open-research).
+The examples in this article are based on data from the [European Center for Disease Prevention and Control (ECDC) COVID-19 Cases](/azure/open-datasets/dataset-ecdc-covid-cases) and [COVID-19 Open Research Dataset (CORD-19)](/azure/open-datasets/dataset-covid-19-open-research).
 
 You can see the license and the structure of data on these pages. You can also [download sample data for the ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and CORD-19 datasets.
 
@@ -259,7 +259,7 @@ FROM OPENROWSET(
 
 Don't use `OPENROWSET` without explicitly defined schema because it might affect your performance. Make sure that you use the smallest possible sizes for your columns (for example `VARCHAR(100)` instead of default `VARCHAR(8000)`). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid a [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when you filter data using some string columns.
 
-When you query the view, you might encounter errors or unexpected results. The view references columns or objects were probably modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes. Keep in mind that this can happen both when using automatic schema inference in the view and when explicitly specifying the schema.
+When you query the view, you might encounter errors or unexpected results. The view references columns or objects were probably modified or no longer exists. You need to manually adjust the view definition to align with the underlying schema changes. Keep in mind that this can happen both when using automatic schema inference in the view and when explicitly specifying the schema.
 
 ## Query nested objects
 
