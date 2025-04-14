@@ -52,6 +52,8 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [Zoho (Preview)](connector-zoho.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)|/ | Disabled |/  |/  | 
 
+If you need upgrade help, contact us via the way provided in the [FAQ article](connector-deprecation-frequently-asked-questions.md#what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors). 
+
 ## Release stages and support
 
 This section describes the different release stages and support for each stage.
