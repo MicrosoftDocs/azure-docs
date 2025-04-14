@@ -142,6 +142,10 @@ A 404 error can happen if you refer to a file name by using an incorrect case. F
 
 In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
 
+##### Why am I unable to access static websites in a storage account when a private endpoint is enabled for the blob in the storage account?
+
+Enabling a private endpoint for blobs in a storage account restricts access to that storage account to only resources within the same virtual network. Consequently, this restriction prevents external access to the static website hosted in the storage account, making the static website content inaccessible. The private endpoint configuration limits access to all storage account resources, including the static website content, to resources within the same virtual network where the private endpoint is enabled. The resolution would be to create a private endpoint specifically for the web. The static website needs a dedicated private end point for the $web domain.
+
 ## Next steps
 
 - [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
