@@ -192,6 +192,7 @@ To increase your email quota, follow the instructions in [Quota increase for ema
 
 > [!NOTE]
 > Email quota increase requests might take up to 72 hours for evaluation and approval, especially for requests that come in on Friday afternoon.
+> The quota increase requests for the number of recipients in email of SMTP is not supported at this time.
 
 ## Chat
 
