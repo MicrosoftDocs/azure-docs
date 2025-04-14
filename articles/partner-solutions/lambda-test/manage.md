@@ -17,9 +17,16 @@ This article describes how to manage the settings for LambdaTest - HyperExecute 
 :::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a LambdaTest - HyperExecute resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
 The *Essentials* details include:
-- LABEL VALUE
-- LABEL VALUE
-- LABEL VALUE
+- Resource group
+- Location
+- Subscription
+- Subscription ID
+- Tags
+- Single Sign-On
+- Status
+- Pricing Plan
+- Billing Term
+
 To manage your resource, select the links next to corresponding details.
 
 
