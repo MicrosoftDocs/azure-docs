@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/11/2025
+ms.date: 04/14/2025
 
 #customer intent: As a developer, I want to know the prerequisites and details about using SAP with Azure Logic Apps, so I can connect to an SAP server from my Consumption or Standard workflow.
 ---
@@ -678,7 +678,7 @@ To send IDocs from SAP to your logic app workflow, follow these steps to set up 
 To send IDocs from SAP to your workflow, you need to set up the minimum configuration by following these steps:
 
 1. [Create an RFC destination](#create-rfc-destination).
-1. [Create an ABAP connection](#create-abap-connection).
+1. [Create an Advanced Business Application Programming (ABAP) connection](#create-abap-connection).
 1. [Create a receiver port](#create-receiver-port).
 1. [Create a sender port](#create-sender-port).
 1. [Create a logical system partner](#create-logical-system-partner).
@@ -929,11 +929,11 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
+1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
 
 1. To trigger your workflow, send a message from your SAP system.
 
-1. Return to your logic app's **Overview** pane. Under **Runs history**, find any new runs for your workflow.
+1. Return to your logic app's **Overview** page. Under **Runs history**, find any new runs for your workflow.
 
 1. Open the most recent run, which shows a manual run. Find and review the trigger outputs section.
 
@@ -945,7 +945,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. To trigger your workflow, send a message from your SAP system.
 
-1. Return to your workflow's **Overview** pane. Under **Run History**, find any new runs for your workflow.
+1. Return to your workflow's **Overview** page. Under **Run History**, find any new runs for your workflow.
 
 1. Open the most recent run, which shows a manual run. Find and review the trigger outputs section.
 
@@ -1183,7 +1183,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    The following screenshot shows the Azure portal where the Application Insights resource has the **Logs** page open:
 
-   :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the Logs pane for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
+   :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the Logs page for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
 
 1. On the **Logs** page, you can create a [query](/kusto/query/) by using the [Kusto Query Language (KQL)](/kusto/concepts/) based on your specific requirements.
 
@@ -1201,31 +1201,31 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    The following screenshot shows the example query's metrics results table:
 
-   :::image type="content" source="/media/sap/application-insights-metrics.png" alt-text="Screenshot shows Application Insights with the metrics results table." lightbox="/media/sap/application-insights-metrics.png":::
+   :::image type="content" source="./media/sap/application-insights-metrics.png" alt-text="Screenshot shows Application Insights with the metrics results table." lightbox="./media/sap/application-insights-metrics.png":::
 
-   * **MaxUsedCount** is "The maximal number of client connections that were simultaneously used by the monitored destination." as described in the [SAP NCo documentation](https://support.sap.com/en/product/connectors/msnet.html#section_512604546). You can use this value to understand the number of simultaneously open connections.
+   | Column | Description |
+   |--------|-------------|
+   | **MaxUsedCount** | "The maximal number of client connections that were simultaneously used by the monitored destination." as described in the [SAP NCo documentation](https://support.sap.com/en/product/connectors/msnet.html#section_512604546). You can use this value to understand the number of simultaneously open connections. |
+   | **valueCount** | Shows **2** for each reading because metrics are generated at 30-second intervals. Application Insights aggregates these metrics by the minute. |
+   | **DestinationName** | Contains a character string that is a Microsoft SAP Adapter internal name. |
 
-   * The **valueCount** column shows **2** for each reading because metrics are generated at 30-second intervals. Application Insights aggregates these metrics by the minute.
+   To better understand this Remote Function Call (RFC) destination, use this value with `traces`, for example:
 
-   * The **DestinationName** column contains a character string that is a Microsoft SAP Adapter internal name.
-
-     To better understand this Remote Function Call (RFC) destination, use this value with `traces`, for example:
-
-     ```Kusto
-     customMetrics
-     | extend DestinationName = tostring(customDimensions["DestinationName"])
-     | join kind=inner (traces
-        | extend DestinationName = tostring(customDimensions["DestinationName"]),
-        AppServerHost = tostring(customDimensions["AppServerHost"]),
-        SncMode = tostring(customDimensions["SncMode"]),
-        SapClient = tostring(customDimensions["Client"])
-        | where customDimensions contains "RfcDestinationMonitor"
-        )
-        on DestinationName , $left.DestinationName == $right.DestinationName
-     | where customDimensions contains "RfcDestinationMonitor"
-     | where name contains "MaxUsedCount"
-     | project AppServerHost, SncMode, SapClient, name, valueCount, valueSum, valueMin, valueMax
-     ```
+   ```Kusto
+   customMetrics
+   | extend DestinationName = tostring(customDimensions["DestinationName"])
+   | join kind=inner (traces
+      | extend DestinationName = tostring(customDimensions["DestinationName"]),
+      AppServerHost = tostring(customDimensions["AppServerHost"]),
+      SncMode = tostring(customDimensions["SncMode"]),
+      SapClient = tostring(customDimensions["Client"])
+      | where customDimensions contains "RfcDestinationMonitor"
+      )
+      on DestinationName , $left.DestinationName == $right.DestinationName
+   | where customDimensions contains "RfcDestinationMonitor"
+   | where name contains "MaxUsedCount"
+   | project AppServerHost, SncMode, SapClient, name, valueCount, valueSum, valueMin, valueMax
+   ```
 
 You can also create metric charts or alerts by using those capabilities in Application Insights, for example:
 
