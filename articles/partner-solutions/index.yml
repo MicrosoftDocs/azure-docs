@@ -58,7 +58,7 @@ productDirectory:
         - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy, and master data management.
     - title: LambdaTest - HyperExecute
-      imageSrc: .media/index/lambda-test.svg
+      imageSrc: ./media/index/lambda-test.svg
       links: 
         - url: ./lambda-test/overview.md
           text: An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments (Web Browser, Real Devices, Emulator/Simulators, API, Performance) with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.
