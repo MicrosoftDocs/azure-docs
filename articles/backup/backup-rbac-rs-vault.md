@@ -3,7 +3,7 @@ title: Manage Backups with Azure role-based access control
 description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: utraghuv
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 04/14/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -40,7 +40,7 @@ The following table captures the Backup management actions and corresponding min
 | | Virtual Machine Contributor | VM resource |  Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Compute/virtualMachines/instanceView/read |
 | On-demand backup of VM | Backup Operator | Recovery Services vault |   |
 | Restore VM | Backup Operator | Recovery Services vault |   |
-| | Contributor | Resource group in which VM will be deployed |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions:  Microsoft.Resources/subscriptions/resourceGroups/write Microsoft.DomainRegistration/domains/write (required only for classic VM restore and not required for managed VMs), Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/join/action |
+| | Contributor | Resource group in which VM will be deployed |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Resources/subscriptions/resourceGroups/write` <br> - `Microsoft.Resources/subscriptions/resourceGroups/read` - According to validation, this permission is also needed. <br> - `Microsoft.DomainRegistration/domains/write` <br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` <br> - `Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read` <br> - `Microsoft.Network/virtualNetworks/subnets/join/action` <br><br> Additionally, if you want to set custom role despite built-in-role, following permissions are needed on the Staging Location's Storage Account: <br><br> - `Microsoft.Storage/storageAccounts/read` <br> - `Microsoft.Storage/storageAccounts/write` |
 | | Virtual Machine Contributor | Source VM that got backed up |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read|
 | | Storage Account Contributor | Storage account resource where disks are going to be restored |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write Microsoft.Storage/storageAccounts/listkeys/action |
 | Restore unmanaged disks VM backup | Backup Operator | Recovery Services vault |

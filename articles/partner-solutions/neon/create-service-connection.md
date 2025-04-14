@@ -13,7 +13,7 @@ In this guide, learn how to connect your app to a database within a Neon Serverl
 
 Service Connector is an Azure service designed to simplify the process of connecting Azure resources together. Service Connector manages your connection's network and authentication settings to simplify the operation.
 
-This guide shows step by step instructions to connect an app deployed to Azure App Service to a Neon Serverless Postgres resource. You can apply a similar method to create a connection from apps deployed to [Azure Container Apps](/azure/container-apps/quickstart-portal), [Azure Kubernetes Services (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal), or [Azure Spring Apps](/azure/spring-apps/enterprise/quickstart).
+This guide shows step by step instructions to connect an app deployed to Azure App Service to a Neon Serverless Postgres resource. You can apply a similar method to create a connection from apps deployed to [Azure Container Apps](/azure/container-apps/quickstart-portal), [Azure Kubernetes Services (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This guide shows step by step instructions to connect an app deployed to Azure A
 
 Follow these steps to connect an app to Neon Serverless Postgres (Preview):
 
-1. Open the App Service, Container Apps, AKS, or Azure Spring Apps resource where your app is deployed. If using Azure Spring Apps, once you've opened your resource, navigate to the **Apps** menu, and select your app.
+1. Open the App Service, Container Apps, or AKS resource where your app is deployed.
 
 1. Open **Service Connector** from the left menu and select **Create**.
 

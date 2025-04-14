@@ -161,7 +161,7 @@ private static final IotHubServiceClientProtocol protocol =
 
 ##### Create the ServiceClient object
 
-Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the Iot Hub connection string and protocol.
+Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the IoT Hub connection string and protocol.
 
 To upload a file on a device to IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 

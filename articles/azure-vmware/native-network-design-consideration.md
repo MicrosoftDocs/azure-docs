@@ -1,15 +1,15 @@
 ---
-title: Azure VMware Solution in an Azure Virtual Network design consideration (Public preview)
-description: Learn about Azure VMware Solution in an Azure Virtual Network design consideration.
+title: Azure VMware Solution Generation 2 private cloud design considerations (Public preview)
+description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 4/3/2025
-# customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in an Azure Virtual Network design consideration so that I can make informed decisions about my Azure VMware Solution deployment.
+# customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.
 ---
 
-# Azure VMware Solution in an Azure Virtual Network design considerations (Public preview)
+# Design considerations for Azure VMware Solution Generation 2 Private Clouds (Public preview)
 
-In this article, you learn about design considerations for Azure VMware Solution in an Azure Virtual Network. It discusses what this solution offers in a VMware private cloud environment that your applications can access from on-premises and Azure-based environments or resources. There are several considerations to review before you set up your Azure VMware Solution private cloud in an Azure Virtual Network. This article provides solutions for use cases that you might encounter when you're using the private cloud type.
+This article outlines key design considerations for Azure VMware Solution Generation 2 (Gen 2) private clouds. It explains the capabilities this generation brings to VMware-based private cloud environments, enabling access for your applications from both on-premises infrastructure and Azure-based resources. There are several considerations to review before you set up your Azure VMware Solution Gen 2 private cloud. This article provides solutions for use cases that you might encounter when you're using the private cloud type.
 
 > [!Note]
 > This is currently a Public Preview offering. For more information, see our [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/Preview-supplemental-terms/).
@@ -39,9 +39,9 @@ The following 1st-party and 3rd-party integrations won't be available during Pub
 
 ## Routing and subnet considerations
 
-Azure VMware Solution in an Azure Virtual Network provides a VMware private cloud environment accessible to users and applications from on-premises and Azure-based environments or resources. Connectivity is delivered through standard Azure Networking. Specific network address ranges and firewall ports are required to enable these services. This section helps you configure your networking to work with Azure VMware Solution. 
+Azure VMware Solution Gen 2 private clouds provide a VMware private cloud environment accessible to users and applications from on-premises and Azure-based environments or resources. Connectivity is delivered through standard Azure Networking. Specific network address ranges and firewall ports are required to enable these services. This section helps you configure your networking to work with Azure VMware Solution. 
 
-The private cloud connects to your Azure virtual network using standard Azure networking. Azure VMware Solution private clouds require a minimum /22 CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, vMotion, and Replication networks are provisioned automatically within this address block as subnets inside your Virtual Network.
+The private cloud connects to your Azure virtual network using standard Azure networking. Azure VMware Solution Gen 2 private clouds require a minimum /22 CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, vMotion, and Replication networks are provisioned automatically within this address block as subnets inside your Virtual Network.
 
 > [!Note]
 > Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16. Replication network is not applicable to AV64 nodes and is planned for general deprecation at a future date.
@@ -76,4 +76,4 @@ The subnets:
 
 - Get started with configuring your Azure VMware Solution service principal as a prerequisite. To learn how, see the [Enabling Azure VMware Solution service principal](native-first-party-principle-security.md) quickstart.
   
-- Follow a tutorial for [Creating an Azure VMware Private Cloud in an Azure Virtual Network](native-create-azure-vmware-virtual-network-private-cloud.md)
+- Follow a tutorial for [Creating an Azure VMware Gen 2 Private Cloud](native-create-azure-vmware-virtual-network-private-cloud.md)

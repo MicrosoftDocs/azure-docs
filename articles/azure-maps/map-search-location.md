@@ -103,7 +103,7 @@ The second block of code creates an object that implements the [TokenCredential]
 
 The third block of code creates a data source object using the [DataSource] class and add search results to it. A [symbol layer] uses text or icons to render point-based data wrapped in the [DataSource] as symbols on the map.  A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
 
-The fourth code block makes a GET request in the [MapsSearch] client. It allows you to perform a free form text search via the [Get Search Fuzzy rest API] to search for point of interest. Get requests to the Search Fuzzy API can handle any combination of fuzzy inputs. The response is then converted to [Feature] objects and added to the data source, which automatically results in the data being rendered on the map via the symbol layer.
+The fourth code block makes a GET request in the [MapsSearch] client. It allows you to perform a free form text search via the [Get Search Fuzzy REST API] to search for point of interest. Get requests to the Search Fuzzy API can handle any combination of fuzzy inputs. The response is then converted to [Feature] objects and added to the data source, which automatically results in the data being rendered on the map via the symbol layer.
 
 The last block of code adjusts the camera bounds for the map using the Map's [setCamera] property.
 
@@ -231,7 +231,7 @@ See the following articles for full code examples:
 [DataSource]: /javascript/api/azure-maps-control/atlas.source.datasource
 [symbol layer]: /javascript/api/azure-maps-control/atlas.layer.symbollayer
 [Create a map]: map-create.md
-[Get Search Fuzzy rest API]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
+[Get Search Fuzzy REST API]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
 [BoundingBox]: /javascript/api/azure-maps-control/atlas.data.boundingbox
