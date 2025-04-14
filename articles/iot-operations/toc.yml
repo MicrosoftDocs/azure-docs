@@ -47,7 +47,7 @@ items:
         href: discover-manage-assets/overview-manage-assets.md
       - name: Understand assets and asset endpoints
         href: discover-manage-assets/concept-assets-asset-endpoints.md
-      - name: Automatically detect assets
+      - name: Discover assets
         href: discover-manage-assets/overview-akri.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md

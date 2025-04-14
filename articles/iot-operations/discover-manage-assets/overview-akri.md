@@ -1,6 +1,6 @@
 ---
-title: Detect OPC UA assets (preview)
-description: Understand how the Akri services enable you to detect devices and assets at the edge, and expose them as resources on your cluster.
+title: Discover OPC UA assets (preview)
+description: Understand how the Akri services enable you to discover devices and assets at the edge, and expose them as resources on your cluster.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-akri
@@ -9,12 +9,12 @@ ms.custom:
   - ignite-2023
 ms.date: 04/07/2025
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand how the Akri services enable me to detect devices and assets at the edge, and expose them as resources on a Kubernetes cluster.
+# CustomerIntent: As an industrial edge IT or operations user, I want to to understand how the Akri services enable me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster.
 ---
 
-# What is OPC UA asset detection (preview)?
+# What is OPC UA asset discovery (preview)?
 
-Azure IoT Operations detects devices and assets by using the included Akri services (preview). The Akri services enable protocol connections and configurations by using Azure Device Registry. The Akri services simplify the process of projecting leaf devices such as OPC UA servers, cameras, IoT sensors, and other assets into the Azure Device Registry. The Akri services use the devices' own protocols to project leaf devices as Azure Resource Manager resources in the Azure Device Registry. For administrators who attach or remove devices from a cluster, this capability reduces the amount of coordination and manual configuration required.
+Azure IoT Operations discovers devices and assets by using the included Akri services (preview). The Akri services enable protocol connections and configurations by using Azure Device Registry. The Akri services simplify the process of projecting leaf devices such as OPC UA servers, cameras, IoT sensors, and other assets into the Azure Device Registry. The Akri services use the devices' own protocols to project leaf devices as Azure Resource Manager resources in the Azure Device Registry. For administrators who attach or remove devices from a cluster, this capability reduces the amount of coordination and manual configuration required.
 
 The Akri services are an extensible framework for all device protocols. You can use them with out-of-the-box and partner-built connectors, or you can add custom discovery and provisioning capabilities by adding protocol handlers, connectors, and behaviors. Adding custom logic is made easy with the [Azure IoT Operations SDK](https://github.com/azure/iot-operations-sdks) (preview).
 
@@ -53,9 +53,9 @@ With the Akri services, you can dynamically provision devices such as:
 
 The Akri services use standard Kubernetes primitives that let you apply your existing expertise and knowledge. Small devices connected to an Akri-configured cluster can appear as Kubernetes resources, just like memory or CPUs. The Akri services controller enables the cluster operator to start brokers, jobs, or other workloads for individual connected devices or groups of devices. These device configurations and properties remain in the cluster so that if there's node failure, other nodes can pick up any lost work.
 
-## Detect OPC UA assets
+## Discover OPC UA assets
 
-The Akri services and OPC UA connector are a turnkey solution that lets you detect assets connected to an OPC UA server and add the asset configurations into Azure Device Registry. The OPC UA connector detects assets at the edge and Akri services maps them to assets in Azure Device Registry. The assets send telemetry to upstream brokers and components. The Akri services let you eliminate the time-consuming and error-prone process of manually configuring and onboarding the assets to your cluster and Azure Device Registry.
+The Akri services and OPC UA connector are a turnkey solution that lets you discover assets connected to an OPC UA server and add the asset configurations into Azure Device Registry. The OPC UA connector discovers assets at the edge and Akri services maps them to assets in Azure Device Registry. The assets send telemetry to upstream brokers and components. The Akri services let you eliminate the time-consuming and error-prone process of manually configuring and onboarding the assets to your cluster and Azure Device Registry.
 
 ### Features supported
 
@@ -75,13 +75,13 @@ The Akri services support the following features:
 | Installation through the Akri services Arc cluster extension |   ✅     |
 | Onboard devices as custom resources to an edge cluster       |   ✅     |
 | View the Akri services metrics and logs through Azure Monitor |   ✅     |
-| The Akri services detect and create assets that can be ingested into the Azure Device Registry  |   ✅     |
+| The Akri services discover and create assets that can be ingested into the Azure Device Registry  |   ✅     |
 | Akri services configuration by using the operations experience web UI |   ❌     |
 | Deployment and management features for integrating non-Microsoft or custom protocol connectors and discovery handlers |   ❌     |
 
 ## Related content
 
-To learn more about the Akri services, see [Detect OPC UA data sources using the Akri services](howto-autodetect-opcua-assets-using-akri.md)
+To learn more about the Akri services, see [Discover OPC UA data sources using the Akri services](howto-autodetect-opcua-assets-using-akri.md)
 
 To learn more about the open-source CNCF Akri, see the following resources:
 
