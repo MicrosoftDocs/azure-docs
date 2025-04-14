@@ -4,7 +4,7 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: include
 ms.date: 03/28/2025    
-ms.custom: include file
+ms.custom: include file, references_regions
 ---
 # [North America / South America](#tab/Americas)
 
