@@ -46,13 +46,13 @@ OPENROWSET(
 The SQL connection string for Azure Cosmos DB includes the following components:
 - **account** - The name of the Azure Cosmos DB account you are targeting.
 - **database** - The container name, specified without quotation marks in the OPENROWSET syntax. If the container name contains special characters (for example, a dash -), it should be enclosed in square brackets ([]).
-- **region** (optional) - The region of your CosmosDB analytical storage. If omitted, the container's primary region is used.
-- **endpoint** (optional) - required if your CosmosDB account does not follow the standard `*.documents.azure.com` format.
+- **region** (optional) - The region of your Cosmos DB analytical storage. If omitted, the container's primary region is used.
+- **endpoint** (optional) - required if your Cosmos DB account does not follow the standard `*.documents.azure.com` format.
 
 > [!IMPORTANT]
 > The `endpoint` parameter is needed for accounts that don't match the standard `*.documents.azure.com` format. For example, if your Azure Cosmos DB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.
 
-These properties can be identified from the standard CosmosDb connection string, for example:
+These properties can be identified from the standard Cosmos DB connection string, for example:
 ```
 AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
 ```
@@ -62,7 +62,7 @@ The SQL connection string can be formatted as follows:
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
 
-This connection string does not include the authentication information required to connect to CosmosDB analytical storage. Additional information is needed depending on the type of authentication used:
+This connection string does not include the authentication information required to connect to Cosmos DB analytical storage. Additional information is needed depending on the type of authentication used:
 - If `OPENROWSET` uses workspace managed identity to access the analytical store, you should add the `AuthType` property.
 - If `OPENROWSET` uses an inline account key, you should add the `key` property. This allows you to query Azure Cosmos DB collections without needing to prepare credentials.
 - Instead of including authentication information in the connection string, `OPENROWSET` can reference a credential that contains the Azure Cosmos DB account key. This approach can be used to create views on Azure Cosmos DB collections.
@@ -71,7 +71,7 @@ These options are described below.
 
 ### [OPENROWSET with key or managed identity](#tab/openrowset-key)
 
-To support querying and analyzing data in an Azure Cosmos DB analytical store, a serverless SQL pool is used. The serverless SQL pool uses the `OPENROWSET` SQL syntax, so you must first convert your Azure Cosmos DB connection string to this format:
+The serverless SQL pool enables you to query Cosmos DB Analytical storage and authenticate with the original Cosmos DB account key or to allow Synapse managed identity to access the Cosmos DB Analytical storage. You can use the following syntax in this scenario:
 
 ```sql
 OPENROWSET( 
@@ -80,20 +80,20 @@ OPENROWSET(
        <Container name>
     )  [ < with clause > ] AS alias
 ```
-In addition to the common properties in the SQL connection string that are described above (**account**, **database**, **region**, and **endpoint**), in this case, you need to add **one** of the following options:
-- **AuthType** - set this option to `ManagedIdentity` if accessing CosmosDB using the Synapse workspace Managed Identity.
-- **key** - The master key for accessing CosmosDB data, used if not utilizing the Synapse workspace managed identity.
+In addition to the common properties in the SQL connection string that are described above (**account**, **database**, **region**, and **endpoint**), you need to add **one** of the following options:
+- **AuthType** - set this option to `ManagedIdentity` if accessing Cosmos DB using the Synapse workspace Managed Identity.
+- **key** - The master key for accessing Cosmos DB data, used if not utilizing the Synapse workspace managed identity.
 
 The examples of connection strings are shown in the following table:
 
 | Authentication type | Connection string |
 | --- | --- |
-| CosmosDB database account master key | `account=<account name>;database=<db name>;region=<region name>;key=<account master key>` |
+| Cosmos DB account master key | `account=<account name>;database=<db name>;region=<region name>;key=<account master key>` |
 | Synapse workspace managed identity | `account=<account name>;database=<db name>;region=<region name>;authtype=ManagedIdentity` |
 
 ### [OPENROWSET with credential](#tab/openrowset-credential)
 
-You can use `OPENROWSET` syntax that references a credential:
+Instead of defining the access key in OPENROWSET, you can place it in the separate credential and use `OPENROWSET` syntax that references a credential:
 
 ```sql
 OPENROWSET( 
