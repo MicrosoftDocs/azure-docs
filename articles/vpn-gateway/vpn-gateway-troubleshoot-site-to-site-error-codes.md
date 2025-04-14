@@ -5,7 +5,7 @@ description: Common error codes and solutions for Azure VPN Gateway site-to-site
 author: fabferri
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/20/2024
+ms.date: 03/31/2025
 ms.author: fabferri
 ---
 # Troubleshooting: Azure site-to-site VPN error codes
@@ -55,7 +55,7 @@ Connectivity failure.
 
 ### Cause
 
-IKE /IPSec policy mismatch.
+IKE /IPsec policy mismatch.
 
 ### Solution
 

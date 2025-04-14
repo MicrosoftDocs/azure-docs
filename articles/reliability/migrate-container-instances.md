@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/22/2022
 ms.author: anaharris
 ms.reviewer: tomvcassidy
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure Container Instances to availability zone support
@@ -46,7 +46,7 @@ To delete and redeploy a container group:
    - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources).
 
     >[!NOTE]
-    >Zonal support is not supported in the Azure portal. Even if you delete your container group through the portal, you'll still need to create your new container group using CLI or Powershell. 
+    >Zonal support isn't supported in the Azure portal. Even if you delete your container group through the portal, you still need to create your new container group using CLI or PowerShell. 
     
 1. Follow the steps in [Deploy an Azure Container Instances (ACI) container group in an availability zone (preview)](/azure/container-instances/availability-zones).
 
@@ -58,4 +58,4 @@ To delete and redeploy a container group:
 > [Azure services that support availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
-> [Azure regions that support availability zones](availability-zones-region-support.md)
+> [Azure regions that support availability zones](regions-list.md)

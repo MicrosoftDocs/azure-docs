@@ -6,7 +6,6 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
-
 ---
 
 # Cross-network connectivity
@@ -17,7 +16,7 @@ Fabrikam Inc. acquires Contoso Ltd. Following the merger, Fabrikam wants to inte
 
 ![The Application scenario](./media/cross-network-connectivity/premergerscenario.png)
 
-The dashed arrows in the middle of the above figure indicate the desired network interconnections. Specifically, there are three types cross connections desired: 
+The dashed arrows in the middle of the figure above indicate the desired network interconnections. Specifically, there are three types cross connections desired: 
 
 1. Fabrikam and Contoso virtual network cross connect
 1. Cross regional on-premises and virtual network cross connects. That is, connecting Fabrikam on-premises network to Contoso virtual network and connecting Contoso on-premises network to Fabrikam virtual network.
@@ -49,7 +48,7 @@ In this article, let's go through step by step and discuss how to achieve the de
 
 Virtual network peering (VNet peering) provides the most optimal and the best network performance when connecting two virtual networks. VNet peering supports peering two VNets both within the same Azure region (commonly called VNet peering) and in two different Azure regions (commonly called Global VNet peering). 
 
-Let's configure Global VNet peering between the VNets in Contoso and Fabrikam Azure subscriptions. For how to create the virtual network peering between two the virtual networks, see [Create a virtual network peering][Configure VNet peering] article.
+Let's configure Global VNet peering between the VNets in Contoso and Fabrikam Azure subscriptions. For how to create the virtual network peering between two virtual networks, see [Create a virtual network peering][Configure VNet peering] article.
 
 The following picture shows the network architecture after configuring Global VNet peering.
 
@@ -91,9 +90,8 @@ The following table shows the routes known to the Fabrikam subscription VM. Pay 
 
 ![Fabrikam VM routes after cross connecting ExR and VNets](./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png)
 
->[!NOTE]
->In either the Fabrikam and/or Contoso subscriptions you can also have spoke VNets to the respective hub VNet (a hub and spoke design is not illustrated in the architecture diagrams in this article). The cross connections between the hub VNet gateways to ExpressRoute will also allow communication between East and West hubs and spokes.
->
+> [!NOTE]
+> In either the Fabrikam and/or Contoso subscriptions you can also have spoke VNets to the respective hub VNet (a hub and spoke design is not illustrated in the architecture diagrams in this article). The cross connections between the hub VNet gateways to ExpressRoute will also allow communication between East and West hubs and spokes.
 
 ## Cross connecting on-premises networks
 

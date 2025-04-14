@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create an Azure notification hub
 services: notification-hubs
 author: sethmanheim
 ms.author: sethm
-manager: femila
+manager: lizross
 ms.reviewer: rebpen
 ms.date: 02/21/2024
 ms.topic: quickstart

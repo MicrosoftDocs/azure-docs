@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 12/09/2024
+ms.date: 02/28/2025
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -913,6 +913,11 @@ spec:
 ```
 
 ---
+
+### Use custom authentication for username and password authentication
+
+You can use custom authentication to implement username and password authentication. A sample custom authentication server sample is available for testing. See the [Azure IoT Operations MQTT username and password authentication sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/auth-server-user-pass-mqtt) on GitHub.
+
 
 ## Disable authentication
 

@@ -29,3 +29,9 @@ You're informed via support channels once your request is processed.
 
 > [!IMPORTANT]
 > During this preview period, the deployment of Reservoir DDMS is limited to a single data partition per developer tier resource.
+
+## Next steps
+To learn more about how to use Reservoir DDMS APIs, see:
+> [!div class="nextstepaction"]
+> [Tutorial: Use Reservoir DDMS websocket API endpoints](tutorial-reservoir-ddms-websocket.md)
+> [Tutorial: Use Reservoir DDMS API endpoints](tutorial-reservoir-ddms-apis.md)

@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 02/12/2025
 ms.author: mbender
 ms.custom: template-how-to
 ---

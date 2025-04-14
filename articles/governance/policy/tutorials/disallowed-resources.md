@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Disallow resource types in your cloud environment"
 description: In this tutorial, you use Azure Policy to enforce only certain resource types be used in your environment.
-ms.date: 02/13/2024
+ms.date: 03/04/2025
 ms.topic: tutorial
 ---
 

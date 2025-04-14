@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/05/2024
 ms.author: danlep
 ---
@@ -21,7 +21,7 @@ API Management helps you import, manage, protect, test, publish, and monitor Gra
 
 |Pass-through GraphQL   |Synthetic GraphQL  |
 |---------|---------|
-| ▪️ Pass-through API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers, for example, to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
+| ▪️ Pass-through API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers, for example, to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs<br/><br/>▪️ Synthetic subscriptions do not require resolvers. See [publish-event](publish-event-policy.md) policy.    |
 
 ## Availability
 
@@ -113,7 +113,7 @@ For more information about setting up a resolver, see [Configure a GraphQL resol
 * Explore the GraphQL schema and run test queries against the GraphQL APIs in the Azure and developer portals.
 
 
-## Next steps
+## Related content
 
 - [Import a GraphQL API](graphql-api.md)
 - [Import a GraphQL schema and set up field resolvers](graphql-schema-resolve-api.md)

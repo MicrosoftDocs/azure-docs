@@ -51,7 +51,7 @@ Use the following steps if you want to run the application locally. Otherwise, y
        -pl spring-petclinic-api-gateway
    ```
 
-1. Open a new Bash window and navigate to the project `spring-petclinic-frontend` directory. Use the following commands to install dependencies and run the frontend application:
+1. Open a new Bash window and navigate to the project **spring-petclinic-frontend** directory. Use the following commands to install dependencies and run the frontend application:
 
    ```bash
    npm install

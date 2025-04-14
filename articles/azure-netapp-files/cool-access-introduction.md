@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 03/06/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -22,12 +22,12 @@ The following diagram illustrates an application with a volume enabled for cool 
 
 :::image type="content" source="./media/cool-access-introduction/cool-access-explainer.png" alt-text="Diagram that shows cool access tiering showing cool volumes being moved to the cool tier." lightbox="./media/cool-access-introduction/cool-access-explainer.png" border="false":::
 
-In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. Because the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until inactivity reaches the number of days specified in the coolness period. The coolness period lasts between 2 and 183 days. The default value is 31 days.
+In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. Because the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until inactivity reaches the number of days specified in the coolness period. The coolness period can be set between 2 and 183 days. The default value is 31 days.
 
 After data blocks are marked "cold," the tiering scan collects the blocks and packages them into 4-MB objects. Their move to Azure storage is transparent. To the application and users, the cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
 
 > [!NOTE]
-> When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that was cool for at least 30 days moves to the cool tier _when_ you enable cool access. 
+> When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that was cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. 
 
 By default (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. After the data blocks are marked as "warm," they're again subjected to the temperature scan. Large sequential reads (like index and antivirus scans) on inactive data in the cool tier don't "warm" the data. They also don't trigger inactive data so that it moves back to the hot tier.
 
@@ -134,6 +134,12 @@ When you create volumes in the capacity pool and start tiering data to the cool 
     * 0.25-TiB capacity at the hot tier rate.
     * 0.75-TiB capacity at the cool tier rate.
     * Network transfer between the hot tier and the cool tier. The markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers determines the rate.
+
+* Azure NetApp Files storage with cool access also enables you to only tier snapshots. For this scenario, assume you create one 1-TiB volume where 10% of the volume data is snapshots and enable cool access with the `-snapshots-only` policy. The billing calculation is: 
+
+    * 0.9-TiB capacity at the hot tier
+    * 0.1-TiB capacity at the cool tier
+    * Data transfers costs occur for the initial transfer of snapshots, then network transfer costs incur only when snapshots are restored. 
 
 ### Examples of cost calculations with varying coolness periods
 
@@ -262,6 +268,8 @@ Your first 12-month savings:
 * Cost without cool access: 5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 12 months = $9,059.94
 * Cost with cool access: First month + Second month + … + twelfth month = (2 x $755.00) + $586.52 + (9 x $498.18) = $6,580.14
 * Savings using cool access: **27.37%**
+
+#### Example 4: 
 
 > [!TIP]
 > You can use the [Azure NetApp Files storage with cool access cost savings estimator](https://aka.ms/anfcoolaccesscalc) to interactively estimate cost savings based on changeable input parameters.

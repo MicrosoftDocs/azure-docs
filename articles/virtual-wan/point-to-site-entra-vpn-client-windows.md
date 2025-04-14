@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/11/2025
+ms.date: 03/20/2025
 ms.author: cherylmc
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
@@ -44,6 +44,8 @@ This article continues on from the [Configure a User VPN (P2S) gateway for Micro
 
 ## <a name="download"></a>Download the Azure VPN Client
 
+The features and settings that are available for the Azure VPN Client are dependent on the version of the client that you're using. For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
+
 [!INCLUDE [Download Azure VPN Client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ## <a name="generate"></a>Extract client profile configuration files
@@ -56,20 +58,49 @@ After you obtain the VPN client profile configuration package, extract the zip f
 
 [!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
 
-## <a name="import"></a>Import client profile configuration settings
+## <a name="import"></a>Configure the Azure VPN Client and connect
 
 > [!NOTE]
 > [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
 
-> [!INCLUDE [Import settings](../../includes/vpn-gateway-vwan-azure-vpn-client-entra-windows.md)]
+[!INCLUDE [Import settings](../../includes/vpn-gateway-vwan-azure-vpn-client-entra-windows.md)]
 
-## Optional client configuration settings
+## Working with connections
 
-You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other settings. For more information, see [Configure Azure VPN Client optional settings](azure-vpn-client-optional-configurations-windows.md).
+### <a name="autoconnect"></a>Connect automatically
 
-## Azure VPN Client version information
+You can configure your connection to connect automatically with Always-on.
 
-For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
+1. On the home page for your VPN client, select **VPN Settings**. If you see the switch apps dialogue box, select **Yes**.
+
+   :::image type="content" source="../../includes/media/vpn-gateway-vwan-azure-vpn-client-entra-windows/vpn-settings.png" alt-text="Screenshot of the VPN home page with VPN Settings selected." lightbox="../../includes/media/vpn-gateway-vwan-azure-vpn-client-entra-windows/vpn-settings.png":::
+
+1. If the profile that you want to configure is connected, disconnect the connection, then highlight the profile and select the **Connect automatically** check box.
+
+   :::image type="content" source="../../includes/media/vpn-gateway-vwan-azure-vpn-client-entra-windows/automatic.png" alt-text="Screenshot of the Settings window, with the Connect automatically box checked." lightbox="../../includes/media/vpn-gateway-vwan-azure-vpn-client-entra-windows/automatic.png":::
+
+1. Select **Connect** to initiate the VPN connection.
+
+### <a name="diagnose"></a>Diagnose connection issues
+
+#### Prerequisites check
+
+If your Azure VPN Client is version 4.0.0.0 or later, you can run a prerequisites check to verify that your computer has the necessary items configured and installed in order to successfully connect. To view the version number of an installed Azure VPN Client, launch the client and select **Help**.
+
+1. Click the **...** at the bottom of the Azure VPN Client page and select **Prerequisites**.
+1. On the **Test Application Prerequisites** page, select **Run Prerequisites Test**.
+1. Fix any issues and try connecting again. For more information, see [Azure VPN Client prerequisites check](azure-vpn-client-prerequisites-check.md).
+
+#### Diagnostics tool
+
+1. Select the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**.
+1. On the **Connection Properties** page, select **Run Diagnostics**. If asked, sign in with your credentials, then view the results.
+
+   :::image type="content" source="../../includes/media/vpn-gateway-vwan-azure-vpn-client-entra-windows/diagnose.png" alt-text="Screenshot of the ellipsis and Diagnose selected." lightbox="../../includes/media/vpn-gateway-vwan-azure-vpn-client-entra-windows/diagnose.png":::
+
+## Configure custom settings: DNS and routing
+
+You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other settings. For more information, see [Configure Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
 ## Next steps
 

@@ -4,8 +4,8 @@ description: You can monitor Azure Firewall using firewall logs. You can also us
 ms.date: 08/08/2024
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ---
 # Monitor Azure Firewall

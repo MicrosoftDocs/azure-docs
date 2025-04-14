@@ -10,12 +10,20 @@ ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-js-csharp-java-python-azcli-ps
 ---
 
 # Quickstart: Send email with inline attachments
 
-In this quick start, you'll learn about how to send email with inline attachments using our Email SDKs.
+In this quickstart, you'll learn about how to send email with inline attachments using our Email SDKs.
+
+::: zone pivot="programming-language-azcli"
+[!INCLUDE [inline-attachments-azcli](./includes/inline-attachments-azcli.md)]
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+[!INCLUDE [inline-attachments-powershell](./includes/inline-attachments-powershell.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
@@ -44,7 +52,7 @@ In this quick start, you'll learn about how to send email with inline attachment
 To troubleshoot issues related to email delivery, you can [get status of the email delivery](../handle-email-events.md) to capture delivery details.
 
 > [!IMPORTANT]
-> The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you will need to reference [how to handle email events](../handle-email-events.md).
+> The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you'll need to reference [how to handle email events](../handle-email-events.md).
 
 ### Email Throttling
 

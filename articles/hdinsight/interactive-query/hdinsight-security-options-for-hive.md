@@ -4,6 +4,9 @@ description: Security options for Hive in Standard and ESP clusters.
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 03/15/2024
 ---
 

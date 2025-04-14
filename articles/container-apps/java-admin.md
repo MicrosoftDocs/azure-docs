@@ -359,6 +359,14 @@ When you use the admin component in your own container app, you need to add the 
 </dependency>
 ```
 
+> [!NOTE]
+> You don't have to add the admin starter client dependency for Spring Boot Admin if you enable Java agent in your container app by running the following command in Azure CLI:
+> ```azurecli
+> az containerapp update --enable-java-agent \
+> --resource-group $RESOURCE_GROUP \
+> --name $APP_NAME
+> ```
+
 ## Configurable properties
 
 Starting with Spring Boot 2, endpoints other than `health` and `info` aren't exposed by default. You can expose them by adding the following configuration in your **application.properties** file.

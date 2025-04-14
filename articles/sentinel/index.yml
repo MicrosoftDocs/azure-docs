@@ -135,8 +135,8 @@ landingContent:
             url: incident-investigation.md
           - text: Threat hunting
             url: hunting.md
-          - text: Kusto Query Language in Microsoft Sentinel
-            url: /kusto/query/kusto-sentinel-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+          - text: Kusto Query Language overview
+            url: /kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
           - text: Automation rules
             url: automate-incident-handling-with-automation-rules.md
           - text: Playbooks

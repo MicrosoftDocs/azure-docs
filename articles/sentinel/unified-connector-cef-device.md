@@ -380,7 +380,7 @@ Configure Palo Alto Networks to forward syslog messages in CEF format to your Mi
 
 ## PingFederate
 
-[Follow these steps](https://docs.pingidentity.com/bundle/pingfederate-102/page/gsn1564002980953.html) to configure PingFederate sending audit log via syslog in CEF format.
+[Follow these steps](https://docs.pingidentity.com/) to configure PingFederate sending audit log via syslog in CEF format.
 
 ## RidgeSecurity
 

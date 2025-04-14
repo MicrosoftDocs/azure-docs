@@ -2,12 +2,11 @@
 title: Origins and origin groups
 titleSuffix: Azure Front Door
 description: This article explains the concept of what an origin and origin group is in a Front Door configuration.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/12/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -64,7 +63,7 @@ Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the
 If your origin requires the host header to match the origin hostname, make sure that the origin host header includes the hostname of the origin.
 
 > [!NOTE]
-> If you're using an App Service as an origin, make sure that the App Service also has the custom domain name configured. For more information, see [map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md#map-an-existing-custom-dns-name-to-azure-app-service).
+> If you're using an App Service as an origin, make sure that the App Service also has the custom domain name configured. For more information, see [set up an existing custom domain name for your app](../app-service/app-service-web-tutorial-custom-domain.md).
 
 #### Configure the origin host header for the origin
 

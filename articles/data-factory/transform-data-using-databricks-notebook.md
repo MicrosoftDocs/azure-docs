@@ -26,9 +26,8 @@ You perform the following steps in this tutorial:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-For an eleven-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
+>[!NOTE]
+>For full details on how to use the Databricks Notebook Activity, including using libraries and passing input and output parameters, refer to the [Databricks Notebook Activity](transform-data-databricks-notebook.md) documentation.
 
 ## Prerequisites
 

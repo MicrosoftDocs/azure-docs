@@ -1,13 +1,13 @@
 ---
 title: How an Azure Databricks pre-purchase discount is applied
 description: Learn how an Azure Databricks pre-purchase discount applies to your usage. You can use Databricks prepurchased units at any time during the purchase term.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # How Azure Databricks pre-purchase discount is applied
@@ -20,7 +20,7 @@ The prepurchase discount applies only to Azure Databricks unit (DBU) usage. Othe
 
 ## Prepurchase discount application
 
-Databricks pre-purchase applies to all Databricks workloads and tiers. You can think of the prepurchase as a pool of prepaid Databricks commit units. 
+Databricks pre-purchase applies to all Databricks workloads and tiers. You can think of the prepurchase as a pool of prepaid Databricks commit units. If you have several plans, the one with the earliest expiration date is used up first. Let's take an example here, if you have a 1 year plan expiring earlier and 3 year plan expiring later on, benefit would apply to 1 year first.
 
 >[!NOTE]
 > Usage is deducted from the pool, regardless of the workload or tier. Usage is deducted at various rates, depending on the workload and tier. For more information and a complete list of rates, see the [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).

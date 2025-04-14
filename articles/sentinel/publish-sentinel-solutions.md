@@ -44,14 +44,14 @@ Complete the following steps to create the offer and configure the top-level att
 
    |Field| Description|
    |--|--|
-   |**Offer ID**| The offer ID should be the same as offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub at */Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json*. We recommend using the naming convention for offer ID as *azure-sentinel-solution-\<your-solution-name\>*. For example, *azure-sentinel-solution-ciscoumbrella*. Use only lowercase, alphanumeric characters, dashes, or underscores. ID can't end with "-preview" and can't be modified after selecting **Create**.|
+   |**Offer ID**| The offer ID should be the same as offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub at */Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json*. We recommend using the naming convention for offer ID as *azure-sentinel-solution-\<your-solution-name\>*. For example, *azure-sentinel-solution-ciscoumbrella*. Use only lowercase, alphanumeric characters, dashes, or underscores. ID can't end with "-preview" and can't be modified after selecting **Create**. <br/><br/> Offer ID: Max length is 50 characters.|
    |**Offer alias**| This name isn't used in the marketplace listing and is solely for reference within Partner Center.|
    |**Publisher**|Select the publisher ID that you want to use to publish your Microsoft Sentinel solution. The publisher selected can't be modified after creation of the offer.|
     
    > [!NOTE]
    > To make any changes to the Offer ID, Offer type, or publisher ID, you must delete the offer and recreate it. To delete an offer, you can navigate to the "Offer overview" tab and select on "Delete offer." This action isn't reversible.
 
-   :::image type="content" source="media/publish-sentinel-solutions/partner-center-new-azure-application.png" alt-text="Screenshot of offer id and offer name configuration."  lightbox="media/publish-sentinel-solutions/partner-center-new-azure-application.png" :::   
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-new-azure-application.png" alt-text="Screenshot of offer ID and offer name configuration."  lightbox="media/publish-sentinel-solutions/partner-center-new-azure-application.png" :::   
 
 ## Offer setup
 Complete the following steps to configure the properties under the **Offer setup** tab in Partner Center. This screen shows the selections made during initial offer creation. You can change the offer alias from this page (if needed). 

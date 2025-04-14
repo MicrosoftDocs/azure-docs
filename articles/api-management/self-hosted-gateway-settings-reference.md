@@ -170,7 +170,7 @@ helm install azure-api-management-gateway \
 ```
 
 
-## Next steps
+## Related content
 
 -   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)

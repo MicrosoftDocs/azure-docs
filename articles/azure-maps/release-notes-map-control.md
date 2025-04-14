@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 3/15/2023
+ms.date: 04/09/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -16,7 +16,12 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.6.0] (CDN: February 18, 2025, npm: TBA)
+### [3.6.1] (CDN: April 7, 2025, npm: April 9, 2025)
+
+#### Bug fixes
+* Fix the issue where `maxBounds` wasn't included in `map.getCamera()`, causing it to be unset when `setCamera()` is called.
+
+### [3.6.0] (CDN: February 18, 2025, npm: February 20, 2025)
 
 #### New features
 * Add a new option `StyleOptions.styleOverrides` which controls the visibility of various map elements, including `countryRegion`, `adminDistrict`, `adminDistrict2`, `buildingFootprint`, and `roadDetails`.
@@ -29,7 +34,7 @@ This document contains information about new features and other changes to the M
 #### Other changes
 * Disable the telemetry by default.
 
-### [3.5.0] (CDN: November 4, 2024, npm: November 7)
+### [3.5.0] (CDN: November 4, 2024, npm: November 7, 2024)
 
 #### New features
 - Add support for fullscreen control.
@@ -37,7 +42,7 @@ This document contains information about new features and other changes to the M
 #### Bug fixes
 - Expose new type on `PolygonExtrusionLayerOptions.fillPattern` to support `DataDrivenPropertyValueSpecification<string>`.
 
-### [3.4.0] (CDN: September 30, 2024, npm: October 2)
+### [3.4.0] (CDN: September 30, 2024, npm: October 2, 2024)
 
 #### New features
 - Add support for PMTiles.
@@ -653,6 +658,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.6.1]: https://www.npmjs.com/package/azure-maps-control/v/3.6.1
 [3.6.0]: https://www.npmjs.com/package/azure-maps-control/v/3.6.0
 [3.5.0]: https://www.npmjs.com/package/azure-maps-control/v/3.5.0
 [3.4.0]: https://www.npmjs.com/package/azure-maps-control/v/3.4.0

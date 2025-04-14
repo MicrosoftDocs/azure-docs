@@ -8,8 +8,9 @@ ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/03/2025
-ms.author: kuzhong
 author: KarlErickson
+ms.author: karler
+ms.reviewer: kuzhong
 ---
 
 # Tutorial: Configure the Application Performance Management (APM) Java agent with init containers in Azure Container Apps
