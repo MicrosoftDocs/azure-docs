@@ -14,7 +14,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Subscription quota metrics](azure-netapp-files-metrics.md#subscription-quota-metrics) (preview)
+* [New quota metrics: subscription quota metrics](azure-netapp-files-metrics.md#subscription-quota-metrics) (preview)
 
     [Subscription quota metrics](azure-netapp-files-metrics.md#subscription-quota-metrics) display subscription-level quotas relative to the imposed [resource limits](azure-netapp-files-resource-limits.md) within your subscription. These metrics are displayed in two columns: the current limit (Current) and the consumption by your subscription (Used). These metrics enable you to proactively monitor and increase these limits via support request when needed. The used column includes the following consumed metrics:
 
