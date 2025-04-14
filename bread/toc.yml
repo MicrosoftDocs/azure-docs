@@ -258,7 +258,7 @@ items:
     - name: Azure Custom Providers
       tocHref: /azure/azure-resource-manager/custom-providers/
       topicHref: /azure/azure-resource-manager/custom-providers/
-  - name: Azure Native ISV Services
+  - name: Azure Native Integrations
     tocHref: /azure/partner-solutions/
     topicHref: /azure/partner-solutions/
     items:
