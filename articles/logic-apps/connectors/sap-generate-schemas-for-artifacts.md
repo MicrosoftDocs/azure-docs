@@ -88,53 +88,57 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 ### [Consumption](#tab/consumption)
 
-
 1. In the workflow designer, under the **Request** trigger, follow [these general steps to find and add the SAP managed action named **Generate schemas**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    For more information about this SAP managed action, see [Generate schemas](/connectors/sap/#generate-schemas).
 
-1. If prompted, provide the [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue to the next step to set up the SAP action.
+1. If prompted, provide the [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create new**. Otherwise, continue to the next step to set up the SAP action.
 
    By default, when you create a connection for an SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. For more information about strong typing, see [Safe Typing setting](sap-create-example-scenario-workflows.md#safe-typing). For other available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
-   After Azure Logic Apps sets up and tests your connection, the action information pane appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears.
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-consumption.png" alt-text="Screenshot shows Consumption workflow and SAP managed action named Generate schemas." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-consumption.png":::
 
-1. In the [**Generate schemas** action](/connectors/sap/#generate-schemas), provide a path to the artifact for which you want to generate the schema by selecting an available SAP action on your SAP server.
+   > [!NOTE]
+   >
+   > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see 
+   > [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
+   > For more information about any connection problems that might happen, see 
+   > [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
-   1. In the **Body ActionUri** parameter edit box, select the folder icon. From the dropdown list, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**. If you select a different type, the available SAP actions change based on your selection.
+1. In the [**Generate schemas**](/connectors/sap/#generate-schemas) action, provide a path to the SAP action for which you want to generate a schema.
 
-      > [!NOTE]
-      >
-      > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
+   This example uses the following sample path for the SAP action named **Send**:
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-consumption.png" alt-text="Screenshot shows Consumption workflow, Generate schemas action, and selecting IDOC." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-idoc-consumption.png":::
+   **`http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//720/Send`**
 
-   1. Browse the SAP action types folders by using the arrows to find and select the SAP action that you want to use.
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-action-path-consumption.png" alt-text="Screenshot shows Consumption workflow, Generate schemas action, and path to an SAP action." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-action-path-consumption.png":::
+
+   > [!TIP]
+   >
+   > In the **sapActionsUris** section, you can use the expression editor to provide parameter values. 
+   > This approach lets you use the same SAP action for different message types.
+
+   For more information about the **Send** SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+
+   If you have the option to browse and select the folders along this path, follow these steps:
+
+   1. In the **sapActionUris Item - 1 ActionUri** box, from the dropdown list, select **BAPI**, **IDOC**, **RFC**, or **TRFC**.
+
+      This example selects **IDOC**. If you select a different operation type, the available parameters change based on your selection.
+
+   1. Browse the SAP folders by using the arrows to find and select the SAP action to use.
 
       This example selects **ORDERS** > **ORDERS05** > **720** > **Send**.
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-artifact-consumption.png" alt-text="Screenshot shows Consumption workflow, Generate schemas action, and finding an Orders action." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-select-artifact-consumption.png":::
-
-      If you can't find the action you want, you can manually enter a path, for example:
-
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-manual-consumption.png" alt-text="Screenshot shows Consumption workflow and manually entering a path to an SAP action." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-manual-consumption.png":::
-
-      > [!TIP]
-      >
-      > For the **Body ActionUri** parameter, you can use the expression editor to provide the parameter value. 
-      > This approach lets you use the same SAP action for different message types.
-
-      For more information about this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
-
-   1. To generate schemas for more than one artifact, in the **Body ActionUri** section, select **Add new item**.
+   1. To generate schemas for more than one action, in the **sapActionUris** section, select **Add new item**.
 
       :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-add-item-consumption.png" alt-text="Screenshot shows selecting the option to add a new item." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-add-item-consumption.png":::
 
-   1. For each artifact, provide the SAP action that you want to use for schema generation, for example:
+   1. For each SAP action that you want to generate a schema, provide the path to that action, for example:
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiples-consumption.png" alt-text="Screenshot shows multiple SAP actions to use for generating multiple schemas." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiples-consumption.png":::
+      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiple-consumption.png" alt-text="Screenshot shows multiple SAP actions to use for generating schemas." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiple-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -142,34 +146,36 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 1. In the workflow designer, under the **Request** trigger, follow [these general steps to find and add the SAP built-in action named **Generate Schema**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-
    For more information about this SAP built-in action, see [Generate Schema](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)).
 
-1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue to the next step to set up the SAP action.
+1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create new**. Otherwise, continue to the next step to set up the SAP action.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Connection name** | Yes | Enter a name for the connection. |
+   | **Connection Name** | Yes | Enter a name for the connection. |
    | **Client** | Yes | The SAP client ID to use for connecting to your SAP server. |
    | **Authentication Type** | Yes | The authentication type to use for your connection. To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=standard#enable-secure-network-communications). |
    | **SAP Username** | Yes | The username for your SAP server. |
    | **SAP Password** | Yes | The password for your SAP server. |
-   | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional. <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server. <br>- **Service**: The service name or port number for your SAP Application Server. <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99. <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server. <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server. <br>- **System ID**: The system ID for your SAP server. <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, see [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://www.scribd.com/document/824103171/SAP-Note-26317-Set-up-for-LOGON-group-for-autom-load-balancing). |
+   | **Logon Type** | Yes | Select either **ApplicationServer** or **Group**, and then configure the corresponding required parameters, even though they appear optional. <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server. <br>- **Service**: The service name or port number for your SAP Application Server. <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99.<br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server. <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server. <br>- **System ID**: The system ID for your SAP server. <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, see [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://www.scribd.com/document/824103171/SAP-Note-26317-Set-up-for-LOGON-group-for-autom-load-balancing). |
    | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](sap-create-example-scenario-workflows.md?tabs=standard#change-language-headers). |
 
    For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
-   After Azure Logic Apps sets up and tests your connection, the action information pane appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the action information pane appears, for example:
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-standard.png" alt-text="Screenshot shows Standard workflow and SAP built-in action named Generate Schema." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-standard.png":::
 
    > [!NOTE]
    >
-   > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
+   > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see 
+   > [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request). 
+   > For more information about any connection problems that might happen, see 
+   > [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
-1. In the [**Generate Schema** action](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)), provide the following information about the artifact for which to generate the schema.
+1. In the [**Generate Schema**](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)) action,  provide a path to the SAP action for which you want to generate a schema.
 
-   This action's parameters change based on the **Operation Type** value that you select.
+   For **Operation Type**, this example selects **IDoc**. If you select a different operation type, the available parameters change based on your selection.
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
@@ -253,7 +259,7 @@ For more information about reviewing workflow run history, see [Check workflow s
 
 1. On your workflow menu, under **Tools**, select **Run history**.
 
-1. On the **Run history**page, on the **Run history** tab, select the workflow run.
+1. On the **Run history** page, on the **Run history** tab, select the workflow run.
 
 1. Select the **Generate Schema** action to review the action's outputs.
 
@@ -288,10 +294,9 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
 1. If you're prompted to sign in, do that now and continue.
 
-
    After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png" alt-text="Screenshot shows Consumption workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-consumption.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-consumption.png" alt-text="Screenshot shows Consumption workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-consumption.png":::
 
 1. In the **Create or update a resource** action, provide the [required information](/connectors/arm/#create-or-update-a-resource).
 
@@ -301,11 +306,11 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    1. Provide values for the added parameters, for example:
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-consumption.png" alt-text="Screenshot shows Consumption workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-consumption.png":::
+      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-consumption.png" alt-text="Screenshot shows Consumption workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-consumption.png":::
 
    The **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop around the Azure Resource Manager action, for example:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-consumption.png" alt-text="Screenshot shows Consumption workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-consumption.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-consumption.png" alt-text="Screenshot shows Consumption workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -317,7 +322,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    After Azure Logic Apps sets up and tests your connection, the action information pane appears:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png" alt-text="Screenshot shows Standard workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-standard.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-standard.png" alt-text="Screenshot shows Standard workflow and an Azure Resource Manager action named Create or update a resource." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-standard.png":::
 
 1. In the **Create or update a resource** action, provide the [required information](/connectors/arm/#create-or-update-a-resource).
 
@@ -327,11 +332,11 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    1. Provide values for the added parameters, for example:
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-standard.png" alt-text="Screenshot shows Standard workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-action-complete-standard.png":::
+      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-standard.png" alt-text="Screenshot shows Standard workflow and Azure Resource Manager action with added parameters named Location and Properties." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-action-complete-standard.png":::
 
    The **Generate Schema** action generates schemas as a collection, so the designer automatically adds a **For each** loop around the Azure Resource Manager action, for example:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-standard.png" alt-text="Screenshot shows Standard workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-standard.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-standard.png" alt-text="Screenshot shows Standard workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-standard.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
