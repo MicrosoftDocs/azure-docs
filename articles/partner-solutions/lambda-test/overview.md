@@ -1,6 +1,6 @@
 ---
 title: What is Azure Native LambdaTest - HyperExecute (preview)?
-description: 
+description: Discover Azure Native LambdaTest - HyperExecute, an AI-powered test execution platform offering seamless integration and management via the Azure portal.
 ms.topic: overview
 ms.date: 04/14/2025
 ---
