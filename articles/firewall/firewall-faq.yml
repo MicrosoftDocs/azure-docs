@@ -69,9 +69,15 @@ sections:
       - question: Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?
         answer: Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the AzureFirewallSubnet, and are disabled to ensure no service interruption.
 
-      - question: How do I set up Azure Firewall with my service endpoints?
+      - question: How do I set up Azure Firewall with private endpoints?
         answer: |
-          For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.
+          Private endpoints are a component of Private Link, a technology to secure network access to Azure PaaS services. The right design to inspect traffic to private endpoints with Azure Firewall will depend on your network architecture, you can see more details in the article [Azure Firewall scenarios to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md).
+
+      - question: How do I set up Azure Firewall with virtual network service endpoints?
+        answer: |
+          Virtual Network service endpoints are an alternative to Private Link to secure network access to Azure PaaS services, you can find a comparison beetween both in [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md). Although Microsoft recommendation is using Private Link, you can alternatively leverage VNet service endpoints to increase the network security of your Azure PaaS footprint.
+          
+          Virtual network service endpoints need to be enabled in the subnet of the client that will connect to an Azure service. However, if you want to inspect traffic to a service endpoint with Azure Firewall, you need to enable the corresponding service endpoint in the Azure Firewall subnet and disable them on the subnet of the actual client (usually a spoke virtual network). This way you can use Application Rules in Azure Firewall to control to which Azure services your Azure workloads will have access to.
 
       - question: What is the pricing for Azure Firewall?
         answer: |
