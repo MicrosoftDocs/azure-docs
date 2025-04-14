@@ -12,7 +12,7 @@ ms.date: 04/14/2025
 
 Partner organizations use Azure Native Integrations to offer solutions which are fully integrated with Azure to enhance your cloud infrastructure. Use a resource provider, resource types, and SDKs to manage the solution as you would with other solutions from Microsoft.
 
-Subscribe to any Azure Native ISV Service through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
+Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
 ## Observability
 
