@@ -13,7 +13,13 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## April 2025
 
+**AV48 SKU**
+
 Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage.
+
+**Azure Native Pure Storage Cloud (preview)**
+
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for AVS, enabling you to scale storage independently for your virtual workloads.
 
 ## March 2025
 

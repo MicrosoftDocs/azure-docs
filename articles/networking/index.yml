@@ -12,7 +12,8 @@ metadata:
   author: duongau
   ms.author: duau
   manager: kumudD
-  ms.date: 04/02/2025
+  ms.date: 07/31/2024
+  ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -57,7 +58,7 @@ productDirectory:
     - title: Load balancing and content delivery
       imageSrc: ./media/index/load-balancing-and-content-delivery.svg
       summary: Distribute network traffic to load balance workloads with Azure application delivery services.
-      url: ./load-balancer-content-delivery/index.yml
+      url: ./load-balancer-content-delivery/index.yml?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
     # Card
     - title: Hybrid connectivity
       imageSrc: ./media/index/hybrid-connectivity.svg
@@ -68,6 +69,11 @@ productDirectory:
       imageSrc: ./media/index/network-security.svg
       summary: Protect your network from cyber security attacks with Azure network security services.
       url: ./security/index.yml
+    # Card
+    - title: Network monitoring and management
+      imageSrc: ./media/index/network-monitoring-and-management.svg
+      summary: Monitor and manage your network with Azure network monitoring and management services.
+      url: ./monitoring-management/index.yml
 
 # additionalContent section (optional)
 # Card with links style
