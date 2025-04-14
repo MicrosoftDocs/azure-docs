@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get started with MongoDB Atlas"
-description: Learn how to create an Astro resource in the Azure portal.
+description: Learn how to create a MongoDB Atlas resource in the Azure portal.
 ms.topic: quickstart
 ms.date: 04/03/2025
 ---
@@ -14,7 +14,7 @@ In this quickstart, you create an instance of MongoDB Atlas.
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 - You must [subscribe to MongoDB Atlas](overview.md#subscribe-to-mongodb-atlas)
 
-## Create an Astro resource
+## Create a resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
