@@ -27,6 +27,8 @@ A managed application is similar to a solution template in Azure Marketplace. Th
 
 Managed applications enable you to define terms for managing the application and all charges are handled through Azure billing. You can deploy managed applications via your subscriptions, but you don't need to maintain, update, or service them.
 
+:::image type="content" source="../../azure-resource-manager/managed-applications/media/overview/managed-apps-resource-group.png" alt-text="Diagram that shows the relationship between customer and publisher Azure subscriptions for a managed resource group.":::
+
 You also control permissions that enable full access to resources in the managed resource group. You can make sure that all customers are using approved versions, compliant with organizational standards. Your customers don't need to develop application-specific domain knowledge to manage these applications. Your customers automatically acquire application updates without the need to worry about troubleshooting and diagnose issues with the applications.
 
 ## How to implement
