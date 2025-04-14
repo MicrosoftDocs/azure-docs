@@ -216,6 +216,8 @@
       href: backup-azure-files-faq.yml
     - name: FAQ- Azure Disk Backup
       href: disk-backup-faq.yml
+    - name: FAQ- Azure Backup for AKS
+      href: aks-backup-faq.yml
     - name: FAQ-Back up SQL Server databases on Azure VMs
       href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
