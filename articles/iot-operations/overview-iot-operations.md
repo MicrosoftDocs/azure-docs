@@ -51,7 +51,9 @@ With Azure IoT Operations, you can use data collected from assets and equipment 
 
 ## Architecture overview
 
-:::image type="content" source="media/overview-iot-operations/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/overview-iot-operations/azure-iot-operations-architecture-high-resolution.png" border="false":::
+<!-- Art Library Source# ConceptArt-0-000-067 -->
+
+:::image type="content" source="media/overview-iot-operations/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/overview-iot-operations/azure-iot-operations-architecture.png" border="false":::
 
 There are two core elements in the Azure IoT Operations architecture:
 
