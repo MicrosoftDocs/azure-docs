@@ -10,12 +10,12 @@ ms.custom: engagement-fy25
 
 # Connectivity to an Azure Virtual Network
 
-After you deploy Azure VMware Solution private cloud in an Azure Virtual Network, you need network connectivity between the private cloud and other networks you have on Azure Virtual Network. In this article, you learn how to connect the private cloud to the Azure Virtual Networks in an Azure Virtual Network.
+After you deploy Azure VMware Solution Generation (Gen) 2 private cloud, you need network connectivity between the private cloud and other networks you have in an Azure Virtual Network. In this article, you learn how to connect the Gen 2 private cloud to Azure Virtual Networks.
 
 ## Prerequisites
 
-- Azure VMware Solution private cloud in an Azure Virtual Network private cloud deployed successfully within your Azure Virtual Network.
-- Multiple Virtual Networks to establish connectivity to private cloud Azure Virtual Network.
+- Gen 2 private cloud deployed successfully.
+- Multiple Virtual Networks to establish connectivity to your Gen 2 private cloud Azure Virtual Network.
 
 ## Azure VMware Solution Hosted (Local) Virtual Network
 
