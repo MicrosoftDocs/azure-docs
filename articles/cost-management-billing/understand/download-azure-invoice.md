@@ -176,7 +176,7 @@ You must have an owner or a contributor role on the billing profile or its billi
 
 #### Manage accounts payable contacts
 
-If you have an MCA billing account type and the default payment instrument is check or wire transfer, at least one Accounts payable contact is required. This contact will receive copies of the invoice by email along with statements and payment inquiries.  These contacts are optional if default payment instrument is not check or wire transfer. 
+If you have an MCA billing account type and the default payment instrument is check or wire transfer, at least one Accounts payable contact is required. This contact will receive copies of the invoice by email along with statements and payment inquiries. You have full control to add, edit, and delete AP Contacts as needed. While the billing group owner, contributor, and invoice manager roles will continue to receive invoice-ready emails and access invoices in the portals, they will not receive statements and payment reminders. These contacts are optional if default payment instrument is not check or wire transfer. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
