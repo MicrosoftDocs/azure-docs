@@ -255,7 +255,7 @@ Here's an example of the output:
 1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs. For example, 
 
     ```sql
-    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER With OBJECT_ID='xxx';
     ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
     ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
     ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];

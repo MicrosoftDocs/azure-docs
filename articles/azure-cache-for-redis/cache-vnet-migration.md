@@ -7,6 +7,8 @@ description: Learn how to migrate your Azure Cache for Redis Virtual Network (VN
 
 ms.topic: conceptual
 ms.date: 07/19/2021
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Migrate from VNet injection caches to Private Link caches

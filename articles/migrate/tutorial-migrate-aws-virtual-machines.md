@@ -9,13 +9,14 @@ ms.date: 12/31/2024
 ms.custom:
   - MVC
   - engagement-fy25
-  - migration
-  - aws-to-azure
+ms.collection:
+ - migration
+ - aws-to-azure
 ---
 
-# Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
+# Discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure
 
-This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
+This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
 
 > [!NOTE]
 > You migrate AWS VMs to Azure by treating them as physical servers.
