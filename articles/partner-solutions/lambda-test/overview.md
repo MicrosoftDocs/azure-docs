@@ -44,7 +44,7 @@ See LambdaTest - HyperExecute documentation for additional resources.
 
 ### Get support
 
-Contact [link] for customer support 
+Contact [LambdaTest](https://www.lambdatest.com/contact-us) for customer support 
 
 ## Next steps
 
