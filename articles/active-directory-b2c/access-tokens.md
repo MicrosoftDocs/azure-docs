@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 

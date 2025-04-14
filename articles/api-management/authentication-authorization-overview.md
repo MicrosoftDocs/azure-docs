@@ -5,7 +5,7 @@ description: Learn about authentication and authorization features in Azure API 
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/08/2023
 ms.author: danlep
 ---
@@ -149,9 +149,9 @@ While authorization is preferred, and OAuth 2.0 has become the dominant method o
 |---------|---------|---------|
 |[Managed identity authentication](authentication-managed-identity-policy.md)     |   Authenticate to backend API with a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md).      |   Recommended for scoped access to a protected backend resource by obtaining a token from Microsoft Entra ID.    |
 |[Certificate authentication](authentication-certificate-policy.md)     |    Authenticate to backend API using a client certificate.      |  Certificate may be stored in key vault.      |
-|[Basic authentication](authentication-basic-policy.md)     |   Authenticate to backend API with username and password that are passed through an Authorization header.      | Discouraged if better options are available.         |
+|[Basic authentication](authentication-basic-policy.md)     |   Authenticate to backend API with username and password that are passed through an Authorization header.      | Discouraged if more secure authentication options are available (for example, managed identity, certificates, credential manager).  If chosen, use [named values](api-management-howto-properties.md) to provide credentials, with secrets protected in a key vault.
 
-## Next steps
+## Related content
 * Learn more about [authentication and authorization](../active-directory/develop/authentication-vs-authorization.md) in the Microsoft identity platform.
 * Learn how to [mitigate OWASP API security threats](mitigate-owasp-api-threats.md) using API Management.
 * Learn how to [build a comprehensive API security strategy](https://aka.ms/API-Security-EBook)   

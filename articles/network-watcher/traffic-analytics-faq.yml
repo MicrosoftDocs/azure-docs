@@ -2,15 +2,15 @@
 metadata:
   title: "Traffic analytics FAQ"
   titleSuffix: Azure Network Watcher
-  description: Find answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
+  description: Find answers to the most frequently asked questions (FAQ) about traffic analytics capability of Azure Network Watcher.
   author: halkazwini
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 07/08/2024
+  ms.date: 02/11/2025
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
-  This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.  
+  This article provides answers to the most frequently asked questions about traffic analytics capability of Azure Network Watcher.  
 
 sections:
   - name: Ignored
@@ -78,10 +78,10 @@ sections:
       - question: |
           What if I'm getting the status: “Failed to load” in the flow logs page?
         answer: |
-          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](.//network-watcher-nsg-flow-logging-portal.md#register-insights-provider), [PowerShell](./network-watcher-nsg-flow-logging-powershell.md#register-insights-provider), or [Azure CLI](./network-watcher-nsg-flow-logging-cli.md#register-insights-provider) instructions on how to register it.
+          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](nsg-flow-logs-portal.md#register-insights-provider), [PowerShell](nsg-flow-logs-powershell.md#register-insights-provider), or [Azure CLI](nsg-flow-logs-cli.md#register-insights-provider) instructions on how to register it.
           
       - question: |
-          I have configured the solution. Why am I not seeing anything on the dashboard?
+          I configured the solution. Why am I not seeing anything on the dashboard?
         answer: |
           The dashboard might take up to 30 minutes to show reports for the first time. The solution must first aggregate enough data for it to derive meaningful insights, then it generates reports. 
 
@@ -133,7 +133,7 @@ sections:
       - question: |
           How does traffic analytics decide that an IP is malicious? 
         answer: |
-          Traffic analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
+          Traffic analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems use diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build intelligence on top of it. 
           Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, raise a support ticket to know the details.
           
       - question: |
@@ -218,78 +218,3 @@ sections:
           | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
           ```
           
-      - question: |
-          How can I navigate using the keyboard in the geo map view?
-        answer: |
-          The geo map page contains two main sections:
-              
-          - **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, **Deployment**, **Traffic from countries/regions**, and **Malicious**). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
-          - **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries/regions.
-              
-          ### Keyboard navigation on the banner
-              
-          - By default, the selection on the geo map page for the banner is the “Azure DCs” filter.
-          - To move to another filter, use either the `Tab` or the `Right arrow` key. To move backward, use either the `Shift+Tab` or the `Left arrow` key. Forward navigation is left to right, followed by top to bottom.
-          - Press `Enter` or the `Down` arrow key to apply the selected filter. Based on filter selection and deployment, one or multiple nodes under the map section are highlighted.
-          - To switch between banner and map, press `Ctrl+F6`.
-                  
-          ### Keyboard navigation on the map
-              
-          - After you select any filter on the banner and press `Ctrl+F6`, focus moves to one of the highlighted nodes (**Azure datacenter** or **Country/Region**) in the map view.
-          - To move to other highlighted nodes in the map, use either `Tab` or the `Right arrow` key for forward movement. Use `Shift+Tab` or the `Left arrow` key for backward movement.
-          - To select any highlighted node in the map, use the `Enter` or `Down arrow` key.
-          - On selection of any such nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the closed button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-          - When you press `Tab` while the focus is on the **Information Tool Box**, the focus moves to the end points in the same continent as the selected node. Use the `Right arrow` and `Left arrow` keys to move through these endpoints.
-          - To move to other flow endpoints or continent clusters, use `Tab` for forward movement and `Shift+Tab` for backward movement.
-          - When the focus is on **Continent clusters**, use the `Enter` or `Down` arrow keys to highlight the endpoints inside the continent cluster. To move through endpoints and the close button on the information box of the continent cluster, use either the `Right arrow` or `Left arrow` key for forward and backward movement, respectively. On any endpoint, you can use `Shift+L` to switch to the connection line from the selected node to the endpoint. You can press `Shift+L` again to move to the selected endpoint.
-                  
-          ### Keyboard navigation at any stage
-              
-          - The `Esc` key collapses the expanded selection.
-          - The `Up-arrow` key performs the same action as `Esc`. The `Down arrow` key performs the same action as `Enter`.
-          - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
-          
-      - question: |
-          How can I navigate using the keyboard in the virtual network topology view?
-        answer: |
-          The virtual networks topology page contains two main sections:
-              
-          - **Banner**: The banner at the top of the virtual networks topology provides buttons to select traffic distribution filters (for example, Connected virtual networks, Disconnected virtual networks, and Public IPs). When you select a button, the respective filter is applied on the topology. For example, if you select the Active button, the topology highlights the active virtual networks in your deployment.
-          - **Topology**: Below the banner, the topology section shows traffic distribution among virtual networks.
-              
-          ### Keyboard navigation on the banner
-              
-          - By default, the selection on the virtual networks topology page for the banner is the “Connected VNets” filter.
-          - To move to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
-          - Press `Enter` to apply the selected filter. Based on the filter selection and deployment, one or multiple nodes (virtual network) under the topology section are highlighted.
-          - To switch between the banner and the topology, press `Ctrl+F6`.
-                  
-          ### Keyboard navigation on the topology
-              
-          - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**VNet**) in the topology view.
-          - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
-          - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use the `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-          - On selection of any such nodes, you can visit all its connections, one by one, by pressing the `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
-              
-          
-      - question: |
-          How can I navigate using the keyboard in the subnet topology view?
-        answer: |
-          The virtual subnetworks topology page contains two main sections:
-              
-          - **Banner**: The banner at the top of the virtual subnetworks topology provides buttons to select traffic distribution filters (for example, Active, Medium, and Gateway subnets). When you select a button, the respective filter is applied on the topology. For example, if you select the Active button, the topology highlights the active virtual subnetwork in your deployment.
-          - **Topology**: Below the banner, the topology section shows traffic distribution among virtual subnetworks.
-              
-          ### Keyboard navigation on the banner
-              
-          - By default, the selection on the virtual subnetworks topology page for the banner is the “Subnets” filter.
-          - To move to another filter, use the `Tab` key to move forward. To move backward, use the `Shift+Tab` key. Forward navigation is left to right, followed by top to bottom.
-          - Press `Enter` to apply the selected filter. Based on filter selection and deployment, one or multiple nodes (Subnet) under the topology section are highlighted.
-          - To switch between the banner and the topology, press `Ctrl+F6`.
-                  
-          ### Keyboard navigation on the topology
-              
-          - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
-          - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
-          - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-          - On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.

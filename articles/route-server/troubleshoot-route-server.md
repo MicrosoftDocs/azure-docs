@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: how-to
-ms.date: 12/17/2023
+ms.date: 02/07/2025
 
 #CustomerIntent: As a network administrator, I want to learn how to diagnose and troubleshoot issues related to my Azure Route Server so I can resolve them.
 ---
@@ -26,7 +26,7 @@ When your NVA advertises the default route, the Route Server programs it for all
 
 ### Why does the NVA lose its connectivity to the Route Server after forcing all traffic to a firewall using a user-defined route (UDR) on the GatewaySubnet?
 
-If you want to inspect your on-premises traffic using a firewall, you can force all on-premises traffic to the firewall using a user-defined route (UDR) on the GatewaySubnet (a route table associated to the GatewaySubnet that has the UDR). However, this UDR may break the communication between the Route Server and the gateway by forcing their control plane traffic (BGP) to the firewall (this issue occurs if you're inspecting the traffic destined to the virtual network that has the Route Server). To avoid this issue, you need to add another UDR to the GatewaySubnet route table to exclude control plane traffic from being forced to the firewall (in case adding a BGP rule to the firewall is not desired/possible):
+If you want to inspect your on-premises traffic using a firewall, you can force all on-premises traffic to the firewall using a user-defined route (UDR) on the GatewaySubnet (a route table associated to the GatewaySubnet that has the UDR). However, this UDR may break the communication between the Route Server and the gateway by forcing their control plane traffic (BGP) to the firewall (this issue occurs if you're inspecting the traffic destined to the virtual network that has the Route Server). To avoid this issue, you need to add another UDR to the GatewaySubnet route table to exclude control plane traffic from being forced to the firewall (in case adding a BGP rule to the firewall isn't desired/possible):
 
 | Route | Next hop |
 |-------|----------|
@@ -35,13 +35,17 @@ If you want to inspect your on-premises traffic using a firewall, you can force 
 
 10.0.0.0/16 is the address space of the virtual network and 10.0.1.0/27 is the address space of RouteServerSubnet. 10.0.2.1 is the IP address of the firewall.
 
-### I added a user-defined route (UDR) with next hop type as Virtual Network Gateway, but this UDR is not taking effect. Is this expected?
+### I added a user-defined route (UDR) with next hop type as Virtual Network Gateway, but this UDR isn't taking effect. Is this expected?
 
-Yes, this is expected behavior. User-defined routes with next hop type **Virtual Network Gateway** are not supported for subnets within Route Server's virtual network and peered virtual networks. However, if you want to configure your next hop to be a network virtual appliance (NVA) or the internet, adding a user-defined route with next hop type **VirtualAppliance** or **Internet** is supported. 
+Yes, this is expected behavior. User-defined routes with next hop type **Virtual Network Gateway** aren't supported for subnets within Route Server's virtual network and peered virtual networks. However, if you want to configure your next hop to be a network virtual appliance (NVA) or the internet, adding a user-defined route with next hop type **VirtualAppliance** or **Internet** is supported. 
 
 ### In my VM's network interface's effective routes, why do I have a user-defined route (UDR) with next hop type set to **None**? 
 
 If you advertise a route from your NVA to Route Server that is an exact prefix match as another user-defined route, then the advertised route's next hop must be valid. If the advertised next hop is a load balancer without a configured backend pool, then this invalid route will take precedence over the user-defined route. In your network interface's effective routes, the invalid advertised route will be displayed as a user-defined route with next hop type set to **None**. 
+
+### Why do I face connectivity issues after advertising Azure routes back into Azure?
+
+If you plan to remove Azure BGP communities from VNet and UDR routes, do not advertise these routes back into Azure, as this will cause routing issues. As a result, it is not recommended to advertise Azure routes back into Azure. 
 
 ### Why do I lose connectivity after associating a service endpoint policy to the RouteServerSubnet or GatewaySubnet?
  
@@ -49,7 +53,7 @@ If you associate a service endpoint policy to the RouteServerSubnet or GatewaySu
 
 ### Why do I lose connectivity after using custom DNS instead of the default (Azure-provided DNS) for Route Server's virtual network?
 
-For the virtual network that Route Server is deployed in, if you are not using default (Azure-provided) DNS, then make sure your custom DNS configuration is able to resolve public domain names. This ensures that Azure services (Route Server and VPN/ExpressRoute gateway) are able to communicate with Azure's underlying management plane. Please see the note about wildcard rules in the [Azure DNS Private Resolver documentation](../dns/private-resolver-endpoints-rulesets.md#rules).
+For the virtual network that Route Server is deployed in, if you aren't using default (Azure-provided) DNS, then make sure your custom DNS configuration is able to resolve public domain names. This ensures that Azure services (Route Server and VPN/ExpressRoute gateway) are able to communicate with Azure's underlying management plane. For more information, see the note about wildcard rules in the [Azure DNS Private Resolver documentation](../dns/private-resolver-endpoints-rulesets.md#rules).
 
 ### Why can't I TCP ping from my NVA to the BGP peer IP of the Route Server after I set up the BGP peering between them?
 
@@ -77,7 +81,7 @@ The ASN that the Route Server uses is 65515. Make sure you configure a different
 
 ### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
 
-Azure Route Server drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 
+Azure Route Server drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path shouldn't include 0. 
 
 ### The BGP peering between my NVA and Route Server is up. I can see routes exchanged correctly between them. Why aren't the NVA routes in the effective routing table of my VM? 
 
@@ -99,7 +103,7 @@ When you advertise the same routes from your on-premises network to Azure over m
 
 ### Why am I seeing an error about invalid scope and authorization to perform Route Server operations?
 
-If you see an error in the below format, then please make sure you have the following permissions configured: [Route Server Roles and Permissions](roles-permissions.md#permissions)
+If you see an error in the below format, then make sure you have the following permissions configured: [Route Server Roles and Permissions](roles-permissions.md#permissions)
 
 Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. If access was recently granted, please refresh your credentials."
 

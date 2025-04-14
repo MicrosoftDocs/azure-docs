@@ -6,7 +6,7 @@ ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/18/2024
+ms.date: 02/11/2025
 # Customer intent: As a developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my workflow in Azure Logic Apps.
 ---
 
@@ -35,6 +35,10 @@ For these scenarios, use the **Data Operations** actions named **Parse a documen
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 This how-to guide shows how to add and set up these operations in your workflow.
+
+## Known issues and limitations
+
+The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
 
 ## Prerequisites
 

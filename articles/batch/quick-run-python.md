@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Python to create a pool and run a job'
 description: Follow this quickstart to run an app that uses the Azure Batch client library for Python to create and run Batch pools, nodes, jobs, and tasks.
-ms.date: 03/01/2024
+ms.date: 03/21/2025
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: mvc, devx-track-python, mode-api
@@ -13,7 +13,7 @@ This quickstart shows you how to get started with Azure Batch by running an app 
 
 > [!div class="checklist"]
 > - Uploads several input data files to an Azure Storage blob container to use for Batch task processing.
-> - Creates a pool of two virtual machines (VMs), or compute nodes, running Ubuntu 20.04 LTS OS.
+> - Creates a pool of two virtual machines (VMs), or compute nodes, running Ubuntu 22.04 LTS OS.
 > - Creates a job and three tasks to run on the nodes. Each task processes one of the input files by using a Bash shell command line.
 > - Displays the output files that the tasks return.
 
@@ -150,7 +150,7 @@ Review the code to understand the steps in the [Azure Batch Python Quickstart](h
 
 ### Create a pool of compute nodes
 
-To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images, and also supports custom VM images.
+To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 22.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images, and also supports custom VM images.
 
 The `POOL_NODE_COUNT` and `POOL_VM_SIZE` are defined constants. The app creates a pool of two size Standard_DS1_v2 nodes. This size offers a good balance of performance versus cost for this quickstart.
 
@@ -163,10 +163,10 @@ new_pool = batchmodels.PoolAddParameter(
             image_reference=batchmodels.ImageReference(
                 publisher="canonical",
                 offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
+                sku="22_04-lts",
                 version="latest"
             ),
-            node_agent_sku_id="batch.node.ubuntu 20.04"),
+            node_agent_sku_id="batch.node.ubuntu 22.04"),
         vm_size=config.POOL_VM_SIZE,
         target_dedicated_nodes=config.POOL_NODE_COUNT
     )

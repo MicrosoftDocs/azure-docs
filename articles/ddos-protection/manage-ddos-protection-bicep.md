@@ -7,12 +7,12 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: abell
-ms.date: 07/17/2024
+ms.date: 03/17/2025
 ---
 
 # QuickStart: Create and configure Azure DDoS Network Protection using Bicep
 
-This QuickStart describes how to use Bicep to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enable the protection plan for the VNet. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This QuickStart describes how to use Bicep to create a distributed denial of service (DDoS) protection plan and virtual network, then enable the protection plan for the virtual network. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
 :::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
 
@@ -35,7 +35,7 @@ The Bicep file defines two resources:
 
 ## Deploy the Bicep file
 
-In this example, the Bicep file creates a new resource group, a DDoS protection plan, and a VNet.
+In this example, the Bicep file creates a new resource group, a DDoS protection plan, and a virtual network.
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
@@ -96,6 +96,9 @@ Remove-AzResourceGroup -Name exampleRG
 ```
 
 ---
+
+> [!NOTE]
+> To delete a DDoS protection plan, first dissociate all virtual networks from it.
 
 ## Next steps
 

@@ -9,10 +9,7 @@ ms.date: 01/24/2023
 ms.author: kesheth
 ---
 
-# Selectable search parameters (Preview)
-
-> [!IMPORTANT]
-> The selectable search parameter capability is available for preview. Preview APIs and SDKs are provided without a service-level agreement (SLA). We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Selectable search parameters
 
 Searching for resources is fundamental to the FHIR&reg; service. Each resource in the FHIR service carries information as a set of elements. Search parameters work to query the information in these elements. When the FHIR service is deployed, [inbuilt search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) are enabled by default. The FHIR service performs efficient searches by extracting and indexing specific properties from FHIR resources during the ingestion of data. 
 
@@ -131,24 +128,29 @@ PUT {{FHIR_URL}}/SearchParameter/$status
   "parameter" : [
     {
      "name" : "searchParameterStatus",
-     "part" :{
-        "name" : "url",
-        "valueString" : "http://hl7.org/fhir/SearchParameter/Endpoint-name"
-     },
-     "part":{ 
-        "name" : "status",
-        "valueString" : "supported"
-     }
+     "part" :[
+			{
+				"name" : "url",
+				"valueString" : "http://hl7.org/fhir/SearchParameter/Endpoint-name"
+			},
+			{ 
+				"name" : "status",
+				"valueString" : "Supported"
+			}
+		]
     },
-         "name" : "searchParameterStatus",
-     "part" :{
-        "name" : "url",
-        "valueString" : "http://hl7.org/fhir/SearchParameter/HealthcareService-name"
-     },
-     "part":{ 
-        "name" : "status",
-        "valueString" : "supported"
-     }
+	{
+     "name" : "searchParameterStatus",
+     "part" :[
+		 {
+			"name" : "url",
+			"valueString" : "http://hl7.org/fhir/SearchParameter/HealthcareService-name"
+		 },
+		 { 
+			"name" : "status",
+			"valueString" : "Supported"
+		 }
+	 ]
     },
     ...
   ]

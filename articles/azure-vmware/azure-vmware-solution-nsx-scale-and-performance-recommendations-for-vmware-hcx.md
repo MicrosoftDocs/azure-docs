@@ -214,4 +214,4 @@ Once the new HCX Uplink Network Profile is created, update the existing Service 
 
 ## More information 
 
-[VMware NSX Reference Design Guide](https://www.vmware.com/docs/nsx-t-reference-design-guide-3-2-v1.1-1)
+[VMware NSX Reference Design Guide](https://blogs.vmware.com/affiliates/nsx-t-reference-design-guide-updated-version-for-nsx-t-3-0)

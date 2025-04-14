@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/05/2024
+ms.date: 03/23/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
 ---
@@ -36,7 +36,7 @@ When you create a dev box definition, you need to select a virtual machine image
 
 Azure Marketplace gives you quick access to various images, including images that are preconfigured with productivity tools like Microsoft Teams and provide optimal performance.
 
-When you're selecting an Azure Marketplace image, consider using an image that has the latest version of Windows 11 Enterprise and the Microsoft 365 apps installed.
+When you select an Azure Marketplace image, use an image with the latest version of Windows 11 Enterprise and Microsoft 365 apps installed.
 
 ### Azure Compute Gallery
 
@@ -44,12 +44,14 @@ Azure Compute Gallery enables you to store and manage a collection of custom ima
 
 To use the custom image while creating a dev box definition, attach the compute gallery to your dev center in Microsoft Dev Box. Follow these steps to [attach a compute gallery to a dev center](how-to-configure-azure-compute-gallery.md).
 
+To use a custom image when creating a dev box definition, attach the compute gallery to your dev center in Microsoft Dev Box. See [attach a compute gallery to a dev center](how-to-configure-azure-compute-gallery.md).
+
 ## Image versions
 
 When you select an image to use in your dev box definition, you must specify which version of the image you want to use:
 
 - **Numbered image versions**: If you want a consistent dev box definition in which the base image doesn't change, use a specific, numbered version of the image. Using a numbered version ensures that all the dev boxes in the pool always use the same version of the image.
-- **Latest image versions**: If you want a flexible dev box definition in which you can update the base image as requirements change, use the latest version of the image. This choice ensures that new dev boxes use the most recent version of the image. Existing dev boxes aren't modified when an image version is updated.
+- **Latest image versions**: If you want a flexible dev box definition in which you can update the base image as requirements change, use the latest version of the image. This choice ensures that new dev boxes use the most recent version of the image. Existing dev boxes aren't modified when an image version is updated. Select the **Latest** image version to ensure the dev box pool uses the most recent version of your chosen image from the gallery. This approach keeps new dev boxes up to date with the latest tools and code.
 
 ## Create a dev box definition
 
@@ -78,8 +80,8 @@ The following steps show you how to create a dev box definition by using an exis
    | **Name** | Enter a descriptive name for your dev box definition. | You can't change the dev box definition name after creation. |
    | **Image** | Select the base operating system for the dev box. You can select an image from Azure Marketplace or from Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image or **Visual Studio 2022 Pro on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. | To access custom images when you create a dev box definition, you can use Azure Compute Gallery. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). |
    | **Image version** | Select a specific, numbered version to ensure that all the dev boxes in the pool always use the same version of the image. Select **Latest** to ensure that new dev boxes use the latest image available. | Selecting the **Latest** image version enables the dev box pool to use the most recent version of your chosen image from the gallery. This approach ensures the created dev boxes stay up to date with the latest tools and code for your image. Existing dev boxes aren't modified when an image version is updated. |
-   | **Compute** | Select the compute combination for your dev box definition. | Dev boxes use [Dsv5-series virtual machines](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) for compute. |
-   | **Storage** | Select the amount of storage for your dev box definition. | Dev boxes use [Azure Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) for storage. |
+   | **Compute** | Select the compute combination for your dev box definition. | Dev boxes use Azure vitual machines for compute. |
+   | **Storage** | Select the amount of storage for your dev box definition. | Dev boxes use Azure Premium SSDs for storage. |
    | **Enable hibernation**| Leave this checkbox unselected. | |
 
    :::image type="content" source="./media/how-to-manage-dev-box-definitions/recommended-test-image.png" alt-text="Screenshot that shows the pane for creating a dev box definition.":::
@@ -89,12 +91,11 @@ The following steps show you how to create a dev box definition by using an exis
 > [!NOTE]
 > Microsoft Dev Box doesn't support:
 > - Preview builds from the Windows Insider Program.
-> - Dev box definitions with 4 core SKUs.
-
+> - Dev box definitions with 4-core SKUs.
 
 ## Update a dev box definition
 
-Over time, your needs for dev boxes can change. You might want to move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions might no longer be appropriate for your needs. You can update a dev box definition so new dev boxes use the new configuration.
+Over time, your dev box needs might change. For example, you might switch from a Windows 10 base operating system to Windows 11 or increase the default compute specification. Your initial dev box definitions might no longer be appropriate for your needs. You can update a dev box definition so new dev boxes use the new configuration.
 
 When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network. Additional free IP addresses are necessary for the Azure Network connection health check. If the health check fails the dev box definition will not update. You need 1 additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
 
@@ -119,6 +120,8 @@ You can update the image, image version, compute, and storage settings for a dev
 ## Delete a dev box definition
 
 You can delete a dev box definition when you no longer want to use it. Deleting a dev box definition is permanent and can't be undone. Dev box definitions can't be deleted if one or more dev box pools are using them.
+
+You can't delete dev box definitions if one or more dev box pools use them.
 
 To delete a dev box definition in the Azure portal: 
 

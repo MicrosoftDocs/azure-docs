@@ -1,10 +1,11 @@
 ---
-title: Add and manage TLS/SSL certificates
-description: Create a free certificate, import an App Service certificate, import a Key Vault certificate, or buy an App Service certificate in Azure App Service.
+title: Install a TLS/SSL certificate for Your App
+description: Step-by-step guide to adding and managing TLS/SSL certificates in Azure App Service to secure your custom domain.
+keywords: TLS/SSL certificate installation, Azure security, HTTPS setup, custom domain security
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 09/19/2024
+ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -68,7 +69,7 @@ The free App Service managed certificate is a turn-key solution for helping to s
 >
 > Free certificates are issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 >
-> Azure fully manages the certificates on your behalf, so any aspect of the managed certificate, including the root issuer, can change at anytime. These changes are outside your control. Make sure to avoid hard dependencies and "pinning" practice certificates to the managed certificate or any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
+> Azure fully manages the certificates on your behalf, so any aspect of the managed certificate, including the root issuer, can change at anytime. Certificate renewals change both public and private key parts.  All of these certificate changes are outside your control. Make sure to avoid hard dependencies and "pinning" practice certificates to the managed certificate or any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
 
 The free certificate comes with the following limitations:
 
@@ -136,15 +137,12 @@ If you use Azure Key Vault to manage your certificates, you can import a PKCS12 
 
 By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must authorize read access for the resource provider (App Service) to the key vault. You can grant access either with access policy or RBAC. 
 
-### [RBAC permissions](#tab/RBAC)
+### [RBAC permissions](#tab/rbac)
 | Resource provider | Service principal app ID / assignee | Key vault RBAC role |
 |--|--|--|
-| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Certificate User |
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for global Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Certificate User |
 
-The service principal app ID or assignee value is the ID for the App Service resource provider. To learn how to authorize key vault permissions for the App Service resource provider using an access policy, see the [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control documentation](/azure/key-vault/general/rbac-guide?tabs=azure-portal#key-vault-scope-role-assignment).
-
-> [!NOTE]
-> Do not delete these RBAC permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
+The service principal app ID or assignee value is the ID for the App Service resource provider. Note that when granting access using RBAC, the corresponding Object ID of the service principal app ID is tenant-specific. To learn how to authorize key vault permissions for the App Service resource provider using an access policy, see the [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control documentation](/azure/key-vault/general/rbac-guide?tabs=azure-portal#key-vault-scope-role-assignment).
 
 ### [Access policy permissions](#tab/accesspolicy)
 
@@ -156,8 +154,26 @@ The service principal app ID or assignee value is the ID for the App Service res
 
 > [!NOTE]
 > Do not delete these access policy permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
+> If key vault is configured to disable public access, ensure that Microsoft services have access by checking the 'Allow trusted Microsoft services to bypass this firewall' checkbox. See [Key Vault firewall enabled trusted services only](/azure/key-vault/general/network-security?WT.mc_id=Portal-Microsoft_Azure_KeyVault#key-vault-firewall-enabled-trusted-services-only) documentation for more information.
+>
+---
+
+#### [Azure CLI](#tab/azure-cli/rbac)
+```azurecli-interactive
+az role assignment create --role "Key Vault Certificate User" --assignee "abfa0a7c-a6b6-4736-8310-5855508787cd" --scope "/subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}"
+```
+
+#### [Azure PowerShell](#tab/azure-powershell/rbac)
+```azurepowershell
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Certificate User" -ApplicationId "abfa0a7c-a6b6-4736-8310-5855508787cd" -Scope "/subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}"
+```
+
+> [!NOTE]
+> Do not delete these RBAC permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
 
 ---
+
 
 ### Import a certificate from your vault to your app
 
@@ -188,7 +204,7 @@ The service principal app ID or assignee value is the ID for the App Service res
    > [!NOTE]
    > If you update your certificate in Key Vault with a new certificate, App Service automatically syncs your certificate within 24 hours.
 
-1. To helps secure custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+1. To help secure custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Upload a private certificate
 
@@ -333,13 +349,13 @@ After the certificate renews in your key vault, App Service automatically syncs 
 - [Azure PowerShell: Bind a custom TLS/SSL certificate to a web app using PowerShell](scripts/powershell-configure-ssl-certificate.md)
 
 ### Can I use a private CA (certificate authority) certificate for inbound TLS on my app?
-You can use a private CA certificate for inbound TLS in [App Service Environment version 3](./environment/overview-certificates.md). This isn't possible in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+You can use a private CA certificate for inbound TLS in [App Service Environment version 3](./environment/overview-certificates.md). This isn't possible in App Service (multitenant). For more information on App Service multitenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
  
 ### Can I make outbound calls using a private CA client certificate from my app?
-This is only supported for Windows container apps in multi-tenant App Service. In addition, you can make outbound calls using a private CA client certificate with both code-based and container-based apps in [App Service Environment version 3](./environment/overview-certificates.md). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+This is only supported for Windows container apps in multitenant App Service. In addition, you can make outbound calls using a private CA client certificate with both code-based and container-based apps in [App Service Environment version 3](./environment/overview-certificates.md). For more information on App Service multitenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
  
 ### Can I load a private CA certificate in my App Service Trusted Root Store?
-You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multitenant). For more information on App Service multitenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ### Can App Service Certificate be used for other services?
 Yes, certificates purchased via App Service Certificate can be exported and used with Application Gateway or other services. Refer to the following blog article for more information: [Creating a local PFX copy of App Service Certificate](https://azure.github.io/AppService/2017/02/24/Creating-a-local-PFX-copy-of-App-Service-Certificate.html).

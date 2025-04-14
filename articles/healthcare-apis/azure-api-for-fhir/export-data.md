@@ -70,9 +70,6 @@ The Azure API for FHIR supports the following query parameters. All of these par
 |includeAssociatedData | No | Allows you to export history and soft deleted resources. This filter doesn't work with the '_typeFilter' query parameter. Include the value as '_history' to export history (non-latest versioned) resources. Include the value as '_deleted' to export soft deleted resources. |
 |\_isparallel| No |The "_isparallel" query parameter can be added to the export operation to enhance its throughput. The value needs to be set to true to enable parallelization. Note: Using this parameter may result in an increase in request units consumption over the life of export. |
 
-> [!NOTE]
-> There is a known issue with the `$export` operation that could result in incomplete exports with status success. The issue occurs when the is_parallel flag was used. Export jobs executed with _isparallel query parameter starting February 13th, 2024 are impacted with this issue. 
-
 ## Secure Export to Azure Storage
 
 Azure API for FHIR supports a secure export operation. Choose one of the following two options.

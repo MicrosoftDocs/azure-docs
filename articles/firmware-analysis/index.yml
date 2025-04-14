@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: karengu0
   ms.author: karenguo
-  ms.date: 11/11/2024
+  ms.date: 02/07/2025
   ms.service: azure
 
 
@@ -37,7 +37,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Automate your workflow using service principals
+          - text: Automate your workflow using service principals 
             url: automate-firmware-analysis-service-principals.md
           - text: Analyze firmware images using Azure CLI commands
             url: quickstart-upload-firmware-using-azure-command-line-interface.md

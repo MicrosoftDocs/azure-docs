@@ -93,7 +93,7 @@ to unprotect the web-methods in the SAP Windows virtual machine.
 RFC metrics are only supported for **AS ABAP applications** and don't apply to SAP JAVA systems. This step is **mandatory** when the connection type selected is **SOAP+RFC**. 
 Below steps need to be performed as a prerequisite to enable RFC
 
-1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/MicrosoftDocs/azure-docs-pr/files/12528831/Z_AMS_NETWEAVER_MONITORING.zip)
+1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/raw/main/Files/Z_AMS_NETWEAVER_MONITORING.zip)
 
 
     1. Sign in to your SAP system.

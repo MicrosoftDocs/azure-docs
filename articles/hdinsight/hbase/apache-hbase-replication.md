@@ -4,7 +4,10 @@ description: Learn how to set up HBase replication from one HDInsight version to
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 04/29/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  04/29/2024
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks

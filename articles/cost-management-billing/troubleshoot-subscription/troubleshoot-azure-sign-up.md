@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 01/22/2025
+ms.date: 02/05/2025
 ms.author: banders
 ---
 
@@ -43,7 +43,7 @@ When you initially sign up for Azure, you have to provide some information about
 
 - Your country/region
 - First name
-- Last name
+- Last or family name
 - Email address
 - Phone number
 - Credit card information
@@ -65,7 +65,7 @@ How about InPrivate browsing?
 
 #### Free trial isn't available
 
-Have you used an Azure subscription in the past? The Azure Terms of Use agreement limits free trial activation only for a user that's new to Azure. If you have had any other type of Azure subscription, you can't activate a free trial. Consider signing up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/).
+Did you have an Azure subscription in the past? The Azure Terms of Use agreement limits free trial activation only for a user that's new to Azure. If you had any other type of Azure subscription, you can't activate a free trial. Consider signing up for a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
 #### You see the message 'You are not eligible for an Azure subscription'
 
@@ -101,6 +101,11 @@ Here are some other tips:
 - Double-check the phone number that you enter, including the country code that you select in the drop-down menu.
 - If your phone doesn't receive text messages (SMS), try the **Call me** option.
 
+>[!NOTE]
+> - Azure uses phone authentication to help identify you during the sign-up process. Azure doesn’t support every country or region for sign-up. If your country/region doesn’t appear in the Country code list, you can’t sign up.
+>- If you have problems validating your phone number, you can try to sign up with a different phone number capable of receiving SMS messages.
+
+
 ## Identity verification by card
 
 :::image type="content" border="true" source="./media/troubleshoot-azure-sign-up/3.png" alt-text="Screenshot showing identity verification by card.":::
@@ -113,7 +118,7 @@ Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptio
 
 #### Credit card form doesn't support my billing address
 
-Your billing address must be in the country/region that you select in the **About you** section. Verify that you have selected the correct country/region.
+Your billing address must be in the country/region that you select in the **About you** section. Verify that you selected the correct country/region.
 
 #### Progress bar hangs in identity verification by card section
 

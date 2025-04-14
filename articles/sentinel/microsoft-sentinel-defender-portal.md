@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 01/08/2025
+ms.date: 03/17/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -18,9 +18,8 @@ ms.collection: usx-security
 
 This article describes the Microsoft Sentinel experience in the Microsoft Defender portal. Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal with Microsoft Defender XDR. For more information, see:
 
-- Blog post: [General availability of the Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
-- Blog post: [Frequently asked questions about the unified security operations platform](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/frequently-asked-questions-about-the-unified-security-operations/ba-p/4212048)
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
+- [What is Microsoft's unified security operations platform?](/unified-secops-platform/overview-unified-security)
+- [Connect Microsoft Sentinel to Microsoft Defender XDR](/unified-secops-platform/microsoft-sentinel-onboard)
 - [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md)
 
 For preview, Microsoft Sentinel is available in the Defender portal without Microsoft Defender XDR or an E5 license.
@@ -32,8 +31,9 @@ The following table describes the new or improved capabilities available in the 
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
 | Advanced hunting  | Query from a single portal across different data sets to make hunting more efficient and remove the need for context-switching. Use Security Copilot to help generate your KQL. View and query all data including data from Microsoft security services and Microsoft Sentinel. Use all your existing Microsoft Sentinel workspace content, including queries and functions.<br><br>  For more information, see the following articles:<br>- [Advanced hunting in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2264410)<br>- [Security Copilot in advanced hunting](/defender-xdr/advanced-hunting-security-copilot) |
-| SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender and Azure portals, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations](soc-optimization/soc-optimization-access.md) <br>- [Use SOC optimizations programmatically](soc-optimization/soc-optimization-api.md)<br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)  |
+| Case management | Manage SecOps cases natively in the Defender portal without losing security context. Define your own case workflow with custom status values. Assign tasks to collaborators and configure due dates. Handle escalations and complex cases by linking multiple incidents to a case. </br></br>For more information, see [Manage cases natively in Microsoft's unified security operations platform](/unified-secops-platform/cases-overview).
 | Microsoft Copilot in Microsoft Defender | When investigating incidents in the Defender portal, <br>- [Summarize incidents](/defender-xdr/security-copilot-m365d-incident-summary) <br>- [Analyze scripts](/defender-xdr/security-copilot-m365d-script-analysis)<br>- [Analyze files](/defender-xdr/copilot-in-defender-file-analysis)<br>- [Create incident reports](/defender-xdr/security-copilot-m365d-create-incident-report) <br><br>When hunting for threats in advanced hunting, create ready-to-run KQL queries by using the query assistant. For more information, see [Microsoft Security Copilot in advanced hunting](/defender-xdr/advanced-hunting-security-copilot).|
+| SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender and Azure portals, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations](soc-optimization/soc-optimization-access.md) <br>- [Use SOC optimizations programmatically](soc-optimization/soc-optimization-api.md)<br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)  |
 
 The following table describes the additional capabilities available in the Defender portal with the integration of Microsoft Sentinel and Microsoft Defender XDR as part of Microsoft's unified security operations platform. 
 
@@ -64,7 +64,7 @@ This section covers the Microsoft Sentinel capabilities or integrations that are
 | Incidents: Programmatic and manual creation of incidents | Azure portal only  | Incidents created in Microsoft Sentinel through the API, by a Logic App playbook, or manually from the Azure portal, aren't synchronized to the Defender portal. These incidents are still supported in the Azure portal and the API. See [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md). |
 | Incidents: Reopening closed incidents | Azure portal only  | In the Defender portal, you can't set alert grouping in Microsoft Sentinel analytics rules to reopen closed incidents if new alerts are added. <br>Closed incidents aren't reopened in this case, and new alerts trigger new incidents. |
 | Incidents: Tasks | Azure portal only | Tasks are unavailable in the Defender portal. <br><br>For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md). |
-| Multiple workspace management for Microsoft Sentinel | Defender portal: Limited to one Microsoft Sentinel workspace per tenant <br><br>Azure portal: Centrally manage multiple Microsoft Sentinel workspaces for tenants  | Only one Microsoft Sentinel workspace per tenant is currently supported in the Defender portal. So, Microsoft Defender multitenant management supports one Microsoft Sentinel workspace per tenant.<br><br> For more information, see the following articles:<br>- Defender portal: [Microsoft Defender multitenant management](/defender-xdr/mto-overview) <br>- Azure portal: [Manage multiple Microsoft Sentinel workspaces with workspace manager](/azure/sentinel/workspace-manager)|
+| Multiple workspace management for Microsoft Sentinel | Defender portal: Manage a primary workspace and multiple secondary workspaces for a tenant. <br><br>Azure portal: Centrally manage multiple Microsoft Sentinel workspaces for tenants  | The Defender portal allows you to connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. A primary workspace's alerts are correlated with Defender XDR data, which results in incidents that include alerts from Microsoft Sentinel's primary workspace and Defender XDR. All other onboarded workspaces are considered secondary workspaces.<br><br> For more information, see the following articles:<br>- Defender portal: [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md)<br>- Azure portal: [Manage multiple Microsoft Sentinel workspaces with workspace manager](/azure/sentinel/workspace-manager)|
 
 ## Limited or unavailable capabilities 
 

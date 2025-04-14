@@ -4,6 +4,9 @@ description: Learn how to provide MSI Support to Access Azure services.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 12/04/2024
 ---
 
@@ -173,7 +176,7 @@ EventHubProducerClient producer = new EventHubClientBuilder()
 ```
 
 
-**If the client is a MySql Database**
+**If the client is a MySQL Database**
 
 Example of Azure Sql Database, which doesn't directly fetch an access token.
 

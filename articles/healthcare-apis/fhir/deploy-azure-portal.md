@@ -71,7 +71,7 @@ To replicate settings between FHIR instance, you can follow below steps
 
 ## Related content
 
-[Access the FHIR service by using Postman](../fhir/use-postman.md)
+[Access the FHIR service](../fhir/get-started-with-fhir.md#access-the-fhir-service)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
 

@@ -2,7 +2,7 @@
 title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
-ms.date: 01/17/2025
+ms.date: 03/07/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -193,6 +193,9 @@ The day and time when the query ends.
 Use **Export jobs** to create a spreadsheet containing all Jobs menu information. The spreadsheet has one sheet that holds a summary of all jobs, and individual sheets for each job.
 
 To export the jobs information to a spreadsheet, select **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
+
+>[!Note]
+>Azure Backup currently doesn't support exporting jobs with a filter applied, triggerring this operation fails for SQL and SAP HANA workload types. Alternatively, enable a Log Analytics workspace and [export workload-specific jobs](backup-azure-monitoring-use-azuremonitor.md#queries-specific-to-recovery-services-vault-workloads).
 
 ## Monitor Backup usage
 

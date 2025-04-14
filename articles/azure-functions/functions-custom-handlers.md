@@ -1,8 +1,8 @@
 ---
 title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
-author: anthonychu
-ms.author: antchu
+author: ggailey777
+ms.author: glenga
 ms.date: 12/1/2020
 ms.topic: article
 ms.devlang: golang

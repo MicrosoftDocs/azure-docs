@@ -1,16 +1,17 @@
 ---
-title: Add and manage App Service certificates
-description: Create an App Service certificate and manage it. Renew, synchronize, and delete App Service certificates.
+title: Manage App Service certificates
+description: Learn how to purchase and manage App Service certificates for your custom domain in Azure App Service.
+keywords: App Service certificate, buy SSL certificate, Azure security, domain encryption
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 08/27/2024
+ms.date: 02/15/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
 ---
 
-# Create and manage an App Service certificate for your web app
+# Buy and manage App Service certificates
 
 This article shows how to create an App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. Once you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. 
 
@@ -138,6 +139,13 @@ By default, App Service certificates have a one-year validity period. Before the
 ## Rekey an App Service certificate
 
 If you think your certificate's private key is compromised, you can rekey your certificate. This action rotates the certificate with a new certificate issued from the certificate authority.
+
+> [!NOTE]
+> Starting September 23 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renew, auto-renew, or rekey process. The new certificate order remains in "pending issuance" mode during the renew, auto-renew, or rekey process until you complete the domain verification.
+> 
+> Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain re-verification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
+>
+> The rekey process requires that the service principal for App Service has the required permissions on your key vault. These permissions are set up for you when you import an App Service certificate through the Azure portal. Make sure that you don't remove these permissions from your key vault.
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. From the left menu, select **Rekey and Sync**.
 

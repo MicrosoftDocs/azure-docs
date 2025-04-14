@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 07/30/2024
+ms.date: 12/29/2024
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22, ignite-2024
 zone_pivot_groups: python-mode-functions
@@ -456,7 +456,7 @@ def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body. Here, the specified storage account is the connection string that's found in the `CONNECTION_STRING` app setting.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body. Here, the specified storage account is the connection string that's found in the `<*_CONNECTION_STRING>` app setting. For more information, see  For more information, see [Connections](./functions-reference.md#connections).
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, their usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file when they're running locally, and they map to the application settings when they're running in Azure.
@@ -489,7 +489,7 @@ def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `STORAGE_CONNECTION_STRING` app setting.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string found in the `<*_CONNECTION_STRING>` app setting. For more information, see  For more information, see [Connections](./functions-reference.md#connections).
 ::: zone-end
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).

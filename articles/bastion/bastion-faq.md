@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: faq
-ms.date: 04/01/2024
+ms.date: 03/03/2025
 ms.author: cherylmc
 ms.custom: references_regions
 ---
@@ -68,7 +68,7 @@ At this time, for most address spaces, you must add a subnet named **AzureBastio
 
 ### <a name="write-permissions"></a>Are special permissions required to deploy Bastion to the AzureBastionSubnet?
 
-To deploy Bastion to the AzureBastionSubnet, write permissions are required. Example: **Microsoft.Network/virtualNetworks/write**.
+To deploy Bastion to the AzureBastionSubnet, the following RBAC permissions are required: **Microsoft.Network/virtualNetworks/write**,**Microsoft.Network/virtualNetworks/subnets/join/action**, and **Microsoft.Network/publicIPAddresses**.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 

@@ -790,8 +790,8 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | ------------- | ----------- | ---------- | ----------- |
 > | labcenters | No | No | No |
 > | labs | **Yes** | No | No |
-> | labs / environments | **Yes** | **Yes** | No |
-> | labs / servicerunners | **Yes** | **Yes** | No |
+> | labs / environments | **Yes** |No| No |
+> | labs / servicerunners | **Yes** |No| No |
 > | labs / virtualmachines | **Yes** | No | No |
 > | schedules | **Yes** | **Yes** | No |
 
@@ -1000,7 +1000,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | No | No | No |
+> | actiongroups | Yes | Yes | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |
@@ -1372,7 +1372,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **Yes**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **No**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | **Yes** | **Yes** | No |
 > | routefilters | No | No | No |
 > | routetables | **Yes** | **Yes** | No |

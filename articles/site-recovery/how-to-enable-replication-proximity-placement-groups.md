@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
-ms.date: 04/29/2024
+ms.date: 03/21/2025
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region
@@ -71,6 +71,9 @@ You can easily update your selection of a proximity placement group in the DR re
 1. Go to the virtual machine. On the left pane, under **Operations**, select **Disaster Recovery**.
 2. Go to the **Compute** pane and select **Edit**.
 3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the virtual machine to fail over into, and then select **Save**.
+
+> [!NOTE]
+> Removal of proximity placement group from replicating settings for an already replicating VM is not supported. You must disable and re-enable the replication. 
 
 ### VMware to Azure
 

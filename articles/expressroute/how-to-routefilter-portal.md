@@ -26,8 +26,6 @@ Connecting to all Azure and Microsoft 365 services can result in a large number 
 * Filtering out unwanted prefixes using route filters on BGP communities, a common networking practice.
 * Defining route filters and applying them to your ExpressRoute circuit. A route filter is a resource that lets you select the services you plan to consume through Microsoft peering. ExpressRoute routers only send prefixes for the services identified in the route filter.
 
-:::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network." lightbox="./media/how-to-routefilter-portal/route-filter-diagram.png":::
-
 ### About route filters
 
 When Microsoft peering is configured on your ExpressRoute circuit, Microsoft edge routers establish BGP sessions with your edge routers through your connectivity provider. No routes are advertised to your network until you associate a route filter.
@@ -63,8 +61,6 @@ A route filter can have only one rule, which must be of type *Allow*. This rule 
 
 1. Select **Create a resource** and search for *Route filter*:
 
-    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter.png" alt-text="Screenshot showing the Route filter page.":::
-
 1. Place the route filter in a resource group. Ensure the location matches the ExpressRoute circuit. Select **Review + create** and then **Create**.
 
     :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Screenshot showing the Create route filter page with example values.":::
@@ -76,8 +72,6 @@ A route filter can have only one rule, which must be of type *Allow*. This rule 
     :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Screenshot showing the Overview page with the Manage rule action highlighted.":::
 
 1. Then select the services you want to connect to from the drop-down list and save the rule.
-
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot showing the Manage rule window with services selected in the Allowed service communities drop-down list.":::
 
 ## Attach the route filter to an ExpressRoute circuit
 
@@ -104,8 +98,6 @@ View the properties of a route filter by opening the resource in the portal.
     :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Screenshot showing how to update Route filters with the Manage rule action.":::
 
 1. Select the service communities you want and then select **Save**.
-
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot showing the Manage rule window with services selected.":::
 
 ### To detach a route filter from an ExpressRoute circuit
 

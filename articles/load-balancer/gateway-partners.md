@@ -122,5 +122,5 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 ## Next steps
 
-* [Create a Azure Gateway Load Balancer](tutorial-gateway-portal.md)
+* [Create a Azure Gateway Load Balancer](tutorial-create-gateway-load-balancer.md)
 * [What is Azure Gateway Load Balancer?](gateway-overview.md)

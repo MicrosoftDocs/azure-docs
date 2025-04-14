@@ -39,7 +39,7 @@ sections:
         answer: | 
                 There's no extra licensing cost for deploying or registering an SAP system and generating a virtual 
                 instance. You pay only for 
-                the compute, storage, networking, Virtual machine OS image license (Redhat/SUSE) and other Azure resources you deploy or enable. 
+                the compute, storage, networking, Virtual machine OS image license (Red Hat/SUSE) and other Azure resources you deploy or enable. 
 
       - question:  Which scenarios does Azure Center for SAP solutions support?
         answer: | 

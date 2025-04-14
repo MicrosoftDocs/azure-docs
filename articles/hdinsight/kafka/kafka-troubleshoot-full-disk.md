@@ -4,7 +4,8 @@ description: Troubleshooting steps for Apache Kafka broker process that can't st
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: yeturis
-ms.author: sairamyeturi 
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

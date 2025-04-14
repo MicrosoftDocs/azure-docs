@@ -2,7 +2,7 @@
 title: Backup Classic Alerts using Azure Backup
 description: Learn how to back up Classic Alerts in the Azure Recovery Services vault.
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 03/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -19,7 +19,7 @@ This article describes how to back up Classic Alerts in the Azure Recovery Servi
 ## Backup alerts in Recovery Services vault
 
 > [!IMPORTANT]
-> This section describes an older alerting solution (referred to as classic alerts). We recommend you to switch to using Azure Monitor based alerts as it offers multiple benefits. For more information on how to switch, see [Switch Azure Monitor Based alerts](./move-to-azure-monitor-alerts.md).
+> This section describes an older alerting solution (referred to as classic alerts). We recommend you to switch to using Azure Monitor based alerts as it offers multiple benefits. Learn [how to migrate to  Azure Monitor Based alerts](backup-azure-monitoring-alerts.md?tabs=recovery-services-vaults#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts).
 
 Alerts are primarily the scenarios where you're notified to take relevant action. The **Backup Alerts** section shows alerts that the Azure Backup service generates. These alerts are defined by the service and you can't custom create any alerts.
 

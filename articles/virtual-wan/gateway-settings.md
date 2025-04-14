@@ -5,7 +5,7 @@ description: This article answers common questions about Virtual WAN gateway set
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 07/28/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
 
 ---

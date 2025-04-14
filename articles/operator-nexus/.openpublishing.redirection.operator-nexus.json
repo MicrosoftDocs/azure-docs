@@ -1,70 +1,84 @@
 {
-    "redirections": [
-        {
-            "source_path": "howto-monitoring-aks-h-cluster.md",
-            "redirect_url": "howto-monitor-naks-cluster",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "howto-monitoring-virtualized-network-functions-virtual-machines.md",
-            "redirect_url": "howto-monitor-virtualized-network-functions-virtual-machines",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "quickstart-network-fabric-controller-cluster-manager-create.md",
-            "redirect_url": "howto-azure-operator-nexus-prerequisites",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "quickstarts-platform-deployment.md",
-            "redirect_url": "howto-configure-cluster",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "quickstarts-platform-prerequisites.md",
-            "redirect_url": "howto-platform-prerequisites",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "howto-baremetal-review-read-output.md",
-            "redirect_url": "howto-baremetal-run-read",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "troubleshoot-aks-hybrid-cluster.md",
-            "redirect_url": "troubleshoot-isolation-domain",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "how-to-apply-access-control-list-to-network-to-network-interconnects.md",
-            "redirect_url": "howto-apply-access-control-list-to-network-to-network-interconnects",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "howto-use-azure-policy-for-aks-cluster-security.md",
-            "redirect_url": "howto-use-azure-policy",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "troubleshoot-enable-node-down-cleaner.md",
-            "redirect_url": "concepts-storage",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "troubleshoot-bmm-node-reboot.md",
-            "redirect_url": "troubleshoot-vm-error-after-reboot",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "reference-operator-nexus-fabric-skus.md",
-            "redirect_url": "reference-operator-nexus-skus",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "reference-operator-nexus-network-cloud-skus-us.md",
-            "redirect_url": "reference-operator-nexus-skus",
-            "redirect_document_id": false
-        }
-
-    ]
+  "redirections": [
+    {
+      "source_path": "howto-monitoring-aks-h-cluster.md",
+      "redirect_url": "howto-monitor-naks-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-monitoring-virtualized-network-functions-virtual-machines.md",
+      "redirect_url": "howto-monitor-virtualized-network-functions-virtual-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "quickstart-network-fabric-controller-cluster-manager-create.md",
+      "redirect_url": "howto-azure-operator-nexus-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "quickstarts-platform-deployment.md",
+      "redirect_url": "howto-configure-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "quickstarts-platform-prerequisites.md",
+      "redirect_url": "howto-platform-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-baremetal-review-read-output.md",
+      "redirect_url": "howto-baremetal-run-read",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "troubleshoot-aks-hybrid-cluster.md",
+      "redirect_url": "troubleshoot-isolation-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-apply-access-control-list-to-network-to-network-interconnects.md",
+      "redirect_url": "howto-apply-access-control-list-to-network-to-network-interconnects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-use-azure-policy-for-aks-cluster-security.md",
+      "redirect_url": "howto-use-azure-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "troubleshoot-enable-node-down-cleaner.md",
+      "redirect_url": "concepts-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "troubleshoot-bmm-node-reboot.md",
+      "redirect_url": "troubleshoot-vm-error-after-reboot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "reference-operator-nexus-fabric-skus.md",
+      "redirect_url": "reference-operator-nexus-skus",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "reference-operator-nexus-network-cloud-skus-us.md",
+      "redirect_url": "reference-operator-nexus-skus",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-create-cluster-with-user-assigned-managed-identity.md",
+      "redirect_url": "howto-cluster-managed-identity-user-provided-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-replace-a-terminal-server.md",
+      "redirect_url": "howto-replace-terminal-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-cluster-runtime-upgrade-with-pauserack-strategy.md",
+      "redirect_url": "howto-cluster-runtime-upgrade-with-pauseafterrack-strategy",
+      "redirect_document_id": false
+    }
+  ]
 }
