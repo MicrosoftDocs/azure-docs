@@ -74,7 +74,7 @@ After the application receives an access token, the SDK and/or application sends
 Here's an example of an Azure Maps route request that uses a Microsoft Entra ID OAuth Bearer token:
 
 ```http
-GET /route/directions/json?api-version=2025-01-01&query=52.50931,13.42936:52.50274,13.43872
+GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872
 Host: atlas.microsoft.com
 x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e…HNIVN
