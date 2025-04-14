@@ -57,11 +57,11 @@ Redis supports the following useful command categories. For more information and
 
 ### Keys
 
-*Keys* allow you to control access to specific keys or groups of keys stored in the cache. In a permissions string, use `~<pattern>` to provide a pattern for keys. Use either `~*` or `allkeys` to indicate that the permissions apply to all keys in the cache.
+*Keys* allow you to control access to specific keys or groups of keys stored in the cache. Use `~<pattern>` in a permission string to provide a pattern for keys. Use either `~*` or `allkeys` to indicate that the permissions apply to all keys in the cache.
 
 ## Configure a custom data access policy for your application
 
-To configure a custom data access policy, you first create a permission string to use as your custom access policy, and then assign the policy to Azure Redis cache users.
+To configure a custom data access policy, you create a permissions string to use as your custom access policy, and enable Microsoft Entra ID authentication and authorization to your cache.
 
 ### Specify permissions
 
@@ -91,22 +91,22 @@ Configure the permissions string according to your requirements. The following e
 
 The custom policy now appears on the **Access Policies** tab of the **Data Access Configuration** page, along with the three built-in Azure Redis policies.
 
-### Enable Microsoft Entra ID authentication
+### Enable Microsoft Entra authentication
 
-To add a user to an access policy by using Microsoft Entra ID, you must have Microsoft Entra ID rather than Access Keys authentication enabled on your cache. To check your authentication method, select **Authentication** under **Settings** in the left navigation menu for your cache.
+To assign a user to an access policy by using Microsoft Entra, you must have Microsoft Entra rather than Access Keys authentication enabled on your cache. To check your authentication method, select **Authentication** under **Settings** in the left navigation menu for your cache.
 
-On the **Authentication** screen, if **Disable Access Keys Authentication** is selected and no access keys appear on the screen, your cache already uses Microsoft Entra ID authentication. Otherwise, select the checkbox next to **Disable Access Keys Authentication** and then select **Save**.
+On the **Authentication** screen, if **Disable Access Keys Authentication** is selected and no access keys appear on the screen, your cache already uses Microsoft Entra authentication. Otherwise, select the checkbox next to **Disable Access Keys Authentication** and then select **Save**.
 
 :::image type="content" source="media/cache-configure-role-based-access-control/enable-entra.png" alt-text="Screenshot of disabling access keys authentication.":::
    
 Respond **Yes** to the popup dialog box asking if you want to disable access keys authentication.
 
 > [!IMPORTANT]
-> Once the enable operation is complete, the nodes in your cache instance reboot to load the new configuration. The operation can take up to 30 minutes. It's best to perform this operation during your maintenance window or outside peak business hours.
+> Once the Microsoft Entra enable operation is complete, the nodes in your cache instance reboot to load the new configuration. The operation can take up to 30 minutes. It's best to perform this operation during your maintenance window or outside peak business hours.
 
-### Configure your Redis client to use Microsoft Entra ID
+## Configure your Redis client to use Microsoft Entra ID
 
-Now that you configured Azure Redis data access policy to use RBAC, you need to update your client workflow to support authenticating by using a specific user name and password. To learn how to configure your client application to connect to your cache instance as a specific Redis user, see [Configure your Redis client to use Microsoft Entra](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra).
+Because most Azure Cache for Redis clients assume that a password and access key are used for authentication, you probably need to update your client workflow to support authentication by using a specific Microsoft Entra user name and password. To learn how to configure your client application to connect to your cache instance as a specific Redis user, see [Configure your Redis client to use Microsoft Entra ID](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra).
 
 ## Related content
 
