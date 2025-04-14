@@ -24,7 +24,7 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [Azure Database for PostgreSQL (version 1.0)](connector-azure-database-for-postgresql.md)   | [Link](connector-azure-database-for-postgresql.md#upgrade-the-azure-database-for-postgresql-connector) | GA version available | To be determined | /  | 
 | [Cassandra (version 1.0)](connector-cassandra.md) |[Link](connector-cassandra.md#upgrade-the-cassandra-connector) | Preview version available | To be determined | / | 
 | [Google BigQuery (V1)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support and GA version available | October 31, 2024 | September 30, 2025| 
-| [Greenplum (version 1.0)](connector-greenplum.md)  | [Link](connector-greenplum.md#upgrade-the-greenplum-connector) |Preview version available | /| /| 
+| [Greenplum (version 1.0)](connector-greenplum.md)  | [Link](connector-greenplum.md#upgrade-the-greenplum-connector) |Preview version available | To be determined | /| 
 | [MariaDB (version 1.0)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support and GA version available | October 31, 2024 | September 30, 2025| 
 | [MySQL (version 1.0)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support and GA version available | October 31, 2024| September 30, 2025|
 | [Oracle (version 1.0)](connector-oracle.md) |[Link](connector-oracle.md#upgrade-the-oracle-connector) | Preview version available | To be determined| / |  
