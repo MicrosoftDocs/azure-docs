@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Create and deploy Azure Functions resources from Terraform'
-description: In this quickstart, you create a resource group, storage account, blob storage account, and service plan in Azure for an Azure Functions Flex Consumption plan.
+description: In this quickstart article, you create a function app in a Flex Consumption plan, along with the resource group, storage account, and blob storage container required by the app.
 ms.topic: quickstart
-ms.date: 04/01/2025
+ms.date: 04/14/2025
 ms.custom: devx-track-terraform
 ms.service: azure-functions
 author: ggailey777
 ms.author: glenga
-#customer intent: As a Terraform user, I want to learn how to create an Azure Functions Flex Consumption plan within a defined storage account and blob storage deployment container.
+#customer intent: As a Terraform user, I want to learn how to create a function app in a Flex Consumption plan along with required storage account and blob storage container used for deployments.
 content_well_notification: 
   - AI-contribution
 ---
 
 # Quickstart: Create and deploy Azure Functions resources from Terraform
 
-In this quickstart, you use Terraform to create a function app in a Flex Consumption plan in Azure, along with its required Azure resources. Azure Functions Flex Consumption is a serverless compute service that helps you to run code on demand without explicitly provisioning or managing infrastructure. It's used for processing data, integrating systems, internet-of-things computing, and building simple APIs and microservices. The resources created in this configuration include a unique resource group, a storage account, a blob storage container, a service plan, and the function app itself. The function app is configured to use blob storage and is set to run on a Linux operating system.
+In this quickstart, you use Terraform to create a function app in a Flex Consumption plan in Azure Functions, along with other required Azure resources. The Flex Consumption plan provides serverless hosting that lets you run your code on demand without explicitly provisioning or managing infrastructure. It's used for processing data, integrating systems, internet-of-things computing, and building simple APIs and microservices. The resources created in this configuration include a unique resource group, a storage account, a blob storage container, the Flex Consumption plan, and the function app itself. The function app runs on Linux and is configured to use blob storage for code deployments.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -23,7 +23,7 @@ In this quickstart, you use Terraform to create a function app in a Flex Consump
 > * Generate a random string of 13 lowercase letters to name resources.
 > * Create a storage account in Azure.
 > * Create a blob storage container in the storage account.
-> * Create a service plan in Azure.
+> * Create a Flex Consumption plan in Azure Functions.
 > * Create a function app with a Flex Consumption plan in Azure.
 > * Output the names of the resource group, storage account, service plan, function app, and Azure Functions Flex Consumption plan.
 
@@ -151,5 +151,4 @@ Open a browser and enter the following URL: **https://<fa_name>.azurewebsites.ne
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [See more articles about Azure Functions Flex Consumption.](/search/?terms=Azure%20function%20app%20flex%20consumption%20and%20terraform)
+[!INCLUDE [functions-quickstarts-infra-next-steps](../../includes/functions-quickstarts-infra-next-steps.md)]
