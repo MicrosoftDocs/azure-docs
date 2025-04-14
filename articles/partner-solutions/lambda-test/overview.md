@@ -9,7 +9,7 @@ ms.date: 04/14/2025
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
-Microsoft and LambdaTest - HyperExecute developed this service and manage it together.
+Microsoft and LambdaTest developed this service and manage it together.
 
 You can find  in the [Azure portal](https://ms.portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com).
 

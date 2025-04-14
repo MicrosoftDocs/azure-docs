@@ -1,0 +1,32 @@
+title: Azure Native LambdaTest - HyperExecute (preview)
+summary: An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments (Web Browser, Real Devices, Emulator/Simulators, API, Performance) with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.
+
+metadata:
+  title: Azure Native LambdaTest - HyperExecute (preview) 
+  description: Azure Native LambdaTest - HyperExecute (preview) integrates with Azure to combine the benefits of Azure Native LambdaTest - HyperExecute (preview) with the Azure cloud.
+  ms.topic: landing-page
+  ms.custom:
+    - ignite-2023
+  ms.date: 02/14/2024
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Azure Native LambdaTest - HyperExecute (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Native LambdaTest - HyperExecute (preview)?
+            url: overview.md
+
+  # Card
+  - title: Create an Azure Native LambdaTest - HyperExecute (preview) deployment
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Azure Native LambdaTest - HyperExecute (preview)
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your Azure Native LambdaTest - HyperExecute (preview) resource
+            url: manage.md
