@@ -8,7 +8,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/11/2025
+ms.date: 04/15/2025
 
 #customer intent: As a developer, I want to create a workflow that can generate schemas for SAP artifacts by using Azure Logic Apps.
 ---
@@ -310,7 +310,7 @@ For this task, you need an [integration account](../logic-apps-enterprise-integr
 
    The **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop around the Azure Resource Manager action, for example:
 
-   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-consumption.png" alt-text="Screenshot shows Consumption workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/generate-schemas-azure-resource-manager-for-each-consumption.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-consumption.png" alt-text="Screenshot shows Consumption workflow and for each loop with included Azure Resource Manager action." lightbox="./media/sap-generate-schemas-for-artifacts/azure-resource-manager-for-each-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
