@@ -6,7 +6,7 @@ description: Learn how to manage your Azure Cache for Redis memory effectively.
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.date: 04/11/2025
+ms.date: 04/14/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
@@ -51,9 +51,9 @@ Consider how changing a `maxmemory-reserved` or `maxfragmentationmemory-reserved
 Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](/azure/redis/monitor-cache#create-your-own-metrics).
 
 > [!NOTE]
-> When you scale a cache up or down programmatically by using Azure PowerShell, Azure CLI, or REST API, any `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings are ignored as part of the update request. Only your scaling change is honored. You can update the memory settings after the scaling operation completes.
+> When you scale a cache up or down programmatically by using Azure PowerShell, Azure CLI, or REST API, any included `maxmemory-reserved` or `maxfragmentationmemory-reserved` settings are ignored as part of the update request. Only your scaling change is honored. You can update the memory settings after the scaling operation completes.
 
-## Next steps
+## Related content
 
 - [Memory policies](cache-configure.md#memory-policies)
 - [Troubleshoot high memory usage](cache-troubleshoot-timeouts.md#high-memory-usage)
