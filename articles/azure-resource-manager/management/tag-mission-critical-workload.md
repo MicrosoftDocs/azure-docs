@@ -15,17 +15,17 @@ For an introduction about tagging Azure resources and to learn about requirement
 
 ## Why identify mission-critical workloads?
 
+The term _workload_ refers to a collection of application resources that support a common business goal or the execution of a common business process with multiple services, such as APIs and data stores, that work together to deliver specific end-to-end functionality.
+
+Mission-critical workload resources are often spread across multiple resource groups and subscriptions. Regardless of the resource location, each resource within a mission-critical workload should be included in the workload definition and tagged appropriately.
+
 Identifying related mission-critical resources has benefits that include resource management, cost management and optimization, security, automation, and workload optimization. By tagging resources, you to group them into a mission-critical workload where tags accurately identify and manage these essential workloads.
+
+In a scenario where a mission-critical workload depends on a service that's shared across multiple workloads, such as an Azure ExpressRoute gateway or an Azure Firewall, the shared resources should also be included in the workload definition and tagged appropriately. See the examples in the following section for how to tag values on shared services.
 
 This article aligns with workload optimization, and tagging can identify opportunities to improve resiliency and further enhance your Service Level Objectives.
 
 *This documentation recommends the tagging approach described to support a Microsoft assessment of your environment. Your Microsoft contact reviews this tagging approach with you at the beginning of the assessment. If you don't have an engagement with Microsoft, you can still follow the guidance to realize the benefits outlined earlier.*
-
-The term _workload_ refers to a collection of application resources that support a common business goal or the execution of a common business process with multiple services, such as APIs and data stores, that work together to deliver specific end-to-end functionality.
-
-Mission-critical workload resources are often spread across multiple resource groups and subscriptions. Regardless of the resource location, each resource within the mission-critical workload should be included in the workload definition and tagged appropriately.
-
-In a scenario where a mission-critical workload depends on a service that's shared across multiple workloads, such as an Azure ExpressRoute gateway or an Azure Firewall, the shared resources should also be included in the workload definition and tagged appropriately. See the examples in the following section for how to tag values on shared services.
 
 ## Mission-critical predefined tags
 
