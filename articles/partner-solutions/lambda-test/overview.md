@@ -46,6 +46,7 @@ See LambdaTest - HyperExecute documentation for additional resources.
 
 Contact [LambdaTest](https://www.lambdatest.com/contact-us) for customer support 
 
-## Next steps
+## Next step
 
-- [QuickStart: Get started with LambdaTest - HyperExecute (preview)](create.md)
+> [!div class="nextstepaction"]
+> [QuickStart: Get started with LambdaTest - HyperExecute (preview)](create.md)
