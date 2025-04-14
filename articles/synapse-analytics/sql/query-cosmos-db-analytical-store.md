@@ -87,9 +87,9 @@ In addition to the common properties in the SQL connection string that are descr
 The examples of connection strings are shown in the following table:
 
 | Authentication type | Connection string |
+| --- | --- |
 | CosmosDB database account master key | `account=<account name>;database=<db name>;region=<region name>;key=<account master key>` |
 | Synapse workspace managed identity | `account=<account name>;database=<db name>;region=<region name>;authtype=ManagedIdentity` |
-```
 
 ### [OPENROWSET with credential](#tab/openrowset-credential)
 
