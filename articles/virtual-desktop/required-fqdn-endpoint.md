@@ -42,7 +42,7 @@ The following table is the list of FQDNs and endpoints your session host VMs nee
 | `*.prod.warm.ingest.monitor.core.windows.net` | TCP | 443 | Agent traffic<br />[Diagnostic output](diagnostics-log-analytics.md) | `AzureMonitor` |
 | `gcs.prod.monitoring.core.windows.net` | TCP | 443 | Agent traffic | `AzureMonitor` |
 | `azkms.core.windows.net` | TCP | 1688 | Windows activation | `Internet` |
-| `mrsglobalsteus2prod.blob.core.windows.net` | TCP | 443 | Agent and side-by-side (SXS) stack updates | `AzureStorage` |
+| `mrsglobalsteus2prod.blob.core.windows.net` | TCP | 443 | Agent and side-by-side (SXS) stack updates | `Storage` |
 | `wvdportalstorageblob.blob.core.windows.net` | TCP | 443 | Azure portal support | `AzureCloud` |
 | `169.254.169.254` | TCP | 80 | [Azure Instance Metadata service endpoint](/azure/virtual-machines/windows/instance-metadata-service) | N/A |
 | `168.63.129.16` | TCP | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
