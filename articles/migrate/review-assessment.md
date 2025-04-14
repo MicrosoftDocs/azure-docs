@@ -43,7 +43,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 | **Performance-based** | The compute recommendation is based on CPU and memory utilization data. <br> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Available disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.  |
 | **As-is on-premises** | The compute recommendation is based on the on-premises server size. <br> The recommended storage is based on the selected storage type for the assessment.|
 
-You can review the source properties that were used for right sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right sizing and disk size, read IO/s, and throughput for storage recommendations.  
+You can review the source properties that were used for right-sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right-sizing and disk size, read IO/s, and throughput for storage recommendations.  
 
 On the **Target recommendations** page, you can review the target configuration and the recommendation reasoning for each target component like compute, storage, network etc.  
 

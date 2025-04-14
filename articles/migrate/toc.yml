@@ -96,7 +96,7 @@ items:
       href: assessment-report.md
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
       href: cost-estimation.md   
-    - name: Target right sizing # help users understand how perf data is used in depth
+    - name: Target right-sizing # help users understand how perf data is used in depth
       href: target-right-sizing.md
     - name: Confidence rating
       href: confidence-ratings.md
@@ -116,7 +116,7 @@ items:
           href: how-to-create-assessment.md
         - name: Customize assessment settings
           href: vm-assessment-properties.md
-        - name: Target right sizing
+        - name: Target right-sizing
           href: target-right-sizing.md
         - name: Review assessment report
           href: review-assessment.md

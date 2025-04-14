@@ -37,7 +37,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 **Performance-based** | Assessments that make recommendations based on collected performance data. |  The compute recommendation is based on CPU and memory utilization data.<br/><br/> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks. 
 **As-is on-premises** | Assessments that don't use performance data to make recommendations. |  The compute recommendation is based on the on-premises server size.<br/><br/> The recommended storage is based on the selected storage type for the assessment. 
 
-In performance-based assessment the assessment identifies the appropriate data point to use for right sizing. Identification is based on the percentile values for performance history and percentile utilization taken as input as assessment setting.   
+In performance-based assessment the assessment identifies the appropriate data point to use for right-sizing. Identification is based on the percentile values for performance history and percentile utilization taken as input as assessment setting.   
 
 For example, if the performance history selected is one week and the percentile utilization is the 95th percentile, the assessment sorts the performance data sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for rightsizing. 
  
@@ -52,7 +52,7 @@ This value is multiplied by the comfort factor(taken as an input in assessment s
 
 ### Monthly costs 
 
-After right sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Migrate assessments. 
+After right-sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Migrate assessments. 
 
 ### Confidence ratings (performance-based) 
 
