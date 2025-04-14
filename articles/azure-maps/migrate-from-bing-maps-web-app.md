@@ -1651,7 +1651,7 @@ Review code samples related migrating other Bing Maps features:
 > [Show directions from A to B](./map-route.md)
 
 > [!div class="nextstepaction"]
-> [Search Autosuggest with JQuery UI](https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui)
+> [Search Autosuggest with jQuery UI](https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui)
 
 Learn more about the Azure Maps Web SDK.
 
