@@ -80,7 +80,7 @@ OPENROWSET(
        <Container name>
     )  [ < with clause > ] AS alias
 ```
-In addition to the common properties in the SQL connection string that are described above (**acount**, **database**, **region**, and **endpoint**), in this case, you need to add **one** of the following options:
+In addition to the common properties in the SQL connection string that are described above (**account**, **database**, **region**, and **endpoint**), in this case, you need to add **one** of the following options:
 - **AuthType** - set this option to `ManagedIdentity` if accessing CosmosDB using the Synapse workspace Managed Identity.
 - **key** - The master key for accessing CosmosDB data, used if not utilizing the Synapse workspace managed identity.
 
