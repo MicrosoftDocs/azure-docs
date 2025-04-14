@@ -22,6 +22,9 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 
 ## Prerequisites
 
+> [!NOTE]
+> At this time Trusted Signing is only available to organizations based in the USA and Canada that have a verifiable history of three years or more.
+
 To complete this quickstart, you need:
 
 - A Microsoft Entra tenant ID.
@@ -201,17 +204,15 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 | `az trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                               |
 | `az trustedsigning list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
 
+---
 
-## Create an identity validation request
+## Create an identity validation request - Organization
 
 You can complete your own identity validation by filling in the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
 > [!NOTE]
 > You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier role to proceed with identity validation.
-> [!NOTE]
-> At this time Trusted Signing can only onboard organizations that were incorporated more than 3 years ago and were incorporated in USA and Canada.
 
-### Identity Validation - Organization
 
 To create an identity validation request for an Organization:
 
@@ -231,8 +232,8 @@ To create an identity validation request for an Organization:
     | **Organization Name**          | For public identity validation, provide the legal business entity to which the certificate is issued. For private identity validation, the value defaults to your Microsoft Entra tenant name. |
     | **(Private Identity Type only) Organizational Unit**          | Enter the relevant information. |
     | **Website url**          | Enter the website that belongs to the legal business entity. |
-    | **Primary Email**           | Enter the email address associated with the legal business entity undergoing validation. Part of the Identity Validation process, a verification link is sent to this email address and the link expires in seven days. Ensure that the email address can receive emails(with links) from external email addresses.  |
-    | **Secondary Email**          | This email address must be different from the primary email address. For organizations, the domain must match the email address that is provided in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
+    | **Primary Email**           | Enter the email address of an individual (distribution lists are not accepted) associated with the legal business entity undergoing validation. Part of the Identity Validation process, a verification link is sent to this email address and the link expires in seven days. Ensure that the email address can receive emails(with links) from external email addresses.  |
+    | **Secondary Email**          | This email address must be different from the primary email address (distribution lists are accepted). For organizations, the domain must match the email address that is provided in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
     | **Business Identifier**           | Enter a business identifier for the legal business entity. |
     | **Seller ID**          | Applies only to Microsoft Store customers. Find your Seller ID in the Partner Center portal. |
     | **Street, City, Country, State, Postal code**           | Enter the business address of the legal business entity. |

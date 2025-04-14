@@ -63,13 +63,21 @@
     - name: Jobs
       href: jobs.md
     - name: Dynamic sessions
-      href: sessions.md
+      items:
+      - name: Overview
+        href: sessions.md
+      - name: Usage
+        href: sessions-usage.md
+      - name: Session pools
+        href: session-pool.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://youtu.be/OxmVds31qL8
+    - name: Communicate between multiple apps
+      href: connect-apps.md
     - name: Reduce cold-start times
       href: cold-start.md
 - name: Develop & deploy
@@ -91,7 +99,7 @@
             - name: Overview
               href: services.md
               displayName: Connecting to services overview
-        - name: Connect multiple apps
+        - name: Communicate between multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
           items:
@@ -129,6 +137,12 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
+    - name: Use Azure Functions
+      items:
+        - name: Overview
+          href: functions-overview.md
+        - name: Create a Functions app
+          href: functions-usage.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
