@@ -22,6 +22,9 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 > 
 > To learn more, see [Authorize AzCopy](storage-use-azcopy-authorize-azure-active-directory.md). 
 
+> [!TIP]
+> When working with Azure Files NFS, it is essential to include the ``--nfs`` CLI switch in your commands.
+
 ## Create file shares
 
 You can use the [azcopy make](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_make) command to create a file share. The example in this section creates a file share named `myfileshare`.
