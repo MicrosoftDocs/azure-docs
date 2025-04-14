@@ -54,7 +54,7 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on certain platforms) class is 
 Developers can subscribe to RTT events through a single event subscription, allowing them to manage their own list and ordering of RTT messages. This approach aligns with the Captions API, facilitating easier integration and maintenance. The UI is responsible for binding the data to the screen, managing the display list, and handling text input interactions based on message finalization.
 
 >[!NOTE]
->RTT Teams Interlop is not functional yet.
+>RTT for PSTN and RTT for Teams Interop are not available at this time.
 
 ### Privacy Concerns
 Real-Time Text (RTT) is only available during the call or meeting. Azure Communication Services doesn't store these text exchanges anywhere. Many countries/regions and states have laws and regulations that apply to the storing of data. It is your responsibility to use RTT in compliance with the law should you choose to store any of the data generated through RTT. You must obtain consent from the parties involved in a manner that complies with the laws applicable to each participant.
@@ -65,6 +65,6 @@ Microsoft indicates to you via the Azure Communication Services API that recordi
 
 ## Next Steps
 
-- Get started with a [Quickstart Guide](../../quickstarts/voice-video-calling/get-started-with-real-time-text.md)
+- Get started with our [Quickstart Guide](../../quickstarts/voice-video-calling/get-started-with-real-time-text.md)
 - Learn more about [Closed captions](../../concepts/voice-video-calling/closed-captions.md)
-- Explore the [UI Library](../ui-library/ui-library-overview.md)
+- Get started with RTT in the [UI Library](../ui-library/ui-library-overview.md)
