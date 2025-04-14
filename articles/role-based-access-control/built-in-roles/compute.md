@@ -238,6 +238,55 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
 }
 ```
 
+## Compute Fleet Contributor
+
+Allows users to manage Compute Fleet resources.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureFleet](../permissions/compute.md#microsoftazurefleet)/fleets/* | Create and manage compute fleets |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to manage Compute Fleet resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2bed379c-9fba-455b-99e4-6b911073bcf2",
+  "name": "2bed379c-9fba-455b-99e4-6b911073bcf2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureFleet/fleets/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Fleet Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Compute Gallery Artifacts Publisher
 
 This is the role for publishing gallery artifacts.

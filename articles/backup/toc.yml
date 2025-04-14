@@ -22,6 +22,8 @@
     href: quick-backup-vm-template.md
   - name: Back up a VM - Bicep template
     href: quick-backup-vm-bicep-template.md
+  - name: Back up a VM - Terraform
+    href: quick-backup-vm-terraform.md
   - name: Back up Azure PostgreSQL Database
     items:
     - name: Back up the database - Azure portal
@@ -309,7 +311,7 @@
       - name: Delete
         href: backup-azure-delete-vault.md
       - name: Relocate
-        href: ../operational-excellence/relocation-backup.md?toc=/azure/backup/toc.json
+        href: ../azure-resource-manager/management/relocation/relocation-backup.md?toc=/azure/backup/toc.json
       - name: Manage
         href: backup-azure-manage-windows-server.md
     - name: Backup vault

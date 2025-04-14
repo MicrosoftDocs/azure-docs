@@ -70,6 +70,8 @@ To help ensure proper functionality and healthy state for your VPN gateway, cons
 * Revert to the Azure DNS default by removing the custom DNS within the VNet settings (recommended configuration).
 * Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Depending on the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
 
+When configuring the Azure DNS Private Resolver's forwarding rule in the VNet where the VPN Gateway is deployed, if you include a wildcard in the DNS forwarding ruleset, ensure that the forwarding destination IP points to the built-in Azure DNS service (168.63.129.16) to resolve public URLs.
+
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
 No. VPN clients connected in point-to-site to the same VPN gateway can't communicate with each other.
@@ -333,7 +335,7 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 ### How do I configure a cross tenant scenario?
 
- * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](https://learn.microsoft.com/azure/azure-resource-manager/management/authenticate-multi-tenant#header-values-for-authentication).
+ * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](/azure/azure-resource-manager/management/authenticate-multi-tenant#header-values-for-authentication).
  * For [site-to-site](vpn-gateway-create-site-to-site-rm-powershell.md#tenants).
  * For [VNet-to-VNet](vpn-gateway-vnet-vnet-rm-ps.md#tenant).
 

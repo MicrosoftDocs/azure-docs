@@ -63,12 +63,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-<a name='azure-active-directory-limits'></a>
-
-## Microsoft Entra ID limits
-
-[!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
-
 ## Azure API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
@@ -404,10 +398,6 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [mobile-services-limits](../../../includes/mobile-services-limits.md)]
 
-## Microsoft Entra service limits
-
-[!INCLUDE [microsoft-entra-service-limits](../../../includes/entra-service-limits-include.md)]
-
 ## Azure networking limits
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
@@ -481,6 +471,12 @@ Unless stated otherwise, the following limits apply to Azure VPN Gateway resourc
 ## Microsoft Dev Box limits
 
 [!INCLUDE [dev-box-limits](../../../includes/dev-box-limits.md)]
+
+<a name='azure-active-directory-limits'></a>
+
+## Microsoft Entra service limits
+
+See [Microsoft Entra service limits](/entra/identity/users/directory-service-limits-restrictions) for Microsoft Entra service limits.
 
 ## Microsoft Purview limits
 
