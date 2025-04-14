@@ -50,23 +50,27 @@ OPENROWSET(
     )  [ < with clause > ] AS alias
 ```
 
-The SQL connection string for Azure Cosmos DB specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to the `OPENROWSET` function. Some of this information can be taken from the standard Azure Cosmos DB connection string.
+The SQL connection string for Azure Cosmos DB includes the following components:
+- **Account Name** - The name of the Azure Cosmos DB account you are targeting.
+- **Database Name** - The container name, specified without quotation marks in the OPENROWSET syntax. If the container name contains special characters (e.g., a dash -), it should be enclosed in square brackets ([]).
+- **Region Name** (optional) - The region of your CosmosDB analytical storage. If omitted, the container's primary region is used.
+- **AuthType** - set this option to `ManagedIdentity` if accessing CosmosDB using the Synapse workspace Managed Identity instead of the account key.
+- **Key** - The master key for accessing CosmosDB data, used if not utilizing the Synapse workspace managed identity.
+- **Endpoint** (optionsl) - required if your CosmosDB account does not follow the standard `*.documents.azure.com` format.
 
-Convert from the standard Azure Cosmos DB connection string format:
+Some of this information can be derived from the standard Azure Cosmos DB connection string:
 
 ```
 AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
 ```
 
-The SQL connection string has the following format:
-
+The SQL connection string can be formatted as follows:
+- Using the CosmosDB database account master key for authentication:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
 
-The region is optional. If omitted, the container's primary region is used.
-You can use workspace managed identity instead fo the CosmosDB account key:
-
+- Using the workspace managed identity instead of the CosmosDB account key:
 ```sql
 'account=<databases account name>;database=<database_name>;authtype=ManagedIdentity'
 ```
@@ -74,7 +78,6 @@ You can use workspace managed identity instead fo the CosmosDB account key:
 > [!IMPORTANT]
 > There's another optional parameter in connection string called `endpoint`. The `endpoint` param is needed for accounts that don't match the standard `*.documents.azure.com` format. For example, if your Azure Cosmos DB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.
 
-The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
 
 ### [OPENROWSET with credential](#tab/openrowset-credential)
 
