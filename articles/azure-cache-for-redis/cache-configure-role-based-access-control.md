@@ -37,7 +37,7 @@ Redis supports the following useful command categories. For more information and
 
 |Category|Description|
 |--------|-----------|
-|`admin`|Administrative commands, such as `MONITOR` and `SHUTDOWN`. Normal applications never need to use these.|
+|`admin`|Administrative commands, such as `MONITOR` and `SHUTDOWN`. Normal applications never need to use these commands.|
 |`dangerous`|Potentially dangerous commands, including `FLUSHALL`, `RESTORE`, `SORT`, `KEYS`, `CLIENT`, `DEBUG`, `INFO`, and `CONFIG`. Consider each with care, for various reasons.|
 |`keyspace`|Includes `DEL`, `RESTORE`, `DUMP`, `RENAME`, `EXISTS`, `DBSIZE`, `KEYS`, `EXPIRE`, `TTL`, and `FLUSHALL`. Writing or reading from keys, databases, or their metadata in a type agnostic way. Commands that only read the keyspace, key, or metadata have the `read` category. Commands that can modify the keyspace, key, or metadata also have the `write` category.|
 |`pubsub`|PubSub-related commands.|
@@ -49,19 +49,19 @@ Redis supports the following useful command categories. For more information and
 |`write`|Writing values or metadata to keys.|
 
 >[!NOTE]
->Commands that are [blocked](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) for Azure Redis remain blocked within these categories.
+>Commands that are [blocked](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) for Azure Redis remain blocked within the categories.
 
 ### Commands
 
-*Commands* allow you to control which specific commands can be run by a particular Redis user. In a permissions string, use `+command` to allow a command or `-command` to disallow a command.
+*Commands* allow you to control which specific commands a particular Redis user can run. In a permissions string, use `+command` to allow a command or `-command` to disallow a command.
 
 ### Keys
 
 *Keys* allow you to control access to specific keys or groups of keys stored in the cache. In a permissions string, use `~<pattern>` to provide a pattern for keys. Use either `~*` or `allkeys` to indicate that the permissions apply to all keys in the cache.
 
-## Configure a custom data access policy
+## Configure a custom data access policy for your application
 
-To configure a custom data access policy, you first create a permissions string to use as your custom access policy, and then assign the policy to Azure Redis cache users.
+To configure a custom data access policy, you first create a permission string to use as your custom access policy, and then assign the policy to Azure Redis cache users.
 
 ### Specify permissions
 
@@ -70,7 +70,7 @@ Configure the permissions string according to your requirements. The following e
 |Permissions string|Description|
 |------------------|-----------|
 |`+@all allkeys`|Allow application to execute all commands on all keys.|
-|`+@read ~*`|- Allow application to execute only `read` command category.|
+|`+@read ~*`|Allow application to execute only `read` command category.|
 |`+@read +set ~Az*`|Allow application to execute `read` command category and set command on keys with prefix `Az`.|
 
 ### Create the custom data access policy
@@ -93,11 +93,11 @@ The custom policy now appears on the **Access Policies** tab of the **Data Acces
 
 ### Enable Microsoft Entra ID authentication
 
-To add a user to an access policy by using Microsoft Entra ID, you must have Microsoft Entra ID rather than Access Keys authentication enabled on your cache. To check this, select **Authentication** under **Settings** in the laft navigation menu for your cache.
+To add a user to an access policy by using Microsoft Entra ID, you must have Microsoft Entra ID rather than Access Keys authentication enabled on your cache. To check your authentication method, select **Authentication** under **Settings** in the left navigation menu for your cache.
 
 On the **Authentication** screen, if **Disable Access Keys Authentication** is selected and no access keys appear on the screen, your cache already uses Microsoft Entra ID authentication. Otherwise, select the checkbox next to **Disable Access Keys Authentication** and then select **Save**.
 
-:::image type="content" source="media/cache-azure-active-directory-for-authentication/enable-entra.png" alt-text="Screenshot of disabling access keys authentication.":::
+:::image type="content" source="media/cache-configure-role-based-access-control/enable-entra.png" alt-text="Screenshot of disabling access keys authentication.":::
    
 Respond **Yes** to the popup dialog box asking if you want to disable access keys authentication.
 
