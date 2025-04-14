@@ -30,6 +30,9 @@ You can upgrade an existing Azure IoT Operations instance to any patch of the sa
 
 Azure IoT Operations doesn't support downgrading between versions. To move to an older version, uninstall Azure IoT Operations and reinstall the desired version.
 
+> [!NOTE]
+> Azure IoT Operations doesn't support live upgrades. Please expect some downtime during the upgrade process.
+
 ## Upgrade
 
 Azure IoT Operations supports upgrading instances to new GA versions as they're released.
