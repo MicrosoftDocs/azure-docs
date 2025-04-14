@@ -36,7 +36,7 @@ This article provides some general guidance on getting optimal performance with 
     - AV64 - Seven sessions over seven Private Endpoints
 
     > [!NOTE]
-    > A single Elastic SAN volume supports up to a maximum of 128 sessions. If you plan to have 16 nodes in your AVS cluster, you should not configure more sessions than what is recommended above to allow for 17th node to connect during maintenance or node failure scenarios. If you don’t plan to have 16 nodes in your AVS cluster, we recommend using 8 iSCSI sessions for all the above-mentioned SKUs – so 8 sessions over 4 Private Endpoints for AV36, AV36P, AV52 SKUs and 8 sessions over 8 Private Endpoints for AV64 SKU.
+    > A single Elastic SAN volume supports up to a maximum of 128 sessions. If you plan to have 16 nodes in your AVS cluster, don't configure more sessions than what is recommended for your host type to allow for 17th node to connect during maintenance or node failure scenarios. If you don’t plan to have 16 nodes in your AVS cluster, you should use eight iSCSI sessions for all the above-mentioned SKUs – so 8 sessions over 4 Private Endpoints for AV36, AV36P, AV52 SKUs and 8 sessions over 8 Private Endpoints for AV64 SKU.
     
 -  Configure Private Endpoints before mounting your Elastic SAN volume as an external datastore
 - Use eager zeroed thick provisioning when creating virtual disks
