@@ -14,6 +14,12 @@ Partner organizations use Azure Native ISV Services to offer solutions which are
 
 Subscribe to any Azure Native ISV Service through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
+## AI
+
+|Partner                                           |Description |
+|--------------------------------------------------|------------|
+|[LambdaTest - HyperExecute](lambda-test/overview.md)|An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments (Web Browser, Real Devices, Emulator/Simulators, API, Performance) with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.|
+
 ## Observability
 
 |Partner                                          |Description                                                                                                                                          |
