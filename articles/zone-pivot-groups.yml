@@ -405,11 +405,11 @@ groups:
   prompt: Choose how you want to deploy your Java app
   pivots:
   - id: java-javase
-    title: Embed your own server (such as embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as Spring Boot, Quarkus)
   - id: java-tomcat
-    title: To a Tomcat server
+    title: Tomcat
   - id: java-jboss
-    title: To a JBoss server
+    title: JBoss EAP
 - id: app-service-java-hosting
   title: App Service Java hosting
   prompt: Choose how your Java app is hosted

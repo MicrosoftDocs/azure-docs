@@ -17,6 +17,10 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage.
 
+**Azure Native Pure Storage Cloud (preview)**
+
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for AVS, enabling you to scale storage independently for your virtual workloads.
+
 ## March 2025
 
 To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in Broadcom security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074) 
