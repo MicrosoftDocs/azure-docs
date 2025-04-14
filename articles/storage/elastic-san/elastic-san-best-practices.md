@@ -86,6 +86,11 @@ devices {
 }
 ```
 
+#### Azure VMware Solution
+
+MPIO settings for Azure VMware Solution are managed by Microsoft. Optimal values are set when you create a datastore.
+
+
 ### iSCSI
 
 #### Windows
@@ -164,6 +169,9 @@ sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node
 In cluster configurations, ensure iSCSI initiator names are unique across all nodes that are sharing volumes. In Linux, modify /etc/iscsi/initiatorname.iscsi to update the initiator name.
 :::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png" alt-text="Screenshot updating the iSCSI Initiator Name on Linux." lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png"::: 
 
+#### Azure VMware Solution
+
+iSCSI settings are managed by Microsoft. Optimal values are set when you create a datastore.
 
 ## Elastic SAN optimizations
 
