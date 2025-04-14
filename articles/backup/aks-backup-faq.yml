@@ -9,7 +9,7 @@ metadata:
   ms.author: jsuri
 title: Frequently asked questions about Azure Backup for Azure Kubernetes Service
 summary: |
-  This article answers frequently asked questions about Azure Backup for Azure Kubernetes Service. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios, and limitations, see the [support matrix](disk-backup-support-matrix.md).
+  This article answers frequently asked questions about Azure Backup for Azure Kubernetes Service. For more information on the [Azure Backup for AKS](azure-kubernetes-service-backup-overview.md) region availability, supported scenarios, and limitations, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
   
   ## Frequently asked questions
 
@@ -47,7 +47,6 @@ sections:
            
            - Memory: requests - 256Mi, limits - 1280Mi
            - CPU: requests - 500m, limits - 1000m           
-
 
       -  question: |
           When I install AKS Backup Extension, what Kubernetes Resources get deployed in the cluster?
@@ -235,3 +234,9 @@ sections:
           Following are the actions used in the **Storage Blob Data Owner** role assigned on the Backup Vault over the Staging Storage Account in case backups are to be restored from Vault Tier:
 
           1. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/*
+
+additionalContent: |
+
+  ## Next steps
+  
+  - [Azure Backup for AKS support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md)
