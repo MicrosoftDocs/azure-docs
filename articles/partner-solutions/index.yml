@@ -61,7 +61,7 @@ productDirectory:
       imageSrc: ./media/index/neon.svg
       links:
         - url: ./neon/overview.md
-          text: Neon offers a serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
+          text: A serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
     - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
