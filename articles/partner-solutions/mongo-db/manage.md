@@ -27,3 +27,7 @@ To manage your resource, select the links next to corresponding details.
 ## Delete an MongoDB Atlas resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
+
+## Related content
+
+- [MongoDB Atlas resources and tools](tools.md)
