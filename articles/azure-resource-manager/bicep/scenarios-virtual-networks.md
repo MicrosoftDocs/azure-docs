@@ -1,11 +1,9 @@
 ---
 title: Create virtual network resources by using Bicep
 description: Describes how to create virtual networks, network security groups, and route tables by using Bicep.
-author: johndowns
-ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 03/17/2025
 ---
 
 # Create virtual network resources by using Bicep

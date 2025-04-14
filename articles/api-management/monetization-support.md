@@ -4,7 +4,7 @@ description: Learn how Azure API Management supports monetization strategies for
 author: dlepow
 ms.author: danlep
 ms.date: 02/10/2022
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-api-management
 ---
 
@@ -157,7 +157,7 @@ API Management can be deployed either through:
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=0337c2ce-aa26-48e4-b752-bcce254966a6]
 
 
-## Next steps
+## Related content
 
 * [Learn more about API Management monetization strategies](monetization-overview.md).
 * Deploy a demo Adyen or Stripe integration via the associated [Git repo](https://github.com/microsoft/azure-api-management-monetization).

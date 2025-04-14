@@ -5,7 +5,7 @@ description: Learn about Azure Point-to-Site VPN routing for different operating
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 07/28/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---

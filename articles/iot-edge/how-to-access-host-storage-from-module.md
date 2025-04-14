@@ -4,7 +4,7 @@ description: Use environment variables and create options to enable module acces
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 03/19/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -19,7 +19,7 @@ IoT Edge modules can use storage on the host IoT Edge device itself for improved
 
 ## Configure system modules to use persistent storage
 
-By default, IoT Edge system modules, IoT Edge agent and IoT Edge hub, store state in the ephemeral file system of their container instance. This state is lost when the container instance is recycled, for example, when module image version or createOptions is updated. 
+By default, IoT Edge system modules, IoT Edge agent, and IoT Edge hub, store state in the ephemeral file system of their container instance. This state is lost when the container instance is recycled, for example, when module image version or createOptions is updated. 
 
 For production scenarios, use a persistent storage location on the host filesystem to store system module state. Doing so improves solution robustness and cloud message delivery guarantees.
 
@@ -80,13 +80,18 @@ Your deployment manifest would be similar to the following:
 On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `StorageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
 
 > [!NOTE]
-> Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container isn't running as `root` user. 
+> Automatic permission management of host bound storage only applies to system modules, IoT Edge agent, and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container isn't running as `root` user. 
 
 
 
 ## Link module storage to device storage for custom modules
 
-If your custom module requires access to persistent storage on the host file system, use the module's create options to bind a storage folder in module container to a folder on the host machine. For example:
+If your custom module requires access to persistent storage on the host file system, use the module's create options to bind a storage folder in module container to a folder on the host machine.
+
+You can use a bind mount or a volume mount. A bind mount allows you to specify a host directory to be mounted into the module container. A volume mount allows you to specify a volume that is managed by Docker. For more information about when to use bind mounts or volume mounts, see the Docker documentation for [volume mounts](https://docs.docker.com/engine/storage/volumes) and [bind mounts](https://docs.docker.com/storage/bind-mounts).
+
+The following example shows how to use a bind mount in the module's create options:
+
 
 ```json
 {

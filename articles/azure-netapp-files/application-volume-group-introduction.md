@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/24/2025
+ms.date: 03/13/2025
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
@@ -46,7 +46,7 @@ Application volume group for SAP HANA helps you simplify the deployment process 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
 
-### <a name="extension-1-features"></a> Extension 1 features (preview)
+### <a name="extension-1-features"></a> Extension 1 features
 
 Application volume group for SAP HANA extension one offers support for:
 

@@ -1,8 +1,8 @@
 ---
-title: Introduction to Azure Service Bus, an enterprise message broker
+title: Introduction to Azure Service Bus
 description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration serverless message broker. 
 ms.topic: overview
-ms.date: 02/23/2024
+ms.date: 03/13/2025
 ---
 
 # What is Azure Service Bus?
@@ -116,11 +116,11 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 If an error occurs that causes the client to have any doubt about the outcome of a send operation, duplicate detection takes the doubt out of these situations by enabling the sender to resend the same message, and the queue or topic discards any duplicate copies. For more information, see [Duplicate detection](duplicate-detection.md).
 
-## Batch delete of Messages
-Azure Service Bus supports deletion of messages in batches. This is useful in scenarios when messages within queues or subscriptions have become expired , or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
+## Batch deletion of Messages
+Azure Service Bus supports deletion of messages in batches. This is useful in scenarios when messages within queues or subscriptions have become expired, or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
 
 ### Security
-Service Bus supports security protocols such as [Shared Access Signatures (SAS)](service-bus-sas.md), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
+Service Bus supports security protocols such as [Shared Access Signatures (SAS)](service-bus-sas.md), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC), and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
 
 Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 

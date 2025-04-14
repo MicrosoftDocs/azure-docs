@@ -17,21 +17,34 @@ The Grafana Enterprise plans offered through Azure Managed Grafana enable users 
 >[!NOTE]
 > To activate the Grafana Enterprise option, your Azure Managed Grafana workspace must be using the Standard plan. For more information about plans, go to [pricing plans](overview.md#service-tiers).
 
-Grafana Enterprise plugins, as of October 2023:
+Grafana Enterprise plugins, as of March 2025:
 
+- Adobe Analytics
+- Amazon Aurora
 - AppDynamics
+- Atlassian Statuspage
+- Azure Cosmos DB
 - Azure DevOps
+- Catchpoint
+- Cloudflare
+- CockroachDB
 - Databricks
 - Datadog
+- Drone
+- DynamoDB
 - Dynatrace
 - GitLab
+- Grafana Enterprise Logs
+- Grafana Enterprise Metrics
+- Grafana Enterprise Traces
 - Honeycomb
 - Jira
-- k6 Cloud App
 - Looker
 - MongoDB
+- Netlify
 - New Relic
 - Oracle Database
+- PagerDuty
 - Salesforce
 - SAP HANA®
 - ServiceNow
@@ -40,7 +53,9 @@ Grafana Enterprise plugins, as of October 2023:
 - Splunk Infrastructure Monitoring
 - Sqlyze Datasource
 - Sumo Logic
+- Vercel
 - Wavefront
+- Zendesk
 
 > [!NOTE]
 > Grafana Enterprise plugins are directly supported by Grafana Labs. For more information and an updated list, go to [Grafana Enterprise plugins](https://grafana.com/docs/plugins/).

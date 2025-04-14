@@ -54,18 +54,6 @@ sections:
           Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4 and is visible on R4 instances of Azure API for FHIR.
 
       - question: |
-          What's the difference between Azure Health Data Services and Azure API for FHIR?
-        answer: |
-          Azure API for FHIR is a generally available managed FHIR service. Azure Health Data Services allows you to deploy a FHIR service and a DICOM service in the same workspace. The Azure Health Data Services overview provides more details.         
-          
-      - question: |
-          What's the difference between the Microsoft FHIR Server for Azure and Azure API for FHIR?
-        answer: |
-          Azure API for FHIR is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates. 
-          
-          When you run the FHIR Server for Azure, you have direct access to the underlying services, but we're responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
-          
-      - question: |
           In which regions is Azure API for FHIR available?
         answer: |
           We have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, see [Azure services by FedRAMP](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
@@ -228,3 +216,8 @@ sections:
           What should I do if I am unable to delete a FHIR Resource due to its provisioning state?
         answer: |
           Check if disaster recovery is enabled for the FHIR resource. If it is, disable the disaster recovery feature.  
+
+      - question: |
+          What should I do if I receive HTTP status code 429 from Azure API for FHIR service?
+        answer: |
+         Check the RU consumption associated with the FHIR instance. In case of high RU consumption (around 100%), check if the throttling error corresponds to the time of high RU usage. If it does, consider enabling autoscaling for your service and increasing the RU allocated to your service. Refer to [autoscaling Azure API for FHIR](autoscale-azure-api-fhir.md) for more details.

@@ -4,12 +4,26 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 03/03/2025
+ms.date: 04/02/2025
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## March 2025
+
+Here are the highlights of documentation changes in March 2025:
+
+- Consolidated and archived the Remote Desktop client content. The content is now available in the [Remote Desktop client documentation](/previous-versions/remote-desktop-client/).
+
+- Moved the article **Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune** to Windows App documentation. and separated the content into two articles:
+   - [Require device security compliance for Windows App with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune).
+   - [Manage Windows App redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune).
+
+- Added a deprecation notice for MSIX app attach. MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+-  Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include steps on how to assign multiple personal desktops to a single user, which is available in preview. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).
 
 ## February 2025
 
@@ -23,7 +37,7 @@ Here are the highlights of documentation changes in February 2025:
 
 The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
+For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
 
 ## January 2025
 
@@ -154,7 +168,7 @@ Here are the highlights of documentation changes in June 2024:
 
 Here are the highlights of documentation changes in May 2024:
 
-- Published a new article to [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+- Published a new article to [Manage Windows App redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 - Updated the branding of the Getting started feature to [Quickstart](quickstart.md) to match the Azure portal.
 

@@ -5,7 +5,7 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
@@ -41,6 +41,9 @@ To open a stream in Blob Storage and write to that stream, use either of the fol
 
 - [OpenWrite](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.openwrite)
 - [OpenWriteAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.openwriteasync)
+
+> [!NOTE]
+> The Azure Storage client libraries don't support concurrent writes to the same blob. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control to provide a predictable experience. To learn more about concurrency strategies, see [Manage concurrency in Blob Storage](concurrency-manage.md).
 
 ## Upload a block blob from a local file path
 
