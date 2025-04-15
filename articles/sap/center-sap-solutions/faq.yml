@@ -80,6 +80,7 @@ sections:
                 Azure Virtual Instance for SAP solutions is available in the following regions:  
 
                 - West Europe, North Europe, East US, East US 2, West US, West US 2, West US 3, Central US, South Central US,  North Central US, India Central, East Asia, Southeast Asia, Korea Central, Japan East, Australia East, Australia Central, Canada Central, Brazil South, UK South, Germany West Central, Sweden Central, France Central, Switzerland North, Norway East, South Africa North and UAE North.  
+                - Please note that UK West is a supported region for registering systems with ACSS. You can register systems in UK West using API, PowerShell, CLI, SDK, and Terraform interfaces. However, registration through the Azure portal is not currently available for this region. Also, when registering SAP systems with VMs in UK West, the corresponding VIS resource will be created in the UK South region.
                 - You can also see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=all#:~:text=Azure%20Center%20for%20SAP%20solutions) page for information about availability of Azure Center for SAP solutions in different Azure regions. 
 
   - name: Registering Existing SAP System Questions 
