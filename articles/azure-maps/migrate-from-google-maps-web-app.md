@@ -11,7 +11,7 @@ ms.subservice: web-sdk
 
 # Tutorial: Migrate a web app from Google Maps
 
-Most web apps, which use Google Maps, are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This tutorial demonstrates:
+Most web apps, which use Google Maps, are using the Google Maps v3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This tutorial demonstrates:
 
 > [!div class="checklist"]
 > * Load a map
@@ -56,7 +56,7 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 ## Key features support
 
-The table lists key API features in the Google Maps V3 JavaScript SDK and the supported API feature in the Azure Maps Web SDK.
+The table lists key API features in the Google Maps v3 JavaScript SDK and the supported API feature in the Azure Maps Web SDK.
 
 | Google Maps feature     | Azure Maps Web SDK support |
 |-------------------------|:--------------------------:|
@@ -89,7 +89,7 @@ The following are some key differences between the Google Maps and Azure Maps We
 
 ## Web SDK side-by-side examples
 
-This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as another option through an [npm module].
+This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps v3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as another option through an [npm module].
 
 **Topics**
 
@@ -1692,9 +1692,9 @@ The following are some more code samples related to Google Maps migration:
 * [Show directions from A to B]
 * [Search Autosuggest with jQuery UI]
 
-## Google Maps V3 to Azure Maps Web SDK class mapping
+## Google Maps v3 to Azure Maps Web SDK class mapping
 
-The following appendix provides a cross reference of the commonly used classes in Google Maps V3 and the equivalent Azure Maps Web SDK.
+The following appendix provides a cross reference of the commonly used classes in Google Maps v3 and the equivalent Azure Maps Web SDK.
 
 ### Core Classes
 
