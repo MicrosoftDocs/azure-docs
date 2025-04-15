@@ -1,10 +1,10 @@
 items:
-- name: Azure Native LambdaTest - HyperExecute (preview) Documentation
+- name: LambdaTest - HyperExecute (preview) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Native LambdaTest - HyperExecute (preview)?
+  - name: What is LambdaTest - HyperExecute (preview)?
     href: overview.md 
 - name: Quickstart
   expanded: true
