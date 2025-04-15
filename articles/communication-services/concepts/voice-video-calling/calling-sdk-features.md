@@ -195,7 +195,7 @@ The Azure Communication Services Calling SDK supports sending following video re
 | **Receiving a remote video or screen share** | 1080p         | 720p         | 720p | 720p    | 1080p   |
 
 ## Number of participants on a call support
-- Sending a [1080p stream from WebJS desktop](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream) is a public preview. GA versions of WebJS SDK supprot 720p.
+- Sending a [1080p stream from WebJS desktop](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream) is in public preview. GA versions of WebJS SDK for Desktop browser support sending a 720p stream.
 - Up to **350** users can join a group call, Room call, or Teams + Azure Communication Services call.
 - Once the call size reaches 100+ participants, the Calling SDK only displays the top four dominant speakers that have their video camera active.
 - When the number of people on the call is 100+, the viewable number of incoming videos automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
