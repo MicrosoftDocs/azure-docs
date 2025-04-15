@@ -43,7 +43,7 @@ To create and manage Azure Cache for Redis instances using Azure classic CLI, yo
 * Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and sign in from the classic CLI using the `azure login` command.
 * Before running any of the following commands, switch the classic CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Use the Azure classic CLI to manage Azure resources and resource groups](../azure-resource-manager/management/manage-resources-cli.md).
 
-### Azure Cache for Redis properties
+## Azure Cache for Redis properties
 
 The following properties are used when creating and updating Azure Cache for Redis instances.
 
@@ -65,7 +65,7 @@ The following properties are used when creating and updating Azure Cache for Red
 | VirtualNetwork |-v, --virtual-network \<virtual-network\> |When hosting your cache in a VNET, specifies the exact Resource Manager resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |The subscription identifier. |
 
-### See all Azure Cache for Redis commands
+## See all Azure Cache for Redis commands
 
 To see all Azure Cache for Redis commands and their parameters, use the `azure rediscache -h` command.
 
