@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/20/2025
+ms.date: 04/15/2025
 ms.author: jianleishen
 ---
 
@@ -504,7 +504,7 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | LONG RAW |Byte[] |Byte[] |
 | NCHAR |String |String |
 | NCLOB |String |String |
-| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, Decimal |Decimal, String (if p > 28) |
+| NUMBER (p,s) |Int16, Int32, Int64, Single, Double, Decimal |Decimal, String (if p > 28) |
 | NUMBER without precision and scale | Decimal |Double |
 | NVARCHAR2 |String |String |
 | RAW |Byte[] |Byte[] |
@@ -669,7 +669,7 @@ The Oracle connector version 2.0 (Preview) offers new functionalities and is com
 
 | Version 2.0 (Preview) | Version 1.0  | 
 |:--- |:--- |
-|The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
+|The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Single, Double, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
 | Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
 | Using `?` as a placeholder for script activity query parameters is not support. You can use the named parameter (such as `:paramA`) or the positional parameter (such as `:1`) as a replacement.    | Support using `?` as a placeholder for script activity query parameters.  | 
 | Support TLS 1.3.| TLS 1.3 is not supported. | 
