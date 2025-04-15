@@ -1,6 +1,6 @@
 ---
-title: Enable API Center portal - Azure API Center - VS Code extension
-description: Enable enterprise developers to view the enterprise's API Center portal including API definitions using the Visual Studio Code Extension for Azure API Center.
+title: Enable API Center portal view - Azure API Center - VS Code extension
+description: Enable enterprise developers to view the enterprise's API Center portal view including API definitions using the Visual Studio Code Extension for Azure API Center.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
@@ -40,9 +40,9 @@ The following sections provide steps for API center administrators to enable ent
 
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
 
-### Enable sign-in to API Center portal by Microsoft Entra users and groups 
+### Enable sign-in to API Center portal view by Microsoft Entra users and groups 
 
-Enterprise developers must sign in with a Microsoft account to see the API Center portal for your API center. If needed, [add or invite developers](/entra/external-id/b2b-quickstart-add-guest-users-portal) to your Microsoft Entra tenant. 
+Enterprise developers must sign in with a Microsoft account to see the API Center portal view for your API center. If needed, [add or invite developers](/entra/external-id/b2b-quickstart-add-guest-users-portal) to your Microsoft Entra tenant. 
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 
@@ -73,11 +73,11 @@ Developers can follow these steps to connect and sign in to view an API Center p
    
 1. To view the APIs in the API center, under the API center name, select **Sign in to Azure**. Sign-in is allowed with a Microsoft account that is assigned the **Azure API Center Data Reader** role in the API center. 
 
-   ![api-center-pane-initial](media/enable-api-center-portal-vs-code-extension/api-center-pane-initial1.png)
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-initial.png" alt-text="Screenshot of the API Center portal view in Api Center Extension.":::
    
 1. After signing in, select **APIs** to list the APIs in the API center. Expand an API to explore its versions and definitions.
 
-   ![api-center-pane-apis](media/enable-api-center-portal-vs-code-extension/api-center-pane-apis1.png)
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-apis.png" alt-text="Screenshot of the API Center api definitions in Api Center Extension":::
    
 1. Repeat the preceding steps to connect to more API centers, if access is configured.
 
