@@ -284,7 +284,7 @@ items:
       href: restore-guest-files-folders.md  
   - name: Configure Pure Cloud Block Store
     href: configure-pure-cloud-block-store.md
-  - name: Configure Azure Native Pure Storage Cloud
+  - name: Configure Azure Native Pure Storage Cloud (preview)
     href: configure-azure-native-pure-storage-cloud.md
 - name: Backup and recovery
   items:
