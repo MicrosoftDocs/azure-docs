@@ -5,7 +5,6 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ai.usage: ai-assisted
 ms.date: 04/14/2025
 ---
 
