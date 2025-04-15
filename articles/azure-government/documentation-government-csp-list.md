@@ -234,7 +234,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Integration Partners Corp.](https://integrationpartners.com/)|
 |[Intelice Solutions, LLC](https://www.intelice.com/)|
 |[InterVision Systems LLC](https://intervision.com)|
-|[Intrinium](https://https://www.intrinium.com/about-us/)|
+|Intrinium|
 |[Invoke, LLC](https://invokellc.com)|
 |[It1 Source LLC](https://www.it1.com)|
 |[ITInfra](https://itinfra.biz/)|
@@ -331,7 +331,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |Phacil (By Light) |
 |[Pharicode LLC](https://glidefast.com/)|
 |Philistin & Heller Group, Inc.|
-|[Picis Envision](https://www.picis.com/en/)|
+|[Picis Envision](https://www.picis.com)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
 |[Pitech Solutions Inc](https://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
