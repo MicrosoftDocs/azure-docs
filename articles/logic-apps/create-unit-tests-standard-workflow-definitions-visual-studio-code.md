@@ -63,20 +63,22 @@ The following list includes basic but important concepts about unit tests for St
 1.  In Visual Studio Code, open your Standard logic app project.
 2.  In your project, expand the workflow definition folder.
 3.  From the shortcut menu for **workflow.json** file, select **Open Designer**.
-4.  On the designer toolbar, select **Create unit test**.  
-    ![](media/create-unit-tests-standard-workflow-definitions-visual-studio-code/designer-vscode.png)
-5.  Provide a name to use for the unit test, unit test class, and C\# file.  
+4.  On the designer toolbar, select **Create unit test**.
+   
+    :::image type="content" source="media/create-unit-tests-standard-workflow-definitions-visual-studio-code/designer-vscode.png" alt-text="Screenshot shows Visual Studio Code with Standard logic app project, designer running, opened workflow design view, and selected command to create unit test." lightbox="media/create-unit-tests-standard-workflow-definitions-visual-studio-code/designer-vscode.png":::
+    
+6.  Provide a name to use for the unit test, unit test class, and C\# file.  
       
     A new folder named **Tests** now appears in your project workspace. This folder has the following structure:
 
-    ![](media/create-unit-tests-standard-workflow-definitions-visual-studio-code/project-structure.png)
+    :::image type="content" source="media/create-unit-tests-standard-workflow-definitions-visual-studio-code/project-structure.png" alt-text="Screenshot shows Visual Studio Code, Standard logic app project, and Tests folder with unit test folders and files." lightbox="media/create-unit-tests-standard-workflow-definitions-visual-studio-code/project-structure.png":::
 
-| **Folder hierarchy and item**                                                                                                           | **Description**                                                                                                                                                                                                                                                                                                                          |
-|-----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Tests** **\|\| \<logic-app-name\>**                                                                                                   | In the **Tests** folder, a **\<logic-app-name\>** folder appears when you add new unit tests related to a logic app project.|
-| **Tests** **\|\| \<logic-app-name\>** **\|\|\| \<workflow-name\>**                                                                      | In the **\<logic-app-name\>** folder, a **\<workflow-name\>** folder appears when you add new unit tests related to a workflow.|
-| **Tests** **\|\| \<logic-app-name\>** **\|\|\| \<workflow-name\>** **\|\|\|\| MockOutputs**                                             | In the **\<workflow-name\>** folder, a **MockOutputs** folder appears and contains strong-typed classes for each connector type in the workflow.  If connectors have dynamic contracts, a new class appears for each dynamic type in the workflow. You can use these classes to extend the unit tests and create new mocks from scratch.|
-| **Tests** **\|\| \<logic-app-name\>** **\|\|\| \<workflow-name\>** **\|\|\|\| \<unit-test-name\>** **\|\|\|\|\| \<unit-test-name\>.cs** | In the **\<unit-test-name\>** folder, the **\<unit-test-name\>.cs** file contains a sample C\# class and methods that use the **\<\*\>-mock.json** file to run and assert results. You can edit this file to match your specific test scenarios.|
+   | **Folder or file** |**Description** |
+   |--------------------|----------------|
+   | **`Tests`** <br>**\|\| <`logic-app-name`>** | In the **`Tests`** folder, a **<`logic-app-name`>** folder appears when you add unit tests to a logic app project.|
+   | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** | In the **<`logic-app-name`>** folder, a **<`workflow-name`>** folder appears when you add unit tests for a workflow. |
+   | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** <br>**\|\|\|\| `MockOutputs`** <br>**\|\|\|\|\| <`operation-name-outputs`>**.**`cs`** | In the **<`workflow-name`>** folder, the **`MockOutputs`** folder contains a C# (**.cs**) file with strongly-typed classes for each connector operation in the workflow. Each **.cs** file name uses the following format: <br><br>**<`operation-name`>[`Trigger\|Action`]`Output.cs`** <br><br>If a connector operation has *dynamic contracts*, a class appears for each *dynamic type*. A dynamic type refers to an operation parameter that has different inputs and outputs based on the value provided for that parameter. You can use these classes to extend your unit tests and create new mocks from scratch. |
+   | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** <br>**\|\|\|\| <`unit-test-name`>** <br>**\|\|\|\|\| <`unit-test-name`>`.cs`** | In the **<`workflow-name`>** folder, the **<`unit-test-name`>** folder contains the following files: <br><br>- The **<`unit-test-name`>`.cs`** file contains a sample C# class and methods used to run and assert results. You can edit this file to match your specific test scenarios. |
 
 ## Review the \<unit-test-name\>.cs file
 
