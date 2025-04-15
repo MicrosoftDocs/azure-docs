@@ -69,7 +69,7 @@ User-Agent: value3
 
 The following limitations apply:
 
-- Removal of `Server` header isn't supported.
+- Removal of `Server` or `X-Forwarded-For` header isn't supported.
 - Headers: `Connection`, `ContentLength`, `KeepAlive`, `TransferEncoding` cannot be modified or deleted. 
 
 ## Examples
