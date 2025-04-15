@@ -15,7 +15,7 @@ Azure Static Web Apps is available through three different plans, Free, Standard
 
 ## Features
 
-| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan (preview) |
+| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan (Deprecated effective 10/31/25) |
 | --- | --- | --- |---|
 | Web hosting | ✔ | ✔ | ✔ |
 | GitHub integration | ✔ | ✔ | ✔ |
