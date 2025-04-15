@@ -1,7 +1,7 @@
 ---
 title: Monitor Standard workflows with Health Check
 description: Set up Health Check to monitor health for Standard workflows in Azure Logic Apps.
-services: azure-logic-apps
+services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
