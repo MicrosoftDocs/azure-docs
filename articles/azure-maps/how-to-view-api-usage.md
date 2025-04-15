@@ -16,8 +16,6 @@ This article guides you on how to view API usage metrics for your Azure Maps acc
 
 ## View metric snapshot
 
-You can see some common metrics on the **Overview** page of your Maps account. It currently shows *Total Requests*, *Total Errors*, and *Availability* over a selectable time duration.
-
 The **Overview** page of your Maps account displays key metrics such as *Total Requests*, *Total Errors*, and *Availability* over a selectable time period.
 
 ![Azure Maps usage metrics overview](media/how-to-view-api-usage/portal-overview.png)
