@@ -7,7 +7,7 @@ items:
   href: azure-vmware-solution-platform-updates.md
 - name: Known issues
   href: azure-vmware-solution-known-issues.md
-- name: Azure VMware Solution
+- name: Azure VMware Solution Generation 1
   items:
   - name: Quickstarts
     items:
@@ -101,7 +101,7 @@ items:
       href: tutorial-scale-private-cloud.md
     - name: 9 - Delete a private cloud
       href: tutorial-delete-private-cloud.md
-- name: Azure VMware Solution Generation 2 Private Clouds (preview)
+- name: Azure VMware Solution Generation 2 (preview)
   items:
   - name: Introduction to Azure VMware Solution Generation 2 Private Clouds
     href: native-introduction.md
