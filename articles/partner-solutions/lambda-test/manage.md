@@ -1,5 +1,5 @@
 ---
-title: Manage LambdaTest - HyperExecute resource through the Azure portal (preview)
+title: Manage a LambdaTest - HyperExecute resource through the Azure portal (preview)
 description: This article describes management functions for LambdaTest - HyperExecute on the Azure portal.
 
 ms.topic: how-to
@@ -28,7 +28,6 @@ The *Essentials* details include:
 - Billing Term
 
 To manage your resource, select the links next to corresponding details.
-
 
 ## Delete a resource
 
