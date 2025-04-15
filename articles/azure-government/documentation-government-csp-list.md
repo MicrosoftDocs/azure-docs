@@ -39,7 +39,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Agile Defense Inc](https://agile-defense.com/)|
 |[Agile IT](https://www.agileit.com/)|
 |[Airnet Group](https://www.airnetgroup.com/)|
-|[AIS Network](https://www.aisn.net/)|
+|[AIS Network](https://aisn.net/)|
 |[AlasConnect](https://www.alasconnect.com)|
 |[Alcala Consulting Inc.](https://www.alcalaconsulting.com/)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
