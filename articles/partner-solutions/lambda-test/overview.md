@@ -22,7 +22,7 @@ You can set up the resources through a resource provider named `LambdaTest.Hyper
 You can create and manage the billing, resource creation, and authorization through the Azure portal. 
 LambdaTest owns and runs the Software as a Service (SaaS) application including the resources created.
 
-Azure Native LambdaTest - HyperExecute helps organizations with:
+LambdaTest - HyperExecute helps organizations with:
 
 - **Unified test execution environment** - Test your application across a wide variety of desktop browsers, real devices, simulators/emulators, performance, etc.
 - **Increased release velocity** - Accelerate time-to-market with faster release cycles.
