@@ -1,16 +1,16 @@
 ---
-title: Create an Azure VMware Solution Generation 2 private cloud (Public Preview)
+title: Create an Azure VMware Solution Generation 2 private cloud (preview)
 author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn how to create an Azure VMware Solution Generation 2 Private Cloud to apply Azure's infrastructure and VMware expertise effectively.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 03/11/2025
+ms.date: 4/15/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to create an Azure VMware Solution Generation 2 Private Cloud so that I can leverage Azure's infrastructure and VMware expertise.
 ---
 
-# Create an Azure VMware Solution Generation 2 Private Cloud (Public Preview)
+# Create an Azure VMware Solution Generation 2 Private Cloud (preview)
 
 In this tutorial, you learn how to create an Azure VMware Solution Generation (Gen) 2 Private Cloud. This solution combines the first-party Azure VMware Solution with Azure hardware and network to simplify your networking architecture, and enhance performance and security. This initial launch of this generation utilizes the AV64 SKU.
 
@@ -76,7 +76,7 @@ az feature registration create --namespace "Microsoft.AVS" --name "FleetGreenfie
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of **Succeeded** when the deployment is finished.
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of Succeeded when the deployment is finished. 
-1. Connect to vCenter and NSX Manager using the VMware credentials shown in your Private Cloud. For more information, see [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md). 
+1. Connect to vCenter Server and NSX Manager using the VMware credentials shown in your Private Cloud. For more information, see [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md). 
 
 ## Next steps
   
