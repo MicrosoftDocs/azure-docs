@@ -5,7 +5,7 @@ description: Explore Azure Native Integrations partner solutions for observabili
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 03/31/2025
+ms.date: 04/14/2025
 ---
 
 # Extend Azure with Azure Native Integrations
@@ -19,6 +19,7 @@ Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](
 |Partner                                           |Description |
 |--------------------------------------------------|------------|
 |[LambdaTest - HyperExecute](lambda-test/overview.md)|An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.|
+
 
 ## Observability
 

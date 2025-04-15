@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
-title: Azure Native ISV Services
-summary: Azure Native ISV Services enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services is developed and managed by Microsoft and the ISV.
+title: Azure Native Integrations
+summary: Azure Native Integrations enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native Integrations is developed and managed by Microsoft and the ISV.
 brand: azure
 
 metadata:
-  title: Azure Native ISV Services
-  description: Azure Native ISV Services enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services is developed and managed by Microsoft and the ISV.
+  title: Azure Native Integrations
+  description: Azure Native Integrations enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native Integrations is developed and managed by Microsoft and the ISV.
   
   ms.topic: hub-page
   ms.custom:
@@ -17,10 +17,10 @@ metadata:
 highlightedContent:
 
   items:
-    - title: What is Azure Native ISV Services?
+    - title: What is Azure Native Integrations?
       itemType: overview
       url: ./overview.md
-    - title: Find Azure Native ISV Services 
+    - title: Find Azure Native Integrations 
       itemType: get-started
       url: ./partners.md
 
@@ -66,7 +66,7 @@ productDirectory:
       imageSrc: ./media/index/neon.svg
       links:
         - url: ./neon/overview.md
-          text: Neon offers a serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
+          text: A serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
     - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
