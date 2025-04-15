@@ -1,21 +1,21 @@
 ---
-title: Application-consistent backups of Linux VMs using Azure Backup
-description: Create application-consistent backups of your Linux virtual machines to Azure. This article explains configuring the script framework to back up Azure-deployed Linux VMs. This article also includes troubleshooting information.
+title: Configure application-consistent backup for Azure Linux VMs using Azure Backup
+description: Learn how to create application-consistent backups for Azure-deployed Linux VMs using Azure Backup.
 ms.service: azure-backup
 ms.topic: how-to
 ms.custom: linux-related-content, engagement-fy24
-ms.date: 04/23/2024
+ms.date: 04/15/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Application-consistent backup of Azure Linux VMs using Azure Backup
+# Configure application-consistent backup for Azure Linux VMs using Azure Backup
 
-This article describes how to create application-consistent backups of your Linux Virtual Machines to Azure by using Azure Backup. In this article, you'll configure the script framework to back up Azure-deployed Linux VMs. This article also provides the troubleshooting information.
+This article describes how to create application-consistent backups for Azure-deployed Linux VMs using Azure Backup. It covers configuring the script framework and troubleshooting.
 
-When you take backup snapshots of VMs, application consistency means your applications start when the VMs boot after being restored. As you can imagine, application consistency is extremely important. To ensure your Linux VMs are application consistent, you can use the Linux prescript and post-script framework to take application-consistent backups. The prescript and post-script framework supports Azure Resource Manager-deployed Linux virtual machines. Scripts for application consistency don't support Service Manager-deployed virtual machines or Windows virtual machines.
+When Azure Backup takes snapshot of a VM, application consistency ensures that applications start correctly after VM restoration. To achieve this, use the Linux prescript and post-script framework, which supports Azure Resource Manager-deployed Linux VMs. However, these scripts don't work for Service Manager-deployed or Windows VMs.
 
-## How the framework works
+## How the framework works?
 
 The framework provides an option to run custom prescripts and post-scripts while you're taking VM snapshots. Prescripts run just before you take the VM snapshot, and post-scripts run immediately after you take the VM snapshot. Prescripts and post-scripts provide the flexibility to control your application and environment, while you're taking VM snapshots.
 
@@ -31,7 +31,7 @@ To configure Prescript and post-script, follow these steps:
 
 3. Copy the prescript and post-script for your application on all VMs you plan to back up. You can copy the scripts to any location on the VM. Be sure to update the full path of the script files in the **VMSnapshotScriptPluginConfig.json** file.
 
-4. Ensure the following permissions for these files:
+4. To use the following files, ensure that you have the corresponding permissions:
 
    - **VMSnapshotScriptPluginConfig.json**: Permission “600.” For example, only “root” user should have “read” and “write” permissions to this file, and no user should have “execute” permissions.
 
@@ -69,7 +69,7 @@ To configure Prescript and post-script, follow these steps:
 
 6. The script framework is now configured. If the VM backup is already configured, the next backup invokes the scripts and triggers application-consistent backup. If the VM backup isn't configured, configure it by using [Back up Azure virtual machines to Recovery Services vaults.](./backup-azure-vms-first-look-arm.md)
 
-## Troubleshooting
+## Troubleshoot Azure Linux VM application-consistent backup errors  
 
 Make sure you add appropriate logging while writing your prescript and post-script, and review your script logs to fix any script issues. If you still have problems running scripts, refer to the following table for more information.
 
