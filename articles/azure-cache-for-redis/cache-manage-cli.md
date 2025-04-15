@@ -1,32 +1,40 @@
 ---
-title: Manage Azure Cache for Redis using Azure classic CLI
-description: Learn how to install the Azure classic CLI on any platform, how to use it to connect to your Azure account, and how to create and manage an Azure Cache for Redis from the classic CLI.
+title: Azure CLI links
+description: See links to articles about how to create and manage Azure Cache for Redis resources by using the Azure CLI.
 
 
 
 
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 04/15/2025
 appliesto:
   - ✅ Azure Cache for Redis
  
 ms.custom: engagement-fy23
 ---
-# How to create and manage Azure Cache for Redis using the Azure classic CLI
+# Manage Azure Cache for Redis using the Azure CLI
 
-> [!div class="op_single_selector"]
-> * [PowerShell](../redis/how-to-manage-redis-cache-powershell.md)
-> * [Azure classic CLI](cache-manage-cli.md)
->
+You can use the Azure CLI to manage your Azure Cache for Redis infrastructure from any platform. To install the current Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-The Azure classic CLI is a great way to manage your Azure infrastructure from any platform. This article shows how to create and manage your Azure Cache for Redis instances using the Azure classic CLI.
+For Azure CLI sample scripts for Azure Cache for Redis, see the following articles:
 
-[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
+- [Create and manage a cache](/azure/redis/scripts/create-manage-cache)
+  1. Creates a resource group and a Basic tier Azure Redis cache.
+  1. Gets cache details, including provisioning status, the hostname, ports, and keys.
+  1. Deletes the cache.
 
-> [!NOTE]
-> For the latest Azure CLI sample scripts, see [Azure CLI Azure Cache for Redis samples](cli-samples.md).
+- [Create and manage a premium cache with clustering](scripts/create-manage-premium-cache-cluster.md)
+  1. Creates a resource group and a Premium tier Azure Redis cache with clustering enabled.
+  1. Gets cache details, including provisioning status, the hostname, ports, and keys.
+  1. Deletes the cache.
 
-## Prerequisites
+- For more information about Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+- For more information about the commands for managing Azure Redis caches, see [az redis](/cli/azure/redis) and [az redisenterprise](/cli/azure/redisenterprise).
+
+>[!NOTE]
+>The current article contained content about the Azure classic CLI, an older version of Azure CLI that is no longer available. The Azure classic CLI could be used only with the discontinued Azure classic deployment model.
+
+<!--## Prerequisites
 
 To create and manage Azure Cache for Redis instances using Azure classic CLI, you must complete the following steps.
 
@@ -35,7 +43,7 @@ To create and manage Azure Cache for Redis instances using Azure classic CLI, yo
 * Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and sign in from the classic CLI using the `azure login` command.
 * Before running any of the following commands, switch the classic CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Use the Azure classic CLI to manage Azure resources and resource groups](../azure-resource-manager/management/manage-resources-cli.md).
 
-## Azure Cache for Redis properties
+### Azure Cache for Redis properties
 
 The following properties are used when creating and updating Azure Cache for Redis instances.
 
@@ -57,7 +65,7 @@ The following properties are used when creating and updating Azure Cache for Red
 | VirtualNetwork |-v, --virtual-network \<virtual-network\> |When hosting your cache in a VNET, specifies the exact Resource Manager resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |The subscription identifier. |
 
-## See all Azure Cache for Redis commands
+### See all Azure Cache for Redis commands
 
 To see all Azure Cache for Redis commands and their parameters, use the `azure rediscache -h` command.
 
@@ -302,4 +310,5 @@ help:      -g, --resource-group <resource-group>  Name of the Resource Group und
 help:      -s, --subscription <subscription>      the subscription identifier
 help:
 help:    Current Mode: arm (Azure Resource Management)
-```
+-->
+
