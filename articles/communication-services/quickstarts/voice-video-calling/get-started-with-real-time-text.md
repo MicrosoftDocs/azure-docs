@@ -9,7 +9,7 @@ ms.subservice: calling
 ms.topic: how-to
 ms.date: 12/4/2024
 ms.custom: template-how-to
-zone_pivot_groups: acs-programming-languages-java-swift-csharp
+zone_pivot_groups: acs-programming-languages-javascript-java-swift-csharp
 ---
 
 
@@ -32,7 +32,7 @@ Real Time Text (RTT) is designed to facilitate communication for users who may h
 On supported platforms, RTT data can be displayed alongside captions derived from Speech to Text, providing a comprehensive view of all communications during a call.
 
 >[!NOTE]
->RTT Teams Interlop is not functional yet.
+>RTT for PSTN or Teams Interop is not available at this time
 
 ## Naming Conventions
 
@@ -59,6 +59,11 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on Windows) class encapsulates 
 | `ReceivedTime`    | Timestamp when the message was received.              |
 | `UpdatedTime`     | Timestamp when the message was last updated.          |
 
+
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Real Time Text with Web](./includes/real-time-text/real-time-text-web.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Real Time Text with Android](./includes/real-time-text/real-time-text-android.md)]
