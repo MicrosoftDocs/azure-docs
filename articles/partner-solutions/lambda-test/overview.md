@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 04/14/2025
 ---
 
-# LambdaTest - HyperExecute (preview)?
+# What is LambdaTest - HyperExecute (preview)?
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
