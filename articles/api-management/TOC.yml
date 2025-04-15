@@ -448,7 +448,7 @@
     href: diagnose-solve-problems.md
   - name: Troubleshoot failed to update hostnames error
     href: api-management-troubleshoot-cannot-add-custom-domain.md
-  - name: Troubleshoot response timeouts and errors
+  - name: Troubleshoot response time-outs and errors
     href: troubleshoot-response-timeout-and-errors.md
 - name: Samples
   items:
