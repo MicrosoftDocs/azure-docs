@@ -512,7 +512,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri",
             "redirect_document_id": false
         },
         {

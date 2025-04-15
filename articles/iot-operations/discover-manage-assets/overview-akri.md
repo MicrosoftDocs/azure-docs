@@ -81,7 +81,7 @@ The Akri services support the following features:
 
 ## Related content
 
-To learn more about the Akri services, see [Discover OPC UA data sources using the Akri services](howto-autodetect-opcua-assets-using-akri.md)
+To learn more about the Akri services, see [Discover OPC UA data sources using the Akri services](howto-autodetect-opc-ua-assets-use-akri.md)
 
 To learn more about the open-source CNCF Akri, see the following resources:
 

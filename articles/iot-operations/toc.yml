@@ -66,7 +66,7 @@ items:
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
         - name: Configure and use automatic asset discovery
-          href: discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md
+          href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md
       - name: Connect to media sources
         items:
         - name: What is the media connector?
