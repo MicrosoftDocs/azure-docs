@@ -471,7 +471,7 @@
           href: /windows-app/overview
         - name: Compare Windows App across platforms
           displayName: apps, clients, remote desktop client, rdp, connect
-          href: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
+          href: /windows-app/compare-platforms-features?pivots=azure-virtual-desktop
         - name: Windows App documentation
           href: /windows-app/
     - name: Remote Desktop client

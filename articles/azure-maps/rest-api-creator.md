@@ -1,7 +1,7 @@
 ---
-title: Links to the Azure Maps Creator Rest API
+title: Links to the Azure Maps Creator REST API
 titleSuffix: Microsoft Azure Maps Creator
-description: Links to the Azure Maps Creator Rest API
+description: Links to the Azure Maps Creator REST API
 author: faterceros
 ms.author: aterceros
 ms.date: 09/23/2024
@@ -10,7 +10,7 @@ ms.service: azure-maps
 ms.subservice: creator
 ---
 
-# Creator Rest API
+# Creator REST API
 
 > [!NOTE]
 >

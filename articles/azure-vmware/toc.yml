@@ -1,48 +1,126 @@
 items:
 - name: Azure VMware Solution
   href: index.yml
-- name: Overview
+- name: Overview - Azure VMware Solution
+  href: introduction.md
+- name: What's new
+  href: azure-vmware-solution-platform-updates.md
+- name: Known issues
+  href: azure-vmware-solution-known-issues.md
+- name: Azure VMware Solution
   items:
-  - name: About Azure VMware Solution
-    href: introduction.md
-  - name: What's new
-    href: azure-vmware-solution-platform-updates.md
-  - name: Known issues
-    href: azure-vmware-solution-known-issues.md
-- name: Quickstarts
+  - name: Quickstarts
+    items:
+    - name: 1 - Plan the deployment
+      href: plan-private-cloud-deployment.md
+    - name: 2 - Deploy Azure VMware Solution
+      href: deploy-azure-vmware-solution.md
+    - name: 3 - Connect to on-premises environment
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 4 - Install and activate VMware HCX in Azure VMware Solution
+      href: install-vmware-hcx.md
+    - name: 5 - Configure on-premises VMware HCX Connector
+      href: configure-vmware-hcx.md
+    - name: 6 - Uninstall VMware HCX in Azure VMware Solution
+      href: uninstall-vmware-hcx.md
+  - name: Architecture
+    items:
+    - name: Private clouds and clusters
+      href: architecture-private-clouds.md
+    - name: Multi-AZ with stretched clusters
+      href: architecture-stretched-clusters.md
+    - name: Access and identity
+      href: architecture-identity.md
+    - name: API Management
+      href: architecture-api-management.md
+    - name: Hub and spoke
+      href: architecture-hub-and-spoke.md
+    - name: Internet connectivity design considerations
+      href: architecture-design-public-internet-access.md
+    - name: Network design considerations
+      href: architecture-network-design-considerations.md
+    - name: Networking and interconnectivity
+      href: architecture-networking.md
+    - name: Storage
+      href: architecture-storage.md
+    - name: Migrate
+      href: architecture-migrate.md
+    - name: Well Architected Framework
+      href: /azure/well-architected/azure-vmware/
+  - name: Networking
+    items:
+    - name: Connect to on-premises environment
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: Connect multiple private clouds in same region
+      href: connect-multiple-private-clouds-same-region.md
+    - name: Configure DHCP server or relay
+      href: configure-dhcp-azure-vmware-solution.md
+    - name: Configure DHCP on L2 stretched networks
+      href: configure-l2-stretched-vmware-hcx-networks.md
+    - name: Configure DNS forwarder
+      href: configure-dns-azure-vmware-solution.md
+    - name: Configure VMware HCX network extension
+      href: configure-hcx-network-extension.md
+    - name: VMware HCX Mobility Optimized Networking (MON) guidance
+      href: vmware-hcx-mon-guidance.md
+    - name: NSX Scale and Performance Recommendations for VMware HCX
+      href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
+    - name: Configure NSX network components
+      href: configure-nsx-network-components-azure-portal.md
+    - name: Configure port mirroring
+      href: configure-port-mirroring-azure-vmware-solution.md
+    - name: Configure a site-to-site VPN in vWAN
+      href: configure-site-to-site-vpn-gateway.md
+  - name: Tutorials
+    items:
+      - name: 1 - Network planning checklist
+        href: tutorial-network-checklist.md
+      - name: 2 - Create a private cloud
+        href: tutorial-create-private-cloud.md
+      - name: 3 - Configure networking
+        href: tutorial-configure-networking.md
+      - name: 4 - Access a private cloud
+        href: tutorial-access-private-cloud.md
+      - name: 5 - Create an NSX Tier-1 Gateway
+        href: tutorial-nsx-tier-1-gateway.md
+      - name: 6 - Create an NSX network segment
+        href: tutorial-nsx-t-network-segment.md
+      - name: 7 - Peer on-premises to private cloud
+        href: tutorial-expressroute-global-reach-private-cloud.md
+      - name: 8 - Scale a private cloud
+        href: tutorial-scale-private-cloud.md
+      - name: 9 - Delete a private cloud
+        href: tutorial-delete-private-cloud.md
+- name: Azure VMware Solution Generation 2 Private Clouds (Public Preview)
   items:
-  - name: 1 - Plan the deployment
-    href: plan-private-cloud-deployment.md
-  - name: 2 - Deploy Azure VMware Solution
-    href: deploy-azure-vmware-solution.md
-  - name: 3 - Connect to on-premises environment
-    href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 4 - Install and activate VMware HCX in Azure VMware Solution
-    href: install-vmware-hcx.md
-  - name: 5 - Configure on-premises VMware HCX Connector
-    href: configure-vmware-hcx.md
-  - name: 6 - Uninstall VMware HCX in Azure VMware Solution
-    href: uninstall-vmware-hcx.md
-- name: Tutorials
-  items:
-  - name: 1 - Network planning checklist
-    href: tutorial-network-checklist.md
-  - name: 2 - Create a private cloud
-    href: tutorial-create-private-cloud.md
-  - name: 3 - Configure networking
-    href: tutorial-configure-networking.md
-  - name: 4 - Access a private cloud
-    href: tutorial-access-private-cloud.md
-  - name: 5 - Create an NSX Tier-1 Gateway
-    href: tutorial-nsx-tier-1-gateway.md
-  - name: 6 - Create an NSX network segment
-    href: tutorial-nsx-t-network-segment.md
-  - name: 7 - Peer on-premises to private cloud
-    href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 8 - Scale a private cloud
-    href: tutorial-scale-private-cloud.md
-  - name: 9 - Delete a private cloud
-    href: tutorial-delete-private-cloud.md
+  - name: Introduction to Azure VMware Solution Generation 2 Private Clouds (Public Preview)  
+    href: native-introduction.md
+  - name: Tutorial
+    items:
+    - name: Create an Azure VMware Solution Generation 2 Private Cloud (Public Preview) 
+      href: native-create-azure-vmware-virtual-network-private-cloud.md
+  - name: Architecture
+    items:
+    - name: Design Considerations for Azure VMware Solution Generation 2 Private Clouds (Public Preview)  
+      href: native-network-design-consideration.md
+  - name: Security
+    items:
+    - name: Enable first-party application service principal for Azure VMware Solution Generation 2 Private Clouds 
+      href: native-first-party-principle-security.md
+  - name: Networking
+    items:
+    - name: Connectivity to an Azure Virtual Network
+      href: native-network-connectivity.md
+    - name: Connect to on-premises environment
+      href: native-connect-on-premises.md
+    - name: Internet connectivity options
+      href: native-internet-connectivity-design-considerations.md
+    - name: Connect multiple Azure VMware Solution Generation 2 Private Clouds
+      href: native-connect-multiple-private-clouds.md
+    - name: Connect Azure VMware Solution Generation 2 Private Clouds to Azure VMware Solution Generation 1 Private Clouds
+      href: native-connect-private-cloud-previous-edition.md
+    - name: Public and Private DNS forward lookup zone configuration
+      href: native-dns-forward-lookup-zone.md
 - name: Cost optimization
   items:
   - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
@@ -55,30 +133,6 @@ items:
     href: reserved-instance.md
   - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
     href: vmware-cloud-foundations-license-portability.md
-- name: Architecture
-  items:
-  - name: Private clouds and clusters
-    href: architecture-private-clouds.md
-  - name: Multi-AZ with stretched clusters
-    href: architecture-stretched-clusters.md
-  - name: Access and identity
-    href: architecture-identity.md
-  - name: API Management
-    href: architecture-api-management.md
-  - name: Hub and spoke
-    href: architecture-hub-and-spoke.md
-  - name: Internet connectivity design considerations
-    href: architecture-design-public-internet-access.md
-  - name: Network design considerations
-    href: architecture-network-design-considerations.md
-  - name: Networking and interconnectivity
-    href: architecture-networking.md
-  - name: Storage
-    href: architecture-storage.md
-  - name: Migrate
-    href: architecture-migrate.md
-  - name: Well Architected Framework
-    href: /azure/well-architected/azure-vmware/
   - name: Cloud Adoption Framework
     items:
       - name: Azure VMware Solution landing zone accelerator
@@ -137,38 +191,14 @@ items:
     href: configure-customer-managed-keys.md
   - name: Configure Trusted Launch
     href: configure-virtual-trusted-platform-module.md
-- name: Networking
+- name: Configure internet connectivity
   items:
-  - name: Connect to on-premises environment
-    href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: Connect multiple private clouds in same region
-    href: connect-multiple-private-clouds-same-region.md
-  - name: Configure DHCP server or relay
-    href: configure-dhcp-azure-vmware-solution.md
-  - name: Configure DHCP on L2 stretched networks
-    href: configure-l2-stretched-vmware-hcx-networks.md
-  - name: Configure DNS forwarder
-    href: configure-dns-azure-vmware-solution.md
-  - name: Configure VMware HCX network extension
-    href: configure-hcx-network-extension.md
-  - name: VMware HCX Mobility Optimized Networking (MON) guidance
-    href: vmware-hcx-mon-guidance.md
-  - name: NSX Scale and Performance Recommendations for VMware HCX
-    href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
-  - name: Configure NSX network components
-    href: configure-nsx-network-components-azure-portal.md
-  - name: Configure port mirroring
-    href: configure-port-mirroring-azure-vmware-solution.md
-  - name: Configure a site-to-site VPN in vWAN
-    href: configure-site-to-site-vpn-gateway.md
-  - name: Configure internet connectivity
-    items:
-    - name: Enable Managed SNAT for Azure VMware Solution workloads
-      href: enable-managed-snat-for-workloads.md
-    - name: Enable public IP on the NSX Edge for Azure VMware Solution
-      href: enable-public-ip-nsx-edge.md
-    - name: Disable internet access or enable a default route
-      href: disable-internet-access.md
+  - name: Enable Managed SNAT for Azure VMware Solution workloads
+    href: enable-managed-snat-for-workloads.md
+  - name: Enable public IP on the NSX Edge for Azure VMware Solution
+    href: enable-public-ip-nsx-edge.md
+  - name: Disable internet access or enable a default route
+    href: disable-internet-access.md
   - name: Deploy Traffic Manager to balance workloads
     href: deploy-traffic-manager-balance-workloads.md
 - name: Migrate workloads
@@ -254,6 +284,8 @@ items:
       href: restore-guest-files-folders.md  
   - name: Configure Pure Cloud Block Store
     href: configure-pure-cloud-block-store.md
+  - name: Configure Azure Native Pure Storage Cloud
+    href: configure-azure-native-pure-storage-cloud.md
 - name: Backup and recovery
   items:
   - name: Backup solutions for VMs
@@ -298,6 +330,8 @@ items:
     href: using-run-command.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
+  - name: Send syslogs to log management solutions via Azure Logic Apps
+    href: logs-via-logic-app.md
   - name: Configure alerts and work with metrics
     href: configure-alerts-for-azure-vmware-solution.md
   - name: Configure Newest Metrics for Azure VMware Solution
