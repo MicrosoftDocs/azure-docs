@@ -12,7 +12,7 @@ ms.author: cherylmc
 ---
 # Monitor Route-maps using the Route Map dashboard
 
-This article helps you use the Route Map dashboard to monitor Route-maps. Using the Route Map dashboard, you can monitor routes, AS Path, and BGP communities for routes in your Virtual WAN.
+This article helps you use the Route Map dashboard to monitor Route-maps. Using the Route Map dashboard, you can monitor routes, AS Path, and BGP (Border Gateway Protocol) communities for routes in your Virtual WAN.
 
 
 ## Dashboard view
