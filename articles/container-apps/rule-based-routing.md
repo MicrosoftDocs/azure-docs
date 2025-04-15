@@ -5,8 +5,8 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
-ms.topic: how-to
-ms.date: 04/03/2025
+ms.topic: tutorial
+ms.date: 04/15/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-bicep
 ---
@@ -44,7 +44,7 @@ az upgrade
 
 Ignore any warnings about modules currently in use.
 
-Next, install or update the Azure Container Apps extension for the CLI.
+Install or update the Azure Container Apps extension for the CLI.
 
 If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
 
@@ -54,6 +54,7 @@ az extension add --name containerapp --upgrade
 
 > [!NOTE]
 > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](whats-new.md), install the Container Apps extension with `--allow-preview true`.
+>
 > ```azurecli
 > az extension add --name containerapp --upgrade --allow-preview true
 > ```
@@ -235,7 +236,7 @@ $ROUTE_CONFIG_NAME="my-route-config"
 
 1. In the output, find `outputs`, which contains your HTTP route configuration's fully qualified domain name (FQDN). For example:
 
-    ```
+    ```json
         "outputs": {
           "fqdn": {
             "type": "String",
@@ -246,25 +247,30 @@ $ROUTE_CONFIG_NAME="my-route-config"
 
 ::: zone-end
 
-## Test HTTP route configuration
+## Verify HTTP route configuration
 
-1. Browse to your HTTP route configuration FQDN with the path `/app1`. For example: `my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io/app1`. You see the Container Apps quickstart image.
+1. Browse to your HTTP route configuration FQDN with the path `/app1`.
 
-1. Browse to your HTTP route configuration FQDN with the path `/app2`. For example: `my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io/app2`. You see the ASP.NET quickstart image.
+    For example: `my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io/app1`.
+
+    You see the Container Apps quickstart image.
+
+1. Browse to your HTTP route configuration FQDN with the path `/app2`. 
+
+    For example: `my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io/app2`.
+
+    You see the ASP.NET quickstart image.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
 > [!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they'll also be deleted.
 
 ```azurecli
 az group delete --name my-container-apps
 ```
-
-> [!TIP]
-> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
 ## Related content
 
