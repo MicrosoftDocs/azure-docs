@@ -29,10 +29,7 @@ A deployed instance of Azure IoT Operations. If you don't already have an instan
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.
 
-> [!NOTE]
-> Microsoft validated this preview release with the A-MTK AH6016O camera.
-
-## Update the media connector
+## Deploy the media connector
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
@@ -514,7 +511,3 @@ When you finish testing the asset, you can delete it by running the following co
 ```console
 az iot ops asset delete -n asset-stream-to-rtsp -g $RESOURCE_GROUP
 ```
-
-## Samples
-
-For more examples that show how to configure and use the media connector, see the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/media-connector-invoke-test/README.md).

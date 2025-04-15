@@ -13,15 +13,13 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## April 2025
 
-Public Preview of the next generation of AVS, AVS in a Virtual Network (also known as AVS on Fleet Native internally) is now available in East US, UK South, Switzerland North and Japan East on the AV64 SKU. 
-
-With this capability, we've achieved Infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware workloads.
-
-- Customers can deploy their AVS Private Clouds directly using the AV64 node size. There is no need for minimum 3-host AV36, AV36P, AV48 or AV52 cluster.
-
-Private clouds deployed inside a virtual network, enables your private cloud with standard Azure Networking. ExpressRoute is no longer required.
+**AV48 SKU**
 
 Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage.
+
+**Azure Native Pure Storage Cloud (preview)**
+
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for AVS, enabling you to scale storage independently for your virtual workloads.
 
 ## March 2025
 

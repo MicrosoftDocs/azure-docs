@@ -68,7 +68,7 @@ A deployment can fail if the cluster doesn't have sufficient resources for the s
 > Setting the replica count to one can result in data loss in node failure scenarios.
 
 > [!TIP]
-> Setting a lower sharding, workers, or memory profile value lowers the broker's capacity to handle message load. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
+> If you set lower values for sharding, workers, or memory profile, the broker's capacity to handle message load is reduced. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
 
 To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
@@ -213,7 +213,7 @@ If your cluster is behind an outbound proxy server, please ensure that you have 
 
 1. Reboot the host machine.
 
-If you still see the error, check the following:
+If you still see the error, check the following items:
 
 1. Add the `--debug` parameter when running the `connectedk8s` command.
 1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management to a packet trace](#you-want-to-capture-layered-network-management-to-a-packet-trace).

@@ -91,6 +91,36 @@ items:
         href: tutorial-scale-private-cloud.md
       - name: 9 - Delete a private cloud
         href: tutorial-delete-private-cloud.md
+- name: Azure VMware Solution Generation 2 Private Clouds (Public Preview)
+  items:
+  - name: Introduction to Azure VMware Solution Generation 2 Private Clouds (Public Preview)  
+    href: native-introduction.md
+  - name: Tutorial
+    items:
+    - name: Create an Azure VMware Solution Generation 2 Private Cloud (Public Preview) 
+      href: native-create-azure-vmware-virtual-network-private-cloud.md
+  - name: Architecture
+    items:
+    - name: Design Considerations for Azure VMware Solution Generation 2 Private Clouds (Public Preview)  
+      href: native-network-design-consideration.md
+  - name: Security
+    items:
+    - name: Enable first-party application service principal for Azure VMware Solution Generation 2 Private Clouds 
+      href: native-first-party-principle-security.md
+  - name: Networking
+    items:
+    - name: Connectivity to an Azure Virtual Network
+      href: native-network-connectivity.md
+    - name: Connect to on-premises environment
+      href: native-connect-on-premises.md
+    - name: Internet connectivity options
+      href: native-internet-connectivity-design-considerations.md
+    - name: Connect multiple Azure VMware Solution Generation 2 Private Clouds
+      href: native-connect-multiple-private-clouds.md
+    - name: Connect Azure VMware Solution Generation 2 Private Clouds to Azure VMware Solution Generation 1 Private Clouds
+      href: native-connect-private-cloud-previous-edition.md
+    - name: Public and Private DNS forward lookup zone configuration
+      href: native-dns-forward-lookup-zone.md
 - name: Cost optimization
   items:
   - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
@@ -254,6 +284,8 @@ items:
       href: restore-guest-files-folders.md  
   - name: Configure Pure Cloud Block Store
     href: configure-pure-cloud-block-store.md
+  - name: Configure Azure Native Pure Storage Cloud
+    href: configure-azure-native-pure-storage-cloud.md
 - name: Backup and recovery
   items:
   - name: Backup solutions for VMs
@@ -298,6 +330,8 @@ items:
     href: using-run-command.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
+  - name: Send syslogs to log management solutions via Azure Logic Apps
+    href: logs-via-logic-app.md
   - name: Configure alerts and work with metrics
     href: configure-alerts-for-azure-vmware-solution.md
   - name: Configure Newest Metrics for Azure VMware Solution

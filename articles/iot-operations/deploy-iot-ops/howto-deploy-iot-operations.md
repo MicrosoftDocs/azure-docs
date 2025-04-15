@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 03/13/2025
+ms.date: 04/08/2025
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -70,6 +70,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
+   | **Connectors** | *Optional*: Select the ONVIF connector to deploy. The [ONVIF connector](../discover-manage-assets/overview-onvif-connector.md) is a preview feature that enables you to connect to ONVIF-compliant cameras.|
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-basics.png" alt-text="A screenshot that shows the first tab for deploying Azure IoT Operations from the portal.":::
 
@@ -126,10 +127,9 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
       az login
       ```
 
-   1. Install the latest Azure IoT Operations CLI extension.
+   1. Install the latest Azure IoT Operations CLI extension if you haven't already.
 
       ```azurecli
-      az upgrade
       az extension add --upgrade --name azure-iot-ops
       ```
 
@@ -140,13 +140,19 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
    1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
       >[!TIP]
-      >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
+      >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already has the latest version of Azure IoT Operations deployed on it, you can skip this step.
 
       If you followed the optional prerequisite to set up your own certificate authority issuer, add the `--user-trust` flag to the `init` command.
 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
+   
+      * If you want to use the preview connector configuration, add the following parameter to the `create` command:
+
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
 
       * If you followed the optional prerequisites to prepare your cluster for observability, add the following parameters to the `create` command:
 
@@ -218,8 +224,14 @@ Use these steps if you chose the **Secure settings** option on the **Dependency 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
+   
+      * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
-      If you followed the optional prerequisites to prepare your cluster for observability, add the following optional parameters to the `create` command:
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
+
+      * If you followed the optional prerequisites to prepare your cluster for observability, add the following optional parameters to the `create` command:
 
       | Optional parameter | Value | Description |
       | --------- | ----- | ----------- |
