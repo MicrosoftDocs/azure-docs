@@ -34,6 +34,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 ## Supported scenarios and restrictions
 
 - AD DS identities used for Azure Files on-premises AD DS authentication must be synced to Microsoft Entra ID or [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities). Password hash synchronization is optional.
+  - For instance, a group created in Entra ID will not work if RBAC is configured at the share-level for permissions. If this group contains accounts or groups synced from on-premises, then those identities could be used.
 - Supports Azure file shares managed by Azure File Sync.
 - Supports Kerberos authentication with AD with [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
 - Supports single sign-on experience.
