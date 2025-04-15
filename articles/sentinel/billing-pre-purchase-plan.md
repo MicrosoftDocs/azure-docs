@@ -30,13 +30,13 @@ To buy a pre-purchase plan, you must have one of the following Azure subscriptio
 
 ## Determine the right size to buy
 
-Pre-purchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume, choose an appropriate commitment tier. Then it's easier to decide on the size of a pre-purchase plan to buy. Microsoft Sentinel pre-purchase plans have a term agreement of one year. Ensure continued saving by adding SCUs if your current plans are depleted before the end of the 1 year term.
+Pre-purchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume, choose an appropriate commitment tier. Then it's easier to decide on the size of a pre-purchase plan to buy. Microsoft Sentinel pre-purchase plans have a term agreement of one year.
 
 Here's an example of the decision making and cost savings for a pre-purchase plan. If you have a commitment tier of 200 GB/day, there's an associated monthly estimated cost for both the ingestion to the workspace and the analysis for Microsoft Sentinel. For example purposes, let's say that monthly cost is $20,000 USD with simplified pricing and provides a 39% savings over the pay-as-you-go tier with the same 200 GB/day.
 
 A $100,000 USD pre-purchase plan covers five months of that commitment tier but is valid for paying Microsoft Sentinel costs for 12 months. That pre-purchase plan is bought at a 22% discount for $78,000 USD. 
 
-The savings for the commitment tier and the pre-purchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a pre-purchase plan, the cost is reduced to $78,000 USD for a combined savings of over 51%.
+The savings for the commitment tier and the pre-purchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a pre-purchase plan, the cost is reduced to $78,000 USD for a combined savings of over 51%. Since the example plan is depleted after just 5 months, the best way to ensure continued savings is to purchase more SCUs with an additional plan.
 
 For more information, see the following articles:
 - [Switch to simplified pricing](enroll-simplified-pricing-tier.md)
