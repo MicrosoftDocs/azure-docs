@@ -4,7 +4,7 @@ description: Learn how to create and configure a data access policy for Azure Ca
 ms.custom: references_regions, ignite-2024
 
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 04/15/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
@@ -12,18 +12,18 @@ appliesto:
 
 # Configure custom data access policies
 
-Managing access to your Azure Redis cache instance is critical to ensuring that the right users have access to the right set of data and commands. Redis version 6 introduced the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL), which specifies the keys that certain users can access and the commands that they can execute. For example, you can prohibit specific users from using the [DEL](https://redis.io/commands/del/) command to delete keys in the cache.
+Managing access to your Azure Redis cache instance is critical to ensuring that the right users have access to the right set of data and commands. Redis version 6 introduced the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL), which lists the keys that specific users can access and the commands that they can execute. For example, you can prohibit specific users from using the [DEL](https://redis.io/commands/del/) command to delete keys in the cache.
 
-Azure Cache for Redis integrates this ACL functionality with Microsoft Entra ID to allow you to configure data access policies for your application's users, service principal, and managed identity. Azure Cache for Redis offers three built-in access policies that you can assign via role-based access control (RBAC): **Data Owner**, **Data Contributor**, and **Data Reader**.
+Azure Cache for Redis integrates this ACL functionality with Microsoft Entra to allow you to configure and assign data access policies for your application's users, service principal, and managed identity. Azure Cache for Redis offers three built-in access policies that you can assign via role-based access control (RBAC): **Data Owner**, **Data Contributor**, and **Data Reader**.
 
-If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policies. This article describes configuring a custom data access policy for Azure Cache for Redis and enabling RBAC via Microsoft Entra ID authentication.
+If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policies. This article describes configuring a custom data access policy for Azure Cache for Redis and enabling RBAC via Microsoft Entra authentication.
 
 ## Limitations
 
 - Configuring data access policies isn't supported on Enterprise and Enterprise Flash tiers.
 - Redis ACL and data access policies aren't supported on Azure Redis instances that run Redis version 4.
 - Microsoft Entra authentication and authorization are supported only for Secure Socket Layer (SSL) connections.
-- Some Redis commands are blocked in Azure Cache for Redis. For more information, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) 
+- Some Redis commands are blocked in Azure Cache for Redis. For more information, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 ## Redis ACL permissions
 
@@ -53,7 +53,7 @@ Redis supports the following useful command categories. For more information and
 
 ### Commands
 
-*Commands* allow you to control which specific commands a particular Redis user can run. In a permissions string, use `+command` to allow a command or `-command` to disallow a command.
+*Commands* allow you to control which specific commands a particular Redis user can run. In a permissions string, use `+<command>` to allow a command or `-<command>` to disallow a command.
 
 ### Keys
 
@@ -61,11 +61,11 @@ Redis supports the following useful command categories. For more information and
 
 ## Configure a custom data access policy for your application
 
-To configure a custom data access policy, you create a permissions string to use as your custom access policy, and enable Microsoft Entra ID authentication and authorization to your cache.
+To configure a custom data access policy, you create a permissions string to use as your custom access policy, and enable Microsoft Entra authentication for your cache.
 
 ### Specify permissions
 
-Configure the permissions string according to your requirements. The following examples show permission strings for various scenarios:
+Configure permission strings according to your requirements. The following examples show permission strings for various scenarios:
 
 |Permissions string|Description|
 |------------------|-----------|
@@ -106,7 +106,7 @@ Respond **Yes** to the popup dialog box asking if you want to disable access key
 
 ## Configure your Redis client to use Microsoft Entra ID
 
-Because most Azure Cache for Redis clients assume that a password and access key are used for authentication, you probably need to update your client workflow to support authentication by using a specific Microsoft Entra user name and password. To learn how to configure your client application to connect to your cache instance as a specific Redis user, see [Configure your Redis client to use Microsoft Entra ID](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra).
+Most Azure Cache for Redis clients assume that a password and access key are used for authentication. You might need to update your client workflow to support authentication and authorization using a specific Microsoft Entra user name and password. To learn how to configure your client application to connect to your cache instance as a specific Redis user, see [Configure your Redis client to use Microsoft Entra ID](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra).
 
 ## Related content
 
