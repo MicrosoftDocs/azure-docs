@@ -5,7 +5,7 @@ author: adarshv98
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 04/15/2025
-ms.author: adarshv98
+ms.author: adarshv
 ---
 
 # Troubleshoot Elastic SAN
@@ -26,7 +26,7 @@ This article lists common issues related to Azure Elastic SAN. It also provides 
 
 ## Unable to connect to your Elastic SAN via service endpoints
 
-- Enable Public Network Access on the SAN (https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-public-network-access)
+- [Enable](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-public-network-access) Public Network Access on the SAN 
 ```powershell
 # Set the variable values.
 $RgName       = "<ResourceGroupName>"
@@ -34,7 +34,7 @@ $EsanName     = "<ElasticSanName>"
 # Update the Elastic San.
 Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAccess Enabled
 ```
-- Configure service endpoints on the volume group (https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-an-azure-storage-service-endpoint)
+- [Configure](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-an-azure-storage-service-endpoint) service endpoints on the volume group 
 ```powershell
 # Define some variables
 $RgName = "<ResourceGroupName>" 
@@ -50,7 +50,7 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 
 - Check your SAN size and configuration via portal (SAN homepage -> Configuration blade) and ensure that the IOPS and throughput numbers can handle the requirements of the workload
 -  Check your VM throughput and IOPS limits and ensure that the VM can handle the workload requirements
-- Ensure that you are following the best practices outlined in this [document](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-best-practices). 
+- Ensure that you are following the best practices outlined in this [document](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-best-practices). 
 
 
 ## Unable to establish connectivity from new nodes in a cluster
