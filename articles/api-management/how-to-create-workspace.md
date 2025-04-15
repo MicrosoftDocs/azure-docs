@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 04/0/2025
+ms.date: 04/15/2025
 ms.custom:
 ---
 
@@ -115,7 +115,7 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
     * **Contributor**
     * **Reader** 
 
-## Enable diagnostic settings for Azure Monitor logs
+## Enable diagnostic settings for monitoring workspace APIs
 
 Configure settings to collect Azure Monitor log for the workspace and send them to a Log Analytics workspace so that the workspace team can monitor their own APIs while the API platform team can access centralized logs for the API Management instance. To collect Azure Monitor logs for the workspace, diagnostic settings are needed at both the service and workspace levels.
 
@@ -124,7 +124,10 @@ Configure settings to collect Azure Monitor log for the workspace and send them 
 1. Then, enable a diagnostics setting at the *workspace level* to send API Management gateway logs to the same Log Analytics workspace. This setting collects logs for all workspace gateways associated with the workspace. 
 
     > [!IMPORTANT]
-    > Gateway logs at the service level aggregate monitoring data across the API Management instance, including workspaces that have a workspace-level diagnostic setting enabled. If you don't enable a workspace-level diagnostic setting, the workspace's gateway logs won't be aggregated at the service level.
+    > A diagnostic setting at the service level configures logging across the API Management instance, including workspaces that have a workspace-level diagnostic setting enabled. If you don't enable a workspace-level diagnostic setting, the workspace's gateway logs won't be collected or aggregated into Log Analytics.
+
+    > [!NOTE]
+    > By default, members of the workspace team assigned the built-in workspace RBAC roles don't have permissions to edit diagnostic settings in a workspace. The API platform team has those permissions. 
 
 To configure a workspace diagnostic setting for collection of workspace-level gateway logs:
 

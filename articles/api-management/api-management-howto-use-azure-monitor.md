@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 04/04/2025
+ms.date: 04/15/2025
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -133,7 +133,7 @@ Resource logs (Azure Monitor logs) provide rich information about API Management
 > The Consumption tier doesn't support the collection of resource logs.
 
 > [!TIP]
-> In API Management instances with [workspaces](workspaces-overview.md), federated logs across the API Management service can be accessed by the API platform team for centralized API monitoring, while workspace teams can access the logs specific to their workspace's APIs. [Learn more](how-to-create-workspace.md#enable-diagnostic-settings-for-azure-monitor-logs)
+> In API Management instances with [workspaces](workspaces-overview.md), federated logs across the API Management service can be accessed by the API platform team for centralized API monitoring, while workspace teams can access the logs specific to their workspace's APIs. [Learn more about Azure Monitor logging with workspaces](how-to-create-workspace.md#enable-diagnostic-settings-for-azure-monitor-logs)
 
 [!INCLUDE [api-management-diagnostic-settings](../../includes/api-management-diagnostic-settings.md)]
  
