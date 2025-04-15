@@ -42,13 +42,13 @@ Proceed to the next section to customize these graphs for your specific analysis
     ![Azure Maps metrics time range](media/how-to-view-api-usage/time-range.png)
 
     > [!NOTE]
-    > Metrics are stored for 93 days, but you can only query up to 30 days' worth of data at a time. If you encounter a blank chart or partial metric data, ensure the start and end dates in the time picker do not exceed a 30-day interval. Once you've selected a 30-day interval, you can pan the chart to view additional metrics. For more information, see [Troubleshooting metrics charts](/azure/azure-monitor/essentials/data-platform-metrics).
+    > Metrics are stored for 93 days, but you can only query up to 30 days' worth of data at a time. If you encounter a blank chart or partial metric data, ensure the start and end dates in the time picker don't exceed a 30-day interval. Once you've selected a 30-day interval, you can pan the chart to view other metrics. For more information, see [Troubleshooting metrics charts](/azure/azure-monitor/essentials/data-platform-metrics).
 
 6. After adding your metric, you can apply a filter based on the properties relevant to that metric. Then, choose the value of the property you want to display on the graph.
 
     ![Azure Maps usage metrics Filter](media/how-to-view-api-usage/filter.png)
 
-7. You may also **Apply splitting** for your metric based on your selected metric property. This feature allows the graph to be divided into multiple graphs, each representing a different value of that property. In the example below, the color of each graph corresponds to the property value displayed at the bottom.
+7. You can also **Apply splitting** for your metric based on your selected metric property. This feature allows the graph to be divided into multiple graphs, each representing a different value of that property. In the following example, the color of each graph corresponds to the property value displayed at the bottom.
 
     ![Azure Maps usage metrics splitting](media/how-to-view-api-usage/splitting.png)
 
