@@ -23,11 +23,11 @@ You can use service tags to define network access controls on [network security 
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
+| **ServiceBus** | Azure Service Bus traffic. | Outbound | Yes | Yes |
 
 
 > [!NOTE]
-> You can use service tags only for **premium** namespaces. If you are using a **standard** namespace, use the FQDN of the namespace instead, in the form of <contoso.servicebus.windows.net>. Alternatively you can use the IP address that you see when you run the following command: `nslookup <host name for the namespace>`, however this is not recommended or supported, and you will need to keep track of changes to the IP addresses. 
+> Service Bus service tags include the IP addresses of namespaces on all SKUs, however, using service tags with private or service endpoints for Service Bus is only supported on **premium** namespaces. If you are using a **standard** namespace, use the FQDN of the namespace instead, in the form of <contoso.servicebus.windows.net>. Alternatively you can use the IP address that you see when you run the following command: `nslookup <host name for the namespace>`, however this is not recommended or supported, and you will need to keep track of changes to the IP addresses. 
 
 ## IP firewall 
 By default, Service Bus namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
