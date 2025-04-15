@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/4/2025
+ms.date: 4/15/2025
 ---
 
 # What's new in Azure VMware Solution
@@ -15,7 +15,15 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 **AV48 SKU**
 
-Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage.
+Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage. [Learn more](introduction.md#hosts-clusters-and-private-clouds)
+
+**Azure Native Pure Storage Cloud (preview)**
+
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for AVS, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
+
+**Azure VMware Solution Generation 2 Private Clouds (preview)**
+
+Public Preview of the next generation of Azure VMware Solution is here. Azure VMware Solution Generation 2 Private Clouds is now available in East US, UK South, Switzerland North, and Japan East on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. [Learn more](native-introduction.md)
 
 ## March 2025
 
