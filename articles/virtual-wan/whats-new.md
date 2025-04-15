@@ -25,6 +25,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+| Feature | Routing | Route-maps | Route-maps is a feature that gives you the ability to control route advertisements and routing for Virtual WAN virtual hubs. | April 2025|[Known limitations](route-maps-about.md#Considerationsandlimitations)| 
 | Metric| Routing | [New Virtual hub metrics](monitor-virtual-wan-reference.md#hub-router-metrics)| There are now two new  Virtual WAN hub metrics that display the virtual hub's capacity and spoke Virtual Machine (VM) utilization: **Routing Infrastructure Units** and **Spoke VM Utilization**.| August 2024 | The **Spoke VM Utilization** metric represents an approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. 
 | Feature| Routing | [Routing intent](how-to-routing-policies.md)| Routing intent is the mechanism through which you can configure Virtual WAN to send private or internet traffic via a security solution deployed in the hub.|May 2023|Routing Intent is Generally Available  in Azure public cloud. See documentation for [other limitations](how-to-routing-policies.md#knownlimitations).|
 |Feature| Routing |[Virtual hub routing preference](about-virtual-hub-routing-preference.md)|Hub routing preference gives you more control over your infrastructure by allowing you to select how your traffic is routed when a virtual hub router learns multiple routes across S2S VPN, ER, and SD-WAN NVA connections.  |October 2022| |
@@ -84,7 +85,6 @@ The following features are currently in gated public preview. After working with
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
-| Managed preview | Route-maps | This feature allows you to perform route aggregation, route filtering, and modify BGP attributes for your routes in Virtual WAN. | preview-route-maps@microsoft.com | Known limitations are displayed here: [About Route-maps](route-maps-about.md).
 |Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| preview-vwan-aruba@microsoft.com| |
 
 ## Known issues
