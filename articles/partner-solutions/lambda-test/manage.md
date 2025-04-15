@@ -32,3 +32,7 @@ To manage your resource, select the links next to corresponding details.
 ## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
+
+## Get support
+
+Contact [LambdaTest](https://www.lambdatest.com/contact-us) for customer support. 

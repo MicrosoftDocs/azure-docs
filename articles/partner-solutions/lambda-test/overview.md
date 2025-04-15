@@ -42,10 +42,6 @@ LambdaTest - HyperExecute helps organizations with:
 
 See [LambdaTest - HyperExecute documentation](https://www.lambdatest.com/support/docs/getting-started-with-hyperexecute/) for more resources. 
 
-### Get support
-
-Contact [LambdaTest](https://www.lambdatest.com/contact-us) for customer support 
-
 ## Next step
 
 > [!div class="nextstepaction"]
