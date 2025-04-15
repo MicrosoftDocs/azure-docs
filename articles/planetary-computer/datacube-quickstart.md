@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Get Started with Data Cubes in Planetary Computer Pro"
-description: "Description of how to work with data cube data PC Pro "
+title: "Quickstart: Get Started with Data Cubes in Microsoft Planetary Computer Pro"
+description: "Description of how to work with data cube data MPC Pro "
 author: "brentharris"
 ms.author: "brentharris"
 ms.service: mpcpro
@@ -11,7 +11,7 @@ ms.date: 4/9/2025
 
 ---
 
-# Quickstart: Get Started with Data Cubes in Planetary Computer Pro
+# Quickstart: Get Started with Data Cubes in Microsoft Planetary Computer Pro
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ ms.date: 4/9/2025
 
 ## Set Up Ingestion Source
 
-Before you can begin to ingest data cube data, you will need to set up an Ingestion Source, which will serve as your credentials to access the Blob Storage account where your assets and STAC Items are stored.You can set up an Ingestion Source using [Managed Identity](link to MI quickstart) or [SAS Token](linke to SAS quickstart).
+Before you can begin to ingest data cube data, you'll need to set up an Ingestion Source, which will serve as your credentials to access the Blob Storage account where your assets and STAC Items are stored. You can set up an Ingestion Source using [Managed Identity](link to MI quickstart) or [SAS Token](link to SAS quickstart).
 
 ## Create a Data Cube Collection
 
@@ -30,11 +30,11 @@ Once your Ingestion Source is set up, you can create a Collection for your data 
 
 ## Ingest Data Cube Assets
 
-The initiation of the ingestion process for data cube data, as well as other data types, can be followed in [Ingestion Overview](link to ingestion overview). As described in [Data Cube Overview](link to data cube overview), however, ingestion is the step in MPC Pro's data handling that differs for these file types. While GRIB2 data and associated STAC Items will be ingested just like any other 2-dimensional raster file, NetCDF and HDF5 assets will undergo additional data enrichment. The generation of Kerchunk Manifests is well documented in [Data Cube Overview](link to data cube overview), but what is important to note is that Kerchunk assets will be added to your Blob Storage container alongside the original assets, and an additional `cube:variables` field will be added to the STAC Item JSON. This will be important when rendering these data types in the MPC Pro Explorer.
+The initiation of the ingestion process for data cube data, and other data types, can be followed in [Ingestion Overview](link to ingestion overview). As described in [Data Cube Overview](link to data cube overview), however, ingestion is the step in MPC Pro's data handling that differs for these file types. While GRIB2 data and associated STAC Items are ingested just like any other two-dimensional raster file, NetCDF and HDF5 assets undergo further data enrichment. The generation of Kerchunk Manifests is well documented in [Data Cube Overview](link to data cube overview), but what is important to note is that Kerchunk assets will be added to your Blob Storage container alongside the original assets, and an additional `cube:variables` field are added to the STAC Item JSON. This is important when rendering these data types in the MPC Pro Explorer.
 
 ### Configure a Data Cube Collection
 
-Configuration of your data cube collection is another step that will look slightly different from that of other data types. You can follow the steps described in [Mosaic Quickstart](link to mosaic quickstart), [Queryables Quckstart](link to queryables quickstart), [Tile Settings Quickstart](link to tile settings quickstart), and [Render Configuration Quickstart](link to render configuration quickstart) to configure your data cube collection, but you will need to be aware of the following differences when building your Render Configuration:
+Configuration of your data cube collection is another step that will look slightly different from that of other data types. You can follow the steps described in [Mosaic Quickstart](link to mosaic quickstart), [Queryables Quickstart](link to queryables quickstart), [Tile Settings Quickstart](link to tile settings quickstart), and [Render Configuration Quickstart](link to render configuration quickstart) to configure your data cube collection, but you'll need to be aware of the following differences when building your Render Configuration:
 
 #### Render Configuration for NetCDF and HDF5 Assets
 
@@ -52,13 +52,13 @@ Remembering that a standard Render Configuration argument in JSON format looks l
 ]
 ```
 
-The `options` field is where you will want to utilize the cloud optimized, Kerchunk asset, as opposed to the original asset listed in the STAC Item. You will also need to include the `subdataset_name` argument, which is the name of the variable you want to render.
+The `options` field is where you'll want to utilize the cloud optimized, Kerchunk asset, as opposed to the original asset listed in the STAC Item. You'll also need to include the `subdataset_name` argument, which is the name of the variable you want to render.
 
 More information about visualizing NetCDF and HDF5 data can be found in the [Visualizing Assets Quickstart](link to visualizing assets quickstart).
 
 #### Render Configuration for GRIB2 Assets
 
-The `options` field for the Render Configuration of GRIB2 assets will look similar to the example above, but you will not need to include the `subdataset_name` argument. This is because GRIB2 data is already optimally structured and referenced via their Index files. The `assets` argument, in this case, will represent the band, or 2D raster layer, you want to render. Below is an example of a GRIB2 Render Configuration:
+The `options` field for the Render Configuration of GRIB2 assets look similar to the previous example, but you won't need to include the `subdataset_name` argument. This is because GRIB2 data is already optimally structured and referenced via their Index files. The `assets` argument, in this case, represents the band, or 2D raster layer, you want to render. Below is an example of a GRIB2 Render Configuration:
 
 ```json
 [
