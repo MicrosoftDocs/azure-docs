@@ -686,7 +686,7 @@ For more information about the properties, see [Lookup activity](control-flow-lo
 
 ## <a name="differences-between-snowflake-and-snowflake-legacy"></a> Snowflake connector lifecycle and upgrade
 
-The following table shows change logs for different versions of the Snowflake connector:
+The following table shows the release stage and change logs for different versions of the Snowflake connector:
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
