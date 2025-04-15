@@ -190,7 +190,7 @@ The Azure Communication Services Calling SDK supports sending following video re
 
 | **Maximum video resolution**                 | WebJS Desktop | WebJS Mobile | iOS  | Android | Windows |
 |----------------------------------------------|---------------|--------------|------|---------|---------|
-| **Sending Video**                            | 1080p^1^         | 720p         | 720p | 720p    | 1080p   |
+| **Sending Video**                            | 1080p<sup>1</sup>         | 720p         | 720p | 720p    | 1080p   |
 | **Sending screen share**                     | 1080p         | 720p         | 720p | 720p    | 1080p   |
 | **Receiving a remote video or screen share** | 1080p         | 720p         | 720p | 720p    | 1080p   |
 
