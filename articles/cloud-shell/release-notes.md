@@ -22,7 +22,7 @@ and bug fixes.
 
 ## April 2025
 
-The base image for Azure Cloud Shell was updated to use the latest version of the **Azure Linux
+The base image for Azure Cloud Shell was updated to use the latest version of **Azure Linux
 3.0**. With this release, the following changes were made:
 
 - Upgraded versions of many packages including Python 3.12.9, PostgreSQL 16.7, and Node.js v20.14.0
