@@ -35,8 +35,10 @@ Azure Native MongoDB Atlas provides the following capabilities:
 
 ## Subscribe to MongoDB Atlas
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] *MongoDB Atlas*.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Azure Native MongoDB Atlas*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Next Step
+
+[Quickstart: Get started with Azure Native MongoDB Atlas (preview)](create.md)
