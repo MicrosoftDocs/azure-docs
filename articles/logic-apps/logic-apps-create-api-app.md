@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 04/15/2025
 ---
 
 # Patterns for custom web APIs and REST APIs you can call from Azure Logic Apps
