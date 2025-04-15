@@ -1,94 +1,23 @@
 ---
-title: Configure RBAC on your resources
-description: Use the Azure portal or CLI to secure access to Azure IoT Operations resources such as dataflows and assets by using Azure role-based access control.
+title: Custom RBAC for your resources
+description: Use the Azure portal to secure access to Azure IoT Operations resources such as data flows and assets by using Azure role-based access control.
 author: dominicbetts
 ms.author: dobett
-ms.topic: how-to
-ms.date: 04/10/2025
+ms.topic: reference
+ms.date: 04/15/2025
 
-#CustomerIntent: As an IT administrator, I want configure Azure RBAC on resources in my Azure IoT Operations instance to control access to them.
+#CustomerIntent: As an IT administrator, I want configure Azure RBAC custom roles on resources in my Azure IoT Operations instance to control access to them.
 ---
 
-# Configure RBAC
+# Custom RBAC for your Azure IoT Operations resources
 
-To manage access to Azure IoT Operations resources such as assets and data flows, you can use Azure role-based access control (RBAC). Azure RBAC is an authorization system that enables you to manage access to Azure resources. You can use Azure RBAC to grant permissions to users, groups, and applications at a scope such as a subscription or resource group.
+To define custom roles that grant specific permissions to users, you can use Azure RBAC. For example, you can define an **Onboarding** role that grants sufficient permissions to a user to complete the Azure Arc connect process and deploy Azure IoT Operations securely.
 
-This article describes how you can create custom roles for Azure IoT Operations and assign them to users. You can use some or all of the example [custom roles](#list-of-custom-roles) in your environment
+This article includes a list of example that you can download and use in your environment. These custom roles are JSON files that list the specific permissions and scope for the role.
 
-For example, you can assign a user the **Data Flow Administrator** custom role in a specific resource group. This role allows the user to create and manage data flows in the resource group. For another user, you can assign the **Data Flow Viewer** custom role in the same resource group. This role allows the user to view data flows but not create or manage them.
+To learn more about custom roles in Azure RBAC, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
-You can assign custom roles at either the subscription or resource group level. Assigning roles at the level of a resource group enables the most granular control.
-
-> [!NOTE]
-> The Assets Endpoint Administrator and Data Flow Endpoint Administrator roles have access to Azure Key Vault. However, even if these custom roles are assigned at the subscription level, users can only see the list of key vaults from the specific resource group. Access to schema registries is also restricted to the resource group level.
-
-To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview).
-
-## Create custom role definitions
-
-To prepare one of the sample custom roles:
-
-1. Download the [JSON file for the custom role](#create-custom-role-definitions) you want to create. The JSON file contains the role definition, including the permissions and scope for the role.
-
-1. Edit the JSON file to replace the placeholder value in the `assignableScopes` field with your subscription ID. Save your changes.
-
-To add the custom role to your Azure subscription using the Azure portal:
-
-1. Go to your subscription in the Azure portal.
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add > Add custom role**.
-
-1. Enter a name, such as **Data flow administrator**, and a description for the role.
-
-1. Select **Start from JSON** and then select the JSON file you downloaded. The custom role name and description are populated from the file.
-
-1. Optionally, review the permissions and assignable scopes.
-
-1. To add the custom role to your subscription, select **Review + create** and then **Create**.
-
-To add the custom role to your Azure subscription using the Azure CLI:
-
-1. Open a command prompt and log in to your Azure account using the `az login` command.
-
-1. The following command shows how to create the **Data flow administrator** custom role:
-
-    ```console
-    az role definition create --role-definition "Data Flow Administrator.json"
-    ```
-
-## Assign roles
-
-After you create the custom roles in your subscription, you can assign them to users, groups, or applications. You can assign roles at the subscription or resource group level.
-
-To assign the custom role to a user at the resource group level using the Azure portal:
-
-1. Go to your resource group in the Azure portal.
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add > Add role assignment**.
-
-1. Search for and select the custom role you want to assign. Select **Next**.
-
-1. Select the user or users you want to assign the role to. You can search for users by name or email address.
-
-1. Select **Review + assign** to review the role assignment. If everything looks good, select **Assign**.
-
-To create a role assignment at the resource group level using the Azure CLI:
-
-1. Open a command prompt and log in to your Azure account using the `az login` command.
-
-1. The following command shows how to assign a user to the **Data flow administrator** custom role:
-
-    ```console
-    az role assignment create --assignee "<User to assign>" \
-    --role "Data flow administrator" \
-    --scope "/subscriptions/<Your subscription Id>/resourceGroups/<Your resource group name>"
-    ```
-
-## List of custom roles
+## Example custom roles
 
 The following sections list the example Azure IoT Operations custom roles you can download and use:
 
@@ -121,3 +50,48 @@ The following sections list the example Azure IoT Operations custom roles you ca
 | [Data flow destination administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Data%20Flow%20Destination%20Administrator.json) | The user can create and manage data flow destinations in the Azure IoT Operations instance. |
 | [MQ administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/MQ%20Administrator.json) | The user can create and manage the MQTT broker in the Azure IoT Operations instance. |
 | [Administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Administrator.json) | The user can create and manage the Azure IoT Operations instance. This role is a combination of the **Instance administrator**, **Asset administrator**, **Asset endpoint administrator**, **Data flow administrator**, **Data flow destination administrator**, and **MQ administrator** roles. |
+
+> [!NOTE]
+> The example _Assets endpoint administrator_ and _Data flow destination administrator_ roles have access to Azure Key Vault. However, even if these custom roles are assigned at the subscription level, users can only see the list of key vaults from the specific resource group. Access to schema registries is also restricted to the resource group level.
+
+## Create a custom role definition
+
+To prepare one of the sample custom roles:
+
+1. Download the JSON file for the custom role you want to create. The JSON file contains the role definition, including the permissions and scope for the role.
+
+1. Edit the JSON file to replace the placeholder value in the `assignableScopes` field with your subscription ID. Save your changes.
+
+To add the custom role to your Azure subscription using the Azure portal:
+
+1. Go to your subscription in the Azure portal.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add > Add custom role**.
+
+1. Enter a name, such as **Onboarding**, and a description for the role.
+
+1. Select **Start from JSON** and then select the JSON file you downloaded. The custom role name and description are populated from the file.
+
+1. Optionally, review the permissions and assignable scopes.
+
+1. To add the custom role to your subscription, select **Review + create** and then **Create**.
+
+## Configure and use a custom role
+
+After you create the custom roles in your subscription, you can assign them to users, groups, or applications. You can assign roles at the subscription or resource group level. Assigning roles at the level of a resource group enables the most granular control.
+
+To assign the custom role to a user at the resource group level using the Azure portal:
+
+1. Go to your resource group in the Azure portal.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add > Add role assignment**.
+
+1. Search for and select the custom role you want to assign. Select **Next**.
+
+1. Select the user or users you want to assign the role to. You can search for users by name or email address.
+
+1. Select **Review + assign** to review the role assignment. If everything looks good, select **Assign**.
