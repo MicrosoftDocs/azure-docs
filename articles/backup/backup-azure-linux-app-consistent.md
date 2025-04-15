@@ -33,14 +33,14 @@ To configure Prescript and post-script, follow these steps:
 
 4. To use the following files, ensure that you have the corresponding permissions:
 
-   - **VMSnapshotScriptPluginConfig.json**: Permission “600.” For example, only “root” user should have “read” and “write” permissions to this file, and no user should have “execute” permissions.
+   - **VMSnapshotScriptPluginConfig.json**: Permission **600**. For example, only **root** user should have **read** and **write** permissions to this file, and no user should have **execute** permissions.
 
-   - **Pre-script file**: Permission “700.”  For example, only “root” user should have “read”, “write”, and “execute” permissions to this file. The file is expected to be a shell script but theoretically this script can internally spawn or refer to other scripts like a Python script.
+   - **Pre-script file**: Permission **700**.  For example, only **root** user should have **read**, **write**, and **execute** permissions to this file. The file is expected to be a shell script but theoretically this script can internally spawn or refer to other scripts like a Python script.
 
-   - **Post-script** Permission “700.” For example, only “root” user should have “read”, “write”, and “execute” permissions to this file. The file is expected to be a shell script but theoretically this script can internally spawn or refer to other scripts like a Python script.
+   - **Post-script** Permission **700**. For example, only **root** user should have **read**, **write**, and **execute** permissions to this file. The file is expected to be a shell script but theoretically this script can internally spawn or refer to other scripts like a Python script.
 
    > [!IMPORTANT]
-   > The framework gives users a lot of power. Secure the framework, and ensure only “root” user has access to critical JSON and script files.
+   > The framework gives users numerous power. Secure the framework, and ensure only **root** user has access to critical JSON and script files.
    > If the requirements aren't met, the script won't run, which results in a file system crash and inconsistent backup.
    >
 
@@ -59,7 +59,7 @@ To configure Prescript and post-script, follow these steps:
 
     - **postScriptNoOfRetries**:  Set the number of times the post-script should be retried if there's any error before terminating. Zero means only one try and no retry if there's a failure.
 
-    - **timeoutInSeconds**: Specify individual timeouts for the prescript and the post-script (maximum value can be 1800).
+    - **timeoutInSeconds**: Specify individual time-outs for the prescript and the post-script (maximum value can be 1800).
 
     - **continueBackupOnFailure**: Set this value to **true** if you want Azure Backup to fall back to a file system consistent/crash consistent backup if prescript or post-script fails. Setting this to **false** fails the backup if there's a script failure (except when you have a single-disk VM that falls back to crash-consistent backup regardless of this setting). When the **continueBackupOnFailure** value is set to false, if the backup fails the backup operation will be attempted again based on a retry logic in service (for the stipulated number of attempts).
 
@@ -79,12 +79,12 @@ Make sure you add appropriate logging while writing your prescript and post-scri
 |Post-ScriptExecutionFailed |The post-script returned an error that might impact application state. |Look at the failure logs for your script to fix the issue and check the application state. |
 | Pre-ScriptNotFound |The prescript wasn't found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |Make sure that prescript is present at the path that's specified in the config file to ensure application-consistent backup.|
 | Post-ScriptNotFound |The post-script wasn't found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |Make sure that post-script is present at the path that's specified in the config file to ensure application-consistent backup.|
-| IncorrectPluginhostFile |The **Pluginhost** file, which comes with the VmSnapshotLinux extension, is corrupted, so prescript and post-script can't run and the backup won't be application-consistent.| Uninstall the **VmSnapshotLinux** extension, and it will automatically be reinstalled with the next backup to fix the problem. |
+| IncorrectPluginhostFile |The `Pluginhost` file, which comes with the VmSnapshotLinux extension, is corrupted, so prescript and post-script can't run and the backup won't be application-consistent.| Uninstall the **VmSnapshotLinux** extension, and it will automatically be reinstalled with the next backup to fix the problem. |
 | IncorrectJSONConfigFile | The **VMSnapshotScriptPluginConfig.json** file is incorrect, so prescript and post-script can't run and the backup won't be application-consistent. | Download the copy from [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) and configure it again. |
-| InsufficientPermissionforPre-Script | For running scripts, "root" user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
-| InsufficientPermissionforPost-Script | For running scripts, root user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
-| Pre-ScriptTimeout | The execution of the application-consistent backup pre-script timed-out. | Check the script and increase the timeout in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
-| Post-ScriptTimeout | The execution of the application-consistent backup post-scripts timed out. | Check the script and increase the timeout in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
+| InsufficientPermissionforPre-Script | For running scripts, **root** user should be the owner of the file and the file should have **700** permissions (that is, only **owner** should have **read**, **write**, and **execute** permissions). | Make sure **root** user is the **owner** of the script file and that only **owner** has **read**, **write** and **execute** permissions. |
+| InsufficientPermissionforPost-Script | For running scripts, root user should be the owner of the file and the file should have **700** permissions (that is, only **owner** should have **read**, **write**, and **execute** permissions). | Make sure **root** user is the **owner** of the script file and that only **owner** has **read**, **write** and **execute** permissions. |
+| Pre-ScriptTimeout | The execution of the application-consistent backup pre-script timed-out. | Check the script and increase the time-out in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
+| Post-ScriptTimeout | The execution of the application-consistent backup post-scripts timed out. | Check the script and increase the time-out in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
 
 ## Next steps
 
