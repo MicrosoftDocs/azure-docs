@@ -23,7 +23,7 @@ Client applications calling APIs through your API Management service may exhibit
 
 These symptoms manifest as instances of `BackendConnectionFailure` in your [Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs).
 
-You may also see diagnostic information related to SNAT port exhaustion in the Azure portal on the **Diagnose and solve problems** > **SNAT Port Analysis** page for your API Management instance.
+In certain API Management service tiers, you may also see diagnostic information related to SNAT port exhaustion in the Azure portal on the **Diagnose and solve problems** > **SNAT Port Analysis** page for your API Management instance.
 
 ## Cause
 
