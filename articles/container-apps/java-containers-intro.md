@@ -1,12 +1,13 @@
 ---
-title: Introduction to containers for Java applications
+title: Introduction to Containers for Java Applications
 description: Learn the basics of using containers for Java applications.
-services: container-apps
-author: craigshoemaker
+author: KarlErickson
+ms.reviewer: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/10/2025
-ms.author: cshoe
+ms.date: 04/15/2025
+ms.author: karler
+ms.custom: devx-track-java
 ai-usage: ai-generated
 ---
 
