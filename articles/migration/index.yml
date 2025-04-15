@@ -219,7 +219,7 @@ additionalContent:
     - title: Read migration blogs and articles from community members
       summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
       items:
-        - summary: We recently walked through a real-world migration of a typical web app from AWS EKS to Azure AKS, and while the core containers came over cleanly, the supporting architecture required some careful rework.
+        - summary: We recently walked through a real-world migration of a typical web app from AWS EKS to Azure AKS, and while the containers came over cleanly, the supporting architecture required some careful rework.
           title: "Migrating from EKS to AKS: What Actually Matters"
           url: https://techcommunity.microsoft.com/blog/azuremigrationblog/migrating-from-eks-to-aks-what-actually-matters/4403067
         - summary: Boost your growth and access more customers by replicating your AWS app to Azure and selling through Azure Marketplace.
