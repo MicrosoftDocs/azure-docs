@@ -14,7 +14,7 @@ When a STAC item containing NetCDF or HDF5 assets is ingested, those assets can 
 
 ## Supported file types for ingestion
 
-Planetary Computer supports ingestion of a variety of geospatial data formats. The file type of each asset is determined using the STAC `type` property. The ingestable file types include:
+Planetary Computer supports ingestion of a variety of geospatial data formats. The file type of each asset is determined using the STAC `type` property. The ingestable file types include: 
 
 - **Raster data**  
   - GeoTIFF  
