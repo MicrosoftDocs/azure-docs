@@ -17,6 +17,11 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 ## March 2025
 ### FHIR Service
+**Selectable search parameters in GA**
+The selectable search parameter capability allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries.
+
+Learn more:[Selectable search parameters for the FHIR service](fhir/selectable-search-parameters.md)
+
 **Preview capability for the bulk delete operation**: Added support for _include and _revinclude to conditional and bulk delete requests. Users can now use _include and _revinclude as search criteria for conditional and bulk delete. This doesn't affect the current behavior of singular deletes, which doesn't support extra parameters. Learn more [here](./fhir/fhir-bulk-delete.md).
 
 **Bundle Transactions Enhancement**: Improved bundle transactions for single-record bundles by applying new transaction logic, preventing HTTP 500 errors.

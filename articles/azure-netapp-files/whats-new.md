@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 03/25/2025
+ms.date: 04/01/2025
 ms.author: anfdocs
 ---
 
@@ -19,6 +19,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     <!-- What's new pending -->
     If you're migrating workloads from on-premises ONTAP-based storage systems, you can now use the migraiton assistant to migrate complete volumes into Azure NetApp Files. Migration assistant utilizes highly efficient block-level data transfers based on SnapMirror technology to allow for fast migrations and flexible cut-over planning to Azure. Migration assistant requires connectivity from the on-premises storage system to Azure NetApp Files via secure and adequate Express Route or VPN connectivity.
  
+## April 2025
+
+* [File access logs](manage-file-access-logs.md) (preview)
+
+    File Access Logs provides detailed logging of file access activities, including user identity, operation type, and timestamps, enhancing security, reliability, and operational insights. It supports SMB, NFSv4.1, and dual-protocol volumes, offering valuable features for monitoring unauthorized access, tracing activity for compliance, resolving incidents, and optimizing data usage patterns. By embedding this capability, you can strengthen your organization's security posture, maintain system reliability, and achieve operational excellence in alignment with the Well-Architected Framework security best practices. Azure NetApp Files file access logs play a critical role in safeguarding sensitive data, detecting anomalies while enabling operational excellence.
+  
 ## March 2025
 
 * [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)
@@ -657,7 +663,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The following features are now GA. You no longer need to register the features before using them.
     * [Dynamic change of service level](dynamic-change-volume-service-level.md)
     * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)
-
 
 ## March 2022
 
