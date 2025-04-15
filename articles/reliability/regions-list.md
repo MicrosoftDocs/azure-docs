@@ -85,9 +85,9 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 
 To retrieve a list of regions names directly, including the names that can be used for programming and scripting, you can use the following methods:
 
-- [Azure CLI - az account list-locations](/cli/azure/account?view=azure-cli-latest#az-account-list-locations)
-- [Azure PowerShell - Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-13.3.0)
-- [Azure Resource Manager REST API](/rest/api/resources/subscriptions/list-locations?view=rest-resources-2022-12-01&tabs=HTTP)
+- [Azure CLI - az account list-locations](/cli/azure/account#az-account-list-locations)
+- [Azure PowerShell - Get-AzLocation](/powershell/module/az.resources/get-azlocation)
+- [Azure Resource Manager REST API](/rest/api/resources/subscriptions/list-locations)
 
 
  
