@@ -4,7 +4,7 @@ description: Learn about subnet delegation in Azure virtual network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 05/08/2023
+ms.date: 04/15/2025
 ms.author: allensu
 ---
 
@@ -12,7 +12,7 @@ ms.author: allensu
 
 Subnet delegation enables you to designate a specific subnet for an Azure PaaS service of your choice that needs to be injected into your virtual network. Subnet delegation provides full control to the customer on managing the integration of Azure services into their virtual networks.
 
-When you delegate a subnet to an Azure service, you allow that service to establish some basic network configuration rules for that subnet, which help the Azure service operate their instances in a stable manner. As a result, the Azure service may establish some of the following pre or post deployment conditions:
+When you delegate a subnet to an Azure service, you allow that service to establish some basic network configuration rules for that subnet, which help the Azure service operate their instances in a stable manner. As a result, the Azure service might establish some of the following pre or post deployment conditions:
 
 - Deploy the service in a shared versus dedicated subnet.
 
@@ -38,7 +38,7 @@ Subnet delegation is an exercise that the virtual network owners need to perform
 ## Effect of subnet delegation on your subnet
 Each Azure service defines their own deployment model, where they can define what properties they do or don't support in a delegated subnet for injection purposes as follows:
 
-- Shared subnet with other Azure Services or VM / virtual machine scale set in the same subnet, or it only supports a dedicated subnet with only instances of this service in it.
+- Shared subnet with other Azure Services or virtual machine / virtual machine scale set in the same subnet, or it only supports a dedicated subnet with only instances of this service in it.
 
 - Supports NSG association with the delegated subnet.
 
@@ -56,7 +56,7 @@ Each Azure service defines their own deployment model, where they can define wha
 
 - Requires delegation to be removed before the subnet or virtual network can be deleted.
 
-- Can't be used with a private endpoint if the subnet is delegated. As a consequence, private endpoint network policies should not be configured in these subnets.
+- Can't be used with a private endpoint if the subnet is delegated. As a consequence, private endpoint network policies shouldn't be configured in these subnets.
 
 Injected services can also add their own policies as follows:
 
