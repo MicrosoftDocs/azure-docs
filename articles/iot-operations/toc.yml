@@ -39,8 +39,6 @@ items:
         href: secure-iot-ops/howto-manage-secrets.md
       - name: Validate images
         href: secure-iot-ops/howto-validate-images.md
-      - name: Configure RBAC
-        href: secure-iot-ops/howto-custom-rbac.md
       - name: Secure your solution
         href: ../iot/iot-overview-security.md
     - name: Discover and manage assets
@@ -51,8 +49,6 @@ items:
         href: discover-manage-assets/concept-assets-asset-endpoints.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
-      - name: Secure access to your assets
-        href: discover-manage-assets/howto-secure-assets.md
       - name: OPC UA (connect to your assets)
         items:
         - name: Connector for OPC UA overview
@@ -217,6 +213,8 @@ items:
         href: /cli/azure/iot/ops
       - name: Azure IoT Operations REST API
         href: /rest/api/iotoperations
+      - name: Custom RBAC
+        href: reference/custom-rbac.md
       - name: Available metrics for observability
         items:
         - name: MQTT broker

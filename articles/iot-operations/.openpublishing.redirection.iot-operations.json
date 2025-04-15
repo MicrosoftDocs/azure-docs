@@ -544,6 +544,11 @@
             "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md",
             "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-secure-assets.md",
+            "redirect_url": "/azure/iot-operations/reference/custom-rbac",
+            "redirect_document_id": true
         }
     ]
 }
