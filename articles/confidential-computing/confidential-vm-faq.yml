@@ -225,4 +225,8 @@ sections:
           ``` Ubuntu Linux
           sed -i '/^#pool.*ntp/s/^#//' /etc/chrony/chrony.conf
           ```
+          3. Restart the chronyd service to synchorize to current time.
+          ``` Ubuntu Linux
+          systemctl restart chronyd.service
+          ```
           
