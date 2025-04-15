@@ -122,9 +122,9 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
    For more information about the **Send** SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-   If you're able to browse and select the folders along this path, follow these steps:
+   If you have the option to browse and select the folders along this path, follow these steps:
 
-   1. In the **sapActionUris Item - 1 ActionUri** box, from the dropdown list, select **BAPI**, **IDOC**, **RFC**, or **TRFC**.
+   1. From the **sapActionUris Item - 1** dropdown list, select **BAPI**, **IDOC**, **RFC**, or **TRFC**.
 
       This example selects **IDOC**. If you select a different operation type, the available parameters change based on your selection.
 
@@ -132,13 +132,13 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
       This example selects **ORDERS** > **ORDERS05** > **720** > **Send**.
 
-   1. To generate schemas for more than one action, in the **sapActionUris** section, select **Add new item**.
+1. To generate schemas for more than one action, in the **sapActionUris** section, select **Add new item**.
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-add-item-consumption.png" alt-text="Screenshot shows selecting the option to add a new item." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-add-item-consumption.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-add-item-consumption.png" alt-text="Screenshot shows selecting the option to add a new item." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-add-item-consumption.png":::
 
-   1. For each SAP action that you want to generate a schema, provide the path to that action, for example:
+1. For each SAP action that you want to generate a schema, provide the path to that action, for example:
 
-      :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiple-consumption.png" alt-text="Screenshot shows multiple SAP actions to use for generating schemas." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiple-consumption.png":::
+   :::image type="content" source="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiple-consumption.png" alt-text="Screenshot shows multiple SAP actions to use for generating schemas." lightbox="./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-multiple-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
