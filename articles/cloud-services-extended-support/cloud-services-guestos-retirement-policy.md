@@ -13,6 +13,10 @@ ms.author: ssundara
 ms.custom: compute-evergreen
 ---
 # Azure Guest OS supportability and retirement policy
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It doesn't apply to Virtual Machines (IaaS).
 
 Microsoft has a published [support policy for the Guest OS](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). This page describes how the policy is implemented.
