@@ -286,7 +286,7 @@ Here's an example of Azure Maps with the language set to "fr" and the user regio
 Dynamic maps in both Azure and Google Maps can be programmatically moved to new geographic locations. To do so, call the appropriate functions in JavaScript. The examples show how to make the map display satellite aerial imagery, center the map over a location, and change the zoom level to 15 in Google Maps. The following location coordinates are used: longitude: -111.0225 and latitude: 35.0272.
 
 > [!NOTE]
-> Google Maps uses tiles that are 256 pixels in dimensions, while Azure Maps uses a larger 512-pixel tile. Thus, Azure Maps requires less number of network requests to load the same map area as Google Maps. Due to the way tile pyramids work in map controls, you need to subtract the zoom level used in Google Maps by the number one when using Azure Maps. This arithmetic operation ensures that larger tiles in Azure Maps render that same map area as in Google Maps,
+> Google Maps uses 256-pixel tiles, whereas Azure Maps uses larger 512-pixel tiles. Consequently, Azure Maps requires fewer network requests to load the same map area as Google Maps. Due to the tile pyramid structure in map controls, you need to subtract one from the zoom level used in Google Maps when using Azure Maps. This adjustment ensures that the larger tiles that Azure Maps renders will use the same map area as used in Google Maps.
 
 #### Before: Google Maps
 
