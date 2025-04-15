@@ -88,10 +88,6 @@ To retrieve a list of regions names directly, including the names that can be us
 - [Azure CLI - az account list-locations](/cli/azure/account#az-account-list-locations)
 - [Azure PowerShell - Get-AzLocation](/powershell/module/az.resources/get-azlocation)
 - [Azure Resource Manager REST API](/rest/api/resources/subscriptions/list-locations)
-
-
- 
-
 ## Related content
 
 - [What are Azure regions](regions-overview.md)
