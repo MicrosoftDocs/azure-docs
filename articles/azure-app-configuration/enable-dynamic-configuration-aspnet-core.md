@@ -134,7 +134,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
     | TestApp:Settings:FontColor | lightGray |
     | TestApp:Settings:Message | Data from Azure App Configuration - now with live updates! |
 
-1. Refresh the browser a few times. When the cache expires after 30 seconds, the page shows with updated content.
+1. Refresh the browser a few times. When the refresh interval elapses after 30 seconds, the page shows with updated content.
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 

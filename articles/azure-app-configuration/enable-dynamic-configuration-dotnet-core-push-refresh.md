@@ -17,7 +17,7 @@ ms.author: malev
 
 The App Configuration .NET client library supports updating configuration on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
 
-1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
+1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the refresh interval of a setting elapses, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
 1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or through one of the [supported event handlers](../event-grid/event-handlers.md) such as a webhook, an Azure function, or a Service Bus topic.
 
