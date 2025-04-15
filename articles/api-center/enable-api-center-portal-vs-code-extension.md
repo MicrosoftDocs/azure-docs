@@ -73,12 +73,12 @@ Developers can follow these steps to connect and sign in to view an API Center p
    
 1. To view the APIs in the API center, under the API center name, select **Sign in to Azure**. Sign-in is allowed with a Microsoft account that is assigned the **Azure API Center Data Reader** role in the API center. 
 
-    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-initial.png" alt-text="Screenshot of API Center portal in VS Code extension." :::
-
+   ![api-center-pane-initial](media/enable-api-center-portal-vs-code-extension/api-center-pane-initial1.png)
+   
 1. After signing in, select **APIs** to list the APIs in the API center. Expand an API to explore its versions and definitions.
 
-    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-apis.png" alt-text="Screenshot of API Center portal with APIs in VS Code extension." :::
-
+   ![api-center-pane-apis](media/enable-api-center-portal-vs-code-extension/api-center-pane-apis1.png)
+   
 1. Repeat the preceding steps to connect to more API centers, if access is configured.
 
 ### Discover and consume APIs in the API Center portal view
@@ -103,4 +103,6 @@ Check the settings in the app registration you configured in Microsoft Entra ID.
 
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Best practices for Azure RBAC](../role-based-access-control/best-practices.md)
+
 * [Register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
+
