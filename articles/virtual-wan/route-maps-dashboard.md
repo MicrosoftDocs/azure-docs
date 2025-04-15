@@ -10,13 +10,9 @@ ms.date: 03/04/2024
 ms.author: cherylmc
 
 ---
-# Monitor Route-maps using the Route Map dashboard (Preview)
+# Monitor Route-maps using the Route Map dashboard
 
 This article helps you use the Route Map dashboard to monitor Route-maps. Using the Route Map dashboard, you can monitor routes, AS Path, and BGP communities for routes in your Virtual WAN.
-
-> [!IMPORTANT]
-> Route-maps is currently in Public Preview and is provided without a service-level agreement. At this time, **Route-maps shouldn't be used for production workloads**. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Dashboard view
 
