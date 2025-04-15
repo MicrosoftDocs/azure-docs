@@ -118,7 +118,7 @@ For more information, see [API Management monitoring data reference](monitor-api
 [!INCLUDE [api-management-diagnostic-settings](../../includes/api-management-diagnostic-settings.md)]
 
 > [!NOTE]
-> To enable diagnostic settings for API Management workspaces, see [Create and manage a workspace](how-to-create-workspace.md#enable-diagnostic-settings-for-azure-monitor-logs)
+> To enable diagnostic settings for API Management workspaces, see [Create and manage a workspace](how-to-create-workspace.md#enable-diagnostic-settings-for-monitoring-workspace-apis)
 
 #### View log data
 
