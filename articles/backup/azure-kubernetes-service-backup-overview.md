@@ -442,6 +442,7 @@ You incur charges for:
 ## Next step
 
 > [!div class="nextstepaction"]
->- [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
->- [Back up AKS using Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
->- Restore AKS using [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+>- [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md).
+>- [Back up AKS using Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md).
+>- Restore AKS using [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md).
+>- [Well-architected design for AKS cluster protection](/azure/cloud-adoption-framework/scenarios/app-platform/aks/management#design-considerations-1).
