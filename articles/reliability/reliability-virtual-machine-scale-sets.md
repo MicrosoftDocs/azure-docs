@@ -237,7 +237,7 @@ When you deploy a scale set into one or more availability zones, you have the fo
 
 - **Static fixed spreading (platformFaultDomainCount = 5)**. With static fixed spreading, the scale set spreads your VMs exactly across five fault domains per zone. If the scale set can't find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
-- **Spreading aligned with managed disks fault domains (platformFaultDomainCount = 2 or 3)** You can consider aligning the number of scale set fault domains with the number of managed disks fault domains. This alignment can help prevent loss of quorum if an entire managed disks fault domain goes down. The fault domain count can be set to less than or equal to the number of managed disks fault domains available in each of the regions. To learn about the number of Managed Disks fault domains by region, see [insert doc here](link here).
+- **Spreading aligned with managed disks fault domains (platformFaultDomainCount = 2 or 3)** You can consider aligning the number of scale set fault domains with the number of managed disks fault domains. This alignment can help prevent loss of quorum if an entire managed disks fault domain goes down. The fault domain count can be set to less than or equal to the number of managed disks fault domains available in each of the regions. To learn more, see [Best practices for achieving high availability with Azure virtual machines and managed disks](/azure/virtual-machines/disks-high-availability).
 
 #### Zone balancing
 
