@@ -71,7 +71,7 @@ Volume placement within the application volume group enables organizations to ad
 
 #### Customer managed key support
 
-Azure NetApp Files application volume group for SAP HANA extension 1 and Oracle support volume deployments with customer-managed keys, offering increased security and compliance. 
+Azure NetApp Files application volume group for SAP HANA and Oracle support volume deployments with customer-managed keys, offering increased security and compliance. 
 
 #### Constrained zone resource availability
 

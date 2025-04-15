@@ -46,8 +46,6 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
 
     Select **Next** and continue through the **Protocol** and **Tags** sections, providing the same input as the first HANA host. (See Step 4 through Step 6 in [Deploy the first SAP HANA host](application-volume-group-deploy-first-host.md).)   
 
-    [!INCLUDE [Extension 1 interface call-out](./includes/extension-one.md)]
-
     Select **Next: Volumes** when you reach the end of the sections. 
 
     For hosts that you add, only the data and the log volumes are created. The **Volumes** page displays the two volumes in a generic form, using the `{HostId}` as a placeholder. This process simplifies the workflow, because changes are made only once for the data and log volumes for all the hosts that are being created.
