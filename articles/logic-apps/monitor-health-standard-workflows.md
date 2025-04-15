@@ -72,7 +72,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 1. Under **Health probe path**, in the **Path** box, enter a valid URL path for your workflow, for example:
 
-   **`/api/{workflow-name}/triggers/{request-trigger-name}/invoke?api-version=2022-05-01`**
+   **`/api/<workflow-name>/triggers/<request-trigger-name>/invoke?api-version=2022-05-01`**
 
 1. Save your changes. On the toolbar, select **Save**.
 
@@ -90,7 +90,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
       "extensions": {
           "workflow": {
               "settings": {
-                  "Workflows.HealthCheckWorkflowName" : "{workflow-name}"
+                  "Workflows.HealthCheckWorkflowName" : "<workflow-name>"
               }
           }
       }
@@ -151,8 +151,6 @@ If your Standard logic app uses the hosting option named **Workflow Service Plan
 1. On the logic app menu, under **Settings**, select **Scale out (App Service plan)**.
 
 1. Under **App Scale out**, make sure that the **Always Ready Instances** value *isn't set* to **0**.
-
-
 
 ## Related content
 
