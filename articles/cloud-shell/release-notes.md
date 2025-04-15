@@ -14,9 +14,9 @@ and bug fixes.
 > [!NOTE]
 > For a tool to be included in Cloud Shell, it must meet the criteria defined in the
 > [Cloud Shell Package inclusion guide][11]. For security compliance, tool packages become
-> deprecated when they're no longer actively maintained. There is usually a 30-day notice before a
-> package is removed from the image. The package may be removed sooner if there is a security
-> vulnerability or other critical issue. As with any other tool, if there is a tool you need, you
+> deprecated when they're no longer actively maintained. There's usually a 30-day notice before a
+> package is removed from the image. The package may be removed sooner if there's a security
+> vulnerability or other critical issue. As with any other tool, if there's a tool you need, you
 > can install them in your Cloud Shell session as long as it doesn't require root access. For
 > installation instructions, consult the documentation for the package you require.
 
@@ -26,7 +26,7 @@ The base image for Azure Cloud Shell was updated to use the latest version of th
 3.0**. With this release, the following changes were made:
 
 - Upgraded versions of many packages including Python 3.12.3, PostgreSQL 16.7, and Node.js v20.14.0
-- [Azure Functions Core Tools][02] was re-added to the image.
+- [Azure Functions Core Tools][02] was readded to the image.
 - The following packages were removed:
   - `msodbcsql18` and `mssql-tools18`
   - `Apparmor` is primarily used in Ubuntu and not in Azure Linux.
@@ -84,10 +84,10 @@ New features
 
 Deprecated Packages
 
-The following packages were removed for security compliance. These packages were deprecated by the
-package owners or are no longer maintained. If you need to use these tools, you can install them in
-your Cloud Shell session. For installation instructions, consult the documentation for the package
-you require.
+The following packages were removed for security compliance. The maintainers deprecated these
+packages or are no longer maintained. If you need to use these tools, you can install them in your
+Cloud Shell session. For installation instructions, consult the documentation for the package you
+require.
 
 - [Batch-Shipyard][09]
 - [blobxfer][10]
