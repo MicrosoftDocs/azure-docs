@@ -18,7 +18,7 @@ ms.custom: engagement-fy23
 <a name="scale"></a>
 For Azure CLI sample scripts for Azure Cache for Redis, see the following articles:
 
-- [Create and manage a cache](/azure/redis/scripts/create-manage-cache?pivots=azure-cache-for-redis)
+- [Create and manage a cache](/azure/redis/scripts/create-manage-cache?pivots=azure-cache-redis)
   1. Creates a resource group and a Basic tier Azure Redis cache.
   1. Gets cache details, including provisioning status, the hostname, ports, and keys.
   1. Deletes the cache.
