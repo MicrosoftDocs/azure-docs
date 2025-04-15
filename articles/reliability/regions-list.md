@@ -81,6 +81,13 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | West US 2 | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | West Central US | Washington | United States |
 | West US 3 | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | East US | Phoenix | United States |
 
+### Azure programmatic region names
+
+To retrieve a list of regions names directly, including the names that can be used for programming and scripting, you can use the following methods:
+
+- [Azure CLI - az account list-locations](/cli/azure/account#az-account-list-locations)
+- [Azure PowerShell - Get-AzLocation](/powershell/module/az.resources/get-azlocation)
+- [Azure Resource Manager REST API](/rest/api/resources/subscriptions/list-locations)
 ## Related content
 
 - [What are Azure regions](regions-overview.md)

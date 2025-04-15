@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 4/15/2025
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -166,10 +166,6 @@ Microsoft.Network/EnableApplicationGatewayNetworkIsolation  Unregistered
 A list of all Azure CLI references for Private Link Configuration on Application Gateway can be found here: [Azure CLI CLI - Private Link](/cli/azure/network/application-gateway/private-link)
 
 ---
-
-## Regions and availability
-
-The Private Application Gateway preview is available to all public cloud regions [where Application Gateway v2 sku is supported](./overview-v2.md#unsupported-regions).
 
 ## Configuration of network controls
 
