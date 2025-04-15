@@ -14,6 +14,7 @@ ms.author: cherylmc
 
 This article helps you use the Route Map dashboard to monitor Route-maps. Using the Route Map dashboard, you can monitor routes, AS Path, and BGP communities for routes in your Virtual WAN.
 
+
 ## Dashboard view
 
 The following steps walk you through how to navigate to the Route Map dashboard.
@@ -32,7 +33,7 @@ After you open the Route Map dashboard, you can view the details of your connect
 
 1. From the drop-down, select the **Connection type** that you want to view. The connections types are VPN (Site-to-Site and Point-to-Site), ExpressRoute, and Virtual Network.
 1. From the drop-down, select **Connection** you want to view.
-1. Select the direction from the two options: **In the inbound direction.** or **In the outbound direction.** You can view inbound from a VNet or inbound to the virtual hub router from ExpressRoute, Branch or User connections. You can also view routes outbound from a VNet or outbound from the virtual hub router to ExpressRoute, Branch or User connections.
+1. Select the direction from the two options: **In the inbound direction.** or **In the outbound direction.** You can view inbound from a VNet or inbound to the virtual hub router from ExpressRoute, Branch, or User connections. You can also view routes outbound from a VNet or outbound from the virtual hub router to ExpressRoute, Branch, or User connections.
 1. On the Route Map dashboard, the following values are available:
 
    |Value | Description|
