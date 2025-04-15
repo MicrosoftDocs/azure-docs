@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/17/2024
+ms.date: 04/15/2025
 # Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
@@ -14,6 +14,7 @@ ms.date: 11/17/2024
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
+>
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -65,17 +66,9 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 1. In the [Azure portal](https://portal.azure.com), go to your Standard logic app resource.
 
-1. On the logic app menu, select **Diagnose and solve problems**.
+1. On the logic app menu, under Monitoring**, select **Health check**. On the **Health check** page, on the **Health check** tab, select **Enable**.
 
-1. On the **Diagnose and solve problems** page, in the search box, find and select **Health Check feature**.
-
-   :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Diagnose and solve problems, search box with health check entered, and selected option for Health Check feature." lightbox="media/monitor-health-standard-workflows/health-check.png":::
-
-1. In the **Health Check feature** section, select **View Solution**.
-
-1. On the pane that opens, select **Configure and enable health check feature**. 
-
-1. On the **Health check** tab, next to **Health check**, select **Enable**.
+   :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Health check, and selected option for Enable." lightbox="media/monitor-health-standard-workflows/health-check.png":::
 
 1. Under **Health probe path**, in the **Path** box, enter a valid URL path for your workflow, for example:
 
