@@ -14,7 +14,7 @@ This quickstart shows you how to create a LambdaTest (preview) resource using th
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [Subscribe to LambdaTest - HyperExecute](overview.md#subscribe-to-azure-native-lambdatest---hyperexecute)
+- You must [Subscribe to LambdaTest - HyperExecute](overview.md#subscribe-to-lambdatest---hyperexecute)
 
 ## Create a resource
 
