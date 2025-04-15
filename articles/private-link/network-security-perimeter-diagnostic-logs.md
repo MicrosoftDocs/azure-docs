@@ -46,7 +46,7 @@ You can enable diagnostic logging for a network security perimeter by using the 
 :::image type="content" source="media/network-security-perimeter-diagnostic-logs/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for a network security perimeter.":::
 
 > [!NOTE]
-> When using Azure Monitor with a network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions. For more information on available regions, see [Regional limits for Network Security Perimeter](./network-security-perimeter-concepts.md#regional-limitations).
+> When using Azure Monitor with a network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 ## Next steps
 
