@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 Save on your Microsoft Sentinel costs when you buy a pre-purchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if Microsoft Sentinel generates a retail cost of $100, then 100 Sentinel CUs (SCUs) are consumed. 
 
-Any eligible Microsoft Sentinel retail costs automatically deduct first from your SCUs over the course of its one year term or until they are depleted. Your pre-purchase plan SCUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan. By default, plans are configured to renew at the end of the 1 year term.
+Any eligible Microsoft Sentinel retail costs automatically deduct first from your SCUs over the course of its one year term or until they are depleted. Your pre-purchase plan SCUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one year term.
 
 ## Prerequisites
 
