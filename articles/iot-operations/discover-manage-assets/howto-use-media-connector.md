@@ -33,6 +33,9 @@ A camera connected to your network and accessible from your Azure IoT Operations
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
+> [!IMPORTANT]
+> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
+
 ## Deploy the media server
 
 If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following commands:
