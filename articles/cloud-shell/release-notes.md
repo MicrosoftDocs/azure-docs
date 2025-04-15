@@ -25,7 +25,7 @@ and bug fixes.
 The base image for Azure Cloud Shell was updated to use the latest version of the **Azure Linux
 3.0**. With this release, the following changes were made:
 
-- Upgraded versions of many packages including Python 3.12.3, PostgreSQL 16.7, and Node.js v20.14.0
+- Upgraded versions of many packages including Python 3.12.9, PostgreSQL 16.7, and Node.js v20.14.0
 - [Azure Functions Core Tools][02] was readded to the image.
 - The following packages were removed:
   - `msodbcsql18` and `mssql-tools18`
