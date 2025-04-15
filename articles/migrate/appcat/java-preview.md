@@ -75,30 +75,29 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 | macOS   | Apple Silicon   | [Download][10] | [sha256][11] / [sig][12] |
 | Linux   | AArch64 / ARM64 | [Download][4]  | [sha256][5] / [sig][6]   |
 
-[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz
-[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz.sha256sum.txt
-[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz.sig
-[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz
-[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz.sha256sum.txt
-[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz.sig
-[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz
-[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz.sha256sum.txt
-[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz.sig
-[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz
-[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz.sha256sum.txt
-[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz.sig
-[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip
-[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip.sha256sum.txt
-[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip.sig
-[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip
-[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip.sha256sum.txt
-[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip.sig
+[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz
+[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz.sha256sum.txt
+[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz.sig
+[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz
+[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz.sha256sum.txt
+[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz.sig
+[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz
+[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz.sha256sum.txt
+[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz.sig
+[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz
+[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz.sha256sum.txt
+[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz.sig
+[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip
+[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip.sha256sum.txt
+[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip.sig
+[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip
+[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip.sha256sum.txt
+[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip.sig
 
 ### Prerequisites
 
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the **JAVA_HOME** environment variable is set.
 - [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html). Ensure that the Maven binary (`mvn`) is reachable through `PATH` environment variable.
-- [Download and install Python 3](https://www.python.org/downloads/).
 
 ### Installation
 
@@ -123,19 +122,7 @@ Extract the binary from the downloaded file. You should see the following folder
 
 ### Running the tool
 
-#### Option 1: Run appcat from the downloaded folder
-
-Change the directory to the extracted folder:
-
-```bash
-cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
-./appcat --help
-```
-
-> [!NOTE]
-> The `appcat` binary first looks for its dependencies in the current directory, where it's running from, and falls back to the following scenario if they aren't found.
-
-#### Option 2: Add the appcat binary path to your $PATH
+#### Option 1: Add the appcat binary path to your $PATH
 
 Move the contents of the folder to the **.appcat** folder in the user's home directory - **$HOME/.appcat** on Linux/Mac and **%USERPROFILE%/.appcat** on Windows.
 
@@ -156,7 +143,19 @@ move <path-to-extracted>\azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<
 ---
 
 > [!NOTE]
-> In this context, when the `appcat` binary is called from a different folder than where it's installed, it looks for its dependencies in the **.appcat** folder in the user's home directory.
+> When the `appcat` binary is called from a different folder than where it's installed, it looks for its dependencies in the **.appcat** folder in the user's home directory.
+
+#### Option 2: Run appcat from the downloaded folder
+
+Change the directory to the extracted folder:
+
+```bash
+cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
+./appcat --help
+```
+
+> [!NOTE]
+> The `appcat` binary first looks for its dependencies in the current directory, and falls back to #Option 1 configration if the dependencies not found.
 
 ## Usage
 
@@ -189,13 +188,13 @@ To analyze application source code, run the following command:
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./appcat analyze --input=<path-to-source-code> --output=<path-to-output-directory> --target=azure-appservice --overwrite
+./appcat analyze --input=<path-to-source-code> --output=<path-to-output-directory> --target=azure-appservice,cloud-readiness --overwrite
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\appcat.exe analyze --input=<path-to-source-code> --output=<path-to-output-directory> --target=azure-appservice --overwrite
+.\appcat.exe analyze --input=<path-to-source-code> --output=<path-to-output-directory> --target=azure-appservice,cloud-readiness --overwrite
 ```
 
 ---
@@ -241,7 +240,6 @@ available target technologies:
 azure-aks
 azure-appservice
 azure-container-apps
-azure-spring-apps
 cloud-readiness
 linux
 openjdk11
@@ -332,13 +330,13 @@ The reports are automatically generated and launched. You can find the reports u
 
 The landing page of the report lists all the technologies that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
 
-:::image type="content" source="media/java/report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/report-summary.png":::
+:::image type="content" source="media/java/AppCAT7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/AppCAT7-report-summary.png":::
 
 When you zoom in on the **Incidents by Category** pie chart, you can see the number of incidents by category: **Mandatory**, **Optional**, and **Potential**.
 
 The dashboard also shows the *story points*. The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change. `appcat` uses story points to express the level of effort needed to migrate a particular application. Story points don't necessarily translate to work hours, but the value should be consistent across tasks.
 
-:::image type="content" source="media/java/report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/report-summary-incident.png":::
+:::image type="content" source="media/java/AppCAT7-report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/AppCAT7-report-summary-incident.png":::
 
 ### Assessment report
 
@@ -346,19 +344,37 @@ The assessment report gives an overview of the transformation issues that would 
 
 These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, or *Potential*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
 
-:::image type="content" source="media/java/report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/report-assessment.png":::
+:::image type="content" source="media/java/AppCAT7-report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/AppCAT7-report-assessment.png":::
 
 ### Detailed information for a specific issue
 
 For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this incident.
 
-:::image type="content" source="media/java/report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/report-assessment-detail.png":::
+:::image type="content" source="media/java/AppCAT7-report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/AppCAT7-report-assessment-detail.png":::
 
 Then, for each file or class affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
 
-:::image type="content" source="media/java/report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/report-assessment-code.png":::
+:::image type="content" source="media/java/AppCAT7-report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/AppCAT7-report-assessment-code.png":::
 
 ## Release notes
+
+### 7.6.0.4
+
+This release contains the following fixes and enhancements.
+
+- Support telemetry collection. `--disable-telemetry` flag to disable telemetry.
+- Refactor CLI command format, make it more clear.
+  - Update `--source` flag, change `--source <source1> --source <source2> ...` to `--source <source1>,<source2>,...`
+  - Update `--target` flag, change `--target <target1> --target <target2> ...` to ` --target <target1>,<target2>,...`
+  - Update `--rules` flag, change `--rules <rule1> --rules <rule2> ...` to `--rules <rule1>,<rule2>,...`
+  - Update `--maven-settings` flag to `--custom-maven-settings`
+  - Update `--limit-code-snips` flag to `--code-snips-number`
+  - Remove `--json-output` flag, use `--output-format` flag, choose output format: 'yaml' or 'json'. (default yaml)
+  - Remove `--provider`, `--override-provider-settings`, `--list-providers`, `--dependency-folders` flags
+- New `--exclude-paths` flag: Specify paths that should be ignored analysis. Use a comma-separated list for multiple values: `--exclude-paths <path1>,<path2>,...` (default []).
+- New `--packages` flag: Specify application class packages to be evaluated. Use a comma-separated list for multiple values: `--packages <package1>,<package2>,...` (default []).
+- New `--dry-run` flag: Only check if the flags are valid, not running the analysis actually. (default false).
+- Remove `azure-spring-apps` from appcat `--list-targets`.
 
 ### 7.6.0.3
 
@@ -437,6 +453,13 @@ Previously, a set of targets were enabled by default, making it difficult for ce
 GA (Generally Available) release of Azure Migrate application and code assessment.
 
 ## Known Issues
+
+### 7.6.0.4
+
+- Rules issues:
+    - `azure-system-config-01000` rules aren't being triggered.
+    - `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.6.0.3
 
