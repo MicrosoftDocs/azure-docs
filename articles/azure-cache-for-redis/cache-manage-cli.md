@@ -14,11 +14,11 @@ ms.custom: engagement-fy23
 ---
 # Manage Azure Cache for Redis using the Azure CLI
 
-You can use the Azure CLI to manage your Azure Cache for Redis infrastructure from any platform. To install the current Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
+<a name="scale"></a>
 For Azure CLI sample scripts for Azure Cache for Redis, see the following articles:
 
-- [Create and manage a cache](/azure/redis/scripts/create-manage-cache)
+- [Create and manage a cache](/azure/redis/scripts/create-manage-cache?pivots=azure-cache-for-redis)
   1. Creates a resource group and a Basic tier Azure Redis cache.
   1. Gets cache details, including provisioning status, the hostname, ports, and keys.
   1. Deletes the cache.
@@ -28,8 +28,9 @@ For Azure CLI sample scripts for Azure Cache for Redis, see the following articl
   1. Gets cache details, including provisioning status, the hostname, ports, and keys.
   1. Deletes the cache.
 
-- For more information about Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
-- For more information about the commands for managing Azure Redis caches, see [az redis](/cli/azure/redis) and [az redisenterprise](/cli/azure/redisenterprise).
+- To install the current Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+- For more information about using the Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+- For an Azure CLI command reference for Azure Redis caches, see [az redis](/cli/azure/redis) and [az redisenterprise](/cli/azure/redisenterprise).
 
 >[!NOTE]
 >The current article contained content about the Azure classic CLI, an older version of Azure CLI that is no longer available. The Azure classic CLI could be used only with the discontinued Azure classic deployment model.
