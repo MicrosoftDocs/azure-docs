@@ -10,7 +10,7 @@ ms.date: 04/15/2025
 
 # Patterns for custom web APIs and REST APIs you can call from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](includes/logic-apps-sku-consumption-standard.md)]
 
 Although Azure Logic Apps offers 1,400+ connectors 
 that you can use in logic app workflows, you might want to call APIs, 
