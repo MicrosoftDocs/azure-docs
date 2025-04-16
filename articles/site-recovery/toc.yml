@@ -36,8 +36,8 @@
     items:
     - name: Set up disaster recovery for Azure VMs
       href: azure-to-azure-tutorial-enable-replication.md
-    - name: Set up disaster recovery using shared disk
-      href: tutorial-shared-disk.md
+    - name: Set up disaster recovery for shared disks using PowerShell
+      href: azure-to-azure-tutorial-enable-replication-shared-disk.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
     - name: Run failover and reprotect
@@ -268,6 +268,8 @@
         href: how-to-enable-replication-proximity-placement-groups.md
       - name: On encrypted VMs
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
+      - name: For shared disk
+        href: tutorial-shared-disk.md
       - name: On CMK enabled disks
         href: azure-to-azure-how-to-enable-replication-cmk-disks.md
       - name: For S2D VMs
@@ -278,10 +280,8 @@
         href: azure-to-azure-exclude-disks.md  
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
-
       - name: Enable replication with private endpoints
         href: ./azure-to-azure-how-to-enable-replication-private-endpoints.md
-
     - name: Manage
       items:
       - name: Update the Mobility Service for Azure VMs

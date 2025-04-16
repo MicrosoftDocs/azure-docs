@@ -2,7 +2,7 @@
 title: About Azure Files backup
 description: Learn how to back up Azure Files in the Recovery Services vault
 ms.topic: overview
-ms.date: 03/11/2025
+ms.date: 04/30/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy23
@@ -110,3 +110,4 @@ Learn about the [additional prerequisites](backup-azure-files.md#prerequisites) 
 
 * [Back up Azure Files](backup-afs.md).
 * [Frequently asked questions about backing up Azure Files](backup-azure-files-faq.yml).
+* [Well-architected reliability design principles for Azure Files vaultes backup](/azure/well-architected/service-guides/azure-files#reliability).

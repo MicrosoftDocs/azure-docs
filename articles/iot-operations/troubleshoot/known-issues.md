@@ -4,7 +4,7 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 03/27/2025
+ms.date: 04/16/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -27,7 +27,7 @@ Log signature: `"code": "ExtensionOperationFailed", "message": "The extension op
 
 ---
 
-If your deployment fails with the message `Error occurred while creating custom resources needed by system extensions`, you have encountered a known sporadic failure.
+The message `Error occurred while creating custom resources needed by system extensions` indicates that your deployment failed due to a known sporadic issue.
 
 To work around this issue, use the `az iot ops delete` command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
 
@@ -59,7 +59,7 @@ Log signature: `"Message: Update failed for this resource, as there is a conflic
 
 ---
 
-When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This results in the error message `Update failed for this resource, as there is a conflicting operation in progress. Please try after sometime.`, which blocks further updates.
+When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This scenario results in the error message `Update failed for this resource, as there is a conflicting operation in progress. Please try after sometime.`, which blocks further updates.
 
 To work around this issue, follow these steps:
 
@@ -185,7 +185,54 @@ Log signature: N/A
 
 ---
 
-When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod does not restart and therefore the old flow for the correctly configured assets stops as well.
+When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
+
+### Data spike every 2.5 hours with some OPC UA simulators
+
+---
+
+Issue ID: 6513
+
+---
+
+Log signature: Increased message volume every 2.5 hours
+
+---
+
+Data values spike every 2.5 hours when using particular OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts. No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
+
+### No message schema generated if selected nodes in a dataset reference the same complex data type definition
+
+---
+
+Issue ID: 7369
+
+---
+
+Log signature: `An item with the same key has already been added. Key: <element name of the data type>`
+
+---
+
+No message schema is generated if selected nodes in a dataset reference the same complex data type definition (a UDT of type struct or enum).
+
+If you select data points (node IDs) for a dataset that share non-OPC UA namespace complex type definitions (struct or enum), then the JSON schema isn't generated. The default open schema is shown when you create a data flow instead. For example, if the data set contains three values of a data type, then whether it works or not is shown in the following table. You can substitute `int` for any OPC UA built in type or primitive type such as `string`, `double`, `float`, or `long`:
+
+| Type of Value 1 | Type of Value 2 | Type of Value 3 | Successfully generates schema |
+|-----------------|-----------------|-----------------|-----------------|
+| `int` | `int` | `int` | Yes |
+| `int` | `int` | `int` | Yes |
+| `int` | `int` | `struct A` | Yes |
+| `int` | `enum A` | `struct A` | Yes |
+| `enum A` | `enum B` | `enum C` | Yes |
+| `struct A` | `struct B` | `struct C` | Yes |
+| `int` | `struct A` | `struct A` | No |
+| `int` | `enum A` | `enum A` | No |
+
+To work around this issue, you can either:
+
+- Split the dataset across two or more assets.
+- Manually upload a schema.
+- Use the default nonschema experience in the data flow designer.
 
 ## Connector for media and connector for ONVIF issues
 
@@ -203,7 +250,7 @@ Log signature: N/A
 
 ---
 
-If you delete all the `Microsoft.Media` asset endpoint profiles the deployment for media processing is not deleted.
+If you delete all the `Microsoft.Media` asset endpoint profiles, the deployment for media processing isn't deleted.
 
 To work around this issue, run the following command using the full name of your media connector deployment:
 
@@ -223,7 +270,7 @@ Log signature: N/A
 
 ---
 
-If you delete all the `Microsoft.Onvif` asset endpoint profiles the deployment for media processing is not deleted.
+If you delete all the `Microsoft.Onvif` asset endpoint profiles, the deployment for media processing isn't deleted.
 
 To work around this issue, run the following command using the full name of your ONVIF connector deployment:
 
@@ -243,9 +290,9 @@ Log signature: `"Error HelmUninstallUnknown: Helm encountered an error while att
 
 ---
 
-Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system can get to a state where CRD removal job is stuck in pending state and that blocks cleanup of Azure IoT Operations.
+Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system can get to a state where CRD removal job is stuck in pending state and that blocks the cleanup of Azure IoT Operations.
 
-To work around this issue, you need to manually delete the CRD and finish the uninstall. To do this, complete the following steps:
+To work around this issue, complete the following steps to manually delete the CRD and finish the uninstall:
 
 1. Delete the AssetType CRD manually: `kubectl delete crd assettypes.opcuabroker.iotoperations.azure.com --ignore-not-found=true`
 
@@ -406,4 +453,4 @@ Log signature: N/A
 
 ---
 
-Data flows marks message retries and reconnects as errors, and as a result data flows may look unhealthy. This behavior is only seen in previous versions of data flows. Review the logs to determine if the data flow is healthy.
+Data flows marks message retries and reconnects as errors, and as a result data flows might look unhealthy. This behavior is only seen in previous versions of data flows. Review the logs to determine if the data flow is healthy.
