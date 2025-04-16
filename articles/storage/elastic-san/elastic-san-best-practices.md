@@ -38,7 +38,7 @@ This article provides some general guidance on getting optimal performance with 
 - If your environment won't have 16 nodes, use eight sessions
 
     > [!NOTE]
-    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight sessions, that uses the maximum number of connections (128). Configuring your nodes to use seven sessions ensures that if you need to attach an extra node (for maintenance) then you have available sessions. 
+    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight sessions that uses the maximum number of connections (128). Configuring your nodes to use seven sessions ensures that if you need to attach an extra node (for maintenance) then you have available sessions. 
 
 - Use eager zeroed thick provisioning when creating virtual disks
 - Size ExpressRoute Gateway so that it can meet your throughput requirements
@@ -64,7 +64,7 @@ For more information regarding MPIO cmdlets, see [MPIO reference](/powershell/mo
 
 #### Linux
 
-Update /etc/multipath.conf file with the following: 
+Update /etc/multipath.conf file with the following commands: 
 
 ```config
 defaults {
@@ -85,7 +85,7 @@ devices {
 
 #### Azure VMware Solution
 
-MPIO settings for Azure VMware Solution are managed by Microsoft. Optimal values are set when you create a datastore.
+Microsoft manages MPIO settings for Azure VMware Solution. Optimal values are set when you create a datastore.
 
 
 ### iSCSI
@@ -168,7 +168,7 @@ In cluster configurations, ensure iSCSI initiator names are unique across all no
 
 #### Azure VMware Solution
 
-iSCSI settings are managed by Microsoft. Optimal values are set when you create a datastore.
+Microsoft manages iSCSI settings. Optimal values are set when you create a datastore.
 
 ## Elastic SAN optimizations
 
