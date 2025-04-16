@@ -499,9 +499,9 @@ The media server logs the connection from the asset and the creation of the stre
 
 ```log
 2025/02/20 15:31:10 INF [RTSP] [conn <INTERNAL IP ADDRESS OF ASSET>:41384] opened
-2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] created by INTERNAL IP ADDRESS OF ASSET>:41384
+2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] created by <INTERNAL IP ADDRESS OF ASSET>:41384
 2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] is publishing to path 'azure-iot-operations/data/asset-stream-to-rtsp', 2 tracks (H264, LPCM)
-2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] created (requested by 10.42.0.1:16831)
+2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] created (requested by <IP ADDRESS OF EXTERNAL CLIENT>:16831)
 2025/02/20 15:31:18 WAR [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] skipping track 2 (LPCM)
 2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] is converting into HLS, 1 track (H264)
 ```
