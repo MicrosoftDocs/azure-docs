@@ -14,11 +14,11 @@ ms.custom: mode-other
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
 
 > [!TIP]
-> Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
+> Jump-start your email sending experience with Azure Communication Services by using the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
 
-## Understanding the email object model
+## Understand the email object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Java.
 
 | Name | Description |
 | ---- |-------------|
@@ -26,7 +26,7 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, a string of content bytes, and an optional content ID to define it as an inline attachment. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
-| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
+| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status, and error object (when applicable). |
 | EmailSendStatus | This class represents the set of statuses of an email send operation. |
 
 EmailSendResult returns the following status on the email operation performed.
@@ -35,7 +35,7 @@ EmailSendResult returns the following status on the email operation performed.
 | ----------- | ------------|
 | NOT_STARTED | We're not sending this status from our service at this time. |
 | IN_PROGRESS | The email send operation is currently in progress and being processed. |
-| SUCCESSFULLY_COMPLETED | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
+| SUCCESSFULLY_COMPLETED | The email send operation completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
 | FAILED | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure. |
 
 ## Prerequisites
@@ -44,23 +44,24 @@ EmailSendResult returns the following status on the email operation performed.
 - [Java Development Kit (JDK)](https://www.microsoft.com/openjdk) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](../../create-communication-resource.md).
-- Create an [Azure Email Communication Services resource](../create-email-communication-resource.md) to start sending emails.
+- To start sending emails, create an [Azure Email Communication Services resource](../create-email-communication-resource.md).
 - A setup managed identity for a development environment, [see Authorize access with managed identity](../../identity/service-principal.md?pivot="programming-language-java").
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains.md).
+> You can also send an email from our own verified domain [Create and manage Email Communication Service resources](../add-custom-verified-domains.md).
 
 ### Prerequisite check
 - In a terminal or command window, run `mvn -v` to check that Maven is installed.
-- To view the domains verified with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/). Locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
+- To view the domains verified with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/). Locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation panel.
 
 ## Set up the application environment
 
 To set up an environment for sending emails, take the steps in the following sections.
 
 ### Create a new Java application
+
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the following command to generate the Java project from the maven-archetype-quickstart template.
 
 ```console
@@ -71,7 +72,7 @@ The `generate` goal creates a directory with the same name as the `artifactId` v
 
 ### Install the package
 
-Open the **pom.xml** file in your text editor. Add the following dependency element to the group of dependencies.
+Open the `pom.xml` file in your text editor. Add the following dependency element to the group of dependencies.
 
 ```xml
 <dependency>
@@ -163,7 +164,7 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
+You can also create and authenticate email clients using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
 To instantiate a synchronous client, add the following code to the `main` method:
 
@@ -189,13 +190,11 @@ EmailClient emailClient = new EmailClientBuilder()
 
 ---
 
-For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
-
-
+For simplicity, this article uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
 ## Basic email sending
 
-An email message can be crafted using the `EmailMessage` object in the SDK.
+You can compose an email message using the `EmailMessage` object in the SDK.
 
 ```java
 EmailMessage message = new EmailMessage()
@@ -213,7 +212,7 @@ To send the email message, call the `beginSend` function from the `EmailClient`.
 
 ## [Sync Client](#tab/sync-client)
 
-Calling `beginSend` on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called. **Sending an email is a long running operation. Its important to note that the `getFinalResult()` method on the poller is a blocking operation until a terminal state (`SUCCESSFULLY_COMPLETED` or `FAILED`) is reached.** The recommended method is to do manual polling at an interval that's appropriate for your application needs as demonstrated in the sample below.
+Calling `beginSend` on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it finishes. The initial request to send an email starts as soon as the `beginSend` method is called. **Sending an email is a long running operation. Its important to note that the `getFinalResult()` method on the poller is a blocking operation until a terminal state (`SUCCESSFULLY_COMPLETED` or `FAILED`) is reached.** We recommend that you do manual polling at an interval that's appropriate for your application needs as demonstrated in the following sample.
 
 ```java
 try
@@ -260,7 +259,7 @@ catch (Exception exception)
 
 ## [Async Client](#tab/async-client)
 
-Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. The callbacks defined in the subscribe method will be triggered once the email sending operation is complete. **Note that the initial request to send an email will not be sent until a subscriber is set up.**
+Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. The callbacks defined in the subscribe method are triggered once the email sending operation is complete. **Note that the initial request to send an email will not be sent until a subscriber is set up.**
 
 ```java
 Duration MAIN_THREAD_WAIT_TIME = Duration.ofSeconds(30);
@@ -304,7 +303,7 @@ System.out.println("Main thread ends.");
 
 ### Run the code
 
-1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
+1. Navigate to the directory that contains the `pom.xml` file and compile the project using the `mvn` command.
 
    ```console
    mvn compile
@@ -316,7 +315,7 @@ System.out.println("Main thread ends.");
    mvn package
    ```
 
-1. Run the following `mvn` command to execute the app.
+1. Run the following `mvn` command to start the app.
 
    ```console
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
@@ -324,4 +323,4 @@ System.out.println("Main thread ends.");
 
 ### Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+You can download the sample app from GitHub Azure Samples [Send Email for Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
