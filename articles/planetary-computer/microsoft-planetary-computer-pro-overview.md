@@ -33,7 +33,7 @@ You can deploy GeoCatalog resources within your subscription.
 
 Please navigate to our [Deployment Tutorial](./deploy-geocatalog-resource.md) for step-by-step instructions on how to deploy a new GeoCatalog into your subscription.
 
-If you wish to remove a GeoCatalog after it has been deployed, please follow our [catalog deletion tutorial](quickstarts/catalog-deletion.md).
+If you wish to remove a GeoCatalog after it has been deployed, please follow our [catalog deletion tutorial](./delete-geocatalog-resource.md).
 
 ## Tutorial and Quickstarts
 
@@ -62,7 +62,7 @@ We also have the same content arranged as two Quickstarts intended to be followe
 Please use the following Quickstart guides to help you get started using and understanding more specific GeoCatalog topics:
 
 * [Setup an Ingestion Source Prior to Ingesting Data](./ingestion-source.md)
-* [Creating a STAC Item from Scratch](./create-stac-items.md)
+* [Creating a STAC Item from Scratch](./create-stac-item.md)
 * [Using GeoCatalog in Azure Batch](./azure-batch.md)
 * [Render Config and item_assets Guide](render-configuration.md)
 * [Manage access to MPC Pro](./manage-access.md)

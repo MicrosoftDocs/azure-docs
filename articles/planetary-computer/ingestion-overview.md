@@ -13,7 +13,7 @@ ms.date: 11-24-2024
 
 Microsoft Planetary Computer Pro (MPC Pro) ingestion capabilities allow users to bring their own data into a cloud enabled platform effective at standardizing, storing, and managing geospatial assets at scale.
 
-![image](images/ingestion-secure.svg)
+![image](media/ingestion-secure.png)
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ All ingestion workflows require [STAC Metadata](./stac-overview.md) to be availa
 
 ## Ingestion Sources
 
-[Ingestion sources](./ingestion-sources.md) are representations of the location and authentication mechanisms required to ingest data into a GeoCatalog resource. Users can list and configure ingestion sources in the **Settings** tab of the Data Plane UI or using the GeoCatalog API. Once the ingestion source is set, data stored in that location is available for secure ingestion into your Geocatalog.
+[Ingestion sources](./ingestion-source.md) are representations of the location and authentication mechanisms required to ingest data into a GeoCatalog resource. Users can list and configure ingestion sources in the **Settings** tab of the Data Plane UI or using the GeoCatalog API. Once the ingestion source is set, data stored in that location is available for secure ingestion into your Geocatalog.
 ## Ingestion Methods
 
 Once an ingestion credential for a blob storage container or public URL is provided to MPC Pro, you can ingest existing STAC collections, STAC items, and assets that are stored within that container into MPC Pro. Note that MPC Pro must have access to both the STAC collection JSON and the geospatial assets (images, data, etc.) that the STAC collection STAC items point to. There are two available ingestion methods depending on use case: bulk ingestion and single item ingestion.  Each can be done through Data Plane UI or the API.

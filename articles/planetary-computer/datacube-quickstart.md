@@ -18,7 +18,7 @@ ms.date: 4/9/2025
 * An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * A [Microsoft Planetary Computer Pro GeoCatalog](deploy-geocatalog-resource.md)
 * A Blob Storage account [create a Blob Storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
-* A Blob Storage container with data cube assets (NetCDF, HDF5, GRIB2), STAC Items, and static STAC Catalog. [Learn how to create STAC Items](create-stac-items.md).
+* A Blob Storage container with data cube assets (NetCDF, HDF5, GRIB2), STAC Items, and static STAC Catalog. [Learn how to create STAC Items](create-stac-item.md).
 
 ## Set up ingestion source
 
@@ -54,7 +54,7 @@ Remembering that a standard Render Configuration argument in JSON format looks l
 
 The `options` field is where you'll want to utilize the cloud optimized, Kerchunk asset, as opposed to the original asset listed in the STAC Item. You'll also need to include the `subdataset_name` argument, which is the name of the variable you want to render.
 
-More information about visualizing NetCDF and HDF5 data can be found in the [Visualizing assets in Microsoft Planetary Computer Pro](visualizing-assets.md).
+More information about visualizing NetCDF and HDF5 data can be found in the [Visualizing assets in Microsoft Planetary Computer Pro](visualize-assets.md).
 
 #### Render configuration for GRIB2 assets
 
@@ -73,7 +73,7 @@ The `options` field for the Render Configuration of GRIB2 assets look similar to
 ]
 ```
 
-More information about visualizing GRIB2 data can be found in the [Visualizing assets in Microsoft Planetary Computer Pro](visualizing-assets.md).
+More information about visualizing GRIB2 data can be found in the [Visualizing assets in Microsoft Planetary Computer Pro](visualize-assets.md).
 
 ### Visualize data cube assets in the Explorer
 

@@ -18,8 +18,8 @@ This quickstart provides instructions on how to interact with the Microsoft Plan
 * An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * An [Azure Microsoft Planetary Computer Pro GeoCatalog](./deploy-geocatalog-resource.md)
 * A Geocatalog collection with:
-  * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.mdd).
-  * Items ingested. Learn how to [ingest STAC items](./ingestion-source).
+  * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.md).
+  * Items ingested. Learn how to [ingest STAC items](./ingestion-source.md).
   * Visualization configurations set:
     * [Create a Render Configuration](./render-configuration.md).
     * [Configure Colleciton Tile Settings](./tile-settings.md).

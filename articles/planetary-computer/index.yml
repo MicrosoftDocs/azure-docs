@@ -41,7 +41,7 @@ landingContent:
           - text: Mosaic configurations for collections
             url: mosaic-configurations-for-collections.md
           - text: Queryables for data explorer custom search filters
-            url: queryables-for-data-explorer-custom-search-filters.md
+            url: queryables-for-explorer-custom-search-filter.md
           - text: Render configuration
             url: render-configuration.md
           - text: Tile settings
@@ -69,13 +69,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Assign a user-assigned managed identity to a GeoCatalog resource
-            url: assign-user-assigned-managed-identity.md
+            url: assign-managed-identity-geocatalog-resource.md
           - text: Add STAC Items to a Collection
             url: add-stac-item-to-collection.md  
           - text: Delete a GeoCatalog resource
             url: delete-geocatalog-resource.md
           - text: Setup an ingestion source using managed identity
-            url: setup-ingestion-source-using-managed-identity.md 
+            url: setup-ingestion-credentials-managed-identity.md 
           - text: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
             url: setup-ingestion-credentials-sas-tokens.md
           - text: Visualize assets

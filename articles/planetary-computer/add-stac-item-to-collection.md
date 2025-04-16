@@ -57,7 +57,7 @@ for item in item_collection["features"]:
         asset["href"] = "?".join([asset["href"], sas_token])
 ```
 
-See [Ingestion sources](./ingestion-sources.md) for more on how MPC Pro accesses data.
+See [Ingestion sources](./ingestion-source.md) for more on how MPC Pro accesses data.
 
 STAC requires that the `collection` property on STAC items match the collection they're in. If necessary, update the items to match the collection ID you're using.
 

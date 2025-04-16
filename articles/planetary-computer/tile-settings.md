@@ -68,4 +68,4 @@ The `defaultLocation` field allows specifying the default zoom level and coordin
 > [!NOTE]
 > In the list of items, there's a menu item called "Set view as default location".  This isn't currently enabled.
 
-![Screenshot of the save view as default location option in the tile settings interface](images/tilesettings_save_view_as.png)
+![Screenshot of the save view as default location option in the tile settings interface](media/tilesettings_save_view_as.png)

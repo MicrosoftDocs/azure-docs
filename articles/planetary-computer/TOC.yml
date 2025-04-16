@@ -22,13 +22,13 @@
 - name: How-to-guides
   items:
   - name: Assign a user-assigned managed identity to a GeoCatalog resource
-    href: assign-user-assigned-managed-identity.md
+    href: assign-managed-identity-geocatalog-resource.md
   - name: Add STAC Items to a Collection
     href: add-stac-item-to-collection.md  
   - name: Delete a GeoCatalog resource
     href: delete-geocatalog-resource.md
   - name: Setup an ingestion source using managed identity
-    href: setup-ingestion-source-using-managed-identity.md 
+    href: setup-ingestion-credentials-managed-identity.md 
   - name: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
     href: setup-ingestion-credentials-sas-tokens.md
   - name: Visualize assets
@@ -48,7 +48,7 @@
   - name: Mosaic configurations for collections
     href: mosaic-configurations-for-collections.md
   - name: Queryables for data explorer custom search filters
-    href: queryables-for-data-explorer-custom-search-filters.md
+    href: queryables-for-explorer-custom-search-filter.md
   - name: Render configuration
     href: render-configuration.md
   - name: Tile settings
