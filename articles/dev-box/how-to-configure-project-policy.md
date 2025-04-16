@@ -15,7 +15,7 @@ ms.custom:
 
 # Control resource use with project policies in Microsoft Dev Box
 
-Efficient resource management is critical for development teams working on diverse projects. Microsoft Dev Box uses **project policies**, a feature now available in preview, to help platform engineers enforce governance while maintaining flexibility. With project policies, you can define guardrails for resource usage on a per-project basis across your organization. This article explains how to set up and manage project policies in Dev Box to optimize resource control and governance.
+Efficient resource management is critical for development teams working on diverse projects. Microsoft Dev Box uses **project policies** to help platform engineers enforce governance while maintaining flexibility. With project policies, you can define guardrails for resource usage on a per-project basis across your organization. This article explains how to set up and manage project policies in Dev Box to optimize resource control and governance.
 
 When policies are enforced, Dev Box evaluates the health of existing resource pools against the new policy settings:
 
