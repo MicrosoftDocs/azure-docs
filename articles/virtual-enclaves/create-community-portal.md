@@ -59,6 +59,6 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 ## References
 - [What is a Community?](./what-community.md)
-- [Create an enclave](./create-enclave-azure-portal.md)
+- [Create an enclave](./create-enclave-portal.md)
 - [Best practices](./best-practices.md)
 - [Name resolution for resources in Azure Virtual Networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)

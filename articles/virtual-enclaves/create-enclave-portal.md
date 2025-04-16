@@ -15,7 +15,7 @@ An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is
 ## Prerequisites
 
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Before you can create an enclave, you must [create a community](./create-community-azure-portal.md) using the Azure portal.
+- Before you can create an enclave, you must [create a community](./create-community-portal.md) using the Azure portal.
 - **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. 
 
 ## Sign-in to Azure
@@ -61,7 +61,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 **References**
 - [What is an Enclave](./what-enclave.md)
-- [Create a Community](./create-community-azure-portal.md)
+- [Create a Community](./create-community-portal.md)
 - [Best practices](./best-practices.md)
 - [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md)
 - [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md)

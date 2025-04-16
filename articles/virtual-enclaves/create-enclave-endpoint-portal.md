@@ -14,7 +14,7 @@ ms.date: 04/08/2025
 
 To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-All access to Azure Virtual Enclaves takes place through a Community or an Enclave. For this how-to article, create a [community](./create-community-azure-portal.md) and [enclave](./create-enclave-azure-portal.md) using the Azure portal.
+All access to Azure Virtual Enclaves takes place through a Community or an Enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
 

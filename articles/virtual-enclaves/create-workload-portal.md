@@ -14,7 +14,7 @@ ms.date: 04/08/2025
 
 ## Prerequisites
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- All access to Azure Virtual Enclaves takes place through a community or an enclave. For this how-to article, create a [community](./create-community-azure-portal.md) and [enclave](./create-enclave-azure-portal.md) using the Azure portal.
+- All access to Azure Virtual Enclaves takes place through a community or an enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
 Sign-in to the [Azure portal](https://portal.azure.com).
@@ -56,6 +56,6 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 **References**
 - [What is a Workload?](./what-workload.md)
-- [Create an Enclave](./create-enclave-azure-portal.md)
+- [Create an Enclave](./create-enclave-portal.md)
 - [Best practices](./best-practices.md)
 - [Defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
