@@ -15,7 +15,7 @@
 
 |Error Code|Description|
 |----------|-----------|
-|401002| Iot Hub Unauthorized Access|
+|401002| IoT Hub Unauthorized Access|
 |413001| Message too large|
 |403004| Device maximum queue depth exceeded|
 |503008| Receive link throttled|
