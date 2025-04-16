@@ -26,7 +26,7 @@ The *Basics* tab has three sections:
 - Azure resource details
 - MongoDB Atlas organization details
 
-<!-->:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a MongoDB Atlas Organization options inside of the Azure portal's working pane with the Basics tab displayed.":::-->
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create MongoDB Atlas Organization options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
@@ -49,7 +49,6 @@ There are required fields (identified with a red asterisk) in each section that 
     | Field                  | Action                                                                                           |
     |------------------------|--------------------------------------------------------------------------------------------------|
     | Organization Name      | Choose to create a new organization, or associate your resource with an existing organization.   |
-    | Billing Term           | Choose a billing term.                                                                           |
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
