@@ -15,6 +15,8 @@ items:
     href: oracle-db/database-overview.md
   - name: Region availability
     href: oracle-db/oracle-database-regions.md
+  - name: Supportability
+    href: oracle-db/supportability.md
   - name: Network planning
     href: oracle-db/oracle-database-network-plan.md
   - name: Known issues
@@ -37,4 +39,6 @@ items:
       href: /azure/cloud-adoption-framework/
     - name: Azure VMware Solution landing zone accelerator
       href: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
+    
+
 
