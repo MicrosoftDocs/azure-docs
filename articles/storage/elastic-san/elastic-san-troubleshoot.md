@@ -15,14 +15,16 @@ This article lists common issues related to Azure Elastic SAN. It also provides 
 ## Encountered get_iqns timeout error with Linux documentation script - Exception: Command took longer than 10 s
 
 - Install the latest Azure CLI, and follow the instructions that work for your Virtual Machine (VM) SKU.
-- Once you've installed the latest version, run az extension add -n elastic-san to install the extension for Elastic SAN. 
-- Run the az login command and follow the steps that command generates to login through your browser.
+- Once you install the latest version, run az extension add -n elastic-san to install the extension for Elastic SAN. 
+- Run the az login command and follow the steps that command generates to log in through your browser.
 - Rerun the Linux documentation script and check if the issue persists.
 
 ## Encountered login rejected error - iscsiadm: Cannot modify node.conn[0].iscsi.DataDigest. Invalid param name. 
 
 - Ensure the private endpoint or service endpoint is configured correctly 
-- Check if your volumes are being connected to Azure VMware Solution (AVS), as Cyclic Redundancy Check (CRC) isn't supported yet If not, check if your VM is running Fedora or its downstream Linux distributions like Red Hat Enterprise Linux, CentOS, or Rocky Linux that don't support data digests. If so, disable the CRC protection flag. You have to uncheck the box on portal and change the parameter for EnforceDataIntegrityCheckForIscsi (PowerShell)) or data-integrity-check (CLI) to false.
+- Check if your volumes are connecting to Azure VMware Solution (AVS), as Cyclic Redundancy Check (CRC) isn't supported yet.
+- If not, check if your VM is running Fedora or its downstream Linux distributions like Red Hat Enterprise Linux, CentOS, or Rocky Linux that don't support data digests. 
+- If either of these is true, disable the CRC protection flag. You have to uncheck the box on portal and change the parameter for EnforceDataIntegrityCheckForIscsi (PowerShell)) or data-integrity-check (CLI) to false.
 
 ## Unable to connect to your Elastic SAN via service endpoints
 
@@ -63,7 +65,7 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 
 ## Unable to connect to more than eight volumes to a Windows VM
 
-- Run iscsicli sessionList or mpclaim -s -d on your Windows VM to see the number of sessions. Max session limit is 255.
+- To see the number of sessions on your Windows VM, run iscsicli sessionList or mpclaim -s -d. The maximum session limit is 255 for Windows VMs.
 - If you are at the session limit, then you can disconnect the volumes either via portal or using the script linked [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/disconnect.ps1). 
 - Next, modify the $NumSession parameter of the connect script from either the portal or using the [Windows](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) script. You need to ensure that the total number of sessions per volume attached to the VM is less than 255 sessions. 
 - Run the script on your VM. These values can also be entered during runtime of the script.
