@@ -20,7 +20,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 1. Enter `Azure Virtual Enclaves` in the search.
 2. Under `Services`, select `Azure Virtual Enclaves`. You will be directed to the Azure Virtual Enclaves homepage.
 
-![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png)
+[ ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png)
 
 3. Select the `Create a community` button. The community deployment can take around 25 minutes to complete.
 4. Enter the basic details for your community:
@@ -36,7 +36,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 5. Select `Next` and customize your Policy Management settings as needed.
 
-![Screenshot of Policy Management page where a user can manage policies on a selection of Azure services.](./media/create-community-tab-2-policy-management.png
+![Screenshot of Policy Management page where a user can manage policies on a selection of Azure services.](./media/create-community-tab-2-policy-management.png)
 
 > [!NOTE]
 > 
@@ -52,7 +52,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 ![Screenshot showing Community create Community Administration input page.](./media/create-community-tab-3-community-administration.png)
 
-8. Select `Next` and on the `Maintenance Mode` page select if maintenace mode, allowing changes to managed resources critical to the security of the Community, is turned on once the enclave is created. This makes it easier to modify the community resources quickly after Community creation. [Learn more about Maintenance Mode](./maintenance-mode.md)
+8. Select `Next` and on the `Maintenance Mode` page select if maintenance mode, allowing changes to managed resources critical to the security of the Community, is turned on once the enclave is created. This makes it easier to modify the community resources quickly after Community creation. [Learn more about Maintenance Mode](./maintenance-mode.md)
 
 ![Screenshot showing Community create maintenance mode input page.](./media/create-community-tab-4-maintenance-mode.png)
 

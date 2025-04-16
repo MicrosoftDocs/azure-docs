@@ -48,10 +48,10 @@ For connections where the `Enclave` is the connection source:
   
   - **Source Type**: Select `Enclave`.
   - **Source Enclave**: Select the existing Enclave from the list.
-  - **Desination Endpoint Type**: Select the `Enclave Endpoint` or `Community Endpoint` connection destination type.
-  - **Desination Endpoint**: Select the endpoint from the list.
+  - **Destination Endpoint Type**: Select the `Enclave Endpoint` or `Community Endpoint` connection destination type.
+  - **Destination Endpoint**: Select the endpoint from the list.
 
-![Screenshot showing Enclave Connection creation page with Enclave source selected](./media/create-enclave-connection-tab-1-basics-enclave-source.png)
+![Screenshot showing Enclave Connection creation page with Enclave source selected.](./media/create-enclave-connection-tab-1-basics-enclave-source.png)
 
 ## Transit Hub Source Connection
 If the connection source is `Enclave`, skip this step.
@@ -63,6 +63,6 @@ For connections where the `Transit Hub` is the connection source:
   - **Source IP addresses/CIDR range(s)**: Enter the source IP addresses or CIDR ranges for this connection.
   - **Destination endpoint**: Select the endpoint from the list.
 
-![Screenshot showing Enclave Connection creation page with Transit Hub source selected](./media/create-enclave-connection-tab-1-basics-transit-hub-source.png)
+![Screenshot showing Enclave Connection creation page with Transit Hub source selected.](./media/create-enclave-connection-tab-1-basics-transit-hub-source.png)
 
 9. Select `Review + Create` and then `Create`

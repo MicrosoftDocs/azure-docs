@@ -47,9 +47,9 @@ landingContent:
             url: what-community-endpoint.md
           - text: "What is an Enclave?"
             url: what-enclave.md
-          - text: "What is a Enclave Endpoint?"
+          - text: "What is an Enclave Endpoint?"
             url: what-enclave-endpoint.md
-          - text: "What is a Enclave Connection?"
+          - text: "What is an Enclave Connection?"
             url: what-enclave-connection.md
           - text: "What is a Workload?"
             url: what-workload.md

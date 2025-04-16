@@ -55,7 +55,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 >
 > Azure Virtual Enclaves will automatically allocate the next best fit block of network addressable space based on the existing networks allocated to the community that the enclave is targeting.
 
-8. Select `Next` and on the `Maintenance Mode` page select if maintenace mode, allowing changes to managed resources critical to the security of the enclave, is turned on once the enclave is created. This makes it easier to add resources quickly since joining a resource to the network requires maintenance mode. [Learn more about Maintenance Mode](./maintenance-mode.md)
+8. Select `Next` and on the `Maintenance Mode` page select if maintenance mode, allowing changes to managed resources critical to the security of the enclave, is turned on once the enclave is created. This makes it easier to add resources quickly since joining a resource to the network requires maintenance mode. [Learn more about Maintenance Mode](./maintenance-mode.md)
 
 ![Screenshot showing Enclave create maintenance mode input page.](./media/create-enclave-tab-4-maintenance-mode.png)
 

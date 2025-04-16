@@ -36,7 +36,7 @@ Community Endpoint rule types:
 
 3. Provide a name, destination type, destination, port, and protocol for the Community Endpoint Rule and select `Add`
 
-![Screenshot showing the creation page for the Community Endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png)
+[ ![Screenshot showing the creation page for the Community Endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png)
 
 4. Select `Review + Create` and select `Create`
 

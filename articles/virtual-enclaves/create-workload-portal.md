@@ -27,12 +27,12 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 3. In the `Azure Virtual Enclaves` page, select `Workloads` in the left menu.
 
-![Screenshot showing the Azure Virtual Enclaves portal homepage with the Workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png)
+[ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the Workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png)
 
 4. On the `Workloads` page, select `Create`.
 
 5. Enter the basic details for your Workload
-   - Enclave: Select an existing Enclave. This value is automatically applied if you started the Workload creation from the exisiting Enclave.
+   - Enclave: Select an existing Enclave. This value is automatically applied if you started the Workload creation from the existing Enclave.
    - Workload name: Name of the Workload (for example `contoso4-identity`)
 
 ![Screenshot showing the Workload creation basics page.](./media/create-workload-tab-1-basics.png)

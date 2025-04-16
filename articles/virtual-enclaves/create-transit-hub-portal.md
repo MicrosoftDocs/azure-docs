@@ -9,6 +9,8 @@ ms.date: 04/08/2025
 ---
 # Create a Transit Hub from the Azure portal
 
+A Transit hub establishes a virtual hub within a Community vWAN that serves as a secure tunnel between the Community and an external private network. A Transit Hub can be associated with a Private Network rule within a Community Endpoint to enable Virtual Enclaves to connect to trusted private networks outside of the Community boundary.
+
 ## Prerequisites
 
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.

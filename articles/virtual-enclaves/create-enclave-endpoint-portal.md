@@ -1,6 +1,6 @@
 ---
-title: Create a Enclave Endpoint in the Azure portal
-description: Create a Enclave Endpoint in the Azure portal
+title: Create an Enclave Endpoint in the Azure portal
+description: Create an Enclave Endpoint in the Azure portal
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create a Enclave Endpoint in the Azure portal
+# Create an Enclave Endpoint in the Azure portal
 
 ## Prerequisites
 

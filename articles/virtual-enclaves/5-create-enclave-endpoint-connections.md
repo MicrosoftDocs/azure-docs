@@ -71,7 +71,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
       - Protocol: HTTPS
       - Port: 443
 
-![Screenshot showing the creation page for the Community Endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png)
+[ ![Screenshot showing the creation page for the Community Endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png)
 
 4. Select `Save`
 
