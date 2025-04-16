@@ -1,7 +1,7 @@
 ---
 title: Microsoft Planetary Computer Pro overview
 description: This article provides an overview of Microsoft Planetary Computer Pro.
-author: beharris
+author: brentharris
 ms.author: brentharris
 ms.service: planetary-computer
 ms.topic: overview

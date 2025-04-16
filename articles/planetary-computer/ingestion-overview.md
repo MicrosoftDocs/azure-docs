@@ -1,8 +1,8 @@
 ---
 title: Ingest data into Microsoft Planetary Computer Pro
 description: "Learn about the features that enable you to bring your own data into MPC Pro for standardized and scalable storage and management of your geospatial assets."
-author: beharris
-ms.author: beharris
+author: brentharris
+ms.author: brentharris
 ms.service: mpcpro
 ms.topic: concept
 ms.date: 11-24-2024

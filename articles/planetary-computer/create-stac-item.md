@@ -2,7 +2,7 @@
 title: Create a STAC item - Microsoft Planetary Computer Pro
 description: Learn how to create STAC Items for geospatial data using Microsoft Planetary Computer Pro. This tutorial covers metadata extraction, STAC item creation, and integration with the Planetary Computer ecosystem.
 author: meaghanlewis
-ms.author: prasadko
+ms.author: prasadkomma
 ms.service: planetary-computer
 ms.topic: tutorial
 ms.date: 04/08/2025
@@ -29,7 +29,7 @@ In this tutorial, you:
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your environment configured to access Azure, for example with [`az login`](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+- Your environment configured to access Azure, for example with [`az login`](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
 - A Python environment with at least version 3.8.
 
 ## Key Features of STAC
@@ -911,13 +911,13 @@ try:
 except Exception as e:
     print(f"❌ Validation error: {str(e)}")
 ```
-
-    Validating collection and items...
-    ✅ Collection and items validated successfully
-    ✅ STAC catalog saved at: stac_catalog/catalog.json
-    ✅ STAC collection saved at: stac_catalog/goes-18-ABI-L2-LSTC/collection.json
-    ✅ STAC item saved at: stac_catalog/goes-18-ABI-L2-LSTC/items/OR_ABI-L2-LSTC-M6_G18_s20232080001177_e20232080003550_c20232080004568_DQF.json
-
+```
+Validating collection and items...
+✅ Collection and items validated successfully
+✅ STAC catalog saved at: stac_catalog/catalog.json
+✅ STAC collection saved at: stac_catalog/goes-18-ABI-L2-LSTC/collection.json
+✅ STAC item saved at: stac_catalog/goes-18-ABI-L2-LSTC/items/OR_ABI-L2-LSTC-M6_G18_s20232080001177_e20232080003550_c20232080004568_DQF.json
+```
 
 ## Add your new STAC Items to MC Pro
 

@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Add STAC Items to a Collection with Microsoft Planetary Computer Pro GeoCatalog using Python"
 description: Learn how to add and use STAC Items in Microsoft Planetary Computer Pro GeoCatalog and Python.
-author: TomAugspurger
-ms.author: taugspurger
+author: aloverro
+ms.author: adamloverro
 ms.service: planetary-computer
 ms.topic: quickstart
 ms.date: 04/09/2025
@@ -12,13 +12,13 @@ ms.date: 04/09/2025
   
 # Quickstart: Add STAC items to a collection with Microsoft Planetary Computer Pro GeoCatalog using Python
 
-In this quickstart, you ingest SpatioTemporal Asset Catalog (STAC) items to a collection in Microsoft Planetary Computer Pro (MPC Pro) GeoCatalog. STAC items are the fundamental building block of STAC and contain properties for querying and links to the data assets.
+In this quickstart, you ingest SpatioTemporal Asset Catalog (STAC) items to a collection in Microsoft Planetary Computer Pro (MPC) Pro GeoCatalog. STAC items are the fundamental building block of STAC and contain properties for querying and links to the data assets.
 
 ## Prerequisites
 
 To complete this quickstart, you should:
 
-- Have completed the quickstart to [Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md), or have a GeoCatalog with a STAC collection for the items you intend to ingest.
+- First complete the quickstart to [Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md), or have a GeoCatalog with a STAC collection for the items you intend to ingest.
 
 **Skip the following code snippet if you created the STAC collection within the current terminal/script**, otherwise you must set the geocatalog_url and collection_id using the following Python code:
 
@@ -32,7 +32,7 @@ collection_id = "<your-collection-id>"
 
 ## Create item metadata
 
-The item metadata is unique to the assets you're cataloging. Use items and assets from the Planetary Computer's [10m Annual Land Use Land Cover](https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02) collection.
+The item metadata is unique to the assets you're cataloging. Use items and assets from the Planetary Computer's [10 m Annual Land Use Land Cover](https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02) collection.
 
 ```python
 import requests
@@ -68,7 +68,7 @@ for item in item_collection["features"]:
 
 ## Get an access token
 
-MPC Pro GeoCatalog requires an access token to authenticate requests. Use the [azure-identity](/python/api/overview/azure/identity-readme) client library for Python to get a token.
+MPC Pro GeoCatalog requires an access token to authenticate requests. Use the [Azure-identity](/python/api/overview/azure/identity-readme) client library for Python to get a token.
 
 ```python
 import azure.identity
@@ -93,9 +93,9 @@ response = requests.post(
 print(response.status_code)
 ```
 
-A `202` status code indicates that your items were accepted for ingestion. Check the response JSON if you get a 40x status code, e.g., `print(response.json())`.
+A `202` status code indicates that your items were accepted for ingestion. Check the response JSON if you get a 40x status code, for example, `print(response.json())`.
 
-MPC Pro asynchronously ingests the items into your GeoCatalog. The `location` header includes a URL that you can poll to monitor the status of the ingest.
+MPC Pro asynchronously ingests the items into your GeoCatalog. The `location` header includes a URL that you can poll to monitor the status of the ingestion workflow.
 
 ```python
 import time
@@ -147,7 +147,7 @@ search_response = requests.get(
 #print(search_response.json())
 ```
 
-Visit your GeoCatalog Explorer to view the items.
+You can view the items by visiting your GeoCatalog Data Explorer.
 
 ## Delete Items from a Collection
 

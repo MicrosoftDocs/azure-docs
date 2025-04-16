@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Use the Microsoft Planetary Computer Pro Explorer"
 description: This quickstart provides guidance on how to interact with the Microsoft Planetary Computer Pro Explorer.
-author: beharris
+author: brentharris
 ms.author: brentharris
 ms.service: planetary-computer
 ms.topic: quickstart
