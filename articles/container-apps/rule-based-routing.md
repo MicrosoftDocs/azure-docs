@@ -76,16 +76,16 @@ In this article, you learn how to use rule-based routing with Azure Container Ap
 Create the following environment variables.
 
 ```bash
-$CONTAINER_APP_1_NAME="my-container-app-1"
-$CONTAINER_APP_1_IMAGE="mcr.microsoft.com/k8se/quickstart:latest"
-$CONTAINER_APP_1_TARGET_PORT="80"
-$CONTAINER_APP_2_NAME="my-container-app-2"
-$CONTAINER_APP_2_IMAGE="mcr.microsoft.com/dotnet/samples:aspnetapp"
-$CONTAINER_APP_2_TARGET_PORT="8080"
-$LOCATION="eastus"
-$RESOURCE_GROUP="my-container-apps"
-$ENVIRONMENT_NAME="my-container-apps-env"
-$ROUTE_CONFIG_NAME="my-route-config"
+CONTAINER_APP_1_NAME="my-container-app-1"
+CONTAINER_APP_1_IMAGE="mcr.microsoft.com/k8se/quickstart:latest"
+CONTAINER_APP_1_TARGET_PORT="80"
+CONTAINER_APP_2_NAME="my-container-app-2"
+CONTAINER_APP_2_IMAGE="mcr.microsoft.com/dotnet/samples:aspnetapp"
+CONTAINER_APP_2_TARGET_PORT="8080"
+LOCATION="eastus"
+RESOURCE_GROUP="my-container-apps"
+ENVIRONMENT_NAME="my-container-apps-env"
+ROUTE_CONFIG_NAME="my-route-config"
 ```
 
 ## Create container apps
@@ -153,7 +153,7 @@ $ROUTE_CONFIG_NAME="my-route-config"
     | `routes.action.prefixRewrite` | What to replace the matched prefix with before forwarding. |
     | `targets.containerApp` | The name of the container app where matching route request are sent. |
 
-    These rules allow different paths on your custom domain to route to different container apps while also modifying the request path before it reaches the destination app.
+    These rules allow different paths on your domain to route to different container apps while also modifying the request path before it reaches the destination app.
 
     Other properties not listed that may affect your routes include the following.
 
