@@ -104,12 +104,12 @@ A **Dockerfile** contains instructions for building a Docker image. For Java app
 
 Choosing the right base image is crucial. Consider these options:
 
-| Description | Name | Remarks |
-|---|---|---|
-| Microsoft Java development Image | `mcr.microsoft.com/java/jdk:21-zulu-ubuntu` | Full Java development kit (JDK) and optimized for Azure |
-| Microsoft Java production Image | `mcr.microsoft.com/java/jre:21-zulu-ubuntu` | Runtime only and optimized for Azure |
-| Official OpenJDK development Image | `openjdk:21-jdk` | Full JDK |
-| Official OpenJDK production Image | `openjdk:21-jre` | Runtime only |
+| Description                        | Name                                        | Remarks                                                 |
+|------------------------------------|---------------------------------------------|---------------------------------------------------------|
+| Microsoft Java development Image   | `mcr.microsoft.com/java/jdk:21-zulu-ubuntu` | Full Java development kit (JDK) and optimized for Azure |
+| Microsoft Java production Image    | `mcr.microsoft.com/java/jre:21-zulu-ubuntu` | Runtime only and optimized for Azure                    |
+| Official OpenJDK development Image | `openjdk:21-jdk`                            | Full JDK                                                |
+| Official OpenJDK production Image  | `openjdk:21-jre`                            | Runtime only                                            |
 
 For development environments, use a full JDK image. For production, use a JRE or distroless image to minimize the size and attack surface of your application.
 
@@ -342,12 +342,12 @@ ENTRYPOINT ["java", "-XX:+PrintFlagsFinal", "-XX:+PrintGCDetails", "-jar", "app.
 
 Common issues include:
 
-| Error | Possible solution |
-|---|---|
-| Out of memory | Increase container memory limits |
+| Error                | Possible solution                                                       |
+|----------------------|-------------------------------------------------------------------------|
+| Out of memory        | Increase container memory limits                                        |
 | Connection time-outs | Check network configuration for errors. Verify ports and routing rules. |
-| Permission problems | Verify file system permissions. |
-| Classpath issues | Check JAR structure and dependencies. |
+| Permission problems  | Verify file system permissions.                                         |
+| Classpath issues     | Check JAR structure and dependencies.                                   |
 
 ## Optimize Java containers
 
