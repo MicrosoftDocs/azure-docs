@@ -6,9 +6,8 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 04/16/2025
 ms.author: cshoe
-zone_pivot_groups: azure-cli-bicep
 ---
 
 # Use a custom domain with rule-based routing in Azure Container Apps (preview)
@@ -44,7 +43,7 @@ rules:
         action:
           prefixRewrite: "/"
     targets:
-      - containerApp: "<CONTAINER_APP_NAME>"
+      - containerApp: "<APP1_CONTAINER_APP_NAME>"
   - description: "Routing to App2"
     routes:
       - match:
@@ -54,10 +53,10 @@ rules:
       - match:
           prefix: "/"
     targets:
-      - containerApp: "<CONTAINER_APP_NAME>"
+      - containerApp: "<APP2_CONTAINER_APP_NAME>"
 ```
 
-This YAML configuration defines two routing rules for HTTP traffic.
+This configuration defines two routing rules for HTTP traffic.
 
 | Property | Description |
 |---|---|
@@ -65,9 +64,9 @@ This YAML configuration defines two routing rules for HTTP traffic.
 | `customDomains.certificateId` | Resource ID of your certificate (not needed with `bindingType: "Auto"`) |
 | `customDomains.bindingType` | How SSL is handled: "SniEnabled" (Server Name Indication), "Disabled" (HTTP only), or "Auto" (automatic certificate) |
 | `description` | Human-readable label for the rule |
-| `routes.match.prefix` | URL path prefix to match (example: "/api") |
-| `routes.action.prefixRewrite` | What to replace the matched prefix with before forwarding |
-| `targets.containerApp` | The name of the container app to route matching requests to |
+| `routes.match.prefix` | URL path prefix to match. For example, `/api`. |
+| `routes.action.prefixRewrite` | What to replace the matched prefix with before forwarding. |
+| `targets.containerApp` | The name of the container app where matching route request are sent. |
 
 These rules allow different paths on your custom domain to route to different container apps while also modifying the request path before it reaches the destination app.
 

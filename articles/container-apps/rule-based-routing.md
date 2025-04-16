@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: tutorial
-ms.date: 04/15/2025
+ms.date: 04/16/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-bicep
 ---
@@ -30,44 +30,44 @@ In this article, you learn how to use rule-based routing with Azure Container Ap
 
 ## Setup
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
+1. Run the following command so sign in to Azure from the CLI.
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 
-To ensure you're running the latest version of the CLI, run the upgrade command.
+1. To ensure you're running the latest version of the CLI, run the upgrade command.
 
-```azurecli
-az upgrade
-```
+    ```azurecli
+    az upgrade
+    ```
 
-Ignore any warnings about modules currently in use.
+    Ignore any warnings about modules currently in use.
 
-Install or update the Azure Container Apps extension for the CLI.
+    Install or update the Azure Container Apps extension for the CLI.
 
-If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
+    If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
 
-```azurecli
-az extension add --name containerapp --upgrade
-```
+    ```azurecli
+    az extension add --name containerapp --upgrade
+    ```
 
-> [!NOTE]
-> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](whats-new.md), install the Container Apps extension with `--allow-preview true`.
->
-> ```azurecli
-> az extension add --name containerapp --upgrade --allow-preview true
-> ```
+    > [!NOTE]
+    > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](whats-new.md), install the Container Apps extension with `--allow-preview true`.
+    >
+    > ```azurecli
+    > az extension add --name containerapp --upgrade --allow-preview true
+    > ```
 
-Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
+1. Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
 
-```azurecli
-az provider register --namespace Microsoft.App
-```
+    ```azurecli
+    az provider register --namespace Microsoft.App
+    ```
 
-```azurecli
-az provider register --namespace Microsoft.OperationalInsights
-```
+    ```azurecli
+    az provider register --namespace Microsoft.OperationalInsights
+    ```
 
 ::: zone pivot="azure-cli"
 
@@ -118,9 +118,9 @@ $ROUTE_CONFIG_NAME="my-route-config"
       --query properties.configuration.ingress.fqdn
     ```
 
-## Create HTTP route configuration
+1. Create HTTP route configuration.
 
-1. Create the following YAML file and save it as `routing.yml`.
+    Create the following file and save it as `routing.yml`.
 
     ```yaml
     rules:
@@ -144,6 +144,17 @@ $ROUTE_CONFIG_NAME="my-route-config"
           - containerApp: my-container-app-2
     ```
 
+    This configuration defines two routing rules for HTTP traffic.
+
+    | Property | Description |
+    |---|---|
+    | `description` | Human-readable label for the rule |
+    | `routes.match.prefix` | URL path prefix to match. For example, `/api`. |
+    | `routes.action.prefixRewrite` | What to replace the matched prefix with before forwarding. |
+    | `targets.containerApp` | The name of the container app where matching route request are sent. |
+
+    These rules allow different paths on your custom domain to route to different container apps while also modifying the request path before it reaches the destination app.
+
 1. Run the following command to create the HTTP route configuration.
 
     ```azurecli
@@ -160,6 +171,8 @@ $ROUTE_CONFIG_NAME="my-route-config"
 ::: zone-end
 
 ::: zone pivot="bicep"
+
+1. Ensure both container apps already exist.
 
 1. Create the following Bicep file and save it as `routing.bicep`.
 
