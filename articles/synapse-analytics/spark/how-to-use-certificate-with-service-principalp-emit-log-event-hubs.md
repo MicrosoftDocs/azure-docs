@@ -10,6 +10,10 @@ ms.date: 03/24/2025
 
 # How to use certificate and service principal emit log to Azure Event Hubs
 
+The Apache Spark diagnostic emitter extension is a library that allows Spark applications to send logs, event logs, and metrics to destinations like Azure Event Hubs, Azure Log Analytics, and Azure Storage.
+
+In this tutorial, you learn how to create required Azure resources and configure a Spark application with a certificate and service principal to emit logs, event logs, and metrics to Azure Event Hubs using the Apache Spark diagnostic emitter extension.
+
 ## Prerequisites
 
 - An Azure subscription. You can also [create a free account](https://azure.microsoft.com/free/) before you get started.
