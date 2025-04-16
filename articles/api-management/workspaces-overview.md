@@ -75,7 +75,7 @@ Workspace gateways are managed independently from the API Management service and
  Depending on your organization's needs, you can associate one workspace or multiple workspaces with a workspace gateway. 
 
 > [!NOTE]
-> Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 16, 2025. 
+> Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 15, 2025. 
 
 * A workspace gateway has certain configuration (such as virtual network, scale, hostname) and allocated computing resources (CPU, memory, networking resources).
 * Configuration and computing resources are shared by all workspaces deployed on a gateway.

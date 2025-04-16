@@ -25,7 +25,7 @@ Follow the steps in this article to:
 
 > [!NOTE]
 > * Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
-> * Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 16, 2025. [Learn more about shared workspace gateways](workspaces-overview.md#workspace-gateway).
+> * Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 15, 2025. [Learn more about shared workspace gateways](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
 
