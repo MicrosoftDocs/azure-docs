@@ -22,7 +22,7 @@ In this tutorial, part two of eight, you deploy enclaves into a community. You l
 In the previous [tutorial](./1-create-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, return to [Tutorial 1 - Deploy a community](./1-create-community.md).
 
 ## Create an enclave using Azure Virtual Enclaves
-Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [enclave](./what-enclave.md) and [How-To Create an Enclave](./create-enclave-azure-portal.md).
+Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [enclave](./what-enclave.md) and [How-To Create an Enclave](./create-enclave-portal.md).
 
 > [!Important]
 >
@@ -30,7 +30,7 @@ Before creating an enclave instance, you need a resource group. An Azure resourc
 
 Enclave deployments take around 30-45 minutes to complete. Once it completes, open your Enclave and verify that the Status is `succeeded`.
 
-1. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
+1. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
 
 ![Screenshot showing the Azure Virtual Enclaves portal page with the Enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
 
