@@ -69,7 +69,7 @@ CREATE TABLE Products (
 
 ### HTTP trigger, write one record
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, by using data provided in an HTTP `POST` request as a JSON body:
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, by using data provided in an HTTP `POST` request as a JSON body.
 
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -135,7 +135,7 @@ CREATE TABLE Products (
 
 ### HTTP trigger, write one record
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, by using data provided in an HTTP `POST` request as a JSON body:
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, by using data provided in an HTTP `POST` request as a JSON body.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -292,7 +292,7 @@ CREATE TABLE Products (
 <a id="http-trigger-write-records-to-table-javascript"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body:
+The following example shows a MySQL output binding that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
 
 ::: zone-end
 
@@ -447,7 +447,9 @@ CREATE TABLE Products (
 <a id="http-trigger-write-records-to-table-powershell"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding in a function.json file and a PowerShell function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body:
+The following example shows a MySQL output binding in a function.json file and a PowerShell function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
+
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -641,7 +643,7 @@ The [C# library](functions-dotnet-class-library.md) uses the `MySqlAttribute` at
 | Attribute property |Description|
 |---------|---------|
 | `CommandText` | Required. The name of the table that the binding writes to.  |
-| `ConnectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. |
+| `ConnectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 ::: zone-end  
 
@@ -654,7 +656,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | Element |Description|
 |---------|---------|
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.|
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable.|
 | `name` |  Required. The unique name of the function binding. |
 
 ::: zone-end  
@@ -670,7 +672,7 @@ The following table explains the properties that you can set on the `options` ob
 | Property | Description |
 |---------|----------------------|
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable. |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -682,7 +684,7 @@ The following table explains the binding configuration properties that you set i
 |`direction` | Required. Must be set to `out`. |
 |`name` | Required. The name of the variable that represents the entity in function code. |
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable. |
 
 ---
 
@@ -700,7 +702,7 @@ The following table explains the binding configuration properties that you set i
 |`direction` | Required. Must be set to `out`. |
 |`name` | Required. The name of the variable that represents the entity in function code. |
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable. |
 
 ::: zone-end  
 
@@ -709,13 +711,13 @@ The following table explains the binding configuration properties that you set i
 > [!NOTE]
 > The output binding supports all special characters, including dollar sign ($), backtick (`), hyphen (-), and underscore (_) . For more information, see the [MySQL community documentation](https://dev.mysql.com/doc/refman/8.0/en/identifiers.html).
 >
-> A programming language might define member attributes that contain special characters that it supports. For example, C# has few limitations for defining [variables](/dotnet/csharp/fundamentals/coding-style/identifier-names).
+> A programming language might define member attributes that contain special characters that it supports. For example, C# has a few limitations for defining [variables](/dotnet/csharp/fundamentals/coding-style/identifier-names).
 >
 > Otherwise, you can use `JObject` for the output binding that covers all special characters. You can follow a [detailed example on GitHub](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs).
 
 ## Usage
 
-The `CommandText` property is the name of the table where the data will be stored. The name of the connection string setting corresponds to the application setting that contains the connection string to Azure Database for MySQL.
+The `CommandText` property is the name of the table where the data is stored. The name of the connection string setting corresponds to the application setting that contains the connection string to Azure Database for MySQL.
 
 If an exception occurs when a MySQL input binding is executed, the function code won't run. The result might be an error code, such as an HTTP trigger that returns a 500 error code.
 
