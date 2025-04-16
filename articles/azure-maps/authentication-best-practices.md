@@ -24,7 +24,7 @@ To implement best practices for securing your Azure Maps applications, it's esse
 
 ## Authentication best practices in Azure Maps
 
-When developing publicly facing client applications with Azure Maps, it's crucial to ensure that your authentication secrets remain private and are not publicly accessible.
+When developing publicly facing client applications with Azure Maps, it's crucial to ensure that your authentication secrets remain private and aren't publicly accessible.
 
 Subscription key-based authentication (Shared Key) can be used in client-side applications or web services, but it's the least secure method for protecting your application or web service. This is because the key can be easily extracted from an HTTP request, granting access to all Azure Maps REST APIs available in the SKU (Pricing Tier). If you use subscription keys, make sure to [rotate them regularly] and remember that Shared Key doesn't support configurable lifetimes, so rotation must be done manually. Consider using [Shared Key authentication with Azure Key Vault] to securely store your secret in Azure.
 
@@ -43,7 +43,7 @@ There are different security concerns between public and confidential client app
 
 ### Public client applications
 
-For applications running on devices, desktop computers, or web browsers, it's advisable to define which domains can access your Azure Maps account using [Cross origin resource sharing (CORS)]. CORS informs the client's browser which origins, such as "https://microsoft.com," are permitted to request resources from the Azure Maps account.
+For applications running on devices, desktop computers, or web browsers, it's advisable to define which domains can access your Azure Maps account using [Cross origin resource sharing (CORS)]. CORS informs the client's browser which origins, such as "https://microsoft.com," are permitted to request resources for the Azure Maps account.
 
 > [!NOTE]
 > If you're developing a web server or service, configuring your Azure Maps account with CORS is unnecessary. However, if your client-side web application includes JavaScript code, CORS does apply.
