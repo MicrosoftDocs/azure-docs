@@ -73,11 +73,11 @@ Developers can follow these steps to connect and sign in to view an API Center p
    
 1. To view the APIs in the API center, under the API center name, select **Sign in to Azure**. Sign-in is allowed with a Microsoft account that is assigned the **Azure API Center Data Reader** role in the API center. 
 
-    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-initial.png" alt-text="Screenshot of the API Center portal view in Api Center Extension.":::
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-initial.png" alt-text="Screenshot of the API Center portal view in API Center extension.":::
    
 1. After signing in, select **APIs** to list the APIs in the API center. Expand an API to explore its versions and definitions.
 
-    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-apis.png" alt-text="Screenshot of the API Center api definitions in Api Center Extension":::
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-apis.png" alt-text="Screenshot of the API Center API definitions in API Center extension.":::
    
 1. Repeat the preceding steps to connect to more API centers, if access is configured.
 
