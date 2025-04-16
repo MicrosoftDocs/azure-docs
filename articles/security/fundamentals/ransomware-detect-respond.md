@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 01/10/2022
+ms.date: 04/16/2025
 
 ---
 
