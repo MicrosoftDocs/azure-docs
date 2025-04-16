@@ -11,11 +11,11 @@ ms.date: 4/9/2025
 
 ---
 
-## Supported Data Types in Microsoft Planetary Computer Pro
+## Supported data types in Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds of data, but only certain file types will enable you to take advantage of the full suite of MPC Pro features. The following file formats are supported, and will be cloud optimized, indexed, and made available for visualization:
+Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds of data, but only certain file types enable you to take advantage of the full suite of Microsoft Planetary Computer Pro features. The following file formats are supported, and will be cloud optimized, indexed, and made available for visualization:
 
-### Raster Data Formats
+### Raster data formats
 
 * GeoTIFF  
 * TIFF  
@@ -24,15 +24,15 @@ Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds o
 * JPEG2000  
 * PNG  
 
-### Datacube Formats
+### Data cube formats
 
 * NetCDF  
 * HDF5  
 * GRIB2  
+
+### Future data types
+
 * Zarr (Coming soon)
-
-### Future Data Types
-
 * Vector Data (Coming soon)
 * Hyperspectral Data  
 * 3D/Point Cloud Data  
