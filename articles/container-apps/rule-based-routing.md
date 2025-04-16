@@ -153,7 +153,7 @@ ROUTE_CONFIG_NAME="my-route-config"
     | `routes.action.prefixRewrite` | What to replace the matched prefix with before forwarding. |
     | `targets.containerApp` | The name of the container app where matching route request are sent. |
 
-    These rules allow different paths on your custom domain to route to different container apps while also modifying the request path before it reaches the destination app.
+    These rules allow different paths on your domain to route to different container apps while also modifying the request path before it reaches the destination app.
 
     Other properties not listed that may affect your routes include the following.
 
