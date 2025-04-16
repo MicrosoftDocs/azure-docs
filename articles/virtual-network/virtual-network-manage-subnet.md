@@ -105,7 +105,7 @@ az network vnet subnet create \
 
 1. Use the [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) command to configure the subnet.
 
-  ```azurepowershell-interactive
+    ```azurepowershell-interactive
     $vnet = Get-AzVirtualNetwork @vnetParams
     $subnetParams = @{
        Name           = "<subnetName>"
@@ -113,13 +113,13 @@ az network vnet subnet create \
        AddressPrefix  = "<String[]>"
     }
     Add-AzVirtualNetworkSubnetConfig @subnetParams
-  ```
+    ```
 
 1. Then associate the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork).
 
-   ```azurepowershell-interactive
-   Set-AzVirtualNetwork -VirtualNetwork $vnet
-   ```
+    ```azurepowershell-interactive
+    Set-AzVirtualNetwork -VirtualNetwork $vnet
+    ```
 
 ---
 
