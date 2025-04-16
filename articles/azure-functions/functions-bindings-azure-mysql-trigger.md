@@ -1,6 +1,6 @@
 ---
-title: Azure Database for MySQL Trigger for Functions
-description: Learn how to use the Azure Database for MySQL trigger in Azure Functions.
+title: Azure Database for MySQL Trigger Binding for Functions
+description: Learn how to use the Azure Database for MySQL trigger binding in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom:
@@ -15,7 +15,7 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Database for MySQL trigger for Azure Functions (preview)
+# Azure Database for MySQL trigger binding for Azure Functions (preview)
 
 > [!NOTE]
 > Although input and output bindings are supported on all plans, Azure Database for MySQL trigger binding is available only on [Dedicated and Premium plans](functions-scale.md) during the preview.
@@ -48,7 +48,7 @@ while (true) {
 
 Changes are processed in the order that they're made. The oldest changes are processed first. Consider these points about change processing:
 
-- If changes occur in multiple rows once, the exact order in which they're sent to the function is based on the ascending order of the `az_func_updated_at` column and primary key columns.
+- If changes occur in multiple rows at once, the exact order in which they're sent to the function is based on the ascending order of the `az_func_updated_at` column and primary key columns.
 - Changes are batched for a row. If multiple changes occur in a row between each iteration of the loop, only the latest change entry that exists for that row is considered.
 
 > [!NOTE]
@@ -315,7 +315,7 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The Azure Database for MySQL trigger binds to a `MySqlChangeProduct[]`, an array of `MySqlChangeProduct` objects. Each object has two properties:
+The Azure Database for MySQL trigger binds to `MySqlChangeProduct[]`, which is an array of `MySqlChangeProduct` objects. Each object has two properties:
 
 - `item`: The item that was changed. The type of the item should follow the table schema, as seen in the `Product` class.
 - `operation`: A value from the `MySqlChangeOperation` enumeration. The possible value is `Update` for both inserts and updates.
@@ -452,7 +452,7 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The Azure Database for MySQL trigger binds `Changes`, an array of objects. Each object has two properties:
+The Azure Database for MySQL trigger binds to `Changes`, which is an array of objects. Each object has two properties:
 
 - `item`: The item that was changed. The structure of the item follows the table schema.
 - `operation`: The possible value is `Update` for both inserts and updates.
@@ -614,7 +614,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
 |Property | Description|
 |---------|----------------------|

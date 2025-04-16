@@ -212,7 +212,7 @@ CREATE TABLE Products (
 <a id="http-trigger-write-record-to-table-java"></a>
 ### HTTP trigger, write a record to a table
 
-The following example shows a MySQL output binding in a Java function that adds a record to a table, by using data provided in an HTTP `POST` request as a JSON body. The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
+The following example shows an Azure Database for MySQL output binding in a Java function that adds a record to a table, by using data provided in an HTTP `POST` request as a JSON body. The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -292,7 +292,7 @@ CREATE TABLE Products (
 <a id="http-trigger-write-records-to-table-javascript"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
+The following example shows an Azure Database for MySQL output binding that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
 
 ::: zone-end
 
@@ -404,7 +404,7 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample JavaScript code:
 
@@ -447,7 +447,7 @@ CREATE TABLE Products (
 <a id="http-trigger-write-records-to-table-powershell"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding in a function.json file and a PowerShell function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
+The following example shows an Azure Database for MySQL output binding in a function.json file and a PowerShell function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
 
 The following example is binding data in the function.json file:
 
@@ -481,14 +481,14 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample PowerShell code for the function in the run.ps1 file:
 
 ```powershell
 using namespace System.Net
 
-# Trigger binding data passed in via parameter block
+# Trigger binding data passed in via parameter block.
 param($Request, $TriggerMetadata)
 
 # Write to the Azure Functions log stream.
@@ -498,7 +498,7 @@ Write-Host "PowerShell function with MySql Output Binding processed a request."
 # that have a property matching each of the columns in the table to upsert to.
 $req_body = $Request.Body
 
-# Assign the value that you want to pass to the MySql output binding. 
+# Assign the value that you want to pass to the MySQL output binding. 
 # The -Name value corresponds to the name property in the function.json file for the binding.
 Push-OutputBinding -Name product -Value $req_body
 
@@ -538,7 +538,7 @@ CREATE TABLE Products (
 <a id="http-trigger-write-records-to-table-python"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding in a function.json file and a Python function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
+The following example shows an Azure Database for MySQL output binding in a function.json file and a Python function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
 
 # [v2](#tab/python-v2)
 
@@ -603,7 +603,7 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample Python code:
 
@@ -667,7 +667,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 # [Model v4](#tab/nodejs-v4)
 
-The following table explains the properties that you can set on the `options` object passed to the `output.generic()` method.
+The following table explains the properties that you can set on the `options` object passed to the `output.generic()` method:
 
 | Property | Description |
 |---------|----------------------|
@@ -676,7 +676,7 @@ The following table explains the properties that you can set on the `options` ob
 
 # [Model v3](#tab/nodejs-v3)
 
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
 | Property | Description |
 |---------|----------------------|
@@ -694,7 +694,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
 |Property | Description|
 |---------|----------------------|

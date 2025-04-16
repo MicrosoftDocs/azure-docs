@@ -23,7 +23,7 @@ This set of articles explains how to work with [Azure Database for MySQL](/azure
 |---------|---------|
 | Read data from a database | [Input binding](./functions-bindings-azure-mysql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-mysql-output.md) |
-| Trigger a function when a change is detected on a MySQL table | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
+| Trigger a function when a change is detected in a MySQL table | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
 
 ::: zone pivot="programming-language-csharp"
 
@@ -59,7 +59,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.MySql --version 1.0.3-prev
 
 ## Install the bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles), which is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 
@@ -83,7 +83,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install the bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles), which is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 
@@ -107,7 +107,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install the bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles), which is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 
@@ -127,7 +127,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Update packages
 
-You can use the preview extension bundle with an update to the `pom.xml` file in your Java Azure Functions project, as shown in the following snippet:
+You can use the preview extension bundle with an update to the pom.xml file in your Java Azure Functions project, as shown in the following snippet:
 
 ```xml
 <dependency>
@@ -157,10 +157,10 @@ Azure Database for MySQL bindings for Azure Functions have a required property f
 
 ## Samples
 
-In addition to the samples for C#, Java, JavaScript, PowerShell, and Python available in the [GitHub repository for Azure MySQL bindings](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples), more are available in [Azure Samples](https://github.com/Azure-Samples).
+In addition to the samples for C#, Java, JavaScript, PowerShell, and Python available in the [GitHub repository for Azure Database for MySQL bindings](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples), more are available in [Azure Samples](https://github.com/Azure-Samples).
 
 ## Related content
 
 - [Read data from a database (input binding)](./functions-bindings-azure-mysql-input.md)
 - [Save data to a database (output binding)](./functions-bindings-azure-mysql-output.md)
-- [Trigger a function when a change is detected on a table (trigger binding)](./functions-bindings-azure-mysql-trigger.md)
+- [Trigger a function when a change is detected in a table (trigger binding)](./functions-bindings-azure-mysql-trigger.md)
