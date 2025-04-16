@@ -3,7 +3,7 @@ title: Private and Public DNS forward lookup zone configuration
 description: Learn about DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/14/2025
+ms.date: 4/15/2025
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds so that I can manage domain name resolution for private cloud appliances.
 ---
@@ -18,7 +18,7 @@ Gen 2 private cloud successfully deployed.
 
 ## DNS forward lookup zone configuration options 
 
-Azure VMware Solution allows you to configure DNS forward lookup zones in two ways: public or private. This configuration defines how DNS name resolution for Azure VMware Solution components, such as vCenter, ESX hosts, and NSX Managers, is performed. 
+Azure VMware Solution allows you to configure DNS forward lookup zones in two ways: public or private. This configuration defines how DNS name resolution for Azure VMware Solution components, such as vCenter Server, ESX hosts, and NSX Manager, is performed. 
 
 **Public**: The public DNS forward lookup zone allows domain names to be resolved using any public DNS servers. 
 
@@ -26,7 +26,7 @@ Azure VMware Solution allows you to configure DNS forward lookup zones in two wa
 
 DNS forward lookup zone can be configured at the time of creation or changed after the private cloud is created. The following diagram shows the configuration page for the DNS forward lookup zone. 
 
-:::image type="content" source="./media/native-connectivity/native-connect-dns-lookup.png" alt-text="Diagram showing an Azure VMware Solution DNS forward lookup." lightbox="media/native-connectivity/native-connect-dns-lookup.png":::
+:::image type="content" source="./media/native-connectivity/native-connect-dns-lookup.png" alt-text="Diagram showing an Azure VMware Solution Gen 2 DNS forward lookup." lightbox="media/native-connectivity/native-connect-dns-lookup.png":::
 
 ## Configuring Private DNS for your Azure VMware Solution Generation 2 Private Cloud  
  
@@ -56,7 +56,7 @@ You can now resolve your private cloud DNS records from any workload using the I
  
  ### Enable Resolution for private cloud Workload Virtual Machines
  
- If you need workload Virtual Machines deployed in your private cloud to resolve the private cloud management components you must add a forwarder to NSX. 
+ If you need workload Virtual Machines deployed in your private cloud to resolve the private cloud management components you must add a forwarder to VMware NSX. 
  
  1. In your Resource group, open your private cloud. 
  2. Expand Workload Networking and click on DNS. 
