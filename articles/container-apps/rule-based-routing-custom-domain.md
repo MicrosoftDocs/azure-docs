@@ -70,6 +70,16 @@ This configuration defines two routing rules for HTTP traffic.
 
 These rules allow different paths on your custom domain to route to different container apps while also modifying the request path before it reaches the destination app.
 
+Other properties not listed that may affect your routes include the following.
+
+| Property | Description |
+|---|---|
+| `route.match.path` | Exact match path definition. |
+| `route.match.pathSeparatedPrefix` | Matches routes on '/' boundaries rather than any text. For example, if you set the value to `/product`, then it will match on `/product/1`, but not `/product1`. |
+| `route.match.caseSensitive` | Controls whether or not route patterns match with case sensitivity. |
+| `target.label` | Route to a specific labeled revision within a container app. |
+| `target.revision` | Route to a specific revision within a container app. |
+
 ## Work with your custom domain
 
 Use the following commands to configure and use your custom domain mapping.
