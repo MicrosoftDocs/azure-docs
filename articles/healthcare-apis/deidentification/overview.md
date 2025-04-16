@@ -11,7 +11,7 @@ ms.author: kimiamavon
 
 # What is the de-identification service?
 
-![Alt text](https://github.com/LeaKass/azure-docs/blob/main/Tag%20Redact%20Surrogate.png)
+![The 3 De-identification operations we offer](Tag%20Redact%20Surrogate.png)
 
 The de-identification service in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
@@ -38,7 +38,7 @@ The de-identification service unlocks the power of your data by automating three
 ### **Consistent replacement to preserve patient timelines**
 Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
 
-![Alt text](https://github.com/LeaKass/azure-docs/blob/main/Surrogated%20consistently%20accross%20batches.png)
+![Consisten Surrogation per batch](Surrogated%20consistently%20accross%20batches.png)
 
 ## De-identify clinical data securely and efficiently
 
