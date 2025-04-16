@@ -11,21 +11,41 @@ ms.author: kimiamavon
 
 # What is the de-identification service?
 
+![Alt text](https://github.com/LeaKass/azure-docs/blob/main/Tag%20Redact%20Surrogate.png)
+
 The de-identification service in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
-## Use de-identified data in research, analytics, and machine learning
+## How do you benefit from de-identifying your data? 
 
-The de-identification service unlocks data that was previously difficult to de-identify so organizations can conduct research and derive insights from analytics. The de-identification service supports three operations: **tag**, **redact**, or **surrogate PHI**. The de-identification service offers many benefits, including:
+| As a                 | AHDS De-identification enables you to                                                               |
+|-------------------------|----------------------------------------------------------------------------------------------------------|
+| Data Scientist          | Use de-identified data to train robust machine learning models, build conversational agents, and conduct longitudinal studies. |
+| Data Analyst            | Monitor trends, build dashboards, and analyze outcomes without compromising privacy.                     |
+| Data Engineer           | Build and test dev environments using realistic, non-identifiable data for safer deployment.             |
+| Customer Service Agent  | Summarize support conversations and extract insights while maintaining patient confidentiality.           |
 
-- **Surrogation**: Surrogation, or replacement, is a best practice for PHI protection. The service can replace PHI elements with plausible replacement values, resulting in data that is most representative of the source data. Surrogation strengthens privacy protections as any false-negative PHI values are hidden within a document.
+## Why is this service the right fit for your use case? 
 
-- **Consistent replacement**: Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
+The de-identification service unlocks the power of your data by automating three operations: 
 
-- **Expanded PHI coverage**: The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy protections and more fine-grained distinctions between entity types, such as distinguishing between Doctor and Patient.
+- **TAG** identifies and Tags PHI in your clinical text, specifying the entity types (i.e. Patient Name, Doctor Name, Age, etc) 
+- **REDACT** replaces the identified PHI in your clinical text with the entity types
+- **SURROGATE** replaces the identified PHI in your clinical text with realistic pseudonyms (names of people, organizations, hospitals) and randomizes number based PHI (dates and alphanumeric entities such as ID Numbers and more)
+
+> [!TIP]
+> **Surrogation**, or synthetic replacement, is a best practice for PHI protection. The service can replace PHI elements with plausible replacement values, resulting in data that is most representative of the source data. Surrogation strengthens privacy protections as any false-negative PHI values are hidden within a document.
+
+### **Consistent replacement to preserve patient timelines**
+Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
+
+![Alt text](https://github.com/LeaKass/azure-docs/blob/main/Surrogated%20consistently%20accross%20batches.png)
 
 ## De-identify clinical data securely and efficiently
 
 The de-identification service offers many benefits, including:
+
+- **Expanded PHI coverage:**
+The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy protections and more fine-grained distinctions between entity types. It distinguishes between Doctor and Patient, and covers [27 PHI entities the service de-identifies](https://learn.microsoft.com/en-us/rest/api/health-dataplane/deidentify-text/deidentify-text?view=rest-health-dataplane-2024-11-15&tabs=HTTP#phicategory).
 
 - **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service also meets all regional compliance requirements including HIPAA, GDPR, and the California Consumer Privacy Act (CCPA).
 
@@ -50,7 +70,12 @@ The following service limits are applicable:
 - Each document processed by a job can't exceed 2 MB.
 
 ## Pricing
-As with other Azure Health Data Services, you pay only for what you use. You have a monthly allotment that enables you to try the product for free.
+
+Pricing is based on the amount of data de-identified by our service. You are charge $0.05 per MB, for any of the three operations we offer, whether you are using the asynchronous or synchornous endpoint.
+
+This price is also displayed on our Pricing Tool page, where you can estimate the cost based on your use case: [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+
+You have also have a monthly allotment of 50 MB that enables you to try the product for free.
 
 | Transformation Operation (per MB) | Up to 50 MB | Over 50 MB |
 | ---------------- | ------ | ---- |
