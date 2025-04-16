@@ -57,8 +57,6 @@ To integrate with Armis Alerts Activities (using Azure Functions) make sure you 
 
 > [!NOTE]
    >  This connector uses Azure Functions to connect to the Armis API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
-
-
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
@@ -78,7 +76,8 @@ To integrate with Armis Alerts Activities (using Azure Functions) make sure you 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the Armis Alerts Activities data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following) readily available.., as well as the Armis API Authorization Key(s)
+>[!IMPORTANT]
+> Before deploying the Armis Alerts Activities data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following) readily available.., as well as the Armis API Authorization Key(s)
 
 
 
