@@ -115,7 +115,7 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
 
 ## Publishing the developer portal
 
-Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a VNet by allowing outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Currently, connectivity to blob storage in the West US region is required to publish the developer portal for any API Management instance.
+Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a VNet by allowing outbound connectivity to Azure Storage. For example, use the Storage service tag in an NSG rule. Currently, connectivity to Azure Storage via global or regional service endpoints is required to publish the developer portal for any API Management instance.
 
 ## Azure portal diagnostics  
   When using the API Management diagnostics extension from inside a VNet, outbound access to `dc.services.visualstudio.com` on port `443` is required to enable the flow of diagnostic logs from Azure portal. This access helps in troubleshooting issues you might face when using the extension.

@@ -1,8 +1,8 @@
 ---
 title: "Tutorial load data from Azure Data Lake Storage"
 description: Use the COPY statement to load data from Azure Data Lake Storage for dedicated SQL pools.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: joannapea
+ms.author: joanpo
 ms.reviewer: joanpo 
 ms.date: 09/02/2022
 ms.service: azure-synapse-analytics

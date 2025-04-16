@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 3/24/2025
+ms.date: 3/31/2025
 ms.author: wgries
 ---
 
@@ -21,7 +21,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | Feburary 10, 2025 | Supported |
+| V20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported |
 | V19 Release - [KB5040924](https://support.microsoft.com/topic/e44fc142-8a24-4dea-9bf9-6e884b4b342e)| 19.1.0.0 | September 3, 2024 | Supported |
 | V18.2 Release - [KB5023059](https://support.microsoft.com/topic/613d00dc-998b-4885-86b9-73750195baf5)| 18.2.0.0 | July 9, 2024 | Supported |
 | V18.1 Release - [KB5023057](https://support.microsoft.com/topic/961af341-40f2-4e95-94c4-f2854add60a5)| 18.1.0.0 | June 11, 2024 | Supported - Security Update |
@@ -75,20 +75,22 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 >Azure File Sync agent v17.3 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
 
 ## Version 20.0.0.0
-The following release notes are for Azure File Sync version 20.0.0.0 (released Febuary 10, 2025). This release contains improvements for the Azure File Sync service and agent. 
+The following release notes are for Azure File Sync version 20.0.0.0 (released February 10, 2025). This release contains improvements for the Azure File Sync service and agent. 
 
 ### Improvements and issues that are fixed
-**Managed identities preview improvements**  
-Azure File Sync support for managed identities preview was announced in November 2024.  
-Since the preview was announced, we've made the following improvements: 
- - You can now use the portal to configure your Azure File Sync deployment to use managed identities.
-> [!NOTE]
-> The portal experience will be gradually enabled in all regions within the next few weeks.
- - The following settings on your storage account are no longer required and can be disabled:
-    - Allow storage account key access
-    - Allow Azure services on the trusted services list to access this storage account 
+**General Availability: Managed Identities support for Azure File Sync service and servers**
 
-For more information, see: [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
+Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for [shared keys](../common/storage-account-keys-manage.md) and simplifying security management with Microsoft Entra ID. You can now configure managed identities directly from the Azure portal, making deployments easier and more secure.
+ 
+When managed identities are configured, the system-assigned managed identities will be used for the following scenarios:
+- Storage Sync Service authentication to Azure file share
+- Registered server authentication to Azure file share
+- Registered server authentication to Storage Sync Service
+
+For more information, see: [How to use managed identities with Azure File Sync](file-sync-managed-identities.md).
+
+> [!NOTE]
+>The portal experience for general availability will gradually roll out to all regions in the coming weeks.
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 ### Evaluation Tool
@@ -105,6 +107,11 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The agent uses TLS 1.2 or 1.3 (Windows Server 2022 or newer) by default and TLS 1.0 and 1.1 are not supported.
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. If the SVI directory is compressed, the Storage Sync Agent (FileSyncSvc) service will fail to start.
+- Agent installation can fail with error **0x80c84111** if required Windows security updates are missing. To prevent this issue, make sure the following updates are installed based on your server version:
+   - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+   - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+   - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+
 
 ### Interoperability
 - Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).

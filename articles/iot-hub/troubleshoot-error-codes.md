@@ -128,8 +128,8 @@ This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-
 
 Some other possibilities include:
 
-* The device lost underlying network connectivity longer than the [MQTT keep-alive](../iot/iot-mqtt-connect-to-iot-hub.md#default-keep-alive-time-out), resulting in a remote idle timeout. The MQTT keep-alive setting can be different per device.
-* The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, this issue is caused by bugs in older versions of the Azure IoT SDK.
+* The device lost underlying network connectivity longer than the [MQTT keep-alive](../iot/iot-mqtt-connect-to-iot-hub.md#default-keep-alive-time-out), resulting in a remote idle time-out. The MQTT keep-alive setting can be different per device.
+* The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, bugs in older versions of the Azure IoT SDK might cause this issue.
 * The device side application crashed.
 
 Or, IoT Hub might be experiencing a transient issue. For more information, see [500xxx Internal errors](#500xxx-internal-errors).

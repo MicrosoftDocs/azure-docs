@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 04/15/2025
 # Customer intent: As a developer, I want to get log data from my Log Analytics workspace or telemetry from my Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 
@@ -50,7 +50,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
   | Max connector timeout | 110 seconds ||
   | Max query timeout | 100 seconds ||
 
-  To avoid reaching these limits, try aggregating data to reduce the results size, or adjusting the workflow recurrence to run more frequently across a smaller time range. However, due to caching, frequent queries with intervals less than 120 seconds aren't recommended.
+  To avoid reaching these limits, try aggregating data to reduce the results size, or adjusting the workflow recurrence to run more frequently across a smaller time range.
 
 - Visualizations on the Logs page and the connector use different charting libraries. So, the connector currently doesn't include some functionality.
 
@@ -74,7 +74,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
    This example continues with the action named **Run query and visualize results**.
 
-1. In the connection box, provide the following information:
+1. In the connection information pane, provide the following information:
 
    | Property | Description |
    |----------|-------------|
@@ -113,7 +113,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
    * Application Insights resource
 
-     The following example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation, based on the `operation_Id` identifier. The query then segments the results by using the `autocluster()` algorithm.
+     The following example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation, based on the **`operation_Id`** identifier. The query then segments the results by using the **`autocluster()`** algorithm.
 
      ```kusto
      requests
@@ -148,7 +148,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
    This example continues with the action named **Run query and visualize results**.
 
-1. In the connection box, provide the following information:
+1. In the connection information pane, provide the following information:
 
    | Property | Description |
    |----------|-------------|
@@ -187,7 +187,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
    * Application Insights resource
 
-     The following example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation, based on the `operation_Id` identifier. The query then segments the results by using the `autocluster()` algorithm.
+     The following example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation, based on the **`operation_Id`** identifier. The query then segments the results by using the **`autocluster()`** algorithm.
 
      ```kusto
      requests
@@ -226,7 +226,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 1. In the **Subject** box, enter a subject for the email, for example, **Top daily errors or failures**.
 
-1. Click inside the **Body** box, and then select the **Dynamic content** option (lightning icon), so that you can select outputs from previous steps in the workflow.
+1. Select inside the **Body** box, and then select the **Dynamic content** option (lightning icon), so that you can select outputs from previous steps in the workflow.
 
 1. In the dynamic content list, under **Run query and visualize results**, select **Body**, which represents the results of the query that you previously entered in the Log Analytics action.
 
@@ -262,9 +262,9 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 1. For the added properties, follow these steps:
 
-   1. Click inside the **Attachment Name** box to open the dynamic content list. Under **Run query and visualize results**, select **Attachment Name**.
+   1. Select inside the **Attachment Name** box, and then select the lightning icon to open the dynamic content list. Under **Run query and visualize results**, select **Attachment Name**.
 
-   1. Click inside the **Attachment Content** box to open the dynamic content list. Under **Run query and visualize results**, select **Attachment Content**.
+   1. Select inside the **Attachment Content** box, and then select the lightning icon to open the dynamic content list. Under **Run query and visualize results**, select **Attachment Content**.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -274,9 +274,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 ### [Standard](#tab/standard)
 
-1. On workflow menu, select **Overview**.
-
-1. On the **Overview** toolbar, select **Run** > **Run**.
+1. On the workflow designer toolbar, select **Run** > **Run**.
 
 1. When the workflow completes, check your email.
 
@@ -295,7 +293,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 ### [Consumption](#tab/consumption)
 
-1. On the designer toolbar, select **Run Trigger** > **Run**.
+1. On the workflow designer toolbar, select **Run** > **Run**.
 
 1. When the workflow completes, check your email.
 
@@ -314,7 +312,8 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 ---
 
-## Next steps
+## Related content
 
-- Learn more about [log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
-- Learn more about [queries for Log Analytics](/azure/azure-monitor/logs/get-started-queries)
+- [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
+- [Queries for Log Analytics](/azure/azure-monitor/logs/get-started-queries)
+

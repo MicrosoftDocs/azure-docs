@@ -166,7 +166,7 @@ groups:
   - id: create-option-vscode
     title: Visual Studio Code
 # Service-specific groups
-##### Begin azure-functions    
+##### Begin azure-functions
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model
@@ -405,17 +405,17 @@ groups:
   prompt: Choose how you want to deploy your Java app
   pivots:
   - id: java-javase
-    title: Embed your own server (such as embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as Spring Boot, Quarkus)
   - id: java-tomcat
-    title: To a Tomcat server
+    title: Tomcat
   - id: java-jboss
-    title: To a JBoss server
+    title: JBoss EAP
 - id: app-service-java-hosting
   title: App Service Java hosting
   prompt: Choose how your Java app is hosted
   pivots:
   - id: java-javase
-    title: Java SE (such as embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as Spring Boot, Quarkus)
   - id: java-tomcat
     title: Tomcat
   - id: java-jboss
@@ -1355,7 +1355,7 @@ groups:
   - id: v1
     title: "1.0"
   - id: v23-10
-    title: "2023-10-01"  
+    title: "2023-10-01"
   - id: v23-11
     title: "2023-11-01"
 # Owner: v-yilinhu
@@ -1394,16 +1394,14 @@ groups:
   - id: programming-language-swift
     title: iOS
   - id: programming-language-kotlin
-    title: Android  
+    title: Android
 # Owner: jorgegarc
-- id: acs-maui-xamarin-react
+- id: acs-maui-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
   - id: platform-maui
     title: .NET MAUI
-  - id: platform-xamarin
-    title: Xamarin
   - id: platform-react
     title: React Native
 # Owner: jodowns
@@ -1654,8 +1652,6 @@ groups:
     title: Single Azure VM and Azure Arc-enabled VM
   - id: multiple-portal-cli
     title: Multiple VMs using Azure portal and Azure CLI
-  - id: at-scale-policy
-    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1790,7 +1786,7 @@ groups:
   - id: terraform
     title: Terraform
   - id: pulumi
-    title: Pulumi   
+    title: Pulumi
 # Owner: malev
 - id: grafana-cli-portal
   title: Experience
@@ -1911,3 +1907,14 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+#owner: mbender
+- id: load-balancer-multiple-ip-pv
+  title: Load Balancer Multiple IPs
+  prompt: Select your creation experience for Azure Load Balancer.
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-powershell
+    title: Azure PowerShell
