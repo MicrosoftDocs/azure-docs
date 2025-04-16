@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 02/11/2025
+ms.date: 04/15/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -162,7 +162,6 @@ The following table describes key parameters for each redundancy option:
 | Percent durability of objects over a given year | at least 99.999999999% (11 9s) | at least 99.9999999999% (12 9s) | at least 99.99999999999999% (16 9s) | at least 99.99999999999999% (16 9s) |
 | Availability for read requests | At least 99.9% (99% for cool/cold/archive access tiers) | At least 99.9% (99% for cool/cold access tier) | At least 99.9% (99% for cool/cold/archive access tiers) for GRS<br/><br/>At least 99.99% (99.9% for cool/cold/archive access tiers) for RA-GRS | At least 99.9% (99% for cool/cold access tier) for GZRS<br/><br/>At least 99.99% (99.9% for cool/cold access tier) for RA-GZRS |
 | Availability for write requests | At least 99.9% (99% for cool/cold/archive access tiers) | At least 99.9% (99% for cool/cold access tier) | At least 99.9% (99% for cool/cold/archive access tiers) | At least 99.9% (99% for cool/cold access tier) |
-| Number of copies of data maintained on separate nodes | Three copies across one or more availability zones within a region | Three copies across separate availability zones within a single region | Six copies total, including three in the primary region and three in the secondary region | Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region |
 
 For more information, see the [Service Level Agreement for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
