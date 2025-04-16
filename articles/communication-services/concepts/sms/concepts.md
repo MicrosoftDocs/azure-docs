@@ -18,9 +18,9 @@ ms.custom: references_regions
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS SDKs. These SDKs can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response metrics.
+Azure Communication Services enables you to send and receive short message service (SMS) text messages using the Communication Services SMS SDKs. These SDKs can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response metrics.
 
-<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
 ## SMS features
 
@@ -58,12 +58,12 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 > [!div class="nextstepaction"]
 > [Get started with sending sms](../../quickstarts/sms/send.md)
 
-See the following articles for more information:
+## Related articles
 
-- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md)
-- Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md)
-- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
-- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
-- Get a [short code](../../quickstarts/sms/apply-for-short-code.md)
-- Learn about [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
-- Apply for [Toll-free verification](./sms-faq.md#toll-free-verification)
+- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md).
+- Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md).
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md).
+- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md).
+- Get a [short code](../../quickstarts/sms/apply-for-short-code.md).
+- Learn about [Phone number types in Azure Communication Services](../telephony/plan-solution.md).
+- Apply for [Toll-free verification](./sms-faq.md#toll-free-verification).

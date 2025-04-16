@@ -2,7 +2,8 @@
 title: Provision Azure Container Apps
 description: Describes considerations during Azure Container Apps creation.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
@@ -101,7 +102,7 @@ Use the [Azure pricing calculator](../../cost-management-billing/costs/pricing-c
 
 Consider scaling configurations and autoscaling triggers, as they significantly affect resource usage.
 
-For more information, see [Workload Profiles in Azure Container Apps](https://chatgpt.com/azure/container-apps/workload-profiles-overview).
+For more information, see [Workload Profiles in Azure Container Apps](../../container-apps/workload-profiles-overview.md).
 
 ## Maintenance
 

@@ -66,7 +66,7 @@ app.UseHttpsRedirection();
 
 app.MapPost("/api/callback", (CloudEvent[] events) =>
 {
-    // Your implemenation on the callback event
+    // Your implementation on the callback event
     return Results.Ok();
 })
 .RequireAuthorization()

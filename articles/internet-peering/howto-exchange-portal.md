@@ -7,14 +7,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/13/2024
+ms.date: 03/03/2025
 ---
 
 # Create or modify an Exchange peering using the Azure portal
 
 In this article, you learn how to create a Microsoft Exchange peering using the Azure portal. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
-
-If you prefer, you can complete this guide by using [PowerShell](howto-exchange-powershell.md).
 
 ## Prerequisites
 
@@ -32,6 +30,8 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
 
 1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** from the search results.
 
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
+
 1. On the **Peerings** page, select **+ Create**.
 
 1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
@@ -45,7 +45,7 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
     | Name | Enter a name for the peering you're creating. |
     | Peer ASN | Select your ASN. |
 
-    :::image type="content" source="./media/howto-exchange-portal/peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/howto-exchange-portal/peering-basics.png":::
+    :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/create-peering-basics.png":::
 
 >[!IMPORTANT] 
 >You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
@@ -77,7 +77,7 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
 
 1. Under **Settings**, select **Connections** to see a summary of peering connections between your ASN and Microsoft.
 
-    :::image type="content" source="./media/howto-exchange-portal/peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/howto-exchange-portal/peering-connections.png":::
+    :::image type="content" source="./media/exchange-peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/exchange-peering-connections.png":::
 
     - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Exchange peering walkthrough](walkthrough-exchange-all.md).
     - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 
@@ -124,7 +124,7 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
 
 ## Deprovision an Exchange peering
 
-[!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
+Currently, deprovisioning isn't supported using the Azure portal or PowerShell. To deprovision, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
 
 ## Related content
 

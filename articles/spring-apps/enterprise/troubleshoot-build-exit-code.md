@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: troubleshooting
 ms.date: 08/28/2024
-ms.author: yili7
+ms.author: karler
+ms.reviewer: yili7
 ms.custom: devx-track-java
 ---
 
@@ -27,7 +28,7 @@ The following list describes some common exit codes:
 
 - **20** - All buildpack groups have failed to detect.
   
-  Consider the following possible causes of an exit code of *20*:
+  Consider the following possible causes of an exit code of `20`:
 
   - The builder you're using doesn't support the language your project used.
 
@@ -35,15 +36,15 @@ The following list describes some common exit codes:
 
     If you're using the custom builder, check whether your custom builder's buildpack supports the language your project used.
 
-  - You're running against the wrong path; for example, your Maven project's *pom.xml* file isn't in the root path.
+  - You're running against the wrong path; for example, your Maven project's **pom.xml** file isn't in the root path.
 
-    Set `BP_MAVEN_POM_FILE` to specify the location of the project's *pom.xml* file.
+    Set `BP_MAVEN_POM_FILE` to specify the location of the project's **pom.xml** file.
 
-  - There's something wrong with your application; for example, your *.jar* file doesn't have a */META-INF/MANIFEST.MF* file that contains a `Main-Class` entry.
+  - There's something wrong with your application; for example, your **.jar** file doesn't have a **/META-INF/MANIFEST.MF** file that contains a `Main-Class` entry.
 
 - **51** - Buildpack build error.
   
-  Consider the following possible causes of an exit code of *51*:
+  Consider the following possible causes of an exit code of `51`:
 
   - If Azure Spring Apps displays the error message `Build failed in stage build with reason OOMKilled` in the Azure CLI console, the build failed due to insufficient memory.
 
@@ -67,7 +68,7 @@ The following list describes some common exit codes:
 
 - **62** - Failed to write image to Azure Container Registry.
   
-  Consider the following possible cause of an exit code of *62*:
+  Consider the following possible cause of an exit code of `62`:
 
   - If Azure Spring Apps displays the error message `Failed to write image to the following tags` in the build log, the build failed because of a network issue.
 

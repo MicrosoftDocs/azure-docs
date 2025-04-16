@@ -3,7 +3,7 @@ title: Azure Automation subscription limits and quotas
 description: This article provides automation subscription and service limits and includes answers to frequently asked questions.
 services: automation
 ms.topic: faq
-ms.date: 01/28/2025
+ms.date: 03/10/2025
 ms.custom: references_regions
 #Customer intent: As an implementer, I want answers to various questions.
 ---
@@ -41,6 +41,7 @@ Azure Automation offers Limits and Quotas to resources assigned for your Azure s
 |Maximum amount of memory given to a sandbox <sup>1</sup> | 400 MB | Applies to Azure sandboxes only. |
 |Maximum number of network sockets allowed per sandbox <sup>1</sup> | 1,000 | Applies to Azure Sandboxes only|
 |Maximum runtime allowed per runbook <sup>1<sup> | Three hours | Applies to Azure Sandboxes only |
+|Maximum number of runbooks per Automation account | 800 |
 |Maximum number of system hybrid runbook workers per Automation Account | 4,000 | |
 |Maximum number of user hybrid runbook workers per Automation account | 4,000| |
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker | 50 | |

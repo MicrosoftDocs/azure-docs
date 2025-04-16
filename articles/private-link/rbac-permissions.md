@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 12/04/2024
+ms.date: 03/25/2025
 ---
 
 # Azure RBAC permissions for Azure Private Link

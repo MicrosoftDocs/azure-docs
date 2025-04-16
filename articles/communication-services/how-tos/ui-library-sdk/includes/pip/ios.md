@@ -47,7 +47,7 @@ callComposite.isHidden = true
 ```
 
 ```swift
-// Displaye calling UI and close PiP
+// Display calling UI and close PiP
 callComposite.isHidden = false
 ```
 

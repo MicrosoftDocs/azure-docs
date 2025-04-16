@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 10/20/2021
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: include file
 ---
 <!-- This tells how to get the connection string for the service shared access policy of your IoT hub -->

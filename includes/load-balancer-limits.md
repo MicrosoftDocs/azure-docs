@@ -34,7 +34,7 @@ Load Balancer doesn't apply any throughput limits. However, throughput limits fo
 
 | Resource                                | Limit        |
 |-----------------------------------------|------------------------------|
-| Resources chained per Load Balancer (LB frontend configurations or VM NIC IP configurations combined) | 100 |
+| Resources chained per Gateway Load Balancer frontend (Load Balancer frontend configurations or VM NIC IP configurations combined) | 100 |
 
 All limits for Standard Load Balancer also apply to Gateway Load Balancer.
 

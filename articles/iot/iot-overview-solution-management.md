@@ -17,13 +17,13 @@ This overview introduces the key concepts around the options to manage an Azure 
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to managing an IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the areas relevant to managing an edge-based IoT solution:
 
 :::image type="content" source="media/iot-overview-solution-management/iot-edge-solution-management-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution management areas." border="false":::
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to managing an IoT solution
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the areas relevant to managing a cloud-based IoT solution:
 
 :::image type="content" source="media/iot-overview-solution-management/iot-cloud-solution-management-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution management areas." border="false":::
 
@@ -168,3 +168,9 @@ Use Azure DevOps tools to automate the management of your IoT solution. For exam
 
 - [Continuous integration and continuous deployment to Azure IoT Edge devices](../iot-edge/how-to-continuous-integration-continuous-deployment.md)
 - [Integration of IoT Central with Azure Pipelines for CI/CD](../iot-central/core/howto-integrate-with-devops.md)
+
+## Related content
+
+- [Security best practices for IoT solutions](iot-overview-security.md)
+- [IoT solution scalability, high availability, and disaster recovery](iot-overview-scalability-high-availability.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

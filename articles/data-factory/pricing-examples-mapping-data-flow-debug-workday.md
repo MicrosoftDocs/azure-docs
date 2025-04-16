@@ -3,7 +3,7 @@ title: "Pricing example: Using mapping data flow debug for a normal workday"
 description: This article shows how to estimate pricing for Azure Data Factory to use mapping data flow debug for a normal workday.
 author: jianleishen
 ms.author: jianleishen
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 05/15/2024

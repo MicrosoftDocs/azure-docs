@@ -37,14 +37,15 @@ This is an overview of each feature and its current status for different framewo
 
 Feature | .NET | Spring | Python | JavaScript
 ------- | ---- | ------ | ------ | ----------
-Targeting Filter | [GA](./feature-management-dotnet-reference.md#targeting) | GA | [GA](./feature-management-python-reference.md#targeting) | GA
-Targeting Exclusion | [GA](./feature-management-dotnet-reference.md#targeting-exclusion) | GA | [GA](./feature-management-python-reference.md#targeting-exclusion) | GA
-Time Window Filter | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | [GA](./feature-management-python-reference.md#microsofttimewindow) | GA
+Targeting Filter | [GA](./feature-management-dotnet-reference.md#targeting) | GA | [GA](./feature-management-python-reference.md#targeting) | [GA](./feature-management-javascript-reference.md#targeting)
+Targeting Exclusion | [GA](./feature-management-dotnet-reference.md#targeting-exclusion) | GA | [GA](./feature-management-python-reference.md#targeting-exclusion) | [GA](./feature-management-javascript-reference.md#targeting-exclusion)
+Ambient Targeting | [GA](./feature-management-dotnet-reference.md#targeting-in-a-web-application) | WIP | WIP | WIP
+Time Window Filter | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | [GA](./feature-management-python-reference.md#microsofttimewindow) | [GA](./feature-management-javascript-reference.md#microsofttimewindow)
 Recurring Time Window | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | WIP | WIP
-Custom Feature Filter | [GA](./feature-management-dotnet-reference.md#implementing-a-feature-filter) | GA | [GA](./feature-management-python-reference.md#implementing-a-feature-filter) | GA
-Feature Filter Requirement Type (AND/OR) | [GA](./feature-management-dotnet-reference.md#requirementtype) | GA | [GA](./feature-management-python-reference.md#requirement_type) | GA
-Variant Feature Flag | [GA](./feature-management-dotnet-reference.md#variants) | GA | [GA](./feature-management-python-reference.md#variants) | GA
-Feature Flag Telemetry | [GA](./feature-management-dotnet-reference.md#telemetry) | GA | [GA](./feature-management-python-reference.md#telemetry) | GA
-Application Insights Integration | [GA](./feature-management-dotnet-reference.md#application-insights-telemetry) | GA | [GA](./feature-management-python-reference.md#application-insights-telemetry) | GA
+Custom Feature Filter | [GA](./feature-management-dotnet-reference.md#implementing-a-feature-filter) | GA | [GA](./feature-management-python-reference.md#implementing-a-feature-filter) | [GA](./feature-management-javascript-reference.md#implementing-a-feature-filter)
+Feature Filter Requirement Type (AND/OR) | [GA](./feature-management-dotnet-reference.md#requirement-type) | GA | [GA](./feature-management-python-reference.md#requirement-type) | [GA](./feature-management-javascript-reference.md#requirement-type)
+Variant Feature Flag | [GA](./feature-management-dotnet-reference.md#variants) | GA | [GA](./feature-management-python-reference.md#variants) | [GA](./feature-management-javascript-reference.md#variants)
+Feature Flag Telemetry | [GA](./feature-management-dotnet-reference.md#telemetry) | GA | [GA](./feature-management-python-reference.md#telemetry) | [GA](./feature-management-javascript-reference.md#telemetry)
+Application Insights Integration | [GA](./feature-management-dotnet-reference.md#application-insights-telemetry) | GA | [GA](./feature-management-python-reference.md#application-insights-telemetry) | [GA](./feature-management-javascript-reference.md#application-insights-integration)
 Feature Gate | [GA](./feature-management-dotnet-reference.md#controllers-and-actions) | GA | N/A | N/A
 Feature Gated Middleware | [GA](./feature-management-dotnet-reference.md#application-building) | GA | N/A | N/A

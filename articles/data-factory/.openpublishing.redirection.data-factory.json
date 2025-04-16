@@ -24,8 +24,12 @@
             "source_path_from_root": "/articles/data-factory/transform-data-using-dotnet-custom-activity.md",
             "redirect_url": "/azure/data-factory/transform-data-using-custom-activity",
             "redirect_document_id": false
-        }
-        ,
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/concepts-data-redundancy.md",
+            "redirect_url": "/azure/reliability/reliability-data-factory",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/data-factory/blog.md",
             "redirect_url": "https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog",

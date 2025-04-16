@@ -12,7 +12,7 @@ ms.custom: fasttrack-edit, linux-related-content
 
 # Name resolution for resources in Azure virtual networks
 
-You can use Azure to host infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions. To facilitate communication between the virtual machines (VMs) and other resources deployed in a virtual network, it might be necessary to allow them to communicate with each other. The use of easily remembered and unchanging names simplifies the communication process, rather than relying on IP addresses.
+You can host infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions on Azure. To enable communication between VMs and other resources in a virtual network, you should allow them to communicate with each other. Using easily remembered and consistent names simplifies the communication process, rather than relying on IP addresses.
 
 When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:
 
@@ -301,7 +301,7 @@ If you provide your own DNS solution, it needs to:
 
 For best performance, when you use Azure VMs as DNS servers, IPv6 should be disabled.
 
-Network security groups (NSGs) act as firewalls for your DNS resolver endpoints. Modify or override your NSG security rules to allow access for UDP Port 53 (and optionally, TCP Port 53) to your DNS listener endpoints. After custom DNS servers are set on a network, the traffic through port 53 bypasses the NSGs of the subnet.
+Network security groups (NSGs) act as firewalls for your DNS resolver endpoints. Modify or override your NSG security rules to allow access for UDP Port 53 (and optionally, TCP Port 53) to your DNS listener endpoints. After custom DNS servers are set on a network, the traffic through port 53 bypasses the NSGs of the subnet and the NIC.
 
 > [!IMPORTANT]
 > If you use Windows DNS servers as custom DNS servers forwarding DNS requests to Azure DNS servers, make sure you increase the Forwarding Timeout value more than four seconds to allow Azure recursive DNS servers to perform proper recursion operations.

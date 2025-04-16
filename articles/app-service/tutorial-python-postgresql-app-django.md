@@ -369,7 +369,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 4 (Option 2: without GitHub Copilot):**  
-        1. Open *Program.cs* in the explorer.
+        1. Open *azureproject/production.py* in the explorer.
         1. Find the commented code (lines 29-48) and uncomment it. 
         This creates PostgreSQL and Redis connections by using `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, and `AZURE_REDIS_CONNECTIONSTRING`.
     :::column-end:::
@@ -386,7 +386,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-6.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -518,7 +518,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 

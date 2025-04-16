@@ -4,6 +4,9 @@ description: Find Python examples on GitHub for common tasks using the HDInsight
 ms.service: azure-hdinsight
 ms.topic: sample
 ms.date: 06/13/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: hgowrisankar
 ms.custom: devx-track-python
 ---
 

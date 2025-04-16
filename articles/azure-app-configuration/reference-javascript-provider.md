@@ -211,7 +211,7 @@ const settings = await load(endpoint, credential, {
 
 Setting up `refreshOptions` alone won't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfiguration` instance returned by the `load` method to trigger a refresh. 
 
-``` typescript
+```typescript
 // this call is not blocking, the configuration will be updated asynchronously
 settings.refresh();
 ```
@@ -229,6 +229,42 @@ server.use((req, res, next) => {
 
 Even if the refresh call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
 
+### Custom refresh callback
+
+The `onRefresh` method lets you custom callback functions that will be invoked each time the local configuration is successfully updated with changes from the Azure App Configuration store. It returns a Disposable object, which you can use to remove the registered callback
+
+```typescript
+const settings = await load(endpoint, credential, {
+    refreshOptions: {
+        enabled: true
+    }
+});
+const disposer = settings.onRefresh(() => {
+    console.log("Config refreshed.");
+});
+
+settings.refresh();
+// Once the refresh is successful, the callback function you registered will be executed.
+// In this example, the message "Config refreshed" will be printed.
+
+disposer.dispose();
+```
+
+### Refresh on sentinel key (Legacy)
+
+A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider will monitor the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
+
+```typescript
+const settings = await load(endpoint, credential, {
+    refreshOptions: {
+        enabled: true,
+        watchedSettings: [
+            { key: "sentinel" }
+        ]
+    }
+});
+```
+
 For more information about refresh configuration, go to [Use dynamic configuration in JavaScript](./enable-dynamic-configuration-javascript.md).
 
 ## Feature flag
@@ -241,7 +277,7 @@ const settings = await load(endpoint, credential, {
         enabled: true,
         selectors: [ { keyFilter: "*", labelFilter: "Prod" } ],
         refresh: {
-            enabled: true,
+            enabled: true, // the refresh for feature flags need to be enbaled in addition to key-values
             refreshIntervalInMs: 10_000
         }
     }

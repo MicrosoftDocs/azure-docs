@@ -10,6 +10,7 @@ ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
+
 # Overview of Azure Communication Services email
 
 Email continues to be a key customer engagement channel globally for businesses. Businesses rely heavily on email communication for seamless business operations.
@@ -22,7 +23,7 @@ Azure Communication Services email enables rich collaboration in communication m
 
 With Azure Communication Services, you can speed up your market entry with scalable and reliable email features by using your own SMTP domains. As with other communication channels, when you use Azure Communication Services to send email, you pay for only what you use.
 
-<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
 ## Key principles
 
@@ -46,12 +47,12 @@ With Azure Communication Services, you can speed up your market entry with scala
 
 ## Next steps
 
-- [Prepare an email communication resource for Azure Communication Services](./prepare-email-communication-resource.md)
-- [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
-- [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
-- [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
+- [Prepare an email communication resource for Azure Communication Services](./prepare-email-communication-resource.md).
+- [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md).
+- [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md).
+- [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md).
 
-The following topics might be interesting to you:
+## Related articles
 
 - Familiarize yourself with the [email client library](../email/sdk-features.md).
 - Learn how to send emails with [custom verified domains](../../quickstarts/email/add-custom-verified-domains.md).

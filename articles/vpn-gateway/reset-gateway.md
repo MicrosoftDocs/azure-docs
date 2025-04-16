@@ -39,8 +39,6 @@ You can reset a connection easily using the Azure portal.
 1. On the **Connection** page, in the left pane, scroll down to the **Help** section and select **Reset**.
 1. On the **Reset** page, select **Reset** to reset the connection.
 
-   :::image type="content" source="./media/reset-gateway/reset-connection.png" alt-text="Screenshot showing the Reset button selected." lightbox="./media/reset-gateway/reset-connection.png":::
-
 ## Reset a gateway
 
 Before you reset your gateway, verify the following key items for each IPsec site-to-site (S2S) VPN tunnel. Any mismatch in the items results in the disconnect of S2S VPN tunnels. Verifying and correcting the configurations for your on-premises and Azure VPN gateways saves you from unnecessary reboots and disruptions for the other working connections on the gateways.

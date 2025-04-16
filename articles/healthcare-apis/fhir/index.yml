@@ -40,8 +40,8 @@ landingContent:
             url: fhir-service-access-token-validation.md
       - linkListType: tutorial
         links:
-          - text: Access using Postman
-            url: ./../fhir/use-postman.md
+          - text: Access using REST Client
+            url: ./../fhir/using-rest-client.md
   - title: FHIR search capabilities
     linkLists:
       - linkListType: overview

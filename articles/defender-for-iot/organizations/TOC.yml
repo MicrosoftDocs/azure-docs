@@ -301,11 +301,6 @@
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
           href: how-to-troubleshoot-sensor.md
-    - name: Maintain IoT on-premises resources
-      items:
-      - name: Extra deployment steps and samples
-        displayName: Enterprise IoT sensor
-        href: extra-deploy-enterprise-iot.md
 - name: Reference
   items:
   - name: Supported protocols

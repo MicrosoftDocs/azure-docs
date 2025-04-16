@@ -2,8 +2,8 @@
 title: Get usage data with the Azure CLI
 titleSuffix: Microsoft Cost Management
 description: This article explains how you get usage data with the Azure CLI.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
@@ -48,5 +48,5 @@ After you sign in, use the [export](/cli/azure/costmanagement/export) commands t
 - Read the [Ingest usage details data](automation-ingest-usage-details-overview.md) article.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 - [Understand usage details fields](understand-usage-details-fields.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

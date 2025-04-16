@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
  
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/03/2024
 ms.author: danlep
 ms.custom: engagement-fy23
@@ -174,7 +174,7 @@ The following table summarizes how the gateway handles API requests with or with
 -   If an API doesn't require subscription authentication, any API request that includes a subscription key is treated the same as a request without a subscription key. The subscription key is ignored.
 -	API access "context" means the policies and access controls that are applied at a particular scope (for example, API or product).
 
-## Next steps
+## Related content
 Get more information on API Management:
 
 + Learn how API Management [policies](set-edit-policies.md#configure-policies-at-different-scopes) get applied at different scopes.

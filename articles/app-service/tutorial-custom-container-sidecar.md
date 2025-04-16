@@ -170,5 +170,6 @@ You configure sidecar-enabled apps differently than apps that aren't sidecar-ena
 ## More resources
 
 - [Configure custom container](configure-custom-container.md)
+- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
 - [Deploy custom containers with GitHub Actions](deploy-container-github-action.md)
 - [OpenTelemetry](https://opentelemetry.io/)

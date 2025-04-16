@@ -33,9 +33,11 @@ Here are some of the benefits of using Python feature management library:
   The Python feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Python).
 
 ## Feature flags
+
 Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
 
 ### Feature filters
+
 Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
 
 As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features attached to it, as long as an HTTP request is coming from Microsoft Edge.
@@ -54,15 +56,15 @@ The feature management library supports json as a feature flag source. Below we 
         "feature_flags": [
             {
                 "id": "FeatureT",
-                "enabled": "true"
+                "enabled": true
             },
             {
                 "id": "FeatureU",
-                "enabled": "false"
+                "enabled": false
             },
             {
                 "id": "FeatureV",
-                "enabled": "true",
+                "enabled": true,
                 "conditions": {
                     "client_filters": [
                         {
@@ -80,7 +82,7 @@ The feature management library supports json as a feature flag source. Below we 
 }
 ```
 
-The `feature_management` section of the json document is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is on with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section of the json document is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is `true` with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
 The detailed schema of the `feature_management` section can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json).
 
@@ -107,7 +109,7 @@ The following snippet demonstrates an alternative way to define a feature that c
 }
 ```
 
-#### Requirement_type
+#### Requirement type
 
 The `requirement_type` property of a feature flag is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
 
@@ -191,7 +193,6 @@ There are a two feature filters that come with the `FeatureManagement` package: 
 
 Each of the built-in feature filters has its own parameters. Here's the list of feature filters along with examples.
 
-
 ### Microsoft.TimeWindow
 
 This filter provides the capability to enable a feature based on a time window. If only `End` is specified, the feature is considered on until that time. If only `Start` is specified, the feature is considered on at all points after that time.
@@ -253,14 +254,14 @@ Targeting is a feature management strategy that enables developers to progressiv
 
 The following steps demonstrate an example of a progressive rollout for a new 'Beta' feature:
 
-1. Individual users Jeff and Alicia are granted access to the Beta
-2. Another user, Mark, asks to opt in and is included.
-3. Twenty percent of a group known as "Ring1" users are included in the Beta.
-5. The number of "Ring1" users included in the beta is bumped up to 100 percent.
-5. Five percent of the user base is included in the beta.
-6. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
+1. Individual users Jeff and Alicia are granted access to the Beta.
+1. Another user, Mark, asks to opt in and is included.
+1. Twenty percent of a group known as "Ring1" users are included in the Beta.
+1. The number of "Ring1" users included in the Beta is bumped up to 100 percent.
+1. Five percent of the user base is included in the Beta.
+1. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
 
-This strategy for rolling out a feature is built in to the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
+This strategy for rolling out a feature is built into the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
 
 ### Targeting a user
 
@@ -290,7 +291,7 @@ When defining an audience, users and groups can be excluded from the audience. E
             "RolloutPercentage": 100
         }
     ],
-    "DefaultRolloutPercentage": 0
+    "DefaultRolloutPercentage": 0,
     "Exclusion": {
         "Users": [
             "Mark"
@@ -387,7 +388,7 @@ Each variant has two properties: a name and a configuration. The name is used to
 
 A list of all possible variants is defined for each feature under the `variants` property.
 
-``` javascript
+``` json
 {
     "feature_management": {
         "feature_flags": [
@@ -417,7 +418,7 @@ A list of all possible variants is defined for each feature under the `variants`
 
 The process of allocating a feature's variants is determined by the `allocation` property of the feature.
 
-``` javascript
+``` json
 "allocation": { 
     "default_when_enabled": "Small", 
     "default_when_disabled": "Small",  

@@ -204,17 +204,18 @@ With the code now deployed to App Service, the next step is to connect the app t
 
 The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
 
-1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The system-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
-    ```azurecli
-    az webapp connection create postgres-flexible \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $APP_SERVICE_NAME \
-      --target-resource-group $RESOURCE_GROUP_NAME \
-      --server $DB_SERVER_NAME \
-      --database restaurant \
-      --client-type python \
-      --system-identity
-    ```
+Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The system-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
+
+```azurecli
+az webapp connection create postgres-flexible \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --name $APP_SERVICE_NAME \
+  --target-resource-group $RESOURCE_GROUP_NAME \
+  --server $DB_SERVER_NAME \
+  --database restaurant \
+  --client-type python \
+  --system-identity
+```
 
 > [!NOTE]
 > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again.

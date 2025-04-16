@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/26/2024
+ms.date: 04/14/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -51,7 +51,7 @@ Key properties of NSG flow logs include:
 - Flow logs operate at Layer 4 of the Open Systems Interconnection (OSI) model and record all IP flows going in and out of a network security group.
 - Logs are collected at 1-minute intervals through the Azure platform. They don't affect your Azure resources or network performance in any way.
 - Logs are written in JSON format and show outbound and inbound flows per network security group rule.
-- Each log record contains the network interface (NIC) that the flow applies to, flow-tuple information, the traffic decision, and (for version 2 only) throughput information.
+- Each log record contains the network interface (NIC) that the flow applies to, 5-tuple information, the traffic decision, and (for version 2 only) throughput information.
 - NSG flow logs have a retention feature that allows deleting the logs automatically up to a year after their creation.
 
 > [!NOTE]
@@ -549,6 +549,12 @@ NSG flow logs are charged per gigabyte of ***Network flow logs collected*** and 
 If traffic analytics is enabled with NSG flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Availability
+
+The following tables list the supported regions where you can enable NSG flow logs.
+
+[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
 
 ## Related content
 

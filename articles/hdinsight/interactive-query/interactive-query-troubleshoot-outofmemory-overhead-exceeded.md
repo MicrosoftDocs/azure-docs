@@ -3,6 +3,9 @@ title: Joins in Apache Hive leads to OutOfMemory error - Azure HDInsight
 description: Dealing with OutOfMemory errors "GC overhead limit exceeded error"
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 
