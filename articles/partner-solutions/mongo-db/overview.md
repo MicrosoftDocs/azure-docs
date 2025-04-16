@@ -1,11 +1,11 @@
 ---
-title: Azure Native MongoDB Atlas
-description: Learn about using Azure Native MongoDB Atlas in Azure Marketplace.
+title: MongoDB Atlas (preview)
+description: Learn about using MongoDB Atlas in Azure Marketplace.
 ms.topic: overview
 ms.date: 04/03/2025
 ---
 
-# What is Azure Native MongoDB Atlas?
+# What is MongoDB Atlas (preview)?
 
 ## Overview
 
@@ -13,7 +13,7 @@ ms.date: 04/03/2025
 
 Microsoft and [MongoDB](https://www.mongodb.com/) developed this service and manage it together.
 
-You can find Azure Native MongoDB Atlas in the [Azure portal](https://portal.azure.com) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+You can find MongoDB Atlas in the [Azure portal](https://portal.azure.com) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
 MongoDB Atlas provides a fully managed, flexible document database service optimized for scalability and performance. Build modern AI-enabled apps faster with built-in security, rich querying, and data distribution across the globe.
 
@@ -33,12 +33,12 @@ Azure Native MongoDB Atlas provides the following capabilities:
 - **Unified billing** of MongoDB Atlas via monthly billing through Azure Marketplace.
 - **Resource management** and tracking from the Azure portal.
 
-## Subscribe to MongoDB Atlas
+## Subscribe to MongoDB Atlas (preview)
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] *Azure Native MongoDB Atlas*.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *MongoDB Atlas*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Next Step
 
-[Quickstart: Get started with Azure Native MongoDB Atlas (preview)](create.md)
+[Quickstart: Get started with MongoDB Atlas (preview)](create.md)

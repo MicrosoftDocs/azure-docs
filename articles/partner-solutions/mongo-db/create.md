@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Get started with MongoDB Atlas"
+title: "Quickstart: Get started with MongoDB Atlas (preview)"
 description: Learn how to create a MongoDB Atlas resource in the Azure portal.
 ms.topic: quickstart
 ms.date: 04/03/2025
 ---
 
-# Quickstart: Get started with MongoDB Atlas
+# Quickstart: Get started with MongoDB Atlas (preview)
 
-In this quickstart, you create an instance of MongoDB Atlas.
+In this quickstart, you create a MongoDB Atlas resource in the Azure portal. 
 
 ## Prerequisites
 
