@@ -61,7 +61,7 @@ For more descriptions of the parameters, you can refer to [Azure Event Hubs conf
 
 > [!NOTE]
 >
-> The Azure Event hubs instance connection string should always contain `EntityPath`, which is the name of the Azure Event Hubs instance.
+> The Azure Event Hubs instance connection string should always contain `EntityPath`, which is the name of the Azure Event Hubs instance.
 
 ## Log data sample
 
