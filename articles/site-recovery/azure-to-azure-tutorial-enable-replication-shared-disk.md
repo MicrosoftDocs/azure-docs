@@ -33,8 +33,8 @@ After you set up the environment, [get the resource group and VM details](./azur
 Create a resource group in which to create the Recovery Services vault. 
 
 > [!IMPORTANT]
-> * The Recovery services vault and the virtual machines being protected, must be in different Azure locations.
-> * The resource group of the Recovery services vault, and the virtual machines being protected, must be in different Azure locations.
+> * The Recovery services vault and the virtual machines being protected must be in different Azure locations.
+> * The resource group of the Recovery services vault, and the virtual machines being protected must be in different Azure locations.
 > * The Recovery services vault, and the resource group to which it belongs, can be in the same Azure location.
 
 In the example in this article, the virtual machine being protected is in the East US region. The recovery region selected for disaster recovery is the West US 2 region. The recovery services vault, and the resource group of the vault, are both in the recovery region, West US 2.
@@ -271,7 +271,7 @@ Get-AzRecoveryServicesAsrClusterRecoveryPoint -ReplicationProtectionCluster $clu
 
 ## Test failover 
 
-Test the fail over of the cluster to a specific recovery point. To test failover, do the following:
+Test the failover of the cluster to a specific recovery point. To test failover, do the following:
 
 ```powershell
 $tfoJob = Start-AzRecoveryServicesAsrClusterTestFailoverJob -ReplicationProtectionCluster $protectionCluster -Direction PrimaryToRecovery -AzureVMNetworkId "/subscriptions/xxxxxxxxx/resourceGroups/ClusterRG-asr/providers/Microsoft.Network/virtualNetworks/adVNET-asr" -LatestProcessedRecoveryPoint 

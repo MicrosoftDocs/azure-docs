@@ -8,7 +8,7 @@ ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Setup disaster recovery for Azure virtual machines using shared disk
+# Set up disaster recovery for Azure virtual machines using shared disk
 
 This article describes how to protect, monitor, failover, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines using a shared disk.
 
