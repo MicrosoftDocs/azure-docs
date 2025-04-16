@@ -96,7 +96,7 @@ Choose one of the following methods to import your API to API Management:
 1. Select **Create**.
 
 > [!NOTE]
-> For information about API import limitations see, [API import restrictions and known issues](api-management-api-import-restrictions.md).
+> For information about API import limitations, see [API import restrictions and known issues](api-management-api-import-restrictions.md).
 
 ## Complete the API configuration
 
