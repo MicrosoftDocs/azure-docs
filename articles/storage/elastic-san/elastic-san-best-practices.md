@@ -4,7 +4,7 @@ description: Learn about the best practices for getting optimal performance when
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 04/11/2025
+ms.date: 04/16/2025
 ms.author: rogarana
 ---
 
@@ -31,18 +31,19 @@ This article provides some general guidance on getting optimal performance with 
 #### Azure VMware Solution
 
 - Deploy your Elastic SAN in the same region and availability zone as your Azure VMware Solution private cloud
-- Use the following configurations for iSCSI sessions on your Azure VMware Solution hosts to Elastic SAN volumes
+-  Configure Private Endpoints before mounting your Elastic SAN volume as an external datastore
+- If you plan for your environment to ever have 16 nodes in an Azure VMware Solution cluster, use one of the following configurations, depending on which hosts you have.
     - AV36, AV36P, AV52 - Six sessions over three Private Endpoints
     - AV64 - Seven sessions over seven Private Endpoints
+- If your environment won't have 16 nodes, use eight sessions
 
     > [!NOTE]
-    > A single Elastic SAN volume supports up to a maximum of 128 sessions. If you plan to have 16 nodes in your AVS cluster, don't configure more sessions than what is recommended for your host type to allow for 17th node to connect during maintenance or node failure scenarios. If you don’t plan to have 16 nodes in your AVS cluster, you should use eight iSCSI sessions for all the above-mentioned SKUs – so 8 sessions over 4 Private Endpoints for AV36, AV36P, AV52 SKUs and 8 sessions over 8 Private Endpoints for AV64 SKU.
-    
--  Configure Private Endpoints before mounting your Elastic SAN volume as an external datastore
+    > When an Elastic SAN datastore is attached to a cluster, it automatically attaches to all nodes. So if you have 16 nodes, each node configured to use eight sessions, that uses up the maximum number of connections that it can maintain (128). Configuring the nodes to use seven sessions ensures that if you need to attach an extra node (for maintenance) then you have available sessions. 
+
 - Use eager zeroed thick provisioning when creating virtual disks
 
 > [!NOTE]
-> Thin provisioning allocates space on demand, which can lead to sub-optimal performance during initial writes as new data blocks need to be zeroed before use.
+> Thin provisioning allocates space on demand, which can lead to suboptimal performance during initial writes as new data blocks need to be zeroed before use.
 
 - Size ExpressRoute Gateway sufficiently so that it can meet your throughput requirements to Elastic SAN datastores
 - Configure your Elastic SAN to have at least 16 TiB in its base size, so you can get up to the maximum performance on your Elastic SAN datastores
