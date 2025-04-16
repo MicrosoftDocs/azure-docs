@@ -34,13 +34,12 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 ## Supported scenarios and restrictions
 
 - To assign share-level RBAC permissions to specific users or groups, on-premises AD DS identities must be synced to Microsoft Entra ID using Entra Connect Sync. If identities aren't synced, you must [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities), which applies to all authenticated users. Password hash synchronization isn't required.
+- Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
 - Azure file shares can be managed with Azure File Sync.
 - Kerberos authentication is available with Active Directory using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
 - Single sign-on (SSO) is supported.
-- Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
 - Access is limited to the Active Directory forest where the storage account is registered. Users in other domains within the same forest can access the file share if they have appropriate permissions.
-- By default, only one AD DS forest is supported. To enable access from additional forests, you must configure a forest trust. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
-- Share-level RBAC permissions can't be assigned to computer accounts. Use a default share-level permission or a service logon account instead.
+- By default access is limited to the Active Directory forest where the storage account is registered. Users from any domain in that forest can access the file share contents, provided they have the appropriate permissions. To enable access from additional forests, you must configure a forest trust. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 - Identity-based authentication isn't currently supported for NFS file shares.
 
 When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. The AD DS environment can be hosted either on-premises or on a virtual machine (VM) in Azure.
