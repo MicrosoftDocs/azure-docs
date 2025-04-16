@@ -30,7 +30,7 @@ By containerizing your Java applications, you get consistent environments, simpl
 
 Containers package applications with their dependencies, ensuring consistency across environments. For Java developers, this means bundling the application, its dependencies, the Java Runtime Environment/Java Development Kit (JRE/JDK), and the configuration files into a single, portable unit.
 
-Containerization has key advantages over virtualization that makes it ideal for cloud development. In contrast to a virtual machine, a container runs on a server's host OS kernel. This is beneficial for Java applications, which already run in the Java virtual machine (JVM). Containerizing Java applications adds minimal overhead while providing significant deployment benefits.
+Containerization has key advantages over virtualization that makes it ideal for cloud development. In contrast to a virtual machine, a container runs on a server's host OS kernel. This is beneficial for Java applications, which already run in the Java virtual machine (JVM). Containerizing Java applications adds minimal overhead and provides significant deployment benefits.
 
 The container ecosystem includes the following key components:
 
@@ -66,9 +66,9 @@ docker compose version
 
 ### Configure Visual Studio Code for container development
 
-For Java development in containers, configure Visual Studio Code by installing the Java Extension Pack and setting up your JDK. The Dev Containers extension enables you to open any folder inside a container and use Visual Studio Code's full feature set while inside that container.
+For Java development in containers, configure Visual Studio Code by installing the Java Extension Pack and setting up your JDK. The Dev Containers extension enables you to open any folder inside a container and use Visual Studio Code's full feature set inside that container.
 
-Creating a **.devcontainer/devcontainer.json** file in your project allows Visual Studio Code to automatically build and connect to a development container.
+Creating a **.devcontainer/devcontainer.json** file in your project enables Visual Studio Code to automatically build and connect to a development container.
 
 For instance, the following example configuration defines a Java build:
 
@@ -89,7 +89,7 @@ For instance, the following example configuration defines a Java build:
 }
 ```
 
-This configuration uses Microsoft's Java development container image, adds essential extensions, and forwards both the application port - `8080` - and the debugging port -`5005`.
+This configuration uses Microsoft's Java development container image, adds essential extensions, and forwards both the application port, `8080`, and the debugging port, `5005`.
 
 ## Create a Dockerfile
 
@@ -106,7 +106,7 @@ Choosing the right base image is crucial. Consider these options:
 
 | Description                        | Name                                        | Remarks                                                 |
 |------------------------------------|---------------------------------------------|---------------------------------------------------------|
-| Microsoft Java development Image   | `mcr.microsoft.com/java/jdk:21-zulu-ubuntu` | Full Java development kit (JDK) and optimized for Azure |
+| Microsoft Java development Image   | `mcr.microsoft.com/java/jdk:21-zulu-ubuntu` | Full JDK and optimized for Azure |
 | Microsoft Java production Image    | `mcr.microsoft.com/java/jre:21-zulu-ubuntu` | Runtime only and optimized for Azure                    |
 | Official OpenJDK development Image | `openjdk:21-jdk`                            | Full JDK                                                |
 | Official OpenJDK production Image  | `openjdk:21-jre`                            | Runtime only                                            |
@@ -150,9 +150,9 @@ ENTRYPOINT ["java", ${JAVA_OPTS}, "-jar", "app.jar"]
 
 ## Local development with containers
 
-Containers are meant to execute in various contexts. In this section, you learn a local development flow while using containers.
+Containers are meant to execute in various contexts. In this section, you learn a local development flow for use with containers.
 
-### Use Dockers Compose for multi-container applications
+### Use Docker Compose for multi-container applications
 
 Most Java applications interact with databases, caches, or other services. Docker Compose helps you define and orchestrate multi-container applications using a simple YAML configuration file.
 
@@ -210,7 +210,7 @@ This file has the following characteristics:
 
 #### Common Docker Compose commands
 
-Once you create your **compose.yml** file, manage your application with the following commands:
+After you create your **compose.yml** file, manage your application by using the following commands:
 
 ```bash
 # Build images without starting containers
@@ -247,7 +247,7 @@ A typical Java development workflow using Docker Compose contains the following 
 1. Make changes to your Java code,
 1. Rebuild your application. Depending on the configuration, you might need to restart your containers.
 1. Test the changes in the containerized environment.
-1. When finished, run `docker compose down`.
+1. When you're finished, run `docker compose down`.
 
 ### Running single containers with Docker
 
@@ -340,7 +340,7 @@ For Java-specific issues, enable the JVM flags for better diagnostics by using t
 ENTRYPOINT ["java", "-XX:+PrintFlagsFinal", "-XX:+PrintGCDetails", "-jar", "app.jar"]
 ```
 
-Common issues include:
+The following table lists common issues and corresponding solutions:
 
 | Error                | Possible solution                                                       |
 |----------------------|-------------------------------------------------------------------------|
@@ -405,7 +405,7 @@ Secure your containerized Java applications by using the following practices:
     ```
 
 - Base image freshness. Keep your base images up to date.
-- Secrets management. Implement proper secrets management. For instance, don't hard code sensitive data into your application, and use a key vault whenever possible.
+- Secrets management. Implement proper secrets management. For instance, don't hard-code sensitive data into your application, and use a key vault whenever possible.
 - Restricted security contexts. Apply the principle of least privilege to all security contexts.
 - File system access. Use read-only file systems wherever possible.
 
@@ -443,7 +443,7 @@ This section guides you through preparing your Java containers for Azure Contain
 
 - Probe for health. Implement [health probes](health-probes.md) for Azure's liveness and readiness checks.
 - Log configuration. Configure [logging](logging.md) to output to `stdout`/`stderr`.
-- Plan for the unexpected. Set up proper [graceful shutdown handling](./application-lifecycle-management.md) with time-out configuration.
+- Plan for the unexpected. Set up proper graceful shutdown handling with time-out configuration. For more information, see [Application lifecycle management in Azure Container Apps](./application-lifecycle-management.md).
 
 ## Related content
 
