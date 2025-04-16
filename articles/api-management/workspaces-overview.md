@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 02/25/2025
+ms.date: 04/16/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 
@@ -63,7 +63,7 @@ The following is a sample workflow for creating and using a workspace.
 
 ## Workspace gateway
 
-Each workspace is configured with a *workspace gateway* to enable runtime of APIs managed within the workspace. A workspace gateway is a standalone Azure resource (*workspace gateway premium*) with the same core functionality as the gateway built into your API Management service. 
+Each workspace is configured with one or more *workspace gateways* to enable runtime of APIs managed within the workspace. A workspace gateway is a standalone Azure resource (*workspace gateway premium*) with the same core functionality as the gateway built into your API Management service. 
 
 Workspace gateways are managed independently from the API Management service and from each other. They allow for isolation of runtime between workspaces or use cases, increasing API reliability, resiliency, and security and enabling attribution of runtime issues to workspaces. 
 
@@ -75,7 +75,7 @@ Workspace gateways are managed independently from the API Management service and
  Depending on your organization's needs, you can associate one workspace or multiple workspaces with a workspace gateway. 
 
 > [!NOTE]
-> Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after March 1, 2025. 
+> Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 16, 2025. 
 
 * A workspace gateway has certain configuration (such as virtual network, scale, hostname) and allocated computing resources (CPU, memory, networking resources).
 * Configuration and computing resources are shared by all workspaces deployed on a gateway.
