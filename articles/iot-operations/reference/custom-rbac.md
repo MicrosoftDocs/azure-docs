@@ -4,7 +4,7 @@ description: Use the Azure portal to secure access to Azure IoT Operations resou
 author: dominicbetts
 ms.author: dobett
 ms.topic: reference
-ms.date: 04/15/2025
+ms.date: 04/16/2025
 
 #CustomerIntent: As an IT administrator, I want configure Azure RBAC custom roles on resources in my Azure IoT Operations instance to control access to them.
 ---
@@ -43,16 +43,19 @@ The following sections list the example Azure IoT Operations custom roles you ca
 
 | Custom role | Description |
 | ----------- | ----------- |
-| [Instance administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Instance%20Administrator.json) | The user can deploy an instance. The role includes permissions to create and update instances, brokers, authentications, listeners, dataflow profiles, dataflow endpoints, schema registries, and user assigned identities. The role also incudes permission to delete instances. |
+| [Instance administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Instance%20Administrator.json) | This is privileged role. The user can deploy an instance. The role includes permissions to create and update instances, brokers, authentications, listeners, dataflow profiles, dataflow endpoints, schema registries, and user assigned identities. The role also includes permission to delete instances. |
 | [Asset administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Asset%20Administrator.json) | The user can create and manage assets in the Azure IoT Operations instance. |
 | [Asset endpoint administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Asset%20Endpoint%20Administrator.json) | The user can create and manage asset endpoints in the Azure IoT Operations instance. |
 | [Data flow administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Data%20Flow%20Administrator.json) | The user can create and manage data flows in the Azure IoT Operations instance. |
 | [Data flow destination administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Data%20Flow%20Destination%20Administrator.json) | The user can create and manage data flow destinations in the Azure IoT Operations instance. |
 | [MQ administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/MQ%20Administrator.json) | The user can create and manage the MQTT broker in the Azure IoT Operations instance. |
-| [Administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Administrator.json) | The user can create and manage the Azure IoT Operations instance. This role is a combination of the **Instance administrator**, **Asset administrator**, **Asset endpoint administrator**, **Data flow administrator**, **Data flow destination administrator**, and **MQ administrator** roles. |
+| [Administrator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/custom-rbac/Administrator.json) | This is privileged role. The user can create and manage the Azure IoT Operations instance. This role is a combination of the **Instance administrator**, **Asset administrator**, **Asset endpoint administrator**, **Data flow administrator**, **Data flow destination administrator**, and **MQ administrator** roles. |
 
 > [!NOTE]
-> The example _Assets endpoint administrator_ and _Data flow destination administrator_ roles have access to Azure Key Vault. However, even if these custom roles are assigned at the subscription level, users can only see the list of key vaults from the specific resource group. Access to schema registries is also restricted to the resource group level.
+> The example _Assets endpoint administrator_ and _Data flow destination administrator_ roles have access to Azure Key Vault and the **Manage secrets** page in the operations experience web UI. However, even if these custom roles are assigned at the subscription level, users can only see the list of key vaults from the specific resource group. Access to schema registries is also restricted to the resource group level.
+
+> [!IMPORTANT]
+> Currently, the operations experience web UI displays a misleading error message when a user tries to access a resource they don't have permissions for. Access to the resource is blocked as expected.
 
 ## Create a custom role definition
 
