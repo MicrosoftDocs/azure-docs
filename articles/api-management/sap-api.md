@@ -88,7 +88,7 @@ Choose one of the following methods to import your API to API Management:
 
 1. Click **Select a file**, and then select the `openapi-spec.json` file that you saved locally in a previous step.
 
-1. Enter API settings. You can set these values when you create the definition or configure them later by going to the **Settings** tab. 
+1. Enter API settings. You can set these values when you import the API or configure them later by going to the **Settings** tab. 
     * For the **API URL suffix**, we recommend using the same URL path as that of the original SAP service.
 
     * For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
