@@ -1,5 +1,5 @@
 ---
-title: Render coverage
+title: Azure Maps Render service coverage
 titleSuffix: Microsoft Azure Maps
 description: Render coverage tables list the countries/regions that support Azure Maps road tiles.
 author: faterceros
@@ -10,7 +10,7 @@ ms.service: azure-maps
 ms.subservice: render
 ---
 
-# Azure Maps render coverage
+# Azure Maps Render service coverage
 
 The render coverage tables below list the countries/regions that support Azure Maps road tiles. Both raster and vector tiles are supported. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid].
 
