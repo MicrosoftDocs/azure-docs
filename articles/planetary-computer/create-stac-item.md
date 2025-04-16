@@ -921,7 +921,7 @@ except Exception as e:
 
 ## Add your new STAC Items to MC Pro
 
-Now that we have created a STAC Collection and STAC Item, we can add this data to MPC Pro.
+We can now add the STAC Collection and STAC Item we created to MPC Pro.
 
 - To add the entire catalog, follow the [Bulk Ingestion Quickstart](bulk-ingestion-api.md)
 
