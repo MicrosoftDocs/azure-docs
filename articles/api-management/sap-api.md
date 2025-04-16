@@ -79,7 +79,7 @@ Choose one of the following methods to import your API to API Management:
 
 1. Save the `openapi-spec.json` file locally for import to API Management.
 
-## Import and publish a backend API
+## Import OpenAPI specification
 
 1. In the left navigation pane, in the **APIs** section, select **APIs**.
 1. Under **Create a new definition**, select **OpenAPI**:
