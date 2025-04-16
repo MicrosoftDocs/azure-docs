@@ -107,6 +107,8 @@ For Azure Device Registry, Recovery Time Objective (RTO) is approximately 24 hou
 
 <!-- Is there any guidance for what to do if this capability doesn't meet a customer's needs - e.g. if you a customer has no tolerance for downtime or data loss? Are there approaches a customer could follow to geo-replicate the data themselves, by provisioning multiple registries? Or would this be too hard to keep in sync? -->
 
+<!-- Is there any way to back up/restore device registry data? -->
+
 ## Service-level agreement (SLA)
 
 <!-- Does this service actually have an SLA? If so, where in the SLA document is this service? I can't see it, either as "IoT Operations" or "Device Registry". -->
