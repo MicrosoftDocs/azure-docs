@@ -17,6 +17,8 @@ items:
     href: oracle-db/oracle-database-regions.md
   - name: Network planning
     href: oracle-db/oracle-database-network-plan.md
+  - name: Support
+    href: oracle-db/oracle-database-supportability.md
   - name: Known issues
     href: oracle-db/oracle-database-known-issues.md
   - name: Onboarding
