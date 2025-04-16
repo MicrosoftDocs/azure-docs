@@ -851,6 +851,10 @@ collected:
   evaluation
 - Number of Gatekeeper policy definitions not installed by Azure Policy Add-on
 
+### Can I install Gatekeeper on its own alongside the policy addon?
+
+This is not supported as the two Gatekeeper installations will have conflicting ownership over the same resources. 
+
 ### What are general best practices to keep in mind when installing the Azure Policy Add-on?
 
   - Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more information, see [Using system node pools](/azure/aks/use-system-pools#system-and-user-node-pools).
