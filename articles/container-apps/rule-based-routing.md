@@ -28,6 +28,8 @@ In this article, you learn how to use rule-based routing with Azure Container Ap
 
 ::: zone-end
 
+::: zone pivot="azure-cli"
+
 ## Setup
 
 1. Run the following command so sign in to Azure from the CLI.
@@ -68,8 +70,6 @@ In this article, you learn how to use rule-based routing with Azure Container Ap
     ```azurecli
     az provider register --namespace Microsoft.OperationalInsights
     ```
-
-::: zone pivot="azure-cli"
 
 ## Create environment variables
 
