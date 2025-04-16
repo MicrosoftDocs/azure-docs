@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 04/08/2025
 ---
 
 # Connectivity configuration in Azure Virtual Network Manager
@@ -23,17 +23,33 @@ A mesh network is a topology in which all the virtual networks in the [network g
 A common use case of a mesh network topology is to allow some spoke virtual networks in a hub and spoke topology to directly communicate to each other without the traffic going through the hub virtual network. This approach reduces latency that might otherwise result from routing traffic through a router in the hub. Additionally, you can maintain security and oversight over the direct connections between spoke networks by implementing Network Security Groups rules or security administrative rules in Azure Virtual Network Manager. Traffic can also be monitored and recorded using virtual network flow logs.
 
 
-By default, the mesh is a regional mesh, therefore only virtual networks in the same region can communicate with each other. **Global mesh** can be enabled to establish connectivity of virtual networks across all Azure regions. A virtual network can be part of up to two connected groups. Virtual network address spaces can overlap in a mesh configuration, unlike in virtual network peerings. However, traffic to the specific overlapping subnets is dropped, since routing is non-deterministic.
+By default, the mesh is a regional mesh, therefore only virtual networks in the same region can communicate with each other. **Global mesh** can be enabled to establish connectivity of virtual networks across all Azure regions. A virtual network can be part of up to two connected groups. Virtual network address spaces can overlap in a mesh configuration, unlike in virtual network peerings. However, traffic to the specific overlapping subnets is dropped, since routing is nondeterministic.
 
 :::image type="content" source="./media/concept-configuration-types/mesh-topology.png" alt-text="Diagram of a mesh network topology.":::
 
-### Connected group
+## Connected group
 
-When you create a mesh topology or direct connectivity in the hub and spoke topology, a new connectivity construct is created called *Connected group*. Virtual networks in a connected group can communicate to each other just like if you were to connect virtual networks together manually. When you look at the effective routes for a network interface, you'll see a next hop type of **ConnectedGroup**. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network.
+When you create a mesh topology or direct connectivity in the hub and spoke topology, a new connectivity construct is created called *Connected group*. Virtual networks in a connected group can communicate with each other just like manually connected virtual networks. When you look at the effective routes for a network interface, you'll see a next hop type of **ConnectedGroup**. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network.
 
 > [!NOTE]
 > * If you have conflicting subnets in two or more virtual networks, resources in those subnets *won't* be able to communicate to each other even if they're part of the same mesh network.
 > * A virtual network can be part of up to **two** mesh configurations.
+
+### Enable a high scale connected group in Azure Virtual Network Manager
+
+Azure Virtual Network Manager's high scale connected group feature allows you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group:
+
+#### Prepare Each Virtual Network in the Connected Group
+
+1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-virtual network-limits.md) for detailed guidance on increasing Private Endpoint virtual network limits. Note that enabling or disabling this feature will trigger a one-time connection reset. It's recommended to perform these changes during a maintenance window.
+1. Register the feature flag of `Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath` for each subscription containing an Azure Virtual Network Manager instance or a virtual network in your connected group. This registration is essential for unlocking the extended private endpoint capacity. For more information, see [How to enable Azure preview features documentation](../azure-resource-manager/management/preview-features.md).
+1. In each virtual network within your connected group, configure the **Private Endpoint Network Policies** to either `Enabled` or `RouteTableEnabled`. This setting ensures your virtual networks are ready to support the high scale functionality. For detailed guidance, see [Manage network policies for private endpoints documentation](../private-link/disable-private-endpoint-network-policy.md).
+
+#### Configure Mesh Connectivity for High Scale
+
+1. In your mesh connectivity configuration, locate and select the checkbox for **Enable private endpoints high scale**. This option activates the high scale feature for your connected group.
+1. Verify every virtual network in your connected group is configured with high scale private endpoints. The Azure portal validates the settings across the entire group. If a virtual network without the high scale configuration is added later, it won't be able to communicate with private endpoints in other virtual networks.
+1. After verifying all virtual networks are properly configured, deploy the settings. This finalizes the setup of your high scale connected group.
 
 ## Hub and spoke topology
 
