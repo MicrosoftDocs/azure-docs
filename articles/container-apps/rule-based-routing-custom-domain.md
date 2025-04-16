@@ -51,6 +51,8 @@ rules:
           prefix: "/2"
         action:
           prefixRewrite: "/"
+      - match:
+          prefix: "/"
     targets:
       - containerApp: "<CONTAINER_APP_NAME>"
 ```
