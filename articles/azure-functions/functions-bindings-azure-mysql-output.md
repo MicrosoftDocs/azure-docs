@@ -656,7 +656,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | Element |Description|
 |---------|---------|
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable.|
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable.|
 | `name` |  Required. The unique name of the function binding. |
 
 ::: zone-end  
@@ -672,7 +672,7 @@ The following table explains the properties that you can set on the `options` ob
 | Property | Description |
 |---------|----------------------|
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable. |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -684,7 +684,7 @@ The following table explains the binding configuration properties that you set i
 |`direction` | Required. Must be set to `out`. |
 |`name` | Required. The name of the variable that represents the entity in function code. |
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable. |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 ---
 
@@ -702,7 +702,7 @@ The following table explains the binding configuration properties that you set i
 |`direction` | Required. Must be set to `out`. |
 |`name` | Required. The name of the variable that represents the entity in function code. |
 | `commandText` | Required. The name of the table that the binding writes to.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This isn't the actual connection string and must instead resolve to an environment variable. |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 ::: zone-end  
 

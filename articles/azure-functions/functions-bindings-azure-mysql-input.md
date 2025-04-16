@@ -1009,7 +1009,7 @@ The following example is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code for the function in the run.ps1 file:
+The following example is sample PowerShell code for the function in the run.ps1 file:
 
 ```powershell
 using namespace System.Net
@@ -1413,7 +1413,7 @@ The [C# library](functions-dotnet-class-library.md) uses the `MySqlAttribute` at
 | `CommandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
 | `ConnectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. |
 | `CommandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| `Parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equal sign (`=`). |
+| `Parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 ::: zone-end  
 
@@ -1429,7 +1429,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. |
 | `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | `name` |  Required. The unique name of the function binding. |
-| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equal sign (`=`). |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 ::: zone-end
 
@@ -1444,9 +1444,9 @@ The following table explains the properties that you can set on the `options` ob
 | Property | Description |
 |---------|----------------------|
 | `commandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
-| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
 | `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equal sign (`=`). |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1460,7 +1460,7 @@ The following table explains the binding configuration properties that you set i
 | `commandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
 | `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
 | `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equal sign (`=`). |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 ---
 
@@ -1480,7 +1480,7 @@ The following table explains the binding configuration properties that you set i
 | `commandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
 | `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
 | `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equal sign (`=`). |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 ::: zone-end  
 
@@ -1495,4 +1495,4 @@ If an exception occurs when a MySQL input binding is executed, the function code
 ## Related content
 
 * [Save data to a database (output binding)](./functions-bindings-azure-mysql-output.md)
-* [Run a function from a HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
+* [Run a function from an HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
