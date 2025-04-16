@@ -22,9 +22,9 @@ This article lists common issues related to Azure Elastic SAN. It also provides 
 ## Encountered login rejected error - iscsiadm: Cannot modify node.conn[0].iscsi.DataDigest. Invalid param name. 
 
 - Ensure the private endpoint or service endpoint is configured correctly 
-- Check if your volumes are connecting to Azure VMware Solution (AVS), as Cyclic Redundancy Check (CRC) isn't supported yet.
+- Check if your volumes are connecting to Azure VMware Solution (AVS), as Cyclic Redundancy Check (CRC) isn't supported yet for AVS.
 - If not, check if your VM is running Fedora or its downstream Linux distributions like Red Hat Enterprise Linux, CentOS, or Rocky Linux that don't support data digests. 
-- If either of these is true, disable the CRC protection flag. You have to uncheck the box on portal and change the parameter for EnforceDataIntegrityCheckForIscsi (PowerShell)) or data-integrity-check (CLI) to false.
+- If either of the above scenarios is true, disable the CRC protection flag. You have to uncheck the box on portal and change the parameter for EnforceDataIntegrityCheckForIscsi (PowerShell)) or data-integrity-check (CLI) to false.
 
 ## Unable to connect to your Elastic SAN via service endpoints
 
@@ -58,14 +58,14 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 ## Unable to establish connectivity from new nodes in a cluster
 
 - Identify which VMs are part of the cluster.
-- Check the number of sessions per node using iscsicli sessionList or mpclaim -s -d (for Windows) or sudo multipath -ll (for Linux) on each VM in the cluster and add up the total number of sessions
+- Check the number of sessions per node using `iscsicli sessionList` or `mpclaim -s -d` (for Windows) or sudo multipath -ll (for Linux) on each VM in the cluster and add up the total number of sessions
 - After doing so, if the # of sessions are 128 then you can disconnect the volumes via portal or using the script linked [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/disconnect.ps1) for Windows or [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/disconnect_for_documentation.py) for Linux. 
 - Next, modify the NumSession parameter (Windows) or the num_of_sessions parameter (Linux) of the connect script from either from the portal or the [Windows](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) or [Linux](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) scripts. You need to ensure that the total number of sessions across volumes is less than 128. 
 - Run the script on your VM. These values can also be entered during runtime of the script.
 
 ## Unable to connect to more than eight volumes to a Windows VM
 
-- To see the number of sessions on your Windows VM, run iscsicli sessionList or mpclaim -s -d. The maximum session limit is 255 for Windows VMs.
+- To see the number of sessions on your Windows VM, run `iscsicli sessionList` or `mpclaim -s -d`. The maximum session limit is 255 for Windows VMs.
 - If you are at the session limit, then you can disconnect the volumes either via portal or using the script linked [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/disconnect.ps1). 
 - Next, modify the $NumSession parameter of the connect script from either the portal or using the [Windows](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) script. You need to ensure that the total number of sessions per volume attached to the VM is less than 255 sessions. 
 - Run the script on your VM. These values can also be entered during runtime of the script.
