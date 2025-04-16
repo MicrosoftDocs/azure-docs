@@ -38,10 +38,10 @@ This article provides some general guidance on getting optimal performance with 
 - If your environment won't have 16 nodes, use eight sessions
 
     > [!NOTE]
-    > When an Elastic SAN datastore is attached to a cluster, it automatically attaches to all nodes. So if you have 16 nodes, each node configured to use eight sessions, that uses up the maximum number of connections that it can maintain (128). Configuring the nodes to use seven sessions ensures that if you need to attach an extra node (for maintenance) then you have available sessions. 
+    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight sessions, that uses the maximum number of connections (128). Configuring your nodes to use seven sessions ensures that if you need to attach an extra node (for maintenance) then you have available sessions. 
 
 - Use eager zeroed thick provisioning when creating virtual disks
-- Size ExpressRoute Gateway sufficiently so that it can meet your throughput requirements to Elastic SAN datastores
+- Size ExpressRoute Gateway so that it can meet your throughput requirements
 - Configure your Elastic SAN to have at least 16 TiB in its base size, so you can get up to the maximum performance on your Elastic SAN datastores
 
 ### MPIO
