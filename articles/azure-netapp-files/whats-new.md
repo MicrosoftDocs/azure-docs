@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 04/01/2025
+ms.date: 04/16/2025
 ms.author: anfdocs
 ---
 
@@ -15,6 +15,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## April 2025
+
+* [New volume usage metrics:](azure-netapp-files-metrics.md#volumes) Volume Inodes Quota, Volume Inodes Total, Volume Inodes Used
+
+    Azure NetApp Files supports [new metrics](azure-netapp-files-metrics.md#volumes) to monitor consumption of [inodes (also known as maxfiles)](maxfiles-concept.md), which is the maximum number of files a volume can hold. These metrics are especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring these metrics, you can avoid running out of inodes thus keeping your storage running smoothly and making it easier to plan for future needs.
 
 * [File access logs](manage-file-access-logs.md) (preview)
 
