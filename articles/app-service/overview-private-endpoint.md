@@ -97,6 +97,38 @@ For the Kudu console, or Kudu REST API (for deployment with Azure DevOps Service
 | `mywebapp.privatelink.azurewebsites.net` | `A` | `PrivateEndpointIP` |
 | `mywebapp.scm.privatelink.azurewebsites.net` | `A` | `PrivateEndpointIP` |
 
+## Custom Domain Resolution via Private Endpoint
+
+Once a custom domain (e.g., `www.yourcompany.com`) is successfully validated, added to your Azure App Service, and a Private Endpoint is configured, the desired behavior for clients within your private network (Azure VNet or connected on-premises networks) is to resolve `www.yourcompany.com` to the Private Endpoint's private IP address.
+
+### Standard DNS Resolution Flow
+
+1. **Client Request**  
+   A client within the private network initiates a DNS query for `www.yourcompany.com`.
+
+2. **DNS Resolution (Corrected)**  
+   Typically, the custom domain (`www.yourcompany.com`) is configured as a **CNAME** pointing to `<app-name>.azurewebsites.net`.  
+   _Note_: It is generally **not recommended** to directly use an A record pointing to the Private Endpoint's IP address since this IP can change, making direct management unreliable.
+
+3. **Public to Private DNS Redirection**  
+   Resolving `<app-name>.azurewebsites.net` redirects internally to `<app-name>.privatelink.azurewebsites.net`.
+
+4. **Private DNS Lookup**  
+   The DNS query for `<app-name>.privatelink.azurewebsites.net` is handled by your Azure Private DNS Zone, linked to your VNet, returning an A record directly mapping it to the Private Endpoint’s private IP address.
+
+5. **Connection Establishment**  
+   The client receives the resolved private IP address and establishes a secure connection to your Azure App Service via the Private Endpoint.
+
+### Clarifications
+
+#### Why Does the Private Endpoint Act as a Load Balancer?
+
+The Private Endpoint itself does not directly perform load balancing. Instead, it securely forwards traffic into Azure's built-in App Service infrastructure, which inherently includes load balancing. Thus, it provides secure and private connectivity, leveraging Azure’s managed load-balancing infrastructure without needing explicit load-balancer setup.
+
+#### Why Does the Custom Domain Work Without Explicit Mapping in Private Endpoint DNS?
+
+Your custom domain resolves correctly even without explicit entries in the Azure Private DNS Zone because DNS resolution indirectly links your domain (`www.yourcompany.com`) to Azure's built-in private DNS (`privatelink.azurewebsites.net`). This internal DNS zone handles the resolution automatically, ensuring your custom domain benefits seamlessly from Azure’s existing private DNS mechanisms.
+
 ## App Service Environment v3 special consideration
 
 In order to enable private endpoint for apps hosted in an IsolatedV2 plan (App Service Environment v3), enable the private endpoint support at the App Service Environment level. You can activate the feature by using the Azure portal in the App Service Environment configuration pane, or through the following CLI:
