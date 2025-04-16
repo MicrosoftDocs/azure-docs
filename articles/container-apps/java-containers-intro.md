@@ -15,32 +15,31 @@ ai-usage: ai-generated
 
 Containers provide a consistent, portable environment for your Java applications across development, testing, and production stages. This article introduces containerization concepts for Java applications and guides you through creating, debugging, optimizing, and deploying containerized Java applications to Azure Container Apps.
 
-In this article, you learn:
+In this article, you learn essential containerization concepts for Java developers and the following skills:
 
-- Essential containerization concepts for Java developers
-- Setting up your development environment for containerized Java applications
-- Creating Dockerfiles optimized for Java workloads
-- Configuring local development workflows with containers
-- Debugging containerized Java applications
-- Optimizing Java containers for production
-- Deploying your containerized Java applications to Azure Container Apps
+- Setting up your development environment for containerized Java applications.
+- Creating **Dockerfiles** optimized for Java workloads.
+- Configuring local development workflows with containers.
+- Debugging containerized Java applications.
+- Optimizing Java containers for production.
+- Deploying your containerized Java applications to Azure Container Apps.
 
-By containerizing your Java applications, you get consistent environments, simplified deployment, efficient resource utilization, and improved scalability.
+By containerizing your Java applications, you get consistent environments, simplified deployments, efficient resource utilization, and improved scalability.
 
 ## Containers for Java applications
 
-Containers package applications with their dependencies, ensuring consistency across environments. For Java developers, this means bundling the application, its dependencies, JRE/JDK, and configuration files into a single, portable unit.
+Containers package applications with their dependencies, ensuring consistency across environments. For Java developers, this means bundling the application, its dependencies, the Java Runtime Environment/Java Development Kit (JRE/JDK), and the configuration files into a single, portable unit.
 
-Containerization has key advantages over virtualization that make them ideal for cloud development. In contrast to a virtual machine, a container runs on a server's host OS kernel. This is beneficial for Java applications which already run in a virtual machine (JVM). Containerizing Java applications adds minimal overhead while providing significant deployment benefits.
+Containerization has key advantages over virtualization that makes it ideal for cloud development. In contrast to a virtual machine, a container runs on a server's host OS kernel. This is beneficial for Java applications, which already run in the Java virtual machine (JVM). Containerizing Java applications adds minimal overhead while providing significant deployment benefits.
 
-The container ecosystem includes several key components:
+The container ecosystem includes the following key components:
 
-- images (the blueprints)
-- containers (running instances)
-- registries (where images are stored)
-- orchestrators (systems that manage containers at scale)
+- Images - the blueprints.
+- Containers - running instances.
+- Registries - where images are stored.
+- Orchestrators - systems that manage containers at scale.
 
-Docker is the most popular containerization platform, and is well-supported in the Azure ecosystem through Azure Container Apps.
+Docker is the most popular containerization platform, and it's well supported in the Azure ecosystem through Azure Container Apps.
 
 ## Set up your development environment
 
@@ -48,18 +47,17 @@ This section guides you through installing the necessary tools and configuring y
 
 ### Install required tools
 
-To containerize Java applications, you need several tools installed on your development machine:
+To containerize Java applications, you need the following tools installed on your development machine:
 
-1. **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**: Provides the Docker engine, CLI, and Docker Compose for Windows or macOS.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/). Provides the Docker engine, CLI, and Docker Compose for Windows or macOS.
+- [Visual Studio Code](https://code.visualstudio.com/download). Available as a free code editor.
+- The following Visual Studio Code extensions:
 
-1. **[Visual Studio Code](https://code.visualstudio.com/download)**: Available as a free code editor.
+    - [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for managing containers.
+    - [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for Java development.
+    - [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for developing inside containers.
 
-1. **Visual Studio Code extensions**:
-    - [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for managing containers
-    - [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for Java development
-    - [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for developing inside containers.
-
-After installing Docker Desktop, you can verify your installation with the following commands:
+Verify your installation by using the following commands:
 
 ```bash
 docker --version
@@ -68,9 +66,9 @@ docker compose version
 
 ### Configure Visual Studio Code for container development
 
-For Java development in containers, configure Visual Studio Code by installing the Java Extension Pack and setting up your Java development kit. The *Dev Containers* extension enables you to open any folder inside a container and use Visual Studio Code's full feature set while inside that container.
+For Java development in containers, configure Visual Studio Code by installing the Java Extension Pack and setting up your JDK. The Dev Containers extension enables you to open any folder inside a container and use Visual Studio Code's full feature set while inside that container.
 
-Creating a `.devcontainer/devcontainer.json` file in your project allows Visual Studio Code to automatically build and connect to a development container.
+Creating a **.devcontainer/devcontainer.json** file in your project allows Visual Studio Code to automatically build and connect to a development container.
 
 For instance, the following example configuration defines a Java build:
 
@@ -91,16 +89,16 @@ For instance, the following example configuration defines a Java build:
 }
 ```
 
-This configuration uses Microsoft's Java development container image, adds essential extensions, and forwards both the application port (`8080`) and debugging port (`5005`).
+This configuration uses Microsoft's Java development container image, adds essential extensions, and forwards both the application port - `8080` - and the debugging port -`5005`.
 
 ## Create a Dockerfile
 
-A Dockerfile contains instructions for building a Docker image. For Java applications, the Dockerfile typically includes:
+A **Dockerfile** contains instructions for building a Docker image. For Java applications, the **Dockerfile** typically includes the following components:
 
-1. A base image with the Java Development Kit (JDK) or Java Runtime Environment (JRE)
-1. Instructions to copy application files
-1. Setting environment variables
-1. Configuring entry points
+1. A base image with the JDK or JRE.
+1. Instructions to copy application files.
+1. Commands to set environment variables.
+1. Configurations of entry points.
 
 ### Select a base image
 
@@ -108,18 +106,18 @@ Choosing the right base image is crucial. Consider these options:
 
 | Description | Name | Remarks |
 |---|---|---|
-| **Microsoft Java development Image** | `mcr.microsoft.com/java/jdk:21-zulu-ubuntu` | Full Java development kit (JDK) and optimized for Azure |
-| **Microsoft Java production Image** | `mcr.microsoft.com/java/jre:21-zulu-ubuntu` | Runtime only and optimized for Azure |
-| **Official OpenJDK development Image** | `openjdk:21-jdk` | Full JDK |
-| **Official OpenJDK production Image** | `openjdk:21-jre` | Runtime only |
+| Microsoft Java development Image | `mcr.microsoft.com/java/jdk:21-zulu-ubuntu` | Full Java development kit (JDK) and optimized for Azure |
+| Microsoft Java production Image | `mcr.microsoft.com/java/jre:21-zulu-ubuntu` | Runtime only and optimized for Azure |
+| Official OpenJDK development Image | `openjdk:21-jdk` | Full JDK |
+| Official OpenJDK production Image | `openjdk:21-jre` | Runtime only |
 
-For development environments, use a full JDK image. For production, use JRE or distroless images to minimize size and attack surface of your application.
+For development environments, use a full JDK image. For production, use a JRE or distroless image to minimize the size and attack surface of your application.
 
 The Microsoft Java images come with Azure-specific optimizations and are regularly updated with security patches, making them ideal for applications targeting Azure Container Apps.
 
 ### Basic Dockerfile examples
 
-The following example shows a simple Dockerfile for a Java application:
+The following example shows a simple **Dockerfile** for a Java application:
 
 ```dockerfile
 FROM mcr.microsoft.com/java/jdk:21-zulu-ubuntu
@@ -129,7 +127,7 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-For Spring Boot applications, you can setup your Dockerfile with the following base:
+For Spring Boot applications, you can set up your Dockerfile with the following base:
 
 ```dockerfile
 FROM mcr.microsoft.com/java/jdk:21-zulu-ubuntu
@@ -139,7 +137,7 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-jar", "app.jar"]
 ```
 
-For production deployments, use the JRE image to reduce the size and minimize the attack surface of your application:
+For production deployments, use the following JRE image to reduce the size and minimize the attack surface of your application:
 
 ```dockerfile
 FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
@@ -154,23 +152,23 @@ ENTRYPOINT ["java", ${JAVA_OPTS}, "-jar", "app.jar"]
 
 Containers are meant to execute in various contexts. In this section, you learn a local development flow while using containers.
 
-### Use Docker Compose for multi-container applications
+### Use Dockers Compose for multi-container applications
 
 Most Java applications interact with databases, caches, or other services. Docker Compose helps you define and orchestrate multi-container applications using a simple YAML configuration file.
 
 #### What is Docker Compose?
 
-Docker Compose is a tool that:
+Docker Compose is a tool that enables you to perform the following tasks:
 
-- Defines multi-container applications in a single file
-- Manages application lifecycle (start, stop, rebuild)
-- Maintains isolated environments
-- Creates networks for service communication
-- Persists data using volumes
+- Define multi-container applications in a single file.
+- Manage the application lifecycle, including start, stop, and rebuild.
+- Maintain isolated environments.
+- Create networks for service communication.
+- Persists data using volumes.
 
 #### Example: Java application with database
 
-Here's an example `compose.yml` that configures a Java application with a PostgreSQL database:
+The following **compose.yml** file configures a Java application with a PostgreSQL database:
 
 ```yaml
 version: '3.8'
@@ -203,16 +201,16 @@ volumes:
   postgres-data:                          # Named volume for database persistence
 ```
 
-In this example:
+This file has the following characteristics:
 
-- Services can reference each other by name (like `db` in the JDBC URL)
-- Docker Compose automatically creates a network for the services
-- The Java application waits for the database to start due to `depends_on`
-- The database data persists across restarts using a named volume
+- Services can reference each other by name - for example, `db` in the JDBC URL.
+- Docker Compose automatically creates a network for the services.
+- The Java application waits for the database to start, due to `depends_on`.
+- The database data persists across restarts using a named volume.
 
 #### Common Docker Compose commands
 
-Once you've created your `compose.yml` file, manage your application with these commands:
+Once you create your **compose.yml** file, manage your application with the following commands:
 
 ```bash
 # Build images without starting containers
@@ -242,20 +240,20 @@ docker compose down -v
 
 #### Development workflow
 
-A typical Java development workflow with Docker Compose looks like:
+A typical Java development workflow using Docker Compose contains the following steps:
 
-1. Create `compose.yml` and `Dockerfile`
-2. Run `docker compose up` to start all services
-3. Make changes to your Java code
-4. Rebuild your application (depending on configuration, you might need to restart containers)
-5. Test the changes in the containerized environment
-6. When finished, run `docker compose down`
+1. Create the **compose.yml** file and the **Dockerfile**.
+1. Run `docker compose up` to start all services.
+1. Make changes to your Java code,
+1. Rebuild your application. Depending on the configuration, you might need to restart your containers.
+1. Test the changes in the containerized environment.
+1. When finished, run `docker compose down`.
 
 ### Running single containers with Docker
 
 For simpler scenarios when you don't need multiple interconnected services, you can use the `docker run` command to start individual containers.
 
-Here are some common examples for Java applications:
+The following Docker commands are typical for Java applications:
 
 ```bash
 # Run a Java application JAR directly
@@ -282,9 +280,12 @@ Standard debugging approaches don't always directly apply, but with the right co
 
 ### Set up remote debugging
 
-Debugging containerized Java applications requires exposing a debug port and configuring your IDE to connect to it:
+Debugging containerized Java applications requires exposing a debug port and configuring your IDE to connect to it by using the following steps:
 
-1. To enable debugging, modify your Dockerfile or container startup command:
+1. To enable debugging, modify your **Dockerfile** so it contains the following example:
+
+    > [!NOTE]
+    > You can modify your container startup command, instead.
 
     ```dockerfile
     FROM mcr.microsoft.com/java/jdk:21-zulu-ubuntu
@@ -294,7 +295,7 @@ Debugging containerized Java applications requires exposing a debug port and con
     ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-jar", "app.jar"]
     ```
 
-1. Configure Visual Studio Code's `launch.json` to connect to the debug port:
+1. Configure Visual Studio Code's **launch.json** file to connect to the debug port by using the following example::
 
     ```json
     {
@@ -311,15 +312,13 @@ Debugging containerized Java applications requires exposing a debug port and con
     }
     ```
 
-1. Start your container with port `5005` mapped to your host, then launch the debugger in Visual Studio Code.
+1. Start your container with port `5005` mapped to your host, and then launch the debugger in Visual Studio Code.
 
 ### Troubleshoot container issues
 
 When containers don't behave as expected, you can inspect your app's logs to investigate the issue.
 
-You can use the following commands to troubleshoot your application.
-
-Before you run these commands, make sure to replace the placeholders surrounded by `<>` with your own values.
+Use the following commands to troubleshoot your application. Before you run these commands, make sure to replace the placeholders (`<...>`) with your own values.
 
 ```bash
 # View logs
@@ -335,7 +334,7 @@ docker inspect <CONTAINER_ID>
 docker exec -it <CONTAINER_ID> bash
 ```
 
-For Java-specific issues, enable JVM flags for better diagnostics:
+For Java-specific issues, enable the JVM flags for better diagnostics by using the following example:
 
 ```dockerfile
 ENTRYPOINT ["java", "-XX:+PrintFlagsFinal", "-XX:+PrintGCDetails", "-jar", "app.jar"]
@@ -354,13 +353,13 @@ Common issues include:
 
 Java applications in containers require special consideration for optimal performance. The JVM was designed before containers were common, which can lead to resource allocation issues if not properly configured.
 
-By fine-tuning memory settings, optimizing image size, and configuring garbage collection, you can significantly improve the performance and efficiency of your containerized Java applications. This section covers essential optimizations for Java containers with a focus on memory management, startup time, and resource utilization.
+By fine-tuning memory settings, optimizing the image size, and configuring garbage collection, you can significantly improve the performance and efficiency of your containerized Java applications. This section covers essential optimizations for Java containers, with a focus on memory management, startup time, and resource utilization.
 
 ### JVM memory configuration in containers
 
 The JVM doesn't automatically detect container memory limits in Java 8. For Java 9+, container awareness is enabled by default.
 
-Configure your JVM to respect container limits:
+Configure your JVM to respect container limits by using the following example:
 
 ```dockerfile
 FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
@@ -370,25 +369,25 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]
 ```
 
-Key JVM flags for containerized applications:
+The following JVM flags are important for containerized applications:
 
-- `-XX:MaxRAMPercentage=75.0`: Sets maximum heap as a percentage of available memory
-- `-XX:InitialRAMPercentage=50.0`: Sets initial heap size
-- `-Xmx` and `-Xms`: Are also available, but requires fixed values
+- `-XX:MaxRAMPercentage=75.0`. Sets maximum heap as a percentage of available memory.
+- `-XX:InitialRAMPercentage=50.0`. Sets initial heap size.
+- `-Xmx` and `-Xms`. These flags are also available, but they require fixed values.
 
 ## Prepare for production deployment
 
-Moving containerized Java applications to production requires additional considerations beyond basic functionality.
+Moving containerized Java applications to production requires considerations beyond basic functionality.
 
 Production environments demand robust security, reliable monitoring, proper resource allocation, and configuration flexibility.
 
-This section covers the essential practices and configurations needed to prepare your Java containers for production use, with a focus on security, health checks, and configuration management to ensure your applications run reliably in production.
+This section covers the essential practices and configurations needed to prepare your Java containers for production use. The section focuses on security, health checks, and configuration management, to ensure your applications run reliably in production.
 
 ### Security best practices
 
-Secure your containerized Java applications with these practices:
+Secure your containerized Java applications by using the following practices:
 
-- **Default security context**: Run your application as a non-root user:
+- Default security context. Run your applications as a non-root user by using the following example:
 
     ```dockerfile
     FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
@@ -399,25 +398,22 @@ Secure your containerized Java applications with these practices:
     ENTRYPOINT ["java", "-jar", "app.jar"]
     ```
 
-- **Proactively look for issues**: Regularly scan container images for vulnerabilities:
+- Proactively look for issues. Regularly scan container images for vulnerabilities by using the following command:
 
     ```bash
     docker scan myapp:latest
     ```
 
-- **Base image freshness**: Keep your base images up-to-date.
-
-- **Secrets management**: Implement proper secrets management. For instance, don't hardcode sensitive data into your application and use a Key Vault whenever possible.
-
-- **Restricted security contexts**: Apply the principle of least privilege to all security contexts.
-
-- **File system access**: Use read-only file systems wherever possible.
+- Base image freshness. Keep your base images up to date.
+- Secrets management. Implement proper secrets management. For instance, don't hard code sensitive data into your application, and use a key vault whenever possible.
+- Restricted security contexts. Apply the principle of least privilege to all security contexts.
+- File system access. Use read-only file systems wherever possible.
 
 ### Health checks and monitoring
 
 Check application health with [probes](health-probes.md) to ensure your application is running correctly.
 
-For Spring Boot applications, include the Actuator dependency for comprehensive health endpoints:
+For Spring Boot applications, include the Actuator dependency for comprehensive health endpoints by using the following XML example:
 
 ```xml
 <dependency>
@@ -426,15 +422,15 @@ For Spring Boot applications, include the Actuator dependency for comprehensive 
 </dependency>
 ```
 
-Configure your application to output logs in a format (like JSON) suitable for container environments.
+Configure your application to output logs in a format suitable for container environments, like JSON.
 
 ## Deploy to Azure Container Apps
 
-This section guides you through preparing your Java containers for Azure Container Apps deployment and highlights key configuration considerations.
+This section guides you through preparing your Java containers for Azure Container Apps deployment, and highlights key configuration considerations.
 
 ### Prepare your container for Azure
 
-- **Port configuration**: Ensure your container listens on the port provided by Azure:
+- Port configuration. Ensure your container listens on the port provided by Azure by using the following example:
 
     ```dockerfile
     FROM mcr.microsoft.com/java/jre:21-zulu-ubuntu
@@ -445,11 +441,9 @@ This section guides you through preparing your Java containers for Azure Contain
     CMD java -jar app.jar --server.port=${PORT}
     ```
 
-- **Probe for health**: Implement [health probes](health-probes.md) for Azure's liveness and readiness checks
-
-- **Log configuration**: Configure [logging](logging.md) to output to `stdout`/`stderr`.
-
-- **Plan for the unexpected**: Set up proper [graceful shutdown handling](./application-lifecycle-management.md) with time out configuration.
+- Probe for health. Implement [health probes](health-probes.md) for Azure's liveness and readiness checks.
+- Log configuration. Configure [logging](logging.md) to output to `stdout`/`stderr`.
+- Plan for the unexpected. Set up proper [graceful shutdown handling](./application-lifecycle-management.md) with time-out configuration.
 
 ## Related content
 
