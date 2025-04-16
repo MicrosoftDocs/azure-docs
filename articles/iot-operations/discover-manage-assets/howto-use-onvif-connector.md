@@ -23,12 +23,12 @@ A deployed instance of Azure IoT Operations. If you don't already have an instan
 
 An ONVIF compliant camera connected to your Azure IoT Operations cluster.
 
-> [!NOTE]
-> Microsoft has validated this preview release with the TP-Link Tapo C210 camera.
-
-## Update the ONVIF connector
+## Deploy the connector for ONVIF
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
+
+> [!IMPORTANT]
+> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
 
 ## Asset endpoint configuration
 
