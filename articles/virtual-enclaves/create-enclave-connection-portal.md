@@ -54,6 +54,7 @@ For connections where the `Enclave` is the connection source:
 ![Screenshot showing Enclave Connection creation page with Enclave source selected](./media/create-enclave-connection-tab-1-basics-enclave-source.png)
 
 ## Transit Hub Source Connection
+If the connection source is `Enclave`, skip this step.
 For connections where the `Transit Hub` is the connection source:
 
 8. Enter the required information for the connection
