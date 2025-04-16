@@ -20,26 +20,24 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Transit Hub
 
-1. Navigate to an existing Community within your Azure subscription, select the `Transit Hubs` tab, and select `Create`
+1. Navigate to an existing `Community` within your Azure subscription, select the `Transit Hubs` tab, and select `Create`
 
-![image1.png](./media/image-d4151745-cd57-4bec-929b-00ddb93e16be.png)
+![Screenshot showing the transit hub creation page with the create button highlighted in red.](./media/fabrikam-transit-hub-create.png)
 
-1. Provide a name and type for the Transit Hub.  
+2. Provide a name and type for the Transit Hub and select the type of transit hub.
 
 Refer to this guidance for more information on the different types of Transit Hub connections:
 
-- [vNet Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-- [VPN Gateway](../virtual-wan/virtual-wan-site-to-site-portal.md)
 - [Express Route](../virtual-wan/virtual-wan-expressroute-portal.md)
+- [VPN Gateway](../virtual-wan/virtual-wan-site-to-site-portal.md)
+- [vNet Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 
-![image2.png](./media/image-14edd692-5097-4194-9c4b-a05c238c576b.png)
+![Screenshot showing the basics input page for creating a new transit hub.](./media/create-transit-hub-tab-1-basics.png)
 
-1. Select `next`, add any tags, and select `Review + Create`.
+3. Select `Next`, add any tags, and select `Review + Create`.
 
-1. Select `Review + Create` and select `Create`
-
-![image3.png](./media/image-9ee9d2cd-617a-45ee-9470-5214b1fc5481.png)
+4. Select `Review + Create` and select `Create`
 
 > [!NOTE]
 > 
-> Transit Hub connectivity may be a "break-glass" scenario due to configuration variability of transit connections. 
+> Transit Hub connectivity may be a "break-glass" scenario due to configuration variability of transit connections.

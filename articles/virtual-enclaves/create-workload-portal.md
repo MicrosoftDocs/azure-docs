@@ -1,6 +1,6 @@
 ---
 title: Create a Workload in Azure
-description: Azure Virtual Enclaves Documentation
+description: Create a Workload in Azure
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -27,31 +27,23 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 3. In the `Azure Virtual Enclaves` page, select `Workloads` in the left menu.
 
+![Screenshot showing the Azure Virtual Enclaves portal homepage with the Workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png)
+
 4. On the `Workloads` page, select `Create`.
 
-![image1.png](./media/image-76edc3e8-cbde-48e8-b702-2b5c1c13ebf3.png)
-
-5. While in your Enclave's page, select `Workloads` in the left menu.
-
-![image2.png](./media/image-773bd0e6-9b11-4460-90c4-49d7625b2a65.png)
-
-6. In the `Workloads` page, select Create. The `Create workload` page opens.
-
-7. Enter the basic details for your Workload
-   - Enclave: Select an existing Enclave. This value is automatically applied from the Enclave you were currently browsing.
+5. Enter the basic details for your Workload
+   - Enclave: Select an existing Enclave. This value is automatically applied if you started the Workload creation from the exisiting Enclave.
    - Workload name: Name of the Workload (for example `contoso4-identity`)
 
-![image3.png](./media/image-64d5ec2e-cfb3-4ba5-891a-545ee9c71dd9.png)
+![Screenshot showing the Workload creation basics page.](./media/create-workload-tab-1-basics.png)
 
 > [!NOTE]
 >
 > Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
-8. Select `Next`.
+6. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Workload.
 
-9. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Workload.
-
-10. Select `Review + create`, ensure the details for your Workload are correct, and select `Create`.
+7. Select `Review + create`, ensure the details for your Workload are correct, and select `Create`.
 
 
 **References**

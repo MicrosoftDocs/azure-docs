@@ -32,13 +32,11 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
    > [!NOTE]
    > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a Community. Users shouldn't create Communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
    
-   ![Screenshot showing the create Community screen with the basics inputs for the tutorial environment.](./media/tutorial-step-one-create-community-screen-basics-input.png)
+   ![Screenshot showing Community creation basics inputs page.](./media/create-community-tab-1-basics.png)
 
-5. Select `Next`.
-6. Customize your Policy Management settings as needed.
+5. Select `Next` and customize your Policy Management settings as needed.
 
-![Screenshot of Policy Management page where a user can manage policies on a selection of Azure services.](./media/community-creation-governance.png)
-
+![Screenshot of Policy Management page where a user can manage policies on a selection of Azure services.](./media/create-community-tab-2-policy-management.png
 
 > [!NOTE]
 > 
@@ -50,8 +48,15 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 > - - Deny: The service isn't allowed in the policies
 > - - ExceptionOnly: The service isn't allowed in the policies, but manual [Policy Exemptions](../governance/policy/concepts/exemption-structure.md) can be made.
 
-7. Select `Next`.
-8. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your community.
+7. Select `Next` and on the `Community Administration` page select users, groups that should have privileged access over the managed resource group for the Community.
+
+![Screenshot showing Community create Community Administration input page.](./media/create-community-tab-3-community-administration.png)
+
+8. Select `Next` and on the `Maintenance Mode` page select if maintenace mode, allowing changes to managed resources critical to the security of the Community, is turned on once the enclave is created. This makes it easier to modify the community resources quickly after Community creation. [Learn more about Maintenance Mode](./maintenance-mode.md)
+
+![Screenshot showing Community create maintenance mode input page.](./media/create-community-tab-4-maintenance-mode.png)
+
+8. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your community.
 9. Select `Next`.
 10. Select `Review + create`, ensure the details for your community are correct, and select `Create`.
 

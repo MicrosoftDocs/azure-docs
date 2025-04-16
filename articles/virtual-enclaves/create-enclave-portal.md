@@ -1,6 +1,6 @@
 ---
 title: Create an Enclave in the Azure portal
-description: Azure Virtual Enclaves Documentation
+description: Create an Enclave in the Azure portal
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -39,25 +39,37 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
    - Resource Group: Create a new or select an existing Resource Group
    - Enclave name: Name of the Virtual Enclave (for example `My-Enclave`)
    - Region: Azure region the Virtual Enclave will be created in.
-   - Select a Community: Select an existing `Community` 
+   - Select a Community: Select an existing `Community`
 
-![Screenshot showing the create WebApp Enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png)
+![Screenshot showing Enclave create basics input page.](./media/create-enclave-tab-1-basics.png)
 
-6. Select `Next`.
+6. Select `Next` and on the `Monitoring` page select where enclave logs will be stored.
 
-7. Select a network size for your Enclave. Learn more about [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md), and how to use [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+![Screenshot showing Enclave create logging and monitoring input page.](./media/create-enclave-tab-2-monitoring.png)
 
-![image3.png](./media/image-c799393d-7001-4c29-b6cc-e635cedd377d.png)
+7. Select `Next` and on the `Networking` page select the network size, if Enclave subnet communication is allowed by default, create subnets, and enable Azure Bastion as needed. Learn more about [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md), and how to use [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+
+![Screenshot showing Enclave create networking input page.](./media/create-enclave-tab-3-networking.png)
 
 > [!NOTE]
 >
-> Enclave Owners can choose to provide a custom CIDR address when creating their enclaves. Azure Virtual Enclaves will automatically allocate the next best fit block of network addressable space based on the existing networks allocated to the community that the enclave is targeting.
+> Azure Virtual Enclaves will automatically allocate the next best fit block of network addressable space based on the existing networks allocated to the community that the enclave is targeting.
 
-8. Select `Next`.
+8. Select `Next` and on the `Maintenance Mode` page select if maintenace mode, allowing changes to managed resources critical to the security of the enclave, is turned on once the enclave is created. This makes it easier to add resources quickly since joining a resource to the network requires maintenance mode. [Learn more about Maintenance Mode](./maintenance-mode.md)
 
-9. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Enclave.
+![Screenshot showing Enclave create maintenance mode input page.](./media/create-enclave-tab-4-maintenance-mode.png)
 
-10. Select `Review + create`, ensure the details for your Enclave are correct, and select `Create`.
+9. Select `Next` and on the `Enclave Administration` page select users, groups that should have privileged access over the managed resource group for the enclave.
+
+![Screenshot showing Enclave create Enclave Administration input page.](./media/create-enclave-tab-5-enclave-administration.png)
+
+10. Select `Next` and on the `Workload Administration` page select users, groups that should have privileged access over the Workload resource groups a customer creates and deploys their resources into based on their needs.
+
+![Screenshot showing Enclave create Workload Administration input page.](./media/create-enclave-tab-6-workload-administration.png)
+
+11. Select `Next` and create any [Tags](../azure-resource-manager/management/tag-resources.md) for your Enclave.
+
+12. Select `Review + create`, ensure the details for your Enclave are correct, and select `Create`.
 
 **References**
 - [What is an Enclave](./what-enclave.md)
