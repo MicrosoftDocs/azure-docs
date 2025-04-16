@@ -11,7 +11,7 @@ ms.date: 04/08/2025
 
 # Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog using Python
  
-In this quickstart, you learn how to create a SpatioTemporal Asset Catalog (STAC) collection and add it to the Microsoft Planetary Computer Pro (MPC Pro) GeoCatalog using Python. By following this guide, you'll set up the necessary prerequisites, create collection metadata, authenticate with the GeoCatalog, and configure your collection for optimal use. This quickstart is ideal for users of geospatial data who want to streamline their workflows and enhance data accessibility.
+This quickstart guide teaches the user how to create a SpatioTemporal Asset Catalog (STAC) collection and add it to the Microsoft Planetary Computer (MPC) Pro GeoCatalog using Python. It's ideal for users with familiarity with Python, and who wish to learn how to use the MPC Pro and STAC catalogs to organize their geospatial data.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ To visualize the data assets in the Explorer, the collection metadata should inc
 ## Get an access token
 
 MPC Pro GeoCatalog requires an access token to authenticate requests. Using the
-[azure-identity](/python/api/overview/azure/identity-readme) client library for Python.
+[Azure-identity](/python/api/overview/azure/identity-readme) client library for Python.
 
 ```python
 import azure.identity
@@ -97,7 +97,7 @@ You can also visit your GeoCatalog in your Explorer to see the new collection.
 
 Each collection in a GeoCatalog includes some configuration that controls how the Item metadata is stored, indexed, and visualized.
 
-1. Define a render configuration for the collection. This render configuration controls how the assets are rendered when visualized in the Explorer. The appropriate values to use here depend on the assets in your collection.
+1. Define a render configuration for the collection. This render configuration controls how the assets are rendered when visualized in the Explorer. The specific parameters used here depend on the assets in your collection.
 
     ```python
     import json
@@ -136,7 +136,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
     print(response.status_code)
     ```
 
-1. Define a mosaic for the collection. This controls how items are queried and combined to create a single view of the data on a map. The mosaic displays the most recent items.
+1. Define a mosaic for the collection. The mosaic configuration controls how items are queried, filtered, and combined to create a single view of the data on the Data Explorer map. The following sample mosaic configuration doesn't apply any extra query parameters or filters. As a result, when this configuration is selected within the  Data Explorer map, all the items within the collection are shown, with the most recent items listed first.
 
     ```python
     mosaic = {
@@ -215,7 +215,7 @@ print(response.status_code)
 A status code of `204` indicates that your Collection was deleted.
 
 > [!WARNING]
-> If you delete a collection, you must wait at least 45 seconds before attempting to create a new collection with an identical name/id. If you attempt to create a new collection using the same name as the deleted collection, you'll receive an error. If this error occurs, try to recreate the collection after a 45-second wait.
+> If you delete a collection, you must wait at least 45 seconds before attempting to create a new collection with an identical name / ID. If you attempt to create a new collection using the same name as the deleted collection, you receive an error. If this error occurs, try to recreate the collection after a 45-second wait.
 
 
 ## Next step

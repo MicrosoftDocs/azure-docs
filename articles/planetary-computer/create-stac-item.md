@@ -50,15 +50,15 @@ To complete this quickstart, you need:
 
 **Microsoft Planetary Computer Pro (MC Pro)** uses STAC as its core indexing standard to provide interoperability between data sets. This tutorial shows users how to create STAC Items from scratch using common open source libraries.
 
-The [STAC Item Specification](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md) details how STAC Items are constructed and the required minimum metadata that must be populated. STAC is a flexible standard, allowing users to decide which data they want to include as part of the metadata. Metadata that can be used to populate a STAC Item maybe included in the data asset, in a sidecar file (.XML, .JSON, .TXT etc.), or even in locations such as the filename. Users should consider the types of metadata users may want to search and sort through in the future when deciding which metadata to include. 
+The [STAC Item Specification](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md) details how STAC Items are constructed and the required minimum metadata that must be populated. STAC is a flexible standard, allowing users to decide which data they want to include as part of the metadata. Metadata that can be used to populate a STAC Item maybe included in the data asset, in a sidecar file (.XML, .JSON, .TXT etc.), or even in locations such as the filename. Users should consider the types of metadata users might want to search and sort through in the future when deciding which metadata to include. 
 
-For this tutorial, we'll be using example data from Cloud Optimized GeoTIFF (COG) data from NOAA's GOES-R satellites Land Surface Temperature (LST) data. This data is included in the [open Planetary Computer as COG files](https://planetarycomputer.microsoft.com/dataset/storage/goes-lst), but lacks STAC metadata. The GOES satellites produce many data products, details are included in in the [GOES-R Series Product Definition and Users Guide](https://www.goes-r.gov/products/docs/PUG-L2%2B-vol5.pdf).
+This tutorial uses sample Cloud Optimized GeoTIFF (COG) imagery data from National Oceanic and Atmospheric Agency (NOAA) Geostationary Operational Environmental Satellite R (GOES-R) satellites Land Surface Temperature (LST) dataset. This data is included in the [open Planetary Computer as COG files](https://planetarycomputer.microsoft.com/dataset/storage/goes-lst), but lacks STAC metadata. The GOES satellites produce many data products. More details can be found in the [GOES-R Series Product Definition and Users Guide](https://www.goes-r.gov/products/docs/PUG-L2%2B-vol5.pdf).
 
-Though this tutorial walks through the specifics of building a STAC Item around the GOES data, the same process can be used with any type of data where the key metadata fields are enumerated using several open source libraries.
+The process used in this tutorial can be generalized for any type of data where the key metadata fields are enumerated using several open source libraries.
 
 ## Install Python libraries
 
-To begin, we'll install the required Python libraries using PIP:
+To begin, we install the required Python libraries using PIP:
 
 - **`rasterio`**: This package is used for reading and writing geospatial raster data. It provides tools for working with raster data formats such as GeoTIFF.
 
@@ -74,7 +74,7 @@ To begin, we'll install the required Python libraries using PIP:
 !pip install rasterio pystac rio_stac matplotlib azure-storage-blob 
 ```
 
-The next section of code displays some some GOES-18 data from the open Planetary Computer. We've selected the GOES-R **Advanced Baseline Imager Level 2 Land Surface Temperature - CONUS** data as sample data, and selected an arbitrary file from 2023. 
+The next section of code displays some GOES-18 data from the open Planetary Computer. We select the GOES-R **Advanced Baseline Imager Level 2 Land Surface Temperature - CONUS** dataset, and an arbitrary file from day 208 of 2023. 
 
 
 ```python
@@ -156,7 +156,7 @@ display_tif_from_url(file_url, file_name)
 
 ![A grayscale visualization of geospatial raster data from a GOES-18 satellite, showing land surface temperature patterns across a region.](media/create-stac-item.png)
     
-From looking at the data and the file name, we can already see key pieces of metadata we'll need to build the STAC Item. The file name contains information about which satellite captured the data and when it was captured. 
+From looking at the data and the file name, we can already see the key pieces of metadata needed to build the STAC Item. The file name contains information about which satellite captured the data and when it was captured. 
 
 For the sample, the file name is **OR_ABI-L2-LSTC-M6_G18_s20232080101177_e20232080103550_c20232080104570_DQF**, based on the product guide, this means:
 
@@ -304,7 +304,7 @@ OR_ABI-L2-LSTC-M6_G18_s20232080001177_e20232080003550_c20232080004568_DQF
 
 ### Create STAC Items from Cloud-Optimized GeoTIFF Files
 
-The following block of code leverages the `rio-stac` library to automate the creation of STAC Items from Cloud-Optimized GeoTIFFs (COGs).
+The following block of code uses the `rio-stac` library to automate the creation of STAC Items from Cloud-Optimized GeoTIFFs (COGs).
 
 When pointed to a COG file, `rio-stac` automatically extracts and organizes essential metadata like spatial bounds, projection information, and raster properties into a standardized STAC format. The library handles the complex task of reading the embedded technical metadata from the GeoTIFF and converts it into STAC-compliant fields, including:
 
@@ -538,13 +538,13 @@ print(json.dumps(stac_item.to_dict(), indent=2))
 
 The rio-stac library read the GOES COG file and extracted key metadata automatically. 
 
-In addition, based on the type of metadata included, it also added the relevent [STAC Extensions](https://stac-extensions.github.io). STAC Extensions enhance the core specification by adding standardized, domain-specific metadata. 
+In addition, based on the type of metadata included, rio-stac added the relevant [STAC Extensions](https://stac-extensions.github.io). STAC Extensions enhance the core specification by adding standardized, domain-specific metadata. 
 
 - [File Extension](https://stac-extensions.github.io/file/v2.1.0/schema.json) provides essential file metadata like size and checksums.
 - [Projection Extension](https://stac-extensions.github.io/projection/v1.1.0/schema.json) captures spatial reference information including coordinate systems and bounding boxes.
 - [Raster Extension](https://stac-extensions.github.io/raster/v1.1.0/schema.json) standardizes properties specific to raster data, such as band information and spatial resolution. 
 
-The following is an explanation of all the metadata it found. 
+The following tables provide an explanation of all the metadata rio-stac found. 
 
 ### Core Fields
 
@@ -553,7 +553,7 @@ The following is an explanation of all the metadata it found.
 | type             | Always "Feature"         | Identifies this as a GeoJSON Feature            |
 | stac_version     | "1.0.0"                  | Specifies STAC standard version                 |
 | id               | Unique identifier        | Contains satellite, product, and time information|
-| stac_extensions  | List of schema URLs      | Defines additional metadata fields              |
+| stac_extensions  | List of schema URLs      | Defines extra metadata fields              |
 
 ### Spatial Information
 
@@ -566,7 +566,7 @@ The following is an explanation of all the metadata it found.
 | proj:shape       | [1500, 2500]             | Image dimensions in pixels                      |
 | proj:transform   | Affine transformation    | Maps pixel to coordinate space                  |
 | proj:wkt2        | Well-Known Text          | Complete projection definition                  |
-| proj:epsg        | null                     | No standard EPSG code exists for this projection|
+| proj:epsg        | null                     | No standard EPSG code exists for this map projection|
 
 ### Temporal Information
 
@@ -598,12 +598,12 @@ The following is an explanation of all the metadata it found.
 
 | Field            | Description              | Purpose                                         |
 |------------------|--------------------------|-------------------------------------------------|
-| file:size        | 943250 bytes             | Size of the data file                           |
+| file:size        | 943,250 bytes             | Size of the data file                           |
 
 
 ## Adding the metadata from the File Name
 
-Next, we'll add the data we found in the file name to complete filling out the metadata for this STAC Item. 
+Next, we add the data we found in the file name to complete filling out the metadata for this STAC Item. 
 
 One thing to note is all the datetime's for STAC Items must conform to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). The PySTAC library has a datetime_to_str function which ensures the data is formatted correctly. 
 
@@ -653,7 +653,7 @@ def enhance_stac_item_with_metadata(stac_item, metadata_from_filename):
 stac_item = enhance_stac_item_with_metadata(stac_item, metadata_from_filename)
 print(json.dumps(stac_item.to_dict(), indent=2))
 ```
-The stac item:
+The STAC item:
 
 ```json
     {
@@ -820,11 +820,11 @@ The stac item:
 
 ## Add the STAC Item to a Collection
 
-MC Pro requires all STAC Items have a reference to the parent STAC Collection ID they'll be ingested into. For this tutorial, the STAC Collection ID is the name of the satellite and the data product.
+MC Pro requires all STAC Items have a reference to the parent STAC Collection ID they're ingested into. For this tutorial, the STAC Collection ID is the name of the satellite and the data product.
 
-Using **PySTAC**, it's easy to use some of the metadata we've already collected to populate the key fields for the STAC Collection and use the built-in validation functions. 
+With **PySTAC**, it's easy to use some of the metadata collected from the source files to populate the key fields for the STAC Collection and use the built-in validation functions. 
 
-The following code creates a parent STAC Collection to house the GOES data, and then outputs all of this into files we'll use to create collection and ingest items into MPC Pro. 
+The following code creates a parent STAC Collection to house the GOES data. The code then saves this information to files used to create the MPC Pro STAC collection and ingest STAC items into MPC Pro. 
 
 
 ```python
@@ -834,7 +834,7 @@ collection_title = f"{satellite.upper()} {product} Collection"
 collection_desc = f"Collection of {satellite} {product} Earth observation data"
 
 # Create spatial extent
-bbox = [-180, -60, 10, 60]  # this is a placeholder, replace with actual data at a later date
+bbox = [-180, -60, 10, 60]  # placeholder, replace with actual data at a later date
 spatial_extent = pystac.SpatialExtent([bbox])
 
 # Create temporal extent, use current date time or replace with existing datetimes in stac_item
@@ -921,7 +921,7 @@ except Exception as e:
 
 ## Add your new STAC Items to MC Pro
 
-Now that we have a STAC Collection and STAC Item created, we can use add this data to the MC Pro.
+Now that we have created a STAC Collection and STAC Item, we can add this data to MPC Pro.
 
 - To add the entire catalog, follow the [Bulk Ingestion Quickstart](bulk-ingestion-api.md)
 
