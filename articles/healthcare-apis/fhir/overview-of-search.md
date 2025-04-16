@@ -129,8 +129,8 @@ FHIR specifies a set of search result parameters to help manage the information 
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | `_elements`                     | Yes                  | Yes                       | |
 | `_count`                        | Yes                  | Yes                       | `_count` is limited to 1000 resources. If it's set higher than 1000, only 1000 are returned and a warning will be included in the bundle.                               |
-| `_include`                      | Yes                  | Yes                       | Items retrieved with `_include` are limited to 100. `_include` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
-| `_revinclude`                   | Yes                  | Yes                       |Items retrieved with `_revinclude` are limited to 100. `_revinclude` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There's also an incorrect status code for a bad request: [#1319](https://github.com/microsoft/fhir-server/issues/1319).                            |
+| `_include`                      | Yes                  | Yes                       | `_include` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
+| `_revinclude`                   | Yes                  | Yes                       | `_revinclude` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There's also an incorrect status code for a bad request: [#1319](https://github.com/microsoft/fhir-server/issues/1319).                            |
 | `_summary`                      | Yes             | Yes                   | |
 | `_total`                        | Partial              | Partial                   | `_total=none` and `_total=accurate`                               |
 | `_sort`                         | Partial              | Partial                   | `sort=_lastUpdated` is supported on the FHIR service. For the FHIR service and the OSS SQL DB FHIR servers, sorting by strings and dateTime fields are supported. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date.             |
@@ -143,6 +143,66 @@ Note:
 1. FHIR service supports wild card searches with revinclude. Adding a "*.*" query parameter in a revinclude query directs the FHIR service to reference all the resources mapped to the source resource.
 
 By default, the FHIR service in Azure Health Data Services is set to lenient handling. This means that the server ignores any unknown or unsupported parameters. If you want to use strict handling, you can include the `Prefer` header and set `handling=strict`.
+
+##### _include and _revinclude searches
+
+The FHIR service supports search queries using the `_include` and `_revinclude` parameters. These parameters allow for the retrieval of reference resources in the search results.
+
+The `_include` search parameter enables the retrieval of a particular clinical resource, and any other resources that it references. When included in the query, the `_include` parameter returns both the specified resource and its referenced resources.
+
+The `_revinclude` search parameter allows for the retrieval of a resource along with any other resources that reference it, providing a way to search for resources based on their relationships with other resources. For detailed information on `_include` and `_revinclude` in search parameters, refer to the [FHIR Search Documentation](https://www.hl7.org/fhir/R4/search.html#revinclude).
+
+##### Request parameters
+
+When executing a search request with the `_include` and `_revinclude` parameter, the following optional parameters can be used to control the count.
+
+| **Name** | **Value** | **Description** |
+| -------- | --------- | --------------- |
+| `_count` | Default value: 10, Max value: 1000 | The value represents the number of targeted resources to be retrieved per request. The value can be set up to 1000. When the parameter isn't provided, it's set to 10. |
+| `_includesCount` | Default value: 1000 | The value represents the number of matching resources referenced by target resources to be retrieved per request. |
+
+For matched items from `_include` and `_revinclude` searches, a maximum of 1,000 items is included in the response. If the number of matched items exceeds 1,000, a link is provided which allows you to navigate the complete result set. 
+
+Example:
+
+In the following example, a search request for Observations is made for Patient with Identifier 123.
+
+```
+GET {{FHIR_URL}}/Observation?subject.identifier=123&_include=Observation:subject&_includesCount=10
+```
+
+The response returned contains observation data for Patient 123. The matched resource references are given 10 per page, and a link is provided which contains the $include operation. You can follow the link to move through the result set. 
+
+```
+   { 
+  	"resourceType": "Bundle", 
+
+ 	 "id": "b5491e39-8f8f-4405-a4cf-2a6716755d73", 
+  	"meta": { 
+    	"lastUpdated": "2025-04-10T21:09:42.6517693+00:00" 
+  	}, 
+  	"type": "searchset", 
+  "link": [ 
+    	{ 
+      	"relation": "next", 
+      	"url": "{{FHIR_URL}}/Observation?subject.identifier=123&_include=Observation:subject&_includesCount=10&ct=er97f5lRTbShgbGOqaGhgbGlsZGFmaWJiYWBgYGpSSwAAAD%2F%2Fw%3D%3D" 
+    	}, 
+
+   	 { 
+    	  "relation": "related", 
+      	"url": "{{FHIR_URL}}/Observation?subject.identifier=123&_include=Observation:subject&_includesCount=10&includesCt=er97f5lRTbShgbGOqaGhgbGlsZGFmaWJiYWBgYGhAaaYqYmOqQUWYaNYAAAAAP%2F%2F"
+   	 }, 
+    	{ 
+    	  "relation": "self", 
+     	 "url": "{{FHIR_URL}}/Observation?subject.identifier=123&_include=Observation:subject&_includesCount=10” 
+    	} 
+  	], 
+  "entry": [….] 
+} 
+```
+
+> [!NOTE]
+> Queries with wild card *.* for `_revinclude` are limited to 100 matches overall.
 
  ## Chained & reverse chained searching
 

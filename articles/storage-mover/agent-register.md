@@ -84,7 +84,7 @@ In this step, you register your agent with the storage mover resource you've dep
 xdmsh> 4
 ```
 You're prompted for:
-- Azure region: This is the region where you will have your Azure Storage Mover service
+- Azure region: This is the region where you will have your Azure Storage Mover resource.
 - Private Link Scope: Provide the fully qualified resource ID of your Private Link Scope if you're utilizing private networking. You can find more information on Azure Private Link in the [Azure Private Link documentation](/azure/private-link/) article.
 
    > [!IMPORTANT]
