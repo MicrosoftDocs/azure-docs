@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 03/28/2025
+ms.date: 04/16/2025
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
