@@ -48,17 +48,17 @@ If your compute service instance is located in one of the regions that Service C
 | North Europe         | Yes                                                             | Yes |
 | Norway East          | Yes                                                             | Yes |
 | Norway West          | Yes                                                             | Yes  |
-| Qatar Central        | Yes                                                             | Yes  |
+| Qatar Central        | Yes                                                             | No  |
 | South Africa North   | Yes                                                             | Yes |
 | South Africa West    | Yes                                                             | Yes  |
 | South Central US     | Yes                                                             | Yes |
 | Southeast Asia       | Yes                                                             | Yes |
 | South India          | Yes                                                             | Yes |
 | Sweden Central       | Yes                                                             | Yes |
-| Sweden South         | Yes                                                             | Yes  |
+| Sweden South         | Yes                                                             | No  |
 | Switzerland North    | Yes                                                             | Yes |
 | Switzerland West     | Yes                                                             | Yes  |
-| UAE Central          | Yes                                                             | Yes  |
+| UAE Central          | Yes                                                             | No  |
 | UAE North            | Yes                                                             | Yes |
 | UK South             | Yes                                                             | Yes |
 | UK West              | Yes                                                             | Yes |
