@@ -48,6 +48,9 @@ You can enable diagnostic logging for a network security perimeter by using the 
 > [!NOTE]
 > When using Azure Monitor with a network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
+> [!Warning]
+> The log destinations must be within the same network security perimeter as the PaaS resource to ensure the proper flow of PaaS resource logs. Configuring/already configured Diagnostic Settings for resources not included in the list of [Onboarded private link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources), will result in the cessation of log flow for those resources.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
