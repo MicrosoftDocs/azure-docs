@@ -2,7 +2,7 @@
 title: Expose APIs from functions using Azure API Management
 description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 04/16/2025
 ---
 
 # Expose serverless APIs from HTTP endpoints using Azure API Management
@@ -19,26 +19,19 @@ To create an API Management instance linked to your function app:
 
 1. Select the function app, choose **API Management** from the left menu, and then select **Create new** under **API Management**.
 
-    :::image type="content" source="media/functions-openapi-definitions/select-all-settings-openapi.png" alt-text="Choose API Management":::
-
-
 1. Use the API Management settings as specified in the following table:
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
     | **[Resource group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
-    | **Location** | Location of the service | Consider choosing the same location as your function app. |
+    | **Region** | Location of the service | Consider choosing the same location as your function app. |
+    | **Resource name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
     | **Administrator email** | your email | Email that received system notifications from API Management. |
     | **Pricing tier** | Consumption | Consumption tier isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
 
-    ![Create new API Management service](media/functions-openapi-definitions/new-apim-service-openapi.png)
-
-1. Choose **Export** to create the API Management instance, which may take several minutes.
-
-1. After Azure creates the instance, it enables the **Enable Application Insights** option on the page. Select it to send logs to the same place as the function application.
+1. Choose **Review + create** and then **Create** to create the API Management instance, which may take several minutes.
 
 ## Import functions
 
@@ -48,13 +41,7 @@ After the API Management instance is created, you can import your HTTP triggered
 
 1. The **Import Azure Functions** opens with the **TurbineRepair** function highlighted. Choose **Select** to continue.
 
-    ![Import Azure Functions into API Management](media/functions-openapi-definitions/import-function-openapi.png)
-
-1. In the **Create from Function App** page, accept the defaults, and then select **Create**.
-
-    :::image type="content" source="media/functions-openapi-definitions/create-function-openapi.png" alt-text="Create from Function App":::
-
-    Azure creates the API for the function.
+1. In the **Create from Function App** page, accept the defaults, and then select **Create**. Azure creates the API for the function.
 
 ## Download the OpenAPI definition
 
