@@ -7,7 +7,6 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/20/2023
 ms.topic: include
-ms.topic: include file
 ms.author: kpunjabi
 ---
 
