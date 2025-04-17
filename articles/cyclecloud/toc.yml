@@ -78,6 +78,7 @@
       href: ./how-to/multiple-installs.md
     - name: Move a Cluster to Another Resource Group
       href: ./how-to/move-resource-group.md
+  - name: Cloud Bursting     
     - name: Cloud Bursting Using Azure CycleCloud and Slurm
       href: ./how-to/slurm-cloud-bursting-setup.md
   - name: CycleCloud Workspace for Slurm
