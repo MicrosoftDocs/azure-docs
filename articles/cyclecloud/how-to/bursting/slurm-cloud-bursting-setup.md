@@ -8,9 +8,9 @@ ms.author: padmalathas
 
 # What is Cloud Bursting?
 
-Cloud bursting is a configuration in cloud computing that allows an organization to handle peaks in IT demand by using a combination of private and public clouds. When the resources in a private cloud reach their maximum capacity, the overflow traffic is directed to a public cloud to ensure there is no interruption in services. This setup provides flexibility and cost savings, as you only pay for the supplemental resources when there's a demand for them.
+Cloud bursting is a configuration in cloud computing that allows an organization to handle peaks in IT demand by using a combination of private and public clouds. When the resources in a private cloud reach their maximum capacity, the overflow traffic is directed to a public cloud to ensure there's no interruption in services. This setup provides flexibility and cost savings, as you only pay for the supplemental resources when there's a demand for them.
 
-For example, an application can run on a private cloud and "burst" to a public cloud only when necessary to meet peak demands. This approach helps avoid the costs associated with maintaining extra capacity that isn't always in use
+For example, an application can run on a private cloud and "burst" to a public cloud only when necessary to meet peak demands. This approach helps avoid the costs associated with maintaining extra capacity that isn't always in use.
 
 Cloud bursting can be used in various scenarios, such as enabling on-premises workloads to be sent to the cloud for processing, known as hybrid HPC (High-Performance Computing). It allows users to optimize their resource utilization and cost efficiency while accessing the scalability and flexibility of the cloud.
 
@@ -32,7 +32,7 @@ If you intend to create a Slurm cluster entirely within Azure, you must deploy b
 
 ![Slurm cluster](../../images/slurm-cloud-burst/slurm-cloud-burst-architecture.png)
 
-If you want to create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, you need to set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection between your network and Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set this up.
+To create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection. This'll link your network to the Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set this up.
 
 ## Network Ports and Security
 The following NSG rules must be configured for successful communication between Master node, CycleCloud server, and compute nodes.
