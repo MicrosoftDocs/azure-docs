@@ -125,6 +125,7 @@ Select the relevant tab based on which cloud you're using.
 | `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
 | `ecs.office.com` | TCP | 443 | Connection center | All |
+| `*.events.data.microsoft.com` | TCP | 443 | Client telemetry | All |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
@@ -142,6 +143,7 @@ Select the relevant tab based on which cloud you're using.
 | `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
 | `ecs.office.com` | TCP | 443 | Connection center | All |
+| `*.events.data.microsoft.com` | TCP | 443 | Client telemetry | All |
 
 ---
 
