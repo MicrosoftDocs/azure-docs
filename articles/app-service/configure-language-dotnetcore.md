@@ -71,9 +71,6 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## Customize build automation
 
-> [!NOTE]
-> Building .NET 9 (Standard Term Support) apps with App Service by using MSBuild or `SCM_DO_BUILD` isn't yet supported. Support for these build scenarios will come after the initial GA date and by December 4, 2024. Deployments that build outside of App Service through Visual Studio, Visual Studio Code, GitHub Actions, and Azure DevOps are fully supported.
-
 If you deploy your app by using Git or ZIP packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation follows this sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
