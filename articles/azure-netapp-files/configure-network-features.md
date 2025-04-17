@@ -18,7 +18,7 @@ The **Network Features** functionality enables you to indicate whether you want 
 Two settings are available for network features: 
 
 * ***Standard***  
-    This setting enables VNet features for the volume.  
+    This setting enables VNet features for the volume. Standard network features is the default and preferred setting. 
 
     If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, set **Network Features** to *Standard*.
 
