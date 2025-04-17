@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 03/20/2025
+ms.date: 04/17/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -234,9 +234,6 @@ Azure Files storage has the following characteristics:
 * More than one Azure Files volume can be mounted in a single container.
 
 Azure Files supports both SMB (Server Message Block) and NFS (Network File System) protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
-
-> [!NOTE]
-> Support for mounting NFS shares in Azure Container Apps is in preview.
 
 To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
 
