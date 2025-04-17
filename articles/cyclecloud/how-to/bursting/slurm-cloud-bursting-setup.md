@@ -61,7 +61,7 @@ A shared file system between the external Slurm Scheduler node and the CycleClou
 ## Centralized User management system (LDAP or AD)
 In HPC environments, maintaining consistent user IDs (UIDs) and group IDs (GIDs) across the cluster is critical for seamless user access and resource management. A centralized user management system, such as LDAP or Active Directory (AD), ensures that UIDs and GIDs are synchronized across all compute nodes and storage systems.
 
-> ![Important]
+> [!Important]
 > 
 > For more information on how to setup and instructions, see Slurm Cloud Bursting Using CycleCloud on Azure(https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922).
 
