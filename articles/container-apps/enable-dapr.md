@@ -25,18 +25,18 @@ The following table outlines the currently supported list of Dapr sidecar config
 | ------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `--enable-dapr`           | `dapr.enabled`            | Enables Dapr on the container app.                                                                                           |
 | `--dapr-app-port`         | `dapr.appPort`            | The port your application is listening on which is used by Dapr for communicating to your application                   |
-| `--dapr-app-protocol`     | `dapr.appProtocol`        | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`.                  |
+| `--dapr-app-protocol`     | `dapr.appProtocol`        | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default setting is `http`.                  |
 | `--dapr-app-id`           | `dapr.appId`              | A unique Dapr identifier for your container app used for service discovery, state encapsulation, and the pub/sub consumer ID. |
-| `--dapr-max-request-size` | `dapr.httpMaxRequestSize` | Set the max size of request body http and grpc servers to handle uploading of large files. Default is 4 MB.                    |
-| `--dapr-read-buffer-size` | `dapr.httpReadBufferSize` | Set the max size of http header read buffer in to handle when sending multi-KB headers. The default 4 KB.                    |
+| `--dapr-max-request-size` | `dapr.httpMaxRequestSize` | Set the max size of request body http and grpc servers to handle uploading of large files. Default setting is `4 MB`.                    |
+| `--dapr-read-buffer-size` | `dapr.httpReadBufferSize` | Set the max size of http header read buffer in to handle when sending multi-KB headers. Default setting is `4 KB`.                    |
 | `--dapr-api-logging`      | `dapr.enableApiLogging`   | Enables viewing the API calls from your application to the Dapr sidecar.                                                     |
-| `--dapr-log-level`        | `dapr.logLevel`           | Set the log level for the Dapr sidecar. Allowed values: debug, error, info, warn. Default is `info`.                         |
+| `--dapr-log-level`        | `dapr.logLevel`           | Set the log level for the Dapr sidecar. Allowed values: debug, error, info, warn. Default setting is `info`.                         |
 | `--dapr-app-health-enabled` | `dapr.appHealth.enabled`| Optional configuration to enable app health checks for your container app using Boolean format. Default setting is `false`.                                |
-| `--dapr-app-health-path`    | `dapr.appHealth.path`| Set the path that Dapr invokes for health probes when the app channel is HTTP. This value is ignored if the app channel is using gRPC.                                |
-| `--dapr-app-health-probe-interval` | `dapr.appHealth.probeIntervalSeconds`| Number of seconds between each health probe.                                |
-| `--dapr-app-health-probe-timeout` | `dapr.appHealth.probeTimeoutMilliseconds`| Timeout in milliseconds for health probe requests. This value must be smaller than the `probeIntervalSeconds` value.               |
-| `--dapr-app-health-threshold` | `dapr.appHealth.threshold`| Max number of consecutive failures before the app is considered healthy.                                |
-| `--dapr-max-concurrency`  | `dapr.maxConcurrency`     | Limit the concurrency of your application. A valid value is any number larger than `0`. `-1` means no concurrency.                         |
+| `--dapr-app-health-path`    | `dapr.appHealth.path`| Set the path that Dapr invokes for health probes when the app channel is HTTP. This value is ignored if the app channel is using gRPC. Default setting is `/healthz`.                               |
+| `--dapr-app-health-probe-interval` | `dapr.appHealth.probeIntervalSeconds`| Number of seconds between each health probe. Default setting is `3`.                             |
+| `--dapr-app-health-probe-timeout` | `dapr.appHealth.probeTimeoutMilliseconds`| Timeout in milliseconds for health probe requests. This value must be smaller than the `probeIntervalSeconds` value. Default setting is `500`.              |
+| `--dapr-app-health-threshold` | `dapr.appHealth.threshold`| Max number of consecutive failures before the app is considered unhealthy. Default setting is `3`.                             |
+| `--dapr-max-concurrency`  | `dapr.maxConcurrency`     | Limit the concurrency of your application. A valid value is any number larger than `0`. `-1` means no limit on concurrency.                         |
 
 
 ## Using the CLI
