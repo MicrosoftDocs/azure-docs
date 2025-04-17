@@ -30,7 +30,7 @@ You must obtain an Azure subscription or be assigned as an Owner role of the sub
 ## Network infrastructure
 If you intend to create a Slurm cluster entirely within Azure, you must deploy both the head node(s) and the CycleCloud compute nodes within a single Azure Virtual Network (VNET). 
 
-![Slurm cluster](../images/slurm-cloud-burst/diagram.png)
+![Slurm cluster](../../images/slurm-cloud-burst/slurm-cloud-burst-architecture.png)
 
 However, if your goal is to establish a hybrid HPC cluster with the head node(s) located on your on-premises corporate network and the compute nodes in Azure, you will need to set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection between your on-premises network and the Azure VNET. The head node(s) must have the capability to connect to Azure services over the Internet. You may need to coordinate with your network administrator to configure this connectivity.
 
@@ -68,5 +68,5 @@ In HPC environments, maintaining consistent user IDs (UIDs) and group IDs (GIDs)
 ### Next Steps
 
 * [GitHub repo - cyclecloud-slurm](https://github.com/Azure/cyclecloud-slurm/tree/master)
-* [Azure CycleCloud Documentation](../overview.md)
+* [Azure CycleCloud Documentation](../../overview.md)
 * [Slurm documentation](https://slurm.schedmd.com/documentation.html)
