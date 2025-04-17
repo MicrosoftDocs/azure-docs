@@ -578,7 +578,8 @@ From api version 2024-08-02-preview, you might configure your container app envi
 Now, we support Dapr Traces and Keda Metrics
 
 ### Dapr Traces
-The following example ARM template shows how to export Dapr Traces to your traces destinations
+
+The following example ARM template shows how to export Dapr Traces to your traces destinations.
 ```json
 {
   ...
@@ -597,10 +598,12 @@ The following example ARM template shows how to export Dapr Traces to your trace
   }
 }
 ```
-To learn more about how to use dapr in container apps [Dapr Overview](./dapr-overview.md)
+
+To learn more about how to use Dapr in container apps, see [Dapr Overview](./dapr-overview.md).
 
 ### Keda Metrics
-The following example ARM template shows how to export Keda Metrics to your metrics destinations
+
+The following example ARM template shows how to export Keda metrics to your metrics destinations.
 ```json
 {
   ...
@@ -619,7 +622,8 @@ The following example ARM template shows how to export Keda Metrics to your metr
   }
 }
 ```
-To learn more about KEDA support in container apps [Autoscale](scale-app.md)
+
+To learn more about KEDA support in Container Apps, see [Set scaling rules](scale-app.md).
 
 ## Example OpenTelemetry configuration
 
