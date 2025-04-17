@@ -74,9 +74,8 @@ For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Mac
 
 Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` or `reimage` operation.
 Interrupting an ongoing firmware upgrade can leave the Bare Metal Machine in an inconsistent state.
-You can view in the iDRAC GUI the `jobqueue` or use a `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
 
-- Set `$BMM_NAME` to the name of a healthy `control-plane` BMM resource on which to execute the `nc-toolbox` command.
+- You can view in the iDRAC GUI the `jobqueue` or use `run-read-command` `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
 - For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
 
 ```azurecli

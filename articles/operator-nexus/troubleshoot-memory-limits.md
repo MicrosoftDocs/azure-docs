@@ -31,7 +31,7 @@ The `Container Status Terminated Reason` metric displays the `OOMKill` reason fo
 
 Start by identifying any components that are restarting or show `OOMKill`.
 
-- Replace <bareMetalMachineName> with the name of a healthy `control-plane` Bare Metal Machine resource on which to execute the `kubectl` command.
+- Replace `<bareMetalMachineName>` with the name of a healthy `control-plane` Bare Metal Machine resource on which to execute the `kubectl` command.
 - For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
 
 ```azcli

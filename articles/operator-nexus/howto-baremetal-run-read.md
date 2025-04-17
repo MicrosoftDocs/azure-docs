@@ -30,7 +30,7 @@ See [Azure Operator Nexus Cluster support for managed identities and user provid
 
 To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
 
-The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
+The CommandOutputSettings can be cleared, directing run-read-command output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
 
 However, the CommandOutputSettings do need to be cleared if switching from a user-assigned identity to a system-assigned identity.
 
@@ -253,11 +253,12 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
     --subscription "<subscription>"
 ```
 
-- `--name` is the name of a healthy `control-plane` BMM resource on which to execute the command.
+- `--name` is the name of the BMM resource on which to execute the command.
 - The `--commands` parameter always takes a list of commands, even if there's only one command.
 - Multiple commands can be provided in json format using [Azure CLI Shorthand](https://aka.ms/cli-shorthand) notation.
 - Any whitespace must be enclosed in single quotes.
 - Any arguments for each command must also be provided as a list, as shown in the following examples.
+- Not all commands can run on any BMM. For example, `kubectl` commands can only be run from a BMM with the `control-plane` role.
 
 ```
 --commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm ifconfig'}]"
