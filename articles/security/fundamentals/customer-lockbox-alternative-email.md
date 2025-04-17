@@ -52,11 +52,12 @@ Here are the steps to set up the Customer Lockbox for Microsoft Azure alternate 
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-add-email.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-add-email.png" alt-text="A screenshot of the Other emails add interface.":::
 1. Add alternate email address in the text field and select save.
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-other-email.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-other-email.png" alt-text="A screenshot of the alternative email input interface.":::
-1. Select the save button in the Contact Information tab to save the updates.
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-save.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-save.png" alt-text="A screenshot of the Contact Information table, emphasizing the save interface.":::
+1. Select the "Save" button in the Contact Information tab to save the updates.
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-save.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-save.png" alt-text="A screenshot of the Contact Information table, emphasizing the 'Save' interface.":::
 1. The contact information tab for this user should now show updated information with alternate email:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information-updated.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-contact-information-updated.png" alt-text="A screenshot of the updated information.":::
-1. Anytime a lockbox request is triggered and if the above user is identified as a Lockbox approver, the Lockbox email notification is sent to both primary and other email addresses, notifying that the Microsoft Support is trying to access a resource within their tenant, and they should take an action by logging into Azure portal to approve/reject the request. Here is an example screenshot:
+2. When a Customer Lockbox request is initiated, notifications are automatically sent to both the primary and alternate email addresses of users configured as Lockbox approvers. These emails inform the approver that Microsoft Support requires access to a resource within their Azure tenant and that action is needed. Approvers must sign in to the Azure portal to approve or reject the request. Here is an example of the notification email:
+
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-alternative-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-alternative-email-notification.png" alt-text="A screenshot of the email notification.":::
 
 ## Known Issues
