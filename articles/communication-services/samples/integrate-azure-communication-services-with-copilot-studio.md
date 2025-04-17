@@ -15,13 +15,13 @@ zone_pivot_groups: acs-csharp
 
 # Supercharge Your Voice Interactions: Integrating Azure Communication Services with Microsoft Copilot Studio Agents
 
-This document provides step by step instructions on how to create and integrate a Copilot Studio agent with Azure Communication Services. This will allow you to create voice enabled agents for your users to call into.
+This document provides step-by-step instructions on how to create and integrate a Copilot Studio agent with Azure Communication Services. This guide will allow you to create voice-enabled agents that your users can call into.
 
 ## Download the sample
-Find the project for this sample on [GitHub](). You can download this code and run it locally to try it for yourself. 
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_MCS_Sample). You can download this code and run it locally to try it for yourself. 
 
 ## Prerequisites
-Before you begin, ensure you have the following:
+Before you begin, ensure you have:
 - Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/en-us/free/).
 - Azure Communication Services resource, see [create a new Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
 - Create a new web service application using Call automation SDK.
@@ -36,14 +36,14 @@ After logging in or signing up for Copilot Studio, you land on the Home page. Se
 
 On the Create page, select **New agent**.
 Use the chat to describe your agent, using the provided questions for guidance.  
-Once you’ve provided all the requested information, click **Create**.
+Once you provided all the requested information, click **Create**.
 
 ![Click create](./media/click-create.png)
 
-For more details on creating and customizing your agent you can refer to the [Copilot Studio quickstart](https://docs.microsoft.com/copilot-studio/quickstart).
+For more details on creating and customizing your agent, you can see the [Copilot Studio quickstart](https://docs.microsoft.com/copilot-studio/quickstart).
 
 ## 2. Disable Authentication
-Once you’ve created your agent you’ll need to make some updates so that you can integrate it with Azure Communication Service.
+Once you’ve created your agent, you need to make some updates so that you can integrate it with Azure Communication Service.
 
 - Navigate to the **Settings** tab.
 
@@ -53,23 +53,23 @@ Once you’ve created your agent you’ll need to make some updates so that you 
 
 ![Security](./media/security-tab.png)
 
-- Select **Authentication**, select **No Authentication** and click **Save**.
+- Select **Authentication**, select **No Authentication**, and click **Save**.
 
 ![Authentication](./media/authentication.png)
 
 ## 3. Get the Webchannel Security Key
-Navigating back to the **Security** section select **Web Channel Security**. Copy and save this key somewhere, you will need this when you’re deploying your application.
+Navigating back to the **Security** section select **Web Channel Security**. Copy and save this key somewhere. You need this when you’re deploying your application.
 
 ## 4. Publish Agent
 Now that you’ve got your agents settings updated and saved your agent key, you can publish your agent.
 
 ## 5. Setting up Code
-Now that you've created your agent, make sure you've downloaded the [sample](). After downloading the sample you will need to update some of the properties. 
+Now that you created your agent, make sure to download the [sample](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_MCS_Sample). After downloading the sample, you will need to update some of the properties. 
 
 - Your connection string: You can get your Connection string from your Azure Communication Services resource.
-- Microsoft Copilot Studio Directline key: Which you saved in step 3, your webchannel security key.
-- Azure AI Services custom endpoint: You can get this from your Azure AI Services resource.
-- You will need to have a port running to receive event notifications from Azure Communication Services. You can use tools like [DevTunnels](/azure/developer/dev-tunnels/overview) to help set one up.
+- Microsoft Copilot Studio Direct Line key: Which you saved in step 3, your webchannel security key.
+- Azure AI Services custom endpoint: You can get this endpoint from your Azure AI Services resource.
+- You need to have a port running to receive event notifications from Azure Communication Services. You can use tools like [DevTunnels](/azure/developer/dev-tunnels/overview) to help set one up.
 
 ## 6. Overview of the Code 
 There a few basic concepts you must be familiar with that the sample uses to build out this workflow.
@@ -77,8 +77,8 @@ There a few basic concepts you must be familiar with that the sample uses to bui
 ### Incoming call
 Register an [incoming call event](../concepts/call-automation/incoming-call-notification.md), so that your application knows when a call is coming in and needs to answer.
 
-### Answer call with realtime transcription
-When answering the call you will also enable streaming of realtime transcription, which will send the Speech-to-Text converted content the caller is saying in near realtime.
+### Answer call with real-time transcription
+When answering the call you also enable streaming of real-time transcription, which sends the Speech-to-Text converted content the caller is saying in near real-time.
 
 ``` csharp
 app.MapPost("/api/incomingCall", async (
@@ -141,7 +141,7 @@ app.MapPost("/api/incomingCall", async (
 });
 ```
 ### Establish a copilot connection
-Once call is connected the application will need to establish a connection to the AI agent you've built using Directline APIs with websockets.
+Once call is connected, the application needs to establish a connection to the AI agent you built using Direct Line APIs with websockets.
 
 ### Start conversation
 ``` csharp
@@ -171,7 +171,7 @@ while (webSocket.State == WebSocketState.Open && !cancellationToken.IsCancellati
 ```
 
 ### Built in barge-in logic: 
-The application uses intermediate results received from realtime transcription to detect barge-in from the caller and [cancels the play operation](../how-tos/call-automation/includes/play-audio-quickstart-csharp.md#cancel-play-action).
+The application uses intermediate results received from real-time transcription to detect barge-in from the caller and [cancels the play operation](../how-tos/call-automation/includes/play-audio-quickstart-csharp.md#cancel-play-action).
 
 ``` csharp
 if (data.Contains("Intermediate"))
@@ -195,7 +195,7 @@ var playOptions = new PlayToAllOptions(ssmlPlaySource)
 
 await callConnectionMedia.PlayToAllAsync(playOptions);
 ```
-- Escalate call when caller asks for a representative: When the user asks to speak to a representative the AI agent transfers the call to a human agent.
+- Escalate call when caller asks for a representative: When the user asks to speak to a representative, the AI agent transfers the call to a human agent.
 
 ```csharp
 if (botActivity.Type == "handoff")
@@ -215,9 +215,9 @@ You should now be able to make a call and talk to your agent.
 
 ## Tips
 ### Topics
-To optimize for voice we would recommend you update topics where you’re using the “Message” type of Text to Speech, as it will optimize the agents responses for Speech scenarios.
+To optimize for voice, we would recommend you update topics where you’re using the "Message" type of Text to Speech, as it optimizes the agents responses for Speech scenarios.
 
 ### How to Handle System Topics
-Your agent has System Topics built in by default you can choose to disable these, but if you wish to continue using them your application should build logic on handling these. Such as:
-- **Escalate**: You will need to build agent transfer into your application to escalate the call from this copilot agent to a human representative.
+Your agent has System Topics built in by default. You can choose to disable these topics, but if you wish to continue using them, your application should build logic to handle these topics. Such as:
+- **Escalate**: You need to build agent transfer into your application to escalate the call from this copilot agent to a human representative.
 
