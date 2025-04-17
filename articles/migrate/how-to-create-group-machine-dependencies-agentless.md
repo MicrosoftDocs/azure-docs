@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 04/17/2025
 ms.custom: engagement-fy25
 ---
 
@@ -102,7 +102,7 @@ On reviewing the **Dependencies** column for any server, you see one of the foll
 3. **Validation failed:** when the validation checks on the server have failed. You can select the status to review error message which would mostly be related to missing prerequisites like insufficient credential permissions or invalid credentials etc. 
 
 ::: moniker range="migrate"
-    After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
+After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
 ::: moniker-end
 
 4. **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
