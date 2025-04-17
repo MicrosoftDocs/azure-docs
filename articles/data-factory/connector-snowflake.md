@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/23/2025
+ms.date: 04/15/2025
 ai-usage: ai-assisted
 ---
 
@@ -171,8 +171,6 @@ To use **Basic** authentication, in addition to the generic properties that are 
     }
 }
 ```
-> [!NOTE]
-> Mapping Data Flows only supports Basic authentication.
 
 ### Key pair authentication
 
@@ -216,6 +214,9 @@ In addition to the generic properties that are described in the preceding sectio
     }
 }
 ```
+> [!NOTE]
+> For mapping data flows, we recommend generating a new RSA private key using the PKCS#8 standard in PEM format (.p8 file).
+
 
 ## Dataset properties
 
