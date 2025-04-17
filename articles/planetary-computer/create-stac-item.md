@@ -1,16 +1,18 @@
 ---
-title: Create a STAC item - Microsoft Planetary Computer Pro
-description: Learn how to create STAC Items for geospatial data using Microsoft Planetary Computer Pro. This tutorial covers metadata extraction, STAC item creation, and integration with the Planetary Computer ecosystem.
+title: Create a STAC Item | Microsoft Planetary Computer Pro
+description: Learn how to create A STAC Item for a geospatial data asset for use with Microsoft Planetary Computer (MPC) Pro. 
 author: meaghanlewis
 ms.author: prasadkomma
 ms.service: planetary-computer
 ms.topic: tutorial
 ms.date: 04/08/2025
+
+# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an MPC Pro GeoCatalog.
 ---
 
-# Tutorial: Create a STAC item
+# Tutorial: Create a SpatioTemporal Asset Catalog (STAC) item
 
-The SpatioTemporal Asset Catalog (STAC) is an open standard for structuring and sharing geospatial data. It provides a common language and format for describing geospatial assets, making it easier to discover, access, and use these resources across different platforms and applications.
+In this tutorial, you'll be creating a SpatioTemporal Asset Catalog (STAC) item for a raster geospatial data asset. Every geospatial data asset that is uploaded to a Microsoft Planetary Computer (MPC) Pro GeoCatalog must have an associated STAC-compliant Item.
 
 In this tutorial, you:
 
@@ -29,10 +31,13 @@ In this tutorial, you:
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your environment configured to access Azure, for example with [`az login`](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
+- Azure CLI: [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
 - A Python environment with at least version 3.8.
+- Some familiarity with the STAC standard and its implementation in MPC Pro [STAC Overview](./stac-overview.md)
 
 ## Key Features of STAC
+
+The SpatioTemporal Asset Catalog (STAC) is an open standard for structuring and sharing geospatial data. It provides a common language and format for describing geospatial assets, making it easier to discover, access, and use these resources across different platforms and applications. The following are key features of the STAC standard:
 
 - **Interoperability**: Standardized JSON-based schema ensures easy integration and understanding across tools and systems.
 - **Extensibility**: Flexible core fields with custom extensions for specific needs.
@@ -550,7 +555,7 @@ The following tables provide an explanation of all the metadata rio-stac found.
 
 | Field            | Description              | Purpose                                         |
 |------------------|--------------------------|-------------------------------------------------|
-| type             | Always "Feature"         | Identifies this as a GeoJSON Feature            |
+| type             | Always "Feature"         | Identifies the type as a GeoJSON Feature            |
 | stac_version     | "1.0.0"                  | Specifies STAC standard version                 |
 | id               | Unique identifier        | Contains satellite, product, and time information|
 | stac_extensions  | List of schema URLs      | Defines extra metadata fields              |
