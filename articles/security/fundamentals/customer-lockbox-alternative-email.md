@@ -18,7 +18,7 @@ Alternate email notification feature enables customers to use alternate email ID
 > [!IMPORTANT]
 > This feature only enables Customer Lockbox notifications to be sent to alternate email IDs. It does not enable alternate users to act as approvers for Customer Lockbox requests.
 >
-> For example, Alice has the subscription owner role for subscription X and she adds Bob's email address as alternate email/other email in her user profile who has a reader role. When a Customer Lockbox request is created for a resource scoped to subscription 'X', Bob will receive the email notification, but he'll not be able to approve/reject the Customer Lockbox request as he does not have the required privileges for it (subscription owner role).
+> For example, Alice has the subscription owner role for subscription X and she adds Bob's email address as alternate email/other email in her user profile who has a reader role. When a Customer Lockbox request is created for a resource scoped to subscription 'X', Bob receives the email notification, but he is unable to approve/reject the Customer Lockbox request because he does not have the required privileges for it (subscription owner role).
 
 ## Prerequisites
 
