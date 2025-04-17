@@ -22,6 +22,9 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+>[!TIP]
+>Also check [what's new for Data Factory in Microsoft Fabric](/fabric/fundamentals/whats-new?toc=%2Ffabric%2Fdata-factory%2Ftoc.json#data-factory-in-microsoft-fabric)
+
 ## August 2024
 
 ## Data movement
