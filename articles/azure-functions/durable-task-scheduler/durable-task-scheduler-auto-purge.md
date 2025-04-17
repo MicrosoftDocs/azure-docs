@@ -46,12 +46,12 @@ You can also set a default policy to apply to all purgeable statuses by omitting
 
 You can set retention from 0 (purge immediately after completion) to any large number.
 
-[For more information, see the API reference spec for Durable Task Scheduler retention policies](/rest/api/durabletask/retention-policies/create-or-replace?view=rest-durabletask-2025-04-01-preview)
+[For more information, see the API reference spec for Durable Task Scheduler retention policies](/rest/api/durabletask/retention-policies/create-or-replace?view=rest-durabletask-2025-04-01-preview&preserve-view=true)
 
-# [Azure Resource Manager](#tab/arm)  
+# [Azure CLI](#tab/cli)  
 todo
 
-# [Azure Resource Manager](#tab/arm)  
+# [Azure portal](#tab/portal)  
 todo
 
 ---
@@ -65,10 +65,10 @@ todo
 
 To disable auto-purge retention policies, just delete the policy from the template. Durable Task Scheduler will automatically stop cleaning up instances.
 
-# [Azure Resource Manager](#tab/arm)  
+# [Azure CLI](#tab/cli)  
 todo
 
-# [Azure Resource Manager](#tab/arm)  
+# [Azure portal](#tab/portal)  
 todo
 
 ---
