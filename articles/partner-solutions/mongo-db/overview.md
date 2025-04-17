@@ -13,7 +13,7 @@ ms.date: 04/03/2025
 
 Microsoft and [MongoDB](https://www.mongodb.com/) developed this service and manage it together.
 
-You can find MongoDB Atlas in the [Azure portal](https://portal.azure.com) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+You can find MongoDB Atlas in the [Azure portal](https://portal.azure.com) or get it on [Azure Marketplace](https://aka.ms/ANI/MongoDBAtlas/Marketplace).
 
 MongoDB Atlas provides a fully managed, flexible document database service optimized for scalability and performance. Build modern AI-enabled apps faster with built-in security, rich querying, and data distribution across the globe.
 
@@ -35,7 +35,7 @@ Azure Native MongoDB Atlas provides the following capabilities:
 
 ## Subscribe to MongoDB Atlas (preview)
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] *MongoDB Atlas*.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *[MongoDB Atlas](https://aka.ms/ANI/MongoDBAtlas/Marketplace)*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
