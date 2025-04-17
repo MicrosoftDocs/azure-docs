@@ -6,8 +6,9 @@ ms.author: v-uhabiba
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 02/19/2025
+ms.date: 04/17/2025
 ms.custom: engagement-fy23
+monikerRange: migrate
 ---
 
 # Create SQL assessment
