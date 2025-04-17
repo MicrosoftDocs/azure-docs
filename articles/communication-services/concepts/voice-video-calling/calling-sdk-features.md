@@ -31,7 +31,7 @@ Once you start development, check out the [known issues page](../known-issues.md
 | Platform | Web (JavaScript) | Windows (.NET) |  iOS | Android | Other |
 | -------------- | ---------- |   ---- | -------------- | -------------- | ------------------------------ |
 | Calling | [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) |  [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| |
-| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) |
 
 **Key features**
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
@@ -46,6 +46,7 @@ Once you start development, check out the [known issues page](../known-issues.md
 - **Media Stats** - The Calling SDK provides comprehensive insights into [the metrics](media-quality-sdk.md) of your VoIP and video calls. With this information, developers have a clearer understanding of call quality and can make informed decisions to further enhance their communication experience.
 - **Video Constraints** - The Calling SDK provides APIs that gain the ability to regulate [video quality among other parameters](../../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls by adjusting parameters such as resolution and frame rate supporting different call situations for different levels of video quality
 - **User Facing Diagnostics (UFD)** - The Calling SDK provides [events](user-facing-diagnostics.md) that are designed to provide insights into underlying issues that could affect call quality. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that they're always aware of any factors impacting the calls.
+- **Real Time Text (RTT)** - [Real Time Text (RTT)](real-time-text.md) provides developers with the ability to transmit text in near real-time during a call. This feature is designed to empower individuals who have difficulty speaking, ensuring their text messages are displayed prominently to other meeting participants, similar to spoken communication.
 
 ## Detailed capabilities
 
@@ -102,6 +103,7 @@ The following list presents the set of features that are currently available in 
 |      | Echo cancellation | ❌   | ✔️| ✔️| ✔️   |
 |      | Noise suppression   | ✔️   | ✔️| ✔️| ✔️   |
 |      | Automatic gain control (AGC) | ❌   | ✔️| ✔️| ✔️   |
+| Accessibility   | [Real Time Text (RTT)](real-time-text.md) | ✔️   | ✔️| ✔️| ✔️   |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)   | ✔️  | ✔️| ✔️| ✔️   |
 | Custom context    | Add [User-to-User (UUI)](../../how-tos/calling-sdk/call-context.md) or custom headers to a call     | ✔️   | ❌| ❌| ❌   |
 
@@ -158,7 +160,7 @@ We highly recommend identifying and validating your scenario by visiting the sup
 
 ## iOS Calling SDK support
 
-- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
+- Support the last two major iOS operating system updates (N and N-1 for iOS minimum OS support)
 - Xcode 12.0+
 - Support for **iPadOS** 13.0+
 
@@ -186,13 +188,14 @@ The Azure Communication Services Calling SDK automatically adjusts resolutions o
 
 The Azure Communication Services Calling SDK supports sending following video resolutions
 
-| Maximum video resolution | WebJS | iOS | Android | Windows |
-| ------------- | ----- | ----- | ------- | ------- |
-| **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
-| **Sending screen share**    | 1080P  | 1080P  | 1080P    | 1080P   |
-| **Receiving a remote video stream or screen share** | 1080P | 1080P | 1080P   | 1080P   | 
+| **Maximum video resolution**                 | WebJS Desktop | WebJS Mobile | iOS  | Android | Windows |
+|----------------------------------------------|---------------|--------------|------|---------|---------|
+| **Sending Video**                            | 1080p<sup>1</sup>         | 720p         | 720p | 720p    | 1080p   |
+| **Sending screen share**                     | 1080p         | 720p         | 720p | 720p    | 1080p   |
+| **Receiving a remote video or screen share** | 1080p         | 720p         | 720p | 720p    | 1080p   |
 
 ## Number of participants on a call support
+- Sending a [1080p stream from WebJS desktop](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream) is in public preview. GA versions of WebJS SDK for Desktop browser support sending a 720p stream.
 - Up to **350** users can join a group call, Room call, or Teams + Azure Communication Services call.
 - Once the call size reaches 100+ participants, the Calling SDK only displays the top four dominant speakers that have their video camera active.
 - When the number of people on the call is 100+, the viewable number of incoming videos automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).

@@ -156,15 +156,15 @@ private async void CallButton_Click(object sender, RoutedEventArgs e)
 
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
 {
-    var options = await GetStartCallOptionsAsynnc();
+    var options = await GetStartCallOptionsAsync();
     var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
     return call;
 }
 
 var micStream = new LocalOutgoingAudioStream(); // Create a default local audio stream
-var cameraStream = new LocalOutgoingVideoStreamde(this.viceManager.Cameras.FirstOrDefault() as VideoDeviceDetails); // Create a default video stream
+var cameraStream = new LocalOutgoingVideoStream(this.viceManager.Cameras.FirstOrDefault() as VideoDeviceDetails); // Create a default video stream
 
-private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
+private async Task<StartCallOptions> GetStartCallOptionsAsync()
 {
     return new StartCallOptions() {
         OutgoingAudioOptions = new OutgoingAudioOptions() { IsMuted = true, Stream = micStream  },
@@ -195,8 +195,8 @@ private async void CameraList_SelectionChanged(object sender, SelectionChangedEv
             await this.call?.StopVideoAsync(cameraStream);
         }
     }
-    var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-    cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+    var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+    cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
     var localUri = await cameraStream.StartPreviewAsync();
     LocalVideo.Source = MediaSource.CreateFromUri(localUri);

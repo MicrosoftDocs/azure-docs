@@ -4,6 +4,9 @@ description: Tutorial - Use Microsoft Power BI to visualize Apache Spark data st
 ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, mvc
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 04/25/2024
 #Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to virtualize Spark data in BI tools.
 ---

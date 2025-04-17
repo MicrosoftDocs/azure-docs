@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure IoT Operations to a cluster
 description: Use the Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 10/23/2024

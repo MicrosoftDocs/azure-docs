@@ -1,14 +1,15 @@
 ---
 title: Quickstart - Start using Cost analysis
-description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
-author: bandersmsft
-ms.author: banders
+description: Learn how to use Azure Cost Analysis to explore and analyze your organizational costs, identify trends, and understand spending patterns.
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: shasulin
 ms.custom: mode-other
+#customer intent: As a billing administrator, I want to use cost analysis so that I can explore and analyze my Azure organizational costs.
 ---
 
 # Quickstart: Start using Cost analysis
@@ -44,7 +45,7 @@ Views in the **Recommended** list might vary based on what users most commonly u
 
 ## Analyze costs with smart views
 
-If you're new to Cost analysis, we recommend starting with a smart view, like the Resources view. Smart views include:
+If you're new to Cost analysis, we recommend starting with a smart view, like the Services view. Smart views include:
 
 - Key performance indicators (KPIs) to summarize your cost
 - Intelligent insights about your costs like anomaly detection
@@ -60,7 +61,8 @@ If showing three months or less, the Average cost API compares the cost from the
 We recommend checking your cost weekly to ensure each KPI remains within the expected range. If you recently deployed or changed resources, we recommend checking daily for the first week or two to monitor the cost changes.
 
 > [!NOTE]
-> If you want to monitor your forecasted cost, you can enable the [Forecast KPI preview feature](enable-preview-features-cost-management-labs.md#forecast-in-the-resources-view) in Cost Management Labs, available from the **Try preview** command.
+> - If you want to monitor your forecasted cost, you can enable the [Forecast KPI preview feature](enable-preview-features-cost-management-labs.md#forecast-in-the-resources-view) in Cost Management Labs, available from the **Try preview** command.
+> - When you set the granularity to **Daily** for any view, the date range should span a maximum of three months. However, when at the management group scope, only a date range of one month is supported.
 
 If you don't have a budget, select the **create** link in the **Budget** KPI and specify the amount you expect to stay under each month. To create a quarterly or yearly budget, select the **Configure advanced settings** link.
 
@@ -83,9 +85,6 @@ This view is where you spend most of your time in Cost analysis. To explore furt
 5. Open other smart views to get different perspectives on your costs.
 6. Open a customizable view and apply other filters or group the data to explore further.
 
->[!NOTE]
->If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.
-
 Data sources for smart views are as follows:
 
 - Reservations – Source data is from amortized usage and charges.
@@ -106,7 +105,7 @@ After you customize your view to meet your needs, you might want to save and sha
 
 1. Save the view on a subscription, resource group, management group, or billing account.
 2. Share a URL with view configuration details, which they can use on any scope they have access to.
-3. Ping the view to an Azure portal dashboard. Pinning requires access to the same scope.
+3. Pin the view to an Azure portal dashboard. Pinning requires access to the same scope.
 4. Download an image of the chart or summarized cost details in an Excel or CSV file.
 5. Subscribe to scheduled alerts on a daily, weekly, or monthly basis.
 

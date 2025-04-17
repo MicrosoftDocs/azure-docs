@@ -94,7 +94,7 @@ Before you set this variable, we recommend that you run a benchmark test. The be
 
 ## Limit the throughput data rate
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second.
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second. Please note, this is only supported for uploading or downloading files, not copying between accounts.
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10

@@ -22,11 +22,27 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
+## March 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - ["Unauthorized Internet Connectivity Detected" alert now includes URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)<br>- [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection) |
+
+### "Unauthorized Internet Connectivity Detected" alert now includes URL information
+
+The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
+
+:::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of URL information in alert details." lightbox="media/whats-new/url-parameters.png":::
+
+### Improved RDP brute force detection
+
+The “Excessive Number of Sessions” alert now includes support by default to a remote desktop protocol (RDP) port, enhancing visibility into potential brute-force attacks and unauthorized access attempts.
+
 ## January 2025
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
+| **OT networks** | [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters) |
 
 ### Aggregating multiple alerts violations with the same parameters
 
@@ -41,7 +57,6 @@ To reduce alert fatigue, multiple versions of the same alert violation and with 
 ### Support Multiple Source Devices in DDoS Attack Alerts
 
 Alert details now display up to 10 source devices involved in DDoS attack.
-
 
 ## October 2024
 

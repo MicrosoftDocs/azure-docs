@@ -2,7 +2,8 @@
 title: Migrate Azure Spring Apps to Azure Kubernetes Service
 description: Provides an overview of migrating from Azure Spring Apps to Azure Kubernetes Service.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
@@ -97,4 +98,7 @@ In addition to Azure Monitor and Prometheus, you can also use other monitoring s
 
 ## Tutorial
 
-We provide a tutorial to demonstrate the end-to-end experience of running the ACME Fitness store application on AKS. For more information, see [acme-fitness-store/azure-kubernetes-service](https://github.com/Azure-Samples/acme-fitness-store/tree/Azure/azure-kubernetes-service). This tutorial provides practical guidance and is meant for reference. AKS is highly flexible, so you need to choose configurations and customizations based on your specific requirements.
+We provide the following tutorials to demonstrate the end-to-end experience of running applications on AKS. These tutorials are meant for reference, and because AKS is highly flexible, you need to choose configurations and customizations based on your specific requirements.
+
+- ACME Fitness Store Application: This tutorial offers practical guidance for running the ACME Fitness store application on AKS. For more information, see [acme-fitness-store/azure-kubernetes-service](https://github.com/Azure-Samples/acme-fitness-store/tree/Azure/azure-kubernetes-service).
+- Spring PetClinic Microservices: This tutorial showcases the distributed version of the Spring PetClinic application built with Spring Cloud. For more information, see [spring-petclinic-microservices/azure-kubernetes-service](https://github.com/Azure-Samples/spring-petclinic-microservices/tree/azure/azure-kubernetes-service). 

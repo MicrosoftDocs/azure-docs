@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub support for virtual networks
 description: How to use virtual networks connectivity pattern with IoT Hub
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 01/13/2023

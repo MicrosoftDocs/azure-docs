@@ -2,7 +2,8 @@
 title: Use Apache Kafka Mirror Maker 1 - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Kafka MirrorMaker to mirror a Kafka cluster in AzureEvent Hubs.
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.subservice: kafka
+ms.date: 03/06/2025
 ---
 
 # Replicate data from a Kafka cluster to Event Hubs using Apache Kafka Mirror Maker 1
@@ -39,7 +40,7 @@ You can use Apache Kafka's MirrorMaker 1 unidirectionally from Apache Kafka to E
 To complete this tutorial, make sure you have:
 
 * Read through the [Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md) article. 
-* An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.

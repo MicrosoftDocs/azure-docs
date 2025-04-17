@@ -1,9 +1,8 @@
 ---
 title: 'Quickstart: Get started analyzing with Spark' 
 description: In this tutorial, you'll learn to analyze some sample data with Apache Spark in Azure Synapse Analytics.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: ms-arali
+ms.author: arali
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart

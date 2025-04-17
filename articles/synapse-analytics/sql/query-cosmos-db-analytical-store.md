@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 01/31/2025
 ms.author: jovanpop
-ms.reviewer: sidandrews, wiassaf
+ms.reviewer: sidandrews
 ms.custom: cosmos-db
 ---
 
@@ -18,9 +18,6 @@ A serverless SQL pool allows you to analyze data in your Azure Cosmos DB contain
 For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, which includes most [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage by using [create external table as select (CETAS)](develop-tables-cetas.md#cetas-in-serverless-sql-pool). You can't currently store serverless SQL pool query results to Azure Cosmos DB by using CETAS.
 
 This article explains how to write a query with a serverless SQL pool that queries data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md). This tutorial uses a container with an [Azure Cosmos DB well-defined schema](/azure/cosmos-db/analytical-store-introduction#schema-representation). You can also check out the Learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
-
->[!NOTE]
-> You can't use managed identity to access an Azure Cosmos DB container from serverless SQL pool.
 
 ## Prerequisites
 
@@ -37,12 +34,44 @@ This article explains how to write a query with a serverless SQL pool that queri
 ## Overview
 
 Serverless SQL pool enables you to query Azure Cosmos DB analytical storage using `OPENROWSET` function. 
-- `OPENROWSET` with inline key. This syntax can be used to query Azure Cosmos DB collections without the need to prepare credentials.
-- `OPENROWSET` that references a credential that contains the Azure Cosmos DB account key. This syntax can be used to create views on Azure Cosmos DB collections.
 
-### [OPENROWSET with key](#tab/openrowset-key)
+```sql
+OPENROWSET( 
+       'CosmosDB',
+       '<SQL connection string for Azure Cosmos DB>',
+       <other parameters>
+    )  [ < with clause > ] AS alias
+```
 
-To support querying and analyzing data in an Azure Cosmos DB analytical store, a serverless SQL pool is used. The serverless SQL pool uses the `OPENROWSET` SQL syntax, so you must first convert your Azure Cosmos DB connection string to this format:
+The SQL connection string for Azure Cosmos DB includes the following components:
+- **account** - The name of the Azure Cosmos DB account you are targeting.
+- **database** - The container name, specified without quotation marks in the OPENROWSET syntax. If the container name contains special characters (for example, a dash -), it should be enclosed in square brackets ([]).
+- **region** (optional) - The region of your Cosmos DB analytical storage. If omitted, the container's primary region is used.
+- **endpoint** (optional) - The Cosmos DB endpoint URI (for example `https://<account name>.documents.azure.us`) that is required if your Cosmos DB account does not follow the standard `*.documents.azure.com` format.
+
+> [!IMPORTANT]
+> The `endpoint` parameter is needed for accounts that don't match the standard `*.documents.azure.com` format. For example, if your Azure Cosmos DB account ends with `.documents.azure.us`, make sure that you add `endpoint=https://<account name>.documents.azure.us` in the connection string. Make sure that you include `https://` prefix.
+
+These properties can be identified from the standard Cosmos DB connection string, for example:
+```
+AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
+```
+
+The SQL connection string can be formatted as follows:
+```sql
+account=<database account name>;database=<database name>;region=<region name>
+```
+
+This connection string does not include the authentication information required to connect to Cosmos DB analytical storage. Additional information is needed depending on the type of authentication used:
+- If `OPENROWSET` uses workspace managed identity to access the analytical store, you should add the `AuthType` property.
+- If `OPENROWSET` uses an inline account key, you should add the `key` property. This allows you to query Azure Cosmos DB collections without needing to prepare credentials.
+- Instead of including authentication information in the connection string, `OPENROWSET` can reference a credential that contains the Azure Cosmos DB account key. This approach can be used to create views on Azure Cosmos DB collections.
+
+These options are described below.
+
+### [OPENROWSET with key or managed identity](#tab/openrowset-key)
+
+The serverless SQL pool enables you to query Cosmos DB Analytical storage and authenticate with the original Cosmos DB account key or to allow Synapse managed identity to access the Cosmos DB Analytical storage. You can use the following syntax in this scenario:
 
 ```sql
 OPENROWSET( 
@@ -51,31 +80,20 @@ OPENROWSET(
        <Container name>
     )  [ < with clause > ] AS alias
 ```
+In addition to the common properties in the SQL connection string that are described above (**account**, **database**, **region**, and **endpoint**), you need to add **one** of the following options:
+- **AuthType** - set this option to `ManagedIdentity` if accessing Cosmos DB using the Synapse workspace Managed Identity.
+- **key** - The master key for accessing Cosmos DB data, used if not utilizing the Synapse workspace managed identity.
 
-The SQL connection string for Azure Cosmos DB specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to the `OPENROWSET` function. Some of this information can be taken from the standard Azure Cosmos DB connection string.
+The examples of connection strings are shown in the following table:
 
-Convert from the standard Azure Cosmos DB connection string format:
-
-```
-AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
-```
-
-The SQL connection string has the following format:
-
-```sql
-'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
-```
-
-The region is optional. If omitted, the container's primary region is used.
-
-> [!IMPORTANT]
-> There's another optional parameter in connection string called `endpoint`. The `endpoint` param is needed for accounts that don't match the standard `*.documents.azure.com` format. For example, if your Azure Cosmos DB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.
-
-The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
+| Authentication type | Connection string |
+| --- | --- |
+| Synapse workspace managed identity | `account=<account name>;database=<db name>;region=<region name>;AuthType=ManagedIdentity` |
+| Cosmos DB account master key | `account=<account name>;database=<db name>;region=<region name>;key=<account master key>` |
 
 ### [OPENROWSET with credential](#tab/openrowset-credential)
 
-You can use `OPENROWSET` syntax that references a credential:
+Instead of defining the access key in OPENROWSET, you can place it in the separate credential and use `OPENROWSET` syntax that references a credential:
 
 ```sql
 OPENROWSET( 
@@ -89,7 +107,7 @@ OPENROWSET(
 The SQL connection string for Azure Cosmos DB doesn't contain a key in this case. The connection string has the following format:
 
 ```sql
-'account=<database account name>;database=<database name>;region=<region name>'
+account=<database account name>;database=<database name>;region=<region name>
 ```
 
 Database account master key is placed in server-level credential or database scoped credential. 
@@ -107,7 +125,7 @@ Database account master key is placed in server-level credential or database sco
 
 ## Sample dataset
 
-The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](/azure/open-datasets/dataset-ecdc-covid-cases) and [COVID-19 Open Research Dataset (CORD-19)](/azure/open-datasets/dataset-covid-19-open-research).
+The examples in this article are based on data from the [European Center for Disease Prevention and Control (ECDC) COVID-19 Cases](/azure/open-datasets/dataset-ecdc-covid-cases) and [COVID-19 Open Research Dataset (CORD-19)](/azure/open-datasets/dataset-covid-19-open-research).
 
 You can see the license and the structure of data on these pages. You can also [download sample data for the ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and CORD-19 datasets.
 
@@ -253,7 +271,7 @@ FROM OPENROWSET(
 
 Don't use `OPENROWSET` without explicitly defined schema because it might affect your performance. Make sure that you use the smallest possible sizes for your columns (for example `VARCHAR(100)` instead of default `VARCHAR(8000)`). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid a [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when you filter data using some string columns.
 
-When you query the view, you might encounter errors or unexpected results. The view references columns or objects were probably modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes. Keep in mind that this can happen both when using automatic schema inference in the view and when explicitly specifying the schema.
+When you query the view, you might encounter errors or unexpected results. The view references columns or objects were probably modified or no longer exists. You need to manually adjust the view definition to align with the underlying schema changes. Keep in mind that this can happen both when using automatic schema inference in the view and when explicitly specifying the schema.
 
 ## Query nested objects
 

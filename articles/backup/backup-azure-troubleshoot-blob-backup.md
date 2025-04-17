@@ -2,7 +2,7 @@
 title: Troubleshoot Blob backup and restore issues
 description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to the Azure Blob backups and restore.
 ms.topic: troubleshooting
-ms.date: 02/20/2025
+ms.date: 02/24/2025
 ms.service: azure-backup
 ms.reviewer: geg
 author: jyothisuri
@@ -184,6 +184,19 @@ This article provides troubleshooting information to address issues you encounte
 **Error message**: **Permanent delete** is a conflicting job for point-in-time-restore, which is blocking protection/backup.
         
 **Recommended action**: Disable the conflicting job (such as **Permanent delete**) on the storage account and retry the operation. 
+
+### UserErrorSelectedContainerPartOfAnotherORPolicy
+
+**Error code**: `UserErrorSelectedContainerPartOfAnotherORPolicy`
+
+**Error message**: The selected container is present in another **Object replication policy**. A given container can be part of only one Object replication policy at a time.
+
+**Cause**: This error might appear due to the following scenarios:
+
+- The container in use is a part of the Object replication policy you created.
+- Protection is triggered for restored containers  for which the Object replication policy (that gets created in storage account during restore) cleanup has fail due to resource lock. 
+
+**Recommended action**: Remove the container from other Object replication policy or change protection intent.
 
 ## Common errors for Azure Blob vaulted backup
 

@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub multistep ordered execution
 description: Learn about using multiple steps to execute preinstall and postinstall tasks when you deploy over-the-air updates with Device Update for Azure IoT Hub.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 01/15/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

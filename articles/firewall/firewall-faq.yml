@@ -3,12 +3,12 @@ metadata:
   title: Azure Firewall FAQ
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
-  author: vhorne
+  author: duongau
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
-  ms.date: 02/29/2024
-  ms.author: victorh
+  ms.date: 03/17/2025
+  ms.author: duau
 title: Azure Firewall FAQ
 summary: |
 
@@ -69,9 +69,17 @@ sections:
       - question: Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?
         answer: Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the AzureFirewallSubnet, and are disabled to ensure no service interruption.
 
-      - question: How do I set up Azure Firewall with my service endpoints?
+      - question: What is the added value of Azure Firewall with private endpoints?
         answer: |
-          For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.
+          Private endpoints are a component of Private Link, a technology that allows to interact with Azure PaaS services using private IP addresses instead of public ones. Azure Firewall can be used to prevent access to public IP addresses, hence avoiding data exfiltration to Azure services not leveraging Private Link, as well as to implement zero-trust policies by defining who in your organization needs to access those Azure PaaS services, since Private Link per default opens up network access for your whole corporate network.
+          
+          The right design to inspect traffic to private endpoints with Azure Firewall will depend on your network architecture, you can find more details in the article [Azure Firewall scenarios to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md).
+
+      - question: What is the added value of Azure Firewall with virtual network service endpoints?
+        answer: |
+          Virtual Network service endpoints are an alternative to Private Link to control network access to Azure PaaS services. Even if the client still uses public IP addresses to access the PaaS service, the source subnet is made visible so that the destination PaaS service can implement filter rules and restrict access on a per-subnet basis. You can find a detailed comparison beetween both mechanisms in [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md).
+          
+          Azure Firewall application rules can be used to make sure that no data exfiltration to rogue services takes place, and to implement access policies with an increased granularity beyond the subnet level. Usually, virtual network service endpoints need to be enabled in the subnet of the client that will connect to an Azure service. However, when inspecting traffic to service endpoints with Azure Firewall, you need to enable the corresponding service endpoint in the Azure Firewall subnet instead and disable them on the subnet of the actual client (usually a spoke virtual network). This way you can use Application Rules in Azure Firewall to control to which Azure services your Azure workloads will have access to.
 
       - question: What is the pricing for Azure Firewall?
         answer: |

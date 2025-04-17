@@ -153,4 +153,4 @@ Use the following step-by-step instructions to deploy the docker based data conn
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope_mss?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope-for-azure?tab=Overview) in the Azure Marketplace.

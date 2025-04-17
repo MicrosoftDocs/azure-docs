@@ -153,15 +153,19 @@ configuration:
 
       - description: Disallow sign-off for articles in the /articles/reliability folder.
         if:
-          # If a 'sign-off' comment is added to a PR in the articles/reliability folder , and the PR author isn't Anastasia or John...
-          - payloadType: Issue_Comment
-          - isPullRequest
-          - filesMatchPattern:
-              matchAny: true
-              pattern: articles/reliability/*
+          # If a 'sign-off' comment is added to a PR that's assigned to anaharris-ms, and the PR author isn't Anastasia or John...
+          - or:
+            - payloadType: Issue_Comment
+            - payloadType: Pull_Request_Review_Comment
+          - isAction:
+              action: Created
+          - isActivitySender:
+              issueAuthor: True
+          - isAssignedToUser:
+              user: anaharris-ms
           - commentContains:
-              pattern: \#sign-off
-              isRegex: false
+              pattern: '#sign-off'
+              isRegex: False
           - not:
               or:
                 - isActivitySender:

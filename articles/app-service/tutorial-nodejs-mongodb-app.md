@@ -2,7 +2,7 @@
 title: Deploy a Node.js + MongoDB app to Azure
 description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Azure Cosmos DB.
 ms.topic: tutorial
-ms.date: 09/30/2024
+ms.date: 04/17/2025
 ms.service: azure-app-service
 ms.role: developer
 ms.devlang: javascript
@@ -490,7 +490,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 

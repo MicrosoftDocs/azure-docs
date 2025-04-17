@@ -13,11 +13,11 @@ ms.custom: template-how-to
 
 # Read data from a CSV file in JMeter with Azure Load Testing
 
-In this article, you learn how to read data from a comma-separated value (CSV) file in JMeter with Azure Load Testing. Use data from an external CSV file to make your JMeter test script configurable. For example, you might iterate over all customers in a CSV file to pass the customer details into API request.
+In this article, you learn how to read data from a comma-separated value (CSV) file in test script with Azure Load Testing. Use data from an external CSV file to make your JMeter or Locust test script configurable. For example, you might iterate over all customers in a CSV file to pass the customer details into API request.
 
-In JMeter, you can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in your test script to read data from a CSV file.
+In JMeter, you can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in your test script to read data from a CSV file. In Locust, you can open the CSV file in your test script, read the required data, and pass it to the requests.  
 
-To read data from an external file in Azure Load Testing, you have to upload the external file alongside the JMeter test script in your load test. If you scale out your test across multiple parallel test engine instances, you can choose to split the input data evenly across these instances.
+To read data from an external file in Azure Load Testing, you have to upload the external file alongside the test script in your load test. If you scale out your test across multiple parallel test engine instances, you can choose to split the input data evenly across these instances.
 
 Get started by [cloning or downloading the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-read-csv).
 
@@ -25,17 +25,17 @@ Get started by [cloning or downloading the samples project from GitHub](https://
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * An Azure load testing resource. To create a load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource).
-* An Apache JMeter test script (JMX).
+* An Apache JMeter test script (JMX) or a Locust script.
 * (Optional) Apache JMeter GUI to author your test script. To install Apache JMeter, see [Apache JMeter Getting Started](https://jmeter.apache.org/usermanual/get-started.html).
 
-## Update your JMeter script to read CSV data
+## Update your test script to read CSV data
 
-In this section, you configure your Apache JMeter script to reference the external CSV file. You use a [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) to read data from a CSV file.
+In this section, you configure your test script to reference the external CSV file. You use a [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) to read data from a CSV file.
 
 > [!IMPORTANT]
 > Azure Load Testing uploads the JMX file and all related files in a single folder. When you reference an external file in your JMeter script, verify that you have no file path references in your test script.
 
-Modify the JMeter script by using the Apache JMeter GUI:
+For JMeter-based tests, modify the JMeter script by using the Apache JMeter GUI:
 
 1. Select the **CSV Data Set Config** element in your test script.
 
@@ -51,9 +51,15 @@ Modify the JMeter script by using the Apache JMeter GUI:
 
 1. Save the JMeter script and upload the script to your load test.
 
+For Locust-based tests, update the Locust script by opening it an editor of your choice. 
+
+1. In the section where you open the file, update the **Filename** information and remove any file path reference.
+
+1. Save the Locust script and upload the script to your load test. 
+
 ## Upload the CSV file to your load test
 
-When you reference external files from your test script, make sure to upload all these files alongside the JMeter test script. When the load test starts, Azure Load Testing copies all files to a single folder on each of the test engines instances.
+When you reference external files from your test script, make sure to upload all these files alongside the test script. When the load test starts, Azure Load Testing copies all files to a single folder on each of the test engines instances.
 
 > [!IMPORTANT]
 > Azure Load Testing doesn't preserve the header row when splitting your CSV file. Before you add the CSV file to the load test, remove the header row from the file.
@@ -120,7 +126,7 @@ For example, if you have a large customer CSV input file, and the load test runs
 
 > [!IMPORTANT]
 > Azure Load Testing doesn't preserve the header row when splitting your CSV file. 
-> 1. [Configure your JMeter script](#update-your-jmeter-script-to-read-csv-data) to use variable names when reading the CSV file. 
+> 1. [Configure your test script](#update-your-test-script-to-read-csv-data) to use variable names when reading the CSV file. 
 > 1. Remove the header row from the CSV file before you add it to the load test.
 
 To configure your load test to split input CSV files:
@@ -163,11 +169,11 @@ To configure your load test to split input CSV files:
 
 ### Test status is failed and test log has `File {my-filename} must exist and be readable`
 
-When the load test completes with the Failed status, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-worker-logs-for-your-load-test).
+When the load test completes with the Failed status, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-or-locust-worker-logs-for-your-load-test).
 
-When you receive an error message `File {my-filename} must exist and be readable` in the test log, the input CSV file couldn't be found when running the JMeter script.
+When you receive an error message `File {my-filename} must exist and be readable` in the test log, the input CSV file couldn't be found when running the test script.
 
-Azure Load Testing stores all input files alongside the JMeter script. When you reference the input CSV file in the JMeter script, make sure *not* to include the file path, but only use the filename.
+Azure Load Testing stores all input files alongside the test script. When you reference the input CSV file in the test script, make sure *not* to include the file path, but only use the filename.
 
 The following code snippet shows an extract of a JMeter file that uses a `CSVDataSet` element to read the input file. Notice that the `filename` doesn't include the file path.
 

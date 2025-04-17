@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.topic: reliability-article
 ms.workload: infrastructure-services
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: azure-ddos-protection
 ms.date: 03/14/2024 
 ---

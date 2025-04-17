@@ -319,7 +319,7 @@ This section defines the parameters used for defining the key vault information.
 > | ------------------------------------ | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
 > | `user_keyvault_id`	                 | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     |
 > | `spn_keyvault_id`                    | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     |
-> | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure key vaults                             | Optional     | Only use for test environments.     |
+> | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure Key Vaults                             | Optional     | Only use for test environments.     |
 
 ### Anchor virtual machine parameters
 
