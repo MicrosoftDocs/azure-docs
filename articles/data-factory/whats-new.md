@@ -30,7 +30,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 ## Data movement
 
 - Azure Table Storage connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication. [Learn more](connector-azure-table-storage.md)
-- Azure Files connector now supports two more authentication types: system-assigned managed identity authenticatino and user-assigned managed identity authentication. [Learn more](connector-azure-file-storage.md)
+- Azure Files connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication. [Learn more](connector-azure-file-storage.md)
 
 ## June 2024
 
