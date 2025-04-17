@@ -204,7 +204,7 @@ How you configure a NetApp account with customer-managed keys with the Azure CLI
         --name <identity_name> \
         --resource-group <resource_group> \
         --query properties.principalId \
-        -output tsv)
+        --output tsv)
     az keyvault set-policy \
         --name <key_vault_name> \
         --resource-group <resource-group> \
@@ -227,7 +227,7 @@ How you configure a NetApp account with customer-managed keys with the Azure CLI
         --name <identity_name> \
         --resource-group <resource_group> \
         --query id \
-        -output tsv)
+        --output tsv)
     az netappfiles account update --name <account_name> \  
         --resource-group <resource_group> \
         --identity-type UserAssigned \

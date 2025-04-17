@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Email object model .NET SDK include file
+description: Email object model .NET SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services

@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/13/2024
+ms.date: 04/17/2025
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot

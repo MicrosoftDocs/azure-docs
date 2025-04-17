@@ -5,7 +5,7 @@ keywords: app service, azure app service, wordpress, preview, app service on lin
 author: msangapu-msft
 ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 2/21/2025
+ms.date: 04/17/2025
 # ms.devlang: wordpress
 ms.author: msangapu
 ms.subservice: wordpress
