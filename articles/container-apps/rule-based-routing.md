@@ -28,9 +28,9 @@ In this article, you learn how to use rule-based routing with Azure Container Ap
 
 ::: zone-end
 
-::: zone pivot="azure-cli"
-
 ## Setup
+
+::: zone pivot="azure-cli"
 
 1. Run the following command so sign in to Azure from the CLI.
 
