@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Communication Services email
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the concepts of using Azure Communication Services to send email.
+description: This article describes how to use Azure Communication Services to set up email.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -17,7 +17,7 @@ Email continues to be a key customer engagement channel globally for businesses.
 
 Azure Communication Services offers an intelligent communication platform to enable businesses to build engaging business-to-consumer (B2C) experiences. Azure Communication Services facilitates high-volume transactional, bulk, and marketing emails. It supports application-to-person (A2P) use cases.
 
-Azure Communication Services can simplify the integration of the email capability in your applications by using production-ready email SDK options. It also supports SMTP commands.
+Azure Communication Services can simplify the integration of the email capability in your applications by using production-ready email SDK options. It also supports simple mail transfer protocol (SMTP) commands.
 
 Azure Communication Services email enables rich collaboration in communication modalities. It combines with SMS and other communication channels to build collaborative applications to help reach your customers in their preferred communication channel.
 

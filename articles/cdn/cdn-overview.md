@@ -8,7 +8,7 @@ manager: kumud
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.custom: mvc
 ROBOTS: NOINDEX
 ---

@@ -6,7 +6,7 @@ ms.topic: integration
 ms.date: 03/22/2024
 ms.custom:
     - template-how-to-pattern
-    - has-azure-ad-ps-ref
+    - no-azure-ad-ps-ref
 ---
 
 # Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile
@@ -66,18 +66,18 @@ The Operator Connect and Teams Phone Mobile programs require your Microsoft Entr
 
 To add the Project Synergy application:
 
-1. Check whether the Microsoft Entra ID (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+1. Check whether the Microsoft Entra ID (`Microsoft.Entra`) module is installed in PowerShell. Install it if necessary.
     1. Open PowerShell.
-    1. Run the following command and check whether `AzureAD` appears in the output.
+    1. Run the following command and check whether `Microsoft.Entra` appears in the output.
        ```powershell
        Get-Module -ListAvailable
        ```
-    1. If `AzureAD` doesn't appear in the output, install the module.
+    1. If `Microsoft.Entra` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.
             ```powershell
-            Install-Module AzureAD
+            Install-Module Microsoft.Entra
             ```
         1. Close your PowerShell admin window.
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a Microsoft Entra Global Admin.
@@ -87,8 +87,8 @@ To add the Project Synergy application:
 1. Open PowerShell.
 1. Run the following cmdlet, replacing *`<TenantID>`* with the tenant ID you noted down in step 5.
     ```powershell
-    Connect-AzureAD -TenantId "<TenantID>"
-    New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
+    Connect-Entra -TenantId <TenantID> -Scopes 'Application.ReadWrite.All'
+    New-EntraServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
     ```
 
 ## Assign an Admin user to the Project Synergy application

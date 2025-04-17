@@ -19,7 +19,7 @@ To complete the procedure, you must have a Google account that has a verified em
 
 ## <a name="register"> </a>Register your application with Google
 
-1. Follow the Google documentation at [Sign In with Google for Web - Setup](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) to create a client ID and client secret. You don't need to make any code changes. Use the following information:
+1. Follow the Google documentation at [Sign In with Google for Web - Setup](https://developers.google.com/identity/gsi/web/guides/fedcm-migration) to create a client ID and client secret. You don't need to make any code changes. Use the following information:
     - For **Authorized JavaScript Origins**, use `https://<app-name>.azurewebsites.net` with the name of your app in *\<app-name>*.
     - For **Authorized Redirect URI**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
 1. Copy the **App ID** and the **App Secret** values.

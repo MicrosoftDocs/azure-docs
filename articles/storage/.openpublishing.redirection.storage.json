@@ -2691,6 +2691,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/common/redundancy-regions-zrs.md",
+            "redirect_url": "/azure/reliability/regions-list",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/storage/common/redundancy-regions-gzrs.md",
+            "redirect_url": "/azure/reliability/regions-list",
+            "redirect_document_id": false
+        },               
+        {
             "source_path_from_root": "/articles/storage/common/storage-premium-storage-performance.md",
             "redirect_url": "/azure/virtual-machines/windows/premium-storage-performance",
             "redirect_document_id": false

@@ -64,42 +64,7 @@ Rather than use the host window, consider using an SSH connection instead. This 
 
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
 
-## Step 2: Test network connectivity
-
-Your agent needs to be connected to the internet.
-
-When logged into the administrative shell, you can test the agents connectivity state:
-
-```StorageMoverAgent-AdministrativeShell
-1) System configuration
-2) Network configuration
-3) Service and job status
-4) Register
-5) Open restricted shell
-6) Collect support bundle
-7) Restart agent
-8) Exit
-
-xdmsh> 2
-```
-Select menu item 2) *Network configuration*.
-
-```StorageMoverAgent-AdministrativeShell
-1) Show network configuration
-2) Update network configuration
-3) Test network connectivity
-4) Quit
-
-Choice: 3
-```
-Select menu item 3) *Test network connectivity*.
-
-
-
-> [!IMPORTANT]
-> Only proceed to the registration step when your network connectivity test returns no issues.
-
-## Step 3: Register the agent
+## Step 2: Register the agent
 
 In this step, you register your agent with the storage mover resource you've deployed in an Azure subscription.
 [Connect to the administrative shell](#step-1-connect-to-the-agent-vm) of your agent, then select menu item *4) Register*:
@@ -109,22 +74,40 @@ In this step, you register your agent with the storage mover resource you've dep
 2) Network configuration
 3) Service and job status
 4) Register
-5) Open restricted shell
-6) Collect support bundle
-7) Restart agent
-8) Exit
+5) Collect support bundle
+6) Restart agent
+7) Disk Cleanup
+8) Open restricted shell
+9) Troubleshooting
+10) Exit
 
 xdmsh> 4
 ```
 You're prompted for:
-- Subscription ID
-- Resource group name
-- Storage mover resource name
-- Agent name: This name is shown for the agent in the Azure portal. Select a name that clearly identifies this agent VM for you. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+- Azure region: This is the region where you will have your Azure Storage Mover resource.
 - Private Link Scope: Provide the fully qualified resource ID of your Private Link Scope if you're utilizing private networking. You can find more information on Azure Private Link in the [Azure Private Link documentation](/azure/private-link/) article.
 
    > [!IMPORTANT]
    > If you've configured Storage Mover to migrate your data over Private Link, you must provide the fully qualified resource ID of your Private Link Scope. For example, `/subscriptions/[GUID]/resourceGroups/myGroup/providers/Microsoft.HybridCompute/privateLinkScopes/myScope`.
+
+Network checks are run automatically. You can optionally run checks for endpoints manually by selecting item 2) *Network configuration* in the main menu
+
+```StorageMoverAgent-AdministrativeShell
+1) Show network configuration
+2) Update network configuration
+3) Test network connectivity
+4) Test network connectivity verbosely
+5) Quit
+
+Choice: 3
+```
+Select menu item 3) *Test network connectivity*.
+
+Post network checks, you will be prompted for:
+- Subscription ID
+- Resource group name
+- Storage mover resource name
+- Agent name: This name is shown for the agent in the Azure portal. Select a name that clearly identifies this agent VM for you. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
 After you've supplied these values, the agent will attempt registration. During the registration process, you're required to sign into Azure with credentials that have permissions to your subscription and storage mover resource.
 
