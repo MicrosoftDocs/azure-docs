@@ -193,6 +193,32 @@ The following information lists the known limitations to the use of private endp
 | --------- | ------------ |
 | Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight** </br> **Recovery Services Vaults** </br> **Third party Private Link services** |
 
+#### No Post‑Creation Changes
+- After a **Private Endpoint** has been created, its private IP address—whether dynamically allocated by default or explicitly specified—**cannot be modified**.
+
+#### Redeployment Impact
+- Deleting and recreating a Private Endpoint *without* requesting the same address will cause Azure to assign a **new dynamically allocated IP** from the subnet pool.  
+- Plan migrations carefully if you need the same IP across deployments.
+
+#### Avoid IP‑Based Dependencies
+- Treat the endpoint as a **service**, not a hard‑coded address.  
+- Where policy requires IP references, surface them via automation outputs instead of static configuration.
+
+#### Isolate Dynamic Endpoints
+- Place services that do not support static IPs in a **dedicated subnet** to contain address churn.
+
+#### Use DNS with Short TTLs
+- Point clients to **FQDNs** rather than IPs.  
+- Configure DNS records with a **≤ 60 s TTL** so switchover events propagate quickly.
+
+#### Automate Security‑Rule Updates
+- When Infrastructure‑as‑Code redeploys an endpoint, **publish the new IP** to a configuration store.  
+- Have firewalls/NSGs automatically consume those values.
+
+#### Document Platform Constraints
+- Record Microsoft’s statement that static IP assignment is currently unsupported for these resources.  
+- Include links/citations in change‑management and audit artefacts.
+
 ### Network security group
 
 | Limitation | Description |
