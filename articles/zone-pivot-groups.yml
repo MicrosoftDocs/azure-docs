@@ -1211,7 +1211,7 @@ groups:
     title: Classic
 - id: flow-logs-types
   title: Flow Logs types
-  prompt: "Select the flow logs type:"
+  prompt: "Select the flow log type:"
   pivots:
   - id: virtual-network
     title: Virtual network
