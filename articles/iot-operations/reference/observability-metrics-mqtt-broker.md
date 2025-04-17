@@ -115,7 +115,7 @@ These metrics provide observability for the connections and subscriptions on the
 
 ## State store metrics
 
-This set of metrics tracks the overall state of the [state store](../create-edge-apps/overview-state-store.md).
+This set of metrics tracks the overall state of the [state store](../develop-edge-apps/overview-state-store.md).
 
 | Metric | Description | Tags |
 |--------|-------------|------|

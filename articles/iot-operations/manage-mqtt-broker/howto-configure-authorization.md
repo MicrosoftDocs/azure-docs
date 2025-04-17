@@ -480,11 +480,11 @@ spec:
 
 ---
 
-To learn more with an example, see [Set up Authorization Policy with Dapr Client](../create-edge-apps/howto-develop-dapr-apps.md).
+To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop-edge-apps/howto-develop-dapr-apps.md).
 
 ## State store
 
-The MQTT broker provides a [state store](../create-edge-apps/concept-about-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
+The MQTT broker provides a [state store](../develop-edge-apps/concept-about-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
 
 To set up authorization for clients that use the state store, provide the following permissions:
 

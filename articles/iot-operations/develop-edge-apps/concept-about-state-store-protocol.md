@@ -3,7 +3,6 @@ title: Learn about the MQTT broker state store protocol
 description: Learn how to implement an MQTT broker state store protocol client
 author: PatAltimore
 ms.author: patricka
-ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
 ms.date: 11/15/2024

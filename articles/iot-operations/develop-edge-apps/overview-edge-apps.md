@@ -1,19 +1,17 @@
 ---
-title: Develop highly available distributed applications for Azure IoT Operations
-description: Learn how to develop highly available distributed applications that work with Azure IoT Operations MQTT broker
-author: PatAltimore
+title: Develop highly available edge applications for Azure IoT Operations
+description: Learn how to develop highly available edge applications that work with Azure IoT Operations.
+author: sergaz
 ms.subservice: azure-mqtt-broker
-ms.author: patricka
+ms.author: asergaz
 ms.topic: concept-article
-ms.custom:
-  - ignite-2023
-ms.date: 2/20/2025
+ms.date: 4/17/2025
 
-#CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
-ms.service: azure-iot-operations
+#CustomerIntent: As a developer, I want understand how to develop highly available edge applications for my Azure IoT Operations solution.
+
 ---
 
-# Develop highly available applications for Azure IoT Operations MQTT broker
+# Develop highly available edge applications for Azure IoT Operations
 
 Creating a highly available application using MQTT broker involves careful consideration of session types, quality of service (QoS), message acknowledgments, parallel message processing, message retention, and shared subscriptions. MQTT broker features a distributed, in-memory message broker and store that provides message retention and built-in state management with MQTT semantics.
 
