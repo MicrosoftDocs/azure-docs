@@ -8,16 +8,16 @@ ms.date: 09/30/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications by using Azure OpenAI and OpenAI. In the following tutorial, we're adding Azure OpenAI Service to an Express application by using the Azure software development kit (SDK).
+You can use Azure App Service to create applications by using Azure OpenAI and OpenAI. In this article, you add Azure OpenAI Service to an Express application by using the Azure SDK.
 
 #### Prerequisites
 
 - An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Node.js Express application. Create the sample app by using our [quickstart](/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode).
+- A Node.js Express application. Create the sample app by using the [quickstart](/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode).
 
 ### Set up a web app
 
-For this application, we're building off the [quickstart](/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode) Express app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service.
+For this application, you're building off the [quickstart](/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode) Express app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service.
 
 First, copy and replace the `index.ejs` file with the following code:
 
@@ -63,7 +63,7 @@ For OpenAI, see this documentation to retrieve the API keys. For our application
 
 - `apiKey`
 
-Because we're deploying to App Service, we can secure these secrets in Azure Key Vault for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the secrets that you saved from earlier.
+Because you're deploying to App Service, you can put these secrets in Azure Key Vault for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the secrets that you saved from earlier.
 
 Next, we can use key vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
 

@@ -8,16 +8,16 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can create intelligent apps by using Azure App Service with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI. In the following tutorial, we're using LangChain to connect to Azure OpenAI in a Python (Flask) application.
+You can create intelligent apps by using Azure App Service with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI. In this article, you use LangChain to connect to Azure OpenAI in a Python (Flask) application.
 
 #### Prerequisites
 
 - An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Flask web application. Create the sample app by using our [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#sample-application).
+- A Flask web application. Create the sample app by using the [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#sample-application).
 
 ### Set up Flask web app
 
-For this Flask web application, we're building off the [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#sample-application) app and updating the `app.py` file to send and receive requests to an Azure OpenAI *or* OpenAI service by using LangChain.
+For this Flask web application, you're building off the [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#sample-application) app and updating the `app.py` file to send and receive requests to an Azure OpenAI *or* OpenAI service by using LangChain.
 
 Copy and replace the `index.html` file with the following code:
 
@@ -81,7 +81,7 @@ After the files are updated, prepare your environment variables to work with Ope
 
 ### API keys and endpoints
 
-In order to make calls to OpenAI with your client, you need to first grab the keys and endpoint values from Azure OpenAI or OpenAI, and add them as secrets for use in your application. Retrieve and save the values for later use.
+To make calls to OpenAI with your client, you need to first get the keys and endpoint values from Azure OpenAI or OpenAI, and add them as secrets for use in your application. Save the values for later use.
 
 For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the following values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app, you don't need the API key value.
 
@@ -98,7 +98,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 
 #### Secure your API keys in your key vault
 
-Because we're deploying to App Service, we can secure the API key in Azure Key Vault for protection. Follow the [quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the key as a secret named `openaikey`.
+Because you're deploying to App Service, you can put the API key in Azure Key Vault for protection. Follow the [quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the key as a secret named `openaikey`.
 
 Next, we can use key vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
 

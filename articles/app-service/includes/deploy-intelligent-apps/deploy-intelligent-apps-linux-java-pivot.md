@@ -8,16 +8,16 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications by using Azure OpenAI and OpenAI. In the following tutorial, we're adding Azure OpenAI Service to a Java 17 Spring Boot application using the Azure software development kit (SDK).
+You can use Azure App Service to create applications by using Azure OpenAI and OpenAI. In this article, you add Azure OpenAI Service to a Java 17 Spring Boot application by using the Azure SDK.
 
 #### Prerequisites
 
 - An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Java Spring Boot application. Create the application by using this [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-maven-javase).
+- A Java Spring Boot application. Create the application by using the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-maven-javase).
 
 ### Set up web app
 
-For this Spring Boot application, we're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
+For this Spring Boot application, you're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
 
 ```java
   @RequestMapping("/")
@@ -39,14 +39,14 @@ For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?
 - `apiKey`
 - `deploymentName`
 
-For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you need the following values:
+For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For this application, you need the following values:
 
 - `apiKey`
 - `modelName`
 
-Because we're deploying to App Service, we can secure these secrets in Azure Key Vault for protection. Follow the [quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the secrets you saved from earlier.
+Because you're deploying to App Service, you can put these secrets in Azure Key Vault for protection. Follow the [quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the secrets you saved from earlier.
 
-Next, we can use key vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
+Next, you can use key vault references as app settings in your App Service resource to reference in the application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
 
 Then, go to the portal **Environment Variables** page in your resource and add the following app settings:
 
@@ -106,11 +106,11 @@ Before you can create the client, you first need to add the Azure SDK dependency
 </dependency>
 ```
 
-After the package is created, we can start working on the client that makes our calls.
+After the package is created, you can start working on the client that makes your calls.
 
 ### Create OpenAI client
 
-After the package and environment variables are set up, we can create the client that enables chat completion calls.
+After the package and environment variables are set up, you can create the client that enables chat completion calls.
 
 Add the following code to create the OpenAI client:
 
