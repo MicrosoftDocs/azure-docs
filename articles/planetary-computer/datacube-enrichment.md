@@ -1,56 +1,28 @@
 ---
-title: Datacube enrichment for Microsoft Planetary Computer Pro
-description: Learn about datacube enrichment for STAC assets in Microsoft Planetary Computer Pro. This article explains how to enable, and disable datacube enrichment.
+title: Data cube enrichment | Microsoft Planetary Computer Pro
+description: Learn about data cube enrichment for STAC assets in Microsoft Planetary Computer Pro. This article explains how to enable and disable data cube enrichment.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer
 ms.topic: concept-article
 ms.date: 04/09/2025
+
+# customer intent: As a Geocatalog User I want to undertand how Data Cubes are supported in Microsoft Planetary Computer Pro so that I can ingest, manage, and visualize data cube data formats.
 ---
 
-# Datacube enrichment of STAC assets for Microsoft Planetary Computer Pro
+# Data cube enrichment of STAC assets for Microsoft Planetary Computer Pro
 
-When a STAC item containing NetCDF or HDF5 assets is ingested, those assets can be enriched with datacube functionality. When datacube functionality is enabled, a Kerchunk manifest is generated and stored in blob storage alongside the asset, enabling more efficient data access.
+When a SpatioTemporal Asset Catalog (STAC) item containing NetCDF or HDF5 assets is ingested, those assets can be enriched with data cube functionality. When data cube functionality is enabled, a Kerchunk manifest is generated and stored in blob storage alongside the asset, enabling more efficient data access.
 
-## Supported file types for ingestion
+## Data cube enrichment and Kerchunk manifests  
 
-Planetary Computer supports ingestion of a variety of geospatial data formats. The file type of each asset is determined using the STAC `type` property. The ingestable file types include:
+For STAC assets in **NetCDF** or **HDF5** formats, Planetary Computer can apply **Data cube enrichment** during ingestion. This process generates a **Kerchunk manifest**, which is stored in blob storage alongside the asset. The Kerchunk manifest enables efficient access to chunked dataset formats.
 
-- **Raster data**  
-  - GeoTIFF  
-  - TIFF  
-  - COG  
-  - JPEG  
-  - JPEG2000  
-  - PNG  
+### Enabling Data cube enrichment  
 
-- **Datacube formats**  
-  - NetCDF  
-  - HDF5  
-  - GRIB2  
-  - Zarr  
+Data cube enrichment is **enabled** for applicable assets in the STAC item JSON. For each asset, enrichment is triggered if both of the following conditions are met:  
 
-- **Vector data**  
-  - Geoparquet  
-  - GeoJSON  
-  - GeoPackage  
-
-- **Other formats**  
-  - Hyperspectral Data  
-  - 3D/Point Cloud Data  
-  - Drone Video & Imagery  
-
-These formats determine how an asset is processed during ingestion and whether additional enrichment steps, such as **Kerchunk manifest generation**, are applied.
-
-## Datacube enrichment and Kerchunk manifests  
-
-For STAC assets in **NetCDF** or **HDF5** formats, Planetary Computer can apply **Datacube enrichment** during ingestion. This process generates a **Kerchunk manifest**, which is stored in blob storage alongside the asset. The Kerchunk manifest enables efficient access to chunked dataset formats.
-
-### Enabling Datacube enrichment  
-
-Datacube enrichment is **enabled** for applicable assets in the STAC item JSON. For each asset, enrichment is triggered if both of the following conditions are met:  
-
-1. The asset format is one of the following:
+1. The asset format is one of the following types:
     - `application/netcdf`
     - `application/x-netcdf`
     - `application/x-hdf5`
@@ -58,9 +30,9 @@ Datacube enrichment is **enabled** for applicable assets in the STAC item JSON. 
 
 If these conditions are met, a **Kerchunk manifest** (`assetid-kerchunk.json`) is generated in blob storage alongside the asset. 
 
-**Note**:The asset format `application/x-hdf` often corresponds to HDF4, however GeoCatalog ingestion does not support creating virtual kerchunk manifests for HDF4 due to its added complexity and multiple variants.
+**Note**: The asset format type`application/x-hdf` often corresponds to HDF4 assets. GeoCatalog ingestion doesn't currently support creating virtual kerchunk manifests for HDF4 due to its added complexity and multiple variants.
 
-### Datacube enrichment modifies the STAC item JSON  
+### Data cube enrichment modifies the STAC item JSON  
 
 For each enriched asset within the **STAC item JSON**, the following fields are added:  
 
@@ -69,21 +41,22 @@ For each enriched asset within the **STAC item JSON**, the following fields are 
 - `cube:variables` – A dictionary describing dataset variables and their properties. 
 
 
-### Disabling datacube enrichment  
+### Disabling data cube enrichment  
 
 To **disable enrichment** for an asset, remove `data` and `visual` from the asset’s `roles` list in the STAC item JSON before ingestion.
 
 ### Handling enrichment failures  
 
-If Datacube enrichment fails, the asset can be **re-ingested** with enrichment disabled by updating the STAC item JSON to exclude the `data` or `visual` role before retrying ingestion.
+If Data cube enrichment fails, the asset can be **re-ingested** with enrichment disabled by updating the STAC item JSON to exclude the `data` or `visual` role before retrying ingestion.
 
-## Why enable datacube enrichment?  
+## Why enable data cube enrichment?  
 
-Enabling Datacube enrichment improves **data access performance**, especially for visualization workflows. When a Kerchunk manifest is present, it allows **faster access** compared to loading the entire dataset file. 
+Enabling Data cube enrichment improves **data access performance**, especially for visualization workflows. When a Kerchunk manifest is present, it allows **faster access** compared to loading the entire dataset file. 
 
 ### Faster dataset access for data APIs and visualization with Kerchunk  
 
-When accessing a dataset, Planetary Computer **uses the Kerchunk manifest (`.json`)** if one exists in the same blob storage directory as the original asset. Instead of opening the full `.nc` file, we use a **Zarr with reference files** to access only the necessary data. 
+The Data Explorer and tiling APIs preferentially use the **Kerchunk manifest (`.json`)** for data read operations if one exists in the same blob storage directory as the original asset. Instead of opening the full `.nc` file, we use a **Zarr with reference files** to access only the necessary data. 
 
-Because it avoids reading the entire file into memory, using a chunked, reference-based approach is **much faster** than directly loading the entire dataset with `xarray` and reduces resource usage. 
+Reading data using a chunked, reference-based approach is faster because it avoids reading the entire file into memory.
+
   
