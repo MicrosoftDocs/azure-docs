@@ -21,7 +21,7 @@ The *Essentials* details include:
 
 To manage your resource, select the links next to corresponding details.
 
-## Single sign-on
+## Set password
 
 
 ## Delete an MongoDB Atlas resource
