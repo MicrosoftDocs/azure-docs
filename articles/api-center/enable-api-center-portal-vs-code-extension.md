@@ -65,7 +65,7 @@ Developers can follow these steps to connect and sign in to view an API Center p
     1. The application (client) ID from the app registration configured by the administrator in the previous section.
     1. The directory (tenant) ID from the app registration configured by the administrator in the previous section.
 
-       > [!TIP]
+    > [!TIP]
     > An API center administrator needs to provide these connection details to developers, or provide a direct link in the following format:  
     > `vscode://apidev.azure-api-center?clientId=<Client ID>&tenantId=<tenant ID>&runtimeUrl=<service-name>.data.<region>.azure-apicenter.ms`
 
