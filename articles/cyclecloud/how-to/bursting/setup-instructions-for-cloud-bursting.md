@@ -83,7 +83,7 @@ NFSServer IP Address: 10.222.xxx.xxx
 - Select the OS from Advance setting tab - **Ubuntu 22.04** or **AlmaLinux 8** from the drop down based on the scheduler VM.
 - Once all settings are configured, click **Save** and then **Start** the `hpc1` cluster.
 
-![NFS settings](../images/slurm-cloud-burst/cyclecloud-ui-config.png)
+![NFS settings](../../images/slurm-cloud-burst/cyclecloud-ui-config.png)
 
 ### CycleCloud Autoscaler Integration on Slurm Scheduler
 
@@ -145,7 +145,7 @@ Last login: Tue May 14 04:54:51 UTC 2024 on pts/0
                  1       hpc hostname    user1 CF       0:04      1 hpc1-hpc-1
 [user1@masternode2 ~]$ hpc1-hpc-1
 ```
-![Node Creation](../images/slurm-cloud-burst/cyclecloud-ui-new-node.png)
+![Node Creation](../../images/slurm-cloud-burst/cyclecloud-ui-new-node.png)
 
 You should see the job running successfully, indicating a successful integration with CycleCloud.
 
