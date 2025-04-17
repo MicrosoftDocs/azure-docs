@@ -2,7 +2,7 @@
 title: "Forcepoint DLP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Forcepoint DLP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

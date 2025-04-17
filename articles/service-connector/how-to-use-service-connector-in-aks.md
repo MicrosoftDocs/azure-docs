@@ -1,69 +1,131 @@
 ---
-title: How Service Connector helps Azure Kubernetes Service (AKS) connect to other Azure services
-description: Learn how to use Service Connector in Azure Kubernetes Service (AKS). 
+title: How to use Service Connector in Azure Kubernetes Service (AKS)
+description: Learn how to use Service Connector to connect AKS to other Azure services. Learn about Service Connector operations, resource management, and troubleshooting.
 author: houk-ms
+ms.reviewer: malev
 ms.service: service-connector
-ms.topic: conceptual
-ms.date: 03/01/2024
+ms.topic: how-to
+ms.date: 02/06/2025
 ms.author: honc
 ---
-# How to use Service Connector in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) is one of the compute services supported by Service Connector. This article aims to help you understand:
+# Use Service Connector in Azure Kubernetes Service (AKS)
 
-* What operations are made on the cluster when creating a service connection.
-* How to use the kubernetes resources Service Connector creates.
-* How to troubleshoot and view logs of Service Connector in an AKS cluster.
+Azure Kubernetes Service (AKS) is one of the compute services supported by Service Connector.
+
+This article covers:
+
+* The differences between Service Connector for AKS and other compute services.
+* The operations executed on the cluster during the creation of a service connection.
+* The operations executed on the target services during the creation of a service connection.
+* Using the Kubernetes resources created by Service Connector.
+* Troubleshooting and viewing Service Connector logs in an AKS cluster.
 
 ## Prerequisites
 
 * This guide assumes that you already know the [basic concepts of Service Connector](concept-service-connector-internals.md).
 
-## What operations Service Connector makes on the cluster
+## Differences between Service Connector for AKS and other compute services
 
-Depending on the different target services and authentication types selected when creating a service connection, Service Connector makes different operations on the AKS cluster. The following lists the possible operations made by Service Connector.
+Service Connector for AKS differs from how it operates with other [compute services supported by Service Connector](/azure/service-connector/overview#what-services-are-supported-by-service-connector) in several ways. The following outlines AKS-specific options and behaviors for each API operation.
 
-### Add the Service Connector kubernetes extension
+### Creation
 
-A kubernetes extension named `sc-extension` is added to the cluster the first time a service connection is created. Later on, the extension helps create kubernetes resources in user's cluster, whenever a service connection request comes to Service Connector. You can find the extension in your AKS cluster in the Azure portal, in the **Extensions + applications** menu.
+The AKS-specific creation options are listed below. Refer to the [Azure portal](/azure/service-connector/quickstart-portal-aks-connection) or [Azure CLI](/azure/service-connector/quickstart-cli-aks-connection) quickstarts to learn how to create a new connection in AKS.
+
+- Service Connector for AKS requires the `Kubernetes namespace` parameter to specify where to [create the Kubernetes resources](#creating-the-kubernetes-resources). By default, it uses the `default` namespace.
+- Service Connector for AKS supports `Workload Identity` as the secure credential authentication option, while other compute services offer `System Managed Identity` and `User Managed Identity` options.
+- When using Azure Key Vault as the target service with the Secret Store CSI Driver enabled, Service Connector uses the user-assigned managed identity from the AKS `azure-keyvault-secrets-provider` add-on for authentication, without requiring users to specify the authentication type.
+- Service Connector for AKS only supports the `Firewall Rules` networking option, whereas other compute services may also support `Private Link` and `Virtual Network` options.
+
+### List configurations
+
+Service Connector for AKS displays only non-credential configurations in the list configuration views. Users should manually check the credentials in the [associated Kubernetes resource](#creating-the-kubernetes-resources) if needed.
+
+Using the Azure CLI command [az aks connection list-configuration](/cli/azure/aks/connection?view=azure-cli-latest&preserve-view=true#az-aks-connection-list-configuration), the value of a credential configuration is an empty string. In the Azure portal, the value of a credential configuration is hidden, as shown below.
+
+:::image type="content" source="./media/aks-tutorial/aks-list-config.png" alt-text="Screenshot of the AKS connection listing configuration.":::
+
+### Validation
+
+Service Connector for AKS doesn't validate configuration value changes made within the user's cluster, whether they're credential or non-credential configurations. However, Service Connector performs the following validations, as it does for other compute services:
+
+- Verifying the existence of the target service
+- Checking IP firewall rules for access to the target service
+- Ensuring role assignment for workload identity to access the target service
+
+The output of the Azure CLI command [az aks connection validate](/cli/azure/aks/connection?view=azure-cli-latest&preserve-view=true#az-aks-connection-validate) is always `success`. The same applies to the Azure portal, as shown below.
+
+:::image type="content" source="./media/aks-tutorial/aks-validate.png" alt-text="Screenshot of the AKS connection validation.":::
+
+## Operations performed by Service Connector on the AKS cluster
+
+The operations performed by Service Connector on the AKS cluster vary depending on the target services and authentication types selected when creating a service connection. The following lists the possible operations made by Service Connector.
+
+### Adding the Service Connector Kubernetes extension
+
+A Kubernetes extension named `sc-extension` is added to the cluster the first time a service connection is created. Later on, the extension helps create Kubernetes resources in the user's cluster, whenever a service connection request comes to Service Connector. The extension is found in the user's AKS cluster in the Azure portal, in the **Extensions + applications** menu.
 
 :::image type="content" source="./media/aks-tutorial/sc-extension.png" alt-text="Screenshot of the Azure portal, view AKS extension.":::
 
-The extension is also where the cluster connections metadata are stored. Uninstalling the extension makes all the connections in the cluster unavailable. The extension operator is hosted in the cluster namespace `sc-system`.
+The cluster connection's metadata are also stored in the extension. Uninstalling the extension renders all the connections in the cluster unavailable. The extension operator is hosted in the cluster namespace `sc-system`.
 
-### Create kubernetes resources
+### Creating the Kubernetes resources
 
-Service Connector creates some kubernetes resources to the namespace the user specified when creating a service connection. The kubernetes resources store the connection information, which is needed by the user's workload definitions or application code to talk to target services. Depending on different authentication types, different kubernetes resources are created. For the `Connection String` and `Service Principal` auth types, a kubernetes secret is created. For the `Workload Identity` auth type, a kubernetes service account is also created in addition to a kubernetes secret.
+Service Connector creates Kubernetes resources in the namespace the user specifies when creating the service connection. The Kubernetes resources store the connection information needed by the user's workload definitions or application code to communicate with the target services. Depending on the authentication type, different Kubernetes resources are created. For the `Connection String` and `Service Principal` auth types, a Kubernetes secret is created. For the `Workload Identity` auth type, a Kubernetes service account is also created in addition to a Kubernetes secret.
 
-You can find the kubernetes resources created by Service Connector for each service connection on the Azure portal in your kubernetes resource, in the Service Connector menu.
+You can find the Kubernetes resources created by Service Connector for each service connection on the Azure portal in your Kubernetes resource, in the Service Connector menu.
 
-:::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, view Service Connector created kubernetes resources.":::
+:::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, view Service Connector created Kubernetes resources.":::
 
-Deleting a service connection doesn't delete the associated Kubernetes resource. If necessary, remove your resource manually, using for example the kubectl delete command.
+Deleting a service connection doesn't delete the associated Kubernetes resource. If necessary, remove your resource manually, using for example the `kubectl delete` command.
 
-### Enable the `azureKeyvaultSecretsProvider` addon
+### Enabling the `azureKeyvaultSecretsProvider` add-on
 
-If target service is Azure Key Vault and the Secret Store CSI Driver is enabled when creating a service connection, Service Connector enables the `azureKeyvaultSecretsProvider` add-on for the cluster.
+If  the target service is Azure Key Vault and the Secret Store CSI Driver is enabled, Service Connector enables the `azureKeyvaultSecretsProvider` add-on for the cluster.
 
 :::image type="content" source="./media/aks-tutorial/keyvault-csi.png" alt-text="Screenshot of the Azure portal, enabling CSI driver for keyvault when creating a connection.":::
 
-Follow the [Connect to Azure Key Vault using CSI driver tutorial](./tutorial-python-aks-keyvault-csi-driver.md)to set up a connection to Azure Key Vault using Secret Store CSI driver.
+Follow the [Connect to Azure Key Vault using CSI driver tutorial](./tutorial-python-aks-keyvault-csi-driver.md) to set up a connection to Azure Key Vault using Secret Store CSI driver.
 
-### Enable workload identity and OpenID Connect (OIDC) issuer
+### Enabling workload identity and OpenID Connect (OIDC) issuer
 
-If the authentication type is `Workload Identity` when creating a service connection, Service Connector enables workload identity and OIDC issuer for the cluster.
+If the authentication type is `Workload Identity`, Service Connector enables workload identity and OIDC issuer for the cluster.
 
 :::image type="content" source="./media/aks-tutorial/workload-identity.png" alt-text="Screenshot of the Azure portal, using workload identity to create a connection.":::
 
-When the authentication type is `Workload Identity`, a user-assigned managed identity is needed to create the federated identity credential. Learn more from [what are workload identities](/entra/workload-id/workload-identities-overview), or follow the [tutorial](./tutorial-python-aks-storage-workload-identity.md)to set up a connection to Azure Storage using workload identity.
+If the authentication type is `Workload Identity`, a user-assigned managed identity is needed to create the federated identity credential. Learn more about [workload identities](/entra/workload-id/workload-identities-overview) or refer [the following tutorial](./tutorial-python-aks-storage-workload-identity.md) to set up a connection to Azure Storage using a workload identity.
 
-## How to use the Service Connector created kubernetes resources
+## Operations performed by Service Connector on the target services
 
-Different kubernetes resources are created when the target service type and authentication type are different. The following sections show how to use the Service Connector created kubernetes resources in your cluster workloads definition and application codes.
+Service Connector for AKS performs the same operations on target services as other compute services. However, the operations vary depending on the target service types and authentication methods. The following lists some possible operations.
 
-#### Kubernetes secret
+### Get connection configurations
 
-A kubernetes secret is created when the authentication type is `Connection String` or `Service Principal`. Your cluster workload definition can reference the secret directly. The following snippet is an example.
+Service Connector retrieves the required connection configurations from the target service and sets them as a Kubernetes secret in the user's cluster. The connection configurations vary based on the target service type and authentication method:
+
+- For the `Connection String` authentication type, the configuration typically includes a service secret or connection string.
+- For the `Workload Identity` authentication type, it usually contains the service endpoint.
+- For the `Service Principal` authentication type, it contains the service principal's tenant ID, client ID, and client secret. 
+
+For detailed information on specific target services, refer to the corresponding documentation, such as the [Azure AI services](/azure/service-connector/how-to-integrate-ai-services?tabs=dotnet#system-assigned-managed-identity-recommended) guide.
+
+### Create IP based firewall rules
+
+Service Connector retrieves the outbound public IP from the AKS cluster and creates IP firewall rules on the target service to allow network access from the cluster.
+
+### Create Microsoft Entra ID role assignments
+
+When using the `Workload Identity` authentication type, Service Connector automatically creates a role assignment for the identity. The assigned role varies based on the target service to ensure appropriate access.
+Users can also customize role assignments as needed. For more information, see [role customization](/azure/service-connector/concept-microsoft-entra-roles#role-customization).
+
+## Use the Kubernetes resources created by Service Connector
+
+Service Connector creates various Kubernetes resources depending on the target service type and authentication type selected. The following sections show how to use the Kubernetes resources created by Service Connector in your cluster workloads definition and application code.
+
+### Kubernetes secret
+
+A Kubernetes secret is created when the authentication type is set to either `Connection String` or `Service Principal`. Your cluster workload definition can reference the secret directly. The following snippet provides an example.
 
 ```yaml
 apiVersion: batch/v1
@@ -85,11 +147,11 @@ spec:
 
 ```
 
-Then, your application codes can consume the connection string in the secret from environment variable. You can check the [sample code](./how-to-integrate-storage-blob.md) to learn more about the environment variable names and how to use them in your application codes to authenticate to different target services.
+Your application code can consume the connection string in the secret from an environment variable. Check the following [sample code](./how-to-integrate-storage-blob.md) to learn more about the environment variable names and how to use them in your application code to authenticate to different target services.
 
-#### Kubernetes service account
+### Kubernetes service account
 
-Both a kubernetes service account and a secret are created when the authentication type is `Workload Identity`. Your cluster workload definition can reference the service account and secret to authenticate through workload identity. The following snippet provides an example.
+A Kubernetes service account and a secret are created when the authentication type is set to `Workload Identity`. Your cluster workload definition can reference the service account and secret to authenticate through workload identity. The following snippet provides an example.
 
 ```yaml
 apiVersion: batch/v1
@@ -113,149 +175,166 @@ spec:
       restartPolicy: OnFailure
 ```
 
-You may check the tutorial to learn [how to connect to Azure Storage using workload identity](tutorial-python-aks-storage-workload-identity.md).
+Check the following tutorial to learn [how to connect to Azure Storage using workload identity](tutorial-python-aks-storage-workload-identity.md).
 
-## How to troubleshoot and view logs
+## Troubleshoot and view logs
 
-If an error happens and couldn't be mitigated by retrying when creating a service connection, the following methods can help gather more information for troubleshooting.
+If an error occurs and can't be resolved by retrying when creating a service connection, the following methods help gather more information for troubleshooting.
 
-### Check Service Connector kubernetes extension
+### Check Service Connector Kubernetes extension
 
-Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kubernetes cluster extensions](/azure/azure-arc/kubernetes/extensions). Use the following commands to investigate if there are any errors during the extension installation or updating.
+The Service Connector Kubernetes extension is built on top of [Azure Arc-enabled Kubernetes cluster extensions](/azure/azure-arc/kubernetes/extensions). Use the following commands to check for any errors occurring during the extension installation or update process.
 
 1. Install the `k8s-extension` Azure CLI extension.
 
-  ```azurecli
-  az extension add --name k8s-extension
-  ```
+    ```azurecli
+    az extension add --name k8s-extension
+    ```
 
-1. Get the Service Connector extension status. Check the `statuses` property in the command output to see if there are any errors.
+1. Retrieve the status of the Service Connector extension. Check the `statuses` property in the command output to identify any errors.
 
-  ```azurecli
-  az k8s-extension show \
-      --resource-group MyClusterResourceGroup \
-      --cluster-name MyCluster \
-      --cluster-type managedClusters \
-      --name sc-extension
-  ```
+    ```azurecli
+    az k8s-extension show \
+        --resource-group MyClusterResourceGroup \
+        --cluster-name MyCluster \
+        --cluster-type managedClusters \
+        --name sc-extension
+    ```
 
-### Check kubernetes cluster logs
+### Check Kubernetes cluster logs
 
-If there's an error during the extension installation, and the error message in the `statuses` property doesn't provide enough information about what happened, you can further check the kubernetes logs with the followings steps.
+If an error occurs during the extension installation and the error message in the `statuses` property doesn't provide sufficient information, you can further investigate by checking the Kubernetes logs with the followings steps.
 
 1. Connect to your AKS cluster.
 
-   ```azurecli
-   az aks get-credentials \
-       --resource-group MyClusterResourceGroup \
-       --name MyCluster
-   ```
-1. Service Connector extension is installed in the namespace `sc-system` through helm chart, check the namespace and the helm release by following commands.
+    ```azurecli
+    az aks get-credentials \
+        --resource-group MyClusterResourceGroup \
+        --name MyCluster
+    ```
+1. The Service Connector extension is installed in the `sc-system` namespace using a Helm chart. Check the namespace and the Helm release using the following commands.
 
    - Check the namespace exists.
 
-   ```Bash
-   kubectl get ns
-   ```
+      ```Bash
+      kubectl get ns
+      ```
 
    - Check the helm release status.
 
-   ```Bash
-   helm list -n sc-system
-   ```
-1. During the extension installation or updating, a kubernetes job called `sc-job` creates the kubernetes resources for the service connection. The job execution failure usually causes the extension failure. Check the job status by running the following commands. If `sc-job` doesn't exist in `sc-system` namespace, it should have been executed successfully. This job is designed to be automatically deleted after successful execution.
+      ```Bash
+      helm list -n sc-system
+      ```
+
+1. During the extension installation or update, a Kubernetes job called `sc-job` creates the Kubernetes resources for the service connection. A job execution failure typically causes the extension to fail. Check the job status by running the following commands. If `sc-job` doesn't exist in the `sc-system` namespace, it should have been executed successfully. This job is designed to be automatically deleted after successful execution.
 
    - Check the job exists.
 
-   ```Bash
-   kubectl get job -n sc-system
-   ```
+      ```Bash
+      kubectl get job -n sc-system
+      ```
 
    - Get the job status.
 
-   ```Bash
-   kubectl describe job/sc-job -n sc-system
-   ```
+      ```Bash
+      kubectl describe job/sc-job -n sc-system
+      ```
 
    - View the job logs.
 
-   ```Bash
-   kubectl logs job/sc-job -n sc-system
-   ```
+      ```Bash
+      kubectl logs job/sc-job -n sc-system
+      ```
 
 ### Common errors and mitigations
 
+#### Extension creation error
+
+**Error message:**
+
+- `Unable to get a response from the agent in time`.
+- `Extension pods can't be scheduled if all the node pools in the cluster are "CriticalAddonsOnly" tainted`
+
+**Mitigation:**
+
+Refer to [extension creation errors](/troubleshoot/azure/azure-kubernetes/extensions/cluster-extension-deployment-errors#extension-creation-errors)
+
+
+#### Helm errors
+
+**Error messages:**
+
+- `Unable to download the Helm chart from the repo URL`
+
+This error is caused by connectivity problems that occur between the cluster and the firewall in addition to egress blocking problems. 
+To resolve this problem, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress), 
+and add the FQDN required to pull Service Connector Helm chart: `scaksextension.azurecr.io`
+
+**Error messages:**
+
+- `Timed out waiting for resource readiness`
+- `Helm chart rendering failed with given values`
+- `Resource already exists in your cluster`
+- `Operation is already in progress for Helm`
+
+**Mitigation:**
+
+Refer to [Helm errors](/troubleshoot/azure/azure-kubernetes/extensions/cluster-extension-deployment-errors#helm-errors)
+
+
 #### Conflict
 
-**Error Message:**
+**Error message:**
+
 `Operation returned an invalid status code: Conflict`.
 
 **Reason:**
-This error usually occurs when attempting to create a service connection while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connection update conflicts with the ongoing update. It could also happen when your subscription is not registered for the `Microsoft.KubernetesConfiguration` resource provider.
+
+This error typically occurs when attempting to create a service connection while the Azure Kubernetes Service (AKS) cluster is in an updating state. The service connection update conflicts with the ongoing update. This error also occurs when your subscription is not registered with the `Microsoft.KubernetesConfiguration` resource provider.
 
 **Mitigation:**
-- Run the following command to make sure your subscription is registered for `Microsoft.KubernetesConfiguration` resource provider.
 
-  ```azurecli
-  az provider register -n Microsoft.KubernetesConfiguration
-  ```
-- Ensure your cluster is in a "Succeeded" state and retry the creation.
+1. Ensure your cluster is in a "Succeeded" state and retry the creation.
+1. Run the following command to make sure your subscription is registered with the `Microsoft.KubernetesConfiguration` resource provider.
 
-
-#### Timeout
-
-**Error Message:**
-- `Long running operation failed with status 'Failed'. Unable to get a response from the Agent in time`.
-- `Timed out waiting for the resource to come to a ready/completed state`
-
-**Reason:**
-This error often happens when the Kubernetes job used to create or update the Service Connector cluster extension fails to be scheduled due to resource limitations or other issues.
-
-**Mitigation:**
-Refer to [Check Kubernetes cluster logs](#check-kubernetes-cluster-logs) to identify and resolve the detailed reasons. A common issue is that no nodes are available due to preemption. In this case, consider adding more nodes or enabling auto-scaling for your nodes.
+    ```azurecli
+    az provider register -n Microsoft.KubernetesConfiguration
+    ```
 
 #### Unauthorized resource access
 
-**Error Message:**
+**Error message:**
+
 `You do not have permission to perform ... If access was recently granted, please refresh your credentials`.
 
 **Reason:**
+
 Service Connector requires permissions to operate the Azure resources you want to connect to, in order to perform connection operations on your behalf. This error indicates a lack of necessary permissions on some Azure resources.
 
 **Mitigation:**
+
 Check the permissions on the Azure resources specified in the error message. Obtain the required permissions and retry the creation.
 
 #### Missing subscription registration
-**Error Message:**
+
+**Error message:**
+
 `The subscription is not registered to use namespace 'Microsoft.KubernetesConfiguration'`
 
 **Reason:**
-Service Connector requires the subscription to be registered for `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](/azure/azure-arc/kubernetes/extensions).
+
+Service Connector requires the subscription to be registered with `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](/azure/azure-arc/kubernetes/extensions).
 
 **Mitigation:**
-Register the `Microsoft.KubernetesConfiguration` resource provider by running the following command. For more information on resource provider registration errors, please refer to this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
+
+Register the `Microsoft.KubernetesConfiguration` resource provider by running the following command. For more information on resource provider registration errors, please refer to [Resolve errors for resource provider registration](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
 
 ```azurecli
 az provider register -n Microsoft.KubernetesConfiguration
 ```
 
-#### Other issues
 
-If the above mitigations don't resolve your issue, try resetting the service connector cluster extension by removing it and then retrying the creation. This method is expected to resolve most issues related to the Service Connector cluster extension.
-
-Use the following CLI commands to reset the extension:
-
-```azurecli
-az extension add --name k8s-extension
-
-az k8s-extension delete \
-    --resource-group <MyClusterResourceGroup> \
-    --cluster-name <MyCluster> \
-    --cluster-type managedClusters \
-    --name sc-extension
-```
-
-## Next steps
+## Next step
 
 Learn how to integrate different target services and read about their configuration settings and authentication methods.
 

@@ -6,10 +6,10 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 10/07/2024
+ms.date: 03/31/2025
 ms.author: sarahlipsey
 author: shlipsey3
-manager: amycolannino
+manager: femila
 ms.reviewer: quentinb
 ---
 # Azure Certificate Authority details
@@ -36,7 +36,7 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [DigiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 |
 | [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | 0x033af1e6a711a9a0bb2864b11d09fae5<br>DF3C24F9BFD666761B268073FE06D1CC8D4F82A4 |
 | [DigiCert Global Root G3](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
-| [Entrust Root Certification Authority G2](http://web.entrust.com/root-certificates/entrust_g2_ca.cer) | 4a538c28<br>8CF427FD790C3AD166068DE81E57EFBB932272D4 |
+| [Entrust Root Certification Authority G2](https://web.entrust.com/root-certificates/entrust_g2_ca.cer) | 4a538c28<br>8CF427FD790C3AD166068DE81E57EFBB932272D4 |
 | [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 0x1ed397095fd8b4b347701eaabe7f45b3<br>73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 |
 
@@ -170,7 +170,7 @@ Key sizes:
 
 ## Certificate downloads and revocation lists
 
-The following domains may need to be included in your firewall allowlists to optimize connectivity:
+The following domains (HTTP/Port 80) may need to be included in your firewall allowlists to optimize connectivity:
 
 AIA:
 - `cacerts.digicert.com`
@@ -247,9 +247,9 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 
 ## Past changes
 
-The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm. View the [Sunset for SHA-1 OCSP signing article](../fundamentals/ocsp-sha-1-sunset.md) for additional information.
+The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm.
 
-Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services finalized these updates in 2022. View the [Azure TLS certificate changes article](../fundamentals/tls-certificate-changes.md) for additional information.
+Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services finalized these updates in 2022.
 
 ### Article change log
 

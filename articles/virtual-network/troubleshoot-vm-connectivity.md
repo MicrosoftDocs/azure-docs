@@ -27,6 +27,7 @@ To resolve these problems, follow the steps in the following section.
 > You can use the following:
 > * `netstat -an` to list the ports that the VM is listening to
 > * Test-NetConnection module in PowerShell to display diagnostic information for a connection such as ping test and tcp test
+> * Ensure to utilize tcping or other TCP-based testing tools, as ICMP traffic is deprioritized by many networking devices. Using TCP tests provides more consistent and reliable results, especially in Azure environments.
 > 
 ## Resolution
 

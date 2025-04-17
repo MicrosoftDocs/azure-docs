@@ -52,7 +52,7 @@ For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 
 ## Upload a file
 
-Upload a file by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Upload a file by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -77,7 +77,7 @@ You can also upload a file by using a wildcard symbol (*) anywhere in the file p
 
 ## Upload a directory
 
-Upload a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Upload a directory by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 This example copies a directory (and all of the files in that directory) to a blob container. The result is a directory in the container by the same name.
 
@@ -118,7 +118,7 @@ If you specify the name of a directory that doesn't exist in the container, AzCo
 
 ## Upload directory contents
 
-Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command. Use the wildcard symbol (*) to upload the contents without copying the containing directory itself.
+Upload the contents of a directory by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command. Use the wildcard symbol (*) to upload the contents without copying the containing directory itself.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -150,7 +150,7 @@ You can upload specific files by using complete file names, partial names with w
 
 ### Specify multiple complete file names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
 
 **Syntax**
 
@@ -170,11 +170,11 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/myco
 
 In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. Include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
 
-You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 ### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolon (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolon (`;`).
 
 **Syntax**
 
@@ -192,13 +192,13 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/myc
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
 ```
 
-You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `-recursive` option to get the entire directory tree, and then use the `-include-pattern` and specify `*.txt` to get all of the text files.
 
 ### Upload files that were modified before or after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
 
 The following examples upload files that were modified on or after the specified date.
 
@@ -218,7 +218,7 @@ azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/m
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'
 ```
 
-For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 ## Upload with index tags
 
@@ -266,7 +266,7 @@ You can tweak your upload operation by using optional flags. Here's a few exampl
 |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 
-For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
 ## Next steps
 

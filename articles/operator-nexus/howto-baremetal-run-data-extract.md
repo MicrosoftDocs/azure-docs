@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 2/13/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -22,91 +22,15 @@ The command produces an output file containing the results of the data extract. 
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 - Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
-## Verify access to the Cluster Manager storage account
+## Send command output to a user specified storage account
 
-> [!NOTE]
-> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and the user managed storage option is fully supported.
+See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
 
-If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
-
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
-
-## **PREVIEW:** Send command output to a user specified storage account
-
-> [!IMPORTANT]
-> Please note that this method of specifying a user storage account for command output is in preview. **This method should only be used with user storage accounts that do not have firewall enabled.** If your environment requires the storage account firewall be enabled, use the existing Cluster Manager output method.
-
-### Create and configure storage resources
-
-1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
-1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-1. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-data-extract output.
-   1. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity.
-   1. For more information on managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
-   1. If using the Cluster's system assigned identity, the system assigned identity needs to be added to the cluster before it can be granted access.
-   1. When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
-
-### Configure the cluster to use a user-assigned managed identity for storage access
-
-Use this command to create a cluster with a user managed storage account and user-assigned identity. Note this example is an abbreviated command that just highlights the fields pertinent for adding the user managed storage. It isn't the full cluster create command.
-
-```azurecli-interactive
-az networkcloud cluster create --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  ...
-  --mi-user-assigned "<user-assigned-identity-resource-id>" \
-  --command-output-settings identity-type="UserAssignedIdentity" \
-  identity-resource-id="<user-assigned-identity-resource-id>" \
-  container-url="<container-url>" \
-  ...
-  --subscription "<subscription>"
-```
-
-Use this command to configure an existing cluster for a user provided storage account and user-assigned identity. The update command can also be used to change the storage account location and identity if needed.
-
-```azurecli-interactive
-az networkcloud cluster update --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  --mi-user-assigned "<user-assigned-identity-resource-id>" \
-  --command-output-settings identity-type="UserAssignedIdentity" \
-  identity-resource-id="<user-assigned-identity-resource-id>" \
-  container-url="<container-url>" \
-  --subscription "<subscription>"
-```
-
-### Configure the cluster to use a system-assigned managed identity for storage access
-
-Use this command to create a cluster with a user managed storage account and system assigned identity. Note this example is an abbreviated command that just highlights the fields pertinent for adding the user managed storage. It isn't the full cluster create command.
-
-```azurecli-interactive
-az networkcloud cluster create --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  ...
-  --mi-system-assigned true \
-  --command-output-settings identity-type="SystemAssignedIdentity" \
-  container-url="<container-url>" \
-  ...
-  --subscription "<subscription>"
-```
-
-Use this command to configure an existing cluster for a user provided storage account and to use its own system-assigned identity. The update command can also be used to change the storage account location.
-
-```azurecli-interactive
-az networkcloud cluster update --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  --mi-system-assigned true \
-  --command-output-settings identity-type="SystemAssignedIdentity" \
-  container-url="<container-url>" \
-  --subscription "<subscription>"
-```
-
-To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
+To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
 ### Clear the cluster's CommandOutputSettings
+
+To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
 
 The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
 
@@ -120,48 +44,25 @@ az rest --method patch \
   --body '{"properties": {"commandOutputSettings":null}}'
 ```
 
-### View the principal ID for the managed identity
+## DEPRECATED METHOD: Verify access to the Cluster Manager storage account
 
-The identity resource ID can be found by selecting "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
+> [!IMPORTANT]
+> The Cluster Manager storage account is targeted for removal in April 2025 at the latest. If you're using this method today for command output, consider converting to using a user provided storage account.
 
-The CLI can also be used to view the identity and the associated principal ID data within the cluster.
+If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
 
-Example:
-
-```console
-az networkcloud cluster show --ids /subscriptions/<Subscription ID>/resourceGroups/<Cluster Resource Group Name>/providers/Microsoft.NetworkCloud/clusters/<Cluster Name>
-```
-
-System-assigned identity example:
-
-```
-    "identity": {
-        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
-        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-        "type": "SystemAssigned"
-    },
-```
-
-User-assigned identity example:
-
-```
-    "identity": {
-        "type": "UserAssigned",
-        "userAssignedIdentities": {
-            "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
-                "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-                "principalId": "bbbbbbbb-cccc-dddd-2222-333333333333"
-            }
-        }
-    },
-```
+1. From Azure portal, navigate to Cluster Manager's Storage account.
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+1. In the Storage browser details, select on **Blob containers**.
+1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Execute a run-data-extract command
 
 The run data extract command executes one or more predefined scripts to extract data from a bare metal machine.
 
 > [!WARNING]
-> Microsoft does not provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Please note any values sent will be logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault, if you have specific questions or concerns please submit a request via the Azure Portal.
+> Microsoft doesn't provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Note any values sent are logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault. If you have specific questions or concerns, submit a request via the Azure portal.
 
 The current list of supported commands are
 
@@ -185,14 +86,13 @@ The current list of supported commands are
   Command Name: `hardware-rollup-status`\
   Arguments: None
 
-- [Generate Cluster CVE Report](#generate-cluster-cve-report)\
+- [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
   Arguments: None
 
 - [Collect Helm Releases](#collect-helm-releases)\
   Command Name: `collect-helm-releases`\
   Arguments: None
-  
 - [Collect `systemctl status` Output](#collect-systemctl-status-output)\
   Command Name: `platform-services-status`\
   Arguments: None
@@ -455,7 +355,7 @@ Vulnerability data is collected with the `cluster-cve-report` command and format
 This example executes the `cluster-cve-report` command without arguments.
 
 > [!NOTE]
-> The target machine must be a control-plane node or the action will not execute.
+> The target machine must be a control-plane node or the action doesn't execute.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
@@ -501,6 +401,10 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
           "type": "string",
           "description": "The name of the resource."
         },
+        "clusterId": {
+          "type": "string",
+          "description": "The resource ID of the cluster."
+        },
         "runtimeVersion": {
           "type": "string",
           "description": "The version of the runtime."
@@ -512,35 +416,41 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
         "vulnerabilitySummary": {
           "type": "object",
           "properties": {
-            "criticalCount": {
-              "type": "integer",
-              "description": "Number of critical vulnerabilities."
+            "uniqueVulnerabilities": {
+              "type": "object",
+              "properties": {
+                "critical": { "type": "integer" },
+                "high": { "type": "integer" },
+                "medium": { "type": "integer" },
+                "low": { "type": "integer" },
+                "unknown": { "type": "integer" }
+              },
+              "required": ["critical", "high", "medium", "low", "unknown"]
             },
-            "highCount": {
-              "type": "integer",
-              "description": "Number of high severity vulnerabilities."
-            },
-            "mediumCount": {
-              "type": "integer",
-              "description": "Number of medium severity vulnerabilities."
-            },
-            "lowCount": {
-              "type": "integer",
-              "description": "Number of low severity vulnerabilities."
-            },
-            "noneCount": {
-              "type": "integer",
-              "description": "Number of vulnerabilities with no severity."
-            },
-            "unknownCount": {
-              "type": "integer",
-              "description": "Number of vulnerabilities with unknown severity."
+            "totalVulnerabilities": {
+              "type": "object",
+              "properties": {
+                "critical": { "type": "integer" },
+                "high": { "type": "integer" },
+                "medium": { "type": "integer" },
+                "low": { "type": "integer" },
+                "unknown": { "type": "integer" }
+              },
+              "required": ["critical", "high", "medium", "low", "unknown"]
             }
           },
-          "required": ["criticalCount", "highCount", "mediumCount", "lowCount", "noneCount", "unknownCount"]
+          "required": ["uniqueVulnerabilities", "totalVulnerabilities"]
         }
       },
-      "required": ["dateRetrieved", "platform", "resource", "runtimeVersion", "managementVersion", "vulnerabilitySummary"]
+      "required": [
+        "dateRetrieved",
+        "platform",
+        "resource",
+        "clusterId",
+        "runtimeVersion",
+        "managementVersion",
+        "vulnerabilitySummary"
+      ]
     },
     "containers": {
       "type": "object",
@@ -550,12 +460,17 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
           "type": "object",
           "properties": {
             "namespace": {
-              "type": "string",
-              "description": "The namespace of the container."
+              "type": "array",
+              "description": "The namespaces where the container image is in-use.",
+              "items": { "type": "string" }
             },
             "digest": {
               "type": "string",
               "description": "The digest of the container image."
+            },
+            "observedCount": {
+              "type": "integer",
+              "description": "The number of times the container image has been observed."
             },
             "os": {
               "type": "object",
@@ -567,97 +482,46 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
               },
               "required": ["family"]
             },
-            "summary": {
-              "type": "object",
-              "properties": {
-                "criticalCount": {
-                  "type": "integer",
-                  "description": "Number of critical vulnerabilities in this container."
-                },
-                "highCount": {
-                  "type": "integer",
-                  "description": "Number of high severity vulnerabilities in this container."
-                },
-                "lowCount": {
-                  "type": "integer",
-                  "description": "Number of low severity vulnerabilities in this container."
-                },
-                "mediumCount": {
-                  "type": "integer",
-                  "description": "Number of medium severity vulnerabilities in this container."
-                },
-                "noneCount": {
-                  "type": "integer",
-                  "description": "Number of vulnerabilities with no severity in this container."
-                },
-                "unknownCount": {
-                  "type": "integer",
-                  "description": "Number of vulnerabilities with unknown severity in this container."
-                }
-              },
-              "required": ["criticalCount", "highCount", "lowCount", "mediumCount", "noneCount", "unknownCount"]
-            },
             "vulnerabilities": {
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Title of the vulnerability."
-                  },
-                  "vulnerabilityID": {
-                    "type": "string",
-                    "description": "Identifier of the vulnerability."
-                  },
-                  "fixedVersion": {
-                    "type": "string",
-                    "description": "The version in which the vulnerability is fixed."
-                  },
-                  "installedVersion": {
-                    "type": "string",
-                    "description": "The currently installed version."
-                  },
-                  "referenceLink": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to the vulnerability details."
-                  },
-                  "publishedDate": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The date when the vulnerability was published."
-                  },
-                  "score": {
-                    "type": "number",
-                    "description": "The CVSS score of the vulnerability."
-                  },
-                  "severity": {
-                    "type": "string",
-                    "description": "The severity level of the vulnerability."
-                  },
-                  "resource": {
-                    "type": "string",
-                    "description": "The resource affected by the vulnerability."
-                  },
-                  "target": {
-                    "type": "string",
-                    "description": "The target of the vulnerability."
-                  },
-                  "packageType": {
-                    "type": "string",
-                    "description": "The type of the package."
-                  },
-                  "exploitAvailable": {
-                    "type": "boolean",
-                    "description": "Indicates if an exploit is available for the vulnerability."
-                  }
+                  "title": { "type": "string" },
+                  "vulnerabilityID": { "type": "string" },
+                  "fixedVersion": { "type": "string" },
+                  "installedVersion": { "type": "string" },
+                  "referenceLink": { "type": "string", "format": "uri" },
+                  "publishedDate": { "type": "string", "format": "date-time" },
+                  "dataSource": { "type": "string" },
+                  "score": { "type": "number" },
+                  "severity": { "type": "string" },
+                  "severitySource": { "type": "string" },
+                  "resource": { "type": "string" },
+                  "target": { "type": "string" },
+                  "packageType": { "type": "string" },
+                  "exploitAvailable": { "type": "boolean" }
                 },
-                "required": ["title", "vulnerabilityID", "fixedVersion", "installedVersion", "referenceLink", "publishedDate", "score", "severity", "resource", "target", "packageType", "exploitAvailable"]
+                "required": [
+                  "title",
+                  "vulnerabilityID",
+                  "fixedVersion",
+                  "installedVersion",
+                  "referenceLink",
+                  "publishedDate",
+                  "dataSource",
+                  "score",
+                  "severity",
+                  "severitySource",
+                  "resource",
+                  "target",
+                  "packageType",
+                  "exploitAvailable"
+                ]
               }
             }
           },
-          "required": ["namespace", "digest", "os", "summary", "vulnerabilities"]
+          "required": ["namespace", "digest", "os", "observedCount", "vulnerabilities"]
         }
       }
     }
@@ -677,7 +541,7 @@ Helm release data is collected with the `collect-helm-releases` command and form
 This example executes the `collect-helm-releases` command without arguments.
 
 > [!NOTE]
-> The target machine must be a control-plane node or the action will not execute.
+> The target machine must be a control-plane node or the action doesn't execute.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
@@ -786,7 +650,7 @@ https://cmcr5xp3mbn7st.blob.core.windows.net/bmm-run-command-output/a29dcbdb-552
 ### Collect Systemctl Status Output
 
 Service status is collected with the `platform-services-status` command. The output is in plain text format and
-returns an overview of the status of the services on the host as well as the `systemctl status` for each found service.
+returns an overview of the status of the services on the host and the `systemctl status` for each found service.
 
 This example executes the `platform-services-status` command without arguments.
 
@@ -843,7 +707,7 @@ TriggeredBy: ● atop-rotate.timer
 The command provides a link (if using cluster manager storage) or another command (if using user provided storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
 
 > [!WARNING]
-> Using the `--output-directory` argument will overwrite any files in the local directory that have the same name as the new files being created.
+> Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
 
 > [!NOTE]
-> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.
+> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.

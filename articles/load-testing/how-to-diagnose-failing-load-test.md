@@ -16,7 +16,7 @@ In this article, you learn how to diagnose and troubleshoot failing load tests i
 
 Azure Load Testing uses two indicators to determine the outcome of a load test:
 
-- **Test status**: indicates whether the load test was able to start successfully and run the test script until the end. For example, the test status is *Failed* if there's an error in the JMeter test script, or if the [autostop listener](./how-to-define-test-criteria.md#auto-stop-configuration) interrupted the load test because too many requests failed.
+- **Test status**: indicates whether the load test was able to start successfully and run the test script until the end. For example, the test status is *Failed* if there's an error in the JMeter or Locust test script, or if the [autostop listener](./how-to-define-test-criteria.md#auto-stop-configuration) interrupted the load test because too many requests failed.
 
 - **Test result**: indicates the result of evaluating the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test fail criteria was met, the test result is set to *Failed*.
 
@@ -89,7 +89,7 @@ When the load test fails to complete, the *test status* of the test run is set t
 
 A load test can fail to complete because of multiple reasons. Examples of why a load test doesn't finish:
 
-- There are errors in the JMeter test script.
+- There are errors in the test script.
 - The test script uses JMeter features that Azure Load Testing doesn't support. Learn about the [supported JMeter features](./resource-jmeter-support.md).
 - The test script references a file or plugin that isn't available on the test engine instance.
 - The autostop functionality interrupted the load test because too many requests are failing and the error rate exceeds the threshold. Learn more about the [autostop functionality in Azure Load Testing](./how-to-define-test-criteria.md#auto-stop-configuration).
@@ -97,7 +97,7 @@ A load test can fail to complete because of multiple reasons. Examples of why a 
 Use the following steps to help diagnose a test not finishing:
 
 1. Verify the error details on the load test dashboard.
-1. [Download and analyze the test logs](#download-apache-jmeter-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
+1. [Download and analyze the test logs](#download-apache-jmeter-or-locust-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
 1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
 
 ### Load test completed
@@ -113,14 +113,14 @@ Use the following steps to help diagnose a test failing to meet the test criteri
 1. Verify the test [engine health metrics](./how-to-high-scale-load.md#monitor-engine-instance-metrics) to identify possible resource contention on the test engines.
 1. Optionally, [add app components and monitor server-side metrics](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks for the application endpoint.
 
-## Download Apache JMeter worker logs for your load test
+## Download Apache JMeter or Locust worker logs for your load test
 
-When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. During the load test, Apache JMeter stores detailed logging in the worker node logs. You can download these JMeter worker logs for each test run in the Azure portal. Azure Load Testing generates a worker log for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
+When you run a load test, the Azure Load Testing test engines execute your Apache JMeter or Locust test script. During the load test, Apache JMeter and Locust store detailed logging in the worker node logs. You can download these worker logs for each test run in the Azure portal. Azure Load Testing generates a worker log for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
 
 > [!NOTE]
-> Azure Load Testing only records log messages with `WARN` or `ERROR` level in the worker logs.
+> Azure Load Testing only records log messages with `WARN` or `ERROR` level in the worker logs. To get `DEBUG` logs, see [Run tests in debug mode](./how-to-run-tests-in-debug-mode.md). 
 
-For example, if there's a problem with your JMeter script, the load test status is **Failed**. In the worker logs you might find additional information about the cause of the problem.
+For example, if there's a problem with your test script, the load test status is **Failed**. In the worker logs you might find additional information about the cause of the problem.
 
 To download the worker logs for an Azure Load Testing test run, follow these steps:
 
@@ -132,7 +132,7 @@ To download the worker logs for an Azure Load Testing test run, follow these ste
 
 1. On the dashboard, select **Download**, and then select **Logs**.
 
-    The browser should now start downloading a zipped folder that contains the JMeter worker node log file for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
+    The browser should now start downloading a zipped folder that contains the JMeter or Locust worker node log file for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
 
     :::image type="content" source="media/how-to-find-download-logs/logs.png" alt-text="Screenshot that shows how to download the test log files from the test run details page.":::  
 

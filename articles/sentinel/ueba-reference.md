@@ -209,21 +209,38 @@ The following tables describe the enrichments featured in the **ActivityInsights
 
 ### IdentityInfo table
 
-After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Microsoft Entra ID is synchronized to the **IdentityInfo** table in Log Analytics for use in Microsoft Sentinel. You can embed user data synchronized from your Microsoft Entra ID in your analytics rules to enhance your analytics to fit your use cases and reduce false positives.
+After you [enable and configure UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Microsoft identity providers is synchronized to the *IdentityInfo* table in Log Analytics for use in Microsoft Sentinel.
+
+Those identity providers are either or both of the following, depending on which you selected when you configured UEBA:
+
+- Microsoft Entra ID (cloud-based)
+- Microsoft Active Directory (on-premises, requires Microsoft Defender for Identity))
+
+You can query the *IdentityInfo* table in analytics rules, hunting queries, and workbooks, enhancing your analytics to fit your use cases and reducing false positives.
 
 While the initial synchronization may take a few days, once the data is fully synchronized:
 
-- Changes made to your user profiles, groups, and roles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15-30 minutes.
+- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID (and your on-premises Active Directory, if applicable) to ensure that stale records are fully updated.
 
-- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID to ensure that stale records are fully updated.
+- Besides these regular full synchronizations, whenever changes are made to your user profiles, groups, and built-in roles in Microsoft Entra ID, the affected user records are re-ingested and updated in the *IdentityInfo* table within 15-30 minutes. This ingestion is billed at regular rates. For example:
 
-- Default retention time in the **IdentityInfo** table is 30 days.
+    - A user attribute, such as display name, job title, or email address, was changed. A new record for this user is ingested into the *IdentityInfo* table, with the relevant fields updated.
+
+    - Group A has 100 users in it. 5 users are added to the group or removed from the group. In this case, those 5 user records are re-ingested, and their *GroupMembership* fields updated.
+
+    - Group A has 100 users in it. Ten users are added to Group A. Also, groups A1 and A2, each with 10 users, are added to Group A. In this case, 30 user records are re-ingested and their *GroupMembership* fields updated. This happens because group membership is transitive, so changes to groups affect all their subgroups.
+
+    - Group B (with 50 users) is renamed to Group BeGood. In this case, 50 user records are re-ingested and their *GroupMembership* fields updated. If there are subgroups in that group, the same happens for all their members' records.
+
+- Default retention time in the *IdentityInfo* table is 30 days.
 
 #### Limitations
 
-- Currently, only built-in roles are supported.
+- The *AssignedRoles* field supports only built-in roles.
 
-- Data about deleted groups, where a user was removed from a group, is not currently supported.
+- The *GroupMembership* field supports listing up to 500 groups per user, including subgroups. If a user is a member of more than 500 groups, only the first 500 are synchronized with the *IdentityInfo* table. The groups are not evaluated in any particular order, though, so at each new synchronization (every 14 days), it's possible that a different set of groups will be updated to the user record.
+
+- When a group is deleted, or if a group with more than 100 members has its name changed, that group's member user records are not updated. If a different change causes one of those users' records to be updated, the updated group information will be included at that point.
 
 #### Versions of the IdentityInfo table
 
@@ -249,7 +266,7 @@ The following table describes the user identity data included in the **IdentityI
 | **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.         | --                       |
 | **AccountUPN**                  | string   | The user principal name of the user account.               | AccountUPN               |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                | --                       |
-| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. | AssignedRoles            |
+| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. Only built-in roles are supported. | AssignedRoles            |
 | **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High*                | --                       |
 | **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values: <li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*UEBA*<li>*Watchlist*<li>*FullSync*                    | ChangeSource             |
 | **CompanyName**                 |          | The company name to which the user belongs.                | --                       |

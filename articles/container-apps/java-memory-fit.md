@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: ignite-2024, devx-track-azurecli, devx-track-extended-java
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -33,7 +33,7 @@ The following examples show you how to use disable memory fitting with the `crea
 
 # [create](#tab/create)
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -44,7 +44,7 @@ az containerapp create \
 
 # [up](#tab/up)
 
-```azurecli-interactive
+```azurecli
 az containerapp up \ 
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -55,7 +55,7 @@ az containerapp up \
 
 # [update](#tab/update)
 
-```azurecli-interactive
+```azurecli
 az containerapp update \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -93,7 +93,7 @@ Memory fitting is automatically disabled when any of the following conditions ar
 
     For example, memory fitting is automatically disabled if you specify the maximum heap size in an environment variable like shown the following example:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp update \
       --name <CONTAINER_APP_NAME> \
       --resource-group <RESOURCE_GROUP> \

@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ms.custom: mode-ui
 ---
 
@@ -100,6 +100,6 @@ Your Azure Data Share has now been created and the recipient of your Data Share 
 
 When the resource is no longer needed, go to the Data Share Overview page, and select **Delete** to remove it.
 
-## Next steps
+## Next step
 
 In this quickstart, you learned how to create an Azure Data Share. To learn about how a Data Consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.

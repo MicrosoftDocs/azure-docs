@@ -22,7 +22,7 @@ You can check the links in this section for more information about services offe
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[FortiGate and Microsoft Azure Virtual WAN Integration deployment guide](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf),[Routing Scenario Blog](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 |[HPE Aruba](https://www.arubanetworks.com/microsoft-vwan/)|[Aruba SD-WAN and Microsoft Azure Virtual WAN Deployment Guide](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|
 | [NetFoundry](https://netfoundry.io)|[Netfoundry Support Hub: Azure Virtual WAN](https://support.netfoundry.io/hc/articles/360054527871-Configure-NetFoundry-Network-for-Azure-Windows-Virtual-Desktop-Short-Path)|
-|[Nuage/Nokia](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Nuage and Azure Virtual WAN Deployment Guide](https://onestore.nokia.com/asset/210073)|
+|[Nuage/Nokia](https://www.nuagenetworks.net/partners/our-partners/)|[Nuage and Azure Virtual WAN Deployment Guide](https://onestore.nokia.com/asset/210073)|
 |[Open Systems](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Open Systems and Azure Virtual WAN Deployment Guide](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://www.paloaltonetworks.com/blog/2018/09/) |[Palo Alto Networks Azure Virtual WAN Deployment Guide](https://github.com/PaloAltoNetworks/microsoft_azure_virtual_wan)|
 |[Riverbed Technology](https://www.riverbed.com/technical-alliance-microsoft/)|[Azure Virtual WAN & SteelConnect EX](https://www.riverbed.com/technical-alliance-microsoft/) |
@@ -30,5 +30,6 @@ You can check the links in this section for more information about services offe
 |[VMware SD-WAN](https://kb.vmware.com/s/article/79000)|[Azure Virtual WAN VMware SD-WAN Deployment Guide](https://kb.vmware.com/s/article/79000)|
 | [Versa](https://www.versa-networks.com/partners/microsoft-azure) | [Configuring Versa SD-WAN and Microsoft Azure vWAN (Available for registered customers)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |
 | [F5](https://www.f5.com/resources/deployment-guides) | [Azure Virtual WAN F5 Deployment Guide](https://www.f5.com/pdf/deployment-guide/f5-big-ip-and-azure-virtual-wan-deployment-guide.pdf) |
+| [Cato Networks](https://support.catonetworks.com/hc/en-us) | [Azure Virtual WAN Cato Networks Deployment Guide](https://support.catonetworks.com/hc/en-us/articles/24728632513821-Integrating-Cato-with-Azure-vWAN) |
 
 *\* Direct link unavailable. Contact partner company for support.*

@@ -4,7 +4,7 @@ ms.service: azure-functions
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 05/10/2024
+ms.date: 01/03/2025
 ms.author: glenga
 ---
 
@@ -225,7 +225,7 @@ After verifying the function app in the container, press **Ctrl**+**C** (**Comma
 
 ## Publish the container image to a registry 
 
-To make your container image available for deployment to a hosting environment, you must push it to a container registry.
+To make your container image available for deployment to a hosting environment, you must push it to a container registry. As a security best practice, you should use an Azure Container Registry instance and enforce managed identity-based connections. Docker Hub requires you to authenticate using shared secrets, which make your deployments more vulnerable.   
 
 ### [Azure Container Registry](#tab/acr)
 

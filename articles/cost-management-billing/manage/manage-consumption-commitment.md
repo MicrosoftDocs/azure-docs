@@ -6,7 +6,7 @@ ms.reviewer: sornaks
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/16/2024
+ms.date: 01/22/2025
 ms.author: banders
 #customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a MACC so that I move it when needed.
 ---

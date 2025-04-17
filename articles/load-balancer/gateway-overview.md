@@ -42,7 +42,7 @@ Gateway Load Balancer has the following benefits:
 
 ## Configuration and supported scenarios
 
-A Standard Public Load balancer or a Standard IP configuration of a virtual machine can be chained to a Gateway Load Balancer. "Chaining" refers to the load balancer frontend or NIC IP configuration containing a reference to a Gateway Load Balancer frontend IP configuration. Once the Gateway Load Balancer is chained to a consumer resource, no additional configuration such as UDRs are needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
+A Standard Public Load balancer or a Standard IP configuration of a virtual machine can be chained to a Gateway Load Balancer. "Chaining" refers to the load balancer frontend or NIC IP configuration containing a reference to a Gateway Load Balancer frontend IP configuration. Once the Gateway Load Balancer is chained to a consumer resource, no additional configuration such as UDRs is needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
 
 Gateway Load Balancer supports both inbound and outbound traffic inspection. For inserting NVAs in the path of outbound traffic with Standard Load Balancer, Gateway Load Balancer must be chained to the frontend IP configurations selected in the configured outbound rules.
 
@@ -85,6 +85,6 @@ For pricing, see [Load Balancer pricing](https://azure.microsoft.com/pricing/det
 
 ## Next steps
 
-- See [Create a Gateway Load Balancer using the Azure portal](tutorial-gateway-portal.md) to create a gateway load balancer.
+- See [Create a Gateway Load Balancer using the Azure portal](tutorial-create-gateway-load-balancer.md) to create a gateway load balancer.
 - Learn how to use [Gateway Load Balancer for outbound connectivity scenarios](tutorial-gateway-outbound-connectivity.md).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).

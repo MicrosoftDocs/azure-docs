@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/13/2024
+ms.date: 01/27/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -24,7 +24,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
 
-* For volumes larger than 10 TB, it can take multiple hours to transfer all the data from the backup media.
+* For volumes larger than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
 * The Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots to the Azure storage. Hourly backups aren't currently supported.
 
@@ -35,6 +35,8 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
     LRS can recover from server-rack and drive failures. However, if a disaster such as a fire or flooding occurs within the data center, all replicas of a storage account using LRS might be lost or unrecoverable. 
 
 * Policy-based (scheduled) Azure NetApp Files backup is independent from [snapshot policy configuration](azure-netapp-files-manage-snapshots.md).
+
+* You can't apply a backup policy to a volume while a manual backup is in progress. Wait for the manual backup to complete before applying the policy. 
 
 * In a [cross-region replication](cross-region-replication-introduction.md) (CRR) or [cross-zone replication](cross-zone-replication-introduction.md) (CZR) setting, Azure NetApp Files backup can be configured on a source volume. 
 

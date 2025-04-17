@@ -489,16 +489,13 @@ if any of the following conditions happen:
                "body": {
                   "resourceId": "@triggerBody()"
                },
-               "url": "https://domain.com/provisionResource/create-resource",
-               "body": {
-                  "resourceId": "@triggerBody()"
-               }
+               "url": "https://domain.com/provisionResource/create-resource"
             },
             "runAfter": {},
             "type": "ApiConnection"
          }
       },
-      "expression": "@equals(triggerBody(), 'Completed')",
+      "expression": "@equals(body('Create_new_resource'), 'Completed')",
       "limit": {
          "count": 10,
          "timeout": "PT2H"

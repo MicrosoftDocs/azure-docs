@@ -1,23 +1,18 @@
 ---
-title: Fallback to internet for Azure Private DNS zones (Preview)
+title: Fallback to internet for Azure Private DNS zones
 titleSuffix: Azure DNS
 description: Learn how to enable fallback to internet resolution for private DNS.
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.date: 11/24/2024
+ms.date: 02/04/2025
 ms.author: greglin
 ms.topic: how-to
 ---
 
-# Fallback to internet for Azure Private DNS zones (Preview)
+# Fallback to internet for Azure Private DNS zones
 
-This article shows you how to set the [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property in Azure Private DNS to enable fallback to internet recursion when an authoritative NXDOMAIN response is received for a Private Link zone. On the DNS client side, there's no response to the DNS query.
-
-> [!NOTE]
-> Fallback to internet for Azure Private DNS is in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br><br>
-> This internet fallback policy preview is offered without a requirement to enroll in a pre-release feature preview.
+This article shows you how to set the [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property in Azure Private DNS to enable fallback to internet recursion when an authoritative NXDOMAIN response is received for a Private Link zone. NXDOMAIN is also known as a negative response. When a DNS resolver receives (or has cached) a negative response, it sends no DNS response to the DNS client and the query fails.
 
 ## Problem
 
@@ -101,7 +96,7 @@ This guide assumes you have provisioned the prerequisite resources before procee
 
     > [!NOTE]
     > Storage accounts that are in the same resource group have resource records in the same Private DNS zone.<br>
-    > Storage accounts that are in different resource groups have resource records in different (identically-named) Private DNS zones.
+    > Storage accounts that are in different resource groups have resource records in different (identically named) Private DNS zones.
 
 ## Demonstrate DNS resolution failure
 

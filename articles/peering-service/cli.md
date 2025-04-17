@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 03/03/2025
 ms.custom: devx-track-azurecli
 
 #CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure CLI so I can enhance the connectivity to Microsoft services over the public internet.

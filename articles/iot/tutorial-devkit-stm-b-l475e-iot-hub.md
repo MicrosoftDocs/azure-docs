@@ -1,8 +1,8 @@
 ---
 title: Connect an STMicroelectronics B-L475E to Azure IoT Hub
 description: Use Eclipse ThreadX embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot
 ms.devlang: c
 ms.topic: tutorial

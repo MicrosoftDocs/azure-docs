@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/06/2024
+ms.date: 02/13/2025
 ---
 
 # Copy data from Google Ads using Azure Data Factory or Synapse Analytics
@@ -323,8 +323,6 @@ Upgrade your Google AdWords linked service to the latest Google Ads linked servi
         | URL_PERFORMANCE_REPORT | detail_placement_view |  
         | USER_AD_DISTANCE_REPORT | distance_view |  
         | VIDEO_PERFORMANCE_REPORT | video | 
-
-    1. If the pipeline is using query to retrieve data from Google AdWords, use [Query Migration tool](https://developers.google.com/google-ads/scripts/docs/reference/query-migration-tool) to translate the AWQL (AdWords Query Language) into GAQL (Google Ads Query Language). 
 
 1. Be aware that there are certain limitations with this upgrade: 
     1. Not all report types from AWQL are supported in GAQL. 

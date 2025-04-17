@@ -2,7 +2,7 @@
 title: "API Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector API Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/28/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

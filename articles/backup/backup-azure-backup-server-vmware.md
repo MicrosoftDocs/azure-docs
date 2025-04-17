@@ -1,13 +1,13 @@
 ---
-title: Back up VMware VMs with Azure Backup Server
-description: In this article, learn how to use Azure Backup Server to back up VMware VMs running on a VMware vCenter/ESXi server.
+title: Back up VMware VMs using Azure Backup Server
+description: Learn how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 02/22/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 02/25/2025
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ---
-# Back up VMware VMs with Azure Backup Server
+# Back up VMware VMs using Azure Backup Server
 
 This article describes how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 
@@ -23,7 +23,7 @@ To protect VMware VM using Azure Backup you need to:
 
 ## Support matrix
 
-This section provides the supported scenarios to protect VMware VMs.
+This section summarizes the support settings to protect VMware VMs.
 
 ### Supported VMware features
 
@@ -45,9 +45,9 @@ MABS provides the following features when backing up VMware virtual machines:
 | MABS v3 UR2 | VMware server 7.0, 6.7, 6.5, or 6.0 (Licensed Version) |
 | MABS v3 UR1 | VMware server 6.7, 6.5, 6.0, or 5.5 (Licensed Version) |
 
-## Prerequisites and limitations
+## Supported scenarios and limitations
 
-Before you start backing up a VMware virtual machine, review the following list of limitations and prerequisites.
+Before you start backing up a VMware virtual machine, review the following list of supported scenarios and limitations.
 
 - If you have been using MABS to protect a vCenter server (running on Windows) as a Windows Server using the FQDN of the server, you can't protect that vCenter server as a VMware server using the FQDN of the server.
   - You can use the static IP address of vCenter Server as a workaround.
@@ -59,7 +59,9 @@ Before you start backing up a VMware virtual machine, review the following list 
 - MABS can't protect VMware VMs with existing snapshots.
 - MABS v4 doesn't support the *DataSets* feature for VMware 8.0.
 
-## Before you start
+## Prerequisites
+
+Before you back up VMware VMs using Azure Backup Server, ensure that the following prerequisites are met:
 
 - Verify that you're running a version of vCenter/ESXi that's supported for backup. Refer to the support matrix [here](./backup-mabs-protection-matrix.md).
 - Make sure you've set up Azure Backup Server. If you haven't, [do that](backup-azure-microsoft-azure-backup.md) before you start. You should be running Azure Backup Server with the latest updates.
@@ -433,7 +435,7 @@ You can modify the number of jobs by using the registry key as shown below (not 
 The value should be the number (decimal) of virtual machines that you select for parallel backup.
 
 > [!NOTE]
-> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
+> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMware vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
 
 ## VMware vSphere 6.7, 7.0, and 8.0
 
@@ -602,4 +604,4 @@ Path- SOFTWARE\\MICROSOFT\\MICROSOFT DATA PROTECTION MANAGER\\VMWare
 
 ## Next steps
 
-For troubleshooting issues when setting up backups, review the [troubleshooting guide for Azure Backup Server](./backup-azure-mabs-troubleshoot.md).
+[Troubleshoot issues about setting up of backups using Azure Backup Server](./backup-azure-mabs-troubleshoot.md).

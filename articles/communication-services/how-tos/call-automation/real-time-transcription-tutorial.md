@@ -31,13 +31,15 @@ Azure Communication Services requires your server application to set up a WebSoc
 ## Establish a call 
 In this quickstart, we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). For the purposes of this quickstart, we're going through the process of starting transcription for both incoming calls and outbound calls. 
 
-When working with real-time transcription, you have a couple of options on when and how to start transcription:
+When working with real-time transcription, you have a few of options on when and how to start transcription:
 
 **Option 1 -** Starting at time of answering or creating a call
 
 **Option 2 -** Starting transcription during an ongoing call 
 
-In this tutorial, we're demonstrating option 2, starting transcription during an ongoing call. By default the 'startTranscription' is set to false at time of answering or creating a call.
+**Option 3 -** Starting transcription when connecting to an Azure Communication Services Rooms call
+
+In this tutorial, we're demonstrating option 2 and 3, starting transcription during an ongoing call or when connecting to a Rooms call. By default the 'startTranscription' is set to false at time of answering or creating a call.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Real-time transcription with .NET](./includes/real-time-transcription-csharp.md)]
@@ -63,7 +65,7 @@ In this tutorial, we're demonstrating option 2, starting transcription during an
 | TranscriptionStopped | 200 | 0 | Action completed successfully. |
 | TranscriptionUpdated | 200 | 0 | Action completed successfully. |
 | TranscriptionFailed | 400 | 8581 | Action failed, StreamUrl isn't valid. |
-| TrasncriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
+| TranscriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
 | TranscriptionFailed | 400 | 8565 | Action failed due to a request to Cognitive Services timing out. Try again later or check for any issues with the service. |
 | TranscriptionFailed | 400 | 8605 | Custom speech recognition model for Transcription is not supported. |
 | TranscriptionFailed | 400 | 8523 | Invalid Request, locale is missing. |

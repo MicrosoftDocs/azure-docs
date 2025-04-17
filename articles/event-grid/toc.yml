@@ -6,6 +6,8 @@ items:
     items:
     - name: What is Event Grid?
       href: overview.md
+    - name: Use cases
+      href: use-cases.md
     - name: What's new?
       href: whats-new.md
     - name: Choose the right tier
@@ -77,8 +79,10 @@ items:
             href: oauth-json-web-token-authentication.md
           - name: MQTT client authentication using certificates
             href: mqtt-client-certificate-authentication.md        
-          - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
+          - name: Microsoft Entra JWT authentication and RBAC authorization for clients 
             href: mqtt-client-microsoft-entra-token-and-rbac.md
+          - name: OAuth 2.0 JSON Web Token authentication and authorization for clients 
+            href: mqtt-client-custom-jwt.md
           - name: Transport Layer Security connection with MQTT broker
             href: mqtt-transport-layer-security-flow.md
         - name: Reliability
@@ -615,11 +619,11 @@ items:
       - name: Relocate
         items:
         - name: Relocate system topics across regions
-          href: ../operational-excellence/relocation-event-grid-system-topics.md?toc=/azure/event-grid/toc.json
+          href: ../azure-resource-manager/management/relocation/relocation-event-grid-system-topics.md?toc=/azure/event-grid/toc.json
         - name: Relocate custom topics across regions
-          href: ../operational-excellence/relocation-event-grid-custom-topics.md?toc=/azure/event-grid/toc.json
+          href: ../azure-resource-manager/management/relocation/relocation-event-grid-custom-topics.md?toc=/azure/event-grid/toc.json
         - name: Relocate domains across regions
-          href: ../operational-excellence/relocation-event-grid-domains.md?toc=/azure/event-grid/toc.json
+          href: ../azure-resource-manager/management/relocation/relocation-event-grid-domains.md?toc=/azure/event-grid/toc.json
       - name: Secure
         items:
         - name: Publish events securely over a private link

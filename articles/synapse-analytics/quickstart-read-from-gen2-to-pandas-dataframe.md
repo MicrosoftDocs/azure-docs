@@ -4,10 +4,10 @@ description: Read data from an Azure Data Lake Storage Gen2 account into a Panda
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.reviewer: whhender, garye, negust
+ms.reviewer:  negust
 ms.date: 07/11/2022
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: NelGson
+ms.author: negust
 ms.custom: mode-other, devx-track-python
 ---
 

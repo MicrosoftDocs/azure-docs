@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 11/28/2024
 ms.custom: references_regions, devx-track-azurepowershell-azurecli
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Encrypt backup data in a Backup vault by using customer-managed keys

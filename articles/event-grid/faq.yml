@@ -24,7 +24,7 @@ sections:
       - question: |
           Does Azure Event Grid support availability zone resiliency across all the SKUs?
         answer: |
-          Yes, Azure Event Grid has only one SKU (Basic) and supports availability zones resiliency.
+          Yes, both basic and standard tiers of Azure Event Grid support availability zones resiliency. To learn about these tiers, see [Choose the right tier](choose-right-tier.md). 
 
       - question: |
            Do I need to configure Azure Event Grid to enable resiliency?

@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Azure Device Update for IoT Hub import manifest schema
 
-When you import an update into Azure Device Update for Iot Hub, you also submit an associated JSON import manifest file that defines important information about the update. This article describes the schema used to create the JSON import manifest file.
+When you import an update into Azure Device Update for IoT Hub, you also submit an associated JSON import manifest file that defines important information about the update. This article describes the schema used to create the JSON import manifest file.
 
 To learn more about import manifest concepts and file structure, see [Azure Device Update for IoT Hub import manifest](import-concepts.md). To learn how to create the file, see [Prepare an update to import into Device Update for IoT Hub](import-update.md).
 
@@ -109,7 +109,7 @@ An `inline` step object is an installation instruction step that performs code e
 |---|---|---|---|
 |**type**|`string`|Instruction step type that performs code execution. Must be `inline`. Defaults to `inline` if no value is provided.|No|
 |**description**|`string`|Optional instruction step description. Maximum length: 64 characters.|No|
-|**handler**|`string`|Identity of the handler on the device that can execute this step.<br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: Five characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:1`, `microsoft/apt:1` |Yes|
+|**handler**|`string`|Identity of the handler on the device that can execute this step.<br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: Five characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:2`, `microsoft/apt:1` |Yes|
 |**files**|`string` `[1-10]`| Names of update files defined as [file objects](#files-object) that the agent passes to the handler. Each element length must be 1-255 characters. |Yes|
 |**handlerProperties**|`inlineStepHandlerProperties`|JSON objects that the agent passes to the handler as arguments.|No|
 

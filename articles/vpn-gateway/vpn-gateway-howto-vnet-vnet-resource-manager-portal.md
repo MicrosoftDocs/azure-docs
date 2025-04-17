@@ -43,7 +43,7 @@ You might want to connect virtual networks by using a VNet-to-VNet connection fo
 
    Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together because of isolation or administrative requirements. VNet-to-VNet communication can be combined with multi-site configurations. These configurations let you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagram of a VNet-to-VNet connection showing multiple subscriptions.":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagram of a VNet-to-VNet connection showing multiple subscriptions." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png":::
 
 ## Create and configure VNet1
 
@@ -142,7 +142,7 @@ You can use the following examples values to configure the VNet4 VPN gateway.
 
 When the VPN gateways for both VNet1 and VNet4 have completed, you can create your virtual network gateway connections.
 
-Virtual networks in the same subscription can be connected using the portal, even if they are in different resource groups. However, if your virtual networks are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) to make the connections.
+Virtual networks in the same subscription can be connected using the portal, even if they are in different resource groups. However, if your virtual networks are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or CLI to make the connections.
 
 You can create either a bidirectional, or a single direction connection. For this exercise, we'll specify a bidirectional connection. The bidirectional connection value creates two separate connections so that traffic can flow in both directions.
 
@@ -150,8 +150,6 @@ You can create either a bidirectional, or a single direction connection. For thi
 1. On the virtual network gateway page, in the left pane, select **Connections** to open the Connections page. Then select **+ Add** to open the **Create connection** page.
 
 1. On the **Create connection** page, fill in the connection values.
-
-    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/bidirectional-connectivity.png" alt-text="Screenshot showing the Create Connection page." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/bidirectional-connectivity.png":::
   
    * **Connection type**: Select **VNet-to-VNet** from the drop-down.
    * **Establish bidirectional connectivity**: Select this value if you want to establish traffic flow in both directions. If you don't select this setting and you later want to add a connection in the opposite direction, you'll need to create a new connection originating from the other virtual network gateway.

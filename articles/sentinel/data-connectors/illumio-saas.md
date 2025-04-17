@@ -2,7 +2,7 @@
 title: "Illumio SaaS (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Illumio SaaS (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -105,7 +105,7 @@ Deployment via Visual Studio Code.
 **1. Deploy a Function App**
 
 1. Download the [Azure Function App](https://github.com/Azure/Azure-Sentinel/raw/master/Solutions/IllumioSaaS/Data%20Connectors/IllumioEventsConn.zip) file. Extract archive to your local development computer.
-2. Follow the [function app manual deployment instructions](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AzureFunctionsManualDeployment.md#function-app-manual-deployment-instructions) to deploy the Azure Functions app using VSCode.
+2. Follow the [function app manual deployment instructions](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AzureFunctionsManualDeployment.md#function-app-manual-deployment-instructions) to deploy the Azure Functions app using VS Code.
 3. After successful deployment of the function app, follow next steps for configuring it.
 
 

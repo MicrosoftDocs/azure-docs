@@ -207,8 +207,10 @@
     href: ../files/storage-files-faq.md?toc=/azure/storage/file-sync/toc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/file-sync/toc.json
-  - name: Monitoring Azure Files reference
+  - name: Monitoring Azure Files data reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
+  - name: Monitoring Azure File Sync data reference
+    href: monitor-file-sync-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions

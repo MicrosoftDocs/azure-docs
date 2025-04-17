@@ -5,7 +5,7 @@ description: Learn how to configure and record Bastion sessions.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 01/21/2025
 ms.author: cherylmc
 
 ---
@@ -22,14 +22,18 @@ The following sections outline considerations, limitations, and prerequisites fo
 
 * The Premium SKU is required for this feature.
 * Session recording isn't available via native client at this time.
+* Immutabale storage policies must not be present
 * Session recording supports one container/storage account at a time.
-* When session recording is enabled on a bastion host, Bastion records ALL sessions that go through the recording-enabled bastion host.
+* Changing storage containers while a session is active may cause disruptions to the session.
+* Blob versioning on the recordings must not be present
+* When session recording is enabled on a Bastion deployment, Bastion records ALL sessions that go through the recording-enabled bastion host.
 
 **Prerequisites**
 
 * Azure Bastion is deployed to your virtual network. See [Tutorial - Deploy Bastion using specified settings](tutorial-create-host-portal.md) for steps.
 * Bastion must be configured to use **Premium SKU** for this feature. You can update to the Premium SKU from a lower SKU when you configure the session recording feature. To check your SKU and upgrade, if necessary, see [View or upgrade a SKU](upgrade-sku.md).
 * The virtual machine that you connect to must either be deployed to the virtual network that contains the bastion host, or to a virtual network that is directly peered to the Bastion virtual network.
+* To view/list the session recordings, user must have the **Storage Blob Data Reader** role.
 
 ## Enable session recording
 
@@ -54,7 +58,7 @@ If you've already deployed Bastion, use the following steps to enable session re
 1. In the Azure portal, go to your Bastion resource.
 1. On your Bastion page, in the left pane, select **Configuration**.
 1. On the Configuration page, for Tier, select **Premium** if it isn't already selected. This feature requires the Premium SKU.
-1. Select **Session Recording (Preview)** from the listed features.
+1. Select **Session Recording** from the listed features.
 1. Select **Apply**. Bastion immediately begins updating the settings for your bastion host. Updates take about 10 minutes.
 
 ## Configure storage account container

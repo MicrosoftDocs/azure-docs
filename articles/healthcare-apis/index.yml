@@ -20,7 +20,7 @@ highlightedContent:
          url: ./healthcare-apis-overview.md
        - title: Release notes
          itemType: whats-new
-         url: ./release-notes-2024.md          
+         url: release-notes-2025.md
        - title: Get an access token
          itemType: how-to-guide
          url: ./get-access-token.md
@@ -30,6 +30,9 @@ highlightedContent:
        - title: Azure Health Data Services 
          itemType: learn
          url: /training/browse/?term=iot&terms=health%20data%20services
+       - title: Regional availability of services and features
+         itemType: reference
+         url: ./services-features-regional-availability.md  
 
 conceptualContent:
   items: 

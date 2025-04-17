@@ -1,13 +1,13 @@
 ---
 title: Assess AWS instances for migration to Azure with Azure Migrate
 description: Learn to access AWS instances for migration to Azure with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 08/08/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
+ms.collection:
+ - migration
+ - aws-to-azure
 #Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
 ---
 

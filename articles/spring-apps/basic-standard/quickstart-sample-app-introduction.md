@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Introduction to the sample app - Azure Spring Apps"
+title: "Quickstart - Introduction to the Sample App - Azure Spring Apps"
 description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler

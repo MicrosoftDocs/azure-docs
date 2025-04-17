@@ -1,13 +1,12 @@
 ---
 title: Azure Web Application Firewall monitoring and logging
 description: Learn about Azure Web Application Firewall in Azure Front Door monitoring and logging.
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.custom: devx-track-js
 ms.topic: how-to
-services: web-application-firewall
 ms.date: 05/23/2024
-ms.author: victorh
+ms.custom: devx-track-js
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -27,7 +26,7 @@ To access your WAF's metrics:
 1. On the leftmost pane under **Monitoring**, select the **Metrics** tab.
 1. Add the **Web Application Firewall Request Count** metric to track the number of requests that match WAF rules.
 
-You can create custom filters based on action types and rule names. Metrics include requests with all actions except `Log`.
+You can create custom filters based on action types and rule names. Metrics include requests with terminating actions like `Block` and `Allow` as well as requests where the WAF took no action. Since multiple non-terminating `Log` actions can be triggered by a single request, they are excluded from this metric to avoid duplicating request counts.
 
 :::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="Screenshot that shows the metrics for an Azure Front Door WAF.":::
 
@@ -55,19 +54,15 @@ The Azure Front Door WAF provides detailed reporting on each request and each th
 
 Logs aren't enabled by default. You must explicitly enable logs. You can configure logs in the Azure portal by using the **Diagnostic settings** tab.
 
-:::image type="content" source="../media/waf-frontdoor-monitor/waf-diagnostic-setting.png" alt-text="Screenshot that shows how to enable the WAF logs." lightbox="../media/waf-frontdoor-monitor/waf-diagnostic-setting.png":::
-
 If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine-tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Front Door](../afds/waf-front-door-exclusion.md).
 
 You can enable three types of Azure Front Door logs: 
-
 
 - WAF logs
 - Access logs
 - Health probe logs
  
 Activity logs are enabled by default and provide visibility into the operations performed on your Azure resources, such as configuration changes to your Azure Front Door profile.
-
 
 ### WAF logs
 
@@ -189,6 +184,6 @@ The following snippet shows an example log entry, including the reason that the 
 
 For more information about the other Azure Front Door logs, see [Monitor metrics and logs in Azure Front Door](../../frontdoor/front-door-diagnostics.md#logs).
 
-## Next steps
+## Next step
 
 Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).

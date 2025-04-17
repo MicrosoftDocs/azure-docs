@@ -1,8 +1,9 @@
 ---
-title: How to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan
+title: How to Use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise Plan
 description: Shows you how to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan to route requests to your applications.
 author: KarlErickson
-ms.author: xiading
+ms.author: karler
+ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/23/2024
@@ -41,7 +42,7 @@ This section describes how to add, update, and manage API routes for apps that u
 
 The route configuration definition includes the following parts:
 
-- OpenAPI URI: This URI references an OpenAPI specification. You can use a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where *`<app-name>`* is the name of an application in Azure Spring Apps that includes the API definition. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification displays in the API portal if enabled.
+- OpenAPI URI: This URI references an OpenAPI specification. You can use a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `<app-name>` is the name of an application in Azure Spring Apps that includes the API definition. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification displays in the API portal if enabled.
 - routes: A list of route rules to direct traffic to apps and apply filters.
 - protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. The protocol's supported values are `HTTP` or `HTTPS`, and the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
 - app level routes: There are three route properties that you can configure at the app level to avoid repetition across all or most of the routes in the route configuration. The concrete routing rule overrides the app level routing rule for the same property. You can define the following properties at the app level: `predicates`, `filters`, and `ssoEnabled`. If you use the `OpenAPI URI` feature to define routes, the only app level routing property to support is `filters`.
@@ -116,7 +117,7 @@ The following table lists the route definitions. All the properties are optional
 
 Use the following steps to create a sample application using Spring Cloud Gateway.
 
-1. Use the following command to create a test application named *test-app* in Azure Spring Apps:
+1. Use the following command to create a test application named `test-app` in Azure Spring Apps:
 
    ```azurecli
    az spring app create \
@@ -144,7 +145,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 
 1. Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
 
-   Save the following content to a *test-api.json* file. This configuration includes a RateLimit filter, which allows 20 requests every 10 seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
+   Save the following content to a **test-api.json** file. This configuration includes a RateLimit filter, which allows 20 requests every 10 seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
 
    ```json
    {

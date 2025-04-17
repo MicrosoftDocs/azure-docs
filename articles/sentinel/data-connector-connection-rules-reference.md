@@ -86,7 +86,7 @@ The CCP supports the following authentication types:
 - [Basic](#basic-auth)
 - [APIKey](#apikey)
 - [OAuth2](#oauth2)
-- [Jwt](#jwt)
+- [JWT](#jwt)
 
 > [!NOTE]
 > CCP OAuth2 implementation does not support client certificate credentials.
@@ -215,7 +215,7 @@ OAuth2 `client_credentials` grant type
 }
 ```
 
-#### Jwt
+#### JWT
 
 Example:
 JSON web token (JWT)
@@ -231,7 +231,7 @@ JSON web token (JWT)
         "key":"password",
         "value":"[[parameters('Password')]"
     },
-    "TokenEndpoint": {"https://token_endpoint.contoso.com"},
+    "TokenEndpoint": "https://token_endpoint.contoso.com",
     "IsJsonRequest": true
 }
 ```

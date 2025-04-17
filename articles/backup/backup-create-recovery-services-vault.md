@@ -2,15 +2,16 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 12/19/2024
+ms.date: 01/17/2025
 ms.custom: references_regions, engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create and configure a Recovery Services vault
 
-This article describes how to create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You can also use Cross Region Restore to restore in a secondary region.
+This article describes how to create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You can use Cross Region Restore to restore in a secondary region. To create a Recovery Services vault using REST API, see [this article](backup-azure-arm-userestapi-createorupdatevault.md).
+
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

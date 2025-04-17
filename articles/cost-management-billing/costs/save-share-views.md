@@ -1,14 +1,15 @@
 ---
 title: Save and share customized views
 titleSuffix: Microsoft Cost Management
-description: This article explains how to save and share a customized view with others.
-author: bandersmsft
-ms.author: banders
+description: Learn how to save and share customized views in Cost Management. This guide explains how to preserve cost analysis views and share them with others.
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
+#customer intent: As a billing administrator, I want to learn how to save and share views so that I can share views with others.
 ---
 
 # Save and share customized views
@@ -17,11 +18,11 @@ Cost analysis is used to explore costs and get quick answers for things like fin
 
 ## Save and share cost views
 
-A *view* is a saved query in Cost Management. When you save a view, all settings in cost analysis are saved, including filters, grouping, granularity, the main chart type, and donut charts. Underlying data isn't saved. Only you can see private views, while everyone with Cost Management Reader access or greater to the scope can see shared views.
+A *view* is a saved query in Cost Management. When you save a view, all settings in cost analysis are saved, including filters, grouping, granularity, the main chart type, and donut charts. A view is saved only within the scope in which it was created. Underlying data isn't saved. Only you can see the private views you saved per scope, while shared views, saved within a scope, can be seen by anyone with Cost Management Reader access or greater to the scope.
 
 Check out the [Sharing and saving views](https://www.youtube.com/watch?v=kQkXXj-SmvQ) video.
 
-After you save a view, you can share a link to it with others using the **Share** command. The link is specific to your current scope and view configuration. The link doesn't grant others access to the view itself, which might change over time, or the underlying data. If you don't have access to the scope, an `access denied` message is shown. We recommend using the Cost Management Contributor role to allow others to save and share views with others.
+After you save a view, you can share a link to it with others using the **Share** command. The link is specific to your current scope and view configuration. The link doesn't grant others access to the view itself, which might change over time, or the underlying data. If you don't have access to the scope, an `access denied` message is shown. We recommend using the Cost Management Contributor role to allow others to save and share views. A saved view, whether it's private or shared, saves only the specific filters selected for the view. To update the filters in a saved or shared view, you might need to remove the existing filters and recreate a new one with the updated values.
 
 You can also pin the current view to an Azure portal dashboard. Pinning only includes a snapshot of the main chart or table and doesn't update when the view is updated. A pinned dashboard isn't the same thing as a saved view.
 
@@ -35,7 +36,7 @@ You can also pin the current view to an Azure portal dashboard. Pinning only inc
 1. After you save a view, it's available to select from the **View** menu.  
      :::image type="content" source="./media/save-share-views/view-list.png" alt-text="Screen shot showing the View list." lightbox="./media/save-share-views/view-list.png" :::
      
-You can save up to 100 private views across all scopes for yourself and up to 100 shared views per scope that anyone with Cost Management Reader or greater access can use.
+You can save up to 100 private views, across all scopes you have access to, for yourself and up to 100 shared views per scope that anyone with Cost Management Reader or greater access can use.
 
 ### To share a view
 
@@ -147,7 +148,7 @@ There could be a few reasons why you're not receiving alert emails. Try the foll
 - Confirm that your email address is shown as a recipient and that it's correct.
 - Check your spam or junk mail folder for emails from `microsoft-noreply@microsoft.com`.
 - Check to see if the alert is expired, disabled, or deleted. You can extend, reenable, or create a new scheduled alert to fix the problem.
-- Work with your admin to reenable the [view charges policy](assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements with a Microsoft partner.
+- Work with your billing admin to reenable the [view charges policy](assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements.
 
 >[!NOTE]
 > Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope).

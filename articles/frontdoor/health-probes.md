@@ -2,12 +2,11 @@
 title: Health probes
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door monitors the health of your origins.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 08/12/2024
-ms.author: duau
+ms.date: 01/29/2025
 ---
 
 # Health probes
@@ -21,9 +20,9 @@ ms.author: duau
 To determine the health and proximity of each origin for a given Azure Front Door environment, each Front Door profile periodically sends a synthetic HTTP/HTTPS request to all your configured origins. Front Door then uses responses from the health probe to determine the *best* origin to route your client requests to. 
 
 > [!WARNING]
-> Since each Azure Front Door edge location is sending health probes to your origins, the health probe volume for your origins can be quite high. The number of probes depends on your customer's traffic location and your health probe frequency. If the Azure Front Door edge locations doesn’t receive real traffic from your end users, the frequency of the health probe from the edge location is decreased from the configured frequency. If there is traffic to all the Azure Front Door edge locations, the health probe volume can be high depending on your health probes frequency.
+> Since each Azure Front Door edge location is sending health probes to your origins, the health probe volume for your origins can be high. The number of probes depends on your customer's traffic location and your health probe frequency. If the Azure Front Door edge locations don’t receive real traffic from your end users, the frequency of the health probe from the edge location is decreased from the configured frequency. If there's traffic to all the Azure Front Door edge locations, the health probe volume can be high depending on your health probes frequency.
 >
-> An example to roughly estimate the health probe volume per minute to an origin when using the default probe frequency of 30 seconds. The probe volume on each of your origin is equal to the number of edge locations times two requests per minute. The probing requests will be less if there is no traffic sent to all of the edge locations. For a list of edge locations, see [edge locations by region](edge-locations-by-region.md).
+> An example to roughly estimate the health probe volume per minute to an origin when using the default probe frequency of 30 seconds. The probe volume on each of your origin is equal to the number of edge locations times two requests per minute. The probing requests are less if there's no traffic sent to all of the edge locations. For a list of edge locations, see [edge locations by region](edge-locations-by-region.md).
 
 ## Supported protocols
 
@@ -63,7 +62,7 @@ Azure Front Door uses a three-step process across all algorithms to determine he
 1. For sets of healthy origins in an origin group, Front Door measures and maintains the latency for each origin.
 
 > [!NOTE]
-> If a single endpoint is a member of multiple origin groups, Front Door will optimize the number of health probes sent to the origin to reduce the load on the origin. Health probe requests will be sent based on the lowest configured sample interval. The health of the endpoint in all origin groups will be determined by the responses from same health probes.
+> If a single endpoint is a member of multiple origin groups, Front Door optimizes the number of health probes sent to the origin to reduce the load on the origin. Health probe requests are sent based on the lowest configured sample interval. The responses from same health probes determine the health of the endpoint in all origin groups.
 
 ## Complete health probe failure
 
@@ -76,9 +75,10 @@ Once an origin returns to a healthy state, Front Door resumes the normal load-ba
 If you have a single origin in your origin group, you can choose to disable health probes to reduce the load on your application. If you have multiple origins in your origin group and more than one of them is in enabled state, you can't disable health probes.
 
 > [!NOTE]
-> If there is only a single origin in your origin group, the single origin will get very few health probes. This may lead to a dip in origin health metrics but your traffic will not be impacted.
+> If there's only a single origin in your origin group, the single origin gets few health probes. This might lead to a dip in origin health metrics but your traffic doesn't get impacted.
 
 ## Next steps
 
 - Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
 - Learn about [Front Door routing architecture](front-door-routing-architecture.md).
+

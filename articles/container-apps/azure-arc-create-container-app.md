@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/05/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -33,7 +33,7 @@ Next, add the required Azure CLI extensions.
 > [!WARNING]
 > The following command installs a custom Container Apps extension that can't be used with the public cloud service. You need to uninstall the extension if you switch back to the Azure public cloud.
 
-```azurecli-interactive
+```azurecli
 az extension add --upgrade --yes --name customlocation
 az extension add --name containerapp  --upgrade --yes
 ```
@@ -42,7 +42,7 @@ az extension add --name containerapp  --upgrade --yes
 
 Create a resource group for the services created in this tutorial.
 
-```azurecli-interactive
+```azurecli
 GROUP_NAME="my-container-apps-resource-group"
 az group create --name $GROUP_NAME --location eastus 
 ```
@@ -51,17 +51,17 @@ az group create --name $GROUP_NAME --location eastus
 
 Get the following location group, name, and ID from your cluster administrator. See [Create a custom location](azure-arc-enable-cluster.md) for details.
 
-```azurecli-interactive
+```azurecli
 CUSTOM_LOCATION_GROUP="<RESOURCE_GROUP_CONTAINING_CUSTOM_LOCATION>"
 ```
 
-```azurecli-interactive
+```azurecli
 CUSTOM_LOCATION_NAME="<NAME_OF_CUSTOM_LOCATION>"
 ```
 
 Get the custom location ID.
 
-```azurecli-interactive
+```azurecli
 CUSTOM_LOCATION_ID=$(az customlocation show \
     --resource-group $CUSTOM_LOCATION_GROUP \
     --name $CUSTOM_LOCATION_NAME \
@@ -75,7 +75,7 @@ Now that you have the custom location ID, you can query for the connected enviro
 
 A connected environment is largely the same as a standard Container Apps environment, but the underlying Arc-enabled Kubernetes cluster controls the network restrictions.
 
-```azure-interactive
+```azurecli
 CONTAINER_APP_NAME="my-container-app"
 CONNECTED_ENVIRONMENT_ID=$(az containerapp connected-env list --custom-location $CUSTOM_LOCATION_ID -o tsv --query '[].id')
 ```
@@ -84,7 +84,7 @@ CONNECTED_ENVIRONMENT_ID=$(az containerapp connected-env list --custom-location 
 
 The following example creates a Node.js app.
 
-```azurecli-interactive
+```azurecli
  az containerapp create \
     --resource-group $GROUP_NAME \
     --name $CONTAINER_APP_NAME \

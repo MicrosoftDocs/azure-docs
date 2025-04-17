@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Hybri
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -52,20 +52,20 @@ Azure service: [Azure Stack](/azure-stack/)
 
 ## Microsoft.AzureStackHCI
 
-Azure service: [Azure Stack HCI](/azure-stack/hci/)
+Azure service: [Azure Local](/azure-stack/hci/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.AzureStackHCI/Register/Action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
-> | Microsoft.AzureStackHCI/Unregister/Action | Unregisters the subscription for the Azure Stack HCI resource provider. |
+> | Microsoft.AzureStackHCI/Register/Action | Registers the subscription for the Azure Local resource provider and enables the creation of Azure Local resources. |
+> | Microsoft.AzureStackHCI/Unregister/Action | Unregisters the subscription for the Azure Local resource provider. |
 > | Microsoft.AzureStackHCI/Clusters/Read | Gets clusters |
 > | Microsoft.AzureStackHCI/Clusters/Write | Creates or updates a cluster |
 > | Microsoft.AzureStackHCI/Clusters/Delete | Deletes cluster resource |
 > | Microsoft.AzureStackHCI/Clusters/AddNodes/Action | Adds Arc Nodes to the cluster |
 > | Microsoft.AzureStackHCI/Clusters/CreateClusterIdentity/Action | Create cluster identity |
 > | Microsoft.AzureStackHCI/Clusters/UploadCertificate/Action | Upload cluster certificate |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Read | Gets Arc resource of Azure Local cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Write | Create or updates arc resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Delete | Delete arc resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/GeneratePassword/Action | Generate password for Arc settings identity |
@@ -74,7 +74,7 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/InitializeDisableProcess/Action | Initializes disable process for arc settings resource |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of Azure Local cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Upgrade/Action | Upgrade extension resources of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/DeploymentSettings/Read | Gets DeploymentSettings |
 > | Microsoft.AzureStackHCI/Clusters/DeploymentSettings/Write | Creates or updates DeploymentSettings resource |
@@ -124,6 +124,7 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Delete | Deletes virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Write | Creates/Updates virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Read | Gets/Lists virtual hard disk resource |
+> | Microsoft.AzureStackHCI/VirtualHardDisks/upload/action | Uploads virtual hard disk resource to writeable sas url |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Restart/Action | Restarts virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Start/Action | Starts virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Stop/Action | Stops virtual machine instance resource |
@@ -149,7 +150,7 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualNetworks/Read | Gets/Lists virtual networks resource |
 > | Microsoft.AzureStackHCI/VirtualNetworks/join/action | Joins virtual networks resource |
 > | **DataAction** | **Description** |
-> | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of HCI resource via Windows Admin Center as an administrator |
+> | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of Azure Local resource via Windows Admin Center as an administrator |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
 > | Microsoft.AzureStackHCI/virtualMachines/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
 

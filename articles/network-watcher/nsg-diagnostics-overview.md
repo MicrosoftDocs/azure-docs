@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 10/29/2024
+ms.date: 03/04/2025
 ---
 
 # NSG diagnostics overview
@@ -23,6 +23,15 @@ The NSG diagnostics is an Azure Network Watcher tool that helps you understand w
 ## How does NSG diagnostics work? 
 
 The NSG diagnostics tool can simulate a given flow based on the source and destination you provide. It returns whether the flow is allowed or denied with detailed information about the security rule allowing or denying the flow.
+
+## Supported target resources
+
+NSG diagnostics provides the capability to check network security groups and their rules on these Azure resources:
+
+- Virtual machines
+- Network interfaces
+- Virtual machine scale set network interfaces
+- Application gateways v2 (except private deployments). For more information, see [Private Application Gateway deployment](../application-gateway/application-gateway-private-deployment.md)
 
 ## Next step
 

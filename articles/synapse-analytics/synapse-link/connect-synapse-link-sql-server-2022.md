@@ -1,14 +1,13 @@
 ---
 title: Create Azure Synapse Link for SQL Server 2022
 description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace by using Azure Synapse Link.
-author: whhender
+author: Rodrigossz
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: engagement-fy23
 ms.date: 07/30/2024
-ms.author: whhender
-ms.reviewer: whhender, wiassaf
+ms.author: rosouz
 ---
 
 # Get started with Azure Synapse Link for SQL Server 2022
@@ -117,7 +116,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/adls-gen2-assign-blob-data-contributor-role.png" alt-text="Screenshot that shows how to add a role assignment.":::
 
    > [!NOTE]
-   > Make sure that you've granted your Azure Synapse workspace managed identity permissions to the Azure Data Lake Storage Gen2 storage account that's used as the landing zone. For more information, see [Grant permissions to a managed identity in an Azure Synapse workspace - Azure Synapse Analytics](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-adls-gen2-storage-account).
+   > Make sure that you've granted your Azure Synapse workspace managed identity permissions to the Azure Data Lake Storage Gen2 storage account that's used as the landing zone. For more information, see [Grant permissions to a managed identity in an Azure Synapse workspace - Azure Synapse Analytics](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-data-lake-storage-account).
 
 1. Open the **Manage** hub in your Azure Synapse workspace, and go to **Linked services**.
 

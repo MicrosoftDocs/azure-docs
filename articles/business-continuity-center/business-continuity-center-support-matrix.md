@@ -2,14 +2,14 @@
 title: Azure Business Continuity Center support matrix
 description: Provides a summary of support settings and limitations for the Azure Business Continuity center service.
 ms.topic: reference
-ms.date: 11/19/2024
+ms.date: 04/04/2025
 ms.custom:
   - references_regions
   - ignite-2023
   - ignite-2024
 ms.service: azure-business-continuity-center
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Business Continuity Center
@@ -20,7 +20,7 @@ You can use [Azure Business Continuity Center](business-continuity-center-overvi
 
 ## Supported regions
 
-Azure Business Continuity Center supports all Azure regions.
+Azure Business Continuity Center supports all Azure regions, except Azure Sovereign Clouds (Azure China Cloud and Azure US Government).
 
 ## Supported solutions and datasources
 

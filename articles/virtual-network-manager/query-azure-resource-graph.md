@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
-ms.date: 11/02/2023
+ms.date: 02/04/2025
 ---
 
 # Query your Azure Virtual Network Manager using Azure Resource Graph (ARG)
@@ -44,11 +44,11 @@ To get started with querying your virtual network manager data in ARG, follow th
 You can download the output of these queries as CSV from the **Resource Graph Explorer**. You can also use these queries in custom automation using any automation clients supported by ARG, such as [PowerShell](../governance/resource-graph/first-query-powershell.md), [CLI](../governance/resource-graph/first-query-azurecli.md), or [SDK](../governance/resource-graph/first-query-python.md). You can also create [custom workbooks](/azure/azure-monitor/visualize/workbooks-overview) in the Azure portal using ARG as a data source.
 
 > [!NOTE]
-> ARG allows you to query the resources for which you have the appropriate RBAC rights.
+> ARG allows you to query the resources for which you have the appropriate role-based access control(RBAC) rights.
 
 ## Sample queries
 
-The following are sample queries you can run on your virtual network manager data.  You can use in them in custom dashboards and automations. Listed with each query is the input involved and the output returned.
+The following are sample queries you can run on your virtual network manager data. You can use in them in custom dashboards and automations. Listed with each query is the input involved and the output returned.
 
 #### List all virtual network managers impacting a given virtual network
 
@@ -98,7 +98,7 @@ Input: Enter the **adminConfigurationID** of the security admin configuration sn
 Output: List the virtual networks impacted including *Region, successCount, and failedcount*.
 
 > [!NOTE]
-> The adminConfigurationId of the security admin configuration snapshot. You can get this id from the output of [List commit details](#list-commit-details-of-latest-security-admin-commit-for-a-given-network-manager) query.
+> The adminConfigurationId of the security admin configuration snapshot. You can get this ID from the output of [List commit details](#list-commit-details-of-latest-security-admin-commit-for-a-given-network-manager) query.
 
 ```kusto
 networkresources

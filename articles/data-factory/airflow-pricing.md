@@ -4,7 +4,7 @@ description: This article describes the pricing for Workflow Orchestration Manag
 author: nabhishek
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 02/13/2025
 ms.author: abnarain
 ---
 

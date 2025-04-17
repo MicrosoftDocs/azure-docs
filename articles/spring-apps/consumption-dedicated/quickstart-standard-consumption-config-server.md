@@ -1,8 +1,9 @@
 ---
-title: Quickstart - Enable and disable Cloud Config Server in Azure Spring Apps
+title: Quickstart - Enable and Disable Cloud Config Server in Azure Spring Apps
 description: Learn how to enable and disable Spring Cloud Config Server in Azure Spring Apps.
 author: KarlErickson
-ms.author: CaihuaRui
+ms.author: karler
+ms.reviewer: CaihuaRui
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/29/2024

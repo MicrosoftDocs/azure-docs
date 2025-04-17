@@ -1,13 +1,12 @@
 ---
 title: What is Azure Synapse Analytics?
 description: An Overview of Azure Synapse Analytics
-author: whhender
+author: guyhay
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 07/10/2024
-ms.author: whhender
-ms.reviewer: whhender
+ms.author: guyhay
 ---
 
 # What is Azure Synapse Analytics?

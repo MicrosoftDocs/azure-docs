@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
-title: Azure Native ISV Services
-summary: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
+title: Azure Native Integrations
+summary: Azure Native Integrations enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native Integrations is developed and managed by Microsoft and the ISV.
 brand: azure
 
 metadata:
-  title: Azure Native ISV Services
-  description: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
+  title: Azure Native Integrations
+  description: Azure Native Integrations enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native Integrations is developed and managed by Microsoft and the ISV.
   
   ms.topic: hub-page
   ms.custom:
@@ -17,10 +17,10 @@ metadata:
 highlightedContent:
 
   items:
-    - title: What are Azure Native ISV Services?
+    - title: What is Azure Native Integrations?
       itemType: overview
       url: ./overview.md
-    - title: Find Azure Native ISV Services 
+    - title: Find Azure Native Integrations 
       itemType: get-started
       url: ./partners.md
 
@@ -56,17 +56,12 @@ productDirectory:
       imageSrc: ./media/index/informatica.svg
       links:
         - url: ./informatica/informatica-overview.md
-          text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management.
-    - title: Logz.io
-      imageSrc: ./media/index/logz.io.svg
-      links:
-        - url: ./logzio/overview.md
-          text: Centralize log, metric, and tracing analytics in one observability platform.
+          text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy, and master data management.
     - title: Neon Serverless Postgres
       imageSrc: ./media/index/neon.svg
       links:
         - url: ./neon/overview.md
-          text: Neon offers a serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services.
+          text: A serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
     - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
@@ -82,6 +77,11 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
+    - title: Pure Storage
+      imageSrc: ./media/index/pure-storage.svg
+      links:
+        - url: pure-storage/overview.md
+          text: Secure, efficient, and reliable block storage as a native managed service.
     - title: Qumulo
       imageSrc: ./media/index/qumulo.svg
       links:

@@ -4,7 +4,7 @@ description: Reference information for Azure IoT Edge for Linux on Windows Power
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 01/16/2025
 ms.topic: reference
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -29,14 +29,14 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_5_LTS_X64" -OutFile $msiPath
    ```
 
    * **ARM64**
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_5_LTS_ARM64" -OutFile $msiPath
    ```
 
 1. Install IoT Edge for Linux on Windows on your device.

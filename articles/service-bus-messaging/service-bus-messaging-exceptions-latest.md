@@ -16,7 +16,7 @@ The Service Bus clients automatically retry exceptions that are considered trans
 The exception includes some contextual information to help you understand the context of the error and its relative severity. 
 
 - `EntityPath` : Identifies the Service Bus entity from which the exception occurred, if available.
-- `IsTransient` : Indicates whether or not the exception is considered recoverable. In the case where it was deemed transient, Azure Service Bus has already applied the appropriate retry policy and all retries were unsuccessful.
+- `IsTransient` : Indicates whether or not the exception is considered recoverable. In the case where it was deemed transient, Azure Service Bus already applied the appropriate retry policy and all retries were unsuccessful.
 - `Message` : Provides a description of the error that occurred and relevant context.
 - `StackTrace` : Represents the immediate frames of the call stack, highlighting the location in the code where the error occurred.
 - `InnerException` : When an exception was the result of a service operation, it's often a `Microsoft.Azure.Amqp.AmqpException` instance describing the error, following the [OASIS Advanced Message Queuing Protocol (AMQP) 1.0 spec](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-types-v1.0-os.html).
@@ -26,13 +26,13 @@ The exception includes some contextual information to help you understand the co
     - `MessageSizeExceeded`: Indicates that the message size exceeded the max message size. The message size includes the body of the message, and any associated metadata. The best approach for resolving this error is to reduce the number of messages being sent in a batch or the size of the body included in the message. Because size limits are subject to change, see [Service Bus quotas](service-bus-quotas.md) for specifics.  
     - `MessageLockLost`: Indicates that the lock on the message is lost. Callers should attempt to receive and process the message again. This exception only applies to entities that don't use sessions. This error occurs if processing takes longer than the lock duration and the message lock isn't renewed. This error can also occur when the link is detached due to a transient network issue or when the link is idle for 10 minutes. 
     
-        The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. Because of this behavior, you might encounter `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time hasn't yet passed. 
-    - `SessionLockLost`: Indicates that the lock on the session expired. Callers should attempt to accept the session again. This exception applies only to session-enabled entities. This error occurs if processing takes longer than the lock duration and the session lock isn't renewed. This error can also occur when the link is detached due to a transient network issue or when the link is idle for 10 minutes. The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. Because of  this behavior, you might encounter `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time hasn't yet passed. 
+        The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle time out. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. Because of this behavior, you might encounter `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time isn't yet passed. 
+    - `SessionLockLost`: Indicates that the lock on the session expired. Callers should attempt to accept the session again. This exception applies only to session-enabled entities. This error occurs if processing takes longer than the lock duration and the session lock isn't renewed. This error can also occur when the link is detached due to a transient network issue or when the link is idle for 10 minutes. The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle time out. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. Because of  this behavior, you might encounter `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time hasn't yet passed. 
     - `MessageNotFound`: This error occurs when attempting to receive a deferred message by sequence number for a message that either doesn't exist in the entity, or is currently locked. 
     - `SessionCannotBeLocked`: Indicates that the requested session can't be locked because the lock is already held elsewhere. Once the lock expires, the session can be accepted.
-    - `GeneralError`: Indicates that the Service Bus service encountered an error while processing the request. This error is often caused by service upgrades and restarts. These errors are transient errors that are automatically retried.
+    - `GeneralError`: Indicates that the Service Bus service encountered an error while processing the request. The service upgrades and restarts often cause this error. These errors are transient errors that are automatically retried.
     - `ServiceCommunicationProblem`: Indicates that there was an error communicating with the service. The issue might stem from a transient network problem, or a service problem. These errors are transient errors that will be automatically retried.
-    - `ServiceBusy`: Indicates that a request was throttled by the service. The details describing what can cause a request to be throttled and how to avoid being throttled can be found [here](service-bus-throttling.md). Throttled requests are retried, but the client library automatically applies a 10 second back off before attempting any more requests using the same `ServiceBusClient` (or any subtypes created from that client). It can cause issues if your entity's lock duration is less than 10 seconds, as message or session locks are likely to be lost for any unsettled messages or locked sessions. Because throttled requests are usually retried successfully, the exceptions generated would be logged as warnings rather than errors - the specific warning-level event source event is 43 (RunOperation encountered an exception and retry occurs.).
+    - `ServiceBusy`: Indicates that the service throttled the request. The details describing what can cause a request to be throttled and how to avoid being throttled can be found [here](service-bus-throttling.md). Throttled requests are retried, but the client library automatically applies a 10 second back off before attempting any more requests using the same `ServiceBusClient` (or any subtypes created from that client). It can cause issues if your entity's lock duration is less than 10 seconds, as message or session locks are likely to be lost for any unsettled messages or locked sessions. Because throttled requests are retried successfully, the exceptions generated would be logged as warnings rather than errors - the specific warning-level event source event is 43 (RunOperation encountered an exception and retry occurs.).
     - `MessagingEntityAlreadyExists`: Indicates that An entity with the same name exists under the same namespace.
     - `MessagingEntityDisabled`: The Messaging Entity is disabled. Enable the entity again using Portal.
     - `MessagingEntityNotFound`: Service Bus service can't find a Service Bus resource.
@@ -48,7 +48,7 @@ try
 catch (ServiceBusException ex) when
     (ex.Reason == ServiceBusFailureReason.ServiceTimeout)
 {
-    // Take action based on a service timeout
+    // Take action based on a service time out
 }
 ```
 
@@ -61,7 +61,7 @@ catch (ServiceBusException ex) when
 
 ## Reason: QuotaExceeded 
 
-[ServiceBusException](/dotnet/api/azure.messaging.servicebus.servicebusexception) with reason set to `QuotaExceeded` indicates that a quota for a specific entity has been exceeded. 
+[ServiceBusException](/dotnet/api/azure.messaging.servicebus.servicebusexception) with reason set to `QuotaExceeded` indicates that a quota for a specific entity was exceeded. 
 
 > [!NOTE]
 > For Service Bus quotas, see [Quotas](service-bus-quotas.md).
@@ -80,7 +80,7 @@ The message states that the topic exceeded its size limit, in this case 1 GB (th
 
 ### Namespaces
 
-For namespaces, QuotaExceeded exception can indicate that an application has exceeded the maximum number of connections to a namespace. For example:
+For namespaces, QuotaExceeded exception can indicate that an application exceeded the maximum number of connections to a namespace. For example:
 
 ```output
 <tracking-id-guid>_G12 ---> 
@@ -93,10 +93,10 @@ ConnectionsQuotaExceeded for namespace xxx.
 There are two common causes for this error: the dead-letter queue, and nonfunctioning message receivers.
 
 - **[Dead-letter queue](service-bus-dead-letter-queues.md)**
-    A reader is failing to complete messages and the messages are returned to the queue/topic when the lock expires. It can happen if the reader encounters an exception that prevents it from completing the message. After a message has been read 10 times, it moves to the dead-letter queue by default. This behavior is controlled by the [MaxDeliveryCount](/dotnet/api/azure.messaging.servicebus.administration.queueproperties.maxdeliverycount) property and has a default value of 10. As messages pile up in the dead letter queue, they take up space.
+    A reader is failing to complete messages and the messages are returned to the queue/topic when the lock expires. It can happen if the reader encounters an exception that prevents it from completing the message. After a message was read 10 times, it moves to the dead-letter queue by default. The [MaxDeliveryCount](/dotnet/api/azure.messaging.servicebus.administration.queueproperties.maxdeliverycount) property controls this behavior, which has a default value of 10. As messages pile up in the dead letter queue, they take up space.
 
     To resolve the issue, read and complete the messages from the dead-letter queue, as you would from any other queue. 
-- **Receiver stopped**. A receiver has stopped receiving messages from a queue or subscription. The way to identify the issue is to look at the [active message count](/dotnet/api/azure.messaging.servicebus.administration.queueruntimeproperties.activemessagecount). If the active message count is high or growing, then the messages aren't being read as fast as they're being written.
+- **Receiver stopped**. A receiver stopped receiving messages from a queue or subscription. The way to identify the issue is to look at the [active message count](/dotnet/api/azure.messaging.servicebus.administration.queueruntimeproperties.activemessagecount). If the active message count is high or growing, then the messages aren't being read as fast as they're being written.
 
 
 ## Reason: MessageLockLost
@@ -108,7 +108,7 @@ There are two common causes for this error: the dead-letter queue, and nonfuncti
 
 The lock on a message might expire due to various reasons:
 
-  * The lock timer has expired before it was renewed by the client application.
+  * The lock timer expired before it was renewed by the client application.
   * The client application acquired the lock, saved it to a persistent store and then restarted. Once it restarted, the client application looked at the inflight messages and tried to complete the messages.
 
 You might also receive this exception in the following scenarios:
@@ -121,9 +121,9 @@ You might also receive this exception in the following scenarios:
 
 When a client application receives **MessageLockLostException**, it can no longer process the message. The client application might optionally consider logging the exception for analysis, but the client *must* dispose off the message.
 
-Since the lock on the message has expired, it would go back on the Queue (or Subscription) and can be processed by the next client application that calls receive.
+Since the lock on the message expired, it would go back on the Queue (or Subscription) and can be processed by the next client application that calls receive.
 
-If the **MaxDeliveryCount** has exceeded, then the message might be moved to the **DeadLetterQueue**.
+If the **MaxDeliveryCount** is exceeded, then the message might be moved to the **DeadLetterQueue**.
 
 ## Reason: SessionLockLost
 
@@ -133,7 +133,7 @@ If the **MaxDeliveryCount** has exceeded, then the message might be moved to the
 
 The lock on a session might expire due to various reasons:
 
-  * The lock timer has expired before it was renewed by the client application.
+  * The lock timer expired before the client application renewed it. 
   * The client application acquired the lock, saved it to a persistent store and then restarted. Once it restarted, the client application looked at the inflight sessions and tried to process the messages in those sessions.
 
 You might also receive this exception in the following scenarios:
@@ -146,15 +146,15 @@ You might also receive this exception in the following scenarios:
 
 When a client application receives **SessionLockLostException**, it can no longer process the messages on the session. The client application might consider logging the exception for analysis, but the client *must* dispose off the message.
 
-Since the lock on the session has expired, it would go back on the Queue (or Subscription) and can be locked by the next client application that accepts the session. Since the session lock is held by a single client application at any given time, the in-order processing is guaranteed.
+Since the lock on the session expired, it would go back on the Queue (or Subscription) and can be locked by the next client application that accepts the session. Since the session lock is held by a single client application at any given time, the in-order processing is guaranteed.
 
 ## TimeoutException
 
-A [TimeoutException](/dotnet/api/system.timeoutexception) indicates that a user-initiated operation is taking longer than the operation timeout.
+A [TimeoutException](/dotnet/api/system.timeoutexception) indicates that a user-initiated operation is taking longer than the operation time out.
 
 You should check the value of the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) property, as hitting this limit can also cause a [TimeoutException](/dotnet/api/system.timeoutexception).
 
-Timeouts are expected to happen during or in-between maintenance operations such as Service Bus service updates (or) OS updates on resources that run the service. During OS updates, entities are moved around and nodes are updated or rebooted, which can cause timeouts. For service level agreement (SLA) details for the Azure Service Bus service, see [SLA for Service Bus](https://azure.microsoft.com/support/legal/sla/service-bus/).
+Time outs are expected to happen during or in-between maintenance operations such as Service Bus service updates (or) OS updates on resources that run the service. During OS updates, entities are moved around and nodes are updated or rebooted, which can cause time outs. For service level agreement (SLA) details for the Azure Service Bus service, see [SLA for Service Bus](https://azure.microsoft.com/support/legal/sla/service-bus/).
 
 
 ## SocketException
@@ -164,8 +164,8 @@ Timeouts are expected to happen during or in-between maintenance operations such
 A **SocketException** is thrown in the following cases:
 
    * When a connection attempt fails because the host didn't properly respond after a specified time (TCP error code 10060).
-   * An established connection failed because connected host has failed to respond.
-   * There was an error processing the message or the timeout is exceeded by the remote host.
+   * An established connection failed because connected host failed to respond.
+   * There was an error processing the message or the remote host exceeded the time out.
    * Underlying network resource issue.
 
 ### Resolution
@@ -186,7 +186,7 @@ Address:  XX.XX.XXX.240
 Aliases:  <mynamespace>.servicebus.windows.net
 ```
 
-If the above name **does not resolve** to an IP and the namespace alias, check with the network administrator to investigate further. Name resolution is done through a DNS server typically a resource in the customer network. If the DNS resolution is done by Azure DNS, contact Azure support.
+If the name **does not resolve** to an IP and the namespace alias, check with the network administrator to investigate further. Name resolution is done through a DNS server typically a resource in the customer network. If the DNS resolution is done by Azure DNS, contact Azure support.
 
 If name resolution **works as expected**, check if connections to Azure Service Bus is allowed [here](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues).
 
@@ -206,30 +206,30 @@ We recommend that you follow these verification steps, depending on the type of 
 
 #### Causes 
 
-- During asynchronous replication (replication lag greater than zero), the client tries to perform an operation on a service bus entity (queue, topic) or performs a management operation, but the operation can't be completed because the replication lag between the primary and the secondary regions has exceeded the maximum allowed replication lag in seconds. 
+- During asynchronous replication (replication lag greater than zero), the client tries to perform an operation on a service bus entity (queue, topic) or performs a management operation, but the operation can't be completed because the replication lag between the primary and the secondary regions exceeded the maximum allowed replication lag in seconds. 
     - **Example**: The operation is being throttled because with it the new replication lag would reach 38,323 seconds, which is greater than the maximum replication lag that was set (300 seconds). The current replication lag for the latest operation being replicated is 0 seconds. 
 - The replication queue for an entity exceeds its maximum size in bytes. The maximum size in bytes for a replication queue is an internal limit set by Service Bus. 
     - **Example**: Replication queue size 73128000 exceeded threshold 67108864.  
 - In synchronous replication, a request times out while waiting for another request to replicate. 
-    - **Example**: High volume of requests from client application for skarri-storage-exp1(westus3)/q1:MessagingJournal. Replication to other regions is in progress.  
+    - **Example**: High volume of requests from client application for `<NAMESPACE>/<ENTITYNAME>`. Replication to other regions is in progress.  
 
 #### Resolution 
 
 - The client should back off to give time for the service to process its given workload, then the client should retry.
 
-### Timeout
+### Time out
 
 #### Cause 
 
-- A timeout exception in Geo DR means that the operation didn't complete within the client-provided timeout. 
-    - In synchronous replication, an operation’s primary region write and replication to secondary regions are within the scope of the operation’s timeout. 
-    - In asynchronous replication, an operation’s primary region write is within the scope of the operation’s timeout, but an operation’s replication to secondary regions isn't within the scope of the operation’s timeout. 
-    - **Example**: The operation didn't complete within the allocated time 00:01:00 for object message. (ServiceTimeout). 
+- A time out exception in Geo DR means that the operation didn't complete within the client-provided time out. 
+    - In synchronous replication, an operation’s primary region write and replication to secondary regions are within the scope of the operation’s time out. 
+    - In asynchronous replication, an operation’s primary region write is within the scope of the operation’s time out, but an operation’s replication to secondary regions isn't within the scope of the operation’s time out. 
+    - **Example**: The operation didn't complete within the allocated time 00:01:00 for object message. (`ServiceTimeout`). 
 
 #### Resolution
 
 - The client should retry the operation. 
-- Some steps of a timed-out operation might have been completed. It’s possible that a timed-out operation might have been written to the primary region and some secondary regions. If an operation has been written to the primary region, it will eventually be replicated to all secondary regions regardless of client timeout. 
+- Some steps of a timed-out operation might have been completed. It’s possible that a timed-out operation might have been written to the primary region and some secondary regions. If an operation was written to the primary region, it's eventually replicated to all secondary regions regardless of client time out. 
 
 ### BadRequest 
 
