@@ -86,8 +86,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 
 <sup>1</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
 
-> [!CAUTION]
-> Traffic analytics creates and manages data collection rule and data collection endpoint resources in the same resource group as the workspace, prefixed with `NWTA`. If you perform any operation on these resources, traffic analytics might not function as expected.
+[!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 > [!IMPORTANT]
 > [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions are currently not supported for enabling traffic analytics.
