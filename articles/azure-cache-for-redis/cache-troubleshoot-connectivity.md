@@ -73,7 +73,7 @@ If you have a firewall configured for your Azure Redis cache, ensure that your c
 
 #### Third-party firewall or external proxy
 
-If you use a third-party firewall or proxy in your network, make sure they it allows the Azure Cache for Redis endpoint `*.redis.cache.windows.net` and the ports `6379` and `6380`. You might need to allow more ports when you use a clustered cache or geo-replication.
+If you use a third-party firewall or proxy in your network, make sure it allows the Azure Cache for Redis endpoint `*.redis.cache.windows.net` and the ports `6379` and `6380`. You might need to allow more ports when you use a clustered cache or geo-replication.
 
 ### Private endpoint configuration
 
@@ -118,7 +118,7 @@ To configure your virtual network effectively and avoid geo-replication issues, 
 
 While it's possible to use virtual network injection with Premium caches, it's preferable to use Azure Private Link. For more information, see:
 
-- [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md)
+- [Migrate from `VNet` injection caches to Private Link caches](cache-vnet-migration.md)
 - [What is Azure Cache for Redis with Azure Private Link?](cache-private-link.md)
 
 ## Related content
