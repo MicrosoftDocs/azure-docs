@@ -22,8 +22,8 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ## Prerequisites
 Before you begin, ensure you have:
-- Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/en-us/free/).
-- Azure Communication Services resource, see [create a new Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
+- Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/free/).
+- Azure Communication Services resource, see [create a new Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
 - Create a new web service application using Call automation SDK.
 - An Azure AI Multiservice resource and a custom domain.
 - [Connect Azure Communication Services and Azure AI](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
@@ -40,7 +40,7 @@ Once you provided all the requested information, click **Create**.
 
 ![Click create](./media/click-create.png)
 
-For more details on creating and customizing your agent, you can see the [Copilot Studio quickstart](https://docs.microsoft.com/copilot-studio/quickstart).
+For more details on creating and customizing your agent, you can see the [Copilot Studio quickstart](/copilot-studio/quickstart).
 
 ## 2. Disable Authentication
 Once you’ve created your agent, you need to make some updates so that you can integrate it with Azure Communication Service.
@@ -55,7 +55,7 @@ Once you’ve created your agent, you need to make some updates so that you can 
 
 - Select **Authentication**, select **No Authentication**, and click **Save**.
 
-![Authentication](./media/authentication.png)
+![Authentication step](./media/authentication.png)
 
 ## 3. Get the Webchannel Security Key
 Navigating back to the **Security** section select **Web Channel Security**. Copy and save this key somewhere. You need this when you’re deploying your application.
