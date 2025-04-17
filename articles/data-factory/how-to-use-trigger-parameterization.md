@@ -70,7 +70,7 @@ Under the `properties` section, add parameter definitions to the `parameters` se
                 "userProperties": [],
                 "typeProperties": {
                     "url": {
-                        "value": "@pipeline().parameters.parameter_2",
+                        "value": "@pipeline().parameters.parameter_1",
                         "type": "Expression"
                     },
                     "method": "GET"
