@@ -6,6 +6,7 @@ ms.date: 8/21/2024
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
+zone_pivot_groups: app-service-webjobs
 #Customer intent: As a web developer, I want to leverage a scheduled background task to keep my application running smoothly.
 ---
 
@@ -24,6 +25,10 @@ In this quickstart, you create a scheduled WebJob to delete temporary files from
 - **[Always on](configure-common.md?tabs=portal)** must enabled on your app.
 
 ## Create a scheduled WebJob
+:::zone target="docs" pivot="dotnet"
+dotnet
+:::zone-end
+:::zone target="docs" pivot="python"
 
 1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
 
@@ -50,6 +55,17 @@ In this quickstart, you create a scheduled WebJob to delete temporary files from
     :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
+:::zone-end
+:::zone target="docs" pivot="node"
+node
+:::zone-end
+:::zone target="docs" pivot="java"
+java
+:::zone target="docs" pivot="php"
+php
+:::zone-end
+
+:::zone-end
 
 ## <a name="NextSteps"></a> Next steps
 

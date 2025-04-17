@@ -335,7 +335,22 @@ groups:
     title: Azure portal
   - id: experience-arm
     title: Azure Resource Manager
+
 # Owner: msangapu
+- id: app-service-webjobs
+  title: Programming Language
+  prompt: Choose a language stack
+  pivots:
+  - id: dotnet
+    title: .NET
+  - id: python
+    title: Python
+  - id: node
+    title: Node.js
+  - id: Java
+    title: Java
+  - id: PHP
+    title: PHP
 - id: app-service-vscode-cli-portal
   title: Development environment
   prompt: Choose a development environment
