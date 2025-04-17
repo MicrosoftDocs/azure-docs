@@ -65,8 +65,6 @@ java
 php
 :::zone-end
 
-:::zone-end
-
 ## <a name="NextSteps"></a> Next steps
 
 The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
