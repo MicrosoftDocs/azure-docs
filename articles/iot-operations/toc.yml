@@ -168,7 +168,7 @@ items:
       - name: Azure IoT Operations SDKs
         items:
         - name: 🟢What is Azure IoT Operations SDKs?
-          href: develop-edge-apps/concept-sdks-overview.md
+          href: develop-edge-apps/overview-iot-operations-sdks.md
         - name: 🔵Using the State store
           href: develop-edge-apps/overview-state-store.md
       - name: Dapr apps

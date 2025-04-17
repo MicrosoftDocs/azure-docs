@@ -578,7 +578,7 @@
         {
             "source_path_from_root": "/articles/iot-operations/create-edge-apps/howto-develop-mqttnet-apps.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/overview-edge-apps",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
