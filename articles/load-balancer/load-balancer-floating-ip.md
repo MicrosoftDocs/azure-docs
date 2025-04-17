@@ -52,28 +52,30 @@ For each VM in the backend pool, run the following commands at a Windows Command
 
 1. To get the list of interface names you have on your VM, enter this command:
 
-```console
-netsh interface ipv4 show interface 
-```
-1. For the VM NIC (Azure managed), enter the following command after replacing **interface-name** with the name of the interface you want to use:
+    ```console
+    netsh interface ipv4 show interface 
+    ```
+2. For the VM NIC (Azure managed), enter the following command after replacing **interface-name** with the name of the interface you want to use:
 
-```console
-netsh interface ipv4 set interface <interface-name> weakhostreceive=enabled
-```
-1. For each loopback interface you added, enter these commands after replacing **loopback-interface-name** with the name of the loopback interface and **floating-IP** and **floating-IPnetmask** with the appropriate values that correspond to the load balancer frontend IP:
+    ```console
+    netsh interface ipv4 set interface <interface-name> weakhostreceive=enabled
+    ```
 
-```console
-netsh interface ipv4 add addr <loopback-interface-name> <floating-IP> <floating-IPnetmask>
-netsh interface ipv4 set interface <loopback-interface-name> weakhostreceive=enabled  weakhostsend=enabled 
-```
-1. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4 and a load balancing rule for port 80:
+3. For each loopback interface you added, enter these commands after replacing **loopback-interface-name** with the name of the loopback interface and **floating-IP** and **floating-IPnetmask** with the appropriate values that correspond to the load balancer frontend IP:
 
-```console
-netsh int ipv4 set int "Ethernet" weakhostreceive=enabled
-netsh int ipv4 add addr "Loopback Pseudo-Interface 1" 1.2.3.4 255.255.255.0
-netsh int ipv4 set int "Loopback Pseudo-Interface 1" weakhostreceive=enabled weakhostsend=enabled
-netsh advfirewall firewall add rule name="http" protocol=TCP localport=80 dir=in action=allow enable=yes
-```
+    ```console
+    netsh interface ipv4 add addr <loopback-interface-name> <floating-IP> <floating-IPnetmask>
+    netsh interface ipv4 set interface <loopback-interface-name> weakhostreceive=enabled  weakhostsend=enabled 
+    ```
+
+4. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4 and a load balancing rule for port 80:
+
+    ```console
+    netsh int ipv4 set int "Ethernet" weakhostreceive=enabled
+    netsh int ipv4 add addr "Loopback Pseudo-Interface 1" 1.2.3.4 255.255.255.0
+    netsh int ipv4 set int "Loopback Pseudo-Interface 1" weakhostreceive=enabled weakhostsend=enabled
+    netsh advfirewall firewall add rule name="http" protocol=TCP localport=80 dir=in action=allow enable=yes
+    ```
 </details>
 
 ### Ubuntu
@@ -85,20 +87,22 @@ For each VM in the backend pool, run the following commands via an SSH session.
 
 1. To get the list of interface names you have on your VM, type this command:
 
-```console
-ip addr
-```
-1. For each loopback interface you added, enter these commands after replacing **loopback-interface-name** with the name of the loopback interface and **floating-IP** and **floating-IPnetmask** with the appropriate values that correspond to the load balancer frontend IP:
+    ```console
+    ip addr
+    ```
 
-```console
-sudo ip addr add <floating-IP>/<floating-IPnetmask> dev lo:0
-```
-1. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4, a load balancing rule for port 80, and the use of [UFW (Uncomplicated Firewall)](https://www.wikipedia.org/wiki/Uncomplicated_Firewall) in Ubuntu.
+2. For each loopback interface you added, enter these commands after replacing **loopback-interface-name** with the name of the loopback interface and **floating-IP** and **floating-IPnetmask** with the appropriate values that correspond to the load balancer frontend IP:
 
-```console
-sudo ip addr add 1.2.3.4/24 dev lo:0
-sudo ufw allow 80/tcp
-```
+    ```console
+    sudo ip addr add <floating-IP>/<floating-IPnetmask> dev lo:0
+    ```
+
+3. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4, a load balancing rule for port 80, and the use of [UFW (Uncomplicated Firewall)](https://www.wikipedia.org/wiki/Uncomplicated_Firewall) in Ubuntu.
+
+    ```console
+    sudo ip addr add 1.2.3.4/24 dev lo:0
+    sudo ufw allow 80/tcp
+    ```
 </details>
 
 ## <a name = "limitations"></a>Limitations 
