@@ -124,5 +124,7 @@ The `RealTimeTextInfo` class provides detailed information about each real-time 
 
 ## Other Links
 
-- Learn more about [Closed captions](../../concepts/voice-video-calling/closed-captions.md)
-- Get started with RTT in the [UI Library](../ui-library/ui-library-overview.md)
+## Next steps
+
+- Learn more about [Closed captions](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/closed-captions)
+- Get started with RTT in the [UI Library](https://azure.github.io/communication-ui-library/?path=/docs/concepts-real-time-text--docs)
