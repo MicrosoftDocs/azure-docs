@@ -16,8 +16,6 @@ The following links provide more configuration information:
 
 - For information about compatible VPN devices, see [About VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
-- Before you configure your VPN device, check for any [known device compatibility issues](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known).
-
 - For links to device configuration settings, see [Validated VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). We provide the device configuration links on a best-effort basis, but it's always best to check with your device manufacturer for the latest configuration information.
 
   The list shows the versions that we tested. If the OS version for your VPN device isn't on the list, it still might be compatible. Check with your device manufacturer.
