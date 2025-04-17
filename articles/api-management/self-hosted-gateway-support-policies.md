@@ -3,7 +3,7 @@ title: Support policies for self-hosted gateway | Azure API Management
 description: Learn about the support policies and the shared responsibilities for the API Management self-hosted gateway.
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.author: danlep
 ms.date: 09/25/2024
 ---
@@ -36,7 +36,7 @@ The following table shows Microsoft's responsibilities, shared responsibilities,
 We have the following tagging strategy for the [self-hosted gateway container image](self-hosted-gateway-overview.md#packaging), following the major, minor, patch convention: `{major}.{minor}.{patch}`. You can find a full list of [available tags](https://mcr.microsoft.com/product/azure-api-management/gateway/tags). As a best practice, we recommend that customers run the latest stable version of our container image. Given the continuous releases of our container image, we'll provide official support for the following versions: 
 
 > [!TIP]
-> We highly encourage customers to upgrade to a newer self-hosted gateway by following [Safe Deployment Practices (SDP)](validate-service-updates.md#what-is-the-azure-safe-deployment-practices-framework).
+> We highly encourage customers to upgrade to a newer self-hosted gateway by following [Safe Deployment Practices (SDP)](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 
 ### Supported versions 
 
@@ -94,7 +94,7 @@ If you have a support plan and you need technical help, create a [support requ
 
 You can also get help from our communities. You can file an issue on [GitHub](https://aka.ms/apim/sputnik/repo) or ask questions on [Stack  Overflow](https://aka.ms/apimso) and tag them with "azure-api-management".
 
-## Next steps
+## Related content
 
 * Learn how to deploy the API Management self-hosted gateway to [Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md), [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md), or a Kubernetes cluster using [YAML](how-to-deploy-self-hosted-gateway-kubernetes.md) or a [Helm chart](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 

@@ -35,7 +35,7 @@ With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redu
 
 ### Prerequisites
 
-- Your replicas must be deployed in an Azure region that supports availability zones. To see if your region supports availability zones, see the [list of supported regions](availability-zones-region-support.md). 
+- Your replicas must be deployed in an Azure region that supports availability zones. To see if your region supports availability zones, see the [list of supported regions](regions-list.md). 
 
 - Determine whether or not availability zones add enough value to your current configuration in [Impact of using availability zones](#impact-of-using-availability-zones).
 

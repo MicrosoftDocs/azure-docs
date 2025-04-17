@@ -176,4 +176,4 @@ Learn more about:
 > [Azure services that support availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
-> [Azure regions that support availability zones](availability-zones-region-support.md)
+> [Azure regions that support availability zones](regions-list.md)

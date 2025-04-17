@@ -26,6 +26,10 @@ An ONVIF compliant camera connected to your Azure IoT Operations cluster.
 > [!NOTE]
 > Microsoft has validated this preview release with the TP-Link Tapo C210 camera.
 
+## Update the ONVIF connector
+
+[!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
+
 ## Asset endpoint configuration
 
 To configure the ONVIF connector, first create an asset endpoint that defines the connection to the ONVIF compliant camera asset. The asset endpoint includes the URL of the ONVIF discovery endpoint and any credentials you need to access the camera.

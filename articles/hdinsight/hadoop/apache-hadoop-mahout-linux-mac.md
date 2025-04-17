@@ -4,6 +4,9 @@ description: Learn how to use the Apache Mahout machine learning library to gene
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 11/25/2024
 ---
 

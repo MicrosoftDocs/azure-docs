@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 08/21/2024
+ms.date: 04/03/2025
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -78,8 +78,10 @@ During a push installation of the Mobility service, the following steps are perf
 ### Prerequisites
 
 Locate the installer files for the server’s operating system using the following steps:
-- On the appliance, go to the folder *E:\Software\Agents*.
-- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
+- Ensure that all server configurations meet the [requirements for server's operating system](vmware-physical-azure-support-matrix.md#replicated-machines).
+- [Locate the installer](vmware-physical-mobility-service-overview.md#locate-installer-files) for server's operating system.
+- On the appliance, go to the folder `E:\Software\Agents`.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, for example `C:\Program Files (x86)\Microsoft Azure Site Recovery`.
 
 
 **Use the following steps to install the mobility service:**
@@ -112,6 +114,17 @@ Locate the installer files for the server’s operating system using the followi
 
 >[!NOTE]
 > This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
+
+### Prerequisites
+
+### Prerequisites
+
+Locate the installer files for the server’s operating system using the following steps:
+- Ensure that all server configurations meet the [requirements for server's operating system](vmware-physical-azure-support-matrix.md#replicated-machines).
+- [Locate the installer](vmware-physical-mobility-service-overview.md#locate-installer-files) for server's operating system.
+- On the appliance, go to the folder `E:\Software\Agents`.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, for example `C:\Program Files (x86)\Microsoft Azure Site Recovery`.
+
 
 ### Windows machine
 

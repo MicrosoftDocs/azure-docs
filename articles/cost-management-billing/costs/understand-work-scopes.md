@@ -2,13 +2,13 @@
 title: Understand and work with Cost Management scopes
 titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ms.custom:
 ---
 
@@ -245,21 +245,6 @@ The following tables show how Cost Management features can be utilized by each r
 | **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update |
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |
-
-## AWS scopes
-
-> [!NOTE]
-> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
-
-After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
-
-- **External Billing account** - Represents a customer agreement with a third-party vendor. It's similar to the EA billing account.
-
-    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
-
-- **External subscription** - Represents a customer operational account with a third-party vendor. It's similar to an Azure subscription.
-
-    Resource type: `Microsoft.CostManagement/externalSubscriptions`
 
 ## Cloud Solution Provider (CSP) scopes
 

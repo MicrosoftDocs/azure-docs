@@ -3,6 +3,9 @@ title: Unable to create Jupyter Notebook in Azure HDInsight
 description: Learn about the troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 03/22/2024
 ---
 

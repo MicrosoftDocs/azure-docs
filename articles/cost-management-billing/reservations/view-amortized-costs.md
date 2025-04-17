@@ -2,13 +2,13 @@
 title: View amortized benefit costs
 titleSuffix: Microsoft Cost Management
 description: This article helps you understand what amortized reservation and saving plan benefit costs are and how to view them in cost analysis.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # View amortized benefit costs

@@ -199,7 +199,7 @@ if (callEvent instanceof RecognizeFailed) {
                 if(ReasonCode.Recognize.INITIAL_SILENCE_TIMEOUT.equals(recognizeFailed.getReasonCode()))
                 {
                     PlaySource playSource = new TextSource()
-                        .setText("No input recieved and recognition timed out, Disconnecting the call. Thank you!")
+                        .setText("No input received and recognition timed out, Disconnecting the call. Thank you!")
                         .setPlaySourceId("RecognitionTimedOut");
                     Response<?> response = callMedia.playToAllWithResponse(playSource, new PlayOptions(), null);
                 }
@@ -209,7 +209,7 @@ if (callEvent instanceof RecognizeFailed) {
                 {
                     PlaySource playSource = new TextSource()
                         .setText("Invalid speech phrase or tone detected, Disconnecting the call. Thank you!")
-                        .setPlaySourceId("InavlidInput");
+                        .setPlaySourceId("invalidInput");
                     Response<?> response = callMedia.playToAllWithResponse(playSource, new PlayOptions(), null);
                 }
             }
@@ -219,7 +219,7 @@ if (callEvent instanceof RecognizeFailed) {
 ``` java
 if (callEvent instanceof RecognizeCanceled) { 
 
-            //Take action on Canceled notification, like terinating a call
+            //Take action on Canceled notification, like terminating a call
             callConnection.hangUp(true);
          }
 ```

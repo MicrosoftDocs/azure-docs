@@ -4,10 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about how to execute a pipeline in Azure Data Factory or Azure Synapse Analytics, either on-demand or by creating a trigger.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 02/13/2025
+ms.date: 04/08/2025
 ms.custom: synapse
 ---
 
@@ -396,12 +396,13 @@ The following table provides a comparison of the tumbling window trigger and sch
 
 ## Event-based trigger
 
-An event-based trigger runs pipelines in response to an event. There are two flavors of event-based triggers.
+An event-based trigger runs pipelines in response to an event. From behavior perspective, if you stop and start an event-based trigger, it resumes old trigger pattern which may result in unwanted trigger of the pipeline. In this case, you should delete and create new event based trigger. The new trigger starts fresh without history. There are two flavors of event-based triggers.
 
 * _Storage event trigger_ runs a pipeline against events happening in a Storage account, such as the arrival of a file, or the deletion of a file in Azure Blob Storage account.
 * _Custom event trigger_ processes and handles [custom articles](../event-grid/custom-topics.md) in Event Grid
 
 For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
+
 
 ## Related content
 

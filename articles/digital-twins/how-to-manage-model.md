@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Manage DTDL models
 titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/03/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Manage Azure Digital Twins models
@@ -21,13 +15,13 @@ This article describes how to manage the [models](concepts-models.md) in your Az
 
 ## Prerequisites
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-prereq-instance.md](includes/digital-twins-prereq-instance.md)]
 
-[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](includes/digital-twins-developer-interfaces.md)]
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
-[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](includes/digital-twins-visualization.md)]
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer showing a sample model graph." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
 
@@ -65,7 +59,7 @@ If your solution is for a certain industry that uses any sort of modeling standa
 
 ### Validate syntax
 
-[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+[!INCLUDE [Azure Digital Twins: validate models info](includes/digital-twins-validate.md)]
 
 ## Upload models
 
@@ -100,7 +94,7 @@ For large model sets, you can use the [Import Jobs API](concepts-apis-sdks.md#bu
 
 To import models in bulk, you need to structure your models (and any other resources included in the bulk import job) as an *NDJSON* file. The `Models` section comes immediately after `Header` section, making it the first graph data section in the file. You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
-[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+[!INCLUDE [digital-twins-bulk-blob.md](includes/digital-twins-bulk-blob.md)]
 
 Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You provide the blob storage URL of the input file and a new blob storage URL to indicate where you'd like the service to create and store the output log.
 
@@ -255,7 +249,7 @@ Models can be removed from the service in one of two ways:
 
 These operations are separate features and they don't affect each other, although they might be used together to remove a model gradually. 
 
-[!INCLUDE [digital-twins-bulk-delete-note.md](../../includes/digital-twins-bulk-delete-note.md)]
+[!INCLUDE [digital-twins-bulk-delete-note.md](includes/digital-twins-bulk-delete-note.md)]
 
 ### Decommissioning
 
@@ -344,7 +338,7 @@ After these changes, a former DTDL v2 model is converted to a DTDL v3 model.
 
 You might also want to consider [new capabilities of DTDL v3](concepts-models.md#supported-dtdl-versions), such as array-type properties, version relaxation, and other feature extensions, to see if any of them would be beneficial additions. For a complete list of differences between DTDL v2 and v3, see [Changes from Version 2 in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 ## Next steps
 
