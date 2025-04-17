@@ -38,7 +38,7 @@ More details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to [acstns@microsoft.com](acstns@microsoft.com) for assistance with your application.
+\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
 ## Azure subscription billing locations where United States phone numbers are available for 10DLC SMS
 
