@@ -272,6 +272,8 @@
     href: blob-backup-overview.md
   - name: Azure Data Lake Storage Gen2 backup (preview)
     href: azure-data-lake-storage-backup-overview.md  
+  - name: Azure Elastic SAN backup (preview)
+    href: azure-elastic-storage-area-network-backup-overview.md  
   - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
