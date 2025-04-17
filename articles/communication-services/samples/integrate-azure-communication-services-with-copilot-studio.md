@@ -32,13 +32,13 @@ Before you begin, ensure you have:
 ## 1. Create your Agent in Copilot Studio
 After logging in or signing up for Copilot Studio, you land on the Home page. Select **Create** in the left navigation.
 
-![Create agent](./media/create-new-agent.png)
+![Screenshot of how to Create an agent.](./media/create-new-agent.png)
 
 On the Create page, select **New agent**.
 Use the chat to describe your agent, using the provided questions for guidance.  
 Once you provided all the requested information, click **Create**.
 
-![Click create](./media/click-create.png)
+![Screenshot of the Click to create.](./media/click-create.png)
 
 For more details on creating and customizing your agent, you can see the [Copilot Studio quickstart](/copilot-studio/quickstart).
 
@@ -47,15 +47,15 @@ Once you’ve created your agent, you need to make some updates so that you can 
 
 - Navigate to the **Settings** tab.
 
-![Navigate to settings tab](./media/mcs-settings.png)
+![Screenshot of how to Navigate to settings tab.](./media/mcs-settings.png)
 
 - Click on **Security** on the left pane.
 
-![Security](./media/security-tab.png)
+![Screenshot of Security tab.](./media/security-tab.png)
 
 - Select **Authentication**, select **No Authentication**, and click **Save**.
 
-![Authentication step](./media/authentication.png)
+![Screenshot of Authentication step.](./media/authentication.png)
 
 ## 3. Get the Webchannel Security Key
 Navigating back to the **Security** section select **Web Channel Security**. Copy and save this key somewhere. You need this when you’re deploying your application.
