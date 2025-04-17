@@ -92,3 +92,8 @@ Here's a sample log record in JSON format:
 ## Synapse workspace with data exfiltration protection enabled
 
 Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics can't be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
+
+## Collect Apache Spark applications logs and metrics by certificate and service principal
+
+The Apache Spark diagnostic emitter extension now supports accessing Azure Event Hub by obtaining a token through service principal authentication with certificate credentials. For more information, see [Collect Apache Spark Application Logs and Metrics to Azure Event Hubs Using Certificate-Based Service Principal Authentication](./how-to-use-certificate-with-service-principalp-emit-log-event-hubs.md) article.
+
