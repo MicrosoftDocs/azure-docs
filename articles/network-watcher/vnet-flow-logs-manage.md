@@ -310,9 +310,9 @@ To disable traffic analytics on the flow log resource and continue to generate a
 az network watcher flow-log update --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount' --traffic-analytics false
 ```
 
-[!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
-
 ---
+
+[!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 ## List all flow logs
 
