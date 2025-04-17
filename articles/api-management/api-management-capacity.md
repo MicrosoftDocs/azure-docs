@@ -20,7 +20,7 @@ API Management provides [Azure Monitor metrics](api-management-howto-use-azure-m
 This article explains the capacity metrics and how they behave, shows how to access capacity metrics in the Azure portal, and suggests when to consider scaling or upgrading your API Management instance.
 
 > [!IMPORTANT]
-> This article introduces how to monitor and scale your Azure API Management instance based on capacity metrics. However, when an instance *reaches* its capacity, it won't throttle to prevent overload. Instead, it will act like an overloaded web server: increased latency, dropped connections, and timeout errors. API clients should be ready to handle these issues as they do with other external services, for example by using retry policies.
+> This article introduces how to monitor and scale your Azure API Management instance based on capacity metrics. However, when an instance *reaches* its capacity, it won't throttle to prevent overload. Instead, it will act like an overloaded web server: increased latency, dropped connections, and time-out errors. API clients should be ready to handle these issues as they do with other external services, for example by using retry policies.
 
 [!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
@@ -66,13 +66,13 @@ Available aggregations for this metric are as follows.
 
 [!INCLUDE [api-management-cpu-memory-capacity](../../includes/api-management-cpu-memory-capacity.md)]
 
-#### [Workspaces gateway](#tab/workspace-gateway)
+#### [Workspace gateways](#tab/workspace-gateway)
 
 In a workspace gateway, the following metrics are available:
 
 * **CPU Utilization (%)** - The percentage of CPU capacity used by the gateway units.
 
-* **Memory Utilization (%) ** - The percentage of memory capacity used by the gateway units.
+* **Memory Utilization (%)** - The percentage of memory capacity used by the gateway units.
 
 Available aggregations for these metrics are as follows.
 
@@ -147,7 +147,7 @@ Access metrics in the portal to understand how much capacity is used over time.
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. In the left menu, under **APIs**, select **Workspaces** > the workspace associated with the gateway that you want to monitor.
-1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > the workspace gateway you want to monitor.
+1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > the workspace gateway that you want to monitor.
 1. In the left menu, under **Monitoring**, select **Metrics**.
 1. Select the **CPU Utilization (%)** or **Memory Utilization (%)** metric from the available metrics. Choose the default **Avg** aggregation or select the **Max** aggregation to see the peak usage.
 1. Pick a desired timeframe from the top bar of the section.
