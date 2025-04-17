@@ -56,8 +56,6 @@ landingContent:
         links:
           - text: Create and connect a device
             url: core/tutorial-connect-device.md
-          - text: Connect an IoT Edge device
-            url: /training/modules/connect-iot-edge-device-to-iot-central/
   - title: Manage your devices and analyze your data
     linkLists:
       - linkListType: overview
