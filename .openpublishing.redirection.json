@@ -6747,7 +6747,12 @@
     {
       "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
       "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
-           "redirect_document_id": false
-    }
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/how-to/slurm-cloud-bursting-setup.md",
+      "redirect_url": "/azure/cyclecloud/how-to/bursting/slurm-cloud-bursting-setup",
+      "redirect_document_id": false
+    }  
   ]
 }
