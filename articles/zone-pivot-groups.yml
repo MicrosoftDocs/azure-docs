@@ -1209,8 +1209,8 @@ groups:
     title: Standard/Premium
   - id: front-door-classic
     title: Classic
-- id: flow-logs-types
-  title: Flow Logs types
+- id: flow-log-types
+  title: Flow Log types
   prompt: "Select the flow log type:"
   pivots:
   - id: virtual-network
