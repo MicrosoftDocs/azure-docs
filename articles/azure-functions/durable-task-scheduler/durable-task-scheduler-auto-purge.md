@@ -1,31 +1,31 @@
 ---
-title: Set auto-purge retention policies for Azure Functions Durable Task Scheduler (preview)
-description: Learn about how and why you'd want to configure auto-purge retention policies for Durable Task Scheduler.
+title: Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
+description: Learn about how and why you'd want to configure autopurge retention policies for Durable Task Scheduler.
 ms.topic: conceptual
 ms.date: 04/17/2025
 ---
 
-# Set auto-purge retention policies for Azure Functions Durable Task Scheduler (preview)
+# Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
 
-Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage cost, and increase performance issues. The auto-purge feature for Durable Task Scheduler offers a lightweight, configurable, and adoptable way to manage orchestration instance clean-up without manual intervention.
+Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage cost, and increase performance issues. The autopurge feature for Durable Task Scheduler offers a lightweight, configurable, and adoptable way to manage orchestration instance clean-up without manual intervention.
 
 ## How it works
 
-You can enable auto-purge by simply defining retention policies that control how long to keep completed, failed, or canceled orchestrations. Once enabled, auto-purge deletes orchestration instances older than the retention period you set. 
+You enable autopurge by defining retention policies that control how long to keep completed, failed, or canceled orchestrations. Once enabled, autopurge deletes orchestration instances older than the retention period you set. 
 
-Auto-purge runs asynchronously in the background to avoid using too many system resources and blocking or delaying other Durable Task operations. While auto-purge doesn't run on a precise schedule, the clean-up rate roughly matches your orchestration scheduling rate.
+Autopurge runs asynchronously in the background to avoid using too many system resources and blocking or delaying other Durable Task operations. While autopurge doesn't run on a precise schedule, the clean-up rate roughly matches your orchestration scheduling rate.
 
-### Enable auto-purge
+### Enable autopurge
 
-You can configure auto-purge using:
+You can configure autopurge using:
 
 - Azure Resource Manager: Retention Policy Spec
 - Azure CLI (coming soon)
-- Azure Portal UI (coming soon)
+- Azure portal (coming soon)
 
 # [Azure Resource Manager](#tab/arm)  
 
-When configuring in Azure Resource Manager, you can set a *specific* retention policy. Specific policies are applied only to the `orchestrationState` you've specified. 
+When configuring in Azure Resource Manager, you can set a *specific* retention policy. Specific policies are applied only to the `orchestrationState` specified. 
 
 ```json
 {
@@ -57,13 +57,13 @@ todo
 ---
 
 > [!NOTE]
-> If you've set both a specific and a default policy, the specific policy takes priority.
+> If both a specific and a default policy are set, the specific policy takes priority.
 
-### Disable auto-purge
+### Disable autopurge
 
 # [Azure Resource Manager](#tab/arm)  
 
-To disable auto-purge retention policies, just delete the policy from the template. Durable Task Scheduler will automatically stop cleaning up instances.
+To disable autopurge retention policies, just delete the policy from the template. Durable Task Scheduler automatically stops cleaning up instances.
 
 # [Azure CLI](#tab/cli)  
 todo
