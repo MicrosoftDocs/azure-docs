@@ -13,11 +13,11 @@ ms.date: 4/9/2025
 
 # Supported data types in Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds of data, but only certain file types enable you to take advantage of the full suite of Microsoft Planetary Computer (MPC) Pro features. The following file formats are supported, and will be cloud optimized, indexed, and made available for visualization:
+Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds of data, but only certain file types enable you to take advantage of the full suite of Microsoft Planetary Computer (MPC) Pro features. The following file formats are supported, and automatically cloud optimized, indexed, and made available for visualization upon ingestion:
 
 ## Use cases
 
-It is important to understand which geospatial data formats are supported by MPC Pro when performing the following actions:
+It's important to understand which geospatial data formats are supported in MPC Pro when performing the following actions:
 - Creating STAC Collections and Ingesting STAC Items
 - Visualizing STAC Items in the Data Explorer UI
 

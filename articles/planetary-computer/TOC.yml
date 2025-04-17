@@ -52,4 +52,11 @@
   - name: Render configuration
     href: render-configuration.md
   - name: Tile settings
-    href: tile-settings.md  
+    href: tile-settings.md
+- name: References
+  items:
+  - name: Supported Data Types
+    href: supported-data-types.md
+  - name: Supported Colormaps
+    href: supported-colormaps.md
+  
