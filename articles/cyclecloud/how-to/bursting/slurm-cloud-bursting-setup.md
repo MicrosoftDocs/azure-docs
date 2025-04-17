@@ -63,7 +63,7 @@ In HPC environments, maintaining consistent user IDs (UIDs) and group IDs (GIDs)
 
 > [!Important]
 > 
-> For more information on how to setup and instructions, see [Slurm Cloud Bursting Using CycleCloud on Azure](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922).
+> For more information on how to setup and instructions, see the blog post about [Slurm Cloud Bursting Using CycleCloud on Azure](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922).
 
 ### Next Steps
 
