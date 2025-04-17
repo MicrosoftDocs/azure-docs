@@ -32,7 +32,7 @@ If you intend to create a Slurm cluster entirely within Azure, you must deploy b
 
 ![Slurm cluster](../../images/slurm-cloud-burst/slurm-cloud-burst-architecture.png)
 
-To create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection. This'll link your network to the Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set this up.
+To create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection. This links your network to the Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set this up.
 
 ## Network Ports and Security
 The following NSG rules must be configured for successful communication between Master node, CycleCloud server, and compute nodes.
