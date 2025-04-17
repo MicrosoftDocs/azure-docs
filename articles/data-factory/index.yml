@@ -49,7 +49,7 @@ landingContent:
           - text: Create your first dataflow
             url: /fabric/data-factory/create-first-dataflow-gen2
           - text: Create a Copy job
-            url: /data-factory/create-copy-job
+            url: /fabric/data-factory/create-copy-job
       - linkListType: training
         links:
           - text: Data Factory in Microsoft Fabric training
