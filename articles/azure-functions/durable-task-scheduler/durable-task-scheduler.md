@@ -113,6 +113,9 @@ You can see all of the emulator versions available by running the following comm
 curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
 ```
 
+### Auto-purge retention policies
+
+Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage costs, and degrade performance. The auto-purge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting auto-purge retention policies for Azure Functions Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
 
 ## Limitations and considerations
 
