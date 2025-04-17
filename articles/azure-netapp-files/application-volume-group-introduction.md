@@ -42,7 +42,7 @@ Application volume group for SAP HANA helps you simplify the deployment process 
 
 * [Availability zone volume placement](use-availability-zones.md)
 
-    Designating the same availability zone for the volumes ensures that virtual machines and Azure NetApp Files volumes reside in the same availability zone and meet the latency requirements for SAP HANA. Availability zone volume placement simplifies the deployment process, avoiding the manual AvSet pinning process and eliminating the requirement for availability sets. To learn more about the differences between availability zone volume placement and proximity placement groups, see [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md#ppg).
+    Designating the same availability zone for the volumes ensures that virtual machines and Azure NetApp Files volumes reside in the same availability zone and meet the latency requirements for SAP HANA. Availability zone volume placement simplifies the deployment process, avoiding the manual AvSet pinning process and eliminating the requirement for availability sets. To learn more about the differences between availability zone volume placement and proximity placement groups, see [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md#bes-practices-about-proximity-placement).
 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
