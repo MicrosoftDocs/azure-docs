@@ -11,17 +11,23 @@ ms.author: normesta
 ms.devlang: csharp
 ---
 
-# Quickstart: Azure Blob Storage client library for .NET
+# Quickstart: Create and assign a storage task by using .NET
 
 In this quickstart, you learn how to use the Azure Storage Actions client library for .NET to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a time-based immutability policy on any Microsoft Word documents that exist in the storage account.
 
-[API reference documentation](/dotnet/api/overview/azure/resourcemanager.storageactions-readme?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions) | [Package (NuGet)](https://www.nuget.org/packages/Azure.ResourceManager.StorageActions/1.0.0-beta.2) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions/samples)
+[API reference documentation](/dotnet/api/overview/azure/resourcemanager.storageactions-readme?view=azure-dotnet-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions) | [Package (NuGet)](https://www.nuget.org/packages/Azure.ResourceManager.StorageActions/1.0.0-beta.2) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions/samples)
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
+
+- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
+
+- The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
+
+- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
+
+- .NET Framework is 4.7.2 or greater installed. For more information, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 ## Setting up
 
@@ -82,7 +88,7 @@ Create a .NET console app using either the .NET CLI or Visual Studio 2022.
 
 4. Search for *Azure.ResourceManager.Authorization**. Select the appropriate result, and select **Install**.
 
-    :::image type="content" source="../media/storage-tasks/storage-quickstart-dotnet/visual-studio-add-package-storage-authorization.png" alt-text="A screenshot showing how to add the Azure.ResourceManager.Authorization package using Visual Studio.":::
+    :::image type="content" source="../media/storage-tasks/storage-quickstart-dotnet/visual-studio-add-package-authorization.png" alt-text="A screenshot showing how to add the Azure.ResourceManager.Authorization package using Visual Studio.":::
 
 ### [.NET CLI](#tab/net-cli)
 
@@ -342,7 +348,11 @@ The `SummaryReportPath` field of each report summary contains a path to a detail
 
 ## Clean up resources
 
-After you verify the files and finish testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
+Remove all of the assets you've created. The easiest way to remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
+
+```powershell
+Remove-AzResourceGroup -Name $ResourceGroup 
+```
 
 ## Next step
 
