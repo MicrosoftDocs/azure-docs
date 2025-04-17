@@ -675,19 +675,19 @@ Connector uses the address of the container instead of 127.0.0.1.
  
 On Linux, it has all of the same customization, and it adds some error and reporting pages to the valve:
 
-    ```xml
-    <xsl:attribute name="appServiceErrorPage">
-        <xsl:value-of select="'${appService.valves.appServiceErrorPage}'"/>
-    </xsl:attribute>
+```xml
+<xsl:attribute name="appServiceErrorPage">
+    <xsl:value-of select="'${appService.valves.appServiceErrorPage}'"/>
+</xsl:attribute>
     
-    <xsl:attribute name="showReport">
-        <xsl:value-of select="'${catalina.valves.showReport}'"/>
-    </xsl:attribute>
+<xsl:attribute name="showReport">
+    <xsl:value-of select="'${catalina.valves.showReport}'"/>
+</xsl:attribute>
     
-    <xsl:attribute name="showServerInfo">
-        <xsl:value-of select="'${catalina.valves.showServerInfo}'"/>
-    </xsl:attribute>
-    ```
+<xsl:attribute name="showServerInfo">
+    <xsl:value-of select="'${catalina.valves.showServerInfo}'"/>
+</xsl:attribute>
+```
 
 ::: zone-end
 
