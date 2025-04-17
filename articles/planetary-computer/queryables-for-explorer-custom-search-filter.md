@@ -16,7 +16,7 @@ ms.date: 04/09/2025
 ## Overview
 
 In the Microsoft Planetary Computer Pro, a **GeoCatalog** resource organizes datasets into **STAC Collections**. 
-Each STAC Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
+Each SpatioTemporal Asset Catalog (STAC) Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
 
 **Queryables** allow customers to define which metadata fields should be exposed as custom filters in the Data Explorer for easy search.
 
@@ -34,18 +34,18 @@ For example, from this `properties` block in a STAC Item:
   ...
 }
 ```
-We can see that "gsd" (ground sample distance; the spatial resolution measured in meters/pixel) and "naip:year" (the year the image was acquired) are searchable properties in this collection.  They can therefore be added as custom filters for ease of search in the Data Explorer.  The "datetime" property is automatically included as a custom filter in the Data Explorer for all collections. 
+We can see that "gsd" (ground sample distance; the spatial resolution measured in meters/pixel) and "naip:year" (the year the image was acquired) are searchable properties in this collection. They can therefore be added as custom filters for ease of search in the Data Explorer. The "datetime" property is automatically included as a custom filter in the Data Explorer for all collections. 
 
 ## Configuring Queryables from the Collection Page
 
-On a collection's landing page, click the ⚙️ **Configuration** button to open the _Edit Collection Config_ pane.
+On a collection's landing page, select the ⚙️ **Configuration** button to open the _Edit Collection Config_ pane.
 
 Inside this pane, navigate to the **Queryables** tab.
 
 Here, you can add a list of queryable property configurations. Each entry must include:
 
-- `"name"` — the name of the property in the STAC item's `properties` field.
-- `"definition"` — a JSON schema defining the property's data type and, optionally, allowed values and display title.
+- `"name"` : the name of the property in the STAC item's `properties` field.
+- `"definition"` : a JSON schema defining the property's data type and, optionally, allowed values and display title.
 
 Example configuration:
 
@@ -85,7 +85,7 @@ Example configuration:
 ]
 ```
 
-Each queryable's `"definition"` field describes the features of the STAC item property and how this property will be displayed in the Data Explorer. It supports the following keys:
+Each queryable's `"definition"` field describes the features of the STAC item property and how this property is displayed in the Data Explorer. It supports the following keys:
 
 - `"type"` (required):  
   The expected data type of the property. Must be one of:
@@ -101,14 +101,14 @@ Each queryable's `"definition"` field describes the features of the STAC item pr
 
 ## Using Queryables in Advanced Search
 
-After configuring Queryables, they will appear in the **Explorer** under the **Advanced** search interface.
+User configured Queryables appear in the **Explorer** under the **Advanced** search interface.
 
-Click **Advanced** to reveal **Custom filters**. By default, the following filters are available:
+Select **Advanced** to reveal **Custom filters**. By default, the following filters are available:
 
 - **Acquired** (based on the `datetime` range)
 - **Item ID**
 
-Any queryables added to the collection's Queryables configuration, for exmaple **Gsd** and **Year** in the previous NAIP example, appear as additional filter options.
+Any queryables added to the collection's Queryables configuration, for exmaple **Gsd** and **Year** in the previous example, appear as other filter options.
 
 You can toggle which filters are visible using the **Select filters** control.
 
