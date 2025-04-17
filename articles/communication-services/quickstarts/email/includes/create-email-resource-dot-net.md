@@ -13,7 +13,7 @@ ms.author: v-vprasannak
 - Get the latest version of the [.NET Identity SDK](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management SDK](../../../concepts/sdk-options.md).
 
-## Installing the SDK
+## Install the SDK
 
 First, include the Communication Services Management SDK in your C# project:
 
@@ -23,15 +23,15 @@ using Azure.ResourceManager.Communication;
 
 ## Subscription ID
 
-You'll need to know the ID of your Azure subscription. This can be acquired from the portal:
+You need to know the ID of your Azure subscription. You can acquire the ID from the portal:
 
-1.  Login into your Azure account
-2.  Select Subscriptions in the left sidebar
-3.  Select whichever subscription is needed
-4.  Click on Overview
-5.  Select your Subscription ID
+1.  Sign in into your Azure account.
+2.  Select Subscriptions in the left sidebar.
+3.  Select whichever subscription is needed.
+4.  Click Overview.
+5.  Select your Subscription ID.
 
-In this quickstart, we'll assume that you've stored the subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
+In this quickstart, we assume that you stored the subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
 
 ## Authentication
 
@@ -39,9 +39,9 @@ To communicate with Azure Communication Services, you must first authenticate yo
 
 ### Authenticate the Client
 
-The default option to create an authenticated client is to use DefaultAzureCredential. Since all management APIs go through the same endpoint, in order to interact with resources, only one top-level ArmClient has to be created.
+The default option to create an authenticated client is to use `DefaultAzureCredential`. Since all management APIs go through the same endpoint, in order to interact with resources, you only need to create one top-level `ArmClient`.
 
-To authenticate to Azure and create an ArmClient, do the following code:
+To authenticate to Azure and create an `ArmClient`, do the following code:
 
 ```csharp
 using System;
@@ -59,17 +59,18 @@ TokenCredential cred = new DefaultAzureCredential();
 ArmClient client = new ArmClient(cred);
 ```
 
-## Interacting with Azure resources
+## Interact with Azure resources
 
 Now that you're authenticated.
 
-For each of the following examples, we'll be assigning our Email Services resources to an existing resource group.
+For each of the following examples, we assign our Email Services resources to an existing resource group.
 
 If you need to create a resource group, you can do so by using the [Azure portal](../../../../azure-resource-manager/management/manage-resource-groups-portal.md) or the [Azure Resource Manager SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ## Create an Email Services resource
 
-When creating an Email Services resource, you'll specify the resource group name and resource name. 
+When creating an Email Services resource, specify the resource group name and resource name.
+
 >[!Note]
 >The `Location` property is always `global`, and during public preview the `DataLocation` value must be `UnitedStates`.
 
@@ -197,4 +198,4 @@ await emailServiceResource.DeleteAsync(WaitUntil.Completed);
 Console.WriteLine($"Succeeded");
 ```
 > [!NOTE]
-> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent** and no data, including Event Grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
