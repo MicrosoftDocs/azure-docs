@@ -1381,6 +1381,8 @@ groups:
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: programming-language-javascript
+    title: Web
   - id: programming-language-csharp
     title: Windows
   - id: programming-language-swift
