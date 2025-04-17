@@ -32,10 +32,10 @@ If you intend to create a Slurm cluster entirely within Azure, you must deploy b
 
 ![Slurm cluster](../../images/slurm-cloud-burst/slurm-cloud-burst-architecture.png)
 
-If you want to create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, you'll need to set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection between your network and Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set this up.
+If you want to create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, you need to set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection between your network and Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set this up.
 
 ## Network Ports and Security
-The following NSG rules must be configured for successful communication between Master node, CycleCloud server and compute nodes.
+The following NSG rules must be configured for successful communication between Master node, CycleCloud server, and compute nodes.
 
 
 | **Service**                        | **Port**        | **Protocol** | **Direction**    | **Purpose**                                                            | **Requirement**                                                                 |
@@ -63,7 +63,7 @@ In HPC environments, maintaining consistent user IDs (UIDs) and group IDs (GIDs)
 
 > ![Important]
 > 
-> For more information on how to setup and instructions, refer to Slurm Cloud Bursting Using CycleCloud on Azure(https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922).
+> For more information on how to setup and instructions, see Slurm Cloud Bursting Using CycleCloud on Azure(https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922).
 
 ### Next Steps
 
