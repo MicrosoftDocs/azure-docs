@@ -5,7 +5,7 @@ description: Learn how to resolve connectivity problems when creating clients wi
 
 
 ms.topic: conceptual
-ms.date: 04/16/2025
+ms.date: 04/17/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ms.custom: template-concept, ignite-2024
@@ -13,16 +13,16 @@ ms.custom: template-concept, ignite-2024
 
 # Troubleshoot Azure Cache for Redis connectivity
 
-This article explains how to troubleshoot common issues connecting your client application to Azure Cache for Redis. Connectivity issues might be caused by intermittent conditions, or by incorrect cache configuration. This article is divided into intermittent issues and cache configuration issues.
+This article explains how to troubleshoot common issues with connecting your client application to Azure Cache for Redis. Connectivity issues might be caused by intermittent conditions, or by incorrect cache configuration. This article is divided into intermittent issues and cache configuration issues.
 
-**Intermittent issues:
+**Intermittent connectivity issues**
 
 - [Kubernetes-hosted applications](#kubernetes-hosted-applications)
 - [Linux-based client application](#linux-based-client-application)
 - [Number of connected clients](#number-of-connected-clients)
 - [Server maintenance](#server-maintenance)
 
-**Configuration issues:
+**Cache configuration connectivity issues**
 
 - [Firewall rules](#third-party-firewall-or-external-proxy)
 - [Private endpoint configuration](#private-endpoint-configuration)
@@ -31,7 +31,7 @@ This article explains how to troubleshoot common issues connecting your client a
 
 ## Test connectivity
 
-You can test connectivity using the Redis command line tool _redis-cli_. For more information on Redis CLI, see [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md).
+You can test connectivity by using the Redis command line tool _redis-cli_. For more information on Redis CLI, see [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md).
 
 If redis-cli is unable to connect, you can test connectivity by using `PSPING` in Azure PowerShell.
 
@@ -39,7 +39,7 @@ If redis-cli is unable to connect, you can test connectivity by using `PSPING` i
 psping -q <cachename>:<port>
 ```
 
-If the number of sent packets is equal to the number of received packets, there is no drop in connectivity.
+If the number of sent packets is equal to the number of received packets, there's no drop in connectivity.
 
 ## Intermittent connectivity issues
 
@@ -47,9 +47,9 @@ Your client application might have intermittent connectivity issues caused by sp
 
 ### Kubernetes hosted applications
 
-If your client application is hosted on Kubernetes, check whether the pod running the client application or the cluster nodes are under memory, CPU, or network pressure. A pod running the client application can be affected by other pods running on the same node and might throttle Redis connections or IO operations.
+If your client application is hosted on Kubernetes, check whether the cluster nodes or the pod running the client application are under memory, CPU, or network pressure. A pod running the client application can be affected by other pods running on the same node and might throttle Redis connections or IO operations.
 
-If you're using _Istio_ or any other service mesh, make sure that your service mesh proxy reserves port 13000-13019 or 15000-15019. Clients use these ports to communicate with nodes in a clustered Azure Redis cache, and could cause connectivity issues on those ports.
+If you're using _Istio_ or any other service mesh, make sure that your service mesh proxy reserves ports `13000-13019` or `15000-15019`. Clients use these ports to communicate with nodes in a clustered Azure Redis cache, and could cause connectivity issues on those ports.
 
 ### Linux-based client application
 
@@ -69,25 +69,27 @@ If your application can't connect to your Azure Redis cache at all, some cache c
 
 ### Firewall rules
 
-If you have a firewall configured for your Azure Cache for Redis, ensure that your client IP address is added to the firewall rules. On the Azure portal page for your cache, check **Firewall** under **Settings** in the left navigation menu.
+If you have a firewall configured for your Azure Redis cache, ensure that your client IP address is added to the firewall rules. To check the firewall rules, select **Firewall** under **Settings** in the left navigation menu for your cache page.
 
-If you use a third-party firewall or proxy in your network, make sure they allow the Azure Cache for Redis endpoint `*.redis.cache.windows.net` and the ports `6379` and `6380`. You might need to allow more ports when you use a clustered cache or geo-replication.
+#### Third-party firewall or external proxy
+
+If you use a third-party firewall or proxy in your network, make sure they it allows the Azure Cache for Redis endpoint `*.redis.cache.windows.net` and the ports `6379` and `6380`. You might need to allow more ports when you use a clustered cache or geo-replication.
 
 ### Private endpoint configuration
 
-Check your private endpoint configuration as follows:
+In the Azure portal, check your private endpoint configuration by selecting **Private Endpoint** under **Settings** in the left navigation menu for your cache.
 
-- Ensure that **Public Network Access** is set correctly. In the Azure portal, select **Private Endpoint** in the left navigation menu for your cache.
+- On the **Private Endpoint** page, ensure that **Enable public network access** is set correctly.
 
   - Public network access is disabled by default when you create a private endpoint.
-  - To connect to your cache private endpoint from outside your cache virtual network, you must enable **Public Network Access**.
-  - If you delete your private endpoint, make sure to enable public network access.
+  - To connect to your cache private endpoint from outside your cache virtual network, you must enable public network access.
+  - If you delete your private endpoint, be sure to enable public network access.
 
-- Make sure your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Cache for Redis instance](cache-private-link.md#create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance).
+- Select the link under **Private endpoint** and make sure your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Cache for Redis instance](cache-private-link.md#create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance).
 
-- Make sure your application connects to `<cachename>.redis.cache.windows.net` on port 6380. Avoid using `<cachename>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
+- Make sure your application connects to `<cachename>.redis.cache.windows.net` on port `6380`. Avoid using `<cachename>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
 
-- To verify that a command resolves to the private IP address for the cache, run a command like `nslookup <hostname>` from within the virtual network that's linked to the private endpoint.
+- To verify that a command resolves to the private IP address for the cache, run a command like `nslookup <hostname>` from within the virtual network linked to the private endpoint.
   
 ### Public IP address change
 
@@ -104,13 +106,13 @@ Check your virtual network configuration as follows:
 
 For more information, see [Configure virtual network support for a Premium Azure Cache for Redis instance](cache-how-to-premium-vnet.md).
 
-#### Geo-replication issues using virtual network injection with Premium caches
+#### Geo-replication using VNet injection with Premium caches
 
-Geo-replication between caches in the same virtual network is supported. Geo-replication between caches in different virtual networks is also supported, with the following caveats:
+Geo-replication between caches in the same virtual network is supported. Geo-replication between caches in different virtual networks is supported with the following caveats:
 
 - If the virtual networks are in the same region, you can connect them using [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) or a [VPN Gateway VNet-to-VNet connection](/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
 
-- If the virtual networks are in different regions, geo-replication using virtual network peering isn't supported. A client virtual machine in VNet 1 (region 1) can't access a cache in VNet 2 (region 2) by using its DNS name because of a constraint with Basic internal load balancers. Instead, use a VPN Gateway VNet-to-VNet connection. For more information about virtual network peering constraints, see [Virtual Network peering requirements and constraints](/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).
+- If the virtual networks are in different regions, geo-replication using virtual network peering isn't supported. A client virtual machine in `VNet 1` (region 1) can't access a cache in `VNet 2` (region 2) by using its name, because of a constraint with Basic internal load balancers. Instead, use a VPN Gateway VNet-to-VNet connection. For more information about virtual network peering constraints, see [Virtual Network peering requirements and constraints](/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).
 
 To configure your virtual network effectively and avoid geo-replication issues, you must configure both the inbound and outbound ports correctly. For more information on avoiding the most common virtual network misconfiguration issues, see [Geo-replication peer port requirements](cache-how-to-premium-vnet.md#geo-replication-peer-port-requirements).
 
