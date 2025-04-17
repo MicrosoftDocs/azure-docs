@@ -33,13 +33,13 @@ For this Spring Boot application, you're building off the [quickstart](../../qui
 
 Get the keys and endpoint values from Azure OpenAI or OpenAI and add them as secrets to use in your application. Retrieve and save the values for later use to build the client.
 
-For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app, you need only the `endpoint` value. Otherwise, you need each of the following values:
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use a [managed identity](../../overview-managed-identity.md) to secure your app, you need only the `endpoint` value. Otherwise, you need each of the following values:
 
 - `endpoint`
 - `apiKey`
 - `deploymentName`
 
-For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For this application, you need the following values:
+For OpenAI, see [this documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For this application, you need the following values:
 
 - `apiKey`
 - `modelName`
@@ -48,7 +48,7 @@ Because you're deploying to App Service, you can put these secrets in Azure Key 
 
 Next, you can use key vault references as app settings in your App Service resource to reference in the application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
 
-Then, go to the portal **Environment Variables** page in your resource and add the following app settings:
+Then, go to the portal **Environment Variables** page in your resource and add the following app settings.
 
 For Azure OpenAI, use the following settings:
 
@@ -139,9 +139,9 @@ import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.core.credential.AzureKeyCredential;
 ```
 
-### Secure your app with managed identity
+### Secure your app with a managed identity
 
-Although optional, we highly recommended that you secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without managing API keys. Skip this step if you're not using Azure OpenAI.
+Although optional, we highly recommend that you secure your application by using a [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without managing API keys. Skip this step if you're not using Azure OpenAI.
 
 To secure your application, complete the following steps:
 
@@ -158,13 +158,13 @@ OpenAIClient client = new OpenAIClientBuilder()
 
 After the credentials are added to the application, enable a managed identity in your application and grant access to the resource:
 
-1. In your web app resource, go to the **Identity** pane and turn on **System assigned** and select **Save**.
+1. In your web app resource, go to the **Identity** pane and turn on **System assigned**, and then select **Save**.
 1. After system-assigned identity is turned on, it will register the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
-1. Go to your Azure OpenAI resource and go to the **Access control (IAM)** page on the left pane.
+1. Go to your Azure OpenAI resource, and then go to **Access control (IAM)** on the left pane.
 1. Find the **Grant access to this resource** card and select **Add role assignment**.
 1. Search for the **Cognitive Services OpenAI User** role and select **Next**.
 1. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option.
-1. Next, choose **+Select Members**  and find your web app.
+1. Choose **+Select Members**  and find your web app.
 1. Select **Review + assign**.
 
 Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.

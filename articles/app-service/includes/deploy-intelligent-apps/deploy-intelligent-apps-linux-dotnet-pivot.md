@@ -162,7 +162,7 @@ In this step, you add the using statement and create the kernel in a method that
 
 ## 4. Add your AI service
 
-After the kernel is initialized, you can add your chosen AI service to the kernel. You define your model and pass in your key and endpoint information that the chosen model consumes. If you plan to use managed identity with Azure OpenAI, add the service by using the example in the next section.
+After the kernel is initialized, you can add your chosen AI service to the kernel. You define your model and pass in your key and endpoint information that the chosen model consumes. If you plan to use a managed identity with Azure OpenAI, add the service by using the example in the next section.
 
 Use the following code for Azure OpenAI:
 
@@ -189,11 +189,11 @@ builder.Services.AddOpenAIChatCompletion(
 var kernel = builder.Build();
 ```
 
-### Secure your app with managed identity
+### Secure your app with a managed identity
 
-If you're using Azure OpenAI, we highly recommend that you secure your application by using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without managing API keys. If you're not using Azure OpenAI, your secrets can remain secure by using Azure Key Vault as outlined previously.
+If you're using Azure OpenAI, we highly recommend that you secure your application by using a [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without managing API keys. If you're not using Azure OpenAI, your secrets can remain secure by using Azure Key Vault as outlined previously.
 
-Complete the following tasks to secure your application with managed identity:
+Complete the following tasks to secure your application with a managed identity.
 
 Add the identity package `Azure.Identity`. By using this package, you can use Azure credentials in your app. Install the package by using NuGet package manager and add the using statement to the top of the `OpenAI.razor` file.
 
@@ -215,13 +215,13 @@ var kernel = Kernel.CreateBuilder()
 
 After the credentials are added to the application, you'll need to enable a managed identity in your application and grant access to the resource.
 
-1. In your web app resource, go to the **Identity** pane and turn on **System assigned** and select **Save**.
+1. In your web app resource, go to the **Identity** pane and turn on **System assigned**, and then select **Save**.
 1. After **System assigned** identity is turned on, it registers the web app with Microsoft Entra ID. The web app can be granted permissions to access protected resources.  
-1. Go to your Azure OpenAI resource and go to the **Access control (IAM)** pane on the left pane.  
+1. Go to your Azure OpenAI resource, and then go to **Access control (IAM)** on the left pane.  
 1. Find the **Grant access to this resource** card and select **Add role assignment**.
 1. Search for the **Cognitive Services OpenAI User** role and select **Next**.
 1. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option.
-1. Next, choose **+Select Members** and find your web app.
+1. Choose **+Select Members** and find your web app.
 1. Select **Review + assign**.
 
 Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.

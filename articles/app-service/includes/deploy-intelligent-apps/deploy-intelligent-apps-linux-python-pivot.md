@@ -83,15 +83,15 @@ After the files are updated, prepare your environment variables to work with Ope
 
 To make calls to OpenAI with your client, you need to first get the keys and endpoint values from Azure OpenAI or OpenAI, and add them as secrets for use in your application. Save the values for later use.
 
-For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the following values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app, you don't need the API key value.
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the following values. If you're planning to use a [managed identity](../../overview-managed-identity.md) to secure your app, you don't need the API key value.
 
-- API key: Make sure to save this value as a secret. This step is needed only if you're not using managed identity.
+- API key: Make sure to save this value as a secret. This step is needed only if you're not using a managed identity.
 - Model name: The name of the chat completion model, like `gpt-4o`.
 - Deployment name: Sometimes the same as the model name, but it might have a different name. The deployment name differentiates between different deployments of the same model.
 - Endpoint: A URL like `https://cog-xxk4qzq3tahic.openai.azure.com/`.
 - API version: The desired API version, like `2024-10-21`. See the [version history documentation](/azure/ai-services/openai/api-version-deprecation) for the latest version.
 
-For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you need the following values:
+For OpenAI, see [this documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For this application, you need the following values:
 
 - API key: Make sure to save this value as a secret.
 - Model name: The name of the chat completion model, like `gpt-4o`.
@@ -100,7 +100,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 
 Because you're deploying to App Service, you can put the API key in Azure Key Vault for protection. Follow the [quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the key as a secret named `openaikey`.
 
-Next, we can use key vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
+Next, you can use key vault references as app settings in your App Service resource to reference in the application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
 
 Then, go to the portal **Environment Variables** pane in your resource and add the following app settings:
 
@@ -110,7 +110,7 @@ Then, go to the portal **Environment Variables** pane in your resource and add t
 
 #### Store your app settings
 
-The remaining app settings can be stored as standard environment variables. Go to the portal **Environment Variables** pane in your resource and add the following app settings:
+The remaining app settings can be stored as standard environment variables. Go to the portal **Environment Variables** pane in your resource and add the following app settings.
 
 For Azure OpenAI:
 
@@ -136,7 +136,7 @@ azure_endpoint = os.environ['AZURE_OPENAI_ENDPOINT']
 azure_deployment = os.environ['AZURE_OPENAI_DEPLOYMENT_NAME']
 model_name = os.environ['OPENAI_MODEL_NAME']
 api_version = os.environ['AZURE_OPENAI_API_VERSION']
-# Only needed if you're not using managed identity
+# Only needed if you're not using a managed identity
 api_key = os.environ['OPENAI_API_KEY']
 ```
 
@@ -173,7 +173,7 @@ from langchain_openai import AzureChatOpenAI
 
 After LangChain is imported into your file, you can add the code that will call OpenAI with LangChain's `invoke` method. Update `app.py` to include the following code:
 
-For Azure OpenAI, use the following code. If you plan to use managed identity, you can use the credentials outlined in the following section for the Azure OpenAI parameters.
+For Azure OpenAI, use the following code. If you plan to use a managed identity, you can use the credentials outlined in the following section for the Azure OpenAI parameters.
 
 ```python
 @app.route('/hello', methods=['POST'])
@@ -219,7 +219,7 @@ azure_endpoint = os.environ['AZURE_OPENAI_ENDPOINT']
 azure_deployment = os.environ['AZURE_OPENAI_DEPLOYMENT_NAME']
 model_name = os.environ['OPENAI_MODEL_NAME']
 api_version = os.environ['AZURE_OPENAI_API_VERSION']
-# Only needed if you're not using managed identity
+# Only needed if you're not using a managed identity
 api_key = os.environ['OPENAI_API_KEY']
 
 # OpenAI
@@ -266,9 +266,9 @@ if __name__ == '__main__':
 
 Save the application and either follow the [deployment steps](#deploy-to-app-service) to deploy the application to Azure App Service, or [run the application locally](#local-development-server) to test it.
 
-### Secure your app with managed identity
+### Secure your app with a managed identity
 
-Although optional, we highly recommend that you secure your application by using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without managing API keys. Skip this step if you're not using Azure OpenAI.
+Although optional, we highly recommend that you secure your application by using a [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without managing API keys. Skip this step if you're not using Azure OpenAI.
 
 To secure your application, complete the following steps:
 
@@ -302,13 +302,13 @@ To secure your application, complete the following steps:
 
 After the credential code is added to the application, enable a managed identity in your application and grant access to the resource.
 
-1. In your web app resource, go to the **Identity** pane and turn on **System assigned** and select **Save**.
+1. In your web app resource, go to the **Identity** pane and turn on **System assigned**, and then select **Save**.
 1. After system-assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
-1. Go to your Azure OpenAI resource and go to the **Access control (IAM)** pane on the left pane.  
+1. Go to your Azure OpenAI resource, and then go to **Access control (IAM)** on the left pane.  
 1. Find the **Grant access to this resource** card and select **Add role assignment**.
 1. Search for the **Cognitive Services OpenAI User** role and select **Next**.
 1. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option.
-1. Next, choose **+Select Members** and find your web app.
+1. Choose **+Select Members** and find your web app.
 1. Select **Review + assign**.
 
 Your web app is now added as a "Cognitive Service OpenAI User" and can communicate to your Azure OpenAI resource.
@@ -335,7 +335,7 @@ OPENAI_MODEL_NAME=gpt-4o
 AZURE_OPENAI_DEPLOYMENT_NAME=chat
 AZURE_OPENAI_ENDPOINT=https://cog-xxk4qzq3tahic.openai.azure.com/
 AZURE_OPENAI_API_VERSION=2024-10-21
-# Only needed if you're not using managed identity
+# Only needed if you're not using a managed identity
 OPENAI_API_KEY=keyhere
 ```
 
