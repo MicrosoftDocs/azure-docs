@@ -81,5 +81,5 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on Windows) class encapsulates 
 For more information, see the following articles:
 - Learn more about RTT in our [Real Time Text Conceptual Doc](../../concepts/voice-video-calling/real-time-text.md)
 - Learn more with our [Azure Communication Services Calling Documentation](../../concepts/voice-video-calling/calling-sdk-features.md)
-- Learn more about [Closed captions](../../concepts/voice-video-calling/closed-captions.md)
-- Get started with RTT in the [UI Library](../ui-library/ui-library-overview.md)
+- Learn more about [Closed captions](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/closed-captions)
+- Get started with RTT in the [UI Library](https://azure.github.io/communication-ui-library/?path=/docs/concepts-real-time-text--docs)
