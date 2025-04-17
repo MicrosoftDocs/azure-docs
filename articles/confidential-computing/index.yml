@@ -99,9 +99,9 @@ landingContent:
             url: /azure/virtual-machines/dcasv5-dcadsv5-series
           - text: ECasv5 and ECadsv5-series VM specs
             url: /azure/virtual-machines/ecasv5-ecadsv5-series
-          - text: DCesv5 and DCedsv5-series VM specs
+          - text: DCesv6-series VM specs
             url: /azure/virtual-machines/dcesv5-dcedsv5-series
-          - text: ECesv5 and ECedsv5-series VM specs
+          - text: ECesv6-series VM specs
             url: /azure/virtual-machines/ecesv5-ecedsv5-series
           - text: Availability
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
