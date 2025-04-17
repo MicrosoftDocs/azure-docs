@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 02/16/2024
+ms.date: 04/17/2025
 ms.author: danlep
 ---
 
@@ -15,10 +15,10 @@ ms.author: danlep
   * Azure Storage blob
   * Azure SQL Database
   * Azure Storage Table
-  * Azure Key Vault (for an API Management instance hosted on the [`stv2` platform](../articles/api-management/compute-infrastructure.md))
+  * Azure Key Vault
 
 > [!IMPORTANT]
-> After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet (required when API Management is hosted on the `stv1` platform).
+> After validating the connectivity, remove all the resources in the subnet before deploying API Management into the subnet.
 
 ### Verify network status  
 
@@ -49,12 +49,9 @@ To apply a network configuration change to the API Management instance using the
   1. In the left-hand menu for your instance, under **Deployment and infrastructure**, select **Network** > **Virtual network**.
   1. Select **Apply network configuration**. 
 
-### Resource navigation links 
-
-An API Management instance hosted on the [`stv1` compute platform](../articles/api-management/compute-infrastructure.md), when deployed into a Resource Manager VNet subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
-  
+ 
  ### Challenges encountered in reassigning API Management instance to previous subnet
-  * **VNet lock** - When moving an API Management instance back to its original subnet, immediate reassignment may not be possible due to the VNet lock, which takes up to one hour to be removed. If the original subnet has other `stv1` platform-based API Management services (cloud service-based), deleting them and waiting is necessary for deploying an `stv2` platform-based service in the same subnet. 
+  * **VNet lock** - When moving an API Management instance back to its original subnet, immediate reassignment may not be possible due to the VNet lock, which takes up to one hour to be removed.  
   * **Resource group lock** - Another scenario to consider is the presence of a scope lock at the resource group level or higher, hindering the Resource Navigation Link Deletion process. To resolve this, remove the scope lock and allow a delay of approximately 4-6 hours for the API Management service to unlink from the original subnet before the lock removal, enabling deployment to the desired subnet.
 
 ### Troubleshoot connection to Microsoft Graph from inside a VNet

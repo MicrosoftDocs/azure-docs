@@ -2,20 +2,13 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 05/10/2024
+ms.date: 04/17/2025
 ms.author: danlep
 ---
 
 ## Prerequisites
 
 Review the [network resource requirements for API Management injection into a virtual network](../articles/api-management/virtual-network-injection-resources.md) before you begin.
-
-Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](../articles/api-management/compute-infrastructure.md) hosting your API Management instance.
-
-> [!TIP]
-> When you use the portal to create or update the network connection of an existing API Management instance, the instance is hosted on the `stv2` compute platform.
-
-### [stv2](#tab/stv2)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
 
@@ -43,15 +36,3 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 * For multi-region API Management deployments, configure virtual network resources separately for each location.
 
-### [stv1](#tab/stv1)
-
-+ **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
-
-* **A virtual network and subnet** in the same region and subscription as your API Management instance.
-  * The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types, or the deployment will fail.
-  * The subnet used to connect to the API Management instance should not have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
-
-* For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article. 
-
-* For multi-region API Management deployments, configure virtual network resources separately for each location.
----

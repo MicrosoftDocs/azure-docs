@@ -30,7 +30,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 ## Enable VNet connection
 
-### Enable VNet connectivity using the Azure portal (`stv2` compute platform)
+### Enable VNet connectivity using the Azure portal
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
@@ -53,16 +53,13 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 It can take 15 to 45 minutes to update the API Management instance. Instances in the Developer tier have downtime during the process. Instances in the Premium tier don't have downtime during the process. 
 
-### Enable connectivity using a Resource Manager template (`stv2` compute platform)
+### Enable connectivity using a Resource Manager template
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip) (API version 2021-08-01)
 
      :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json":::
 
 
-### Enable connectivity using Azure PowerShell cmdlets (`stv1` platform)
-
-[Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a VNet.
 
 [!INCLUDE [api-management-recommended-nsg-rules](../../includes/api-management-recommended-nsg-rules.md)]
 
