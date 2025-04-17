@@ -107,6 +107,13 @@ docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft
 > [!NOTE]
 > The emulator internally stores orchestration and entity state in local memory, so it isn't suitable for production use.
 
+You can see all of the emulator versions available by running the following command:
+
+```bash
+curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
+```
+
+
 ## Limitations and considerations
 
 - **Available regions:** Durable task scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
