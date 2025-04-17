@@ -65,7 +65,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | Inbound | Internet | * | VirtualNetwork|  [80], 443                   | TCP                | Allow            | **Client communication to API Management**                     | External only          |
 | Inbound | ApiManagement | * | VirtualNetwork | 3443                     |  TCP                | Allow       | **Management endpoint for Azure portal and PowerShell**       | External & Internal  |
 | Outbound | VirtualNetwork | * | Storage | 443                  |  TCP                | Allow             | **Dependency on Azure Storage**                             | External & Internal  |
-| Outbound | VirtualNetwork | * |  AzureActiveDirectory | 443                    | TCP                | Akkiw | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
+| Outbound | VirtualNetwork | * |  AzureActiveDirectory | 443                    | TCP                | Allow | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureKeyVault| 443                     |  TCP                | Allow                | Access to Azure Key Vault for [named values](api-management-howto-properties.md) integration (optional)                         | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureConnectors | 443                  |  TCP                | Allow | [managed connections](credentials-overview.md) dependency (optional)              | External & Internal  |
 | Outbound | VirtualNetwork| * | Sql | 1433                     |  TCP                | Allow                 | **Access to Azure SQL endpoints**                           | External & Internal  |
@@ -87,7 +87,7 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Azure Event Hubs s
 
 ## TLS functionality  
 
-To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity on ports `80` and `443` to `ocsp.msocsp.com`, `oneocsp.msocsp.com`, `mscrl.microsoft.com`, `crl.microsoft.com`, and `csp.digicert.com`. This dependency is not required if any certificate you upload to API Management contains the full chain to the CA root.
+To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity on ports `80` and `443` to `ocsp.msocsp.com`, `oneocsp.msocsp.com`, `mscrl.microsoft.com`, `crl.microsoft.com`, `cacerts.digicert.com`, `crl3.digicert.com` and `csp.digicert.com`. 
 
 
 ## DNS access
@@ -115,7 +115,7 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
 
 ## Publishing the developer portal
 
-Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a VNet by allowing outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Currently, connectivity to blob storage in the West US region is required to publish the developer portal for any API Management instance.
+Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a VNet by allowing outbound connectivity to Azure Storage. For example, use the Storage service tag in an NSG rule. Currently, connectivity to Azure Storage via global or regional service endpoints is required to publish the developer portal for any API Management instance.
 
 ## Azure portal diagnostics  
   When using the API Management diagnostics extension from inside a VNet, outbound access to `dc.services.visualstudio.com` on port `443` is required to enable the flow of diagnostic logs from Azure portal. This access helps in troubleshooting issues you might face when using the extension.

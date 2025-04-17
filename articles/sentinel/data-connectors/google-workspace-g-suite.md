@@ -2,7 +2,7 @@
 title: "Google Workspace (G Suite) (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Google Workspace (G Suite) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -170,7 +170,8 @@ Use the following step-by-step instructions to deploy the Google Workspace data 
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> [!NOTE]
+> You will need to [prepare VS Code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

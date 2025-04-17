@@ -6,8 +6,8 @@ ms.date: 11/19/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About SAP ASE (Sybase) database backup on Azure VMs (preview)

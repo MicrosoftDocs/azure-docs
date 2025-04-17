@@ -12,7 +12,7 @@ ms.date: 01/10/2024
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-If your logic app workflow experiences throttling, which happens when the number of requests exceed the rate at which the destination can handle over a specific amount of time, you get the ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429). Throttling can create problems such as delayed data processing, reduced performance speed, and errors such as exceeding the specified retry policy.
+If your logic app workflow experiences throttling, which happens when the number of requests exceeds the rate at which the destination can handle over a specific amount of time, you get the ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429). Throttling can create problems such as delayed data processing, reduced performance speed, and errors such as exceeding the specified retry policy.
 
 For example, the following SQL Server action in a Consumption workflow shows a 429 error, which reports a throttling problem:
 
@@ -80,7 +80,7 @@ To handle throttling at this level, you have the following options:
 
 * Refactor actions into multiple, smaller workflows.
 
-  As mentioned earlier, a Consumption logic app workflow is limited to a [default number of actions that can run over a 5-minute period](logic-apps-limits-and-config.md#throughput-limits). Although you can increase this limit by enabling [high throughput mode](logic-apps-limits-and-config.md#run-high-throughput-mode), you might also consider whether you want to break down your workflow's actions into smaller workflows so that the number of actions that run in each workflow stays under the limit. That way, you reduce the burden on a single workflow and distribute the load across multiple workflows. This solution works better for actions that handle large data sets or spin up so many concurrently running actions, loop iterations, or actions inside each loop iteration that they exceed action execution limit.
+  As mentioned earlier, a Consumption logic app workflow is limited to a [default number of actions that can run over a 5-minute period](logic-apps-limits-and-config.md#throughput-limits). Although you can increase this limit by enabling [high throughput mode](logic-apps-limits-and-config.md#run-high-throughput-mode), you might also consider whether you want to break down your workflow's actions into smaller workflows so that the number of actions that run in each workflow stays under the limit. That way, you reduce the burden on a single workflow and distribute the load across multiple workflows. This solution works better for actions that handle large data sets or spin up so many concurrently running actions, loop iterations, or actions inside each loop iteration that they exceed the action execution limit.
 
   For example, the following Consumption workflow does all the work to get tables from a SQL Server database and gets the rows from each table. The **For each** loop concurrently iterates through each table so that the **Get rows** action returns the rows for each table. Based on the amounts of data in those tables, these actions might exceed the limit on action executions.
 
@@ -162,7 +162,7 @@ To handle throttling at this level, you have the following options:
 
 While a connector has its own throttling limits, the destination service or system that's called by the connector might also have throttling limits. For example, some APIs in Microsoft Exchange Server have stricter throttling limits than the Office 365 Outlook connector.
 
-By default, a logic app's workflow instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance doesn't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, those calls must arrive at the destination service or system before throttling starts to happen.
+By default, a logic app's workflow instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance doesn't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at the same time, but to succeed, those calls must arrive at the destination service or system before throttling starts to happen.
 
 For example, suppose you have an array that has 100 items. You use a "For each" loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20 or the [current default limit](logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries builds up and never gets to run.
 
@@ -192,7 +192,7 @@ To handle throttling at this level, you have the following options:
 
   Why? A polling trigger continues to check the destination service or system at specific intervals. A very frequent interval, such as every second, can create throttling problems. However, a webhook trigger or action, such as [HTTP Webhook](../connectors/connectors-native-webhook.md), creates only a single call to the destination service or system, which happens at subscription time and requests that the destination notifies the trigger or action only when an event happens. That way, the trigger or action doesn't have to continually check the destination.
   
-  So, if the destination service or system supports webhooks or provides a connector that has a webhook version, this option is better than using the polling version. To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [APIConnectionWebhook trigger](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
+  So, if the destination service or system supports webhooks or provides a connector that has a webhook version, this option is better than using the polling version. To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [ApiConnectionWebhook trigger](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [ApiConnectionWebhook action](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## Next steps
 

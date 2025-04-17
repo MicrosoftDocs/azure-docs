@@ -61,6 +61,7 @@ It's important to take into account how the idle timeout values set for differen
 - TCP reset only sent during TCP connection in ESTABLISHED state.
 - TCP idle timeout doesn't affect load balancing rules on UDP protocol.
 - TCP reset isn't supported for Internal Load Balancer HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from Network Virtual Appliance.
+- TCP idle timeout isn't supported for Internal Load Balancer (ILB) HA ports when a User Defined Route (UDR) is used to forward traffic to the ILB.  
 
 ## Next steps
 

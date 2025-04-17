@@ -36,14 +36,14 @@ The following table shows the MQTT broker configuration for the single node exam
 |--------------------------|-------|
 | frontendReplicas         | 1     |
 | frontendWorkers          | 1     |
-| backendRedundancyFactor  | 1     |
+| backendRedundancyFactor  | 2     |
 | backendWorkers           | 1     |
 | backendPartitions        | 1     |
 | memoryProfile            | low   |
 
 The end-to-end data flow in the example looks like this:
 
-`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Dataflows -> Event Hubs`
+`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Data flows -> Event Hubs`
 
 The data volumes in the example are:
 
@@ -52,7 +52,7 @@ The data volumes in the example are:
 - The connector for OPC UA sends 125 message/second to the MQTT broker.
 - One data flow pipeline pushes 6,250 tags to an Event Hubs endpoint.
 
-In this example, Microsoft recommends using Event Hubs because you can only create one dataflow instance with a 4-core CPU. If you choose Event Grid, it can only handle 100 messages/sec.
+In this example, Microsoft recommends using Event Hubs because you can only create one data flow instance with a 4-core CPU. If you choose Event Grid, it can only handle 100 messages/sec.
 
 ### Performance
 
@@ -94,7 +94,7 @@ In this example, an asset doesn't represent a real piece of equipment, but is a 
 
 The first end-to-end data flow in the example looks like this:
 
-`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Dataflows -> Event Hubs`
+`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Data flows -> Event Hubs`
 
 The data volumes in the first data flow in the example are:
 
@@ -105,7 +105,7 @@ The data volumes in the first data flow in the example are:
 
 The second end-to-end data flow in the example looks like this:
 
-`MQTT client (Paho) -> MQTT Broker -> Dataflows -> Event Hubs`
+`MQTT client (Paho) -> MQTT Broker -> Data flows -> Event Hubs`
 
 The data volumes in the second data flow in the example are:
 

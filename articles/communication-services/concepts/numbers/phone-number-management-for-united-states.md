@@ -60,6 +60,7 @@ More details on eligible subscription types are as follows:
 |Puerto Rico|
 |Spain|
 |Sweden|
+|Switzerland|
 |United Kingdom|
 |United States|
 

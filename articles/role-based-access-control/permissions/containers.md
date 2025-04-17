@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Conta
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 02/05/2025
 ms.custom: generated
 ---
 
@@ -86,8 +86,6 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/regenerateCredential/action | Regenerates one of the login credentials for the specified container registry. |
 > | Microsoft.ContainerRegistry/registries/generateCredentials/action | Generate keys for a token of a specified container registry. |
 > | Microsoft.ContainerRegistry/registries/importImage/action | Import Image to container registry with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | Gets the upload location for the user to be able to upload the source. |
-> | Microsoft.ContainerRegistry/registries/queueBuild/action | Creates a new build based on the request parameters and add it to the build queue. |
 > | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Get source upload url location for a container registry. |
 > | Microsoft.ContainerRegistry/registries/scheduleRun/action | Schedule a run against a container registry. |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionsApproval/action | Auto Approves a Private Endpoint Connection |
@@ -98,18 +96,6 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/agentpools/operationResults/status/read | Gets an agentpool async operation result status |
 > | Microsoft.ContainerRegistry/registries/agentpools/operationStatuses/read | Gets an agentpool async operation status |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Delete artifact in a container registry. |
-> | Microsoft.ContainerRegistry/registries/builds/read | Gets the properties of the specified build or lists all the builds for the specified container registry. |
-> | Microsoft.ContainerRegistry/registries/builds/write | Updates a build for a container registry with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Gets a link to download the build logs. |
-> | Microsoft.ContainerRegistry/registries/builds/cancel/action | Cancels an existing build. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/read | Gets the properties of the specified build task or lists all the build tasks for the specified container registry. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/write | Creates or updates a build task for a container registry with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/delete | Deletes a build task from a container registry. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | Lists the source control properties for a build task. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | Gets the properties of the specified build step or lists all the build steps for the specified build task. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Creates or updates a build step for a build task with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Deletes a build step from a build task. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Lists the build arguments for a build step including the secret arguments. |
 > | Microsoft.ContainerRegistry/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
 > | Microsoft.ContainerRegistry/registries/cacheRules/write | Creates or updates a cache rule for a container registry with the specified parameters |
 > | Microsoft.ContainerRegistry/registries/cacheRules/delete | Deletes a cache rule from a container registry |

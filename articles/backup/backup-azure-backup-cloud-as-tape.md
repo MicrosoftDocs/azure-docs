@@ -4,8 +4,8 @@ description: Learn how Azure Backup provides tape-like semantics that enable you
 ms.service: azure-backup
 ms.topic: how-to
 ms.date: 12/24/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

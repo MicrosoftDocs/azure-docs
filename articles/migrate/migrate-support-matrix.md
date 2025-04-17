@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations for the Azur
 author: SnehaSudhirG
 ms.author: sudhirsneha 
 ms.topic: conceptual
-ms.date: 08/08/2024
+ms.date: 01/27/2025
 ms.custom: engagement-fy25
 ---
 
@@ -41,8 +41,7 @@ For Azure Migrate to work with Azure you need these permissions before you start
 **Task** | **Permissions** | **Details**
 --- | --- | ---
 Create a project | Your Azure account needs permissions to create a project. | Set up for [VMware](tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](./tutorial-discover-physical.md#prepare-an-azure-user-account).
-Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with Azure Migrate: Discovery and assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Migration and modernization tool. This appliance discovers servers, and sends metadata and performance data to Azure Migrate.<br><br> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**-During onboarding, Azure Migrate creates two Microsoft Entra apps. The first app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. The second app accesses an Azure Key Vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. It has Azure RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.<br><br> **Hyper-V**-During onboarding. Azure Migrate creates one Microsoft Entra app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](./tutorial-discover-physical.md#prepare-an-azure-user-account).
-Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Migration and modernization, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group where the project resides. | [Set up](tutorial-discover-vmware.md#prepare-an-azure-user-account) permissions.
+Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with Azure Migrate: Discovery and assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Migration and modernization tool. This appliance discovers servers, and sends metadata and performance data to Azure Migrate.<br><br> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br><br> During onboarding. Azure Migrate creates one Microsoft Entra app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](./tutorial-discover-physical.md#prepare-an-azure-user-account).
 
 ## Supported geographies 
 
@@ -67,11 +66,13 @@ Europe | North Europe or West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India or South India
+Israel| Israel Central
 Italy | North Italy
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
 Norway | Norway East
+Spain  | Spain Central 
 Sweden | Sweden Central
 Switzerland | Switzerland North
 United Arab Emirates | UAE North

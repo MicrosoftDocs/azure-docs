@@ -4,6 +4,9 @@ description: Identify key questions for capacity and performance planning of an 
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
+author: reachnijel
+ms.author: nijelsf
+ms.reviewer: sairamyeturi
 ms.date: 12/02/2024
 ---
 

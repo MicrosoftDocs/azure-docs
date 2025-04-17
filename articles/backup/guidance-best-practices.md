@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 12/30/2024
 ms.reviewer: dapatil
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

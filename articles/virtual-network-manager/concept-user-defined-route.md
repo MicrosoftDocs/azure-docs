@@ -13,11 +13,6 @@ ms.custom: references_regions
 
 This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
 
-> [!IMPORTANT]
-> **User-defined routes management with Azure Virtual Network Manager is generally available in select regions. For more information and a list of regions, see [General availability](#general-availability).**
->
-> Regions that aren't listed in the previous link are in public preview. Public previews are made available to you on the condition that you agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some features might not be supported or might have constrained capabilities. This preview version is provided without a service level agreement, and it's not recommended for production workloads.
-
 ## What is UDR management?
 
 Azure Virtual Network Manager allows you to describe your desired routing behavior and orchestrate user-defined routes (UDRs) to create and maintain the desired routing behavior. User-defined routes address the need for automation and simplification in managing routing behaviors. Currently, you’d manually create User-Defined Routes (UDRs) or utilize custom scripts. However, these methods are prone to errors and overly complicated. You can utilize the Azure-managed hub in Virtual WAN. This option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization. With UDR management in your virtual network manager, you have a centralized hub for managing and maintaining routing behaviors.
@@ -93,7 +88,16 @@ You can also easily choose an Azure Firewall as the next hop by selecting **Impo
 
 ### Use more user-defined routes in a single route table
 
-In Azure Virtual Network Manager UDR management, users can now create up to 1,000 user-defined routes (UDRs) in a single route table, compared to the traditional 400-route limit. This higher limit enables more complex routing configurations, such as directing traffic from on-premises data centers through a firewall to each spoke virtual network in a hub-and-spoke topology. This expanded capacity is especially useful for managing traffic inspection and security across large-scale network architectures with numerous spokes.
+In Azure Virtual Network Manager UDR management, users can now create up to 1,000 user-defined routes in a single route table, compared to the traditional 400-route limit. This higher limit enables more complex routing configurations, such as directing traffic from on-premises data centers through a firewall to each spoke virtual network in a hub-and-spoke topology. This expanded capacity is especially useful for managing traffic inspection and security across large-scale network architectures with numerous spokes.
+
+In a hub-and-spoke topology, it's common for users to require that network traffic be inspected or filtered by a firewall located in the hub virtual network before reaching any spoke virtual networks. Azure Virtual Network Manager supports up to 1,000 spoke virtual networks and allows you to configure the route table associated with the gateway subnet to include up to 1,000 user-defined routes. To set this up, follow these steps:
+1. Create an Azure Virtual Network Manager instance.
+1. Create a network group and include the gateway subnet in this network group.
+1. Establish a routing configuration and create a rule collection, setting the target network group as the one created in Step 2.
+1. Define a routing rule by adding the address spaces of the spoke virtual networks. Set the next hop to "virtual appliance" and specify the firewall's IP address as the next hop address.
+1. Deploy this routing configuration in the region where the gateway subnet is located.
+
+This method allows the route table of the gateway subnet to accommodate up to 1000 user-defined routes. When adding a new spoke virtual network, simply include its address spaces in the existing rule and redeploy the routing configuration.
 
 ## Common routing scenarios with UDR management
 
@@ -127,102 +131,6 @@ The following are impacts of UDR management with Azure Virtual Network Manager o
 - Azure Virtual Network Manager doesn't interfere with your existing UDRs. It just adds the new UDRs to the current ones, ensuring your routing continues to work as it does now. Also, UDRs for specific Azure services still function along with your network manager's UDRs without encountering new limitations.
 - Azure Virtual Network Manager requires a managed resource group to store the route table. If an Azure Policy enforces specific tags or properties on resource groups, those policies must be disabled or adjusted for the managed resource group to prevent deployment issues. Furthermore, if you need to delete this managed resource group, ensure that deletion occurs before initiating any new deployments for resources within the same subscription.
 - UDR management allows users to create up to 1000 UDRs per route table.
-
-## General availability
-
-General availability of user defined routes management with Azure Virtual Network Manager is accessible in the following regions:
-
-- Australia Central
-
-- Australia Central 2
-
-- Australia East
-
-- Australia Southeast
-
-- Brazil South
-
-- Brazil Southeast
-
-- Canada Central
-
-- Canada East
-
-- Central India
-
-- Central US
-
-- East Asia
-
-- East US
-
-- France Central
-
-- Germany North
-
-- Germany West Central
-
-- Jio India Central
-
-- Jio India West
-
-- Japan East
-
-- Korea Central
-
-- Korea South
-
-- North Central US
-
-- North Europe
-
-- Norway East
-
-- Norway West
-
-- Poland Central
-
-- Qatar Central
-
-- South Africa North
-
-- South Africa West
-
-- South India
-
-- Southeast Asia
-
-- Sweden Central
-
-- Sweden South
-
-- Switzerland North
-
-- Switzerland West
-
-- UAE Central
-
-- UAE North
-
-- UK South
-
-- UK West
-
-- West Europe
-
-- West India
-
-- West US
-
-- West US 2
-
-- West Central US
-
-- Central US (EUAP)
-
-- East US 2 (EUAP)
-
-For regions undefined in the previous list, user defined routes management with Azure Virtual Network Manager remains in public preview.
 
 
 ## Next step

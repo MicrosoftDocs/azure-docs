@@ -1,13 +1,10 @@
 ---
- title: include file
- description: include file
- services: frontdoor
- author: duongau
- ms.service: azure-frontdoor
- ms.topic: include
- ms.date: 06/01/2023
- ms.author: duau
- ms.custom: include file
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: include
+ms.date: 06/01/2023
+ms.custom: include file
 ---
 
 | Abbreviation | Location | Region |

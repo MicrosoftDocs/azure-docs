@@ -39,15 +39,15 @@ To ingest your historical data into Azure Data Explorer (ADX) (option 1 in the [
 1. In ADX, create tables and define a schema for the CSV or JSON format (for QRadar). Learn how to create a table and define a schema [with sample data](/azure/data-explorer/ingest-sample-data) or [without sample data](/azure/data-explorer/one-click-table).  
 1. [Run LightIngest](/azure/data-explorer/lightingest#run-lightingest) with the folder path that includes the exported logs as the path, and the ADX connection string as the output. When you run LightIngest, ensure that you provide the target ADX table name, that the argument pattern is set to `*.csv`, and the format is set to `.csv` (or `json` for QRadar). 
 
-## Ingest data to Microsoft Sentinel Basic Logs
+## Ingest data to Microsoft Sentinel Auxiliary/Basic Logs
 
-To ingest your historical data into Microsoft Sentinel Basic Logs (option 2 in the [diagram above](#export-data-from-the-legacy-siem)): 
+To ingest your historical data into Microsoft Sentinel Auxiliary Logs or Basic Logs (option 2 in the [diagram above](#export-data-from-the-legacy-siem)): 
 
-1. If you don't have an existing Log Analytics workspace, create a new workspace and [install Microsoft Sentinel](quickstart-onboard.md#enable-microsoft-sentinel-).
+1. If you don't have an existing Log Analytics workspace, create a new workspace and [install Microsoft Sentinel](quickstart-onboard.md#enable-microsoft-sentinel).
 1. [Create an App registration to authenticate against the API](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-azure-ad-application).
 1. [Create a custom log table](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-new-table-in-log-analytics-workspace) to store the data, and provide a data sample. In this step, you can also define a transformation before the data is ingested.
 1. [Collect information from the data collection rule](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-the-dcr) and assign permissions to the rule.
-1. [Change the table from Analytics to Basic Logs](/azure/azure-monitor/logs/logs-table-plans).
+1. [Change the table from Analytics to Auxiliary or Basic Logs](/azure/azure-monitor/logs/logs-table-plans).
 1. Run the [Custom Log Ingestion script](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/CustomLogsIngestion-DCE-DCR). The script asks for the following details:  
     - Path to the log files to ingest 
     - Microsoft Entra tenant ID 

@@ -34,13 +34,13 @@ Scenario 1 is recommended for Windows or Linux devices, which normally are less 
 
 ## Scenario 2 – Embedded C SDK (for Bare Metal scenarios and micro-controllers)
 
-In 2020, Microsoft released the [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/iot) (also known as the Embedded C SDK).  This SDK was built based on customers feedback and a growing need to support constrained [micro-controller devices](./concepts-iot-device-types.md#microcontrollers-vs-microprocessors).  Typically, constrained micro-controllers have reduced memory and processing power. 
+In 2020, Microsoft released the [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/iot) (also known as the Embedded C SDK).  This SDK was built based on customers feedback and a growing need to support constrained [micro-controller devices](./concepts-iot-device-types.md#microcontrollers-and-microprocessors).  Typically, constrained micro-controllers have reduced memory and processing power. 
 
 The Embedded C SDK has the following key characteristics:
 -	No dynamic memory allocation. Customers must allocate data structures where they desire such as in global memory, a heap, or a stack.  Then they must pass the address of the allocated structure into SDK functions to initialize and perform various operations.
 -	MQTT only.  MQTT-only usage is ideal for constrained devices because it's an efficient, lightweight network protocol. Currently only MQTT v3.1.1 is supported. 
 -	Bring your own network stack. The Embedded C SDK performs no I/O operations.  This approach allows customers to select the MQTT, TLS and Socket clients that have the best fit to their target platform.
--	Similar [feature set](./concepts-iot-device-types.md#microcontrollers-vs-microprocessors) as the C SDK. The Embedded C SDK provides similar features as the Azure IoT C SDK, with the following exceptions that the Embedded C SDK doesn't provide:  
+-	Similar [feature set](./concepts-iot-device-types.md#microcontrollers-and-microprocessors) as the C SDK. The Embedded C SDK provides similar features as the Azure IoT C SDK, with the following exceptions that the Embedded C SDK doesn't provide:  
     - Upload to blob
     - The ability to run as an IoT Edge module
     - AMQP-based features like content message batching and device multiplexing

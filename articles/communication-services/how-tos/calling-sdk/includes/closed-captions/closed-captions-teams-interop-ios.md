@@ -6,7 +6,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
 ms.topic: include file
-ms.date: 07/21/20223
+ms.date: 07/21/2023
 ms.author: kpunjabi
 ---
 
@@ -18,8 +18,8 @@ ms.author: kpunjabi
 - [Access tokens](../../../../quickstarts/identity/access-tokens.md) for External identity users.
 - For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.
 
->[!NOTE]
->Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
+> [!NOTE]
+> Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
 | Name | Description |

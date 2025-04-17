@@ -77,7 +77,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
 
 For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
-For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
 <a name="Next Steps"></a>
 

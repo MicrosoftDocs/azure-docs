@@ -16,6 +16,24 @@ ms.service: azure-communication-services
 
 This article helps you troubleshoot issues that you might experience within your Azure Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Azure Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
+## Check Azure Communication Services health status
+
+You can view the health of your Azure Communication Services solution on the [Azure Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/%7E/serviceIssues). If you experience problems with your Azure Communication Services solution, check the Service Health portal first. Then you can determine whether there's a known issue with a resolution in progress before calling support or spending time troubleshooting.
+
+[Azure Service Health portal](/azure/service-health/service-health-overview) provides a personalized view of the health of the Azure services and regions you're using. The Service Health portal is the best place to look for outages, planned maintenance activities, and other health advisories. Once you sign in, the authenticated Service Health experience knows which services and resources you currently use.
+
+The best way to use Service Health is to set up [Service Health alerts](/azure/service-health/service-health-overview#configure-service-health-alerts) to notify you via your preferred communication channel. You receive notices for service issues, planned maintenance, or other changes that affect your Azure services and regions.
+
+If you're unable to sign in to your Service Health Portal, you can use the public facing **[Azure Status page](https://azure.status.microsoft)** to check for known issues. [Azure status overview](/azure/service-health/azure-status-overview) provides a global view of Azure services and regions from **[Azure status](https://azure.status.microsoft)**.
+
+The status page is a good reference for widespread incidents. We recommend that current Azure users view the authenticated Azure Service Health portal to stay informed about Azure incidents and maintenance. The authenticated Azure Service Health experience knows which services and resources you currently use.
+
+When Azure Communication Services has an outage that impacts metrics used in the service level agreement (SLA), the service generates a notification in your Azure Service Health portal and the Azure Status. For more information on the Azure Communication Services SLA, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/). 
+
+Typically, an outage occurs when any Azure Communication Services API returns non-retriable errors for more than 3% of received API calls for a sustained period of time.
+
+We recommend learning how to implement a disaster recovery plan and high availability strategy. For more information, see [Disaster recovery and high availability for Azure applications](/azure/well-architected/reliability/disaster-recovery).
+
 ## Get help
 
 We encourage developers to submit questions, suggest features, and report problems as issues. For more information, see the [dedicated support and help options page](../support.md).
@@ -28,7 +46,7 @@ To help you troubleshoot certain issues, you might need one or more of the follo
 * **Short code program brief ID**: Identify a short code program brief application.
 * **Toll-free verification campaign brief ID**: Identify a toll-free verification campaign brief application.
 * **Email message ID**: Identify **Send Email** requests.
-* **Correlation ID**: Identify requests made by using Call Automation.
+* **Correlation ID**: Identify correlated requests made by using Call Automation.
 * **Call logs**: Use the detailed information to troubleshoot calling and network issues.
 
 For more information about throttling and limitations, see [Service limits](service-limits.md).
@@ -95,7 +113,10 @@ In addition to one of these IDs, you need to provide details about the failing u
 
 ## Access your client call ID
 
-When you troubleshoot voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object.
+When you troubleshoot voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object. 
+
+> [!IMPORTANT]
+> A `call ID` is unique and identifies a specific call, the `call ID` is the same for all the participants of that call. The `call ID` initial value is set by the local client and later it may change after the local client connects to a call that is already ongoing. If the local client was first to initiate the call then the `call ID` it created will become the `call ID` that the server and other call participants will use going forward in the call. 
 
 # [JavaScript](#tab/javascript)
 ```javascript
@@ -181,9 +202,9 @@ Learn how to enable and access call logs.
 
 ### JavaScript
 
-The Azure Communication Services Calling SDK relies internally on the [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
+To control logging, the Calling SDK relies internally on the [@azure/logger](https://www.npmjs.com/package/@azure/logger) library.
 
-Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the `CallClient` constructor.
+To configure the log output level, use the `setLogLevel` method from the `@azure/logger` package. Create a logger and pass it into the `CallClient` constructor.
 
 ```javascript
 import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';

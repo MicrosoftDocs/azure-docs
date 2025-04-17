@@ -4,12 +4,52 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/04/2024
+ms.date: 04/02/2025
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## March 2025
+
+Here are the highlights of documentation changes in March 2025:
+
+- Consolidated and archived the Remote Desktop client content. The content is now available in the [Remote Desktop client documentation](/previous-versions/remote-desktop-client/).
+
+- Moved the article **Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune** to Windows App documentation. and separated the content into two articles:
+   - [Require device security compliance for Windows App with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune).
+   - [Manage Windows App redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune).
+
+- Added a deprecation notice for MSIX app attach. MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+-  Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include steps on how to assign multiple personal desktops to a single user, which is available in preview. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).
+
+## February 2025
+
+Here are the highlights of documentation changes in February 2025:
+
+- Add a new article in the FSLogix documentation to [Store FSLogix profile containers on Azure Files using Microsoft Entra ID in a cloud only scenario](/fslogix/how-to-configure-profile-container-entra-id), which is applicable to Azure Virtual Desktop.
+
+- Updated using [Azure Private Link with Azure Virtual Desktop](private-link-overview.md) to include support with RDP Shortpath for managed networks in preview.
+
+## January 2025
+
+Here are the highlights of documentation changes in January 2025:
+
+- Published a new article for the preview of the Quickstart deployment experience for Azure Virtual Desktop. For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md).
+
+- Updated [Screen capture protection](screen-capture-protection.md) to include how to use screen capture protection on iOS/iPadOS and Android devices using Microsoft Intune.
+
+- Added FSLogix profile container storage guidance to Azure Virtual Desktop on Azure Local. For more information, see [Azure Virtual Desktop on Azure Local](azure-local-overview.md#fslogix-profile-containers-storage).
+
+## December 2024
+
+Here are the highlights of documentation changes in December 2024:
+
+- Archived the Azure Virtual Desktop (Classic) documentation. Here's the new location: [Azure Virtual Desktop classic documentation](/previous-versions/azure/virtual-desktop-classic/). Redirection is in place for the previous URLs.
+
+- Updated [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md) to provide registry key information to be able to [hide the advanced settings button](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop#hide-advanced-settings-button) and [enable call redirection for specific domains](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop#enable-call-redirection-for-specific-domains).
 
 ## November 2024
 
@@ -122,7 +162,7 @@ Here are the highlights of documentation changes in June 2024:
 
 Here are the highlights of documentation changes in May 2024:
 
-- Published a new article to [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+- Published a new article to [Manage Windows App redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 - Updated the branding of the Getting started feature to [Quickstart](quickstart.md) to match the Azure portal.
 
@@ -215,7 +255,7 @@ Here are the highlights of documentation changes in September 2023:
 - Updated articles for custom images templates general availability:
   - [Custom image templates](custom-image-templates.md).
   - [Use Custom image templates to create custom images](create-custom-image-templates.md).
-  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates).
 
 - Updated [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor) for the general availability of using the Azure Monitor Agent with Azure Virtual Desktop Insights.
 
@@ -264,7 +304,7 @@ Here are the highlights of documentation changes in May 2023:
 - New articles for the custom images templates preview:
   - [Custom image templates](custom-image-templates.md).
   - [Use Custom image templates to create custom images](create-custom-image-templates.md).
-  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates).
 
 - Added how to steps for the Azure portal to configure automatic or direct assignment type in [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md).
 

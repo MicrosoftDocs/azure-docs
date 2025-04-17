@@ -5,8 +5,8 @@ ms.service: azure-data-share
 ms.custom: devx-track-azurepowershell
 author: sidontha
 ms.author: sidontha
-ms.topic: conceptual
-ms.date: 12/19/2023
+ms.topic: concept-article
+ms.date: 02/12/2025
 ---
 
 # Azure PowerShell samples for Azure Data Share

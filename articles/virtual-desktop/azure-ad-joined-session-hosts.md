@@ -3,7 +3,7 @@ title: Microsoft Entra joined session hosts in Azure Virtual Desktop
 description: Learn about using Microsoft Entra joined session hosts in Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 04/17/2025
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
@@ -93,4 +93,4 @@ Now that you've deployed some Microsoft Entra joined VMs, we recommend enabling 
 - [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml)
 - [Connect with the Windows Desktop client](users/connect-windows.md)
 - [Connect with the web client](users/connect-web.md)
-- [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md)
+- [Troubleshoot connections to Microsoft Entra joined VMs](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections)

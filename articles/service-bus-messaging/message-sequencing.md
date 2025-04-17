@@ -2,7 +2,7 @@
 title: Azure Service Bus message sequencing and timestamps
 description: This article explains how to preserve sequencing and ordering (with timestamps) of Azure Service Bus messages.
 ms.topic: concept-article
-ms.date: 07/24/2024
+ms.date: 02/04/2025
 #customer intent: As an architect or a developer, I want to know how the messages are sequenced (stamped with sequence number) and time-stamped in a queue or a topic in Azure Service Bus. 
 ---
 
@@ -25,7 +25,7 @@ The time-stamping capability acts as a neutral and trustworthy authority that ac
 > [!NOTE]
 > Sequence number on its own guarantees the queuing order and the extractor order of messages, but not the processing order, which requires [sessions](message-sessions.md). 
 > 
-> Say, there are 5 messages in the queue and 2 consumers. Consumer 1 picks up message 1. Consumer 2 picks up message 2. Consumer 2 finishes processing message 2 and picks up message 3 while Consumer 1 is not done with processing message 1 yet. Consumer 2 finishes processing message 3 but consumer 1 is still not done with processing message 1 yet. Finally, consumer 1 completes processing message 1. So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
+> Say, there are five messages in the queue and two consumers. Consumer 1 picks up message 1. Consumer 2 picks up message 2. Consumer 2 finishes processing message 2 and picks up message 3 while Consumer 1 isn't done with processing message 1 yet. Consumer 2 finishes processing message 3 but consumer 1 is still not done with processing message 1 yet. Finally, consumer 1 completes processing message 1. So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
 > 
 > So, if messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. The same session ID should be set on messages that belong together, which could be message 1, 4, and 8 in one set, and 2, 3, and 6 in another set. 
 >
@@ -40,7 +40,10 @@ Scheduled messages don't materialize in the queue until the defined enqueue time
 You can schedule messages using any of our clients in two ways:
 
 - Use the regular send API, but set the `Scheduled​Enqueue​Time​Utc` property on the message before sending.
-- Use the schedule message API, pass both the normal message and the scheduled time. The API returns the scheduled message's `SequenceNumber`, which you can later use to cancel the scheduled message if needed. 
+- Use the schedule message API, pass both the normal message and the scheduled time. The API returns the scheduled message's `SequenceNumber`, which you can later use to cancel the scheduled message if needed.
+
+> [!NOTE]
+> Messages that are larger than 1 MB can only be scheduled using the regular API and setting the `Scheduled​Enqueue​Time​Utc` property.
 
 Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md).
 
@@ -49,12 +52,12 @@ The `SequenceNumber` for a scheduled message is only valid while the message is 
 Because the feature is anchored on individual messages and messages can only be enqueued once, Service Bus doesn't support recurring schedules for messages.
 
 > [!NOTE]
-> - Message enqueuing time doesn't mean that the message will be sent at the same time. It will get enqueued, but the actual sending time depends on the queue's workload and its state.
-> - Due to performance considerations, the activation and cancellation of scheduled messages are independent operations without mutual locking. If a message is in the process of being activated and is simultaneously cancelled, the activation process will not be reversed and the message will still be activated. Moreover, this can potentially lead to a negative count of scheduled messages. To minimize this race condition, we recommend that you avoid scheduling activation and cancellation operations in close succession.
+> - Message enqueuing time doesn't mean that the message is sent at the same time. It's enqueued, but the actual sending time depends on the queue's workload and its state.
+> - Due to performance considerations, the activation and cancellation of scheduled messages are independent operations without mutual locking. If a message is in the process of being activated and is simultaneously canceled, the activation process won't be reversed and the message will still be activated. Moreover, it can potentially lead to a negative count of scheduled messages. To minimize this race condition, we recommend that you avoid scheduling activation and cancellation operations in close succession.
 
 ### Using scheduled messages with workflows
 
-It's common to see longer-running business workflows that have an explicit time component to them, like 5-minute timeouts for 2-factor authentication, hour-long timeouts for users confirming their email address, and multi-day, week, or month long time components in domains like banking and insurance.
+It's common to see longer-running business workflows that have an explicit time component to them, like 5-minute time-outs for 2-factor authentication, hour-long time-outs for users confirming their email address, and multi-day, week, or month long time components in domains like banking and insurance.
 
 These workflows are often kicked off by the processing of some message, which then stores some state, and then schedules a message to continue the process at a later time. Frameworks like [NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/2-timeouts/) and [MassTransit](https://masstransit.io/documentation/configuration/sagas/overview) make it easier to integrate all of these elements together.
 

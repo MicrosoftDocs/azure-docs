@@ -29,7 +29,7 @@ Event Grid resource definitions for topics, system topics, domains, and event su
  
 ### Prerequisites
 
-For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions](availability-zones-region-support.md). 
+For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions](regions-list.md). 
 
 
 ### Pricing
@@ -71,7 +71,7 @@ The following table illustrates the client-side failover and geo disaster recove
 | Namespaces          | Supported                                 | Not supported                         |
 
 
-### Event grid namespace
+### Event Grid namespace
 
 Event Grid namespace doesn't support cross-region DR. However, you can achieve cross region high availability through client-side failover implementation by creating primary and secondary namespaces.
 
@@ -105,11 +105,11 @@ You can choose between two failover options, Microsoft-initiated failover and cu
 
     :::image type="content" source="../event-grid/media/availability-zones-disaster-recovery/configuration-page.png" alt-text="Screenshot showing the Configuration page for an Event Grid custom topic.":::
 
-If you use a [non-paired region](cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), then regardless of the data residency configuration you select, your metadata will only be replicated within the region.
+If you use a [nonpaired region](cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), then regardless of the data residency configuration you select, your metadata will only be replicated within the region.
 
 ### Disaster recovery failover experience
 
-Disaster recovery is measured with two metrics, [Recovery Point Objective (RPO) and Recovery Time Objective (RTO)](./disaster-recovery-overview.md#recovery-objectives).
+Disaster recovery is measured with two metrics, Recovery Point Objective (RPO) and Recovery Time Objective (RTO). For more information, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 
 Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions) and data (events). If you need different specification from the following ones, you can still implement your own client-side failover using the topic health APIs.
 

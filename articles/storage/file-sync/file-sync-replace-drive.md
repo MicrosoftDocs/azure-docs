@@ -4,7 +4,7 @@ description: Learn how to replace a drive on an Azure File Sync server because o
 author: sindamnataraj
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 01/25/2025
 ms.author: nasindam
 ---
 
@@ -41,12 +41,14 @@ Removing user access to your server endpoints causes downtime. To minimize downt
     robocopy <SourcePath> <Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /MIR /DCOPY:DAT /XA:O /B /IT /UNILOG:RobocopyLog.txt
     ```
 
-4. Enable SMB access to the server endpoints on Server B.
-Users should now be able to access the file share from the temporary VM (Server B).
+4. Enable SMB access to the server endpoints on Server B. Users should now be able to access the file share from the temporary VM (Server B).
+5. On Server A, change the startup type of the Storage Sync Agent Service from **Disabled** to **Automatic**, and then put it in the **Started** state.
 
 ## Step 4: Delete old server endpoints and replace the drive
 
-When you're sure that user access is restored, [delete the server endpoints](file-sync-server-endpoint-delete.md) and replace the drive on Server A. Make sure the drive letter of the replaced drive is the same as it was before the replacement.
+When you're sure that user access is restored, [delete the server endpoints](file-sync-server-endpoint-delete.md) on Server A. If you get an error that server endpoint deletion failed, make sure that the Storage Sync Agent Service on Server A is in the **Started** state.
+
+Replace the drive on Server A. Make sure the drive letter of the replaced drive is the same as it was before the replacement.
 
 ## Step 5: Create new server endpoints and copy data to the new drive
 
@@ -69,7 +71,7 @@ Removing user access to your server endpoints on the temporary VM causes downtim
     robocopy <SourcePath> <Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /MIR /DCOPY:DAT /XA:O /B /IT /UNILOG:RobocopyLog.txt
     ```
 
-3. On Server A, change the startup type of the Storage Sync Agent Service from **Disabled** to **Automatic**, and then put it in the **Started** state.
+3. Make sure that the Storage Sync Agent Service on Server A is in the **Started** state.
 4. Enable SMB access to the server endpoints on Server A.
 5. Sign in to the Azure portal. Go to the sync group and verify that the cloud endpoint is syncing to the server endpoints on Server A. Users should now be able to access the file share from your registered server.
 

@@ -107,7 +107,7 @@ The following tables compare features available in the following API Management 
 | [Service Fabric](/azure/service-fabric/service-fabric-api-management-overview) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
-| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
+| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ✔️ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
 | [Azure OpenAI and LLM](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -201,4 +201,4 @@ Lear more about:
 -   [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Capacity metric](api-management-capacity.md) for scaling decisions
 -   [Observability capabilities](observability.md) in API Management
--   [GenAI gateway capabilities](genai-gateway-capabilities.md) in API Management
+-   [AI gateway capabilities](genai-gateway-capabilities.md) in API Management

@@ -92,7 +92,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom c
     |---------|---------|
     |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
     |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](../logic-apps/logic-apps-http-endpoint.md).        |
-    |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](../connectors/connectors-native-http.md).       |
+    |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPS](../connectors/connectors-native-http.md).       |
 
 
 1. **Use any of the Logic App connectors that read information to get your events**. For example:

@@ -6,8 +6,8 @@ ms.date: 11/19/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore SAP ASE databases on Azure VMs (preview)

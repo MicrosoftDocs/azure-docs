@@ -48,9 +48,9 @@ Service Connector offers the following authentication options:
 | Azure Cosmos DB for NoSQL                     | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Cosmos DB for Table                     | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Database for MySQL single server        | Yes                              | No                             | No                | No                |
-| Azure Database for MySQL flexible server      | Yes                              | No                             | Yes               | No                |
+| Azure Database for MySQL Flexible Server      | Yes                              | No                             | Yes               | No                |
 | Azure Database for PostgreSQL single server   | Yes                              | No                             | Yes               | No                |
-| Azure Database for PostgreSQL flexible server | Yes                              | No                             | Yes               | No                |
+| Azure Database for PostgreSQL Flexible Server | Yes                              | No                             | Yes               | No                |
 | Azure Event Hubs                              | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Files                                   | No                               | No                             | Yes               | No                |
 | Azure Key Vault                               | Yes                              | Yes                            | No                | Yes               |

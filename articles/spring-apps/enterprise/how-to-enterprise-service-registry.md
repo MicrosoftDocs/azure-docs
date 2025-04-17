@@ -1,8 +1,9 @@
 ---
-title: How to Use Tanzu Service Registry with the Azure Spring Apps Enterprise plan
+title: How to Use Tanzu Service Registry with the Azure Spring Apps Enterprise Plan
 description: How to use Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: yoterada
+ms.author: karler
+ms.reviewer: yoterada
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
@@ -95,7 +96,7 @@ Next, select **GENERATE** to get a sample project for Spring Boot with the follo
 
 ### Confirm the configuration of dependent libraries for the Service Registry client (Eureka client)
 
-Next, confirm that the *pom.xml* file for the project contains the following dependency. Add the dependency if it's missing.
+Next, confirm that the **pom.xml** file for the project contains the following dependency. Add the dependency if it's missing.
 
 ```xml
 <dependency>
@@ -106,7 +107,7 @@ Next, confirm that the *pom.xml* file for the project contains the following dep
 
 ### Implement the Service Registry client
 
-Add an `@EnableEurekaClient` annotation to the *SampleServiceAApplication.java* file to configure it as a Eureka Client.
+Add an `@EnableEurekaClient` annotation to the **SampleServiceAApplication.java** file to configure it as a Eureka Client.
 
 ```java
 package com.example.Sample.Service.A;
@@ -127,7 +128,7 @@ public class SampleServiceAApplication {
 
 ### Create a REST endpoint for testing
 
-You can now register the service to Service Registry, but you can't verify it until you implement a service endpoint. To create RESTful endpoints that external services can call, add a *ServiceAEndpoint.java* file to your project with the following code.
+You can now register the service to Service Registry, but you can't verify it until you implement a service endpoint. To create RESTful endpoints that external services can call, add a **ServiceAEndpoint.java** file to your project with the following code.
 
 ```java
 package com.example.Sample.Service.A;
@@ -184,7 +185,7 @@ The `--assign-endpoint` argument grants a public IP for validation and enables a
 
 After you create a service instance with Spring Boot and create an application in Azure Spring Apps, you deploy the application and confirm the operation. Before that, however, you must bind your application to the Service Registry so that it can get connection information from the registry.
 
-Typically, a Eureka client needs to write the following connection information settings in the *application.properties* configuration file of a Spring Boot application so that you can connect to the server:
+Typically, a Eureka client needs to write the following connection information settings in the **application.properties** configuration file of a Spring Boot application so that you can connect to the server:
 
 ```properties
 eureka.client.service-url.defaultZone=http://eureka:8761/eureka/
@@ -234,7 +235,7 @@ You can also bind your application to the Service Registry from the Azure portal
 
 ### Deploy an application to Azure Spring Apps
 
-Now that you bound your application, deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Apps. To deploy, use the following command:
+Now that you bound your application, deploy the Spring Boot artifact file **Sample-Service-A-A-0.0.1-SNAPSHOT.jar** to Azure Spring Apps. To deploy, use the following command:
 
 ```azurecli
 az spring app deploy \
@@ -327,7 +328,7 @@ public class SampleServiceBApplication {
 
 ### Implement service endpoints in Service B
 
-Next, implement a new service endpoint (`/invoke-serviceA`) that invokes Service A. Add a *ServiceBEndpoint.java* file to your project with the following code.
+Next, implement a new service endpoint (`/invoke-serviceA`) that invokes Service A. Add a **ServiceBEndpoint.java** file to your project with the following code.
 
 ```java
 package com.example.Sample.Service.B;

@@ -411,7 +411,7 @@ if (this.msalGuardConfig.authRequest) {
   authRequestConfig = { ...this.msalGuardConfig.authRequest } as RedirectRequest
 }
 
-authRequestConfig.extraQueryParameters = {"id_token_hint": idToken};;
+authRequestConfig.extraQueryParameters = {"id_token_hint": idToken};
 
 this.authService.loginRedirect(authRequestConfig);
 

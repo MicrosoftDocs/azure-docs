@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/02/2024
+ms.date: 01/02/2025
 ms.author: jianleishen
 ---
 # Copy data from Netezza by using Azure Data Factory or Synapse Analytics
@@ -234,7 +234,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Full load from large table.                                   | **Partition option**: Data Slice. <br><br/>During execution, the service automatically partitions the data based on [Netezza's built-in data slices](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html), and copies data by partitions. |
+| Full load from large table.                                   | **Partition option**: Data Slice. <br><br/>During execution, the service automatically partitions the data based on [Netezza's built-in data slices](https://www.ibm.com/docs/en/psfa/7.1.0?topic=hardware-manage-data-slices), and copies data by partitions. |
 | Load large amount of data by using a custom query.                 | **Partition option**: Data Slice.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`.<br>During execution, the service replaces `?AdfPartitionCount` (with parallel copy number set on copy activity) and `?AdfDataSliceCondition` with the data slice partition logic, and sends to Netezza. |
 | Load large amount of data by using a custom query, having an integer column with evenly distributed value for range partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data. You can partition against the column with integer data type.<br>**Partition upper bound** and **partition lower bound**: Specify if you want to filter against the partition column to retrieve data only between the lower and upper range.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, and `?AdfRangePartitionLowbound` with the actual column name and value ranges for each partition, and sends to Netezza. <br>For example, if your partition column "ID" set with the lower bound as 1 and the upper bound as 80, with parallel copy set as 4, the service retrieves data by 4 partitions. Their IDs are between [1,20], [21, 40], [41, 60], and [61, 80], respectively. |
 

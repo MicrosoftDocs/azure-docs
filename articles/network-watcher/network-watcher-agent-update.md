@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 01/24/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -21,6 +21,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ## Latest version
 
 [!INCLUDE [Network Watcher agent version](../../includes/network-watcher-agent-version.md)].
+
+> [!NOTE] 
+> When automatic extension upgrade is enabled, there may be a delay of up to 30 days between the release of a new extension version and its automatic upgrade on your virtual machines and scale sets.
 
 ### Identify latest version
 
@@ -64,7 +67,7 @@ param(
     [Parameter(Mandatory=$false)] 
     [Switch] $NoUpdate = $false, 
     [Parameter(Mandatory=$false)] 
-    [string] $MinVersion = "1.4.2573.1" 
+    [string] $MinVersion = "1.4.2.1" 
 )  
 function NeedsUpdate($version) 
 { 

@@ -102,6 +102,8 @@ Flow symmetry isn't guaranteed in any scenarios that involve two or more load ba
 
 - The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to the same backend **ipconfiguration(s)** isn't supported on a single frontend IP configuration unless both have Floating IP enabled.
 
+- TCP idle timeout isn't supported for Internal Load Balancer (ILB) HA ports when a User Defined Route (UDR) is used to forward traffic to the ILB. 
+
 - IP fragmenting isn't supported. 
 
 

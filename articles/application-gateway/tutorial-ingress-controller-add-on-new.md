@@ -57,7 +57,7 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 ```
 
 > [!NOTE] 
-> Please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in _Network Contributor_ role, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
+> Please ensure the identity used by AGIC has the proper permissions. A list of permissions needed by the identity can be found here: [Configure Infrastructure - Permissions](configuration-infrastructure.md#permissions). If a custom role is not defined with the required permissions, you may use the _Network Contributor_ role.
 
 ```azurecli-interactive
 # Get application gateway id from AKS addon profile

@@ -1,6 +1,6 @@
 ---
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
@@ -210,7 +210,7 @@ IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
 
 ##### Create the ServiceClient object
 
-Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the Iot Hub connection string and protocol.
+Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the IoT Hub connection string and protocol.
 
 ```java
 String connectionString = "{yourhubconnectionstring}";

@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: ankitadutta
-ms.date: 12/23/2024
+ms.date: 03/31/2025
 ---
 
 # About the Azure Site Recovery Deployment Planner for VMware to Azure
@@ -72,16 +72,15 @@ The tool has two main phases: profiling and report generation. There is also a t
 | Server requirement | Description|
 |---|---|
 |Profiling and throughput measurement| <ul><li>Operating system: Windows Server 2016 or Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure (`*.blob.core.windows.net`) from this server, port 443<br>[This is optional. You can choose to provide the available bandwidth during Report Generation manually.]</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1,000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings can be 1 or higher level</li><li>Allow vCenter port (default 443): Site Recovery Deployment Planner uses this port to connect to the vCenter server/ESXi host</ul></ul>|
-| Report generation | A Windows PC or Windows Server with Excel 2013 or later.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li> is required only when you pass -User option in the report generation command to fetch the latest VM configuration information of the VMs. The Deployment Planner connects to vCenter server. Allow  vCenter port (default 443) port to connect to vCenter server.</li>|
+| Report generation | A Windows PC or Windows Server with Excel 2013 or later.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li> is required only when you pass -User option in the report generation command to fetch the latest VM configuration information of the VMs. The Deployment Planner connects to vCenter server. Allow  vCenter port (default 443) port to connect to vCenter server.</li> <br> TLS version is supported for Deployment Planner. |
 | User permissions | Read-only permission for the user account that's used to access the VMware vCenter server/VMware vSphere ESXi host during profiling |
 
 > [!NOTE]
 >The tool can profile only VMs with VMDK and RDM disks. It can't profile VMs with iSCSI or NFS disks. Site Recovery does support iSCSI and NFS disks for VMware servers. Because the deployment planner isn't inside the guest and it profiles only by using vCenter performance counters, the tool doesn't have visibility into these disk types.
 
-
 ## Download and extract the deployment planner tool
 
-1. Download the latest version of [Site Recovery Deployment Planner](https://download.microsoft.com/download/7d07e00c-87c2-4413-b062-50c7095589ec/ASRDeploymentPlanner-v3.1.zip).
+1. Download the latest version of [Site Recovery Deployment Planner](https://download.microsoft.com/download/7491a137-315d-40ca-9307-f74f913f7e6a/ASRDeploymentPlanner-v3.2.zip).
 The tool is packaged in a `.zip` folder. The current version of the tool supports only the VMware to Azure scenario.
 
 2. Copy the `.zip` folder to the Windows server from which you want to run the tool.

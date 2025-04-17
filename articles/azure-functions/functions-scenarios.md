@@ -97,11 +97,11 @@ For example, using the event hubs trigger to read from an event hub and the outp
 public static async Task Run(
     [EventHubTrigger(
         "%Input_EH_Name%",
-        Connection = "InputEventHubConnectionString",
+        Connection = "InputEventHubConnectionSetting",
         ConsumerGroup = "%Input_EH_ConsumerGroup%")] EventData[] inputMessages,
     [EventHub(
         "%Output_EH_Name%",
-        Connection = "OutputEventHubConnectionString")] IAsyncCollector<SensorDataRecord> outputMessages,
+        Connection = "OutputEventHubConnectionSetting")] IAsyncCollector<SensorDataRecord> outputMessages,
     PartitionContext partitionContext,
     ILogger log)
 {
@@ -284,31 +284,31 @@ public static async Task<IActionResult> Run(
     return new OkResult();
 }
 ```
-
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-csharp)
 + Article: [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
 + Training: [Expose multiple function apps as a consistent API by using Azure API Management](/training/modules/build-serverless-api-with-functions-api-management/)
 + Sample: [Implement the geode pattern by deploying the API to geodes in distributed Azure regions.](https://github.com/mspnp/geode-pattern-accelerator)
-+ Article: [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-csharp)
 + Sample: [Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-python)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-javascript)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-powershell)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-powershell)
 ::: zone-end
+
 ::: zone pivot="programming-language-typescript" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-typescript)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-typescript)
 ::: zone-end
+
 ::: zone pivot="programming-language-java"
-+ Training: [Develop Java serverless Functions on Azure using Maven](/training/modules/develop-azure-functions-app-with-maven-plugin/)
-+ Article: [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-java)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-java)
 ::: zone-end  
 
 ## Build a serverless workflow

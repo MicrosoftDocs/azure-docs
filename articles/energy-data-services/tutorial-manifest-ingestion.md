@@ -40,7 +40,7 @@ Before you start this tutorial, complete the following prerequisites.
   | `SCOPE`              | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  | This value is the same as the app or client ID mentioned earlier. |
   | `refresh_token`      | Refresh token value      | `0.ATcA01-XWHdJ0ES-qDevC6r...........`  | Follow [How to generate auth token](how-to-generate-auth-token.md) to create a refresh token and save it. You need this refresh token later to generate a user token. |
   | `DNS`                | URI                      | `<instance>.energy.Azure.com`         | Find this value on the overview page of the Azure Data Manager for Energy instance.|
-  | `data-partition-id`  | Data partitions        | `<instance>-<data-partition-name>`  | Find this value on the overview page of the Azure Data Manager for Energy instance.|
+  | `data-partition-id`  | Data partitions        | `<data-partition-id>`  | Find this value on the overview page of the Azure Data Manager for Energy instance.|
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 

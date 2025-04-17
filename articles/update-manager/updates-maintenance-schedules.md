@@ -12,10 +12,6 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-> [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules fail to patch the VMs. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
-
-
 This article provides an overview of the various update options and orchestration in Azure Update Manager.
 
 ## Update Options
@@ -47,7 +43,7 @@ When you enable [automatic VM guest patching](/azure/virtual-machines/automatic-
 
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
-- Patches are applied during off-peak hours for IaaS VMs in the VM's time zone.
+- Patches are applied during off-peak hours for IaaS VMs in the time zone of the datacenter hosting the VM.
 - Patches are applied during all hours for Azure Virtual Machine Scale Sets [VMSS Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration).
 - Patch orchestration is managed by Azure and patches are applied following [availability-first principles](/azure/virtual-machines/automatic-vm-guest-patching#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
@@ -71,7 +67,7 @@ To enable the VM property, follow these steps:
 
 ## Hotpatching
 
-[Hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process.
+[Hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process. With Hotpatching, reboots will be typically be required for the installation of patches on every third month rather than every month.
 
 Following are the features of Hotpatching:
 
@@ -126,8 +122,7 @@ Use [scheduled patching](scheduled-patching.md) to create and save recurring dep
 > Patch orchestration property for Azure machines should be set to **Customer Managed Schedules** as it is a prerequisite for scheduled patching. For more information, see the [list of prerequisites](scheduled-patching.md#prerequisites-for-scheduled-patching).
 
 > [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you must update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
-> - For Arc-enabled servers, the updates and maintenance options such as Automatic VM Guest patching in Azure, Windows automatic updates and Hotpatching aren't supported.
+> - It is not possible to configure Patch Settings for Arc-enabled servers.
  
  
 ## Next steps

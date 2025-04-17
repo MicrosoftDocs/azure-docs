@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 01/14/2025
+ms.date: 01/27/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn what connectivity problems I can use Connection troubleshoot to diagnose so that I can use it to resolve those problems.
 ---
@@ -34,7 +34,7 @@ Connection troubleshoot provides the capability to check TCP or ICMP connections
 - Virtual machines
 - Virtual machine scale sets
 - Azure Bastion instances
-- Application gateways v2 (except private deployments). For more information, see [Private Application Gateway deployment](../application-gateway/application-gateway-private-deployment.md)
+- Application gateways v2 with the exception of gateways enrolled in the [Private Application Gateway deployment](../application-gateway/application-gateway-private-deployment.md)
 
 > [!IMPORTANT]
 > Connectivity test of connection troubleshoot requires that the virtual machine you run the test from has the ***Network Watcher agent VM extension*** installed.  This extension is not required for running other connection troubleshoot tests or on the destination virtual machine.

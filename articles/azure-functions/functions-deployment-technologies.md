@@ -85,7 +85,7 @@ The Functions host also performs a background trigger sync after the application
 
 You can request Azure Functions to perform a remote build of your code project during deployment. In these scenarios, you should request a remote build instead of building locally:
 
-+ You're deploying an app to a Linux-based function app that was developed on a Windows computer. This is commonly the case for Python app development. You can end up with in incorrect libraries being used when building the deployment package locally on Windows.
++ You're deploying an app to a Linux-based function app that was developed on a Windows computer. This is commonly the case for Python app development. You can end up with incorrect libraries being used when building the deployment package locally on Windows.
 + Your project has dependencies on a [custom package index](functions-reference-python.md#remote-build-with-extra-index-url).
 + You want to reduce the size of your deployment package.
 
@@ -175,7 +175,7 @@ You can deploy a function app running in a Linux container.
 >+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 >+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
 >+ Deploy to Azure Container Apps. To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
->+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
+>+ Deploy to Azure Arc (preview). To learn how, see [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc).
 >+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 
 >__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.

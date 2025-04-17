@@ -4,7 +4,7 @@ description: Find out about reliability in the Azure Health Data Services de-ide
 author: jovinson-ms
 ms.author: jovinson
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.date: 09/27/2024

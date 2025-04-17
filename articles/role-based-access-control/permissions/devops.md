@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the DevOp
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -283,9 +283,10 @@ Azure service: [Azure Lab Services](/azure/lab-services/)
 > | Microsoft.DevTestLab/labs/virtualMachines/Restart/action | Restart a virtual machine. |
 > | Microsoft.DevTestLab/labs/virtualMachines/Start/action | Start a virtual machine. |
 > | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | Stop a virtual machine |
-> | Microsoft.DevTestLab/labs/virtualMachines/Hibernate/action |  |
+> | Microsoft.DevTestLab/labs/virtualMachines/Hibernate/action | Hibernate a virtual machine |
 > | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | Transfers all data disks attached to the virtual machine to be owned by the current user. |
 > | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | Release ownership of an existing virtual machine |
+> | Microsoft.DevTestLab/labs/virtualMachines/ChangeSecurityProfile/action | Change security profile of a virtual machine |
 > | Microsoft.DevTestLab/labs/virtualMachines/schedules/delete | Delete schedules. |
 > | Microsoft.DevTestLab/labs/virtualMachines/schedules/read | Read schedules. |
 > | Microsoft.DevTestLab/labs/virtualMachines/schedules/write | Add or modify schedules. |

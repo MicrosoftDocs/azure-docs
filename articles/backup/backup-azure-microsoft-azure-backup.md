@@ -4,8 +4,8 @@ description: In this article, learn how to prepare your environment to protect a
 ms.topic: how-to
 ms.date: 11/23/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

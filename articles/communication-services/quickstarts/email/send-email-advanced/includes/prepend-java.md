@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
 
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+
 > [!TIP]
 > Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
 

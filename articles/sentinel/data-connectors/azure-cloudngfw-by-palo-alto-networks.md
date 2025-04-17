@@ -2,7 +2,7 @@
 title: "Azure CloudNGFW By Palo Alto Networks connector for Microsoft Sentinel"
 description: "Learn how to install the connector Azure CloudNGFW By Palo Alto Networks to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

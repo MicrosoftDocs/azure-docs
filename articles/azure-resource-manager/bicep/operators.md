@@ -3,7 +3,7 @@ title: Bicep operators
 description: Describes the Bicep operators available for Azure Resource Manager deployments.
 ms.topic: reference
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 05/16/2023
+ms.date: 02/12/2025
 ---
 
 # Bicep operators
@@ -20,7 +20,7 @@ This article describes the Bicep operators. Operators are used to calculate valu
 
 ## Operator precedence and associativity
 
-The operators below are listed in descending order of precedence (the higher the position the higher the precedence). Operators listed at the same level have equal precedence.
+The following operators are listed in descending order of precedence (the higher the position the higher the precedence). Operators listed at the same level have equal precedence.
 
 | Symbol | Type of Operation | Associativity |
 |:-|:-|:-|

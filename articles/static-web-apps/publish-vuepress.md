@@ -2,11 +2,11 @@
 title: "Tutorial: Publish a VuePress site to Azure Static Web Apps"
 description: This tutorial shows you how to deploy a VuePress application to Azure Static Web Apps.
 services: static-web-apps
-author: aaronpowell
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 01/10/2024
-ms.author: aapowell
+ms.author: wujia
 ms.custom:
 ---
 

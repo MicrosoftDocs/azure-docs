@@ -11,7 +11,7 @@ ms.date: 01/10/2025
 
 Microsoft and New Relic developed this service and manage it together.
 
-You can find Neon Serverless Postgres (Preview) in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview).
+You can find New Relic in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview).
 
 New Relic is a full-stack observability platform that enables a single source of truth for application performance, infrastructure monitoring, log management, error tracking, and real-user monitoring. Combined with the Azure platform, use Azure Native New Relic Service to help monitor, troubleshoot, and optimize Azure services and applications.
 

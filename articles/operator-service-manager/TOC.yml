@@ -37,6 +37,8 @@
         href: safe-upgrade-practices.md
       - name: Control Upgrade Failure Behavior
         href: safe-upgrades-nf-level-rollback.md
+      - name: Run Tests After Install or Upgrade
+        href: safe-upgrades-helm-test.md
   - name: Edge Registry and Private Link
     expanded: false
     items:
