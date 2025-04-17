@@ -101,7 +101,7 @@ New resource specific tables are now available in Diagnostic setting that allows
 All resource specific tables now support the *Basic* table plan, which can reduce logging costs by up to 80%. For more information on the limitations and differences of this new logging plan, see [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs#table-plans). To learn about the new querying experience, see [Query data in a basic and auxiliary table](/azure/azure-monitor/logs/basic-logs-query).
 
 > [!NOTE]
-> - [Policy Analytics](policy-analytics.md) and [Security Copilot integrations](firewall-copilot.md) aren't compatible with Basic log mode. To enable these features, make sure the required log tables are configured under the analytics table plan.
+> - [Policy Analytics](policy-analytics.md) and [Security Copilot integrations](firewall-copilot.md) aren't compatible with the *Basic* table plan. To enable these features, make sure the required log tables are configured with the *Analytics* table plan.
 > - The table plan can be updated only once every **7 days**.
 
 ### Enable structured logs
