@@ -17,7 +17,7 @@ Learn how to configure continuous integration and continuous delivery (CI/CD) fo
 
 ## 1. Go to the Deployment Center
 
-In the [Azure portal](https://portal.azure.com), go to the management pane for your App Service app.
+In the [Azure portal](https://portal.azure.com), go to the management pane for your Azure App Service app.
 
 From the left menu, select **Deployment Center** > **Settings**.
 
@@ -47,7 +47,7 @@ After you authorize your Azure account with GitHub, select the **Organization**,
 
 To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**.
 
-If you don't see the **Container Type** dropdown, scroll back up to **Source** and select **Container Registry**.
+If you don't see the **Container Type** dropdown list, scroll back up to **Source** and select **Container Registry**.
 ::: zone-end
 
 In **Registry source**, select where your container registry is. If it's not Azure Container Registry or Docker Hub, select **Private Registry**.
@@ -61,21 +61,21 @@ Follow the next steps by selecting the tab that matches your choice.
 
 # [Azure Container Registry](#tab/acr)
 
-The **Registry** dropdown displays the registries in the same subscription as your app. Select the registry you want.
+The **Registry** dropdown list displays the registries in the same subscription as your app. Select the registry you want.
 
 To deploy from a registry in a different subscription, select **Private Registry** in **Registry source** instead.
 
 To use managed identities to lock down Azure Container Registry access, see: 
 
-* [How to use system-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md).
-* [How to use user-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md).
+* [How to use system-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
+* [How to use user-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md)
 
 ::: zone pivot="container-windows"
 Select the **Image** and **Tag** to deploy. You can choose to type the startup command in **Startup File**.
 ::: zone-end
 ::: zone pivot="container-linux"
-Follow the next step depending on the **Container Type**:
-* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just **paste** the contents of your Docker Compose file into **Config**.
+Follow the next step, depending on the **Container Type** value:
+* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the contents of your Docker Compose file into **Config**.
 * For **Single Container**, select the **Image** and **Tag** to deploy. You can choose to type the startup command in **Startup File**.
 ::: zone-end
 
@@ -90,20 +90,20 @@ In **Repository Access**, select whether the image you want to deploy is public 
 In **Repository Access**, select whether the image you want to deploy is public or private. For a Docker Compose app with one or more private images, select **Private**.
 ::: zone-end
 
-If you select a private image, **specify** the **Login** (username) and **Password** of the Docker account.
+If you select a private image, specify the **Login** (username) and **Password** values for the Docker account.
 
 ::: zone pivot="container-windows"
 Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 ::: zone-end
 ::: zone pivot="container-linux"
-Follow the next step depending on the **Container Type**:
+Follow the next step, depending on the **Container Type** value:
 * For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or **paste** the contents of your Docker Compose file into **Config**.
 * For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 ::: zone-end
 
 App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
-# [Private Registry](#tab/private)
+# [Private registry](#tab/private)
 
 In **Server URL**, type the URL of the server, beginning with `https://`.
 
@@ -113,7 +113,7 @@ In the **Login** and **Password** fields, type your sign-in credentials for your
 Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 ::: zone-end
 ::: zone pivot="container-linux"
-Follow the next step depending on the **Container Type**:
+Follow the next step, depending on the **Container Type** value:
 * For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or paste the contents of your Docker Compose file into **Config**.
 * For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 ::: zone-end
@@ -234,7 +234,7 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <image-name> --docker-registry-server-user <username> --docker-registry-server-password <password>
 ```
 
-# [Private Registry](#tab/private)
+# [Private registry](#tab/private)
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name '<image>:<tag>' --docker-registry-server-url <private-repo-url> --docker-registry-server-user <username> --docker-registry-server-password <password>
