@@ -347,9 +347,9 @@ groups:
     title: Python
   - id: node
     title: Node.js
-  - id: Java
+  - id: java
     title: Java
-  - id: PHP
+  - id: php
     title: PHP
 - id: app-service-vscode-cli-portal
   title: Development environment

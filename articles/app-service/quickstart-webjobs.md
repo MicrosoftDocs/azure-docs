@@ -45,7 +45,7 @@ dotnet
    | Setting      | value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myScheduledWebJob | A name that is unique within an App Service app. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the supported file types section. |
    | **Type** | Scheduled | Continous, Triggered, or Scheduled. |
    | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
    | **CRON Expression** | 0 0/20 * * * * | [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) are described in the following section. |
