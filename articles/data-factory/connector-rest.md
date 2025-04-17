@@ -411,8 +411,8 @@ The following properties are supported in the copy activity **source** section:
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
->REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`. <br>
->The array of object as the response body is not supported in pagination.
+>The REST connector ignores any "Accept" header specified in `additionalHeaders`. Since it only supports JSON responses, it automatically sets the header to Accept: application/json. <br>
+>Pagination is not supported for REST API responses where the top-level structure is a JSON array.
 
 **Example 1: Using the Get method with pagination**
 
@@ -985,8 +985,7 @@ The pagination rule syntax is the same as in Example 8 and should be set as belo
 
 ## Export JSON response as-is
 
-You can use this REST connector to export REST API JSON response as-is to various file-based stores. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
-
+You can use the REST connector to export a REST API's JSON response as-is to various file-based storage systems (sinks). To enable this schema-agnostic copy behavior, use default schema mapping (don’t define any mapping in the Copy Activity's Mapping tab.) 
 ## Schema mapping
 
 To copy data from REST endpoint to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
