@@ -34,9 +34,6 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 
 The service provides a built-in driver to enable connectivity. Therefore you don't need to manually install any driver using this connector.
 
-**Please use the actual value instead of the displayed value in ServiceNow.**
-
-
 ## Prerequisite
 
 To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
@@ -116,7 +113,7 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ServiceNowV2Object** | Yes |
 | tableName | Name of the table. | Yes |
-| valueType | The type of ServiceNow table values. The value of this property can be `display` or `actual` (default).  | No |
+| valueType | The type of ServiceNow table values. The value of this property can be `display` or `actual` (default). You can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow REST APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). The column name for actual value is `[column name]_value`, while for display value is `[column name]_display_value`. | No |
 
 **Example**
 
@@ -286,7 +283,7 @@ The ServiceNow V2 connector offers new functionalities and is compatible with mo
 | SQL-based queries are not supported. | Support SQL-based queries. | 
 | sortBy queries are not supported in **Query builder**. | Support sortBy queries in **Query**. | 
 | You can view the schema in the dataset. | You can't view the schema in the dataset. |
-|The Display type of ServiceNow table values is supported. |The Display type of ServiceNow table values is not supported. |  
+| You can configure `valueType` to `display` or `actual` in datasets to use the display or actual value of the table.| The display or actual value is present in the table with "Display" or "Actual" prefix appended. |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
