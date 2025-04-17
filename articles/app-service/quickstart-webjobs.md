@@ -25,9 +25,11 @@ In this quickstart, you create a scheduled WebJob to delete temporary files from
 - **[Always on](configure-common.md?tabs=portal)** must enabled on your app.
 
 ## Create a scheduled WebJob
+
 :::zone target="docs" pivot="dotnet"
 dotnet
 :::zone-end
+
 :::zone target="docs" pivot="python"
 
 1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
@@ -56,11 +58,15 @@ dotnet
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 :::zone-end
+
 :::zone target="docs" pivot="node"
 node
 :::zone-end
+
 :::zone target="docs" pivot="java"
 java
+:::zone-end
+
 :::zone target="docs" pivot="php"
 php
 :::zone-end
