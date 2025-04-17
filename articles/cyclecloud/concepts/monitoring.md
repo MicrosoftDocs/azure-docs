@@ -70,7 +70,7 @@ Starting with CycleCloud 8.0, metrics for a cluster are pulled from [Azure Monit
 This change removes the need to open port 8652 inbound on nodes.
 
 > [!NOTE]
-> Even clusters that are still at version 7 and have Ganglia preinstalled get their metrics from Azure Monitor in CycleCloud 8.
+> Even clusters that use version 7 with Ganglia preinstalled get their metrics from Azure Monitor in CycleCloud 8.
 
 The collected metrics are:
 
@@ -81,3 +81,4 @@ The collected metrics are:
  * Network Out
 
 You can also store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](/azure/azure-monitor/visualize/tutorial-logs-dashboards).
+::: moniker-end
