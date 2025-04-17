@@ -23,7 +23,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 ## Prerequisites
 Before you begin, ensure you have:
 - Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/free/).
-- Azure Communication Services resource, see [create a new Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
+- Azure Communication Services resource, see [create a new Azure Communication Services resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
 - Create a new web service application using Call automation SDK.
 - An Azure AI Multiservice resource and a custom domain.
 - [Connect Azure Communication Services and Azure AI](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
@@ -171,7 +171,7 @@ while (webSocket.State == WebSocketState.Open && !cancellationToken.IsCancellati
 ```
 
 ### Built in barge-in logic: 
-The application uses intermediate results received from real-time transcription to detect barge-in from the caller and [cancels the play operation](../how-tos/call-automation/includes/play-audio-quickstart-csharp.md#cancel-play-action).
+The application uses intermediate results received from real-time transcription to detect barge-in from the caller and [cancels the play operation](../how-tos/call-automation/play-action.md).
 
 ``` csharp
 if (data.Contains("Intermediate"))
