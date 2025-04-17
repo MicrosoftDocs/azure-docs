@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 04/17/2025
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
