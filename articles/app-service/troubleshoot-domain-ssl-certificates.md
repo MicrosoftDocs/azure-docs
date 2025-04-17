@@ -36,7 +36,6 @@ This problem might happen if you have multiple IP-based TLS/SSL bindings for the
 To resolve this problem, try one of the following methods:
 
 * Delete the IP-based TLS/SSL binding on the app that uses the old certificate.
-
 * Create a new IP-based TLS/SSL binding that uses the new certificate.
 
 ### You can't delete a certificate
@@ -114,9 +113,9 @@ The key vault used to store the App Service certificate is missing access policy
 To modify the access policies for the key vault, follow these steps:
 
 1. Sign in to the Azure portal. Select the key vault used by your App Service certificate. Go to Access policies.</li>
-2. If you don't see the two Service Principals listed, you need to add them. If they're available, verify that the permissions include the recommended secret and certificate permissions.</li>
-3. Add a Service Principal by selecting **Create**. Then select the needed permissions for Secret and Certificate permissions.</li>
-4. For the Service Principal, enter the values that you previously obtained from the search box. Then, select the Service Principal.</li>
+2. If you don't see the two service principals listed, you need to add them. If they're available, verify that the permissions include the recommended secret and certificate permissions.</li>
+3. Add a service principal by selecting **Create**. Then select the needed permissions for Secret and Certificate permissions.</li>
+4. For the service principal, enter the values that you previously obtained from the search box. Then, select the service principal.</li>
   
 #### Cause 2: The app service hasn't synced with the new certificate
 
@@ -128,13 +127,13 @@ To force a sync for the certificate, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **App Service Certificates**, and then select the certificate.</li>
 2. Select **Rekey and Sync**, and then select **Sync**. The sync takes some time to finish.</li>
-3. When the sync completes, the following notification appears: "Successfully updated all the resources with the latest certificate."</li>
+3. When the sync finishes, the following notification appears: "Successfully updated all the resources with the latest certificate."</li>
 
-### An App Service is showing the wrong certificate
+### App Service is showing the wrong certificate
 
 #### Symptom
 
-When browsing the App Service, it's presenting the wrong certificate.
+When you're browsing App Service, it's presenting the wrong certificate.
 
 #### Cause
 
@@ -161,7 +160,7 @@ Your configured custom domain is missing a `CNAME record` or an `A record`.
 **Solution for cause 1**
 
 * If you added an `A record`, make sure that a `TXT record` is also added. For more information, see [Create the DNS records](./app-service-web-tutorial-custom-domain.md#create-the-dns-records).
-* If you don't have to use the root domain for your app, we recommend that you use a `CNAME record`, rather than an `A record`.
+* If you don't have to use the root domain for your app, we recommend that you use a `CNAME record` rather than an `A record`.
 * Don't use both a `CNAME record` and an `A record` for the same domain. This issue can cause a conflict and prevent domain resolution.
 
 **Cause 2**
@@ -181,7 +180,7 @@ You can't add a new host name to an app to assign a subdomain.
 #### Solution
 
 * Make sure that you have permissions to add a host name to an app by checking with the subscription administrator.
-* If you need more subdomains, we recommend that you change the domain hosting to Azure Domain Name Service (DNS). By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website).
+* If you need more subdomains, we recommend that you change the domain hosting to Azure DNS. By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website).
 
 ### DNS can't be resolved
 
@@ -193,8 +192,7 @@ You received the following error message: "The DNS record could not be located."
 
 This problem happens for one of the following reasons:
 
-* The time-to-live (TTL) period hasn't expired. To determine the TTL value, check your domain's DNS configuration, and wait for the period to expire.
-
+* The time-to-live (TTL) period hasn't expired. To determine the TTL value, check your domain's DNS configuration and wait for the period to expire.
 * The DNS configuration is incorrect.
 
 #### Solution
@@ -241,7 +239,7 @@ The App Service certificate requires domain verification before the certificate 
 
 Manually verify your domain by adding a `TXT record`:
 
-1. Go to the Domain Name Service (DNS) provider that hosts your domain name.
+1. Go to the DNS provider that hosts your domain name.
 
 1. Add a `TXT record` for your domain that uses the value of the domain token from the Azure portal.
 
@@ -259,7 +257,6 @@ For example, if you're buying a standard certificate for azure.com with the doma
 
 > [!IMPORTANT]
 > A certificate purchase has 15 days only to complete the domain verification operation. After 15 days, the CA denies the certificate, and you're not charged for the certificate. In this situation, delete this certificate and try again.
->
 
 ### You can't purchase a domain
 
@@ -315,7 +312,7 @@ This problem happens for one of the following reasons:
 
 **Do I have to configure my custom domain for my website when I buy it?**
 
-When you purchase a domain from the Azure portal, the App Service app is automatically configured to use that custom domain. You don’t have to take any further steps. For more information, watch Azure App Service Self Help: Add a Custom Domain Name on Channel9.
+When you purchase a domain from the Azure portal, the App Service app is automatically configured to use that custom domain. You don't have to take any further steps. For more information, watch Azure App Service Self Help: Add a Custom Domain Name on Channel9.
 
 **Can I use a domain purchased in the Azure portal to point to an Azure virtual machine instead?**
 
@@ -357,9 +354,9 @@ Yes, when you access the **Custom domains** and **Certificates** pages in the Az
 
 Yes, you can move a domain to another subscription or resource group by using the [`Move-AzResource`](/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
 
-**How can I manage my custom domain if I don’t currently have an Azure App Service app?**
+**How can I manage my custom domain if I don't currently have an Azure App Service app?**
 
-You can manage your domain even if you don't have an App Service web app. You can use the domain for Azure services such as virtual machines, Azure Storage, and so on. If you plan to use the domain for App Service web apps, you must include a web app that's not on a free App Service tier so that you can bind the domain to your web app.
+You can manage your domain even if you don't have an App Service web app. You can use the domain for Azure services such as Azure Virtual Machines, Azure Storage, and so on. If you plan to use the domain for App Service web apps, you must include a web app that's not on a free App Service tier so that you can bind the domain to your web app.
 
 **Can I move a web app with a custom domain to another subscription or from App Service Environment v1 to V2?**
 
@@ -369,12 +366,16 @@ After you move a web app, the host name bindings of the domains within the custo
 
 **What file formats are returned when I download my App Service certificate from its key vault?**
 
-When you select "Download as a certificate" for the App Service certificate under its key vault/secrets, the certificate file format is .pfx. No password is applied to the file.
+When you select **Download as a certificate** for the App Service certificate under its key vault/secrets, the certificate file format is .pfx. No password is applied to the file.
 
-**What file format can I use to upload a certificate to my App Service?**
+**What file format can I use to upload a certificate to App Service?**
 
-The certificate file format must be a .pfx file with a password applied to the file. The certificate must also meet the certificate requirements mentioned [here](../app-service/configure-ssl-certificate.md#private-certificate-requirements). If you obtained your certificate from a third party CA and the file format is a .pem/.key format, you can use a tool like OpenSSL to convert the files to a .pfx file format. The private key must be included during the conversion because the .pfx file format requires it. Also, if your CA gives you multiple certificates in the certificate chain, you have to merge the certificates following the same order. For more information, please see [here](../app-service/configure-ssl-certificate.md#merge-intermediate-certificates).
+The certificate file format must be a .pfx file with a password applied to the file. The certificate must also meet the [certificate requirements](../app-service/configure-ssl-certificate.md#private-certificate-requirements).
+
+If you obtained your certificate from a third-party CA and the file format is a .pem/.key format, you can use a tool like OpenSSL to convert the files to a .pfx file format. The private key must be included during the conversion because the .pfx file format requires it.
+
+Also, if your CA gives you multiple certificates in the certificate chain, you have to merge the certificates by following the same order. For more information, see [Merge intermediate certificates](../app-service/configure-ssl-certificate.md#merge-intermediate-certificates).
 
 **How do I generate a certificate-signing request for an App Service certificate?**
 
-For an App Service certificate, you purchase through the Azure portal or by using a Powershell/CLI command. A certificate-signing request isn't needed. However, Azure Key Vault supports storing digital certificates issued by any CA. It supports creating a certificate-signing request with a private/public key pair. The certificate-signing request can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [Create a certificate-signing request](/azure/key-vault/certificates/create-certificate-signing-request).
+For an App Service certificate, you purchase through the Azure portal or by using a Powershell/CLI command. A certificate-signing request isn't needed. However, Azure Key Vault supports storing digital certificates issued by any CA. It supports creating a certificate-signing request with a private/public key pair. The certificate-signing request can be signed by any CA (an internal enterprise CA or an external public CA). For more information, see [Create a certificate-signing request](/azure/key-vault/certificates/create-certificate-signing-request).
