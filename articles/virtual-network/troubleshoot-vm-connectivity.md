@@ -16,9 +16,9 @@ This article helps administrators diagnose and resolve connectivity problems tha
 
 ## Problems
 
-- [An Azure VM that’s deployed by using Resource Manager can't connect to another Azure VM in same virtual network](#azure-vm-cannot-connect-to-another-azure-vm-in-same-virtual-network).
-- [An Azure VM can't connect to the second network adapter of an Azure VM in same virtual network](#azure-vm-cannot-connect-to-the-second-network-adapter-of-an-azure-vm-in-same-virtual-network).
-- [An Azure VM can't connect to the internet](#azure-vm-cannot-connect-to-the-internet).
+- [An Azure VM that’s deployed by using Resource Manager can't connect to another Azure VM in same virtual network](#azure-vm-cant-connect-to-another-azure-vm-in-same-virtual-network).
+- [An Azure VM can't connect to the second network adapter of an Azure VM in same virtual network](#azure-vm-cant-connect-to-the-second-network-adapter-of-an-azure-vm-in-same-virtual-network).
+- [An Azure VM can't connect to the internet](#azure-vm-cant-connect-to-the-internet).
 
 To resolve these problems, follow the steps in the following section.
 
