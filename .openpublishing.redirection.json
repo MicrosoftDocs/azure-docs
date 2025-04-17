@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-caching-rules.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-caching-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-dynamic-site-acceleration.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-dynamic-site-acceleration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-caching-policy.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-caching-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-manage-expiration-of-blob-content.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-manage-expiration-of-blob-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-manage-expiration-of-cloud-service-content.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-manage-expiration-of-cloud-service-content",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/cdn-http-variables.md",
       "redirect_url": "/previous-versions/azure/cdn/cdn-http-variables",
       "redirect_document_id": false
