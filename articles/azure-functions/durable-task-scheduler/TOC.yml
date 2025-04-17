@@ -23,8 +23,14 @@
     href: durable-task-scheduler-dashboard.md
 - name: Durable Task Scheduler for Durable Functions
   items:
-  - name: Develop
-    href: develop-with-durable-task-scheduler.md
+  - name: Concepts
+    items:
+    - name: Work item throughput
+      href: durable-task-scheduler-work-item-throughput.md
+  - name: How-to guides
+    items:
+    - name: Develop
+      href: develop-with-durable-task-scheduler.md
 - name: Durable Task Scheduler for portable SDKs
   items:
   - name: Use the portable SDKs with Azure computes
