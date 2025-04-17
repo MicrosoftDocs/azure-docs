@@ -35,7 +35,7 @@ dotnet --info
 
 ## Show .NET Core version
 
-To show the current .NET Core version, run the following command in [Cloud Shell](https://shell.azure.com):
+To show the current .NET Core version, run the following command in [Azure Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
@@ -95,7 +95,7 @@ For more information on how App Service runs and builds ASP.NET Core apps in Lin
 
 ## Access environment variables
 
-In App Service, you can [set app settings](configure-common.md#configure-app-settings) outside of your app code. You can then access them in any class by using the standard ASP.NET Core dependency injection pattern:
+In App Service, you can [set app settings](configure-common.md#configure-app-settings) outside your app code. You can then access them in any class by using the standard ASP.NET Core dependency injection pattern:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -122,7 +122,7 @@ namespace SomeNamespace
 }
 ```
 
-If you configure an app setting with the same name in App Service and in `appsettings.json`, for example, the App Service value takes precedence over the `appsettings.json` value. By using the local `appsettings.json` value, you can debug the app locally, but by using the App Service value, you can run the app in production with production settings. Connection strings work the same way. By using this method, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+If you configure an app setting with the same name in App Service and in `appsettings.json`, for example, the App Service value takes precedence over the `appsettings.json` value. By using the local `appsettings.json` value, you can debug the app locally, but by using the App Service value, you can run the app in production with production settings. Connection strings work the same way. By using this method, you can keep your application secrets outside your code repository and access the appropriate values without changing your code.
 
 > [!NOTE]
 > You can also consider more secure connectivity options that don't require connection secrets. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
@@ -139,7 +139,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ::: zone pivot="platform-windows"
 
-The [hierarchical configuration data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in `appsettings.json` is accessed by using the `:` delimiter that's standard to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. You can run the following example in [Cloud Shell](https://shell.azure.com):
+The [hierarchical configuration data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in `appsettings.json` is accessed by using the `:` delimiter that's standard to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. You can run the following example in [Azure Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
@@ -148,7 +148,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Deploy multi-project solutions
 
-When a Visual Studio solution includes multiple projects, the Visual Studio publish process automatically selects the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following command in [Cloud Shell](https://shell.azure.com):
+When a Visual Studio solution includes multiple projects, the Visual Studio publish process automatically selects the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first website or web application project that it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following command in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -156,7 +156,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## Access diagnostic logs
 
-ASP.NET Core offers a [built-in logging provider for App Service](/aspnet/core/fundamentals/logging/#azure-app-service). In your project's program.cs file, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
+ASP.NET Core offers a [built-in logging provider for App Service](/aspnet/core/fundamentals/logging/#azure-app-service). In your project's `program.cs` file, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
