@@ -283,7 +283,7 @@ The ServiceNow V2 connector offers new functionalities and is compatible with mo
 | SQL-based queries are not supported. | Support SQL-based queries. | 
 | sortBy queries are not supported in **Query builder**. | Support sortBy queries in **Query**. | 
 | You can view the schema in the dataset. | You can't view the schema in the dataset. |
-| You can configure `valueType` to `display` or `actual` in datasets to use the display or actual value of the table.| The display or actual value is present in the table with "Display" or "Actual" prefix appended. |  
+| You can configure `valueType` to `display` or `actual` in datasets to see the display or actual value of the table.| The display or actual value is present in the table with "Display" or "Actual" prefix appended. |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
