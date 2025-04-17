@@ -42,7 +42,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
    az provider register --namespace Microsoft.Network --subscription $subscriptionId
    ```
 
-4. If the destination for the virtual network TAP is the network interface on the network virtual appliance for collector or analytics tool -
+4. If the destination for the virtual network TAP is the network interface on the network virtual appliance for collector or analytics tool:
 
    - Retrieve the IP configuration of the network virtual appliance's network interface into a variable that is used in a later step. The ID is the end point that aggregates the TAP traffic. The following example retrieves the ID of the *ipconfig1* IP configuration for a network interface named *myNetworkInterface*, in a resource group named *myResourceGroup*:
 
@@ -153,3 +153,6 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
    --resource-group myResourceGroup \
    --name myTap
    ```
+
+## Next steps
+- [Virtual network TAP overview](virtual-network-tap-overview.md)
