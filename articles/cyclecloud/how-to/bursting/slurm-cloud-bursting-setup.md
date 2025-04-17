@@ -8,15 +8,15 @@ ms.author: padmalathas
 
 # What is Cloud Bursting?
 
-Cloud bursting is a configuration in cloud computing that allows an organization to handle peaks in IT demand by using a combination of private and public clouds. When the resources in a private cloud reach their maximum capacity, the overflow traffic is directed to a public cloud to ensure there is no interruption in services. This setup provides flexibility and cost savings, as you only pay for the additional resources when there is a demand for them.
+Cloud bursting is a configuration in cloud computing that allows an organization to handle peaks in IT demand by using a combination of private and public clouds. When the resources in a private cloud reach their maximum capacity, the overflow traffic is directed to a public cloud to ensure there is no interruption in services. This setup provides flexibility and cost savings, as you only pay for the supplemental resources when there is a demand for them.
 
 For example, an application can run on a private cloud and "burst" to a public cloud only when necessary to meet peak demands. This approach helps avoid the costs associated with maintaining extra capacity that is not always in use
 
-Cloud bursting can be used in various scenarios, such as enabling on-premises workloads to be sent to the cloud for processing, known as hybrid HPC (High-Performance Computing). This allows users to optimize their resource utilization and cost efficiency while accessing the scalability and flexibility of the cloud.
+Cloud bursting can be used in various scenarios, such as enabling on-premises workloads to be sent to the cloud for processing, known as hybrid HPC (High-Performance Computing). It allows users to optimize their resource utilization and cost efficiency while accessing the scalability and flexibility of the cloud.
 
 ## Overview
 
-This document offers a step-by-step guide on installing and configuring a Slurm scheduler to burst computing resources into the cloud using Azure CycleCloud. It explains how to create a Hybrid HPC (High-Performance Computing) environment by extending on-premises Slurm clusters into Azure, allowing for seamless access to scalable and flexible cloud computing resources. The guide provides a practical example of optimizing compute capacity by integrating local infrastructure with cloud-based solutions.
+This document offers a step-by-step guide on installing and configuring a Slurm scheduler to burst computing resources into the cloud using Azure CycleCloud. It explains how to create a hybrid HPC environment by extending on-premises Slurm clusters into Azure, allowing for seamless access to scalable and flexible cloud computing resources. The guide provides a practical example of optimizing compute capacity by integrating local infrastructure with cloud-based solutions.
 
 
 ## Requirements to Setup Slurm Cloud Bursting Using CycleCloud on Azure
@@ -28,14 +28,14 @@ You must obtain an Azure subscription or be assigned as an Owner role of the sub
 * To access an existing subscription, go to the [Azure portal](https://portal.azure.com/).
 
 ## Network infrastructure
-If you intend to create a Slurm cluster entirely within Azure, you must deploy both the head node(s) and the CycleCloud compute nodes within a single Azure Virtual Network (VNET). 
+If you intend to create a Slurm cluster entirely within Azure, you must deploy both the head nodes and the CycleCloud compute nodes within a single Azure Virtual Network (VNET). 
 
 ![Slurm cluster](../../images/slurm-cloud-burst/slurm-cloud-burst-architecture.png)
 
-However, if your goal is to establish a hybrid HPC cluster with the head node(s) located on your on-premises corporate network and the compute nodes in Azure, you will need to set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection between your on-premises network and the Azure VNET. The head node(s) must have the capability to connect to Azure services over the Internet. You may need to coordinate with your network administrator to configure this connectivity.
+If you want to create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, you'll need to set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection between your network and Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set this up.
 
 ## Network Ports and Security
-The following NSG rules must be configured for successful communication between Master node, CycleCloud server and Compute nodes.
+The following NSG rules must be configured for successful communication between Master node, CycleCloud server and compute nodes.
 
 
 | **Service**                        | **Port**        | **Protocol** | **Direction**    | **Purpose**                                                            | **Requirement**                                                                 |
@@ -47,7 +47,7 @@ The following NSG rules must be configured for successful communication between 
 | **NFS ports**                      | 2049            | TCP          | Inbound/Outbound | Shared filesystem access between Master node and Azure CycleCloud       | Open on both on-premises network and Azure NSGs                                 |
 | **LDAP port** (Optional)           | 389             | TCP          | Inbound/Outbound | Centralized authentication mechanism for user management                | Open on both on-premises network and Azure NSGs                             
 
-Please refer [Slurm Network Configuration Guide](https://slurm.schedmd.com/network.html)
+Refer [Slurm Network Configuration Guide](https://slurm.schedmd.com/network.html)
 
 ## Software Requirement
 
@@ -56,14 +56,14 @@ Please refer [Slurm Network Configuration Guide](https://slurm.schedmd.com/netwo
 - **CycleCloud-Slurm Project Version**: 3.0.x 
 
 ## NFS File server
-A shared file system between the external Slurm Scheduler node and the CycleCloud cluster. You can use Azure NetApp Files, Azure Files, NFS, or other methods to mount the same file system on both sides. In this example, we are using a Scheduler VM as an NFS server.
+A shared file system between the external Slurm Scheduler node and the CycleCloud cluster. You can use Azure NetApp Files, Azure Files, NFS, or other methods to mount the same file system on both sides. In this example, we're using a Scheduler VM as an NFS server.
 
 ## Centralized User management system (LDAP or AD)
 In HPC environments, maintaining consistent user IDs (UIDs) and group IDs (GIDs) across the cluster is critical for seamless user access and resource management. A centralized user management system, such as LDAP or Active Directory (AD), ensures that UIDs and GIDs are synchronized across all compute nodes and storage systems.
 
-> !Important
->
-> For more information, see the blog post about how to setup Slurm Cloud Bursting Using CycleCloud on Azure [https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922].
+> ![Important]
+> 
+> For more information on how to setup and instructions, refer to Slurm Cloud Bursting Using CycleCloud on Azure(https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922).
 
 ### Next Steps
 
