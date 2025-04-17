@@ -6,7 +6,7 @@ ms.date: 12/23/2024
 ms.author: padmalathas
 ---
 
-## Setup Instructions
+# Setup Instructions
 
 After we have the prerequisites ready, we can follow these steps to integrate the external Slurm Scheduler node with the CycleCloud cluster:
 
