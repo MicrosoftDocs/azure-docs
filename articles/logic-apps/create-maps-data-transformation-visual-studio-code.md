@@ -4,9 +4,9 @@ description: Create maps to convert data elements between schemas for Standard w
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, azla
+ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 04/18/2025
 # Customer intent: As a developer, I want to convert data between different formats for a Standard workflow in Azure Logic Apps by creating a map with Visual Studio Code.
 ---
 
@@ -81,7 +81,7 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
    On the Visual Studio Code title bar, a prompt box opens so you can provide a name for your map.
 
-1. In the prompt box, enter a data map name.
+1. In the prompt box, enter a name for the map.
 
    For this guide, these steps use the name **Example-data-map**.
 
@@ -109,8 +109,8 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 > [!TIP]
 >
-> If you experience problems loading your schemas, you can locally add your source and target 
-> schema files to your logic app project's **Artifacts**\/**Schemas** folder. In this scenario, 
+> If you experience problems loading your schemas, you can add your source and target 
+> schema files to your logic app project's local **Artifacts**\/**Schemas** folder. In this scenario, 
 > to specify your source and target schema in Data Mapper, on the **Source** and **Destination** 
 > panes, open the **Select existing** list, rather than use **Add new**, and select your schema.
 
@@ -410,6 +410,79 @@ To confirm that the transformation works as you expect, you'll need sample input
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/transform-data-mapper-xslt-action.png" alt-text="Screenshot shows Visual Studio Code, Standard workflow designer, with selected action named Transform using Data Mapper XSLT and action properties.":::
 
    To use the same **Transform using Data Mapper XSLT** action in the Azure portal, you must [add the map to the Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+
+<a name="run-xslt"></a>
+
+## Run XSLT from a data map
+
+To run executable XSLT from inside a data map, follow these steps:
+
+1. Create a new map for the executable XSLT that you want to run.
+
+1. Save the executable map, which appears in  the **Artifacts** > **Maps** project folder, by default.
+
+1. From the **Maps** project folder, move the executable XSLT file to the following project folder:
+
+   **Artifacts** > **DataMapper\Extensions** > **InlineXSLT**
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/inline-xslt-project-structure.png" alt-text="Screenshot shows Visual Studio Code, Standard logic app project, and InlineXslt project folder with InlineXslt.xsd file." lightbox="media/create-maps-data-transformation-visual-studio-code/inline-xslt-project-structure.png":::
+
+1. Open the data map from where you want to run the XSLT.
+
+1. From the **Functions** pane, under **Utility**, select **Run XSLT** to add the function to the mapper surface.
+
+1. On the mapper surface, select **Run XSLT**.
+
+1. From the **File** dropdown list, select the **.xslt** file that you added to the **InlineXSLT** folder, for example:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/run-xslt.png" alt-text="Screenshot shows opened data mapper surface and Run XSLT function with selected InlineXslt.xsd file." lightbox="media/create-maps-data-transformation-visual-studio-code/run-xslt.png":::
+
+1. Connect the **Run XSLT** function to the destination node where you want to apply the XSLT logic, for example:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/run-xslt-destination.png" alt-text="Screenshot shows opened data mapper surface and Run XSLT function connected to destination node." lightbox="media/create-maps-data-transformation-visual-studio-code/run-xslt-destination.png":::
+
+   As the XSLT logic applies only to the destination node, you don't have to connect the **Run XSLT** function to a source node.
+
+1. Test your map to confirm that the expected results appear in the destination schema.
+
+<a name="extract-values-from-nested-xml"></a>
+
+## Access nodes in nested XML
+
+Suppose you have a schema that has nested XML nodes, and you wanted to work with these nodes in the following ways:
+
+- Access attributes or nested elements.
+- Apply logic based on the structure or content from incoming data.
+
+To complete these tasks, use the **Execute XPath** function:
+
+1. Open the data map that you want to work on.
+
+1. From the **Functions** pane, under **Utility**, select **Execute XPath** to add the function to the mapper surface.
+
+1. On the mapper surface, select **Execute XPath**.
+
+1. In the **XPATH expression** box, enter an expression that performs the work you want, for example:
+
+   This example uses the **`//Address`** expression along with a test payload:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath.png" alt-text="Screenshot shows opened data mapper surface and Execute XPath function with expression." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath.png":::
+
+   > [!NOTE]
+   >
+   > The expression is automatically enclosed by double-quotation marks (**""**).
+
+1. Connect the **Execute XPath** function to the destination node where you want to run the function.
+
+   This example connects the function to the **Address** node in the destination schema:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath-destination.png" alt-text="Screenshot shows opened data mapper surface and Execute XPath function connected to destination node." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath-destination.png":::
+
+1. Test your map to confirm that the expected results appear in the destination schema.
+
+   This example uses a test payload and correctly produces results with multiple **Address** nodes because the source **Address** node exists in an **Employee** array, while the destination **Address** node exists in a **Person** array:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png" alt-text="Screenshot shows opened data mapper surface, Execute XPath function, and test results in destination schema." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png":::
 
 <!---<a name="create-custom-function"></a>
 
