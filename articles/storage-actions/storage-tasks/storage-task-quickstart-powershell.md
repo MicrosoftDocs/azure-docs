@@ -68,12 +68,12 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
 
 ## Create a storage task
 
-1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
+1. Define a _condition_ by using JSON. A condition is a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
 
    ```powershell
    $conditions = "[[endsWith(Name, '.docx')]]"
    ```
-   For a complete list of properties and operators, see [Properties, operators, and operations in storage task conditions](storage-task-properties-operators-operations.md). 
+   For a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md).. 
 
    > [!TIP] 
    > You can add multiple conditions to the same string and separate them with a comma. 

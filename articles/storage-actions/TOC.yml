@@ -20,6 +20,8 @@ items:
     href: storage-tasks/storage-task-quickstart-bicep.md
   - name: Terraform
     href: storage-tasks/storage-task-quickstart-terraform.md
+  - name: .NET
+    href: storage-tasks/storage-task-quickstart-dotnet.md
 - name: Concepts
   expanded: true
   items: 
