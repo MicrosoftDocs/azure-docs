@@ -164,7 +164,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
  
 * To activate or update virtual machine operating systems, such as Windows, an explicit outbound connectivity method is required.
 
-* In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
+* In configurations using a User Defined Route (UDR) with a default route (0.0.0.0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
 
 * Private Subnets are not applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
  
