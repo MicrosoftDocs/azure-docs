@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler frameworks (preview)
 description: Learn about the orchestration frameworks available to you in Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 04/10/2025
+ms.date: 04/11/2025
 ---
 
 # Choose your Azure Functions Durable Task Scheduler framework (preview)
@@ -22,7 +22,7 @@ The following table provides some considerations when choosing a framework.
 |Official support| No | Yes | No |
 |Durable task scheduler emulator| Available | Available |Available |
 |Monitoring dashboard| Available | Available <sup>1</sup> | Available <sup>1</sup>|
-|[Durable Entities](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-entities)| Not supported | Supported | Not supported|
+|[Durable Entities](/azure/azure-functions/durable/durable-functions-entities)| Not supported | Supported | Not supported|
 |Other supported feature(s)| Scheduler| <li>Azure Functions triggers and bindings</li> <li> Supports all backend providers </li> |Supports all backend providers|
 
 *<sup>1</sup> The out-of-the-box monitoring dashboard is available only when using the Durable Task Scheduler as the backend provider.*
