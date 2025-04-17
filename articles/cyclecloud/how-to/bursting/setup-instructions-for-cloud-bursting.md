@@ -48,9 +48,9 @@ Uploading CycleCloud project to the locker
 ## Slurm Scheduler Installation and Configuration
 
 - A VM should be deployed using the specified **AlmaLinux HPC 8.7** or **Ubuntu HPC 22.04** image. 
-- If you already have a Slurm Scheduler installed, you can skip this step. However, it's advisable to review the script to make sure it is compatible with your current setup.
+- If you already have a Slurm Scheduler installed, you can skip this step. However, it's advisable to review the script to make sure it's compatible with your current setup.
 - Run the Slurm scheduler installation script (`slurm-scheduler-builder.sh`) and provide the cluster name (`<clustername>`) when prompted.
-- This script will setup NFS server and install and configure Slurm Scheduler.
+- This script will set up NFS server and install and configure Slurm Scheduler.
 - If you're using an external NFS server, you can delete the NFS setup entries from the script.
 
 ```bash
@@ -126,7 +126,7 @@ sh useradd_example.sh
 
 ## Testing the Setup
 
-- Log in as a test user (e.g., `<username>`) on the Scheduler node.
+- Log in as a test user (example, `<username>`) on the Scheduler node.
 - Submit a test job to verify that the setup is functioning correctly.
 
 ```bash
