@@ -1,6 +1,6 @@
 ---
 title: Phone Number Management for United States
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services article
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in United States.
 author: krkutser
 manager: rcole
@@ -14,7 +14,8 @@ ms.custom: references_regions
 ---
 
 # Phone number management for United States
-Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in United States.
+
+Use the following tables to find all the relevant information on number availability, eligibility, and restrictions for phone numbers in United States.
 
 ## Number types and capabilities availability
 
@@ -28,7 +29,7 @@ Use the below tables to find all the relevant information on number availability
 
 ## Subscription eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
+To acquire a phone number, you need to be on a paid Azure subscription. You can't acquire phone numbers using Azure free credits. Also, due to regulatory reasons, phone number availability is dependent on your Azure subscription billing location.
 
 More details on eligible subscription types are as follows:
 
@@ -37,15 +38,17 @@ More details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
+\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to [acstns@microsoft.com](acstns@microsoft.com) for assistance with your application.
 
 ## Azure subscription billing locations where United States phone numbers are available for 10DLC SMS
+
 | Country/Region |
 | :---------- |
 |Canada|
 |United States|
 
 ## Azure subscription billing locations where United States phone numbers are available for calling
+
 | Country/Region |
 | :---------- |
 |Australia|
@@ -72,7 +75,7 @@ More details on eligible subscription types are as follows:
 
 ## Next steps
 
-For more information about Azure Communication Services' telephony options, see the following pages:
+For more information about Azure Communication Services telephony options, see:
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
