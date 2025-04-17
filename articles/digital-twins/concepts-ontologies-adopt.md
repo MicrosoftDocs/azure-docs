@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Adopting DTDL-based industry ontologies
 titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that you can adopt for Azure Digital Twins
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Adopting a DTDL industry ontology

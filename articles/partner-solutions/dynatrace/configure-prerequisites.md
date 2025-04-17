@@ -37,13 +37,9 @@ To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) 
 
    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the Dynatrace S A M L settings.":::
 
-## Next steps
+## Next step
 
-- [Quickstart: Create a new Dynatrace environment](dynatrace-create.md)
-- Get started with Azure Native Dynatrace Service on
+> [!div class="nextstepaction"]
+> [Quickstart: Create a new Dynatrace environment](dynatrace-create.md)
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)
+    

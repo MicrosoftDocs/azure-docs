@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.custom: devx-track-csharp, devdivchpfy22
-ms.date: 02/20/2024
+ms.date: 03/20/2025
 ms.author: malev
 
 # Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.

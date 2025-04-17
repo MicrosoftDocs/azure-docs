@@ -34,10 +34,12 @@ items:
       href: storage-quickstart-blobs-dotnet.md
     - name: Java
       items:
-      - name: Java
+      - name: Java SE
         href: storage-quickstart-blobs-java.md
-      - name: Spring
+      - name: Spring Boot
         href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
+      - name: Quarkus
+        href: storage-quickstart-blobs-java-quarkus.md
     - name: Python
       href: storage-quickstart-blobs-python.md
     - name: JavaScript
@@ -76,7 +78,7 @@ items:
       - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Relocate a storage account to another region
-        href: ../../operational-excellence/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
+        href: ../../azure-resource-manager/management/relocation/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
     - name: Classic storage account retirement
       href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -446,10 +448,6 @@ items:
       items:
       - name: Change redundancy configuration
         href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Regions that support ZRS
-        href: ../common/redundancy-regions-zrs.md?toc=/azure/storage/blobs/toc.json
-      - name: Regions that support GZRS
-        href: ../common/redundancy-regions-gzrs.md?toc=/azure/storage/blobs/toc.json
     - name: Disaster recovery
       items:
       - name: Disaster recovery planning and failover

@@ -41,8 +41,6 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | **Caching** | | | | |
 | Query string caching | &check; | &check; | &check; | &check; |
 | Cache management (purge, rules, and compression) | &check; | &check; | &check; | &check; |
-| Fast purge |  |  |  |  |
-| Asset preloading |  |  |  |  |
 | Cache behavior settings | &check; - using standard rules engine | &check; - using standard rules engine | &check; - using standard rules engine | &check; - using standard rules engine |
 | **Routing** | | | | |
 | Origin load balancing | &check; | &check; | &check; | &check; |

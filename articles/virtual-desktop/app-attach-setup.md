@@ -97,6 +97,10 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 > - All MSIX and Appx application packages include a certificate. You're responsible for making sure the certificates are trusted in your environment. Self-signed certificates are supported with the appropriate chain of trust.
 >
 > - You have to choose whether you want to use app attach or MSIX app attach with a host pool. You can't use both versions with the same package in the same host pool.
+
+> [!CAUTION]
+> An issue currently impacts CimFS images with Windows 11, version 24H2, which prevents the images from being mounted. We are actively working on a fix that is estimated to be available in June 2025. Workarounds are use VHDX images instead or use a version of Windows 11 prior to 24H2.
+
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"

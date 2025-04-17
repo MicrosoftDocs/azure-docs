@@ -30,7 +30,7 @@ To make requests to the Azure Digital Twins APIs using Visual Studio, you need t
 
 ### Set up Azure Digital Twins instance
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-prereq-instance.md](includes/digital-twins-prereq-instance.md)]
 
 ### Download Visual Studio 2022
 

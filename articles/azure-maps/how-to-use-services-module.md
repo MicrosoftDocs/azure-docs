@@ -65,7 +65,7 @@ The Azure Maps Web SDK provides a [services module]. This module is a helper lib
 
     ```javascript
     // Enter your Azure AD client ID.
-    var clientId = "<Your Azure Active Directory Client Id>";
+    var clientId = "<Your Azure Active Directory Client ID>";
 
     // Use TokenCredential with OAuth token (Azure AD or Anonymous).
     var aadToken = await getAadToken();

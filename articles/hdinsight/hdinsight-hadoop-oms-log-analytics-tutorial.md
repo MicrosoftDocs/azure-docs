@@ -4,6 +4,9 @@ description: Learn how to use Azure Monitor logs to monitor jobs running in a HD
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, references_regions, devx-track-azurecli
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 10/15/2024
 ROBOTS: NOINDEX
 ---

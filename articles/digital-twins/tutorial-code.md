@@ -3,7 +3,7 @@ title: 'Tutorial: Code a client app'
 titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to write the minimal code for an Azure Digital Twins client app, using the .NET (C#) SDK.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 2/14/2025
 ms.topic: tutorial
 ms.service: azure-digital-twins
@@ -35,9 +35,9 @@ What you need to begin:
 
 ### Prepare an Azure Digital Twins instance
 
-[!INCLUDE [Azure Digital Twins: instance prereq](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [Azure Digital Twins: instance prereq](includes/digital-twins-prereq-instance.md)]
 
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](includes/digital-twins-local-credentials-outer.md)]
 
 ## Set up project
 
@@ -109,7 +109,7 @@ This command restores the dependencies on first run, and then executes the progr
 * If no error occurs, the program prints: "Service client created - ready to go".
 * Since there isn't yet any error handling in this project, if there are any issues, you see an exception thrown by the code.
 
-[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](includes/digital-twins-defaultazurecredential-note.md)]
 
 ### Upload a model
 
@@ -241,7 +241,7 @@ Then, add the following code to the end of the `Main` method:
 
 In your command window, run the program with `dotnet run`. You should see all the digital twins in this instance in the output.
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+[!INCLUDE [digital-twins-query-latency-note.md](includes/digital-twins-query-latency-note.md)]
 
 ## Complete code example
 
@@ -255,9 +255,9 @@ After completing this tutorial, you can choose which resources you want to remov
 
 * If you plan to continue to the next tutorial, the instance used in this tutorial can be reused in the next one. You can keep the Azure Digital Twins resources you set up here and skip the rest of this section.
 
-[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](includes/digital-twins-cleanup-clear-instance.md)]
  
-[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+[!INCLUDE [digital-twins-cleanup-basic.md](includes/digital-twins-cleanup-basic.md)]
 
 You might also want to delete the project folder from your local machine.
 
