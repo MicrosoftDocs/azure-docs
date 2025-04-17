@@ -19,7 +19,7 @@ API Management provides [Azure Monitor metrics](api-management-howto-use-azure-m
 
 This article explains the capacity metrics and how they behave, shows how to access capacity metrics in the Azure portal, and suggests when to consider scaling or upgrading your API Management instance.
 
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
 > [!IMPORTANT]
 > This article introduces how to monitor and scale your Azure API Management instance based on capacity metrics. However, when an instance *reaches* its capacity, it won't throttle to prevent overload. Instead, it will act like an overloaded web server: increased latency, dropped connections, and timeout errors. API clients should be ready to handle these issues as they do with other external services, for example by using retry policies.

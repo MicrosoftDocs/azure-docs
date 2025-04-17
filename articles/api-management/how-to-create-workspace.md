@@ -147,7 +147,7 @@ To configure a workspace diagnostic setting for collection of workspace-level ga
 
 > [!NOTE]
 > * Currently, only gateway logs can be collected for workspaces.
-> * Access workspace-level logs by navigating to **Logs** in the left menu of the workspace.
+> * Access workspace-level logs by navigating to **Monitoring** > **Logs** in the left menu of the workspace.
     
 
 ## Get started with your workspace
