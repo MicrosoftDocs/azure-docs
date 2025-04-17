@@ -26,7 +26,7 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 5. [Check whether the virtual network is connected to other resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
 6. [Check whether a virtual machine is still running in the virtual network](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
 7. [Check whether the virtual network is stuck in migration](#check-whether-the-virtual-network-is-stuck-in-migration).
-8. [Check whether the virtual network was used by a web app for virtual network integration](#check-whether-the-virtual-network-was-used-by-a-web-app-for-vnet-integration).
+8. [Check whether the virtual network was used by a web app for virtual network integration](#check-whether-the-virtual-network-was-used-by-a-web-app-for-virtual-network-integration).
 
 ## Troubleshooting steps
 
