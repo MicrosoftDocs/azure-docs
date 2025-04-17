@@ -40,6 +40,8 @@ items:
     href: concepts/identity-model.md
   - name: Access tokens for end users
     href: quickstarts/identity/access-tokens.md
+  - name: Sign an HTTP Request using HMAC
+    href: tutorials/hmac-header-tutorial.md
   - name: Authenticate services
     href: concepts/authentication.md
   - name: Enable managed identity
