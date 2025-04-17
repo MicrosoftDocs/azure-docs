@@ -1,6 +1,6 @@
 ---
 title: Cloud Bursting Setup Instruction
-description: Learn how to setup Cloud bursting using Azure CycleCloud and Slurm.
+description: Learn how to set up Cloud bursting using Azure CycleCloud and Slurm.
 author: vinil-v
 ms.date: 04/17/2025
 ms.author: padmalathas
@@ -24,7 +24,7 @@ cd cyclecloud-slurm/cloud_bursting/slurm-23.11.9-1/cyclecloud
 sh cyclecloud-project-build.sh
 ```
 
-Output :
+Output:
 
 ```bash
 [user1@cc86vm ~]$ cd cyclecloud-slurm/cloud_bursting/slurm-23.11.9-1/cyclecloud
@@ -50,7 +50,7 @@ Uploading CycleCloud project to the locker
 - A VM should be deployed using the specified **AlmaLinux HPC 8.7** or **Ubuntu HPC 22.04** image. 
 - If you already have a Slurm Scheduler installed, you can skip this step. However, it's advisable to review the script to make sure it's compatible with your current setup.
 - Run the Slurm scheduler installation script (`slurm-scheduler-builder.sh`) and provide the cluster name (`<clustername>`) when prompted.
-- This script will set up NFS server and install and configure Slurm Scheduler.
+- This script sets up the NFS server and installs and configures the Slurm Scheduler.
 - If you're using an external NFS server, you can delete the NFS setup entries from the script.
 
 ```bash
@@ -148,4 +148,4 @@ Last login: Tue May 14 04:54:51 UTC 2024 on pts/0
 
 You should see the job running successfully, indicating a successful integration with CycleCloud.
 
-For further details and advanced configurations, see the scripts and documentation within this repository.
+For more information and advanced configurations, see the scripts and documentation within this repository.
