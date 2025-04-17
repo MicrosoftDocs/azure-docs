@@ -484,15 +484,33 @@ To complete these tasks, use the **Execute XPath** function:
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png" alt-text="Screenshot shows opened data mapper surface, Execute XPath function, and test results in destination schema." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png":::
 
-<!---<a name="create-custom-function"></a>
+## Create custom XML functions
 
-## Create a custom function
+To define reusable logic across your map, you can create custom XML functions, which provide the following benefits:
 
-To create your own function that you can use with Data Mapper, follow these steps:
+- Reduce duplication and support schema-specific transformations.
+- Wrap complex logic into manageable components.
+- Handle schema-specific edge cases.
 
-1. Create an XML (.xml) file that has a meaningful name that describes your function's purpose.
+To create a custom XML function, follow these steps:
+
+1. Create an XML (.xml) file with a meaningful name that describes your function's purpose.
 
    If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
+
+1. Add this XML file to your logic app project in the following folder:
+
+   **Artifacts** > **DataMapper\Extensions** > **Functions**
+
+1. Open the data map where you want to use your function.
+
+1. From the **Functions** pane, under **Utility**, select your custom function, which now appears on the mapper surface.
+
+1. On the mapper surface, select your function.
+
+   This example uses a custom function named **Age**, which calculates an age from a birthdate.
+
+<!---<a name="create-custom-function"></a>
 
 1. In your XML file, you must use the following schema for the function definition:
 
@@ -552,13 +570,9 @@ To create your own function that you can use with Data Mapper, follow these step
    </customfunctions>
    ```
 
-1. On your local computer, open the folder for your Standard logic app project.
-
-1. Open the **Artifacts** folder, and create the following folder structure, if none exists: **DataMapper** > **Extensions** > **Functions**.
-
 1. In the **Functions** folder, save your function's XML file.
 
-1. To find your custom function in the Data Mapper **Functions** list, search for the function, or expand the **Custom functions** collection.
+
 -->
 
 ## Related content
