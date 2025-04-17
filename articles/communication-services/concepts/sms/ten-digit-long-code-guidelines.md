@@ -44,7 +44,7 @@ Brand registration typically takes 2 to 3 business days with TCR (The Campaign R
 | **Brand Name**     | Official name of your organization. | Contoso Inc. |
 | **EIN / Tax ID**   | Employer Identification Number or Tax ID (required for non-Sole Proprietor entities). | 12-3456789 |
 | **Business Type**  | Select the appropriate business type (Sole Proprietor, LLC, Corporation, and so on). | Corporation |
-| **Website**        | Website URL associated with your business (used for verification). | https://www.contoso.com |
+| **Website**        | Website URL associated with your business (used for verification). | `https://www.contoso.com` |
 | **Vertical**       | Industry in which your business operates. | E-commerce |
 | **Email Address**  | Contact email for registration-related updates. | contact@contoso.com |
 
@@ -75,7 +75,7 @@ Campaign registration with TCR typically takes 3 to 5 business days for approval
 | **Message Samples**      | Provide examples of the messages your campaign plans to send. | “Hello! Thank you for subscribing to Contoso updates. Reply STOP to opt out.” |
 | **Subscriber Opt-in**     | Confirms that recipients explicitly consent to receive messages. | “Thank you for subscribing to Contoso Alerts. Reply HELP for help, STOP to unsubscribe.” |
 | **Subscriber Opt-out**    | Allows recipients to stop receiving messages at any time. | “You have unsubscribed from Contoso Alerts. Reply START to resubscribe.” |
-| **Subscriber Help**       | Provides instructions or assistance to users. | “For assistance, visit [www.contoso.com](https://www.contoso.com) or call 1-800-CONTOSO.” |
+| **Subscriber Help**       | Provides instructions or assistance to users. | “For assistance, visit `https://www.contoso.com` or call 1-800-CONTOSO.” |
 | **Embedded Links**        | Indicates if messages include URLs. | Yes |
 | **Embedded Phone Numbers**| Indicates if messages include phone numbers. | Yes |
 | **Age-gated Content**     | Indicates if messages are age-restricted. | No |
