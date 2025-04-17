@@ -44,7 +44,7 @@ When you later migrate your custom DNS name from the old site to the App Service
 
 Add a `TXT record` for domain verification. The host name for the `TXT record` depends on the type of DNS record that you want to map. See the following table (`@` typically represents the root domain):
 
-| DNS record example | TXT Host | TXT Value |
+| DNS record example | TXT host | TXT value |
 | - | - | - |
 | `\@` (root) | `_asuid_` | Domain verification ID shown in the **Custom domains** management pane |
 | `www` (sub) | `_asuid.www_` | Domain verification ID shown in the **Custom domains** management pane |
@@ -67,7 +67,7 @@ Add a `TXT record` for domain verification. The host name for the `TXT record` d
 
     [!INCLUDE [Certificate binding types](../../includes/app-service-ssl-binding-types.md)]
 
-1. Type the fully qualified domain name that you want to migrate, that corresponds to the `TXT record` that you created. For example: `contoso.com`, `www.contoso.com`, or `*.contoso.com`.
+1. Type the fully qualified domain name that you want to migrate and that corresponds to the `TXT record` that you created. For example: `contoso.com`, `www.contoso.com`, or `*.contoso.com`.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-preempt.png" alt-text="A screenshot that shows how to configure a new custom domain, along with a managed certificate." border="true":::
 
@@ -131,5 +131,5 @@ You can find the deployment unit for your app by looking at the domain name of t
 
 Learn how to bind a custom TLS/SSL certificate to App Service:
 
-* [Purchase an App Service domain](manage-custom-dns-buy-domain.md).
+* [Purchase an App Service domain](manage-custom-dns-buy-domain.md)
 * [Secure a custom DNS name with a TLS binding in Azure App Service](configure-ssl-bindings.md)
