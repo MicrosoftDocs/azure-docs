@@ -697,7 +697,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 
 ---
 
-<a id="opyaccountsnapshottoaccount"></a>
+<a id="copyaccountsnapshottoaccount"></a>
 
 ## Synchronize files
 
@@ -741,9 +741,18 @@ In this case, the file share is the destination, and the local file system is th
 
 **Example**
 
+#### [Azure Files SMB](#tab/smb-synclocaltoaccount)
 ```azcopy
 azcopy sync 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive
 ```
+#### [Azure Files NFS](#tab/nfs-synclocaltoaccount)
+```azcopy
+azcopy sync 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --nfs
+```
+
+---
+
+<a id="synclocaltoaccount"></a>
 
 ### Update a local file system with changes to a file share
 
@@ -758,9 +767,18 @@ In this case, the local file system is the destination, and the file share is th
 
 **Example**
 
+#### [Azure Files SMB](#tab/smb-syncaccounttolocal)
 ```azcopy
 azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --recursive
 ```
+#### [Azure Files NFS](#tab/nfs-syncaccounttolocal)
+```azcopy
+azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --recursive --nfs
+```
+
+---
+
+<a id="syncaccounttolocal"></a>
 
 ### Update a file share with changes to another file share
 
@@ -772,9 +790,18 @@ The first file share that appears in this command is the source. The second one 
 
 **Example**
 
+#### [Azure Files SMB](#tab/smb-syncaccounts)
 ```azcopy
 azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
 ```
+#### [Azure Files NFS](#tab/nfs-syncaccounts)
+```azcopy
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
+```
+
+---
+
+<a id="syncaccounts"></a>
 
 ### Update a directory with changes to a directory in another file share
 
