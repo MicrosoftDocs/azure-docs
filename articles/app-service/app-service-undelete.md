@@ -16,12 +16,12 @@ If you accidentally deleted an app in Azure App Service, you can now restore it 
 
 If you deleted your app in Azure App Service, you can restore it from the portal by following these steps:
 
-1. Go to App Services in the Azure portal.
+1. Go to **App Services** in the Azure portal.
 1. Select **Manage Deleted Apps**.
 1. Select **Subscription**.
-1. From the dropdown, select the deleted app. Apps that were deleted in the last 30 days appear in the dropdown list.
-1. Select the destination app from the dropdown that correlates to where you want to restore your app.
-1. If you would like to restore the deleted app to a slot of the destination app, select the slot checkbox and select available slots from the dropdown.
+1. From the dropdown list, select the deleted app. Apps that were deleted in the last 30 days appear in the list.
+1. Select the destination app from the dropdown list that correlates to where you want to restore your app.
+1. If you want to restore the deleted app to a slot of the destination app, select the slot checkbox and select available slots from the dropdown list.
 1. By default, only app content is restored. If you want app configuration to also be restored, select **Restore App configuration**.
 
 ## Restore a deleted App Service app by using PowerShell
@@ -128,22 +128,22 @@ If a function app was hosted on a Dedicated App Service plan, it can be restored
 
 1. Fetch the `DeletedSiteId` of the app version you want to restore, by using the `Get-AzDeletedWebApp` cmdlet:
 
-```powershell
-Get-AzDeletedWebApp -ResourceGroupName <RGofDeletedApp> -Name <NameofApp> 
-```
+   ```powershell
+   Get-AzDeletedWebApp -ResourceGroupName <RGofDeletedApp> -Name <NameofApp> 
+   ```
 
 2. Create a new function app in a Dedicated plan. Refer to the instructions for [how to create an app in the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app). Restore to the newly created function app by using this cmdlet:
 
-```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <RGofnewapp> -Name <newApp> -deletedId "/subscriptions/xxxx/providers/Microsoft.Web/locations/xxxx/deletedSites/xxxx"
-```
+   ```powershell
+   Restore-AzDeletedWebApp -ResourceGroupName <RGofnewapp> -Name <newApp> -deletedId "/subscriptions/xxxx/providers/Microsoft.Web/locations/xxxx/deletedSites/xxxx"
+   ```
 
 Currently there's no support to use the `Restore-AzDeletedWebApp` cmdlet to undelete a function app hosted in a Consumption plan or Elastic premium plan, because the content resides on Azure Files in a storage account. If you didn't hard delete that Azure Files storage account, or if the account exists and you didn't delete file shares, you can use the following steps as a workaround:
 
 1. Create a new function app in a Consumption or Premium plan. Refer the instructions for [how to create an app in the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
 1. Set the following [app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) to refer to the old storage account, which contains the content from the previous app.
 
-    | App Setting      | Suggested value  |
+    | App setting      | Suggested value  |
     | ------------ | ---------------- |
     | `AzureWebJobsStorage` | Connection string for the storage account used by the deleted app |
     | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Connection string for the storage account used by the deleted app |
