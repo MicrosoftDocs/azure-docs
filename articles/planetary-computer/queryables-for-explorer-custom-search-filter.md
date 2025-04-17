@@ -1,26 +1,28 @@
 ---
-title: Queryables for Microsoft Planetary Computer Pro data explorer custom search filters
-description: Get an overview of queryables and see how to configure, define, and use queryables in Microsoft Planetary Computer Pro data explorer.
+title: Overview of Queryables | Microsoft Planetary Computer Pro
+description: Learn how to configure and use queryables in Microsoft Planetary Computer Pro to create custom search filters for geospatial data in the Data Explorer.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer
 ms.topic: concept-article
 ms.date: 04/09/2025
-#customer intent: help customers setup the mosaic configurations. 
+
+#customer intent: As a GeoCatalog user I want to understand what a Queryable is, and how I can configure these for my GeoCatalog collection so that I can more effectively use the Data Explorer to visualize my Geospatial Assets.
+
 ---
 
-# Queryables for Microsoft Planetary Computer Pro data explorer custom search filters
+# Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters
 
 ## Overview
 
 In the Microsoft Planetary Computer Pro, a **GeoCatalog** resource organizes datasets into **STAC Collections**. 
 Each STAC Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
 
-**Queryables** allow customers to define which metadata fields should be exposed as custom filters in the Explorer UI for easy search.
+**Queryables** allow customers to define which metadata fields should be exposed as custom filters in the Data Explorer for easy search.
 
-## What can be a queryable?
+## What is a Queryable?
 
-A queryable is a property from the STAC Item metadata that is promoted to be searchable in the Microsoft Planetary Computer Pro data explorer.
+A queryable is a property from the STAC Item metadata that is promoted to be searchable in the Planetary Computer Data Explorer.
 
 For example, from this `properties` block in a STAC Item:
 
@@ -29,21 +31,14 @@ For example, from this `properties` block in a STAC Item:
   "gsd": 0.6,
   "datetime": "2022-09-23T16:00:00Z",
   "naip:year": "2022",
-  "proj:bbox": [
-      762984,
-      3841950,
-      769308,
-      3849450
-    ],
-  "proj:epsg": 26917
   ...
 }
 ```
-We can see that proj:shape, gsd, and naip:year are searchable properties in this collection.
+We can see that "gsd" (ground sample distance; the spatial resolution measured in meters/pixel) and "naip:year" (the year the image was acquired) are searchable properties in this collection.  They can therefore be added as custom filters for ease of search in the Data Explorer.  The "datetime" property is automatically included as a custom filter in the Data Explorer for all collections. 
 
-## Configure queryables from the collection page
+## Configuring Queryables from the Collection Page
 
-On a collection's landing page, select the ⚙️ **Configuration** button to open the _Edit Collection Config_ pane.
+On a collection's landing page, click the ⚙️ **Configuration** button to open the _Edit Collection Config_ pane.
 
 Inside this pane, navigate to the **Queryables** tab.
 
@@ -90,7 +85,7 @@ Example configuration:
 ]
 ```
 
-Each queryable's `"definition"` field describes how the property can be filtered in the Explorer. It supports the following keys:
+Each queryable's `"definition"` field describes the features of the STAC item property and how this property will be displayed in the Data Explorer. It supports the following keys:
 
 - `"type"` (required):  
   The expected data type of the property. Must be one of:
@@ -99,25 +94,25 @@ Each queryable's `"definition"` field describes how the property can be filtered
   - `"boolean"`
 
 - `"enum"` (optional):  
-  A list of allowed values. If provided, these will appear as checkboxes in the Explorer UI for easier selection.
+  A list of allowed values. If provided, the enumerated options appear as checkboxes in the Data Explorer for easier selection.
 
 - `"title"` (optional):  
-  A user-friendly display name for the filter as shown in the Explorer.
+  A user-friendly display name for the filter as shown in the Data Explorer.
 
-## Use Queryables in Advanced Search
+## Using Queryables in Advanced Search
 
-After configuring Queryables, they appear in the **Explorer** under the **Advanced** search interface.
+After configuring Queryables, they will appear in the **Explorer** under the **Advanced** search interface.
 
-Select **Advanced** to reveal **Custom filters**. By default, the following filters are available:
+Click **Advanced** to reveal **Custom filters**. By default, the following filters are available:
 
 - **Acquired** (based on the `datetime` range)
 - **Item ID**
 
-Any additional queryables configured in the collection — such as **Gsd** and **Year** — appear as additional filter options.
+Any queryables added to the collection's Queryables configuration, for exmaple **Gsd** and **Year** in the previous NAIP example, appear as additional filter options.
 
 You can toggle which filters are visible using the **Select filters** control.
 
-## Define Queryables in Code
+## Defining Queryables in Code
 
 Alternatively, customers can use `GeocatalogClient` to define queryables.
 ```python
