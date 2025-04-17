@@ -19,7 +19,7 @@
     href: quickstart-portable-durable-task-sdks.md
 - name: Key concepts
   items:
-  - name: Auto-purge retention policies
+  - name: Autopurge retention policies
     href: durable-task-scheduler-auto-purge.md
   - name: Monitor and manage using the dashboard
     href: durable-task-scheduler-dashboard.md

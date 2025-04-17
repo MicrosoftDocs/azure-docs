@@ -47,7 +47,7 @@ The Durable Task Scheduler runs in Azure as a separate resource from your app. T
     Using a managed scheduler like Durable Task Scheduler reduces CPU and memory resource consumption caused by the overhead of managing partitions and other complex state store interactions. Using a managed scheduler (instead of a BYO storage provider, for example) allows your app instances to run more efficiently with less resource contention.
 
 - **Fault isolation**  
-    when Durable Task Scheduler experiences stability or availability issues, it won't affect the stability or availability of your connected apps. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
+    When Durable Task Scheduler experiences stability or availability issues, it won't affect the stability or availability of your connected apps. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
 
 - **Independent scaling**  
     The scheduler resource can be scaled independently of the app, allowing for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, improving overall resource utilization. This capability is especially useful for organizations with multiple teams or projects.
@@ -113,9 +113,9 @@ You can see all of the emulator versions available by running the following comm
 curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
 ```
 
-### Auto-purge retention policies
+### Autopurge retention policies
 
-Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage costs, and degrade performance. The auto-purge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting auto-purge retention policies for Azure Functions Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
+Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage costs, and degrade performance. The autopurge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting autopurge retention policies for Azure Functions Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
 
 ## Limitations and considerations
 
