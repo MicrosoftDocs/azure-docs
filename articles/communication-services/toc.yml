@@ -1043,6 +1043,8 @@ items:
       href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
+    - name: Integrate Azure Communication Services with your Microsoft Copilot Studio agent
+      href: samples/integrate-azure-communication-services-with-copilot-studio.md
   - name: References
     items:
     - name: Call Automation (REST)
