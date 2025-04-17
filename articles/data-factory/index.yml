@@ -9,6 +9,7 @@ metadata:
   author: whhender
   ms.author: whhender
   ms.date: 04/17/2025
+landingContent:
   - title: What's New in Azure Data Factory
     linkLists:
       - linkListType: overview
