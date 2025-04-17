@@ -1,6 +1,6 @@
 ---
-title: Data cube enrichment | Microsoft Planetary Computer Pro
-description: Learn about data cube enrichment for STAC assets in Microsoft Planetary Computer Pro. This article explains how to enable and disable data cube enrichment.
+title: Data cube overview | Microsoft Planetary Computer Pro
+description: Learn about data cube concepts and data cube enrichment for STAC assets in Microsoft Planetary Computer Pro. This article explains how to enable and disable data cube enrichment.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: planetary-computer
@@ -9,16 +9,25 @@ ms.date: 04/09/2025
 
 # customer intent: As a Geocatalog User I want to undertand how Data Cubes are supported in Microsoft Planetary Computer Pro so that I can ingest, manage, and visualize data cube data formats.
 ---
+# Data cubes in Microsoft Planetary Computer Pro
 
-# Data cube enrichment of STAC assets for Microsoft Planetary Computer Pro
+As mentioned in [Supported Data Types](LINK TO SUPPORTED DATA TYPES), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with MPC Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
+
+## Handling data cubes in MPC Pro
+
+Data cube files can be ingested into MPC Pro in the same way as other raster data types. As with other date formats, assets and associated STAC Items must first be stored in Azure Blob Storage. Unlike other two-dimensional raster assets, however, additional processing will occur upon ingestion of certain data cube formats (NetCDF and HDF5).
+
+**NOTE:** GRIB2 data will be ingested in the same way as other two-dimensional raster data (with no additional enrichment), as they are essentially a collection of 2D rasters with an associated index file that references the data efficiently in cloud environments.
+
+## Enabling data cube enrichment of STAC assets
 
 When a SpatioTemporal Asset Catalog (STAC) item containing NetCDF or HDF5 assets is ingested, those assets can be enriched with data cube functionality. When data cube functionality is enabled, a Kerchunk manifest is generated and stored in blob storage alongside the asset, enabling more efficient data access.
 
-## Data cube enrichment and Kerchunk manifests  
+### Data cube enrichment and Kerchunk manifests  
 
 For STAC assets in **NetCDF** or **HDF5** formats, Planetary Computer can apply **Data cube enrichment** during ingestion. This process generates a **Kerchunk manifest**, which is stored in blob storage alongside the asset. The Kerchunk manifest enables efficient access to chunked dataset formats.
 
-### Enabling Data cube enrichment  
+### Enabling data cube enrichment  
 
 Data cube enrichment is **enabled** for applicable assets in the STAC item JSON. For each asset, enrichment is triggered if both of the following conditions are met:  
 
@@ -49,7 +58,7 @@ To **disable enrichment** for an asset, remove `data` and `visual` from the asse
 
 If Data cube enrichment fails, the asset can be **re-ingested** with enrichment disabled by updating the STAC item JSON to exclude the `data` or `visual` role before retrying ingestion.
 
-## Why enable data cube enrichment?  
+### Why enable data cube enrichment?  
 
 Enabling Data cube enrichment improves **data access performance**, especially for visualization workflows. When a Kerchunk manifest is present, it allows **faster access** compared to loading the entire dataset file. 
 
