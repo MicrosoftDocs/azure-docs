@@ -14,7 +14,7 @@ ms.author: cephalin
 
 # Deploy and configure a Java SE, Tomcat, or JBoss EAP app in Azure App Service
 
-This article shows you the most common deployment and runtime configuration for Java apps in App Service. If it's your first time using Azure App Service, you should first read through the [Java quickstart](quickstart-java.md). You can find the answers to general questions about using App Service that aren't specific to Java development in the [App Service FAQ](faq-configuration-and-management.yml).
+This article shows you the most common deployment and runtime configuration for Java apps in Azure App Service. If it's your first time using Azure App Service, you should first read through the [Java quickstart](quickstart-java.md). You can find the answers to general questions about using App Service that aren't specific to Java development in the [App Service FAQ](faq-configuration-and-management.yml).
 
 [!INCLUDE [java-variants](includes/configure-language-java/java-variants.md)]
 
@@ -22,7 +22,7 @@ This article shows you the most common deployment and runtime configuration for 
 
 # [Linux](#tab/linux)
 
-To show the current Java version, run the following command in [Cloud Shell](https://shell.azure.com):
+To show the current Java version, run the following command in [Azure Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
@@ -75,7 +75,7 @@ $JBOSS_HOME/bin/jboss-cli.sh --connect --commands=:product-info
 
 # [Windows](#tab/windows)
 
-To show the current Java version, run the following command in [Cloud Shell](https://shell.azure.com):
+To show the current Java version, run the following command in [Azure Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
@@ -103,7 +103,7 @@ By using the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azur
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
-This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or to create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or to create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss EAP. Then you can deploy your Java app to Azure by using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -144,7 +144,7 @@ Here's a sample configuration in `pom.xml`:
 
 #### Gradle
 
-1. Set up the [Gradle Plugin for Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) by adding the plugin to your `build.gradle`:
+1. Set up the [Gradle Plugin for Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) by adding the plugin to `build.gradle`:
 
     ```groovy
     plugins {
@@ -271,7 +271,7 @@ All Java runtimes on App Service come with the Java Flight Recorder. You can use
 
 # [Linux](#tab/linux)
 
-SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to `jcmd` itself, you should see your Java application running with a process ID (PID) number.
+SSH into App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to `jcmd` itself, you should see your Java application running with a process ID (PID) number.
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -324,7 +324,7 @@ Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To an
 
 # [Linux](#tab/linux)
 
-To configure App Service to write your application's standard console output and standard console error streams to the local file system or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). If you need longer retention, configure the application to write output to a Blob storage container.
+To configure App Service to write your application's standard console output and standard console error streams to the local file system or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). If you need longer retention, configure the application to write output to a Blob Storage container.
 
 ::: zone pivot="java-javase,java-tomcat"
 
@@ -336,7 +336,7 @@ Azure Blob Storage logging for Linux-based apps can be configured only by using 
 
 # [Windows](#tab/windows)
 
-To configure App Service to write your application's standard console output and standard console error streams to the local file system or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). Twelve hours after you enable application logging, logging to the local App Service file system instance is disabled. If you need longer retention, configure the application to write output to a Blob storage container.
+To configure App Service to write your application's standard console output and standard console error streams to the local file system or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). Twelve hours after you enable application logging, logging to the local App Service file system instance is disabled. If you need longer retention, configure the application to write output to a Blob Storage container.
 
 ::: zone pivot="java-javase,java-tomcat"
 
@@ -512,11 +512,11 @@ When clustering is enabled, the JBoss EAP instances use the `FILE_PING` JGroups 
 > [!Note]
 > You can avoid JBoss EAP clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
 
-The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
+The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across availability zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
 
-### Autoscale Rules
+### Autoscale rules
 
-When configuring autoscale rules for horizontal scaling, it's important to remove instances incrementally (one at a time) to ensure that each removed instance can transfer its activity (such as handling a database transaction) to another member of the cluster. When configuring your autoscale rules in the portal to scale down, use the following options:
+When you're configuring autoscale rules for horizontal scaling, it's important to remove instances incrementally (one at a time) to ensure that each removed instance can transfer its activity (such as handling a database transaction) to another member of the cluster. When you're configuring your autoscale rules in the portal to scale down, use the following options:
 
 - **Operation**: "Decrease count by"
 - **Cool down**: "5 minutes" or greater
@@ -532,13 +532,13 @@ JBoss EAP is available in the following pricing tiers: F1, P0v3, P1mv3, P2mv3, P
 
 ## JBoss EAP server lifecycle
 
-A JBoss EAP app in App Service goes through five distinct phases before launching the server.
+A JBoss EAP app in App Service goes through five distinct phases before launching the server:
 
-- [1. Environment setup phase](#1-environment-setup-phase)
-- [2. Server launch phase](#2-server-launch-phase)
-- [3. Server configuration phase](#3-server-configuration-phase)
-- [4. App deployment phase](#4-app-deployment-phase)
-- [5. Server reload phase](#5-server-reload-phase)
+1. [Environment setup phase](#1-environment-setup-phase)
+2. [Server launch phase](#2-server-launch-phase)
+3. [Server configuration phase](#3-server-configuration-phase)
+4. [App deployment phase](#4-app-deployment-phase)
+5. [Server reload phase](#5-server-reload-phase)
 
 See the following sections for details and opportunities to customize (such as through [app settings](configure-common.md)).
 
@@ -579,6 +579,10 @@ See the following sections for details and opportunities to customize (such as t
 - If there are JAR files deployed to the `/home/site/libs` directory, a new global module is created with all of these JAR files.
 - At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script is defined as follows:
 
+  - If you configured a startup command (for example, through the Azure portal or the Azure CLI), run it; otherwise,
+  - If the path `/home/site/scripts/startup.sh` exists, use it; otherwise,
+  - If the path `/home/startup.sh` exists, use it.
+
 The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss EAP install/customization commands like creating data sources and installing resource adapters. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
 
 ### 4. App deployment phase 
@@ -597,7 +601,7 @@ The startup script deploys apps to JBoss EAP by looking in the following locatio
 - After the deployment steps are complete, the JBoss EAP server is reloaded to apply any changes that require a server reload.
 - After the server reloads, the applications deployed to the JBoss EAP server should be ready to respond to requests.
 - The server runs until the App Service app is stopped or restarted. You can manually stop or restart the App Service app, or you trigger a restart when you deploy files or make configuration changes to the App Service app. 
-- If the JBoss EAP server exits abnormally in the `clustering` configuration, a final function called `emit_alert_tx_store_not_empty` is executed. The function checks if the JBoss EAP process left a nonempty transaction store file in disk; if so, an error is logged in the console: `Error: finishing server with non-empty store for node XXXX`. When a new server instance is started, it looks for these nonempty transaction store files to resume the work (see [2. Server launch phase](#2-server-launch-phase)). 
+- If the JBoss EAP server exits abnormally in the `clustering` configuration, a final function called `emit_alert_tx_store_not_empty` is executed. The function checks if the JBoss EAP process left a nonempty transaction store file in disk. If so, an error is logged in the console: `Error: finishing server with non-empty store for node XXXX`. When a new server instance is started, it looks for these nonempty transaction store files to resume the work (see [2. Server launch phase](#2-server-launch-phase)). 
 
 ::: zone-end
 
@@ -615,7 +619,7 @@ Java developers can customize the server settings, troubleshoot issues, and depl
 * Troubleshooting Tomcat issues: Inevitably, Java developers encounter issues with their Tomcat server, such as performance problems or configuration errors. When you understand the server.xml file and Tomcat's configuration details, developers can quickly diagnose and troubleshoot these issues, which can save time and effort.
 * Deploying applications to Tomcat: To deploy a Java web application to Tomcat, developers need to know how to configure the server.xml file and other Tomcat settings. You need to understand these details to deploy applications successfully and ensure that they run smoothly on the server.
 
-When you create an app with built-in Tomcat to host your Java workload (a WAR file or a JAR file), there are certain settings that you get out of the box for Tomcat configuration. You can refer to the [Official Apache Tomcat Documentation](https://tomcat.apache.org/) for detailed information, including the default configuration for Tomcat Web Server.
+When you create an app with built-in Tomcat to host your Java workload (a WAR file or a JAR file), there are certain settings that you get out of the box for Tomcat configuration. You can refer to the [official Apache Tomcat documentation](https://tomcat.apache.org/) for detailed information, including the default configuration for Tomcat Web Server.
 
 Additionally, there are certain transformations that are applied on top of the server.xml for Tomcat distribution upon start. These transformations include changes to the **Connector**, **Host**, and **Valve** settings.
 
@@ -626,11 +630,11 @@ The latest versions of Tomcat have server.xml (8.5.58 and 9.0.38 onward). Older 
 ```xml 
 <Connector port="${port.http}" address="127.0.0.1" maxHttpHeaderSize="16384" compression="on" URIEncoding="UTF-8" connectionTimeout="${site.connectionTimeout}" maxThreads="${catalina.maxThreads}" maxConnections="${catalina.maxConnections}" protocol="HTTP/1.1" redirectPort="8443"/>
  ```
-* `maxHttpHeaderSize` is set to `16384`
-* `URIEncoding` is set to `UTF-8`
-* `connectionTimeout` is set to `WEBSITE_TOMCAT_CONNECTION_TIMEOUT`, which defaults to `240000`
-* `maxThreads` is set to `WEBSITE_CATALINA_MAXTHREADS`, which defaults to `200`
-* `maxConnections` is set to `WEBSITE_CATALINA_MAXCONNECTIONS`, which defaults to `10000`
+* `maxHttpHeaderSize` is set to `16384`.
+* `URIEncoding` is set to `UTF-8`.
+* `connectionTimeout` is set to `WEBSITE_TOMCAT_CONNECTION_TIMEOUT`, which defaults to `240000`.
+* `maxThreads` is set to `WEBSITE_CATALINA_MAXTHREADS`, which defaults to `200`.
+* `maxConnections` is set to `WEBSITE_CATALINA_MAXCONNECTIONS`, which defaults to `10000`.
  
 > [!NOTE]
 > The `connectionTimeout`, `maxThreads`, and `maxConnections` settings can be tuned with app settings.
@@ -646,7 +650,8 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_CATALINA_MAXCONNECTIONS=5000
 ```
-* Connector uses the address of the container instead of 127.0.0.1.
+
+Connector uses the address of the container instead of 127.0.0.1.
 
 ### Host
 
@@ -668,9 +673,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 * `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`.
 * `maxDays` is set to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `7`. This value aligns with the application-logging platform default.
  
-On Linux, it has all of the same customization, plus:
- 
-* Adds some error and reporting pages to the valve:
+On Linux, it has all of the same customization, and it adds some error and reporting pages to the valve:
 
     ```xml
     <xsl:attribute name="appServiceErrorPage">
