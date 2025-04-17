@@ -50,12 +50,12 @@ In order to function, you configure the Guest OS for the virtual machine to rece
 
 For each VM in the backend pool, run the following commands at a Windows Command Prompt on the server.  
 
-1.To get the list of interface names you have on your VM, enter this command:
+1. To get the list of interface names you have on your VM, enter this command:
 
 ```console
 netsh interface ipv4 show interface 
 ```
-1.For the VM NIC (Azure managed), enter the following command after replacing **interface-name** with the name of the interface you want to use:
+1. For the VM NIC (Azure managed), enter the following command after replacing **interface-name** with the name of the interface you want to use:
 
 ```console
 netsh interface ipv4 set interface <interface-name> weakhostreceive=enabled
