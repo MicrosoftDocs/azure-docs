@@ -33,12 +33,6 @@ Here are the highlights of documentation changes in February 2025:
 
 - Updated using [Azure Private Link with Azure Virtual Desktop](private-link-overview.md) to include support with RDP Shortpath for managed networks in preview.
 
-### Expanded cloud support for Microsoft Intune management of devices connecting to Azure Virtual Desktop
-
-The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
-
-For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
-
 ## January 2025
 
 Here are the highlights of documentation changes in January 2025:

@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Inline Attachments JS SDK include file
+description: Inline Attachments JavaScript SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Send an email message with inline attachments
 
-We can add an inline attachment by defining one or more attachment objects, making sure to include a unique `contentId` for each, and adding them to our message. Read the attachment file and encode it using Base64.
+We can add an inline attachment by defining one or more attachment objects. Make sure to include a unique `contentId` for each, and add them to our message. Read the attachment file and encode it using Base64.
 
 ```javascript
 const jpgFilePath = "./inline-attachment.jpg";
@@ -34,7 +34,7 @@ const inlineAttachments = [
 ];
 ```
 
-Within the HTML body of the message, we can then embed an image by referencing its `contentId` within the source of an `<img>` tag.
+Within the HTML body of the message, embed an image by referencing its `contentId` within the source of an `<img>` tag.
 
 ```javascript
 const message = {
@@ -60,12 +60,12 @@ const response = await poller.pollUntilDone();
 ```
 
 > [!NOTE]
-> Regular attachments can be combined with inline attachments, as well. Defining a `contentId` will treat an attachment as inline, while an attachment without a `contentId` will be treated as a regular attachment.
+> You can combine regular attachments with inline attachments. Define a `contentId` to treat an attachment as inline. An attachment without a `contentId` is treated as a regular attachment.
 
 ### Allowed MIME types
 
-Although most modern clients support inline attachments, the rendering behavior of an inline attachment is largely dependent on the recipient's email client. For this reason, it is suggested to use more common image formats inline whenever possible, such as .png, .jpg, or .gif. For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
+Although most modern clients support inline attachments, the rendering behavior of an inline attachment is largely dependent on the recipient's email client. For this reason, we recommend using more common image formats inline whenever possible, such as `.png`, `.jpg`, or `.gif`. For more information on acceptable MIME types for email attachments, see the [Supported MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 ### Sample code
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-inline-attachments)
+You can download the sample app demonstrating this action from GitHub Azure Samples [Send email inline attachments using JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-inline-attachments)
