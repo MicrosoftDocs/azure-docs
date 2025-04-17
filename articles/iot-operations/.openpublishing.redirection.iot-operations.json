@@ -288,32 +288,32 @@
         {
             "source_path_from_root": "/articles/iot-operations/develop/concept-about-distributed-apps.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/overview-edge-apps",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/develop/concept-about-state-store-protocol.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/concept-about-state-store-protocol",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/develop/howto-deploy-dapr.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-deploy-dapr",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/develop/howto-develop-dapr-apps.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-develop-dapr-apps",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/develop/howto-develop-mqttnet-apps.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/overview-edge-apps",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/develop/tutorial-event-driven-with-dapr.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/tutorial-event-driven-with-dapr",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-blob.md",

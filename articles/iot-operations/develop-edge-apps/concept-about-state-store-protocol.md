@@ -469,4 +469,4 @@ The `KEYNOTIFY` notification message contains the timestamp of the value when no
 ## Related content
 
 - [MQTT broker overview](../manage-mqtt-broker/overview-broker.md)
-- [Develop with MQTT broker](edge-apps-overview.md)
+- [Develop highly available edge applications for Azure IoT Operations](overview-edge-apps.md)
