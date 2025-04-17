@@ -79,7 +79,7 @@ You must register for cool access with the Premium or Ultra service levels befor
 
 # [Ultra](#tab/ultra)
 
-Before using cool access with the Premium service level for the first time, you need to register the feature. 
+Before using cool access at the Ultra service level for the first time, you need to register the feature. 
 
 1. Register the feature: 
 
@@ -99,7 +99,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 # [Premium](#tab/premium)
 
-Before using cool access with the Premium service level for the first time, you need to register the feature. 
+Before using cool access at the Premium service level for the first time, you need to register the feature. 
 
 1. Register the feature: 
 
