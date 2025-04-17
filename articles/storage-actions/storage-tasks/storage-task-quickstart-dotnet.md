@@ -296,7 +296,7 @@ To use a storage task, you must create a *storage task assignment*. The assignme
 
 3. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
 
-```csharp
+    ```csharp
 
     var roleDefId = $"/subscriptions/" + subscriptionId + "/providers/Microsoft.Authorization/roleDefinitions/<b7e6dc6d-f1e8-4753-8033-0f276bb0955b>";
 
@@ -315,7 +315,7 @@ To use a storage task, you must create a *storage task assignment*. The assignme
     RoleAssignmentResource result = lro.Value;
     RoleAssignmentData resourceData = result.Data;
     Console.WriteLine($"Succeeded on id: {resourceData.Id}");
-```
+    ```
 
 ## Run the code
 

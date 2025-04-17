@@ -64,19 +64,19 @@ items:
     href: storage-tasks/storage-task-runs.md
 - name: Reference
   items:
-  - name: REST API
+  - name: REST
     href: /rest/api/storageactions/operation-groups
-  - name: .NET API
+  - name: .NET
     href: /dotnet/api/overview/azure/resourcemanager.storageactions-readme?view=azure-dotnet-preview&preserve-view=true
-  - name: Java API
+  - name: Java
     href: /java/api/com.azure.resourcemanager.storageactions?view=azure-java-preview&preserve-view=true
-  - name: Python API
+  - name: Python
     href: /python/api/azure-mgmt-storageactions/azure.mgmt.storageactions?view=azure-python-preview&preserve-view=true
-  - name: Javascript API
+  - name: Javascript
     href: /javascript/api/%40azure/arm-storageactions/storageactionsmanagementclient?view=azure-node-preview&preserve-view=true
-  - name: PowerShell commands
+  - name: PowerShell
     href: /powershell/module/az.storageaction
-  - name: Azure CLI commands
+  - name: Azure CLI
     href: /cli/azure/storage-actions
   - name: Monitoring data reference
     href: storage-tasks/storage-tasks-monitor-data-reference.md
