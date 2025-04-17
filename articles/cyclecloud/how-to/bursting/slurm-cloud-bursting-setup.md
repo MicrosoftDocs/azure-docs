@@ -10,7 +10,7 @@ ms.author: padmalathas
 
 Cloud bursting is a configuration in cloud computing that allows an organization to handle peaks in IT demand by using a combination of private and public clouds. When the resources in a private cloud reach their maximum capacity, the overflow traffic is directed to a public cloud to ensure there is no interruption in services. This setup provides flexibility and cost savings, as you only pay for the supplemental resources when there's a demand for them.
 
-For example, an application can run on a private cloud and "burst" to a public cloud only when necessary to meet peak demands. This approach helps avoid the costs associated with maintaining extra capacity that is not always in use
+For example, an application can run on a private cloud and "burst" to a public cloud only when necessary to meet peak demands. This approach helps avoid the costs associated with maintaining extra capacity that isn't always in use
 
 Cloud bursting can be used in various scenarios, such as enabling on-premises workloads to be sent to the cloud for processing, known as hybrid HPC (High-Performance Computing). It allows users to optimize their resource utilization and cost efficiency while accessing the scalability and flexibility of the cloud.
 
