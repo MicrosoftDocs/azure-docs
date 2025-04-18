@@ -83,12 +83,10 @@ Perform the following steps in the Azure portal to order a device.
     |Destination country |     Select the country/region where you want to ship the device. |
 
     :::image type="content" source="media/data-box-deploy-export-ordered/databox-export-source-destination-blade.png" alt-text="Screen capture showing the settings fields and associated values for an export order.":::
-   ![Select your Data Box settings](media/data-box-deploy-export-ordered/databox-export-source-destination-blade.png)
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 120 TB/525 TB or 80 TB depending on the SKU. You can create multiple orders for larger data sizes.
 
     :::image type="content" source="media/data-box-deploy-export-ordered/databox-export-sku-selection-sml.png" alt-text="Screen capture showing the available Data Box SKUs for an export order." lightbox="media/data-box-deploy-export-ordered/databox-export-sku-selection.png":::
-   ![Select Data Box capacity](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
 6. In **Order**, specify the **Basic** order details. Enter or select the following information.
 
@@ -236,7 +234,6 @@ Perform the following steps in the Azure portal to order a device.
 16. Select **Order**. The order takes a few minutes to be created.
 
     :::image type="content" source="media/data-box-deploy-export-ordered/databox-export-review-order-sml.png" alt-text="Screen capture of the Order Review pane." lightbox="media/data-box-deploy-export-ordered/databox-export-review-order.png":::
-    ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-select-export-order-commit-order.png)
 :::zone-end
 
 :::zone pivot="dbx"
