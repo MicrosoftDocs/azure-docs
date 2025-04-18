@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Manual polling .NET SDK include file
+description: Manual polling .NET SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -12,9 +12,9 @@ ms.service: azure-communication-services
 
 ## Sending email async and polling for the email send status
 
-When you call SendAsync with Azure.WaitUntil.Started, your method returns back after starting the operation. The method returns EmailSendOperation object. You can call UpdateStatusAsync method to refresh the email operation status. 
+When you call SendAsync with `Azure.WaitUntil.Started`, your method returns back after starting the operation. The method returns `EmailSendOperation` object. You can call `UpdateStatusAsync` method to refresh the email operation status. 
 
-The returned EmailSendOperation object contains an EmailSendStatus object that contains: 
+The returned `EmailSendOperation` object contains an `EmailSendStatus` object that contains: 
 - Current status of the Email Send operation.
 - An error object with failure details if the current status is in a failed state.
 
@@ -71,4 +71,4 @@ dotnet run
 
 ### Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithManualPollingForStatus)
+You can download the sample app from GitHub Azure Samples [Email Sample Advanced](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithManualPollingForStatus).

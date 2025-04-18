@@ -3,7 +3,7 @@ title: Overview of Azure Synapse database templates
 description: Learn about database templates
 author: gsaurer
 ms.author: gesaur
-ms.reviewer: wiassaf
+
 ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview

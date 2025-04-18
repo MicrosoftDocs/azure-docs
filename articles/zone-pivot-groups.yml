@@ -166,7 +166,7 @@ groups:
   - id: create-option-vscode
     title: Visual Studio Code
 # Service-specific groups
-##### Begin azure-functions    
+##### Begin azure-functions
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model
@@ -405,17 +405,17 @@ groups:
   prompt: Choose how you want to deploy your Java app
   pivots:
   - id: java-javase
-    title: Embed your own server (such as embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as Spring Boot, Quarkus)
   - id: java-tomcat
-    title: To a Tomcat server
+    title: Tomcat
   - id: java-jboss
-    title: To a JBoss server
+    title: JBoss EAP
 - id: app-service-java-hosting
   title: App Service Java hosting
   prompt: Choose how your Java app is hosted
   pivots:
   - id: java-javase
-    title: Java SE (such as embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as Spring Boot, Quarkus)
   - id: java-tomcat
     title: Tomcat
   - id: java-jboss
@@ -857,12 +857,12 @@ groups:
 # Owner: farazgis
 - id: azure-maps-coverage
   title: Azure Maps coverage
-  prompt: Choose the API version
+  prompt: Choose the service version
   pivots:
-  - id: route-v1
-    title: Route
-  - id: route-v2
-    title: Route v2
+  - id: service-previous
+    title: Previous
+  - id: service-latest
+    title: Latest
 # Owner: richbrun
 - id: azure-maps-android
   title: Programming languages
@@ -1190,14 +1190,6 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: duau
-- id: front-door-tiers
-  title: Front Door tiers
-  prompt: "Select the Azure Front Door tier:"
-  pivots:
-  - id: front-door-standard-premium
-    title: Standard/Premium
-  - id: front-door-classic
-    title: Classic
 - id: expressroute-experience
   title: ExpressRoute experience
   prompt: "Select your ExpressRoute create experience:"
@@ -1206,6 +1198,23 @@ groups:
     title: Current
   - id: expressroute-preview
     title: Preview
+# Owner: halkazwini
+- id: front-door-tiers
+  title: Front Door tiers
+  prompt: "Select the Azure Front Door tier:"
+  pivots:
+  - id: front-door-standard-premium
+    title: Standard/Premium
+  - id: front-door-classic
+    title: Classic
+- id: flow-log-types
+  title: Flow Log types
+  prompt: "Select the flow log type:"
+  pivots:
+  - id: virtual-network
+    title: Virtual network
+  - id: network-security-group
+    title: Network security group
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door Developer experience
@@ -1353,7 +1362,7 @@ groups:
   - id: v1
     title: "1.0"
   - id: v23-10
-    title: "2023-10-01"  
+    title: "2023-10-01"
   - id: v23-11
     title: "2023-11-01"
 # Owner: v-yilinhu
@@ -1385,6 +1394,21 @@ groups:
     title: iOS
   - id: programming-language-java
     title: Android
+
+# Owners: tayaras
+- id: acs-programming-languages-javascript-java-swift-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: Web
+  - id: programming-language-csharp
+    title: Windows
+  - id: programming-language-swift
+    title: iOS
+  - id: programming-language-java
+    title: Android
+
 - id: acs-programming-languages-support-kotlin-swift
   title: Programming languages
   prompt: Choose a programming language
@@ -1392,16 +1416,14 @@ groups:
   - id: programming-language-swift
     title: iOS
   - id: programming-language-kotlin
-    title: Android  
+    title: Android
 # Owner: jorgegarc
-- id: acs-maui-xamarin-react
+- id: acs-maui-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
   - id: platform-maui
     title: .NET MAUI
-  - id: platform-xamarin
-    title: Xamarin
   - id: platform-react
     title: React Native
 # Owner: jodowns
@@ -1652,8 +1674,6 @@ groups:
     title: Single Azure VM and Azure Arc-enabled VM
   - id: multiple-portal-cli
     title: Multiple VMs using Azure portal and Azure CLI
-  - id: at-scale-policy
-    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1788,7 +1808,7 @@ groups:
   - id: terraform
     title: Terraform
   - id: pulumi
-    title: Pulumi   
+    title: Pulumi
 # Owner: malev
 - id: grafana-cli-portal
   title: Experience
@@ -1909,3 +1929,14 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+#owner: mbender
+- id: load-balancer-multiple-ip-pv
+  title: Load Balancer Multiple IPs
+  prompt: Select your creation experience for Azure Load Balancer.
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-powershell
+    title: Azure PowerShell

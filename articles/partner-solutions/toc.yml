@@ -18,14 +18,16 @@ items:
     href: ./dynatrace/index.yml
   - name: Elastic
     href: ./elastic/index.yml
-  - name: Informatica (Preview)
+  - name: Informatica 
     href: ./informatica/index.yml
-  - name: Neon Serverless Postgres (Preview)
+  - name: Neon Serverless Postgres
     href: ./neon/index.yml 
   - name: New Relic
     href: ./new-relic/index.yml
   - name: Palo Alto Network
     href: ./palo-alto/index.yml
+  - name: Pure Storage Cloud
+    href: ./pure-storage/index.yml
   - name: NGINX
     href: ./nginx/index.yml
   - name: Qumulo 

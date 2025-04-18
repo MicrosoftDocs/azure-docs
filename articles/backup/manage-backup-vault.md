@@ -24,13 +24,13 @@ This section explains how to use the Backup vault **Overview** dashboard to moni
 
 ### Manage Backup instances
 
-In the **Jobs** tile, you get a summarized view of all backup and restore related jobs in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
+In the **Backup Instances** tile, you get a summarized view of all backup instances in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection status.
 
 :::image type="content" source="./media/backup-vault-overview/backup-instances.png" alt-text="Screenshot shows the Backup instances.":::
 
 ### Manage Backup jobs
 
-In the **Backup Instances** tile, you get a summarized view of all backup instances in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection status.
+In the **Jobs** tile, you get a summarized view of all backup and restore related jobs in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
 :::image type="content" source="./media/backup-vault-overview/backup-jobs.png" alt-text="Screenshot shows the Backup jobs.":::
 
@@ -154,14 +154,14 @@ The Cross Region Restore option allows you to restore data in a secondary Azur
    :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
 
 > [!NOTE]
-> Cross Region Restore is currently only available for PostGreSQL servers.
+> Cross Region Restore is currently only available for PostgreSQL servers.
 
 ## Cross Subscription Restore using Azure portal
 
 Some datasources of Backup vault support restore to a subscription different from that of the source machine. Cross Subscription Restore (CSR) is enabled for existing vaults by default, and you can use it if supported for the intended datasource.
 
 >[!Note]
->The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMWare Service (AVS) backup.
+>The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMware Service (AVS) backup.
 
 To do Cross Subscription Restore, follow these steps:
 

@@ -7,7 +7,10 @@ ms.date: 03/20/2025
 ms.author: dobett
 ---
 
-To update the version of the media and ONVIF connectors in your Azure IoT Operations deployment, run the following PowerShell commands:
+To update the version of the media and ONVIF connectors in your Azure IoT Operations deployment, run the following PowerShell commands to enable preview features:
+
+> [!IMPORTANT]
+> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
 
 ```powershell
 $clusterName="<YOUR AZURE IOT OPERATIONS CLUSTER NAME>"

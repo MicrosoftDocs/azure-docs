@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Integrate chat experiences in your app by using UI Library'
+title: Use UI components for chat
 titleSuffix: An Azure Communication Services quickstart
 description: Get started with Azure Communication Services UI Library composites to add chat communication experiences to your applications.
 author: dhiraj
@@ -11,11 +11,11 @@ zone_pivot_groups: acs-plat-web-ios-android
 ms.custom: mode-other
 ---
 
-# Quickstart: Add chat with UI Library
+# Use UI components for chat
 
-Get started with Azure Communication Services UI Library to quickly integrate communication experiences into your applications. In this quickstart, learn how to integrate UI Library chat composites into an application and set up the experience for your app users.
+Get started with Azure Communication Services UI Library to quickly integrate communication experiences into your applications. This article describes how to integrate UI Library chat composites into an application and set up the experience for your app users.
 
-Azure Communication Services UI Library renders a full chat experience right in your application. It takes care of connecting to Azure Communication Services chat services and updates a participant's presence automatically. As a developer, you need to decide about where in your app's user experience you want the chat experience to start and create only the Azure Communication Services resources as required.
+Azure Communication Services UI Library renders a full chat experience right in your application. It takes care of connecting to Azure Communication Services chat services and updates a participant's presence automatically. As a developer, you need to decide where in your app's user experience you want the chat experience to start and create only the Azure Communication Services resources as required.
 
 ::: zone pivot="platform-web"
 

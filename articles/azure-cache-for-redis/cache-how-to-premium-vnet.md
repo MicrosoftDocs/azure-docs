@@ -5,6 +5,8 @@ description: Learn how to create and manage virtual network support for your Pre
 
 ms.topic: conceptual
 ms.date: 12/17/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

@@ -48,6 +48,8 @@
       href: create-private-link-service-template.md
   - name: Disable SNAT for traffic through NVA
     href: private-link-disable-snat.md
+  - name: Increase Private Endpoint virtual network limits
+    href: increase-private-endpoint-vnet-limits.md
   - name: Create a network security perimeter
     items:
     - name: Create a network security perimeter - Azure portal
@@ -101,7 +103,7 @@
   - name: Manage private endpoints
     href: manage-private-endpoint.md
   - name: Relocate Private Link Service to another region
-    href: ../operational-excellence/relocation-private-link.md?toc=/azure/private-link/toc.json
+    href: ../azure-resource-manager/management/relocation/relocation-private-link.md?toc=/azure/private-link/toc.json
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: Network security perimeter

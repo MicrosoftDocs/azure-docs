@@ -37,8 +37,8 @@ The following Consumption APIs are planned for deprecation. We recommend that yo
 
 | **API** | **Recommended** | **Deprecation Status** |
 | --- | --- | --- |
-| [Usage Details API](/rest/api/consumption/usage-details/list) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. |
-| [Marketplaces API](migrate-consumption-marketplaces-api.md) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. | 
+| [Usage Details API](/rest/api/consumption/usage-details/list) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-improved-exports.md) | Maintenance mode. Will be deprecated in the future. |
+| [Marketplaces API](migrate-consumption-marketplaces-api.md) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-improved-exports.md) | Maintenance mode. Will be deprecated in the future. | 
 
 ## Related content
 

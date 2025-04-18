@@ -113,11 +113,11 @@ Azure Backup for AKS relies on pods deployed within the AKS cluster as part of t
 #### Default Resource Reservations
 
 ```
-       1. Memory: requests - 128Mi, limits - 1280Mi
+       1. Memory: requests - 256Mi, limits - 1280Mi
        2. CPU: requests - 500m, limits - 1000m
 ```
 
-However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a BackupPluginPodRestarted error due to OOMKilled (Out of Memory) error during backup jobs.
+However, if the number of resources in the cluster exceeds 1000, the extension pod `dataprotection-microsoft-kubernetes-agent` may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a UserErrorBackupPluginPodRestartedDuringBackup or UserErrorBackupPluginPodRestartedDuringRestore error due to OOMKilled (Out of Memory) error during backup or restore operation.
 
 #### Resolving OOMKilled Errors by Increasing CPU and Memory
 
@@ -141,6 +141,11 @@ To ensure successful backup and restore operations, manually update the resource
 
     ![Screenshot shows how to add values under configuration settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup-configuration-update.png)
 
+> [!NOTE]
+>
+> If the node where the extension pod is provisioned doesn't have the required CPU or memory, and you've only updated the resource limits, the pod may be repeatedly killed. To resolve this, update the configuration settings using `resources.requests.cpu` and `resources.requests.memory`. This ensures the pod is scheduled on a node that meets the requested resource requirements.
+
+ 
 #### Verifying the Changes
 
 After applying the changes, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
