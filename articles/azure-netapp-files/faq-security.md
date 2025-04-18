@@ -48,6 +48,8 @@ For the complete list of Azure NetApp Files permissions, see Azure resource prov
 
 Azure NetApp Files is an Azure native service. All PUT, POST, and DELETE APIs against Azure NetApp Files are logged. For example, the logs show activities such as who created the snapshot, who modified the volume, and so on.
 
+Azure NetApp Files also offers [file access logging](manage-file-access-logs.md).
+
 For the complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp/).
 
 ## Can I use Azure policies with Azure NetApp Files?

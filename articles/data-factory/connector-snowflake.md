@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/01/2025
+ms.date: 04/15/2025
 ai-usage: ai-assisted
 ---
 
@@ -172,8 +172,6 @@ To use **Basic** authentication, in addition to the generic properties that are 
     }
 }
 ```
-> [!NOTE]
-> Mapping Data Flows only supports Basic authentication.
 
 ### Key pair authentication
 
@@ -217,6 +215,9 @@ In addition to the generic properties that are described in the preceding sectio
     }
 }
 ```
+> [!NOTE]
+> For mapping data flows, we recommend generating a new RSA private key using the PKCS#8 standard in PEM format (.p8 file).
+
 
 ## Dataset properties
 
@@ -358,7 +359,7 @@ When your sink data store or format isn't natively compatible with the Snowflake
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-- When you specify `storageIntegration` in the source, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+- When you specify `storageIntegration` in the source, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication when using the Azure integration runtime, or with anonymous, account key, shared access signature or service principal authentication when using the self-hosted integration runtime. In addition, grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
 
 - When you don't specify `storageIntegration` in the source, the staging Azure Blob Storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob Storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
 
@@ -539,7 +540,7 @@ When your source data store or format isn't natively compatible with the Snowfla
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-- When you specify `storageIntegration` in the sink, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+- When you specify `storageIntegration` in the sink, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication when using the Azure integration runtime, or with anonymous, account key, shared access signature or service principal authentication when using the self-hosted integration runtime. In addition, grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
 
 - When you don't specify `storageIntegration` in the sink, the staging Azure Blob Storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
 

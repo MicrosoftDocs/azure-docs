@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Optimize centrally managed Azure Hybrid Benefit for SQL Server
 description: This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize Azure Hybrid Benefit.
-author: bandersmsft
-ms.author: banders
-ms.date: 10/29/2024
+author: pri-mittal
+ms.author: primittal
+ms.date: 4/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: ahb
-ms.reviewer: chrisrin
+ms.reviewer: primittal
 #customer intent: As a billing administrator, I want to learn how to assign SQL Server licenses in Azure using centrally managed Azure Hybrid Benefit.
 ---
 

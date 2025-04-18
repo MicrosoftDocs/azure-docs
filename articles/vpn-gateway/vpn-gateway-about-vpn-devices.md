@@ -5,7 +5,7 @@ description: Learn about VPN devices and IPsec parameters for Site-to-Site cross
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 10/06/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---
@@ -13,13 +13,10 @@ ms.author: cherylmc
 
 A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want secure connections between your on-premises networks and your virtual networks. This article provides a list of validated VPN devices and a list of IPsec/IKE parameters for VPN gateways.
 
-> [!IMPORTANT]
-> If you are experiencing connectivity issues between your on-premises VPN devices and VPN gateways, refer to [Known device compatibility issues](#known).
->
 
 ### Items to note when viewing the tables:
 
-* There has been a terminology change for Azure VPN gateways. Only the names have changed. There's no functionality change.
+* There have been terminology changes for Azure VPN gateways. Only the names changed. There's no functionality change.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
 * Specifications for HighPerformance VPN gateway and RouteBased VPN gateway are the same, unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the HighPerformance VPN gateway.
@@ -199,18 +196,5 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 * You can specify IPsec ESP NULL encryption with RouteBased and HighPerformance VPN gateways. Null based encryption doesn't provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required. Clients might choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
 * For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the preceding tables to ensure security of your critical communication.
 
-## <a name="known"></a>Known device compatibility issues
 
-> [!IMPORTANT]
-> These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure team is actively working with the vendors to address the issues listed here. Once the issues are resolved, this page will be updated with the most up-to-date information. Please check back periodically.
->
->
-
-### Feb. 16, 2017
-
-**Palo Alto Networks devices with version prior to 7.1.4** for Azure route-based VPN: If you're using VPN devices from Palo Alto Networks with PAN-OS version prior to 7.1.4 and are experiencing connectivity issues to Azure route-based VPN gateways, perform the following steps:
-
-1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
-2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
-3. If you're still experiencing connectivity issues, open a support request from the Azure portal.
 
