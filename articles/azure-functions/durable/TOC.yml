@@ -112,18 +112,11 @@
   - name: Durable Task Scheduler
     items: 
     - name: Overview
-      expanded: true
-      items:
-      - name: About Durable Task Scheduler
-        href: durable-task-scheduler.md
-      - name: Choose your orchestration framework
-        href: durable-task-scheduler-framework.md
-      - name: Billing
-        href: durable-task-scheduler-dedicated-sku.md
-    - name: Key concepts
-      items:
-      - name: Manage and monitor
-        href: durable-task-scheduler-dashboard.md
+      href: durable-task-scheduler.md
+    - name: Choose your orchestration framework
+      href: durable-task-scheduler-framework.md
+    - name: Manage and monitor
+      href: durable-task-scheduler-dashboard.md
     - name: Durable Functions
       items:
       - name: Concepts
@@ -142,6 +135,8 @@
         items:
         - name: Use the portable SDKs with Azure computes
           href: durable-task-scheduler-dashboard.md #placeholder
+    - name: Billing
+      href: durable-task-scheduler-dedicated-sku.md
   - name: Azure Storage
     items: 
      - name: Azure storage provider
@@ -164,6 +159,8 @@
       href: durable-functions-http-api.md
   - name: SDKs
     items: 
+    - name: Overview
+      href: durable-functions-bindings.md #placeholder 
     - name: .NET API
       items:
       - name: .NET in-process API
@@ -178,10 +175,14 @@
       items:
       - name: Durable Functions
         href: /javascript/api/durable-functions/
+      - name: Portable SDK
+        href: /javascript/api/durable-functions/ #placeholder
     - name: Python API
       items:
       - name: Durable Functions
         href: /python/api/azure-functions-durable/azure.durable_functions
+      - name: Portable SDK
+        href: /python/api/azure-functions-durable/azure.durable_functions #placeholder
     - name: Java API
       items:
        - name: Durable Functions bindings for Java
