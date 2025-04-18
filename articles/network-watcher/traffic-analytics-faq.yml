@@ -78,7 +78,7 @@ sections:
       - question: |
           What if I'm getting the status: “Failed to load” in the flow logs page?
         answer: |
-          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](nsg-flow-logs-portal.md#register-insights-provider), [PowerShell](nsg-flow-logs-powershell.md#register-insights-provider), or [Azure CLI](nsg-flow-logs-cli.md#register-insights-provider) instructions on how to register it.
+          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Manage NSG flow logs](nsg-flow-logs-manage.md#register-insights-provider) instructions on how to register it.
           
       - question: |
           I configured the solution. Why am I not seeing anything on the dashboard?
