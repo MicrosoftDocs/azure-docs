@@ -1396,6 +1396,21 @@ groups:
     title: iOS
   - id: programming-language-java
     title: Android
+
+# Owners: tayaras
+- id: acs-programming-languages-javascript-java-swift-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: Web
+  - id: programming-language-csharp
+    title: Windows
+  - id: programming-language-swift
+    title: iOS
+  - id: programming-language-java
+    title: Android
+
 - id: acs-programming-languages-support-kotlin-swift
   title: Programming languages
   prompt: Choose a programming language
