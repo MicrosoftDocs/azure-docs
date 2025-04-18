@@ -12,7 +12,7 @@ ms.author: jacobjaygbay
 
 # Support for Oracle Database@Azure
 
-When working with Oracle Database@Azure, it's important to know where to get support. Both Oracle and Azure offer comprehensive support services to help resolve any issues. Below, you'll find information on the scope of support provided by Oracle and Azure, along with contact details and procedures for reaching out to their support teams. This guide will help you efficiently navigate the support process for any Oracle Database@Azure-related concerns.
+This article outlines the support scope, contact details, and procedures for both Oracle and Microsoft Azure, helping you quickly address any issues.
 
 ## Oracle support scope and contact information 
 
@@ -27,7 +27,7 @@ Oracle Support is your first line of support for all Oracle Database@Azure issue
 - New generation hardware upgrades
 - Billing issues related to Oracle Database@Azure
 
-If you contact Oracle Support, be sure to tell your Oracle Support agent that your issue is related to Oracle Database@Azure.  Support requests for this service are handled by a  support team that specializes in these deployments. A member of this specialized team contacts you directly.
+If you contact Oracle Support, be sure to tell your Oracle Support agent that your issue is related to Oracle Database@Azure. Support requests are handled by a  support team that specializes in these deployments. A member of this specialized team contacts you directly.
 
 1. Call **1-800-223-1711.** If you're outside of the United States, visit [Oracle Support Contacts Global Directory](https://www.oracle.com/support/contact.html) to find contact information for your country or region.
 2. Choose option "2" to open a new Service Request (SR).
