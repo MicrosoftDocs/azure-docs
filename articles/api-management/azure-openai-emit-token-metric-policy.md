@@ -65,11 +65,11 @@ The `azure-openai-emit-token-metric` policy sends custom metrics to Application 
 | name      | A string or policy expression. Name of dimension.      | Yes      |  N/A            |
 | value     | A string or policy expression. Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No        | N/A |
 
-[!INCLUDE [api-management-emit-metric-dimensions](../../includes/api-management-emit-metric-dimensions.md)]
+[!INCLUDE [api-management-emit-metric-dimensions-llm](../../includes/api-management-emit-metric-dimensions-llm.md)]
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
+- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
