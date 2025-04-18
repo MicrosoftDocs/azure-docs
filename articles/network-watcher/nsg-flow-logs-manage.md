@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 04/18/2025
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 ---
@@ -130,12 +130,9 @@ Create a flow log for your network security group. The flow log is saved in an A
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of your storage account. |
     | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
-    | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts).  Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+    | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts).  Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
     :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-basics.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
-
-    > [!NOTE]
-    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
 1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
 
@@ -156,79 +153,381 @@ Create a flow log for your network security group. The flow log is saved in an A
 
 1. Review the settings, and then select **Create**.
 
-
 # [**PowerShell**](#tab/powershell)
 
-1. Get the properties of the network security group that you want to create the flow log for and the storage account that you want to use to store the created flow log using [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) respectively.
+Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) cmdlet to create a flow log. The flow log is created in the Network Watcher default resource group **NetworkWatcherRG**.
+
+- Enable NSG flow logs without traffic analytics:
 
     ```azurepowershell-interactive
     # Place the network security group properties into a variable.
     $nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'myResourceGroup'
     
-    # Place the storage account properties into a variable.
+    # Place the storage account configuration into a variable.
     $sa = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
-    ```
-
-    > [!NOTE]
-    > - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
-
-1. Create the flow log using [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog). The flow log is created in the Network Watcher default resource group **NetworkWatcherRG**.
-
-    ```azurepowershell-interactive
+    
     # Create a version 1 NSG flow log.
     New-AzNetworkWatcherFlowLog -Name 'myFlowLog' -Location 'eastus' -TargetResourceId $nsg.Id -StorageId $sa.Id -Enabled $true
     ```
 
+- Enable NSG flow logs and traffic analytics:
+
+    ```azurepowershell-interactive
+    # Place the network security group properties into a variable.
+    $nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'myResourceGroup'
+    
+    # Place the storage account configuration into a variable.
+    $sa = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
+    
+    # Create a traffic analytics workspace and place its configuration into a variable.
+    $workspace = New-AzOperationalInsightsWorkspace -Name 'myWorkspace' -ResourceGroupName 'myResourceGroup' -Location 'eastus'
+    
+    # Create a version 1 NSG flow log.
+    New-AzNetworkWatcherFlowLog -Name 'myFlowLog' -Location 'eastus' -TargetResourceId $nsg.Id -StorageId $sa.Id -Enabled $true -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId
+    ```
 
 # [**Azure CLI**](#tab/cli)
 
-Create a flow log using [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-create). The flow log is created in the Network Watcher default resource group **NetworkWatcherRG**.
+Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-create) command to create a virtual network flow log. The flow log is created in the Network Watcher default resource group **NetworkWatcherRG**.
 
-```azurecli-interactive
-# Create a version 1 NSG flow log.
-az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount'
-```
-
-```azurecli-interactive
-# Create a version 1 NSG flow log (the storage account is in a different resource group from the network security group).
-az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
-```
-
-> [!NOTE]
-> If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
-
-## Create a flow log and traffic analytics workspace
-
-1. Create a Log Analytics workspace using [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-create).
+- Enable flow logs without traffic analytics
 
     ```azurecli-interactive
-    # Create a Log Analytics workspace.
-    az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup'
+    # Create a version 1 NSG flow log.
+    az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --location 'eastus' 
+    ```
+    
+    If the storage account is in a different resource group from the network security group, use the resource ID of the storage account instead of its name:
+
+    ```azurecli-interactive
+    # Create a version 1 NSG flow log (the storage account is in a different resource group from the network security group).
+    az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --location 'eastus' 
     ```
 
-1. Create a flow log using [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-create). The flow log is created in the Network Watcher default resource group **NetworkWatcherRG**.
+- Enable flow logs and traffic analytics
 
     ```azurecli-interactive
+    # Create a traffic analytics workspace.
+    az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
+
     # Create a version 1 NSG flow log and enable traffic analytics for it.
-    az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --traffic-analytics 'true' --workspace 'myWorkspace'
+    az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --traffic-analytics true --workspace 'myWorkspace' --location 'eastus' 
     ```
-
-    ```azurecli-interactive
-    # Create a version 1 NSG flow log and enable traffic analytics for it (storage account and traffic analytics workspace are in different resource groups from the network security group).
-    az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --traffic-analytics 'true' --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace'
-    ```
-
-> [!NOTE]
-> - The storage account can't have network rules that restrict network access to only Microsoft services or specific virtual networks.
-> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
-
+    
+    If the storage account is in a different resource group from the network security group, use the resource ID of the storage account instead of its name.
 
 ---
 
+> [!NOTE]
+> If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
+> [!IMPORTANT]
+> The storage account must not have network rules that restrict network access to only Microsoft services or specific virtual networks.
+
+## Enable or disable traffic analytics
+
+Enable traffic analytics for a flow log to analyze the flow log data. Traffic analytics provides insights into the traffic patterns of your virtual network. You can enable or disable traffic analytics for a flow log at any time.
+
+> [!NOTE]
+> In addition to enabling or disabling traffic analytics, you can also change other flow log settings.
+
+# [**Portal**](#tab/portal)
+
+To enable traffic analytics for a flow log, follow these steps:
+
+1. In the search box at the top of the portal, enter **network watcher**. Select **Network Watcher** from the search results.
+
+1. Under **Logs**, select **Flow logs**.
+
+1. In **Network Watcher | Flow logs**, select the flow log that you want to enable traffic analytics for.
+
+1. In **Flow logs settings**, under **Traffic analytics**, check the **Enable traffic analytics** checkbox.
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/enable-traffic-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/enable-traffic-analytics.png":::
+
+1. Enter or select the following values:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select the Azure subscription of your Log Analytics workspace. |
+    | Log Analytics workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
+    | Traffic logging interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/enable-traffic-analytics-settings.png" alt-text="Screenshot that shows configurations of traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/enable-traffic-analytics-settings.png":::
+
+1. Select **Save** to apply the changes.
+
+To disable traffic analytics for a flow log, take the previous steps 1-3, then uncheck the **Enable traffic analytics** checkbox and select **Save**.
+
+:::image type="content" source="./media/nsg-flow-logs-portal/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-traffic-analytics.png":::
+
+# [**PowerShell**](#tab/powershell)
+
+To enable traffic analytics on a flow log resource, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) cmdlet:
+
+```azurepowershell-interactive
+# Place the network security group properties into a variable.
+$nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'myResourceGroup'
+
+# Place the storage account properties into a variable.
+$sa = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
+
+# Place the workspace configuration into a variable.
+$workspace = Get-AzOperationalInsightsWorkspace -Name 'myWorkspace' -ResourceGroupName 'myResourceGroup'
+
+# Update the NSG flow log.
+Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myFlowLog' -Location 'eastus' -TargetResourceId $nsg.Id -StorageId $sa.Id -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -FormatVersion 2
+```
+
+To disable traffic analytics on the flow log resource and continue to generate and save flow logs to storage account, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) cmdlet:
+
+```azurepowershell-interactive
+# Place the network security group properties into a variable.
+$nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'myResourceGroup'
+
+# Place the storage account configuration into a variable.
+$sa = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
+
+# Update the NSG flow log.
+Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myFlowLog' -Location 'eastus' -TargetResourceId $nsg.Id -StorageId $sa.Id -FormatVersion 2
+```
+
+# [**Azure CLI**](#tab/cli)
+
+To enable traffic analytics on a flow log resource, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command:
+
+```azurecli-interactive
+# Update the NSG flow log.
+az network watcher flow-log update --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --traffic-analytics true --workspace 'myWorkspace' --log-version '2'
+```
+
+To disable traffic analytics on the flow log resource and continue to generate and save flow logs to the storage account, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command:
+
+```azurecli-interactive
+# Update the NSG flow log.
+az network watcher flow-log update --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --traffic-analytics false --log-version '2'
+```
+
+---
+
+## List all flow logs
+
+You can list all flow logs in a subscription or a group of subscriptions (Azure portal). You can also list all flow logs in a region.
+
+# [**Portal**](#tab/portal)
+
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
+
+1. Under **Logs**, select **Flow logs**.
+
+1. Select **Subscription equals** filter to choose one or more of your subscriptions. You can apply other filters like **Location equals** to list all flow logs in a region.
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/list-flow-logs.png" alt-text="Screenshot shows how to use filters to list all existing flow logs in a subscription using the Azure portal." lightbox="./media/nsg-flow-logs-portal/list-flow-logs.png":::
+
+
+# [**PowerShell**](#tab/powershell)
+
+Use [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) cmdlet to list all flow log resources in a particular region in your subscription:
+
+```azurepowershell-interactive
+# Get all flow logs in East US region.
+Get-AzNetworkWatcherFlowLog -Location 'eastus' | format-table Name
+```
+
+> [!NOTE]
+> To use the `-Location` parameter with `Get-AzNetworkWatcherFlowLog` cmdlet, you need an additional **Reader** permission in the **NetworkWatcherRG** resource group.
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az network watcher flow-log list](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-list) command to list all flow log resources in a particular region in your subscription:
+
+```azurecli-interactive
+# Get all flow logs in East US region.
+az network watcher flow-log list --location 'eastus' --out table
+```
+
+---
+
+## View details of a flow log resource
+
+You can view the details of a flow log.
+
+# [**Portal**](#tab/portal)
+
+
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
+
+1. Under **Logs**, select **Flow logs**.
+
+1. In **Network Watcher | Flow logs**, select the flow log that you want to see.
+
+1. In **Flow logs settings**, you can view the settings of the flow log resource.
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/flow-log-settings.png" alt-text="Screenshot of Flow logs settings page in the Azure portal." lightbox="./media/nsg-flow-logs-portal/flow-log-settings.png":::
+
+1. Select **Cancel** to close the settings page without making changes.
+
+
+# [**PowerShell**](#tab/powershell)
+
+Use [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) cmdlet to see details of a flow log resource:
+
+```azurepowershell-interactive
+# Get the details of a flow log.
+Get-AzNetworkWatcherFlowLog -Name 'myFlowLog' -Location 'eastus'
+```
+
+> [!NOTE]
+> To use the `-Location` parameter with `Get-AzNetworkWatcherFlowLog` cmdlet, you need an additional **Reader** permission in the **NetworkWatcherRG** resource group.
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az network watcher flow-log show](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-show) command to see details of a flow log resource:
+
+```azurecli-interactive
+# Get the details of a flow log.
+az network watcher flow-log show --name 'myFlowLog' --resource-group 'NetworkWatcherRG' --location 'eastus'
+```
+
+---
+
+## Download a flow log
+
+You can download the flow logs data from the storage account that you saved the flow logs to.
+
+# [**Portal**](#tab/portal)
+
+1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** from the search results.
+
+1. Select the storage account you used to store the logs.
+
+1. Under **Data storage**, select **Containers**.
+
+1. Select the **insights-logs-networksecuritygroupflowevent** container.
+
+1. In **insights-logs-networksecuritygroupflowevent**, navigate the folder hierarchy until you get to the `PT1H.json` file that you want to download. NSG flow log files follow the following path:
+
+    ```
+    https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+    ```
+
+1. Select the ellipsis **...** to the right of the `PT1H.json` file, then select **Download**.
+
+# [**PowerShell**](#tab/powershell)
+
+To download virtual network flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet. For more information, see [Download a blob](../storage/blobs/storage-quickstart-blobs-powershell.md#download-blobs).
+
+NSG flow log files saved to a storage account follow this path:
+
+```
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+```
+
+# [**Azure CLI**](#tab/cli)
+
+To download virtual network flow logs from your storage account, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command. For more information, see [Download a blob](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob).
+
+NSG flow log files saved to a storage account follow this path:
+
+```
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+```
+
+---
+
+> [!NOTE]
+> As an alternative way to access and download flow logs from your storage account, you can use Azure Storage Explorer. For more information, see [Get started with Storage Explorer](../storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md) and [Download blobs using Storage Explorer](../storage/blobs/quickstart-storage-explorer.md#download-blobs).
+
+For information about the structure of a flow log, see [Log format of NSG flow logs](nsg-flow-logs-overview.md#log-format).
+
+## Disable a flow log
+
+You can temporarily disable a flow log without deleting it. Disabling a flow log stops flow logging for the associated network security group. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured network security group.
+
+# [**Portal**](#tab/portal)
+
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
+
+1. Under **Logs**, select **Flow logs**.
+
+1. In **Network Watcher | Flow logs**, select the checkbox of the flow log that you want to disable.
+
+1. Select **Disable**.
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-flow-log.png":::
+
+# [**PowerShell**](#tab/powershell)
+
+Use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) cmdlet to disable a flow log:
+
+```azurepowershell-interactive
+# Place the network security group properties into a variable.
+$nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'myResourceGroup'
+
+# Place the storage account properties into a variable.
+$sa = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
+
+# Update the NSG flow log.
+Set-AzNetworkWatcherFlowLog -Enabled $false -Name 'myFlowLog' -Location 'eastus' -TargetResourceId $nsg.Id -StorageId $sa.Id
+```
+
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command to disable a flow log:
+
+```azurecli-interactive
+# Disable the flow log.
+az network watcher flow-log update --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --enabled false
+```
+
+---
+
+> [!NOTE]
+> If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log. To disable traffic analytics, see [Enable or disable traffic analytics](#enable-or-disable-traffic-analytics).
+
+## Delete a flow log
+
+You can permanently delete a virtual network flow log. Deleting a flow log deletes all its settings and associations. To begin flow logging again for the same resource, you must create a new flow log for it.
+
+# [**Portal**](#tab/portal)
+
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
+
+1. Under **Logs**, select **Flow logs**.
+
+1. In **Network Watcher | Flow logs**, select the checkbox of the flow log that you want to delete.
+
+1. Select **Delete**.
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/delete-flow-log.png" alt-text="Screenshot shows how to delete a flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/delete-flow-log.png":::
+
+
+# [**PowerShell**](#tab/powershell)
+
+To delete a flow log resource, use [Remove-AzNetworkWatcherFlowLog](/powershell/module/az.network/remove-aznetworkwatcherflowlog) cmdlet:
+
+```azurepowershell-interactive
+# Delete the flow log.
+Remove-AzNetworkWatcherFlowLog -Name 'myFlowLog' -Location 'eastus'
+```
+
+# [**Azure CLI**](#tab/cli)
+
+To delete a flow log resource, use [az network watcher flow-log delete](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete) command:
+
+```azurecli-interactive
+# Delete the flow log.
+az network watcher flow-log delete --name 'myFlowLog' --location 'eastus' --no-wait 'true'
+```
+
+---
+
+> [!NOTE]
+> Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in a storage account follows the configured retention policy or stays stored in the storage account until manually deleted.
 
 ## Related content
 
-- [Audit and deploy NSG flow logs using Azure Policy](nsg-flow-logs-policy-portal.md)
-- [NSG flow logs](nsg-flow-logs-overview.md)
+- [Virtual network flow logs](vnet-flow-logs-overviewmd)
+- [Migrate from network security group flow logs to virtual network flow logs](nsg-flow-logs-migrate.md)
 - [Traffic analytics](traffic-analytics.md)
