@@ -90,8 +90,8 @@ The following table shows the minimum version of SDKs that support individual AP
 |------------|-----|--------|-----|--------|---------|------------|---------|
 | Get notification that recording started or stopped | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 2.1.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 1.2.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 1.0.0, 1.0.0-beta.31 |
 | Get state of recording | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 2.1.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 2.0.0, 1.2.0-beta.1 | 1.0.0, 1.15.0-beta.1 | 1.0.0, 1.0.0-beta.31 |
-| Learn whether explicit consent is required | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Learn whether explicit consent is required  | 1.31.2, 1.32.1-beta.1 | ❌ | 2.16.0-beta.1  | ❌ | 2.14.0-beta.1  | ❌ | 1.12.0-beta.1 |
+| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | 2.16.0-beta.1  | ❌ | 2.14.0-beta.1  | ❌ | 1.12.0-beta.1 |
 
 ## Next steps
 
