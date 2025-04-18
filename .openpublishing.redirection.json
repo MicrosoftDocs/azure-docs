@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/api-management/migrate-stv1-to-stv2-no-vnet.md",
+      "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2-no-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/migrate-stv1-to-stv2-vnet.md",
+      "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/migrate-stv1-to-stv2.md",
+      "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/breaking-changes/stv1-platform-retirement-august-2024.md",
+      "redirect_url": "/previous-versions/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025.md",
+      "redirect_url": "/previous-versions/azure/api-management/breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md",
+      "redirect_url": "/previous-versions/azure/api-management/breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/compute-infrastructure.md",
+      "redirect_url": "/previous-versions/azure/api-management/compute-infrastructure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/cdn-caching-rules.md",
       "redirect_url": "/previous-versions/azure/cdn/cdn-caching-rules",
       "redirect_document_id": false
