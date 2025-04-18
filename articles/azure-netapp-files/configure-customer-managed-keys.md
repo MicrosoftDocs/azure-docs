@@ -23,7 +23,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 3. You use the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Microsoft Entra ID.
 4. Azure NetApp Files wraps the account encryption key with the customer-managed key in Azure Key Vault.
 
-    Customer-managed keys have no performance impact on Azure NetApp Files. Its only difference from platform-managed keys is how the key is managed.
+    Customer-managed keys don't affect performance of Azure NetApp Files. Its only difference from platform-managed keys is how the key is managed.
 1. For read/write operations, Azure NetApp Files sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
 ## Considerations
@@ -96,7 +96,7 @@ Before creating your first customer-managed key volume, you must set up:
     * The key vault must have soft delete and purge protection enabled.
     * The key must be of type RSA.
 * The key vault must have an [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
-    * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same VNet as the one delegated to Azure NetApp.
+    * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same virtual network as the one delegated to Azure NetApp.
 
 For more information about Azure Key Vault and Azure Private Endpoint, see:
 * [Quickstart: Create a key vault ](/azure/key-vault/general/quick-create-portal)
@@ -138,7 +138,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, see:
       * `Microsoft.KeyVault/vaults/keys/read` 
       * `Microsoft.KeyVault/vaults/keys/encrypt/action` 
       * `Microsoft.KeyVault/vaults/keys/decrypt/action` 
-    The user-assigned identity you select is added to your NetApp account. Due to the customizable nature of role-based access control (RBAC), the Azure portal doesn't configure access to the key vault. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide) for details on configuring Azure Key Vault.
+    The user-assigned identity you select is added to your NetApp account. Due to the customizable nature of role-based access control, the Azure portal doesn't configure access to the key vault. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide) for details on configuring Azure Key Vault.
 
 1. Select **Save** then observe the notification communicating the status of the operation. If the operation isn't successful, an error message displays. For assistance in resolving the error, see [error messages and troubleshooting](troubleshoot-customer-managed-keys.md).
 
@@ -338,7 +338,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
 
 1. Once the custom role is created and available to use with the key vault, you apply it to the user-assigned identity.
 
-  :::image type="content" source="./media/configure-customer-managed-keys/rbac-review-assign.png" alt-text="Screenshot of RBAC review and assign menu." lightbox="./media/configure-customer-managed-keys/rbac-review-assign.png":::
+  :::image type="content" source="./media/configure-customer-managed-keys/rbac-review-assign.png" alt-text="Screenshot of role-based access control review and assign menu." lightbox="./media/configure-customer-managed-keys/rbac-review-assign.png":::
 
 ## Create an Azure NetApp Files volume using customer-managed keys
 
@@ -352,7 +352,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
 
     When you create a volume using a customer-managed key, you must also select **Standard** for the **Network features** option. Basic network features are not supported.
 
-    You must select a key vault private endpoint as well. The dropdown menu displays private endpoints in the selected virtual network (VNet). If there's no private endpoint for your key vault in the selected VNet, then the dropdown is empty, and you won't be able to proceed. If you encounter this scenario, see [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
+    You must select a key vault private endpoint as well. The dropdown menu displays private endpoints in the selected virtual network. If there's no private endpoint for your key vault in the selected virtual network, then the dropdown is empty, and you won't be able to proceed. If you encounter this scenario, see [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
 
     :::image type="content" source="./media/configure-customer-managed-keys/keys-create-volume.png" alt-text="Screenshot of create volume menu." lightbox="./media/configure-customer-managed-keys/keys-create-volume.png":::
 
@@ -381,7 +381,7 @@ Encryption key transition for Azure NetApp Files is currently in preview. Before
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigratePmkToCmk
     ```
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
@@ -407,7 +407,7 @@ If you have already configured your NetApp account for customer-managed keys and
 1. In the **Rekey** menu, select one of the available keys from the dropdown menu. The chosen key must be different from the current key.
 :::image type="content" source="./media/configure-customer-managed-keys/encryption-rekey.png" alt-text="Screenshot of the rekey menu." lightbox="./media/configure-customer-managed-keys/encryption-rekey.png":::
 
-1. Select **OK** to save. The rekey operation may take several minutes.
+1. Select **OK** to save. The rekey operation can take several minutes.
 
 ## Switch from system-assigned to user-assigned identity
 
