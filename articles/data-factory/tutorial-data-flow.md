@@ -7,18 +7,18 @@ ms.reviewer: makromer
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 04/18/2025
+
+#customer intent: As a data factory user, I want to know the basics of creating a data flow so that I can apply these principals to my own data and begin using Data Factory for our workflows.
+
 ---
 
-# Transform data using mapping data flows
+# Tutorial: Transform data using mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+In this tutorial, you use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
 
-In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
-
->[!NOTE]
->This tutorial is meant for mapping data flows in general. Data flows are available both in Azure Data Factory and Synapse Pipelines. If you are new to data flows in Azure Synapse Pipelines, please follow [Data Flow using Azure Synapse Pipelines](../synapse-analytics/concepts-data-flow-overview.md) 
+This tutorial is meant for mapping data flows in general. Data flows are available both in Azure Data Factory and Synapse Pipelines. If you're new to data flows in Azure Synapse Pipelines, follow [Data Flow using Azure Synapse Pipelines](../synapse-analytics/concepts-data-flow-overview.md).
 
 In this tutorial, you do the following steps:
 
@@ -65,11 +65,11 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
 ## Create a pipeline with a Data Flow activity
 
-In this step, you'll create a pipeline that contains a Data Flow activity.
+In this step, you create a pipeline that contains a Data Flow activity.
 
 1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
 
 1. Now a window is open for a new pipeline. In the **General** tab for the pipeline properties, enter **TransformMovies** for **Name** of the pipeline.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
@@ -84,9 +84,9 @@ In this step, you'll create a pipeline that contains a Data Flow activity.
 
 ## Build transformation logic in the data flow canvas
 
-In this step, you'll build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
+In this step, you build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You then write this file back to the ADLS storage.
 
-1. In the panel below the canvas, go to the **Settings** of your data flow activity and select **New**, located beside data flow field. This will open the dataflow canvas.
+1. In the panel below the canvas, go to the **Settings** of your data flow activity and select **New**, located beside data flow field. This opens the dataflow canvas.
 
     :::image type="content" source="media/tutorial-data-flow/open-data-flow-from-pipeline.png" alt-text="Screenshot showing how to open the data flow editor from the pipeline editor.":::
 
@@ -128,7 +128,7 @@ In this step, you'll build a data flow that takes the moviesDB.csv in ADLS stora
 
     :::image type="content" source="media/tutorial-data-flow/dataflow5.png" alt-text="Data Flow Canvas":::
 
-1. Name your filter transformation **FilterYears**. Select the expression box next to **Filter on** and then **Open expression builder**. Here you'll specify your filtering condition.
+1. Name your filter transformation **FilterYears**. Select the expression box next to **Filter on** and then **Open expression builder**. Here you specify your filtering condition.
 
     :::image type="content" source="media/tutorial-data-flow/filter1.png" alt-text="Screenshot that shows the Filter on expression box.":::
 
@@ -142,7 +142,7 @@ In this step, you'll build a data flow that takes the moviesDB.csv in ADLS stora
 
     `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
-    If you've a debug cluster active, you can verify your logic by selecting **Refresh** to see expression output compared to the inputs used. There's more than one right answer on how you can accomplish this logic using the data flow expression language.
+    If you have a debug cluster active, you can verify your logic by selecting **Refresh** to see expression output compared to the inputs used. There's more than one right answer on how you can accomplish this logic using the data flow expression language.
 
     :::image type="content" source="media/tutorial-data-flow/filter2.png" alt-text="Filter":::
 
@@ -200,7 +200,7 @@ Now you've finished building your data flow. You're ready to run it in your pipe
 
 ## Running and monitoring the Data Flow
 
-You can debug a pipeline before you publish it. In this step, you're going to trigger a debug run of the data flow pipeline. While data preview doesn't write data, a debug run will write data to your sink destination.
+You can debug a pipeline before you publish it. In this step, you're going to trigger a debug run of the data flow pipeline. While data preview doesn't write data, a debug run writes data to your sink destination.
 
 1. Go to the pipeline canvas. Select **Debug** to trigger a debug run.
 
