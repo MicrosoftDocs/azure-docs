@@ -34,7 +34,7 @@ When configuring in Azure Resource Manager, you can set either a *specific* or a
      }
      ```
 
-     In this example, the retention policy tells Durable Task Scheduler to keep completed orchestrations for 1 day, and purge the rest. 
+     In this example, the retention policy tells Durable Task Scheduler to keep completed orchestrations for one day, and purge the rest. 
 
 - **Default policies** are applied to all purgeable statuses by omitting `orchestrationState`:
 
@@ -47,10 +47,10 @@ When configuring in Azure Resource Manager, you can set either a *specific* or a
 [For more information, see the API reference spec for Durable Task Scheduler retention policies.](/rest/api/durabletask/retention-policies/create-or-replace?view=rest-durabletask-2025-04-01-preview&preserve-view=true)
 
 # [Azure CLI](#tab/cli)  
-todo
+Need
 
 # [Azure portal](#tab/portal)  
-todo
+Need
 
 ---
 
@@ -64,10 +64,10 @@ todo
 To disable autopurge retention policies, just delete the policy from the template. Durable Task Scheduler automatically stops cleaning up instances.
 
 # [Azure CLI](#tab/cli)  
-todo
+Need
 
 # [Azure portal](#tab/portal)  
-todo
+Need
 
 ---
 
