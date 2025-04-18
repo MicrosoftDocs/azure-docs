@@ -1,6 +1,6 @@
 ---
-title: Virtual Long Code SMS pricing includes file
-description: include file
+title: Mobile Numbers SMS pricing Includes file
+description: Include file
 services: azure-communication-services
 author: dbasantes
 manager: sundraman
@@ -19,12 +19,12 @@ ms.author: dbasantes
 >
 >- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits aren't eligible for purchasing the products.
 
-Virtual Long Codes (also known as Mobile Numbers) are long-term leased numbers for A2P SMS messaging within select countries, billed on a pay-as-you-go basis.
+Mobile Numbers are long-term leased numbers for A2P SMS messaging within select countries, billed on a pay-as-you-go basis.
 
-##  Virtual Long Codes (also known as Mobile Numbers) Pricing
+##  Mobile Numbers Pricing
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a Virtual Long Code to phone numbers located within the destinations mentioned below. 
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a Mobile Number to phone numbers located within the destinations mentioned below. 
 
 The following prices are exclusive of the required communications taxes and fees:
 
