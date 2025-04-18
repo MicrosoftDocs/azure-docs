@@ -19,7 +19,7 @@ items:
     href: oracle-db/oracle-database-network-plan.md
   - name: Known issues
     href: oracle-db/oracle-database-known-issues.md
-  - name: Support for Oracle Database@Azure
+  - name: Support
     href: oracle-db/oracle-database-support.md
   - name: Onboarding
     items:
