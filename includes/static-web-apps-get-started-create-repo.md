@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: include
-ms.date: 08/13/2020
-ms.author: cshoe
+ms.date: 08/10/2023
+author: v1212
+ms.author: wujia
 ---
 
 ## Create a repository
@@ -45,6 +45,6 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 ---
 
-Select **Create repository from template**.
+Select **Create repository**.
 
-:::image type="content" source="../articles/static-web-apps/media/getting-started/create-template.png" alt-text="Create repository from template":::
+:::image type="content" source="../articles/static-web-apps/media/getting-started/create-template.png" alt-text="Screenshot of the Create repository button.":::

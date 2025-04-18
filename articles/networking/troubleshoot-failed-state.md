@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure Microsoft.Network failed Provisioning State'
 description: Learn about the meaning of various provisioning states and how to troubleshoot Azure Microsoft.Network failed Provisioning State.
 services: networking
 author: stegag
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/21/2023
@@ -14,7 +14,7 @@ ms.author: stegag
 
 This article helps you understand the meaning of various provisioning states for Microsoft.Network resources. You can effectively troubleshoot situations when the state is **Failed**.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Provisioning states
 
@@ -53,7 +53,7 @@ The easiest way to achieve this task is to use Azure PowerShell. Issue a resourc
 
 ### Preliminary operations
 
-1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 2. Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 

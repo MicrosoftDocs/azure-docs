@@ -3,13 +3,14 @@ title: Durable Functions publishing to Azure Event Grid
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-azurecli
 ---
 
 # Durable Functions publishing to Azure Event Grid
 
-This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](../../event-grid/overview.md).
+This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid topic](../../event-grid/overview.md).
 
 Following are some scenarios where this feature is useful:
 
@@ -128,11 +129,11 @@ Using the Azure portal, create another function app to listen for events publish
 
 1. Search for **Event Grid**, and then select the **Azure Event Grid trigger** template. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Select the event grid trigger template in the Azure portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Select the Event Grid trigger template in the Azure portal." border="true":::
 
 1. Name the new trigger, and then select **Create Function**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Name the event grid trigger in the Azure portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Name the Event Grid trigger in the Azure portal." border="true":::
 
 
     A function with the following code is created:
@@ -244,11 +245,11 @@ The following list explains the lifecycle events schema:
 * **`eventTime`**: Event time (UTC).
 * **`dataVersion`**: Version of the lifecycle event schema.
 * **`metadataVersion`**:  Version of the metadata.
-* **`topic`**: Event grid topic resource.
+* **`topic`**: Event Grid topic resource.
 
 ## How to test locally
 
-To test locally, read [Local testing with viewer web app](../event-grid-how-tos.md#local-testing-with-viewer-web-app). You can also use the *ngrok* utility as shown in [this tutorial](../functions-event-grid-blob-trigger.md#start-local-debugging).
+To test locally, read [Local testing with viewer web app](../event-grid-how-tos.md#local-testing-with-viewer-web-app).
 
 ## Next steps
 

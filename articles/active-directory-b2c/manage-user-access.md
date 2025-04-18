@@ -1,16 +1,20 @@
 ---
 title: Manage user access in Azure Active Directory B2C  
 description: Learn how to identify minors, collect date of birth and country/region data, and get acceptance of terms of use in your application by using Azure AD B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As an application developer using Azure Active Directory B2C, I want to manage user access to my application by identifying minors, requiring parental consent, gathering birth and country/region data, and capturing a terms-of-use agreement, so that I can comply with regulatory standards and provide appropriate experiences for different user groups.
+
 ---
 
 # Manage user access in Azure Active Directory B2C
@@ -46,7 +50,7 @@ The following is an example of a user flow for gathering parental consent:
 
 2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online.
 
-3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = "minorWithParentalConsent"**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor's account by sending a registration code to the minor's email address or the adult's email address on record.
+3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = "minorWithParentalConsent"**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national/regional ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor's account by sending a registration code to the minor's email address or the adult's email address on record.
 
 4. The application offers an option to the minor to revoke consent.
 

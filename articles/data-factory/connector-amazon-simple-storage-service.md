@@ -4,18 +4,13 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Amazon Simple Storage Service (S3), and transform data in Amazon Simple Storage Service (S3) using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/26/2022
+ms.date: 02/13/2025
 ---
 
 # Copy and transform data in Amazon Simple Storage Service using Azure Data Factory or Azure Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
->
-> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
-> * [Current version](connector-amazon-simple-storage-service.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -31,12 +26,12 @@ This Amazon S3 connector is supported for the following capabilities:
 | Supported capabilities|IR |
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
-|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312; |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 Specifically, this Amazon S3 connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). You can also choose to [preserve file metadata during copy](#preserve-metadata-during-copy). The connector uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3.
 
@@ -377,7 +372,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AmazonS3Object**. |Yes |
 | bucketName | The S3 bucket name. The wildcard filter is not supported. |Yes for the Copy or Lookup activity, no for the GetMetadata activity |
-| key | The name or wildcard filter of the S3 object key under the specified bucket. Applies only when the **prefix** property is not specified. <br/><br/>The wildcard filter is supported for both the folder part and the file name part. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Example 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>See more example in [Folder and file filter examples](#folder-and-file-filter-examples). Use `^` to escape if your actual folder or file name has a wildcard or this escape character inside. |No |
+| key | The name or wildcard filter of the S3 object key under the specified bucket. Applies only when the **prefix** property is not specified. <br/><br/>The wildcard filter is supported for both the folder part and the file name part. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Example 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). Use `^` to escape if your actual folder or file name has a wildcard or this escape character inside. |No |
 | prefix | Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when the **key** property is not specified. |No |
 | version | The version of the S3 object, if S3 versioning is enabled. If a version is not specified, the latest version will be fetched. |No |
 | modifiedDatetimeStart | Files are filtered based on the attribute: last modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware that enabling this setting will affect the overall performance of data movement when you want to filter huge amounts of files. <br/><br/> The properties can be **NULL**, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is **NULL**, the files whose last modified attribute is greater than or equal to the datetime value will be selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, the files whose last modified attribute is less than the datetime value will be selected.| No |
@@ -491,5 +486,5 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ]
 ```
 
-## Next steps
+## Related content
 For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

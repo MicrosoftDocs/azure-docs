@@ -1,12 +1,12 @@
 ---
  ms.topic: include
  author: cherylmc
- ms.service: vpn-gateway
- ms.date: 05/23/2022
+ ms.service: azure-vpn-gateway
+ ms.date: 05/13/2024
  ms.author: cherylmc
 
 ---
-Each client computer that you connect to a VNet with a Point-to-Site connection must have a client certificate installed. You generate it from the root certificate and install it on each client computer. If you don't install a valid client certificate, authentication will fail when the client tries to connect to the VNet.
+Each client computer that you connect to a VNet with a point-to-site connection must have a client certificate installed. You generate it from the root certificate and install it on each client computer. If you don't install a valid client certificate, authentication will fail when the client tries to connect to the VNet.
 
 You can either generate a unique certificate for each client, or you can use the same certificate for multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate. Otherwise, if multiple clients use the same client certificate to authenticate and you revoke it, you'll need to generate and install new certificates for every client that uses that certificate.
 
@@ -28,4 +28,4 @@ You can generate client certificates by using the following methods:
 
   * [MakeCert instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Use MakeCert if you don't have access to a Windows 10 or later computer for generating certificates. Although MakeCert is deprecated, you can still use it to generate certificates. You can install the generated certificates on any supported P2S client.
 
-  * [Linux instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md).
+  * Linux: See [strongSwan](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md) or [OpenSSL](../articles/vpn-gateway/point-to-site-certificates-linux-openssl.md) instructions.

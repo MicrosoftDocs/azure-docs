@@ -1,23 +1,20 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 02/10/2021
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 12/02/2024
+ms.service: azure-vpn-gateway
+ms.topic: include
 ---
 
-To add additional address prefixes:
+To add more address prefixes:
 
 1. Set the variable for the LocalNetworkGateway.
 
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-1. Modify the prefixes.
+
+1. Modify the prefixes. The values you specify overwrite the previous values.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
@@ -26,13 +23,14 @@ To add additional address prefixes:
 
 To remove address prefixes:
 
-  Leave out the prefixes that you no longer need. In this example, we no longer need prefix 10.101.2.0/24 (from the previous example), so we update the local network gateway, excluding that prefix.
+Leave out the prefixes that you no longer need. In this example, we no longer need prefix 10.101.2.0/24 (from the previous example), so we update the local network gateway and exclude that prefix.
 
 1. Set the variable for the LocalNetworkGateway.
 
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
+
 1. Set the gateway with the updated prefixes.
 
    ```azurepowershell-interactive

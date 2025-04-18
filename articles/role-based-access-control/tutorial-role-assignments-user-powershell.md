@@ -1,14 +1,11 @@
 ---
 title: "Tutorial: Grant a user access to Azure resources using Azure PowerShell - Azure RBAC"
 description: Learn how to grant a user access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
-services: active-directory
 author: rolyon
-manager: amycolannino
-
+manager: femila
 ms.service: role-based-access-control
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref,  azure-ad-ref-level-one-done
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for users to resources so that they can perform their job.
@@ -27,14 +24,15 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+[!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
 To complete this tutorial, you will need:
 
-- Permissions to create users in Azure Active Directory (or have an existing user)
+- Permissions to create users in Microsoft Entra ID (or have an existing user)
 - [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
+- [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
 ## Role assignments
 
@@ -54,21 +52,20 @@ To assign a role, you need a user, group, or service principal. If you don't alr
 1. In Azure Cloud Shell, create a password that complies with your password complexity requirements.
 
     ```azurepowershell
-    $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
-    $PasswordProfile.Password = "Password"
+    $PasswordProfile = @{ Password = "<Password>" }
     ```
 
-1. Create a new user for your domain using the [New-AzureADUser](/powershell/module/azuread/new-azureaduser) command.
+1. Create a new user for your domain using the [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser) command.
 
     ```azurepowershell
-    New-AzureADUser -DisplayName "RBAC Tutorial User" -PasswordProfile $PasswordProfile `
-      -UserPrincipalName "rbacuser@example.com" -AccountEnabled $true -MailNickName "rbacuser"
+    New-MgUser -DisplayName "RBAC Tutorial User" -PasswordProfile $PasswordProfile `
+       -UserPrincipalName "rbacuser@example.com" -AccountEnabled:$true -MailNickName "rbacuser"
     ```
-    
-    ```Example
-    ObjectId                             DisplayName        UserPrincipalName    UserType
-    --------                             -----------        -----------------    --------
-    11111111-1111-1111-1111-111111111111 RBAC Tutorial User rbacuser@example.com Member
+
+    ```output
+    DisplayName        Id                                   Mail UserPrincipalName
+    -----------        --                                   ---- -----------------
+    RBAC Tutorial User aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb      rbacuser@example.com
     ```
 
 ## Create a resource group
@@ -98,7 +95,7 @@ You use a resource group to show how to assign a role at a resource group scope.
    Location          : westus
    ProvisioningState : Succeeded
    Tags              :
-   ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+   ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
    ```
 
 ## Grant access
@@ -114,14 +111,14 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
     ```Example
     Name     : Pay-As-You-Go
     Id       : 00000000-0000-0000-0000-000000000000
-    TenantId : 22222222-2222-2222-2222-222222222222
+    TenantId : aaaabbbb-0000-cccc-1111-dddd2222eeee
     State    : Enabled
     ```
 
 1. Save the subscription scope in a variable.
 
     ```azurepowershell
-    $subScope = "/subscriptions/00000000-0000-0000-0000-000000000000"
+    $subScope = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
     ```
 
 1. Assign the [Reader](built-in-roles.md#reader) role to the user at the subscription scope.
@@ -133,13 +130,13 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/44444444-4444-4444-4444-444444444444
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial User
     SignInName         : rbacuser@example.com
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : User
     CanDelegate        : False
     ```
@@ -153,13 +150,13 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
     DisplayName        : RBAC Tutorial User
     SignInName         : rbacuser@example.com
     RoleDefinitionName : Contributor
     RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : User
     CanDelegate        : False
     ```
@@ -173,13 +170,13 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial User
     SignInName         : rbacuser@example.com
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : User
     CanDelegate        : False
     ```
@@ -193,23 +190,23 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
     DisplayName        : RBAC Tutorial User
     SignInName         : rbacuser@example.com
     RoleDefinitionName : Contributor
     RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : User
     CanDelegate        : False
     
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial User
     SignInName         : rbacuser@example.com
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : User
     CanDelegate        : False
     ```
@@ -264,10 +261,11 @@ To clean up the resources created by this tutorial, delete the resource group an
     
 1. When asked to confirm, type **Y**. It will take a few seconds to delete.
 
-1. Delete the user using the [Remove-AzureADUser](/powershell/module/azuread/remove-azureaduser) command.
+1. Delete the user using the [Remove-MgUser](/powershell/module/microsoft.graph.users/remove-mguser) command.
 
     ```azurepowershell
-    Remove-AzureADUser -ObjectId "rbacuser@example.com"
+    $User = Get-MgUser -Filter "DisplayName eq 'RBAC Tutorial User'"
+    Remove-MgUser -UserId $User.Id
     ```
 
 ## Next steps

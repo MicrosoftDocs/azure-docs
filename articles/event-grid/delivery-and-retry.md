@@ -1,8 +1,9 @@
 ---
 title: Azure Event Grid delivery and retry
-description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
-ms.topic: conceptual
-ms.date: 03/01/2023
+description: This article describes how Azure Event Grid delivers events and how it handles undelivered messages.
+ms.topic: concept-article
+ms.date: 11/18/2024
+# Customer intent: I want to know how Event Grid delivers messages to event handler and retries when a delivery attempt fails. 
 ---
 
 # Event Grid message delivery and retry
@@ -42,9 +43,9 @@ Event Grid waits 30 seconds for a response after delivering a message. After 30 
 - Every 12 hours up to 24 hours
 
 
-If the endpoint responds within 3 minutes, Event Grid attempts to remove the event from the retry queue on a best effort basis, but duplicates may still be received.
+If the endpoint responds within 3 minutes, Event Grid attempts to remove the event from the retry queue on a best effort basis, but duplicates might still be received.
 
-Event Grid adds a small randomization to all retry steps and may opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
+Event Grid adds a small randomization to all retry steps and might opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
 
 ## Retry policy
 You can customize the retry policy when creating an event subscription by using the following two configurations. An event is dropped if either of the limits of the retry policy is reached. 
@@ -54,22 +55,25 @@ You can customize the retry policy when creating an event subscription by using 
 
 For sample CLI and PowerShell command to configure these settings, see [Set retry policy](manage-event-delivery.md#set-retry-policy).
 
+> [!NOTE]
+> If you set both `Event time to live (TTL)` and `Maximum number of attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 5 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 5 attempts, whichever happens first, the event is dead-lettered. If you set max delivery attempts to 10, with respect to [exponential retry schedule](#retry-schedule), max 6 number of delivery attempts happen before 30 minutes TTL will be reached, therefore setting max number of attempts to 10 will have no impact in this case and events will be dead-lettered after 30 minutes.
+
 ## Output batching 
 Event Grid defaults to sending each event individually to subscribers. The subscriber receives an array with a single event. You can configure Event Grid to batch events for delivery for improved HTTP performance in high-throughput scenarios. Batching is turned off by default and can be turned on per-subscription.
 
 ### Batching policy
 Batched delivery has two settings:
 
-* **Max events per batch** - Maximum number of events Event Grid delivers per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
-* **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size may be smaller if more events aren't available at the time of publish. It's possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
+* **Max events per batch** - Maximum number of events Event Grid delivers per batch. This number will never be exceeded. However, fewer events might be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
+* **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size might be smaller if more events aren't available at the time of publish. It's possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
 
-Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or SDKs.
+Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or Software Development Kits (SDKs).
 
 ### Batching behavior
 
 * All or none
 
-  Event Grid operates with all-or-none semantics. It doesn't support partial success of a batch delivery. Subscribers should be careful to only ask for as many events per batch as they can reasonably handle in 60 seconds.
+  Event Grid operates with all-or-none semantics. It doesn't support partial success of a batch delivery. Subscribers should be careful to only ask for as many events per batch as they can reasonably handle in 30 seconds.
 
 * Optimistic batching
 
@@ -120,7 +124,7 @@ When Event Grid can't deliver an event within a certain time period or after try
 - Event isn't delivered within the **time-to-live** period. 
 - The **number of tries** to deliver the event has exceeded the limit.
 
-If either of the conditions is met, the event is dropped or dead-lettered.  By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
+If either of the conditions is met, the event is dropped or dead-lettered. By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
 
 Event Grid sends an event to the dead-letter location when it has tried all of its retry attempts. If Event Grid receives a 400 (Bad Request) or 413 (Request Entity Too Large) response code, it immediately schedules the event for dead-lettering. These response codes indicate delivery of the event will never succeed.
 
@@ -222,7 +226,7 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 
 **LastDeliveryOutcome: Probation**
 
-An event subscription is put into probation for a duration by Event Grid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint. If an event subscription is in probation, events may get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
+An event subscription is put into probation for a duration by Event Grid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint. If an event subscription is in probation, events might get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
 
 | Error | Probation Duration |
 | ----- | ------------------ | 
@@ -336,7 +340,7 @@ Event Grid considers **only** the following HTTP response codes as successful de
 
 ### Failure codes
 
-All other codes not in the above set (200-204) are considered failures and will be retried (if needed). Some have specific retry policies tied to them outlined below, all others follow the standard exponential back-off model. It's important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
+All other codes not in the set (200-204) are considered failures and will be retried (if needed). Some have specific retry policies tied to them outlined here, all others follow the standard exponential back-off model. It's important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
 
 | Status code | Retry behavior |
 | ------------|----------------|
@@ -359,7 +363,7 @@ Event subscriptions allow you to set up HTTP headers that are included in delive
 
 For more information, see [Custom delivery properties](delivery-properties.md). 
 
-## Next steps
+## Related content
 
 * To view the status of event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * To customize event delivery options, see [Dead letter and retry policies](manage-event-delivery.md).

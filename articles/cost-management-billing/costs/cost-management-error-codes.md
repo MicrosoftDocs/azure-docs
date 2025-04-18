@@ -2,13 +2,13 @@
 title: Troubleshoot common Cost Management errors
 titleSuffix: Microsoft Cost Management
 description: This article describes common Cost Management errors and provides information about solutions.
-author: bandersmsft
-ms.reviewer: micflan
+author: shasulin
+ms.reviewer: shasulin
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: troubleshooting
-ms.date: 12/13/2022
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: shasulin
 ---
 
 # Troubleshoot common Cost Management errors
@@ -52,7 +52,7 @@ See [AuthorizationFailed](#AuthorizationFailed).
 
 **More information**
 
-For more information about enterprise agreements, see [Troubleshoot enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information about enterprise agreements, see [Troubleshoot enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 For more information about Microsoft Customer Agreements, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md).
 
@@ -106,7 +106,7 @@ The message indicates that the Enterprise Agreement administrator hasn't enabled
 
 **More information**
 
-For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## AuthorizationFailed
 
@@ -168,7 +168,7 @@ The message indicates that the Enterprise Agreement administrator hasn't enabled
 
 **More information**
 
-For more information about troubleshooting disabled costs, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information about troubleshooting disabled costs, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## DisallowedOperation
 
@@ -222,7 +222,7 @@ The message indicates that your partner hasn't published pricing for the Enterpr
 
 **More information**
 
-For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## InvalidAuthenticationTokenTenant
 
@@ -401,19 +401,15 @@ Error message `Unauthorized`.
 
 **Mitigation**
 
-If using the ExternalBillingAccounts or ExternalSubscriptions APIs, verify that the Microsoft.CostManagement resource providerRP was [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for your Azure Active Directory instance. Resource Provider registration is required to use Cost Management for AWS.
+If using the ExternalBillingAccounts or ExternalSubscriptions APIs, verify that the Microsoft.CostManagement resource providerRP was [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for your Microsoft Entra instance. 
 
 If you get an `Empty GUID user id` error, update the bearer token associated with the request. You might temporarily see the error in the Azure portal, but it should resolve itself. If you continue to see the error in the Azure portal, refresh your browser.
 
 Also, see [AuthorizationFailed](#AuthorizationFailed).
 
-**More information**
-
-For more information, see [Set up AWS integration with Cost Management](aws-integration-set-up-configure.md).
-
 ## Create a support request
 
-If you're facing an error not listed above or need more help, file a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) and specify the issue type as **Billing**.
+If you're facing an error not listed above or need more help, file a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) and specify the issue type as **Billing**.
 
 ## Next steps
 

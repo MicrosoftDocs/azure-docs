@@ -4,10 +4,9 @@ description: Describes the security and privacy features that protect your Azure
 services: Data Box Edge
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 03/20/2025
 ms.author: alkohli
 ---
 # Azure Stack Edge security and data protection
@@ -16,11 +15,10 @@ Security is a major concern when you're adopting a new technology, especially if
 
 This article describes the Azure Stack Edge security features that help protect each of the solution components and the data stored in them.
 
-Azure Stack Edge consists of four main components that interact with each other:
+Azure Stack Edge consists of three main components that interact with each other:
 
 - **Azure Stack Edge service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
-- **Azure Stack Edge Pro FPGA device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
-- **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Azure Stack Edge Pro FPGA device and contain data that needs to be protected.
+- **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Azure Stack Edge Pro device and contain data that needs to be protected.
 - **Cloud storage**. The location in the Azure cloud platform where data is stored. This location is typically the storage account linked to the Azure Stack Edge resource that you create.
 
 ## Azure Stack Edge service protection
@@ -54,14 +52,14 @@ Passwords ensure that only authorized users can access your data. Azure Stack Ed
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge Pro FPGA device](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge Pro device](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Use the local web UI to [change the password](azure-stack-edge-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
 ## Protect your data
 
-This section describes the Azure Stack Edge Pro FPGA security features that protect in-transit and stored data.
+This section describes the Azure Stack Edge Pro security features that protect in-transit and stored data.
 
 ### Protect data at rest
 
@@ -84,9 +82,7 @@ The Azure Stack Edge service collects personal information in the following scen
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge Pro FPGA](azure-stack-edge-manage-shares.md).
-
-For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trust-center).
 
 ## Next steps
 

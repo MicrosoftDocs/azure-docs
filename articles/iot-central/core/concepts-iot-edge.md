@@ -1,11 +1,11 @@
 ---
-title: Azure IoT Edge and Azure IoT Central | Microsoft Docs
-description: Understand how to use Azure IoT Edge with an IoT Central application.
+title: Azure IoT Edge and Azure IoT Central
+description: Understand how to use Azure IoT Edge with an IoT Central application including the different gateway patterns and IoT Edge management capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/11/2022
+ms.date: 03/04/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: [device-developer, iot-edge]
 
@@ -52,7 +52,7 @@ IoT Central enables the following capabilities to for IoT Edge devices:
 An IoT Edge device can be:
 
 * A standalone device composed of custom modules.
-* A *gateway device*, with downstream devices connecting to it. A gateway device may include custom modules.
+* A *gateway device*, with downstream devices connecting to it. A gateway device can include custom modules.
 
 ## IoT Edge devices and IoT Central
 
@@ -201,6 +201,9 @@ The IoT Edge hub module behaves like IoT Central and handles connections from de
 
 > [!NOTE]
 > IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge transparent gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't currently support nested IoT Edge scenarios.
+
+> [!IMPORTANT]
+> IoT Central does not support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
 
 ### IoT Edge as a protocol translation gateway
 

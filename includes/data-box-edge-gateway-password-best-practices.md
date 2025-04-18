@@ -1,9 +1,9 @@
 ---
-author: alkohli
-ms.service: databox  
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 04/16/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Keep these best practices in mind:

@@ -3,10 +3,9 @@ title: Assert data transformation in mapping data flow
 description: Set assertions for mapping data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Assert transformation in mapping data flow
@@ -15,23 +14,23 @@ ms.date: 08/03/2022
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The assert transformation enables you to build custom rules inside your mapping data flows for data quality and data validation. You can build rules that will determine whether values meet an expected value domain. Additionally, you can build rules that check for row uniqueness. The assert transformation will help to determine if each row in your data meets a set of criteria. The assert transformation also allows you to set custom error messages when data validation rules are not met.
+The Assert transformation enables you to build custom rules inside your mapping data flows for data quality and data validation. You can build rules that determine whether values meet an expected value domain. Additionally, you can build rules that check for row uniqueness. The Assert transformation helps to determine if each row in your data meets a set of criteria. The Assert transformation also allows you to set custom error messages when data validation rules aren't met.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWRdIu]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d7dab33e-7008-45f8-b982-1451b157900a]
 
 :::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert type":::
 
 ## Configuration
 
-In the assert transformation configuration panel, you will choose the type of assert, provide a unique name for the assertion, optional description, and define the expression and optional filter. The data preview pane will indicate which rows failed your assertions. Additionally, you can test each row tag downstream using ```isError()``` and ```hasError()``` for rows that failed assertions.
+In the assert transformation configuration panel, you choose the type of assert, provide a unique name for the assertion, optional description, and define the expression and optional filter. The data preview pane indicates which rows failed your assertions. Additionally, you can test each row tag downstream using ```isError()``` and ```hasError()``` for rows that failed assertions.
 
 :::image type="content" source="media/data-flow/assert-output.png" alt-text="Assert settings":::
 
 ### Assert type
 
-1. Expect true: The result of your expression must evaluate to a boolean true result. Use this to validate domain value ranges in your data.
-2. Expect unique: Set a column or an expression as a uniqueness rule in your data. Use this to tag duplicate rows.
-3. Expect exists: This option is only available when you have selected a second incoming stream. Exists will look at both streams and determine if the rows exists in both streams based on the columns or the expressions that you have specified. To add the second stream for exists, select ```Additional streams```.
+1. Expect true: The result of your expression must evaluate to a boolean true result. Use this setting to validate domain value ranges in your data.
+2. Expect unique: Set a column or an expression as a uniqueness rule in your data. Use this setting to tag duplicate rows.
+3. Expect exists: This option is only available when you selected a second incoming stream. Exists looks at both streams and determine if the rows exist in both streams based on the columns or the expressions that you specified. To add the second stream for exists, select ```Additional streams```.
 
 :::image type="content" source="media/data-flow/assert-configuration.png" alt-text="Assert configuration":::
 
@@ -41,7 +40,7 @@ Select ```fail data flow``` if you wish to have your data flow activity fail imm
 
 ### Assert ID
 
-Assert ID is a property where you will enter a (string) name for your assertion. You will be able to use the identifier later downstream in your data flow using ```hasError()``` or to output the assertion failure code. Assert IDs must be unique within each dataflow.
+Assert ID is a property where you enter a (string) name for your assertion. You are able to use the identifier later downstream in your data flow using ```hasError()``` or to output the assertion failure code. Assert IDs must be unique within each dataflow.
 
 ### Assert description
 
@@ -53,15 +52,15 @@ Filter is an optional property where you can filter the assertion to only a subs
 
 ### Expression
 
-Enter an expression for evaluation for each of your assertions. You can have multiple assertions for each assert transformation. Each type of assertion requires an expression that ADF will need to evaluation to test if the assertion passed.
+Enter an expression for evaluation for each of your assertions. You can have multiple assertions for each assert transformation. Each type of assertion requires an expression that ADF needs to evaluate to test if the assertion passed.
 
 ### Ignore NULLs
 
-By default, the assert transformation will include NULLs in row assertion evaluation. You can choose to ignore NULLs with this property.
+By default, the assert transformation includes NULLs in row assertion evaluation. You can choose to ignore NULLs with this property.
 
 ## Direct assert row failures
 
-When an assertion fails, you can optionally direct those error rows to a file in Azure by using the "Errors" tab on the sink transformation. You will also have an option on the sink transformation to not output rows with assertion failures at all by ignoring error rows.
+When an assertion fails, you can optionally direct those error rows to a file in Azure by using the "Errors" tab on the sink transformation. You also have an option on the sink transformation to not output rows with assertion failures at all by ignoring error rows.
 
 ## Examples
 
@@ -102,11 +101,11 @@ source1, source2 assert(expectExists(AddressLine1 == AddressLine1, false, 'nonUS
 ```
 source1, source2 assert(expectTrue(CountryRegion == 'United States', false, 'nonUS', null, 'only valid for U.S. addresses'),
 	expectExists(source1@AddressID == source2@AddressID, false, 'assertExist', StateProvince == 'Washington', toString(source1@AddressID) + ' already exists in Washington'),
-	expectUnique(source1@AddressID, false, 'uniqueness', null, toString(source1@AddressID) + ' is not unqiue')) ~> Assert1
+	expectUnique(source1@AddressID, false, 'uniqueness', null, toString(source1@AddressID) + ' is not unique')) ~> Assert1
 
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Select transformation](data-flow-select.md) to select and validate columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform column values.

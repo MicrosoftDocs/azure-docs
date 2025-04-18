@@ -1,8 +1,9 @@
 ---
 title: Template functions - scope
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about deployment scope.
-ms.topic: conceptual
-ms.date: 11/17/2022
+ms.topic: reference
+ms.custom: devx-track-arm-template
+ms.date: 02/12/2025
 ---
 
 # Scope functions for ARM templates
@@ -76,7 +77,7 @@ It returns:
         "version": "1"
       },
       "displayName": "Example MG 1",
-      "tenantId": "00000000-0000-0000-0000-000000000000"
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "type": "/providers/Microsoft.Management/managementGroups"
   }
@@ -163,7 +164,7 @@ A common use of the resourceGroup function is to create resources in the same lo
 }
 ```
 
-You can also use the `resourceGroup` function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
+You can also use the `resourceGroup` function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources-templates.md#apply-tags-from-resource-group).
 
 When using nested templates to deploy to multiple resource groups, you can specify the scope for evaluating the `resourceGroup` function. For more information, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
 
@@ -266,7 +267,7 @@ It returns:
     "countryCode": "US",
     "displayName": "Contoso",
     "id": "/tenants/00000000-0000-0000-0000-000000000000",
-    "tenantId": "00000000-0000-0000-0000-000000000000"
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
   }
 }
 ```

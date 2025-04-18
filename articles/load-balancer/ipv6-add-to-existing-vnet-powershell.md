@@ -1,16 +1,16 @@
 ---
-title: Add an IPv4 application to IPv6 in Azure Virtual Network - PowerShell
+title: Add IPv6 to an IPv4 application in Azure Virtual Network - PowerShell
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure PowerShell.
 services: virtual-network
-author: asudbring
-manager: mtillman
-ms.service: virtual-network
+author: mbender-ms
+manager: kumudd
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 03/31/2020
-ms.author: allensu 
+ms.date: 09/30/2024
+ms.author: mbender
 ms.custom: devx-track-azurepowershell, template-how-to
+ROBOTS: NOINDEX
 ---
 
 # Add an IPv4 application to IPv6 in Azure virtual network using PowerShell
@@ -21,9 +21,9 @@ This article shows you how to add IPv6 connectivity to an existing IPv
 - VMs with NICs that have both an IPv4 + IPv6 configuration
 - IPv6 Public IP so the load balancer has Internet-facing IPv6 connectivity
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Prerequisites
 
@@ -105,7 +105,7 @@ Add IPv6 address ranges to the virtual network and subnet hosting the VMs as fol
 
 ```azurepowershell-interactive
 #Add IPv6 ranges to the VNET and subnet
-#Retreive the VNET object
+#Retrieve the VNET object
 $vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVnet" 
 
 #Add IPv6 prefix to the VNET
@@ -147,13 +147,15 @@ $NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets
 $NIC_3 | Set-AzNetworkInterface
 ```
 
-## View IPv6 dual stack virtual network in Azure portal
+## View IPv6 dual-stack virtual network in Azure portal
 
-You can view the IPv6 dual stack virtual network in Azure portal as follows:
-1. In the portal's search bar, enter *myVnet*.
-2. When **myVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *myVNet*. The dual stack virtual network shows the three NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *mySubnet*.
+You can view the IPv6 dual-stack virtual network in Azure portal as follows:
+1. In the portal's search bar, enter **virtual networks** and 
+1. In the **Virtual Networks** window, select **myVNet**.
+1.  Select **Connected devices** under **Settings** to view the attached network interfaces. The dual stack virtual network shows the three NICs with both IPv4 and IPv6 configurations.
 
-  ![IPv6 dual stack virtual network in Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
+    :::image type="content" source="media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-addresses.png" alt-text="Screenshot of connected devices settings displaying IPv4 and IPv6 addresses on network interfaces.":::
+ 
 
 ## Clean up resources
 

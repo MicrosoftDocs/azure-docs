@@ -4,8 +4,7 @@ description: Describes data resiliency for Azure Stack Edge.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/18/2022
 ms.author: alkohli
@@ -43,23 +42,23 @@ Azure Stack Edge service is a non-regional, always-available service and has no 
 
     For all the Azure Regional Pairs, by default, Microsoft is responsible for the disaster recovery (DR) setup, execution, and testing. In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration. 
 
-- **Non-paired region** - In Singapore, customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region, Hong Kong. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. Once the data residency is set to non-paired region, it persists during the lifetime of the resource and can't be changed. 
+- **Non-paired region** - In Singapore, customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region, Hong Kong Special Administrative Region. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. Once the data residency is set to non-paired region, it persists during the lifetime of the resource and can't be changed. 
 
     In Singapore (South East Asia) region, if the customer has chosen single data residency option that won’t allow replication in the paired region, the customer will be responsible for the DR setup, execution, and testing. 
 
 
 ## Cross-region disaster recovery
 
-Cross region disaster recovery for all regions for multiple region geographies is done via using the Azure regional pairs. A regional pair consists of two regions, primary and secondary, within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md#cross-region-replication). 
+Cross region disaster recovery for all regions for multiple region geographies is done via using the Azure regional pairs. A regional pair consists of two regions, primary and secondary, within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. For more information, see [Cross-region replication in Azure](../reliability/cross-region-replication-azure.md). 
 
 In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration.
 
 For cross-region DR, Microsoft is responsible. The Recovery Time Objective (RTO) for DR is 8 hours, and Recovery Point Objective (RPO) is 15 minutes. For more information, see [Resiliency and continuity overview](/compliance/assurance/assurance-resiliency-and-continuity). <!--Azure Global - Bcdr Service Details, (Go to Business Impact Analysis)-->
 
-Cross region disaster recovery for non-paired region geography only pertains to Singapore. If there's a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong, you have two options:
+Cross region disaster recovery for non-paired region geography only pertains to Singapore. If there's a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong SAR, you have two options:
 
 - Wait for the Singapore region to be restored.
-- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md).
+- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.yml).
 
 In this case, the customer is responsible for DR and must set up a new device and then deploy all the workloads. 
 
@@ -70,7 +69,7 @@ The disaster recovery isn't identical for non-paired region and multi-region geo
 
 For Azure Stack Edge service, all regions use regional pairs except for Singapore where you can configure the service for non-paired region data residency. 
 
-- In Singapore, you can configure the service for non-paired region data residency. The single-region geography disaster recovery support applies only to Singapore when the customer has chosen to not enable the regional pair Hong Kong. The customer is responsible for the Singapore customer enabled disaster recovery (CEDR).
+- In Singapore, you can configure the service for non-paired region data residency. The single-region geography disaster recovery support applies only to Singapore when the customer has chosen to not enable the regional pair Hong Kong SAR. The customer is responsible for the Singapore customer enabled disaster recovery (CEDR).
 - Except for Singapore, all other regions use regional pairs and Microsoft owns the regional pair disaster recovery.
 
 For the single-region disaster recovery for which the customer is responsible: 
@@ -82,14 +81,14 @@ For the single-region disaster recovery for which the customer is responsible:
 Here are the high-level steps to set up disaster recovery using Azure portal for Azure Stack Edge: 
 
 - Create a resource in another region. For more information, see how to [Create a management resource for Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device).
-- [Reset the device](azure-stack-edge-reset-reactivate-device.md#reset-device). When the device is reset, the local data on the device is lost. It's necessary that you back up the device prior to the reset. Use a third-party backup solution provider to back up the local data on your device. For more information, see how to [Protect data in Edge cloud shares, Edge local shares, VMs and folders for disaster recovery](azure-stack-edge-gpu-prepare-device-failure.md#protect-device-data). 
-- [Reactivate device against a new resource](azure-stack-edge-reset-reactivate-device.md#reactivate-device). When you move to the new resource, you'll also need to restore data on the new resource. For more information, see how to [Restore Edge cloud shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-cloud-shares), [Restore Edge local shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-local-shares) and [Restore VM files and folders](azure-stack-edge-gpu-recover-device-failure.md#restore-vm-files-and-folders).
+- [Reset the device](azure-stack-edge-reset-reactivate-device.yml#reset-device). When the device is reset, the local data on the device is lost. It's necessary that you back up the device prior to the reset. Use a third-party backup solution provider to back up the local data on your device. For more information, see how to [Protect data in Edge cloud shares, Edge local shares, VMs and folders for disaster recovery](azure-stack-edge-gpu-prepare-device-failure.md#protect-device-data). 
+- [Reactivate device against a new resource](azure-stack-edge-reset-reactivate-device.yml#reactivate-device). When you move to the new resource, you'll also need to restore data on the new resource. For more information, see how to [Restore Edge cloud shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-cloud-shares), [Restore Edge local shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-local-shares) and [Restore VM files and folders](azure-stack-edge-gpu-recover-device-failure.md#restore-vm-files-and-folders).
 
-For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md). 
+For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.yml). 
 
 ## Planning disaster recovery
 
-Microsoft and its customers operate under the [Shared responsibility model](../availability-zones/business-continuity-management-program.md#shared-responsibility-model). This means that for customer-enabled (responsible services DR), the customer must address disaster recovery for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't pre-allocated. 
+Microsoft and its customers operate under the [Shared responsibility model](../reliability/business-continuity-management-program.md#shared-responsibility-model). This means that for customer-enabled (responsible services DR), the customer must address disaster recovery for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't pre-allocated. 
 
 When using Azure Stack Edge service, the customer can create a resource proactively, ahead of time, in another supported region. In the event of a disaster, this resource can then be deployed. 
 

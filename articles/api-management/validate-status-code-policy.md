@@ -3,13 +3,15 @@ title: Azure API Management policy reference - validate-status-code | Microsoft 
 description: Reference for the validate-status-code policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
-ms.service: api-management
-ms.topic: article
-ms.date: 12/05/2022
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Validate status code
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `validate-status-code` policy validates the HTTP status codes in responses against the API schema. This policy may be used to prevent leakage of backend errors, which can contain stack traces.
 
@@ -50,8 +52,12 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
+
+### Usage notes
+
+- This policy can only be used once in a policy section.
 
 [!INCLUDE [api-management-validation-policy-common](../../includes/api-management-validation-policy-common.md)]
 
@@ -65,6 +71,6 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 
 ## Related policies
 
-* [API Management validation policies](validation-policies.md)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

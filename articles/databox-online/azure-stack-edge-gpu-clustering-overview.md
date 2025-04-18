@@ -4,10 +4,9 @@ description: Describes an overview of clustering on your Azure Stack Edge Pro GP
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 03/21/2024
 ms.author: alkohli
 ---
 
@@ -31,8 +30,9 @@ A quorum is always maintained on your Azure Stack Edge cluster to remain online 
 
 For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster witness provides the third vote so that the cluster stays online (since the cluster is left with two out of three votes - a majority). A cluster witness is required on your Azure Stack Edge cluster. You can set up the witness in the cloud or in a local fileshare using the local UI of your device. 
 
-For more information on cluster witness, see [Cluster witness on Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
-
+ - For more information about the cluster witness, see [Cluster witness on Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
+ - For more information about witness in the cloud, see [Configure cloud witness](azure-stack-edge-gpu-manage-cluster.md#configure-cloud-witness).
+ - For detailed steps to deploy a cloud witness, see [Deploy cloud witness for a failover cluster](/windows-server/failover-clustering/deploy-cloud-witness?tabs=windows#to-create-an-azure-storage-account).
 
 ## Infrastructure cluster
 
@@ -55,15 +55,15 @@ The infrastructure cluster on your device provides persistent storage and is sho
     The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
 
 
-## Supported networking topologies
+## Supported network topologies
 
-Based on the use-case and workloads, you can select how the two Azure Stack Edge device nodes will be connected. The networking topologies available will differ depending on whether you use an Azure Stack Edge Pro GPU device or an Azure Stack Edge Pro 2 device.
+Based on the use case and workloads, you can select how the two Azure Stack Edge device nodes will be connected. Network topologies will differ depending on whether you use an Azure Stack Edge Pro GPU device or an Azure Stack Edge Pro 2 device.
 
-The supported network topologies for each of the device types are described here.
+At a high level, supported network topologies for each of the device types are described here.
 
 ### [Azure Stack Edge Pro GPU](#tab/1) 
 
-On your Azure Stack Edge Pro GPU device node: 
+On your Azure Stack Edge Pro GPU device node:
 
 - Port 2 is used for management traffic.
 - Port 3 and Port 4 are used for storage and cluster traffic. This traffic includes that needed for storage mirroring and Azure Stack Edge cluster heartbeat traffic that is required for the cluster to be online.  
@@ -72,17 +72,15 @@ The following network topologies are available:
 
 ![Available network topologies](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-network-topologies.png)
 
-1. **Switchless** - Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. 
+ - **Option 1 - Switchless** - Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. 
 
     In this option, Port 3 and Port 4 are connected back-to-back without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. <!--For example, these ports can't be enabled for compute--> Optionally you can also provide IP addresses for these ports.
 
-
-1. **Using switches and NIC teaming** - Use this option when you have high speed switches available for use with your device nodes for storage and cluster traffic. 
+- **Option 2 - Use switches and NIC teaming** - Use this option when you have high speed switches available for use with your device nodes for storage and cluster traffic. 
 
     Each of ports 3 and 4 of the two nodes of your device are connected via an external switch. The Port 3 and Port 4 are teamed on each node and a virtual switch and two virtual NICs are created that allow for port-level redundancy for storage and cluster traffic. These ports can be used for workload traffic as well.
 
- 
-1. **Using switches and without NIC teaming** - Use this option when you need an extra dedicated port for workload traffic and port-level redundancy isn’t required for storage and cluster traffic. 
+- **Option 3 - Use switches without NIC teaming** - Use this option when you need an extra dedicated port for workload traffic and port-level redundancy isn’t required for storage and cluster traffic. 
 
     Port 3 on each node is connected via an external switch. If Port 3 fails, the cluster may go offline. Separate virtual switches are created on Port 3 and Port 4. 
 
@@ -90,52 +88,52 @@ For more information, see how to [Choose a network topology for your device node
 
 ### [Azure Stack Edge Pro 2](#tab/2) 
 
-On your Azure Stack Edge Pro 2 device node: 
+On your Azure Stack Edge Pro 2 device node:
 
-- Port 1 is used for initial configuration. Port 1 is then reconfigured and assigned an IP address that may or may not be in the same subnet as the Port 2. Port 1 and Port 2 are used for clustering, storage and management traffic. 
-- Port 3 and Port 4 may be used for are used for Private Multi-Access Edge Computing workload deployment or for storage traffic.
+- **Option 1** - Port 1 and Port 2 are in different subnets. Separate virtual switches are created. Port 3 and Port 4 connect to an external virtual switch.
+ 
+- **Option 2** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch is created. Port 3 and Port 4 connect to an external virtual switch.
 
-The following network topologies are available:
+- **Option 3** - Port 1 and Port 2 are in separate subnets. Separate virtual switches are created on Port 1 and Port 2. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
 
-- **Switchless** - Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. There are further sub-options:
+- **Option 4** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch is created. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
 
-    - **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
-    
-    - **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
+  > [!NOTE]
+  > If you run PMEC workloads, use Option 1 or Option 2.
 
-    In each case, Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. 
+Usage considerations on your Azure Stack Edge Pro 2 device nodes:
 
+- **Switchless for Port 3 and Port 4** - Use this option when you don't have high speed switches available in the environment, or you want to dedicate Port 3 and Port 4 for storage and cluster traffic.
+  - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+  - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
+- **Using external switches for Port 3 and Port 4** - Use this option when you have high speed switches (>=10 GbE bandwidth) available for use with your device nodes and you want to allow a VM network adapter to connect to the virtual network created on Port 3 or Port 4, like a PMEC use case.
+  - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+  - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
 
-- **Using external switches** - Use this option when you have high speed switches (10 GbE switches) available for use with your device nodes for storage and cluster traffic. There are further sub-options:
+Additional considerations:
 
-    - **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
-    
-    - **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
+- Port 1 is used for initial configuration. Port 1 is then reconfigured and assigned an IP address that may or may not be in the same subnet as Port 2.  
+- If you select the **Using external switches** option, Port 1 and Port 2 are used for storage in both teaming and non-teaming modes. 
+- When using the **Switchless** option, Port 3 and Port 4 are connected back-to-back directly, without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic. Port 3 and Port 4 aren't available for workload traffic. 
+ 
+Pros and cons for supported topologies are summarized as follows: 
 
-    In each case, Port 3 and Port 4 are reserved for Private Multi-Access Edge Computing workload deployments. 
-
-The pros and cons for each of the above supported topologies can be summarized as follows:
-
-|     Local web UI option                                                           | Advantages                                                               | Disadvantages                                                         |
-|----------------------------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| Switchless,   Port 1 and Port 2 in separate subnet, separate virtual switches             | Redundant paths for management   and storage traffic.                     | Clients need to reconnect if   Port 1 or Port 2 fails.                |
-|                                                                | No single point of failure   within the device.                          |                                                                       |
-|                                                                | Lots of bandwidth for storage   and cluster traffic across the nodes.    |                                                                       |
-|                                                                | Can be deployed with Port 1 and   Port 2 in different subnets.           |                                                                       |
-|                                                                |                                                                          |                                                                       |
-| Switchless,   Port 1 and Port 2 in the same subnet, teamed virtual switch             | Redundant paths for management   and storage traffic.                    | Teamed virtual switch is a   single point of failure in the software. |
-|                                                                | Lots of bandwidth for storage   and cluster traffic across the nodes.    |                                                                       |
-|                                                                | Higher fault tolerance.                                                  |                                                                       |
-|                                                                |                                                                          |                                                                       |
-| Using   external switch, Port 1 and Port 2 in separate subnet, separate virtual switches | Two independent virtual switches   and network paths provide redundancy. | Clients need to reconnect if   Port 1 or Port 2 fails.                |
-|                                                                | No single point of failure with   the device.                            |                                                                       |
-|                                                                | Port 1 and Port 2 can be   connected to different subnets.               |                                                                       |
-|                                                                |                                                                          |                                                                       |
-| Using   external switch, Port 1 and Port 2 in same subnet, teamed virtual switch     | Load balancing.                                                          | Teamed switch is a single point   of failure in software.             |
-|                                                                | Higher fault toelerance.                                                 | Can't be deployed in an   environment with different subnets.         |
-|                                                                | Two independent, redundant paths   between the nodes.                    |                                                                       |
-|                                                                | Clients do not need to   reconnect.                                      |                                                                       |
-
+| Local web UI option | Advantages | Disadvantages |
+|---------------------|------------|---------------|
+| Port 3 and Port 4 are Switchless, Port 1 and Port 2 in separate subnet, separate virtual switches. | Redundant paths for management and storage traffic. | Clients must reconnect if Port 1 or Port 2 fails. |
+|    | No single point of failure within the device. | VM workload can't leverage Port 3 or Port 4 to connect to network endpoints other than a peer Azure Stack Edge node. This is why PMEC workloads can't use this option. |
+|    | Lots of bandwidth for storage and cluster traffic across nodes. |    |
+|    | Can be deployed with Port 1 and Port 2 in different subnets. |   |
+| Port 3 and Port 4 are Switchless, Port 1 and Port 2 are in the same subnet, teamed virtual switch. | Redundant paths for management and storage traffic. | VM workload can't leverage Port 3 or Port 4 to connect to network endpoints other than a peer Azure Stack Edge node. This is why PMEC workloads can't use this option. |
+|   | Lots of bandwidth for storage and cluster traffic across nodes. |    |
+|   | Higher fault tolerance. |   |
+| Port 3 and Port 4 use an external switch with >=10Gbps link bandwidth, Port 1 and Port 2 in separate subnets, separate virtual switches | Two independent virtual switches and network paths provide redundancy. | Clients must reconnect if Port 1 or Port 2 fails. |
+|   | No single point of failure with the device. |   |
+|   | Port 1 and Port 2 can be connected to different subnets. |  |
+| Port 3 and Port 4 use an external switch with >=10Gbps link bandwidth, Port 1 and Port 2 in the same subnet, teamed virtual switch. | Load balancing. |   |
+|    | Higher fault tolerance. | Can't be deployed in an environment with different subnets. | 
+|    | Two independent, redundant paths between nodes. |   |
+|    | Clients don't need to reconnect. |  |
 
 ---
 
@@ -148,9 +146,9 @@ Before you configure clustering on your device, you must cable the devices as pe
 ![Figure showing the steps in the deployment of a two-node Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
 
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
-1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
+1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md?pivots=twonode#cable-the-device).
 1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
-1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
+1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Ensure that port settings match between same port name on each appliance. Get the authentication token on this node.
 1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.
 1. Set up a cloud witness using an Azure Storage account or a local witness on an SMB fileshare.
 1. Assign a virtual IP to provide an endpoint for Azure Consistent Services or when using NFS. 
@@ -169,7 +167,7 @@ Before you configure clustering on your device, you must cable the devices as pe
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).
 1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device).
 1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md).
-1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
+1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Ensure that port settings match between same port name on each appliance. Get the authentication token on this node.
 1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.
 1. Set up a cloud witness using an Azure Storage account or a local witness on an SMB fileshare.
 1. Assign a virtual IP to provide an endpoint for Azure Consistent Services or when using NFS. 
@@ -206,7 +204,7 @@ You can manage the Azure Stack Edge cluster via the PowerShell interface of the 
 
 A two-node clustered device upgrade will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates to device nodes ensure minimal downtime of workloads. 
 
-When you apply these updates via the Azure portal, you only have to start the process on one node and both the nodes are updated.For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
+When you apply these updates via the Azure portal, you only have to start the process on one node and both the nodes are updated. For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
 
 ## Billing
 
@@ -217,5 +215,3 @@ If you deploy an Azure Stack Edge two-node cluster, each node is billed separate
 - Learn about [Cluster witness for your Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
 - See [Kubernetes for your Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)
 - Understand [Cluster failover scenarios](azure-stack-edge-gpu-cluster-failover-scenarios.md)
-
-

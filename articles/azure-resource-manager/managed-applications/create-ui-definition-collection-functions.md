@@ -1,13 +1,10 @@
 ---
 title: Create UI definition collection functions
 description: Describes the functions to use when working with collections, like arrays and objects.
-author: davidsmatlak
-
-ms.topic: conceptual
-ms.date: 07/13/2020
-ms.author: davidsmatlak
-
+ms.topic: reference
+ms.date: 06/24/2024
 ---
+
 # CreateUiDefinition collection functions
 
 These functions can be used with collections, like JSON strings, arrays and objects.
@@ -316,4 +313,4 @@ The following example returns `{"key1": "Linux"}`:
 
 ## Next steps
 
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
+- For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).

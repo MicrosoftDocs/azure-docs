@@ -1,9 +1,9 @@
 ---
-author: alkohli
-ms.service: databox  
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 06/08/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 

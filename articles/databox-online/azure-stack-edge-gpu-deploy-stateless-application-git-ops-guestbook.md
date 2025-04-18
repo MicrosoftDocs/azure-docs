@@ -4,8 +4,7 @@ description: Describes how to deploy a PHP `Guestbook` stateless application wit
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 09/09/2022
 ms.author: alkohli
@@ -23,7 +22,7 @@ This article shows you how to build and deploy a simple, multi-tier web applicat
 
 The deployment is done using GitOps on the Azure Arc-enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
+This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](/azure/azure-arc/kubernetes/overview).
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.

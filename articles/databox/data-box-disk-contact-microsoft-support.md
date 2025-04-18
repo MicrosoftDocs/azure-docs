@@ -2,12 +2,11 @@
 title: Log support ticket or open case for Azure Data Box | Microsoft Docs
 description: Learn how to log support request for issues related to your Data Box or Data Box Disk orders.
 services: databox
-author: alkohli
-ms.service: databox
-ms.subservice: disk
+author: stevenmatthew
+ms.service: azure-data-box-disk
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 # Open a support ticket for Azure Data Box
 

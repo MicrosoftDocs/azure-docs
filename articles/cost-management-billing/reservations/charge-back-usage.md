@@ -1,13 +1,13 @@
 ---
 title: Charge back Azure Reservation costs
-description: Learn how to view Azure Reservation costs for chargeback.
-author: bandersmsft
-ms.reviewer: nitinarora
+description: Learn how to view Azure Reservation costs for chargeback
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Charge back Azure Reservation costs
@@ -27,11 +27,11 @@ Users with an individual subscription can get the amortized cost data from their
 7. Set the chart type to **Table**.
 8. Set the **Group by** option to **Resource**.
 
-[![Example showing reservation resource costs that you can use for chargeback](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
+:::image type="content" border="true" source="./media/charge-back-usage/amortized-reservation-costs.png" lightbox="./media/charge-back-usage/amortized-reservation-costs.png" alt-text="Screenshot showing reservation resource costs that you can use for chargeback.":::
 
 Here's a video showing how to view reservation usage costs at subscription, resource group and resource level in the Azure portal.
 
- > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
+ > [!VIDEO https://learn-video.azurefd.net/vod/player?id=741b6fdc-9d82-49af-ba87-a8ede2cf4535] 
 
 ## Get the data for show back and charge back
 
@@ -71,14 +71,14 @@ Information in the following table about metric and filter can help solve for co
 
 ## Download the usage CSV file with new data
 
-If you're an EA admin, you can download the CSV file that contains new usage data from Azure portal. This data isn't available from the EA portal (ea.azure.com), you must download the usage file from Azure portal (portal.azure.com) to see the new data.
+If you're an EA admin, you can download the CSV file that contains new usage data from Azure portal.
 
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Select the billing account.
 2. Select **Usage + charges**.
 3. Select **Download**.  
-![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage-ea/portal-download-csv.png" alt-text="Screenshot showing where to Download the CSV usage data file in the Azure portal.":::
 4. In **Usage Details**, select **Amortized usage data**.
 
 The CSV files that you download contain actual costs and amortized costs.

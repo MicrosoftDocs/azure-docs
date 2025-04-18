@@ -25,7 +25,7 @@ This troubleshooting guide provides you the following information:
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode.Conflict <br/>409 | Topic with the specified name already exists. Choose a different topic name.	| The custom topic name should be unique in a single Azure region to ensure a correct publishing operation. The same name can be used in different Azure regions. | Choose a different name for the topic. |
 | HttpStatusCode.Conflict <br/> 409 | Domain with the specified already exists. Choose a different domain name. | The domain name should be unique in a single Azure region to ensure a correct publishing operation. The same name can be used in different Azure regions. | Choose a different name for the domain. |
-| HttpStatusCode.Conflict<br/>409 | Quota limit reached. For more information on these limits, see [Azure Event Grid limits](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Each Azure subscription has a limit on the number of Azure Event Grid resources that it can use. Some or all of this quota had been exceeded and no more resources could be created. | Check your current resources usage and delete any that aren't needed. If you can't delete any resources, create another Azure subscription and create Event Grid resources in that subscription. |
+| HttpStatusCode.Conflict<br/>409 | Quota limit reached. For more information on these limits, see [Azure Event Grid limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-event-grid-limits).  | Each Azure subscription has a limit on the number of Azure Event Grid resources that it can use. Some or all of this quota had been exceeded and no more resources could be created. | Check your current resources usage and delete any that aren't needed. If you can't delete any resources, create another Azure subscription and create Event Grid resources in that subscription. |
 
 ## Error code: 403
 
@@ -34,7 +34,7 @@ This troubleshooting guide provides you the following information:
 | HttpStatusCode.Forbidden <br/>403 | Publishing to {Topic/Domain} by client {IpAddress} is rejected because of IpAddress filtering rules. | The topic or domain has IP firewall rules configured and access is restricted only to configured IP addresses. | Add the IP address to the IP firewall rules, see [Configure IP firewall](configure-firewall.md) |
 | HttpStatusCode.Forbidden <br/> 403 | Publishing to {Topic/Domain} by client is rejected as request came from Private Endpoint and no matching private endpoint connection found for the resource. | The topic or domain has private endpoints and publish request came from a private endpoint that's not configured or approved. | Configure a private endpoint for the topic/domain. [Configure private endpoints](configure-private-endpoints.md) |
 
-Also, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it's, disable the following firewall rules and do an HTTP POST again:
+Also, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it is, disable the following firewall rules and do an HTTP POST again:
 
 - 920300 (Request missing an accept header)
 - 942430 (Restricted SQL character anomaly detection (args): # of special characters exceeded (12))

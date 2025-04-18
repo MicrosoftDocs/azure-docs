@@ -4,10 +4,9 @@ description: Learn about the technical specifications and compliance for your Az
 services: databox
 author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
-ms.date: 11/09/2022
+ms.date: 04/12/2023
 ms.author: sipastak
 ---
 
@@ -25,9 +24,9 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type     | 2 x 32 GB DDR4-2933 RDIMM |
-| Memory: raw   | 64 GB RAM |
-| Memory: usable | 51 GB RAM |
+| Memory type     | 2 x 32 GiB DDR4-2933 RDIMM |
+| Memory: raw   | 64 GiB RAM |
+| Memory: usable | 48 GiB RAM |
 | GPU | None |
 
 # [Model 128G4T1GPU](#tab/sku-b)
@@ -38,9 +37,9 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type     | 4 x 32 GB DDR4-2933 RDIMM |
-| Memory: raw   | 128 GB RAM |
-| Memory: usable | 102 GB RAM |
+| Memory type     | 4 x 32 GiB DDR4-2933 RDIMM |
+| Memory: raw   | 128 GiB RAM |
+| Memory: usable | 96 GiB RAM |
 | GPU | 1 NVIDIA A2 GPU <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
 
 # [Model 256G6T2GPU](#tab/sku-c)
@@ -51,9 +50,9 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type     | 4 x 64 GB DDR4-2933 RDIMM |
-| Memory: raw   | 256 GB RAM |
-| Memory: usable | 204 GB RAM |
+| Memory type     | 4 x 64 GiB DDR4-2933 RDIMM |
+| Memory: raw   | 256 GiB RAM |
+| Memory: usable | 224 GiB RAM |
 | GPU | 2 NVIDIA A2 GPUs <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
 
 ---
@@ -84,14 +83,14 @@ Your Azure Stack Edge Pro 2 device has four network interfaces, Port 1 - Port 4.
 Your Azure Stack Edge Pro 2 device has the following network hardware:
 
 * **Onboard Intel Ethernet network adapter X722** - Port 1 and Port 2. [See here for details.](https://www.intel.com/content/www/us/en/ethernet-products/network-adapters/ethernet-x722-brief.html)
-* **Nvidia Mellanox dual port 100-GbE ConnectX-6 Dx network adapter** - Port 3 and Port 4. [See here for details.](https://www.nvidia.com/en-us/networking/ethernet/connectx-6-dx/)
+* **NVIDIA Mellanox dual port 100-GbE ConnectX-6 Dx network adapter** - Port 3 and Port 4. [See here for details.](https://www.nvidia.com/en-us/networking/ethernet/connectx-6-dx/)
 
 Here are the details for the Mellanox card:
 
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model              | ConnectX®-6 Dx network interface card             |
-| Model Description  | 100 GbE dual-port QSFP56 |
+| Model Description  | 100-GbE dual-port QSFP56 |
 | Device Part Number | MCX623106AC-CDAT, with crypto or with secure boot |
 
 ## Storage specifications
@@ -172,18 +171,18 @@ The following table lists the dimensions of the shipping package in millimeters 
 |--------|------------------------------------------------------------------------------------|------------|
 | 1      | Model 64G2T                                                                        | 21.0       |
 |        |                                                                                    |            |
-| 2      | Shipping weight, with 4-post mount                                                 | 35.3       |
-| 3      | Model 64G2T install handling, 4-post (without bezel and with inner rails attached) | 20.4       |
+| 2      | Shipping weight, with four-post mount                                                 | 35.3       |
+| 3      | Model 64G2T install handling, four-post (without bezel and with inner rails attached) | 20.4       |
 |        |                                                                                    |            |
-| 4      | Shipping weight, with 2-post mount                                                 | 32.1       |
-| 5      | Model 64G2T install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
+| 4      | Shipping weight, with two-post mount                                                 | 32.1       |
+| 5      | Model 64G2T install handling, two-post (without bezel and with inner rails attached) | 20.4       |
 |        |                                                                                    |            |
 | 6      | Shipping weight with wall mount                                                    | 31.1       |
 | 7      | Model 64G2T install handling without bezel                                         | 19.8       |
 |        |                                                                                    |            |
-| 8      | 4-post in box                                                                      | 6.28       |
-| 9      | 2-post in box                                                                      | 3.08       |
-| 10      | Wallmount as packaged                                                             | 2.16       |
+| 8      | four-post in box                                                                      | 6.28       |
+| 9      | two-post in box                                                                      | 3.08       |
+| 10      | Wall mounts as packaged                                                             | 2.16       |
 
 # [Model 128G4T1GPU](#tab/sku-b)
 
@@ -191,18 +190,18 @@ The following table lists the dimensions of the shipping package in millimeters 
 |--------|------------------------------------------------------------------------------------|------------|
 | 1      | Model 128G4T1GPU                                                                   | 21.9         |
 |        |                                                                                    |            |
-| 2      | Shipping weight, with 4-post mount                                                 | 36.2       |
-| 3      | Model 128G4T1GPU install handling, 4-post (without bezel and with inner rails attached) | 21.3       |
+| 2      | Shipping weight, with four-post mount                                                 | 36.2       |
+| 3      | Model 128G4T1GPU install handling, four-post (without bezel and with inner rails attached) | 21.3       |
 |        |                                                                                    |            |
-| 4      | Shipping weight, with 2-post mount                                                 | 33.0       |
-| 5      | Model 128G4T1GPU install handling, 2-post (without bezel and with inner rails attached) | 21.3      |
+| 4      | Shipping weight, with two-post mount                                                 | 33.0       |
+| 5      | Model 128G4T1GPU install handling, two-post (without bezel and with inner rails attached) | 21.3      |
 |        |                                                                                    |            |
 | 6     | Shipping weight with wall mount                                                     | 32.0      |
 | 7      | Model 128G4T1GPU install handling without bezel                                    | 20.7       |
 |        |                                                                                    |            |
-| 8      | 4-post in box                                                                      | 6.28       |
-| 9      | 2-post in box                                                                      | 3.08       |
-| 10      | Wallmount as packaged                                                             | 2.16       |
+| 8      | four-post in box                                                                      | 6.28       |
+| 9      | two-post in box                                                                      | 3.08       |
+| 10      | Wall mounts as packaged                                                             | 2.16       |
 
 # [Model 256G6T2GPU](#tab/sku-c)
 
@@ -210,18 +209,18 @@ The following table lists the dimensions of the shipping package in millimeters 
 |--------|--------------------------------------------------------------------|------------|
 | 1      | Model 256G6T2GPU                                                  | 22.9       |
 |        |                                                                   |            |
-| 2      | Shipping weight, with 4-post mount                                | 37.1      |
-| 3 | Model 256G6T2GPU install handling, 4-post (without bezel and with inner rails attached)|22.3 |
+| 2      | Shipping weight, with four-post mount                                | 37.1      |
+| 3 | Model 256G6T2GPU install handling, four-post (without bezel and with inner rails attached)|22.3 |
 |        |                                                                      |            |
-| 4      | Shipping weight, with 2-post mount                                   | 33.9       |
-| 5      | Model 256G6T2GPU install handling, 2-post (without bezel and with inner rails attached) | 22.3       |
+| 4      | Shipping weight, with two-post mount                                   | 33.9       |
+| 5      | Model 256G6T2GPU install handling, two-post (without bezel and with inner rails attached) | 22.3       |
 |        |                                                                      |            |
 | 6      | Shipping weight with wall mount                                        | 33.0       |
 | 7      | Model 256G6T2GPU install handling without bezel                      | 21.7       |
 |        |                                                                     |            |
-| 8      | 4-post in box                                                       | 6.28       |
-| 9      | 2-post in box                                                       | 3.08       |
-| 10     | Wallmount as packaged                                              | 2.16       |
+| 8      | four-post in box                                                       | 6.28       |
+| 9      | two-post in box                                                       | 3.08       |
+| 10     | Wall mounts as packaged                                              | 2.16       |
 
 
 ---

@@ -25,13 +25,13 @@ The following diagram illustrates this concept:
 As with all Azure Functions running in the Consumption and Elastic Premium plans, Durable Functions supports auto-scale via the [Azure Functions scale controller](../event-driven-scaling.md#runtime-scaling). The Scale Controller monitors how long messages and tasks have to wait before they are processed. Based on these latencies it can decide whether to add or remove workers.
 
 > [!NOTE]
-> Starting with Durable Functions 2.0, function apps can be configured to run within VNET-protected service endpoints in the Elastic Premium plan. In this configuration, the Durable Functions triggers initiate scale requests instead of the Scale Controller. For more information, see [Runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers).
+> Starting with Durable Functions 2.0, function apps can be configured to run within VNET-protected service endpoints in the Elastic Premium plan. In this configuration, the Durable Functions triggers initiate scale requests instead of the Scale Controller. For more information, see [Runtime scale monitoring](../functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers).
 
 On a premium plan, automatic scaling can help to keep the number of workers (and therefore the operating cost) roughly proportional to the load that the application is experiencing.
 
 ### CPU usage
 
-**Orchestrator functions** are executed on a single thread to ensure that execution can be deterministic across many replays. Because of this single-threaded execution, it's important that orchestrator function threads do not perform CPU-intensive tasks, do I/O, or block for any reason. Any work that may require I/O, blocking, or multiple threads should be moved into activity functions.
+**Orchestrator functions** run their logic multiple times due to their replaying behavior. It's therefore important that orchestrator function threads do not perform CPU-intensive tasks, do I/O, or block for any reason. Any work that may require I/O, blocking, or multiple threads should be moved into activity functions.
 
 **Activity functions** have all the same behaviors as regular queue-triggered functions. They can safely do I/O, execute CPU intensive operations, and use multiple threads. Because activity triggers are stateless, they can freely scale out to an unbounded number of VMs.
 
@@ -193,6 +193,10 @@ The `partitionCount` parameter can be specified in the **host.json** file. The f
   }
 }
 ```
+
+## Considerations to minimize invocation latencies
+
+Under normal circumstances, invocation requests (to activities, orchestrators, entities, etc.) should be processed rather quickly. However, there's no guarantee on the maximum latency of any invocation request as it depends on factors such as: the type of scale behavior your App Service Plan, your concurrency settings, and the size of your application's backlog. As such, we recommend investing in [stress testing](./durable-functions-best-practice-reference.md#invest-in-stress-testing) to measure and optimize your application's tail latencies.
 
 ## Performance targets
 

@@ -3,11 +3,9 @@ title: Load data into Azure Data Lake Storage Gen1
 description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen1'
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 ---
 
 # Load data into Azure Data Lake Storage Gen1 by using Azure Data Factory
@@ -40,7 +38,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
@@ -121,7 +119,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     :::image type="content" source="./media/load-data-into-azure-data-lake-store/adls-copy-result.png" alt-text="Verify Data Lake Storage Gen1 output":::
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about Data Lake Storage Gen1 support: 
 

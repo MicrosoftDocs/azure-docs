@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/25/2022
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: kr2b-contr-experiment
 ---
 

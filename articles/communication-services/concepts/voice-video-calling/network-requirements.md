@@ -7,10 +7,11 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 06/30/2021
+ms.date: 02/19/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: devx-track-js
 ---
 
 # Network recommendations
@@ -23,7 +24,7 @@ The quality of real-time media over IP is significantly affected by the quality 
 
 * **Latency**. The time it takes to get an IP packet from point A to point B on the network. This network propagation delay is determined by the physical distance between the two points and any other overhead incurred by the devices that your traffic flows through. Latency is measured as one-way or round-trip time (RTT).
 * **Packet loss**. A percentage of packets that are lost in a specific window of time. Packet loss directly affects audio quality—from small, individual lost packets having almost no impact to back-to-back burst losses that cause complete audio cut-out.
-* **Inter-packet arrival jitter, also known as jitter**. The average change in delay between successive packets. Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering that a participant will notice its effects.
+* **Inter-packet arrival jitter, also known as jitter**. The average change in delay between successive packets. Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering that a participant notices its effects.
 
 ## Network bandwidth
 
@@ -38,7 +39,8 @@ The following bandwidth requirements are for the JavaScript SDKs.
 |500 Kbps|Peer-to-peer quality video calling 360 pixels at 30 FPS|
 |1.2 Mbps|Peer-to-peer HD-quality video calling with resolution of HD 720 pixels at 30 FPS|
 |500 Kbps|Group video calling 360 pixels at 30 FPS|
-|1.2 Mbps|HD group video calling with resolution of HD 720 pixels at 30 FPS| 
+|1.2 Mbps|HD group video calling with resolution of HD 720 pixels at 30 FPS|
+|1.5 Mbps|Peer-to-peer HD-quality video calling with resolution of HD 1080 pixels at 30 FPS |
 
 The following bandwidth requirements are for the native Windows, Android, and iOS SDKs.
 
@@ -54,15 +56,15 @@ The following bandwidth requirements are for the native Windows, Android, and iO
 
 ## Firewall configuration
 
-Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services can still work. The optimal experience is provided when the recommended ports and IP ranges are open.
+Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services won't work properly. The list of IP ranges and allow listed domains that need to be enabled are:
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
-| Media traffic | Range of Azure public cloud IP addresses 20.202.0.0/16 The range provided above is the range of IP addresses on either Media processor or ACS TURN service. | UDP 3478 through 3481, TCP ports 443 |
+| Media traffic | Range of Azure public cloud IP addresses 20.202.0.0/16 The range provided above is the range of IP addresses on either Media processor or Azure Communication Services TURN service. | UDP 3478 through 3481, TCP ports 443 |
 | Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.office.com| TCP 443, 80 |
 
 
-The endpoints below should be reachable for U.S. Government GCC High customers only
+The endpoints below should be reachable for U.S. Government GCC High customers only.
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
@@ -82,7 +84,7 @@ You might want to optimize further if:
 | Network optimization task | Details |
 | :-- | :-- |
 | Plan your network | In this documentation, you can find minimal requirements to your network for calls. Refer to the [Teams example for planning your network](/microsoftteams/tutorial-network-planner-example). |
-| External name resolution | Be sure that all computers running the Communication Services SDKs can resolve external DNS queries to discover the services provided by communication servicers and that your firewalls aren't preventing access. Ensure that the SDKs can resolve the addresses *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com, and *.trouter.io. |
+| External name resolution | Be sure that all computers running the Communication Services SDKs can resolve external DNS queries to discover the services provided by communication servicers and that your firewalls aren't preventing access. Ensure that the SDKs can resolve the addresses *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, and *.office.com. |
 | Maintain session persistence | Make sure your firewall doesn't change the mapped network address translation (NAT) addresses or ports for UDP.
 Validate NAT pool size | Validate the NAT pool size required for user connectivity. When multiple users and devices access Communication Services by using [NAT or port address translation](/office365/enterprise/nat-support-with-office-365), ensure that the devices hidden behind each publicly routable IP address don't exceed the supported number. Ensure that adequate public IP addresses are assigned to the NAT pools to prevent port exhaustion. Port exhaustion contributes to internal users and devices being unable to connect to Communication Services. |
 | Intrusion detection and prevention guidance | If your environment has an [intrusion detection system](../../../network-watcher/network-watcher-intrusion-detection-open-source-tools.md) or intrusion prevention system deployed for an extra layer of security for outbound connections, allow all Communication Services URLs. |

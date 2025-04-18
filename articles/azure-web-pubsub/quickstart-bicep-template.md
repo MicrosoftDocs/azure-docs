@@ -6,14 +6,14 @@ ms.author: lianwei
 ms.date: 06/15/2022
 ms.topic: quickstart
 ms.service: azure-web-pubsub
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-bicep
 ---
 
 # Quickstart: Use Bicep to deploy Azure Web PubSub service
 
 This quickstart describes how to use Bicep to create an Azure Web PubSub service using Azure CLI or PowerShell.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

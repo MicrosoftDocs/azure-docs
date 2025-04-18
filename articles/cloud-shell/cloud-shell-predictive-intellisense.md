@@ -1,15 +1,15 @@
 ---
 description: Azure Cloud Shell uses Predictive IntelliSense
 ms.date: 10/11/2022
-ms.topic: article
+ms.topic: conceptual
 title: Predictive IntelliSense in Azure Cloud Shell
 ---
 
 # Predictive IntelliSense in Azure Cloud Shell
 
-Beginning January 2023 Azure Cloud Shell uses the version of [PSReadLine][01] that has Predictive
+Beginning January 2023 Azure Cloud Shell uses the version of [PSReadLine][03] that has Predictive
 IntelliSense enabled by default. We've also installed and enabled the Azure PowerShell predictor
-[Az.Tools.Predictor][02]] module. Together, these changes enhance the command-line experience by
+[Az.Tools.Predictor][01] module. Together, these changes enhance the command-line experience by
 providing suggestions that help new and experienced users of Azure discover, edit, and execute
 complete commands.
 
@@ -24,11 +24,11 @@ the default `InlineView` of the suggestion. Pressing <kbd>RightArrow</kbd> key a
 suggestion. After accepting the suggestion, you can edit the command line before hitting
 <kbd>Enter</kbd> to run the command.
 
-![Suggestion in InlineView mode](./media/predictive-intellisense/cloud-shell-inline.png)
+![Suggestion in InlineView mode][06]
 
 PSReadLine also offers a `ListView` presentation of the suggestions.
 
-![Suggestions in ListView mode](./media/predictive-intellisense/cloud-shell-list-view.png)
+![Suggestions in ListView mode][07]
 
 In `ListView` mode, use the arrow keys to scroll through the available suggestions. List view also
 shows the source of the prediction.
@@ -43,10 +43,12 @@ configure the color of the suggestions.
 The following command changes the color of inline suggestions to white text on a gray background.
 
 ```powershell
-Set-PSReadLineOption -Colors @{ InlinePrediction = $PSStyle.Foreground.White + $PSStyle.Background.BrightBlack }
+Set-PSReadLineOption -Colors @{
+    InlinePrediction = $PSStyle.Foreground.White + $PSStyle.Background.BrightBlack
+}
 ```
 
-Learn more about color settings for [Set-PSReadLineOption][03].
+Learn more about color settings for [Set-PSReadLineOption][04].
 
 ## How to disable Predictive IntelliSense
 
@@ -65,7 +67,7 @@ Set-PSReadLineOption -PredictionSource None
 The commands to change the prediction color and enable or disable predictions only affect the
 current session. Add these commands to your PowerShell profile so that they're available every time
 you start Cloud Shell. The following instructions will guide you through configuring a profile for
-Cloud Shell. For more information on PowerShell profiles, see [About_Profiles][06]
+Cloud Shell. For more information on PowerShell profiles, see [About_Profiles][02]
 
 ### How to check if you have a PowerShell profile in Cloud Shell
 
@@ -96,7 +98,8 @@ UnixMode   User             Group                 LastWriteTime           Size N
 -rw-r--r-- jason            jason              11/19/2022 18:21              0 Microsoft.PowerShell_profile.ps1
 ```
 
-Use the built-in open-source editor to edit the profile. To learn more, see [Azure Cloud Shell editor][04].
+Use the built-in open-source editor to edit the profile. To learn more, see
+[Azure Cloud Shell editor][08].
 
 The following example shows the profile commands that set the prediction color to default light grey
 and enables History predictions.
@@ -110,7 +113,7 @@ Set-PSReadLineOption -Colors @{ InLinePrediction = '#8d8d8d' }
 
 If the output is **True**, then a profile already exists. Edit the existing profile to add the
 commands to configure the color and behavior of Predictive IntelliSense. Use the built-in
-open-source editor to edit the profile. To learn more, see [Azure Cloud Shell editor][04].
+open-source editor to edit the profile. To learn more, see [Azure Cloud Shell editor][08].
 
 Use the built-in Cloud Shell editor to edit the profile:
 
@@ -123,13 +126,15 @@ code $Profile
 For more information about configuring PSReadLine and managing predictors, see
 [Using predictors in PSReadLine][05].
 
-For more information on PowerShell profiles, see [About_Profiles][06].
+For more information on PowerShell profiles, see [About_Profiles][02].
 
 
 <!-- link references -->
-[01]: /powershell/module/psreadline/about/about_psreadline
-[02]: /powershell/azure/az-predictor
-[03]: /powershell/module/psreadline/set-psreadlineoption
-[04]: ./using-cloud-shell-editor.md
+[01]: /powershell/azure/az-predictor
+[02]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[03]: /powershell/module/psreadline/about/about_psreadline
+[04]: /powershell/module/psreadline/set-psreadlineoption
 [05]: /powershell/scripting/learn/shell/using-predictors
-[06]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[06]: media/predictive-intellisense/cloud-shell-inline.png
+[07]: media/predictive-intellisense/cloud-shell-list-view.png
+[08]: using-cloud-shell-editor.md

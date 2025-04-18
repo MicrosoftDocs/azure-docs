@@ -3,14 +3,16 @@ title: Migrating from physical labs to the cloud
 titleSuffix: Azure Lab Services
 description: Learn about the benefits and considerations for migrating from physical labs to Azure Lab Services. Understand how to configure your labs to optimize costs.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---
 
 # Considerations for migrating from physical labs to Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Azure Lab Services enables you to provide lab environments that users can access from anywhere, any time of the day. When you migrate from physical labs to Azure Lab Services, you should reassess your lab structure to minimize costs and optimize the experience for lab creators and users. In this article, you learn about the considerations and benefits of migrating from physical labs to Azure Lab Services.
 
@@ -54,12 +56,12 @@ There are multiple benefits of using single-purpose labs (for example, one class
 
 - Lab VMs only contain the software that is needed for their purpose. This simplifies the set-up and maintenance of labs by lab creators, and provides more clarity for lab users.
 
-- Access to each individual lab is controlled. Lab users are only granted access to labs and software they need. Learn how to [add and manage lab users](./how-to-configure-student-usage.md).
+- Access to each individual lab is controlled. Lab users are only granted access to labs and software they need. Learn how to [add and manage lab users](./how-to-manage-lab-users.md).
 
 - Further optimize costs by taking advantage of the following features:
 
     - [Schedules](./how-to-create-schedules.md) are used to automatically start and stop all VMs within a lab according to each class’s schedule. 
-    - [Quotas](./how-to-configure-student-usage.md#set-quotas-for-users) allow you to control the amount of time that each class’s students can access VMs outside of their scheduled hours.
+    - [Quotas](./how-to-manage-lab-users.md#set-quotas-for-users) allow you to control the amount of time that each class’s students can access VMs outside of their scheduled hours.
 
 ## Example use case
 

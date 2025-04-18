@@ -1,11 +1,11 @@
 ---
 title: Migrate low-priority VMs to spot VMs in Batch
 description: Learn how to migrate Azure Batch low-priority VMs to Spot VMs and plan for feature end of support.
-author: harperche
-ms.author: harpercheng
-ms.service: batch
+author: padmalathas
+ms.author: padmalathas
+ms.service: azure-batch
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 02/25/2025
 ---
 
 # Migrate Batch low-priority VMs to Spot VMs
@@ -42,6 +42,19 @@ See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spo
 
 1. Select **Save**.
 
+## To Ensure the Migration is Correctly Applied:
+```azurecli-interactive
+az batch pool show 
+
+--account-name <your-batch-account-name> 
+
+--account-endpoint "https://<your-batch-account-name>.<region>.batch.azure.com" 
+
+--pool-id <your-pool-id> 
+
+--query "{PoolID:id, VMSize:vmSize, SpotNodes:scaleSettings.targetLowPriorityNodes}"
+```
+
 ## FAQs
 
 - How do I create a user subscription pool allocation Batch account?
@@ -60,7 +73,7 @@ See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spo
 
    Yes. In the Azure portal, you can see historical pricing and eviction rates per size in a region.
 
-   For more information about using spot VMs, see [Spot Virtual Machines](../virtual-machines/spot-vms.md).
+   For more information about using spot VMs, see [Spot Virtual Machines](/azure/virtual-machines/spot-vms).
 
 - Can I transfer my quotas between Batch accounts?
 

@@ -3,17 +3,16 @@ title: Create an Azure Automation account using a Resource Manager template
 titleSuffix: Azure Automation
 description: This article shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-ms.date: 08/27/2021
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.custom: mvc, subject-armqs, mode-arm
+ms.date: 09/15/2024
+ms.topic: quickstart
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Create an Azure Automation account using a Resource Manager template
 
 Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This article shows you how to deploy an Azure Resource Manager template (ARM template) that creates an Automation account. Using an ARM template takes fewer steps compared to other deployment methods. The JSON template specifies default values for parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with ARM templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 The sample template does the following steps:
 
@@ -22,20 +21,17 @@ The sample template does the following steps:
 * Links the Automation account to the Log Analytics workspace.
 * Adds sample Automation runbooks to the account.
 
-> [!NOTE]
-> Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-run-as-account.md).
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 If you're new to Azure Automation and Azure Monitor, it's important that you understand the configuration details. The understanding can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [additional details](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](/azure/azure-monitor/logs/resource-manager-workspace#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
 * Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](../azure-monitor/logs/workspace-design.md). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
+* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](/azure/azure-monitor/logs/workspace-design). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
 
 ## Review the template
 
@@ -53,7 +49,7 @@ The Azure resources defined in the template:
 
 1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json":::
 
 1. Enter or select the following values:
 

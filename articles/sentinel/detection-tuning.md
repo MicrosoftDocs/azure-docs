@@ -5,7 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+
+
+#Customer intent: As a security analyst, I want to receive fine-tuning recommendations for my Microsoft Sentinel analytics rules so that I can optimize threat detection and reduce false positives.
+
 ---
 
 # Get fine-tuning recommendations for your analytics rules in Microsoft Sentinel

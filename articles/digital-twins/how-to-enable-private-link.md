@@ -6,8 +6,7 @@ author: baanders
 ms.author: baanders
 ms.date: 06/07/2022
 ms.topic: how-to
-ms.service: digital-twins
-ms.custom: contperf-fy22q1, contperf-fy22q4
+ms.service: azure-digital-twins
 ms.devlang: azurecli
 ---
 
@@ -245,9 +244,11 @@ For a sample template that allows an Azure function to connect to Azure Digital 
 
 This template creates an Azure Digital Twins instance, a virtual network, an Azure function connected to the virtual network, and a Private Link connection to make the Azure Digital Twins instance accessible to the Azure function through a private endpoint.
 
-## Troubleshoot
+## Limitations and troubleshooting
 
-Here are some common issues that might arise when using Private Link with Azure Digital Twins.
+A limitation of using Private Link with Azure Digital Twins is that cross-tenant scenarios are not supported.
+
+For troubleshooting, here are some common issues that might arise:
 
 * **Issue:** When trying to access Azure Digital Twins APIs, you see an HTTP error code 403 with the following error in the response body:
     ```json

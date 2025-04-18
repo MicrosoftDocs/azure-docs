@@ -1,19 +1,18 @@
 ---
-title: Manage Azure Data Box, Azure Data Box Heavy via Azure portal | Microsoft Docs 
-description: Describes how to use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy.
+title: Manage Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy via Azure portal | Microsoft Docs 
+description: Describes how to use the Azure portal to administer your Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy.
 services: databox
-author: alkohli
+author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
-ms.topic: article
-ms.date: 02/22/2023
-ms.author: alkohli
+ms.service: azure-databox
+ms.topic: how-to
+ms.date: 03/06/2025
+ms.author: shaas
 ---
 
-# Use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy
+# Use the Azure portal to administer your Azure Data Box Next Gen and Data Box
 
-This article applies to both Azure Data Box and Azure Data Box Heavy. This article describes some of the complex workflows and management tasks that can be performed on the Azure Data Box device. You can manage the Data Box device via the Azure portal or via the local web UI.
+This article applies to Azure Data Box 120, Azure Data Box 525, and Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy. This article describes some of the complex workflows and management tasks that can be performed on the Azure Data Box device. You can manage the Data Box device via the Azure portal or via the local web UI.
 
 This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage Data Box device, and track the status of the order as it proceeds to completion.
 
@@ -63,20 +62,6 @@ You can only delete orders that are completed or canceled. Perform the following
     ![Delete command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Enter the name of the order when prompted to confirm the order deletion. Click **Delete**.
-
-## Download shipping label
-
-You may need to download the shipping label if the E-ink display of your Data Box isn't working and doesn't display the return shipping label. There's no E-ink display on Data Box Heavy, so this workflow doesn't apply to Data Box Heavy.
-
-Perform the following steps to download a shipping label.
-
-1.	Go to **Overview > Download shipping label**. This option is available only after the device has shipped. 
-
-    ![Download shipping label](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
-
-2.	This downloads the following return shipping label. Save the label and print it out. Fold and insert the label into the clear sleeve on the device. Ensure that the label is visible. Remove any stickers that are on the device from previous shipping.
-
-    ![Example shipping label](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## Edit shipping address
 
@@ -267,4 +252,4 @@ You can find out the device password by viewing your order in the Azure portal.
 
 ## Next steps
 
-- Learn how to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md).
+- Learn how to [Troubleshoot Data Box issues](data-box-troubleshoot.md).

@@ -2,12 +2,13 @@
 metadata:
   title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ) 
   description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
-  author: kgremban
-  ms.author: kgremban
+  author: SoniaLopezBravo
+  ms.author: sonialopez
   ms.date: 02/06/2023
   ms.topic: faq
-  ms.service: iot-dps
+  ms.service: azure-iot-hub
   services: iot-dps
+  ms.subservice: azure-iot-hub-dps
 title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
 summary: |
   This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
@@ -62,7 +63,7 @@ sections:
       - question: |
          Where does DPS store customer data?
         answer: |
-         Device Provisioning Service doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Data residency considerations](about-iot-dps.md#data-residency-consideration).
+         Device Provisioning Service stores customer data in the region where you deployed the service instance, and replicates data to a secondary region to support disaster recovery scenarios. For more information, see [Data residency considerations](about-iot-dps.md#data-residency-consideration).
          
   - name: Billing
     questions:

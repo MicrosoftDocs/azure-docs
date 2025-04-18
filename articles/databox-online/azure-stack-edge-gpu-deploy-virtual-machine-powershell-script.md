@@ -4,8 +4,8 @@ description: Describes how to create and manage virtual machines (VMs) on a Azur
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: alkohli
@@ -81,11 +81,11 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 1. Before you run the script, make sure you are still connected to the local Azure Resource Manager of the device and the connection has not expired.
 
     ```powershell
-    PS C:\windows\system32> login-AzureRMAccount -EnvironmentName aztest1 -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    PS C:\windows\system32> login-AzureRMAccount -EnvironmentName aztest1 -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
 
     Account               SubscriptionName              TenantId                             Environment
     -------               ----------------              --------                             -----------
-    EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d aztest1
+    EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee aztest1
 
     PS C:\windows\system32> cd C:\Users\v2
     PS C:\Users\v2>
@@ -169,7 +169,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     DiskSizeGB         : 13
     EncryptionSettings :
     ProvisioningState  : Succeeded
-    Id                 : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Compute/disks/ld201221071831
+    Id                 : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Compute/disks/ld201221071831
     Name               : ld201221071831
     Type               : Microsoft.Compute/disks
     Location           : DBELocal
@@ -195,7 +195,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     SourceVirtualMachine :
     StorageProfile       : Microsoft.Azure.Management.Compute.Models.ImageStorageProfile
     ProvisioningState    : Succeeded
-    Id                   : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
+    Id                   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
     Name                 : ig201221071831
     Type                 : Microsoft.Compute/images
     Location             : dbelocal
@@ -203,9 +203,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
      Created a new Image
     
-     Using Vnet /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
+     Using Vnet /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
     
-     Creating a new Newtork Interface
+     Creating a new Network Interface
     WARNING: The output object type of this cmdlet will be modified in a future release.
     
     VirtualMachine              :
@@ -222,11 +222,11 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
                                     {
                                       "Name": "ip201221071831",
                                       "Etag": "W/\"27785dd5-d12a-4d73-9495-ffad7847261a\"",
-                                      "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831/ipConfigurations/ip201221071831",
+                                      "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831/ipConfigurations/ip201221071831",
                                       "PrivateIpAddress": "10.57.51.61",
                                       "PrivateIpAllocationMethod": "Dynamic",
                                       "Subnet": {
-                                        "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
+                                        "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
                                         "ResourceNavigationLinks": [],
                                         "ServiceEndpoints": []
                                       },
@@ -253,7 +253,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     TagsTable                   :
     Name                        : nic201221071831
     Etag                        : W/"27785dd5-d12a-4d73-9495-ffad7847261a"
-    Id                          : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831
+    Id                          : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831
     
      Created Network Interface
     
@@ -265,9 +265,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
      Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine = Set-AzureRmVMOSDisk -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Name osld201221071831 -Caching ReadWrite -CreateOption FromImage -Windows -StorageAccountType StandardLRS
     
-     Add-AzureRmVMNetworkInterface -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831.Id
+     Add-AzureRmVMNetworkInterface -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831.Id
     
-     Set-AzureRmVMSourceImage -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
+     Set-AzureRmVMSourceImage -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
     
      New-AzureRmVM -ResourceGroupName rg201221071831 -Location DBELocal -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Verbose
     WARNING: Since the VM is created using premium storage or managed disk, existing standard storage account, myasesa1, is used for boot

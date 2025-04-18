@@ -1,16 +1,13 @@
 ---
-title: SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure 
+title: SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure
 description:  Multi-SID high availability for SAP ASCS/SCS instances with Windows Server Failover Clustering and file share on Azure
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
@@ -36,7 +33,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
-> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](../../availability-zones/az-overview.md)
+> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](../../reliability/availability-zones-overview.md)
 > 
 
 For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md) instead of the basic SKU of the Azure load balancer.
@@ -305,13 +302,11 @@ Install DBMS and SAP application Servers as described earlier.
 [2287140]:https://launchpad.support.sap.com/#/notes/2287140
 [2492395]:https://launchpad.support.sap.com/#/notes/2492395
 
-[sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 [s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
 [new-in-win-2016-storage]:/windows-server/storage/whats-new-in-storage
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 [networking-limits-azure-resource-manager]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md

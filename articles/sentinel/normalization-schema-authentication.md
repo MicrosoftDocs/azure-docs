@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use the ASIM Authentication normalization schema so that I can standardize and analyze authentication events across multiple sources for improved threat detection.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Authentication normalization schema reference (Public preview)
@@ -38,7 +42,7 @@ For the list of authentication parsers Microsoft Sentinel provides refer to the 
 When implementing custom parsers for the Authentication information model, name your KQL functions using the following syntax:
 
 - `vimAuthentication<vendor><Product>` for filtering parsers
-- `ASiAuthentication<vendor><Product>` for parameter-less parsers
+- `ASimAuthentication<vendor><Product>` for parameter-less parsers
 
 For information on adding your custom parsers to the unifying parser, refer to [Managing ASIM parsers](normalization-manage-parsers.md).
 
@@ -57,13 +61,13 @@ The following filtering parameters are available:
 
 For example, to filter only authentication events from the last day to a specific user, use:
 
-```kql
+```kusto
 imAuthentication (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())
 ```
 
 
 > [!TIP]
-> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/kusto/query/scalar-data-types/dynamic?view=microsoft-sentinel&preserve-view=true#dynamic-literals). For example: `dynamic(['192.168.','10.'])`.
 >
 
 
@@ -83,7 +87,7 @@ Authentication events reference the following entities:
 
 - **TargetUser** - The user information used to authenticate to the system. The **TargetSystem** is the primary subject of the authentication event, and the alias User aliases a **TargetUser** identified.
 - **TargetApp** - The application authenticated to.
-- **Target** - The system on which **TaregtApp*** is running.
+- **Target** - The system on which **TargetApp*** is running.
 - **Actor** - The user initiating the authentication, if different than **TargetUser**.
 - **ActingApp** - The application used by the **Actor** to perform the authentication.
 - **Src** - The system used by the **Actor** to initiate the authentication.
@@ -112,13 +116,8 @@ The following list mentions fields that have specific guidelines for authenticat
 | <a name ="eventresultdetails"></a>**EventResultDetails**         | Recommended   | String |  The details associated with the event result. This field is typically populated when the result is a failure.<br><br>Allowed values include: <br> - `No such user or password`. This value should be used also when the original event reports that there is no such user, without reference to a password.<br> - `No such user`<br> - `Incorrect password`<br> - `Incorrect key`<br>-	`Account expired`<br>-	`Password expired`<br>-	`User locked`<br>-	`User disabled`<br> - `Logon violates policy`. This value should be used when the original event reports, for example: MFA required, logon outside of working hours, conditional access restrictions, or too frequent attempts.<br>-	`Session expired`<br>-	`Other`<br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)|
 | **EventSubType**    | Optional    | String     |   The sign-in type. Allowed values include:<br> - `System`<br> - `Interactive`<br> - `RemoteInteractive`<br> - `Service`<br> - `RemoteService`<br> - `Remote` - Use when the type of remote sign-in is unknown.<br> - `AssumeRole` - Typically used when the event type is `Elevate`. <br><br>The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype). |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.3`         |
-| **EventSchema** | Optional | String | The name of the schema documented here is **Authentication**. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is **Authentication**. |
 | **Dvc** fields| -      | -    | For authentication events, device fields refer to the system reporting the event. |
-
-
-> [!IMPORTANT]
-> The `EventSchema` field is currently optional but will become Mandatory on July 1st 2022.
->
 
 #### All common fields
 
@@ -146,8 +145,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
 | <a name="actoruserid"></a>**ActorUserId**    | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **ActorScope** | Optional | String | The scope, such as Azure AD tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| **ActorScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | **ActorUserIdType**| Conditional  | UserIdType |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="actorusername"></a>**ActorUsername**  | Optional    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
 | **ActorUsernameType**              | Conditional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
@@ -171,8 +170,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
 |<a name="targetuserid"></a> **TargetUserId**   | Optional | UserId     | A machine-readable, alphanumeric, unique representation of the target user. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br> Example: `00urjk4znu3BcncfY0h7`    |
-| **TargetUserScope** | Optional | String | The scope, such as Azure AD tenant, in which [TargetUserId](#targetuserid) and [TargetUsername](#targetusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| **TargetUserScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [TargetUserId](#actoruserid) and [TargetUsername](#actorusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
+| **TargetUserScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [TargetUserId](#targetuserid) and [TargetUsername](#targetusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **TargetUserScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [TargetUserId](#actoruserid) and [TargetUsername](#actorusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | **TargetUserIdType** | Conditional | UserIdType | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).            <br><br> Example:  `SID`  |
 | <a name="targetusername"></a>**TargetUsername** | Optional | Username     | The target user username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example:   `MarieC`      |
 | **TargetUsernameType**             |Conditional  | UsernameType | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).          |
@@ -205,7 +204,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **SrcGeoCountry**|Optional |Country |Example: `Canada` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 | **SrcGeoCity**|Optional |City |Example: `Montreal` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 |**SrcGeoRegion** | Optional|Region | Example: `Quebec` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
-| **SrcGeoLongtitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
+| **SrcGeoLongitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 | **SrcRiskLevel** | Optional | Integer | The risk level associated with the source. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
 | **SrcOriginalRiskLevel** | Optional | Integer | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
@@ -225,22 +224,22 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="dst"></a>**Dst** | Alias       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargerDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
+| <a name="dst"></a>**Dst** | Alias       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargetDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
 | <a name="targethostname"></a>**TargetHostname** | Recommended | Hostname | The target device hostname, excluding domain information.<br><br>Example: `DESKTOP-1282V4D` |
 | <a name="targetdomain"></a>**TargetDomain** | Recommended | String | The domain of the target device.<br><br>Example: `Contoso` |
 | <a name="targetdomaintype"></a>**TargetDomainType** | Conditional | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
 | **TargetFQDN** | Optional | String | The target device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [TargetDomainType](#targetdomaintype) reflects the format used.   |
-| <a name = "dstdescription"></a>**DstDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
+| <a name = "targetdescription"></a>**TargetDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="targetdvcid"></a>**TargetDvcId** | Optional | String | The ID of the target device. If multiple IDs are available, use the most important one, and store the others in the fields `TargetDvc<DvcIdType>`. <br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="targetdvcscopeid"></a>**TargetDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **TargetDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
-| <a name="targetdvcscope"></a>**TargerDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="targetdvcscope"></a>**TargetDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **TargetDvcIdType** | Conditional | Enumerated | The type of [TargetDvcId](#targetdvcid). For a list of allowed values and further information refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **TargetDeviceId** is used.|
 | **TargetDeviceType** | Optional | Enumerated | The type of the target device.  For a list of allowed values and further information refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 |<a name="targetipaddr"></a>**TargetIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
 | **TargetPortNumber** |Optional |Integer |The port of the target device.|
-| **TargetGeoCountry** | Optional | Country | The country associated with the target IP address.<br><br>Example: `USA` |
-| **TargetGeoRegion** | Optional | Region | The region within a country associated with the target IP address.<br><br>Example: `Vermont` |
+| **TargetGeoCountry** | Optional | Country | The country/region associated with the target IP address.<br><br>Example: `USA` |
+| **TargetGeoRegion** | Optional | Region | The region associated with the target IP address.<br><br>Example: `Vermont` |
 | **TargetGeoCity** | Optional | City | The city associated with the target IP address.<br><br>Example: `Burlington` |
 | **TargetGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the target IP address.<br><br>Example: `44.475833` |
 | **TargetGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the target IP address.<br><br>Example: `73.211944` |
@@ -281,7 +280,7 @@ These are the changes in version 0.1.2 of the schema:
 - Added the fields `ActorScope`, `TargetUserScope`, `SrcDvcScopeId`, `SrcDvcScope`, `TargetDvcScopeId`, `TargetDvcScope`, `DvcScopeId`, and `DvcScope`.
 
 These are the changes in version 0.1.3 of the schema:
-- Added the fields `SrcPortNumber`, `ActorOriginalUserType`,  `ActorScopeId`, `TargetOriginalUserType`,  `TargetUserScopeId`, `SrcDescription`, `SrcRiskLevel`, `SrcOriginalRiskLevel`, and `DstDescription`.
+- Added the fields `SrcPortNumber`, `ActorOriginalUserType`,  `ActorScopeId`, `TargetOriginalUserType`,  `TargetUserScopeId`, `SrcDescription`, `SrcRiskLevel`, `SrcOriginalRiskLevel`, and `TargetDescription`.
 - Added inspection fields
 - Added target system geo-location fields.
 

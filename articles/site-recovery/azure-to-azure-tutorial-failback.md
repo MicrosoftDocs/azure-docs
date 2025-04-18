@@ -2,8 +2,8 @@
 title: Tutorial to fail back Azure VMs to a primary region during disaster recovery with Azure Site Recovery.
 description: Tutorial to learn about failing back Azure VMs to a primary region with Azure Site Recovery.
 ms.topic: tutorial
-ms.service: site-recovery
-ms.date: 11/05/2020
+ms.service: azure-site-recovery
+ms.date: 02/11/2025
 ms.custom: mvc
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -32,6 +32,7 @@ Before you start this tutorial, you should have:
 1. [Set up replication](azure-to-azure-tutorial-enable-replication.md) for at least one Azure VM, and tried out a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) for it.
 2. [Failed over the VM](azure-to-azure-tutorial-failover-failback.md) from the primary region to a secondary region, and reprotected it so that it replicates from the secondary region to the primary. 
 3. Check that the primary region is available, and that you're able to create and access new resources in it.
+1. Source region VM must be shut down before attempting a failback since, changes are synced from failover VM disks to the source region disks during failback. If the source VM is powered on then it fails and thus fails the failback operation.
 
 ## Fail back to the primary region
 
@@ -45,7 +46,7 @@ After VMs are reprotected, you can fail back to the primary region as needed.
 
 3. On the overview page, select **Failover**. Since we're not doing a test failover this time, we're prompted to verify.
 
-    [Page showing we agree to run failover without a test failover](./media/azure-to-azure-tutorial-failback/no-test.png)
+    ![Page showing we agree to run failover without a test failover](./media/azure-to-azure-tutorial-failback/no-test.png)
 
 4. In **Failover**, note the direction from secondary to primary, and select a recovery point. The Azure VM in the target (primary region) is created using data from this point.
    - **Latest processed**: Uses the latest recovery point processed by Site Recovery. The time stamp is shown. No time is spent processing data, so it provides a low recovery time objective (RTO).
@@ -81,10 +82,8 @@ After failing back VMs to the primary region, you need to reprotect them, so tha
 
 4. Monitor reprotect progress in notifications. 
 
-    ![Reprotect progress notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-start.png)
-    [Reprotect progress notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-finish.png)
-    
-  
+    ![Reprotect start notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-start.png)
+    ![Reprotect finish notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-finish.png)
 
 ## Clean up resources
 
@@ -96,6 +95,5 @@ If you completely disable replication after failing back, Site Recovery cleans u
 
 In this tutorial, you failed VMs back from the secondary region to the primary. This is the last step in the process that includes enabling replication for a VM, trying out a disaster recovery drill, failing over from the primary region to the secondary, and finally failing back.
 
-> [!div class="nextstepaction"]
-> Now, try out disaster recovery to Azure for an [on-premises VM](vmware-azure-tutorial-prepare-on-premises.md)
+Now, try out disaster recovery to Azure for an [on-premises VM](vmware-azure-tutorial-prepare-on-premises.md).
 

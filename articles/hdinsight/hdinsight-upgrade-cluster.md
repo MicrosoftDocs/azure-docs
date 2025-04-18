@@ -2,31 +2,34 @@
 title: Migrate cluster to a newer version
 titleSuffix: Azure HDInsight
 description: Learn guidelines to migrate your Azure HDInsight cluster to a newer version.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/08/2023
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 02/03/2025
 ---
 # Migrate HDInsight cluster to a newer version
 
 To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be regularly migrated to latest version. HDInsight doesn't support in-place upgrades where an existing cluster is upgraded to a newer component version. You must create a new cluster with the desired component and platform version and then migrate your applications to use the new cluster. Follow the below guidelines to migrate your HDInsight cluster versions.
 
 > [!NOTE]  
-> If you are creating a Hive cluster with a primary storage container, copy it from an existing HDInsight cluster. Don'tt copy the complete content. Copy only the data folders which are configured.
+> If you're creating a Hive cluster with a primary storage container, copy it from an existing HDInsight cluster. Don't copy the complete content. Copy only the data folders which are configured.
 
 ## Migration tasks
 
 The workflow to upgrade HDInsight Cluster is as follows.
-:::image type="content" source="./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png" alt-text="HDInsight upgrade workflow diagram" border="false":::
+:::image type="content" source="./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png" alt-text="HDInsight upgrade workflow diagram." border="false":::
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
 2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 3. Copy existing jobs, data sources, and sinks to the new environment.
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
-Once you've verified that everything works as expected, schedule downtime for the migration. During this downtime, do the following actions:
+Once you have verified that everything works as expected, schedule downtime for the migration. During this downtime, do the following actions:
 
-1. Back up any transient data stored locally on the cluster nodes. For example, if you've data stored directly on a head node.
+1. Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
 1. [Delete the existing cluster](./hdinsight-delete-cluster.md).
 1. Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
 1. Import any transient data you backed up.
@@ -58,7 +61,9 @@ As mentioned above, Microsoft recommends that HDInsight clusters be regularly mi
      * **Third-party software**. Customers have the ability to install third-party software on their HDInsight clusters; however, we'll recommend recreating the cluster if it breaks the existing functionality.
      * **Multiple workloads on the same cluster**. In HDInsight 4.0, the Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. [Follow these steps to set up both clusters in Azure HDInsight](interactive-query/apache-hive-warehouse-connector.md). Similarly, integrating [Spark with HBASE](hdinsight-using-spark-query-hbase.md) requires two  different clusters.
      * **Custom Ambari DB password changed**. The Ambari DB password is set during cluster creation and there's no current mechanism to update it. If a customer deploys the cluster with a [custom Ambari DB](hdinsight-custom-ambari-db.md), they have the ability to change the DB password on the SQL DB; however, there's no way to update this password for a running HDInsight cluster.
-
+     * **Modifying HDInsight Load Balancers**. The HDInsight load balancers that are automatically deployed for Ambari and SSH access **should not** be modified or deleted. If you modify the HDInsight load balancers and it breaks the cluster functionality, you will be advised to redeploy the cluster.
+     * **Reusing Ranger 4.X Databases in 5.X**. HDInsight 5.1 has [Apache Ranger version 2.3.0](https://cwiki.apache.org/confluence/display/RANGER/Apache+Ranger+2.3.0+-+Release+Notes) which is major version upgrade from 1.2.0 in HDInsight 4.X clusters. Reuse of an HDInsight 4.X Ranger database in HDInsight 5.1 would prevent the Ranger service from starting due to differences in the DB schema. You would need to create an empty Ranger database to successfully deploy HDInsight 5.1 ESP clusters.
+       
 ## Next steps
 
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

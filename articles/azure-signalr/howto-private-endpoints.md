@@ -4,7 +4,7 @@ titleSuffix: Azure SignalR Service
 description: Overview of private endpoints for secure access to Azure SignalR Service from virtual networks.
 services: signalr
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/09/2022
@@ -37,7 +37,7 @@ When you create a private endpoint for an Azure SignalR Service in your VNet, a 
 Azure SignalR Service owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the Azure SignalR Service in the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
-> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](howto-network-access-control.md#managing-network-access-control) to deny or control access through the public endpoint.
+> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](howto-network-access-control.md) to deny or control access through the public endpoint.
 
 ### Connecting to private endpoints
 
@@ -90,11 +90,7 @@ For more information on configuring your own DNS server to support private endpo
 
 1. When creating a new Azure SignalR Service, select **Networking** tab. Choose **Private endpoint** as connectivity method.
 
-    ![Create Azure SignalR Service - Networking tab](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
-
 1. Select **Add**. Fill in subscription, resource group, location, name for the new private endpoint. Choose a virtual network and subnet.
-
-    ![Create Azure SignalR Service - Add private endpoint](media/howto-private-endpoints/portal-create-blade-add-private-endpoint.png)
 
 1. Select **Review + create**.
 
@@ -106,19 +102,11 @@ For more information on configuring your own DNS server to support private endpo
 
 1. Select the button **+ Private endpoint** on the top.
 
-    ![Private endpoint connections blade](media/howto-private-endpoints/portal-private-endpoint-connections-blade.png)
-
 1. Enter subscription, resource group, resource name and region for the new private endpoint.
-    
-    ![Create private endpoint - Basics](media/howto-private-endpoints/portal-create-private-endpoint-basics.png)
 
 1. Choose target Azure SignalR Service resource.
 
-    ![Create private endpoint - Resource](media/howto-private-endpoints/portal-create-private-endpoint-resource.png)
-
 1. Choose target virtual network
-
-    ![Create private endpoint - Configuration](media/howto-private-endpoints/portal-create-private-endpoint-configuration.png)
 
 1. Select **Review + create**.
 
@@ -198,10 +186,6 @@ Clients in VNets with existing private endpoints face constraints when accessing
     - If Azure SignalR Service S2 doesn't have any private endpoints, the clients in VNet N1 can access Azure SignalR Service in that account without a private endpoint.
 
 This constraint is a result of the DNS changes made when Azure SignalR Service S2 creates a private endpoint.
-
-### Network Security Group rules for subnets with private endpoints
-
-Currently, you can't configure [Network Security Group](../virtual-network/network-security-groups-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are applied to the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
 
 ## Next steps
 

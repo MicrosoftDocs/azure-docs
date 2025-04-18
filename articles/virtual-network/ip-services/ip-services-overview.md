@@ -1,26 +1,31 @@
 ---
-title: What is Azure Virtual Network IP Services?
+title: What is Azure virtual Network IP Services?
 description: Overview of Azure Virtual Network IP Services. Learn how IP services work and how to use IP resources in Azure.
-author: asudbring
-ms.author: allensu
-ms.service: virtual-network
+author: mbender-ms
+ms.author: mbender
+ms.date: 11/05/2024
+ms.service: azure-virtual-network
 ms.subService: ip-services
 ms.topic: overview
-ms.date: 10/01/2021
 ms.custom: template-overview
 ---
 
 # What is Azure Virtual Network IP Services?
 
-IP services are a collection of IP address related services that enable communication in an Azure Virtual Network. Public and private IP addresses are used in Azure for communication between resources. The communication with resources can occur in a private Azure Virtual Network and the public Internet.
+IP services are a collection of IP address related services that enable communication in an Azure virtual network. Public and private IP addresses are used in Azure for communication between resources. The communication with resources can occur in a private Azure virtual network and the public Internet.
 
 IP services consist of:
 
 * Public IP addresses
+
 * Public IP address prefixes
+
 * Custom IP address prefixes (BYOIP)
+
 * Private IP addresses
+
 * Routing preference
+
 * Routing preference unmetered
 
 ## Public IP addresses
@@ -30,11 +35,17 @@ Public IPs are used by internet resources to communicate inbound to resources in
 A public IP address is a resource with its own properties. Some of the resources that you can associate with a public IP address are:
 
 * Virtual machine network interfaces
+
 * Internet-facing load balancers
+
 * Virtual Network gateways (VPN/ER)
+
 * NAT gateways
+
 * Application gateways
+
 * Azure Firewall
+
 * Bastion Host
 
 For more information about public IP addresses, see [Public IP addresses](./public-ip-addresses.md) and [Create, change, or delete an Azure public IP address](./virtual-network-public-ip-address.md)
@@ -46,8 +57,11 @@ Public IP prefixes are reserved ranges of IP addresses in Azure. Public IP addre
 The following public IP prefix sizes are available:
 
 -  /28 (IPv4) or /124 (IPv6) = 16 addresses
+
 -  /29 (IPv4) or /125 (IPv6) = 8 addresses
+
 -  /30 (IPv4) or /126 (IPv6) = 4 addresses
+
 -  /31 (IPv4) or /127 (IPv6) = 2 addresses
 
 Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
@@ -62,16 +76,25 @@ Private IPs allow communication between resources in Azure. Azure assigns privat
 
 Some of the resources that you can associate a private IP address with are:
 
-* Virtual machines
+* Network Interface (for Virtual machines, Virtual Machine Scale Sets, container pods ...)
+    
+    * Network Interfaces can contain one primary and multiple secondary IP configurations. 
+
+    * Each primary IP configuration must be a single IP address (a /32 IPv4 address or a /128 IPv6 address).
+
+    * Secondary IP configurations can be a single IP address OR a block of IP addresses (*in preview*). Only IPv4 addresses of block size of /28 are available today for associating with a secondary IP configuration.
+
 * Internal load balancers
+
 * Application gateways
+
 * Private endpoints
 
 For more information about private IP addresses, see [Private IP addresses](./private-ip-addresses.md).
 
 ## Routing preference
 
-Azure routing preference enables you to choose how your traffic routes between Azure and the Internet. You can choose to route traffic either via the Microsoft network, or, via the ISP network (public internet). You can choose the routing option while creating a public IP address. By default, traffic is routed via the Microsoft global network for all Azure services. 
+Azure routing preference enables you to choose how your traffic routes between Azure and the Internet. You can choose to route traffic either via the Microsoft network, or, via the ISP network (public internet). You can choose the routing option while creating a public IP address. By default, traffic is routed via the Microsoft global network for all Azure services.
 
 Routing preference choices include:
 
@@ -98,6 +121,9 @@ For more information about routing preference unmetered, see [What is Routing Pr
 Get started creating IP services resources:
 
 - [Create a public IP address using the Azure portal](./create-public-ip-portal.md).
+
 - [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).
+
 - [Configure a private IP address for a VM using the Azure portal](./virtual-networks-static-private-ip-arm-pportal.md).
+
 - [Configure routing preference for a public IP address using the Azure portal](./routing-preference-portal.md).

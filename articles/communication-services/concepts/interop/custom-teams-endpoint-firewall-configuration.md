@@ -17,9 +17,9 @@ ms.custom: kr2b-contr-experiment
 
 Azure Communication Services allows you to build custom Teams calling experiences.
 
-You can use the Calling *Software development kit* (SDK) to customize experiences. Use your Administrator account to configure your firewall based on Communication Services and Microsoft Teams guidelines. Communication Services requirements are for the control plane, and Teams requirements are for Calling. If you'll use telephony, follow Communication Services and Teams' requirements.
+You can use the Calling *Software development kit (SDK)* to customize experiences. Use your Administrator account to configure your firewall based on Communication Services and Microsoft Teams guidelines. Communication Services requirements are for the control plane, and Teams requirements are for Calling. If you'll use telephony, follow Communication Services and Teams' requirements.
 
-If you use an *independent software vendor* (ISV) for authentication, use instructions from that vendor and not from Communication Services.
+If you use an *independent software vendor (ISV)* for authentication, use instructions from that vendor and not from Communication Services.
 
 The following articles may be of interest to you:
 

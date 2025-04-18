@@ -1,10 +1,9 @@
 ---
-author: alkohli
-ms.service: databox
-ms.subservice: pod   
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
-ms.date: 10/21/2022
-ms.author: alkohli
+ms.date: 03/06/2025
+ms.author: shaas
 ---
 
 Here's a list of the supported storage accounts and storage types for a Data Box device. For a complete list of all capabilities for all types of storage accounts, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
@@ -54,7 +53,8 @@ For export orders, following table shows the supported storage accounts.
 - Data Box doesn't support append blobs for Blob Storage and Block Blob Storage accounts.
 - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.
 - For exports:
-  - A maximum of 80 TB can be exported.
+  - A maximum of 120 or 525 TB can be exported when using Data Box 120 and Data Box 525, respectively. 
+  - A maximum of 80 TB can be exported when using Data Box.
   - File history and blob snapshots aren't exported.
   - Archive blobs aren't supported for export. Rehydrate the blobs in archive tier before exporting. For more information, see [Rehydrate an archived blob to an online tier](../articles/storage/blobs/archive-rehydrate-overview.md).
   - Data Box only supports block blobs with Azure Data Lake Gen2 Storage accounts. Page blobs are not allowed and should not be uploaded over REST.  If page blobs are uploaded over REST, these blobs would fail when data is uploaded to Azure.

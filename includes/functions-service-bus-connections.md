@@ -25,7 +25,7 @@ If the app setting name begins with "AzureWebJobs", you can specify only the rem
 
 ### Identity-based connections
 
-If you are using version 5.x or higher of the extension, instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
+If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-service-bus.md?extensionv5), instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
 
 In this mode, the extension requires the following properties:
 
@@ -35,7 +35,7 @@ In this mode, the extension requires the following properties:
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 > [!NOTE]
-> When using [Azure App Configuration](../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../articles/key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](/azure/key-vault/general/overview) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 > 
 > For example, `<CONNECTION_NAME_PREFIX>:fullyQualifiedNamespace`.
 

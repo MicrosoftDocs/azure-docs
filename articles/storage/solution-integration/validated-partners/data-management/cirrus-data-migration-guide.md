@@ -7,8 +7,8 @@ ms.author: nikoduki
 ms.date: 06/10/2022
 ms.topic: how-to
 ms.custom: kr2b-contr-experiment
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Migrate your block data to Azure with Cirrus Migrate Cloud
@@ -36,7 +36,7 @@ Cirrus Migrate Cloud consists of multiple components:
 
 ## Implementation guide
 
-Follow the Azure best practices to implement a new virtual machine. For more information, see [quick start guide](../../../../virtual-machines/windows/quick-create-portal.md).
+Follow the Azure best practices to implement a new virtual machine. For more information, see [quick start guide](/azure/virtual-machines/windows/quick-create-portal).
 
 Before starting the migration, make sure the following prerequisites have been met:
 
@@ -77,7 +77,7 @@ Follow these implementation steps:
 
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-migration-4.jpg" alt-text="Screenshot that shows entering Azure credentials.":::
 
-    For details on creating Azure AD application, see the [step-by-step instructions](https://support.cirrusdata.cloud/en/article/creating-an-azure-service-account-for-cirrus-data-cloud-tw2c9n/). By creating and registering Azure AD application for CMC, you enable automatic creation of Azure Managed Disks on the target virtual machine.
+    For details on creating Microsoft Entra application, see the [step-by-step instructions](https://support.cirrusdata.cloud/en/article/creating-an-azure-service-account-for-cirrus-data-cloud-tw2c9n/). By creating and registering Microsoft Entra application for CMC, you enable automatic creation of Azure Managed Disks on the target virtual machine.
 
     >[!NOTE]
     >Since you selected **Auto allocate destination volumes** on the previous step, don't select it again for a new allocation. Instead, select **Continue**.
@@ -160,8 +160,8 @@ In the CMC portal, select **Help Center** tab on the CMC portal to contact Cirru
 
 ## Next steps
 
-- Learn more about [Azure virtual machines](../../../../virtual-machines/windows/overview.md)
-- Learn more about [Azure Managed Disks](../../../../virtual-machines/managed-disks-overview.md)
+- Learn more about [Azure virtual machines](/azure/virtual-machines/windows/overview)
+- Learn more about [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
 - Learn more about [storage migration](../../../common/storage-migration-overview.md)
 - [Cirrus Data website](https://www.cirrusdata.com/)
 - Step-by-step guides for [cMotion](https://support.cirrusdata.cloud/en/category/howtos-1un623w/)

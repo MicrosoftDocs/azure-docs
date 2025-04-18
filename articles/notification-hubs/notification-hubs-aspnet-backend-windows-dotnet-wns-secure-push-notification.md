@@ -2,12 +2,11 @@
 title: Azure Notification Hubs Secure Push for Windows
 description: Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API.
 author: sethmanheim
-manager: femila
+manager: lizross
 editor: thsomasu
 services: notification-hubs
 
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: windows
 ms.devlang: csharp
 ms.topic: article
@@ -15,7 +14,7 @@ ms.date: 09/14/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Send secure push notifications from Azure Notification Hubs
@@ -23,7 +22,7 @@ ms.custom: devx-track-csharp
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-> * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
+> * [Android](android-sdk.md)
 
 ## Overview
 

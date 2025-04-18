@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: storage
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: include
 ms.date: 06/22/2022
 ms.author: kendownie
@@ -24,7 +24,7 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 In this category, you need to consider abilities of the **source storage**, the **target storage**, and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components. Make sure your network infrastructure is configured to support optimal transfer speeds to its best abilities.
 
 > [!CAUTION]
-> While copying as fast as possible is often most desireable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
+> While copying as fast as possible is often most desirable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
 
 Copying as fast as possible might not be desirable when there's a risk that the migration could monopolize available resources.
 

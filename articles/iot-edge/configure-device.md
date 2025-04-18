@@ -3,21 +3,25 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/6/2023
+ms.date: 06/27/2024
 ms.topic: how-to
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
 # Configure IoT Edge device settings
 
-This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You have the option to copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
+This article shows settings and options for configuring the IoT Edge */etc/aziot/config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
+
+A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You can copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
+
+If you change a device's configuration, use `sudo iotedge config apply` to apply the changes.
 
 ## Global parameters
 
-The `hostname`, `parent_hostname`, `trust_bundle_cert`, and `allow_elevated_docker_permissions` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
+The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, and **auto_reprovisioning_mode** parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io](https://toml.io/).
 
 ### Hostname
 
@@ -56,13 +60,33 @@ For more information about the IoT Edge trust bundle, see [Manage trusted root C
 
 ### Elevated Docker Permissions
 
-Some docker capabilities can be used to gain root access. By default, the **--privileged** flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
+Some docker capabilities can be used to gain root access. By default, the `--privileged` flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
 
 If no modules require privileged or extra capabilities, use **allow_elevated_docker_permissions** to improve the security of the device.
 
 ```toml
 allow_elevated_docker_permissions = false
 ```
+
+### Auto reprovisioning mode
+
+The optional **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. Auto provisioning mode is ignored if the device has been provisioned manually. For more information about setting DPS provisioning mode, see the [Provisioning](#provisioning) section in this article for more information.
+
+One of the following values can be set:
+
+| Mode | Description |
+|------|-------------|
+| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is *the default*. |
+| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
+| OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
+
+For example:
+
+```toml
+auto_reprovisioning_mode = "Dynamic"
+```
+
+For more information about device reprovisioning, see [IoT Hub Device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 ## Provisioning
 
@@ -210,24 +234,6 @@ cloud_timeout_sec = 10
 cloud_retries = 1
 ```
 
-### Optional auto reprovisioning mode
-
-The **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. It's ignored if the device has been provisioned manually. One of the following values can be set:
-
-| Mode | Description |
-|------|-------------|
-| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is *the default*. |
-| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
-| OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
-
-For example:
-
-```toml
-auto_reprovisioning_mode = Dynamic
-```
-
-For more information about device reprovisioning, see [IoT Hub Device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
 ## Certificate issuance
 
 If you configured any dynamically issued certs, choose your corresponding issuance method and replace the sample values with your own.
@@ -254,7 +260,7 @@ identity_pk = "pkcs11:slot-id=0;object=est-id?pin-value=1234" # PKCS#11 URI
 
 ### EST ID cert requested via EST bootstrap ID cert
 
-Authentication with a TLS client certificate which are used once to create the initial EST ID certificate. After the first certificate issuance, an `identity_cert` and `identity_pk` are automatically created and used for future authentication and renewals. The Subject Common Name (CN) of the generated EST ID certificate is always the same as the configured device ID under the provisioning section. These files must be readable by the users aziotcs and aziotks, respectively.
+Authentication with a TLS client certificate that is used once to create the initial EST ID certificate. After the first certificate issuance, an `identity_cert` and `identity_pk` are automatically created and used for future authentication and renewals. The Subject Common Name (CN) of the generated EST ID certificate is always the same as the configured device ID under the provisioning section. These files must be readable by the users *aziotcs* and *aziotks*, respectively.
 
 ```toml
 bootstrap_identity_cert = "file:///var/aziot/certs/est-bootstrap-id.pem"
@@ -302,7 +308,7 @@ The TPM index persists the DPS authentication key. The index is taken as an offs
 auth_key_index = "0x00_01_00"
 ```
 
-Use authorization values for endorsement and owner hierarchies, if needed. By default, these are empty strings.
+Use authorization values for endorsement and owner hierarchies, if needed. By default, these values are empty strings.
 
 ```toml
 [tpm.hierarchy_authorization]
@@ -334,7 +340,7 @@ type = "docker"
 imagePullPolicy = "..."   # "on-create" or "never". Defaults to "on-create"
 
 [agent.config]
-image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+image = "mcr.microsoft.com/azureiotedge-agent:1.5"
 createOptions = { HostConfig = { Binds = ["/iotedge/storage:/iotedge/storage"] } }
 
 [agent.config.auth]
@@ -343,9 +349,9 @@ username = "username"
 password = "password"
 
 [agent.env]
-"RuntimeLogLevel" = "debug"
-"UpstreamProtocol" = "AmqpWs"
-"storageFolder" = "/iotedge/storage"
+RuntimeLogLevel = "debug"
+UpstreamProtocol = "AmqpWs"
+storageFolder = "/iotedge/storage"
 ```
 
 ## Daemon management and workload API endpoints
@@ -455,7 +461,7 @@ auto_generated_edge_ca_expiry_days = 90
 This setting manages autorenewal of the Edge CA certificate. Autorenewal applies when the Edge CA is configured as *quickstart* or when the Edge CA has an issuance `method` set. Edge CA certificates loaded from files generally can't be autorenewed as the Edge runtime doesn't have enough information to renew them.
 
 > [!IMPORTANT]
-> Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal.
+> Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal by not including the [edge_ca.auto_renew] section.
 
 ```toml
 [edge_ca.auto_renew]

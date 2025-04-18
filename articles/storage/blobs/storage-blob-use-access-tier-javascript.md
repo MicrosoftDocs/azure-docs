@@ -1,53 +1,76 @@
 ---
-title: Use blob access tiers with JavaScript
+title: Set or change a blob's access tier with JavaScript or TypeScript
 titleSuffix: Azure Storage 
-description: Learn how to add or change a blob's access tier in your Azure Storage account using the JavaScript client library.
+description: Learn how to set or change a blob's access tier in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/22/2023
-ms.subservice: blobs
+ms.date: 10/28/2024
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Using access tiers
+# Set or change a block blob's access tier with JavaScript or TypeScript
 
-This article shows how to use [access tiers](access-tiers-overview.md) for block blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
+[!INCLUDE [storage-dev-guide-selector-access-tier](../../../includes/storage-dev-guides/storage-dev-guide-selector-access-tier.md)]
 
-## Understand block blob access tiers
+This article shows how to set or change a blob's [access tier](access-tiers-overview.md) for block blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
 
-Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it can be helpful to organize your data based on how frequently it will be accessed and how long it will be retained. Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Azure Storage access tiers include:
+## Prerequisites
 
-- [**Online tiers**](access-tiers-overview.md#online-access-tiers)
-    - **Hot tier** - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs, but the lowest access costs.
-    - **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
-- [**Archive tier**](access-tiers-overview.md#archive-access-tier) - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
+    - [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
 
-## Restrictions
+[!INCLUDE [storage-dev-guide-about-access-tiers](../../../includes/storage-dev-guides/storage-dev-guide-about-access-tiers.md)]
 
-Setting the access tier is only allowed on block blobs. To learn more about restrictions on setting a block blob's access tier, see [Set Blob Tier (REST API)](/rest/api/storageservices/set-blob-tier#remarks).
+> [!NOTE]
+> To set the access tier to `Cold` using JavaScript, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
 
 ## Set a blob's access tier during upload
 
-To [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-upload) a blob into a specific access tier, use the [BlockBlobUploadOptions](/javascript/api/@azure/storage-blob/blockblobuploadoptions). The `tier` property choices are: `Hot`, `Cool`, or `Archive`.
+To [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-upload) a blob into a specific access tier, use the [BlockBlobUploadOptions](/javascript/api/@azure/storage-blob/blockblobuploadoptions). The `tier` property choices are: `Hot`, `Cool`, `Cold`, or `Archive`.
+
+### [JavaScript](#tab/javascript)
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string-with-access-tier.js" id="Snippet_UploadAccessTier" highlight="13-15, 26":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string-with-access-tier.ts" id="Snippet_UploadAccessTier" :::
+
+---
 
 ## Change a blob's access tier after upload
 
 To change the access tier of a blob after it's uploaded to storage, use [setAccessTier](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-setaccesstier). Along with the tier, you can set the [BlobSetTierOptions](/javascript/api/@azure/storage-blob/blobsettieroptions) property [rehydration priority](archive-rehydrate-overview.md) to bring the block blob out of an archived state. Possible values are `High` or `Standard`.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/change-blob-access-tier.js" id="Snippet_BatchChangeAccessTier" highlight="8,11,13-16":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-change-access-tier.ts" id="Snippet_BlobChangeAccessTier" :::
+
+---
 
 ## Copy a blob into a different access tier
 
 Use the BlobClient.[beginCopyFromURL](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-begincopyfromurl) method to copy a blob. To change the access tier during the copy operation, use the [BlobBeginCopyFromURLOptions](/javascript/api/@azure/storage-blob/blobbegincopyfromurloptions) `tier` property and specify a different access [tier](storage-blob-storage-tiers.md) than the source blob.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-to-different-access-tier.js" id="Snippet_CopyWithAccessTier" highlight="8":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-copy-to-different-access-tier.ts" id="Snippet_CopyWithAccessTier" :::
+
+---
 
 ## Use a batch to change access tier for many blobs
 
@@ -55,16 +78,24 @@ The batch represents an aggregated set of operations on blobs, such as [delete](
 
 Create a [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient). Use the client to create a batch with the [createBatch()](/javascript/api/@azure/storage-blob/blobbatchclient#@azure-storage-blob-blobbatchclient-createbatch) method. When the batch is ready, [submit](/javascript/api/@azure/storage-blob/blobbatchclient#@azure-storage-blob-blobbatchclient-submitbatch) the batch for processing. Use the returned structure to validate each blob's operation was successful.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/batch-set-access-tier.js" id="Snippet_BatchChangeAccessTier" highlight="16,20":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-batch-set-access-tier-for-container.ts" id="Snippet_BatchChangeAccessTier" :::
+
+---
  
 ## Code samples
 
-* [Set blob's access tier during upload](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string-with-access-tier.js)
-* [Change blob's access tier after upload](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/change-blob-access-tier.js)
-* [Copy blob into different access tier](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-to-different-access-tier.js)
-* [Use a batch to change access tier for many blobs](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/batch-set-access-tier.js)
+- Set blob access tier during upload for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string-with-access-tier.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string-with-access-tier.ts)
+- Change blob access tier after upload for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/change-blob-access-tier.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-change-access-tier.ts)
+- Copy blob into different access tier for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-to-different-access-tier.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-copy-to-different-access-tier.ts)
+- Use a batch to change access tier for many blobs for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/batch-set-access-tier.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-batch-set-access-tier-for-container.ts)
 
 ## Next steps
 
 - [Access tiers best practices](access-tiers-best-practices.md)
-- [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Blob rehydration from the archive tier](archive-rehydrate-overview.md)

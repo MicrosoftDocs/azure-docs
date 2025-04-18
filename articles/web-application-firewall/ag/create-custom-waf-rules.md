@@ -2,12 +2,11 @@
 title: Create and use v2 custom rules
 titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
-services: web-application-firewall
-ms.topic: article
-author: vhorne
-ms.service: web-application-firewall
-ms.date: 08/22/2022
-ms.author: victorh 
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
+ms.topic: how-to
+ms.date: 04/06/2023
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -26,7 +25,7 @@ The JSON snippets shown in this article are derived from a [ApplicationGatewayWe
 
 ## Example 1
 
-You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent *evilbot* in the request headers.
+You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you block on the User-Agent *evilbot* in the request headers.
 
 Logic: p
 
@@ -47,10 +46,11 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
-And here is the corresponding JSON:
+And here's the corresponding JSON:
 
 ```json
 {
@@ -60,6 +60,7 @@ And here is the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -69,7 +70,7 @@ And here is the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -106,7 +107,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
@@ -119,6 +121,7 @@ And the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -128,7 +131,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "Regex",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -144,7 +147,7 @@ And the corresponding JSON:
 
 ## Example 2
 
-You want to allow traffic only from the US using the GeoMatch operator and still have the managed rules apply:
+You want to allow traffic only from the United States using the GeoMatch operator and still have the managed rules apply:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -162,7 +165,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
@@ -175,6 +179,7 @@ And the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -183,7 +188,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "GeoMatch",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "US"
           ],
@@ -201,7 +206,7 @@ And the corresponding JSON:
 
 You want to block all requests from IP addresses in the range 198.168.5.0/24.
 
-In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 10.
+In this example, you block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 10.
 
 Logic: p
 
@@ -220,7 +225,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Here's the corresponding JSON:
@@ -233,6 +239,7 @@ Here's the corresponding JSON:
       "priority": 10,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -241,7 +248,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -258,7 +265,7 @@ Corresponding CRS rule:
 
 ## Example 4
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this action, you can create two separate match conditions, and put them both in the same rule. This configuration ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
 
 Logic: p **and** q
 
@@ -288,7 +295,8 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1, $condition2 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Here's the corresponding JSON:
@@ -301,6 +309,7 @@ Here's the corresponding JSON:
       "priority": 10,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -309,7 +318,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -323,7 +332,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -369,14 +378,16 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
    -Priority 20 `
    -RuleType MatchRule `
    -MatchCondition $condition2 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
@@ -389,6 +400,7 @@ And the corresponding JSON:
       "priority": 10,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -397,7 +409,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -410,6 +422,7 @@ And the corresponding JSON:
       "priority": 20,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -419,7 +432,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "chrome"
           ],
@@ -456,7 +469,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Corresponding JSON:
@@ -469,6 +483,7 @@ Corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -478,7 +493,7 @@ Corresponding JSON:
             }
           ],
           "operator": "Equal",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "user1",
             "user2"
@@ -493,7 +508,7 @@ Corresponding JSON:
 
 ## Example 7
 
-It is not uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on this, please see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+It isn't uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on securing access to your application using Azure Front Door, see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-)
 
 Logic: **not** p
 
@@ -515,10 +530,11 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
-And here is the corresponding JSON:
+And here's the corresponding JSON:
 
 ```json
 {
@@ -528,6 +544,7 @@ And here is the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -537,7 +554,7 @@ And here is the corresponding JSON:
             }
           ],
           "operator": "Equal",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ],

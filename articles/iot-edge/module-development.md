@@ -1,18 +1,18 @@
 ---
-title: Develop modules for Azure IoT Edge | Microsoft Docs 
-description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and IoT Hub
+title: Develop modules for Azure IoT Edge
+description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and Azure IoT Hub. Learn how to package your program as an IoT Edge module.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 3/17/2023
-ms.topic: conceptual
-ms.service: iot-edge
+ms.date: 06/10/2024
+ms.topic: concept-article
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
 # Develop your own IoT Edge modules
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge modules can connect with other Azure services and contribute to your larger cloud data pipeline. This article describes how you can develop modules to communicate with the IoT Edge runtime and IoT Hub, and therefore the rest of the Azure cloud.
 
@@ -94,9 +94,7 @@ For all languages in the following table, IoT Edge [supports](support.md) develo
 | Python | Visual Studio Code |
 
 >[!NOTE]
->For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information, see [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
->
-> For more information about ARM64 Linux containers, see [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
+>For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information about target device architectures, see [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md).
 
 ### Windows
 
@@ -125,8 +123,8 @@ If you need these capabilities, you can manually re-enable them using CapADD in 
 
 [Prepare your development and test environment for IoT Edge](development-environment.md)
 
-[Use Visual Studio to develop C# modules for IoT Edge](how-to-visual-studio-develop-module.md)
+[Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md)
 
-[Use Visual Studio Code to develop modules for IoT Edge](how-to-vs-code-develop-module.md)
+[Debug Azure IoT Edge modules using Visual Studio Code](debug-module-vs-code.md)
 
 [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md)

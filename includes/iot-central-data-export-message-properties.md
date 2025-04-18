@@ -2,17 +2,17 @@
  title: include file
  description: include file
  services: iot-central
- author: v-krishnag
- ms.service: iot-central
+ author: dominicbetts
+ ms.service: azure-iot-central
  ms.topic: include
- ms.date: 04/27/2022
- ms.author: v-krishnag
+ ms.date: 05/22/2023
+ ms.author: dobett
  ms.custom: include file
 ---
 
 #### Message properties
 
-Telemetry messages have properties for metadata as well as the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of D2C IoT Hub messages](../articles/iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+Telemetry messages have properties for metadata as well as the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of device-to-cloud IoT Hub messages](../articles/iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-device-to-cloud-messages).
 
 You can add properties to telemetry messages if you need to add custom metadata to your telemetry messages. For example, you need to add a timestamp when the device creates the message.
 
@@ -98,7 +98,7 @@ Each message or record represents changes to device and cloud properties. Inform
 - `messageType`: Either `cloudPropertyChange`, `devicePropertyDesiredChange`,  or `devicePropertyReportedChange`.
 - `deviceId`:  The ID of the device that sent the telemetry message.
 - `schema`: The name and version of the payload schema.
-- `enqueuedTime`: The time at which this change was detected by IoT Central.
+- `enqueuedTime`: The time at which IoT Central detected this change.
 - `templateId`: The ID of the device template assigned to the device.
 - `properties`: An array of properties that changed, including the names of the properties and values that changed. The component and module information is included if the property is modeled within a component or an IoT Edge module.
 - `enrichments`: Any enrichments set up on the export.

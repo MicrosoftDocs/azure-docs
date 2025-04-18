@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Set or reset password for virtual machines in labs (students)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article shows you how students can set/reset password for their VMs.
 
 ## Enable resetting of passwords
@@ -29,4 +31,4 @@ Student also can set the password by clicking the overflow menu (**vertical thre
 
 ## Next steps
 
-To learn about other student usage options that a lab owner can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).
+To learn about other student usage options that a lab owner can configure, see the following article: [Configure student usage](how-to-manage-lab-users.md).

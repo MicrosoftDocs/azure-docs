@@ -1,46 +1,49 @@
 ---
 title: Expose an AKS service over HTTP or HTTPS using Application Gateway
-description: This article provides information on how to expose an AKS service over HTTP or HTTPS using Application Gateway. 
+description: This article provides information on how to expose an AKS service over HTTP or HTTPS by using Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
-# Expose an AKS service over HTTP or HTTPS using Application Gateway 
+# Expose an AKS service over HTTP or HTTPS by using Application Gateway
 
-These tutorials help illustrate the usage of [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) to expose an example Kubernetes service through the [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) over HTTP or HTTPS.
+This article illustrates the usage of [Kubernetes ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) to expose an example Azure Kubernetes Service (AKS) service through [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) over HTTP or HTTPS.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## Prerequisites
 
-- Installed `ingress-azure` helm chart.
-  - [**Greenfield Deployment**](ingress-controller-install-new.md): If you're starting from scratch, refer to these installation instructions, which outlines steps to deploy an AKS cluster with Application Gateway and install application gateway ingress controller on the AKS cluster.
-  - [**Brownfield Deployment**](ingress-controller-install-existing.md): If you have an existing AKS cluster and Application Gateway, refer to these instructions to install application gateway ingress controller on the AKS cluster.
-- If you want to use HTTPS on this application, you'll need an x509 certificate and its private key.
+- An installed `ingress-azure` Helm chart:
+  - [Greenfield deployment](ingress-controller-install-new.md): If you're starting from scratch, refer to these installation instructions, which outline steps to deploy an AKS cluster with Application Gateway and install the Application Gateway Ingress Controller (AGIC) on the AKS cluster.
+  - [Brownfield deployment](ingress-controller-install-existing.md): If you have an existing AKS cluster and Application Gateway deployment, refer to these instructions to install AGIC on the AKS cluster.
+- An x509 certificate and its private key, if you want to use HTTPS on this application.
 
-## Deploy `guestbook` application
+## Deploy the guestbook application
 
-The guestbook application is a canonical Kubernetes application that composes of a Web UI frontend, a backend and a Redis database. By default, `guestbook` exposes its application through a service with name `frontend` on port `80`. Without a Kubernetes Ingress Resource, the service isn't accessible from outside the AKS cluster. We'll use the application and setup Ingress Resources to access the application through HTTP and HTTPS.
+The `guestbook` application is a canonical Kubernetes application that consists of a web UI frontend, a backend, and a Redis database.
 
-Follow the instructions below to deploy the guestbook application.
+By default, `guestbook` exposes its application through a service with the name `frontend` on port `80`. Without a Kubernetes ingress resource, the service isn't accessible from outside the AKS cluster. You use the application, and set up ingress resources to access the application, through HTTP and HTTPS.
 
-1. Download `guestbook-all-in-one.yaml` from [here](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml)
-1. Deploy `guestbook-all-in-one.yaml` into your AKS cluster by running
+To deploy the `guestbook` application:
 
-  ```bash
-  kubectl apply -f guestbook-all-in-one.yaml
-  ```
+1. Download `guestbook-all-in-one.yaml` from [this GitHub page](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml).
+1. Deploy `guestbook-all-in-one.yaml` into your AKS cluster by running this command:
 
-Now, the `guestbook` application has been deployed.
+   ```bash
+   kubectl apply -f guestbook-all-in-one.yaml
+   ```
 
 ## Expose services over HTTP
 
-In order to expose the guestbook application, we'll be using the following ingress resource:
+To expose the `guestbook` application, use the following ingress resource:
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: guestbook
@@ -55,37 +58,36 @@ spec:
           servicePort: 80
 ```
 
-This ingress will expose the `frontend` service of the `guestbook-all-in-one` deployment
-as a default backend of the Application Gateway.
+This ingress exposes the `frontend` service of the `guestbook-all-in-one` deployment as a default backend of the Application Gateway deployment.
 
-Save the above ingress resource as `ing-guestbook.yaml`.
+Save the preceding ingress resource as `ing-guestbook.yaml`:
 
-1. Deploy `ing-guestbook.yaml` by running:
+1. Deploy `ing-guestbook.yaml` by running this command:
 
     ```bash
     kubectl apply -f ing-guestbook.yaml
     ```
 
-1. Check the log of the ingress controller for deployment status.
+1. Check the log of the ingress controller for the deployment status.
 
-Now the `guestbook` application should be available. You can check availability by visiting the public address of the Application Gateway.
+Now the `guestbook` application should be available. You can check the availability by visiting the public address of the Application Gateway deployment.
 
 ## Expose services over HTTPS
 
-### Without specified hostname
+### Without a specified host name
 
-Without specifying hostname, the guestbook service will be available on all the host-names pointing to the application gateway.
+If you don't specify a host name, the `guestbook` service is available on all the host names that point to the Application Gateway deployment.
 
-1. Before deploying ingress, you need to create a kubernetes secret to host the certificate and private key. You can create a kubernetes secret by running
+1. Before you deploy the ingress resource, create a Kubernetes secret to host the certificate and private key:
 
     ```bash
     kubectl create secret tls <guestbook-secret-name> --key <path-to-key> --cert <path-to-cert>
     ```
 
-1. Define the following ingress. In the ingress, specify the name of the secret in the `secretName` section.
+1. Define the following ingress resource. In the `secretName` section, replace `<guestbook-secret-name>` with the name of your secret.
 
     ```yaml
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
       name: guestbook
@@ -102,29 +104,26 @@ Without specifying hostname, the guestbook service will be available on all the 
               servicePort: 80
     ```
 
-    > [!NOTE] 
-    > Replace `<guestbook-secret-name>` in the above Ingress Resource with the name of your secret. Store the above Ingress Resource in a file name `ing-guestbook-tls.yaml`.
+1. Store the ingress resource in a file named `ing-guestbook-tls.yaml`.
 
-1. Deploy ing-guestbook-tls.yaml by running
+1. Deploy `ing-guestbook-tls.yaml` by running this command:
 
     ```bash
     kubectl apply -f ing-guestbook-tls.yaml
     ```
 
-1. Check the log of the ingress controller for deployment status.
+1. Check the log of the ingress controller for the deployment status.
 
-Now the `guestbook` application will be available on both HTTP and HTTPS.
+Now the `guestbook` application is available on both HTTP and HTTPS.
 
-### With specified hostname
+### With a specified host name
 
-You can also specify the hostname on the ingress in order to multiplex TLS configurations and services.
-By specifying hostname, the guestbook service will only be available on the specified host.
+You can also specify the host name on the ingress resource to multiplex TLS configurations and services. When you specify a host name, the `guestbook` service is available only on the specified host.
 
-1. Define the following ingress.
-    In the ingress, specify the name of the secret in the `secretName` section and replace the hostname in the `hosts` section accordingly.
+1. Define the following ingress resource. In the `secretName` section, replace `<guestbook-secret-name>` with the name of your secret. In the `hosts` and `host` sections, replace `<guestbook.contoso.com>` with your host name.
 
     ```yaml
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
       name: guestbook
@@ -144,22 +143,22 @@ By specifying hostname, the guestbook service will only be available on the spec
               servicePort: 80
     ```
 
-1. Deploy `ing-guestbook-tls-sni.yaml` by running
+1. Deploy `ing-guestbook-tls-sni.yaml` by running this command:
 
     ```bash
     kubectl apply -f ing-guestbook-tls-sni.yaml
     ```
 
-1. Check the log of the ingress controller for deployment status.
+1. Check the log of the ingress controller for the deployment status.
 
-Now the `guestbook` application will be available on both HTTP and HTTPS only on the specified host (`<guestbook.contoso.com>` in this example).
+Now the `guestbook` application is available on both HTTP and HTTPS, only on the specified host.
 
 ## Integrate with other services
 
-The following ingress will allow you to add other paths into this ingress and redirect those paths to other services:
+Use the following ingress resource to add paths and redirect those paths to other services:
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: guestbook
@@ -177,3 +176,7 @@ spec:
           serviceName: frontend
           servicePort: 80
 ```
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

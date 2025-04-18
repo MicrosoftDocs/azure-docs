@@ -2,25 +2,27 @@
 title: CARIN Blue Button Implementation Guide for Blue Button - Azure API for FHIR
 description: This tutorial walks through the steps of setting up Azure API for FHIR to pass the Touchstone tests for the CARIN Implementation Guide for Blue Button (C4BB IG). 
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/02/2022
+ms.date: 09/27/2023
 ---
 
 # CARIN Implementation Guide for Blue Button&#174; for Azure API for FHIR
 
-In this tutorial, we'll walk through setting up Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+In this tutorial, we walk through setting up Azure API for FHIR&reg; to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing Azure API for FHIR against the [C4BB IG capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test against Azure API for FHIR without any updates, the test will fail due to missing search parameters and missing profiles. 
+The first test we focus on is testing Azure API for FHIR against the [C4BB IG capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test against Azure API for FHIR without any updates, the test fails due to missing search parameters and profiles.
 
 ### Define search parameters
 
-As part of the C4BB IG, you'll need to define three [new search parameters](how-to-do-custom-search.md) for the `ExplanationOfBenefit` resource. Two of these are tested in the capability statement (type and service-date), and one is needed for `_include` searches (insurer).  
+As part of the C4BB IG, you need to define three [new search parameters](how-to-do-custom-search.md) for the `ExplanationOfBenefit` resource. Two of these are tested in the capability statement (type and service-date), and one is needed for `_include` searches (insurer).  
 
 * [type](https://build.fhir.org/ig/HL7/carin-bb/SearchParameter-explanationofbenefit-type.json)
 * [service-date](https://build.fhir.org/ig/HL7/carin-bb/SearchParameter-explanationofbenefit-service-date.json)
@@ -29,7 +31,7 @@ As part of the C4BB IG, you'll need to define three [new search parameters](how-
 > [!NOTE]
 > In the raw JSON for these search parameters, the name is set to `ExplanationOfBenefit_<SearchParameter Name>`. The Touchstone test is expecting that the name for these will be **type**, **service-date**, and **insurer**.  
  
-The rest of the search parameters needed for the C4BB IG are defined by the base specification and are already available in Azure API for FHIR without any additional updates.
+The rest of the search parameters needed for the C4BB IG are defined by the base specification and are already available in Azure API for FHIR without additional updates.
  
 ### Store profiles
 
@@ -52,19 +54,19 @@ To assist with creation of these search parameters and profiles, we have a [samp
 
 ## Touchstone read test
 
-After testing the capabilities statement, we'll test the [read capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) in Azure API for FHIR against the C4BB IG. This test is testing conformance against the eight profiles you loaded in the first test. You'll need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have an [http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
+After testing the capabilities statement, test the [read capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) in Azure API for FHIR against the C4BB IG. This is a test of conformance against the eight profiles you loaded in the first test. You'll need to have resources loaded that conform to the profiles. We recommend testing against resources that you already have in your database, but we also have a [http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
 
 :::image type="content" source="media/cms-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone read test execution results.":::
 
 ## Touchstone EOB query test
 
-The next test we'll review is the [EOB query test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). If you've already completed the read test, you have all the data loaded that you'll need. This test validates that you can search for specific `Patient` and `ExplanationOfBenefit` resources using various parameters.
+The next test we review is the [EOB query test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). If you've already completed the read test, you have all the data loaded that you need. This test validates that you can search for specific `Patient` and `ExplanationOfBenefit` resources using various parameters.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB query execution results.":::
 
 ## Touchstone error handling test
 
-The final test we'll walk through is testing [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete an ExplanationOfBenefit resource from your database and use the ID of the deleted `ExplanationOfBenefit` resource in the test.
+The final test we walk through is testing [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete an ExplanationOfBenefit resource from your database and use the ID of the deleted `ExplanationOfBenefit` resource in the test.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB error handling results.":::
 
@@ -76,5 +78,5 @@ In this tutorial, we walked through how to pass the CARIN IG for Blue Button tes
 >[!div class="nextstepaction"]
 >[DaVinci Drug Formulary](davinci-drug-formulary-tutorial.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.       
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]    
  

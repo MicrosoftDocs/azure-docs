@@ -1,10 +1,14 @@
 ---
 title: Migrate ArcSight SOAR automation to Microsoft Sentinel | Microsoft Docs
 description: Learn how to identify SOAR use cases, and how to migrate your ArcSight SOAR automation to Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security engineer, I want to migrate my ArcSight SOAR automation to Microsoft Sentinel so that analysts can leverage advanced incident handling and response capabilities.
+
 ---
 
 # Migrate ArcSight SOAR automation to Microsoft Sentinel
@@ -37,7 +41,7 @@ This section shows how key SOAR concepts in ArcSight translate to Microsoft Sent
 |Step (in diagram) |ArcSight  |Microsoft Sentinel |
 |---------|---------|---------|
 |1 |Ingest events into Enterprise Security Manager (ESM) and trigger correlation events.     |Ingest events into the Log Analytics workspace.     |
-|2 |Automatically filter alerts for case creation.     |Use [analytics rules](detect-threats-built-in.md#use-built-in-analytics-rules) to trigger alerts. Enrich alerts using the [custom details feature](surface-custom-details-in-alerts.md) to create dynamic incident names.   |
+|2 |Automatically filter alerts for case creation.     |Use [analytics rules](detect-threats-built-in.md) to trigger alerts. Enrich alerts using the [custom details feature](surface-custom-details-in-alerts.md) to create dynamic incident names.   |
 |3 |Classify cases. |Use [automation rules](automate-incident-handling-with-automation-rules.md). With automation rules, Microsoft Sentinel treats incidents according to the analytics rule that triggered the incident, and the incident properties that match defined criteria. |
 |4 |Consolidate cases. |You can consolidate several alerts to a single incident according to properties such as matching entities, alert details, or creation timeframe, using the alert grouping feature. |
 |5 |Dispatch cases. |Assign incidents to specific analysts using [an integration](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/automate-incident-assignment-with-shifts-for-teams/ba-p/2297549) between Microsoft Teams, Azure Logic Apps, and Microsoft Sentinel automation rules. |

@@ -3,9 +3,9 @@
  description: include file
  services: expressroute
  author: duongau
- ms.service: expressroute
+ ms.service: azure-expressroute
  ms.topic: include
- ms.date: 11/03/2022
+ ms.date: 10/09/2023
  ms.author: duau
  ms.custom: include file
 ---
@@ -19,19 +19,18 @@
 | Maximum number of IPs for ExpressRoute provider circuit with Fastpath | 25,000 |
 | Maximum number of IPs for ExpressRoute Direct 10 Gbps with Fastpath | 100,000 |
 | Maximum number of IPs for ExpressRoute Direct 100 Gbps with Fastpath | 200,000 |
-| Maximum number of flows for ExpressRoute Traffic Collector | 30,000 |
+| Maximum number of flows for ExpressRoute Traffic Collector | 300,000 |
 
 #### Route advertisement limits
 
 | Resource | Local / Standard SKU | Premium SKU |
 |--|--|--|
-| Maximum number of IPv4 routes advertised to Azure private peering | 4,000 | 10,000 |
-| Maximum number of IPv6 routes advertised to Azure private peering | 100 | 100 |
-| Maximum number of IPv4 routes advertised from Azure private peering from the VNet address space | 1,000 | 1,000 |
-| Maximum number of IPv6 routes advertised from Azure private peering from the VNet address space | 1,000 | 1,000 |
-| Maximum number of IPv4 routes advertised to Microsoft peering | 200 | 200 |
-| Maximum number of IPv6 routes advertised to Microsoft peering | 200 | 200 |
-
+| Maximum number of IPv4 on-prem routes advertised over Azure private peering to the ExpressRoute circuit | 4,000 | 10,000 |
+| Maximum number of IPv6 on-prem routes advertised over Azure private peering to the ExpressRoute circuit | 100 | 100 |
+| Maximum number of IPv4 Virtual Network routes advertised by the Gateway to the ExpressRoute circuit over Azure private peering | 1,000 | 1,000 |
+| Maximum number of IPv6 Virtual Network routes advertised by the Gateway to the ExpressRoute circuit over Azure private peering | 100 | 100 |
+| Maximum number of IPv4 routes advertised to Microsoft peering from on-premises | 200 | 200 |
+| Maximum number of IPv6 routes advertised to Microsoft peering from on-premises | 200 | 200 |
 
 #### Virtual networks links allowed for each ExpressRoute circuit limit
 
@@ -55,4 +54,4 @@
 
 #### ExpressRoute gateway performance limits
 
-[!INCLUDE [expressroute-gateway-preformance-include](expressroute-gateway-performance-include.md)]
+[!INCLUDE [expressroute-gateway-preformance-include](./expressroute-gateway-performance-include.md)]

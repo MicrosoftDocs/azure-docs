@@ -1,10 +1,13 @@
 ---
 title: Reboot VMs for Azure HDInsight clusters 
 description: Learn how to reboot unresponsive VMs for Azure HDInsight clusters.
-ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 06/15/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Reboot VMs for HDInsight clusters

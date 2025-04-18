@@ -1,14 +1,13 @@
 ---
 title: Troubleshoot the Azure Cosmos DB connector
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to troubleshoot issues with the Azure Cosmos DB and Azure Cosmos DB for NoSQL connectors in Azure Data Factory and Azure Synapse Analytics. 
+description: Learn how to troubleshoot issues with the Azure Cosmos DB and Azure Cosmos DB for NoSQL connectors in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/29/2022
+ms.date: 01/05/2024
 ms.author: jianleishen
-ms.custom: has-adal-ref, synapse, ignite-2022
+ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot the Azure Cosmos DB connector in Azure Data Factory and Azure Synapse
@@ -21,9 +20,36 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Symptoms**: When you copy data into Azure Cosmos DB with a default write batch size, you receive the following error: `Request size is too large.`
 
-- **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large. You can tune the write batch size.
+- **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large.
 
-- **Resolution**: In the copy activity sink, reduce the *write batch size* value (the default value is 10000).
+- **Resolution**: <br>
+You can tune the write batch size. In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br>
+If reducing the *write batch size* value to 1 still doesn't work, change your Azure Cosmos DB SQL API from V2 to V3. To complete this configuration, you have two options:
+
+     - **Option 1**: Change your authentication type to service principal or system-assigned managed identity or user-assigned managed identity.
+     - **Option 2**: If you still want to use account key authentication, follow these steps:
+         1. Create an Azure Cosmos DB for NoSQL linked service.
+         2. Update the linked service with the following template. 
+         
+            ```json
+            {
+              "name": "<CosmosDbV3>",
+              "type": "Microsoft.DataFactory/factories/linkedservices",
+              "properties": {
+                "annotations": [],
+                "type": "CosmosDb",
+                "typeProperties": {
+                  "useV3": true,
+                  "accountEndpoint": "<account endpoint>",
+                  "database": "<database name>",
+                  "accountKey": {
+                    "type": "SecureString",
+                    "value": "<account key>"
+                  }
+                }
+              }
+            }
+            ```
 
 ## Error message: Unique index constraint violation
 
@@ -50,7 +76,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     Message=Message: {"Errors":["Request rate is large"]}`
 
 - **Cause**: The number of used request units (RUs) is greater than the available RUs configured in Azure Cosmos DB. To learn how
-Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos-db/request-units.md#request-unit-considerations).
+Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](/azure/cosmos-db/request-units#request-unit-considerations).
 
 - **Resolution**: Try either of the following two solutions:
 
@@ -77,7 +103,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException, 
     Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,`
 
-- **Cause**: There are two ways to represent the UUID in Binary JSON (BSON): UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will receive an error if your UUID data in MongoDB is UuidStandard.
+- **Cause**: There are two ways to represent the UUID in Binary JSON (BSON): UuidStandard and UuidLegacy. By default, UuidLegacy is used to read data. You will receive an error if your UUID data in MongoDB is UuidStandard.
 
 - **Resolution**: In the MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
@@ -87,7 +113,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: A problem with the CosmosDbSqlApi operation.  This applies to the Azure Cosmos DB for NoSQL connector specifically.
 
-- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](../cosmos-db/troubleshoot-dot-net-sdk.md). For further help, contact the Azure Cosmos DB team.
+- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
 
 ## Error code: CosmosDbSqlApiPartitionKeyExceedStorage
 
@@ -95,16 +121,16 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: The data size of each logical partition is limited, and the partition key reached the maximum size of your logical partition.
 
-- **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](../cosmos-db/partitioning-overview.md#logical-partitions).
+- **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](/azure/cosmos-db/partitioning-overview#logical-partitions).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

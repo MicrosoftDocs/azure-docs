@@ -1,189 +1,98 @@
 ---
 title: Template artifact reference
 description: Provides an example of the deployment template artifact for Azure Managed Applications.
-ms.topic: conceptual
-ms.author: davidsmatlak
-author: davidsmatlak
-ms.date: 07/11/2019
+ms.topic: reference
+ms.date: 09/22/2024
 ---
 
 # Reference: Deployment template artifact
 
-This article is a reference for a *mainTemplate.json* artifact in Azure Managed Applications. For more information about authoring deployment template, see [Azure Resource Manager templates](../templates/syntax.md).
+This article is a reference for a _mainTemplate.json_ artifact in Azure Managed Applications. For more information about authoring deployment template, see [Azure Resource Manager templates](../templates/syntax.md).
 
 ## Deployment template
 
-The following JSON shows an example of *mainTemplate.json* file for Azure Managed Applications:
+The following JSON shows an example of _mainTemplate.json_ file for Azure Managed Applications:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
-      "allowedValues": [
-        "australiaeast",
-        "eastus",
-        "westeurope"
-      ],
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "appServicePlanName": {
+      "type": "string",
+      "maxLength": 40,
       "metadata": {
-        "description": "Location for the resources."
+        "description": "App Service plan name."
       }
     },
-    "funcname": {
+    "appServiceNamePrefix": {
       "type": "string",
+      "maxLength": 47,
       "metadata": {
-        "description": "Name of the Azure Function that hosts the code. Must be globally unique"
-      },
-      "defaultValue": ""
-    },
-    "storageName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the storage account that hosts the function. Must be globally unique. The field can contain only lowercase letters and numbers. Name must be between 3 and 24 characters"
-      },
-      "defaultValue": ""
-    },
-    "zipFileBlobUri": {
-      "type": "string",
-      "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
-      "metadata": {
-        "description": "The Uri to the uploaded function zip file"
+        "description": "App Service name prefix."
       }
     }
   },
   "variables": {
-    "customrpApiversion": "2018-09-01-preview",
-    "customProviderName": "public",
-    "serverFarmName": "functionPlan"
+    "appServicePlanSku": "B1",
+    "appServicePlanCapacity": 1,
+    "appServiceName": "[format('{0}{1}', parameters('appServiceNamePrefix'), uniqueString(resourceGroup().id))]",
+    "linuxFxVersion": "DOTNETCORE|8.0"
   },
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2016-09-01",
-      "name": "[variables('serverFarmName')]",
+      "apiVersion": "2023-01-01",
+      "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "Y1",
-        "tier": "Dynamic",
-        "size": "Y1",
-        "family": "Y",
-        "capacity": 0
+        "name": "[variables('appServicePlanSku')]",
+        "capacity": "[variables('appServicePlanCapacity')]"
       },
-      "kind": "functionapp",
+      "kind": "linux",
       "properties": {
-        "name": "[variables('serverFarmName')]",
-        "perSiteScaling": false,
-        "reserved": false,
-        "targetWorkerCount": 0,
-        "targetWorkerSizeId": 0
+        "zoneRedundant": false,
+        "reserved": true
       }
     },
     {
       "type": "Microsoft.Web/sites",
-      "kind": "functionapp",
-      "name": "[parameters('funcname')]",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2023-01-01",
+      "name": "[variables('appServiceName')]",
       "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
-        "[resourceId('Microsoft.Web/serverfarms', variables('serverFarmName'))]"
-      ],
-      "identity": {
-        "type": "SystemAssigned"
-      },
       "properties": {
-        "name": "[parameters('funcname')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
+        "httpsOnly": true,
+        "redundancyMode": "None",
         "siteConfig": {
-          "appSettings": [
-            {
-              "name": "AzureWebJobsDashboard",
-              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2015-05-01-preview').key1)]"
-            },
-            {
-              "name": "AzureWebJobsStorage",
-              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2015-05-01-preview').key1)]"
-            },
-            {
-              "name": "FUNCTIONS_EXTENSION_VERSION",
-              "value": "~2"
-            },
-            {
-              "name": "AzureWebJobsSecretStorageType",
-              "value": "Files"
-            },
-            {
-              "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2015-05-01-preview').key1)]"
-            },
-            {
-              "name": "WEBSITE_CONTENTSHARE",
-              "value": "[concat(toLower(parameters('funcname')), 'b86e')]"
-            },
-            {
-              "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "6.5.0"
-            },
-            {
-              "name": "WEBSITE_RUN_FROM_PACKAGE",
-              "value": "[parameters('zipFileBlobUri')]"
-            }
-          ]
-        },
-        "clientAffinityEnabled": false,
-        "reserved": false,
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('serverFarmName'))]"
-      }
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('storageName')]",
-      "apiVersion": "2018-02-01",
-      "kind": "StorageV2",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_LRS"
-      }
-    },
-    {
-      "apiVersion": "[variables('customrpApiversion')]",
-      "type": "Microsoft.CustomProviders/resourceProviders",
-      "name": "[variables('customProviderName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "actions": [
-          {
-            "name": "ping",
-            "routingType": "Proxy",
-            "endpoint": "[listSecrets(resourceId('Microsoft.Web/sites/functions', parameters('funcname'), 'HttpTrigger1'), '2018-02-01').trigger_url]"
-          },
-          {
-            "name": "users/contextAction",
-            "routingType": "Proxy",
-            "endpoint": "[listSecrets(resourceId('Microsoft.Web/sites/functions', parameters('funcname'), 'HttpTrigger1'), '2018-02-01').trigger_url]"
-          }
-        ],
-        "resourceTypes": [
-          {
-            "name": "users",
-            "routingType": "Proxy,Cache",
-            "endpoint": "[listSecrets(resourceId('Microsoft.Web/sites/functions', parameters('funcname'), 'HttpTrigger1'), '2018-02-01').trigger_url]"
-          }
-        ]
+          "linuxFxVersion": "[variables('linuxFxVersion')]",
+          "minTlsVersion": "1.2",
+          "ftpsState": "Disabled"
+        }
       },
       "dependsOn": [
-        "[concat('Microsoft.Web/sites/',parameters('funcname'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
       ]
     }
   ],
-  "outputs": {}
+  "outputs": {
+    "appServicePlan": {
+      "type": "string",
+      "value": "[parameters('appServicePlanName')]"
+    },
+    "appServiceApp": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2023-01-01').defaultHostName]"
+    }
+  }
 }
 ```
 
 ## Next steps
 
-- [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
 - [Reference: User interface elements artifact](reference-createuidefinition-artifact.md)
 - [Reference: View definition artifact](reference-view-definition-artifact.md)

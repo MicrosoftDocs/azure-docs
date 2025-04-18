@@ -4,12 +4,12 @@ description: The first tutorial about deploying Azure Stack Edge Mini R device i
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/23/2022
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
 ---
 
 # Tutorial: Prepare to deploy Azure Stack Edge Mini R
@@ -104,7 +104,7 @@ After a device is delivered, a **Configure hardware** link is added to the order
 
 If necessary, prepare your environment for Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 

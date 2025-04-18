@@ -1,10 +1,9 @@
 ---
-author: v-dalc
-ms.service: databox  
-ms.subservice: pod
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 01/25/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Take the following steps if you're returning the device in Japan.
@@ -36,3 +35,4 @@ If needed, you can contact Quantium Solutions Support (Japanese language) at the
 
 * Email：[azure.qsjp@quantiumsolutions.com](mailto:azure.qsjp@quantiumsolutions.com)
 * Telephone：03-5755-0150
+

@@ -4,13 +4,15 @@ description: Reference for the cache-lookup policy available for use in Azure AP
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 12/07/2022
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Get from cache
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `cache-lookup` policy to perform cache lookup and return a valid cached response when available. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
 
@@ -55,18 +57,21 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |vary-by-header|Add one or more of these elements to start caching responses per value of specified header, such as `Accept`, `Accept-Charset`, `Accept-Encoding`, `Accept-Language`, `Authorization`, `Expect`, `From`, `Host`, `If-Match`.|No|
-|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. If none are specified, all query parameters are used.|No|
+|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. |No|
 
 ## Usage
 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
-When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
+- API Management only performs cache lookup for HTTP GET requests.
+* When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
+- This policy can only be used once in a policy section.
+
 
 ## Examples
 
@@ -113,6 +118,6 @@ For more information, see [Policy expressions](api-management-policy-expressions
 
 ## Related policies
 
-* [API Management caching policies](api-management-caching-policies.md)
+* [Caching](api-management-policies.md#caching)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

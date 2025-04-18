@@ -1,22 +1,23 @@
 ---
 title: Manage IoT Edge certificates
+titleSuffix: Azure IoT Edge
 description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 1/17/2023
+ms.date: 04/09/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 # Manage IoT Edge certificates
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. 
 
 > [!NOTE]
-> The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it's actually an intermediate CA certificate.
+> The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You don't need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. Often, it's actually an intermediate CA certificate.
 
 ## Prerequisites
 
@@ -64,6 +65,10 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 * If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
 
+> [!IMPORTANT]
+> Your PKI infrastructure should support RSA-2048 bit keys and EC P-256 keys. For example, your EST servers should support these key types. You can use other key types, but we only test RSA-2048 bit keys and EC P-256 keys.
+>
+
 ## Permission requirements
 
 The following table lists the file and directory permissions required for the IoT Edge certificates. The preferred directory for the certificates is `/var/aziot/certs/` and `/var/aziot/secrets/` for keys.
@@ -71,9 +76,9 @@ The following table lists the file and directory permissions required for the Io
 | File or directory | Permissions | Owner |
 |-------------------|-------------|-------|
 | `/var/aziot/certs/` certificates directory | drwxr-xr-x (755) | aziotcs |
-| Certificate files in `/var/aziot/certs/` | -wr-r--r-- (644) | aziotcs |
+| Certificate files in `/var/aziot/certs/` | -rw-r--r-- (644) | aziotcs |
 | `/var/aziot/secrets/` keys directory | drwx------ (700)| aziotks |
-| Key files in `/var/aziot/secrets/` | -wr------- (600) | aziotks |
+| Key files in `/var/aziot/secrets/` | -rw------- (600) | aziotks |
 
 To create the directories, set the permissions, and set the owner, run the following commands:
 
@@ -123,7 +128,6 @@ drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
 total 16
 drwx------ 2 aziotks aziotks 4096 Jan 23 17:23 .
 drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
--rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
 -rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-devicename.key.pem
 ```
 
@@ -131,7 +135,7 @@ drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
 
 Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. The trust bundle is available for IoT Edge and modules to communicate with servers. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
 
-1. Get a publicly trusted root CA certificate from a PKI provider.
+1. Get the root CA certificate from a PKI provider.
 
 1. Check that the certificate meets the [format requirements](#format-requirements).
 
@@ -173,15 +177,15 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 
 Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
-# [Linux](#tab/linux)
+# [Debian / Ubuntu](#tab/ubuntu)
 
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-  sudo update-ca-trust
+  sudo update-ca-certificates
   ```
 
-# [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)
+# [EFLOW / RHEL](#tab/windows)
 
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /etc/pki/ca-trust/source/anchors/my-root-ca.pem.crt
@@ -247,7 +251,18 @@ To prevent errors when certificates expire, remember to manually update the file
 
 ### Example: Use device identity certificate files from PKI provider
 
-Request a TLS client certificate and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
+Request a TLS client certificate and a private key from your PKI provider.
+
+Device identity certificate requirements:
+
+- Standard client certificate extensions:
+    extendedKeyUsage = clientAuth
+    keyUsage = critical, digitalSignature
+- Key identifiers to help distinguish between issuing CAs with the same CN for CA certificate rotation.
+    - subjectKeyIdentifier = hash
+    - authorityKeyIdentifier = keyid:always,issuer:always
+
+Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the important field that must match.
 
 Example device identity certificate:
 
@@ -374,6 +389,9 @@ retry = "2%"
 Once you move into a production scenario, or you want to create a gateway device, you can no longer use the quickstart Edge CA.
 
 One option is to provide your own certificates and manage them manually. However, to avoid the risky and error-prone manual certificate management process, use an EST server whenever possible.
+
+> [!CAUTION]
+> The common name (CN) of Edge CA certificate can't match device hostname parameter defined in the device's configuration file *config.toml* or the device ID registered in IoT Hub.
 
 ### Plan for Edge CA renewal
 
@@ -579,6 +597,8 @@ threshold = "80%"
 retry = "4%"
 ```
 
+Automatic renewal for Edge CA must be enabled when issuance method is set to EST. Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method](#example-use-edge-ca-certificate-files-from-pki-provider) instead.
+
 Don't use EST or `auto_renew` with other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment. IoT Edge can't update certificate thumbprints in Azure when a certificate is renewed, which prevents IoT Edge from reconnecting.
 
 ### Example: automatic Edge CA management with EST
@@ -594,18 +614,12 @@ url = "https://ca.example.org/.well-known/est"
 
 bootstrap_identity_cert = "file:///var/aziot/my-est-id-bootstrap-cert.pem"
 bootstrap_identity_pk = "file:///var/aziot/my-est-id-bootstrap-pk.key.pem"
-```
 
-By default, and when there's no specific `auto_renew` configuration, Edge CA automatically renews at 80% certificate lifetime if EST is set as the method. You can update the auto renewal values to other values. For example:
-
-```toml
 [edge_ca.auto_renew]
 rotate_key = true
 threshold = "90%"
 retry = "2%"
 ```
-
-Automatic renewal for Edge CA can't be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method](#example-use-edge-ca-certificate-files-from-pki-provider) instead.
 
 ## Module server certificates
 
@@ -613,7 +627,14 @@ Edge Daemon issues module server and identity certificates for use by Edge modul
 
 ### Renewal
 
-Server certificates may be issued off the Edge CA certificate or through a DPS-configured CA. Regardless of the issuance method, these certificates must be renewed by the module.
+Server certificates may be issued off the Edge CA certificate. Regardless of the issuance method, these certificates must be renewed by the module. If you develop a custom module, you must implement the renewal logic in your module.
+
+The *edgeHub* module supports a certificate renewal feature. You can configure the *edgeHub* module server certificate renewal using the following environment variables:
+
+* **ServerCertificateRenewAfterInMs**: Sets the duration in milliseconds when the *edgeHub* server certificate is renewed irrespective of certificate expiry time.
+* **MaxCheckCertExpiryInMs**: Sets the duration in milliseconds when *edgeHub* service checks the *edgeHub* server certificate expiration. If the variable is set, the check happens irrespective of certificate expiry time.
+
+For more information about the environment variables, see [EdgeHub and EdgeAgent environment variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ## Changes in 1.2 and later
 

@@ -5,9 +5,9 @@ description: Learn how to configure an Always On VPN user tunnel for your Virtua
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---

@@ -2,13 +2,12 @@
 title: Tutorial to copy data to Azure Data Box Heavy via NFS| Microsoft Docs
 description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box Heavy by using NFS with the local web UI.
 services: databox
-author: alkohli
+author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data to Azure Data Box Heavy via NFS
@@ -54,8 +53,8 @@ The following table shows the UNC path to the shares on your Data Box Heavy and 
 | Storage           | UNC path                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC path to shares: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
+| Azure Page blobs  | <li>UNC path to shares: `//<DeviceIPAddress>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `//<DeviceIPAddress>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 If you are using a Linux host computer, perform the following steps to configure your device to allow access to NFS clients.
 

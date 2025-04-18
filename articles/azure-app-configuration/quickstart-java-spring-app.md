@@ -6,8 +6,8 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/22/2023
-ms.custom: devx-track-java, mode-api
+ms.date: 12/04/2024
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
@@ -41,25 +41,33 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-    <version>2.11.0</version>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
 </dependency>
-```
 
-> [!NOTE]
-> If you need to support an older version of Spring Boot, see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.18.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
 
 ### Code the application
 
 To use the Spring Cloud Azure Config starter to have your application communicate with the App Configuration store that you create, configure the application by using the following steps.
 
-1. Create a new Java file named *MessageProperties.java*, and add the following lines:
+1. Create a new Java file named *MyProperties.java*, and add the following lines:
 
    ```java
    import org.springframework.boot.context.properties.ConfigurationProperties;
 
    @ConfigurationProperties(prefix = "config")
-   public class MessageProperties {
+   public class MyProperties {
        private String message;
 
        public String getMessage() {
@@ -80,9 +88,9 @@ To use the Spring Cloud Azure Config starter to have your application communicat
 
    @RestController
    public class HelloController {
-       private final MessageProperties properties;
+       private final MyProperties properties;
 
-       public HelloController(MessageProperties properties) {
+       public HelloController(MyProperties properties) {
            this.properties = properties;
        }
 
@@ -93,13 +101,13 @@ To use the Spring Cloud Azure Config starter to have your application communicat
    }
    ```
 
-1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MessageProperties.java* configuration properties class to take effect and register it with the Spring container.
+1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MyProperties.java* configuration properties class to take effect and register it with the Spring container.
 
    ```java
    import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
    @SpringBootApplication
-   @EnableConfigurationProperties(MessageProperties.class)
+   @EnableConfigurationProperties(MyProperties.class)
    public class DemoApplication {
        public static void main(String[] args) {
            SpringApplication.run(DemoApplication.class, args);
@@ -107,7 +115,34 @@ To use the Spring Cloud Azure Config starter to have your application communicat
    }
    ```
 
-1. Open the auto-generated unit test and update to disable Azure App Configuration, or it will try to load from the service when running unit tests.
+1. You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
+
+    ```java
+    import org.springframework.stereotype.Component;
+    
+    import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+    
+    @Component
+    public class AppConfigCredential implements ConfigurationClientCustomizer {
+    
+        @Override
+        public void customize(ConfigurationClientBuilder builder, String endpoint) {
+            builder.credential(new DefaultAzureCredentialBuilder().build());
+        }
+    }
+    ```
+
+1. Then create a configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.MyApplication
+    ```
+
+
+1. Open the auto-generated unit test and update to disable Azure App Configuration, or it tries to load from the service when running unit tests.
 
    ```java
    import org.junit.jupiter.api.Test;
@@ -126,25 +161,25 @@ To use the Spring Cloud Azure Config starter to have your application communicat
 1. Create a new file named *bootstrap.properties* under the resources directory of your app, and add the following line to the file.
 
    ```properties
-   spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
+   spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
    ```
 
-1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **APP_CONFIGURATION_ENDPOINT**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
    ```cmd
-   setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+   setx APP_CONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
    ```
 
    If you use Windows PowerShell, run the following command:
 
    ```azurepowershell
-   $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+   $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
    ```
 
    If you use macOS or Linux, run the following command:
 
    ```cmd
-   export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+   export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
    ```
 
 ### Build and run the app locally

@@ -4,10 +4,10 @@ description: Describes how to create VM images from specialized images starting 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 06/28/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro GPU device so that I can deploy VMs on the device.
 ---
@@ -38,7 +38,7 @@ The high-level workflow to deploy a VM from a specialized image is:
 
 Before you can deploy a VM on your device via PowerShell, make sure that:
 
-- You have access to a client that you'll use to connect to your device.
+- You have access to a client that you use to connect to your device.
     - Your client runs a [Supported OS](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
     - Your client is configured to connect to the local Azure Resource Manager of your device as per the instructions in [Connect to Azure Resource Manager for your device](azure-stack-edge-gpu-connect-resource-manager.md).
 
@@ -52,7 +52,7 @@ Verify that your client can connect to the local Azure Resource Manager.
     Login-AzureRMAccount -EnvironmentName <Environment Name>
     ```
 
-2. Provide the username `EdgeArmUser` and the password to connect via Azure Resource Manager. If you do not recall the password, [Reset the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
+2. Provide the username `EdgeArmUser` and the password to connect via Azure Resource Manager. If you don't recall the password, [Reset the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
 
 ## Deploy VM from specialized image
 
@@ -64,7 +64,7 @@ Follow these steps to copy VHD to local storage account:
 
 1. Copy the source VHD to a local blob storage account on your Azure Stack Edge.
 
-1. Take note of the resulting URI. You'll use this URI in a later step.
+1. Take note of the resulting URI. You use this URI in a later step.
 
     To create and access a local storage account, see the sections [Create a storage account](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-local-storage-account) through [Upload a VHD](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) in the article: [Deploy VMs on your Azure Stack Edge device via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
 
@@ -79,7 +79,7 @@ Follow these steps to create a managed disk from a VHD that you uploaded to the 
     $DiskRG = <managed disk resource group>
     $DiskName = <managed disk name>    
     ```
-    Here is an example output.
+    Here's an example output.
 
     ```powershell
     PS C:\WINDOWS\system32> $VHDURI = "https://myasevmsa.blob.myasegpudev.wdshcsso.com/vhds/WindowsServer2016Datacenter.vhd"
@@ -89,11 +89,13 @@ Follow these steps to create a managed disk from a VHD that you uploaded to the 
 1. Create a new managed disk.
 
     ```powershell
-    $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri $VhdURI
-    $disk = New-AzureRMDisk -ResourceGroupName $DiskRG -DiskName $DiskName -Disk $DiskConfig
+    $StorageAccountId = (Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Id
+    
+    $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "Source URL for your VHD"
+
     ```
 
-    Here is an example output. The location here is set to the location of the local storage account and is always `DBELocal` for all local storage accounts on your Azure Stack Edge Pro GPU device. 
+    Here's an example output. The location here is set to the location of the local storage account and is always `DBELocal` for all local storage accounts on your Azure Stack Edge Pro GPU device. 
 
     ```powershell
     PS C:\WINDOWS\system32> $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri $VHDURI
@@ -120,7 +122,7 @@ Follow these steps to create a VM from a managed disk:
     >[!NOTE]
     > The `PrivateIP` parameter is optional. Use this parameter to assign a static IP else the default is a dynamic IP using DHCP.
 
-    Here is an example output. In this example, the same resource group is specified for all the VM resources though you can create and specify separate resource groups for the resources if needed.
+    Here's an example output. In this example, the same resource group is specified for all the VM resources though you can create and specify separate resource groups for the resources if needed.
 
     ```powershell
     PS C:\WINDOWS\system32> $NicRG = "myasevm1rg"
@@ -134,7 +136,7 @@ Follow these steps to create a VM from a managed disk:
 
 1. Get the virtual network information and create a new network interface.
 
-    This sample assumes you are creating a single network interface on the default virtual network `ASEVNET` that is associated with the default resource group `ASERG`. If needed, you could specify an alternate virtual network, or create multiple network interfaces. For more information, see [Add a network interface to a VM via the Azure portal](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
+    This sample assumes you're creating a single network interface on the default virtual network `ASEVNET` that is associated with the default resource group `ASERG`. If needed, you could specify an alternate virtual network, or create multiple network interfaces. For more information, see [Add a network interface to a VM via the Azure portal](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 
     ```powershell
     $armVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
@@ -142,7 +144,7 @@ Follow these steps to create a VM from a managed disk:
     $nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRG -Location DBELocal -IpConfiguration $ipConfig
     ```
 
-    Here is an example output.
+    Here's an example output.
 
     ```powershell
     PS C:\WINDOWS\system32> $armVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
@@ -169,7 +171,7 @@ Follow these steps to create a VM from a managed disk:
     ```powershell
     $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -StorageAccountType StandardLRS -CreateOption Attach –[Windows/Linux]
     ```
-    The last flag in this command will be either `-Windows` or `-Linux` depending on which OS you are using for your VM.
+    The last flag in this command will be either `-Windows` or `-Linux` depending on which OS you're using for your VM.
 
 1. Create the VM.
 
@@ -177,7 +179,7 @@ Follow these steps to create a VM from a managed disk:
     New-AzureRmVM -ResourceGroupName $VMRG -Location DBELocal -VM $vm 
     ```
 
-    Here is an example output. 
+    Here's an example output. 
 
     ```powershell
     PS C:\WINDOWS\system32> $vmConfig = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
@@ -194,14 +196,14 @@ Follow these steps to create a VM from a managed disk:
 
 ## Delete VM and resources
 
-This article used only one resource group to create all the VM resource. Deleting that resource group will delete the VM and all the associated resources. 
+This article used only one resource group to create all the VM resource. Deleting that resource group deletes the VM and all the associated resources. 
 
 1. First view all the resources created under the resource group.
 
     ```powershell
     Get-AzureRmResource -ResourceGroupName <Resource group name>
     ```
-    Here is an example output.
+    Here's an example output.
     
     ```powershell
     PS C:\WINDOWS\system32> Get-AzureRmResource -ResourceGroupName myasevm1rg
@@ -211,28 +213,28 @@ This article used only one resource group to create all the VM resource. Deletin
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Compute/disks
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Compute/disk
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Compute/disk
                         s/myasemd1
     
     Name              : myasetestvm1
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Compute/virtualMachines
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Compute/virt
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Compute/virt
                         ualMachines/myasetestvm1
     
     Name              : myasevmnic1
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Network/networkInterfaces
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Network/netw
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Network/netw
                         orkInterfaces/myasevmnic1
     
     Name              : myasevmsa
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Storage/storageaccounts
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Storage/stor
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Storage/stor
                         ageaccounts/myasevmsa
     
     PS C:\WINDOWS\system32>
@@ -243,7 +245,7 @@ This article used only one resource group to create all the VM resource. Deletin
     ```powershell
     Remove-AzureRmResourceGroup -ResourceGroupName <Resource group name>
     ```
-    Here is an example output.
+    Here's an example output.
     
     ```powershell
     PS C:\WINDOWS\system32> Remove-AzureRmResourceGroup -ResourceGroupName myasevm1rg
@@ -260,7 +262,7 @@ This article used only one resource group to create all the VM resource. Deletin
     ```powershell
     Get-AzureRmResourceGroup
     ```
-    Here is an example output.
+    Here's an example output.
 
     ```powershell
     PS C:\WINDOWS\system32> Get-AzureRmResourceGroup
@@ -269,19 +271,19 @@ This article used only one resource group to create all the VM resource. Deletin
     Location          : dbelocal
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/ase-image-resourcegroup
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ase-image-resourcegroup
     
     ResourceGroupName : ASERG
     Location          : dbelocal
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/ASERG
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ASERG
     
     ResourceGroupName : myaserg
     Location          : dbelocal
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg
         
     PS C:\WINDOWS\system32>
     ```
@@ -290,4 +292,3 @@ This article used only one resource group to create all the VM resource. Deletin
 
 - [Prepare a generalized image from a Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
 - [Prepare a generalized image from an ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
-d

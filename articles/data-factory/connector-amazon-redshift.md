@@ -4,17 +4,13 @@ description: Learn how to copy data from Amazon Redshift to supported sink data 
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 09/12/2024
 ---
 
 # Copy data from Amazon Redshift using Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
-> * [Current version](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -29,11 +25,13 @@ This Amazon Redshift connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Amazon Redshift connector supports retrieving data from Redshift using query or built-in Redshift UNLOAD support.
+
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 > [!TIP]
 > To achieve the best performance when copying large amounts of data from Redshift, consider using the built-in Redshift UNLOAD through Amazon S3. See [Use UNLOAD to copy data from Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) section for details.
@@ -257,5 +255,5 @@ When copying data from Amazon Redshift, the following mappings are used from Ama
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

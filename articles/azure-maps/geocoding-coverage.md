@@ -2,12 +2,12 @@
 title: Geocoding coverage in Microsoft Azure Maps Search service
 titleSuffix: Microsoft Azure Maps
 description: See which regions Azure Maps Search covers. Geocoding categories include address points, house numbers, street level, city level, and points of interest.
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 11/30/2021
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: search
 ---
 
 # Azure Maps geocoding coverage
@@ -133,7 +133,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Samoa                                               |                 |                |              |      ✓     |       ✓        |
 | Singapore                                           |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Solomon Islands                                     |                 |                |              |      ✓     |       ✓        |
-| South Korea                                         |                 |                |              |      ✓     |       ✓        |
+| South Korea<sup>1</sup>                             |                 |                |              |      ✓     |       ✓        |
 | Sri Lanka                                           |                 |                |              |      ✓     |       ✓        |
 | Taiwan                                              |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Thailand                                            |        ✓        |                |       ✓     |      ✓     |       ✓        |
@@ -145,6 +145,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Vanuatu                                             |                 |                |              |      ✓     |       ✓        |
 | Vietnam                                             |        ✓        |                |       ✓     |      ✓     |       ✓        |
 | Wallis & Futuna                                     |                 |                |              |      ✓     |       ✓        |
+
+<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Enable South Korea addresses in Azure Maps](how-to-manage-consent.md).
 
 ## Europe
 
@@ -227,7 +229,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Burkina Faso                                        |                |              |       ✓      |      ✓     |        ✓          |
 | Burundi                                             |                |              |       ✓      |      ✓     |        ✓          |
 | Cameroon                                            |                |              |       ✓      |      ✓     |        ✓          |
-| Cape Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
+| Cabo Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
 | Central African Republic                            |                |              |       ✓      |      ✓     |        ✓          |
 | Chad                                                |                |              |              |      ✓     |        ✓          |
 | Congo                                               |                |              |              |      ✓     |        ✓          |
@@ -269,7 +271,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Qatar                                               |        ✓       |              |       ✓     |      ✓     |        ✓          |
 | Réunion                                             |        ✓       |        ✓     |       ✓     |      ✓     |        ✓          |
 | Rwanda                                              |                |              |       ✓      |      ✓     |        ✓          |
-| Saint Helena                                        |                |              |              |      ✓     |        ✓          |
+| Saint Helena, Ascension, and Tristan da Cunha       |                |              |              |      ✓     |        ✓          |
 | São Tomé & Príncipe                                 |                |              |       ✓      |      ✓     |        ✓          |
 | Saudi Arabia                                        |        ✓       |              |       ✓      |      ✓     |        ✓          |
 | Senegal                                             |                |              |       ✓      |      ✓     |        ✓          |
@@ -293,7 +295,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 
 Learn more about Azure Maps geocoding:
 > [!div class="nextstepaction"]
-> [Azure Maps Search service](/rest/api/maps/search)
+> [Azure Maps Search service]
 
-[Search service]: /rest/api/maps/search
-[Get Search Address API]: /rest/api/maps/search/getsearchaddress
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Azure Maps Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Get Search Address]: /rest/api/maps/search/get-search-address?view=rest-maps-1.0&preserve-view=true

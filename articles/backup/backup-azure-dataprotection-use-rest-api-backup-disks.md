@@ -1,20 +1,25 @@
 ---
 title: Back up Azure Disks using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure Disks using REST API.
-ms.topic: conceptual
-ms.date: 10/06/2021
+ms.topic: how-to
+ms.date: 04/16/2025
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
 author: jyothisuri
 ms.author: jsuri
+ms.custom: engagement-fy24
 ---
 
 # Back up Azure Disks using Azure Data Protection via REST API
 
 This article describes how to manage backups for Azure Disks via REST API.
 
+Azure Disk Backup simplifies snapshot lifecycle management for managed disks by automating periodic snapshots and retention based on backup policies. It eliminates infrastructure costs, custom scripting, and management overhead, providing a crash-consistent, point-in-time backup via incremental snapshots—supporting multiple backups per day. This agentless solution ensures zero impact on production performance and enables backup and restore of both OS and data disks (including shared disks), irrespective of whether they're attached to an Azure VM.
+
 For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
 ## Prerequisites
+
+Before you back up disks, review the following prerequisites:
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
@@ -22,29 +27,28 @@ For information on the Azure Disk backup region availability, supported scenario
 
 ## Configure backup
 
-### Key entities involved
+Once the vault and policy are created, there are two critical points that the user needs to consider to protect all Azure blobs within a storage account.
+
+- Key entities
+- Permissions
+
+### Key entities
 
 Once the vault and policy are created, there are three critical points that you need to consider to protect an Azure Disk.
 
-#### Disk to be protected
+- **Disk to be protected**: Note the ARM ID and the location of the disk to be protected. This will serve as the identifier of the disk.
 
-Note the ARM ID and the location of the disk to be protected. This will serve as the identifier of the disk.
+  ```http
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup"
+  ```
 
-```http
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup"
-```
+- **Snapshot resource group**: The disk snapshots are stored in a resource group within your subscription. As a guideline, we recommend creating a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots.
 
-#### Snapshot resource group
+  ```http
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/snapshot-rg"
+  ```
 
-The disk snapshots are stored in a resource group within your subscription. As a guideline, we recommend creating a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots.
-
-```http
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/snapshot-rg"
-```
-
-#### Backup vault
-
-The Backup vault requires permissions on the disk to enable backups. The system-assigned managed identity of the vault is used for assigning such permissions.
+- **Backup vault**: The Backup vault requires permissions on the disk to enable backups. The system-assigned managed identity of the vault is used for assigning such permissions.
 
 ### Assign permissions
 
@@ -52,7 +56,7 @@ You need to assign a few permissions via RBAC to the vault (represented by vault
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the _datasourceinfo_ section and the policy information is present in the _policyinfo_ section where the snapshot resource group is provided as one of the policy parameters.
+Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the `datasourceinfo` section and the policy information is present in the `policyinfo` section where the snapshot resource group is provided as one of the policy parameters.
 
 ```json
 {
@@ -101,7 +105,7 @@ POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to provide details of the Azure Disk to be protected.
 
-#### Example request body
+**Example request body**
 
 ```json
 {
@@ -136,7 +140,7 @@ The [request body](#prepare-the-request-to-configure-backup) that we prepared ea
 
 Backup request validation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -144,9 +148,9 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |200 OK     |   [OperationJobExtendedInfo](/rest/api/dataprotection/backup-instances/validate-for-backup#operationjobextendedinfo)      |     Accepted    |
 | Other Status codes |    [CloudError](/rest/api/dataprotection/backup-instances/validate-for-backup#clouderror)    |    Error response describing why the operation failed    |
 
-##### Example responses for validate backup request
+**Example responses for validate backup request**
 
-###### Error response
+##### Error response
 
 If the given disk is already protected, it returns the response as HTTP 400 (Bad request) and states that the given disk is protected to a backup vault along with details.
 
@@ -196,7 +200,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-###### Tracking response
+##### Track response
 
 If the datasource is unprotected, then the API proceeds for further validations and creates a tracking operation.
 
@@ -256,7 +260,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
           "innerError": {
             "code": "UserErrorMissingRequiredPermissions",
             "additionalInfo": {
-              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' with object id 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
+              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client '00001111-aaaa-2222-bbbb-3333cccc4444' with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
             }
           },
           "isRetryable": false,
@@ -459,7 +463,7 @@ DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/Test
 
 *DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -511,3 +515,4 @@ For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md)

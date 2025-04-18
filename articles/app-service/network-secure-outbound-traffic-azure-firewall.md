@@ -1,8 +1,8 @@
 ---
 title: 'App Service outbound traffic control with Azure Firewall'
 description: Outbound traffic from App Service to internet, private IP addresses, and Azure services are routed through Azure Firewall. Learn how to control App Service outbound traffic by using Virtual Network integration and Azure Firewall. 
-author: madsd
-ms.author: madsd
+author: cephalin
+ms.author: cephalin
 ms.topic: article
 ms.date: 01/13/2022
 ---
@@ -99,7 +99,7 @@ Outbound traffic from your app is now routed through the integrated virtual netw
 1. Navigate to the firewall's overview page and select its firewall policy.
 
 1. In the firewall policy page, from the left navigation, select **Application Rules** > **Add a rule collection**.
-1. In **Rules**, add a network rule with the App Service subnet as the source address, and specify an FQDN destination. In the screenshot below, the destination FQDN is set to `api.my-ip.io`.
+1. In **Rules**, add a network rule with the App Service subnet as the source address, and specify an FQDN destination. In the screenshot below, the destination FQDN is set to `contoso.com`.
 
     :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/config-azfw-policy-app-rule.png" alt-text="Screenshot of configure Azure Firewall policy rule.":::
 
@@ -113,7 +113,7 @@ Outbound traffic from your app is now routed through the integrated virtual netw
 An easy way to verify your configuration is to use the `curl` command from your app's SCM debug console to verify the outbound connection.
 
 1. In a browser, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
-1. In the console, run `curl -s <protocol>://<fqdn-address>` with a URL that matches the application rule you configured, To continue example in the previous screenshot, you can use **curl -s https://api.my-ip.io/ip**. The following screenshot shows a successful response from the API, showing the public IP address of your App Service app.
+1. In the console, run `curl -s <protocol>://<fqdn-address>` with a URL that matches an application rule you configured. The following screenshot is an example to a website that shows a successful response from a API, showing an IP address.
 
     :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/verify-outbound-traffic-fw-allow-rule.png" alt-text="Screenshot of verifying the success outbound traffic by using curl command in SCM debug console.":::
 

@@ -1,54 +1,57 @@
 ---
-title: Use private IP address for internal routing for an ingress endpoint 
-description: This article provides information on how to use private IPs for internal routing and thus exposing the Ingress endpoint within a cluster to the rest of the VNet. 
+title: Use private IP address for internal routing for an ingress endpoint
+description: This article provides information on how to use private IPs for internal routing to expose the ingress endpoint within a cluster to the rest of the virtual network.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 11/4/2019
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
-# Use private IP for internal routing for an Ingress endpoint 
+# Use a private IP for internal routing for an ingress endpoint
 
-This feature allows to expose the ingress endpoint within the `Virtual Network` using a private IP.
+You can use a private IP address for internal routing to expose an ingress endpoint within a cluster to the rest of a virtual network.
 
-## Pre-requisites  
-Application Gateway with a [Private IP configuration](./configure-application-gateway-with-private-frontend-ip.md)
+There are two ways to configure a controller to use a private IP for ingress: assigning the private IP to a particular ingress or assigning it globally.
 
-There are two ways to configure the controller to use Private IP for ingress,
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
+
+## Prerequisites
+
+To complete the tasks in this article, you need Azure Application Gateway with a [private IP configuration](./configure-application-gateway-with-private-frontend-ip.md).
 
 ## Assign to a particular ingress
-To expose a particular ingress over Private IP, use annotation [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) in Ingress.
 
-### Usage
+To expose a particular ingress over private IP, use the annotation [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) in the ingress:
+
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-For Application Gateways without a Private IP, Ingresses annotated with `appgw.ingress.kubernetes.io/use-private-ip: "true"` will be ignored. This will be indicated in the ingress event and AGIC pod log.
+For Application Gateway deployments without a private IP, ingresses annotated with `appgw.ingress.kubernetes.io/use-private-ip: "true"` are ignored. The ingress event and the Application Gateway Ingress Controller (AGIC) pod log indicate this problem:
 
-* Error as indicated in the Ingress Event
+- Here's the error as indicated in the ingress event:
 
-    ```bash
+    ```output
     Events:
     Type     Reason       Age               From                                                                     Message
     ----     ------       ----              ----                                                                     -------
-    Warning  NoPrivateIP  2m (x17 over 2m)  azure/application-gateway, prod-ingress-azure-5c9b6fcd4-bctcb  Ingress default/hello-world-ingress requires Application Gateway 
+    Warning  NoPrivateIP  2m (x17 over 2m)  azure/application-gateway, prod-ingress-azure-5c9b6fcd4-bctcb  Ingress default/hello-world-ingress requires Application Gateway
     applicationgateway3026 has a private IP address
     ```
 
-* Error as indicated in AGIC Logs
+- Here's the error as indicated in AGIC logs:
 
-    ```bash
+    ```output
     E0730 18:57:37.914749       1 prune.go:65] Ingress default/hello-world-ingress requires Application Gateway applicationgateway3026 has a private IP address
     ```
 
+## Assign globally
 
-## Assign Globally
-In case, requirement is to restrict all Ingresses to be exposed over Private IP, use `appgw.usePrivateIP: true` in `helm` config.
+If you need to restrict all ingresses to be exposed over private IP, use `appgw.usePrivateIP: true` in the `helm` configuration:
 
-### Usage
 ```yaml
 appgw:
     subscriptionId: <subscriptionId>
@@ -57,8 +60,11 @@ appgw:
     usePrivateIP: true
 ```
 
-This will make the ingress controller filter the IP address configurations for a Private IP when configuring the frontend listeners on the Application Gateway.
-AGIC will panic and crash if `usePrivateIP: true` and no Private IP is assigned.
+This code makes the ingress controller filter the IP address configurations for a private IP when it's configuring the frontend listeners on the Application Gateway deployment. AGIC can stop working if the value of `usePrivateIP` is `true` and no private IP is assigned.
 
 > [!NOTE]
-> Application Gateway v2 SKU requires a Public IP. Should you require Application Gateway to be private, Attach a [`Network Security Group`](../virtual-network/network-security-groups-overview.md) to the Application Gateway's subnet to restrict traffic.
+> Application Gateway v2 requires a public IP. If you require Application Gateway to be private, attach a [network security group](../virtual-network/network-security-groups-overview.md) to the Application Gateway deployment's subnet to restrict traffic.
+
+## Related content
+
+- [Application Gateway for Containers](for-containers/overview.md)

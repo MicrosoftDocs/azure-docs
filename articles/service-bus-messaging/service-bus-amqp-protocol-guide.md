@@ -1,8 +1,9 @@
 ---
-title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
-description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
-ms.topic: article
-ms.date: 05/31/2022
+title: AMQP 1.0 in Azure Service Bus and Event Hubs
+description: This article provides information on expressions and descriptions of AMQP 1.0 support in Azure Service Bus and Azure Event Hubs. 
+ms.topic: concept-article
+ms.date: 11/18/2024
+# Customer intent: I want to know how Azure Event Hubs and Azure Service Bus supports the AMQP protocol. 
 ---
 
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
@@ -27,17 +28,17 @@ When discussing advanced capabilities of Azure Service Bus, such as message brow
 
 AMQP is a framing and transfer protocol. Framing means that it provides structure for binary data streams that flow in either direction of a network connection. The structure provides delineation for distinct blocks of data, called *frames*, to be exchanged between the connected parties. The transfer capabilities make sure that both communicating parties can establish a shared understanding about when frames shall be transferred, and when transfers shall be considered complete.
 
-Unlike earlier expired draft versions produced by the AMQP working group that are still in use by a few message brokers, the working group's final, and standardized AMQP 1.0 protocol doesn't prescribe the presence of a message broker or any particular topology for entities inside a message broker.
+Unlike earlier expired draft versions from the AMQP working group that are still in use by a few message brokers, the working group's final, and standardized AMQP 1.0 protocol doesn't prescribe the presence of a message broker or any particular topology for entities inside a message broker.
 
 The protocol can be used for symmetric peer-to-peer communication, for interaction with message brokers that support queues and publish/subscribe entities, as Azure Service Bus does. It can also be used for interaction with messaging infrastructure where the interaction patterns are different from regular queues, as is the case with Azure Event Hubs. An event hub acts like a queue when events are sent to it, but acts more like a serial storage service when events are read from it; it somewhat resembles a tape drive. The client picks an offset into the available data stream and is then served all events from that offset to the latest available.
 
-The AMQP 1.0 protocol is designed to be extensible, enabling further specifications to enhance its capabilities. The three extension specifications discussed in this document illustrate this. For communication over existing HTTPS/WebSockets infrastructure, configuring the native AMQP TCP ports may be difficult. A binding specification defines how to layer AMQP over WebSockets. For interacting with the messaging infrastructure in a request/response fashion for management purposes or to provide advanced functionality, the AMQP management specification defines the required basic interaction primitives. For federated authorization model integration, the AMQP claims-based-security specification defines how to associate and renew authorization tokens associated with links.
+The AMQP 1.0 protocol is designed to be extensible, enabling further specifications to enhance its capabilities. The three extension specifications discussed in this document illustrate it. For communication over existing HTTPS/WebSockets infrastructure, configuring the native AMQP TCP ports might be difficult. A binding specification defines how to layer AMQP over WebSockets. For interacting with the messaging infrastructure in a request/response fashion for management purposes or to provide advanced functionality, the AMQP management specification defines the required basic interaction primitives. For federated authorization model integration, the AMQP claims-based-security specification defines how to associate and renew authorization tokens associated with links.
 
 ## Basic AMQP scenarios
 
 This section explains the basic usage of AMQP 1.0 with Azure Service Bus, which includes creating connections, sessions, and links, and transferring messages to and from Service Bus entities such as queues, topics, and subscriptions.
 
-The most authoritative source to learn about how AMQP works is the [AMQP 1.0 specification](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), but the specification was written to precisely guide implementation and not to teach the protocol. This section focuses on introducing as much terminology as needed for describing how Service Bus uses AMQP 1.0. For a more comprehensive introduction to AMQP, as well as a broader discussion of AMQP 1.0, you can review [this video course][this video course].
+The most authoritative source to learn about how AMQP works is the [AMQP 1.0 specification](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), but the specification was written to precisely guide implementation and not to teach the protocol. This section focuses on introducing as much terminology as needed for describing how Service Bus uses AMQP 1.0. For a more comprehensive introduction to AMQP and a broader discussion of AMQP 1.0, review [this video course][this video course].
 
 ### Connections and sessions
 
@@ -45,7 +46,7 @@ AMQP calls the communicating programs *containers*; those contain *nodes*, which
 
 ![Diagram showing Sessions and Connections between containers.][1]
 
-The network connection is thus anchored on the container. It's initiated by the container in the client role making an outbound TCP socket connection to a container in the receiver role, which listens for and accepts inbound TCP connections. The connection handshake includes negotiating the protocol version, declaring or negotiating the use of Transport Level Security (TLS/SSL), and an authentication/authorization handshake at the connection scope that is based on SASL.
+The network connection is thus anchored on the container. It's initiated by the container in the client role making an outbound TCP socket connection to a container in the receiver role, which listens for and accepts inbound TCP connections. The connection handshake includes negotiating the protocol version, declaring or negotiating the use of Transport Level Security (TLS)/Secure Sockets Layer (SSL), and an authentication/authorization handshake at the connection scope that is based on SASL.
 
 Azure Service Bus or Azure Event Hubs requires the use of TLS at all times. It supports connections over TCP port 5671, whereby the TCP connection is first overlaid with TLS before entering the AMQP protocol handshake, and also supports connections over TCP port 5672 whereby the server immediately offers a mandatory upgrade of connection to TLS using the AMQP-prescribed model. The AMQP WebSockets binding creates a tunnel over TCP port 443 that is then equivalent to AMQP 5671 connections.
 
@@ -73,6 +74,8 @@ Clients that use AMQP connections over TCP require ports 5671 and 5672 to be ope
 ![List of destination ports][4]
 
 A .NET client would fail with a SocketException ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connection string, which forces the clients to communicate with the remote service over port 5671.
+
+The AMQP **WebSocket binding** provides a mechanism for tunneling an AMQP connection over a WebSocket transport. This binding creates a tunnel over the TCP port 443, which is equivalent to AMQP 5671 connections. Use AMQP WebSockets if you are behind a firewall that blocks TCP connections over ports 5671, 5672 but allows TCP connections over port 443 (https).
 
 
 ### Links
@@ -105,7 +108,7 @@ A special form of rejection is the *released* state, which indicates that the re
 
 The AMQP 1.0 specification defines a further disposition state called *received*, that specifically helps to handle link recovery. Link recovery allows reconstituting the state of a link and any pending deliveries on top of a new connection and session, when the prior connection and session were lost.
 
-Service Bus does not support link recovery; if the client loses the connection to Service Bus with an unsettled message transfer pending, that message transfer is lost, and the client must reconnect, reestablish the link, and retry the transfer.
+Service Bus doesn't support link recovery; if the client loses the connection to Service Bus with an unsettled message transfer pending, that message transfer is lost, and the client must reconnect, reestablish the link, and retry the transfer.
 
 As such, Service Bus and Event Hubs support "at least once" transfer where the sender can be assured for the message having been stored and accepted, but don't support "exactly once" transfers at the AMQP level, where the system would attempt to recover the link and continue to negotiate the delivery state to avoid duplication of the message transfer.
 
@@ -117,7 +120,7 @@ In addition to the session-level flow control model that previously discussed, e
 
 ![Screenshot of a log showing Source, Destination, Source Port, Destination Port, and Protocol Name. In the first row the Destination Port 10401 (0x28 A 1) is outlined in black.][4]
 
-On a link, transfers can only happen when the sender has enough *link credit*. Link credit is a counter set by the receiver using the *flow* performative, which is scoped to a link. When the sender is assigned link credit, it attempts to use up that credit by delivering messages. Each message delivery decrements the remaining link credit by 1. When the link credit is used up, deliveries stop.
+On a link, transfers can only happen when the sender has enough *link credit*. Link credit is a counter set by the receiver using the *flow* performative, which is scoped to a link. When the sender is assigned link credit, it attempts to use up that credit by delivering messages. Each message delivery decrements the remaining link credit by 1. When the link credit is used, deliveries stop.
 
 When Service Bus is in the receiver role, it instantly provides the sender with ample link credit, so that messages can be sent immediately. As link credit is used, Service Bus occasionally sends a *flow* performative to the sender to update the link credit balance.
 
@@ -127,11 +130,11 @@ A "receive" call at the API level translates into a *flow* performative being se
 
 The lock on a message is released when the transfer is settled into one of the terminal states *accepted*, *rejected*, or *released*. The message is removed from Service Bus when the terminal state is *accepted*. It remains in Service Bus and is delivered to the next receiver when the transfer reaches any of the other states. Service Bus automatically moves the message into the entity's deadletter queue when it reaches the maximum delivery count allowed for the entity due to repeated rejections or releases.
 
-Even though the Service Bus APIs don't directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) or [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) property settings. When they're non-zero, the AMQP client uses it as the link credit.
+Even though the Service Bus APIs don't directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) or [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) property settings. When they're non-zero, the AMQP client uses it as the link credit.
 
-In this context, it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity, not when the message is put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it's therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
+In this context, it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity, not when the message is put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it's therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock might have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
 
-In summary, the following sections provide a schematic overview of the performative flow during different API interactions. Each section describes a different logical operation. Some of those interactions may be "lazy," meaning they may only be performed when required. Creating a message sender may not cause a network interaction until the first message is sent or requested.
+In summary, the following sections provide a schematic overview of the performative flow during different API interactions. Each section describes a different logical operation. Some of those interactions might be "lazy," meaning they might only be performed when required. Creating a message sender might not cause a network interaction until the first message is sent or requested.
 
 The arrows in the following table show the performative flow direction.
 
@@ -201,33 +204,33 @@ The following sections explain which properties from the standard AMQP message s
 
 Any property that application needs to define should be mapped to AMQP's `application-properties` map.
 
-#### header
+#### Header
 
 | Field Name | Usage | API name |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Time to live for this message |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Time to live for this message |[TimeToLive](/dotnet/api/azure.messaging.servicebus.servicebusmessage) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) |
 
-#### properties
+#### Properties
 
 | Field Name | Usage | API name |
 | --- | --- | --- |
-| message-id |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| user-id |Application-defined user identifier, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| to |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| content-encoding |Application-defined content-encoding indicator for the body, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| absolute-expiry-time |Declares at which absolute instant the message expires. Ignored on input (header TTL is observed), authoritative on output. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| creation-time |Declares at which time the message was created. Not used by Service Bus |Not accessible through the Service Bus API. |
-| group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| group-sequence |Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus. |Not accessible through the Service Bus API. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| `message-id` |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.messageid) |
+| `user-id` |Application-defined user identifier, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
+| `to` |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/azure.messaging.servicebus.servicebusmessage.to) |
+| `subject` |Application-defined message purpose identifier, not interpreted by Service Bus. |[Subject](/dotnet/api/azure.messaging.servicebus.servicebusmessage.subject) |
+| `reply-to` |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replyto) |
+| `correlation-id` |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.correlationid) |
+| `content-type` |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/azure.messaging.servicebus.servicebusmessage.contenttype) |
+| `content-encoding` |Application-defined content-encoding indicator for the body, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
+| `absolute-expiry-time` |Declares at which absolute instant the message expires. Ignored on input (header TTL is observed), authoritative on output. |Not accessible through the Service Bus API. |
+| `creation-time` |Declares at which time the message was created. Not used by Service Bus |Not accessible through the Service Bus API. |
+| `group-id` |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.sessionid) |
+| `group-sequence` |Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus. |Not accessible through the Service Bus API. |
+| `reply-to-group-id` |- |[ReplyToSessionId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replytosessionid) |
 
 #### Message annotations
 
@@ -235,14 +238,14 @@ There are few other service bus message properties, which aren't part of AMQP me
 
 | Annotation Map Key | Usage | API name |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | Declares at which time the message should appear on the entity |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
-| x-opt-partition-key | Application-defined key that dictates which partition the message should land in. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
-| x-opt-via-partition-key | Application-defined partition-key value when a transaction is to be used to send messages via a transfer queue. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
-| x-opt-enqueued-time | Service-defined UTC time representing the actual time of enqueuing the message. Ignored on input. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
-| x-opt-sequence-number | Service-defined unique number assigned to a message. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
-| x-opt-offset | Service-defined enqueued sequence number of the message. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
-| x-opt-locked-until | Service-defined. The date and time until which the message will be locked in the queue/subscription. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
-| x-opt-deadletter-source | Service-Defined. If the message is received from dead letter queue, it represents the source of the original message. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
+| `x-opt-scheduled-enqueue-time` | Declares at which time the message should appear on the entity |[ScheduledEnqueueTime](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.scheduledenqueuetime) |
+| `x-opt-partition-key` | Application-defined key that dictates which partition the message should land in. | [PartitionKey](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.partitionkey) |
+| `x-opt-via-partition-key` | Application-defined partition-key value when a transaction is to be used to send messages via a transfer queue. | [TransactionPartitionKey](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.transactionpartitionkey) |
+| `x-opt-enqueued-time` | Service-defined UTC time representing the actual time of enqueuing the message. Ignored on input. | [EnqueuedTime](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.enqueuedtime) |
+| `x-opt-sequence-number` | Service-defined unique number assigned to a message. | [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) |
+| `x-opt-offset` | Service-defined enqueued sequence number of the message. | [EnqueuedSequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.enqueuedsequencenumber) |
+| `x-opt-locked-until` | Service-defined. The date and time until which the message will be locked in the queue/subscription. | [LockedUntil](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.lockeduntil) |
+| `x-opt-deadletter-source` | Service-Defined. If the message is received from dead letter queue, it represents the source of the original message. | [DeadLetterSource](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.deadlettersource) |
 
 ### Transaction capability
 
@@ -251,20 +254,20 @@ The operations are grouped by an identifier `txn-id`.
 
 For transactional interaction, the client acts as a `transaction controller` , which controls the operations that should be grouped together. Service Bus Service acts as a `transactional resource` and performs work as requested by the `transaction controller`.
 
-The client and service communicate over a `control link` , which is established by the client. The `declare` and `discharge` messages are sent by the controller over the control link to allocate and complete transactions respectively (they don't represent the demarcation of transactional work). The actual send/receive is not performed on this link. Each transactional operation requested is explicitly identified with the desired `txn-id` and therefore may occur on any link on the Connection. If the control link is closed while there exist non-discharged transactions it created, then all such transactions are immediately rolled back, and attempts to perform further transactional work on them will lead to failure. Messages on control link must not be pre settled.
+The client and service communicate over a `control link` , which is established by the client. The `declare` and `discharge` messages are sent by the controller over the control link to allocate and complete transactions respectively (they don't represent the demarcation of transactional work). The actual send/receive isn't performed on this link. Each transactional operation requested is explicitly identified with the desired `txn-id` and therefore might occur on any link on the Connection. If the control link is closed while there exist non-discharged transactions it created, then all such transactions are immediately rolled back, and attempts to perform further transactional work on them will lead to failure. Messages on control link must not be pre settled.
 
 Every connection has to initiate its own control link to be able to start and end transactions. The service defines a special target that functions as a `coordinator`. The client/controller establishes a control link to this target. Control link is outside the boundary of an entity, that is, same control link can be used to initiate and discharge transactions for multiple entities.
 
 #### Starting a transaction
 
-To begin transactional work. the controller must obtain a `txn-id` from the coordinator. It does this by sending a `declare` type message. If the declaration is successful, the coordinator responds with a disposition outcome, which carries the assigned `txn-id`.
+To begin transactional work, the controller must obtain a `txn-id` from the coordinator. It does this by sending a `declare` type message. If the declaration is successful, the coordinator responds with a disposition outcome, which carries the assigned `txn-id`.
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
-|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))|
+| `attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>)` | ------> |  |
+|  | <------ | `attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>)` |
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))`|
 
 #### Discharging a transaction
 
@@ -274,22 +277,22 @@ The controller concludes the transactional work by sending a `discharge` message
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
 | | . . . <br/>Transactional work<br/>on other links<br/> . . . |
-| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
-| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+| `transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}`| ------> |  |
+| | <------ | `disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)`|
 
 #### Sending a message in a transaction
 
-All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. In the case of sending messages, the transactional-state is carried by the message's transfer frame. 
+All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. When sending messages, the transactional-state is carried by the message's transfer frame. 
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
-| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
+| `transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }`| ------> |  |
+| | <------ | `disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))`|
 
 #### Disposing a message in a transaction
 
@@ -297,10 +300,10 @@ Message disposition includes operations like `Complete` / `Abandon` / `DeadLette
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
-| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
+| | <------ |`transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }`|  
+| `disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))`| ------> |
 
 
 ## Advanced Service Bus capabilities
@@ -329,9 +332,9 @@ Having that pair of links in place, the request/response implementation is strai
 
 The pattern obviously requires that the client container and the client-generated identifier for the reply destination are unique across all clients and, for security reasons, also difficult to predict.
 
-The message exchanges used for the management protocol and for all other protocols that use the same pattern happen at the application level; they do not define new AMQP protocol-level gestures. That's intentional, so that applications can take immediate advantage of these extensions with compliant AMQP 1.0 stacks.
+The message exchanges used for the management protocol and for all other protocols that use the same pattern happen at the application level; they don't define new AMQP protocol-level gestures. That's intentional, so that applications can take immediate advantage of these extensions with compliant AMQP 1.0 stacks.
 
-Service Bus does not currently implement any of the core features of the management specification, but the request/response pattern defined by the management specification is foundational for the claims-based-security feature and for nearly all of the advanced capabilities discussed in the following sections:
+Service Bus doesn't currently implement any of the core features of the management specification, but the request/response pattern defined by the management specification is foundational for the claims-based-security feature and for nearly all of the advanced capabilities discussed in the following sections:
 
 ### Claims-based authorization
 
@@ -341,8 +344,8 @@ The default security model of AMQP discussed in the introduction is based on SAS
 
 AMQP’s SASL integration has two drawbacks:
 
-* All credentials and tokens are scoped to the connection. A messaging infrastructure may want to provide differentiated access control on a per-entity basis; for example, allowing the bearer of a token to send to queue A but not to queue B. With the authorization context anchored on the connection, it’s not possible to use a single connection and yet use different access tokens for queue A and queue B.
-* Access tokens are typically only valid for a limited time. This validity requires the user to periodically reacquire tokens and provides an opportunity to the token issuer to refuse issuing a fresh token if the user’s access permissions have changed. AMQP connections may last for long periods of time. The SASL model only provides a chance to set a token at connection time, which means that the messaging infrastructure either has to disconnect the client when the token expires or it needs to accept the risk of allowing continued communication with a client who’s access rights may have been revoked in the interim.
+* All credentials and tokens are scoped to the connection. A messaging infrastructure might want to provide differentiated access control on a per-entity basis; for example, allowing the bearer of a token to send to queue A but not to queue B. With the authorization context anchored on the connection, it’s not possible to use a single connection and yet use different access tokens for queue A and queue B.
+* Access tokens are typically only valid for a limited time. This validity requires the user to periodically reacquire tokens and provides an opportunity to the token issuer to refuse issuing a fresh token if the user’s access permissions have changed. AMQP connections might last for long periods of time. The SASL model only provides a chance to set a token at connection time, which means that the messaging infrastructure either has to disconnect the client when the token expires or it needs to accept the risk of allowing continued communication with a client who’s access rights might have been revoked in the interim.
 
 The AMQP CBS specification, implemented by Service Bus, enables an elegant workaround for both of those issues: It allows a client to associate access tokens with each node, and to update those tokens before they expire, without interrupting the message flow.
 
@@ -398,7 +401,7 @@ With this functionality, you create a sender and establish the link to the `via-
 | `attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** )` | ------> | |
 | | <------ | `attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] )` |
 
-## Next steps
+## Related content
 To learn more about AMQP, see [Service Bus AMQP overview](service-bus-amqp-overview.md).
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD

@@ -2,6 +2,7 @@
 title: ASE deployment with DISA CAP
 description: This article explains the baseline App Service Environment configuration for customers who use DISA CAP to connect to Azure Government.
 ms.service: azure-government
+ms.custom: devx-track-arm-template
 ms.topic: article
 recommendations: false
 ms.date: 06/27/2022
@@ -69,7 +70,7 @@ This template deploys an **ILB ASE** into the Azure Government or DoD regions.
 
 - [Sign up for Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
-- [Ask questions via the azure-gov tag on StackOverflow](https://stackoverflow.com/tags/azure-gov)
+- [Ask questions via the azure-gov tag on Stack Overflow](https://stackoverflow.com/tags/azure-gov)
 - [Azure Government blog](https://devblogs.microsoft.com/azuregov/)
 - [Azure Government overview](./documentation-government-welcome.md)
 - [Azure Government security](./documentation-government-plan-security.md)

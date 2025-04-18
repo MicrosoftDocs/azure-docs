@@ -5,11 +5,10 @@ description: Check for existing rows using the exists transformation in Azure Da
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Exists transformation in mapping data flow
@@ -20,7 +19,7 @@ ms.date: 08/03/2022
 
 The exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or don't exist in the right stream. The exists transformation is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=53f2da73-3587-4d51-9f25-9f89e9446a8c]
 
 ## Configuration
 
@@ -85,6 +84,6 @@ NameNorm2, TypeConversions
     ) ~> checkForChanges
 ```
 
-## Next steps
+## Related content
 
 Similar transformations are [Lookup](data-flow-lookup.md) and [Join](data-flow-join.md).

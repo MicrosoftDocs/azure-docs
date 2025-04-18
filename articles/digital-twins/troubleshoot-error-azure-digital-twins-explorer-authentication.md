@@ -2,7 +2,7 @@
 title: "Troubleshoot Azure Digital Twins Explorer: Authentication error"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve authentication errors in Azure Digital Twins Explorer.
-ms.service: digital-twins
+ms.service: azure-digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
@@ -42,7 +42,7 @@ If you do not have this role, set it up to resolve the issue.
 
 #### Check current setup
 
-[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-verify-role-assignment.md](includes/digital-twins-setup-verify-role-assignment.md)]
 
 #### Fix issues 
 

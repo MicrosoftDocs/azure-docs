@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Security alerts for environments in Azure DevTest Labs
@@ -15,6 +16,9 @@ As a lab user, you can view Microsoft Defender for Cloud alerts for your labs. D
 - Recommends how to remediate attacks.
 
 [Learn more about security alerts in Microsoft Defender for Cloud](../security-center//security-center-alerts-overview.md).
+
+
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
 
 ## Prerequisites

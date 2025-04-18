@@ -1,10 +1,13 @@
 ---
 title: Connect to Kafka using virtual networks - Azure HDInsight 
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python, devx-track-azurepowershell
-ms.date: 05/30/2022
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 06/14/2024
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network
@@ -14,7 +17,7 @@ Learn how to directly connect to Apache Kafka on HDInsight through an Azure Virt
 * From resources in an on-premises network. This connection is established by using a VPN device (software or hardware) on your local network.
 * From a development environment using a VPN software client.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Architecture and planning
 
@@ -35,7 +38,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 * Connect individual machines to the virtual network using a VPN gateway and VPN client. To enable this configuration, perform the following tasks:
 
   1. Create a virtual network.
-  2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and MacOS clients.
+  2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and macOS clients.
   3. Create a Kafka on HDInsight cluster in the virtual network.
   4. Configure Kafka for IP advertising. This configuration allows the client to connect using broker IP addresses instead of domain names.
   5. Download and use the VPN client on the development system.
@@ -240,15 +243,15 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 2. To view information on Kafka, select __Kafka__ from the list on the left.
 
-    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Service list with Kafka highlighted" border="true":::
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Service list with Kafka highlighted." border="true":::
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Apache Ambari services configuration" border="true":::
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Apache Ambari services configuration." border="true":::
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="Kafka configuration, for kafka-env" border="true":::
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="Kafka configuration, for kafka-env." border="true":::
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
@@ -266,15 +269,15 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Apache Ambari save configuration" border="true":::
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Apache Ambari save configuration." border="true":::
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted" border="true":::
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted." border="true":::
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="Restart button with restart all affected highlighted" border="true":::
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="Restart button with restart all affected highlighted." border="true":::
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
@@ -364,7 +367,7 @@ For more information on using HDInsight with a virtual network, see the [Plan a 
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 
-* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/point-to-site-certificate-gateway.md)
 
 * [Configure a Point-to-Site connection using Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

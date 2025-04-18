@@ -1,12 +1,12 @@
 ---
 title: Deploy and configure Azure Firewall Premium
 description: Learn how to deploy and configure Azure Firewall Premium.
-author: vhorne
-ms.service: firewall
+author: duau
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/28/2022
-ms.author: victorh
+ms.date: 02/10/2025
+ms.author: duau
 ---
 
 # Deploy and configure Azure Firewall Premium
@@ -26,9 +26,12 @@ You'll use a template to deploy a test environment that has a central VNet (10.0
 - an Azure Bastion subnet (10.0.20.0/24)
 - a firewall subnet (10.0.100.0/24)
 
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
 A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
 
-:::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Central VNet topology":::
+:::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Diagram of Central VNet topology." lightbox="media/premium-deploy/premium-topology.png":::
 
 The worker virtual machine is a client that sends HTTP/S requests through the firewall.
 
@@ -48,7 +51,7 @@ The template deploys a complete testing environment for Azure Firewall Premium e
 
 
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-premium%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-premium%2Fazuredeploy.json":::
 
 ## Test the firewall
 
@@ -59,11 +62,11 @@ Now you can test IDPS, TLS Inspection, Web filtering, and Web categories.
 To collect firewall logs, you need to add diagnostics settings to collect firewall logs.
 
 1. Select the **DemoFirewall** and under **Monitoring**, select **Diagnostic settings**.
-2. Select **Add diagnostic setting**.
-3. For **Diagnostic setting name**, type *fw-diag*.
-4. Under **log**, select **AzureFirewallApplicationRule**, and **AzureFirewallNetworkRule**.
-5. Under **Destination details**, select **Send to Log Analytics workspace**.
-6. Select **Save**.
+1. Select **Add diagnostic setting**.
+1. For **Diagnostic setting name**, type *fw-diag*.
+1. Under **log**, select **AzureFirewallApplicationRule**, and **AzureFirewallNetworkRule**.
+1. Under **Destination details**, select **Send to Log Analytics workspace**.
+1. Select **Save**.
 
 ### IDPS tests
 
@@ -74,21 +77,21 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 #### To test IDPS for HTTP traffic:
 
 1. On the WorkerVM virtual machine, open an administrator command prompt window.
-2. Type the following command at the command prompt:
+1. Type the following command at the command prompt:
 
    `curl -A "HaxerMen" <your web server address>`
-3. You'll see your Web server response.
-4. Go to the Firewall Network rule logs on the Azure portal to find an alert similar to the following message:
+1. You'll see your Web server response.
+1. Go to the Firewall Network rule logs on the Azure portal to find an alert similar to the following message:
 
    ```
    { “msg” : “TCP request from 10.0.100.5:16036 to 10.0.20.10:80. Action: Alert. Rule: 2032081. IDS: 
-   USER_AGENTS Suspicious User Agent (HaxerMen). Priority: 1. Classification: A Network Tojan was 
+   USER_AGENTS Suspicious User Agent (HaxerMen). Priority: 1. Classification: A Network Trojan was 
    detected”}
    ```
 
    > [!NOTE]
    > It can take some time for the data to begin showing in the logs. Give it at least a couple minutes to allow for the logs to begin showing the data.
-5. Add a signature rule for signature 2032081:
+1. Add a signature rule for signature 2032081:
 
    1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS**.
    1. Select the **Signature rules** tab.
@@ -99,7 +102,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
 
 
-6. On WorkerVM, run the `curl` command again:
+1. On WorkerVM, run the `curl` command again:
 
    `curl -A "HaxerMen" <your web server address>`
 
@@ -107,7 +110,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
    `read tcp 10.0.100.5:55734->10.0.20.10:80: read: connection reset by peer`
 
-7. Go to the Monitor logs in the Azure portal and find the message for the blocked request.
+1. Go to the Monitor logs in the Azure portal and find the message for the blocked request.
 <!---8. Now you can bypass the IDPS function using the **Bypass list**.
 
    1. On the **IDPS (preview)** page, select the **Bypass list** tab.
@@ -129,15 +132,15 @@ Use the following steps to test TLS Inspection with URL filtering.
 
 1. Edit the firewall policy application rules and add a new rule called `AllowURL` to the `AllowWeb` rule collection. Configure the target URL `www.nytimes.com/section/world`, Source IP address **\***, Destination type **URL**, select **TLS Inspection**, and protocols **http, https**.
 
-3. When the deployment completes, open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
-4. In the Azure portal, you can view the entire URL in the Application rule Monitoring logs:
+1. When the deployment completes, open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
+1. In the Azure portal, you can view the entire URL in the Application rule Monitoring logs:
 
       :::image type="content" source="media/premium-deploy/alert-message-url.png" alt-text="Alert message showing the URL":::
 
 Some HTML pages may look incomplete because they refer to other URLs that are denied. To solve this issue, the following approach can be taken:
 
-- If the HTML page contain links to other domains, you can add these domains to a new application rule with allow access to these FQDNs.
-- If the HTML page contain links to sub URLs then you can modify the rule and add an asterisk to the URL. For example: `targetURLs=www.nytimes.com/section/world*`
+- If the HTML page contains links to other domains, you can add these domains to a new application rule with allow access to these FQDNs.
+- If the HTML page contains links to sub URLs then you can modify the rule and add an asterisk to the URL. For example: `targetURLs=www.nytimes.com/section/world*`
 
    Alternatively, you can add a new URL to the rule. For example: 
 
@@ -147,16 +150,16 @@ Some HTML pages may look incomplete because they refer to other URLs that are de
 
 Let's create an application rule to allow access to sports web sites.
 1. From the portal, open your resource group and select **DemoFirewallPolicy**.
-2. Select **Application Rules**, and then **Add a rule collection**.
-3. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
-4. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS Inspection**, **Destination Type** select *Web categories*, **Destination** select *Sports*.
-5. Select **Add**.
+1. Select **Application Rules**, and then **Add a rule collection**.
+1. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
+1. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS Inspection**, **Destination Type** select *Web categories*, **Destination** select *Sports*.
+1. Select **Add**.
 
-      :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Sports web category":::
-6. When the deployment completes, go to  **WorkerVM** and open a web browser and browse to `https://www.nfl.com`.
+1. When the deployment completes, go to  **WorkerVM** and open a web browser and browse to `https://www.nfl.com`.
 
    You should see the NFL web page, and the Application rule log shows that a **Web Category: Sports** rule was matched and the request was allowed.
 
 ## Next steps
 
+- [Building a POC for TLS inspection in Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723)
 - [Azure Firewall Premium in the Azure portal](premium-portal.md)

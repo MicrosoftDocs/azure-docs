@@ -4,19 +4,15 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about expressions and functions that you can use in creating Azure Data Factory and Azure Synapse Analytics pipeline entities.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
-ms.service: data-factory
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 02/13/2025
 ---
 
 # Expressions and functions in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-functions-variables.md)
-> * [Current version/Synapse version](control-flow-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides details about expressions and functions supported by Azure Data Factory and Azure Synapse Analytics. 
@@ -178,7 +174,7 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 
 ### Replacing special characters
 
-Dynamic content editor automatically escapes characters like double quote, backslash in your content when you finish editing. This causes trouble if you want to replace line feed or tab by using **\n**, **\t** in replace() function. You can of edit your dynamic content in code view to remove the extra \ in the expression, or you can follow below steps to replace special characters using expression language:
+Dynamic content editor automatically escapes characters like double quote, backslash in your content when you finish editing. This causes trouble if you want to replace line feed or tab by using **\n**, **\t** in replace() function. You can edit your dynamic content in code view to remove the extra \ in the expression, or you can follow below steps to replace special characters using expression language:
 
 1. URL encoding against the original string value
 1. Replace URL encoded string, for example, line feed (%0A), carriage return(%0D), horizontal tab(%09).
@@ -193,13 +189,15 @@ Corporation
 
 ### Escaping single quote character
 
-Expression functions use single quote for string value parameters. Use two single quotes to escape a `'` character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
+Expression functions in pipelines use the single quote (_'_) to surround string value parameters. Use two consecutive single quote characters within a pipeline string expression to include a single quote. Here's an example: expression `@concat('Here is a double quote character: ". ', 'And here is a single quote character all within the same string: ''.')` will return the following result:
 
 ```
-Baba's book store
+Here is a double quote character: ". And here is a single quote character all within the same string: '.
 ```
 
-### Tutorial
+However, in data flow expressions, this syntax isn't supported. Instead, data flow expressions can be surrounded by either single or double quotes. Enclose text requiring single quotes within double quotes, and text requiring double quotes within single quotes, within string functions. If you require a string containing both single and double quotes, you can use `concat()` to merge two substrings that each contain either single quotes or double quotes. The data flow equivalent of the previous pipeline expression example would be `concat('Here is a double quote character: ". ', "And here is a single quote character all within the same string: '.")`. In a data flow, that expression will return the same result as the previous example for pipeline expressions.
+
+### ```Tutorial```
 This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.  The tutorial specifically demonstrates steps for an Azure Data Factory although steps for a Synapse workspace are nearly equivalent but with a slightly different user interface.
   
 ## Functions
@@ -243,7 +241,7 @@ To work with strings, you can use these string functions and also some [collecti
 | [indexOf](control-flow-expression-language-functions.md#indexof) | Return the starting position for a substring. |
 | [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [replace](control-flow-expression-language-functions.md#replace) | Replace a substring with the specified string, and return the updated string. |
-| [split](control-flow-expression-language-functions.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. |
+| [split](control-flow-expression-language-functions.md#split) | Split a string at each occurrence of a specified delimiter, returning the resulting substrings as elements of an array. |
 | [startsWith](control-flow-expression-language-functions.md#startswith) | Check whether a string starts with a specific substring. |
 | [substring](control-flow-expression-language-functions.md#substring) | Return characters from a string, starting from the specified position. |
 | [toLower](control-flow-expression-language-functions.md#toLower) | Return a string in lowercase format. |
@@ -286,13 +284,14 @@ These functions are useful inside conditions, they can be used to evaluate any t
   
 ## Conversion functions  
 
- These functions are used to convert between each of the native types in the language:  
--   string
--   integer
--   float
--   boolean
--   arrays
--   dictionaries
+These functions are used to convert between each of the native types in the language:  
+
+- string
+- integer
+- float
+- boolean
+- arrays
+- dictionaries
 
 | Conversion function | Task |
 | ------------------- | ---- |
@@ -327,14 +326,14 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | Math function | Task |
 | ------------- | ---- |
 | [add](control-flow-expression-language-functions.md#add) | Return the result from adding two numbers. |
-| [div](control-flow-expression-language-functions.md#div) | Return the result from dividing two numbers. |
+| [div](control-flow-expression-language-functions.md#div) | Return the result from dividing one number by another number. |
 | [max](control-flow-expression-language-functions.md#max) | Return the highest value from a set of numbers or an array. |
 | [min](control-flow-expression-language-functions.md#min) | Return the lowest value from a set of numbers or an array. |
-| [mod](control-flow-expression-language-functions.md#mod) | Return the remainder from dividing two numbers. |
+| [mod](control-flow-expression-language-functions.md#mod) | Return the remainder from dividing one number by another number. |
 | [mul](control-flow-expression-language-functions.md#mul) | Return the product from multiplying two numbers. |
 | [rand](control-flow-expression-language-functions.md#rand) | Return a random integer from a specified range. |
 | [range](control-flow-expression-language-functions.md#range) | Return an integer array that starts from a specified integer. |
-| [sub](control-flow-expression-language-functions.md#sub) | Return the result from subtracting the second number from the first number. |
+| [sub](control-flow-expression-language-functions.md#sub) | Return the result from subtracting one number from another number. |
 
 ## Function reference
 
@@ -342,7 +341,7 @@ This section lists all the available functions in alphabetical order.
 
 <a name="add"></a>
 
-### add
+### ```add```
 
 Return the result from adding two numbers.
 
@@ -372,7 +371,7 @@ And returns this result: `2.5`
 
 <a name="addDays"></a>
 
-### addDays
+### ```addDays```
 
 Add a number of days to a timestamp.
 
@@ -414,7 +413,7 @@ And returns this result: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
-### addHours
+### ```addHours```
 
 Add a number of hours to a timestamp.
 
@@ -456,7 +455,7 @@ And returns this result: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
-### addMinutes
+### ```addMinutes```
 
 Add a number of minutes to a timestamp.
 
@@ -498,7 +497,7 @@ And returns this result: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addSeconds"></a>
 
-### addSeconds
+### ```addSeconds```
 
 Add a number of seconds to a timestamp.
 
@@ -540,7 +539,7 @@ And returns this result: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
-### addToTime
+### ```addToTime```
 
 Add a number of time units to a timestamp.
 See also [getFutureTime()](#getFutureTime).
@@ -584,7 +583,7 @@ And returns the result using the optional "D" format: `"Tuesday, January 2, 2018
 
 <a name="and"></a>
 
-### and
+### ```and```
 
 Check whether both expressions are true.
 Return true when both expressions are true,
@@ -638,7 +637,7 @@ And returns these results:
 
 <a name="array"></a>
 
-### array
+### ```array```
 
 Return an array from a single specified input.
 For multiple inputs, see [createArray()](#createArray).
@@ -765,7 +764,7 @@ And returns this result: `"hello"`
 
 <a name="binary"></a>
 
-### binary
+### ```binary```
 
 Return the binary version for a string.
 
@@ -797,7 +796,7 @@ And returns this result:
 
 <a name="bool"></a>
 
-### bool
+### ```bool```
 
 Return the Boolean version for a value.
 
@@ -831,7 +830,7 @@ And returns these results:
 
 <a name="coalesce"></a>
 
-### coalesce
+### ```coalesce```
 
 Return the first non-null value from one or more parameters.
 Empty strings, empty arrays, and empty objects are not null.
@@ -869,7 +868,7 @@ And returns these results:
 
 <a name="concat"></a>
 
-### concat
+### ```concat```
 
 Combine two or more strings, and return the combined string.
 
@@ -899,7 +898,7 @@ And returns this result: `"HelloWorld"`
 
 <a name="contains"></a>
 
-### contains
+### ```contains```
 
 Check whether a collection has a specific item.
 Return true when the item is found,
@@ -948,7 +947,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-### convertFromUtc
+### ```convertFromUtc```
 
 Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone.
 
@@ -990,7 +989,7 @@ And returns this result: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
-### convertTimeZone
+### ```convertTimeZone```
 
 Convert a timestamp from the source time zone to the target time zone.
 
@@ -1033,7 +1032,7 @@ And returns this result: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
-### convertToUtc
+### ```convertToUtc```
 
 Convert a timestamp from the source time zone to Universal Time Coordinated (UTC).
 
@@ -1075,7 +1074,7 @@ And returns this result: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
-### createArray
+### ```createArray```
 
 Return an array from multiple inputs.
 For single input arrays, see [array()](#array).
@@ -1106,7 +1105,7 @@ And returns this result: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
-### dataUri
+### ```dataUri```
 
 Return a data uniform resource identifier (URI) for a string.
 
@@ -1136,7 +1135,7 @@ And returns this result: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
-### dataUriToBinary
+### ```dataUriToBinary```
 
 Return the binary version for a data uniform resource identifier (URI).
 Use this function rather than [decodeDataUri()](#decodeDataUri).
@@ -1174,7 +1173,7 @@ And returns this result:
 
 <a name="dataUriToString"></a>
 
-### dataUriToString
+### ```dataUriToString```
 
 Return the string version for a data uniform resource identifier (URI).
 
@@ -1204,7 +1203,7 @@ And returns this result: `"hello"`
 
 <a name="dayOfMonth"></a>
 
-### dayOfMonth
+### ```dayOfMonth```
 
 Return the day of the month from a timestamp.
 
@@ -1235,7 +1234,7 @@ And returns this result: `15`
 
 <a name="dayOfWeek"></a>
 
-### dayOfWeek
+### ```dayOfWeek```
 
 Return the day of the week from a timestamp.
 
@@ -1265,7 +1264,7 @@ And returns this result: `3`
 
 <a name="dayOfYear"></a>
 
-### dayOfYear
+### ```dayOfYear```
 
 Return the day of the year from a timestamp.
 
@@ -1330,7 +1329,7 @@ And returns this result: `"hello"`
 
 <a name="decodeDataUri"></a>
 
-### decodeDataUri
+### ```decodeDataUri```
 
 Return the binary version for a data uniform resource identifier (URI).
 Consider using [dataUriToBinary()](#dataUriToBinary),
@@ -1369,7 +1368,7 @@ And returns this result:
 
 <a name="decodeUriComponent"></a>
 
-### decodeUriComponent
+### ```decodeUriComponent```
 
 Return a string that replaces escape characters with decoded versions.
 
@@ -1399,40 +1398,52 @@ And returns this result: `"https://contoso.com"`
 
 <a name="div"></a>
 
-### div
+### ```div```
 
-Return the integer result from dividing two numbers.
-To get the remainder result, see [mod()](#mod).
+Return the result of dividing one number by another number. 
 
 ```
 div(<dividend>, <divisor>)
 ```
 
+The precise return type of the function depends on the types of its parameters &mdash; see examples for detail.
+
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0 |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*. A *divisor* value of zero causes an error at runtime. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | The integer result from dividing the first number by the second number |
+| <*quotient-result*> | Integer or Float | The result of dividing the first number by the second number |
 ||||
 
-*Example*
+*Example 1*
 
-Both examples divide the first number by the second number:
+These examples divide the number 9 by 2:
 
 ```
-div(10, 5)
-div(11, 5)
+div(9, 2.0)
+div(9.0, 2)
+div(9.0, 2.0)
 ```
 
-And return this result: `2`
+And all return this result: `4.5`
+
+*Example 2*
+
+This example also divides the number 9 by 2, but because both parameters are integers the remainder is discarded (integer division):
+
+```
+div(9, 2)
+```
+
+The expression returns the result `4`. To obtain the value of the remainder, use the [mod()](#mod) function.
 
 <a name="encodeUriComponent"></a>
 
-### encodeUriComponent
+### ```encodeUriComponent```
 
 Return a uniform resource identifier (URI) encoded version for a
 string by replacing URL-unsafe characters with escape characters.
@@ -1467,7 +1478,7 @@ And returns this result: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-### empty
+### ```empty```
 
 Check whether a collection is empty.
 Return true when the collection is empty,
@@ -1504,7 +1515,7 @@ And returns these results:
 
 <a name="endswith"></a>
 
-### endsWith
+### ```endsWith```
 
 Check whether a string ends with a specific substring.
 Return true when the substring is found, or return false when not found.
@@ -1549,7 +1560,7 @@ And returns this result: `false`
 
 <a name="equals"></a>
 
-### equals
+### ```equals```
 
 Check whether both values, expressions, or objects are equivalent.
 Return true when both are equivalent, or return false when they're not equivalent.
@@ -1584,7 +1595,7 @@ And returns these results:
 
 <a name="first"></a>
 
-### first
+### ```first```
 
 Return the first item from a string or array.
 
@@ -1619,7 +1630,7 @@ And return these results:
 
 <a name="float"></a>
 
-### float
+### ```float```
 
 Convert a string version for a floating-point
 number to an actual floating point number.
@@ -1650,7 +1661,7 @@ And returns this result: `10.333`
 
 <a name="formatDateTime"></a>
 
-### formatDateTime
+### ```formatDateTime```
 
 Return a timestamp in the specified format.
 
@@ -1681,7 +1692,7 @@ And returns this result: `"2018-03-15T12:00:00"`
 
 <a name="getFutureTime"></a>
 
-### getFutureTime
+### ```getFutureTime```
 
 Return the current timestamp plus the specified time units.
 
@@ -1725,7 +1736,7 @@ And returns this result: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
-### getPastTime
+### ```getPastTime```
 
 Return the current timestamp minus the specified time units.
 
@@ -1769,7 +1780,7 @@ And returns this result: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-### greater
+### ```greater```
 
 Check whether the first value is greater than the second value.
 Return true when the first value is more,
@@ -1807,7 +1818,7 @@ And return these results:
 
 <a name="greaterOrEquals"></a>
 
-### greaterOrEquals
+### ```greaterOrEquals```
 
 Check whether the first value is greater than or equal to the second value.
 Return true when the first value is greater or equal,
@@ -1845,7 +1856,7 @@ And return these results:
 
 <a name="guid"></a>
 
-### guid
+### ```guid```
 
 Generate a globally unique identifier (GUID) as a string,
 for example, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
@@ -1885,7 +1896,7 @@ And returns this result: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-### if
+### ```if```
 
 Check whether an expression is true or false.
 Based on the result, return a specified value.
@@ -1918,7 +1929,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-### indexOf
+### ```indexOf```
 
 Return the starting position or index value for a substring.
 This function is not case-sensitive,
@@ -1952,7 +1963,7 @@ And returns this result: `6`
 
 <a name="int"></a>
 
-### int
+### ```int```
 
 Return the integer version for a string.
 
@@ -1982,7 +1993,7 @@ And returns this result: `10`
 
 <a name="json"></a>
 
-### json
+### ```json```
 
 Return the JavaScript Object Notation (JSON)
 type value or object for a string or XML.
@@ -2052,7 +2063,7 @@ And returns this result:
 
 <a name="intersection"></a>
 
-### intersection
+### ```intersection```
 
 Return a collection that has *only* the
 common items across the specified collections.
@@ -2088,7 +2099,7 @@ And returns an array with *only* these items: `[1, 2]`
 
 <a name="join"></a>
 
-### join
+### ```join```
 
 Return a string that has all the items from an array
 and has each character separated by a *delimiter*.
@@ -2121,7 +2132,7 @@ And returns this result: `"a.b.c"`
 
 <a name="last"></a>
 
-### last
+### ```last```
 
 Return the last item from a collection.
 
@@ -2156,7 +2167,7 @@ And returns these results:
 
 <a name="lastindexof"></a>
 
-### lastIndexOf
+### ```lastIndexOf```
 
 Return the starting position or index value
 for the last occurrence of a substring.
@@ -2192,7 +2203,7 @@ And returns this result: `6`
 
 <a name="length"></a>
 
-### length
+### ```length```
 
 Return the number of items in a collection.
 
@@ -2224,7 +2235,7 @@ And return this result: `4`
 
 <a name="less"></a>
 
-### less
+### ```less```
 
 Check whether the first value is less than the second value.
 Return true when the first value is less,
@@ -2262,7 +2273,7 @@ And return these results:
 
 <a name="lessOrEquals"></a>
 
-### lessOrEquals
+### ```lessOrEquals```
 
 Check whether the first value is less than or equal to the second value.
 Return true when the first value is less than or equal,
@@ -2300,7 +2311,7 @@ And return these results:
 
 <a name="max"></a>
 
-### max
+### ```max```
 
 Return the highest value from a list or array with
 numbers that is inclusive at both ends.
@@ -2334,7 +2345,7 @@ And return this result: `3`
 
 <a name="min"></a>
 
-### min
+### ```min```
 
 Return the lowest value from a set of numbers or an array.
 
@@ -2367,10 +2378,9 @@ And return this result: `1`
 
 <a name="mod"></a>
 
-### mod
+### ```mod```
 
-Return the remainder from dividing two numbers.
-To get the integer result, see [div()](#div).
+Return the remainder from dividing one number by another number. For integer division, see [div()](#div).
 
 ```
 mod(<dividend>, <divisor>)
@@ -2379,7 +2389,7 @@ mod(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0. |
+| <*divisor*> | Yes | Integer or Float |  The number that divides the *dividend*. A *divisor* value of zero causes an error at runtime. |
 |||||
 
 | Return value | Type | Description |
@@ -2389,17 +2399,17 @@ mod(<dividend>, <divisor>)
 
 *Example*
 
-This example divides the first number by the second number:
+This example calculates the remainder when the first number is divided by the second number:
 
 ```
 mod(3, 2)
 ```
 
-And return this result: `1`
+And returns this result: `1`
 
 <a name="mul"></a>
 
-### mul
+### ```mul```
 
 Return the product from multiplying two numbers.
 
@@ -2410,7 +2420,7 @@ mul(<multiplicand1>, <multiplicand2>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*multiplicand1*> | Yes | Integer or Float | The number to multiply by *multiplicand2* |
-| <*multiplicand2*> | Yes | Integer or Float | The number that multiples *multiplicand1* |
+| <*multiplicand2*> | Yes | Integer or Float | The number that multiplies *multiplicand1* |
 |||||
 
 | Return value | Type | Description |
@@ -2420,7 +2430,7 @@ mul(<multiplicand1>, <multiplicand2>)
 
 *Example*
 
-These examples multiple the first number by the second number:
+These examples multiply the first number by the second number:
 
 ```
 mul(1, 2)
@@ -2434,7 +2444,7 @@ And return these results:
 
 <a name="not"></a>
 
-### not
+### ```not```
 
 Check whether an expression is false.
 Return true when the expression is false,
@@ -2484,7 +2494,7 @@ And return these results:
 
 <a name="or"></a>
 
-### or
+### ```or```
 
 Check whether at least one expression is true.
 Return true when at least one expression is true,
@@ -2534,7 +2544,7 @@ And return these results:
 
 <a name="rand"></a>
 
-### rand
+### ```rand```
 
 Return a random integer from a specified range,
 which is inclusive only at the starting end.
@@ -2551,7 +2561,7 @@ rand(<minValue>, <maxValue>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*random-result*> | Integer | The random integer returned from the specified range |
+| <*random-result*> | Integer | The random integer returned from the specified range. Note that every invocation of ```rand()``` will produce a unique result, meaning that the value you observe in output monitoring may not be the same at actual run time. |
 ||||
 
 *Example*
@@ -2566,7 +2576,7 @@ And returns one of these numbers as the result: `1`, `2`, `3`, or `4`
 
 <a name="range"></a>
 
-### range
+### ```range```
 
 Return an integer array that starts from a specified integer.
 
@@ -2598,7 +2608,7 @@ And returns this result: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-### replace
+### ```replace```
 
 Replace a substring with the specified string,
 and return the result string. This function
@@ -2633,7 +2643,7 @@ And returns this result: `"the new string"`
 
 <a name="skip"></a>
 
-### skip
+### ```skip```
 
 Remove items from the front of a collection,
 and return *all the other* items.
@@ -2666,10 +2676,10 @@ And returns this array with the remaining items: `[1,2,3]`
 
 <a name="split"></a>
 
-### split
+### ```split```
 
-Return an array that contains substrings, separated by commas,
-based on the specified delimiter character in the original string.
+Split a string at each occurrence of a specified delimiter, returning the resulting substrings as elements of an array.
+A delimiter is typically a single character, but multicharacter delimiters are supported.
 
 ```
 split('<text>', '<delimiter>')
@@ -2677,29 +2687,29 @@ split('<text>', '<delimiter>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | String | The string to separate into substrings based on the specified delimiter in the original string |
-| <*delimiter*> | Yes | String | The character in the original string to use as the delimiter |
+| <*text*> | Yes | String | The string to separate into substrings  |
+| <*delimiter*> | Yes | String | The string to use as the delimiter |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
+| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings of the original string  |
 ||||
 
 *Example*
 
-This example creates an array with substrings from the specified
-string based on the specified character as the delimiter:
+This example returns an array containing substrings of the string "a_b_c" 
+based on the delimiter "_":
 
 ```
 split('a_b_c', '_')
 ```
 
-And returns this array as the result: `["a","b","c"]`
+The array returned is: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 
-### startOfDay
+### ```startOfDay```
 
 Return the start of the day for a timestamp.
 
@@ -2730,7 +2740,7 @@ And returns this result: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
-### startOfHour
+### ```startOfHour```
 
 Return the start of the hour for a timestamp.
 
@@ -2761,7 +2771,7 @@ And returns this result: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
-### startOfMonth
+### ```startOfMonth```
 
 Return the start of the month for a timestamp.
 
@@ -2792,7 +2802,7 @@ And returns this result: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
-### startsWith
+### ```startsWith```
 
 Check whether a string starts with a specific substring.
 Return true when the substring is found, or return false when not found.
@@ -2837,7 +2847,7 @@ And returns this result: `false`
 
 <a name="string"></a>
 
-### string
+### ```string```
 
 Return the string version for a value.
 
@@ -2879,9 +2889,9 @@ And returns this result: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-### sub
+### ```sub```
 
-Return the result from subtracting the second number from the first number.
+Return the result from subtracting one number from another number.
 
 ```
 sub(<minuend>, <subtrahend>)
@@ -2910,7 +2920,7 @@ And returns this result: `10`
 
 <a name="substring"></a>
 
-### substring
+### ```substring```
 
 Return characters from a string,
 starting from the specified position, or index.
@@ -2945,7 +2955,7 @@ And returns this result: `"world"`
 
 <a name="subtractFromTime"></a>
 
-### subtractFromTime
+### ```subtractFromTime```
 
 Subtract a number of time units from a timestamp.
 See also [getPastTime](#getPastTime).
@@ -2989,7 +2999,7 @@ And returns this result using the optional "D" format: `"Monday, January, 1, 201
 
 <a name="take"></a>
 
-### take
+### ```take```
 
 Return items from the front of a collection.
 
@@ -3026,7 +3036,7 @@ And return these results:
 
 <a name="ticks"></a>
 
-### ticks
+### ```ticks```
 
 Return the `ticks` property value for a specified timestamp.
 A *tick* is a 100-nanosecond interval.
@@ -3047,7 +3057,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-### toLower
+### ```toLower```
 
 Return a string in lowercase format. If a character
 in the string doesn't have a lowercase version,
@@ -3079,7 +3089,7 @@ And returns this result: `"hello world"`
 
 <a name="toUpper"></a>
 
-### toUpper
+### ```toUpper```
 
 Return a string in uppercase format. If a character
 in the string doesn't have an uppercase version,
@@ -3111,7 +3121,7 @@ And returns this result: `"HELLO WORLD"`
 
 <a name="trim"></a>
 
-### trim
+### ```trim```
 
 Remove leading and trailing whitespace from a string,
 and return the updated string.
@@ -3143,7 +3153,7 @@ And returns this result: `"Hello World"`
 
 <a name="union"></a>
 
-### union
+### ```union```
 
 Return a collection that has *all* the items from the specified collections.
 To appear in the result, an item can appear in any collection
@@ -3177,7 +3187,7 @@ And returns this result: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
-### uriComponent
+### ```uriComponent```
 
 Return a uniform resource identifier (URI) encoded version for a
 string by replacing URL-unsafe characters with escape characters.
@@ -3211,7 +3221,7 @@ And returns this result: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
-### uriComponentToBinary
+### ```uriComponentToBinary```
 
 Return the binary version for a uniform resource identifier (URI) component.
 
@@ -3246,7 +3256,7 @@ And returns this result:
 
 <a name="uriComponentToString"></a>
 
-### uriComponentToString
+### ```uriComponentToString```
 
 Return the string version for a uniform resource identifier (URI) encoded string,
 effectively decoding the URI-encoded string.
@@ -3277,7 +3287,7 @@ And returns this result: `"https://contoso.com"`
 
 <a name="utcNow"></a>
 
-### utcNow
+### ```utcNow```
 
 Return the current timestamp.
 
@@ -3321,7 +3331,7 @@ And returns this result: `"Sunday, April 15, 2018"`
 
 <a name="xml"></a>
 
-### xml
+### ```xml```
 
 Return the XML version for a string that contains a JSON object.
 
@@ -3380,7 +3390,7 @@ And returns this result XML:
 
 <a name="xpath"></a>
 
-### xpath
+### ```xpath```
 
 Check XML for nodes or values that match an XPath (XML Path Language) expression,
 and return the matching nodes or values. An XPath expression, or just "XPath",
@@ -3460,5 +3470,5 @@ And returns this result: `"Paris"`
 > [!NOTE]
 > One can add comments to data flow expressions, but not in pipeline expressions.
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

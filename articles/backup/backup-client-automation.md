@@ -1,9 +1,10 @@
 ---
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
-ms.topic: conceptual
-ms.date: 08/24/2021 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 02/28/2025
+ms.service: azure-backup
+ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -14,9 +15,9 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 ## Install Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-To get started, [install the latest PowerShell release](/powershell/azure/install-az-ps).
+To get started, [install the latest PowerShell release](/powershell/azure/install-azure-powershell).
 
 ## Create a Recovery Services vault
 
@@ -31,7 +32,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
 2. The Recovery Services vault is an Azure Resource Manager resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.
 
     ```powershell
-    New-AzResourceGroup –Name "test-rg" –Location "WestUS"
+    New-AzResourceGroup -Name "test-rg" –Location "WestUS"
     ```
 
 3. Use the **New-AzRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
@@ -48,8 +49,9 @@ The following steps lead you through creating a Recovery Services vault. A Recov
    >
 
     ```powershell
-    $Vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    $Vault1 = Get-AzRecoveryServicesVault -Name "testVault" 
     Set-AzRecoveryServicesBackupProperties -Vault $Vault1 -BackupStorageRedundancy GeoRedundant
+
     ```
 
 ## View the vaults in a subscription
@@ -114,7 +116,7 @@ The available options include:
 | /q |Quiet installation |- |
 | /p:"location" |Path to the installation folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | /s:"location" |Path to the cache folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m |Opt-in to Microsoft Update |- |
+| /m |Opt in to Microsoft Update |- |
 | /nu |Don't Check for updates after installation is complete |- |
 | /d |Uninstalls Microsoft Azure Recovery Services Agent |- |
 | /ph |Proxy Host Address |- |
@@ -131,7 +133,7 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
-### Registering using the PS Az module
+### Register using the PowerShell Az module
 
 > [!NOTE]
 > A bug with generation of vault certificate is fixed in Az 3.5.0 release. Use Az 3.5.0 release version or greater to download a vault certificate.
@@ -139,14 +141,14 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 In the latest Az module of PowerShell, because of underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
 
 ```powershell
-$dt = $(Get-Date).ToString("M-d-yyyy")
+
 $cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -FriendlyName 'test-vaultcredentials' -subject "Windows Azure Tools" -KeyExportPolicy Exportable -NotAfter $(Get-Date).AddHours(48) -NotBefore $(Get-Date).AddHours(-24) -KeyProtection None -KeyUsage None -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2") -Provider "Microsoft Enhanced Cryptographic Provider v1.0"
-$certficate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
-$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certficate
+$certificate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certificate
 ```
 
 On the Windows Server or Windows client machine, run the [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) cmdlet to register the machine with the vault.
-This, and other cmdlets used for backup, are from the MSONLINE module, which the MARS AgentInstaller added as part of the installation process.
+This, and other cmdlets used for backup, are from a PowerShell module that the MARS AgentInstaller added as part of the installation process.
 
 The Agent installer doesn't update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this, you can do the following:
 
@@ -168,7 +170,7 @@ Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 
 ```output
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
-SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
+SubscriptionID      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ServiceResourceName : testvault
 Region              : WestUS
 Machine registration succeeded.
@@ -228,9 +230,9 @@ Server properties updated successfully
 
 All backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy includes three parts:
 
-1. A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
-2. A **retention schedule** that specifies how long to retain the recovery points in Azure.
-3. A **file inclusion/exclusion specification** that dictates what should be backed up.
+- A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
+- A **retention schedule** that specifies how long to retain the recovery points in Azure.
+- A **file inclusion/exclusion specification** that dictates what should be backed up.
 
 In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](/powershell/module/msonlinebackup/new-obpolicy) cmdlet.
 
@@ -242,7 +244,7 @@ At this time, the policy is empty and other cmdlets are needed to define what it
 
 ### Configuring the backup schedule
 
-The first of the three parts of a policy is the backup schedule, which is created using the [New-OBSchedule](/powershell/module/msonlinebackup/new-obschedule) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule, you need to specify two input parameters:
+The first of the three parts of a policy are the backup schedule, which is created using the [New-OBSchedule](/powershell/module/msonlinebackup/new-obschedule) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule, you need to specify two input parameters:
 
 * **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
 * **Times of the day** when the backup should run. You can define up to three different times of the day when the backup will be triggered.
@@ -676,7 +678,41 @@ Job completed.
 The recovery operation completed successfully.
 ```
 
-## Uninstalling the Azure Backup agent
+## Cross Region Restore
+
+Cross Region Restore (CRR) allows you to restore MARS backup data from a secondary region, which is an Azure paired region. This enables you to conduct drills for audit and compliance, and recover data during the unavailability of the primary region in Azure in the case of a disaster.
+
+### Original server restore
+
+If you're performing restore for the original server from the secondary region (Cross Region Restore), use the flag `UseSecondaryRegion` while getting the `OBRecoverableSource` object. 
+
+```azurepowershell
+$sources = Get-OBRecoverableSource -UseSecondaryRegion
+$RP = Get-OBRecoverableItem -Source $sources[0]
+$RO = New-OBRecoveryOption -DestinationPath $RecoveryPath -OverwriteType Overwrite
+Start-OBRecovery -RecoverableItem $RP -RecoveryOption $RO -Async | ConvertTo-Json
+
+```
+
+### Alternate server restore
+
+If you're performing restore for an alternate server from the secondary region (Cross Region Restore), download the *secondary region vault credential file* from the Azure portal and pass the secondary region vault credential for restore.
+
+```azurepowershell
+$serverName = ‘myserver.mycompany.com’
+$secVaultCred = “C:\Users\myuser\Downloads\myvault_Mon Jul 17 2023.VaultCredentials”
+$passphrase = ‘Default Passphrase’
+$alternateServers = Get-OBAlternateBackupServer -VaultCredentials $secVaultCred
+$altServer = $alternateServers[2] | Where-Object {$_.ServerName -Like $serverName}
+$pwd = ConvertTo-SecureString -String $passphrase -AsPlainText -Force
+$sources = Get-OBRecoverableSource $altServer
+$RP = Get-OBRecoverableItem -Source $sources[0]
+$RO = New-OBRecoveryOption
+Start-OBRecoveryMount -RecoverableItem $RP -RecoveryOption $RO -EncryptionPassphrase $pwd  -Async | ConvertTo-Json 
+
+```
+
+## Uninstall the Azure Backup agent
 
 Uninstalling the Azure Backup agent can be done by using the following command:
 

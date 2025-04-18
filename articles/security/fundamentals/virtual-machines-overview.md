@@ -3,18 +3,15 @@ title: Security features used with Azure VMs
 titleSuffix: Azure security
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
-documentationcenter: na
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/05/2022
-ms.author: terrylan
+ms.date: 06/27/2024
+ms.author: mbaldwin
 
 ---
 # Azure Virtual Machines security overview
@@ -46,7 +43,6 @@ Learn more about antimalware software to help protect your virtual machines:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 For even more powerful protection, consider using [Microsoft Defender for Endpoint](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). With Defender for Endpoint, you get:
@@ -66,11 +62,11 @@ Learn more: [Get Started with Microsoft Defender for Endpoint](/windows/security
 
 Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault.
 
-Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](../../active-directory/index.yml).
+Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Microsoft Entra ID](../../active-directory/index.yml).
 
 Learn more:
 
-* [What is Azure Key Vault?](../../key-vault/general/overview.md)
+* [What is Azure Key Vault?](/azure/key-vault/general/overview)
 * [Azure Key Vault blog](/archive/blogs/kv/)
 
 ## Virtual machine disk encryption
@@ -81,8 +77,8 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-* [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md)
-* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) and [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview)
+* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](/azure/virtual-machines/linux/disk-encryption-powershell-quickstart)
 
 ## Virtual machine backup
 
@@ -136,7 +132,7 @@ Learn more:
 
 * [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 * [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
-* [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
+* [Microsoft Defender for Cloud planning and operations](/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide)
 
 ## Compliance
 

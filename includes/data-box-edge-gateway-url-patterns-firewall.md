@@ -1,9 +1,9 @@
 ---
-author: alkohli
-ms.service: databox  
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 07/15/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 |    URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Component or functionality                                                                           |
@@ -17,4 +17,5 @@ ms.author: alkohli
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Support package                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetry service in Windows, see the update   for customer experience and diagnostic telemetry      |
 |                                                                                                                                                                                https://(vault-name).vault.azure.net:443                                                                                                                                                                                                                                                                                     | Key Vault 
+
 

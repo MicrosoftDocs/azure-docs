@@ -1,8 +1,8 @@
 ---
 title: Cut planes
 description: Explains what cut planes are and how to use them
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
@@ -32,7 +32,7 @@ void CreateCutPlane(RenderingSession session, Entity ownerEntity)
 ```cpp
 void CreateCutPlane(ApiHandle<RenderingSession> session, ApiHandle<Entity> ownerEntity)
 {
-    ApiHandle<CutPlaneComponent> cutPlane = session->Connection()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();;
+    ApiHandle<CutPlaneComponent> cutPlane = session->Connection()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();
     cutPlane->SetNormal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
     Color4Ub fadeColor;
     fadeColor.channels = { 255, 0, 0, 128 }; // fade to 50% red

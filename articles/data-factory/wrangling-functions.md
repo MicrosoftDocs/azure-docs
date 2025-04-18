@@ -3,10 +3,9 @@ title: Data wrangling functions in Azure Data Factory
 description: An overview of available Data Wrangling functions in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Transformation functions in Power Query for data wrangling
@@ -115,7 +114,7 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | -- | -- |
 | Table.PromoteHeaders | Not supported. The same result can be achieved by setting "First row as header" in the dataset. |
 | Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
-| Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type and tranfoming with locale. |
+| Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type and transforming with locale. |
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
 | Table.RemoveLastN | Remove bottom rows isn't supported. |
 | Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 
@@ -161,7 +160,7 @@ in
   #"Pivoted column"
 ```
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNbBf]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=02987a4c-9444-4f3b-acf7-89a3e91ff5f7]
 
 ### Formatting date/time columns
 
@@ -179,8 +178,8 @@ To set the date/time format when using Power Query ADF, please follow these sets
 #"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
 ```
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d4c91bf6-2c21-4ab7-ab4d-695d039327ec]
 
-## Next steps
+## Related content
 
 Learn how to [create a data wrangling Power Query in ADF](wrangling-tutorial.md).

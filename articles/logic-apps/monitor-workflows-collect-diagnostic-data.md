@@ -7,15 +7,24 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/16/2023
-# As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
+ms.date: 02/05/2025
+# Customer intent: As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 
 # Monitor and collect diagnostic data for workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up and use [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
+To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up and use [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs).
+
+> [!NOTE]
+>
+> Azure Monitor Resource Logs aren't 100% lossless. Resource Logs are based on a store and forward architecture designed to affordably move 
+> petabytes of data per day at scale. This capability includes built-in redundancy and retries across the platform, but doesn't provide 
+> transactional guarantees. Transactional monitoring might reduce the reliability and performance of the monitored service. 
+> Also, transient logging errors must halt the upstream service when unable to confirm log delivery. 
+> Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
+> However, small data losses might still happen due to temporary, non-repeating service issues distributed across Azure, and not all can be caught.
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
@@ -35,7 +44,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
 1. [Include custom properties in telemetry](#custom-tracking-properties).
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. [Add a diagnostic setting to enable data collection](#add-diagnostic-setting).
 
@@ -55,11 +64,11 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
   * [Permission to purchase - Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing#permission-to-purchase)
 
-  * [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
+  * [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
 
 * The destination resource for where you want to send diagnostic data:
 
-  * A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
+  * A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace)
 
   * An [Azure storage account](../storage/common/storage-account-create.md)
 
@@ -129,7 +138,7 @@ If you turned on Log Analytics when you created your logic app resource, skip th
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/workspace-summary-pane-logic-apps-management.png" alt-text="Screenshot showing the Azure portal, the workspace summary pane with Logic Apps Management solution.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 For a Standard logic app, you can continue with [Add a diagnostic setting](#add-diagnostic-setting). No other prerequisite steps are necessary to enable Log Analytics, nor does the Logic Apps Management solution apply to Standard logic apps.
 
@@ -157,7 +166,7 @@ For a Standard logic app, you can continue with [Add a diagnostic setting](#add-
    |-------------|------------|
    | **Send to Log Analytics workspace** | Select the Azure subscription for your Log Analytics workspace and the workspace. |
    | **Archive to a storage account** | Select the Azure subscription for your Azure storage account and the storage account. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations). |
-   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](../azure-monitor/partners.md). |
+   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](/azure/azure-monitor/partners). |
    | **Send to partner solution** | Select your Azure subscription and the destination. For more information, see [Azure Native ISV Services overview](../partner-solutions/overview.md). |
 
    The following example selects a Log Analytics workspace as the destination:
@@ -166,7 +175,7 @@ For a Standard logic app, you can continue with [Add a diagnostic setting](#add-
 
 1. To finish adding your diagnostic setting, select **Save**.
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -184,7 +193,7 @@ For a Standard logic app, you can continue with [Add a diagnostic setting](#add-
    |-------------|------------|
    | **Send to Log Analytics workspace** | Select the Azure subscription for your Log Analytics workspace and the workspace. |
    | **Archive to a storage account** | Select the Azure subscription for your Azure storage account and the storage account. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations). |
-   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](../azure-monitor/partners.md). |
+   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](/azure/azure-monitor/partners). |
    | **Send to partner solution** | Select your Azure subscription and the destination. For more information, see [Azure Native ISV Services overview](../partner-solutions/overview.md). |
 
    The following example selects a Log Analytics workspace as the destination:
@@ -220,7 +229,7 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    > [!NOTE]
    > 
-   > If the Logic Apps Management tile doesn't immediately show results after a run, 
+   > If the **Logic Apps Management** tile doesn't immediately show results after a run, 
    > try selecting **Refresh** or wait for a short time before trying again.
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-runs-summary.png" alt-text="Screenshot showing Azure portal, Log Analytics workspace with Consumption logic app workflow run status and count.":::
@@ -255,15 +264,15 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-action-details.png" alt-text="Screenshot showing all operations and details for a specific logic app workflow run.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Log Analytics workspace.
 
 1. On the workspace navigation menu, select **Logs**.
 
-1. On the new query tab, in the left column, under **Tables**, expand **LogManagement**, and select **LogicAppWorkflowRuntime**.
+1. On the new query tab, in the left column, under **Tables**, expand **LogManagement**, and select **LogicAppWorkflowRuntime**. If you're working with Azure Government regions, select **Azure Diagnostics** instead.
 
-   In the right pane, under **Results**, the table shows records related to the following events:
+   In the records pane, under **Results**, the table shows records related to the following events:
 
    * WorkflowRunStarted
    * WorkflowRunCompleted
@@ -313,10 +322,10 @@ In your Log Analytics workspace's query pane, you can enter your own queries to 
 
 Along with Azure Monitor Logs, you can send the collected data to other destinations, for example:
 
-* [Archive Azure resource logs to storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
-* [Stream Azure platform logs to Azure Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
+* [Archive Azure resource logs to storage account](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
+* [Stream Azure platform logs to Azure Event Hubs](/azure/azure-monitor/essentials/resource-logs#send-to-azure-event-hubs)
 
-You can then get real-time monitoring by using telemetry and analytics from other services, such as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../azure-monitor/logs/log-powerbi.md), for example:
+You can then get real-time monitoring by using telemetry and analytics from other services, such as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](/azure/azure-monitor/logs/log-powerbi), for example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -343,7 +352,7 @@ If you don't specify this custom tracking ID, Azure automatically generates this
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and Request trigger with custom tracking ID.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Request trigger with custom tracking ID.":::
 
@@ -357,7 +366,7 @@ Actions have a **Tracked Properties** section where you can specify a custom pro
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and HTTP action with tracked properties.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and HTTP action with tracked properties.":::
 
@@ -365,7 +374,11 @@ Actions have a **Tracked Properties** section where you can specify a custom pro
 
 Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
 
-The following examples shows where custom properties appear in your Log Analytics workspace:
+Tracked properties can only reference the parameters, inputs, and outputs for its own trigger or action.
+
+Tracked properties aren't allowed on a trigger or action that has secure inputs, secure outputs, or both. They're also not allowed to reference another trigger or action that has secure inputs, secure outputs, or both.
+
+The following examples show where custom properties appear in your Log Analytics workspace:
 
 ### [Consumption](#tab/consumption)
 
@@ -381,7 +394,7 @@ The following examples shows where custom properties appear in your Log Analytic
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/example-tracked-properties.png" alt-text="Screenshot showing example tracked properties for a specific Consumption  workflow.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 The custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column, for example:
 

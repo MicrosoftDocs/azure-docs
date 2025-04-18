@@ -5,14 +5,14 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/08/2022
 ms.topic: how-to
-ms.custon: subject-rbac-steps
+ms.custom: subject-rbac-steps
 ---
 
 # Deploy Start/Stop VMs v2 to an Azure subscription
 
 Perform the steps in this article in sequence to install the Start/Stop VMs v2 feature. After completing the setup process, configure the schedules to customize it to your requirements.
 
-## Permissions considerations
+## Permissions and Policy considerations
 
 Keep the following considerations in mind before and during deployment:
 
@@ -21,6 +21,9 @@ Keep the following considerations in mind before and during deployment:
 + Any users with access to the Start/Stop v2 solution could uncover cost, savings, operation history, and other data that is stored in the Application Insights instance used by the Start/Stop v2 application.
 
 + When managing a Start/Stop v2 solution, you should consider the permissions of users to the Start/Stop v2 solution, particularly when whey don't have permission to directly modify the target virtual machines.
+
++ When you deploy the Start/Stop v2 solution to a new or existing resource group, a tag named **SolutionName** with a value of **StartStopV2** is added to resource group and to its resources that are deployed by Start/Stop v2. Any other tags on these resources are removed. If you have an Azure policy that denies management operations based on resource tags, you must allow management operations for resources that contain only this tag.
+
 
 ## Deploy feature
 
@@ -93,7 +96,7 @@ After the Start/Stop deployment completes, perform the following steps to enable
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -101,7 +104,7 @@ After the Start/Stop deployment completes, perform the following steps to enable
     | Assign access to | User, group, or service principal |
     | Members | \<Your Azure Function App name> |
 
-    ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 ## Configure schedules overview
 
@@ -117,8 +120,6 @@ To manage the automation method to control the start and stop of your VMs, you c
 - AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.**ststv2_vms_AutoStop** configures the auto-stop functionality.
 
 If you need additional schedules, you can duplicate one of the Logic Apps provided using the **Clone** option in the Azure portal.
-
-:::image type="content" source="media/deploy/logic-apps-clone-option.png" alt-text="Select the Clone option to duplicate a logic app":::
 
 ## Scheduled start and stop scenario
 
@@ -138,6 +139,9 @@ For each scenario, you can target the action against one or more subscriptions, 
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
+
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
     ```json
@@ -147,7 +151,7 @@ For each scenario, you can target the action against one or more subscriptions, 
       "RequestScopes": {
         "ExcludedVMLists": [],
         "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/"
         ]
      }
     }
@@ -157,8 +161,8 @@ For each scenario, you can target the action against one or more subscriptions, 
 
     ```json
     "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
         ]
     ```
 
@@ -171,12 +175,16 @@ For each scenario, you can target the action against one or more subscriptions, 
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
+        "Subscriptions": [
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
+         ],
         "ResourceGroups": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       }
     }
@@ -191,8 +199,8 @@ For each scenario, you can target the action against one or more subscriptions, 
       "RequestScopes": {
         "ExcludedVMLists": [“Az*”,“Bz*”],
        "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
     
         ]
       }
@@ -204,13 +212,13 @@ For each scenario, you can target the action against one or more subscriptions, 
     ```json
     {
       "Action": "start",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm2",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm2",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
           
         ]
       }
@@ -231,7 +239,10 @@ In an environment that includes two or more components on multiple Azure Resourc
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
-1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
+
+1. In the designer pane, select **Function-Try** to configure the target settings and then select the **</> Code view** button in the top menu to edit the code for the **Function-Try** element. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
     ```json
     {
@@ -240,7 +251,7 @@ In an environment that includes two or more components on multiple Azure Resourc
       "RequestScopes": {
         "ExcludedVMLists": [],
         "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/"
         ]
      },
        "Sequenced": true
@@ -251,8 +262,8 @@ In an environment that includes two or more components on multiple Azure Resourc
 
     ```json
     "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
         ]
     ```
 
@@ -265,12 +276,16 @@ In an environment that includes two or more components on multiple Azure Resourc
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
+        "Subscriptions":[
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
+        ],
         "ResourceGroups": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       },
        "Sequenced": true
@@ -282,13 +297,13 @@ In an environment that includes two or more components on multiple Azure Resourc
     ```json
     {
       "Action": "start",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
         ]
       },
        "Sequenced": true
@@ -311,7 +326,7 @@ The following metric alert properties in the request body support customization:
 - AutoStop_TimeAggregationOperator
 - AutoStop_TimeWindow
 
-To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
+To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-metric-overview).
 
 1. From the list of Logic apps, to configure auto stop, select **ststv2_vms_AutoStop**.
 
@@ -358,7 +373,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "AutoStop_Threshold": "5",
       "AutoStop_TimeAggregationOperator": "Average",
       "AutoStop_TimeWindow": "06:00:00",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "ResourceGroups": [
@@ -383,7 +398,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "AutoStop_Threshold": "5",
       "AutoStop_TimeAggregationOperator": "Average",
       "AutoStop_TimeWindow": "06:00:00",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [

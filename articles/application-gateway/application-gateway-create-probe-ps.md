@@ -4,12 +4,11 @@ titleSuffix: Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
 
@@ -20,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 
 In this article, you add a custom probe to an existing application gateway with PowerShell. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 

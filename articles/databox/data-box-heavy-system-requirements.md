@@ -2,13 +2,12 @@
 title: Microsoft Azure Data Box Heavy system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Data Box Heavy
 services: databox
-author: alkohli
+author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
-ms.topic: article
-ms.date: 10/07/2022
-ms.author: alkohli
+ms.service: azure-data-box-heavy
+ms.topic: conceptual
+ms.date: 06/13/2023
+ms.author: shaas
 ---
 # Azure Data Box Heavy system requirements
 
@@ -32,6 +31,9 @@ The software requirements include the information on the supported operating sys
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 ### Supported storage accounts
+
+> [!Note]
+> Classic storage accounts will not be supported starting **August 1, 2023**.
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 

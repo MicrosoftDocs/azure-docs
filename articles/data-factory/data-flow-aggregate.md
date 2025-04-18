@@ -1,15 +1,14 @@
 ---
 title: Aggregate transformation in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to aggregate data at scale in Azure Data Factory and Synapse Analyatics with the mapping data flow Aggregate transformation.
+description: Learn how to aggregate data at scale in Azure Data Factory and Synapse Analytics with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2022
+ms.date: 02/13/2025
 ---
 
 # Aggregate transformation in mapping data flow
@@ -109,6 +108,6 @@ MoviesYear aggregate(groupBy(year),
 	avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
-## Next steps
+## Related content
 
 * Define window-based aggregation using the [Window transformation](data-flow-window.md)

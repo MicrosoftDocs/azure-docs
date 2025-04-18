@@ -1,13 +1,13 @@
 ---
 title: Azure Synapse database templates concepts
-description: Learn more about the database templates within Azure Synapse
+description: Learn about how you can standardize data in your late with the database templates within Azure Synapse.
 author: gsaurer
 ms.author: gesaur
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: database-editor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/02/2021
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept
 ---
 
 # Lake database templates
@@ -16,7 +16,7 @@ Azure Synapse Analytics provides industry specific database templates to help st
 
 ## Enterprise templates 
 
-Enterprise database templates contain a subset of tables that are most likely to be of interest to an organization within a specific industry. It provides a high-level overview and describes the connectivity between the related business areas. These templates serve as an accelerator for many types of large projects. For example, the retail template has one enterprise template called "Retail". 
+Enterprise database templates contain a subset of tables that are most likely to be of interest to an organization within a specific industry. It provides a high-level overview and describes the connectivity between the related business areas. These templates serve as an accelerator for many types of large projects. For example, the retail template has one enterprise template called "Retail".
 
 ![Enterprise template example](./media/concepts-database-templates/enterprise-template-example.png)
 
@@ -48,7 +48,7 @@ Relationships are associations or interactions between any two tables. For examp
 
 Lake database allows for the underlying data to be partitioned for a table for better performance. You can set partition configuration in the storage settings of a table in database editor.
 
-## Next steps
+## Related content
 
 Continue to explore the capabilities of the database designer using the links below.
 - [Quick start](quick-start-create-lake-database.md)

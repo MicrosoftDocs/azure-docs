@@ -1,10 +1,12 @@
 ---
 title: Australian Government ISM PROTECTED blueprint sample controls
 description: Control mapping of the Australian Government ISM PROTECTED blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Control mapping of the Australian Government ISM PROTECTED blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 The following article details how the Azure Blueprints Australian Government ISM PROTECTED blueprint
 sample maps to the ISM PROTECTED controls. For more information about the controls, see
@@ -113,7 +115,7 @@ assigning following Azure Policy definitions:
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
 
-### 1490 An application whitelisting solution is implemented on all servers to restrict the execution of executables, software libraries, scripts and installers to an approved set
+### 1490 An application allow listing solution is implemented on all servers to restrict the execution of executables, software libraries, scripts and installers to an approved set
 
 - Adaptive Application Controls should be enabled on virtual machines
 

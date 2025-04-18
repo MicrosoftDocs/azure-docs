@@ -2,10 +2,10 @@
 title: Record a call when it starts
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to record a call through Azure Communication Services once it starts.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-ms.author: dademath
+ms.author: chpalm
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.date: 03/01/2023
@@ -182,10 +182,8 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
 1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
 
-   ```bash
-
-    ngrok http 7071
-
+    ```bash
+     ngrok http 7071
     ```
 
     Copy the ngrok link provided where your function is running.

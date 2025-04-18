@@ -7,9 +7,10 @@ ms.custom: mvc, devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
 ---
+
 # Back up Azure VMs with PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This tutorial describes how to deploy an [Azure Backup](backup-overview.md) Recovery Services vault to back up multiple Azure VMs using PowerShell.  
 

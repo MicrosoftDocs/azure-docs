@@ -2,11 +2,13 @@
 title: Implement Quality of Service (QoS) for Azure Virtual Desktop
 titleSuffix: Azure
 description: How to set up QoS for Azure Virtual Desktop.
-author: femila
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.author: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Implement Quality of Service (QoS) for Azure Virtual Desktop
 
 [RDP Shortpath for managed networks](./shortpath.md) provides a direct UDP-based transport between Remote Desktop Client and Session host. RDP Shortpath for managed networks enables configuration of Quality of Service (QoS) policies for the RDP data.
@@ -18,7 +20,7 @@ Without some form of QoS, you might see the following issues:
 
 * Jitter – RDP packets arriving at different rates, which can result in visual and audio glitches
 * Packet loss – packets dropped, which results in retransmission that requires additional time
-* Delayed round-trip time (RTT) – RDP packets taking a long time to reach their destinations, which result in noticeable delays between input and reaction from the remote application.
+* Delayed round-trip time (RTT) – RDP packets taking a long time to reach their destinations, which result in noticeable delays between input and reaction from the desktop or application.
 
 The least complicated way to address these issues is to increase the data connections' size, both internally and out to the internet. Since that is often cost-prohibitive, QoS provides a way to manage the resources you have instead of adding bandwidth more effectively. To address quality issues, we recommend that you first use QoS, then add bandwidth only where necessary.
 

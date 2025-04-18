@@ -2,17 +2,10 @@
 title: Manage a manual QoS capacity pool for Azure NetApp Files  | Microsoft Docs
 description: Describes how to manage a capacity pool that uses the manual QoS type, including setting up a manual QoS capacity pool and changing a capacity pool to use manual QoS.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 03/24/2025
 ms.author: anfdocs
 ---
 # Manage a manual QoS capacity pool
@@ -37,18 +30,17 @@ You can change a capacity pool that currently uses the auto QoS type to use the 
 > Setting the capacity type to manual QoS is a permanent change. You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool.  
 > At conversion time, throughput levels might be capped to conform to the throughput limits for volumes of the manual QoS type. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 
-1. From the management blade for your NetApp account, click **Capacity pools** to display existing capacity pools.   
+1. From the management blade for your NetApp account, select **Capacity pools** to display existing capacity pools.   
  
-2.	Click the capacity pool that you want to change to using manual QoS.
+2.	Select the capacity pool that you want to change to using manual QoS.
 
-3.	Click **Change QoS type**. Then set **New QoS Type** to **Manual**. Click **OK**. 
+3.	Select **Change QoS type**. Then set **New QoS Type** to **Manual**. Select **OK**. 
 
-![Change QoS type](../media/azure-netapp-files/change-qos-type.png)
-
+![Change QoS type](./media/manage-manual-qos-capacity-pool/change-qos-type.png)
 
 ## Monitor the throughput of a manual QoS capacity pool  
 
-Metrics are available to help you monitor the read and write throughput of a volume.  See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
+Metrics are available to help you monitor the read and write throughput of a volume. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
 
 ## Modify the allotted throughput of a manual QoS volume 
 
@@ -56,9 +48,21 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 
 1. From the **Volumes** page, select the volume whose throughput you want to modify.   
 
-2. Click **Change throughput**. Specify the **Throughput (MiB/S)** that you want. Click **OK**. 
+2. Select **Change throughput**. Specify the **Throughput (MiB/S)** that you want. Select **OK**. 
 
-    ![Change QoS throughput](../media/azure-netapp-files/change-qos-throughput.png)
+    ![Change QoS throughput](./media/manage-manual-qos-capacity-pool/change-qos-throughput.png)
+
+## Modify the throughput of a Flexible service level capacity pool 
+
+With the Flexible service level, you can adjust the throughput of the capacity pool as needed. You can increase the throughput of a Flexible service level pool at any time. Decreases to throughput on Flexible service level capacity pools can only occur following a 24-hour cool-down period. The 24-hour cool-down period initiates after any change to the throughput of the Flexible service level capacity pool.
+
+1. From your NetApp account, select **Capacity pools** to display existing capacity pools.   
+ 
+1. Right-click the capacity pool whose throughput you want to modify then select **Change throughput**.
+
+1. Enter a value between 128 and 2560 MiB/s. 
+
+1. Select **OK**. 
 
 ## Next steps  
 

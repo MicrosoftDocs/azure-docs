@@ -2,13 +2,12 @@
 title: Microsoft Azure Data Box Disk security features | Microsoft Docs in data 
 description: Describes security features implemented for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-author: alkohli
+author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: alkohli
+ms.date: 04/16/2024
+ms.author: shaas
 ---
 # Azure Data Box Disk security and data protection
 
@@ -35,9 +34,9 @@ Data Box Disk provides a secure solution for data protection by ensuring that on
 
 The Data Box Disk is protected by the following features:
 
-- BitLocker AES-128 bit encryption for the disk at all times.
-- Secure update capability for the disks.
-- Disks are shipped in a locked state and can only be unlocked via a Data Box Disk unlock tool. The unlock tool is available in the Data Box Disk service portal.
+| Hardware encrypted disks | Software encrypted disks  |
+|--------------------------|---------------------------|
+| AES 256-bit hardware encryption engine | <li> BitLocker AES-128 bit encryption for the disk at all times<li> Secure update capability for the disks<li> Disks are shipped in a locked state and can only be unlocked via a Data Box Disk unlock tool. The unlock tool is available in the Data Box Disk service portal. |
 
 ### Data Box Disk data protection
 
@@ -57,7 +56,7 @@ The Data Box service is protected by the following features.
 
 ## Managing personal data
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 Azure Data Box Disk collects and displays personal information in the following key instances in the service:
 
@@ -81,7 +80,7 @@ Azure Data Box Disk collects and displays personal information in the following 
 
 - **Shipping address** – After the order is placed, Data Box service provides the shipping address to third party carriers such as UPS or DHL. 
 
-For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trust-center).
 
 
 ## Next steps

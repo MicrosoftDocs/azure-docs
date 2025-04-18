@@ -2,7 +2,7 @@
 title: Create web app using SignalR Service and GitHub authentication
 description: Azure CLI Script Sample - Create a web app that uses SignalR Service and GitHub authentication
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/30/2022
@@ -14,13 +14,17 @@ ms.custom: mvc, devx-track-azurecli
 
 This sample script creates a new Azure SignalR Service resource, which is used to push real-time content updates to clients. This script also adds a new Web App and App Service plan to host your ASP.NET Core Web App that uses the SignalR Service. The web app is configured with app settings to connect to the new SignalR service resource, and authenticate with [GitHub authentication](https://developer.github.com/v3/guides/basics-of-authentication/). The web app is also configured to use a local git repository deployment source.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Connection string security](../includes/signalr-connection-string-security.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Sample scripts
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+Raw connection strings appear in this article for demonstration purposes only. In production environments, always protect your access keys. Use Azure Key Vault to manage and rotate your keys securely and [secure your connection string using Microsoft Entra ID](../concept-connection-string.md#use-microsoft-entra-id) and [authorize access with Microsoft Entra ID](../signalr-concept-authorize-azure-active-directory.md).
+
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Create the SignalR service with an App service
 
@@ -28,33 +32,20 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ### Enable GitHub authentication and Git deployment for web app
 
-1. Update the values in the following script for the desired deployment username and its passwor
-
-   ```azurecli
-   deploymentUser=<Replace with your desired username>
-   deploymentUserPassword=<Replace with your desired password>
-   ```
-
-2. Update the values in the following script based on your GitHub OAuth App registration.
+1. Update the values in the following script based on your GitHub OAuth App registration.
 
    ```azurecli
    GitHubClientId=<Replace with your GitHub OAuth app Client ID>
    GitHubClientSecret=<Replace with your GitHub OAuth app Client Secret>
    ```
 
-3. Add app settings to use with GitHub authentication
+1. Add app settings to use with GitHub authentication
 
    ```Azure CLI
    az webapp config appsettings set --name $webApp --resource-group $resourceGroup --settings "GitHubClientSecret=$GitHubClientSecret" 
    ```
 
-4. Update the webapp with the desired deployment user name and password
-
-   ```Azure CLI
-   az webapp deployment user set --user-name $deploymentUser --password $deploymentUserPassword
-   ```
-
-5. Configure Git deployment and return the deployment URL.
+1. Configure Git deployment and return the deployment URL.
 
    ```Azure CLI
    az webapp deployment source config-local-git --name $webAppName --resource-group $resourceGroupName --query [url] -o tsv
@@ -62,7 +53,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -5,11 +5,10 @@ description: Combine data from two data sources using the join transformation in
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 02/13/2025
 ---
 
 # Join transformation in mapping data flow
@@ -58,7 +57,7 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 
 You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ZeWr]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d7e53d75-099c-44d3-bcc0-95dc8da2d1fb]
 
 * Combine text parts: Use this option to find matches by remove space between words. For example, Data Factory is matched with DataFactory if this option is enabled.
 * Similarity score column: You can optionally choose to store the matching score for each row in a column by entering a new column name here to store that value.
@@ -157,6 +156,6 @@ LeftStream, RightStream
     )~> JoiningColumns
 ```
 
-## Next steps
+## Related content
 
 After joining data, create a [derived column](data-flow-derived-column.md) and [sink](data-flow-sink.md) your data to a destination data store.

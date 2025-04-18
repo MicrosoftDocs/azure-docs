@@ -6,13 +6,11 @@ summary: Learn how to use Azure Traffic Manager. Quickstarts, tutorials, samples
 metadata:
   title:  Traffic Manager documentation
   description: Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Quickstarts, tutorials, samples, and more, show how to manage traffic to Azure or external service endpoints.
-  services: traffic-manager
-  ms.service: traffic-manager
+  ms.service: azure-traffic-manager
   ms.topic: landing-page
-  ms.collection: collection
   author: greg-lindsay
   ms.author: greglin
-  ms.date: 08/19/2019
+  ms.date: 10/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -35,9 +33,7 @@ landingContent:
           - text: Enhance your service availability and data locality
             url: /training/modules/distribute-load-with-traffic-manager/
           
-         
-
-  # Card (optional)
+  # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -55,6 +51,8 @@ landingContent:
             url: traffic-manager-configure-weighted-routing-method.md
           - text: Configure priority traffic routing method
             url: traffic-manager-configure-priority-routing-method.md
+          - text: Control traffic routing with weighted endpoints
+            url: tutorial-traffic-manager-weighted-endpoint-routing.md
           - text: Direct traffic to specific endpoints based on user subnet
             url: tutorial-traffic-manager-subnet-routing.md
 

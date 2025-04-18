@@ -4,8 +4,7 @@ description: Describes the security and privacy features that protect your Azure
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 02/25/2022
 ms.author: alkohli
@@ -143,7 +142,7 @@ The Azure Stack Edge service collects personal information in the following scen
 
 To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md).
 
-For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trust-center).
 
 ## Next steps
 

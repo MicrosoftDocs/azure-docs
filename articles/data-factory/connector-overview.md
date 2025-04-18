@@ -3,11 +3,10 @@ title: Connector overview
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the supported connectors in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 
@@ -42,12 +41,13 @@ The following file formats are supported. Refer to each article for format-based
 - [Delimited text format](format-delimited-text.md)
 - [Delta format](format-delta.md)
 - [Excel format](format-excel.md)
+- [Iceberg format](format-iceberg.md)
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
 - [Parquet format](format-parquet.md)
 - [XML format](format-xml.md)
 
-## Next steps
+## Related content
 
 - [Copy activity](copy-activity-overview.md)
 - [Mapping Data Flow](concepts-data-flow-overview.md)

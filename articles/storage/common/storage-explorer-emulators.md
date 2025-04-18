@@ -3,7 +3,8 @@ title: Connect an emulator to Azure Storage Explorer
 description: Documentation on using an emulator with Azure Storage Explorer
 services: storage
 author: MRayermannMSFT
-ms.service: storage
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 11/23/2021
 ms.author: marayerm
@@ -42,7 +43,7 @@ If you need to manually connect to an emulator that is running locally, open the
 ### Remote emulator
 
 > [!NOTE]
-> Although Storage Explorer supports connnecting to a remote emulator, it is not reccomended. Certain remote emulator configurations may make it difficult for Storage Explorer to understand that an emulator is being connected to, which may affect some features. For best results, configure your emulator to use the default development account name and key, and then use a name and key connection string to connect.
+> Although Storage Explorer supports connecting to a remote emulator, it is not recommended. Certain remote emulator configurations may make it difficult for Storage Explorer to understand that an emulator is being connected to, which may affect some features. For best results, configure your emulator to use the default development account name and key, and then use a name and key connection string to connect.
 
 If you need to manually connect to an emulator running on a different machine, then you will need to construct a connection string that details how to connect to your emulator. The connection string will likely need to explicitly define the endpoint for each service type.
 

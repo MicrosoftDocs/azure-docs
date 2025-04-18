@@ -3,8 +3,8 @@ metadata:
   title: FAQ - Protect backups from Ransomware with Azure Backup
   description: In this article, discover answers to protect backups from ransomware with Azure Backup.
   ms.topic: faq
-  ms.service: backup
-  ms.date: 03/14/2022
+  ms.service: azure-backup
+  ms.date: 12/04/2024
   author: jyothisuri
   ms.author: jsuri
     
@@ -38,13 +38,13 @@ sections:
             MUA for Azure Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization. For more information, see:
           
             - [How does MUA using Resource Guard works?](multi-user-authorization.md)
-            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
+            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management).
           
           - **Set-up alerts and notifications for critical backup operations**.
           
-            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they're configured correctly for timely alerts and required actions. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they're configured correctly for timely alerts and required actions. [Learn more](backup-azure-monitor-alerts-notification.md#configure-alerts-and-notifications-on-your-metrics)
             
-            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup).
+            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
           
           - **Ensure network connectivity between backup services and workloads is secure**.
           
@@ -100,7 +100,7 @@ sections:
             For more information, see:
           
             - [How MUA using Resource Guard works?](multi-user-authorization.md)
-            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
+            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management).
           
           
       - question: How to restore a system affected by ransomware?

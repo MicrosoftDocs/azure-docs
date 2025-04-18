@@ -1,168 +1,97 @@
 ---
-title: Monitor apps
+title: Azure App Service Quotas and Metrics
 description: Learn how to monitor apps in Azure App Service by using the Azure portal. Understand the quotas and metrics that are reported.
-author: btardif
-
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 04/23/2020
-ms.author: byvinyal
-ms.custom: seodec18
-
+ms.date: 03/31/2025
+ms.author: msangapu
+author: msangapu-msft
+#customer intent: As a app developer, I need to use quotas and metrics to support my team's web apps in Azure App Service.
 ---
-# Monitor apps in Azure App Service
-[Azure App Service](./overview.md) provides
-built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
+# Azure App Service quotas and metrics
 
-In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* rules based metrics.
+[Azure App Service](./overview.md) provides built-in monitoring functionality for web, mobile, and API apps in the [Azure portal](https://portal.azure.com).
 
-## Understand quotas
+In the portal, you can review *quotas* and *metrics* for an app and App Service plan. You can set up *alerts* and *autoscaling* rules based on metrics.
 
-Apps that are hosted in App Service are subject to certain limits on the resources they can use. The limits are defined by the App Service plan that's associated with the app.
+## <a name = "understand-quotas"></a> Quotas
+
+Apps that are hosted in App Service are subject to certain limits on the resources that they can use. The App Service plan for the app defines the limits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-If the app is hosted in a *Free* or *Shared* plan, the limits
-on the resources that the app can use are defined by quotas.
-
-If the app is hosted in a *Basic*, *Standard*, or *Premium* plan, the limits on the resources that they can use are set by the *size* (Small, Medium, Large) and *instance count* (1, 2, 3, and so on) of the App Service plan.
-
-Quotas for Free or Shared apps are:
+If the app is hosted in a Free or Shared plan, quotas define the limits on the resources that the app can use. Quotas for apps in a Free or Shared plan are:
 
 | Quota | Description |
 | --- | --- |
-| **CPU (Short)** | The amount of CPU allowed for this app in a 5-minute interval. This quota resets every five minutes. |
+| **CPU (Short)** | The amount of CPU allowed for this app in a five-minute interval. This quota resets every five minutes. |
 | **CPU (Day)** | The total amount of CPU allowed for this app in a day. This quota resets every 24 hours at midnight UTC. |
 | **Memory** | The total amount of memory allowed for this app. |
 | **Bandwidth** | The total amount of outgoing bandwidth allowed for this app in a day. This quota resets every 24 hours at midnight UTC. |
 | **Filesystem** | The total amount of storage allowed. |
 
-The only quota applicable to apps that are hosted in *Basic*, *Standard*, and
-*Premium* is Filesystem.
+If the app is hosted in a Basic, Standard, or Premium plan, then the *size* and the *instance count* set the limits on the resources that the app can use. Size is small, medium, or large. Instance count is the number of instances. The only quota applicable to apps that are hosted in a Basic, Standard, or Premium plan is **Filesystem**.
 
-For more information about the specific quotas, limits, and features available to the various App Service SKUs, see [Azure Subscription service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+For more information about the specific quotas, limits, and features available to the App Service tiers, see [Azure App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
 ### Quota enforcement
 
-If an app exceeds the *CPU (short)*, *CPU (Day)*, or *bandwidth* quota, the app is stopped until the quota resets. During this time, all incoming requests result in an HTTP 403 error.
+If an app exceeds the **CPU (Short)**, **CPU (Day)**, or **Bandwidth** quota, the app is stopped until the quota resets. During this time, all incoming requests result in an HTTP 403 error.
 
-![403 error message][http403]
+:::image type="content" source="./media/web-sites-monitor/http403.png" alt-text="Screenshot that shows a 403 error message.":::
 
-If the app Memory quota is exceeded, the app is stopped temporarily.
+If the app exceeds its **Memory** quota, it stops temporarily.
 
-If the Filesystem quota is exceeded, any write operation fails. Write operation failures include any writes to logs.
+If app exceeds the **Filesystem** quota, any write operation fails. Write operation failures include any writes to logs.
 
 You can increase or remove quotas from your app by upgrading your App Service plan.
 
-## Understand metrics
+## <a name = "understand-metrics"></a> Metrics
 
-> [!IMPORTANT]
-> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
+Metrics provide information about the app's or the App Service plan's behavior. App Service plan metrics are available only for plans in Basic, Standard, Premium, and Isolated tiers.
 
-> [!NOTE]
-> Metrics for an app include the requests to the app's SCM site(Kudu).  This includes requests to view the site's logstream using Kudu.  Logstream requests may span several minutes, which will affect the Request Time metrics.  Users should be aware of this relationship when using these metrics with autoscale logic.
-> 
-> **Http Server Errors** only records requests that reach the backend service (the worker(s) hosting the app). If the requests are failing at the FrontEnd, they are not recorded as Http Server Errors. The [Health Check feature](./monitor-instances-health-check.md) / Application Insights availability tests can be used for outside in monitoring.
-
-Metrics provide information about the app or the App Service plan's behavior.
-
-For an app, the available metrics are:
-
-| Metric | Description |
-| --- | --- |
-| **Response Time** | The time taken for the app to serve requests, in seconds. |
-| **Average Response Time (deprecated)** | The average time taken for the app to serve requests, in seconds. |
-| **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). |
-| **Connections** | The number of bound sockets existing in the sandbox (w3wp.exe and its child processes).  A bound socket is created by calling bind()/connect() APIs and remains until said socket is closed with CloseHandle()/closesocket(). |
-| **CPU Time** | The amount of CPU consumed by the app, in seconds. For more information about this metric, see [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage). |
-| **Current Assemblies** | The current number of Assemblies loaded across all AppDomains in this application. |
-| **Data In** | The amount of incoming bandwidth consumed by the app, in MiB. |
-| **Data Out** | The amount of outgoing bandwidth consumed by the app, in MiB. |
-| **File System Usage** | The amount of usage in bytes by storage share. |
-| **Gen 0 Garbage Collections** | The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
-| **Gen 1 Garbage Collections** | The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
-| **Gen 2 Garbage Collections** | The number of times the generation 2 objects are garbage collected since the start of the app process.|
-| **Handle Count** | The total number of handles currently open by the app process.|
-| **Health Check Status** | The average health status across the application's instances in the App Service Plan.|
-| **Http 2xx** | The count of requests resulting in an HTTP status code ≥ 200 but < 300. |
-| **Http 3xx** | The count of requests resulting in an HTTP status code ≥ 300 but < 400. |
-| **Http 401** | The count of requests resulting in HTTP 401 status code. |
-| **Http 403** | The count of requests resulting in HTTP 403 status code. |
-| **Http 404** | The count of requests resulting in HTTP 404 status code. |
-| **Http 406** | The count of requests resulting in HTTP 406 status code. |
-| **Http 4xx** | The count of requests resulting in an HTTP status code ≥ 400 but < 500. |
-| **Http Server Errors** | The count of requests resulting in an HTTP status code ≥ 500 but < 600. |
-| **IO Other Bytes Per Second** | The rate at which the app process is issuing bytes to I/O operations that don't involve data, such as control operations.|
-| **IO Other Operations Per Second** | The rate at which the app process is issuing I/O operations that aren't read or write operations.|
-| **IO Read Bytes Per Second** | The rate at which the app process is reading bytes from I/O operations.|
-| **IO Read Operations Per Second** | The rate at which the app process is issuing read I/O operations.|
-| **IO Write Bytes Per Second** | The rate at which the app process is writing bytes to I/O operations.|
-| **IO Write Operations Per Second** | The rate at which the app process is issuing write I/O operations.|
-| **Memory working set** | The current amount of memory used by the app, in MiB. |
-| **Private Bytes** | Private Bytes is the current size, in bytes, of memory that the app process has allocated that can't be shared with other processes.|
-| **Requests** | The total number of requests regardless of their resulting HTTP status code. |
-| **Requests In Application Queue** | The number of requests in the application request queue.|
-| **Thread Count** | The number of threads currently active in the app process.|
-| **Total App Domains** | The current number of AppDomains loaded in this application.|
-| **Total App Domains Unloaded** | The total number of AppDomains unloaded since the start of the application.|
-
-
-For an App Service plan, the available metrics are:
+For a list of available metrics for apps or for App Service plans, see [Supported metrics for Microsoft.Web](monitor-app-service-reference.md#supported-metrics-for-microsoftweb).
 
 > [!NOTE]
-> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
-> 
+> Metrics for an app include the requests to the app's Source Control Manager (SCM) site, also known as Kudu. The requests include requests to view the site's log stream by using Kudu. Log-stream requests might span several minutes. This fact affects the **Request Time** metrics. Be aware of this relationship when you're using these metrics with autoscale logic.
+>
+> **HTTP Server Errors** records only requests that reach the back-end service (the workers that host the app). If the requests are failing at the front end, they're not recorded as HTTP server errors. You can use the [health check feature](./monitor-instances-health-check.md) and Application Insights availability tests for outside-in monitoring.
 
-| Metric | Description |
-| --- | --- |
-| **CPU Percentage** | The average CPU used across all instances of the plan. |
-| **Memory Percentage** | The average memory used across all instances of the plan. |
-| **Data In** | The average incoming bandwidth used across all instances of the plan. |
-| **Data Out** | The average outgoing bandwidth used across all instances of the plan. |
-| **Disk Queue Length** | The average number of both read and write requests that were queued on storage. A high disk queue length is an indication of an app that might be slowing down because of excessive disk I/O. |
-| **Http Queue Length** | The average number of HTTP requests that had to sit on the queue before being fulfilled. A high or increasing HTTP Queue length is a symptom of a plan under heavy load. |
+### CPU time vs. CPU percentage
 
-### CPU time vs CPU percentage
-<!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
+Two metrics reflect CPU usage:
 
-There are two metrics that reflect CPU usage:
+- **CPU Time**: Useful for apps hosted in Free or Shared plans, because one of their quotas is defined in CPU minutes that the app uses.
 
-**CPU Time**: Useful for apps hosted in Free or Shared plans, because one of their quotas is defined in CPU minutes used by the app.
+- **CPU Percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across instances.
 
-**CPU percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
+### <a name = "metrics-granularity-and-retention-policy"></a> Retention policy
 
-## Metrics granularity and retention policy
-Metrics for an app and app service plan are logged and aggregated by the service and [retained according to these rules](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
+The service logs and aggregates metrics for an app and for an App Service plan. The metrics are retained according to [these rules](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics).
 
 ## Monitoring quotas and metrics in the Azure portal
-To review the status of the various quotas and metrics that affect an app, go to the [Azure portal](https://portal.azure.com).
 
-![Quotas chart in the Azure portal][quotas]
+To review the status of the quotas and metrics that affect an app, go to the [Azure portal](https://portal.azure.com).
 
-To find quotas, select **Settings** > **Quotas**. On the chart, you can review: 
-1. The quota name.
-1. Its reset interval.
-1. Its current limit.
-1. Its current value.
+To find quotas, go to your app. In the left menu, select **App Service Plan** > **Quotas**. On each chart, you can review this information about the quota:
 
-![Metric chart in the Azure portal][metrics]
-You can access metrics directly from the resource **Overview** page. Here you'll see charts representing some of the apps metrics.
+- Name
+- Reset interval
+- Current limit
+- Current value
 
-Clicking on any of those charts will take you to the metrics view where you can create custom charts, query different metrics and much more. 
+:::image type="content" source="./media/web-sites-monitor/quotas.png" alt-text="Screenshot that shows quota charts in the Azure portal." lightbox="./media/web-sites-monitor/quotas.png":::
 
-To learn more about metrics, see [Monitor service metrics](../azure-monitor/data-platform.md).
+You can access metrics directly from the resource **Overview** page. Select the **Monitoring** tab, which shows charts that represent some of the app metrics. Selecting any of those charts takes you to the **Metrics** view, where you can create custom charts, query various metrics, and much more.
+
+:::image type="content" source="./media/web-sites-monitor/metrics.png" alt-text="Screenshot that shows a metric chart in the Azure portal." lightbox="./media/web-sites-monitor/metrics.png":::
+
+To learn more about metrics, see [Azure Monitor data platform](/azure/azure-monitor/data-platform).
 
 ## Alerts and autoscale
-Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Receive alert notifications](../azure-monitor/alerts/alerts-classic-portal.md).
 
-App Service apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned.
+Metrics for an app or an App Service plan can be connected to alerts. For more information, see [Alerts](monitor-app-service.md#alerts).
 
-For more information about autoscale, see [How to scale](../azure-monitor/autoscale/autoscale-get-started.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/autoscale/autoscale-best-practices.md).
+Apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide more resources as needed. Rules can also help you save money when the app is overprovisioned.
 
-[fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-<!-- Images. -->
-[http403]: ./media/web-sites-monitor/http403.png
-[quotas]: ./media/web-sites-monitor/quotas.png
-[metrics]: ./media/web-sites-monitor/metrics.png
+For more information about autoscale, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started) and [Best practices for autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices).

@@ -6,7 +6,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 09/27/2021
 ms.author: spelluru 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -28,7 +28,7 @@ For the complete template, see the [Service Bus authorization rule template][Ser
 >
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for **Service Bus**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## What will you deploy?
 

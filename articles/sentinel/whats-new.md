@@ -1,340 +1,412 @@
 ---
 title: What's new in Microsoft Sentinel
-description: This article describes new features in Microsoft Sentinel from the past few months.
-author: yelevin
-ms.author: yelevin
-ms.topic: conceptual
-ms.date: 03/27/2023
+description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
+author: batamig
+ms.author: bagol
+ms.topic: concept-article
+ms.date: 04/01/2025
+
+#Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+
 ---
 
 # What's new in Microsoft Sentinel
 
-This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
+This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features in Microsoft's unified security operations (SecOps) platform, see the [unified SecOps platform documentation](/unified-secops-platform/whats-new).
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-See these [important announcements](#announcements) about recent changes to features and services.
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## March 2023
+## April 2025
 
-- [Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces (Preview)](#work-with-the-microsoft-sentinel-solution-for-sap-applications-across-multiple-workspaces-preview)
-- [Stream log data from the Google Cloud Platform into Microsoft Sentinel (Preview)](#stream-log-data-from-the-google-cloud-platform-into-microsoft-sentinel-preview)
-- [Microsoft Defender Threat Intelligence data connector (Preview)](#microsoft-defender-threat-intelligence-data-connector-preview)
-- [Microsoft Defender Threat Intelligence solution (Preview)](#microsoft-defender-threat-intelligence-solution-preview)
-- [Automatically update the SAP data connector agent](#automatically-update-the-sap-data-connector-agent)
+- [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
 
-### Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces (Preview)
+### Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)
 
-You can now [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](sap/cross-workspace.md) in different scenarios. This feature allows improved flexibility for managed security service providers (MSSPs) or a global or federated SOC, data residency requirements, organizational hierarchy/IT design, and insufficient role-based access control (RBAC) in a single workspace. One common use case is the need for collaboration between the security operations center (SOC) and SAP teams in your organization. Read about [the scenarios that address this use case](sap/cross-workspace.md).
+For preview, in the Defender portal, connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. If you onboard Microsoft Sentinel with Defender XDR, a primary workspace's alerts are correlated with Defender XDR data. So incidents  include alerts from Microsoft Sentinel's primary workspace and Defender XDR. All other onboarded workspaces are considered secondary workspaces. Incidents are created based on the workspace’s data and won't include Defender XDR data. 
 
-### Stream log data from the Google Cloud Platform into Microsoft Sentinel (Preview)
+- If you plan to use Microsoft Sentinel in the Defender portal without Defender XDR, you can manage multiple workspaces. But, the primary workspace doesn't include Defender XDR data and you won't have access to Defender XDR capabilities.
+- If you're working with multiple tenants and multiple workspaces per tenant, you can also use Microsoft Defender multitenant management to view incidents and alerts, and to hunt for data in Advanced hunting, across both multiple workspaces and tenants.
 
-You can now [stream audit log data from the Google Cloud Platform (GCP) into Microsoft Sentinel](connect-google-cloud-platform.md) using the **GCP Pub/Sub Audit Logs** connector, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP). The new connector ingests logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
+For more information, see the following articles:
 
-### Microsoft Defender Threat Intelligence data connector (Preview)
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md)
+- [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard)
+- [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview)
+- [View and manage incidents and alerts in Microsoft Defender multitenant management](/unified-secops-platform/mto-incidents-alerts)
+- [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting)
 
-Now bring the high fidelity indicators of compromise (IOC) generated by Microsoft Defender Threat Intelligence (MDTI) into your Microsoft Sentinel workspace with the [Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md). 
+## March 2025
 
-### Microsoft Defender Threat Intelligence solution (Preview)
+- [Agentless connection to SAP now in public preview](#agentless-connection-to-sap-now-in-public-preview)
 
-A collection of playbooks is available in the new Microsoft Defender Threat Intelligence *solution*. Utilize the playbooks to enrich entities (Domains, Hosts and IPs) associated with Microsoft Sentinel **Incidents**. The enrichment uses comprehensive Threat Intelligence (TI) data to add risk scoring, useful tags, analyst insights, and links to published TI articles. What makes the TI data so comprehensive and compelling? Along with traditional TI datasets of DNS, reverse DNS, WHOIS, SSL certificates and subdomains, the MDTI enrichment works with advanced TI datasets like trackers, web components, host pairs, and cookies.
+### Agentless connection to SAP now in public preview
 
-Enabling this solution helps your security team achieve the following goals:
-- accelerate investigations
-- increase visibility 
-- respond more effectively to threats
-- maximize impact of existing security incident response
+The Microsoft Sentinel agentless data connector for SAP and related security content is now included, as public preview, in the solution for SAP applications. This update also includes the following enhancements for the agentless data connector:
 
-See the [MDTI solution blog post](https://aka.ms/sentinel-playbooks) to learn more about the three playbooks at launch and what's required. Also, check out this [MDTI Tech Community blog](https://techcommunity.microsoft.com/t5/microsoft-defender-threat/what-s-new-at-microsoft-secure/ba-p/3773576) for more information on announcements from Microsoft Secure.
+- **Enhanced instructions** in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
+- **[More data ingested](sap/sap-solution-log-reference.md)**, such as Change Docs logs and User Master data.
+- **Optional parameters** to [Customize data connector behavior (optional)](sap/deploy-data-connector-agent-container.md#customize-data-connector-behavior-optional).
+- [**A new tool to verify system prerequisites and compatibility**](sap/preparing-sap.md#perform-initial-connector-configuration), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
 
-### Automatically update the SAP data connector agent
+For more information, see:
 
-You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.
+- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
+- [Microsoft Sentinel solution for SAP applications - functions reference](sap/sap-solution-function-reference.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap/sap-deploy-troubleshoot.md)
 
-## February 2023
+## January 2025
 
-- [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes) (in [Announcements](#announcements) section below)
-- [New CloudWatch data type for the AWS S3 connector (Preview)](#new-cloudwatch-data-type-for-the-aws-s3-connector)
-- [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
-- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
-- [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
-- [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
+- [Optimize threat intelligence feeds with ingestion rules](#optimize-threat-intelligence-feeds-with-ingestion-rules)
+- [Matching analytics rule now generally available (GA)](#matching-analytics-rule-now-generally-available-ga)
+- [Threat intelligence management interface updated](#threat-intelligence-management-interface-has-moved)
+- [Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables](#unlock-advanced-hunting-with-new-stix-objects-by-opting-in-to-new-threat-intelligence-tables)
+- [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
+- [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
+- [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
+- [SOC optimization updates for unified coverage management](#soc-optimization-updates-for-unified-coverage-management)
+- [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
 
-### New CloudWatch data type for the AWS S3 connector
+### Optimize threat intelligence feeds with ingestion rules
 
-The Microsoft Sentinel AWS S3 connector now supports [CloudWatch logs](connect-aws.md) in addition to the supported CloudTrail, VPC Flow, and Guard Duty logs. Logs from AWS CloudWatch provide operational information from different AWS sources, which enables Microsoft Sentinel customers with AWS footprints to better understand and operate their AWS systems and applications.  
+Optimize threat intelligence feeds by filtering and enhancing objects before they're delivered to your workspace. Ingestion rules update threat intel object attributes, or filter objects out all together. Check out the blog announcement [here](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/introducing-threat-intelligence-ingestion-rules/4379019)!
 
-The CloudWatch data type has the ability to perform the same data transformation functions as the other data types within the AWS S3 connector. Learn how to [transform your data for CloudWatch](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
+For more information, see [Understand threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
 
-### Audit and monitor the health of your analytics rules (Preview)
+### Matching analytics rule now generally available (GA)
 
-Microsoft Sentinel's **health monitoring feature is now available for analytics rules** in addition to automation rules, playbooks, and data connectors. Also now available for the first time, and currently only for analytics rules, is Microsoft Sentinel's **audit feature**. The audit feature collects information about any changes made to Sentinel resources (analytics rules) so that you can discover any unauthorized actions or tampering with the service.
+Microsoft provides access to its premium threat intelligence through the Defender Threat Intelligence analytics rule which is now generally available (GA). For more information on how to take advantage of this rule, which generates high-fidelity alerts and incidents, see [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md).
 
-Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
-- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
-- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
-- Explore the new [Analytics Health & Audit workbook](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook).
+### Threat intelligence management interface has moved
 
-### Microsoft 365 Defender data connector is now generally available
+Threat intelligence for Microsoft Sentinel in the Defender portal has changed! We've renamed the page **Intel management** and moved it with other threat intelligence workflows. There's no change for customers using Microsoft Sentinel in the Azure experience.
 
-Microsoft 365 Defender incidents, alerts, and raw event data can be ingested into Microsoft Sentinel using this connector. It also enables the bi-directional synchronization of incidents between Microsoft 365 Defender and Microsoft Sentinel. This integration allows you to manage all of your incidents in Microsoft Sentinel, while taking advantage of Microsoft 365 Defender's specialized tools and capabilities to investigate those incidents that originated in Microsoft 365.
+:::image type="content" source="media/whats-new/intel-management-navigation.png" alt-text="Screenshot showing new menu placement for Microsoft Sentinel threat intelligence.":::
 
-- Learn more about [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
-- Learn how to [connect Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md).
+Enhancements to threat intelligence capabilities are available for customers using both Microsoft Sentinel experiences. The management interface streamlines the creation and curation of threat intel with these key features:
 
-### Advanced scheduling for analytics rules (Preview)
+- Define relationships as you create new STIX objects.
+- Curate existing threat intelligence with the new relationship builder.
+- Create multiple objects quickly by copying common metadata from a new or existing TI object using a duplication feature.
+- Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
 
-To give you more flexibility in scheduling your analytics rule execution times and to help you avoid potential conflicts, Microsoft Sentinel now allows you to determine when newly created analytics rules will run for the first time. The default behavior is as it has been: for them to run immediately upon creation.
+For more information, see the following articles:
+- [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
+- [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence)
+- [Uncover adversaries with threat intelligence in Microsoft's unified SecOps platform](/unified-secops-platform/threat-intelligence-overview)
 
-[Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
+### Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables
 
-## January 2023
+Tables supporting the new STIX object schema aren't available publicly. In order to query threat intelligence for STIX objects with KQL and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
 
-- [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
-- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
-- [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
+For more information, see the blog announcement [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164).
 
-### New incident investigation experience (Preview)
+### Threat intelligence upload API now supports more STIX objects
 
-SOC analysts need to understand the full scope of an attack as fast as possible to respond effectively. 
+Make the most of your threat intelligence platforms when you connect them to Microsoft Sentinel with the upload API. Now you can ingest more objects than just indicators, reflecting the varied threat intelligence available. The upload API supports the following STIX objects:
 
-While triaging, investigating, and responding to a security incident, analysts require quick and seamless access to many pieces of information, actions, and tools. This access should optimally be within the incident investigation environment, with an absolute minimum of pivoting to other pages, products, or services&mdash;for example, to find Azure AD info or the geo-location of an IP, edit a bookmark, or add an entity to threat intelligence.
+- `indicator`
+- `attack-pattern`
+- `identity`
+- `threat-actor`
+- `relationship`
 
-**Microsoft Sentinel now offers a new incident investigation experience**. The new incident page design, along with many new features for investigation, response, and incident management, offers the analyst the information and tools necessary to understand the incident and the scope of breach, while making navigation easy and context switching less frequent. New features include, among others, top insights, a new activity log for incident audits and a Log Analytics query window to investigate logs.
+For more information, see the following articles:
 
-Learn more about the new investigation experience:
-- [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
-- [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+- [Connect your threat intelligence platform with the upload API (Preview)](connect-threat-intelligence-upload-api.md)
+- [Import threat intelligence to Microsoft Sentinel with the upload API (Preview)](stix-objects-api.md)
+- [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
 
-### Monitor SAP system health and role (Preview)
+### Microsoft Defender Threat Intelligence data connectors now generally available (GA)
 
-To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
+Both premium and standard Microsoft Defender Threat Intelligence data connectors are now generally available (GA) in content hub. For more information, see the following articles:
 
-### Microsoft Purview Information Protection connector (Preview)
+- [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d)
+- [Enable the Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md)
 
-With the new [Microsoft Purview Information Protection connector](connect-microsoft-purview.md), you can stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection or MIP) to Microsoft Sentinel. You can use the data ingested from the Microsoft Purview labeling clients and scanners to track, analyze, report on the data, and use it for compliance purposes.
+### Bicep template support for repositories (Preview)
+Use Bicep templates alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
+
+For more information, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+
+
+### SOC optimization updates for unified coverage management
+
+In workspaces enabled for unified security operations, SOC optimizations now support both SIEM and XDR data, with detection coverage from across Microsoft Defender services. 
+
+In the Defender portal, the **SOC optimizations** and **MITRE ATT&CK** pages also now provide extra functionality for threat-based coverage optimizations to help you understand the impact of the recommendations on your environment and help you prioritize which to implement first.
+
+Enhancements include:
+
+|Area | Details|
+|-----|--------|
+|**SOC optimizations Overview page** | - A **High**, **Medium**, or **Low** score for your current detection coverage. This sort of scoring can help you decide which recommendations to prioritize at a glance. <br><br>- An indication of the number of active Microsoft Defender products (services) out of all available products. This helps you understand whether there's a whole product that you're missing in your environment. |
+| **Optimization details side pane**,<br> shown when you drill down to a specific optimization| - Detailed coverage analysis, including the number of user-defined detections, response actions, and products you have active. <br><br>- Detailed spider charts that show your coverage across different threat categories, for both user-defined and out-of-the-box detections. <br><br>- An option to jump to the specific threat scenario in the **MITRE ATT&CK** page instead of viewing MITRE ATT&CK coverage only in the side pane.<br><br>- An option to **View full threat scenario** to drill down to even further details about the security products and detections available to provide security coverage in your environment. |
+|**MITRE ATT&CK page** | - A new toggle to view coverage by threat scenario. If you've jumped to the **MITRE ATT&CK** page from either a recommendation details side pane or from the **View full threat scenario** page, the **MITRE ATT&CK** page is pre-filtered for your threat scenario. <br><br>- The technique details pane, shown on the side when you select a specific MITRE ATT&CK technique, now shows the number of active detections out of all available detections for that technique. |
+
+For more information, see [Optimize your security operations](soc-optimization/soc-optimization-access.md) and [Understand security coverage by the MITRE ATT&CK framework](mitre-coverage.md).
+
+### View granular solution content in the Microsoft Sentinel content hub
+
+Now you can view the individual content available in a specific solution directly from the **Content hub**, even before you've installed the solution. This new visibility helps you understand the content available to you, and more easily identify, plan, and install the specific solutions you need.
+
+Expand each solution in the Content hub to view included security content. For example:
+
+:::image type="content" source="media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of showing granular content.":::
+
+The granular solution content updates also include a generative AI-based search engine that helps you run more robust searches, diving deep into the solution content and returning results for similar terms.
+
+For more information, see [Discover content](sentinel-solutions-deploy.md#discover-content).
+
+## December 2024
+
+- [New SOC optimization recommendation based on similar organizations (Preview)](#new-soc-optimization-recommendation-based-on-similar-organizations-preview)
+- [Agentless deployment for SAP applications (Limited preview)](#agentless-deployment-for-sap-applications-limited-preview)
+- [Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal](#microsoft-sentinel-workbooks-now-available-to-view-directly-in-the-microsoft-defender-portal)
+- [Unified Microsoft Sentinel solution for Microsoft Business Apps](#unified-microsoft-sentinel-solution-for-microsoft-business-apps)
+- [New documentation library for Microsoft's unified security operations platform](#new-documentation-library-for-microsofts-unified-security-operations-platform)
+- [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
+
+### New SOC optimization recommendation based on similar organizations (Preview)
+
+SOC optimization now includes new recommendations for adding data sources to your workspace based on the security posture of other customers in similar industries and sectors as you, and with similar data ingestion patterns. Add the recommended data sources to improve security coverage for your organization.
+
+For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md).
+
+### Agentless deployment for SAP applications (Limited preview)
+
+The Microsoft Sentinel solution for SAP applications now supports an agentless deployment, using SAP's own cloud platform features to provide simplified, agentless deployment and connectivity. Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to back-end ABAP systems to connect your SAP system to Microsoft Sentinel.
+
+The **Agentless solution** uses the SAP Cloud Connector and SAP Integration Suite, which are already familiar to most SAP customers. This significantly reduces deployment times, especially for those less familiar with Docker, Kubernetes, and Linux administration. By using the SAP Cloud Connector, the solution profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
+
+The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, SAP S/4HANA on-premises, and SAP ERP Central Component (ECC), ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
 > [!IMPORTANT]
-> This connector replaces the Azure Information Protection (AIP) data connector, aligned with the retirement of the AIP analytics and audit logs public preview as of **March 31, 2023**.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it's commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. 
 
-The new connector streams audit logs into the standardized 
-`MicrosoftPurviewInformationProtection` table, which has been adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md).
+For more information, see:
 
-## December 2022
+- [Microsoft Sentinel for SAP goes agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238)
+- [Sign up for the limited preview](https://aka.ms/SentinelSAPAgentlessSignUp)
+- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
 
-- [Create and run playbooks on entities on-demand (Preview)](#create-and-run-playbooks-on-entities-on-demand-preview)
-- [Customize more alert properties (Preview)](#customize-more-alert-properties-preview)
+### Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal
 
-### Create and run playbooks on entities on-demand (Preview)
+Microsoft Sentinel workbooks are now available for viewing directly in the Microsoft Defender portal for unified security operations (SecOps). Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal. Continue tabbing out to the Azure portal only when you need to edit your workbooks.
 
-SOC analysts can now take immediate action on a particular entity representing a threat actor, while in the middle of investigating an incident or hunting for threats, without leaving those contexts or having to pivot to other screens or apps. 
+Microsoft Sentinel workbooks are based on Azure Monitor workbooks, and help you visualize and monitor the data ingested to Microsoft Sentinel. Workbooks add tables and charts with analytics for your logs and queries to the tools already available.
 
-Similarly, SOC engineers can now encapsulate a series of automated actions in workflows that run on a specific entity, so that analysts can use these workflows in the scenarios above.
+For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md) and [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).
 
-These improvements for SOC efficiency and productivity are thanks to the **new entity trigger for playbooks**.
+### Unified Microsoft Sentinel solution for Microsoft Business Apps
 
-- Learn more about [running playbooks on entities on-demand](respond-threats-during-investigation.md).
-- Learn more about [creating playbooks based on the entity trigger](tutorial-respond-threats-playbook.md#create-a-playbook).
+Microsoft Sentinel now provides a unified solution for Microsoft Power Platform, Microsoft Dynamics 365 Customer Engagement, and Microsoft Dynamics 365 Finance and Operations. The solution includes data connectors and security content for all platforms.
 
-### Customize more alert properties (Preview)
+The updated solution removes the **Dynamics 365 CE Apps** and the **Dynamics 365 Finance and Operations** solutions from the Microsoft Sentinel **Content hub**. Existing customers will see that these solutions are renamed to the **Microsoft Business Applications** solution.
 
-Alerts generated by a given analytics rule - and all incidents created as a result - inherit the name, description, severity, and tactics defined in the rule, without regard to the particular content of a specific instance of the alert.
+The updated solution also removes the Power Platform Inventory data connector. While the Power Platform Inventory data connector continues to be supported on workspaces where it's already deployed, it isn't available for new deployments in other workspaces.
 
-You've already been able to use the **alert details** feature to override these four default properties of alerts; now there are **nine more alert properties** that can be customized to override their defaults.
+For more information, see:
 
-See which ones, and learn how to use the updated mechanism, in [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
+- [What is the Microsoft Sentinel solution for Microsoft Business Apps?](business-applications/solution-overview.md)
 
-## Announcements
+- Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement:
 
-- [Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties](#microsoft-defender-for-identity-alerts-will-no-longer-refer-to-the-mda-policies-in-the-alert-externallinks-properties)
-- [WindowsEvent table enhancements](#windowsevent-table-enhancements)
-- [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes)
-- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules)
-- [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
-- [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
-- [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+    - [Connect Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement to Microsoft Sentinel](business-applications/deploy-power-platform-solution.md)
+    - [Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](business-applications/power-platform-solution-security-content.md)
 
-### Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties
+- Microsoft Dynamics 365 Finance and Operations:
 
-Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties due to a change in infrastructure performed on MDIs. Alerts will no longer contain any MDA links under **ExtendedLinks** with a **Label** that starts with **Defender for Cloud Apps**. This change will take effect April 30th, 2023. [Read more about this change](/defender-for-identity/whats-new#defender-for-identity-release-2198). 
+    - [Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations](dynamics-365/deploy-dynamics-365-finance-operations-solution.md)
+    - [Security content reference for Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
 
-### WindowsEvent table enhancements
+### New documentation library for Microsoft's unified security operations platform
 
-The WindowsEvent schema has been expanded to include new fields, such as `Keywords`, `Version`, `Opcode`, `Correlation`, `SystemProcessId`, `SystemThreadId` and `EventRecordId`. 
+Find centralized documentation about [Microsoft's unified SecOps platform in the Microsoft Defender portal](/unified-secops-platform/overview-unified-security). Microsoft's unified SecOps platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, Microsoft Security Exposure Management, and generative AI into the Defender portal. Learn about the features and functionality available with Microsoft's unified SecOps platform, then start to plan your deployment.
 
-These additions allow for more comprehensive analysis and for more information to be extracted and parsed from the event. 
+### New S3-based data connector for Amazon Web Services WAF logs (Preview)
 
-If you aren't interested in ingesting the new fields, use ingest-time transformation in the AMA DCR to filter and drop the fields, while still ingesting the events. To ingest the events, add the following to your DCRs: 
+Ingest logs from Amazon Web Services' web application firewall (WAF) with Microsoft Sentinel's new S3-based connector. This connector features, for the first time, a quick and easy automated setup, making use of AWS CloudFormation templates for resource creation. Send your AWS WAF logs to an S3 bucket, where our data connector retrieves and ingests them.
 
-```kusto
-"transformKql": "source | project-away TimeCreated, SystemThreadId, EventRecordId, SystemProcessId, Correlation, Keywords, Opcode, SystemUserId, Version"
-```
-Learn more about [ingest-time transformations](../azure-monitor/essentials/data-collection-transformations.md).
+For more details and setup instructions, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs](connect-aws-s3-waf.md).
 
-### Out-of-the-box content centralization changes
-A new banner is appearing in Microsoft Sentinel gallery pages! This informational banner is rolling out to all tenants to explain upcoming changes regarding out-of-the-box (OOTB) content. In short, the **Content hub** will be the central source whether you're looking for standalone content or packaged solutions. Expect banners to appear in the templates section of **Workbooks**, **Hunting**, **Automation**, **Analytics** and **Data connectors** galleries. Here's an example of the banner in the **Workbooks** gallery. 
+## November 2024
 
-:::image type="complex" source="media/whats-new/example-content-central-change-banner.png" alt-text="Screenshot shows an example informational banner in the **Workbooks** gallery.":::
-The banner reads, 'All Workbook templates, and additional out-of-the-box (OOTB) content are now centrally available in Content hub. Starting Q2 2023, only Workbook templates installed from the content hub will be available in this gallery. Learn more about the OOTB content centralization changes.'
-:::image-end:::
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
-For all the details on what these upcoming changes will mean for you, see [Microsoft Sentinel out-of-the-box content centralization changes](sentinel-content-centralize.md).
+### Microsoft Sentinel availability in Microsoft Defender portal
 
-### New behavior for alert grouping in analytics rules
+We previously announced Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal.
 
-Starting **February 6, 2023** and continuing through the end of February, Microsoft Sentinel is rolling out a change in the way that incidents are created from analytics rules with certain event and alert grouping settings, and also the way that such incidents are updated by automation rules. This change is being made in order to produce incidents with more complete information and to simplify automation triggered by the creating and updating of incidents.
+Now, **in preview**, Microsoft Sentinel is available in the Defender portal even without Microsoft Defender XDR or a Microsoft 365 E5 license. For more information, see:
 
-The affected analytics rules are those with both of the following two settings:
-- **Event grouping** is set to **Trigger an alert for each event** (sometimes referred to as "alert per row" or "alert per result").
-- **Alert grouping** is enabled, in any one of the [three possible configurations](detect-threats-custom.md#alert-grouping).
+ - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+ - [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard)
 
-#### The problem
+## October 2024
 
-Rules with these two settings generate unique alerts for each event (result) returned by the query. These alerts are then all grouped together into a single incident (or a small number of incidents, depending on the alert grouping configuration choice).
+- [Updates for the Microsoft Sentinel solution for Microsoft Power Platform](#updates-for-the-microsoft-sentinel-solution-for-microsoft-power-platform)
 
-The problem is that the incident is created as soon as the first alert is generated, so at that point the incident contains only the first alert. The remaining alerts are joined to the incident, one after the other, as they are generated. So you end up with a *single running of an analytics rule* resulting in:
-- One incident creation event *and*
-- Up to 149 incident update events
+### Updates for the Microsoft Sentinel solution for Microsoft Power Platform
 
-These circumstances result in unpredictable behavior when evaluating the conditions defined in automation rules or populating the incident schema in playbooks:
+Starting on October 17, 2024, audit logging data for Power Apps, Power Platform DLP, and Power Platform Connectors is routed to the `PowerPlatformAdminActivity` table instead of the `PowerAppsActivity`, `PowerPlatformDlpActivity` and `PowerPlatformConnectorActivity` tables.
 
-- **Incorrect evaluation of an incident's conditions by automation rules:**
+Security content in the Microsoft Sentinel solution for Microsoft Power Platform is updated with the new table and schemas for the Power Apps, Power Platform DLP, and Power Platform Connectors. We recommend that you update the Power Platform solution in your workspace to the latest version and apply the updated analytics rule templates to benefit from the changes. For more information, see [Install or update content](sentinel-solutions-deploy.md#install-or-update-content).
 
-    Automation rules on this incident will run immediately on its creation, even with just the one alert included. So the automation rule will only consider the incident's status as containing the first alert, even though other alerts are being created nearly simultaneously (by the same running of the analytics rule) and will continue being added while the automation rule is running. So you end up with a situation where the automation rule's evaluation of the incident is incomplete and likely incorrect.
+Customers using deprecated data connectors for Power Apps, Power Platform DLP, and Power Platform Connectors can safely disconnect and remove these connectors from their Microsoft Sentinel workspace. All associated data flows are ingested using Power Platform Admin Activity connector.
 
-    If there are automation rules defined to run when the incident is *updated*, they will run again and again as each subsequent alert is added to the incident (even though the alerts were all generated by the same running of the analytics rule). So you'll have alerts being added and automation rules running, each time possibly incorrectly evaluating the conditions of the incident.
+For more information, see [Message center](https://portal.office.com/adminportal/home?#/MessageCenter/:/messages/MC912045).
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
-    Automation rules' conditions might ignore entities that only later become part of the incident but weren't included in the first alert/creation of the incident.
+## September 2024
 
-    In these cases, incorrect evaluation of an incident's condition may cause automation rules to run when they shouldn't, or not to run when they should. The result of this would be that the wrong actions would be taken on an incident, or that the right actions would not be taken.
+- [Schema mapping added to the SIEM migration experience](#schema-mapping-added-to-the-siem-migration-experience)
+- [Third-party enrichment widgets to be retired in February 2025](#third-party-enrichment-widgets-to-be-retired-in-february-2025)
+- [Azure reservations now have pre-purchase plans available for Microsoft Sentinel](#pre-purchase-plans-now-available-for-microsoft-sentinel)
+- [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
+- [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
+- [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
 
-- **Information in later alerts being unavailable to playbooks run on the incident:**
+### Schema mapping added to the SIEM migration experience
 
-    When an automation rule calls a playbook, it passes the incident's detailed information to the playbook. Because of the behavior mentioned above, a playbook might only receive the details (entities, custom details, and so on) of the first alert in an incident, but not those from subsequent alerts. This means that the playbook's actions would not have access to all the information in the incident.
+Since the SIEM migration experience became generally available in May 2024, steady improvements have been made to help migrate your security monitoring from Splunk. The following new features let customers provide more contextual details about their Splunk environment and usage to the Microsoft Sentinel SIEM Migration translation engine:
 
-#### The solution
+- Schema Mapping
+- Support for Splunk Macros in translation
+- Support for Splunk Lookups in translation
 
-Going forward, instead of creating the incident as soon as the first alert is generated, Microsoft Sentinel will wait until a single running of an analytics rule has generated all of its alerts, and then create the incident, adding all the alerts to it at once. So instead of an incident creation event and a whole bunch of incident update events, you have only the incident creation event.
+To learn more about these updates, see [SIEM migration experience](siem-migration.md).
 
-Now, automation rules that run on the creation of an incident can evaluate the complete incident with all of its alerts (as well as entities and custom details) and its most updated properties, and any playbooks that run will similarly have the complete details of the incident.
+For more information about the SIEM migration experience, see the following articles:
+- [Become a Microsoft Sentinel ninja - migration section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310#toc-hId-111398316)
+- [SIEM migration update - Microsoft Sentinel blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/siem-migration-update-now-migrate-with-contextual-depth-in/ba-p/4241234)
 
+### Third-party enrichment widgets to be retired in February 2025
 
+Effective immediately, you can no longer enable the feature to create enrichment widgets that retrieve data from external, third-party data sources. These widgets are displayed on Microsoft Sentinel entity pages and in other locations where entity information is presented. This change is happening because you can no longer create the Azure key vault required to access these external data sources.
 
-The following table describes the change in the incident creation and automation behaviors:
+If you already use any third-party enrichment widgets, that is, if this key vault already exists, you can still configure and use widgets that you weren't using before, though we don't recommend doing so.
 
-| When incident created/updated with multiple alerts | Before the change | After the change |
-| -- | -- | -- |
-| **Automation rule** conditions are evaluated based on... | The first alert generated by the current running of the analytics rule. | All alerts and entities resulting from the current running of the analytics rule. |
-| **Playbook input** includes... | - Alerts list containing only the first alert of the incident.<br>- Entities list containing only entities from the first alert of the incident. | - Alerts list containing all the alerts triggered by this rule execution and grouped to this incident.<br>- Entities list containing the entities from all the alerts triggered by this rule execution and grouped to this incident. |
-| **SecurityIncident** table in Log Analytics shows... | -&nbsp;One&nbsp;row&nbsp;for&nbsp;*incident&nbsp;created*&nbsp;with&nbsp;one&nbsp;alert.<br>- Multiple&nbsp;events&nbsp;of&nbsp;*alert&nbsp;added*. | One row for *incident created* only after all alerts triggered by this rule execution have been added and grouped to this incident. |
+As of **February 2025**, any existing enrichment widgets that retrieve data from third-party sources will *stop being displayed*, on entity pages or anywhere else.
 
-### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
+If your organization uses third-party enrichment widgets, we recommend disabling them in advance, by deleting the key vault you created for this purpose from its resource group. The key vault's name begins with "widgets".
 
-As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) integrates [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between three levels of integration:
+Enrichment widgets based on first-party data sources are not affected by this change, and will continue to function as before. "First-party data sources" include any data that's already ingested into Microsoft Sentinel from external sources&mdash;in other words, anything in tables in your Log Analytics workspace&mdash;and Microsoft Defender Threat Intelligence.
 
-- **Show high-impact alerts only (Default)** includes only alerts about known malicious or highly suspicious activities that might require attention. These alerts are  chosen by Microsoft security researchers and are mostly of Medium and High severities.
-- **Show all alerts** includes all AADIP alerts, including activity that might not be unwanted or malicious.
-- **Turn off all alerts** disables any AADIP alerts from appearing in your Microsoft 365 Defender incidents.
+### Pre-purchase plans now available for Microsoft Sentinel
 
-Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled now automatically receive AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
+Pre-purchase plans are a type of Azure reservation. When you buy a pre-purchase plan, you get commit units (CUs) at discounted tiers for a specific product. Microsoft Sentinel commit units (SCUs) apply towards eligible costs in your workspace. When you have predictable costs, choosing the right pre-purchase plan saves you money! 
 
-- If you already have your AADIP connector enabled in Microsoft Sentinel, and you've enabled incident creation, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
+For more information, see [Optimize costs with a pre-purchase plan](billing-pre-purchase-plan.md).
 
-    | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
-    | - | - | - |
-    | **1** | Keep the default AADIP integration of **Show high-impact alerts only**. | Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
-    | **2** | Choose the **Show all alerts** AADIP integration. | Create automation rules to automatically close incidents with unwanted alerts.<br><br>Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
-    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose the **Turn off all alerts** option for AADIP integration. | Leave enabled those [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+### Import/export of automation rules now generally available (GA)
 
-    See the [Microsoft 365 Defender documentation for instructions](/microsoft-365/security/defender/investigate-alerts#configure-aad-ip-alert-service) on how to take the prescribed actions in Microsoft 365 Defender.
+The ability to export automation rules to Azure Resource Manager (ARM) templates in JSON format, and to import them from ARM templates, is now generally available after a [short preview period](#export-and-import-automation-rules-preview).
 
-- If you don't have your [AADIP connector](data-connectors/azure-active-directory-identity-protection.md) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
 
-- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection was made automatically behind the scenes. You won't need to do anything else.
+### Google Cloud Platform data connectors are now generally available (GA)
 
-### Account enrichment fields removed from Azure AD Identity Protection connector
+Microsoft Sentinel's [Google Cloud Platform (GCP) data connectors](connect-google-cloud-platform.md), based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md), are now **generally available**. With these connectors, you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
 
-As of **September 30, 2022**, alerts coming from the **Azure Active Directory Identity Protection connector** no longer contain the following fields:
+- The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
 
-- CompromisedEntity
-- ExtendedProperties["User Account"]
-- ExtendedProperties["User Name”]
+- The **Google Cloud Platform (GCP) Security Command Center connector** collects findings from Google Security Command Center, a robust security and risk management platform for Google Cloud. Analysts can view these findings to gain insights into the organization's security posture, including asset inventory and discovery, detections of vulnerabilities and threats, and risk mitigation and remediation.
 
-We are working to adapt Microsoft Sentinel's built-in queries and other operations affected by this change to look up these values in other ways (using the *IdentityInfo* table).
+For more information on these connectors, see [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md).
 
-In the meantime, or if you've built any custom queries or rules directly referencing these fields, you'll need another way to get this information. Use the following two-step process to have your queries look up these values in the *IdentityInfo* table:
+### Microsoft Sentinel now generally available (GA) in Azure Israel Central
 
-1. If you haven't already, **enable the UEBA solution** to sync the *IdentityInfo* table with your Azure AD logs. Follow the instructions in [this document](enable-entity-behavior-analytics.md).  
-(If you don't intend to use UEBA in general, you can ignore the last instruction  about selecting data sources on which to enable entity behavior analytics.)
+Microsoft Sentinel is now available in the *Israel Central* Azure region, with the same feature set as all other Azure Commercial regions.
 
-1. Incorporate the query below in your existing queries or rules to look up this data by joining the *SecurityAlert* table with the *IdentityInfo* table.
+For more information, see as [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md) and [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
-    ```kusto
-    SecurityAlert
-    | where TimeGenerated > ago(7d)
-    | where ProductName == "Azure Active Directory Identity Protection"
-    | mv-expand Entity = todynamic(Entities)
-    | where Entity.Type == "account"
-    | extend AadTenantId = tostring(Entity.AadTenantId)
-    | extend AadUserId = tostring(Entity.AadUserId)
-    | join kind=inner (
-        IdentityInfo
-        | where TimeGenerated > ago(14d)
-        | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName
-        | extend UserAccount = AccountUPN
-        | extend UserName = AccountDisplayName
-        | where isnotempty(AccountDisplayName) and isnotempty(UserAccount)
-        | project AccountTenantId, AccountObjectId, UserAccount, UserName
-        )
-        on
-        $left.AadTenantId == $right.AccountTenantId,
-        $left.AadUserId == $right.AccountObjectId
-    | extend CompromisedEntity = iff(CompromisedEntity == "N/A" or isempty(CompromisedEntity), UserAccount, CompromisedEntity)
-    | project-away AadTenantId, AadUserId, AccountTenantId, AccountObjectId
-    ```
+## August 2024
 
-For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table) for a sample query.
+- [Log Analytics agent retirement](#log-analytics-agent-retirement)
+- [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
+- [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
+- [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
+- [Unified AMA-based connectors for syslog ingestion](#unified-ama-based-connectors-for-syslog-ingestion)
+- [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
+- [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
+- [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
 
-### Name fields removed from UEBA UserPeerAnalytics table
+### Log Analytics agent retirement
 
-As of **September 30, 2022**, the UEBA engine no longer performs automatic lookups of user IDs and resolves them into names. This change resulted in the removal of four name fields from the *UserPeerAnalytics* table: 
+As of August 31, 2024, the [Log Analytics Agent (MMA/OMS) is retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). 
 
-- UserName
-- UserPrincipalName
-- PeerUserName
-- PeerUserPrincipalName 
+Log collection from many appliances and devices is now supported by the Common Event Format (CEF) via AMA, Syslog via AMA, or Custom Logs via AMA data connector in Microsoft Sentinel. If you've been using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the Azure Monitor Agent (AMA). 
 
-The corresponding ID fields remain part of the table, and any built-in queries and other operations execute the appropriate name lookups in other ways (using the IdentityInfo table), so you shouldn’t be affected by this change in nearly all circumstances. 
+For more information, see:
 
-The only exception to this is if you’ve built custom queries or rules directly referencing any of these name fields. In this scenario, you can incorporate the following lookup queries into your own, so you can access the values that would have been in these name fields. 
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration)
+- [AMA migration for Microsoft Sentinel](ama-migrate.md)
+- Blogs:
+    - [Revolutionizing log collection with Azure Monitor Agent](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionizing-log-collection-with-azure-monitor-agent/ba-p/4218129)
+    - [The power of Data Collection Rules: Collecting events for advanced use cases in Microsoft USOP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-power-of-data-collection-rules-collecting-events-for/ba-p/4236486)
 
-The following query resolves **user** and **peer identifier fields**: 
+### Export and import automation rules (Preview)
 
-```kusto
-UserPeerAnalytics 
-| where TimeGenerated > ago(24h) 
-// join to resolve user identifier fields 
-| join kind=inner ( 
-    IdentityInfo  
-    | where TimeGenerated > ago(14d) 
-    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
-    | extend UserPrincipalNameIdentityInfo = AccountUPN 
-    | extend UserNameIdentityInfo = AccountDisplayName 
-    | project AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo, UserNameIdentityInfo 
-) on $left.AADTenantId == $right.AccountTenantId, $left.UserId == $right.AccountObjectId 
-// join to resolve peer identifier fields 
-| join kind=inner ( 
-    IdentityInfo  
-    | where TimeGenerated > ago(14d) 
-    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
-    | extend PeerUserPrincipalNameIdentityInfo = AccountUPN 
-    | extend PeerUserNameIdentityInfo = AccountDisplayName 
-    | project AccountTenantId, AccountObjectId, PeerUserPrincipalNameIdentityInfo, PeerUserNameIdentityInfo 
-) on $left.AADTenantId == $right.AccountTenantId, $left.PeerUserId == $right.AccountObjectId 
-```
-If your original query referenced the user or peer names (not just their IDs), substitute this query in its entirety for the table name (“UserPeerAnalytics”) in your original query.
+Manage your Microsoft Sentinel automation rules as code! You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of your program to manage and control your Microsoft Sentinel deployments as code. The export action will create a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+
+The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
+
+The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
+
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
+
+### Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)
+
+If you've onboarded Microsoft Sentinel to the Microsoft unified security operations platform, Microsoft Sentinel data is now available with Defender XDR data in Microsoft Defender multitenant management. Only one Microsoft Sentinel workspace per tenant is currently supported in the Microsoft unified security operations platform. So, Microsoft Defender multitenant management shows security information and event management (SIEM) data from one Microsoft Sentinel workspace per tenant. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview) and [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+
+### Premium Microsoft Defender Threat Intelligence data connector (Preview)
+
+Your premium license for Microsoft Defender Threat Intelligence (MDTI) now unlocks the ability to ingest all premium indicators directly into your workspace. The premium MDTI data connector adds more to your hunting and research capabilities within Microsoft Sentinel. 
+
+For more information, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-intelligence-to-microsoft-sentinel-with-the-defender-threat-intelligence-data-connector). 
+
+### Unified AMA-based connectors for syslog ingestion
+
+With the impending retirement of the Log Analytics Agent, Microsoft Sentinel has consolidated the collection and ingestion of syslog, CEF, and custom-format log messages into three multi-purpose data connectors based on the Azure Monitor Agent (AMA):
+- **Syslog via AMA**, for any device whose logs are ingested into the *Syslog* table in Log Analytics.
+- **Common Event Format (CEF) via AMA**, for any device whose logs are ingested into the *CommonSecurityLog* table in Log Analytics.
+- **New! Custom Logs via AMA (Preview)**, for any of 15 device types, or any unlisted device, whose logs are ingested into custom tables with names ending in *_CL* in Log Analytics.
+
+These connectors replace nearly all the existing connectors for individual device and appliance types that have existed until now, that were based on either the legacy Log Analytics agent (also known as MMA or OMS) or the current Azure Monitor Agent. The solutions provided in the content hub for all of these devices and appliances now include whichever of these three connectors are appropriate to the solution.* The replaced connectors are now marked as "Deprecated" in the data connector gallery.
+
+The data ingestion graphs that were previously found in each device's connector page can now be found in device-specific workbooks packaged with each device's solution.
+
+\* When installing the solution for any of these applications, devices, or appliances, to ensure that the accompanying data connector is installed, you must select **Install with dependencies** on the solution page, and then mark the data connector on the following page.
+
+For the updated procedures for installing these solutions, see the following articles:
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+- [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md)
+
+### Better visibility for Windows security events
+
+We've enhanced the schema of the *SecurityEvent* table that hosts Windows Security events, and have added new columns to ensure compatibility with the Azure Monitor Agent (AMA) for Windows (version 1.28.2). These enhancements are designed to increase the visibility and transparency of collected Windows events. If you're not interested in receiving data in these fields, you can apply an ingestion-time transformation ("project-away" for example) to drop them.
+
+### New Auxiliary logs retention plan (Preview)
+
+The new **Auxiliary logs** retention plan for Log Analytics tables allows you to ingest large quantities of high-volume logs with supplemental value for security at a much lower cost. Auxiliary logs are available with interactive retention for 30 days, in which you can run simple, single-table queries on them, such as to summarize and aggregate the data. Following that 30-day period, auxiliary log data goes to long-term retention, which you can define for up to 12 years, at ultra-low cost. This plan also allows you to run search jobs on the data in long-term retention, extracting only the records you want to a new table that you can treat like a regular Log Analytics table, with full query capabilities.
+
+To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+
+For more in-depth information about the different log management plans, see [**Table plans**](/azure/azure-monitor/logs/data-platform-logs#table-plans) in the [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) article from the Azure Monitor documentation.
+
+### Create summary rules in Microsoft Sentinel for large sets of data (Preview)
+
+Microsoft Sentinel now provides the ability to create dynamic summaries using [Azure Monitor summary rules](/azure/azure-monitor/logs/summary-rules), which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
+
+- Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
+- Run high performance Kusto Query Language (KQL) queries on summarized data.
+- Use summary rule results for longer periods in investigations, hunting, and compliance activities.
+
+For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
 
 ## Next steps
 

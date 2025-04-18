@@ -2,13 +2,12 @@
 title: Azure Data Box Gateway security | Microsoft Docs
 description: Describes the security and privacy features that protect your Azure Data Box Gateway virtual device, service, and data, on-premises and in the cloud.
 services: databox
-author: alkohli
+author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
-ms.topic: article
+ms.service: azure-data-box-gateway
+ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Azure Data Box Gateway security and data protection
@@ -36,6 +35,11 @@ The Data Box Gateway device is a virtual device that's provisioned in the hyperv
 
 - Needs an activation key to access the Azure Stack Edge Pro/Data Box Gateway service.
 - Is protected at all times by a device password.
+
+The Data Box Gateway device has the following capabilities which offer defense in depth:
+
+- Defender based malware protection on OS disk
+- Defender based Device Guard support for more stringent checks on the binary running in the system.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
 
@@ -92,7 +96,7 @@ The Data Box Gateway service collects personal information in the following scen
 
 To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Gateway](data-box-gateway-manage-shares.md).
 
-For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trust-center).
 
 ## Next steps
 

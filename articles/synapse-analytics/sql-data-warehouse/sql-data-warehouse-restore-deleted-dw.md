@@ -2,14 +2,14 @@
 title: Restore a deleted dedicated SQL pool (formerly SQL DW)
 description: How to guide for restoring a deleted dedicated SQL pool in Azure Synapse Analytics.
 author: joannapea
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 08/29/2018
 ms.author: joanpo
-ms.reviewer: wiassaf
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+
+ms.date: 08/29/2018
+ms.service: azure-synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - devx-track-azurepowershell
 ---
 
 # Restore a deleted dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
@@ -18,7 +18,7 @@ In this article, you learn to restore a dedicated SQL pool (formerly SQL DW) usi
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 **Verify your DTU capacity.** Each dedicated SQL pool (formerly SQL DW) is hosted by a [logical SQL server](/azure/azure-sql/database/logical-servers) (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
@@ -33,7 +33,7 @@ To restore a deleted dedicated SQL pool (formerly SQL DW), use the [Restore-AzSq
 5. Get the specific deleted data warehouse.
 6. Restore the deleted dedicated SQL pool (formerly SQL DW)
     1. To restore the deleted dedicated SQL pool (formerly SQL DW) to a different server, make sure to specify the other server name.  This server can also be in a different resource group and region.
-    1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) button to move the server to another subscription.
+    1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-azure-portal) button to move the server to another subscription.
 7. Verify that the restored data warehouse is online.
 8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](/azure/azure-sql/database/disaster-recovery-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 

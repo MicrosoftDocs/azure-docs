@@ -4,8 +4,7 @@ description: Describes how to create a Support package with guest logs for VMs o
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 07/30/2021
 ms.author: alkohli

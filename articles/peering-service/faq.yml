@@ -2,15 +2,12 @@
 metadata:
   title: Azure Peering Service FAQ
   description: Answers to frequently asked questions about Microsoft Azure Peering Service.
-  services: peering-service
   author: halkazwini
-  ms.service: peering-service
-  ms.topic: faq
-  ms.workload: Infrastructure-services
-  ms.date: 03/29/2023
   ms.author: halkazwini
-  ms.custom: engagement-fy23
-title: Peering Service frequently asked questions (FAQ)
+  ms.service: azure-peering-service
+  ms.topic: faq
+  ms.date: 04/11/2025
+title: Azure Peering Service frequently asked questions (FAQ)
 summary: |
 
 
@@ -28,6 +25,12 @@ sections:
           Peering Service optimizes routing on the Microsoft network and guarantees that customer traffic is only handed off to the peering service provider chosen by the customer at a preferred location. This ensures that customer traffic stays on the Microsoft network rather than routing through various other networks before returning to the customer’s last mile network. With Peering Service, the end users have more control and performance assurance with how their traffic will be handled compared to normal internet routing.
 
       - question: |
+          How does Internet Routing Preference impact Peering Service?
+        answer: |
+          Internet Routing Preference directs public IP traffic to exit the Microsoft network as close as possible to the associated Azure public resource. This approach contrasts with Peering Service, which optimizes routing within the Microsoft network and ensures traffic is handed off at a preferred location through a designated provider. As a result, Internet Routing Preference and Peering Service aren't compatible and can't be used together.
+          For more information about public IP routing preference, see [What is routing preference?](/azure/virtual-network/ip-services/routing-preference-overview)
+          
+      - question: |
           How is Peering Service different from ExpressRoute?
         answer: |
           Azure ExpressRoute is a private, dedicated connection from one or multiple customer locations. While Peering Service offers optimized public connectivity and doesn't support any private connectivity, it also offers optimized connectivity for local internet breakouts.
@@ -35,7 +38,7 @@ sections:
       - question: |
           What Microsoft routes will be advertised over Peering Service connections?
         answer: |
-          Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This will ensure not only communications, but other cloud services are accessible from the same connection.
+          Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This ensures not only communications, but other cloud services are accessible from the same connection.
    
       - question: |
           Can customers sign up for Peering Service with multiple providers?
@@ -45,15 +48,18 @@ sections:
       - question: |
           I have smaller subnets (</24) for my regional offices. Are smaller subnets supported with this service?
         answer: |
-          Yes, Microsoft Azure Peering Service supports smaller prefix routing. Prefixes smaller than a /24 must be registered by the MAPS Partner in the Peering resource to receive a service key and then activated by the customer in the Peering Service resource using the service key.
+          Yes, Peering Service supports smaller prefix routing. Prefixes smaller than a /24 must be registered by the Peering Service Partner in the Peering resource to receive a service key and then activated by the customer in the Peering Service resource using the service key.
+
+      - question: |
+          Can I move Peering Service resources across resource groups or subscriptions?
+        answer: |
+          For a list of resources that can be moved, see [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md#microsoftpeering).
       
 
 additionalContent: |
 
-  ## Next steps
+  ## Related content
   
-  - To learn about Peering Service, see [Peering Service overview](about.md).
-  - To find a service provider, see [Peering Service partners and locations](location-partners.md).
-  - To onboard a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
-  - To register a Peering Service connection, see [Register a Peering Service connection - Azure portal](azure-portal.md).
-  - To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+  - To learn about Peering Service, see [Azure Peering Service overview](about.md).
+  - To find a service provider, see [Peering Service partners](location-partners.md).
+  - To register a Peering Service connection, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).

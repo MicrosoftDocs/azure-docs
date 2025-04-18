@@ -1,12 +1,13 @@
 ---
 title: Assess AWS instances for migration to Azure with Azure Migrate
 description: Learn to access AWS instances for migration to Azure with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/14/2023
+ms.date: 08/08/2024
+ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
+ms.collection:
+ - migration
+ - aws-to-azure
 #Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
 ---
 
@@ -47,7 +48,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
@@ -100,7 +101,7 @@ Run an assessment as follows:
         - Cost estimates are based on the duration specified.
         - Default is 31 days per month/24 hours per day.
     - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
-    - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
+    - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license or Enterprise Linux subscription (RHEL and SLES). If you do and they're covered with active Software Assurance of Windows Server or Enterprise Linux Subscriptions (RHEL and SLES), you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 
 1. Select **Save** if you make changes.
 
@@ -191,3 +192,4 @@ Confidence ratings are as follows.
 
 - Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Migrate [AWS VMs](tutorial-migrate-aws-virtual-machines.md) to Azure.

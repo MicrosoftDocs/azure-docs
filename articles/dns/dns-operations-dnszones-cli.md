@@ -2,15 +2,12 @@
 title: Manage DNS zones in Azure DNS - Azure CLI | Microsoft Docs
 description: You can manage DNS zones using Azure CLI. This article shows how to update, delete, and create DNS zones on Azure DNS.
 services: dns
-documentationcenter: na
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.devlang: azurecli
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/27/2022
-ms.author: greglin 
+ms.date: 11/30/2023
+ms.author: greglin
 ms.custom: devx-track-azurecli
 ---
 
@@ -122,7 +119,7 @@ The following example is the response.
 ```json
 {
   "etag": "00000002-0000-0000-3d4d-64aa3689d201",
-  "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
   "location": "global",
   "maxNumberOfRecordSets": 5000,
   "name": "contoso.com",

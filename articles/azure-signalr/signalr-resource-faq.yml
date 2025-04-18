@@ -3,9 +3,9 @@ metadata:
   title: Azure SignalR Service frequently asked questions
   description: Get answers to frequently asked questions about Azure SignalR Service, including troubleshooting and typical usage scenarios.
   author: vicancy
-  ms.service: signalr
+  ms.service: azure-signalr-service
   ms.topic: faq
-  ms.custom: devx-track-dotnet
+  ms.custom:
   ms.date: 03/21/2023
   ms.author: lianwei
 title: Azure SignalR Service FAQ
@@ -56,7 +56,7 @@ sections:
         answer: |
           You can find details about we calculate these metrics in [Messages and connections in Azure SignalR Service](signalr-concept-messages-and-connections.md).
           
-          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. You can use [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. You can use [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftsignalrservicesignalr) as a reference.
           
       - question: |
           What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
@@ -93,7 +93,7 @@ sections:
       - question: |
           Where does my data reside?
         answer: |
-          Azure SignalR Service does not store any customer data. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
+          Azure SignalR Service does not store any customer data. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [Azure Privacy Overview (white paper)](https://go.microsoft.com/fwlink/p/?linkid=2220836) for guidance about how to keep data residency in Azure regions.
 
       - question: |
           How do I choose between Azure SignalR service and Azure Web PubSub service?

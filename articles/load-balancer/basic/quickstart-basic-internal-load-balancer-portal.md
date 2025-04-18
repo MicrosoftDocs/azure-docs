@@ -4,9 +4,10 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a basic internal load balancer by using the Azure portal.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
@@ -25,7 +26,7 @@ Get started with Azure Load Balancer by using the Azure portal to create an inte
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the virtual network
 
@@ -34,6 +35,12 @@ When you create an internal load balancer, a virtual network is configured as th
 A private IP address in the virtual network is configured as the frontend for the load balancer. The frontend IP address can be **Static** or **Dynamic**.
 
 An Azure Bastion host is created to securely manage the virtual machines and install IIS.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+>
 
 In this section, you'll create a virtual network, subnet, and Azure Bastion host.
 
@@ -228,10 +235,10 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Setting | VM 2 |
     | ------- | ----- |
     | Name | **myVM2** |
-    | Availability set | Select the existing **myAvailabiltySet** |
+    | Availability set | Select the existing **myAvailabilitySet** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create test virtual machine
 

@@ -3,10 +3,9 @@ title: Tutorial - Set up DNS failover using private resolvers
 description: A tutorial on how to configure regional failover using the Azure DNS Private Resolver
 services: dns
 author: greg-lindsay
-ms.service: dns
-ms.custom: ignite-2022
+ms.service: azure-dns
 ms.topic: tutorial
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
 ---
@@ -18,7 +17,7 @@ This article details how to eliminate a single point of failure in your on-premi
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Resolve Azure Private DNS zones using on-premises conditional fowarders and Azure DNS private resolvers.
+> * Resolve Azure Private DNS zones using on-premises conditional forwarders and Azure DNS private resolvers.
 > * Enable on-premises DNS failover for your Azure Private DNS zones.
 
 The following diagram shows the failover scenario discussed in this article.

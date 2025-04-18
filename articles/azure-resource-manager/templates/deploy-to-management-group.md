@@ -2,8 +2,8 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/19/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 03/26/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Management group deployments with ARM templates
@@ -130,6 +130,8 @@ When deploying to a management group, you can deploy resources to:
 * resource groups in the management group
 * the tenant for the resource group
 
+[!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
+
 An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 
 The user deploying the template must have access to the specified scope.
@@ -232,7 +234,7 @@ To use an ARM template to create a new Azure subscription in a management group,
 * [Programmatically create Azure subscriptions for a Microsoft Customer Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
 * [Programmatically create Azure subscriptions for a Microsoft Partner Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
 
-To deploy a template that moves an existing Azure subscription to a new management group, see [Move subscriptions in ARM template](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
+To deploy a template that moves an existing Azure subscription to a new management group, see [Move subscriptions in ARM template](../../governance/management-groups/manage.md#move-a-subscription-in-an-arm-template)
 
 ## Azure Policy
 

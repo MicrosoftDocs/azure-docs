@@ -3,10 +3,9 @@ title: External call data transformation in mapping data flows
 description: Call external custom endpoints for mapping data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # External call transformation in mapping data flows
@@ -17,7 +16,7 @@ ms.date: 08/03/2022
 
 The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or third party results into your data flow streams.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPXGN]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=1496fa22-7187-4339-895a-f1daaa3f89f7]
 
 ## Configuration
 
@@ -111,7 +110,7 @@ ExternalCall1 sink(allowSchemaDrift: true,
 	saveOrder: 1) ~> sink1
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.

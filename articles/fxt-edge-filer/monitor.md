@@ -1,14 +1,17 @@
 ---
 title: Monitor the Azure FXT Edge Filer 
 description: How to monitor hardware status for the Azure FXT Edge Filer hybrid storage cache
-author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: how-to
 ms.date: 06/20/2019
-ms.author: femila
 ---
 
 # Monitor Azure FXT Edge Filer hardware status
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 The Azure FXT Edge Filer hybrid storage cache system has multiple status lights built in to the chassis to help administrators understand how the hardware is functioning.
 

@@ -4,8 +4,7 @@ description: Learn how to develop a C# IoT Edge module that can be deployed on y
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
@@ -60,7 +59,7 @@ Before you begin, make sure you have:
 
 An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. The two popular Docker registry services available in the cloud are Azure Container Registry and Docker Hub. This article uses the Container Registry.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. From a browser, ign in to the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource > Containers > Container Registry**. Click **Create**.
 3. Provide:
 
@@ -236,13 +235,13 @@ Create a C# solution template that you can customize with your own code.
     ```
 
 7. Save this file.
-8. You can also [download an existing code sample](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
+8. You can also [download an existing code sample](https://github.com/Azure-Samples/data-box-edge-csharp-modules) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
 
 ## Build your IoT Edge solution
 
 In the previous section, you created an IoT Edge solution and added code to the FileCopyModule to copy files from local share to the cloud share. Now you need to build the solution as a container image and push it to your container registry.
 
-1. In VSCode, go to Terminal > New Terminal to open a new Visual Studio Code integrated terminal.
+1. In VS Code, go to Terminal > New Terminal to open a new Visual Studio Code integrated terminal.
 2. Sign in to Docker by entering the following command in the integrated terminal.
 
     `docker login <ACR login server> -u <ACR username>`

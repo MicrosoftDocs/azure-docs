@@ -3,10 +3,9 @@ title: Troubleshoot the Azure Data Explorer connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Data Explorer connector in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -33,14 +32,14 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**: For transient failures, set retries for the activity. For permanent failures, check your configuration and contact support.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

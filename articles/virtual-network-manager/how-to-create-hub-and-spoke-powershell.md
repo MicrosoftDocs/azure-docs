@@ -1,34 +1,27 @@
 ---
-title: 'Create a hub and spoke topology with Azure Virtual Network Manager (Preview) - Azure PowerShell'
-description: Learn how to create a hub and spoke network topology with Azure Virtual Network Manager using Azure PowerShell.
+title: 'Create a hub and spoke topology in Azure - PowerShell'
+description: Learn how to create a hub and spoke network topology for multiple virtual networks with Azure Virtual Network Manager using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 3/22/2023
-ms.custom: template-concept
+ms.date: 05/07/2024
+ms.custom: template-concept, engagement-fy23, devx-track-azurepowershell
 ---
 
-# Create a hub and spoke topology with Azure Virtual Network Manager (Preview) - Azure PowerShell
+# Create a hub and spoke topology in Azure - PowerShell
 
 In this article, you'll learn how to create a hub and spoke network topology with Azure Virtual Network Manager. With this configuration, you select a virtual network to act as a hub and all spoke virtual networks will have bi-directional peering with only the hub by default. You also can enable direct connectivity between spoke virtual networks and enable the spoke virtual networks to use the virtual network gateway in the hub.
-
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 * Read about [Hub-and-spoke](concept-connectivity-configuration.md#hub-and-spoke-topology) network topology.
-* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-virtual-network-manager).
+* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-a-virtual-network-manager-instance).
 * Identify virtual networks you want to use in the hub-and-spokes configuration or create new [virtual networks](../virtual-network/quick-create-powershell.md).
 * Version `5.3.0` of `Az.Network` is required to access the required cmdlets for Azure Virtual Network Manager.
 * If you're running PowerShell locally, you need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Create a network group and add members
+## Create a virtual network group and add members
 
 This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
 
@@ -51,7 +44,7 @@ This section will help you create a network group containing the virtual network
         NetworkGroupName = $networkgroup.name
         ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManagerName = 'myAVNM'
-        Name = 'statiMember'
+        Name = 'staticMember'
         ResourceId = $vnet.id
         }
         $staticmember = New-AzNetworkManagerStaticMember @sm
@@ -83,7 +76,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
     
     $hub = @{
-        ResourceId = '/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
+        ResourceId = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
         ResourceType = 'Microsoft.Network/virtualNetworks'
     } 
     $hubvnet = New-AzNetworkManagerHub @hub
@@ -105,6 +98,9 @@ This section will guide you through how to create a hub-and-spoke configuration 
     $connectivityconfig = New-AzNetworkManagerConnectivityConfiguration @config -DeleteExistingPeering -IsGlobal
      ```
 
+> [!NOTE]
+> If you're currently using peering and want to manage topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Virtual network manager instances are fully compatible with pre-existing hub and spoke topology deployment using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub as the network manager will automatically detect and manage them.
+
 ## Deploy the hub-and-spoke configuration
 
 Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit.
@@ -125,9 +121,9 @@ $deployment = @{
 Deploy-AzNetworkManagerCommit @deployment
 ```
 
-## Confirm deployment
+## Confirm configuration deployment
 
-1. Go to one of the virtual networks in the portal and select **Peerings** under *Settings*. You should see a new peering connection created between the hub and the spoke virtual networks with *AVNM* in the name.
+1. Go to one of the virtual networks in the Azure portal and select **Peerings** under **Settings**. You should see a new peering connection created between the hub and the spoke virtual networks with *AVNM* in the name.
 
 1. To test *direct connectivity* between spokes, deploy a virtual machine into each spokes virtual network. Then start an ICMP request from one virtual machine to the other.
 

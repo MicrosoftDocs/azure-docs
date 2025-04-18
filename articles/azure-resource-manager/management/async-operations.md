@@ -2,12 +2,12 @@
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
 ms.topic: conceptual
-ms.date: 01/31/2022
-ms.custom: seodec18
+ms.date: 01/22/2025
 ---
+
 # Track asynchronous Azure operations
 
-Some Azure REST operations run asynchronously because the operation can't be completed quickly. This article describes how to track the status of asynchronous operations through values returned in the response.  
+Some Azure REST operations run asynchronously because the operation can't be completed quickly. This article describes how to track the status of asynchronous operations through values returned in the response.
 
 ## Status codes for asynchronous operations
 
@@ -16,7 +16,7 @@ An asynchronous operation initially returns an HTTP status code of either:
 * 201 (Created)
 * 202 (Accepted)
 
-However, that status code doesn't necessarily mean the operation is asynchronous. An asynchronous operation also returns a value for `provisioningState` that indicates the operation hasn't finished. The value can vary by operation but won't include **Succeeded**, **Failed**, or **Canceled**. Those three values indicate the operation has finished. If no value is returned for `provisioningState`, the operation has finished and succeeded.
+However, that status code doesn't necessarily mean the operation is asynchronous. An asynchronous operation also returns a value for `provisioningState` that indicates the operation isn't finished. The value can vary by operation but doesn't include **Succeeded**, **Failed**, or **Canceled**. Those three values indicate the operation finished. If no value is returned for `provisioningState`, the operation finished and succeeded.
 
 When the operation successfully completes, it returns either:
 
@@ -36,12 +36,28 @@ There are two different ways to monitor the status the asynchronous operation. Y
 
 If `Azure-AsyncOperation` isn't one of the header values, then look for:
 
-* `Location` - URL for determining when an operation has completed. Only use this value only when Azure-AsyncOperation isn't returned.
+* `Location` - URL for determining when an operation is completed. Use this value only when `Azure-AsyncOperation` isn't returned.
 * `Retry-After` - The number of seconds to wait before checking the status of the asynchronous operation.
+
+When the `Retry-after` header isn't returned, [implement your own retry logic](/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
+
+> [!NOTE]
+> Your REST client must accept a minimum URL size of 4 KB for `Azure-AsyncOperation` and `Location`.
+
+## Permission for tracking async status
+
+To track the status of an asynchronous operation, you need sufficient permission at the resource group level. If you only have permission at the resource level, you can start the operation but you can't track its status. Resource group-level permission is required because the URL for tracking status isn't scoped to the resource.
+
+For example, to start a virtual machine, you need the Virtual Machine Contributor role for the resource group that contains the virtual machine. The URL for tracking a start request doesn't include the virtual machine in its path.
+
+```HTTP
+GET 
+https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2019-12-01
+```
 
 ## Azure-AsyncOperation request and response
 
-If you have a URL from the `Azure-AsyncOperation` header value, send a GET request to that URL. Use the value from `Retry-After` to schedule how often to check the status. You'll get a response object that indicates the status of the operation. A different response is returned when checking the status of the operation with the `Location` URL. For more information about the response from a location URL, see [Create storage account (202 with Location and Retry-After)](#create-storage-account-202-with-location-and-retry-after).
+If you have a URL from the `Azure-AsyncOperation` header value, send a GET request to that URL. Use the value from `Retry-After` to schedule how often to check the status. You get a response object that indicates the status of the operation. A different response is returned when checking the status of the operation with the `Location` URL. For more information about the response from a location URL, see [Create storage account (202 with Location and Retry-After)](#create-storage-account-202-with-location-and-retry-after).
 
 The response properties can vary but always include the status of the asynchronous operation.
 
@@ -71,17 +87,17 @@ The following example shows other values that might be returned from the operati
 }
 ```
 
-The error object is returned when the status is Failed or Canceled. All other values are optional. The response you receive may look different than the example.
+The error object is returned when the status is Failed or Canceled. All other values are optional. The response you receive might look different than the example.
 
 ## provisioningState values
 
-Operations that create, update, or delete (PUT, PATCH, DELETE) a resource typically return a `provisioningState` value. When an operation has completed, one of following three values is returned:
+Operations that create, update, or delete (PUT, PATCH, DELETE) a resource typically return a `provisioningState` value. When an operation completes, one of the following three values is returned:
 
 * Succeeded
 * Failed
 * Canceled
 
-All other values indicate the operation is still running. The resource provider can return a customized value that indicates its state. For example, you may receive **Accepted** when the request is received and running.
+All other values indicate the operation is still running. The resource provider can return a customized value that indicates its state. For example, you receive **Accepted** when the request is received and running.
 
 ## Example requests and responses
 
@@ -100,7 +116,7 @@ It returns status code 202. Among the header values, you see:
 Azure-AsyncOperation : https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2019-12-01
 ```
 
-To check the status of the asynchronous operation, sending another request to that URL.
+To check the status of the asynchronous operation, send another request to that URL.
 
 ```HTTP
 GET 
@@ -138,7 +154,7 @@ Among the header values, you see:
 Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2020-06-01
 ```
 
-To check the status of the asynchronous operation, sending another request to that URL.
+To check the status of the asynchronous operation, send another request to the operation URL.
 
 ```HTTP
 GET 
@@ -170,7 +186,7 @@ PUT
 https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2019-06-01
 ```
 
-And the request body contains properties for the storage account:
+The request body contains properties for the storage account:
 
 ```json
 {
@@ -190,14 +206,14 @@ Location: https://management.azure.com/subscriptions/{subscription-id}/providers
 Retry-After: 17
 ```
 
-After waiting for number of seconds specified in Retry-After, check the status of the asynchronous operation by sending another request to that URL.
+After waiting for number of seconds specified in `Retry-After`, check the status of the asynchronous operation by sending another request to that URL.
 
 ```HTTP
 GET 
 https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2019-06-01
 ```
 
-If the request is still running, you receive a status code 202. If the request has completed, your receive a status code 200. The body of the response contains the properties of the storage account that was created.
+If the request is still running, you receive a status code 202. If the request is completed, your receive a status code 200. The body of the response contains the properties of the storage account that was created.
 
 ## Next steps
 

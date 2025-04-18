@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Create an environment with self-contained Service Fabric cluster in Azure DevTest Labs
@@ -13,6 +14,8 @@ This article provides information on how to create an environment with a self-co
 ## Overview
 DevTest Labs can create self-contained test environments as defined by Azure Resource Manager templates. These environments contain both IaaS resources, like virtual machines, and PaaS resources, like Service Fabric. DevTest Labs allows you to manage virtual machines in an environment by providing commands to control the virtual machines. These commands give you the ability to start or stop a virtual machine on a schedule. Similarly, DevTest Labs can also help you manage Service Fabric clusters in an environment. You can start or stop a Service Fabric cluster in an environment either manually or via a schedule.
 
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
+
 ## Create a Service Fabric cluster
 Service Fabric clusters are created using environments in DevTest Labs. Each environment is defined by an Azure Resource Manager template in a Git repository. The [public Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) for DevTest Labs contains the Resource Manager template to create a Service Fabric cluster in the [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) folder. 
 
@@ -20,7 +23,7 @@ Service Fabric clusters are created using environments in DevTest Labs. Each env
 2. Confirm that the Service Fabric provider is registered for your subscription by following these steps:
     1. Select **Subscriptions** on the left navigational menu, and select your **Subscription**
     2. On the **Subscription** page, select **Resource providers** in the **Settings** section on the left menu. 
-    3. If **Microsoft.ServiecFabric** isn't registered, select **Register**. 
+    3. If **Microsoft.ServiceFabric** isn't registered, select **Register**. 
 3. On the **DevTest Lab** page for your lab, select **+ Add** on the toolbar. 
     
     ![Screenshot that shows the Add button on the toolbar.](./media/create-environment-service-fabric-cluster/add-button.png)

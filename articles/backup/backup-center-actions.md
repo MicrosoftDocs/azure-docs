@@ -1,15 +1,18 @@
 ---
-title: Perform actions using Backup center
+title: Perform actions using Backup center in Azure Backup
 description: This article explains how to perform actions using Backup center
 ms.topic: how-to
-ms.date: 12/08/2022
-ms.service: backup
+ms.date: 12/24/2024
+ms.service: azure-backup
+ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
 ---
 # Perform actions using Backup center
 
-Backup center allows you to perform key backup-related actions from a central interface without needing to navigate to an individual vault. Some actions that you can perform from Backup center are:
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
+
+Backup center allows you to perform key backup-related actions from a central interface without needing to go to an individual vault. Some actions that you can perform from Backup center are:
 
 * Configure backup for your datasources
 * Restore a backup instance
@@ -23,15 +26,21 @@ Backup center allows you to perform key backup-related actions from a central in
 * Backup center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
+[!INCLUDE [How to open the Backup center.](../../includes/backup-center-open-console.md)]
+
 ## Configure backup
 
 If you're backing up Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs or Azure Files, you should use a Recovery Services vault. If you're backing up Azure Databases for PostgreSQL Server, you should use a Backup vault. 
 
 Depending on the type of datasource you wish to back up, follow the appropriate instructions as described below.
 
-### Configure backup to a Recovery Services vault
+**Choose a vault type to configure backup**:
 
-1. Navigate to the Backup center and select **+ Backup** at the top of the **Overview** tab.
+# [Recovery Services vault](#tab/recovery-services-vault)
+
+To configure backup to a Recovery Services vault, follow these steps:
+
+1. On the **Backup center**, select **+ Backup** at the top of the **Overview** tab.
 
     ![Backup Center overview](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
@@ -41,22 +50,30 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 3. Choose a Recovery Services vault and select **Proceed**. This leads you to the backup configuration experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how configure backup for Azure virtual machines with a Recovery Services vault](tutorial-backup-vm-at-scale.md).
 
-### Configure backup to a Backup vault
+# [Backup vault](#tab/backup-vault)
 
-1. Navigate to the Backup center and select **+ Backup** at the top of the **Overview** tab.
+To configure backup to a Backup vault, follow these steps:
+
+1. On the **Backup center**, select **+ Backup** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL server in this case).
 
     ![Select datasource to configure Azure Database for PostgreSQL Server backup](./media/backup-center-actions/backup-select-datasource-type-postgresql.png)
 
 3. Select **Proceed**. This leads you to the backup configuration experience that it identical to the one reachable from a Backup vault. [Learn more about how to configure backup for Azure Database for PostgreSQL Server with a Backup vault](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).
 
+---
+
 ## Restore a backup instance
 
 Depending on the type of datasource you wish to restore, follow the appropriate instructions as described below.
 
-### If you're restoring from a Recovery Services vault
+**Choose a vault type for restore**:
 
-1. Navigate to the Backup center and select **Restore** at the top of the **Overview** tab.
+# [Recovery Services vault](#tab/recovery-services-vault)
+
+To restore data from a Recovery Services vault, follow these steps:
+
+1. On the **Backup center**, select **Restore** at the top of the **Overview** tab.
 
     ![Backup Center Overview to restore VM](./media/backup-center-actions/backup-center-overview-restore.png)
 
@@ -66,18 +83,22 @@ Depending on the type of datasource you wish to restore, follow the appropriate 
 
 3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Virtual Machine with a Recovery Services vault](backup-azure-arm-restore-vms.md#before-you-start).
 
-### If you're restoring from a Backup vault
+# [Backup vault](#tab/backup-vault)
 
-1. Navigate to the Backup center and select **Restore** at the top of the **Overview** tab.
+To restore data from a Backup vault, follow these steps:
+
+1. On the **Backup center**, select **Restore** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to restore (Azure Database for PostgreSQL Server in this case).
 
     ![Select datasource for Azure Database for PostgreSQL Server restore](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
 3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Database for PostgreSQL Server with a Backup vault](restore-azure-database-postgresql.md).
 
+---
+
 ## Create a new vault
 
-You can create a new vault by navigating to the Backup center and selecting **+ Vault** at the top of the **Overview** tab.
+You can create a new vault by going to the Backup center and selecting **+ Vault** at the top of the **Overview** tab.
 
 ![Create vault](./media/backup-center-actions/backup-center-create-vault.png)
 
@@ -88,9 +109,13 @@ You can create a new vault by navigating to the Backup center and selecting **+ 
 
 Depending on the type of datasource you wish to back up, follow the appropriate instructions described below.
 
-### If you're backing up to a Recovery Services vault
+**Choose a vault type to create a backup policy**:
 
-1. Navigate to the Backup center and select **+ Policy** at the top of the **Overview** tab.
+# [Recovery Services vault](#tab/recovery-services-vault)
+
+To create a backup policy for backing up to a Recovery Services vault, follow these steps:
+
+1. On the **Backup center**, select **+ Policy** at the top of the **Overview** tab.
 
     ![Backup Center Overview for backup policy](./media/backup-center-actions/backup-center-overview-policy.png)
 
@@ -100,20 +125,24 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 3. Choose a Recovery services vault and select **Proceed**. This leads you to the policy creation experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to create a new backup policy for Azure Virtual Machine with a Recovery services vault](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### If you're backing up to a Backup vault
+# [Backup vault](#tab/backup-vault)
 
-1. Navigate to the Backup center and select **+ Policy** at the top of the **Overview** tab.
+To create a backup policy for  backing up to a Backup vault, follow these steps:
+
+1. On the **Backup center**, select **+ Policy** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL Server in this case).
 
     ![Select datasource for policy for Azure Database for PostgreSQL Server backup](./media/backup-center-actions/policy-select-datasource-postgresql.png)
 
 3. Select **Proceed**. This leads you to the policy creation experience that it identical to the one reachable from a Backup vault. [Learn more about how to create a new backup policy with a Backup vault](backup-azure-database-postgresql.md#create-backup-policy).
 
+---
+
 ## Execute an on-demand backup for a backup instance
 
 Backup center allows you to search for backup instances across your backup estate and execute backup operations on demand.
 
-To stop protection, navigate to the Backup center and select the **Backup Instances** menu item. Selecting this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Backup Now** option to execute an on-demand backup.
+To stop protection, go to the Backup center and select the **Backup Instances** menu item. Selecting this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Backup Now** option to execute an on-demand backup.
 
 ![On-demand backup](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
@@ -125,7 +154,7 @@ To stop protection, navigate to the Backup center and select the **Backup Instan
 
 There are scenarios when you might want to stop backup for a backup instance, such as when the underlying resource being backed up doesn’t exist anymore.
 
-To stop protection, navigate to the Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
+To stop protection, go to the Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
 
 ![Stop protection](./media/backup-center-actions/backup-center-stop-protection.png)
 
@@ -144,7 +173,7 @@ You can resume backup for your workloads if you have retained data during **Stop
 
 To configure replication on Backup center, follow these steps:
 
-1. Go to the **Backup center** and select **Overview** > **Backup instances** tile > **View ASR Replicated items**.
+1. On the **Backup center**, select **Overview** > **Backup instances** tile > **View ASR Replicated items**.
 
    :::image type="content" source="./media/backup-center-actions/backup-center-view-replication-item-inline.png" alt-text="Screenshot shows how to view an item for replication." lightbox="./media/backup-center-actions/backup-center-view-replication-item-expanded.png":::
 

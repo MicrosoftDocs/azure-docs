@@ -1,14 +1,12 @@
 ---
 title: Using a hotfix production environment 
 description: Learn how to use a hotfix production environment with continuous integration and delivery in Azure Data Factory pipelines.
-ms.service: data-factory
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
-ms.reviewer: jburchel
+author: kromerm
+ms.author: makromer
+ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 01/11/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 01/29/2025
 ---
 
 # Using a hotfix production environment
@@ -44,9 +42,9 @@ Use the following steps to deploy a hotfix in your production and test environme
 ## Video tutorial
 See the video below an in-depth video tutorial on how to hot-fix your environments. 
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=b0bab151-85b7-4684-a184-ec5e6b972415]
 
-## Next steps
+## Related content
 
 - [Automated publishing for continuous integration and delivery](continuous-integration-delivery-improvements.md)
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)

@@ -2,7 +2,8 @@
 title: Troubleshoot Azure VM file recovery
 description: Troubleshoot issues when recovering files and folders from an Azure VM backup.
 ms.topic: troubleshooting
-ms.date: 07/12/2020
+ms.custom: linux-related-content
+ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -46,11 +47,14 @@ This section provides steps to troubleshoot common issues you might experience w
 1. Ensure you have the [required permissions to download the script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
 
-   `nslookup download.microsoft.com`
-
+   ```bash
+      nslookup download.microsoft.com
+   ```
     or
 
-    `ping download.microsoft.com`
+   ```bash
+      ping download.microsoft.com
+   ```
 
 ### The script downloads successfully, but fails to run
 
@@ -67,11 +71,14 @@ You might see an "Exception caught while connecting to target" error message.
 1. Ensure the machine where the script is run meets the [access requirements](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
 
-   `nslookup download.microsoft.com`
-
+   ```bash
+      nslookup download.microsoft.com
+   ```
    or
 
-   `ping download.microsoft.com`
+   ```bash
+      ping download.microsoft.com
+   ```
 1. Ensure access to iSCSI outbound port 3260.
 1. Check for a firewall or NSG blocking traffic to Azure target IPs or recovery service URLs.
 1. Make sure your antivirus software isn't blocking the execution of the script.
@@ -115,8 +122,9 @@ To resolve this issue, check if the volume is encrypted with a third-party appli
 
 1. Sign in to the backed-up VM and run this command:
 
-   `lsblk -f`
-
+   ```bash
+      lsblk -f
+   ```
    ![Screenshot showing the results of the command to list block devices.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
 1. Verify the file system and encryption. If the volume is encrypted, file recovery isn't supported. Learn more at [Support matrix for Azure VM backup](./backup-support-matrix-iaas.md#support-for-file-level-restore).
@@ -162,9 +170,18 @@ If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover 
 
 ### You can't copy the files from mounted volumes
 
-The copy might fail with the error "0x80070780: The file cannot be accessed by the system." 
+The copy might fail with the error **0x80070780: The file cannot be accessed by the system.**
 
-Check if the source server has disk deduplication enabled. If it does, ensure the restore server also has deduplication enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
+Check if the source server has disk **deduplication** enabled. If the option is enabled, ensure the restore server also has **deduplication** enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
+
+### Disk is not unmount although clicked Unmount disks on Azure Portal (Linux OS)
+
+Unmount disks manually by running python script with the `clean` parameter. The following example shows installation of **python 3 package** by the machine.
+
+```python
+
+ python3 XXX.py clean
+```
 
 ## Next steps
 

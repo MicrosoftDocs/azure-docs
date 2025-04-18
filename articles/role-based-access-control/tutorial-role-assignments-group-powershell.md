@@ -1,14 +1,11 @@
 ---
 title: "Tutorial: Grant a group access to Azure resources using Azure PowerShell - Azure RBAC"
 description: Learn how to grant a group access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
-services: active-directory
 author: rolyon
-manager: amycolannino
-
+manager: femila
 ms.service: role-based-access-control
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for groups to resources so that they can perform their job.
@@ -27,14 +24,15 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+[!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
 To complete this tutorial, you will need:
 
-- Permissions to create groups in Azure Active Directory (or have an existing group)
+- Permissions to create groups in Microsoft Entra ID (or have an existing group)
 - [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
+- [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
 ## Role assignments
 
@@ -51,17 +49,17 @@ In Azure RBAC, to grant access, you create a role assignment. A role assignment 
 
 To assign a role, you need a user, group, or service principal. If you don't already have a group, you can create one.
 
-- In Azure Cloud Shell, create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
+- In Azure Cloud Shell, create a new group using the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup) command.
 
    ```azurepowershell
-   New-AzureADGroup -DisplayName "RBAC Tutorial Group" `
-     -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+   New-MgGroup -DisplayName "RBAC Tutorial Group" -MailEnabled:$false `
+      -SecurityEnabled:$true -MailNickName "NotSet"
    ```
 
-   ```Example
-   ObjectId                             DisplayName         Description
-   --------                             -----------         -----------
-   11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
+   ```output
+   DisplayName         Id                                   MailNickname Description GroupTypes
+   -----------         --                                   ------------ ----------- ----------
+   RBAC Tutorial Group aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet                   {}
    ```
 
 If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
@@ -93,29 +91,29 @@ You use a resource group to show how to assign a role at a resource group scope.
    Location          : westus
    ProvisioningState : Succeeded
    Tags              :
-   ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+   ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
    ```
 
 ## Grant access
 
 To grant access for the group, you use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command to assign a role. You must specify the security principal, role definition, and scope.
 
-1. Get the object ID of the group using the [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
+1. Get the object ID of the group using the [Get-MgGroup](/powershell/module/microsoft.graph.groups/get-mggroup) command.
 
     ```azurepowershell
-    Get-AzureADGroup -SearchString "RBAC Tutorial Group"
+    Get-MgGroup -Filter "DisplayName eq 'RBAC Tutorial Group'"
     ```
 
-    ```Example
-    ObjectId                             DisplayName         Description
-    --------                             -----------         -----------
-    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
+    ```output
+    DisplayName         Id                                   MailNickname Description GroupTypes
+    -----------         --                                   ------------ ----------- ----------
+    RBAC Tutorial Group aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet                   {}
     ```
 
 1. Save the group object ID in a variable.
 
     ```azurepowershell
-    $groupId = "11111111-1111-1111-1111-111111111111"
+    $groupId = "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
     ```
 
 1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) command.
@@ -127,14 +125,14 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```Example
     Name     : Pay-As-You-Go
     Id       : 00000000-0000-0000-0000-000000000000
-    TenantId : 22222222-2222-2222-2222-222222222222
+    TenantId : aaaabbbb-0000-cccc-1111-dddd2222eeee
     State    : Enabled
     ```
 
 1. Save the subscription scope in a variable.
 
     ```azurepowershell
-    $subScope = "/subscriptions/00000000-0000-0000-0000-000000000000"
+    $subScope = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
     ```
 
 1. Assign the [Reader](built-in-roles.md#reader) role to the group at the subscription scope.
@@ -146,13 +144,13 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/44444444-4444-4444-4444-444444444444
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```
@@ -166,13 +164,13 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Contributor
     RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```
@@ -186,13 +184,13 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```
@@ -206,23 +204,23 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Contributor
     RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```
@@ -277,10 +275,10 @@ To clean up the resources created by this tutorial, delete the resource group an
     
 1. When asked to confirm, type **Y**. It will take a few seconds to delete.
 
-1. Delete the group using the [Remove-AzureADGroup](/powershell/module/azuread/remove-azureadgroup) command.
+1. Delete the group using the [Remove-MgGroup](/powershell/module/microsoft.graph.groups/remove-mggroup) command.
 
     ```azurepowershell
-    Remove-AzureADGroup -ObjectId $groupId
+    Remove-MgGroup -GroupID $groupId
     ```
     
     If you receive an error when you try to delete the group, you can also delete the group in the portal.

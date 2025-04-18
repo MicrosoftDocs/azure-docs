@@ -1,9 +1,9 @@
 ---
-author: alkohli
-ms.service: databox  
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 04/04/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Before you begin the data copy:

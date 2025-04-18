@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Azure Kubernetes Service (AKS)
-    tocHref: /virtualization/windowscontainers/
-    topicHref: /azure/aks/index

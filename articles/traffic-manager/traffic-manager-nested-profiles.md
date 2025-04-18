@@ -3,14 +3,11 @@ title: Nested Traffic Manager Profiles in Azure
 titleSuffix: Azure Traffic Manager
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
-documentationcenter: ''
 author: greg-lindsay
 manager: kumud
-ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/10/2022
+ms.service: azure-traffic-manager
+ms.topic: concept-article
+ms.date: 08/08/2024
 ms.author: greglin
 ---
 

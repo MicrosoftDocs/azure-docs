@@ -2,13 +2,13 @@
 title: Access control and security for DPS with security tokens
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps by using shared access signatures and security tokens.
-author: kgremban
-
-ms.service: iot-dps
+author: SoniaLopezBravo
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 09/22/2021
-ms.author: kgremban
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.author: sonialopez
+ms.custom: devx-track-csharp
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) with shared access signatures and security tokens
@@ -142,7 +142,7 @@ Azure IoT Hub Device Provisioning Service grants access to endpoints by verifyin
 
 You can grant [permissions](#device-provisioning-service-permissions) in the following ways:
 
-* **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#device-provisioning-service-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
+* **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#device-provisioning-service-permissions). You can define policies in the [Azure portal](https://portal.azure.com), or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
 
 * **provisioningserviceowner**: Policy with all permissions. See [permissions](#device-provisioning-service-permissions) for detailed information.
 
@@ -252,15 +252,12 @@ Here are the service functions exposed on the endpoints:
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Provides operations for managing device enrollment groups. |
 | `{your-service}.azure-devices-provisioning.net/registrations/{id}` |Provides operations for retrieving and managing the status of device registrations. |
 
-
 As an example, a service generated using a pre-created shared access policy called `enrollmentread` would create a token with the following parameters:
 
 * resource URI: `{mydps}.azure-devices-provisioning.net`,
 * signing key: one of the keys of the `enrollmentread` policy,
 * policy name: `enrollmentread`,
 * any expiration time.backn
-
-![Create a shared access policy for your Device Provisioning Service instance in the portal][img-add-shared-access-policy]
 
 ```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -299,8 +296,6 @@ The following table lists the permissions you can use to control access to your 
 
 <!-- links and images -->
 
-[img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-management-portal]: https://portal.azure.com
 [lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: /rest/api/iot-dps/

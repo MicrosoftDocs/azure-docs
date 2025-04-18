@@ -1,20 +1,20 @@
 ---
-title: Install SAP software (preview)
+title: Install SAP software
 description: Learn how to install SAP software on an SAP system that you created using Azure Center for SAP solutions. You can either install the SAP software with  Azure Center for SAP solutions, or install the software outside the service and detect the installed system.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
 ---
 
-# Install SAP software (preview)
+# Install SAP software
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
 
-[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
+
+
 
 After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software.
 
@@ -32,12 +32,11 @@ Review the prerequisites for your preferred installation method: [through the Az
 - An Azure subscription.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which the Virtual Instance for SAP solutions exists.
 - A user-assigned managed identity with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
-- A [network set up for your infrastructure deployment](prepare-network.md).
+- A [network set up for your SAP deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
-- The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
 - If you are installing an SAP System through Azure Center for SAP solutions, you should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
-- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). 
-    - For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
+- If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create a Microsoft Entra app and configure it to access Media Services API](/azure/sap/workloads/high-availability-guide-suse-pacemaker#using-service-principal). 
+    - For an example, see the Red Hat documentation for [Creating a Microsoft Entra Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
     - To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal. 
 
 ### Prerequisites for outside installation
@@ -75,7 +74,7 @@ To install the SAP software directly, use the Azure Center for SAP solutions ins
 
     1. For **Have you uploaded the software to an Azure storage account?**, select **Yes**.
 
-    1. For **Software version**, use the **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00** . Please note only those versions will light up which are supported with the OS version that was used to deploy the infrastructure previously. 
+    1. For **Software version**, use the **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00** or **S/4 HANA 2022 ISS 00** . Please note only those versions will light up which are supported with the OS version that was used to deploy the infrastructure previously. 
 
     1. For **BOM directory location**, select **Browse** and find the path to your BOM file. For example, `https://<your-storage-account>.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0010ms.yaml`.
 
@@ -137,7 +136,7 @@ If you encounter this problem, follow these steps:
     - `permissions` to `0755`
     - `url` to the new SAP download URL
 
-1. Reupload the BOM file(s) in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the `boms` folder 
+1. Reupload the BOM file(s) in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms` or `S42022SPS00_v0001ms`) of the `boms` folder 
 
 ### Special characters like $ in S-user password is not accepted while downloading the BOM. 
 
@@ -159,7 +158,7 @@ If you encounter this problem, follow these steps:
      ```
   
     - For `<username>`, use your SAP username.
-    - For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
+    - For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_** or **_S42022SPS00_v0001ms_**
     - For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the Download SAP media section
     - For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the Download SAP media section. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
 

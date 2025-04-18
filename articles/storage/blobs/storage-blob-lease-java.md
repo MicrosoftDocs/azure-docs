@@ -6,27 +6,48 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 12/13/2022
-ms.subservice: blobs
+ms.date: 08/05/2024
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Create and manage blob leases with Java
 
-This article shows how to create and manage blob leases using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
+[!INCLUDE [storage-dev-guide-selector-lease-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-blob.md)]
 
-A lease creates and manages a lock on a blob for write and delete operations. The lock duration can be 15 to 60 seconds, or can be infinite. A lease on a blob provides exclusive write and delete access to the blob. To write to a blob with an active lease, a client must include the active lease ID with the write request.
+This article shows how to create and manage blob leases using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break blob leases.
 
-You can use the Java client library to acquire, renew, release and break leases. Lease operations are handled by the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, which provides a client containing all lease operations for [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) and [BlobClient](/java/api/com.azure.storage.blob.blobclient). To learn more about lease states and when you might perform an operation, see [Lease states and actions](#lease-states-and-actions).
+[!INCLUDE [storage-dev-guide-prereqs-java](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-java.md)]
 
-All container operations are permitted on a container that includes blobs with an active lease, including [Delete Container](/rest/api/storageservices/delete-container). Therefore, a container may be deleted even if blobs within it have active leases. Use the [Lease Container](/rest/api/storageservices/lease-container) operation to control rights to delete a container. To learn more about container leases using the client library, see [Create and manage container leases with Java](storage-blob-container-lease-java.md)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-java](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-java.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java" id="Snippet_Imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with a blob lease. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Lease Blob (REST API)](/rest/api/storageservices/lease-blob#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-java](../../../includes/storage-dev-guides/storage-dev-guide-create-client-java.md)]
+
+## About blob leases
+
+[!INCLUDE [storage-dev-guide-about-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-lease.md)]
+
+Lease operations are handled by the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, which provides a client containing all lease operations for blobs and containers. To learn more about container leases using the client library, see [Create and manage container leases with Java](storage-blob-container-lease-java.md).
 
 ## Acquire a lease
 
-When you acquire a lease, you'll obtain a lease ID that your code can use to operate on the blob. To acquire a lease, create an instance of the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, and then use the following method:
+When you acquire a blob lease, you obtain a lease ID that your code can use to operate on the blob. If the blob already has an active lease, you can only request a new lease by using the active lease ID. However, you can specify a new lease duration.
+
+To acquire a lease, create an instance of the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, and then use the following method:
 
 - [acquireLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -36,7 +57,9 @@ The following example acquires a 30-second lease for a blob:
 
 ## Renew a lease
 
-If your lease expires, you can renew it. To renew an existing lease, use the following method:
+You can renew a blob lease if the lease ID specified on the request matches the lease ID associated with the blob. The lease can be renewed even if it has expired, as long as the blob hasn't been modified or leased again since the expiration of that lease. When you renew a lease, the duration of the lease resets.
+
+To renew an existing lease, use the following method:
 
 - [renewLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -46,7 +69,9 @@ The following example renews a lease for a blob:
 
 ## Release a lease
 
-You can either wait for a lease to expire or explicitly release it. When you release a lease, other clients can immediately acquire a lease for the blob as soon as the operation is complete. You can release a lease by using the following method:
+You can release a blob lease if the lease ID specified on the request matches the lease ID associated with the blob. Releasing a lease allows another client to acquire a lease for the blob immediately after the release is complete.
+
+You can release a lease by using the following method:
 
 - [releaseLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -56,7 +81,9 @@ The following example releases the lease on a blob:
 
 ## Break a lease
 
-When you break a lease, the lease ends, and other clients can't acquire a lease until the lease period expires. You can break a lease by using the following method:
+You can break a blob lease if the blob has an active lease. Any authorized request can break the lease; the request isn't required to specify a matching lease ID. A lease can't be renewed after it's broken, and breaking a lease prevents a new lease from being acquired for a period of time until the original lease expires or is released.
+
+You can break a lease by using the following method:
 
 - [breakLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -70,18 +97,20 @@ The following example breaks the lease on a blob:
 
 To learn more about managing blob leases using the Azure Blob Storage client library for Java, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java)
+
 ### REST API operations
 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for managing blob leases use the following REST API operation:
 
 - [Lease Blob](/rest/api/storageservices/lease-blob)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java)
-
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
 
 ### See also
 
 - [Managing Concurrency in Blob storage](concurrency-manage.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

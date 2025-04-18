@@ -1,21 +1,18 @@
 ---
 title: Create an Azure Data Factory using REST API
 description: Create an Azure Data Factory pipeline to copy data from one location in Azure Blob storage to another location.
-author: jianleishen
-ms.service: data-factory
+author: whhender
 ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 08/18/2022
-ms.author: jianleishen
+ms.date: 02/13/2025
+ms.author: whhender
+ms.reviewer: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create an Azure Data Factory and pipeline by using the REST API
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-rest-api.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -27,13 +24,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](https://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one.
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
-* Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps). This quickstart uses PowerShell to invoke REST API calls.
-* **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role at either subscription or resource group level.
+* Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). This quickstart uses PowerShell to invoke REST API calls.
+* **Create an application in Microsoft Entra ID** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role at either subscription or resource group level.
 >[!NOTE]
 >	For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
 >	 You can use PowerShell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.  
@@ -69,9 +66,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     $apiVersion = "2018-06-01"
     ```
 
-## Authenticate with Azure AD
+<a name='authenticate-with-azure-ad'></a>
 
-Run the following commands to authenticate with Azure Active Directory (AAD):
+## Authenticate with Microsoft Entra ID
+
+Run the following commands to authenticate with Microsoft Entra ID:
 
 ```powershell
 $credentials = Get-Credential -UserName $appId
@@ -767,7 +766,7 @@ $runId  = ($response.content | ConvertFrom-Json).runId
 Here is the sample output: 
 
 ```json
-{"runId":"ffc9c2a8-d86a-46d5-9208-28b3551007d8"}
+{"runId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"}
 ```
 
 
@@ -800,10 +799,10 @@ Here is the sample output:
 
     ```json
         {
-          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/ffc9c2a8-d86a-46d5-9208-28b3551007d8",
-          "runId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+          "runId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
           "debugRunId": null,
-          "runGroupId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "runGroupId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
           "pipelineName": "Adfv2QuickStartParamPipeline",
           "parameters": {
             "strParamInputFileName": "emp2.txt",
@@ -866,7 +865,7 @@ Here is the sample output:
             "target": "CopyFromBlobToBlob",
             "details": ""
           },
-          "activityRunId": "40bab243-9bbf-4538-9336-b797a2f98e2b",
+          "activityRunId": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
           "iterationHash": "",
           "input": {
             "source": {
@@ -909,7 +908,7 @@ Here is the sample output:
           },
           "userProperties": {},
           "pipelineName": "Adfv2QuickStartParamPipeline",
-          "pipelineRunId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "pipelineRunId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
           "status": "Succeeded",
           "recoveryStatus": "None",
           "integrationRuntimeNames": [
@@ -920,7 +919,7 @@ Here is the sample output:
               "@{name=DefaultIntegrationRuntime; type=Managed; location=East US; nodes=}"
             ]
           },
-          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/ffc9c2a8-d86a-46d5-9208-28b3551007d8/activityruns/40bab243-9bbf-4538-9336-b797a2f98e2b"
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/activityruns/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f"
         }
     ```
 ## Verify the output
@@ -941,5 +940,5 @@ Run the following command to delete only the data factory:
 Remove-AzDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

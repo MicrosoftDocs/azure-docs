@@ -1,6 +1,6 @@
 ---
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
@@ -23,14 +23,11 @@ Table storage contains the following components:
 
 * **URL format:** Azure Table Storage accounts use this format: `http://<storage account>.table.core.windows.net/<table>`
 
-  Azure Cosmos DB for Table accounts use this format:
-  `http://<storage account>.table.cosmosdb.azure.com/<table>` 
-
   You can address Azure tables directly using this address with the OData protocol. For more information, see [OData.org][OData.org].
 
 * **Accounts:** All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../articles/storage/common/storage-account-overview.md).
 
-    All access to Azure Cosmos DB is done through an Azure Cosmos DB for Table account. For more information, see [Create an Azure Cosmos DB for Table account](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).
+    All access to Azure Cosmos DB is done through an Azure Cosmos DB for Table account. For more information, see [Create an Azure Cosmos DB for Table account](/azure/cosmos-db/create-table-dotnet#create-a-database-account).
 
 * **Table**: A table is a collection of entities. Tables don't enforce a schema on entities, which means a single table can contain entities that have different sets of properties.
 
@@ -41,4 +38,4 @@ Table storage contains the following components:
 For details about naming tables and properties, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
-[OData.org]: http://www.odata.org/
+[OData.org]: https://www.odata.org/

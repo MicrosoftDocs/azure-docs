@@ -3,9 +3,9 @@ title: Scenarios for Azure Private DNS zones
 description: In this article, learn about common scenarios for using Azure Private DNS zones.
 services: dns
 author: greg-lindsay
-ms.service: dns
-ms.topic: article
-ms.date: 09/27/2022
+ms.service: azure-dns
+ms.topic: concept-article
+ms.date: 02/10/2025
 ms.author: greglin
 ---
 
@@ -21,6 +21,9 @@ This scenario is shown below. We have a virtual network named "A" containing two
 You can also do a reverse DNS query (PTR) for the private IP of VNETA-VM1 (10.0.0.1) from VNETA-VM2. The DNS response will contain the name VNETA-VM1, as expected. 
 
 ![Single Virtual network resolution](./media/private-dns-scenarios/single-vnet-resolution.png)
+
+> [!NOTE]
+> The IP addresses 10.0.0.1 and 10.0.0.2 are examples only. Since Azure reserves the first four addresses in a subnet, the .1 and .2 addresses are not normally assigned to a VM. 
 
 ## Scenario: Name Resolution across virtual networks
 
@@ -39,7 +42,7 @@ In this scenario, you need a different naming resolution that depends on where t
 
 The following diagram demonstrates this scenario. You have a virtual network A that has two VMs (VNETA-VM1 and VNETA-VM2). Both have a private IP and public IP configured. A public DNS zone called `contoso.com` was created and registers the public IPs for these VMs as DNS records within the zone. A private DNS zone is also created called `contoso.com`. You defined virtual network A as a registration virtual network. Azure then automatically registers the VMs as A records into the Private Zone, pointing to their private IPs.
 
-Now when an internet client does a DNS query for `VNETA-VM1.contoso.com`, Azure will return the public IP record from the public zone. If the same DNS query is issued from another VM (for example: VNETA-VM2) in the same virtual network A, Azure will return the Private IP record from the private zone. 
+Now when an internet client does a DNS query for `VNETA-VM1.contoso.com`, Azure will return the public IP record from the public zone (203.0.113.1). If the same DNS query is issued from another VM (for example: VNETA-VM2) in the same virtual network A, Azure will return the Private IP record from the private zone. 
 
 ![Split Brian resolution](./media/private-dns-scenarios/split-brain-resolution.png)
 

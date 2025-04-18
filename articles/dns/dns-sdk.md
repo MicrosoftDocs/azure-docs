@@ -3,18 +3,15 @@ title: Create DNS zones and record sets using the .NET SDK
 titleSuffix: Azure DNS
 description: In this learning path, get started creating DNS zones and record sets in Azure DNS by using the .NET SDK.
 services: dns
-documentationcenter: na
 author: greg-lindsay
 manager: kumudD
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
-ms.service: dns
+ms.service: azure-dns
 ms.devlang: csharp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.topic: how-to
+ms.date: 11/30/2023
 ms.author: greglin
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Create DNS zones and record sets using the .NET SDK
@@ -29,7 +26,7 @@ Typically, programmatic access to Azure resources is granted with a dedicated ac
 
 1. Then create a [resource group](../azure-resource-manager/templates/deploy-portal.md).
 
-1. Use [Azure RBAC](../role-based-access-control/role-assignments-portal.md) to grant the service principal account 'DNS Zone Contributor' permissions to the resource group.
+1. Use [Azure RBAC](../role-based-access-control/role-assignments-portal.yml) to grant the service principal account 'DNS Zone Contributor' permissions to the resource group.
 
 1. If you're using the Azure DNS SDK sample project, edit the 'program.cs' file as followed:
 
@@ -76,7 +73,7 @@ dnsClient.SubscriptionId = subscriptionId;
 
 To create a DNS zone, you first need to create a "Zone" object containing the DNS zone parameters. Since DNS zones aren't linked to a specific region, the location is set to 'global'. In this example, an [Azure Resource Manager 'tag'](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) is also added to the zone.
 
-To create or update the zone in Azure DNS, the zone object containing the zone parameters is passed to the `DnsManagementClient.Zones.CreateOrUpdateAsyc` method.
+To create or update the zone in Azure DNS, the zone object containing the zone parameters is passed to the `DnsManagementClient.Zones.CreateOrUpdateAsync` method.
 
 > [!NOTE]
 > DnsManagementClient supports three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').  You can choose any of these modes, depending on your application needs.

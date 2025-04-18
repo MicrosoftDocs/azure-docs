@@ -2,11 +2,10 @@
 title: Migrate data into Azure File Sync with Azure Data Box
 description: Migrate bulk data offline that's compatible with Azure File Sync. Avoid file conflicts, and catch up your file share with the latest changes on the server for a zero downtime cloud migration.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 06/24/2024
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Migrate data offline to Azure File Sync with Azure Data Box
@@ -70,9 +69,6 @@ Start this step only after you've finished the previous phase. Your Azure storag
 
 In this phase, you need to map the results of the migration plan from the previous phase to the limits of the available Data Box options. These considerations will help you make a plan for which Data Box options to choose and how many of them you'll need to move your NAS shares to Azure file shares.
 
-> [!NOTE]
-> DataBox Disk is not supported because it does not preserve file fidelity.
-
 To determine how many devices you need and their types, consider these important limits:
 
 * Any Azure Data Box appliance can move data into up to 10 storage accounts. 
@@ -84,8 +80,10 @@ Consult your migration plan to find the number of storage accounts you've decide
 
 For a standard migration, choose one or a combination of these Data Box options: 
 
+* **Data Box Disk**.
+  Microsoft will send you between one and five SSD disks that have a capacity of 8 TiB each, for a maximum total of 40 TiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Disk documentation](../../databox/data-box-disk-overview.md).
 * **Data Box**.
-  This option is the most common one. Microsoft will send you a ruggedized Data Box appliance that works similar to a NAS. It has a usable capacity of 80 TiB. For more information, see [Data Box documentation](../../databox/data-box-overview.md).
+  This option is the most common. Microsoft will send you a ruggedized Data Box appliance that works similar to a NAS. It has a usable capacity of 80 TiB. For more information, see [Data Box documentation](../../databox/data-box-overview.md).
 * **Data Box Heavy**.
   This option features a ruggedized Data Box appliance on wheels that works similar to a NAS. It has a capacity of 1 PiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Heavy documentation](../../databox/data-box-heavy-overview.md).
 
@@ -94,9 +92,10 @@ For a standard migration, choose one or a combination of these Data Box options:
 
 ## Phase 4: Copy files onto your Data Box
 
-When your Data Box arrives, you need to set it up in the line of sight to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
+When your Data Box arrives, you need to set it up with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
+* [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
 * [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md).
 
 Depending on the type of Data Box, Data Box copy tools might be available. At this point, we don't recommend them for migrations to Azure file shares because they don't copy your files to the Data Box with full fidelity. Use Robocopy instead.
@@ -163,4 +162,4 @@ There's more to discover about Azure file shares and Azure File Sync. The follow
 * [Migration overview](storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 * [Create a file share](storage-how-to-create-file-share.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

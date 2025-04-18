@@ -4,15 +4,17 @@ description: This quickstart shows you how to create, provision, verify, update,
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 12/27/2022
+ms.date: 09/25/2024
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell
 
-This quickstart shows you how to create an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+This quickstart shows you how to create an ExpressRoute circuit in three different resiliency types: **Maximum Resiliency**, **High Resiliency**, and **Standard Resiliency** using Azure PowerShell. You'll learn how to check the status, update, delete, or deprovision a circuit using PowerShell cmdlets.
+
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure PowerShell." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
 ## Prerequisites
 
@@ -20,7 +22,7 @@ This quickstart shows you how to create an ExpressRoute circuit using PowerShell
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 
@@ -32,7 +34,7 @@ This quickstart shows you how to create an ExpressRoute circuit using PowerShell
 
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
 
-The PowerShell cmdlet **Get-AzExpressRouteServiceProvider** returns this information, which you’ll use in later steps:
+The PowerShell cmdlet **Get-AzExpressRouteServiceProvider** returns this information, which you use in later steps:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -46,19 +48,85 @@ Check to see if your connectivity provider is listed there. Make a note of the f
 
 You're now ready to create an ExpressRoute circuit.
 
-### Create an ExpressRoute circuit
+### Get the list of resilient locations
 
-If you don't already have a resource group, you must create one before you create your ExpressRoute circuit. You can do so by running the following command:
+If you're creating an ExpressRoute circuit with a resiliency type of  **Maximum Resiliency**, you need to know the list of resilient locations. Here are the steps to retrieve this information:
+
+#### Clone the script
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+# Clone the setup script from GitHub.
+git clone https://github.com/Azure-Samples/azure-docs-powershell-samples/ 
+# Change to the directory where the script is located.
+CD azure-docs-powershell-samples/expressroute/
 ```
 
-The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key:
+#### Run resilient locations script
+
+Run the **Get-AzExpressRouteResilientLocations.ps1** script to get the list of resilient locations. The following example shows how to get the resilient locations for a specific subscription sorted by distance from Silicon Valley:
+
+```azurepowershell-interactive
+$SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
+highAvailabilitySetup/Get-AzExpressRouteResilientLocations.ps1 -SubscriptionId $SubscriptionId -RelativeLocation "silicon valley"
+```
+If you don't specify the location, you get a list of all resilient locations.
+
+### Create an ExpressRoute circuit
+
+If you don't already have a resource group, you must create one before you create your ExpressRoute circuit. You can do so by running the **New-AzResourceGroup** cmdlet:
+
+```azurepowershell-interactive
+$resourceGroupName = (New-AzResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US").ResourceGroupName
+```
+
+If you already have a resource group, you can use **Get-AzResourceGroup** to get the resource group name into a variable:
+
+```azurepowershell-interactive
+$resourceGroupName = (Get-AzResourceGroup -Name "<ResourceGroupName>").ResourceGroupName
+```
+
+# [**Maximum Resiliency**](#tab/maximum)
+
+**Maximum Resiliency** (Recommended) provides the highest level of resiliency for your ExpressRoute connection. It provides two ExpressRoute circuits with local redundancy in two different ExpressRoute edge locations.
+
+The following example shows how to create two ExpressRoute circuits through Equinix with local redundancy in Silicon Valley and Washington DC. If you're using a different provider and different settings, replace that information when you make your request.
+
+> [!NOTE]
+> This example uses the **New-AzHighAvailabilityExpressRouteCircuits.ps1** script. You must clone the script from GitHub to create the circuits. For more information, see [Clone the script](#clone-the-script).
+
+```azurepowershell-interactive
+$SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
+highAvailabilitySetup/New-AzHighAvailabilityExpressRouteCircuits.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName $resourceGroupName -Location "westus" -Name1 $circuit1Name -Name2 $circuit2Name -SkuFamily1 "MeteredData" -SkuFamily2 "MeteredData" -SkuTier1 "Standard" -SkuTier2 "Standard" -ServiceProviderName1 "Equinix" -ServiceProviderName2 "Equinix" -PeeringLocation1 "Silicon Valley" -PeeringLocation2 "Washington DC" -BandwidthInMbps 1000
+```
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
+
+> [!NOTE]
+> Maximum Resiliency provides maximum protection against location wide outages and connectivity failures in an ExpressRoute location. This option is strongly recommended for all critical and production workloads.
+
+# [**High Resiliency**](#tab/high)
+
+**High Resiliency** provides resiliency against location wide outages through a single ExpressRoute circuit across two locations in a metropolitan area.
+
+The following example shows how to create an ExpressRoute circuit through Equinix in Amsterdam Metro. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key.
+
+```azurepowershell-interactive
+New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West EU" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Amsterdam Metro" -BandwidthInMbps 200
+```
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/high-resiliency.png" alt-text="Diagram of high resiliency for an ExpressRoute connection.":::
+
+# [**Standard Resiliency**](#tab/standard)
+
+**Standard Resiliency** provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
+
+The following example shows how to create an ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key.
 
 ```azurepowershell-interactive
 New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
 ```
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of standard resiliency for an ExpressRoute connection.":::
+
+---
 
 Make sure that you specify the correct SKU tier and SKU family:
 
@@ -67,7 +135,6 @@ Make sure that you specify the correct SKU tier and SKU family:
 
 > [!IMPORTANT]
 > Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
->
 
 The response contains the service key. You can get detailed descriptions of all the parameters by running the following command:
 
@@ -80,7 +147,7 @@ get-help New-AzExpressRouteCircuit -detailed
 To get a list of all the ExpressRoute circuits that you created, run the **Get-AzExpressRouteCircuit** command:
 
 ```azurepowershell-interactive
-Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit
 ```
 
 The response looks similar to the following example:
@@ -143,7 +210,7 @@ Peerings                         : []
 
 ### Send the service key to your connectivity provider for provisioning
 
-*ServiceProviderProvisioningState* provides you information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+*ServiceProviderProvisioningState* provides you with information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you with the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-partner-circuit-provisioning-states).
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
@@ -168,7 +235,7 @@ CircuitProvisioningState         : Enabled
 
 ### Periodically check the status and the state of the circuit key
 
-Checking the status and the state of the service key will let you know when your provider has provisioned your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
+Checking the status and the state of the service key lets you know when your provider provisioned your circuit. After the circuit gets configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -310,7 +377,7 @@ $ckt.sku.Name = "Premium_MeteredData"
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The circuit now has the ExpressRoute premium add-on features enabled. We begin billing you for the premium add-on capability as soon as the command has successfully run.
+The circuit now has the ExpressRoute premium add-on features enabled. We begin billing you for the premium add-on capability as soon as the command successfully ran.
 
 ### To disable the ExpressRoute premium add-on
 
@@ -321,8 +388,8 @@ The circuit now has the ExpressRoute premium add-on features enabled. We begin b
 Note the following information:
 
 * Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't, your update request fails, and we bill you at premium rates.
-* All virtual networks in other geopolitical regions must be first unlinked. If you don't remove the link, your update request will fail and we continue to bill you at premium rates.
-* Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session will drop. The BGP session won't be re-enabled until the number of advertised prefixes is under 4,000.
+* All virtual networks in other geopolitical regions must be first unlinked. If you don't remove the link, your update request fails and we continue to bill you at premium rates.
+* Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops. The BGP session doesn't re-establish until the number of advertised prefixes is under 4,000.
 
 You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
 
@@ -355,7 +422,7 @@ $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-Your circuit will be upgraded on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we'll begin billing you for the updated bandwidth option.
+Your circuit is upgraded on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we'll begin billing you for the updated bandwidth option.
 
 ### To move the SKU from metered to unlimited
 
@@ -378,9 +445,9 @@ Review the instructions in [Move ExpressRoute circuits from the classic to the R
 
 Note the following information:
 
-* All virtual networks must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
+* All virtual networks, route filters, authorizations, and global reach associations must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit will then stop.
+* If the service provider deprovisioned the circuit, meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit stops.
 
 ## Clean up resources
 

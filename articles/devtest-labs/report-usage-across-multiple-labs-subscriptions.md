@@ -2,7 +2,7 @@
 title: Azure DevTest Labs usage across multiple labs and subscriptions
 description: Learn how to report Azure DevTest Labs usage across multiple labs and subscriptions.
 ms.topic: how-to
-ms.custom: ignite-2022
+ms.custom: UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
@@ -30,17 +30,7 @@ Before you can export DevTest Labs resource usage, you have to set up an Azure S
     > [!NOTE]
     > The date parameter doesn't include a time stamp so the data includes everything from midnight based on the time zone where the lab is located.
 
-Once the export is complete, there will be multiple CSV files in the blob storage with the different resource information.
-  
-Currently there are two CSV files:
-
-* *virtualmachines.csv* - contains information about the virtual machines in the lab
-* *disks.csv* - contains information about the different disks in the lab 
-
-These files are stored in the *labresourceusage* blob container. The files are under the lab name, lab unique ID, date executed, and either `full` or the start date of the export request. An example blob structure is:
-
-* `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD26-MM6-2019YYYY/full/virtualmachines.csv`
-* `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD-MM-YYYY/26-6-2019/20-6-2019<Start>DD-MM-YYYY/virtualmachines.csv`
+Once the export is complete, there will be a CSV file in the blob storage with the different resource information.
 
 ## Exporting usage for all labs
 
@@ -80,5 +70,5 @@ Once you set up the system and data is moving to the long-term storage, the next
     Are users selecting high performance (more expensive) VM sizes?
 -	Which Marketplace images are being used?
 
-    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) or [Image factory](image-factory-create.md).
+    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](/azure/virtual-machines/shared-image-galleries) or [Image factory](image-factory-create.md).
 -	Which custom images are being used, or not used?

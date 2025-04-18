@@ -1,13 +1,12 @@
 ---
 title: Monitor integration runtime in Azure Data Factory 
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 02/13/2025
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Monitor an integration runtime in Azure Data Factory
@@ -20,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 - Self-hosted integration runtime
 - Azure-SQL Server Integration Services (SSIS) integration runtime
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 
@@ -76,7 +75,7 @@ The following table provides descriptions of monitoring Properties for **each no
 | CPU utilization | CPU utilization of a self-hosted integration runtime node. This value is a near real-time snapshot. |
 | Networking (In/Out) | Network utilization of a self-hosted integration runtime node. This value is a near real-time snapshot. | 
 | Concurrent Jobs (Running/ Limit) | **Running**. Number of jobs or tasks running on each node. This value is a near real-time snapshot. <br/><br/>**Limit**. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, when activities are timing out even when CPU, memory, or network is under-utilized. This capability is also available with a single-node self-hosted integration runtime. |
-| Role | There are two types of roles in a multi-node self-hosted integration runtime – dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes. The dispatcher node is also a worker node. |
+| Role | There are two types of roles in a multi-node self-hosted integration runtime - dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes. The dispatcher node is also a worker node. |
 
 Some settings of the properties make more sense when there are two or more nodes in the self-hosted integration runtime (that is, in a scale out scenario).
 
@@ -237,7 +236,7 @@ The functional tiles are described in more details below.
 
 #### STATUS tile
 
-On the **STATUS** tile of your Azure-SSIS IR monitoring page, you can see its overall status, for example **Running** or **Stopped**. Selecting the **Running** status pops up a window with live **Stop** button to stop your Azure-SSIS IR. Selecting the **Stopped** status pops up a window with live **Start** button to start your Azure-SSIS IR. The pop-up window also has an **Execute SSIS package** button to auto-generate an ADF pipeline with Execute SSIS Package activity that runs on your Azure-SSIS IR (see [Running SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md)) and a **Resource ID** text box, from which you can copy your Azure-SSIS IR resource ID (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). The suffix of your Azure-SSIS IR resource ID that contains your ADF and Azure-SSIS IR names forms a cluster ID that can be used to purchase additional premium/licensed SSIS components from independent software vendors (ISVs) and bind them to your Azure-SSIS IR (see [Installing premium/licensed components on your Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
+On the **STATUS** tile of your Azure-SSIS IR monitoring page, you can see its overall status, for example **Running** or **Stopped**. Selecting the **Running** status pops up a window with live **Stop** button to stop your Azure-SSIS IR. Selecting the **Stopped** status pops up a window with live **Start** button to start your Azure-SSIS IR. The pop-up window also has an **Execute SSIS package** button to auto-generate an ADF pipeline with Execute SSIS Package activity that runs on your Azure-SSIS IR (see [Running SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md)) and a **Resource ID** text box, from which you can copy your Azure-SSIS IR resource ID (`/subscriptions/YourAzureSubscription/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). The suffix of your Azure-SSIS IR resource ID that contains your ADF and Azure-SSIS IR names forms a cluster ID that can be used to purchase additional premium/licensed SSIS components from independent software vendors (ISVs) and bind them to your Azure-SSIS IR (see [Installing premium/licensed components on your Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png" alt-text="Monitor your Azure-SSIS IR - STATUS tile":::
 
@@ -253,7 +252,7 @@ If you download, install, and configure Self-Hosted IR (SHIR) as a proxy for you
 
 #### VALIDATE VNET / SUBNET tile
 
-If you join your Azure-SSIS IR to a VNet, you'll see the **VALIDATE VNET / SUBNET** tile on your Azure-SSIS IR monitoring page (see [Joining your Azure-SSIS IR to a VNet](./join-azure-ssis-integration-runtime-virtual-network.md)). On this tile, you can select a link designating your VNet and subnet to pop up a window, where you can copy your VNet resource ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) and subnet name from text boxes, as well as validate your VNet and subnet configurations to ensure that the required inbound/outbound network traffics and management of your Azure-SSIS IR aren't obstructed.
+If you join your Azure-SSIS IR to a VNet, you'll see the **VALIDATE VNET / SUBNET** tile on your Azure-SSIS IR monitoring page (see [Joining your Azure-SSIS IR to a VNet](./join-azure-ssis-integration-runtime-virtual-network.md)). On this tile, you can select a link designating your VNet and subnet to pop up a window, where you can copy your VNet resource ID (`/subscriptions/YourAzureSubscription/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) and subnet name from text boxes, as well as validate your VNet and subnet configurations to ensure that the required inbound/outbound network traffics and management of your Azure-SSIS IR aren't obstructed.
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png" alt-text="Monitor your Azure-SSIS IR - VALIDATE tile":::
 
@@ -265,7 +264,7 @@ On the **DIAGNOSE CONNECTIVITY** tile of your Azure-SSIS IR monitoring page, you
 
 #### STATIC PUBLIC IP ADDRESSES tile
 
-If you bring your own static public IP addresses for Azure-SSIS IR, you'll see the **STATIC PUBLIC IP ADDRESSES** tile on your Azure-SSIS IR monitoring page (see [Bringing your own static public IP addresses for Azure-SSIS IR](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip)). On this tile, you can select links designating your first/second static public IP addresses for Azure-SSIS IR to pop up a window, where you can copy their resource ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) from a text box. On the pop-up window, you can also select the **See your first/second static public IP address settings** link to manage your first/second static public IP address in Azure portal.
+If you bring your own static public IP addresses for Azure-SSIS IR, you'll see the **STATIC PUBLIC IP ADDRESSES** tile on your Azure-SSIS IR monitoring page (see [Bringing your own static public IP addresses for Azure-SSIS IR](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip)). On this tile, you can select links designating your first/second static public IP addresses for Azure-SSIS IR to pop up a window, where you can copy their resource ID (`/subscriptions/YourAzureSubscription/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) from a text box. On the pop-up window, you can also select the **See your first/second static public IP address settings** link to manage your first/second static public IP address in Azure portal.
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Monitor your Azure-SSIS IR - STATIC tile":::
 
@@ -295,7 +294,7 @@ See the following articles to learn more about Azure-SSIS integration runtime:
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to start, stop, or delete your Azure-SSIS IR. It also shows you how to scale it out by adding more nodes. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides instructions on joining your Azure-SSIS IR to a virtual network.
 
-## Next steps
+## Related content
 See the following articles for monitoring pipelines in different ways: 
 
 - [Quickstart: create a data factory](quickstart-create-data-factory-dot-net.md).

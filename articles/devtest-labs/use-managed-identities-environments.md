@@ -5,18 +5,22 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Use Azure managed identities to deploy environments in a lab 
 
-As a lab owner, you can use a managed identity to deploy environments in a lab. This feature helps in scenarios where the environment contains or has references to Azure resources that are outside the environment’s resource group. These resources include key vaults, shared image galleries, and networks. Managed identities enable creation of sandbox environments that aren't limited to the resource group of that environment. 
+As a lab owner, you can use a managed identity to deploy environments in a lab. This feature helps in scenarios where the environment contains or has references to Azure resources that are outside the environment's resource group. These resources include key vaults, shared image galleries, and networks. Managed identities enable creation of sandbox environments that aren't limited to the resource group of that environment. 
 
-By default, when you create an environment, the lab creates a system-assigned identity while deploying the Azure Resource Manager template (ARM template). The system-assigned identity accesses Azure resources and services on a lab user’s behalf. DevTest Labs creates a system-assigned identity by default the first time it creates the lab environment. Learn more about [why a lab creates a system-assigned identity](configure-lab-identity.md#scenarios-for-using-labs-system-assigned-identity). 
+By default, when you create an environment, the lab creates a system-assigned identity while deploying the Azure Resource Manager template (ARM template). The system-assigned identity accesses Azure resources and services on a lab user's behalf. DevTest Labs creates a system-assigned identity by default the first time it creates the lab environment. Learn more about [why a lab creates a system-assigned identity](configure-lab-identity.md#scenarios-for-using-labs-system-assigned-identity). 
 
-As a lab owner, you can choose to grant the lab’s system-assigned identity permissions to access Azure resources outside the lab. You can also use your user-assigned identity for the scenario. The lab’s system-assigned identity is valid only for the life of the lab. The system-assigned identify is deleted when you delete the lab. When you have environments in multiple labs that need to use an identity, consider using a user-assigned identity.  
+As a lab owner, you can choose to grant the lab's system-assigned identity permissions to access Azure resources outside the lab. You can also use your user-assigned identity for the scenario. The lab's system-assigned identity is valid only for the life of the lab. The system-assigned identify is deleted when you delete the lab. When you have environments in multiple labs that need to use an identity, consider using a user-assigned identity.  
 
-> [!NOTE]
+> [!IMPORTANT]
 > Currently, a single user-assigned identity is supported per lab. 
+
+
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
 ## Prerequisites
 

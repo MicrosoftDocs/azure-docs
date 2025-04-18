@@ -2,8 +2,8 @@
 title: Azure virtual network TAP overview
 description: Learn about virtual network TAP. Virtual network TAP provides you with a copy of virtual machine network traffic that can be streamed to a packet collector.
 author: asudbring
-ms.service: virtual-network
-ms.topic: conceptual
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ms.date: 03/28/2023
 ms.author: allensu
 ---
@@ -11,7 +11,7 @@ ms.author: allensu
 # Virtual network TAP
 
 > [!IMPORTANT]
-> Virtual network TAP Preview is currently on hold in all Azure regions. You can email us at <azurevnettap@microsoft.com> with your subscription ID and we will notify you with future updates about the preview. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+> Virtual network TAP Preview is currently in Private Preview in select Azure regions. You can sign up for our Previews using the sign form (https://forms.office.com/r/EWqbgLGNcV) and we will notify you when you are selected. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](#virtual-network-tap-partner-solutions).
 
@@ -23,7 +23,7 @@ The following diagram shows how virtual network TAP works. You can add a TAP con
 
 Before you can create a virtual network TAP, ensure you've received the confirmation email that you're enrolled in the preview. You must have one or more virtual machines created with [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one. 
 
-You can use the same virtual network TAP resource to aggregate traffic from multiple network interfaces in the same or different subscriptions. If the monitored network interfaces are in different subscriptions, the subscriptions must be associated to the same Azure Active Directory tenant. Additionally, the monitored network interfaces and the destination endpoint for aggregating the TAP traffic can be in peered virtual networks in the same region. If you're using this deployment model, ensure that the [virtual network peering](virtual-network-peering-overview.md) is enabled before you configure virtual network TAP.
+You can use the same virtual network TAP resource to aggregate traffic from multiple network interfaces in the same or different subscriptions. If the monitored network interfaces are in different subscriptions, the subscriptions must be associated to the same Microsoft Entra tenant. Additionally, the monitored network interfaces and the destination endpoint for aggregating the TAP traffic can be in peered virtual networks in the same region. If you're using this deployment model, ensure that the [virtual network peering](virtual-network-peering-overview.md) is enabled before you configure virtual network TAP.
 
 ## Permissions
 
@@ -43,7 +43,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
+- [cPacket Cloud Visibility](https://www.cpacket.com/cloud)
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
@@ -55,23 +55,23 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Darktrace](https://www.darktrace.com)
 
-- [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
-
-- [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Fidelis Cybersecurity](https://fidelissecurity.com/)
 
 - [Flowmon](https://www.flowmon.com/en/blog/azure-vtap)
 
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 
-- [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
+- [Netscout vSTREAM](https://www.netscout.com/technology-partners/microsoft-azure)
 
 - [Noname Security](https://nonamesecurity.com/)
 
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 
-- [RSA NetWitness® Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
+- [RSA NetWitness&reg; Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
 
 - [Vectra Cognito](https://www.vectra.ai/products/cognito-platform)
+
+- [Corelight, Inc.](https://corelight.com/)
 
 ## Next steps
 

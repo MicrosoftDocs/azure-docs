@@ -6,14 +6,11 @@ summary: Azure Resource Manager templates are JavaScript Object Notation (JSON) 
 metadata:
   title: ARM template documentation
   description: "Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources"
-  services: azure-resource-manager
   ms.service: azure-resource-manager
+  ms.author: jgao
   ms.subservice: templates
   ms.topic: landing-page
-  ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 03/03/2021
+  ms.date: 06/20/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

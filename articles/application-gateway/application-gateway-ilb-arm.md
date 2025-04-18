@@ -3,7 +3,7 @@ title: Use with Internal Load Balancer - Azure Application Gateway
 description: This article provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB)
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/13/2022
 ms.author: greglin 
@@ -18,9 +18,9 @@ This article walks you through the steps to configure a Standard v1 Application 
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-1. Install the latest version of the Azure PowerShell module by following the [install instructions](/powershell/azure/install-az-ps).
+1. Install the latest version of the Azure PowerShell module by following the [install instructions](/powershell/azure/install-azure-powershell).
 2. You create a virtual network and a subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.
 3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
@@ -29,7 +29,7 @@ This article walks you through the steps to configure a Standard v1 Application 
 * **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the virtual network but in a different subnet for the application gateway or should be a public IP/VIP.
 * **Backend server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 * **Frontend port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the backend servers.
-* **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+* **Listener:** The listener has a frontend port, a protocol (HTTP or HTTPS, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 * **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 ## Create an application gateway

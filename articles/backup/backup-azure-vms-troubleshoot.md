@@ -3,8 +3,8 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 12/23/2022
-ms.service: backup
+ms.date: 01/21/2025
+ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -71,7 +71,7 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
-**Step 1**
+**Step 1:**
 
 * Unmount the devices for which the file system state wasn't cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
@@ -79,14 +79,25 @@ Error message: Failed to freeze one or more mount-points of the VM to take a fil
 
 If you can't un-mount the devices then you can update the VM backup configuration to ignore certain mount points. For example, if '/mnt/resource' mount point can't be un-mounted and causing the VM backup failures, you can update the VM backup configuration files with the `MountsToSkip` property as follows.
 
-```bash
-cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
-fsfreeze: True
-MountsToSkip = /mnt/resource
-SafeFreezeWaitInSeconds=600
-```
 
-**Step 2**
+
+
+
+
+
+1. Check if there is the **vmbackup.conf** file under the `/etc/azure/` directory.
+1. If there's no `/etc/azure/vmbackup.conf`, you can copy file from the `/var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.XXX.0/main/tempPlugin/vmbackup.conf`.
+1. In the `/etc/azure/vmbackup.conf` file, add the following configuration for Azure VM Backup to skip `fsfreeze` and take snapshot for the `/mnt/resource` mount point.
+
+    ```bash
+    cat  /etc/azure/vmbackup.conf[SnapshotThread]
+    fsfreeze: True
+    MountsToSkip = /mnt/resource
+    SafeFreezeWaitInSeconds=600
+
+    ```
+
+**Step 2:**
 
 * Check if there are duplicate mount points present.
 
@@ -133,7 +144,12 @@ Error message: Snapshot operation failed because VSS writers were in a bad state
 
 This error occurs because the VSS writers were in a bad state. Azure Backup extensions interact with VSS Writers to take snapshots of the disks. To resolve this issue, follow these steps:
 
-Step 1: Restart VSS writers that are in a bad state.
+**Step 1:** Check the **Free Disk Space**, **VM resources as RAM and page file**, and **CPU utilization percentage**.
+
+- Increase the VM size to increase vCPUs and RAM space.
+- Increase the disk size if the free disk space is low.
+
+**Step 2:** Restart VSS writers that are in a bad state.
 
 * From an elevated command prompt, run `vssadmin list writers`.
 * The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, restart the respective VSS writer's service.
@@ -145,13 +161,13 @@ Step 1: Restart VSS writers that are in a bad state.
 > [!NOTE]
 > Restarting some services can have an impact on your production environment. Ensure the approval process is followed and the service is restarted at the scheduled downtime.
 
-Step 2: If restarting the VSS writers did not resolve the issue, then run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
+**Step 3:** If restarting the VSS writers did not resolve the issue, then run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Step 3: If steps 1 and 2 did not resolve the issue, then the failure could be due to VSS writers timing out due to limited IOPS.<br>
+**Step 4:** If steps 1 and 2 did not resolve the issue, then the failure could be due to VSS writers timing out due to limited IOPS.<br>
 
 To verify, navigate to ***System and Event Viewer Application logs*** and check for the following error message:<br>
 *The shadow copy provider timed out while holding writes to the volume being shadow copied. This is probably due to excessive activity on the volume by an application or a system service. Try again later when activity on the volume is reduced.*<br>
@@ -160,7 +176,7 @@ Solution:
 
 * Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Change the backup policy to perform backups during off peak hours, when the load on the VM is at its lowest.
-* Upgrade the Azure disks to support higher IOPs. [Learn more here](../virtual-machines/disks-types.md)
+* Upgrade the Azure disks to support higher IOPs. [Learn more here](/azure/virtual-machines/disks-types)
 
 ### ExtensionFailedVssServiceInBadState - Snapshot operation failed due to VSS (Volume Shadow Copy) service in bad state
 
@@ -267,7 +283,7 @@ Error message: Snapshot operation failed due to inadequate VM resources.
 
 The backup operation on the VM failed due to delay in network calls while performing the snapshot operation. To resolve this issue, perform Step 1. If the issue persists, try steps 2 and 3.
 
-**Step 1**: Create snapshot through Host
+**Step 1:** Create snapshot through Host
 
 From an elevated (admin) command-prompt, run the following command:
 
@@ -278,9 +294,9 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 This will ensure the snapshots are taken through host instead of Guest. Retry the backup operation.
 
-**Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
+**Step 2:** Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
 
-**Step 3**: Try [increasing the size of the VM](../virtual-machines/resize-vm.md) and retry the operation
+**Step 3:** Try [increasing the size of the VM](/azure/virtual-machines/resize-vm) and retry the operation
 
 ### 320001, ResourceNotFound - Could not perform the operation as VM no longer exists / 400094, BCMV2VMNotFound - The virtual machine doesn't exist / An Azure virtual machine wasn't found
 
@@ -338,7 +354,8 @@ Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapsh
 
 Error code:  UserErrorRequestDisallowedByPolicy <BR> Error message: An invalid policy is configured on the VM which is preventing Snapshot operation.
 
-If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](../governance/policy/concepts/effects.md#deny) to a [Modify effect](../governance/policy/concepts/effects.md#modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](/azure/governance/policy/concepts/effect-deny) to a [Modify effect](/azure/governance/policy/concepts/effect-modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+
 
 ### UserErrorUnableToOpenMount
 
@@ -365,6 +382,10 @@ If after restore, you notice the disks are offline then:
 
 * Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+
+### Folder is missing when a Linux VM is recovered as a new VM
+This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal#mount-the-disk).
+
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 
@@ -405,7 +426,7 @@ Migration of Trusted Launch VM to Generation 2 VM is not supported. This is beca
 
 To resolve this issue:
 
-1. [Disable soft delete](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal).
+1. [Disable soft delete](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete).
 1. [Stop VM protection with delete backup data](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
 1. Re-enable soft delete.
 1. Configure VM protection again with the appropriate policy after the old backup data deletion is complete from the Recovery Services vault.
@@ -416,33 +437,33 @@ To resolve this issue:
 >- With a different name than the original one, **or**
 >- In a different resource group with the same name.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForOLR  
+#### UserErrorCrossSubscriptionRestoreNotSupportedForOLR  
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForOLR 
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForOLR 
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Original Location Recovery.
 
 **Resolution**: Ensure that you [select Create New/ Restore Disk](backup-azure-arm-restore-vms.md#restore-disks) for restore operation.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM   
+#### UserErrorCrossSubscriptionRestoreNotSupportedForUnManagedAzureVM   
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM  
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForUnManagedAzureVM  
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Azure VMs with Unmanaged Disks.
 
 **Resolution**: Perform standard restores within the same subscription instead.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForCRR
+#### UserErrorCrossSubscriptionRestoreNotSupportedForCRR
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForCRR  
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForCRR  
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported along-with Cross Region Restore.
 
 **Resolution**: Use either Cross Subscription Restore' or Cross Region Restore.  
   
-#### UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot  
+#### UserErrorCrossSubscriptionRestoreNotSupportedFromSnapshot  
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot 
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedFromSnapshot 
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported when restoring from a Snapshot recovery point.
 
@@ -464,17 +485,17 @@ To resolve this issue:
 
 **Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should register the Subscription to Recovery Services Resource Provider.
  
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM 
+#### UserErrorCrossSubscriptionRestoreNotSupportedForEncryptedAzureVM 
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForEncryptedAzureVM
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Encrypted Azure VMs.
 
 **Resolution**: Use the same subscription for Restore of Encrypted AzureVMs. 
  
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM 
+#### UserErrorCrossSubscriptionRestoreNotSupportedForTrustedLaunchAzureVM 
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForTrustedLaunchAzureVM
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Trusted Launch Azure VMs (TVMs).
 
@@ -517,7 +538,7 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 
 #### Linux VMs - Update the agent
 
-* To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
+* To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](/azure/virtual-machines/extensions/update-linux-agent?toc=/azure/virtual-machines/linux/toc.json).
 
     > [!NOTE]
     > Always use the distribution repository to update the agent.
@@ -538,8 +559,8 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 * **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
    ```console
-   [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
-   "USEVSSCOPYBACKUP"="TRUE"
+   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVssFullBackup /t REG_SZ /d True /f
+   
    ```
 
   >[!Note]

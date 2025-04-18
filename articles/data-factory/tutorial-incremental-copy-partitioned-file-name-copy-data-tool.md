@@ -3,11 +3,9 @@ title: Incrementally copy new files based on time partitioned file name
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files only based on time partitioned file name.
 author: dearandyxu
 ms.author: yexu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally copy new files based on time partitioned file name by using the Copy Data tool
@@ -72,7 +70,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 8. After creation is finished, the **Data Factory** home page is displayed.
 9. To launch the Azure Data Factory user interface (UI) in a separate tab, select **Open** on the **Open Azure Data Factory Studio** tile.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 ## Use the Copy Data tool to create a pipeline
 
@@ -158,7 +156,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 12. Select the new **DeltaCopyFromBlobPipeline** link for the second pipeline run when it comes, and do the same to review details. You will see the source file (file2.txt) has been copied from  **source/2021/07/15/07/**  to **destination/2021/07/15/07/** with the same file name. You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files in **destination** container.
 
 
-## Next steps
+## Related content
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
 > [!div class="nextstepaction"]

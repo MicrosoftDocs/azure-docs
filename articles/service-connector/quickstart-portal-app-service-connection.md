@@ -1,12 +1,11 @@
 ---
-title: Quickstart - Create a service connection in App Service from the Azure portal
+title: 'Quickstart: Create a service connection in App Service'
 description: Quickstart showing how to create a service connection in App Service from the Azure portal
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: quickstart
-ms.date: 07/18/2022
+ms.date: 10/22/2024
 #Customer intent: As an app developer, I want to connect several services together so that I can ensure I have the right connectivity to access my Azure resources.
 ---
 
@@ -39,44 +38,50 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
     | Setting             | Example                                | Description                                                                                                                                                             |
     |---------------------|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Service type**    | Storage -  Blob                        | The target service type. If you don't have a Microsoft Blob Storage, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type. |
-    | **Subscription**    | My subscription                        | The subscription for your target service (the service you want to connect to). The default value is the subscription for this App Service resource.          |
     | **Connection name** | *my_connection*                        | The connection name that identifies the connection between your App Service and target service. Use the connection name provided by Service Connector or choose your own connection name.                                                                          |
+    | **Subscription**    | My subscription                        | The subscription for your target service (the service you want to connect to). The default value is the subscription for this App Service resource.          |
     | **Storage account** | *my_storage_account*                   | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                 |
     | **Client type**     | The same app stack on this App Service | The default value comes from the App Service runtime stack. Select the app stack that's on this App Service instance.                                                    |
 
-    :::image type="content" source="./media/app-service-quickstart/basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the Basics tab.":::
-
 1. Select **Next: Authentication** to choose an authentication method.
 
-    ### [System-assigned managed identity](#tab/SMI)
+    ### [System-assigned managed identity (recommended)](#tab/SMI)
 
-    System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Azure Active Directory and tied to the lifecycle of the service instance.
+    System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Microsoft Entra ID and tied to the lifecycle of the service instance.
 
     ### [User-assigned managed identity](#tab/UMI)
 
     Select **User-assigned managed identity** to authenticate through a standalone identity assigned to one or more instances of an Azure service.
 
-    ### [Connection string](#tab/CS)
-
-    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
-
     ### [Service principal](#tab/SP)
 
-    Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Azure Active Directory.
+    Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Microsoft Entra ID.
+
+    ### [Connection string](#tab/CS)
+    
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+    
+    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
+    
+    ---
 
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
 
-1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
+1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation might take a minute to complete.
+
+> [!NOTE]
+> You need enough permissions to create a connection successfully, for more details, see [Permission requirements](./concept-permission.md).
 
 ## View service connections in App Service
 
-1. The **Service Connector** tab displays existing App Service connections.
+1. Once the connection has successfully been created, the **Service Connector** page displays existing App Service connections.
 
 1. Select the **>** button to expand the list and see the environment variables required by your application code. Select **Hidden value** to view the hidden value.
 
     :::image type="content" source="./media/app-service-quickstart/show-values.png" alt-text="Screenshot of the Azure portal, viewing connection details.":::
 
-1. Select **Validate** to check your connection. You can see the connection validation details in the panel on the right.
+1. Select **Validate** to check your connection. Select **Learn more** to see the connection validation details in the panel on the right.
 
     :::image type="content" source="./media/app-service-quickstart/validation.png" alt-text="Screenshot of the Azure portal, validating the connection.":::
 

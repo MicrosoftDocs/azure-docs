@@ -3,11 +3,9 @@ title: Best practices for writing to files to data lake with data flows
 description:  This tutorial provides best practices for writing to files to data lake with data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2021
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Best practices for writing to files to data lake with data flows
@@ -120,6 +118,6 @@ The techniques listed in the above tutorials are good use cases for creating fol
 1. Pick the column that you wish to use for generating file names.
 1. To manipulate the data values, or even if need to generate synthetic values for file names, use the Derived Column transformation to create the values you wish to use in your file names.
 
-## Next steps
+## Related content
 
 Learn more about [data flow sinks](data-flow-sink.md).

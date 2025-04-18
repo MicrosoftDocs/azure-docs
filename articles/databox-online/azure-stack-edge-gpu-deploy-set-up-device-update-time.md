@@ -4,10 +4,9 @@ description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to connec
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 05/31/2022
+ms.date: 07/19/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -45,7 +44,7 @@ Follow these steps to configure device related settings:
 
 1. Enter a **Name** for your device. The name must contain from 1 to 13 characters and can have letter, numbers, and hyphens.
 
-1. Provide a **DNS domain** for your device. This domain is used to set up the device as a file server.
+1. Provide a **DNS domain** for your device using all lowercase characters. This domain is used to set up the device as a file server.
 
 1. To validate and apply the configured device settings, select **Apply**.
 
@@ -55,7 +54,7 @@ Follow these steps to configure device related settings:
 
     If you've changed the device name and the DNS domain, the automatically generated self-signed certificates on the device won't work. You'll need to regenerate device certificates or bring your own certificates.
     
-    ![Screehshot of local web U I "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
+    ![Screenshot of local web U I "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
   
 1. After the settings are applied, select **Next: Update server**.
 
@@ -69,7 +68,7 @@ Follow these steps to configure device related settings:
 
         ![Screenshot of local web U I "Update Server" page.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-2.png)
 
-        You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
+        You can also choose to deploy updates from the **Windows Server Update services (WSUS)**. Provide the path to the WSUS server.
         
         ![Screenshot of local web U I "Update Server" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 

@@ -4,8 +4,8 @@ description: Describes an overview of what is the local Azure Resource Manager o
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: devx-track-arm-template
 ms.topic: overview
 ms.date: 06/30/2021
 ms.author: alkohli

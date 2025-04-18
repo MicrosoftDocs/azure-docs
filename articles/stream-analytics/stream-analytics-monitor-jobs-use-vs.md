@@ -4,10 +4,9 @@ description: This article describes how to use Visual Studio to monitor and mana
 author: su-jie
 ms.author: sujie
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
 ---
 
 # Monitor and manage Stream Analytics jobs with Visual Studio
@@ -36,7 +35,7 @@ You can also monitor errors by clicking on the **Errors** tab.
 
 
 ## Get support
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics). 
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

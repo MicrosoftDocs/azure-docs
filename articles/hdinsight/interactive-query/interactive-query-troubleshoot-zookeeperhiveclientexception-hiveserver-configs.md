@@ -1,9 +1,12 @@
 ---
 title: Apache Hive Zeppelin Interpreter error - Azure HDInsight
 description: The Apache Zeppelin Hive JDBC Interpreter is pointing to the wrong URL in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 04/08/2022
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
+ms.date: 06/15/2024
 ---
 
 # Scenario: Apache Hive Zeppelin Interpreter gives a Zookeeper error in Azure HDInsight

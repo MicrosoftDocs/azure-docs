@@ -1,18 +1,11 @@
 ---
 title: Test Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Explains how to run the test command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Explains how to run the test command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 05/15/2024
 ms.author: phjensen
 ---
 
@@ -46,7 +39,7 @@ For SSL, this command can take the following optional argument:
 - `--ssl=` forces an encrypted connection with the database and defines the encryption
     method used to communicate with SAP HANA, either `openssl` or `commoncrypto`. If defined,
     then this command expects to find two files in the same directory, these files must be
-    named after the corresponding SID. Refer to [Using SSL for communication with SAP HANA](azacsnap-installation.md#using-ssl-for-communication-with-sap-hana).
+    named after the corresponding SID. Refer to [Using SSL for communication with SAP HANA](azacsnap-configure-database.md#using-ssl-for-communication-with-sap-hana).
 
 ### Output of the `azacsnap -c test --test hana` command
 

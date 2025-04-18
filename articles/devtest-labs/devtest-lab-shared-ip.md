@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 11/08/2021
+ms.custom: UpdateFrequency2
 ---
 
 # Understand shared IP addresses in Azure DevTest Labs
@@ -37,7 +38,7 @@ When you add a VM with shared IP to a subnet, DevTest Labs automatically adds t
 
 - **Windows users:** Select the **Connect** button on the VM **Overview** page to download a pre-configured RDP file and access the VM.
 
-- **Linux users:** Secure shell (SSH) connects to the VM by using the IP address or fully qualified domain name, followed by a colon, followed by the port number. For example, the following screenshot shows an SSH connection address of `contosolab21000000000000.westus3.cloudapp.azure.com:65013`.
+- **Linux users:** Secure shell (SSH) connects to the VM by using the IP address or fully qualified domain name, followed by a colon, followed by the port number. For example, the following screenshot shows an SSH connection address of `contoso.westus3.cloudapp.azure.com:65013`.
 
   ![Screenshot that shows the R D P and S S H connection options on a VM Overview page.](media/devtest-lab-shared-ip/vm-info.png)
 

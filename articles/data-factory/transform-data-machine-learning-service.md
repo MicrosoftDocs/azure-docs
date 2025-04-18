@@ -2,13 +2,12 @@
 title: Execute Azure Machine Learning pipelines 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory and Synapse Analytics pipelines. 
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 09/22/2022
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Execute Azure Machine Learning pipelines in Azure Data Factory and Synapse Analytics
@@ -64,13 +63,13 @@ mlPipelineId | ID of the published Azure Machine Learning pipeline | String (or 
 experimentName | Run history experiment name of the Machine Learning pipeline run | String (or expression with resultType of string) | No
 mlPipelineParameters | Key, Value pairs to be passed to the published Azure Machine Learning pipeline endpoint. Keys must match the names of pipeline parameters defined in the published Machine Learning pipeline | Object with key value pairs (or Expression with resultType object) | No
 mlParentRunId | The parent Azure Machine Learning pipeline run ID | String (or expression with resultType of string) | No
-dataPathAssignments | Dictionary used for changing datapaths in Azure Machine learning. Enables the switching of datapaths | Object with key value pairs | No
+dataPathAssignments | Dictionary used for changing datapaths in Azure Machine Learning. Enables the switching of datapaths | Object with key value pairs | No
 continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
 
 > [!NOTE]
-> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. The UI calls AzureMLService APIs directly using the logged in user's credentials.  
+> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. The UI calls AzureMLService APIs directly using the logged in user's credentials.  The discovery time for the dropdown items would be much longer when using Private Endpoints.
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [Execute Data Flow activity](control-flow-execute-data-flow-activity.md)

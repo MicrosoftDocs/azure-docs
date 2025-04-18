@@ -2,7 +2,7 @@
 title: Troubleshoot encrypted Azure VM backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up an encrypted VM.
 ms.topic: troubleshooting
-ms.date: 11/9/2021
+ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -30,7 +30,7 @@ This section provides steps to troubleshoot common errors that you might see.
 
 Error message: Disk exclusion is not supported for encrypted virtual machines.
 
-Backup operation failed because selective disk backup is currently not supported for encrypted VMs. Review [selective disk backup limitations](selective-disk-backup-restore.md#limitations).
+Backup operation failed because selective disk backup is currently not supported for encrypted VMs with standard policy. Review [selective disk backup limitations](selective-disk-backup-restore.md#limitations).
 
 ## UserErrorKeyVaultPermissionsNotConfigured
 
@@ -50,7 +50,7 @@ To resolve this issue, [restore the Key-Vault key or secret](backup-azure-restor
 
 Error message: Backup failed in allocating storage from protection service
 
-Backup operation failed because Azure Key Vault do not have required access to the Recovery Service Vault. [Assign required permissions to the vault to access the encryption key](./encryption-at-rest-with-cmk.md?tabs=portal#assign-user-assigned-managed-identity-to-the-vault-in-preview) and retry the operation. 
+Backup operation failed because Azure Key Vault do not have required access to the Recovery Service Vault. [Assign required permissions to the vault to access the encryption key](./encryption-at-rest-with-cmk.md?tabs=portal#assign-a-user-assigned-managed-identity-to-the-vault-in-preview) and retry the operation. 
 
 
 ## Next steps

@@ -4,9 +4,8 @@ description: Describes how to create and manage virtual machines (VMs) on an Azu
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
-ms.custom: devx-track-azurepowershell
+ms.service: azure-stack-edge
+ms.custom: devx-track-azurepowershell, linux-related-content
 ms.topic: how-to
 ms.date: 05/25/2022
 ms.author: alkohli
@@ -96,7 +95,7 @@ ResourceGroupName : myaserg1
 Location          : dbelocal
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/04a485ed-7a09-44ab-6671-66db7f111122/resourceGroups/myaserg1
+ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg1
 
 PS C:\WINDOWS\system32> 
 ```
@@ -121,7 +120,7 @@ ResourceGroupName : myasegpurgvm
 Location          : dbelocal
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/DDF9FC44-E990-42F8-9A91-5A6A5CC472DB/resourceGroups/myasegpurgvm
+ResourceId        : /subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myasegpurgvm
 
 PS C:\windows\system32>
 ```
@@ -299,20 +298,20 @@ The file `CreateImage.parameters.json` takes the following parameters:
 
 ```json
 "parameters": {
-	    "osType": {
-	          "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
-        },
-        "imageName": {
-            "value": "<Name for the VM image>"
-        },
-        "imageUri": {
-              "value": "<Path to the VHD that you uploaded in the Storage account>"
-        },
-        "hyperVGeneration": { 
-              "type": "string", 
-              "value": "<Generation of the VM, V1 or V2> 
-        }, 
-    }
+    "osType": {
+        "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+    },
+    "imageName": {
+        "value": "<Name for the VM image>"
+    },
+    "imageUri": {
+        "value": "<Path to the VHD that you uploaded in the Storage account>"
+    },
+    "hyperVGeneration": { 
+        "type": "string", 
+        "value": "<Generation of the VM, V1 or V2>"
+    }, 
+}
 ```
 
 Edit the file `CreateImage.parameters.json` to include the following values for your Azure Stack Edge Pro device:
@@ -454,11 +453,11 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
     Here's a sample output of a successfully created image.
     
     ```powershell
-    PS C:\WINDOWS\system32> login-AzureRMAccount -EnvironmentName aztest -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    PS C:\WINDOWS\system32> login-AzureRMAccount -EnvironmentName aztest -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
     
     Account               SubscriptionName              TenantId                             Environment
     -------               ----------------              --------                             -----------
-    EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d aztest
+    EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee aztest
     
    PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateImage\CreateImage.json"
     PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateImage\CreateImage.parameters.json"
@@ -549,7 +548,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
     Name                   : ASEVNET
     ResourceGroupName      : ASERG
     Location               : dbelocal
-    Id                     : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft
+    Id                     : /subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/ASERG/providers/Microsoft
                              .Network/virtualNetworks/ASEVNET
     Etag                   : W/"990b306d-18b6-41ea-a456-b275efe21105"
     ResourceGuid           : f8309d81-19e9-42fc-b4ed-d573f00e61ed
@@ -565,7 +564,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
                                {
                                  "Name": "ASEVNETsubNet",
                                  "Etag": "W/\"990b306d-18b6-41ea-a456-b275efe21105\"",
-                                 "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/provider
+                                 "Id": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/ASERG/provider
                              s/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
                                  "AddressPrefix": "10.57.48.0/21",
                                  "IpConfigurations": [],
@@ -583,7 +582,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
 
     Use ASEVNET for Vnet name, ASEVNETsubNet for Subnet name, and ASERG for Vnet resource group name.
     
-1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DCHP server, leave the `privateIPAddress` value blank.  
+1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DHCP server, leave the `privateIPAddress` value blank.  
     
     ```json
     "privateIPAddress": {
@@ -697,7 +696,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
     Name                   : ASEVNET
     ResourceGroupName      : ASERG
     Location               : dbelocal
-    Id                     : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft
+    Id                     : /subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/ASERG/providers/Microsoft
                              .Network/virtualNetworks/ASEVNET
     Etag                   : W/"990b306d-18b6-41ea-a456-b275efe21105"
     ResourceGuid           : f8309d81-19e9-42fc-b4ed-d573f00e61ed
@@ -713,7 +712,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
                                {
                                  "Name": "ASEVNETsubNet",
                                  "Etag": "W/\"990b306d-18b6-41ea-a456-b275efe21105\"",
-                                 "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/provider
+                                 "Id": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/ASERG/provider
                              s/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
                                  "AddressPrefix": "10.57.48.0/21",
                                  "IpConfigurations": [],
@@ -731,7 +730,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
 
     Use ASEVNET for Vnet name, ASEVNETsubNet for Subnet name, and ASERG for Vnet resource group name.
     
-1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DCHP server, leave the `privateIPAddress` value blank.  
+1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DHCP server, leave the `privateIPAddress` value blank.  
     
     ```json
     "privateIPAddress": {
@@ -921,23 +920,23 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
 
     You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here's a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
 
-    ```powershell	
+    ```powershell
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
-	>>     -ResourceGroupName $RGName `
-	>>     -TemplateFile $templateFile `
-	>>     -TemplateParameterFile $templateParameterFile `
-	>>     -Name "Deployment2" `
-	>>     -AsJob
-	 
-	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-	--     ----            -------------   -----         -----------     --------             -------
-	2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
-	 
-	PS C:\WINDOWS\system32> Get-Job -Id 2
-	 
-	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-	--     ----            -------------   -----         -----------     --------             -------
-	```
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    ```
 
 1. Check if the VM is successfully provisioned. Run the following command:
 
@@ -964,4 +963,4 @@ Follow these steps to connect to a Linux VM.
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)
+[Azure Resource Manager cmdlets](/azure/automation/shared-resources/modules)

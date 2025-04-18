@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Azure Databricks Delta Lake by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.author: susabat
 author: ssabat
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 01/16/2025
 ---
 
 # Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse Analytics
@@ -27,7 +26,7 @@ This Azure Databricks Delta Lake connector is supported for the following capabi
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 In general, the service supports Delta Lake with the following capabilities to meet your various needs.
 
@@ -432,7 +431,7 @@ If your source data store and format meet the criteria described in this section
             },
             "sink": {
                 "type": "AzureDatabricksDeltaLakeSink",
-                "sqlReadrQuery": "VACUUM eventsTable DRY RUN"
+                "sqlReaderQuery": "VACUUM eventsTable DRY RUN"
             }
         }
     }
@@ -489,12 +488,14 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 
 ## Monitoring
 
-The same [copy activity monitoring experience](copy-activity-monitoring.md) is provided as for other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](/azure/databricks/clusters/clusters-manage#--view-cluster-logs) and [monitor performance](/azure/databricks/clusters/clusters-manage#--monitor-performance).
+The same [copy activity monitoring experience](copy-activity-monitoring.md) is provided as for other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](/azure/databricks/clusters/clusters-manage#view-compute-logs) and [monitor performance](/azure/databricks/clusters/clusters-manage#cluster-performance).
 
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+The Lookup activity can return up to **1000** rows; if the result set contains more records, the first 1000 rows will be returned.
+
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

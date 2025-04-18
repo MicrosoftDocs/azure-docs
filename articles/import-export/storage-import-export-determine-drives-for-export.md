@@ -1,12 +1,12 @@
 ---
 title: Check number of drives needed for an export with Azure Import/Export | Microsoft Docs
 description: Find out how many drives you need for an export using Azure Import/Export service.
-author: alkohli
+author: stevenmatthew
 services: storage
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/15/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Check number of drives needed for an export with Azure Import/Export 
@@ -55,7 +55,7 @@ To find out how many physical disks you need for your export order, do these ste
 The following example demonstrates the `PreviewExport` command:
 
 ```powershell
-    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
+    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB /Cloud:Public
 ```
 
 The export blob list file may contain blob names and blob prefixes, as shown here:

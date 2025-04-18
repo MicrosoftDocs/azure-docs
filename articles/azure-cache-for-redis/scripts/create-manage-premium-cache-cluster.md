@@ -1,10 +1,7 @@
 ---
 title: Create, query, and delete a Premium Azure Cache for Redis with clustering - Azure CLI
 description: This Azure CLI code sample shows how to create a 6 GB Premium tier Azure Cache for Redis with clustering enabled and two shards. It then gets details of an Azure Cache for Redis instance, including provisioning status, the hostname, ports, and keys for an Azure Cache for Redis instance. Finally, it deletes the cache.
-author: flang-msft
-ms.author: franlanglois
-tags: azure-service-management
-ms.service: cache
+
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/11/2022
@@ -15,13 +12,13 @@ ms.custom: devx-track-azurecli
 
 In this scenario, you learn how to create a 6 GB Premium tier Azure Cache for Redis with clustering enabled and two shards. You then learn to get details of an Azure Cache for Redis instance, including provisioning status, the hostname, ports, and keys for an Azure Cache for Redis instance. Finally, you learn to delete the cache.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -29,7 +26,7 @@ In this scenario, you learn how to create a 6 GB Premium tier Azure Cache for Re
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup
@@ -47,8 +44,8 @@ This script uses the following commands to create a resource group and a Premium
 | [az redis list-keys](/cli/azure/redis) | Retrieve access keys for an Azure Cache for Redis instance. |
 | [az redis delete](/cli/azure/redis) | Delete Azure Cache for Redis instance. |
 
-## Next steps
+## Related content
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-For an Azure Cache for Redis CLI script sample that creates a basic Azure Cache for Redis, see [Azure Cache for Redis](create-manage-cache.md).
+For an Azure Cache for Redis CLI script sample that creates a managed cache, see [Azure Managed Redis](../../redis/scripts/create-manage-cache.md).

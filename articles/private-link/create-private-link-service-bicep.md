@@ -3,19 +3,21 @@ title: 'Quickstart: Create a private link service - Bicep'
 titleSuffix: Azure Private Link
 description: In this quickstart, you use Bicep to create a private link service.
 services: private-link
-author: asudbring
-ms.service: private-link
+author: abell
+ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 04/29/2022
-ms.author: allensu
-ms.custom: subject-armqs, mode-arm, template-quickstart
+ms.date: 03/25/2025
+ms.author: abell
+ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
 ---
 
 # Quickstart: Create a private link service using Bicep
 
 In this quickstart, you use Bicep to create a private link service.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+:::image type="content" source="./media/create-private-link-service-portal/private-link-service-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-link-service-portal/private-link-service-qs-resources.png":::
+
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

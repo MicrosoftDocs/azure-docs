@@ -1,11 +1,11 @@
 ---
 title: Use the REST API to manage devices in Azure IoT Central
-description: How to use the IoT Central REST API to control devices in an application
+description: How to use the IoT Central REST API to control devices in an application by using properties and commands.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/20/2022
+ms.date: 10/14/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -27,13 +27,14 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+To learn how to control devices by using the IoT Central UI, see
 
-To learn how to control devices by using the IoT Central UI, see [Use properties in an Azure IoT Central solution](../core/howto-use-properties.md) and [How to use commands in an Azure IoT Central solution()](../core/howto-use-commands.md)
+- [Use properties in an Azure IoT Central solution](../core/howto-use-properties.md).
+- [How to use commands in an Azure IoT Central solution()](../core/howto-use-commands.md).
 
 ## Components and modules
 
-Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
+Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot/concepts-modeling-guide.md).
 
 Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Root component**:
 
@@ -305,7 +306,7 @@ The response to this request looks like the following example:
 
 ## Write properties
 
-Some properties are writable. For example, in the thermostat model the `targetTemperature` property is a writable property.
+Some properties are writable. In the example thermostat model, the `targetTemperature` property is a writable property.
 
 Use the following request to write an individual property value to a device that doesn't use components. In this example, the device is called `thermostat-01`:
 
@@ -410,7 +411,7 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modu
 
 ## Call commands
 
-You can use the REST API to call device commands and retrieve the device history.
+You can use the REST API to call device commands and retrieve the command history.
 
 Use the following request to call a command on device that doesn't use components. In this example, the device is called `thermostat-01` and the command is called `getMaxMinReport`:
 
@@ -482,7 +483,3 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-con
 
 > [!TIP]
 > To call commands in a component in a module, use `/devices/{deviceId}/modules/{moduleName}/components/{componentName}/commands/{commandName}`.
-
-## Next steps
-
-Now that you've learned how to control devices with the REST API, a suggested next step is to learn [How to use the IoT Central REST API to create and manage jobs](howto-manage-jobs-with-rest-api.md).

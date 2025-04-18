@@ -3,23 +3,17 @@ title: Get started with Azure Service Bus topics (.NET)
 description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the .NET programming language.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 11/08/2022
+ms.date: 01/16/2025
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet
+ms.custom: mode-api, passwordless-dotnet, devx-track-dotnet
+# Customer intent: I want to learn how to send messages to an Azure Service Bus topic and receive messages from a subscription to the topic. 
 ---
 
-# Get started with Azure Service Bus topics and subscriptions (.NET)
-
-> [!div class="op_single_selector" title1="Select the programming language:"]
-> * [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-> * [Java](service-bus-java-how-to-use-topics-subscriptions.md)
-> * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
-
+# Quickstart: Get started with Azure Service Bus topics and subscriptions (.NET)
 
 This quickstart shows how to send messages to a Service Bus topic and receive messages from a subscription to that topic by using the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET library.
 
-In this quickstart, you'll do the following steps:
+In this quickstart, you do the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
 2. Create a Service Bus topic, using the Azure portal.
@@ -28,15 +22,15 @@ In this quickstart, you'll do the following steps:
 5. Write a .NET console application to receive those messages from the subscription.
 
 > [!NOTE]
-> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
-> - This quick start shows you two ways of connecting to Azure Service Bus: **connection string** and **passwordless**. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Azure Active Directory and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in secure storage like Azure Key Vault. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md).
+> This quickstart provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+> - This quickstart shows you two ways of connecting to Azure Service Bus: **connection string** and **passwordless**. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Microsoft Entra ID and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in secure storage like Azure Key Vault. If you're new to Azure, you might find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md).
 
 ## Prerequisites
 
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet/).
-- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10. You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
+- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10. You can still use the Service Bus client library with previous C# language versions, but the syntax might vary. To use the latest syntax, we recommend that you install .NET 6.0, or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
@@ -44,23 +38,32 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 [!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
-## Launch Visual Studio and sign-in to Azure
+## Launch Visual Studio
+
+### [Passwordless](#tab/passwordless)
 
 You can authorize access to the service bus namespace using the following steps:
 
 1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 1. Select the **Sign in** button in the top right of Visual Studio.
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
-1. Sign-in using the Azure AD account you assigned a role to previously.
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing a button to sign in to Azure using Visual Studio.":::
+
+1. Sign-in using the Microsoft Entra account you assigned a role to previously.
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
+
+### [Connection String](#tab/connection-string)
+Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
+
+---
+
 
 ## Send messages to the topic
 This section shows you how to create a .NET console application to send messages to a Service Bus topic. 
 
 > [!NOTE]
-> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+> This quickstart provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ### Create a console application
 
@@ -104,11 +107,11 @@ This section shows you how to create a .NET console application to send messages
 
 ### Add code to send messages to the topic 
 
-1. Replace the contents of Program.cs with the following code. The important steps are outlined below, with additional information in the code comments.
+1. Replace the contents of Program.cs with the following code. The important steps are outlined in this section, with additional information in the code comments.
 
     ## [Passwordless](#tab/passwordless)
 
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus. 
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` automatically discovers and uses the credentials of your Visual Studio sign-in to authenticate to Azure Service Bus. 
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
     1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
@@ -244,7 +247,7 @@ This section shows you how to create a .NET console application to send messages
     ```
 
     > [!IMPORTANT]
-    > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
+    > In most cases, it takes a minute or two for the role assignment to propagate in Azure. In rare cases, it might take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
 1. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace. 
     1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.
@@ -258,10 +261,10 @@ This section shows you how to create a .NET console application to send messages
         :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Messages received at the subscription" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
     
 ## Receive messages from a subscription
-In this section, you'll create a .NET console application that receives messages from the subscription to the Service Bus topic. 
+In this section, you create a .NET console application that receives messages from the subscription to the Service Bus topic. 
 
 > [!NOTE]
-> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+> This quickstart provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ### Create a project for the receiver
 
@@ -302,9 +305,10 @@ In this section, you'll create a .NET console application that receives messages
 
 ### Add code to receive messages from the subscription
 
-In this section, you'll add code to retrieve messages from the subscription.
+In this section, you add code to retrieve messages from the subscription.
 
 1. Replace the existing contents of `Program.cs` with the following properties and methods:
+
 
 
      ## [Passwordless](#tab/passwordless)
@@ -341,6 +345,9 @@ In this section, you'll add code to retrieve messages from the subscription.
 
      ## [Connection String](#tab/connection-string)
 
+    > [!IMPORTANT]
+    > Update placeholder values (`<TOPIC-SUBSCRIPTION-NAME>`) in the code snippet with names of the topic and the subscription.
+
     ```csharp
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
@@ -375,7 +382,7 @@ In this section, you'll add code to retrieve messages from the subscription.
 
      ## [Passwordless](#tab/passwordless)
 
-    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
+    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` automatically discovers and uses the credentials of your Visual Studio sign-in to authenticate to Azure Service Bus.
     * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus topic. 
     * Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
     * Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
@@ -654,7 +661,7 @@ In this section, you'll add code to retrieve messages from the subscription.
         
 
 
-## Next steps
+## Related content
 See the following documentation and samples:
 
 - [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)

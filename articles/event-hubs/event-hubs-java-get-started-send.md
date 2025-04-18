@@ -2,9 +2,9 @@
 title: Send or receive events from Azure Event Hubs using Java (latest)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs.
 ms.topic: quickstart
-ms.date: 02/10/2023
+ms.date: 02/16/2024
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs
@@ -20,7 +20,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 
 To complete this quickstart, you need the following prerequisites:
 
-- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
+- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - A Java development environment. This quickstart uses [Eclipse](https://www.eclipse.org/). Java Development Kit (JDK) with version 8 or above is required.
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#azure-portal). You use the connection string later in this quickstart.
 
@@ -38,12 +38,12 @@ First, create a new **Maven** project for a console/shell application in your fa
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.15.0</version>
+		    <version>5.18.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-identity</artifactId>
-		    <version>1.8.0</version>
+		    <version>1.11.2</version>
 		    <scope>compile</scope>
 		</dependency>
 ```
@@ -54,7 +54,7 @@ First, create a new **Maven** project for a console/shell application in your fa
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.15.0</version>
+		    <version>5.18.0</version>
 		</dependency>
 ```
 
@@ -91,7 +91,7 @@ public class SenderAAD {
     // Example: private static final String namespaceName = "contosons.servicebus.windows.net";
     private static final String namespaceName = "<NAMESPACE NAME>.servicebus.windows.net";
 
-    // Replace <EVENT HUB NAME> with the name of your event hug. 
+    // Replace <EVENT HUB NAME> with the name of your event hub. 
     // Example: private static final String eventHubName = "ordersehub";
     private static final String eventHubName = "<EVENT HUB NAME>";
 
@@ -215,11 +215,7 @@ Build the program, and ensure that there are no errors. You'll run this program 
 
 The code in this tutorial is based on the [EventProcessorClient sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorBlobCheckpointStoreSample.java), which you can examine to see the full working application.
 
-> [!WARNING]
-> If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Azure Blob Storage SDK than those typically available on Azure. If you are using Azure Blob Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code.
->
-> For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java).
-
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
 ### Create an Azure Storage and a blob container
 
@@ -237,7 +233,7 @@ Follow these steps to create an Azure Storage account.
 
 ## [Connection String](#tab/connection-string)
 
-[Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+[Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md).
 
 Note down the **connection string** and the **container name**. You use them in the receive code. 
 

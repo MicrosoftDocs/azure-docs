@@ -3,18 +3,17 @@ title: Enable authentication and authorization in Azure Container Apps with Face
 description: Learn to use the built-in Facebook authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 10/14/2022
 ms.author: cshoe
 ---
 
 # Enable authentication and authorization in Azure Container Apps with Facebook
 
-This article shows how to configure Azure Container Apps to use Facebook as an authentication provider.
+This article explains how to configure Azure Container Apps to use Facebook as an authentication provider.
 
-To complete the procedure in this article, you need a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com](https://facebook.com/).
+To follow the procedure in this article, you need a Facebook account with a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com](https://facebook.com/).
 
 ## <a name="facebook-register"> </a>Register your application with Facebook
 
@@ -37,7 +36,7 @@ To complete the procedure in this article, you need a Facebook account that has 
 1. In the **App Secret** field, select **Show**. Copy the values of **App ID** and **App Secret**. You use them later to configure your container app in Azure.
 
    > [!IMPORTANT]
-   > The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+   > The app secret is a critical security credential. Don't share this secret with anyone or distribute it within a client application.
    >
 
 1. The Facebook account that you used to register the application is an administrator of the app. At this point, only administrators can sign in to this application.
@@ -50,16 +49,16 @@ To complete the procedure in this article, you need a Facebook account that has 
 1. Select **Authentication** in the menu on the left. Select **Add identity provider**.
 1. Select **Facebook** in the identity provider dropdown. Paste in the App ID and App Secret values that you obtained previously.
 
-    The secret will be stored as a [secret](manage-secrets.md) in your container app.
+    The secret is stored as a [secret](manage-secrets.md) in your container app.
 
-1. If you're configuring the first identity provider for this application, you'll be prompted with a **Container Apps authentication settings** section. Otherwise, you may move on to the next step.
+1. If you're configuring the first identity provider for this application, you're prompted with a **Container Apps authentication settings** section. Otherwise, you might move on to the next step.
 
     These options determine how your application responds to unauthenticated requests. The default selections redirect all requests to sign in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](authentication.md#authentication-flow).
 
 1. (Optional) Select **Next: Scopes** and add any scopes needed by the application. These scopes are requested when a user signs in for browser-based flows.
 1. Select **Add**.
 
-You're now ready to use Facebook for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
+You're now ready to use Facebook for authentication in your app. The provider is listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
 ## Working with authenticated users
 

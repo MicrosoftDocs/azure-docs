@@ -5,16 +5,20 @@ description: Learn how to create an Azure Lab Services lab plan using PowerShell
 author: RogerBestMSFT
 ms.topic: how-to
 ms.date: 06/15/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Create a lab plan in Azure Lab Services using PowerShell and the Azure modules
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to use PowerShell and the Azure module to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+
 - [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 - [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az). Must be version 7.2 or higher.
 

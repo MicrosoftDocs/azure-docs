@@ -3,11 +3,10 @@ title: Copy data from Amazon RDS for Oracle
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Amazon RDS for Oracle to supported sink stores, using Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 01/05/2024
 ms.author: jianleishen
 ---
 
@@ -26,7 +25,7 @@ This Amazon RDS for Oracle connector is supported for the following capabilities
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
  For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -277,7 +276,7 @@ The Amazon RDS for Oracle connector provides built-in data partitioning to copy 
 
 When you enable partitioned copy, the service runs parallel queries against your Amazon RDS for Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Amazon RDS for Oracle database.
 
-You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Amazon RDS for Oracle database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Amazon RDS for Oracle database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -324,5 +323,5 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

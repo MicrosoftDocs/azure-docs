@@ -4,9 +4,10 @@ description: Provides details of the metadata discovered by Azure Migrate applia
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/24/2023
-ms.custom: engagement-fy23
+ms.date: 10/25/2024
+ms.custom: engagement-fy25, devx-track-extended-java
 ---
 
 # Metadata discovered by Azure Migrate appliance 
@@ -15,11 +16,11 @@ This article provides details of the metadata discovered by Azure Migrate applia
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in your environment and send server configuration and performance metadata to Azure.
 
-Metadata discovered by the Azure Migrate appliance helps you to assess server readiness for migration to Azure, right-size servers and plans costs. Microsoft doesn't use this data in any license compliance audit.
+Metadata discovered by the Azure Migrate appliance helps you to assess server readiness for migration to Azure, right-size servers, and plan costs. Microsoft doesn't use this data in any license compliance audit.
 
 ## Collected metadata for VMware servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your VMware environment.
+The appliance collects configuration, performance metadata, data about installed applications, roles, and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your VMware environment.
 
 Here's the full list of server metadata that the appliance collects and sends to Azure:
 
@@ -87,7 +88,7 @@ NIC writes throughput (MB per second) | net.transmitted.average  |Calculation fo
 
 ## Collected metadata for Hyper-V servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your Hyper-V environment.
+The appliance collects configuration, performance metadata, data about installed applications, roles, and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your Hyper-V environment.
 
 Here's the full list of server metadata that the appliance collects and sends to Azure.
 
@@ -99,7 +100,7 @@ Server type (Gen 1 or 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
 Server display name | Msvm_VirtualSystemSettingData | ElementName
 Server version | Msvm_ProcessorSettingData | VirtualQuantity
 Memory (bytes) | Msvm_MemorySettingData | VirtualQuantity
-Maximum memory that can be consumed by server | Msvm_MemorySettingData | Limit
+Maximum memory that the server can consume | Msvm_MemorySettingData | Limit
 Dynamic memory enabled | Msvm_MemorySettingData | DynamicMemoryEnabled
 Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems Name Data
 Server power status | Msvm_ComputerSystem | EnabledState
@@ -135,7 +136,7 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for server siz
 
 ## Collected data for Physical servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP, etc.
+The appliance collects configuration, performance metadata, data about installed applications, roles, and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP, etc.
 
 ### Windows server metadata
 
@@ -179,7 +180,7 @@ Here's the full list of Linux server metadata that the appliance collects and se
 **Data** | **Commands**
 --- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
-Processor core count |  cat/proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
+Processor core count |  cat /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memory allocated | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
 BIOS serial number | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
 BIOS GUID | cat /sys/class/dmi/id/product_uuid
@@ -209,7 +210,7 @@ Here's the Linux server performance data that the appliance collects and sends t
 
 ## Software inventory data
 
-The appliance collects data about installed applications, roles and features (software inventory) from servers running in VMware environment/Hyper-V environment/physical servers or servers running on other clouds like AWS, GCP etc.
+The appliance collects data about installed applications, roles, and features (software inventory) from servers running in VMware environment/Hyper-V environment/physical servers or servers running on other clouds like AWS, GCP etc.
 
 ### Windows server applications data
 
@@ -347,17 +348,32 @@ File size| sys.master_files| Recommended SKU size (Storage dimension)
 
 ## ASP.NET web apps data
 
-Azure Migrate appliance used for discovery of VMware VMs can also collect data on ASP.NET web applications.
+Azure Migrate appliance used for discovery of VMs can also collect data on ASP.NET web applications.
 
-> [!Note]
-> Currently this feature is only available for servers running in your VMware environment.
-
-Here's the web apps configuration data that the appliance collects from each Windows server discovered in your VMware environment.
+Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
 
 **Entity** | **Data**
 --- | ---
 Web apps | Application Name <br/>Configuration Path <br/>Frontend Bindings <br/>Enabled Frameworks <br/>Hosting Web Server<br/>Sub-Applications and virtual applications <br/>Application Pool name <br/>Runtime version <br/>Managed pipeline mode
 Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuration Location <br/>Version <br/>FQDN <br/>Credentials used for discovery <br/>List of Applications
+
+## Java web apps data
+
+**Entity** | **Data**
+--- | ---
+Web apps | Application Name <br/> Web Server ID <br/> Web Server Name <br/> Display Name<br/> Directories <br/>Configurations <br/>Bindings <br/>Discovered Frameworks (may contain JVM version) <br/>Requests (CPU requests) <br/>Limits (CPU Limits) <br/> WorkloadType <br/> Application Scratch Path <br/>Static Folders
+Web server | OS Type <br/> OS Name<br/> OS Version <br/> OS Architecture<br/> Host Name <br/> CatalinaHomes <br/> Tomcat Version <br/>JVM Version<br/> User Name <br/> User ID<br/> Group Name<br/> Group ID
+
+## Spring Boot web apps data
+
+The Azure Migrate appliance used for discovery can also collect data on Spring Boot web applications.
+
+Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
+
+**Entity** | **Data**
+--- | ---
+Web apps | Application name <br/>Maven artifact name <br/>JAR file location <br/>JAR file checksum <br/>JAR file size<br/>Spring Boot version<br/>Maven build JDK version <br/> Application property files <br/>Certificates file names <br/> Static content location <br/> Application port <br/> Binding ports (including app port) <br/> Logging configuration <br/> JAR file last modified time
+OS runtime | OS installed JDK version <br/> JVM options <br/> JVM heap memory <br/> OS name <br/> OS version <br/> Environment variables
 
 ## Application dependency data
 

@@ -1,11 +1,14 @@
 ---
 title: Migrate ArcSight detection rules to Microsoft Sentinel | Microsoft Docs
 description: Identify, compare, and migrate your ArcSight detection rules to Microsoft Sentinel built-in rules.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
-ms.custom: ignite-fall-2021
+
+
+#Customer intent: As a security engineer, I want to migrate ArcSight detection rules to Microsoft Sentinel so that analysts can leverage advanced analytics and machine learning for more effective threat detection and response.
+
 ---
 
 # Migrate ArcSight detection rules to Microsoft Sentinel
@@ -17,13 +20,13 @@ This article describes how to identify, compare, and migrate your ArcSight detec
 Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
 
 - Make sure to select use cases that justify rule migration, considering business priority and efficiency.
-- Check that you [understand Microsoft Sentinel rule types](detect-threats-built-in.md#view-built-in-detections). 
+- Check that you [understand Microsoft Sentinel rule types](threat-detection.md). 
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
 - Use existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
-- Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/tdm/) to check whether  your rules are available.
+- Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/) to check whether  your rules are available.
 - Consider whether an online query converter such as Uncoder.io might work for your rules. 
 - If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
 
@@ -45,7 +48,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
         In Microsoft Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule.
 
-        For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
+        For more information, see [Create scheduled analytics rules from templates](create-analytics-rule-from-template.md).
 
     - **If you have detections that aren't covered by Microsoft Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
 
@@ -69,10 +72,10 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
 Learn more about analytics rules:
 
-- [**Create custom analytics rules to detect threats**](detect-threats-custom.md). Use [alert grouping](detect-threats-custom.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
-- [**Map data fields to entities in Microsoft Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph (investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
+- [**Scheduled analytics rules in Microsoft Sentinel**](scheduled-rules-overview.md). Use [alert grouping](scheduled-rules-overview.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
+- [**Map data fields to entities in Microsoft Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
 - [**Investigate incidents with UEBA data**](investigate-with-ueba.md), as an example of how to use evidence to surface events, alerts, and any bookmarks associated with a particular incident in the incident preview pane.
-- [**Kusto Query Language (KQL)**](/azure/data-explorer/kusto/query/), which you can use to send read-only requests to your [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [**Kusto Query Language (KQL)**](/kusto/query/?view=microsoft-sentinel&preserve-view=true), which you can use to send read-only requests to your [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
 ## Compare rule terminology
 
@@ -91,12 +94,12 @@ Use these samples to compare and map rules from ArcSight to Microsoft Sentinel i
 
 |Rule  |Description    |Sample detection rule (ArcSight)  |Sample KQL query  |Resources  |
 |---------|---------|---------|---------|---------|
-|Filter (`AND`)     |A sample rule with `AND` conditions. The event must match all conditions.    |[Filter (AND) example](#filter-and-example-arcsight)      |[Filter (AND) example](#filter-and-example-kql)         |String filter:<br>• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br><br>Numerical filter:<br>• [Numerical operators](/azure/data-explorer/kusto/query/numoperators)<br><br>Datetime filter:<br>• [ago](/azure/data-explorer/kusto/query/agofunction)<br>• [Datetime](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic)<br>• [between](/azure/data-explorer/kusto/query/betweenoperator)<br>• [now](/azure/data-explorer/kusto/query/nowfunction)<br><br>Parsing:<br>• [parse](/azure/data-explorer/kusto/query/parseoperator)<br>• [extract](/azure/data-explorer/kusto/query/extractfunction)<br>• [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)<br>• [parse_csv](/azure/data-explorer/kusto/query/parseoperator)<br>• [parse_path](/azure/data-explorer/kusto/query/parsepathfunction)<br>• [parse_url](/azure/data-explorer/kusto/query/parseurlfunction)  |
-|Filter (`OR`)    |A sample rule with `OR` conditions. The event can match any of the conditions.    |[Filter (OR) example](#filter-or-example-arcsight)         |[Filter (OR) example](#filter-or-example-kql)         |• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• [in](/azure/data-explorer/kusto/query/inoperator)        |
-|Nested filter    |A sample rule with nested filtering conditions. The rule includes the `MatchesFilter` statement, which also includes filtering conditions. |[Nested filter example](#nested-filter-example-arcsight) |[Nested filter example](#nested-filter-example-kql) |• [Sample KQL function](https://techcommunity.microsoft.com/t5/azure-sentinel/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381)<br>• [Sample parameter function](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/enriching-windows-security-events-with-parameterized-function/ba-p/1712564)<br>• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [where](/azure/data-explorer/kusto/query/whereoperator) |
+|Filter (`AND`)     |A sample rule with `AND` conditions. The event must match all conditions.    |[Filter (AND) example](#filter-and-example-arcsight)      |[Filter (AND) example](#filter-and-example-kql)         |String filter:<br>• [String operators](/kusto/query/datatypes-string-operators?view=microsoft-sentinel&preserve-view=true#operators-on-strings)<br><br>Numerical filter:<br>• [Numerical operators](/kusto/query/numerical-operators?view=microsoft-sentinel&preserve-view=true)<br><br>Datetime filter:<br>• [ago](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)<br>• [Datetime](/kusto/query/datetime-timespan-arithmetic?view=microsoft-sentinel&preserve-view=true)<br>• [between](/kusto/query/between-operator?view=microsoft-sentinel&preserve-view=true)<br>• [now](/kusto/query/now-function?view=microsoft-sentinel&preserve-view=true)<br><br>Parsing:<br>• [parse](/kusto/query/parse-operator?view=microsoft-sentinel&preserve-view=true)<br>• [extract](/kusto/query/extract-function?view=microsoft-sentinel&preserve-view=true)<br>• [parse_json](/kusto/query/parse-json-function?view=microsoft-sentinel&preserve-view=true)<br>• [parse_csv](/kusto/query/parse-csv-function?view=microsoft-sentinel&preserve-view=true)<br>• [parse_path](/kusto/query/parse-path-function?view=microsoft-sentinel&preserve-view=true)<br>• [parse_url](/kusto/query/parse-url-function?view=microsoft-sentinel&preserve-view=true)  |
+|Filter (`OR`)    |A sample rule with `OR` conditions. The event can match any of the conditions.    |[Filter (OR) example](#filter-or-example-arcsight)         |[Filter (OR) example](#filter-or-example-kql)         |• [String operators](/kusto/query/datatypes-string-operators?view=microsoft-sentinel&preserve-view=true#operators-on-strings)<br>• [in](/kusto/query/in-operator?view=microsoft-sentinel&preserve-view=true)        |
+|Nested filter    |A sample rule with nested filtering conditions. The rule includes the `MatchesFilter` statement, which also includes filtering conditions. |[Nested filter example](#nested-filter-example-arcsight) |[Nested filter example](#nested-filter-example-kql) |• [Sample KQL function](https://techcommunity.microsoft.com/t5/azure-sentinel/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381)<br>• [Sample parameter function](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/enriching-windows-security-events-with-parameterized-function/ba-p/1712564)<br>• [join](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)<br>• [where](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true) |
 |Active list (lookup) |A sample lookup rule that uses the `InActiveList` statement. |[Active list (lookup) example](#active-list-lookup-example-arcsight) |[Active list (lookup) example](#active-list-lookup-example-kql) |• A watchlist is the equivalent of the active list feature. Learn more about [watchlists](watchlists.md).<br>• [Other ways to implement lookups](https://techcommunity.microsoft.com/t5/azure-sentinel/implementing-lookups-in-azure-sentinel/ba-p/1091306) |
-|Correlation (matching) |A sample rule that defines a condition against a set of base events, using the `Matching Event` statement. |[Correlation (matching) example](#correlation-matching-example-arcsight) |[Correlation (matching) example](#correlation-matching-example-kql) |join operator:<br>• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [join with time window](/azure/data-explorer/kusto/query/join-timewindow)<br>• [shuffle](/azure/data-explorer/kusto/query/shufflequery)<br>• [Broadcast](/azure/data-explorer/kusto/query/broadcastjoin)<br>• [Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuredataexplorer)<br><br>define statement:<br>• [let](/azure/data-explorer/kusto/query/letstatement)<br><br>Aggregation:<br>• [make_set](/azure/data-explorer/kusto/query/makeset-aggfunction)<br>• [make_list](/azure/data-explorer/kusto/query/makelist-aggfunction)<br>• [make_bag](/azure/data-explorer/kusto/query/make-bag-aggfunction)<br>• [pack](/azure/data-explorer/kusto/query/packfunction) |
-|Correlation (time window) |A sample rule that defines a condition against a set of base events, using the `Matching Event` statement, and uses the `Wait time` filter condition. |[Correlation (time window) example](#correlation-time-window-example-arcsight) |[Correlation (time window) example](#correlation-time-window-example-kql) |• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [Microsoft Sentinel rules and join statement](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-correlation-rules-the-join-kql-operator/ba-p/1041500) |
+|Correlation (matching) |A sample rule that defines a condition against a set of base events, using the `Matching Event` statement. |[Correlation (matching) example](#correlation-matching-example-arcsight) |[Correlation (matching) example](#correlation-matching-example-kql) |join operator:<br>• [join](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)<br>• [join with time window](/kusto/query/join-time-window?view=microsoft-sentinel&preserve-view=true)<br>• [shuffle](/kusto/query/shuffle-query?view=microsoft-sentinel&preserve-view=true)<br>• [Broadcast](/kusto/query/broadcast-join?view=microsoft-sentinel&preserve-view=true)<br>• [Union](/kusto/query/union-operator?view=microsoft-sentinel&preserve-view=true)<br><br>define statement:<br>• [let](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)<br><br>Aggregation:<br>• [make_set](/kusto/query/make-set-aggregation-function?view=microsoft-sentinel&preserve-view=true)<br>• [make_list](/kusto/query/make-list-aggregation-function?view=microsoft-sentinel&preserve-view=true)<br>• [make_bag](/kusto/query/make-bag-aggregation-function?view=microsoft-sentinel&preserve-view=true)<br>• [bag_pack](/kusto/query/pack-function?view=microsoft-sentinel&preserve-view=true) |
+|Correlation (time window) |A sample rule that defines a condition against a set of base events, using the `Matching Event` statement, and uses the `Wait time` filter condition. |[Correlation (time window) example](#correlation-time-window-example-arcsight) |[Correlation (time window) example](#correlation-time-window-example-kql) |• [join](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)<br>• [Microsoft Sentinel rules and join statement](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-correlation-rules-the-join-kql-operator/ba-p/1041500) |
 
 ### Filter (AND) example: ArcSight
 
@@ -114,9 +117,11 @@ SecurityEvent
 | where SubjectUserName =~ "AutoMatedService"
 | where isnotempty(SubjectDomainName)
 ```
-This rule assumes that Microsoft Monitoring Agent (MMA) or Azure Monitoring Agent (AMA) collect the Windows Security Events. Therefore, the rule uses the Microsoft Sentinel SecurityEvent table.
+
+This rule assumes that the Azure Monitoring Agent (AMA) collects the Windows Security Events. Therefore, the rule uses the Microsoft Sentinel [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) table.
 
 Consider these best practices:
+
 - To optimize your queries, avoid case-insensitive operators when possible: `=~`.
 - Use `==` if the value isn't case-sensitive.
 - Order the filters by starting with the `where` statement, which filters out the most data.
@@ -199,7 +204,7 @@ As a third option, use a parameter function:
 2. Define the parameters of the function. For example:
 
     ```kusto
-        Tbl: (TimeGenerated:datatime, Computer:string, 
+        Tbl: (TimeGenerated:datetime, Computer:string, 
         EventID:string, SubjectDomainName:string, 
         TargetDomainName:string, SubjectUserName:string)
     ```

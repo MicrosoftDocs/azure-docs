@@ -15,7 +15,7 @@ Use the content below to learn how to plan your overall OT monitoring with Micro
 
 ## Prerequisites
 
-Before you start planning your OT monitoring deployment, make sure that you have an Azure subscription and an OT plan onboarded Defender for IoT. For more information, see [Add an OT plan to your Azure subscription](../getting-started.md).
+Before you start planning your OT monitoring deployment, make sure that you have an Azure subscription and an OT plan onboarded Defender for IoT. For more information, see [Start a Microsoft Defender for IoT trial](../getting-started.md).
 
 This step is performed by your architecture teams.
 
@@ -60,7 +60,7 @@ For example:
 
 Understand who in your organization will be using Defender for IoT, and what their use cases are. While your security operations center (SOC) and IT personnel will be the most common users, you may have others in your organization who will need read-access to resources in Azure or on local resources.
 
-- **In Azure**, user assignments are based on their Azure Active Directory and RBAC roles. If you're segmenting your network into multiple sites, decide which permissions you'll want to apply per site.
+- **In Azure**, user assignments are based on their Microsoft Entra ID and RBAC roles. If you're segmenting your network into multiple sites, decide which permissions you'll want to apply per site.
 
 - **OT network sensors** support both local users and Active Directory synchronizations. If you'll be using Active Directory, make sure that you have the access details for the Active Directory server.
 
@@ -74,7 +74,7 @@ For more information, see:
 
 For cloud-connected sensors, determine how you'll be connecting each OT sensor to Defender for IoT in the Azure cloud, such as what sort of proxy you might need.  For more information, see [Methods for connecting sensors to Azure](../architecture-connections.md).
 
-If you're working in an air-gapped or hybrid environment and will have multiple, locally-managed OT network sensors, you may want to plan to deploy an on-premises management console to configure your settings and view data from a central location. For more information, see the [Air-gapped OT sensor management deployment path](../ot-deploy/air-gapped-deploy.md).
+If you're working in an air-gapped or hybrid environment and will have multiple, locally-managed OT network sensors, see the [Air-gapped OT sensor management deployment path](../ot-deploy/air-gapped-deploy.md).
 
 ## Plan on-premises SSL/TLS certifications
 

@@ -1,8 +1,9 @@
 ---
 title: Overview of AMQP 1.0 in Azure Service Bus
 description: Learn how Azure Service Bus supports Advanced Message Queuing Protocol (AMQP), an open standard protocol.
-ms.topic: article
-ms.date: 05/31/2022
+ms.topic: concept-article
+ms.date: 12/02/2024
+# Customer intent: As an Azure Service Bus user, I want to know how Azure Service Bus supports the AMQP protocol. 
 ---
 
 # Advanced Message Queueing Protocol (AMQP) 1.0 support in Service Bus
@@ -71,10 +72,8 @@ In addition, you can use Service Bus from any AMQP 1.0 compliant protocol stack:
 
 [!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
-## Summary
-* AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.
 
-## Next steps
+## Related content
 Ready to learn more? Visit the following links:
 
 * [Using Service Bus from .NET with AMQP]

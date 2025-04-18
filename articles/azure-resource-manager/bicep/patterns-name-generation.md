@@ -4,8 +4,10 @@ description: Describes the name generation pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.custom: devx-track-bicep
+ms.date: 09/26/2024
 ---
+
 # Name generation pattern
 
 Within your Bicep files, use string interpolation and Bicep functions to create resource names that are unique, deterministic, meaningful, and different for each environment that you deploy to.
@@ -32,7 +34,7 @@ Use Bicep's [string interpolation](bicep-functions-string.md#concat) to generate
 > [!NOTE]
 > Some Azure resources, such as Azure RBAC role definitions and role assignments, need to have globally unique identifiers (GUIDs) as their names. Use the [guid() function](bicep-functions-string.md#guid) to generate names for these resources.
 
-If you're creating reusable Bicep code, you should consider defining names as [parameters](parameters.md). Use a [default parameter value](parameters.md#default-value) to define a default name that can be overridden. Default values help to make your Bicep files more reusable, ensuring that users of the file can define their own names if they need to follow a different naming convention.
+If you're creating reusable Bicep code, you should consider defining names as [parameters](parameters.md). Use a [default parameter value](parameters.md#set-default-values) to define a default name that can be overridden. Default values help to make your Bicep files more reusable, ensuring that users of the file can define their own names if they need to follow a different naming convention.
 
 ## Example 1: Organizational naming convention
 
@@ -57,7 +59,7 @@ The following example generates the names for two storage accounts for a differe
   > ```bicep
   > var uniqueNameComponent = uniqueString(resourceGroup().id)
   > ```
-  > 
+  >
   > The name of the resource group (`resourceGroup().name`) may not be sufficiently unique to enable you to reuse the file across subscriptions.
 - Avoid changing the seed values for the `uniqueString()` function after resources have been deployed. Changing the seed value results in new names, and might affect your production resources.
 

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for IoT and your network architecture - Microsoft Defender for IoT
 description: Describes the Purdue reference module in relation to Microsoft Defender for IoT to help you understand more about your own OT network architecture.
-ms.date: 06/02/2022
+ms.date: 04/08/2024
 ms.topic: concept-article
 ---
 
@@ -95,6 +95,22 @@ Based on the results of the matching process, devices track their network traffi
 |---------|---------|---------|
 |**Traffic outside of the IP segment**     |  When the traffic destination isn't found within the subnet mask’s range, the endpoint device sends the traffic to the specific default gateway that’s responsible for routing traffic flow to other relevant segments. <br><br>Any traffic traveling outside of an IP segment flows through a default gateway to cross the network segment, as a first hop in the path to its destination.  <br><br>**Note**: Placing a Defender for IoT OT network sensor at this point ensures that all traffic traveling outside of the segment is streamed to Defender for IoT, analyzed, and can be investigated.   |- A PC is configured with an IP address of `10.52.2.201` and a subnet mask of `255.255.255.0`. <br><br>- The PC triggers a network flow to a web server with a destination IP address of `10.17.0.88`. <br><br>- The PC’s operating system calculates the destination IP address with the range of IP addresses in the segment to determine if the traffic should be sent locally, inside the segment, or direct to the default gateway entity that can find the correct route to the destination.<br><br>- Based on the calculation’s results, the operating system finds that for the IP and subnet peer (`10.52.2.17` and `255.255.255.0`), the segment range is `10.52.2.0` – `10.52.2.255`.  <br><br>**The results mean** that the web server is **not** within the same IP Segment as the PC, and the traffic should be sent to the default gateway.      |
 |**Traffic within the IP segment**   |If the device finds the destination IP address within the subnet mask range, the traffic doesn’t cross the IP segment, and travels inside the segment to find the destination MAC address. <br><br>This traffic requires an ARP resolution, which triggers a broadcast packet to find the destination IP address’s MAC address.         |  - A PC is configured with an IP address of `10.52.2.17` and a subnet mask of `255.255.255.0`. <br><br> - This PC triggers a network flow to another PC, with a destination address of `10.52.2.131`. <br><br>- The PC’s operating system calculates the destination IP address with the range of IP addresses in the segment to determine if the traffic should be sent locally, inside the segment, or direct to the default gateway entity that can find the correct route to the destination. <br><br>- Based on the calculation’s results, the operating system finds that for the IP and subnet peer (`10.52.2.17` and `255.255.255.0`), the segment range is `10.52.2.0 – 10.52.2.255`.    <br><br>**The results** mean that the PC’s destination IP address is within the same segment as the PC itself, and the traffic should be sent directly on the segment.   |
+
+## Implementing Defender for IoT deployment with a unidirectional gateway
+
+If you're working with a unidirectional gateway, such as [Waterfall](https://waterfall-security.com/), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml), where data passes through a data diode in one direction only, use one of the following methods to understand where to place your OT sensors:
+
+- **Place your OT sensors outside the network perimeter (Recommended)**. In this scenario, your sensor receives SPAN traffic through the diode, unidirectionally from the network to the sensor's monitoring port. We recommend using this method in large deployments. For example:
+
+    :::image type="content" source="../media/architecture/outside-diode.png" alt-text="Diagram of placing OT sensors outside the network perimeter." lightbox="../media/architecture/outside-diode.png":::
+
+- **Place your OT sensors inside the network perimeter**. In this scenario, the sensor sends UDP syslog alerts to targets outside the perimeter through the data diode. For example:
+
+    :::image type="content" source="../media/architecture/air-gapped-diode.png" alt-text="Diagram of placing OT sensors inside the network perimeter." lightbox="../media/architecture/air-gapped-diode.png":::
+
+    OT sensors placed inside the network perimeter are air-gapped and must be managed locally. They can't connect to the cloud or be managed from the Azure portal. For example, you'll need to manually update these sensors with new threat intelligence packages.
+
+    If you're working with a unidirectional network and need cloud-connected sensors that are managed from the Azure portal, make sure to place your sensors outside the network perimeter.
 
 ## Next steps
 

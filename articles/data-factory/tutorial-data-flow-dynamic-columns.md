@@ -3,11 +3,9 @@ title: Dynamically set column names in data flows
 description:  This tutorial provides steps for dynamically setting column names in data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2021
-ms.date: 09/26/2022
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Dynamically set column names in data flows
@@ -129,7 +127,7 @@ Now that you've stored the configuration file contents in memory, you can dynami
 
 :::image type="content" source="media/data-flow/dynacols-2.png" alt-text="Source 2":::
 
-## Next steps
+## Related content
 
 * The completed pipeline from this tutorial can be downloaded from [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DynaColsPipe.zip)
 * Learn more about [data flow sinks](data-flow-sink.md).

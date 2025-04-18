@@ -3,10 +3,11 @@ title: Configure ASP.NET apps
 description: Learn how to configure an ASP.NET app in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 ms.topic: article
 ms.date: 06/02/2020
-
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure an ASP.NET app for Azure App Service
@@ -69,6 +70,10 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 ```
 
 If you configure an app setting with the same name in App Service and in *web.config*, the App Service value takes precedence over the *web.config* value. The local *web.config* value lets you debug the app locally, but the App Service value lets your run the app in product with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+
+> [!NOTE]
+> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+
 
 ## Deploy multi-project solutions
 

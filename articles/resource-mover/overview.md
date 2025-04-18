@@ -1,11 +1,10 @@
 ---
 title: What is Azure Resource Mover?
-description: Learn about Azure Resource Mover
+description: Learn about Azure Resource Mover.
 author: ankitaduttaMSFT
-manager: evansma
-ms.service: resource-mover
+ms.service: azure-resource-mover
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 12/27/2024
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
 
@@ -57,7 +56,7 @@ You can move resources across regions in the Resource Mover hub or from within a
 
 Using Resource Mover, you can currently move the following resources across regions:
 
-- Azure VMs and associated disks
+- Azure VMs and associated disks (Azure Spot VMs are not currently supported)
 - Encrypted Azure VMs and associated disks. This includes VMs with Azure disk encryption enabled and Azure VMs using default server-side encryption (both with platform-managed keys and customer-managed keys)
 - NICs
 - Availability sets 
@@ -66,6 +65,11 @@ Using Resource Mover, you can currently move the following resources across regi
 - Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools
+
+To move over services and resource not supported by Resource Mover or to move any service and resource by manual methods, see:
+
+- [Availability zone migration guidance overview for Microsoft Azure products and services](../reliability/availability-zones-migration-overview.md).
+- [Azure services relocation guidance overview](/azure/operational-excellence/overview-relocation)
 
 
 ## Next steps

@@ -2,15 +2,16 @@
 title: Azure API Management IP address change (March 2023) | Microsoft Docs
 description: Azure API Management is updating the source IP address of the resource provider in certain regions.  If your service is hosted in a Microsoft Azure Virtual Network, you may need to update network settings to continue managing your service.
 services: api-management
-documentationcenter: ''
-author: adrianhall
-ms.service: api-management
+author: dlepow
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 02/07/2022
-ms.author: adhal
+ms.author: danlep
 ---
 
 # Resource Provider source IP address updates (March 2023)
+
+[!INCLUDE [api-management-availability-premium-dev](../../../includes/api-management-availability-premium-dev.md)]
 
 On 31 March, 2023 as part of our continuing work to increase the resiliency of API Management services, we're making the resource providers for Azure API Management zone redundant in each region.  The IP address that the resource provider uses to communicate with your service will change in seven regions:
 
@@ -25,6 +26,8 @@ On 31 March, 2023 as part of our continuing work to increase the resiliency of A
 | South Central US | 20.188.77.119 | 20.97.32.190 |
 
 This change will have NO effect on the availability of your API Management service.  However, you **may** have to take steps described below to configure your API Management service beyond 31 March, 2023.
+
+> These changes were completed between April 1, 2023 and April 20, 2023.  You can remove the IP addresses noted in the _Old IP Address_ column from your NSG.
 
 ## Is my service affected by this change?
 

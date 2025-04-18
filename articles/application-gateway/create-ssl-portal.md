@@ -3,11 +3,10 @@ title: 'Tutorial: Configure an Application Gateway with TLS termination using th
 description: In this tutorial, you learn how to configure an application gateway and add a certificate for TLS termination using the Azure portal.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: greglin
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
 
@@ -25,7 +24,7 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -53,7 +52,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. Make sure your password is 4 - 12 characters long:
+Use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. The supported PFX algorithms are listed at [PFXImportCertStore function](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore#remarks). Make sure your password is 4 - 12 characters long:
 
 
 ```powershell
@@ -81,7 +80,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
     
-        ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![Screenshot of creating a new application gateway basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
@@ -97,7 +96,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
-    ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![Screenshot of creating a new application gateway virtual network.](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
 
@@ -109,13 +108,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Choose **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
-   ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![Screenshot of creating a new application gateway frontends.](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
 3. Select **Next: Backends**.
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -126,7 +125,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 3. In the **Add a backend pool** window, select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
-   ![Create new application gateway: backends](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![Screenshot of create a new application gateway backends.](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
 4. On the **Backends** tab, select **Next: Configuration**.
 
@@ -154,7 +153,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
   
         Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-   ![Create new application gateway: listener](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
+   ![Screenshot of create a new application gateway listener.](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
@@ -164,7 +163,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-   ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![Screenshot of creating a new application gateway routing rule.](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
@@ -211,7 +210,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 1. Open [Azure PowerShell](../cloud-shell/quickstart-powershell.md). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
-    ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
+    ![Screenshot of installing custom extension.](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. Change the location setting for your environment, and then run the following command to install IIS on the virtual machine: 
 
@@ -243,7 +242,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 6. Repeat to add the network interface for **myVM2**.
 
-    ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+    ![Screenshot of adding backend servers.](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Select **Save**.
 
@@ -253,17 +252,17 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 1. Select **All resources**, and then select **myAGPublicIPAddress**.
 
-    ![Record application gateway public IP address](./media/create-ssl-portal/application-gateway-ag-address.png)
+    :::image type="content" source="./media/create-ssl-portal/application-gateway-ag-address.png" alt-text="Screenshot of finding the application gateway public IP address.":::
 
-2. In the address bar of your browser, type *https://\<your application gateway ip address\>*.
+3. In the address bar of your browser, type *https://\<your application gateway ip address\>*.
 
    To accept the security warning if you used a self-signed certificate, select **Details** (or **Advanced** on Chrome) and then go on to the webpage:
 
-    ![Secure warning](./media/create-ssl-portal/application-gateway-secure.png)
+    ![Screenshot of a browser security warning.](./media/create-ssl-portal/application-gateway-secure.png)
 
     Your secured IIS website is then displayed as in the following example:
 
-    ![Test base URL in application gateway](./media/create-ssl-portal/application-gateway-iistest.png)
+    ![Screenshot of testing the base URL in application gateway.](./media/create-ssl-portal/application-gateway-iistest.png)
 
 ## Clean up resources
 

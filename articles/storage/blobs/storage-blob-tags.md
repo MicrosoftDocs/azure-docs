@@ -5,21 +5,30 @@ description: Learn how to categorize, manage, and query for blob objects by usin
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.date: 08/05/2024
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Use blob index tags to manage and find data with .NET
 
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
+
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
-Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
+[!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
 
-To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-dotnet.md)]
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with blob index tags. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Owner** or higher. To learn more, see the authorization guidance for [Get Blob Tags (REST API)](/rest/api/storageservices/get-blob-tags#authorization), [Set Blob Tags (REST API)](/rest/api/storageservices/set-blob-tags#authorization), or [Find Blobs by Tags (REST API)](/rest/api/storageservices/find-blobs-by-tags#authorization).
+
+[!INCLUDE [storage-dev-guide-about-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-tags.md)]
 
 ## Set tags
 
@@ -141,3 +150,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

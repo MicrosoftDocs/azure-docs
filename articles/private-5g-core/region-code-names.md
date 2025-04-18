@@ -1,9 +1,9 @@
 ---
 title: Region code names for Azure Private 5G Core 
 description: Learn about the region code names used for the location parameter in Azure Private 5G Core ARM templates
-author: b-branco
-ms.author: biancabranco
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: reference
 ms.custom: references_regions
 ms.date: 11/17/2022
@@ -27,3 +27,5 @@ DisplayName               Name                 RegionalDisplayName
 East US                   eastus               (US) East US
 West Europe               westeurope           (Europe) West Europe
 ```
+
+See [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=private-5g-core) for the Azure regions where Azure Private 5G Core is available.

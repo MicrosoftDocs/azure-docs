@@ -3,9 +3,8 @@ title: Azure Government developer guide
 description: Provides guidance on developing applications for Azure Government
 ms.service: azure-government
 ms.topic: article
-ms.workload: azure-government
-ms.author: stevevi
-author: stevevi
+ms.author: eliotgra
+author: EliotSeattle
 recommendations: false
 ms.date: 03/07/2022
 ---
@@ -74,7 +73,7 @@ For more information about Azure Government, see the following resources:
 
 - [Sign up for a trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
-- [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
+- [Ask questions via the azure-gov tag in Stack Overflow](https://stackoverflow.com/tags/azure-gov)
 - [Azure Government blog](https://devblogs.microsoft.com/azuregov/)
 - [Azure Government overview](./documentation-government-welcome.md)
 - [Azure Government security](./documentation-government-plan-security.md)

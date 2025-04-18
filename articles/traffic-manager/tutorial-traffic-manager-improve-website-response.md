@@ -1,15 +1,14 @@
 ---
-title: Tutorial - Improve website response with Azure Traffic Manager
+title: 'Tutorial: Improve website response with Azure Traffic Manager'
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
 author: greg-lindsay
-# Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/06/2023
+ms.date: 08/08/2024
 ms.author: greglin
+ms.custom: template-tutorial
+# Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ---
 
 # Tutorial: Improve website response using Traffic Manager
@@ -37,7 +36,7 @@ In order to see the Traffic Manager in action, this tutorial requires that you d
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create websites
 
@@ -66,7 +65,7 @@ In this section, you create two VMs **myIISVMEastUS** and **myIISVMWestEurope** 
     | Image | Choose the base operating system or application for the VM. For this example, select **Windows Server 2019 Datacenter**. |
     | VM architecture | Leave as default. |
     | Size | Leave as default. |
-    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
+    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
     | Public inbound ports | Select **Allow selected ports** and select **RDP** and **HTTP** in the pull-down box.|
 
     :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/createVM.png" alt-text="Screenshot of creating a VM.":::
@@ -98,7 +97,7 @@ In this section, you connect to the two VMs *myIISVMEastUS* and *myIISVMWestEuro
 
     :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/connect-to-bastion-password.png" alt-text="Screenshot of connecting to virtual machine using bastion.":::
 
-To learn more about Azure Bastion, see [What is Azure Bastion?](/articles/bastion/bastion-overview.md)
+To learn more about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 #### Install IIS and customize the default web page 
 
 In this section, you install the IIS server on the two VMs *myIISVMEastUS* and *myIISVMWestEurope*, and then update the default website page. The customized website page shows the name of the VM that you're connecting to when you visit the website from a web browser.
@@ -153,7 +152,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
     | Image | Choose the base operating system or application for the VM. For this example, select **Windows Server 2019 Datacenter**. |
     | VM architecture | Leave as default. |
     | Size | Leave as default. |
-    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
+    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
     | Public inbound ports | Select **Allow selected ports** and select **RDP** and **HTTP** in the pull-down box.|
 
 1. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Disable**.

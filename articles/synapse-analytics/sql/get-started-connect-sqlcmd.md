@@ -3,12 +3,11 @@ title: Connect to Synapse SQL with sqlcmd
 description: Use the sqlcmd command-line utility to connect to and query serverless SQL pool and dedicated SQL pool.
 services: synapse analytics
 author: azaricstefan 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql 
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: sngun
 ---
 
 # Connect to Synapse SQL with sqlcmd
@@ -48,9 +47,9 @@ C:\>sqlcmd -S partyeunrt-ondemand.sql.azuresynapse.net -d demo -U Enter_Your_Use
 C:\>sqlcmd -S MySqlDw.sql.azuresynapse.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
+To use Microsoft Entra integrated authentication, you need to add the Microsoft Entra parameters:
 
-* **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
+* **Microsoft Entra authentication (-G):** use Microsoft Entra ID for authentication
 
 Your connection string might look like on of the following examples:
 
@@ -67,7 +66,7 @@ C:\>sqlcmd -S MySqlDw.sql.azuresynapse.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> You need to [enable Azure Active Directory Authentication](../sql/active-directory-authentication.md) to authenticate using Active Directory.
+> You need to [enable Microsoft Entra authentication](../sql/active-directory-authentication.md) to authenticate using Active Directory.
 
 ## 2. Query
 

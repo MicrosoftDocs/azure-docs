@@ -1,14 +1,17 @@
 ---
 title: 'Tutorial: Install an Azure FXT Edge Filer physical device'
 description: How to unpack, rack, and cable the physical device component of the Microsoft Azure FXT Edge Filer hybrid storage cache
-author: femila
-ms.author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ---
 
 # Tutorial: Install Azure FXT Edge Filer
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 This tutorial describes how to install a hardware node for the Azure FXT Edge Filer hybrid storage cache. You need to install at least three hardware nodes to create an Azure FXT Edge Filer cluster.
 

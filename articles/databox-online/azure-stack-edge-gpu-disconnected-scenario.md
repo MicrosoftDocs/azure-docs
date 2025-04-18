@@ -4,8 +4,7 @@ description: Describes assumptions, available features when using Azure Stack Ed
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 02/24/2022
 ms.author: alkohli
@@ -37,7 +36,7 @@ Before you disconnect your Azure Stack Edge device from the network that allows 
   For Kubernetes deployment guidance, see [Choose the deployment type](azure-stack-edge-gpu-kubernetes-workload-management.md#choose-the-deployment-type). For IoT Edge deployment guidance, see [Run a compute workload with IoT Edge module on Azure Stack Edge](azure-stack-edge-gpu-deploy-compute-module-simple.md).
 
   > [!NOTE]
-  > Some workloads running in VMs, Kerberos, and IoT Edge may require connectivity to Azure. For example, some cognitive services require connectivity for billing.
+  > Some workloads running in VMs, Kerberos, and IoT Edge may require connectivity to Azure. For example, some Azure AI services require connectivity for billing.
 
 ## Key differences for disconnected use
 

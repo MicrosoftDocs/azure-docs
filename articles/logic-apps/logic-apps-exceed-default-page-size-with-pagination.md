@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 01/04/2024
 ---
 
 # Get more data, items, or records by using pagination in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 When you retrieve data, items, or records by using a connector action in 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you might get 

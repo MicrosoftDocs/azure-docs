@@ -3,11 +3,10 @@ title: XML format
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with XML format in Azure Data Factory and Synapse Analytics pipelines.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -154,7 +153,7 @@ Note the following when using XML as source.
 
     - If an XML element has both simple text value and attributes/child elements, the simple text value       is parsed as the value of a "value column" with built-in field name `_value_`. And it inherits the namespace of the element as well if applies.
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)

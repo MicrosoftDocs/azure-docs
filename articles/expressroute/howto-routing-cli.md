@@ -1,33 +1,29 @@
 ---
-title: 'Tutorial: Configure peering for Expressroute circuit - Azure CLI'
-description: This tutorial shows you how to create and provision the private, public, and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
+title: 'Configure peering for Expressroute circuit - Azure CLI'
+description: This article shows you how to create and provision the private, public, and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: duongau
-
-ms.service: expressroute
-ms.topic: tutorial
-ms.date: 10/09/2020
+ms.service: azure-expressroute
+ms.topic: how-to
+ms.date: 04/22/2024
 ms.author: duau
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
-# Tutorial: Create and modify peering for an ExpressRoute circuit using CLI
 
-This tutorial shows you how to create and manage routing configuration/peering for an ExpressRoute circuit in the Resource Manager deployment model using CLI. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
+# Create and modify peering for an ExpressRoute circuit using CLI
+
+This article shows you how to create and manage routing configuration/peering for an ExpressRoute circuit in the Resource Manager deployment model using CLI. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [Public peering](about-public-peering.md)
 > * [Video - Private peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Configure, update, and delete Microsoft peering for a circuit
-> - Configure, update, and delete Azure private peering for a circuit
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit." lightbox="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png":::
 
 ## Prerequisites
 
@@ -76,7 +72,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
    "circuitProvisioningState": "Enabled",
    "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
    "gatewayManagerEtag": null,
-   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
    "location": "westus",
    "name": "MyCircuit",
    "peerings": [],
@@ -101,12 +97,17 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 4. Configure Microsoft peering for the circuit. Make sure that you have the following information before you continue.
 
-   * A /30 subnet for the primary link. The address block must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
-   * A /30 subnet for the secondary link. The address block must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
-   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
+   * A pair of subnets owned by you and registered in an RIR/IRR. One subnet is used for the primary link, while the other will be used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets. These must be valid public IPv4 prefixes.
+       * IPv6: Two /126 subnets. These must be valid public IPv6 prefixes.
+       * Both: Two /30 subnets and two /126 subnets.
+   * Microsoft peering enables you to communicate with the public IP addresses on Microsoft network. So, your traffic endpoints on your on-premises network should be public too. This is often done using SNAT. 
+   > [!NOTE]
+   > When using SNAT, we advise against a public IP address from the range assigned to primary or secondary link. Instead, you should use a different range of public IP addresses that has been assigned to you and registered in a Regional Internet Registry (RIR) or Internet Routing Registry (IRR). Depending on your call volume, this range can be as small as a single IP address (represented as '/32' for IPv4 or '/128' for IPv6).
+   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-   * Advertised prefixes: Provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
-   * **Optional -** Customer ASN: If you're advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they're registered with.
+   * Advertised prefixes: You provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
+   * **Optional -** Customer ASN: If you're advertising prefixes not registered to the peering AS number, you can specify the AS number to which they're registered with.
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
    * **Optional -** An MD5 hash if you choose to use one.
 
@@ -137,7 +138,7 @@ The output is similar to the following example:
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
   "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzureMicrosoftPeering",
+  "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzureMicrosoftPeering",
   "lastModifiedBy": "Customer",
   "microsoftPeeringConfig": {
     "advertisedPublicPrefixes": [
@@ -185,7 +186,7 @@ This section helps you create, get, update, and delete the Azure private peering
 ### To create Azure private peering
 
 1. Install the latest version of Azure CLI.
-1. 
+
    ```azurecli
    az login
    ```
@@ -211,7 +212,7 @@ This section helps you create, get, update, and delete the Azure private peering
    "circuitProvisioningState": "Enabled",
    "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
    "gatewayManagerEtag": null,
-   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
    "location": "westus",
    "name": "MyCircuit",
    "peerings": [],
@@ -273,26 +274,32 @@ The output is similar to the following example:
 
 ```output
 {
-  "azureAsn": 12076,
-  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
-  "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
-  "ipv6PeeringConfig": null,
+  "azureASN": 12076,
+  "connections": [],
+  "etag": "W/\"cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a\"",
+  "gatewayManagerEtag": "",
+  "id": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
   "lastModifiedBy": "Customer",
-  "microsoftPeeringConfig": null,
+  "microsoftPeeringConfig": {
+    "advertisedCommunities": [],
+    "advertisedPublicPrefixes": [],
+    "advertisedPublicPrefixesState": "NotConfigured",
+    "customerASN": 0,
+    "legacyMode": 0,
+    "routingRegistryName": "NONE"
+  },
   "name": "AzurePrivatePeering",
-  "peerAsn": 7671,
+  "peerASN": 65020,
+  "peeredConnections": [],
   "peeringType": "AzurePrivatePeering",
   "primaryAzurePort": "",
-  "primaryPeerAddressPrefix": "",
+  "primaryPeerAddressPrefix": "192.168.17.16/30",
   "provisioningState": "Succeeded",
   "resourceGroup": "ExpressRouteResourceGroup",
-  "routeFilter": null,
   "secondaryAzurePort": "",
-  "secondaryPeerAddressPrefix": "",
-  "sharedKey": null,
+  "secondaryPeerAddressPrefix": "192.168.17.20/30",
   "state": "Enabled",
-  "stats": null,
+  "type": "Microsoft.Network/expressRouteCircuits/peerings",
   "vlanId": 100
 }
 ```

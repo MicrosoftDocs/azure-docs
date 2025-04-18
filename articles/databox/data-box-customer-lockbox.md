@@ -2,12 +2,11 @@
 title: Configure Lockbox for Azure Data Box
 description: Learn how to use Customer Lockbox with Azure Data Box.
 services: databox
-author: alkohli
-ms.service: databox
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.author: alkohli
-ms.subservice: pod
+ms.author: shaas
 ---
 
 # Use Customer Lockbox for Azure Data Box (Preview)

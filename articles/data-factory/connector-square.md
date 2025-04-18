@@ -4,11 +4,10 @@ description: Learn how to copy data from Square to supported sink data stores by
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/20/2022
+ms.date: 09/12/2024
 ---
 
 # Copy data from Square using Azure Data Factory or Synapse Analytics (Preview)
@@ -31,11 +30,13 @@ This Square connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 ## Getting started
 
@@ -108,7 +109,7 @@ Authentication via personal access token only needs `accessToken`, while authent
             "connectionProperties": {
                 "host": "<e.g. mystore.mysquare.com>", 
                 "clientId": "<client ID>", 
-                "clientSecrect": {
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<clientSecret>"
                 }, 
@@ -206,5 +207,5 @@ To copy data from Square, set the source type in the copy activity to **SquareSo
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

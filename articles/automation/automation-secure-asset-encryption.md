@@ -2,22 +2,23 @@
 title: Encryption of secure assets in Azure Automation
 description: This article provides concepts for configuring the Automation account to use encryption.
 services: automation
-ms.service: automation
+ms.service: azure-automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
 author: snehithm
 ms.author: snmuvva
-ms.date: 07/27/2021
+ms.date: 04/20/2023
 ms.topic: conceptual
 manager: kmadnani
 ---
 
 # Encryption of secure assets in Azure Automation
 
-Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. Based on the top-level key used for the encryption, there are two models for encryption:
+Azure Automation secures assets such as credentials, certificates, connections, and encrypted variables are using various levels of encryption. This helps enhance the security of these assets. Additionally, to ensure greater security and privacy for the customer code, runbooks, and DSC scripts are also encrypted. Encryption in Azure Automation follows two models, depending on the top-level key used for encryption:
 
 - Using Microsoft-managed keys
 - Using keys that you manage
+
 
 ## Microsoft-managed Keys
 
@@ -31,9 +32,9 @@ You can manage encryption of secure assets for your Automation account with your
 
 Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. 
 
-Enabling the Azure Firewall on [Azure Key Vault](../key-vault/general/network-security.md) blocks access from Azure Automation runbooks for that service. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../key-vault/general/overview-vnet-service-endpoints.md). However, when you enable the Private link for Key Vault, Azure Automation loses access to the Key Vault. Even if you enable a Private link for Hybrid Runbook Worker, it will allow access only to Azure Automation service and not to the Key Vault.
+Enabling the Azure Firewall on [Azure Key Vault](/azure/key-vault/general/network-security) blocks access from Azure Automation runbooks for that service. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](/azure/key-vault/general/overview-vnet-service-endpoints). However, when you enable the Private link for Key Vault, Azure Automation loses access to the Key Vault. Even if you enable a Private link for Hybrid Runbook Worker, it will allow access only to Azure Automation service and not to the Key Vault.
 
-For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 ## Use of customer-managed keys for an Automation account
 
@@ -50,10 +51,10 @@ When you modify the key being used for Azure Automation secure asset encryption,
 
 Before enabling customer-managed keys for an Automation account, you must ensure the following prerequisites are met:
 
-- An [Azure Key Vault](../key-vault/general/basic-concepts.md) with the **Soft Delete** and **Do Not Purge** properties enabled. These properties are required to allow for recovery of keys if there's accidental deletion.
-- Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
-- The Automation account and the key vault can be in different subscriptions but need to be in the same Azure Active Directory tenant.
-- When using PowerShell, verify the [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) is installed. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- An [Azure Key Vault](/azure/key-vault/general/basic-concepts) with the **Soft Delete** and **Do Not Purge** properties enabled. These properties are required to allow for recovery of keys if there's accidental deletion.
+- Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
+- The Automation account and the key vault can be in different subscriptions but need to be in the same Microsoft Entra tenant.
+- When using PowerShell, verify the [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) is installed. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Generate and assign a new system-assigned identity for an Automation account
 
@@ -61,7 +62,7 @@ To use customer-managed keys with an Automation account, your Automation account
 
 ### Using PowerShell
 
-Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter generates and assigns a new system-assigned identity for the Automation account to use with other services like Azure Key Vault. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) and [About Azure Key Vault](../key-vault/general/overview.md). Execute the following code:
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter generates and assigns a new system-assigned identity for the Automation account to use with other services like Azure Key Vault. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) and [About Azure Key Vault](/azure/key-vault/general/overview). Execute the following code:
 
 ```powershell
 # Revise variables with your actual values.
@@ -95,7 +96,7 @@ $principalID
 Configure a system-assigned managed identity to the Automation account using the following REST API call:
 
 ```http
-PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
+PATCH https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
 
 Request body:
@@ -114,7 +115,7 @@ System-assigned identity for the Automation account is returned in a response si
 ```json
 {
  "name": "automation-account-name",
- "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
+ "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
  ..
  "identity": {
     "type": "SystemAssigned",
@@ -154,7 +155,7 @@ The output should look similar to the following:
 The access policy can be set using the following REST API call:
 
 ```http
-PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
+PUT https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
 ```
 
 Request body:
@@ -225,7 +226,7 @@ The output should look similar to the following:
 Use the following REST API call:
 
 ```http
-PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
+PATCH https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
 
 Request body:
@@ -253,7 +254,7 @@ Sample response
 ```json
 {
   "name": "automation-account-name",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
   ..
   "properties": {
     ..
@@ -283,7 +284,7 @@ To revoke access to customer-managed keys, use PowerShell or the Azure CLI. For 
 ## Next steps
 
 - To learn about security guidelines, see [Security best practices in Azure Automation](automation-security-guidelines.md).
-- To understand Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
+- To understand Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
 - To work with certificates, see [Manage certificates in Azure Automation](shared-resources/certificates.md).
 - To handle credentials, see [Manage credentials in Azure Automation](shared-resources/credentials.md).
 - To use Automation variables, [Manage variables in Azure Automation](shared-resources/variables.md).

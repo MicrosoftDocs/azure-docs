@@ -1,19 +1,15 @@
 ---
-title: Back up VMware VMs with Azure Backup Server
-description: In this article, learn how to use Azure Backup Server to back up VMware VMs running on a VMware vCenter/ESXi server.
+title: Back up VMware VMs using Azure Backup Server
+description: Learn how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/25/2025
 author: jyothisuri
 ms.author: jsuri
-ms.service: backup
-ms.custom: engagement-fy23
+ms.service: azure-backup
 ---
-# Back up VMware VMs with Azure Backup Server
+# Back up VMware VMs using Azure Backup Server
 
 This article describes how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
-
->[!Note]
->With MABS v3 Update Rollup 2 release, you can now back up VMware 7.0 VMs as well.
 
 ## VMware VM protection workflow
 
@@ -27,7 +23,7 @@ To protect VMware VM using Azure Backup you need to:
 
 ## Support matrix
 
-This section provides the supported scenarios to protect VMware VMs.
+This section summarizes the support settings to protect VMware VMs.
 
 ### Supported VMware features
 
@@ -45,12 +41,13 @@ MABS provides the following features when backing up VMware virtual machines:
 
 | MABS versions | Supported VMware VM versions for backup |
 | --- | --- |
+| MABS v4     | VMware server 8.0, 7.0, 6.7, or 6.5 (Licensed version) |
 | MABS v3 UR2 | VMware server 7.0, 6.7, 6.5, or 6.0 (Licensed Version) |
 | MABS v3 UR1 | VMware server 6.7, 6.5, 6.0, or 5.5 (Licensed Version) |
 
-## Prerequisites and limitations
+## Supported scenarios and limitations
 
-Before you start backing up a VMware virtual machine, review the following list of limitations and prerequisites.
+Before you start backing up a VMware virtual machine, review the following list of supported scenarios and limitations.
 
 - If you have been using MABS to protect a vCenter server (running on Windows) as a Windows Server using the FQDN of the server, you can't protect that vCenter server as a VMware server using the FQDN of the server.
   - You can use the static IP address of vCenter Server as a workaround.
@@ -60,8 +57,11 @@ Before you start backing up a VMware virtual machine, review the following list 
 - MABS can't protect VMware VMs with pass-through disks and physical raw device mappings (pRDM).
 - MABS can't detect or protect VMware vApps.
 - MABS can't protect VMware VMs with existing snapshots.
+- MABS v4 doesn't support the *DataSets* feature for VMware 8.0.
 
-## Before you start
+## Prerequisites
+
+Before you back up VMware VMs using Azure Backup Server, ensure that the following prerequisites are met:
 
 - Verify that you're running a version of vCenter/ESXi that's supported for backup. Refer to the support matrix [here](./backup-mabs-protection-matrix.md).
 - Make sure you've set up Azure Backup Server. If you haven't, [do that](backup-azure-microsoft-azure-backup.md) before you start. You should be running Azure Backup Server with the latest updates.
@@ -429,15 +429,17 @@ With earlier versions of MABS, parallel backups were performed only across prote
 
 You can modify the number of jobs by using the registry key as shown below (not present by default, you need to add it):
 
-**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
-**Key Type**: DWORD (32-bit) value.
+**Key Path**: `HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs`<BR>
+**Key Type**: DWORD (32-bit) VMware.
+**Data**: number
+The value should be the number (decimal) of virtual machines that you select for parallel backup.
 
 > [!NOTE]
-> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
+> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMware vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
 
-## VMware vSphere 6.7 and 7.0
+## VMware vSphere 6.7, 7.0, and 8.0
 
-To back up vSphere 6.7 and 7.0, follow these steps:
+To back up vSphere 6.7, 7.0, and 8.0, follow these steps:
 
 - Enable TLS 1.2 on the MABS Server
 
@@ -469,9 +471,6 @@ Windows Registry Editor Version 5.00
 ## Exclude disk from VMware VM backup
 
 With MABS V3 UR1 (and later), you can exclude the specific disk from VMware VM backup. The configuration script **ExcludeDisk.ps1** is located in the `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
-
-> [!NOTE]
-> This feature is applicable for MABS V3 UR1 (and later).
 
 To configure the disk exclusion, follow these steps:
 
@@ -586,6 +585,23 @@ To remove the disk from exclusion, run the following command:
 C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
+## ApplicationQuiesceFault
+
+### Fall back to crash consistent backups for VMware VMs
+
+Application consistent backups for VMware VMs running Windows can fail with the *ApplicationQuiesceFault* error if:
+
+- The VSS providers in the VM aren't in a stable state.
+- The VM is under heavy load.
+
+To resolve this quiescing error and retry the failed application consistent backup with a crash consistent backup, use the following registry key on the MABS server running V4 UR1 or above:
+
+```azurepowershell
+Name - FailbackToCrashConsistentBackup DWORD = 1
+Path- SOFTWARE\\MICROSOFT\\MICROSOFT DATA PROTECTION MANAGER\\VMWare
+
+```
+
 ## Next steps
 
-For troubleshooting issues when setting up backups, review the [troubleshooting guide for Azure Backup Server](./backup-azure-mabs-troubleshoot.md).
+[Troubleshoot issues about setting up of backups using Azure Backup Server](./backup-azure-mabs-troubleshoot.md).

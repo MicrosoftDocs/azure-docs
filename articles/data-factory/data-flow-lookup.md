@@ -5,11 +5,10 @@ description: Reference data from another source using lookup transformations in 
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 02/13/2025
 ---
 
 # Lookup transformations in mapping data flow
@@ -22,7 +21,7 @@ Use the lookup transformation to reference data from another source in a data fl
 
 A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=e4b08344-f63d-4cb8-88ab-df1dc1b6208f]
 
 ## Configuration
 
@@ -98,7 +97,7 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     broadcast: 'auto')~> LookupKeys
 ```
 
-## Next steps
+## Related content
 
 * The [join](data-flow-join.md) and [exists](data-flow-exists.md) transformations both take in multiple stream inputs
 * Use a [conditional split transformation](data-flow-conditional-split.md) with ```isMatch()``` to split rows on matching and non-matching values

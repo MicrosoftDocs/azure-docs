@@ -2,23 +2,23 @@
 title: What is Azure Static Web Apps?
 description: The key features and functionality of Azure Static Web Apps.
 services: static-web-apps
-author: craigshoemaker
-ms.service: static-web-apps
+author: v1212
+ms.service: azure-static-web-apps
 ms.topic:  overview
-ms.date: 04/01/2021
-ms.author: cshoe
+ms.date: 06/24/2024
+ms.author: wujia
 # Customer intent: As a developer, I want to publish a website from a GitHub or Azure DevOps repository so that the app is publicly available on the web.
 ---
 
 # What is Azure Static Web Apps?
 
-Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
+Azure Static Web Apps is a service that automatically deploys full stack web apps to Azure from a code repository.
 
 :::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps overview diagram.":::
 
 The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based on code changes.
 
-When you create an Azure Static Web Apps resource, Azure interacts directly with GitHub or Azure DevOps, to monitor a branch of your choice. Every time you push commits or accept pull requests into the watched branch, a build automatically runs and your app and API deploys to Azure.
+When you create an static web app, Azure interacts directly with GitHub or Azure DevOps to monitor a branch of your choice. Every time you push commits or accept pull requests into the watched branch, a build automatically runs and your app and API deploys to Azure.
 
 Static web apps are commonly built using libraries and web frameworks like Angular, React, Svelte, Vue, or Blazor where server side rendering isn't required. These apps include HTML, CSS, JavaScript, and image assets that make up the application. With a traditional web server, these assets are served from a single server alongside any required API endpoints.
 
@@ -27,13 +27,13 @@ With Static Web Apps, static assets are separated from a traditional web server 
 ## Key features
 
 - **Web hosting** for static content like HTML, CSS, JavaScript, and images.
-- **Integrated API** support provided by Azure Functions with the option to link an existing Azure Functions app using a standard account.
+- **Integrated API** support provided by managed Azure Functions, with the option to link an existing function app, web app, container app, or API Management instance using a standard account.  If you need your API in a region that doesn't support [managed functions](apis-functions.md), you can [bring your own functions](functions-bring-your-own.md) to your app.
 - **First-class GitHub and Azure DevOps integration** that allows repository changes to trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.
 - **Custom domains** to provide branded customizations to your app.
 - **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
-- **Authentication provider integrations** with Azure Active Directory, GitHub, and Twitter.
+- **Authentication provider integrations** with Microsoft Entra ID and GitHub.
 - **Customizable authorization role definition** and assignments.
 - **Back-end routing rules** enabling full control over the content and routes you serve.
 - **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.

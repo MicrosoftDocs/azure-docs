@@ -2,7 +2,7 @@
 title: Overview of the Azure Relay Node APIs | Microsoft Docs
 description: This article provides an overview of the Node.js API for the Azure Relay service. It also shows how to use the hyco-ws Node package. 
 ms.topic: article
-ms.date: 06/21/2022
+ms.date: 12/11/2024
 ms.custom: devx-track-js
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 ## Overview
 
-The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the [`ws`](https://www.npmjs.com/package/ws) NPM package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
+The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the [`ws`](https://www.npmjs.com/package/ws) Node Package Manager (npm) package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
 
 Existing applications that `require('ws')` can use this package with `require('hyco-ws')` instead, which also enables hybrid scenarios in which an application can listen for WebSocket connections locally from "inside the firewall" and via Hybrid Connections, all at the same time.
   
@@ -33,7 +33,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-The helper methods are for use with this package, but can also be used by a Node server for enabling web or device clients to create listeners or senders. The server uses these methods by passing them URIs that embed short-lived tokens. These URIs can also be used with common WebSocket stacks that do not support setting HTTP headers for the WebSocket handshake. Embedding authorization tokens into the URI is supported primarily for those library-external usage scenarios. 
+The helper methods are for use with this package, but can also be used by a Node server for enabling web or device clients to create listeners or senders. The server uses these methods by passing them URIs that embed short-lived tokens. These URIs can also be used with common WebSocket stacks that don't support setting HTTP headers for the WebSocket handshake. Embedding authorization tokens into the URI is supported primarily for those library-external usage scenarios. 
 
 #### createRelayListenUri
 
@@ -49,7 +49,7 @@ URI can then be used with the relay version of the WebSocketServer class.
 - `token` (optional) - a previously issued Relay access token that is embedded in the listener URI (see the following example).
 - `id` (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests.
 
-The `token` value is optional and should only be used when it is not possible to send HTTP headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                  
+The `token` value is optional and should only be used when it isn't possible to send HTTP headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                  
 
 
 #### createRelaySendUri
@@ -66,7 +66,7 @@ URI can be used with any WebSocket client.
 - `token` (optional) - a previously issued Relay access token that is embedded in the send URI (see the following example).
 - `id` (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests.
 
-The `token` value is optional and should only be used when it is not possible to send HTTP headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                   
+The `token` value is optional and should only be used when it isn't possible to send HTTP headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                   
 
 
 #### createRelayToken 
@@ -97,7 +97,7 @@ returns the token correctly appended to the input URI.
 
 ### Class ws.RelayedServer
 
-The `hycows.RelayedServer` class is an alternative to the `ws.Server` class that does not listen on the local network, but delegates listening to the Azure Relay service.
+The `hycows.RelayedServer` class is an alternative to the `ws.Server` class that doesn't listen on the local network, but delegates listening to the Azure Relay service.
 
 The two classes are mostly contract compatible, meaning that an existing application using the `ws.Server` class can easily be changed to use the relayed version. The main differences are in the constructor and in the available options.
 
@@ -114,7 +114,7 @@ var wss = new server(
     });
 ```
 
-The `RelayedServer` constructor supports a different set of arguments than the `Server`, because it is not a standalone listener, or able to be embedded into an existing HTTP listener framework. There are also fewer options available since the WebSocket management is largely delegated to the Relay service.
+The `RelayedServer` constructor supports a different set of arguments than the `Server`, because it isn't a standalone listener, or able to be embedded into an existing HTTP listener framework. There are also fewer options available since the WebSocket management is largely delegated to the Relay service.
 
 Constructor arguments:
 
@@ -123,9 +123,9 @@ Constructor arguments:
 
 #### Events
 
-`RelayedServer` instances emit three events that enable you to handle incoming requests, establish connections, and detect error conditions. You must subscribe to the `connect` event to handle messages. 
+`RelayedServer` instances emit three events that enable you to handle incoming requests, establish connections, and detect the error conditions. You must subscribe to the `connect` event to handle messages. 
 
-##### headers
+##### Headers
 
 ```JavaScript 
 function(headers)
@@ -133,7 +133,7 @@ function(headers)
 
 The `headers` event is raised just before an incoming connection is accepted, enabling modification of the headers to send to the client. 
 
-##### connection
+##### Connection
 
 ```JavaScript
 function(socket)
@@ -142,13 +142,13 @@ function(socket)
 Emitted when a new WebSocket connection is accepted. The object is of type `ws.WebSocket`, same as with the base package.
 
 
-##### error
+##### Error
 
 ```JavaScript
 function(error)
 ```
 
-If the underlying server emits an error, it is forwarded here.  
+If the underlying server emits an error, it's forwarded here.  
 
 #### Helpers
 

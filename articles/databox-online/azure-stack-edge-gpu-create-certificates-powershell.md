@@ -4,8 +4,8 @@ description: Describes how to create certificates for Azure Stack Edge Pro GPU d
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 06/01/2021
 ms.author: alkohli

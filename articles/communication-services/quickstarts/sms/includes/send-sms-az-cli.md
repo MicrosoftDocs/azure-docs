@@ -21,7 +21,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS-enabled telephone number. [Get a phone number](../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).
 - The latest [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) version for your operating system.
 
 ### Prerequisite check
@@ -54,7 +54,7 @@ az account show
 If you need to change subscription, you can do that by running the following command.
 
 ```azurecli-interactive
-az account set --subscription "<yourSubcriptionId>"
+az account set --subscription "<yourSubscriptionId>"
 ```
 
 You need to replace `<yourSubscriptionId>` with your actual subscription ID, which you can find in the Subscriptions section in Azure portal.
@@ -99,7 +99,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Send a 1:1 SMS message
 
-To send an SMS message to a list of recipients, call the `send` method from the sms module with a single recipient phone number. 
+To send an SMS message to a single recipient, call the `send` method from the sms module with a single recipient phone number. 
 
 ```azurecli-interactive
 az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
@@ -112,11 +112,11 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
 
 ## Send a 1:N SMS message
 
-To send an SMS message to a single recipient, call the `send` method from the sms module with multiple recipient phone numbers. 
+To send an SMS message to a list of recipients, call the `send` method from the sms module with multiple recipient phone numbers. 
 
 ```azurecli-interactive
 az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber1>" "<toPhoneNumber2>" "<toPhoneNumber3>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
@@ -129,4 +129,4 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.

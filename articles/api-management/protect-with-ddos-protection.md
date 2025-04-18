@@ -4,16 +4,18 @@ description: Learn how to protect your API Management instance in an external vi
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: danlep
 ---
 # Defend your Azure API Management instance against DDoS attacks
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
+
 This article shows how to defend your Azure API Management instance against distributed denial of service (DDoS) attacks by enabling [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md). Azure DDoS Protection provides enhanced DDoS mitigation features to defend against volumetric and protocol DDoS attacks.​
 
-[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Supported configurations
 
@@ -36,8 +38,8 @@ Enabling Azure DDoS Protection for API Management is supported only for instance
         > [!NOTE]
         > If the instance is hosted on the `stv1` platform, you must [migrate](compute-infrastructure.md#how-do-i-migrate-to-the-stv2-platform) to the `stv2` platform.
 * An Azure DDoS Protection [plan](../ddos-protection/manage-ddos-protection.md)
-    * The plan you select can be in the same, or different, subscription than the virtual network and the API Management instance. If the subscriptions differ, they must be associated to the same Azure Active Directory tenant.
-    * You may use a plan created using either the Network DDoS protection SKU or IP DDoS Protection SKU (preview). See [Azure DDoS Protection SKU Comparison](../ddos-protection/ddos-protection-sku-comparison.md).
+    * The plan you select can be in the same, or different, subscription than the virtual network and the API Management instance. If the subscriptions differ, they must be associated to the same Microsoft Entra tenant.
+    * You may use a plan created using either the Network DDoS protection SKU or IP DDoS Protection SKU. See [Azure DDoS Protection SKU Comparison](../ddos-protection/ddos-protection-sku-comparison.md).
 
         > [!NOTE]
         > Azure DDoS Protection plans incur additional charges. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/ddos-protection/).
@@ -59,7 +61,7 @@ Depending on the DDoS Protection plan you use, enable DDoS protection on the vir
 
 If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
 
-## Next steps
+## Related content
 
 * Learn how to verify DDoS protection of your API Management instance by [testing with simulation partners](../ddos-protection/test-through-simulations.md)
 * Learn how to [view and configure Azure DDoS Protection telemetry](../ddos-protection/telemetry.md)

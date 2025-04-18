@@ -4,19 +4,15 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about how to execute a pipeline in Azure Data Factory or Azure Synapse Analytics, either on-demand or by creating a trigger.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
-ms.service: data-factory
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 02/08/2023
-ms.custom: devx-track-azurepowershell, synapse
+ms.date: 04/08/2025
+ms.custom: synapse
 ---
 
 # Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1](v1/data-factory-scheduling-and-execution.md)
-> * [Current version](concepts-pipeline-execution-triggers.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A _pipeline run_ in Azure Data Factory and Azure Synapse defines an instance of a pipeline execution. For example, say you have a pipeline that executes at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate runs of the pipeline or pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a GUID that uniquely defines that particular pipeline run.
@@ -40,7 +36,7 @@ You will see the trigger configuration window, allowing you to choose the trigge
 Read more about [scheduled](#schedule-trigger-with-json), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
 
 
-## Manual execution (on-demand) with JSON
+## Manual execution with JSON
 
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
 
@@ -90,26 +86,31 @@ For example, say you have a basic pipeline named **copyPipeline** that you want 
 
 In the JSON definition, the pipeline takes two parameters: **sourceBlobContainer** and **sinkBlobContainer**. You pass values to these parameters at runtime.
 
+## Manual execution with other APIs/SDKs
+
 You can manually run your pipeline by using one of the following methods:
+
 - .NET SDK
 - Azure PowerShell module
 - REST API
 - Python SDK
 
-### REST API
+### .NET SDK
 
-The following sample command shows you how to run your pipeline by using the REST API manually:
+The following sample call shows you how to run your pipeline by using the .NET SDK manually:
 
+```csharp
+client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
-POST
-https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
-```
 
-For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
+For a complete sample, see [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md).
+
+> [!NOTE]
+> You can use the .NET SDK to invoke pipelines from Azure Functions, from your web services, and so on.
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following sample command shows you how to manually run your pipeline by using Azure PowerShell:
 
@@ -136,18 +137,20 @@ The response payload is a unique ID of the pipeline run:
 
 For a complete sample, see [Quickstart: Create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### .NET SDK
+### Python SDK
 
-The following sample call shows you how to run your pipeline by using the .NET SDK manually:
+For a complete sample, see [Quickstart: Create a data factory and pipeline using Python](quickstart-create-data-factory-python.md)
 
-```csharp
-client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
+### REST API
+
+The following sample command shows you how to run your pipeline by using the REST API manually:
+
+```
+POST
+https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-For a complete sample, see [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md).
-
-> [!NOTE]
-> You can use the .NET SDK to invoke pipelines from Azure Functions, from your web services, and so on.
+For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
 
 ## Trigger execution with JSON
 
@@ -203,7 +206,7 @@ To have your schedule trigger kick off a pipeline run, include a pipeline refere
     "type": "ScheduleTrigger",
     "typeProperties": {
       "recurrence": {
-        "frequency": <<Minute, Hour, Day, Week, Year>>,
+        "frequency": <<Minute, Hour, Day, Week>>,
         "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
@@ -393,14 +396,15 @@ The following table provides a comparison of the tumbling window trigger and sch
 
 ## Event-based trigger
 
-An event-based trigger runs pipelines in response to an event. There are two flavors of event-based triggers.
+An event-based trigger runs pipelines in response to an event. From behavior perspective, if you stop and start an event-based trigger, it resumes old trigger pattern which may result in unwanted trigger of the pipeline. In this case, you should delete and create new event based trigger. The new trigger starts fresh without history. There are two flavors of event-based triggers.
 
 * _Storage event trigger_ runs a pipeline against events happening in a Storage account, such as the arrival of a file, or the deletion of a file in Azure Blob Storage account.
 * _Custom event trigger_ processes and handles [custom articles](../event-grid/custom-topics.md) in Event Grid
 
 For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
 
-## Next steps
+
+## Related content
 
 See the following tutorials:
 

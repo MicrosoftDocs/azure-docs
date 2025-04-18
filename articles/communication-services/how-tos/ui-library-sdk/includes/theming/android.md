@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on Android
+description: Learn how to use the Calling composite on Android.
 author: garchiro7
 
 ms.author: jorgegarc
@@ -8,9 +8,9 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
+For more information, see the [open-source Android UI Library](https://github.com/Azure/communication-ui-library-android) and the [sample application code](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling).
 
-### Defining a Theme
+### Defining a theme
 
 Theming on Android is handled via XML resource files. We expose the following resource IDs to the public scope:
 
@@ -21,10 +21,11 @@ Theming on Android is handled via XML resource files. We expose the following re
     <public name="azure_communication_ui_calling_primary_color_tint10" type="attr" />
     <public name="azure_communication_ui_calling_primary_color_tint20" type="attr" />
     <public name="azure_communication_ui_calling_primary_color_tint30" type="attr" />
+    <public name="azure_communication_ui_calling_foreground_on_primary_color" type="attr" />
 </resources>
 ```
 
-Contoso developers can implement a **Theme** within their apps like this one to supply the primary color and tints.
+You can implement a theme like the following one in your apps to supply the primary color and tints:
 
 ```XML
 <style name="MyCompany.CallComposite" parent="AzureCommunicationUICalling.Theme">
@@ -32,10 +33,11 @@ Contoso developers can implement a **Theme** within their apps like this one to 
     <item name="azure_communication_ui_calling_primary_color_tint10">#882BD8</item>
     <item name="azure_communication_ui_calling_primary_color_tint20">#E0C7F4</item>
     <item name="azure_communication_ui_calling_primary_color_tint30">#ECDEF9</item>
+    <item name="azure_communication_ui_calling_foreground_on_primary_color">#00FF00</item>
 </style>
 ```
 
-#### Affected UI
+The preceding example affects the following UI elements:
 
 - PrimaryColor:
   - Avatar/Video - Border - Speaking Indication
@@ -48,9 +50,9 @@ Contoso developers can implement a **Theme** within their apps like this one to 
 - PrimaryColorTint30 Color:
   - Join Call Button - Border - Highlighted - Light/Dark Mode
 
-#### Applying the Theme
+### Applying a theme
 
-The theme style will be applied to pass the Theme resource ID to the ThemeConfiguration/Theme in the `CallCompositeBuilder`.
+The theme style is applied to pass the theme resource ID to `ThemeConfiguration`/`Theme` in `CallCompositeBuilder`.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -72,10 +74,14 @@ CallComposite callComposite =
 
 ----
 
-#### Light/Dark modes
+### Light and dark modes
 
-The Android resource system handles the night theme. Night mode on Android is a system-wide configuration. When night mode is enabled, preference is given to resources in the `-night/` folders. To specify night mode colors, a second theme.xml would be added to the `values-night/`.
+The Android resource system handles the night theme. Night mode on Android is a system-wide configuration. When you enable night mode, Android gives preference to resources in the `-night/` folders. To specify night mode colors, add a second `theme.xml` file to `values-night/`.
 
-To enable night mode programmatically, Android provides the following function. However, this configuration applies globally to the application. There's no reliable way to set night mode for a single activity. Contoso can enforce a dark theme, they can use the below setting in their applications.
+To enable night mode programmatically, Android provides the following function. However, this configuration applies globally to the application. There's no reliable way to set night mode for a single activity. To enforce a dark theme, use the following setting in your applications:
 
 `AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)`
+
+### Font color
+
+The `azure_communication_ui_calling_foreground_on_primary_color` allows you to configure the font color that appears on elements using the primary color. You can use this setting when you want to match a specific theme or brand guidelines. By changing `azure_communication_ui_calling_foreground_on_primary_color`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.

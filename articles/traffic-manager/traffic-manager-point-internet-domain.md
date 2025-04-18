@@ -1,14 +1,13 @@
 ---
-title: Point a Internet domain to Traffic Manager - Azure Traffic Manager
+title: Point an Internet domain to Traffic Manager - Azure Traffic Manager
 description: This article will help you point your company domain name to a Traffic Manager domain name.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.service: azure-traffic-manager
+ms.topic: how-to
+ms.date: 08/08/2024
 ms.author: greglin
+ms.custom: template-how-to
 ---
 
 # Point a company Internet domain to an Azure Traffic Manager domain

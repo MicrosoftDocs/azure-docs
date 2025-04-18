@@ -38,6 +38,9 @@ If you're using multiple sending numbers for the same use case, justify how you'
 ## Company details  
 You need to provide information about your company and point of contact. Status updates for your short code application are sent to the point of contact email address.
 
+> [!IMPORTANT]
+> Toll-free verification is meant for the end business actually sending the message traffic and not for resellers. ISVs are required to surface this verification form to the businesses or fill out the all information including company information, program details and opt-in information on behalf of the customer . 
+
 ## Program content
 Message Senders are required to provide detailed information on the content of their SMS campaign and to ensure that the customer consents to receive text messages, and understands the nature of the program.
 
@@ -46,9 +49,11 @@ You need to describe the program for which the toll-free number is used to send 
 
 ### Opt-in 
 
+This is the most crucial step in the verification application and providing the correct information will ensure faster approval times. If proof of opt-in is not provided in Opt-in URL field, URL is inaccessible, or if opt-in process is unclear, the application will be rejected.
+
 The general rule of thumb for opt-in are:  
 - Making sure the opt-in flow is thoroughly detailed.  
-- Consumer consent must be collected by the direct (first) party sending the messages. If you're a third party helping the direct party sending messages  
+- Consumer consent must be collected by the direct (first) party sending the messages. If you're a third party helping the direct party sending messages, the opt-in flow must disclose the (third party) name.
 - Ensure there's explicitly stated consent disclaimer language at the time of collection. (that is, when the phone number is collected there must be a disclosure about opting-in to messaging). 
 - If your message has Marketing/Promotional content, then it must be optional for customers to opt-in  
 
@@ -63,7 +68,7 @@ The general rule of thumb for opt-in are:
 |Verbal/IVR opt-in|Provide a screenshot record of opt-in via verbal in your database/ CRM to show how the opt-in data is stored. (that is, a check box on their CRM saying that the customer opted in and the date) OR an audio recording of the IVR flow.|
 |Point of Sale | For POS opt-ins on a screen/tablet, provide screenshot of the form. For verbal POS opt-ins of informational traffic, provide a screenshot of the database or a record of the entry. |
 |2FA/OTP| Provide a screenshot of the process to receive the initial text.|
-|Paper form | Upload the form and make sure it includes XXXX. |
+|Paper form | Upload the form and make sure it includes frequency, campaign information and consent process to get consent from consumer. |
 
  ## Volume 
 

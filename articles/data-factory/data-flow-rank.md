@@ -5,11 +5,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Rank transformation in mapping data flow 
@@ -20,7 +19,7 @@ ms.date: 08/04/2022
 
 Use the rank transformation to generate an ordered ranking based upon sort conditions specified by the user. 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=c6c8f590-1cba-4cf9-ada3-58e44516804a]
 
 ## Configuration
 
@@ -68,6 +67,6 @@ PruneColumns
     ) ~> RankByPoints
 ```
 
-## Next steps
+## Related content
 
 Filter rows based upon the rank values using the [filter transformation](data-flow-filter.md).

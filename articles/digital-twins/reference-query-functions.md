@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Azure Digital Twins query language reference - Functions
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language functions
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 01/05/2023
-ms.topic: article
-ms.service: digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: reference
+ms.service: azure-digital-twins
 ---
 
 # Azure Digital Twins query language reference: Functions
@@ -21,7 +15,7 @@ This document contains reference information on *functions* for the [Azure Digit
 
 ## ARRAY_CONTAINS
 
-A function to determine whether an array property of a twin (supported in DTDL V3) contains another specified value.
+A function to determine whether an array property of a twin (supported in DTDL v3) contains another specified value.
 
 ### Syntax
 

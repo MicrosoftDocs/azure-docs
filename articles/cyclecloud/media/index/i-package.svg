@@ -1,0 +1,33 @@
+<svg id="Titles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e5e5e5;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #2bc7f4;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        fill: #55d2f6;
+      }
+    </style>
+  </defs>
+  <title>i_package</title>
+  <rect class="cls-1" x="5" y="11" width="54" height="45"/>
+  <rect class="cls-2" x="1" y="8" width="62" height="13"/>
+  <line class="cls-3" x1="9" y1="43" x2="31" y2="43"/>
+  <line class="cls-3" x1="9" y1="48" x2="24" y2="48"/>
+  <rect class="cls-4" x="2" y="9" width="60" height="6"/>
+</svg>

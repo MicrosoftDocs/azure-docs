@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: storage
 author: alvidela
-ms.service: storage
+ms.service: azure-storage
 ms.topic: "include"
 ms.date: 10/29/2020
 ms.author: alvidela
@@ -23,5 +23,5 @@ The links below provide useful resources for developers using the Azure Storage 
 
 ### JavaScript tools
 
-- [Node.js](https://nodejs.org/en/download/)
+- [Node.js](https://nodejs.org/en/download/package-manager/)
 - [Visual Studio Code](https://code.visualstudio.com/)

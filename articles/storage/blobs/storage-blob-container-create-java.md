@@ -5,30 +5,39 @@ description: Learn how to create a blob container in your Azure Storage account 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 08/05/2024
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Create a blob container with Java
 
+[!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
+
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
-## Name a container
+[!INCLUDE [storage-dev-guide-prereqs-java](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-java.md)]
 
-A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+## Set up your environment
 
-- Container names can be between 3 and 63 characters long.
-- Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
-- Two or more consecutive dash characters aren't permitted in container names.
+[!INCLUDE [storage-dev-guide-project-setup-java](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-java.md)]
 
-The URI for a container is in this format:
+#### Add import statements
 
-`https://accountname.blob.core.windows.net/containername`
+Add the following `import` statements:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java" id="Snippet_Imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to create a container. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Create Container (REST API)](/rest/api/storageservices/create-container#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-java](../../../includes/storage-dev-guides/storage-dev-guide-create-client-java.md)]
+
+[!INCLUDE [storage-dev-guide-about-container-naming](../../../includes/storage-dev-guides/storage-dev-guide-about-container-naming.md)]
 
 ## Create a container
 
@@ -64,14 +73,16 @@ The following example creates a new `BlobContainerClient` object with the contai
 
 To learn more about creating a container using the Azure Blob Storage client library for Java, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java)
+
 ### REST API operations
 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for creating a container use the following REST API operation:
 
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java)
-
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

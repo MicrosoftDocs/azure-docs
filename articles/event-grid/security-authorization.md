@@ -1,8 +1,9 @@
 ---
 title: Azure Event Grid security and authentication
-description: Describes Azure Event Grid and its concepts.
-ms.topic: conceptual
-ms.date: 10/25/2022
+description: This article describes how you can authorize access to Azure Event Grid resources using role-based access control roles. 
+ms.topic: concept-article
+ms.date: 12/16/2024
+# Customer intent: I want to know how to secure access to Azure Event Grid resources. 
 ---
 
 # Authorizing access to Event Grid resources
@@ -25,10 +26,6 @@ The following operations return potentially secret information, which gets filte
 ## Built-in roles
 Event Grid provides the following three built-in roles. 
 
-The Event Grid Subscription Reader and Event Grid Subscription Contributor roles are for managing event subscriptions. They're important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
-
-The Event Grid Contributor role allows you to create and manage Event Grid resources. 
-
 
 | Role | Description |
 | ---- | ----------- | 
@@ -37,6 +34,11 @@ The Event Grid Contributor role allows you to create and manage Event Grid resou
 | [`EventGrid Contributor`](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Lets you create and manage Event Grid resources. |
 | [`EventGrid Data Sender`](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) | Lets you send events to Event Grid topics. |
 
+The **Event Grid Subscription Reader** and **Event Grid Subscription Contributor** roles are for managing event subscriptions. They're important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
+
+The **Event Grid Contributor** role allows you to create and manage Event Grid resources. 
+
+
 
 > [!NOTE]
 > Select links in the first column to navigate to an article that provides more details about the role. For instructions on how to assign users or groups to RBAC roles, see [this article](../role-based-access-control/quickstart-assign-role-user-portal.md).
@@ -44,7 +46,7 @@ The Event Grid Contributor role allows you to create and manage Event Grid resou
 
 ## Custom roles
 
-If you need to specify permissions that are different than the built-in roles, you can create custom roles.
+If you need to specify permissions that are different than the built-in roles, create custom roles.
 
 The following are sample Event Grid role definitions that allow users to take different actions. These custom roles are different from the built-in roles because they grant broader access than just event subscriptions.
 
@@ -141,6 +143,6 @@ For example, to subscribe to a custom topic named **mytopic**, you need the Micr
 
 
 
-## Next steps
+## Related content
 
 * For an introduction to Event Grid, see [About Event Grid](overview.md)

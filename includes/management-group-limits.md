@@ -1,17 +1,18 @@
 ---
  title: include file
  description: include file
- author: tfitzmac
- ms.service: governance
+ author: mumian
+ ms.service: azure
  ms.topic: include
- ms.date: 03/26/2020
- ms.author: tomfitz
+ ms.date: 10/25/2024
+ ms.author: jgao
  ms.custom: include file
+ ms.subservice: azure-governance
 ---
 
 | Resource | Limit |
 | --- | --- |
-| Management groups per Azure AD tenant | 10,000 |
+| Management groups per Microsoft Entra tenant | 10,000 |
 | Subscriptions per management group | Unlimited. |
 | Levels of management group hierarchy | Root level plus 6 levels<sup>1</sup> |
 | Direct parent management group per management group | One |

@@ -3,9 +3,13 @@ title: Manage your SOC better with incident metrics in Microsoft Sentinel | Micr
 description: Use information from the Microsoft Sentinel incident metrics screen and workbook to help you manage your Security Operations Center (SOC).
 author: yelevin
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: As a security operations manager, I want to analyze incident metrics using customizable workbooks and queries so that I can monitor and improve my team's performance and efficiency.
+
 ---
 
 # Manage your SOC better with incident metrics
@@ -22,7 +26,7 @@ The **SecurityIncident** table is built into Microsoft Sentinel. You'll find it 
 
 Every time you create or update an incident, a new log entry will be added to the table. This allows you to track the changes made to incidents, and allows for even more powerful SOC metrics, but you need to be mindful of this when constructing queries for this table as you may need to remove duplicate entries for an incident (dependent on the exact query you are running). 
 
-For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the KQL [summarize operator](/azure/data-explorer/kusto/query/summarizeoperator) with the `arg_max()` [aggregation function](/azure/data-explorer/kusto/query/arg-max-aggfunction):
+For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the KQL [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true) with the [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true):
 
 ```Kusto
 SecurityIncident
@@ -43,7 +47,8 @@ SecurityIncident
 | where Severity in ('High','Medium','Low', 'Informational')
 ```
 
-Mean time to closure:
+Closure time by percentile:
+
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -52,7 +57,8 @@ SecurityIncident
   90th_Percentile=percentile(TimeToClosure, 90),99th_Percentile=percentile(TimeToClosure, 99)
 ```
 
-Mean time to triage:
+Triage time by percentile:
+
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -63,7 +69,7 @@ SecurityIncident
 
 ## Security operations efficiency workbook
 
-To complement the **SecurityIncidents** table, we’ve provided you an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
+To complement the **SecurityIncidents** table, we’ve provided you with an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
 - Incident created over time 
 - Incidents created by closing classification, severity, owner, and status 
 - Mean time to triage 
@@ -85,7 +91,7 @@ You can use the template to create your own custom workbooks tailored to your sp
 
 ## SecurityIncidents schema
 
-[!INCLUDE [SecurityIncidents schema](../../includes/sentinel-schema-security-incident.md)]
+[!INCLUDE [SecurityIncidents schema](includes/sentinel-schema-security-incident.md)]
 
 ## Next steps
 

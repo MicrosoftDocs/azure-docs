@@ -1,10 +1,9 @@
 ---
 title: Transition to centrally managed Azure Hybrid Benefit
 description: This article describes the changes and several transition scenarios to illustrate transitioning to centrally managed Azure Hybrid Benefit.
-keywords:
-author: bandersmsft
-ms.author: banders
-ms.date: 12/06/2022
+author: pri-mittal
+ms.author: primittal
+ms.date: 04/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -13,6 +12,9 @@ ms.subservice: ahb
 # Transition to centrally managed Azure Hybrid Benefit
 
 When you transition to centrally managed Azure Hybrid Benefit, it removes the need to configure the benefit at the resource level. This article describes the changes and several transition scenarios to illustrate the result. For a better understanding about how the new scope-level license management experience applies licenses and discounts to your resources, see [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)
+
+> [!NOTE]
+> When you have SQL Server licenses applied with centrally managed SQL Azure Hybrid Benefit in your Enterprise Agreement and then transfer the agreement to a Microsoft Customer Agreement (enterprise), the licenses don’t automatically transfer. After your new agreement migration completes, you must manually assign licenses with centrally managed SQL Hybrid Benefit. For more information about migrating from an Enterprise Agreement to a Microsoft Customer Agreement (enterprise), see [Set up your billing account for a Microsoft Customer Agreement](../manage/mca-setup-account.md).
 
 ## Changes to individual resource configuration
 
@@ -28,7 +30,7 @@ When you assign licenses to a subscription using the new experience, changes are
 When you enroll in the scope-level management of Azure Hybrid Benefit experience, you’ll see your current Azure Hybrid Benefit usage that’s enabled for individual resources. For more information on the overall experience, see [Create SQL Server license assignments for Azure Hybrid Benefit](create-sql-license-assignments.md). If you're a subscription contributor and you don’t have the billing administrator role required, you can analyze the usage of different types of SQL Server licenses in Azure by using a PowerShell script. The script generates a snapshot of the usage across multiple subscriptions or the entire account. For details and examples of using the script, see the [sql-license-usage PowerShell script](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit) example script. Once you’ve run the script, identify and engage your billing administrator about the opportunity to shift Azure Hybrid Benefit management to the subscription or billing account scope level.
 
 > [!NOTE]
-> The script includes support for normalized core licenses (NCL). 
+> The script includes support for normalized cores (NC). 
 
 ## HADR benefit for SQL Server VMs
 
@@ -70,7 +72,8 @@ Review the following transition scenario examples that most closely match your s
 - **Recommended Action -** To restore compliance, identify 6 SQL Server Enterprise or 24 SQL Server Standard edition core licenses with Software Assurance and assign them and the already-confirmed 64 SQL Server Standard core licenses to Azure using the scope-level management of Azure Hybrid Benefit experience.
 - **Result -** Non-compliance is eliminated and Azure Hybrid Benefit is used optimally to minimize costs.
 - **Alternative Action -** Assign only the available 64 SQL Server Standard edition core licenses to Azure. You'll be compliant, but because those licenses are insufficient to cover all Azure SQL usage, you'll experience some pay-as-you-go charges.
-## Next steps
+
+## Related content
 
 - Follow the [Optimize centrally managed Azure Hybrid Benefit for SQL Server](tutorial-azure-hybrid-benefits-sql.md) tutorial.
 - Move to scope-level license management by [creating SQL Server license assignments](create-sql-license-assignments.md).

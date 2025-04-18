@@ -1,15 +1,50 @@
 ---
 title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
-author: mumian
-ms.author: jgao
-ms.topic: conceptual
-ms.date: 11/09/2022
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 02/12/2025
 ---
 
 # Deployment functions for Bicep
 
 This article describes the Bicep functions for getting values related to the current deployment.
+
+## deployer
+
+`deployer()`
+
+Returns the information about the current deployment principal.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Return value
+
+This function returns the information about the current deployment principal, including tenant ID and object ID.
+
+```json
+{
+  "objectId": "",
+  "tenantId": ""
+}
+```
+
+### Example
+
+The following example Bicep file returns the deployer object.
+
+```bicep
+output deployer object = deployer()
+```
+
+The preceding example returns the following object:
+
+```json
+{
+  "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+}
+```
 
 ## deployment
 
@@ -48,7 +83,7 @@ When deploying a local Bicep file to a resource group, the function returns the 
 }
 ```
 
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property is not included when deploying a local Bicep file. The format is:
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property isn't included when deploying a local Bicep file. The format is:
 
 ```json
 {
@@ -106,7 +141,7 @@ The preceding example returns the following object:
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Returns information about the Azure environment used for deployment. The `environment()` function is not aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 

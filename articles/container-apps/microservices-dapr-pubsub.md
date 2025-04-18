@@ -1,30 +1,30 @@
 ---
-title: "Microservices communication using Dapr Publish and Subscribe"
-description: Enable two sample Dapr applications to send and receive messages and leverage Azure Container Apps.
+title: "Tutorial: Microservices communication using Dapr Publish and Subscribe"
+titleSuffix: "Azure Container Apps"
+description: Enable two sample applications to send and receive messages and leverage the Dapr pub/sub API.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 08/05/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Microservices communication using Dapr Publish and Subscribe 
+# Tutorial: Microservices communication using Dapr Publish and Subscribe
 
-In this tutorial, you'll:
+In this tutorial, you create publisher and subscriber microservices that leverage [the Dapr Pub/sub API](./dapr-overview.md#supported-dapr-apis-components-and-tooling) to communicate using messages for event-driven architectures. You'll:
+
 > [!div class="checklist"]
-> * Create a publisher microservice and a subscriber microservice that leverage the [Dapr pub/sub API](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/) to communicate using messages for event-driven architectures. 
+> * Create a publisher microservice and a subscriber microservice that leverage the [Dapr pub/sub API](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/) to communicate using messages for event-driven architectures.  
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with provided Bicep. 
 
 The sample pub/sub project includes:
-1. A message generator (publisher) `checkout` service that generates messages of a specific topic.
-1. An (subscriber) `order-processor` service that listens for messages from the `checkout` service of a specific topic. 
+1. A message generator `checkout` service (publisher) that generates messages of a specific topic.
+1. An `order-processor` service (subscriber) that listens for messages from the `checkout` service of a specific topic. 
 
-:::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram of the Dapr pub/sub sample.":::
-
-> [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
+:::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram of the pub/sub sample.":::
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Before deploying the application to Azure Container Apps, run the `order-process
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus) to your local machine.
+1. Clone the [sample application](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus.git
@@ -53,9 +53,9 @@ Before deploying the application to Azure Container Apps, run the `order-process
    cd pubsub-dapr-nodejs-servicebus
    ```
 
-### Run the Dapr applications using the Dapr CLI
+### Run the applications using the Dapr CLI
 
-Start by running the `order-processor` subscriber service with Dapr.
+Start by running the `order-processor` subscriber service.
 
 1. From the sample's root directory, change directories to `order-processor`.
 
@@ -68,7 +68,7 @@ Start by running the `order-processor` subscriber service with Dapr.
    npm install
    ```
 
-1. Run the `order-processor` service with Dapr.
+1. Run the `order-processor` service.
 
    ```bash
    dapr run --app-port 5001 --app-id order-processing --app-protocol http --dapr-http-port 3501 --resources-path ../components -- npm run start
@@ -86,7 +86,7 @@ Start by running the `order-processor` subscriber service with Dapr.
    npm install
    ```
 
-1. Run the `checkout` service with Dapr.
+1. Run the `checkout` service.
 
    ```bash
    dapr run --app-id checkout --app-protocol http --resources-path ../components -- npm run start
@@ -138,9 +138,9 @@ Start by running the `order-processor` subscriber service with Dapr.
    dapr stop --app-id order-processor
    ```
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
+Deploy the application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
 ### Prepare the project
 
@@ -166,7 +166,7 @@ cd pubsub-dapr-nodejs-servicebus
    | Azure Location  | The Azure location for your resources. |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -220,7 +220,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -253,7 +253,7 @@ Before deploying the application to Azure Container Apps, run the `order-process
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus) to your local machine.
+1. Clone the [sample application](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/pubsub-dapr-python-servicebus.git
@@ -265,9 +265,9 @@ Before deploying the application to Azure Container Apps, run the `order-process
    cd pubsub-dapr-python-servicebus
    ```
 
-### Run the Dapr applications using the Dapr CLI
+### Run the applications using the Dapr CLI
 
-Start by running the `order-processor` subscriber service with Dapr.
+Start by running the `order-processor` subscriber service.
 
 1. From the sample's root directory, change directories to `order-processor`.
 
@@ -280,11 +280,21 @@ Start by running the `order-processor` subscriber service with Dapr.
    pip3 install -r requirements.txt
    ```
 
-1. Run the `order-processor` service with Dapr.
+1. Run the `order-processor` service.
 
-   ```bash
-   dapr run --app-id order-processor --resources-path ../components/ --app-port 5001 -- python3 app.py
-   ```
+   # [Windows](#tab/windows)
+   
+      ```bash
+      dapr run --app-id order-processor --resources-path ../components/ --app-port 5001 -- python app.py
+      ```
+   
+   # [Linux](#tab/linux)
+   
+      ```bash
+      dapr run --app-id order-processor --resources-path ../components/ --app-port 5001 -- python3 app.py
+      ```
+
+   ---
 
 1. In a new terminal window, from the sample's root directory, navigate to the `checkout` publisher service.
 
@@ -298,11 +308,21 @@ Start by running the `order-processor` subscriber service with Dapr.
    pip3 install -r requirements.txt
    ```
 
-1. Run the `checkout` service with Dapr.
+1. Run the `checkout` service.
 
-   ```bash
-   dapr run --app-id checkout --resources-path ../components/ -- python3 app.py
-   ```
+   # [Windows](#tab/windows)
+   
+      ```bash
+      dapr run --app-id checkout --resources-path ../components/ -- python app.py
+      ```
+   
+   # [Linux](#tab/linux)
+   
+      ```bash
+      dapr run --app-id checkout --resources-path ../components/ -- python3 app.py
+      ```
+
+   ---
 
    #### Expected output
 
@@ -350,9 +370,9 @@ Start by running the `order-processor` subscriber service with Dapr.
    dapr stop --app-id order-processor
    ```
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
+Deploy the application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
 ### Prepare the project
 
@@ -378,7 +398,7 @@ cd pubsub-dapr-python-servicebus
    | Azure Location  | The Azure location for your resources. |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -432,7 +452,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -465,7 +485,7 @@ Before deploying the application to Azure Container Apps, run the `order-process
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus) to your local machine.
+1. Clone the [sample application](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus.git
@@ -477,9 +497,9 @@ Before deploying the application to Azure Container Apps, run the `order-process
    cd pubsub-dapr-csharp-servicebus
    ```
 
-### Run the Dapr applications using the Dapr CLI
+### Run the applications using the Dapr CLI
 
-Start by running the `order-processor` subscriber service with Dapr.
+Start by running the `order-processor` subscriber service
 
 1. From the sample's root directory, change directories to `order-processor`.
 
@@ -492,7 +512,7 @@ Start by running the `order-processor` subscriber service with Dapr.
    dotnet build
    ```
 
-1. Run the `order-processor` service with Dapr.
+1. Run the `order-processor` service.
 
    ```bash
    dapr run --app-id order-processor --resources-path ../components/ --app-port 7001 -- dotnet run --project .
@@ -510,7 +530,7 @@ Start by running the `order-processor` subscriber service with Dapr.
    dotnet build
    ```
 
-1. Run the `checkout` service with Dapr.
+1. Run the `checkout` service.
 
    ```bash
    dapr run --app-id checkout --resources-path ../components/ -- dotnet run --project .
@@ -562,9 +582,9 @@ Start by running the `order-processor` subscriber service with Dapr.
    dapr stop --app-id order-processor
    ```
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
+Deploy the application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
 ### Prepare the project
 
@@ -590,7 +610,7 @@ cd pubsub-dapr-csharp-servicebus
    | Azure Location  | The Azure location for your resources. |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -644,7 +664,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -678,5 +698,7 @@ azd down
 
 ## Next steps
 
-- Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
+- Learn more about [deploying applications to Azure Container Apps](./microservices-dapr.md).
+- [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
+- [Scale your applications using KEDA scalers](./dapr-keda-scaling.md)

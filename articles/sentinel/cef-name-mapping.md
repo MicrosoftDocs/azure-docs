@@ -1,26 +1,20 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
 description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 08/12/2024
+
+
+#Customer intent: As a security analyst, I want to understand the mapping between CEF fields and CommonSecurityLog fields so that I can accurately interpret and analyze security events in my SIEM system.
+
 ---
 
 # CEF and CommonSecurityLog field mapping
 
-The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Microsoft Sentinel.
+The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and might be helpful when you're working with a CEF data source in Microsoft Sentinel. For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md).
 
-> [!IMPORTANT]
->
-> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.
-
-For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
-
-> [!NOTE]
-> A Microsoft Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
->
 
 ## A - C
 
@@ -30,7 +24,6 @@ For more information, see [Connect your external solution using Common Event For
 |   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS, SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
 | cat | DeviceEventCategory | Represents the category assigned by the originating device. Devices often use their own categorization schema to classify event. For example: `/Monitor/Disk/Read`. |
 | cnt    |    EventCount     |  A count associated with the event, showing how many times the same event was observed.       |
-
 
 ## D
 
@@ -46,7 +39,7 @@ For more information, see [Connect your external solution using Common Event For
 | deviceDirection | <a name="communicationdirection"></a> CommunicationDirection | Any information about the direction the observed communication has taken. Valid values: <br>- `0` = Inbound <br>- `1` = Outbound |
 | deviceDnsDomain | DeviceDnsDomain | The DNS domain part of the full qualified domain name (FQDN) |
 |DeviceEventClassID     |   DeviceEventClassID     |   String or integer that serves as a unique identifier per event type.      |
-| deviceExternalID | DeviceExternalID | A name that uniquely identifies the device generating the event. |
+| deviceExternalId | deviceExternalId | A name that uniquely identifies the device generating the event. |
 | deviceFacility | DeviceFacility | The facility generating the event.|
 | deviceInboundInterface | DeviceInboundInterface |The interface on which the packet or data entered the device.  |
 | deviceNtDomain | DeviceNtDomain | The Windows domain of the device address |
@@ -58,7 +51,7 @@ For more information, see [Connect your external solution using Common Event For
 | dmac | DestinationMacAddress | The destination MAC address (FQDN) |
 | dntdom | DestinationNTDomain | The Windows domain name of the destination address.|
 | dpid | DestinationProcessId |The ID of the destination process associated with the event.|
-| dpriv | DestinationUserPrivileges | Defines the destination use's privileges. <br>Valid values: `Admninistrator`, `User`, `Guest` |
+| dpriv | DestinationUserPrivileges | Defines the destination use's privileges. <br>Valid values: `Administrator`, `User`, `Guest` |
 | dproc | DestinationProcessName | The name of the event’s destination process, such as `telnetd` or `sshd.` |
 | dpt | DestinationPort | Destination port. <br>Valid values: `*0` - `65535` |
 | dst | DestinationIP | The destination IpV4 address that the event refers to in an IP network. |
@@ -112,7 +105,7 @@ For more information, see [Connect your external solution using Common Event For
 
 |CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
-| reason | Reason | The reason an audit event was generated. For example `badd password` or `unknown user`. This could also be an error or return code. For example: `0x1234`. |
+| reason | Reason | The reason an audit event was generated. For example, `badd password` or `unknown user`. This could also be an error or return code. For example: `0x1234`. |
 |Request     |   RequestURL      | The URL accessed for an HTTP request, including the protocol. For example, `http://www/secure.com`        |
 |requestClientApplication     |   RequestClientApplication      |   The user agent associated with the request.      |
 | requestContext | RequestContext | Describes the content from which the request originated, such as the HTTP Referrer. |
@@ -120,7 +113,7 @@ For more information, see [Connect your external solution using Common Event For
 | requestMethod | RequestMethod | The method used to access a URL. <br><br>Valid values include methods such as `POST`, `GET`, and so on. |
 | rt | ReceiptTime | The time at which the event related to the activity was received. |
 |Severity     |  <a name="logseverity"></a> LogSeverity       |  A string or integer that describes the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are:<br> - `0`-`3` = Low <br>- `4`-`6` = Medium<br>- `7`-`8` = High<br>- `9`-`10` = Very-High |
-| shost    | SourceHostName        |Identifies the source that event refers to in an IP network. Format should be a fully qualified domain name (DQDN) associated with the source node, when a node is available. For example, `host` or `host.domain.com`. |
+| shost    | SourceHostName        |Identifies the source that event refers to in an IP network. Format should be a fully qualified domain name (FQDN) associated with the source node, when a node is available. For example, `host` or `host.domain.com`. |
 | smac | SourceMacAddress | Source MAC address. |
 | sntdom | SourceNTDomain | The Windows domain name for the source address. |
 | sourceDnsDomain | SourceDnsDomain | The DNS domain part of the complete FQDN. |
@@ -139,7 +132,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## Custom fields
 
-The following tables map the names of CEF keys and CommonSecurityLog fields that are available for customers to use for data that does not apply to any of the built-in fields.
+The following tables map the names of CEF keys and CommonSecurityLog fields that are available for customers to use for data that doesn't apply to any of the built-in fields.
 
 ### Custom IPv6 address fields
 
@@ -206,7 +199,6 @@ The following table maps CEF key and CommonSecurityLog names for the *string* fi
 > [!TIP]
 > <a name="use-sparingly"></a><sup>1</sup> We recommend that you use the **DeviceCustomString** fields sparingly and use more specific, built-in fields when possible.
 > 
-
 ### Custom timestamp fields
 
 The following table maps CEF key and CommonSecurityLog names for the *timestamp* fields available for custom data.
@@ -243,7 +235,7 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 |---------|---------|
 |   **IndicatorThreatType**  |  The [MaliciousIP](#MaliciousIP) threat type, according to the threat intelligence feed.       |
 | <a name="MaliciousIP"></a>**MaliciousIP** | Lists any IP addresses in the message that correlates with the current threat intelligence feed. |
-|  **MaliciousIPCountry**   | The [MaliciousIP](#MaliciousIP) country, according to the geographic information at the time of the record ingestion.        |
+|  **MaliciousIPCountry**   | The [MaliciousIP](#MaliciousIP) country/region, according to the geographic information at the time of the record ingestion.        |
 | **MaliciousIPLatitude**    |   The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.      |
 | **MaliciousIPLongitude**    |  The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.       |
 | **ReportReferenceLink**    |    Link to the threat intelligence report.     |
@@ -252,7 +244,7 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 | **ThreatSeverity** | The threat severity for the [MaliciousIP](#MaliciousIP), according to the threat intelligence feed at the time of the record ingestion. |
 
 
-### Additional enrichment fields
+### Other enrichment fields
 
 |CommonSecurityLog field name  |Description  |
 |---------|---------|
@@ -263,6 +255,7 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 |**SourceSystem**     | Always defined as **OpsManager**.        |
 
 
-## Next steps
+## Related content
 
-For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
+- [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
+- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)

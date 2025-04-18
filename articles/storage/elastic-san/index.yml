@@ -4,17 +4,13 @@ title: Azure Elastic SAN documentation # < 60 chars
 summary: A cloud-native service that offers a scalable, cost-effective, high-performance, and comprehensive storage solution for a range of compute options. # < 160 chars
 
 metadata:
-  title: Azure Elastic SAN documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Create a virtual SAN to act as the storage for multiple compute options.  # Required; article description that is displayed in search results. < 160 chars.
-  services: storage
-  ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: elastic-san
-  ms.custom: ignite-2022
-  ms.topic: landing-page # Required
-  ms.collection: collection
-  author: roygara #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rogarana #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/20/2022
+  title: Azure Elastic SAN documentation
+  description: Create a virtual SAN to act as the storage for multiple compute options.
+  ms.service: azure-elastic-san-storage
+  ms.topic: landing-page
+  author: roygara
+  ms.author: rogarana
+  ms.date: 01/06/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -34,7 +30,37 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
           - text: Deploy an Elastic SAN
             url: elastic-san-create.md
+          - text: Connect an Elastic SAN volume to a Windows VM
+            url: elastic-san-connect-windows.md
+          - text: Connect an Elastic SAN volume to a Linux VM
+            url: elastic-san-connect-linux.md
+
+# Card (optional)
+  - title: Performance and scalability
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: How Elastic SAN performance works with VMs
+            url: elastic-san-performance.md
+          - text: Scale targets for Azure Elastic SAN
+            url: elastic-san-scale-targets.md
+          - text: Optimize the performance of your Elastic SAN
+            url: elastic-san-best-practices.md
+
+# Card (optional)
+  - title: Connect to Azure Kubernetes Service (AKS)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Options to use an Elastic SAN with AKS
+            url: elastic-san-aks-options.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Azure Container Storage
+            url: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+          - text: Use Kubernetes iSCSI CSI driver
+            url: elastic-san-connect-aks.md

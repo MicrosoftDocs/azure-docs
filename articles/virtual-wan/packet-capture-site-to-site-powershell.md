@@ -4,10 +4,10 @@ description: Learn how to perform packet capture on a Virtual WAN site-to-site V
 services: virtual-wan
 titleSuffix: Azure Virtual WAN
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/21/2023
 ms.author: cherylmc
 ---
 
@@ -23,7 +23,7 @@ Verify that you have the following configuration already set up in your environm
 
 * A Virtual WAN and a virtual hub.
 * A site-to-site VPN gateway deployed in the virtual hub.
-* You may also have connections connecting VPN sites to your site-to-site VPN gateway.
+* You can also have connections connecting VPN sites to your site-to-site VPN gateway.
 
 ### Working with Azure PowerShell
 
@@ -31,7 +31,7 @@ Verify that you have the following configuration already set up in your environm
 
 ### Set up the environment
 
-Use the following command to verify that you are using the correct subscription and are logged in as a user that has permissions to perform the packet capture on the site-to-site VPN gateway
+Use the following command to verify that you're using the correct subscription and are logged in as a user that has permissions to perform the packet capture on the site-to-site VPN gateway
 
 ```azurepowershell-interactive
 $subid = “<insert Virtual WAN subscription ID here>”
@@ -69,8 +69,6 @@ This section helps you start a packet capture for your site-to-site VPN gateway 
 
 1. To run a packet capture, you need the **-Name** value of the site-to-site VPN gateway. To find the **-Name** value, in the Azure portal, navigate to your virtual hub, under **Connectivity**, click **VPN (Site-to-site)**.
 
-   :::image type="content" source="./media/packet-capture-site-to-site-powershell/vpn-gateway-name.png" alt-text="Image of Virtual WAN gateway name." lightbox="./media//packet-capture-site-to-site-powershell/vpn-gateway-name.png":::
-
 1. To start a packet capture, run the following command:
 
    ```azurepowershell-interactive
@@ -79,14 +77,14 @@ This section helps you start a packet capture for your site-to-site VPN gateway 
 
 ## <a name="filters"></a> Optional: Specify filters
 
-To simplify your packet captures, you may specify filters on your packet capture to focus on specific behaviors.
+To simplify your packet captures, you can specify filters on your packet capture to focus on specific behaviors.
 
 >[!NOTE]
-> For TracingFlags and TCPFlags, you may specify multiple protocols by adding up the numerical values for the protocols you wish to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.  
+> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you wish to capture (same as a logical OR). For example, if you want to capture only ESP and OVPN packets, specify a TracingFlag value of 8+1 = 9.  
 
 | Parameter | Description | Default values | Available values|
 |--- |--- | --- | ---|
-| TracingFlags | Integer that determines what types of packets are captured | 11 (ESP, IKE, OVPN) | ESP = 1 IKE  = 2 OPVN = 8 |
+| TracingFlags | Integer that determines what types of packets are captured | 11 (ESP, IKE, OVPN) | ESP = 1 IKE  = 2 OVPN = 8 |
 | TCPFlags | Integer that determines which types of TCP Packets are captured | 0 (none) | FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128| 
 | MaxPacketBufferSize|Maximum size of a captured packet in bytes. Packets are truncated if larger than the provided value. |120|Any|
 | MaxFileSize |Maximum capture file size in Mb. Captures are stored in a circular buffer so overflow is handled in a FIFO manner (older packets removed first)|100|Any|
@@ -110,7 +108,7 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 
 We recommend that you let the packet capture run for at least 600 seconds before stopping. When you stop a packet capture, the parameters are similar to the parameters in the [Start a packet capture](#start) section. In the command, the SAS URL value was generated in the [Create a storage account](#storage) section. If the `SasUrl` parameter isn't configured correctly, the capture might fail with storage errors.
 
-When you are ready to stop the packet capture, run the following command:
+When you're ready to stop the packet capture, run the following command:
 
 ```azurepowershell-interactive
 Stop-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name <GatewayName> -SasUrl $sasurl

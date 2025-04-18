@@ -5,9 +5,9 @@ author: vicancy
 ms.author: lianwei
 ms.date: 04/04/2022
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Use Java to create an App showing GitHub star count with Azure Functions and SignalR Service
@@ -16,6 +16,8 @@ In this article, you'll use Azure SignalR Service, Azure Functions, and Java to 
 
 > [!NOTE]
 > The code in this article is available on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/java).
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Prerequisites
 
@@ -219,7 +221,9 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
 
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string, and then run the following command:
+    1. Copy the primary connection string, and then run the following command.
+
+        [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"

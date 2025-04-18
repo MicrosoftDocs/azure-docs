@@ -2,12 +2,12 @@
 title: Automatic device management at scale (Azure portal)
 titleSuffix: Azure IoT Hub
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices and modules in the Azure portal
-author: kgremban
+author: SoniaLopezBravo
 
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 09/22/2022
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -151,7 +151,7 @@ To view the details of a configuration and monitor the devices running it, use t
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 
-2. Select **Configurations ** in Device management.
+2. Select **Configurations** in Device management.
 
 3. Inspect the configuration list. For each configuration, you can view the following details:
 

@@ -1,27 +1,26 @@
 ---
-title: Column patterns in mapping data flow
+title: Column patterns in mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Create generalized data transformation patterns using column patterns in mapping data flows with Azure Data Factory or Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 09/26/2024
 ---
 
-# Using column patterns in mapping data flow
+# Using column patterns in mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Several mapping data flow transformations allow you to reference template columns based on patterns instead of hard-coded column names. This matching is known as *column patterns*. You can define patterns to match columns based on name, data type, stream, origin, or position instead of requiring exact field names. There are two scenarios where column patterns are useful:
+Several mapping data flows transformations allow you to reference template columns based on patterns instead of hard-coded column names. This matching is known as *column patterns*. You can define patterns to match columns based on name, data type, stream, origin, or position instead of requiring exact field names. There are two scenarios where column patterns are useful:
 
 * If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
 * If you wish to do a common operation on a large group of columns. For example, wanting to cast every column that has 'total' in its column name into a double.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=8848564b-ff1c-4ad5-9ccd-74357f93a348]
 
 ## Column patterns in derived column and aggregate
 
@@ -89,11 +88,11 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 * `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`
 * `$0` translates to the current column name match at run time for scalar types. For hierarchical types, `$0` represents the current matched column hierarchy path.
 * `name` represents the name of each incoming column
-* `type` represents the data type of each incoming column. The list of data types in the data flow type system can be found [here.](concepts-data-flow-overview.md#data-flow-data-types)
+* `type` represents the data type of each incoming column. The list of data types in the data flows type system can be found [here.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` represents the name associated with each stream, or transformation in your flow
 * `position` is the ordinal position of columns in your data flow
 * `origin` is the transformation where a column originated or was last updated
 
-## Next steps
-* Learn more about the mapping data flow [expression language](data-transformation-functions.md) for data transformations
+## Related content
+* Learn more about the mapping data flows [expression language](data-transformation-functions.md) for data transformations
 * Use column patterns in the [sink transformation](data-flow-sink.md) and [select transformation](data-flow-select.md) with rule-based mapping

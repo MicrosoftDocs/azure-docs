@@ -4,12 +4,17 @@ description: Learn how to save and configure your API Management service configu
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 08/05/2022
 ms.author: danlep
 ---
 # How to save and configure your API Management service configuration using Git
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!IMPORTANT]
+> Starting March 15, 2025, Azure API Management will [retire](breaking-changes/git-configuration-retirement-march-2025.md) the ability to manage the configuration of your service instance using the built-in Git repository. If you plan to continue using a Git repository to manage the configuration of your service instance after the retirement date, update your configuration management to use a different solution such as APIOps and your own Git repository implementation.
 
 Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using Azure tools such as Azure PowerShell or the Azure CLI, or making a REST API call. In addition to these methods, you can manage your service instance configuration using Git, enabling scenarios such as:
 
@@ -36,15 +41,11 @@ This article describes how to enable and use Git to manage your service configur
 > [!IMPORTANT]
 > This feature is designed to work with small to medium API Management service configurations, such as those with an exported size less than 10 MB, or with fewer than 10,000 entities. Services with a large number of entities (products, APIs, operations, schemas, and so on) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact Azure Support if you need assistance. 
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-
-
 ## Access Git configuration in your service
 
  1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 
- 1. In the left menu, under **Deployment and infrastructure**, select **Repository**.
+ 1. In the left menu, under **Deployment + infrastructure**, select **Repository**.
  
 :::image type="content" source="media/api-management-configuration-repository-git/api-management-enable-git.png" alt-text="Screenshot showing how to access Git configuration for API Management.":::
 
@@ -69,7 +70,10 @@ For information on saving the service configuration using the REST API, see [Ten
 
 ## Get access credentials
 
-To clone a repository, in addition to the URL to your repository, your need a username and a password. 
+To clone a repository, in addition to the URL to your repository, you need a username and a password. 
+
+> [!CAUTION]
+> Using username and password credentials with a Git repository can pose security risks. Store your password securely and rotate it regularly. Don't store your credentials in plain text in code or configuration files. 
 
 1. On the **Repository** page, select **Access credentials** near the top of the page.
 
@@ -93,19 +97,19 @@ git clone https://{name}.scm.azure-api.net/
 
 Provide the username and password when prompted.
 
-If you receive any errors, try modifying your `git clone` command to include the user name and password, as shown in the following example.
+If you receive any errors, try modifying your `git clone` command to include the username, as shown in the following example. Provide the password when prompted.
 
 ```
-git clone https://username:password@{name}.scm.azure-api.net/
+git clone https://username@{name}.scm.azure-api.net/
 ```
 
-If this provides an error, try URL encoding the password portion of the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
+If this provides an error, try URL encoding the password and pass it in the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
 
 ```
 ?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
-Use the encoded password along with your user name and repository location to construct the git command.
+Use the encoded password along with your username and repository location to construct the git command.
 
 ```
 git clone https://username:url encoded password@{name}.scm.azure-api.net/
@@ -207,7 +211,7 @@ These files can be created, deleted, edited, and managed on your local file syst
 > * [Subscriptions](/rest/api/apimanagement/current-ga/subscription)
 > * Named values
 > * Developer portal entities other than styles and templates
-> * Policy Fragments
+> * Policy fragments
 >
 
 ### Root api-management folder
@@ -265,7 +269,7 @@ The `apis` folder contains a folder for each API in the service instance, which 
 * `apis\<api name>\operations\` - Folder containing `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](/rest/api/apimanagement/current-ga/operation) in the REST API.
 
 ### apiVersionSets folder
-The `apiVerionSets` folder contains a folder for each API version set created for an API, and contains the following items.
+The `apiVersionSets` folder contains a folder for each API version set created for an API, and contains the following items.
 
 * `apiVersionSets\<api version set Id>\configuration.json` - Configuration for the version set. This is the same information that would be returned if you were to call the [Get a specific version set](/rest/api/apimanagement/current-ga/api-version-set/get) operation.
 
@@ -307,7 +311,8 @@ The `templates` folder contains configuration for the [email templates](api-mana
 * `<template name>\configuration.json` - Configuration for the email template.
 * `<template name>\body.html` - Body of the email template.
 
-## Next steps
+## Related content
+
 For information on other ways to manage your service instance, see:
 
 * [Azure PowerShell cmdlet reference](/powershell/module/az.apimanagement)

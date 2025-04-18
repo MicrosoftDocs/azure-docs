@@ -13,6 +13,9 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.
 
+> [!TIP]
+> Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
+
 ## Understanding the email object model
 
 The following JSON message template & response object demonstrate some of the major features of the Azure Communication Services Email SDK for Python.
@@ -68,7 +71,7 @@ message = {
 response = {
     "id": "str",  # The unique id of the operation. Uses a UUID. Required.
     "status": "str",  # Status of operation. Required. Known values are:
-        "NotStarted", "Running", "Succeeded", "Failed", and "Canceled".
+        "NotStarted", "Running", "Succeeded", and "Failed".
     "error": {
         "additionalInfo": [
             {
@@ -91,23 +94,23 @@ The `response.status` values are explained further in the following table.
 | Status Name | Description |
 | ----------- | ------------|
 | InProgress | The email send operation is currently in progress and being processed. |
-| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
-| Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
-| Canceled | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
+| Succeeded | The email send operation completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
+| Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure. |
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 3.7+.
-- An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../create-email-communication-resource.md).
-- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
+- An Azure Email Communication Services resource created and ready with a provisioned domain. [Create an Email Communication Resource](../create-email-communication-resource.md).
+- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Connect a verified email domain to send email](../connect-email-communication-resource.md).
 
-Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
 > We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
 
 ### Prerequisite check
+
 - In a terminal or command window, run the `python --version` command to check that Python is installed.
 - To view the domains verified with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/). Locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
 
@@ -152,9 +155,12 @@ While still in the application directory, install the Azure Communication Servic
 ```console
 pip install azure-communication-email
 ```
+
 ## Creating the email client with authentication
 
-### Option 1: Authenticate using a connection string
+There are a few different options available for authenticating an email client:
+
+#### [Connection String](#tab/connection-string)
 
 Instantiate an **EmailClient** with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
@@ -163,7 +169,9 @@ Instantiate an **EmailClient** with your connection string. Learn how to [manage
 email_client = EmailClient.from_connection_string(<connection_string>)
 ```
 
-### Option 2: Authenticate using Azure Active Directory
+<a name='azure-active-directory'></a>
+
+#### [Microsoft Entra ID](#tab/aad)
 
 You can also use Active Directory authentication using [DefaultAzureCredential](../../../concepts/authentication.md).
 
@@ -176,9 +184,9 @@ endpoint = "https://<resource-name>.communication.azure.com"
 email_client = EmailClient(endpoint, DefaultAzureCredential())
 ```
 
-### Option 3: Authenticate using AzureKeyCredential
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+Email clients can also be authenticated using an [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential). Both the `key` and the `endpoint` can be founded on the **Keys** panel under **Settings** in your Communication Services Resource.
 
 ```python
 from azure.communication.email import EmailClient
@@ -190,7 +198,9 @@ endpoint = "<your-endpoint-uri>";
 email_client = EmailClient(endpoint, key);
 ```
 
-For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
+---
+
+For simplicity, this article uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
 ## Basic email sending 
 
@@ -201,14 +211,14 @@ To send an email message, you need to:
    - `senderAddress`: A valid sender email address, found in the MailFrom field in the overview pane of the domain linked to your Email Communication Services Resource.
    - `recipients`: An object with a list of email recipients, and optionally, lists of CC & BCC email recipients. 
    - `content`: An object containing the subject, and optionally the plaintext or HTML content, of an email message.
-- Call the begin_send method, which returns the result of the operation. 
+- Call the `begin_send` method, which returns the result of the operation. 
 
 ```python
 message = {
     "content": {
         "subject": "This is the subject",
         "plainText": "This is the body",
-        "html": "html><h1>This is the body</h1></html>"
+        "html": "<html><h1>This is the body</h1></html>"
     },
     "recipients": {
         "to": [
@@ -233,7 +243,7 @@ Make these replacements in the code:
 
 ### Get the status of the email delivery
 
-We can poll for the status of the email delivery by setting a loop on the operation status object returned from the EmailClient's `begin_send` method:
+We can poll for the status of the email delivery by setting a loop on the operation status object returned from the EmailClient `begin_send` method:
 
 ```python
 POLLER_WAIT_TIME = 10
@@ -270,95 +280,6 @@ Run the application from your application directory with the `python` command.
 python send-email.py
 ```
 
-If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
-
 ### Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email)
-
-## Advanced sending
-
-### Send an email message to multiple recipients
-
-We can define multiple recipients by adding more email addresses to the `recipients` object. These addresses can be added as `to`, `cc`, or `bcc` recipient lists accordingly.
-
-```python
-message = {
-    "content": {
-        "subject": "This is the subject",
-        "plainText": "This is the body",
-        "html": "html><h1>This is the body</h1></html>"
-    },
-    "recipients": {
-        "to": [
-            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
-            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
-        ],
-        "cc": [
-            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
-            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
-        ],
-        "bcc": [
-            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
-            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
-        ]
-    },
-    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
-}
-```
-
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced)
-
-
-### Send an email message with attachments
-
-We can add an attachment by defining an `attachment` and adding it to the `attachments` of our `message` object. Read the attachment file and encode it using Base64. Decode the bytes as a string and pass it into the `attachment` object.
-
-```python
-import base64
-
-with open("<path-to-your-attachment>", "rb") as file:
-    file_bytes_b64 = base64.b64encode(file.read())
-
-message = {
-    "content": {
-        "subject": "This is the subject",
-        "plainText": "This is the body",
-        "html": "html><h1>This is the body</h1></html>"
-    },
-    "recipients": {
-        "to": [
-            {
-                "address": "<recipient1@emaildomain.com>",
-                "displayName": "Customer Name"
-            }
-        ]
-    },
-    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
-    "attachments": [
-        {
-            "name": "<your-attachment-name>",
-            "contentType": "<your-attachment-mime-type>",
-            "contentInBase64": file_bytes_b64.decode()
-        }
-    ]
-}
-```
-
-For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
-
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced)
-
-### Throw an exception when email sending tier limit is reached
-
-The Email API has throttling with limitations on the number of email messages that you can send. Email sending has limits applied per minute and per hour as mentioned in [API Throttling and Timeouts](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, additional email sends with `SendAsync` calls will receive an error response of “429: Too Many Requests”. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-logging) to capture these response codes.
-
-Alternatively, you can manually define a custom policy as shown below. This will ensure that 429 response codes throw an exception rather than being retried.
-
-```python
-def callback(response):
-    if response.http_response.status_code == 429:
-        raise Exception(response.http_response)
-
-email_client = EmailClient.from_connection_string(<connection_string>, raw_response_hook=callback)
-```
+You can download the sample app from GitHub Azure Samples [Send email for Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email)

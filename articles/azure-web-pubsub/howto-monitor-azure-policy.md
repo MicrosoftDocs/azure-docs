@@ -13,10 +13,9 @@ ms.author: jixin
 
 [Azure Policy](../governance/policy/overview.md) is a free service in Azure to create, assign, and manage policies that enforce rules and effects to ensure your resources stay compliant with your corporate standards and service level agreements. Use these policies to audit Web PubSub resources for compliance.
 
-This article describes the built-in policies for Azure Web PubSub Service. 
+This article describes the built-in policies for Azure Web PubSub Service.
 
 ## Built-in policy definitions
-
 
 The following table contains an index of Azure Policy built-in policy definitions for Azure Web PubSub. For Azure Policy built-ins for other services, see [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).
 
@@ -28,10 +27,10 @@ The name of each built-in policy definition links to the policy definition in th
 
 When assigning a policy definition:
 
-* You can assign policy definitions using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
-* Policy assignments can be scoped to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). 
-* You can enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.  
-* Web PubSub policy assignments apply to existing and new Web PubSub resources within the scope.
+- You can assign policy definitions using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
+- Policy assignments can be scoped to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md).
+- You can enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
+- Web PubSub policy assignments apply to existing and new Web PubSub resources within the scope.
 
 > [!NOTE]
 > After you assign or update a policy, it takes some time for the assignment to be applied to resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
@@ -47,10 +46,10 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 1. Open the Azure portal and search for **Policy**.
 1. Select **Policy**.
 1. Select **Compliance**.
-1. Use the filters to display by **Scope**, **Type** or **Compliance state**.  Use search list by name or 
- ID.
-    [ ![Policy compliance in portal](./media/howto-monitor-azure-policy/azure-policy-compliance.png) ](./media/howto-monitor-azure-policy/azure-policy-compliance.png#lightbox)
-1. Select a policy to review aggregate compliance details and events. 
+1. Use the filters to display by **Scope**, **Type** or **Compliance state**. Use search list by name or
+   ID.
+   [ ![Screenshot showing policy compliance in portal.](./media/howto-monitor-azure-policy/azure-policy-compliance.png) ](./media/howto-monitor-azure-policy/azure-policy-compliance.png#lightbox)
+1. Select a policy to review aggregate compliance details and events.
 1. Select a specific Web PubSub for resource compliance.
 
 ### Policy compliance in the Azure CLI
@@ -86,12 +85,12 @@ az policy state list \
 
 ## Next steps
 
-* Learn more about Azure Policy [definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md)
+- Learn more about Azure Policy [definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md)
 
-* Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md)
+- Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md)
 
-* Learn more about [governance capabilities](../governance/index.yml) in Azure
-
+- Learn more about [governance capabilities](../governance/index.yml) in Azure
 
 <!-- LINKS - External -->
+
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

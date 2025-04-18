@@ -4,9 +4,9 @@ titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN Point-to-site IPsec connectivity policies.
 services: virtual-wan
 author: wellee
-ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 02/24/2021
+ms.service: azure-virtual-wan
+ms.topic: concept-article
+ms.date: 08/24/2023
 ms.author: wellee
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies for point-to-site VPN
 ---
@@ -25,7 +25,7 @@ The following table shows the default IPsec parameters for Point-to-site VPN con
 | Phase 1 IKE Integrity |  SHA256 |
 | DH Group | DHGroup24 |
 | Phase 2 IPsec Encryption | GCMAES256|
-| Phase 2 IPsec Integrity | GCMAES25 |
+| Phase 2 IPsec Integrity | GCMAES256 |
 | PFS Group |PFS24|
 
 ## Custom IPsec policies

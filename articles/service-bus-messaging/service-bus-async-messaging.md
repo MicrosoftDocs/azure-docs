@@ -1,8 +1,7 @@
 ---
 title: Service Bus asynchronous messaging | Microsoft Docs
-description: Learn how Azure Service Bus supports asynchronism via a store and forward mechanism with queues, topics, and subscriptions. 
+description: Learn how Azure Service Bus supports asynchronism via a store and forward mechanism with queues, topics, and subscriptions.
 ms.topic: article
-ms.custom: ignite-2022
 ms.date: 04/23/2021
 ---
 
@@ -39,12 +38,12 @@ Service Bus contains a number of mitigations for these issues. The following sec
 ### Throttling
 With Service Bus, throttling enables cooperative message rate management. Each individual Service Bus node houses many entities. Each of those entities makes demands on the system in terms of CPU, memory, storage, and other facets. When any of these facets detects usage that exceeds defined thresholds, Service Bus can deny a given request. The caller receives a server busy exception and retries after 10 seconds.
 
-As a mitigation, the code must read the error and halt any retries of the message for at least 10 seconds. Since the error can happen across pieces of the customer application, it is expected that each piece independently executes the retry logic. The code can reduce the probability of being throttled by enabling partitioning on a namespace, queue or topic.
+As a mitigation, the code must read the error and halt any retries of the message for at least 10 seconds. Since the error can happen across pieces of the customer application, it is expected that each piece independently executes the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus). The code can reduce the probability of being throttled by enabling partitioning on a namespace, queue or topic.
 
 For more information on how application code should handle throttling concerns, see the [documentation on the Throttling Pattern](/azure/architecture/patterns/throttling).
 
 ### Issue for an Azure dependency
-Other components within Azure can occasionally have service issues. For example, when a system that Service Bus uses is being upgraded, that system can temporarily experience reduced capabilities. To work around these types of issues, Service Bus regularly investigates and implements mitigations. Side effects of these mitigations do appear. For example, to handle transient issues with storage, Service Bus implements a system that allows message send operations to work consistently. Due to the nature of the mitigation, a sent message can take up to 15 minutes to appear in the affected queue or subscription and be ready for a receive operation. Generally speaking, most entities will not experience this issue. However, given the number of entities in Service Bus within Azure, this mitigation is sometimes needed for a small subset of Service Bus customers.
+Other components within Azure can occasionally have service issues. For example, when a system that Service Bus uses is being upgraded, that system can temporarily experience reduced capabilities. To work around these types of issues, Service Bus regularly investigates and implements mitigations. Side effects of these mitigations do appear. For example, to handle transient issues with storage, Service Bus implements a system that allows message send operations to work consistently. Generally speaking, most entities will not experience this issue. However, given the number of entities in Service Bus within Azure, this mitigation is sometimes needed for a small subset of Service Bus customers.
 
 ### Service Bus failure on a single subsystem
 With any application, circumstances can cause an internal component of Service Bus to become inconsistent. When Service Bus detects this, it collects data from the application to aid in diagnosing what happened. Once the data is collected, the application is restarted in an attempt to return it to a consistent state. This process happens fairly quickly, and results in an entity appearing to be unavailable for up to a few minutes, though typical down times are much shorter.

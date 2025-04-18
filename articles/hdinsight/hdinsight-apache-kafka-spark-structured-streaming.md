@@ -1,11 +1,10 @@
 ---
 title: 'Tutorial: Apache Spark Streaming & Apache Kafka - Azure HDInsight'
 description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter Notebook from Spark on HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,seodec18,seoapr2020
-ms.date: 11/17/2022
-
+ms.custom: hdinsightactive
+ms.date: 12/02/2024
 #Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---
 
@@ -110,7 +109,7 @@ Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the p
 
 The following diagram shows how communication flows between Spark and Kafka:
 
-:::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network" border="false":::
+:::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network." border="false":::
 
 > [!NOTE]  
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -146,7 +145,7 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
     | SSH User Name           | The SSH user to create for the clusters.                                                               |
     | SSH Password            | The password for the SSH user.                                                                         |
 
-    :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Screenshot of the customized template":::
+    :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Screenshot of the customized template.":::
 
 3. Read the **Terms and Conditions**, then select **I agree to the terms and conditions stated above**.
 
@@ -238,7 +237,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
 1. Declare a schema. The following command demonstrates how to use a schema when reading JSON data from kafka. Enter the command in your next Jupyter cell.
 
     ```scala
-    // Import bits useed for declaring schemas and working with JSON data
+    // Import bits used for declaring schemas and working with JSON data
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._

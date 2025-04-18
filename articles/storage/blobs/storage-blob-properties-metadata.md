@@ -5,17 +5,28 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.date: 08/05/2024
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Manage blob properties and metadata with .NET
 
+[!INCLUDE [storage-dev-guide-selector-manage-properties-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-blob.md)]
+
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+
+[!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
+
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-dotnet.md)]
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Set Blob Properties (REST API)](/rest/api/storageservices/set-blob-properties#authorization), [Get Blob Properties (REST API)](/rest/api/storageservices/get-blob-properties#authorization), [Set Blob Metadata (REST API)](/rest/api/storageservices/set-blob-metadata#authorization), or [Get Blob Metadata (REST API)](/rest/api/storageservices/get-blob-metadata#authorization).
 
 ## About properties and metadata
 
@@ -73,3 +84,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

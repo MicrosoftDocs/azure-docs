@@ -1,0 +1,54 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-configure-network-function.md ",
+            "redirect_url": "/azure/operator-5g-core/how-to-configure-network-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-delete-network-function-cluster.md",
+            "redirect_url": "/azure/operator-5g-core/how-to-delete-network-function-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-observability.md",
+            "redirect_url": "/azure/operator-5g-core/how-to-deploy-observability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md",
+            "redirect_url": "/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/how-to-deploy-5g-core.md",
+            "redirect_url": "/azure/operator-5g-core/quickstart-deploy-5g-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/how-to-monitor-deployment-status.md",
+            "redirect_url": "/azure/operator-5g-core/quickstart-monitor-deployment-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/how-to-perform-checks-post-deployment.md",
+            "redirect_url": "/azure/operator-5g-core/quickstart-perform-checks-post-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-network-functions.md",
+            "redirect_url": "/azure/operator-5g-core/how-to-deploy-network-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-perform-checks-post-deployment.md",
+            "redirect_url": "/azure/operator-5g-core/quickstart-configure-extension-for-status-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/how-to-complete-prerequisites-deploy-azure-kubernetes-service.md",
+            "redirect_url": "/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service",
+            "redirect_document_id": false
+        }
+   ]
+}

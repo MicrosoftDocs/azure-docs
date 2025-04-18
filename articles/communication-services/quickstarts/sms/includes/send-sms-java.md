@@ -26,7 +26,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS-enabled telephone number. [Get a phone number](../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).
 
 ### Prerequisite check
 
@@ -41,8 +41,16 @@ To set up an environment for sending messages, take the steps in the following s
 
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the following command to generate the Java project from the maven-archetype-quickstart template.
 
+- **Command Prompt**
+
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
+
+- **PowerShell**
+
+```PowerShell
+mvn archetype:generate "-DgroupId=com.communication.quickstart" "-DartifactId=communication-quickstart" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false"
 ```
 
 The `generate` goal creates a directory with the same name as the `artifactId` value. Under this directory, the **src/main/java** directory contains the project source code, the **src/test/java directory** contains the test source, and the **pom.xml** file is the project's Project Object Model (POM).
@@ -141,7 +149,7 @@ Make these replacements in the code:
 - Replace `<to-phone-number>` with a phone number that you'd like to send a message to.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456.
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
 
 ## Send a 1:N SMS message with options
 
@@ -171,7 +179,7 @@ Make these replacements in the code:
 - Replace `<to-phone-number-1>` and `<to-phone-number-2>` with phone numbers that you'd like to send a message to.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456.
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
 
 The `setDeliveryReportEnabled` method is used to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages.
 
@@ -197,8 +205,16 @@ You can use the `setTag` method to apply a tag to the delivery report.
 
 1. Run the following `mvn` command to execute the app.
 
+   - **Command Prompt**
+
    ```console
 
    mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 
+   ```
+   
+   - **PowerShell**
+   
+   ```PowerShell
+   mvn exec:java "-Dexec.mainClass=com.communication.quickstart.App" "-Dexec.cleanupDaemonThreads=false"
    ```

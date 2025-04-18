@@ -1,10 +1,9 @@
 ---
 title: All files test cases for Azure Resource Manager test toolkit
 description: Describes the tests that are run for all files by the Azure Resource Manager template test toolkit.
-ms.topic: conceptual
-ms.date: 07/16/2021
-ms.author: tomfitz
-author: tfitzmac
+ms.topic: how-to
+ms.custom: devx-track-arm-template
+ms.date: 06/20/2024
 ---
 
 # Test cases for all files
@@ -105,7 +104,7 @@ The following example **passes**.
 }
 ```
 
-### CreateUiDefintion example
+### CreateUiDefinition example
 
 The following example **fails** because in _createUiDefinition.json_ the leading curly brace (`{`) is missing from the `outputs` section.
 

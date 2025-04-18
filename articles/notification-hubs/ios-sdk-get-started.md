@@ -1,17 +1,16 @@
 ---
-
 title: Send push notifications to iOS using Azure Notification Hubs and the iOS SDK
 description: In this tutorial, you learn how to use Azure Notification Hubs and the Apple Push Notification service to send push notifications to iOS devices.
 author: sethmanheim
 ms.author: sethm
 ms.date: 10/30/2020
 ms.topic: tutorial
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ---
 
-# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs
+# Tutorial: Set up your iOS app to work with Azure Notification Hubs
 
 This tutorial shows you how to set up Azure Notification Hubs and configure credentials to push notifications to an iOS device via the [Apple Push Notification service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1). 
 
@@ -34,7 +33,7 @@ You'll also need the following:
 - An iPhone or iPad running iOS version 10 or later.
 - Your physical device registered in the [Apple Portal](https://developer.apple.com/) and associated with your certificate.
 
-Be sure to read the [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md) if you’re not familiar with the service.
+Be sure to read the [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md) if you're not familiar with the service.
 
 > [!NOTE]
 > The notification hub will be configured to use the Sandbox authentication mode only. You should not use this authentication mode for production workloads.
@@ -49,20 +48,18 @@ Generate the Certificate Signing Request (CSR) file, which Apple uses to generat
 
 2. Select **Keychain Access**, expand **Certificate Assistant**, and then select **Request a Certificate from a Certificate Authority**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image1.png" alt-text="Screenshot that highlights the Request a Certificate from a Certificate Authority menu option.":::
-
    > [!NOTE]
    > By default, Keychain Access selects the first item in the list. This can be a problem if you're in the **Certificates** category and **Apple Worldwide Developer Relations Certification Authority** is not the first item in the list. Make sure you have a non-key item, or the **Apple Worldwide Developer Relations Certification Authority** key is selected, before generating the CSR (Certificate Signing Request).
 
-3. Select your **User Email Address**, enter your **Common Name** value, make sure that you specify **Saved to disk**, and then select **Continue**. Leave **CA Email Address** blank as it isn't required.
+1. Select your **User Email Address**, enter your **Common Name** value, make sure that you specify **Saved to disk**, and then select **Continue**. Leave **CA Email Address** blank as it isn't required.
 
-   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Required certificate information":::
+   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Screen shot of user interface displayed when selecting Request a Certificate from a Certificate Authority under Certificate Assistant.":::
+   
+1. Enter a name for the CSR file in **Save As**, select the location in **Where**, and then select **Save**.
 
-4. Enter a name for the CSR file in **Save As**, select the location in **Where**, and then select **Save**.
-
-   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Choose file name":::
-
-   This action saves the CSR file in the selected location. The default location is **Desktop**. Remember the location chosen for the file.
+   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Screen shot of dialog displayed when Saved to disk option is selected.":::
+   
+      This action saves the CSR file in the selected location. The default location is **Desktop**. Remember the location chosen for the file.
 
 Next, register your app with Apple, enable push notifications, and upload the exported CSR to create a push certificate.
 
@@ -84,8 +81,6 @@ Apple, and also register for push notifications.
    - **Description**: Type a descriptive name for your app.
    - **Bundle ID**: Enter a Bundle ID of the form **Organization Identifier.Product Name** as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The **Organization Identifier** and **Product Name** values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, the **NotificationHubs** value is used as an organization identifier and the **GetStarted** value is used as the product name. Make sure the **Bundle Identifier** value matches the value in your Xcode project, so that Xcode uses the correct publishing profile.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Register app ID":::
-
    - **Push Notifications**: Check the **Push Notifications** option in the **Capabilities** section.
 
       :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Register new app ID":::
@@ -101,7 +96,7 @@ Apple, and also register for push notifications.
 ## Create a certificate for Notification Hubs
 
 > [!NOTE]
-> With the release of iOS 13, you can only receive silent notifications using token based authentication. If you are using certificate-based authentication for your APNS credentials, you must switch to using token-based authentication.
+> With the release of iOS 13, you can only receive silent notifications using token based authentication. If you are using certificate-based authentication for your APNS credentials, you must switch to using [token-based authentication](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns).
 
 A certificate is required to enable the notification hub to work with **APNS**. This can be done in one of two ways:
 
@@ -119,8 +114,6 @@ The second option has a number of benefits compared to using certificates, as do
 
 2. The **Apple Push Notification service SSL Certificates** window appears. Select the **Create Certificate** button in the **Development SSL Certificate** section.
 
-   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Create certificate":::
-
    The **Create a new Certificate** screen is displayed.
 
    > [!NOTE]
@@ -130,23 +123,15 @@ The second option has a number of benefits compared to using certificates, as do
 
 4. After the portal creates the certificate, select the **Download** button. Save the certificate, and remember the location to which it's saved.
 
-   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Download certificate":::
-
-   The certificate is downloaded and saved in your **Downloads** folder.
+   The certificate is downloaded and saved in your **Downloads** folder:
 
    :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Locate certificate file":::
 
    By default, the downloaded development certificate is named **aps_development.cer**.
 
-5. Double-click the downloaded push certificate **aps\_development.cer**. This action installs the new certificate in the Keychain, as shown in the following image:
-
-   :::image type="content" source="media/ios-sdk-get-started/image13.png" alt-text="Keychain access":::
-
-   Although the name in your certificate might be different, the name will be prefixed with **Apple Development iOS Push Services**.
+5. Double-click the downloaded push certificate **aps\_development.cer**. This action installs the new certificate in the Keychain.
 
 6. In Keychain Access, right-click the new push certificate that you created in the **Certificates** category. Select **Export**, name the file, select the **.p12** format, and then select **Save**.
-
-   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Export certificate":::
 
    You can choose to protect the certificate with a password, but this is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported .p12 certificate. They are used to enable authentication with APNS.
 
@@ -305,6 +290,6 @@ You've now configured your notification hub with APNS. You also have the connect
 
 ## Next steps
 
-In this tutorial, you created and configured a notification hub in Azure and configured it to allow notifications to be sent to your application through Apple Push Notification Service (APNS). Next, we’ll create a sample iOS application and integrate the Azure Notifications Hubs SDK so that it can receive push notifications sent through the Azure portal. Advance to the following tutorial based on your language of choice:
+In this tutorial, you created and configured a notification hub in Azure and configured it to allow notifications to be sent to your application through Apple Push Notification Service (APNS). Next, we'll create a sample iOS application and integrate the Azure Notifications Hubs SDK so that it can receive push notifications sent through the Azure portal. Advance to the following tutorial based on your language of choice:
 
 - [Tutorial: Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-current.md)

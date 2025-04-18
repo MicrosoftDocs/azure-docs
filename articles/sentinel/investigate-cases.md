@@ -1,38 +1,36 @@
 ---
-title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
-description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
+title: Investigate incidents with Microsoft Sentinel (legacy)| Microsoft Docs
+description: In this article, learn how to use the legacy incident investigation experience in Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 author: yelevin
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 11/26/2024
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to investigate and manage security incidents using advanced analytics and visualization tools so that I can effectively identify, understand, and respond to potential threats.
 ---
 
-# Investigate incidents with Microsoft Sentinel
+# Investigate incidents with Microsoft Sentinel (legacy)
+
+This article helps you use Microsoft Sentinel's legacy incident investigation experience. If you're using the newer version of the interface, use the newer set of instructions to match. For more information, see [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md).
+
+After connecting your data sources to Microsoft Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Microsoft Sentinel lets you create advanced analytics rules that generate incidents that you can assign and investigate.
+
+An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Microsoft Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article helps you investigate incidents with Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Microsoft Sentinel lets you create advanced analytics rules that generate incidents that you can assign and investigate.
-
-This article covers:
-> [!div class="checklist"]
-> * Investigate incidents
-> * Use the investigation graph
-> * Respond to threats
-
-An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Microsoft Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
-
 ## Prerequisites
 
 - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
 
-- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
+- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) role in your Microsoft Entra tenant. Regular (nonguest) users have this role assigned by default.
 
 ## How to investigate incidents
 
-1. Select **Incidents**. The **Incidents** page lets you know how many incidents you have and whether they are new, **Active**, or closed. For each incident, you can see the time it occurred and the status of the incident. Look at the severity to decide which incidents to handle first.
+1. Select **Incidents**. The **Incidents** page lets you know how many incidents you have and whether they're new, **Active**, or closed. For each incident, you can see the time it occurred and the status of the incident. Look at the severity to decide which incidents to handle first.
 
     :::image type="content" source="media/investigate-cases/incident-severity.png" alt-text="Screenshot of view of incident severity." lightbox="media/investigate-cases/incident-severity.png":::
 
@@ -40,17 +38,19 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. To begin an investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, the raw events that triggered this incident, the incident’s unique ID, and any mapped MITRE ATT&CK tactics or techniques.
 
-1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information. 
+1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information.
 
     :::image type="content" source="media/investigate-cases/incident-timeline.png" alt-text="Screenshot of view of alert details." lightbox="media/investigate-cases/incident-timeline.png":::
 
+    - If you're currently using the new experience, toggle it off at the top right of the incident details page to use the legacy experience instead.
+
     - In the **Timeline** tab, review the timeline of alerts and bookmarks in the incident, which can help you reconstruct the timeline of attacker activity.
 
-    - In the **Similar incidents (Preview)** tab, you'll see a collection of up to 20 other incidents that most closely resemble the current incident. This allows you to view the incident in a larger context and helps direct your investigation. [Learn more about similar incidents below](#similar-incidents-preview).
+    - In the **Similar incidents (Preview)** tab, you see a collection of up to 20 other incidents that most closely resemble the current incident. This allows you to view the incident in a larger context and helps direct your investigation. [Learn more about similar incidents below](#similar-incidents-preview).
 
-    - In the **Alerts** tab, review the alerts included in this incident. You'll see all relevant information about the alerts – the analytics rules that produced them, the number of results returned per alert, and the ability to run playbooks on the alerts. To drill down even further into the incident, select the number of **Events**. This opens the query that generated the results and the events that triggered the alert in Log Analytics. 
+    - In the **Alerts** tab, review the alerts included in this incident. You see all relevant information about the alerts – the analytics rules that produced them, the number of results returned per alert, and the ability to run playbooks on the alerts. To drill down even further into the incident, select the number of **Events**. This opens the query that generated the results and the events that triggered the alert in Log Analytics. 
 
-    - In the **Bookmarks** tab, you'll see any bookmarks you or other investigators have linked to this incident. [Learn more about bookmarks](./bookmarks.md).
+    - In the **Bookmarks** tab, you see any bookmarks you or other investigators have linked to this incident. [Learn more about bookmarks](./bookmarks.md).
 
     - In the **Entities** tab, you can see all the [entities](entities.md) that you [mapped](./map-data-fields-to-entities.md) as part of the alert rule definition. These are the objects that played a role in the incident, whether they be users, devices, addresses, files, or [any other types](./entities-reference.md).
 
@@ -58,11 +58,11 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. If you're actively investigating an incident, it's a good idea to set the incident's status to **Active** until you close it.
 
-1. Incidents can be assigned to a specific user or to a group. For each incident you can assign an owner, by setting the **Owner** field. All incidents start as unassigned. You can also add comments so that other analysts will be able to understand what you investigated and what your concerns are around the incident.
+1. Incidents can be assigned to a specific user or to a group. For each incident you can assign an owner, by setting the **Owner** field. All incidents start as unassigned. You can also add comments so that other analysts are able to understand what you investigated and what your concerns are around the incident.
 
     :::image type="content" source="media/investigate-cases/assign-incident-to-user.png" alt-text="Screenshot of assigning incident to user.":::
 
-    Recently selected users and groups will appear at the top of the pictured drop-down list.
+    Recently selected users and groups appear at the top of the pictured drop-down list.
 
 1. Select **Investigate** to view the investigation map.
 
@@ -77,7 +77,7 @@ The investigation graph provides you with:
 
 - **Full investigation scope discovery**: Expand your investigation scope using built-in exploration queries to surface the full scope of a breach.
 
-- **Built-in investigation steps**: Use predefined exploration options to make sure you are asking the right questions in the face of a threat.
+- **Built-in investigation steps**: Use predefined exploration options to make sure you're asking the right questions in the face of a threat.
 
 To use the investigation graph:
 
@@ -122,9 +122,9 @@ Learn how you can broaden or narrow the scope of your investigation by either [a
 
 ## Similar incidents (preview)
 
-As a security operations analyst, when investigating an incident you'll want to pay attention to its larger context. For example, you'll want to see if other incidents like this have happened before or are happening now.
+As a security operations analyst, when investigating an incident you want to pay attention to its larger context. For example, you'll want to see if other incidents like this have happened before or are happening now.
 
-- You might want to identify concurrent incidents that may be part of the same larger attack strategy.
+- You might want to identify concurrent incidents that might be part of the same larger attack strategy.
 
 - You might want to identify similar incidents in the past, to use them as reference points for your current investigation.
 
@@ -138,7 +138,7 @@ The **similar incidents** tab in the incident details page, now in preview, pres
 
 There are three criteria by which similarity is determined:
 
-- **Similar entities:** An incident is considered similar to another incident if they both include the same [entities](entities.md). The more entities two incidents have in common, the more similar they are considered to be.
+- **Similar entities:** An incident is considered similar to another incident if they both include the same [entities](entities.md). The more entities two incidents have in common, the more similar they're considered to be.
 
 - **Similar rule:** An incident is considered similar to another incident if they were both created by the same [analytics rule](detect-threats-built-in.md).
 
@@ -152,11 +152,11 @@ The reasons an incident appears in the similar incidents list are displayed in t
 
 Incident similarity is calculated based on data from the 14 days prior to the last activity in the incident, that being the end time of the most recent alert in the incident.
 
-Incident similarity is recalculated every time you enter the incident details page, so the results may vary between sessions if new incidents were created or updated.
+Incident similarity is recalculated every time you enter the incident details page, so the results might vary between sessions if new incidents were created or updated.
 
 ## Comment on incidents
 
-As a security operations analyst, when investigating an incident you will want to thoroughly document the steps you take, both to ensure accurate reporting to management and to enable seamless cooperation and collaboration amongst coworkers. Microsoft Sentinel gives you a rich commenting environment to help you accomplish this.
+As a security operations analyst, when investigating an incident you'll want to thoroughly document the steps you take, both to ensure accurate reporting to management and to enable seamless cooperation and collaboration among coworkers. Microsoft Sentinel gives you a rich commenting environment to help you accomplish this.
 
 Another important thing that you can do with comments is enrich your incidents automatically. When you run a playbook on an incident that fetches relevant information from external sources (say, checking a file for malware at VirusTotal), you can have the playbook place the external source's response - along with any other information you define - in the incident's comments.
 
@@ -164,7 +164,7 @@ Comments are simple to use. You access them through the **Comments** tab on the 
 
 :::image type="content" source="media/investigate-cases/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
 
-### Frequently asked questions
+### Frequently asked questions about incident comments
 
 There are several considerations to take into account when using incident comments. The following list of questions points to these considerations.
 
@@ -172,7 +172,7 @@ There are several considerations to take into account when using incident commen
 
 - **Text:** Comments in Microsoft Sentinel support text inputs in plain text, basic HTML, and Markdown. You can also paste copied text, HTML, and Markdown into the comment window.
 
-- **Images:** You can insert links to images in comments and the images will be displayed inline, but the images must already be hosted in a publicly accessible location such as Dropbox, OneDrive, Google Drive and the like. Images can't be uploaded directly to comments.
+- **Images:** You can insert links to images in comments and the images are displayed inline, but the images must already be hosted in a publicly accessible location such as Dropbox, OneDrive, Google Drive and the like. Images can't be uploaded directly to comments.
 
 #### Is there a size limit on comments?
 
@@ -193,9 +193,9 @@ There are several considerations to take into account when using incident commen
 
 
 
-## Closing an incident
+## Close an incident
 
-Once you have resolved a particular incident (for example, when your investigation has reached its conclusion), you should set the incident’s status to **Closed**. When you do so, you will be asked to classify the incident by specifying the reason you are closing it. This step is mandatory. Click **Select classification** and choose one of the following from the drop-down list:
+Once you resolve a particular incident (for example, when your investigation has reached its conclusion), you should set the incident’s status to **Closed**. When you do so, you'll be asked to classify the incident by specifying the reason you're closing it. This step is mandatory. Select **Select classification** and choose one of the following from the drop-down list:
 
 - True Positive - suspicious activity
 - Benign Positive - suspicious but expected
@@ -207,13 +207,13 @@ Once you have resolved a particular incident (for example, when your investigati
 
 For more information about false positives and benign positives, see [Handle false positives in Microsoft Sentinel](false-positives.md).
 
-After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
+After choosing the appropriate classification, add some descriptive text in the **Comment** field. This is useful in the event you need to refer back to this incident. Select **Apply** when you’re done, and the incident is closed.
 
-:::image type="content" source="media/investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
+:::image type="content" source="media/investigate-cases/closing-reasons-comment-apply.png" alt-text="Screenshot of closing an incident.":::
 
 ## Search for incidents
 
-To find a specific incident quickly, enter a search string in the search box above the incidents grid and press **Enter** to modify the list of incidents shown accordingly. If your incident isn't included in the results, you may want to narrow your search by using **Advanced search** options.
+To find a specific incident quickly, enter a search string in the search box above the incidents grid and press **Enter** to modify the list of incidents shown accordingly. If your incident isn't included in the results, you might want to narrow your search by using **Advanced search** options.
 
 To modify the search parameters, select the **Search** button and then select the parameters where you want to run your search.
 
@@ -236,7 +236,7 @@ Using advanced search options changes the search behavior as follows:
 | **Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
 | **Entity parameters**     | All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
 | **Search strings**     | Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
-| **Cross workspace support**     | Advanced searches are not supported for cross-workspace views.     |
+| **Cross workspace support**     | Advanced searches aren't supported for cross-workspace views.     |
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
 
 
@@ -245,8 +245,9 @@ Using advanced search options changes the search behavior as follows:
 >
 
 
-## Next steps
+## Related content
+
 In this article, you learned how to get started investigating incidents using Microsoft Sentinel. For more information, see:
 
-- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)
+- [Automation in Microsoft Sentinel: Security orchestration, automation, and response (SOAR)](automation.md)

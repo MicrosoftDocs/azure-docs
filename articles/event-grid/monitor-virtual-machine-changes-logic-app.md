@@ -1,8 +1,7 @@
 ---
 title: Monitor virtual machines changes with Azure Event Grid
 description: Check for changes in virtual machines (VMs) by using Azure Event Grid and Azure Logic Apps.
-services: logic-apps, event-grid
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
@@ -13,7 +12,7 @@ ms.date: 06/10/2022
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 You can monitor and respond to specific events that happen in Azure resources or external resources by using Azure Event Grid and Azure Logic Apps. You can create an automated [Consumption logic app workflow](../logic-apps/logic-apps-overview.md) with minimal code using Azure Logic Apps. You can have these resources publish events to [Azure Event Grid](../event-grid/overview.md). In turn, Azure Event Grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your workflow waits for these events to arrive in Azure Event Grid before running the steps to process the events.
 
@@ -27,7 +26,7 @@ For example, here are some events that publishers can send to subscribers throug
 
 * A new message appears in a queue.
 
-This tutorial creates a Consumption logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through Azure Event Grid to the workflow. 
+This tutorial creates a Consumption logic app resource that runs in [*multitenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through Azure Event Grid to the workflow. 
 
 ![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/monitor-virtual-machine-logic-app-overview.png)
 
@@ -52,7 +51,7 @@ In this tutorial, you learn how to:
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
+* A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](/azure/virtual-machines/windows/quick-create-portal). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
 
 * If you have a firewall that limits traffic to specific IP addresses, you have to set up your firewall to allow access for Azure Logic Apps to communicate through the firewall. You need to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where you create your logic app.
 
@@ -86,7 +85,7 @@ In this tutorial, you learn how to:
    > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
    > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
    > to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
-   > For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
+   > For more information about multitenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multitenant](../logic-apps/single-tenant-overview-compare.md).
 
 1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
 
@@ -114,7 +113,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
    ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-logic-app/logic-app-trigger.png)
 
-1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Azure Active Directory tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
+1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Microsoft Entra tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
 
    ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/sign-in.png)
 
@@ -122,8 +121,8 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
    > 
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
    > the Azure Event Grid trigger might not appear correctly. As a workaround, select 
-   > [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
-   > or authenticate as a member of the Azure Active Directory that's associated with 
+   > [Connect with Service Principal](/entra/identity-platform/howto-create-service-principal-portal), 
+   > or authenticate as a member of the Microsoft Entra that's associated with 
    > your Azure subscription, for example, *user-name*@emailoutlook.onmicrosoft.com.
 
 1. Now subscribe your logic app to events from the publisher. Provide the details about your event subscription as described in the following table, for example:
@@ -223,7 +222,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. Provide information about the email as specified in the following table:
 
-   ![Screenshot that shows the workflow designer with dynamic content being addded to email subject line for a true condition.](./media/monitor-virtual-machine-changes-logic-app/logic-app-empty-email-action.png)
+   ![Screenshot that shows the workflow designer with dynamic content being added to email subject line for a true condition.](./media/monitor-virtual-machine-changes-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
    > To select output from the previous steps in your workflow, click inside an edit box so that the dynamic content list appears, 
@@ -257,7 +256,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. To check that your workflow is getting the specified events, update your virtual machine.
 
-   For example, you can [resize your virtual machine](../virtual-machines/resize-vm.md).
+   For example, you can [resize your virtual machine](/azure/virtual-machines/resize-vm).
 
    After a few moments, you should get an email. For example:
 

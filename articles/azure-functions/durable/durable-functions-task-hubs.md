@@ -78,6 +78,19 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     yield context.task_all(tasks)
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$Tasks = @()
+
+$Tasks += Invoke-DurableActivity -FunctionName 'MyActivity' -Input 1 -NoWait
+$Tasks += Invoke-DurableActivity -FunctionName 'MyActivity' -Input 2 -NoWait
+
+Wait-DurableTask -Task $Tasks
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -322,7 +335,7 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -332,10 +345,13 @@ The task hub property in the `function.json` file is set via App Setting:
 {
     "name": "input",
     "taskHub": "%MyTaskHub%",
-    "type": "orchestrationClient",
+    "type": "durableClient",
     "direction": "in"
 }
 ```
+
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
 
 # [Python](#tab/python)
 
@@ -345,10 +361,29 @@ The task hub property in the `function.json` file is set via App Setting:
 {
     "name": "input",
     "taskHub": "%MyTaskHub%",
-    "type": "orchestrationClient",
+    "type": "durableClient",
     "direction": "in"
 }
 ```
+
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
+
+# [PowerShell](#tab/powershell)
+
+The task hub property in the `function.json` file is set via App Setting:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "durableClient",
+    "direction": "in"
+}
+```
+
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
 
 # [Java](#tab/java)
 

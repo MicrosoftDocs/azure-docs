@@ -5,7 +5,8 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ---
 
 # Diagnostics in Durable Functions in Azure
@@ -14,9 +15,9 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 ## Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to use Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](/azure/azure-monitor/logs/log-query-overview) tool in the Azure portal.
 
 ### Tracking data
 
@@ -30,15 +31,15 @@ Each lifecycle event of an orchestration instance causes a tracking event to be 
 * **instanceId**: The unique ID of the orchestration instance.
 * **state**: The lifecycle execution state of the instance. Valid values include:
   * **Scheduled**: The function was scheduled for execution but hasn't started running yet.
-  * **Started**: The function has started running but has not yet awaited or completed.
+  * **Started**: The function started running but has not yet awaited or completed.
   * **Awaited**: The orchestrator has scheduled some work and is waiting for it to complete.
   * **Listening**: The orchestrator is listening for an external event notification.
-  * **Completed**: The function has completed successfully.
+  * **Completed**: The function completed successfully.
   * **Failed**: The function failed with an error.
-* **reason**: Additional data associated with the tracking event. For example, if an instance is waiting for an external event notification, this field indicates the name of the event it is waiting for. If a function has failed, this field will contain the error details.
+* **reason**: Additional data associated with the tracking event. For example, if an instance is waiting for an external event notification, this field indicates the name of the event it is waiting for. If a function fails, this field contains the error details.
 * **isReplay**: Boolean value indicating whether the tracking event is for replayed execution.
 * **extensionVersion**: The version of the Durable Task extension. The version information is especially important data when reporting possible bugs in the extension. Long-running instances may report multiple versions if an update occurs while it is running.
-* **sequenceNumber**: Execution sequence number for an event. Combined with the timestamp helps to order the events by execution time. *Note that this number will be reset to zero if the host restarts while the instance is running, so it's important to always sort by timestamp first, then sequenceNumber.*
+* **sequenceNumber**: Execution sequence number for an event. Combined with the timestamp helps to order the events by execution time. *Note that this number resets to zero if the host restarts while the instance is running, so it's important to always sort by timestamp first, then sequenceNumber.*
 
 The verbosity of tracking data emitted to Application Insights can be configured in the `logger` (Functions 1.x) or `logging` (Functions 2.0) section of the `host.json` file.
 
@@ -68,10 +69,10 @@ The verbosity of tracking data emitted to Application Insights can be configured
 }
 ```
 
-By default, all *non-replay* tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations. To enable emitting the verbose orchestration replay events, set the `logReplayEvents` to `true` in the [host.json](durable-functions-bindings.md#host-json) configuration file.
+By default, all *non-replay* tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events are only emitted for exceptional situations. To enable emitting the verbose orchestration replay events, set the `logReplayEvents` to `true` in the [host.json](durable-functions-bindings.md#host-json) configuration file.
 
 > [!NOTE]
-> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](../configure-monitoring.md#configure-sampling) explains how to configure this behavior.
+> By default, the Azure Functions runtime samples Application Insights telemetry to avoid emitting data too frequently. Sampling can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](../configure-monitoring.md#configure-sampling) explains how to configure this behavior.
 
 Inputs and outputs of orchestrator, activity, and entity functions are not logged by default. This default behavior is recommended because logging inputs and outputs could increase Application Insights costs. Function input and output payloads may also contain sensitive information. Instead, the number of bytes for function inputs and outputs are logged instead of the actual payloads by default. If you want the Durable Functions extension to log the full input and output payloads, set the `traceInputsAndOutputs` property to `true` in the [host.json](durable-functions-bindings.md#host-json) configuration file.
 
@@ -149,10 +150,10 @@ You can enable these logs by updating the `logging/logLevel` section of your fun
 }
 ```
 
-If you have Application Insights enabled, these logs will be automatically added to the `trace` collection. You can search them the same way that you search for other `trace` logs using Kusto queries.
+If you have Application Insights enabled, these logs are automatically added to the `trace` collection. You can search them the same way that you search for other `trace` logs using Kusto queries.
 
 > [!NOTE]
-> For production applications, it is recommended that you enable `DurableTask.Core` and the appropriate storage provider (e.g. `DurableTask.AzureStorage`) logs using the `"Warning"` filter. Higher verbosity filters such as `"Information"` are very useful for debugging performance issues. However, these log events can be high-volume and can significantly increase Application Insights data storage costs.
+> For production applications, it is recommended that you enable `DurableTask.Core` and the appropriate storage provider (e.g. `DurableTask.AzureStorage`) logs using the `"Warning"` filter. Higher verbosity filters such as `"Information"` are useful for debugging performance issues. However, these log events can be high-volume and can significantly increase Application Insights data storage costs.
 
 The following Kusto query shows how to query for DTFx logs. The most important part of the query is `where customerDimensions.Category startswith "DurableTask"` since that filters the results to logs in the `DurableTask.Core` and `DurableTask.AzureStorage` categories.
 
@@ -286,7 +287,7 @@ Done!
 ```
 
 > [!NOTE]
-> Remember that while the logs claim to be calling F1, F2, and F3, those functions are only *actually* called the first time they are encountered. Subsequent calls that happen during replay are skipped and the outputs are replayed to the orchestrator logic.
+> Remember that while the logs claim to be calling F1, F2, and F3, those functions are *only* called the first time they are encountered. Subsequent calls that happen during replay are skipped and the outputs are replayed to the orchestrator logic.
 
 If you want to only write logs on non-replay executions, you can write a conditional expression to log only if the "is replaying" flag is `false`. Consider the example above, but this time with replay checks.
 
@@ -308,7 +309,7 @@ public static async Task Run(
 }
 ```
 
-Starting in Durable Functions 2.0, .NET orchestrator functions also have the option to create an `ILogger` that automatically filters out log statements during replay. This automatic filtering is done using the [IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durablecontextextensions.createreplaysafelogger) API.
+Starting in Durable Functions 2.0, .NET orchestrator functions can create an `ILogger` that automatically filters out log statements during replay. This automatic filtering is done using the [IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durablecontextextensions.createreplaysafelogger) API.
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -350,7 +351,7 @@ public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext con
 ```
 
 > [!NOTE]
-> The ability to wrap an existing `ILogger` into a replay-safe logger has been removed in Durable Functions for .NET isolated worker.
+> The ability to wrap an existing `ILogger` into a replay-safe logger is removed in Durable Functions for .NET isolated worker.
 
 # [JavaScript](#tab/javascript)
 
@@ -522,7 +523,7 @@ GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 ```
 
-Clients will get the following response:
+Clients get the following response:
 
 ```json
 {
@@ -537,6 +538,42 @@ Clients will get the following response:
 
 > [!WARNING]
 > The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. You can use external storage if you need larger payload.
+
+## Distributed Tracing
+
+Distributed Tracing tracks requests and shows how different services interact with each other. In Durable Functions, it also correlates orchestrations and activities together. This is helpful to understand how much time steps of the orchestration take relative to the entire orchestration. It is also useful to understand where an application is having an issue or where an exception was thrown. This feature is supported for all languages and storage providers.
+
+> [!NOTE]
+> Distributed Tracing V2 requires [Durable Functions v2.12.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.12.0) or greater. Also, Distributed Tracing V2 is in a preview state and therefore some Durable Functions patterns are not instrumented. For example, Durable Entities operations are not instrumented and traces do not show up in Application Insights.
+
+### Setting up Distributed Tracing
+
+To set up distributed tracing, update the host.json and set up an Application Insights resource.
+
+#### host.json
+```
+{
+   "extensions": {
+     "durableTask": {
+       "tracing": {
+         "distributedTracingEnabled": true,
+         "version": "V2"
+       }
+     }
+   }
+ }
+```
+
+#### Application Insights
+If the Function app is not configured with an Application Insights resource, then configure it following the instructions [here](../configure-monitoring.md#enable-application-insights-integration).
+
+### Inspecting the traces
+In the Application Insights resource, navigate to **Transaction Search**. In the results, check for `Request` and `Dependency` events that start with Durable Functions specific prefixes (e.g. `orchestration:`, `activity:`, etc.). Selecting one of these events opens up a Gantt chart that shows the end to end distributed trace.
+
+[![Gantt Chart showing Application Insights Distributed Trace.](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png)](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png#lightbox)
+
+### Troubleshooting
+If you don't see the traces in Application Insights, make sure to wait about five minutes after running the application to ensure that all of the data is propagated to the Application Insights resource.
 
 ## Debugging
 
@@ -564,9 +601,13 @@ This is useful for debugging because you see exactly what state an orchestration
 > [!NOTE]
 > Other storage providers can be configured instead of the default Azure Storage provider. Depending on the storage provider configured for your app, you may need to use different tools to inspect the underlying state. For more information, see the [Durable Functions Storage Providers](durable-functions-storage-providers.md) documentation.
 
-## 3rd party tools
+## Durable Functions Monitor
 
-The Durable Functions community publishes a variety of tools that can be useful for debugging, diagnostics, or monitoring. One such tool is the open source [Durable Functions Monitor](https://github.com/scale-tone/DurableFunctionsMonitor#durable-functions-monitor), a graphical tool for monitoring, managing, and debugging your orchestration instances.
+[Durable Functions Monitor](https://github.com/microsoft/DurableFunctionsMonitor) is a graphical tool for monitoring, managing, and debugging orchestration and entity instances. It is available as a Visual Studio Code extension or a standalone app. Information about set up and a list of features can be found in [this Wiki](https://github.com/microsoft/DurableFunctionsMonitor/wiki).
+
+## Durable Functions troubleshooting guide
+
+To troubleshoot common problem symptoms such as orchestrations being stuck, failing to start, running slowly, etc., refer to this [troubleshooting guide](durable-functions-troubleshooting-guide.md). 
 
 ## Next steps
 

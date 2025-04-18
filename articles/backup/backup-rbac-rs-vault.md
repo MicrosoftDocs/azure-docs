@@ -2,9 +2,9 @@
 title: Manage Backups with Azure role-based access control
 description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: utraghuv
-ms.topic: conceptual
-ms.date: 02/28/2022
-ms.service: backup
+ms.topic: how-to
+ms.date: 04/14/2025
+ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -40,14 +40,15 @@ The following table captures the Backup management actions and corresponding min
 | | Virtual Machine Contributor | VM resource |  Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Compute/virtualMachines/instanceView/read |
 | On-demand backup of VM | Backup Operator | Recovery Services vault |   |
 | Restore VM | Backup Operator | Recovery Services vault |   |
-| | Contributor | Resource group in which VM will be deployed |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions:  Microsoft.Resources/subscriptions/resourceGroups/write Microsoft.DomainRegistration/domains/write (required only for classic VM restore and not required for managed VMs), Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/join/action |
+| | Contributor | Resource group in which VM will be deployed |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Resources/subscriptions/resourceGroups/write` <br> - `Microsoft.Resources/subscriptions/resourceGroups/read` - According to validation, this permission is also needed. <br> - `Microsoft.DomainRegistration/domains/write` <br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` <br> - `Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read` <br> - `Microsoft.Network/virtualNetworks/subnets/join/action` <br><br> Additionally, if you want to set custom role despite built-in-role, following permissions are needed on the Staging Location's Storage Account: <br><br> - `Microsoft.Storage/storageAccounts/read` <br> - `Microsoft.Storage/storageAccounts/write` |
 | | Virtual Machine Contributor | Source VM that got backed up |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read|
+| | Storage Account Contributor | Storage account resource where disks are going to be restored |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write Microsoft.Storage/storageAccounts/listkeys/action |
 | Restore unmanaged disks VM backup | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read |
-| | Storage Account Contributor | Storage account resource where disks are going to be restored |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write |
+| | Storage Account Contributor | Storage account resource where disks are going to be restored |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write Microsoft.Storage/storageAccounts/listkeys/action |
 | Restore managed disks from VM backup | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up |    Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read |
-| | Storage Account Contributor | Temporary Storage account selected as part of restore to hold data from vault before converting them to managed disks |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write |
+| | Storage Account Contributor | Temporary Storage account selected as part of restore to hold data from vault before converting them to managed disks |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write Microsoft.Storage/storageAccounts/listkeys/action |
 | | Contributor | Resource group to which managed disk(s) will be restored | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Resources/subscriptions/resourceGroups/write|
 | Restore individual files from VM backup | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read |
@@ -80,6 +81,7 @@ The following table captures the Backup management actions and corresponding min
 | Delete backup policy of Azure VM backup | Backup Contributor | Recovery Services vault |
 | Stop backup (with retain data or delete data) on VM backup | Backup Contributor | Recovery Services vault |
 |             | Virtual Machine Contributor | Source VM that got backed-up | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write |
+| Cross region restore | Backup Operator | Subscription of the Recovery Services vault | This is in addition to the restore permissions mentioned above. In case of cross region restore, instead of a built-in role, you can use a custom role that has the following permissions: <br><br> - Microsoft.RecoveryServices/locations/backupAadProperties/read <br><br> - Microsoft.RecoveryServices/locations/backupCrrJobs/action <br><br> - Microsoft.RecoveryServices/locations/backupCrrJob/action <br><br> - Microsoft.RecoveryServices/locations/backupCrossRegionRestore/action <br><br> - Microsoft.RecoveryServices/locations/backupCrrOperationResults/read <br><br> - Microsoft.RecoveryServices/locations/backupCrrOperationsStatus/read |
 
 ### Minimum role requirements for the Azure File share backup
 
@@ -132,23 +134,23 @@ The following table captures the Backup management actions and corresponding Azu
 | Restoring a blob | Backup Operator | Backup vault | |
 |  | Storage account backup contributor | Storage account containing the blob | In addition, the backup vault MSI should be given [these permissions](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) |
 
-### Minimum role requirements for Azure database for PostGreSQL server backup
+### Minimum role requirements for Azure database for PostgreSQL server backup
 
 | Management Operation | Minimum Azure role required | Scope Required | Alternative |
 | --- | --- | --- | --- |
 | Validate before configuring backup | Backup Operator | Backup vault |   |
-|  | Reader | Azure PostGreSQL server |   |
+|  | Reader | Azure PostgreSQL server |   |
 | Enable backup from backup vault | Backup Operator | Backup vault |   |
-|  | Contributor | Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) |
-| On demand backup of PostGreSQL server | Backup Operator | Backup vault | |
+|  | Contributor | Azure PostgreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) |
+| On demand backup of PostgreSQL server | Backup Operator | Backup vault | |
 | Validate before restoring a server | Backup Operator | Backup vault | |
-|  | Contributor | Target Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read
+|  | Contributor | Target Azure PostgreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read
 | Restoring a server | Backup Operator | Backup vault | |
-|  | Contributor | Target Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore) |
+|  | Contributor | Target Azure PostgreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore) |
 
 ## Next steps
 
-* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Get started with Azure RBAC in the Azure portal.
+* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml): Get started with Azure RBAC in the Azure portal.
 * Learn how to manage access with:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

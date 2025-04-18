@@ -1,22 +1,21 @@
 ---
 title: Optimize costs for Blob storage with reserved capacity
 titleSuffix: Azure Storage 
-description: Learn about purchasing Azure Storage reserved capacity to save costs on block blob and Azure Data Lake Storage Gen2 resources.
+description: Learn about purchasing Azure Storage reserved capacity to save costs on block blob and Azure Data Lake Storage resources.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.author: jammart
-ms.subservice: blobs
+ms.author: akashdubey
 ---
 
 # Optimize costs for Blob storage with reserved capacity
 
-You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
+You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
-Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the access tier and type of redundancy that you've chosen for your storage account. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
+Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the access tier and type of redundancy that you've chosen for your storage account. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
 
 For information about Azure Storage reservation pricing, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
@@ -32,7 +31,7 @@ You can purchase Azure Storage reserved capacity in units of 100 TiB and 1 PiB p
 
 Azure Storage reserved capacity is available for a single subscription, multiple subscriptions (shared scope), and management groups. When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. When scoped to management group, the reservation discount is shared across the subscriptions that are a part of both the management group and billing scope.
 
-When you purchase Azure Storage reserved capacity, you can use your reservation for both block blob and Azure Data Lake Storage Gen2 data. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription.
+When you purchase Azure Storage reserved capacity, you can use your reservation for both block blob and Azure Data Lake Storage data. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription.
 
 An Azure Storage reservation covers only the amount of data that is stored in a subscription or shared resource group. Early deletion, operations, bandwidth, and data transfer charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of at the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
@@ -40,18 +39,18 @@ An Azure Storage reservation covers only the amount of data that is stored in a 
 
 Azure Storage reserved capacity is available for resources in standard storage accounts, including general-purpose v2 (GPv2) and Blob storage accounts.
 
-All access tiers (hot, cool, and archive) are supported for reservations. For more information on access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+Hot, cool, and archive tier are supported for reservations. For more information on access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 All types of redundancy are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 > [!NOTE]
-> Azure Storage reserved capacity is not available for premium storage accounts, general-purpose v1 (GPv1) storage accounts, Azure Data Lake Storage Gen1, page blobs, Azure Queue storage, or Azure Table storage. For information about reserved capacity for Azure Files, see [Optimize costs for Azure Files with reserved capacity](../files/files-reserve-capacity.md).
+> Azure Storage reserved capacity is not available for premium storage accounts, general-purpose v1 (GPv1) storage accounts, page blobs, Azure Queue storage, or Azure Table storage. For information about reserved capacity for Azure Files, see [Optimize costs for Azure Files with reserved capacity](../files/files-reserve-capacity.md).
 
 ### Security requirements for purchase
 
 To purchase reserved capacity:
 
-- You must be in the **Owner** role for at least one Enterprise or individual subscription with pay-as-you-go rates.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Blob Storage reserved capacity.
 
@@ -92,7 +91,7 @@ Follow these steps to purchase reserved capacity:
 
     ![Screenshot showing how to purchase a reservation](media/storage-blob-reserved-capacity/purchase-reservations.png)
 
-After you purchase a reservation, it is automatically applied to any existing Azure Storage block blob or Azure Data Lake Storage Gen2 resources that matches the terms of the reservation. If you haven't created any Azure Storage resources yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
+After you purchase a reservation, it is automatically applied to any existing Azure Storage block blob or Azure Data Lake Storage resources that matches the terms of the reservation. If you haven't created any Azure Storage resources yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
 ## Exchange or refund a reservation
 

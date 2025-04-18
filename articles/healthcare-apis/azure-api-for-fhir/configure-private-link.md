@@ -2,17 +2,19 @@
 title: Private link for Azure API for FHIR
 description: This article describes how to set up a private endpoint for Azure API for FHIR services
 services: healthcare-apis
-author: expekesheth
-ms.service: healthcare-apis
+author: outinyman 
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
-ms.author: kesheth
+ms.date: 09/27/2023
+ms.author: ounyman
 ---
 
 # Configure private link
 
-Private link enables you to access Azure API for FHIR over a private endpoint, which is a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your private endpoint for Azure API for FHIR.
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+Private link enables you to access Azure API for FHIR&reg; over a private endpoint, which is a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your virtual network as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your private endpoint for Azure API for FHIR.
 
 >[!Note]
 >Neither Private Link nor Azure API for FHIR can be moved from one resource group or subscription to another once Private Link is enabled. To make a move, delete the Private Link first, then move Azure API for FHIR. Create a new Private Link once the move is complete. Assess potential security ramifications before deleting Private Link.
@@ -21,17 +23,17 @@ Private link enables you to access Azure API for FHIR over a private endpoint, w
 
 ## Prerequisites
 
-Before creating a private endpoint, there are some Azure resources that you'll need to create first:
+Before creating a private endpoint, you need to create Azure resources that first.
 
-- Resource Group – The Azure resource group that will contain the virtual network and private endpoint.
+- Resource Group – The Azure resource group that contains the virtual network and private endpoint.
 - Azure API for FHIR – The FHIR resource you would like to put behind a private endpoint.
-- Virtual Network – The VNet to which your client services and Private Endpoint will be connected.
+- Virtual Network (VNet) – The VNet to which your client services and Private Endpoint will be connected.
 
 For more information, see [Private Link Documentation](../../private-link/index.yml).
 
 ## Create private endpoint
 
-To create a private endpoint, a developer with Role-based access control (RBAC) permissions on the FHIR resource can use the Azure portal, [Azure PowerShell](../../private-link/create-private-endpoint-powershell.md), or [Azure CLI](../../private-link/create-private-endpoint-cli.md). This article will guide you through the steps on using Azure portal. Using the Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](../../private-link/create-private-endpoint-portal.md).
+To create a private endpoint, a developer with role-based access control (RBAC) permissions on the FHIR resource can use the Azure portal, [Azure PowerShell](../../private-link/create-private-endpoint-powershell.md), or [Azure CLI](../../private-link/create-private-endpoint-cli.md). This article guides you through the steps on using Azure portal. Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](../../private-link/create-private-endpoint-portal.md).
 
 There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the FHIR resource to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the FHIR resource.
 
@@ -66,27 +68,27 @@ After the deployment is complete, you can go back to "Private endpoint connectio
 
 ## VNet Peering
 
-With Private Link configured, you can access the FHIR server in the same VNet or a different VNet that is peered to the VNet for the FHIR server. Follow the steps below to configure VNet peering and Private Link DNS zone configuration.
+With Private Link configured, you can access the FHIR server in the same VNet or a different VNet that is peered to the VNet for the FHIR server. Use the following steps to configure VNet peering and Private Link DNS zone configuration.
 
 ### Configure VNet Peering
 
-You can configure VNet peering from the portal or using PowerShell, CLI scripts, and Azure Resource Manager (ARM) template. The second VNet can be in the same or different subscriptions, and in the same or different regions. Make sure that you grant the **Network contributor** role. For more information on VNet Peering, see [Create a virtual network peering](../../virtual-network/create-peering-different-subscriptions.md).
+You can configure VNet peering from the portal or using PowerShell, CLI scripts, and an Azure Resource Manager (ARM) template. The second VNet can be in the same or different subscriptions, and in the same or different regions. Make sure that you grant the **Network contributor** role. For more information on VNet Peering, see [Create a virtual network peering](../../virtual-network/create-peering-different-subscriptions.md).
 
 ### Add VNet link to the private link zone
 
 In the Azure portal, select the resource group of the FHIR server. Select and open the Private DNS zone, **privatelink.azurehealthcareapis.com**. Select **Virtual network links** under the *settings* section. Select the **Add** button to add your second VNet to the private DNS zone. Enter the link name of your choice, select the subscription and the VNet you created. Optionally, you can enter the resource ID for the second VNet. Select **Enable auto registration**, which automatically adds a DNS record for your VM connected to the second VNet. When you delete a VNet link, the DNS record for the VM is also deleted.
 
-For more information on how private link DNS zone resolves the private endpoint IP address to the fully qualified domain name (FQDN) of the resource such as the FHIR server, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
+For more information on how a private link DNS zone resolves the private endpoint IP address to the fully qualified domain name (FQDN) of the resource, such as the FHIR server, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
 
   :::image type="content" source="media/private-link/private-link-add-vnet-link.png" alt-text="Add VNet link." lightbox="media/private-link/private-link-add-vnet-link.png":::
 
-You can add more VNet links if needed, and view all VNet links you've added from the portal.
+You can add more VNet links if needed, and view all VNet links you added from the portal.
 
   :::image type="content" source="media/private-link/private-link-vnet-links.png" alt-text="Private Link VNet links." lightbox="media/private-link/private-link-vnet-links.png":::
   
 From the Overview blade you can view the private IP addresses of the FHIR server and the VMs connected to peered virtual networks.
 
-  :::image type="content" source="media/private-link/private-link-dns-zone.png" alt-text="Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone.png":::
+  :::image type="content" source="media/private-link/private-link-dns-zone-fix-nov-24.png" alt-text="Screenshot of Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone-fix-nov-24.png":::
 
 ## Manage private endpoint
 
@@ -98,13 +100,13 @@ Private endpoints and the associated network interface controller (NIC) are visi
 
 ### Delete
 
-Private endpoints can only be deleted from the Azure portal from the **Overview** blade or by selecting the **Remove** option under the **Networking Private endpoint connections** tab. Selecting **Remove** will delete the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network, access is disabled and no request will make it to your FHIR server.
+Private endpoints can only be deleted from the Azure portal from the **Overview** blade or by selecting the **Remove** option under the **Networking Private endpoint connections** tab. Selecting **Remove** deletes the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network, access is disabled and no request will make it to your FHIR server.
 
 ![Delete Private Endpoint](media/private-link/private-link-delete.png)
 
 ## Test and troubleshoot private link and VNet peering
 
-To ensure that your FHIR server isn't receiving public traffic after disabling public network access, select the /metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
+To ensure that your FHIR server isn't receiving public traffic after disabling public network access, select the metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
 
 > [!NOTE]
 > It can take up to 5 minutes after updating the public network access flag before public traffic is blocked.
@@ -119,7 +121,7 @@ To ensure your private endpoint can send traffic to your server:
 
 ### Use nslookup
 
-You can use the **nslookup** tool to verify connectivity. If the private link is configured properly, you should see the FHIR server URL resolves to the valid private IP address, as shown below. Note that the IP address **168.63.129.16** is a virtual public IP address used in Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)
+You can use the **nslookup** tool to verify connectivity. If the private link is configured properly, you should see the FHIR server URL resolves to the valid private IP address, as follows. Note that the IP address **168.63.129.16** is a virtual public IP address used in Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ```
 C:\Users\testuser>nslookup fhirserverxxx.azurehealthcareapis.com
@@ -132,7 +134,7 @@ Address:  172.21.0.4
 Aliases:  fhirserverxxx.azurehealthcareapis.com
 ```
 
-If the private link isn't configured properly, you may see the public IP address instead and a few aliases including the Traffic Manager endpoint. This indicates that the private link DNS zone can’t resolve to the valid private IP address of the FHIR server. When VNet peering is configured, one possible reason is that the second peered VNet hasn't been added to the private link DNS zone. As a result, you'll see the HTTP error 403, "Access to xxx was denied", when trying to access the /metadata endpoint of the FHIR server.
+If the private link isn't configured properly, you may instead see the public IP address and a few aliases including the Traffic Manager endpoint. This indicates that the private link DNS zone can’t resolve to the valid private IP address of the FHIR server. When VNet peering is configured, one possible reason is that the second peered VNet hasn't been added to the private link DNS zone. As a result, you see the HTTP error 403, "Access to xxx was denied", when trying to access the /metadata endpoint of the FHIR server.
 
 ```
 C:\Users\testuser>nslookup fhirserverxxx.azurehealthcareapis.com
@@ -151,14 +153,13 @@ For more information, see [Troubleshoot Azure Private Link connectivity problems
 
 ## Next steps
 
-In this article, you've learned how to configure the private link and VNet peering. You also learned how to troubleshoot the private link and VNet configurations.
+In this article, you learned how to configure the private link and VNet peering. You also learned how to troubleshoot the private link and VNet configurations.
 
-Based on your private link setup and for more information about registering your applications, see
+Based on your private link setup, and for more information about registering your applications, refer to the following.
 
 * [Register a resource application](register-resource-azure-ad-client-app.md)
 * [Register a confidential client application](register-confidential-azure-ad-client-app.md)
 * [Register a public client application](register-public-azure-ad-client-app.md)
 * [Register a service application](register-service-azure-ad-client-app.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

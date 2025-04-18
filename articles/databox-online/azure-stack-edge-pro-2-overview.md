@@ -4,13 +4,13 @@ description: Describes Azure Stack Edge Pro 2, a storage solution that uses a ph
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
-ms.date: 06/24/2022
+ms.date: 01/10/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro 2 is and how it works so I can use it to process and transform data before sending to Azure.
 ---
+
 # What is Azure Stack Edge Pro 2?
 
 Azure Stack Edge Pro 2 is a new generation of an AI-enabled edge computing device offered as a service from Microsoft. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
@@ -19,8 +19,7 @@ The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the
 
 - This series offers multiple models that closely align with your compute, storage, and memory needs. Depending on the model you choose, the compute acceleration could be via one or two Graphical Processing Units (GPU) on the device. 
 - This series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
-- These devices have low acoustic emissions and meet the requirements for noise levels in an office environment. 
-
+- These devices have low acoustic emissions and meet the requirements for noise levels in an office environment.
 
 ## Use cases
 
@@ -83,9 +82,11 @@ The Azure Stack Edge Pro 2 physical device, Azure resource, and target storage a
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro 2 data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
-Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
+Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../reliability/availability-zones-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 To understand how to choose a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
+[!INCLUDE [azure-stack-edge-use-case-parameters](../../includes/azure-stack-edge-use-case-parameters.md)]
 
 ## Billing and pricing 
 

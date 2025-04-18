@@ -1,19 +1,21 @@
 ---
 title: Work with Azure Desired State Configuration extension version history
 description: This article shares version history information for the Desired State Configuration (DSC) extension in Azure.
-ms.date:  02/17/2021
+ms.date:  10/22/2024
 keywords: dsc, powershell, azure, extension
 services: automation
-ms.subservice: dsc
+ms.subservice: desired-state-config
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Work with Azure Desired State Configuration extension version history
 
-> [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
-The Azure Desired State Configuration (DSC) VM [extension](../virtual-machines/extensions/dsc-overview.md) is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
+
+The Azure Desired State Configuration (DSC) VM [extension](/azure/virtual-machines/extensions/dsc-overview) is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
 
 This article provides information about each version of the Azure DSC VM extension, what environments it supports, and comments and remarks on new features or changes.
 
@@ -38,14 +40,14 @@ This article provides information about each version of the Azure DSC VM extensi
   - WMF 4.0
 - **Environment:**
   - Azure
-  - Azure China Vianet 21
+  - Microsoft Azure operated by 21Vianet
   - Azure Government
 - **Remarks:** This release includes a fix for unsigned binaries with the Windows VM extension.
 
 ### Version 2.80
 
 - **Release date:**
-  - September 26, Sep-2019 (Azure) | July 6, 2020 (Azure China Vianet 21) | July 20, 2020 (Azure Government)
+  - September 26, Sep-2019 (Azure) | July 6, 2020 (Microsoft Azure operated by 21Vianet) | July 20, 2020 (Azure Government)
 - **OS support:**
   - Windows Server 2019
   - Windows Server 2016
@@ -61,14 +63,14 @@ This article provides information about each version of the Azure DSC VM extensi
   - WMF 4.0
 - **Environment:**
   - Azure
-  - Azure China Vianet 21
+  - Microsoft Azure operated by 21Vianet
   - Azure Government
 - **Remarks:** No new features are included in this release.
 
 ### Version 2.76
 
 - **Release date:**
-  - May 9, 2018 (Azure) | June 21, 2018 (Azure China Vianet 21, Azure Government)
+  - May 9, 2018 (Azure) | June 21, 2018 (Microsoft Azure operated by 21Vianet, Azure Government)
 - **OS support:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -83,7 +85,7 @@ This article provides information about each version of the Azure DSC VM extensi
   - WMF 4.0
 - **Environment:**
   - Azure
-  - Azure China Vianet 21
+  - Microsoft Azure operated by 21Vianet
   - Azure Government
 - **Remarks:** This version uses DSC as included in Windows Server 2016; for other Windows OSs, it installs the [Windows Management Framework 5.1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (installing WMF requires a reboot). For Nano Server, DSC role is installed on the VM.
 - **New features:**
@@ -150,7 +152,7 @@ This article provides information about each version of the Azure DSC VM extensi
   [Windows Management Framework 5.1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/)
   (installing WMF requires a reboot). For Nano Server, DSC role is installed on the VM.
 - **New features:**
-  - Bug fixes & improvements that simplify using Azure Automation State Configuration in the portal and with a Resource Manager template. For more information, see [Default Configuration Script](../virtual-machines/extensions/dsc-overview.md) in the DSC extension documentation.
+  - Bug fixes & improvements that simplify using Azure Automation State Configuration in the portal and with a Resource Manager template. For more information, see [Default Configuration Script](/azure/virtual-machines/extensions/dsc-overview) in the DSC extension documentation.
 
 ### Version 2.26
 
@@ -250,11 +252,11 @@ This article provides information about each version of the Azure DSC VM extensi
 - **OS support:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server
   2012, Windows Server 2008 R2 SP1
 - **WMF support:** WMF 5.0 RTM, WMF 4.0 Update, WMF 4.0
-- **Environment:** Azure, Azure China Vianet 21, Azure Government
+- **Environment:** Azure, Microsoft Azure operated by 21Vianet, Azure Government
 - **Remarks:** This version uses DSC as included in Windows Server 2016 Technical Preview; for other
   Windows OSs, it installs the [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (installing WMF requires a reboot).
 - **New features:**
-  - The DSC extension is now available in Azure China Vianet 21. This version contains fixes for running the extension on Azure China Vianet 21.
+  - The DSC extension is now available in Microsoft Azure operated by 21Vianet. This version contains fixes for running the extension on Microsoft Azure operated by 21Vianet.
 
 ### Version 2.18
 
@@ -333,6 +335,6 @@ This article provides information about each version of the Azure DSC VM extensi
 ## Next steps
 
 - For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/dsc/overview).
-- Examine the [Resource Manager template for the DSC extension](../virtual-machines/extensions/dsc-template.md).
+- Examine the [Resource Manager template for the DSC extension](/azure/virtual-machines/extensions/dsc-template).
 - For other functionality and resources that you can manage with PowerShell DSC, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](../virtual-machines/extensions/dsc-credentials.md).
+- For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](/azure/virtual-machines/extensions/dsc-credentials).

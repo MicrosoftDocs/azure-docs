@@ -4,10 +4,10 @@ titleSuffix: Azure DNS
 description: In this tutorial, you learn how to configure an alias record to reference a resource record within the zone.
 author: greg-lindsay
 ms.author: greglin
-ms.service: dns
+ms.service: azure-dns
 services: dns
 ms.topic: tutorial
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
 ---
@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an alias record
 
@@ -59,7 +59,7 @@ Create an alias record that points to a resource record in the zone.
 1. Select the **server** record for the **Zone record set**.
 1. Select **OK**.
 
-    :::image type="content" source="./media/tutorial-alias-rr/add-alias-record-set-inline.png" alt-text="Screentshot of adding the alias record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-alias-record-set-expanded.png":::
+    :::image type="content" source="./media/tutorial-alias-rr/add-alias-record-set-inline.png" alt-text="Screenshot of adding the alias record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-alias-record-set-expanded.png":::
 
 ## Test the alias record
 
@@ -78,7 +78,7 @@ After adding the alias record, you can verify that it's working by using a tool 
 
     ```
     Server:  UnKnown
-    Address:  40.90.4.1
+    Address:  203.0.113.10
 
     Name:    test.contoso.com
     Address:  10.10.10.10
@@ -93,7 +93,7 @@ After adding the alias record, you can verify that it's working by using a tool 
 
     ```
     Server:  UnKnown
-    Address:  40.90.4.1
+    Address:  203.0.113.10
 
     Name:    test.contoso.com
     Address:  10.11.11.11

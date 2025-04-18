@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Desktop autoscale glossary for Azure Virtual Desktop - Azure
 description: A glossary of terms and concepts for the Azure Virtual Desktop autoscale feature.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.author: helohr
-manager: femila
+ms.date: 11/19/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Autoscale glossary for Azure Virtual Desktop
 
@@ -13,7 +13,15 @@ This article is a list of definitions for key terms and concepts related to the 
 
 ## Autoscale
 
-Autoscale is Azure Virtual Desktop’s native scaling service that turns VMs on and off based on the number of sessions on the session hosts in the host pool and which phase of the [scaling plan](#scaling-plan) [schedule](#schedule) the workday is in.
+Autoscale is Azure Virtual Desktop's native scaling service that scales session hosts up and down based on the capacity of the host pools and the [scaling plan](#scaling-plan) [schedule](#schedule) you define.
+
+## Scaling method
+
+The scaling method you choose defines how the scaling service manages the available capacity. There are two scaling methods you can choose from:
+
+- **Power management autoscaling**: powers on and off session hosts to adjust to the available capacity in a host pool. If you want to apply a scaling plan to a host pool with standard management, this is the option that you should use.
+
+- **Dynamic autoscaling (preview)**: powers on and off session hosts and creates and deletes session hosts to adjust to the available capacity in a host pool. Dynamic autoscaling can only be used for pooled host pools with session host configuration.
 
 ## Scaling tool
 
@@ -21,11 +29,11 @@ Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic App
 
 ## Scaling plan
 
-A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. Each host pool can only have one scaling plan assigned to it.
+A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. When creating a scaling plan, you have to choose between pooled or personal host pools. You can only assign the scaling plan to the host pools with the same type (pooled or personal). The scaling plan type can't be changed after it is created.
 
 ## Schedule
 
-Schedules are sub-resources of [scaling plans](#scaling-plan) that specify the start time, capacity threshold, minimum percentage of hosts, load-balancing algorithm, and other configuration settings for the different phases of the day.
+Schedules are sub-resources of [scaling plans](#scaling-plan). Scaling plans for pooled host pools have schedules that specify the start time, capacity threshold, minimum percentage of hosts, load-balancing algorithm, and other configuration settings for the different phases of the day. Scaling plans for personal host pools have schedules that specify the start time and what operation to perform based on user session state (signed out or disconnected) for the different phases of the day.
 
 ## Ramp-up
 
@@ -41,11 +49,11 @@ The ramp-down phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is 
 
 ## Off-peak
 
-The off-peak phase of the [scaling plan](#scaling-plan) [schedule](#schedule) is when the host pool usually reaches the minimum number of [active user sessions](#active-user-session) for the day. During this phase, there aren't usually many active users, but you can keep a small amount of resources on to accommodate users who work after the peak and ramp-down phases.
+The off-peak phase of the [scaling plan](#scaling-plan) [schedule](#schedule) is when the host pool usually reaches the minimum number of [active user sessions](#active-user-session) for the day. During this phase, there aren't usually many active users, but you may keep a small amount of resources on to accommodate users who work after the peak and ramp-down phases.
 
 ## Available session host
 
-Available session hosts are session hosts that have passed all Azure Virtual Desktop agent health checks and have VM objects that are powered on, making them available for users to start their user sessions on.
+Available session hosts are session hosts that have passed all Azure Virtual Desktop agent health checks and have VM objects that are powered on, making them available for users to establish user sessions on.
 
 ## Capacity threshold
 
@@ -53,8 +61,8 @@ The capacity threshold is the percentage of a [host pool's capacity](#available-
 
 For example:
 
-- If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and autoscale can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn off the VMs.
-- If the used host pool capacity goes over the capacity threshold, then autoscale will turn on more VMs until the used host pool capacity goes below the capacity threshold.
+- If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and autoscale can turn off or delete session hosts without going over the capacity threshold, then dynamic autoscaling turns off or deletes the session hosts.
+- If the used host pool capacity goes over the capacity threshold, then autoscale turns on or creates more session hosts until the used host pool capacity goes below the capacity threshold.
 
 ## Available host pool capacity
 
@@ -76,13 +84,17 @@ The number of [active](#active-user-session) and [disconnected user sessions](#d
 
 Scaling actions are when [autoscale](#autoscale) turns VMs on or off.
 
+## Shut down
+
+Autoscale for pooled and personal host pools shuts down VMs based on the defined schedule. When autoscale shuts down a VM, it deallocates and stops the VM, ensuring you aren't charged for the compute resources.
+
 ## Minimum percentage of hosts
 
 The minimum percentage of hosts is the lowest percentage of all session hosts in the host pool that must be turned on for each phase of the [scaling plan](#scaling-plan) [schedule](#schedule).
 
 ## Active user session
 
-A user session is considered "active" when the user signs in and connects to their remote app or desktop resource.
+A user session is considered "active" when the user signs in and connects to their RemoteApp or desktop resource.
 
 ## Disconnected user session
 

@@ -3,7 +3,7 @@ title: Route web traffic based on the URL - Azure PowerShell
 description: Learn how to route web traffic based on the URL to specific scalable pools of servers using Azure PowerShell.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: greglin
@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 # Route web traffic based on the URL using Azure PowerShell
 
-You can use Azure PowerShell to configure web traffic routing to specific scalable server pools based on the URL that is used to access your application. In this article, you create an [Azure Application Gateway](./overview.md) with three backend pools using [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md). Each of the backend pools serves a specific purpose such as, common data, images, and video.  Routing traffic to separate pools ensures that your customers get the information that they need when they need it.
+You can use Azure PowerShell to configure web traffic routing to specific scalable server pools based on the URL that is used to access your application. In this article, you create an [Azure Application Gateway](./overview.md) with three backend pools using [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview). Each of the backend pools serves a specific purpose such as, common data, images, and video.  Routing traffic to separate pools ensures that your customers get the information that they need when they need it.
 
 To enable traffic routing, you create [routing rules](./url-route-overview.md) assigned to listeners that listen on specific ports to ensure web traffic arrives at the appropriate servers in the pools.
 
@@ -28,11 +28,11 @@ If you prefer, you can complete this procedure using [Azure CLI](tutorial-url-ro
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 Because of the time needed to create resources, it can take up to 90 minutes to complete this procedure.
 

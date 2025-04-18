@@ -1,10 +1,10 @@
 ---
 title: Python developer reference for Azure Functions
-description: Understand how to develop functions with Python
+description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 05/25/2022
+ms.date: 12/29/2024
 ms.devlang: python
-ms.custom: devx-track-python, devdivchpfy22
+ms.custom: devx-track-python, devdivchpfy22, ignite-2024
 zone_pivot_groups: python-mode-functions
 ---
 
@@ -13,26 +13,44 @@ zone_pivot_groups: python-mode-functions
 This guide is an introduction to developing Azure Functions by using Python. The article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
 > [!IMPORTANT]
-> This article supports both the v1 and v2 programming model for Python in Azure Functions. 
-> The Python v2 programming model is currently in preview.
+> This article supports both the v1 and v2 programming model for Python in Azure Functions.
 > The Python v1 model uses a *functions.json* file to define functions, and the new v2 model lets you instead use a decorator-based approach. This new approach results in a simpler file structure, and it's more code-centric. Choose the **v2** selector at the top of the article to learn about this new programming model. 
 
-As a Python developer, you might also be interested in one of the following articles:
+As a Python developer, you might also be interested in these topics:
+
+## [Get started](#tab/get-started)
 
 ::: zone pivot="python-mode-configuration"
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration): Create your first Python app using Visual Studio Code.
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration): Create your first Python app from the command prompt using Azure Functions Core Tools.
++ [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
+::: zone-end  
+::: zone pivot="python-mode-decorators"
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators): Create your first Python app using Visual Studio Code.
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators): Create your first Python app from the command prompt using Azure Functions Core Tools.
++ [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
+::: zone-end  
+## [Scenarios](#tab/scenarios)
 
-| Getting started | Concepts| Scenarios&nbsp;and&nbsp;samples |
-|--|--|--|
-| <ul><li>[Create Python functions by using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)</li><li>[Create Python functions by using a terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+::: zone pivot="python-mode-configuration"   
++ [Machine learning & AI](functions-scenarios.md?pivots=programming-language-python#machine-learning-and-ai): Features machine learning with [PyTorch](machine-learning-pytorch.md) and [TensorFlow](functions-machine-learning-tensorflow.md). Connect to Azure OpenAI models using [Functions bindings](./functions-bindings-openai.md).
++ [Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/): Use Python functions to automate the management of Azure resources.
++ [Serverless workflows](./durable/quickstart-python-vscode.md?&pivots=python-mode-configuration): Create stateful functions in a serverless environment as part of orchestrated workflows.
++ [More...](functions-scenarios.md?pivots=programming-language-python)  
+::: zone-end  
+::: zone pivot="python-mode-decorators"   
++ [Machine learning & AI](functions-scenarios.md?pivots=programming-language-python#machine-learning-and-ai): Use [Functions bindings](./functions-bindings-openai.md) to connect to and manipulate Azure OpenAI data models, including [text completion](functions-add-openai-text-completion.md?pivots=programming-language-python).
++ [Serverless workflows](./durable/quickstart-python-vscode.md?&pivots=python-mode-decorators): Create stateful functions in a serverless environment as part of orchestrated workflows.
++ [More...](functions-scenarios.md?pivots=programming-language-python)  
 ::: zone-end
 
-::: zone pivot="python-mode-decorators" 
+## [Hosting options](#tab/hosting)
 
-| Getting started | Concepts| Samples |
-| --- | --- | --- |
-| <ul><li>[Create Python functions by using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Create Python functions by using a terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <li>[Code Examples](functions-bindings-triggers-python.md)</li> | 
++ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
++ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
++ [Compare hosting options...](functions-scale.md) 
 
-::: zone-end
+---
 
 ## Development options
 
@@ -43,20 +61,15 @@ Python v2 programming model:
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
 
-Note that the Python v2 programming model is only supported in the 4.x functions runtime. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).
-
 Python v1 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
 
-You can also create Python v1 functions in the Azure portal.
+You can also create Python functions in the Azure portal.
 
-The following considerations apply for local Python development:
-
-+ Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
-
-+ Functions doesn't currently support local Python function development on ARM64 devices, including on a Mac with an M1 chip. To learn more, see [x86 emulation on ARM64](functions-run-local.md#x86-emulation-on-arm64).
+> [!TIP]
+> Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
 
 ## Programming model
 
@@ -80,7 +93,6 @@ You can also explicitly declare the attribute types and return type in the funct
 ```python
 import azure.functions
 
-
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
@@ -97,26 +109,24 @@ Triggers and bindings can be declared and used in a function in a decorator base
 ```python
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req):
-    user = req.params.get('user')
-    return f'Hello, {user}!'
+    user = req.params.get("user")
+    return f"Hello, {user}!"
 ```
 
 You can also explicitly declare the attribute types and return type in the function by using Python type annotations. Doing so helps you use the IntelliSense and autocomplete features that are provided by many Python code editors.
 
 ```python
-import azure.functions
+import azure.functions as func
+
+app = func.FunctionApp()
 
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
-def main(req: azure.functions.HttpRequest) -> str:
-    user = req.params.get('user')
-    return f'Hello, {user}!'
+def main(req: func.HttpRequest) -> str:
+    user = req.params.get("user")
+    return f"Hello, {user}!"
 ```
-
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. For more information, see [Triggers and inputs](#triggers-and-inputs).
 
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
@@ -139,7 +149,7 @@ You can change the default behavior of a function by optionally specifying the `
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-During preview, the entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
+The entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
 ::: zone-end
 
 ## Folder structure
@@ -147,7 +157,7 @@ During preview, the entry point is only in the *function\_app.py* file. However,
 ::: zone pivot="python-mode-configuration"  
 The recommended folder structure for a Python functions project looks like the following example:
 
-```
+```cmd
  <project_root>/
  | - .venv/
  | - .vscode/
@@ -178,7 +188,7 @@ The main project folder, *<project_root>*, can contain the following files:
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.vscode/*: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
-* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
+* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](./functions-how-to-custom-container.md).
 * *tests/*: (Optional) Contains the test cases of your function app.
 * *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *.venv/* to ignore the local Python virtual environment, *tests/* to ignore test cases, and *local.settings.json* to prevent local app settings from being published.
 
@@ -188,7 +198,7 @@ Each function has its own code file and binding configuration file, *function.js
 ::: zone pivot="python-mode-decorators" 
 The recommended folder structure for a Python functions project looks like the following example:
 
-```
+```cmd
  <project_root>/
  | - .venv/
  | - .vscode/
@@ -214,10 +224,90 @@ The main project folder, *<project_root>*, can contain the following files:
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *local.settings.json*: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of Python packages the system installs when it publishes to Azure.
-* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
+* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](./functions-how-to-custom-container.md).
 ::: zone-end
 
 When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions (in this example, *tests/*). For more information, see [Unit testing](#unit-testing).
+
+## Connect to a database
+
+Azure Functions integrates well with [Azure Cosmos DB](/azure/cosmos-db/introduction) for many [use cases](/azure/cosmos-db/use-cases), including IoT, ecommerce, gaming, etc.
+
+For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](/azure/cosmos-db/change-feed) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be used to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
+
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
+
+To connect to Azure Cosmos DB, first [create an account, database, and container](/azure/cosmos-db/nosql/quickstart-portal). Then you can connect your function code to Azure Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
+
+To implement more complex app logic, you can also use the Python library for Cosmos DB. An asynchronous I/O implementation looks like this:
+
+```python
+pip install azure-cosmos
+pip install aiohttp
+
+from azure.cosmos.aio import CosmosClient
+from azure.cosmos import exceptions
+from azure.cosmos.partition_key import PartitionKey
+import asyncio
+
+# Replace these values with your Cosmos DB connection information
+endpoint = "https://azure-cosmos-nosql.documents.azure.com:443/"
+key = "master_key"
+database_id = "cosmicwerx"
+container_id = "cosmicontainer"
+partition_key = "/partition_key"
+
+# Set the total throughput (RU/s) for the database and container
+database_throughput = 1000
+
+# Singleton CosmosClient instance
+client = CosmosClient(endpoint, credential=key)
+
+# Helper function to get or create database and container
+async def get_or_create_container(client, database_id, container_id, partition_key):
+    database = await client.create_database_if_not_exists(id=database_id)
+    print(f'Database "{database_id}" created or retrieved successfully.')
+
+    container = await database.create_container_if_not_exists(id=container_id, partition_key=PartitionKey(path=partition_key))
+    print(f'Container with id "{container_id}" created')
+ 
+    return container
+ 
+async def create_products():
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    for i in range(10):
+        await container.upsert_item({
+            'id': f'item{i}',
+            'productName': 'Widget',
+            'productModel': f'Model {i}'
+        })
+ 
+async def get_products():
+    items = []
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    async for item in container.read_all_items():
+        items.append(item)
+    return items
+
+async def query_products(product_name):
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    query = f"SELECT * FROM c WHERE c.productName = '{product_name}'"
+    items = []
+    async for item in container.query_items(query=query, enable_cross_partition_query=True):
+        items.append(item)
+    return items
+
+async def main():
+    await create_products()
+    all_products = await get_products()
+    print('All Products:', all_products)
+
+    queried_products = await query_products('Widget')
+    print('Queried Products:', queried_products)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
 
 ::: zone pivot="python-mode-decorators"
 ## Blueprints
@@ -277,6 +367,10 @@ app = func.FunctionApp()
 app.register_functions(bp) 
 ```
 
+> [!NOTE]
+> Durable Functions also supports blueprints. To create blueprints for Durable Functions apps, register your orchestration, activity, and entity triggers and client bindings using the [`azure-functions-durable`](https://pypi.org/project/azure-functions-durable) `Blueprint` class, as
+> shown [here](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). The resulting blueprint can then be registered as normal. See our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) for an example.
+
 ::: zone-end
 
 ::: zone pivot="python-mode-configuration"  
@@ -335,7 +429,7 @@ For example, the following code demonstrates the difference between the two inpu
       "direction": "in",
       "type": "blob",
       "path": "samples/{id}",
-      "connection": "AzureWebJobsStorage"
+      "connection": "STORAGE_CONNECTION_STRING"
     }
   ]
 }
@@ -347,6 +441,7 @@ For example, the following code demonstrates the difference between the two inpu
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
+    "STORAGE_CONNECTION_STRING": "<AZURE_STORAGE_CONNECTION_STRING>",
     "AzureWebJobsStorage": "<azure-storage-connection-string>"
   }
 }
@@ -357,14 +452,11 @@ For example, the following code demonstrates the difference between the two inpu
 import azure.functions as func
 import logging
 
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
-
+def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `AzureWebJobsStorage` app setting, which is the same storage account that's used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body. Here, the specified storage account is the connection string that's found in the `<*_CONNECTION_STRING>` app setting. For more information, see  For more information, see [Connections](./functions-reference.md#connections).
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, their usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file when they're running locally, and they map to the application settings when they're running in Azure.
@@ -377,8 +469,8 @@ As an example, the following code demonstrates how to define a Blob Storage inpu
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "<azure-storage-connection-string>",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
+    "STORAGE_CONNECTION_STRING": "<AZURE_STORAGE_CONNECTION_STRING>",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
   }
 }
 ```
@@ -391,40 +483,161 @@ import logging
 app = func.FunctionApp()
 
 @app.route(route="req")
-@app.read_blob(arg_name="obj", path="samples/{id}", connection="AzureWebJobsStorage")
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
+@app.read_blob(arg_name="obj", path="samples/{id}", 
+               connection="STORAGE_CONNECTION_STRING")
+def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string found in the `<*_CONNECTION_STRING>` app setting. For more information, see  For more information, see [Connections](./functions-reference.md#connections).
 ::: zone-end
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
+## SDK type bindings (preview)
+ 
+For select triggers and bindings, you can work with data types implemented by the underlying Azure SDKs and frameworks. These _SDK type bindings_ let you interact binding data as if you were using the underlying service SDK. 
+::: zone pivot="python-mode-configuration" 
+> [!IMPORTANT]  
+> Support for SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings-preview).
+::: zone-end  
 ::: zone pivot="python-mode-decorators" 
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
+Functions supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using the underlying `BlobClient` type.
 
-| Type | Trigger | Input binding | Output binding |
-| --- | :---: | :---: | :---: |
-| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
-| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
-| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
-| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
-| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
-| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
-| [Azure Blob Storage](functions-bindings-triggers-python.md#azure-blob-storage-trigger) | x | x | x |
-| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
+> [!IMPORTANT]  
+> SDK type bindings support for Python is currently in preview:
+> + You must use the Python v2 programming model. 
+> + Currently, only synchronous SDK types are supported.
 
-For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
+### Prerequisites
+
+* [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34, or a later version.
+* [Python](https://www.python.org/downloads/) version 3.9, or a later [supported version](#python-version).
+
+### Enable SDK type bindings for the Blob storage extension
+
+1. Add the `azurefunctions-extensions-bindings-blob` extension package to the `requirements.txt` file in the project, which should include at least these packages:
+
+      :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/requirements.txt" range="5-6" ::: 
+
+1. Add this code to the `function_app.py` file in the project, which imports the SDK type bindings:
+
+    :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="12"::: 
+
+### SDK type bindings examples
+
+This example shows how to get the `BlobClient` from both a Blob storage trigger (`blob_trigger`) and from the input binding on an HTTP trigger (`blob_input`):
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,30-52"::: 
+
+You can view other SDK type bindings samples for Blob storage in the Python extensions repository:
+
++ [ContainerClient type](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient) 
++ [StorageStreamDownloader type](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader)
+
+::: zone-end
+
+## HTTP streams (preview)
+
+HTTP streams lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
+
+This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
+::: zone pivot="python-mode-configuration" 
+> [!IMPORTANT]  
+> Support for HTTP streams requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#http-streams-preview).
+::: zone-end  
+::: zone pivot="python-mode-decorators"
+> [!IMPORTANT]  
+> HTTP streams support for Python is currently in preview and requires you to use the Python v2 programming model. 
+
+### Prerequisites
+
+* [Azure Functions runtime](functions-versions.md?pivots=programming-language-python) version 4.34.1, or a later version.
+* [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](#python-version).
+
+### Enable HTTP streams
+
+HTTP streams are disabled by default. You need to enable this feature in your application settings and also update your code to use the FastAPI package. Note that when enabling HTTP streams, the function app will default to using HTTP streaming, and the original HTTP functionality will not work.
+
+1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
+
+    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" ::: 
+
+1. Add this code to the `function_app.py` file in the project, which imports the FastAPI extension:
+
+    :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
+
+1. When you deploy to Azure, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
+
+    `"PYTHON_ENABLE_INIT_INDEXING": "1"` 
+
+    If you are deploying to Linux Consumption, also add
+
+    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`
+
+    When running locally, you also need to add these same settings to the `local.settings.json` project file.
+
+### HTTP streams examples
+
+After you enable the HTTP streaming feature, you can create functions that stream data over HTTP. 
+
+This example is an HTTP triggered function that streams HTTP response data. You might use these capabilities to support scenarios like sending event data through a pipeline for real time visualization or detecting anomalies in large sets of data and providing instant notifications.
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
+
+This example is an HTTP triggered function that receives and processes streaming data from a client in real time. It demonstrates streaming upload capabilities that can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" ::: 
+
+### Calling HTTP streams
+
+You must use an HTTP client library to make streaming calls to a function's FastAPI endpoints. The client tool or browser you're using might not natively support streaming or could only return the first chunk of data.
+
+You can use a client script like this to send streaming data to an HTTP endpoint:
+
+```python
+import httpx # Be sure to add 'httpx' to 'requirements.txt'
+import asyncio
+
+async def stream_generator(file_path):
+    chunk_size = 2 * 1024  # Define your own chunk size
+    with open(file_path, 'rb') as file:
+        while chunk := file.read(chunk_size):
+            yield chunk
+            print(f"Sent chunk: {len(chunk)} bytes")
+
+async def stream_to_server(url, file_path):
+    timeout = httpx.Timeout(60.0, connect=60.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        response = await client.post(url, content=stream_generator(file_path))
+        return response
+
+async def stream_response(response):
+    if response.status_code == 200:
+        async for chunk in response.aiter_raw():
+            print(f"Received chunk: {len(chunk)} bytes")
+    else:
+        print(f"Error: {response}")
+
+async def main():
+    print('helloworld')
+    # Customize your streaming endpoint served from core tool in variable 'url' if different.
+    url = 'http://localhost:7071/api/streaming_upload'
+    file_path = r'<file path>'
+
+    response = await stream_to_server(url, file_path)
+    print(response)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
 
 ::: zone-end
 
 ## Outputs
 
 ::: zone pivot="python-mode-configuration" 
-Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you'll have to use output parameters.
+Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you must use output parameters.
 
 To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in the *function.json* file.
 
@@ -445,7 +658,7 @@ To produce multiple outputs, use the `set()` method provided by the [`azure.func
       "direction": "out",
       "type": "queue",
       "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
+      "connection": "STORAGE_CONNECTION_STRING"
     },
     {
       "name": "$return",
@@ -458,7 +671,6 @@ To produce multiple outputs, use the `set()` method provided by the [`azure.func
 
 ```python
 import azure.functions as func
-
 
 def main(req: func.HttpRequest,
          msg: func.Out[func.QueueMessage]) -> str:
@@ -478,10 +690,10 @@ To produce multiple outputs, use the `set()` method provided by the [`azure.func
 # function_app.py
 import azure.functions as func
 
+app = func.FunctionApp()
 
 @app.write_blob(arg_name="msg", path="output-container/{name}",
-                connection="AzureWebJobsStorage")
-                
+                connection="CONNECTION_STRING")
 def test_function(req: func.HttpRequest,
                   msg: func.Out[str]) -> str:
                   
@@ -499,7 +711,6 @@ The following example logs an info message when the function is invoked via an H
 
 ```python
 import logging
-
 
 def main(req):
     logging.info('Python HTTP trigger function processed a request.')
@@ -519,7 +730,7 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 ### Logging from created threads
 
-To see logs coming from your created threads, include the [`context`](/python/api/azure-functions/azure.functions.context) argument in the function's signature. This argument contains an attribute `thread_local_storage` which stores a local `invocation_id`. This can be set to the function's current `invocation_id` to ensure the context is changed.
+To see logs coming from your created threads, include the [`context`](/python/api/azure-functions/azure.functions.context) argument in the function's signature. This argument contains an attribute `thread_local_storage` that stores a local `invocation_id`. This can be set to the function's current `invocation_id` to ensure the context is changed.
 
 ```python
 import azure.functions as func
@@ -549,7 +760,7 @@ To collect custom request and custom dependency telemetry outside of bindings, y
 >To use the OpenCensus Python extensions, you need to enable [Python worker extensions](#python-worker-extensions) in your function app by setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1`. You also need to switch to using the Application Insights connection string by adding the [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) setting to your [application settings](functions-how-to-use-azure-function-app-settings.md#settings), if it's not already there.
 
 
-```
+```text
 // requirements.txt
 ...
 opencensus-extension-azure-functions
@@ -628,18 +839,13 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ::: zone pivot="python-mode-decorators"  
 
-The HTTP trigger is defined in the *function.json* file. The `name` of the binding must match the named parameter in the function.
+The HTTP trigger is defined as a method that takes a named binding parameter, which is an [HttpRequest] object, and returns an [HttpResponse] object. You apply the `function_name` decorator to the method to define the function name, while the HTTP endpoint is set by applying the `route` decorator. 
 
-In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
-
-From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body.
-
-The following example is from the HTTP trigger template for the Python v2 programming model. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
+This example is from the HTTP trigger template for the Python v2 programming model, where the binding parameter name is `req`. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
 
 ```python
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello")
-
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')
 
@@ -661,7 +867,7 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
+From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
@@ -736,32 +942,31 @@ Update the Python code file *init.py*, depending on the interface that's used by
 # [ASGI](#tab/asgi)
 
 ```python
-app=fastapi.FastAPI()
+app = fastapi.FastAPI()
 
 @app.get("hello/{name}")
-async def get_name(
-  name: str,):
-  return {
-      "name": name,}
+async def get_name(name: str):
+  return {"name": name}
 
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
-    return AsgiMiddleware(app).handle(req, context)
+    return func.AsgiMiddleware(app).handle(req, context)
 ```
+<!-- For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/). -->
 
 # [WSGI](#tab/wsgi)
 
 ```python
-app=Flask("Test")
+app = Flask("Test")
 
-@app.route("hello/<name>", methods=['GET'])
+@app.route("hello/<name>", methods=["GET"])
 def hello(name: str):
     return f"hello {name}"
 
 def main(req: func.HttpRequest, context) -> func.HttpResponse:
-  logging.info('Python HTTP trigger function processed a request.')
+  logging.info("Python HTTP trigger function processed a request.")
   return func.WsgiMiddleware(app).handle(req, context)
 ```
-For a full example, see [Use Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
+For a full example, see [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
 
 ---
 
@@ -816,7 +1021,7 @@ fast_app = FastAPI()
  
 @fast_app.get("/return_http_no_body") 
 async def return_http_no_body(): 
-    return Response(content='', media_type="text/plain") 
+    return Response(content="", media_type="text/plain") 
  
 app = func.AsgiFunctionApp(app=fast_app, 
                            http_auth_level=func.AuthLevel.ANONYMOUS) 
@@ -830,14 +1035,13 @@ app = func.AsgiFunctionApp(app=fast_app,
 # function_app.py
 
 import azure.functions as func 
-from flask import Flask, request, Response, redirect, url_for 
+from flask import Flask, Response 
  
 flask_app = Flask(__name__) 
-logger = logging.getLogger("my-function") 
 
 @flask_app.get("/return_http") 
 def return_http(): 
-    return Response('<h1>Hello World™</h1>', mimetype='text/html') 
+    return Response("<h1>Hello World™</h1>", mimetype="text/html") 
 
 app = func.WsgiFunctionApp(app=flask_app.wsgi_app, 
                            http_auth_level=func.AuthLevel.ANONYMOUS) 
@@ -900,7 +1104,7 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 | Method | Description |
 | --- | --- |
 | **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, and raises an error when it's unsuccessful.  |
-| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `null` when it's unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `None` when it's unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
 
@@ -909,13 +1113,13 @@ The following example uses `os.environ["myAppSetting"]` to get the [application 
 ```python
 import logging
 import os
+
 import azure.functions as func
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    # Get the setting named 'myAppSetting'
-    my_app_setting_value = os.environ["myAppSetting"]
-    logging.info(f'My app setting value:{my_app_setting_value}')
+  # Get the setting named 'myAppSetting'
+  my_app_setting_value = os.environ["myAppSetting"]
+  logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
 For local development, application settings are [maintained in the *local.settings.json* file](functions-develop-local.md#local-settings-file).
@@ -927,7 +1131,7 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 | Method | Description |
 | --- | --- |
 | **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, and raises an error when it's unsuccessful.  |
-| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `null` when it's unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `None` when it's unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
 
@@ -936,31 +1140,20 @@ The following example uses `os.environ["myAppSetting"]` to get the [application 
 ```python
 import logging
 import os
+
 import azure.functions as func
+
+app = func.FunctionApp()
 
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req: func.HttpRequest) -> func.HttpResponse:
-
-
-    # Get the setting named 'myAppSetting'
-    my_app_setting_value = os.environ["myAppSetting"]
-    logging.info(f'My app setting value:{my_app_setting_value}')
+  # Get the setting named 'myAppSetting'
+  my_app_setting_value = os.environ["myAppSetting"]
+  logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-For local development, application settings are [maintained in the *local.settings.json* file](functions-develop-local.md#local-settings-file).
-
-When you're using the new programming model, enable the following app setting in the *local.settings.json* file, as shown here:
-
-```json
-"AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
-```
-
-When you're deploying the function, this setting isn't created automatically. You must explicitly create this setting in your function app in Azure for it to run by using the v2 model.
-
-The multiple Python workers setting isn't supported in the v2 programming model at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
-
+For local development, application settings are [maintained in the *local.settings.json* file](functions-develop-local.md#local-settings-file).  
 ::: zone-end
 
 ## Python version
@@ -969,9 +1162,8 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.10 (Preview)<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.11<br/>3.10<br/>3.9<br/>3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
-| 2.x | 3.7 |
 
 \* Official Python distributions
 
@@ -1000,6 +1192,10 @@ requests==2.19.1
 ```bash
 pip install -r requirements.txt
 ```
+
+When running your functions in an [App Service plan](./dedicated-plan.md), dependencies that you define in requirements.txt are given precedence over built-in Python modules, such as `logging`. This precedence can cause conflicts when built-in modules have the same names as directories in your code. When running in a [Consumption plan](./consumption-plan.md) or an [Elastic Premium plan](./functions-premium-plan.md), conflicts are less likely because your dependencies aren't prioritized by default. 
+
+To prevent issues running in an App Service plan, don't name your directories the same as any Python native modules and don't include Python native libraries in your project's requirements.txt file.
 
 ## Publishing to Azure
 
@@ -1112,14 +1308,14 @@ from shared_code import my_second_helper_function
 # Define an HTTP trigger that accepts the ?value=<int> query parameter
 # Double the value and return the result in HttpResponse
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Executing my_second_function.')
+  logging.info('Executing my_second_function.')
 
-    initial_value: int = int(req.params.get('value'))
-    doubled_value: int = my_second_helper_function.double(initial_value)
+  initial_value: int = int(req.params.get('value'))
+  doubled_value: int = my_second_helper_function.double(initial_value)
 
-    return func.HttpResponse(
-      body=f"{initial_value} * 2 = {doubled_value}",
-      status_code=200
+  return func.HttpResponse(
+    body=f"{initial_value} * 2 = {doubled_value}",
+    status_code=200
     )
 ```
 
@@ -1145,25 +1341,20 @@ import azure.functions as func
 from my_second_function import main
 
 class TestFunction(unittest.TestCase):
-    def test_my_second_function(self):
-        # Construct a mock HTTP request.
-        req = func.HttpRequest(
-            method='GET',
-            body=None,
-            url='/api/my_second_function',
-            params={'value': '21'})
+  def test_my_second_function(self):
+    # Construct a mock HTTP request.
+    req = func.HttpRequest(method='GET',
+                           body=None,
+                           url='/api/my_second_function',
+                           params={'value': '21'})
+    # Call the function.
+    resp = main(req)
 
-        # Call the function.
-        resp = main(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp.get_body(),
-            b'21 * 2 = 42',
-        )
+    # Check the output.
+    self.assertEqual(resp.get_body(), b'21 * 2 = 42',)
 ```
 
-Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
+Inside your `.venv` Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
 
 ::: zone-end
 
@@ -1179,7 +1370,6 @@ import logging
 from shared_code import my_second_helper_function
 
 app = func.FunctionApp()
-
 
 # Define the HTTP trigger that accepts the ?value=<int> query parameter
 # Double the value and return the result in HttpResponse
@@ -1215,27 +1405,24 @@ You can start writing test cases for your HTTP trigger.
 # <project_root>/tests/test_my_second_function.py
 import unittest
 import azure.functions as func
+
 from function_app import main
 
-
 class TestFunction(unittest.TestCase):
-    def test_my_second_function(self):
-        # Construct a mock HTTP request.
-        req = func.HttpRequest(
-            method='GET',
-            body=None,
-            url='/api/my_second_function',
-            params={'value': '21'})
-
-        # Call the function.
-        func_call = main.build().get_user_function()
-        resp = func_call(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp.get_body(),
-            b'21 * 2 = 42',
-        )
+  def test_my_second_function(self):
+    # Construct a mock HTTP request.
+    req = func.HttpRequest(method='GET',
+                           body=None,
+                           url='/api/my_second_function',
+                           params={'value': '21'})
+    # Call the function.
+    func_call = main.build().get_user_function()
+    resp = func_call(req)
+    # Check the output.
+    self.assertEqual(
+        resp.get_body(),
+        b'21 * 2 = 42',
+    )
 ```
 
 Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
@@ -1255,6 +1442,7 @@ The following example creates a named temporary file in the temporary directory 
 import logging
 import azure.functions as func
 import tempfile
+
 from os import listdir
 
 #---
@@ -1277,20 +1465,20 @@ The Python standard library contains a list of built-in Python modules that are 
 To view the library for your Python version, go to:
 
 
-* [Python 3.7 standard library](https://docs.python.org/3.7/library/)
 * [Python 3.8 standard library](https://docs.python.org/3.8/library/)
 * [Python 3.9 standard library](https://docs.python.org/3.9/library/)
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
+* [Python 3.11 standard library](https://docs.python.org/3.11/library/)
 
 ### Azure Functions Python worker dependencies
 
-The Azure Functions Python worker requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they might be unavailable to your code when it's running outside of Azure Functions. You'll find a detailed list of dependencies in the "install\_requires" section of the [*setup.py*](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
+The Azure Functions Python worker requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they might be unavailable to your code when it's running outside of Azure Functions.
 
 > [!NOTE]
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies.
 
 ### The Azure Functions Python library
 

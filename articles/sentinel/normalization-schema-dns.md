@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to understand the ASIM DNS normalization schema so that I can effectively analyze DNS events across different sources.
+
 ---
 
 # The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview)
@@ -55,7 +59,7 @@ If your data source supports full DNS logging and you've chosen to log multiple 
 
 For example, you might modify your query with the following normalization:
 
-```kql
+```kusto
 _Im_Dns | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 ```
 
@@ -93,18 +97,18 @@ The following filtering parameters are available:
 
 For example, to filter only DNS queries from the last day that failed to resolve the domain name, use:
 
-```kql
+```kusto
 _Im_Dns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
 ```
 
 To filter only DNS queries for a specified list of domain names, use:
 
-```kql
+```kusto
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_Dns (domain_has_any = torProxies)
 ```
 
-Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/kusto/query/scalar-data-types/dynamic?view=microsoft-sentinel&preserve-view=true#dynamic-literals). For example: `dynamic(['192.168.','10.'])`
 
 ## Normalized content
 
@@ -158,8 +162,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP Address | The IP address of the client that sent the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`. <br><br>Example: `192.168.12.1` |
 | **SrcPortNumber** | Optional | Integer | Source port of the DNS query.<br><br>Example: `54312` |
 | <a name="ipaddr"></a>**IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr) |
-| **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
-| **SrcGeoRegion** | Optional | Region | The region within a country associated with the source IP address.<br><br>Example: `Vermont` |
+| **SrcGeoCountry** | Optional | Country | The country/region associated with the source IP address.<br><br>Example: `USA` |
+| **SrcGeoRegion** | Optional | Region | The region associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
@@ -183,8 +187,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="srcuserid"></a>**SrcUserId**   | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the source user. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **SrcUserScope** | Optional | String | The scope, such as Azure AD tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| **SrcUserScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
+| **SrcUserScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **SrcUserScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional  | UserIdType |  The type of the ID stored in the [SrcUserId](#srcuserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="srcusername"></a>**SrcUsername** | Optional    | Username     | The source username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
 | <a name="srcusernametype"></a>**SrcUsernameType**  | Conditional    | UsernameType |   Specifies the type of the user name stored in the [SrcUsername](#srcusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
@@ -209,8 +213,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |-------|-------|------|-------------|
 | <a name="dst"></a>**Dst** | Alias       | String     |    A unique identifier of the server that received the DNS request. <br><br>This field may alias the [DstDvcId](#dstdvcid), [DstHostname](#dsthostname), or [DstIpAddr](#dstipaddr) fields. <br><br>Example: `192.168.12.1`       |
 | <a name="dstipaddr"></a>**DstIpAddr** | Optional | IP Address | The IP address of the server that received the DNS request. For a regular DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`.<br><br>Example: `127.0.0.1` |
-| **DstGeoCountry** | Optional | Country | The country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
-| **DstGeoRegion** | Optional | Region | The region, or state, within a country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
+| **DstGeoCountry** | Optional | Country | The country/region associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
+| **DstGeoRegion** | Optional | Region | The region, or state, associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DstGeoCity** | Optional | City | The city associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
 | **DstGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DstGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
@@ -256,8 +260,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
 |<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. This value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
 | **SessionId** | Alias | | Alias to [DnsSessionId](#dnssessionid) |
-| **DnsResponseIpCountry** | Optional | Country | The country associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
-| **DnsResponseIpRegion** | Optional | Region | The region, or state, within a country associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
+| **DnsResponseIpCountry** | Optional | Country | The country/region associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
+| **DnsResponseIpRegion** | Optional | Region | The region, or state, associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DnsResponseIpCity** | Optional | City | The city associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
 | **DnsResponseIpLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DnsResponseIpLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
@@ -294,7 +298,7 @@ The following fields are aliases that are maintained for backwards compatibility
 - `Query` (alias to `DnsQuery`)
 - `QueryType` (alias to `DnsQueryType`)
 - `QueryTypeName` (alias to `DnsQueryTypeName`)
-- `ResponseName` (alias to `DnsReasponseName`)
+- `ResponseName` (alias to `DnsResponseName`)
 - `ResponseCodeName` (alias to `DnsResponseCodeName`)
 - `ResponseCode` (alias to `DnsResponseCode`)
 - `QueryClass` (alias to `DnsQueryClass`)
@@ -346,7 +350,7 @@ In most cases, logged DNS events don't include response information, which may b
 
 You can also provide an extra KQL function called `_imDNS<vendor>Response_`, which takes the unparsed response as input and returns dynamic value with the following structure:
 
-```kql
+```kusto
 [
     {
         "part": "answer"

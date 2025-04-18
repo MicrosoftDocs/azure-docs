@@ -1,79 +1,55 @@
 ---
 title: 'Configure a VNet-to-VNet VPN gateway connection: Azure portal'
 titleSuffix: Azure VPN Gateway
-description: Learn how to create a VPN gateway connection between VNets.
+description: Learn how to create a VPN gateway connection between virtual networks.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 11/01/2024
 ms.author: cherylmc
 
+# Do not change VNet-to-VNet to another wording, such as Net-to-Net. VNet-to-VNet is the correct term and is the value used by Azure to denote this specific type of connection. It is different than a typical network connection.
 ---
-# Configure a VNet-to-VNet VPN gateway connection by using the Azure portal
 
-This article helps you connect virtual networks (VNets) by using the VNet-to-VNet connection type using the Azure portal. The virtual networks can be in different regions and from different subscriptions. When you connect VNets from different subscriptions, the subscriptions don't need to be associated with the same Active Directory tenant. This type of configuration creates a connection between two virtual network gateways. This article doesn't apply to VNet peering. For VNet peering, see the [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) article.
+# Configure a VNet-to-VNet VPN connection - Azure portal
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram.":::
+This article helps you connect your virtual networks using the VNet-to-VNet connection type in the Azure portal. When you use the portal to connect virtual networks using VNet-to-VNet, the virtual networks can be in different regions, but must be in the same subscription. If your virtual networks are in different subscriptions, use the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) instructions instead. This article doesn't apply to virtual network peering. For virtual network peering, see the [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) article.
 
-You can create this configuration using various tools, depending on the deployment model of your VNet. The steps in this article apply to the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and the Azure portal. To switch to a different deployment model or deployment method article, use the dropdown.
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="Diagram of a VNet-to-VNet connection." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
-> [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
->
->
+## About VNet-to-VNet connections
 
-## About connecting VNets
+Configuring a VNet-to-VNet connection is a simple way to connect virtual networks. When you connect a virtual network to another virtual network with a VNet-to-VNet connection type, it's similar to creating a site-to-site IPsec connection to an on-premises location. Both connection types use a VPN gateway to provide a secure tunnel with IPsec/IKE and function the same way when communicating. However, they differ in the way the local network gateway is configured.
 
-The following sections describe the different ways to connect virtual networks.
+* When you create a VNet-to-VNet connection, the local network gateway address space is automatically created and populated. However, the local network gateway isn't visible in this configuration. That means that you can't configure it manually.
 
-### VNet-to-VNet
+* If you update the address space for one VNet, the other VNet automatically routes to the updated address space.
 
-Configuring a VNet-to-VNet connection is a simple way to connect VNets. When you connect a virtual network to another virtual network with a VNet-to-VNet connection type (VNet2VNet), it's similar to creating a Site-to-Site IPsec connection to an on-premises location. Both connection types use a VPN gateway to provide a secure tunnel with IPsec/IKE and function the same way when communicating. However, they differ in the way the local network gateway is configured.
+* It's typically faster and easier to create a VNet-to-VNet connection than a site-to-site connection.
 
-When you create a VNet-to-VNet connection, the local network gateway address space is automatically created and populated. If you update the address space for one VNet, the other VNet automatically routes to the updated address space. It's typically faster and easier to create a VNet-to-VNet connection than a Site-to-Site connection. However, the local network gateway isn't visible in this configuration.
+* If you know you want to specify more address spaces for the local network gateway, or plan to add more connections later and need to adjust the local network gateway, create the configuration using the [site-to-site connection](./tutorial-site-to-site-portal.md) steps instead.
+* The VNet-to-VNet connection doesn't include point-to-site client pool address space. If you need transitive routing for point-to-site clients, then create a site-to-site connection between the virtual network gateways, or use virtual network peering.
 
-* If you know you want to specify additional address spaces for the local network gateway, or plan to add additional connections later and need to adjust the local network gateway, you should create the configuration using the Site-to-Site steps. 
-* The VNet-to-VNet connection doesn't include Point-to-Site client pool address space. If you need transitive routing for Point-to-Site clients, then create a Site-to-Site connection between the virtual network gateways, or use VNet peering.
+### Why create a VNet-to-VNet connection?
 
-### Site-to-Site (IPsec)
+You might want to connect virtual networks by using a VNet-to-VNet connection for the following reasons:
 
-If you're working with a complicated network configuration, you may prefer to connect your VNets by using a [Site-to-Site connection](./tutorial-site-to-site-portal.md) instead. When you follow the Site-to-Site IPsec steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. These steps allow you to specify additional address spaces for the local network gateway to route traffic. If the address space for a VNet changes, you must manually update the corresponding local network gateway.
+* Cross region geo-redundancy and geo-presence
 
-### VNet peering
+  * You can set up your own geo-replication or synchronization with secure connectivity without going over internet-facing endpoints.
+  * With Azure Traffic Manager and Azure Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. For example, you can set up SQL Server Always On availability groups across multiple Azure regions.
 
-You can also connect your VNets by using VNet peering.
+* Regional multi-tier applications with isolation or administrative boundaries
 
-* VNet peering doesn't use a VPN gateway and has different constraints.
-* [VNet peering pricing](https://azure.microsoft.com/pricing/details/virtual-network) is calculated differently than [VNet-to-VNet VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
-* For more information about VNet peering, see the [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) article.
+   Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together because of isolation or administrative requirements. VNet-to-VNet communication can be combined with multi-site configurations. These configurations let you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
-## Why create a VNet-to-VNet connection?
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagram of a VNet-to-VNet connection showing multiple subscriptions." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png":::
 
-You may want to connect virtual networks by using a VNet-to-VNet connection for the following reasons:
+## Create and configure VNet1
 
-### Cross region geo-redundancy and geo-presence
+If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that might overlap with other networks. Your connection won't work properly if you have overlapping subnets.
 
-* You can set up your own geo-replication or synchronization with secure connectivity without going over internet-facing endpoints.
-* With Azure Traffic Manager and Azure Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. For example, you can set up SQL Server Always On availability groups across multiple Azure regions.
-
-### Regional multi-tier applications with isolation or administrative boundaries
-
-* Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together because of isolation or administrative requirements.
-
-VNet-to-VNet communication can be combined with multi-site configurations. These configurations lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
-
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="VNet connections diagram.":::
-
-This article shows you how to connect VNets by using the VNet-to-VNet connection type. When you follow these steps as an exercise, you can use the following example settings values. In the example, the virtual networks are in the same subscription, but in different resource groups. If your VNets are in different subscriptions, you can't create the connection in the portal. Use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or [CLI](vpn-gateway-howto-vnet-vnet-cli.md) instead. For more information about VNet-to-VNet connections, see [VNet-to-VNet FAQ](#vnet-to-vnet-faq).
-
-### Example settings
-
-**Values for VNet1:**
+In this section, create VNet1 using the following values. If you're using your own values, make sure the address spaces don't overlap with any of the virtual networks to which you want to connect.
 
 * **Virtual network settings**
   * **Name**: VNet1
@@ -85,126 +61,134 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
     * **Name**: FrontEnd
     * **Address range**: 10.1.0.0/24
 
-* **Virtual network gateway settings**
-  * **Name**: VNet1GW
-  * **Resource group**: East US
-  * **Generation**: Generation 2
-  * **Gateway type**: Select **VPN**.
-  * **VPN type**: Select **Route-based**.
-  * **SKU**: VpnGw2
-  * **Virtual network**: VNet1
-  * **Gateway subnet address range**: 10.1.255.0/27
-  * **Public IP address**: Create new
-  * **Public IP address name**: VNet1GWpip
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-* **Connection**
-  * **Name**: VNet1toVNet4
-  * **Shared key**: You can create the shared key yourself. When you create the connection between the VNets, the values must match. For this exercise, use abc123.
+### Create the gateway subnet
 
-**Values for VNet4:**
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
+
+[!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### Create the VNet1 VPN gateway
+
+In this step, you create the virtual network gateway for your virtual network. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. For gateway SKU pricing, see [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+
+Create a virtual network gateway (VPN gateway) by using the following values:
+
+* **Name**: VNet1GW
+* **Gateway type**: VPN
+* **SKU**: VpnGw2AZ
+* **Generation**: Generation 2
+* **Virtual network**: VNet1
+* **Gateway subnet address range**: 10.1.255.0/27
+* **Public IP address**: Create new
+* **Public IP address name:** VNet1GWpip1
+* **Public IP address SKU:** Standard
+* **Assignment:** Static
+* **Second Public IP address name:** VNet1GWpip2
+* **Enable active-active mode**: Enabled
+
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-azgw-portal-include.md)]
+
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-azgw-pip-portal-include.md)]
+
+A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
+
+## Create and configure VNet4
+
+After you've configured VNet1, create VNet4 and the VNet4 gateway by repeating the previous steps and replacing the values with VNet4 values. You don't need to wait until the virtual network gateway for VNet1 has finished creating before you configure VNet4. If you're using your own values, make sure the address spaces don't overlap with any of the virtual networks to which you want to connect.
+
+You can use the following examples values to configure VNet4 and the VNet4 gateway.
 
 * **Virtual network settings**
   * **Name**: VNet4
   * **Address space**: 10.41.0.0/16
   * **Subscription**: Select the subscription you want to use.
   * **Resource group**: TestRG4
-  * **Location**: West US
+  * **Location**: West US 2
   * **Subnet**
-  * **Name**: FrontEnd
-  * **Address range**: 10.41.0.0/24
+    * **Name**: FrontEnd
+    * **Address range**: 10.41.0.0/24
+
+Add the gateway subnet:
+
+* **Name**: GatewaySubnet
+* **Gateway subnet address range**: 10.41.255.0/27
+
+### Configure the VNet4 VPN gateway
+
+You can use the following examples values to configure the VNet4 VPN gateway.
 
 * **Virtual network gateway settings**
   * **Name**: VNet4GW
-  * **Resource group**: West US
+  * **Resource group**: West US 2
   * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
   * **VPN type**: Select **Route-based**.
-  * **SKU**: VpnGw2
+  * **SKU**: VpnGw2AZ
+  * **Generation**: Generation2
   * **Virtual network**: VNet4
-  * **Gateway subnet address range**: 10.41.255.0/27
-  * **Public IP address**: Create new
-  * **Public IP address name**: VNet4GWpip
+  * **Public IP address name:** VNet4GWpip1
+  * **Public IP address SKU:** Standard
+  * **Assignment:** Static
+  * **Second Public IP address name:** VNet4GWpip2
+  * **Enable active-active mode**: Enabled
 
-* **Connection**
-  * **Name**: VNet4toVNet1
-  * **Shared key**: You can create the shared key yourself. When you create the connection between the VNets, the values must match. For this exercise, use abc123.
+## Configure your connections
 
-## Create and configure VNet1
+When the VPN gateways for both VNet1 and VNet4 have completed, you can create your virtual network gateway connections.
 
-If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. Your connection won't work properly if you have overlapping subnets.
+Virtual networks in the same subscription can be connected using the portal, even if they are in different resource groups. However, if your virtual networks are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or CLI to make the connections.
 
-### To create a virtual network
+You can create either a bidirectional, or a single direction connection. For this exercise, we'll specify a bidirectional connection. The bidirectional connection value creates two separate connections so that traffic can flow in both directions.
 
-[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+1. In the portal, go to **VNet1GW**.
+1. On the virtual network gateway page, in the left pane, select **Connections** to open the Connections page. Then select **+ Add** to open the **Create connection** page.
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
-
-## Create the VNet1 gateway
-
-In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. If you're creating this configuration as an exercise, see the [Example settings](#example-settings).
-
-[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
-
-### To create a virtual network gateway
-
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
-[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
-
-You can see the deployment status on the Overview page for your gateway. A gateway can take 45 minutes or more to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
-
-[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
-
-## Create and configure VNet4
-
-After you've configured VNet1, create VNet4 and the VNet4 gateway by repeating the previous steps and replacing the values with VNet4 values. You don't need to wait until the virtual network gateway for VNet1 has finished creating before you configure VNet4. If you're using your own values, make sure the address spaces don't overlap with any of the VNets to which you want to connect.
-
-## Configure the VNet1 gateway connection
-
-When the virtual network gateways for both VNet1 and VNet4 have completed, you can create your virtual network gateway connections. In this section, you create a connection from VNet1 to VNet4. VNets in the same subscription can be connected using the portal, even if they are in different resource groups. However, if your VNets are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) to make the connections.
-
-1. In the portal, go to your virtual network gateway. For example, **VNet1GW**.
-1. On the virtual network gateway page, go  to **Connections**. Select **+Add**.
-
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-add.png" alt-text="Screenshot showing the connections page." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-add.png":::
-
-1. On the **Add connection** page, fill in the connection values.
-
-    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add-connection.png" alt-text="Screenshot showing the Add Connection page." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add-connection.png":::
-
-   * **Name**: Enter a name for your connection. For example, *VNet1toVNet4*.
-
+1. On the **Create connection** page, fill in the connection values.
+  
    * **Connection type**: Select **VNet-to-VNet** from the drop-down.
+   * **Establish bidirectional connectivity**: Select this value if you want to establish traffic flow in both directions. If you don't select this setting and you later want to add a connection in the opposite direction, you'll need to create a new connection originating from the other virtual network gateway.
+   * **First connection name**: VNet1-to-VNet4
+   * **Second connection name**: VNet4-to-VNet1
+   * **Region**: East US (the region for VNet1GW)
 
-   * **First virtual network gateway**: This field value is automatically filled in because you're creating this connection from the specified virtual network gateway.
+1. Click **Next : Settings >** at the bottom of the page to advance to the **Settings** page.
+1. On the **Settings** page, specify the following values:
 
-   * **Second virtual network gateway**: This field is the virtual network gateway of the VNet that you want to create a connection to. Select **Choose another virtual network gateway** to open the **Choose virtual network gateway** page.
-
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose-gateway.png" alt-text="Screenshot showing Choose a virtual network gateway page with another gateway selected."lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose-gateway.png":::
-
-     * View the virtual network gateways that are listed on this page. Notice that only virtual network gateways that are in your subscription are listed. If you want to connect to a virtual network gateway that isn't in your subscription, use the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
-
-     * Select the virtual network gateway to which you want to connect.
-
-   * **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
-1. Select **OK** to save your changes.
-
-## Configure the VNet4 gateway connection
-
-Next, create a connection from VNet4 to VNet1. In the portal, locate the virtual network gateway associated with VNet4. Follow the steps from the previous section, replacing the values to create a connection from VNet4 to VNet1. Make sure that you use the same shared key.
+   * **First virtual network gateway**: Select **VNet1GW** from the dropdown.
+   * **Second virtual network gateway**: Select **VNet4GW** from the dropdown.
+   * **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway. The important thing when specifying a shared key is that it's exactly the same for both sides of the connection.
+   * **IKE Protocol**: IKEv2
+1. For this exercise, you can leave the rest of the settings as their default values.
+1. Select **Review + create**, then **Create** to validate and create your connections.
 
 ## Verify your connections
 
-1. Locate the virtual network gateway in the Azure portal. 
+1. Locate the virtual network gateway in the Azure portal. For example, **VNet1GW**.
+
 1. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you'll see the **Status** values change to **Connected**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Screenshot showing the Connections page to verify the connections." border="false" lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png":::
 1. Under the **Name** column, select one of the connections to view more information. When data begins flowing, you'll see values for **Data in** and **Data out**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Screenshot shows a resource group with values for Data in and Data out." border="false" lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png":::
+## Add more connections
 
-## Add additional connections
+You can create another VNet-to-VNet connection, or create an IPsec site-to-site connection to an on-premises location.
 
-If you want to add additional connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. Before you create additional connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](./tutorial-site-to-site-portal.md).
+* Before you create more connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to.
+* When you configure a new connection, be sure to adjust the **Connection type** to match the type of connection you want to create. If you're adding a [site-to-site connection](./tutorial-site-to-site-portal.md), you must create a local network gateway before you can create the connection.
+
+* When you configure a connection that uses a shared key, make sure that the shared key is exactly the same for both sides of the connection.
+
+To create more connections, follow these steps:
+
+1. In the Azure portal, go to the VPN gateway from which you want to create the connection.
+1. In the left pane, select **Connections**. View the existing connections.
+1. Create the new connection.
 
 ## VNet-to-VNet FAQ
 

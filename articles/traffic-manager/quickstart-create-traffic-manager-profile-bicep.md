@@ -6,15 +6,15 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 02/19/2023
 ms.topic: quickstart
-ms.service: traffic-manager
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.service: azure-traffic-manager
+ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Traffic Manager profile using Bicep
 
 This quickstart describes how to use Bicep to create a Traffic Manager profile with external endpoints using the performance routing method.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

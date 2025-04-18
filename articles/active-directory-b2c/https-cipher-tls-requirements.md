@@ -2,17 +2,20 @@
 title: TLS and cipher suite requirements - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Notes for developers on HTTPS cipher suite and TLS requirements when interacting with web API endpoints.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 04/30/2021
-ms.custom: project-no-code
+ms.date: 11/27/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C with my endpoints, I want to understand the TLS and cipher suite requirements, so that I can ensure my endpoints are compatible and establish a secure connection with Azure AD B2C.
+
 ---
 
 # Azure Active Directory B2C TLS and cipher suite requirements
@@ -63,7 +66,7 @@ The following endpoints used in your Azure AD B2C environment must comply with t
 
 ## Check your endpoint compatibility
 
-To verify that your endpoints comply with the requirements described in this article, perform a test using a TLS cipher and scanner tool. Test your endpoint using [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html).
+To verify that your endpoints comply with the requirements described in this article, perform a test using a TLS cipher and scanner tool. Test your endpoint using [SSL LABS](https://www.ssllabs.com/ssltest/analyze.html).
 
 
 ## Next steps

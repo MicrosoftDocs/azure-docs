@@ -3,11 +3,9 @@ title: Mapping data flow script
 description: Overview of Data Factory's data flow script code-behind language
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Data flow script (DFS)
@@ -142,7 +140,7 @@ derive1 sink(allowSchemaDrift: true,
 
 Script snippets are shareable code of Data Flow Script that you can use to share across data flows. This video below talks about how to use script snippets and utilizing Data Flow Script to copy and paste portions of the script behind your data flow graphs:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0b4b213-00d1-4cee-a817-51bf52ef50c0]
 
 
 ### Aggregated summary stats
@@ -293,6 +291,6 @@ DerivedColumn1 window(over(dummy),
 
 ```size(array(columns()))```
 
-## Next steps
+## Related content
 
 Explore Data Flows by starting with the [data flows overview article](concepts-data-flow-overview.md)

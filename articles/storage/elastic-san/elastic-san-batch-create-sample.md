@@ -1,16 +1,15 @@
 ---
-title: Create multiple Azure Elastic SAN Preview volumes in a batch
-description: Azure PowerShell Script Sample - Create multiple elastic SAN Preview volumes in a batch.
+title: Create multiple Azure Elastic SAN volumes in a batch
+description: Azure PowerShell Script Sample - Learn how to create multiple Elastic SAN volumes in a batch.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: sample
-ms.date: 10/12/2022
+ms.date: 05/31/2024
 ms.author: rogarana
-ms.subservice: elastic-san
-ms.custom: ignite-2022, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
-# Create multiple elastic SAN Preview volumes in a batch
+# Create multiple elastic SAN volumes in a batch
 
 To simplify creating multiple volumes as a batch, you can use a .csv with pre-filled values to create as many volumes of varying sizes as you like.
 

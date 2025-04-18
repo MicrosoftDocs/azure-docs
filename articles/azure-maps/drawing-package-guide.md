@@ -2,16 +2,22 @@
 title: Drawing package guide for Microsoft Azure Maps Creator
 titleSuffix: Microsoft Azure Maps Creator
 description: Learn how to prepare a drawing package for the Azure Maps Conversion service
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 03/21/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 zone_pivot_groups: drawing-package-version
 ---
 
 # Conversion drawing package guide
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 :::zone pivot="drawing-package-v1"
 
@@ -53,7 +59,7 @@ When preparing your facility drawing files for the Conversion service, make sure
 
 ## Step 2: Prepare the DWG files
 
-This part of the guide will show you how to use CAD commands to ensure that your DWG files meet the requirements of the Conversion service.
+This part of the guide shows you how to use CAD commands to ensure that your DWG files meet the requirements of the Conversion service.
 
 You may choose any CAD software to open and prepare your facility drawing files. However, this guide is created using Autodesk's AutoCAD® software. Any commands referenced in this guide are meant to be executed using Autodesk's AutoCAD® software.  
 
@@ -71,8 +77,7 @@ The following image shows the Drawing Units window within Autodesk's AutoCAD® s
 
 ### Alignment
 
-Each floor of a facility is provided as an individual DWG file. As a result, it's possible that the floors aren't perfectly aligned when stacked on top of each other. Azure Maps Conversion service requires that all drawings be aligned with the physical space. To verify alignment, use a reference point that can span across floors, such as an elevator or column that spans multiple floors. you can view all the floors by opening a new drawing, and then use the `XATTACH` command to load all floor drawings. If you need to fix any alignment issues, you can use the reference points and the `MOVE` command to realign the floors that require it.
-
+Each floor of a facility is provided as an individual DWG file. As a result, it's possible that the floors aren't perfectly aligned when stacked on top of each other. Azure Maps Conversion service requires that all drawings be aligned with the physical space. To verify alignment, use a reference point that can span across floors, such as an elevator or column that spans multiple floors. You can view all the floors by opening a new drawing, and then use the `XATTACH` command to load all floor drawings. If you need to fix any alignment issues, you can use the reference points and the `MOVE` command to realign the floors that require it.
 ### Layers
 
 Ensure that each layer of a drawing contains entities of one feature class. If a layer contains entities for walls, then it can't have other features such as units or doors.  However, a feature class can be split up over multiple layers. For example, you can have three layers in the drawing that contain wall entities.
@@ -91,7 +96,7 @@ The following image is taken from the sample package, and shows the exterior lay
 
 ### Unit layer
 
-Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. A closed entity type such as Polygon, closed Polyline, Circle, or closed Ellipse is required to represent each unit. So, walls and doors alone won't create a unit because there isn’t an entity that represents the unit.  
+Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. A closed entity type such as Polygon, closed Polyline, Circle, or closed Ellipse is required to represent each unit. So, walls and doors alone don't create a unit because there isn’t an entity that represents the unit.  
 
 The following image is taken from the [sample drawing package] and shows the unit label layer and unit layer in red. All other layers are turned off to help with visualization. Also, one unit is selected to help show that each unit is a closed Polyline.  
 
@@ -99,7 +104,7 @@ The following image is taken from the [sample drawing package] and shows the uni
 
 ### Unit label layer
 
-If you'd like to add a name property to a unit, you'll need to add a separate layer for unit labels. Labels must be provided as single-line text entities that fall inside the bounds of a unit. A corresponding unit property must be added to the manifest file where the `unitName` matches the Contents of the Text.  To learn about all supported unit properties, see [`unitProperties`](#unitproperties).
+If you'd like to add a name property to a unit, add a separate layer for unit labels. Labels must be provided as single-line text entities that fall inside the bounds of a unit. A corresponding unit property must be added to the manifest file where the `unitName` matches the Contents of the Text.  To learn about all supported unit properties, see [`unitProperties`](#unitproperties).
 
 ### Door layer
 
@@ -153,7 +158,7 @@ The `georeference` object is used to specify where the facility is located geogr
 
 ### dwgLayers
 
-The `dwgLayers` object is used to specify that DWG layer names where feature classes can be found. To receive a property converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, they'll be ignored by the Azure Maps Conversion service if they're not specified in the manifest.  
+The `dwgLayers` object is used to specify that DWG layer names where feature classes can be found. To receive a property converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, the Azure Maps Conversion service ignores them if they're not specified in the manifest.  
 
 The following example of the `dwgLayers` object in the manifest.  
 
@@ -193,7 +198,7 @@ The `unitProperties` object allows you to define other properties for a unit tha
 
 The following image is taken from the [sample drawing package]. It displays the unit label that's associated to the unit property in the manifest.
 
-:::image type="content" source="./media/drawing-package-guide/unit-property.png" alt-text="Screenshot showing the unit label that will be associated to the unity property in the manifest.":::
+:::image type="content" source="./media/drawing-package-guide/unit-property.png" alt-text="Screenshot showing the unit label that is associated to the unity property in the manifest.":::
 
 The following snippet shows the unit property object that is associated with the unit.  
 
@@ -221,7 +226,12 @@ The following snippet shows the unit property object that is associated with the
 
 ## Step 4: Prepare the Drawing Package
 
-You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files will need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package].
+You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package].
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
 
 :::zone-end
 
@@ -298,7 +308,7 @@ You can use the [Azure Maps Creator onboarding tool] to create new and edit exis
 
 To process the DWG files, enter the geography of your Azure Maps Creator resource, the subscription key of your Azure Maps account and the path and filename of the DWG ZIP package, the select **Process**. This process can take several minutes to complete.
 
-:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/create-manifest.png" alt-text="Screenshot showing the create a new manifest screen of the Azure Maps Creator onboarding tool.":::
+:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/create-manifest.png" alt-text="Screenshot showing the 'create a new manifest' screen of the Azure Maps Creator onboarding tool.":::
 
 ### Facility levels
 
@@ -308,21 +318,7 @@ The following example is taken from the [sample drawing package v2]. The facilit
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/facility-levels.png" alt-text="Screenshot showing the facility levels tab of the Azure Maps Creator onboarding tool.":::
 
-### DWG layers
-
-The `dwgLayers` object is used to specify the DWG layer names where feature classes can be found. To receive a properly converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, the Azure Maps Conversion service ignores anything not specified in the manifest.
-Defining text properties enables you to associate text entities that fall inside the bounds of a feature. Once defined they can be used to style and display elements on your indoor map
-
-:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the create a new manifest screen of the onboarding tool.":::
-
-> [!IMPORTANT]
-> Wayfinding support for `Drawing Package 2.0` will be available soon. The following feature class should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
->
-> 1. Wall
-> 2. Stair
-> 3. Elevator
-
-### georeference
+### Georeference
 
 Georeferencing is used to specify the exterior profile, location and rotation of the facility.
 
@@ -334,37 +330,45 @@ The **Anchor Point Angle** is specified in degrees between true north and the dr
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/georeference.png" alt-text="Screenshot showing the default settings in the georeference tab of the Azure Maps Creator onboarding tool. The default settings are zero for all anchor points including longitude, latitude and angle.":::
 
-You position the facility's location by entering either an address or longitude and latitude values. You can also pan the map to make minor adjustments to the facility's location.
+### DWG layers
 
-:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/georeference-location-defined.png" alt-text="Screenshot showing the georeference tab of the Azure Maps Creator onboarding tool with values entered for the longitude and latitude anchor points.":::
+The `dwgLayers` object is used to specify the DWG layer names where feature classes can be found. To receive a properly converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, the Azure Maps Conversion service ignores anything not specified in the manifest.
+Defining text properties enables you to associate text entities that fall inside the bounds of a feature. Once defined they can be used to style and display elements on your indoor map
 
-### Review and download
+:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the 'create a new manifest' screen of the onboarding tool.":::
 
-When finished, select the **Review + Download** button to view the manifest. When you finished verifying that it's ready, select the **Download** button to save it locally so that you can include it in the drawing package to import into your Azure Maps Creator resource.
+> [!IMPORTANT]
+> The following feature classes should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
+>
+> * Wall
+> * Stair
+> * Elevator
+
+### Review + Create
+
+When finished, select the **Create + Download** button to download a copy of the drawing package and start the map creation process. For more information on the map creation process, see [Create indoor map with the onboarding tool].
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/review-download.png" alt-text="Screenshot showing the manifest JSON.":::
-
-## Step 4: Prepare the drawing package
-
-You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be compressed into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the drawing package. All other files can be in any directory of the drawing package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package v2].
-
-:::zone-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
+> [Create indoor map with the onboarding tool]
+:::zone-end
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
 [sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
 [Manifest file requirements]: drawing-requirements.md#manifest-file-requirements-1
 [Drawing Package Requirements]: drawing-requirements.md
-[Tutorial: Creating a Creator indoor map]: tutorial-creator-indoor-maps.md
-
 <!--------------------- Drawing Package v2 links--------------------------------------------------->
 [Conversion service]: https://aka.ms/creator-conversion
 [sample drawing package v2]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0
-[Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
+[Azure Maps Creator onboarding tool]: creator-onboarding-tool.md
 [manifest files]: drawing-requirements.md#manifest-file-1
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [facility level]: drawing-requirements.md#facility-level
+
+[Creator for indoor maps]: creator-indoor-maps.md

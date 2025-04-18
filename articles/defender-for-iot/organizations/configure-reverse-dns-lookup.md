@@ -17,7 +17,7 @@ All CIDR formats are supported.
 
 Before performing the procedures in this article, you must have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md).
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
 
 - Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -26,7 +26,7 @@ Before performing the procedures in this article, you must have:
 
 ## Define DNS servers
 
-1. On your sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
+1. On your OT sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
 
 1. Use the **Schedule Reverse Lookup** options to define your scan as in fixed intervals, per hour, or at a specific time.
 

@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Dashboard for labs
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes the dashboard view of a lab in Azure Lab Services.
 
 ![Screen capture shows the dashboard view of a lab in Azure Lab Services](./media/use-dashboard/dashboard.png)
@@ -51,7 +53,7 @@ You see the following information on this tile:
 - Number of users registered to the class
 - Number of users who are added to the lab but not registered to the class
 
-It also has a link to navigate to the **Users** page where you can [manage users](how-to-configure-student-usage.md) for the lab.
+It also has a link to navigate to the **Users** page where you can [manage users](how-to-manage-lab-users.md) for the lab.
 
 ## Schedules tile
 

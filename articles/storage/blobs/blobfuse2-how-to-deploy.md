@@ -2,14 +2,13 @@
 title: How to mount an Azure Blob Storage container on Linux with BlobFuse2
 titleSuffix: Azure Storage
 description: Learn how to mount an Azure Blob Storage container on Linux with BlobFuse2.
-author: jimmart-dev
-ms.author: jammart
-ms.reviewer: tamram
-ms.service: storage
-ms.subservice: blobs
+author: akashdubey-ms
+ms.author: akashdubey
+
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/26/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # How to mount an Azure Blob Storage container on Linux with BlobFuse2
@@ -40,7 +39,7 @@ For information about libfuse support, see the [BlobFuse2 README](https://github
 To check your version of Linux, run the following command:
 
 ```bash
-lsb_release -a
+cat /etc/*-release
 ```
 
 If no binaries are available for your distribution, you can [Option 2: Build the binaries from source code](#option-2-build-the-binaries-from-source-code).
@@ -55,44 +54,56 @@ To install BlobFuse2 from the repositories:
 
 Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-As an example, on a Redhat Enterprise Linux 8 distribution:
+# [RHEL](#tab/RHEL)
+
+As an example, on a Red Hat Enterprise Linux 8 distribution:
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
-Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
+Similarly, change the URL to `.../rhel/7/...` to point to a Red Hat Enterprise Linux 7 distribution.
+
+# [Ubuntu](#tab/Ubuntu)
 
 Another example on an Ubuntu 20.04 distribution:
 
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
-sudo apt-get install libfuse3-dev fuse3 
+sudo apt-get install libfuse3-dev fuse3
 ```
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-#### Install BlobFuse2
-
-On an Ubuntu/Debian distribution:
+# [SLES](#tab/SLES)
 
 ```bash
-sudo apt-get install blobfuse2
+sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
 ```
 
-On a Redhat Enterprise Linux distribution:
+---
+
+#### Install BlobFuse2
+
+# [RHEL](#tab/RHEL)
 
 ```bash
 sudo yum install blobfuse2
 ```
 
-On a SUSE distribution:
+# [Ubuntu](#tab/Ubuntu)
+
+```bash
+sudo apt-get install blobfuse2
+```
+# [SLES](#tab/SLES)
 
 ```bash
 sudo zypper install blobfuse2
 ```
+---
 
 ### Option 2: Build the binaries from source code
 
@@ -117,9 +128,9 @@ To build the BlobFuse2 binaries from source code:
 1. Clone the repository:
 
    ```Git
-   git clone https://github.com/Azure/azure-storage-fuse/
-   cd ./azure-storage-fuse
-   git checkout main
+   sudo git clone https://github.com/Azure/azure-storage-fuse/
+   sudo cd ./azure-storage-fuse
+   sudo git checkout main
    ```
 
 1. Build BlobFuse2:
@@ -171,8 +182,6 @@ stream:
     max-buffers: The total number of buffers to store blocks in
     buffer-size-mb: The size for each buffer
 ```
-
-To get started quickly with some settings for a basic streaming scenario, see the [sample streaming configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleStreamingConfig.yaml).
 
 #### Configure caching for smaller files
 
@@ -248,7 +257,7 @@ You can provide authorization information in a configuration file or in environm
 To mount an Azure block blob container by using BlobFuse2, run the following command. The command mounts the container specified in `./config.yaml` onto the location `~/mycontainer`:
 
 ```bash
-blobfuse2 mount ~/mycontainer --config-file=./config.yaml
+sudo blobfuse2 mount ~/mycontainer --config-file=./config.yaml
 ```
 
 > [!NOTE]
@@ -276,12 +285,12 @@ However, you should be aware of some key [differences in functionality](blobfuse
 
 This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities:
 
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage  <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Azure Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Azure Data Lake Storage, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## See also
 

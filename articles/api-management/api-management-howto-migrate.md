@@ -4,15 +4,17 @@ description: Learn how to migrate an API Management instance from one region to 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 08/20/2021
 ms.author: danlep
 ms.custom: subject-moving-resources
-#customerintent: As an Azure service administrator, I want to move my service resources to another Azure region.
+# Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
 ---
 
 # How to move Azure API Management across regions
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 This article describes how to move an API Management instance to a different Azure region. You might move your instance to another region for many reasons. For example:
 
@@ -24,8 +26,6 @@ To move API Management instances from one Azure region to another, use the servi
 
 > [!NOTE]
 > API Management also supports [multi-region deployment](api-management-howto-deploy-multi-region.md), which distributes a single Azure API management service across multiple Azure regions. Multi-region deployment helps reduce request latency perceived by geographically distributed API consumers and improves service availability if one region goes offline.
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Considerations
 
@@ -67,7 +67,7 @@ To move API Management instances from one Azure region to another, use the servi
 
 If you moved the API Management instance using Option 1, after you successfully restore and configure the target instance, you may delete the source instance.
 
-## Next steps
+## Related content
 
 * For more information about the backup and restore feature, see [how to implement disaster recovery](api-management-howto-disaster-recovery-backup-restore.md).
 * For information on migrating Azure resources, see [Azure cross-region migration guidance](https://github.com/Azure/Azure-Migration-Guidance).

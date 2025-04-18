@@ -2,11 +2,11 @@
 title: Azure Firewall threat intelligence based filtering
 description: You can enable Threat intelligence-based filtering for your firewall to alert and deny traffic from/to known malicious IP addresses and domains.
 services: firewall
-author: vhorne
-ms.service: firewall
-ms.topic: article
+author: duau
+ms.service: azure-firewall
+ms.topic: concept-article
 ms.date: 08/01/2022
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall threat intelligence-based filtering
@@ -25,8 +25,6 @@ By default, threat intelligence-based filtering is in alert mode. You can’t tu
 You can define allowlists so threat intelligence doesn't filter traffic to any of the listed FQDNs, IP addresses, ranges, or subnets.
 
 For a batch operation, you can upload a CSV file with list of IP addresses, ranges, and subnets.
-
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Threat intelligence based filtering portal interface" lightbox="media/threat-intel/threat-intel-ui.png":::
 
 ## Logs
 
@@ -57,6 +55,7 @@ The following log excerpt shows a triggered rule:
 
 ## Next steps
 
+- [Exploring Azure Firewall's Threat Protection](https://techcommunity.microsoft.com/t5/azure-network-security-blog/exploring-azure-firewall-s-threat-protection/ba-p/3869571)
 - See [Azure Firewall Log Analytics samples](./firewall-workbook.md)
 - Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)
 - Review the [Microsoft Security intelligence report](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

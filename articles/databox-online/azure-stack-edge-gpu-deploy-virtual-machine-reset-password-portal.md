@@ -4,8 +4,8 @@ description: Describes how to reset the password on virtual machines (VMs) on an
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/29/2022
 ms.author: alkohli

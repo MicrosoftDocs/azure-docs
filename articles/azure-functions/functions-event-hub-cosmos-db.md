@@ -2,11 +2,11 @@
 title: 'Tutorial: Use Java functions with Azure Cosmos DB and Event Hubs'
 description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
 author: KarlErickson
-ms.topic: tutorial
-ms.date: 11/04/2019
 ms.author: karler
+ms.topic: tutorial
+ms.date: 02/14/2024
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
 ---
 
@@ -21,7 +21,7 @@ In this tutorial, you'll:
 > * Create and test Java functions that interact with these resources.
 > * Deploy your functions to Azure and monitor them with Application Insights.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To complete this tutorial, you must have the following installed:
 - [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
@@ -120,7 +120,8 @@ az eventhubs eventhub create \
     --resource-group $RESOURCE_GROUP \
     --name $EVENT_HUB_NAME \
     --namespace-name $EVENT_HUB_NAMESPACE \
-    --message-retention 1
+    --retention-time 1 \
+    --cleanup-policy Delete
 az eventhubs eventhub authorization-rule create \
     --resource-group $RESOURCE_GROUP \
     --name $EVENT_HUB_AUTHORIZATION_RULE \
@@ -139,7 +140,8 @@ az eventhubs eventhub create ^
     --resource-group %RESOURCE_GROUP% ^
     --name %EVENT_HUB_NAME% ^
     --namespace-name %EVENT_HUB_NAMESPACE% ^
-    --message-retention 1
+    --retention-time 1 ^
+    --cleanup-policy Delete
 az eventhubs eventhub authorization-rule create ^
     --resource-group %RESOURCE_GROUP% ^
     --name %EVENT_HUB_AUTHORIZATION_RULE% ^
@@ -213,7 +215,7 @@ az functionapp create \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
     --runtime java \
-    --functions-version 3
+    --functions-version 4
 ```
 
 # [Cmd](#tab/cmd)
@@ -229,7 +231,7 @@ az functionapp create ^
     --storage-account %STORAGE_ACCOUNT% ^
     --consumption-plan-location %LOCATION% ^
     --runtime java ^
-    --functions-version 3
+    --functions-version 4
 ```
 
 ---
@@ -243,6 +245,9 @@ Your function app will need to access the other resources to work correctly. The
 ### Retrieve resource connection strings
 
 Use the following commands to retrieve the storage, event hub, and Azure Cosmos DB connection strings and save them in environment variables:
+
+> [!NOTE]
+> Microsoft recommends using the most secure authentication flow available. The authentication flow described in this procedure, such as for databases, caches, messaging, or AI services, requires a very high degree of trust in the application and carries risks not present in other flows. Use this flow only when more secure options, like managed identities for passwordless or keyless connections, are not viable. For local machine operations, prefer user identities for passwordless or keyless connections.
 
 # [Bash](#tab/bash)
 
@@ -314,7 +319,7 @@ az functionapp config appsettings set \
     --settings \
         AzureWebJobsStorage=$AZURE_WEB_JOBS_STORAGE \
         EventHubConnectionString=$EVENT_HUB_CONNECTION_STRING \
-        CosmosDBConnectionString=$COSMOS_DB_CONNECTION_STRING
+        CosmosDBConnectionSetting=$COSMOS_DB_CONNECTION_STRING
 ```
 
 # [Cmd](#tab/cmd)
@@ -326,7 +331,7 @@ az functionapp config appsettings set ^
     --settings ^
         AzureWebJobsStorage=%AZURE_WEB_JOBS_STORAGE% ^
         EventHubConnectionString=%EVENT_HUB_CONNECTION_STRING% ^
-        CosmosDBConnectionString=%COSMOS_DB_CONNECTION_STRING%
+        CosmosDBConnectionSetting=%COSMOS_DB_CONNECTION_STRING%
 ```
 
 ---
@@ -417,6 +422,9 @@ rmdir /s /q src\test
 
 For local testing, your function project will need the connection strings that you added to your function app in Azure earlier in this tutorial. Use the following Azure Functions Core Tools command, which retrieves all the function app settings stored in the cloud and adds them to your `local.settings.json` file:
 
+> [!NOTE]
+> Microsoft recommends using the most secure authentication flow available. The authentication flow described in this procedure, such as for databases, caches, messaging, or AI services, requires a very high degree of trust in the application and carries risks not present in other flows. Use this flow only when more secure options, like managed identities for passwordless or keyless connections, are not viable. For local machine operations, prefer user identities for passwordless or keyless connections.
+
 # [Bash](#tab/bash)
 
 ```Bash
@@ -481,7 +489,7 @@ public class Function {
             name = "databaseOutput",
             databaseName = "TelemetryDb",
             collectionName = "TelemetryInfo",
-            connectionStringSetting = "CosmosDBConnectionString")
+            connectionStringSetting = "CosmosDBConnectionSetting")
             OutputBinding<TelemetryItem> document,
         final ExecutionContext context) {
 
@@ -661,6 +669,9 @@ az group delete --name %RESOURCE_GROUP%
 In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates an Azure Cosmos DB instance. For more information, see the [Azure Functions Java developer guide](./functions-reference-java.md). For information on the annotations used, see the [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation) reference.
 
 This tutorial used environment variables and application settings to store secrets such as connection strings. For information on storing these secrets in Azure Key Vault, see [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md).
+
+> [!NOTE]
+> Microsoft recommends using the most secure authentication flow available. The authentication flow described in this procedure, such as for databases, caches, messaging, or AI services, requires a very high degree of trust in the application and carries risks not present in other flows. Use this flow only when more secure options, like managed identities for passwordless or keyless connections, are not viable. For local machine operations, prefer user identities for passwordless or keyless connections.
 
 Next, learn how to use Azure Pipelines CI/CD for automated deployment:
 

@@ -1,21 +1,18 @@
 ### YamlMime:Hub
 
 title: Azure security documentation
-summary: Azure offers security advantages that support your compliance efforts, provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
+summary: Azure offers security advantages that support compliance efforts, and provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
 brand: azure
 
 metadata:
   title: Azure security documentation
   description: Azure offers security advantages that support your compliance efforts, provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
-  services: security
   ms.service: security
-  ms.subservice: na
   ms.topic: hub-page
-  ms.collection: na
-  author: TerryLanfear
-  ms.author: terrylan
+  author: msmbaldwin
+  ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 07/15/2022
+  ms.date: 10/20/2024
 
 highlightedContent:
   items:
@@ -24,37 +21,37 @@ highlightedContent:
       url: /entra/
     - title: Build a Zero Trust Foundation
       itemType: concept
-      url: ./fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      url: ./fundamentals/zero-trust.md
     - title: Back up and restore plan to protect against ransomware
       itemType: concept
-      url: ./fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - title: Protect your multicloud environment with unified security management and advanced threat protection
-      itemType: concept
-      url: ../defender-for-cloud/multicloud.yml
+      url: ./fundamentals/backup-plan-to-protect-against-ransomware.md
     - title: Understand security coverage by the MITRE ATT&CK framework
       itemType: how-to-guide
       url: ../sentinel/mitre-coverage.md
     - title: Combine SIEM and XDR to defend against modern attacks
       itemType: overview
-      url: https://www.microsoft.com/security/business/threat-protection
-    - title: Sunset for SHA-1 Online Certificate Standard Protocol signing
-      itemType: whats-new
-      url: ./fundamentals/ocsp-sha-1-sunset.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - title: Use watchlists in Microsoft Sentinel
+      url: /unified-secops-platform/overview-unified-security
+    - title: Aggregate data with summary rules
+      itemType: how-to-guide
+      url: ../sentinel/summary-rules.md
+    - title: Optimize security operations
       itemType: concept
-      url: ../sentinel/watchlists.md
+      url: ../sentinel/soc-optimization/soc-optimization-access.md
+    - title: Azure Network Security
+      itemType: concept
+      url: ../networking/security/index.yml
 
 conceptualContent:
   items:
     - title: Modernize security operations
       links:
-        - url: ./fundamentals/overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - url: ./fundamentals/overview.md
           itemType: overview
           text: Introduction to Azure security
-        - url: ./fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - url: ./fundamentals/shared-responsibility.md
           itemType: concept
           text: Shared responsibilities for cloud computing
-        - url: ./fundamentals/ransomware-protection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - url: ./fundamentals/ransomware-protection.md
           itemType: concept
           text: Protect against ransomware
 
@@ -75,16 +72,12 @@ conceptualContent:
         - url: /security/zero-trust/deploy/identity
           itemType: how-to-guide
           text: Securing identity with Zero Trust
-        - url: /security/compass/overview
-          itemType: concept
-          text: Securing privleged access
         - url: /security/zero-trust/develop/identity
           itemType: concept
           text: Building apps with a Zero Trust approach to identity
-
 additionalContent:
   sections:
-    - title: Security guidance for each phase of your cloud migration journey
+    - title: Security guidance for each phase of your cloud migration
       items:
         - title: Strategy and planning
           summary: Define business justification and expected outcomes of adoption                 
@@ -135,8 +128,8 @@ additionalContent:
           summary: Secure methodology designed to help cloud architects and business decision makers create and implement security strategies for the cloud
           url: /azure/cloud-adoption-framework/secure/
         - title: Azure security fundamentals
-          summary: For every phase of your cloud journey, learn how to secure your cloud solutions on Azure
-          url: ./journey/index.yml
+          summary: Learn how to secure your cloud solutions on Azure
+          url: ./fundamentals/index.yml
         - title: Azure Security Benchmark
           summary: Best practices and recommendations to secure your cloud deployments
           url: /security/benchmark/azure/introduction
@@ -146,9 +139,6 @@ additionalContent:
         - title: Azure Architecture Center
           summary: A set of guiding tenets that can be used to protect your applications and data from threats
           url: /azure/architecture/guide/security/security-start-here
-        - title: Microsoft Security Best Practices
-          summary: Collection of best practices that provide clear actionable guidance for security related decisions, includes Azure and Microsoft 365
-          url: /security/compass/compass
         - title: Secure development
           summary: Learn how to develop and deploy secure applications on Azure with our sample apps, best practices, and guidance
           url: ./develop/index.yml
@@ -171,12 +161,13 @@ additionalContent:
         - title: Microsoft Defender for Cloud
           summary: Unify security management and advanced threat protection across hybrid cloud workloads                 
           links: 
-            - url: ../defender-for-cloud/defender-for-cloud-introduction.md
+            - url: /azure/defender-for-cloud/defender-for-cloud-introduction
               text: Overview
-            - url: ../defender-for-cloud/tutorial-protect-resources.md
+            - url: /azure/defender-for-cloud/tutorial-protect-resources
               text: Protect your resources
-            - url: /training/modules/microsoft-cloud-app-security/
-              text: "Learn: Secure your cloud apps and services"
+            - url: /training/paths/sc-200-mitigate-threats-using-azure-defender/
+              text: "Learn: Mitigate threats using Microsoft Defender for Cloud"
+
 
         - title: Microsoft Defender for Identity
           summary: Improve security of hybrid environments from cyber attacks and insider threats                 
@@ -184,19 +175,25 @@ additionalContent:
             - url: /defender-for-identity/what-is
               text: Overview
             - url: /defender-for-identity/deploy-defender-identity
-              text: Deploy Microsoft Defender for Identity with Microsoft 365 Defender
+              text: Deploy Microsoft Defender for Identity with Microsoft Defender XDR
             - url: /training/modules/defender-identity-defend-attacks/
               text: "Learn: Defend against attacks"
 
-        - title: Azure Key Vault
-          summary: Create and maintain keys that access and encrypt your cloud resources
+        - title: Azure key management
+          summary: Key management solutions in Azure
           links: 
-            - url: ../key-vault/general/overview.md
-              text: Overview
-            - url: ../key-vault/secrets/quick-create-cli.md
-              text: Set and retrieve a secret
-            - url: /training/modules/manage-secrets-with-azure-key-vault/
-              text: "Learn: Manage secrets in your server apps"
+            - url: ./fundamentals/key-management.md
+              text: Key management in Azure
+            - url: ./fundamentals/key-management-choose.md
+              text: Choosing a key management solution
+            - url: /azure/key-vault/
+              text: Azure Key Vault
+            - url: /azure/key-vault/managed-hsm/
+              text: Azure Managed HSM
+            - url: /azure/dedicated-hsm/
+              text: Azure Dedicated HSM
+            - url: /azure/payment-hsm/
+              text: Azure Payment-HSM
 
         - title: Microsoft Defender for Cloud Apps
           summary: Cloud Access Security Broker (CASB) that operates on multiple clouds
@@ -207,6 +204,8 @@ additionalContent:
               text: Get started 
             - url: /defender-cloud-apps/tutorial-suspicious-activity
               text: Detect and manage suspicious activity
+            - url: /training/modules/microsoft-cloud-app-security/
+              text: "Learn: Secure your cloud apps and services"
 
         - title: Microsoft Defender for IoT
           summary: Threat detection for IoT/OT environments
@@ -218,27 +217,17 @@ additionalContent:
             - url: /training/paths/enhance-iot-solution-security-by-using-azure-defender/
               text: "Learn: Enhance IoT solution security"
 
-        - title: Azure Information Protection
-          summary: Control and secure emails, documents, and sensitive data
-          links: 
-            - url: /azure/information-protection/what-is-information-protection
-              text: Overview
-            - url: /azure/information-protection/quickstart-deploy-client
-              text: Deploying the client 
-            - url: /azure/information-protection/tutorial-scan-networks-and-content
-              text: Discovering your sensitive content
-
-        - title: Azure Active Directory
-          summary: Multi-tenant, cloud-based identity and access management service
+        - title: Microsoft Entra ID
+          summary: Multitenant, cloud-based identity, and access management service
           links: 
             - url: ../active-directory/fundamentals/active-directory-whatis.md
               text: Overview
             - url: ../active-directory/fundamentals/security-operations-introduction.md
               text: Security operations guide
             - url: /training/modules/secure-aad-users-with-mfa/
-              text: "Learn: Secure Azure Active Directory users with Multi-Factor Authentication"
+              text: "Learn: Secure Microsoft Entra users with Multifactor Authentication"
 
-        - title: Microsoft 365 Defender
+        - title: Microsoft Defender XDR
           summary: Security solutions that protect your enterprise across attack surfaces
           links: 
             - url: /microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide

@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 01/04/2024
 ---
 
 # Create switch actions that run workflow actions based on specific values in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To run specific actions based on the values of objects, expressions, 
 or tokens, add a *switch* action. This structure evaluates the object, 
@@ -55,7 +55,7 @@ email to an approver. Based on whether the approver selects
 
 ## Add a switch action
 
-1. For this example, add a switch action at the end 
+1. For this example, add a switch action at the end of 
 your sample workflow. After the last step, choose **New step**.
 
    When you want to add a switch action between steps, 

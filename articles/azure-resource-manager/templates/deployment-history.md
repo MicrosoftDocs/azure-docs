@@ -3,8 +3,8 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 12/03/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 03/20/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # View deployment history with Azure Resource Manager
@@ -17,7 +17,7 @@ For help with resolving particular deployment errors, see [Troubleshoot common A
 
 ## Correlation ID and support
 
-Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
+Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
 
 The examples in this article show how to retrieve the correlation ID.
 
@@ -107,7 +107,7 @@ The response includes the correlation ID.
    "provisioningState": "Failed",
    "timestamp": "2019-11-26T14:18:36.4518358Z",
    "duration": "PT26.2091817S",
-   "correlationId": "11111111-1111-1111-1111-111111111111",
+   "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
    ...
  }
 }
@@ -201,7 +201,7 @@ The response includes the correlation ID.
    "provisioningState": "Failed",
    "timestamp": "2019-11-26T14:18:36.4518358Z",
    "duration": "PT26.2091817S",
-   "correlationId": "11111111-1111-1111-1111-111111111111",
+   "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
    ...
  }
 }
@@ -295,7 +295,7 @@ The response includes the correlation ID.
    "provisioningState": "Failed",
    "timestamp": "2019-11-26T14:18:36.4518358Z",
    "duration": "PT26.2091817S",
-   "correlationId": "11111111-1111-1111-1111-111111111111",
+   "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
    ...
  }
 }
@@ -375,7 +375,7 @@ The response includes the correlation ID.
    "provisioningState": "Failed",
    "timestamp": "2019-11-26T14:18:36.4518358Z",
    "duration": "PT26.2091817S",
-   "correlationId": "11111111-1111-1111-1111-111111111111",
+   "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
    ...
  }
 }
@@ -463,15 +463,15 @@ The response includes an error message.
 {
   "value": [
     {
-      "id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/examplegroup/providers/Microsoft.Resources/deployments/exampledeployment/operations/1234567890ABCDEF",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/examplegroup/providers/Microsoft.Resources/deployments/exampledeployment/operations/1234567890ABCDEF",
       "operationId": "1234567890ABCDEF",
       "properties": {
         "provisioningOperation": "Create",
         "provisioningState": "Failed",
         "timestamp": "2019-11-26T14:18:36.3177613Z",
         "duration": "PT21.0580179S",
-        "trackingId": "11111111-1111-1111-1111-111111111111",
-        "serviceRequestId": "11111111-1111-1111-1111-111111111111",
+        "trackingId": "aaaa0000-bb11-2222-33cc-444444dddddd",
+        "serviceRequestId": "aaaa0000-bb11-2222-33cc-444444dddddd",
         "statusCode": "BadRequest",
         "statusMessage": {
           "error": {
@@ -480,7 +480,7 @@ The response includes an error message.
           }
         },
         "targetResource": {
-          "id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/storage",
+          "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/storage",
           "resourceType": "Microsoft.Storage/storageAccounts",
           "resourceName": "storage"
         }
