@@ -1,6 +1,6 @@
 ---
 title: Messaging Policy
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services article
 description: This article describes Azure Communication Services messaging policy.
 author: prakulka
 manager: nmurav
@@ -30,7 +30,7 @@ We developed this messaging policy to help you satisfy regulatory requirements a
 
 ### What is consent?
 
-Consent is an agreement between you and the message recipient that allows you to send application to person (A2P) messages to them. You must obtain consent before sending the first message, and you should make clear to the recipient that they're agreeing to receive messages from you. This procedure is known as receiving "prior express consent" from the individual you intend to message.
+Consent is an agreement between you and the message recipient that allows you to send application to person (A2P) messages to them. You must obtain consent before sending the first message, and you should make clear to the recipient that they're agreeing to receive messages from you. This procedure is known as receiving *prior express consent* from the individual you intend to message.
 
 The messages that you send must be the same type of messages that the recipient agreed to receive and should only be sent to the number or email address that the recipient provided to you. If you intend to send informational messages, such as appointment reminders or alerts, then consent can be either written or oral. If you intend to send promotional messages, such as sales or marketing messages that promote a product or service, then consent must be written.
 
@@ -46,7 +46,7 @@ Regardless of how consent is obtained, you and your customers must ensure that t
 
 ### Consent requirements:
 
-- Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
+- Provide a *Call to Action* before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
 - Consent isn't transferable or assignable. Any consent that an individual provides to you can't be transferred or sold to an unaffiliated third party. If you collect an individual’s consent for a third party, then you must clearly identify the third party to the individual. You must also state that the consent you obtained applies only to communications from the third party.
 - Consent is limited in purpose. An individual who provides their number or an email address for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender. Before obtaining consent, you should clearly notify the intended message recipient if you send recurring messages or messages from an affiliate.
 
