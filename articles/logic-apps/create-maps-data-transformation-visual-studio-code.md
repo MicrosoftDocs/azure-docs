@@ -376,10 +376,10 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
 
 When you're done, on the map toolbar, select **Save**.
 
-Visual Studio Code saves your map as the following artifacts:
+Visual Studio Code saves your data map as the following artifacts:
 
-- A **<*your-map-name*>.lml** file in the **Artifacts** > **MapDefinitions** project folder
-- An **<*your-map-name*>.xslt** file in the **Artifacts** > **Maps** project folder
+- A Data Mapper (**<*your-map-name*>.lml**) file in the **Artifacts** > **MapDefinitions** project folder
+- A data map (**<*your-map-name*>.xslt**) file in the **Artifacts** > **Maps** project folder
 
 ## Test your map
 
@@ -415,9 +415,11 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 ## Run XSLT from a data map
 
-To run executable XSLT from inside a data map, follow these steps:
+You can run executable XSLT from a data map (**.xslt**) file by embedding that XSLT within that data map. This action produces a data map file that contains the actual executable XSLT, while the Data Mapper (**.lml**) file contains a reference to the executable XSLT file.
 
-1. Create a new map for the executable XSLT that you want to run.
+To complete this task, follow these steps:
+
+1. Create a new data map (**.xslt**) file that contains the executable XSLT that you want to run.
 
 1. Save the executable map, which appears in  the **Artifacts** > **Maps** project folder, by default.
 
@@ -433,7 +435,7 @@ To run executable XSLT from inside a data map, follow these steps:
 
 1. On the mapper surface, select **Run XSLT**.
 
-1. From the **File** dropdown list, select the **.xslt** file that you added to the **InlineXSLT** folder, for example:
+1. From the **File** dropdown list, select the executable **.xslt** file that you added to the **InlineXSLT** folder, for example:
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/run-xslt.png" alt-text="Screenshot shows opened data mapper surface and Run XSLT function with selected InlineXslt.xsd file." lightbox="media/create-maps-data-transformation-visual-studio-code/run-xslt.png":::
 
@@ -444,6 +446,8 @@ To run executable XSLT from inside a data map, follow these steps:
    As the XSLT logic applies only to the destination node, you don't have to connect the **Run XSLT** function to a source node.
 
 1. Test your map to confirm that the expected results appear in the destination schema.
+
+For deployment, you only need the resulting data map with the inline executable XSLT.
 
 <a name="extract-values-from-nested-xml"></a>
 
@@ -462,7 +466,9 @@ To complete these tasks, use the **Execute XPath** function:
 
 1. On the mapper surface, select **Execute XPath**.
 
-1. In the **XPATH expression** box, enter an expression that performs the work you want, for example:
+1. In the **XPATH expression** box, enter an expression that performs the work you want.
+
+   For information about expression syntax, see [XPath Syntax](https://www.w3schools.com/xml/xpath_syntax.asp).
 
    This example uses the **`//Address`** expression along with a test payload:
 
@@ -470,7 +476,8 @@ To complete these tasks, use the **Execute XPath** function:
 
    > [!NOTE]
    >
-   > The expression is automatically enclosed by double-quotation marks (**""**).
+   > Double forward slashes (**`//`**) select nodes from the current 
+   > node that match the selection, regardless where the nodes exist.
 
 1. Connect the **Execute XPath** function to the destination node where you want to run the function.
 
@@ -478,11 +485,22 @@ To complete these tasks, use the **Execute XPath** function:
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath-destination.png" alt-text="Screenshot shows opened data mapper surface and Execute XPath function connected to destination node." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath-destination.png":::
 
+   > [!NOTE]
+   >
+   > Node names are automatically enclosed by double quotation marks (**" "**). 
+
 1. Test your map to confirm that the expected results appear in the destination schema.
 
-   This example uses a test payload and correctly produces results with multiple **Address** nodes because the source **Address** node exists in an **Employee** array, while the destination **Address** node exists in a **Person** array:
+   This example uses a test payload and correctly produces results with multiple **Address** nodes because the source **Address** node exists in an **Employee** array, while the destination **Address** node exists in a **Person** array.
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png" alt-text="Screenshot shows opened data mapper surface, Execute XPath function, and test results in destination schema." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png":::
+
+   > [!NOTE]
+   >
+   > If you create a mapping between arrays in the source and target schemas, a loop automatically 
+   > appears on the mapper surface to iterate through the array elements. However, you still have to 
+   > create mappings between the source and target array elements. For information about looping 
+   > through arrays, see [Iterate through arrays](#loop-through-array).
 
 ## Create custom XML functions
 
@@ -496,7 +514,7 @@ To create a custom XML function, follow these steps:
 
 1. Create an XML (.xml) file with a meaningful name that describes your function's purpose.
 
-   If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
+   Your XML file must use a [specific schema for function definitions](#schema-for-function-definitions). If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
 
 1. Add this XML file to your logic app project in the following folder:
 
@@ -508,73 +526,73 @@ To create a custom XML function, follow these steps:
 
 1. On the mapper surface, select your function.
 
-   This example uses a custom function named **Age**, which calculates an age from a birthdate.
+   This example uses a custom function named **age**, which calculates an age from a birthdate. For the sample function definition, see [Review the sample function definitions](#review-the-sample-function-definitions).
 
-<!---<a name="create-custom-function"></a>
+1. 
 
-1. In your XML file, you must use the following schema for the function definition:
+### Review schema for a function definition
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="customfunctions">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element maxOccurs="unbounded" name="function">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="param">
-                           <xs:complexType>
-                               <xs:attribute name="name" type="xs:string" use="required" />
-                               <xs:attribute name="as" type="xs:string" use="required" />
-                           </xs:complexType>
-                        </xs:element>
-                        <xs:any minOccurs="0" />
-                     </xs:sequence>
-                     <xs:attribute name="name" type="xs:string" use="required" />
-                     <xs:attribute name="as" type="xs:string" use="required" />
-                     <xs:attribute name="description" type="xs:string" use="required" />
-                  </xs:complexType>
-               </xs:element>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
-   </xs:schema>
-   ```
+Your XML file must use the following schema for a function definition. Each XML element that has the **`"function"`** name implements an XSLT3.0 style function with a few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
 
-   Each XML element named **"function"** implements an XSLT3.0 style function with a few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="customfunctions">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="function">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element maxOccurs="unbounded" name="param">
+                        <xs:complexType>
+                           <xs:attribute name="name" type="xs:string" use="required" />
+                           <xs:attribute name="as" type="xs:string" use="required" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:any minOccurs="0" />
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="as" type="xs:string" use="required" />
+                  <xs:attribute name="description" type="xs:string" use="required" />
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
+```
 
-   The following example shows the implementation for a **SampleFunctions.xml** file:
+### Review the sample function definitions
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8" ?>
-   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   <customfunctions>
-      <function name="age" as="xs:float" description="Returns the current age.">
-         <param name="inputDate" as="xs:date"/> 
-         <value-of select="round(days-from-duration(current-date() - xs:date($inputDate)) div 365.25, 1)"/>
-      </function> 
-      <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value.">
-         <param name="condition" as="xs:boolean"/>
-         <param name="thenResult" as="xs:anyAtomicType"/>
-         <param name="elseResult" as="xs:anyAtomicType"/>
-         <choose>
-            <when test="$condition">
-               <value-of select="$thenResult"></value-of>
-            </when>
-            <otherwise>
-               <value-of select="$elseResult"></value-of>
-            </otherwise>
-         </choose>
-      </function>
-   </customfunctions>
-   ```
+The following **SampleFunctions.xml** file shows the implementation for the following functions:
 
-1. In the **Functions** folder, save your function's XML file.
+- **`"age"`**
+- **`custom-if-then-else"`**
 
-
--->
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<customfunctions>
+   <function name="age" as="xs:float" description="Returns the current age.">
+      <param name="inputDate" as="xs:date"/> 
+      <value-of select="round(days-from-duration(current-date() - xs:date($inputDate)) div 365.25, 1)"/>
+   </function> 
+   <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value.">
+      <param name="condition" as="xs:boolean"/>
+      <param name="thenResult" as="xs:anyAtomicType"/>
+      <param name="elseResult" as="xs:anyAtomicType"/>
+      <choose>
+         <when test="$condition">
+            <value-of select="$thenResult"></value-of>
+         </when>
+         <otherwise>
+            <value-of select="$elseResult"></value-of>
+         </otherwise>
+      </choose>
+   </function>
+</customfunctions>
+```
 
 ## Related content
 
-- For data transformations using B2B operations in Azure Logic Apps, see [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
+- [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
