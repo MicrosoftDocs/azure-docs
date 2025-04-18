@@ -485,6 +485,8 @@
       href: troubleshoot-snapshot-policies.md
     - name: Troubleshoot cross-region replication errors
       href: troubleshoot-cross-region-replication.md
+    - name: Troubleshoot customer-managed keys 
+      href: troubleshoot-customer-managed-keys.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Troubleshoot user access on LDAP volumes
