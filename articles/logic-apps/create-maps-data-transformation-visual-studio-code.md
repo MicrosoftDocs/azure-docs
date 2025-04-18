@@ -514,7 +514,7 @@ To create a custom XML function, follow these steps:
 
 1. Create an XML (.xml) file with a meaningful name that describes your function's purpose.
 
-   Your XML file must use a [specific schema for function definitions](#schema-for-function-definitions). If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
+   Your XML file must use a [specific schema for function definitions](#review-schema-for-a-function-definition). If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
 
 1. Add this XML file to your logic app project in the following folder:
 
@@ -524,11 +524,17 @@ To create a custom XML function, follow these steps:
 
 1. From the **Functions** pane, under **Utility**, select your custom function, which now appears on the mapper surface.
 
-1. On the mapper surface, select your function.
+1. On the mapper surface, select your function. Provide the input that the function needs to work.
 
-   This example uses a custom function named **age**, which calculates an age from a birthdate. For the sample function definition, see [Review the sample function definitions](#review-the-sample-function-definitions).
+1. Connect the function to the required endpoints.
 
-1. 
+   The following example shows a custom function named **age**, which calculates an age from a birthdate and is connected to the **Dat_of_Birth** source node and the **Other** destination node. To review the definition for this custom function, see [Review the sample function definition](#review-the-sample-function-definitions).
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/custom-function-age.png" alt-text="Screenshot shows opened data mapper surface and custom function named Age." lightbox="media/create-maps-data-transformation-visual-studio-code/custom-function-age.png":::
+
+1. Test your map to confirm that the expected results appear in the destination schema, for example:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/custom-function-age-results.png" alt-text="Screenshot shows opened data mapper surface, custom function named Age, and function results." lightbox="media/create-maps-data-transformation-visual-studio-code/custom-function-age-results.png":::
 
 ### Review schema for a function definition
 
