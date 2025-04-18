@@ -26,6 +26,9 @@ The throughput and price of each unit depend on the [service tier](api-managemen
 > [!NOTE]
 > See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) for features, scale limits, and estimated throughput in each tier. To get more accurate throughput numbers, you need to look at a realistic scenario for your APIs. See [Capacity of an Azure API Management instance](api-management-capacity.md).
 
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
+
 ## Prerequisites
 
 To follow the steps from this article, you must:
@@ -53,8 +56,6 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 
     Downgrading can remove some features. For example, downgrading to **Standard** or **Basic** from the **Premium** tier can remove virtual networks or multi-region deployment.
 
-> [!NOTE]
-> The upgrade or scale process can take up to 15 to 45 minutes to apply. You get notified when it is done.
 
 ## Scale your API Management instance
 
