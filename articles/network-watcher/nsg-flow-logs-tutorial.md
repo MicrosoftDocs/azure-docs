@@ -289,6 +289,6 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 ## Related content
 
 - To learn more about NSG flow logs, see [Flow logging for network security groups](nsg-flow-logs-overview.md).
-- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logs-portal.md).
+- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logs-manage.md).
 - To learn about Traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 
