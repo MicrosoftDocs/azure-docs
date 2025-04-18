@@ -1042,7 +1042,7 @@ groups:
   - id: shortcode
     title: Short Code
   - id: mobile-number
-    title: Virtual Long Code
+    title: Mobile Numbers
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe
