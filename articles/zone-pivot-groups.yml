@@ -1030,6 +1030,7 @@ groups:
   - id: callend
     title: Call end
 # Owner: prakulka
+# SMS Number types pricing
 - id: acs-tollfree-shortcode-alphanumeric-tendlc-virtuallongcode
   title: Number Type
   prompt: Choose a Number Type
