@@ -143,7 +143,7 @@ az networkcloud cluster bmckeyset create \
 
 > [!NOTE]
 > The public key supplied for each user in a BMCKeyset must be one of the types supported by iDRAC.
-> Using a key of an unsupported type may result in an error or undefined behavior. Supported types
+> Using a key of an unsupported type might result in an error or undefined behavior. Supported types
 > are:
 >
 > - rsa-sha2-512
@@ -152,8 +152,7 @@ az networkcloud cluster bmckeyset create \
 > - ecdsa-sha2-nistp256
 > - ssh-ed25519
 >
-> Please refer to the [Dell iDRAC9 Security Configuration Guide](https://www.dell.com/support/manuals/en-us/idrac9-lifecycle-controller-v5.x-series/idrac9_security_configuration_guide/supported-ssh-cryptography-schemes?guid=guid-5ab48ae4-72cb-4b95-8623-5124ed3b4f64&lang=en-us)
-> for more details.
+> For more information, see the [Dell iDRAC9 Security Configuration Guide](https://www.dell.com/support/manuals/en-us/idrac9-lifecycle-controller-v5.x-series/idrac9_security_configuration_guide/supported-ssh-cryptography-schemes?guid=guid-5ab48ae4-72cb-4b95-8623-5124ed3b4f64&lang=en-us).
 
 This example creates a new keyset with two users that have standard access from two jump hosts.
 
