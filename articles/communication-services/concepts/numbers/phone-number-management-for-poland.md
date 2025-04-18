@@ -57,7 +57,7 @@ More details on eligible subscription types are as follows:
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
-## Azure subscription billing locations where Polamd mobile numbers are available
+## Azure subscription billing locations where Poland mobile numbers are available
 | Country/Region |
 | :---------- |
 | Australia       |
