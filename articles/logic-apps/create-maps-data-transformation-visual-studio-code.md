@@ -512,7 +512,7 @@ To define reusable logic across your map, you can create custom XML functions, w
 
 To create a custom XML function, follow these steps:
 
-1. Create an XML (.xml) file with a meaningful name that describes your function's purpose.
+1. Create an XML (**.xml**) file with a meaningful name that describes your function's purpose.
 
    Your XML file must use a [specific schema for function definitions](#review-schema-for-a-function-definition). If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
 
@@ -528,7 +528,7 @@ To create a custom XML function, follow these steps:
 
 1. Connect the function to the required endpoints.
 
-   The following example shows a custom function named **age**, which calculates an age from a birthdate and is connected to the **Dat_of_Birth** source node and the **Other** destination node. To review the definition for this custom function, see [Review the sample function definition](#review-the-sample-function-definitions).
+   The following example shows a custom function named **Age** that returns the age for the provided birthdate. The function connects to the **Dat_of_Birth** source node and the **Other** destination node. To review the definition for this custom function, see [Review the sample function definition](#review-the-sample-function-definitions).
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/custom-function-age.png" alt-text="Screenshot shows opened data mapper surface and custom function named Age." lightbox="media/create-maps-data-transformation-visual-studio-code/custom-function-age.png":::
 
@@ -538,7 +538,7 @@ To create a custom XML function, follow these steps:
 
 ### Review schema for a function definition
 
-Your XML file must use the following schema for a function definition. Each XML element that has the **`"function"`** name implements an XSLT3.0 style function with a few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
+Your XML file must use the following schema for a function definition. Each XML element that has the **`"function"`** name implements an XSLT 3.0 style function with a few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -573,7 +573,7 @@ Your XML file must use the following schema for a function definition. Each XML 
 The following **SampleFunctions.xml** file shows the implementation for the following functions:
 
 - **`"age"`**
-- **`custom-if-then-else"`**
+- **`"custom-if-then-else"`**
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
