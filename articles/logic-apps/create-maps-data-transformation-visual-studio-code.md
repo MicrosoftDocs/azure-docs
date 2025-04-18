@@ -42,8 +42,6 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - To use the maps that you create with Data Mapper with workflows in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
-- Custom functions currently aren't supported in this release.
-
 ## Prerequisites
 
 - [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
@@ -57,17 +55,16 @@ This how-to guide shows how to create an empty data map, choose your source and 
 - The source and target schema files that describe the data types to transform. These files can have either the following formats:
 
   - An XML schema definition file with the .xsd file extension
+
   - A JavaScript Object Notation file with the .json file extension
 
 - A Standard logic app project that includes a stateful or stateless workflow with a trigger at minimum. If you don't have a project, follow these steps in Visual Studio Code:
 
   1. [Connect to your Azure account](create-single-tenant-workflows-visual-studio-code.md#connect-azure-account), if you haven't already.
 
-  1. [Create a local folder, a local Standard logic app project, and a stateful or stateless workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
+  1. [Create a local folder, a Standard logic app workspace and project, and a stateful or stateless workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
-
-- To use the **Run XSLT** function, your XSLT snippets must exist in files that use either the **.xml** or **.xslt** file name extension. You must put your XSLT snippets in the **InlineXslt** folder in your local project folder structure: **Artifacts** > **DataMapper** > **Extensions** > **InlineXslt**. If this folder structure doesn't exist, create the missing folders.
 
 ## Create a data map
 
@@ -415,19 +412,22 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 ## Run XSLT from a data map
 
-You can run executable XSLT from a data map (**.xslt**) file by embedding that XSLT within that data map. This action produces a data map file that contains the actual executable XSLT, while the Data Mapper (**.lml**) file contains a reference to the executable XSLT file.
+You can run executable XSLT snippets within a data map (**.xslt**) file by using the **Run XSLT** function. When you use this function, you get a data map file that contains the actual executable XSLT. The Data Mapper (**.lml**) file contains a reference to the executable XSLT (**.xslt**  or **.xml**) file.
 
 To complete this task, follow these steps:
 
-1. Create a new data map (**.xslt**) file that contains the executable XSLT that you want to run.
+1. Create a new data map (**.xslt** or **.xml**) file that contains the executable XSLT snippet that you want to run.
 
-1. Save the executable map, which appears in  the **Artifacts** > **Maps** project folder, by default.
-
-1. From the **Maps** project folder, move the executable XSLT file to the following project folder:
+1. Put or move the XSLT snippet file into the following project folder:
 
    **Artifacts** > **DataMapper\Extensions** > **InlineXSLT**
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/inline-xslt-project-structure.png" alt-text="Screenshot shows Visual Studio Code, Standard logic app project, and InlineXslt project folder with InlineXslt.xsd file." lightbox="media/create-maps-data-transformation-visual-studio-code/inline-xslt-project-structure.png":::
+
+   > [!NOTE]
+   >
+   > If you create or save this executable XSLT file in Visual Studio Code, the file automatically appears in the 
+   > **Artifacts** > **Maps** project folder. Make sure to move XSLT snippet files to the **InlineXslt** folder.
 
 1. Open the data map from where you want to run the XSLT.
 
