@@ -35,6 +35,12 @@
   - name: Create a Durable Functions app - Java
     displayName: get started, chaining
     href: quickstart-java.md
+  - name: Create a durable task function app - Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: quickstart-durable-task-scheduler.md
+  - name: Create a durable task web app - Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: quickstart-portable-durable-task-sdks.md
   - name: Configure a storage provider - Netherite
     href: quickstart-netherite.md
   - name: Configure a storage provider - MSSQL
@@ -106,6 +112,7 @@
   - name: Durable Task Scheduler
     items: 
     - name: Overview
+      expanded: true
       items:
       - name: About Durable Task Scheduler
         href: durable-task-scheduler.md
@@ -113,20 +120,11 @@
         href: durable-task-scheduler-framework.md
       - name: Billing
         href: durable-task-scheduler-dedicated-sku.md
-    - name: Getting started
-      expanded: true
-      items:
-      - name: Configure for Durable Functions
-        displayName: get started
-        href: quickstart-durable-task-scheduler.md
-      - name: Configure for the portable Durable Task SDKs
-        displayName: get started
-        href: quickstart-portable-durable-task-sdks.md
     - name: Key concepts
       items:
       - name: Manage and monitor
         href: durable-task-scheduler-dashboard.md
-    - name: Durable Task Scheduler for Durable Functions
+    - name: Durable Functions
       items:
       - name: Concepts
         items:
@@ -136,10 +134,14 @@
         items:
         - name: Develop
           href: develop-with-durable-task-scheduler.md
-    - name: Durable Task Scheduler for portable SDKs
+    - name: Portable SDKs
       items:
-      - name: Use the portable SDKs with Azure computes
-        href: durable-task-scheduler-dashboard.md #placeholder
+      - name: Concepts
+        items:
+      - name: How-to guides
+        items:
+        - name: Use the portable SDKs with Azure computes
+          href: durable-task-scheduler-dashboard.md #placeholder
   - name: Azure Storage
     items: 
      - name: Azure storage provider
