@@ -17,3 +17,4 @@ ms.author: danlep
 * Subscription ID
 * Location
 * Gateway ID
+* Backend ID
