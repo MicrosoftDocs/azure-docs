@@ -1031,7 +1031,7 @@ groups:
     title: Call end
 # Owner: prakulka
 # SMS Number types pricing
-- id: acs-tollfree-shortcode-alphanumeric-tendlc-virtuallongcode
+- id: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1041,7 +1041,7 @@ groups:
     title: 10DLC
   - id: shortcode
     title: Short Code
-  - id: virtual-longcode
+  - id: mobile-number
     title: Virtual Long Code
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
