@@ -17,6 +17,9 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+
+- May 2025
+  - [Operational backup support for Azure Elastic SAN (preview)](#operational-backup-support-for-azure-elastic-san-preview)
 - April 2025
   - [Vaulted backup support for  Azure Data Lake Storage Gen2 (preview)](#vaulted-backup-support-for-azure-data-lake-storage-gen2-preview)
 - March 2025
@@ -105,6 +108,21 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier for Azure Backup (in preview)](#archive-tier-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Operational backup support for Azure Elastic SAN (preview)
+
+Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution simplifies scheduling backups, removing expired restore points, and restoring to new Elastic SAN volumes.
+
+Key features include:
+
+- Protects against accidental deletions, ransomware attacks, and application updates.
+- Captures Elastic SAN volumes at specific points in time as independent Managed Disk incremental snapshots with Locally redundant storage (LRS) resiliency.
+- Stores up to **450 restore points**, with backup frequencies from **4 hours** to **24 hours**.
+
+>[!Note]
+>This feature is in preview and available in specific Azure regions.
+
+For more information, see [About Azure Elastic SAN backup (preview)](azure-elastic-storage-area-network-backup-overview.md).
 
 ## Vaulted backup support for Azure Data Lake Storage Gen2 (preview)
 
