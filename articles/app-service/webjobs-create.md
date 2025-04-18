@@ -17,18 +17,14 @@ adobe-target-content: ./webjobs-create-ieux
 
 # Run background tasks with WebJobs in Azure App Service
 
-This article explains how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. You can run background tasks in the Azure App Service.
+This article explains how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. WebJobs is a feature of [Azure App Service](index.yml) that allows you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
-If instead of the Azure App Service, you're using Visual Studio to develop and deploy WebJobs, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+You can use the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) with WebJobs to simplify many programming tasks.
 
 > [!NOTE]
 > WebJobs for *Windows container*, *Linux code*, and *Linux container* is in preview. WebJobs for Windows code is generally available and not in preview.
 
-## Overview
-
-WebJobs is a feature of [Azure App Service](index.yml) that allows you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
-
-You can use the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) with WebJobs to simplify many programming tasks.
+If you're using Visual Studio instead of the Azure App Service to develop and deploy WebJobs, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose the right integration and automation services in Azure](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
@@ -41,13 +37,9 @@ Azure Functions provides another way to run programs and scripts. For a comparis
 The following file types are supported:
 
 - Using Windows cmd: *.cmd*, *.bat*, *.exe*
-
 - Using PowerShell: *.ps1*
-
 - Using Bash: *.sh*
-
 - Using Node.js: *.js*
-
 - Using Java: *.jar*
 
 The necessary runtimes to run these file types are already installed on the web app instance.
@@ -58,9 +50,7 @@ The necessary runtimes to run these file types are already installed on the web 
 > WebJobs for Windows container is in preview.
 >
 
-The following file types are supported:
-
-- Using Windows cmd: *.cmd*, *.bat*, *.exe*
+The following file types are supported using Windows cmd: *.cmd*, *.bat*, *.exe*
 
 In addition to these file types, WebJobs written in the language runtime of the Windows container app are supported.
 
