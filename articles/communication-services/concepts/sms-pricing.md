@@ -27,7 +27,7 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc
 [!INCLUDE [Alphanumeric Sender ID](./includes/sms-alphanumeric-sender-id-pricing.md)]
 ::: zone-end
 
-::: zone pivot="Virtual Long Codes"
+::: zone pivot="virtual-longcode"
 [!INCLUDE [Virtual Long Codes](./includes/sms-virtual-longcodes-pricing.md)]
 ::: zone-end
 
