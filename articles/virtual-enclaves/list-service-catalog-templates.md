@@ -66,7 +66,7 @@ Description: This template deploys an azure storage account available from the v
 ## App Service Web App
 [How to create an AVE compliant App Service Web App](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md)
 
-Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as.NET, Java, Node.js, Python, and PHP. [learn more](../app-service/overview.md)
+Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as .NET, Java, Node.js, Python, and PHP. [learn more](../app-service/overview.md)
 
 ## App Service Functions
 [How to create an AVE compliant App Service Function](./deploy-an-app-service-function-app-from-the-service-catalog-into-a-workload.md)
