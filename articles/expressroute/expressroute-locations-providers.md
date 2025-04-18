@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/09/2025
+ms.date: 04/18/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -126,7 +126,7 @@ The following table shows connectivity locations and the service providers for e
 | **Paris** | [Digital Realty(Interxion) PAR5](https://www.digitalrealty.com/data-centers/emea/paris/par5) | 1 | France Central | &check; | British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>euNetworks<br/>Intercloud<br/>Interxion<br/>Jaguar Network<br/>Megaport<br/>Orange<br/>Telia Carrier<br/>Zayo<br/>Verizon |
 | **Paris2** | [Equinix](https://www.equinix.com/data-centers/europe-colocation/france-colocation/paris-data-centers/pa4) | 1 | France Central | &check; | Equinix<br/>InterCloud<br/>Megaport<br/>Orange |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | &cross; | &check; | Equinix<br/>Megaport<br/>NextDC |
-| **Phoenix** | [EdgeConneX PHX01](https://www.cyrusone.com/data-centers/north-america/chandler-arizona) | 1 | West US 3 | &check; | AT&T NetBond<br/>Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
+| **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/americas/phoenix-az/) | 1 | West US 3 | &check; | AT&T NetBond<br/>Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
 | **Phoenix2** | [PhoenixNAP](https://phoenixnap.com/) | 1 | West US 3 | &check; | Digital Realty<br/>Iron Mountain |
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | &check; |  |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | &check; | Airtel<br/>Lightstorm<br/>SIFY<br/>Tata Communications |
