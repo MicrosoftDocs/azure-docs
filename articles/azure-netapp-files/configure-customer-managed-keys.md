@@ -32,7 +32,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 * For increased security, you can select the **Disable public access** option within the network settings of your key vault. When selecting this option, you must also select **Allow trusted Microsoft services to bypass this firewall** to permit the Azure NetApp Files service to access your encryption key.
 * Customer-managed keys support automatic Managed System Identity (MSI) certificate renewal. If your certificate is valid, you don't need to manually update it. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. For more information, see [Error messages and troubleshooting](troubleshoot-customer-managed-keys.md).
-* Do not make any changes to the underlying Azure Key Vault or Azure Private Endpoint after creating a customer-managed keys volume. Making changes can make the volumes inaccessible. If you do make changes to the endpoint, see [Update the private endpoint IP for customer-managed keys](#update-the-private-endpoin-ip-for-customer-managed-keys).
+* Do not make any changes to the underlying Azure Key Vault or Azure Private Endpoint after creating a customer-managed keys volume. Making changes can make the volumes inaccessible. If you must make changes, see [Update the private endpoint IP for customer-managed keys](#update-the-private-endpoint-ip-for-customer-managed-keys).
 * Azure NetApp Files supports the ability to [transition existing volumes from platform-managed keys (PMK) to customer-managed keys (CMK) without data migration](#transition-volumes). This provides flexibility with the encryption key lifecycle (renewals, rotations) and extra security for regulated industry requirements.
 * If Azure Key Vault becomes inaccessible, Azure NetApp Files loses its access to the encryption keys and the ability to read or write data to volumes enabled with customer-managed keys. In this situation, create a support ticket to have access manually restored for the affected volumes.
 * Azure NetApp Files supports customer-managed keys on source and data replication volumes with cross-region replication or cross-zone replication relationships.
@@ -467,14 +467,14 @@ To switch from system-assigned to user-assigned identity, you must grant the tar
 
 ## Update the private endpoint
 
-Making changes to the Azure Private Endpoint after creating a customer-managed key volume can make the volume inaccessible. If you do make changes to the endpoint, you must update the volume and delete the old endpoint. 
+Making changes to the Azure Private Endpoint after creating a customer-managed key volume can make the volume inaccessible. If you need to make changes, you must create a new endpoint and update the volume to point to the new endpoint.  
 
 1. [Create a new endpoint between the virtual network and Azure Key Vault.](../private-link/create-private-endpoint-cli.md)
 1. Update all volumes using the old endpoint to use the new endpoint. 
     ```azurecli
     az netappfiles volume update --g $resource-group-name --account-name $netapp-account-name --pool-name $pool-name --name $volume-name --key-vault-private-endpoint-resource-id $newendpoint
     ```
-1. [Delete the old private endpoint](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete).
+1. [Delete the old private endpoint](/cli/azure/network/private-endpoint#az-network-private-endpoint-delete).
 
 ## Next steps
 

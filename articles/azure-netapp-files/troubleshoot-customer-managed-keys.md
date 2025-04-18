@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure NetApp Files customer-managed keys
-description: 
+description: Learn about error messages and resolutions you can encounter when configuring and managing customer-managed key for Azure NetApp Files volume encryption.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -30,8 +30,8 @@ Learn about error messages and resolutions you can encounter when configuring an
 
 | Error Condition | Resolution |
 | ----------- | ----------- |
-| `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Your NetApp account doesn't have customer-managed key encryption enabled. Configure the NetApp account to use customer-managed key. |
-| `EncryptionKeySource cannot be changed` | No resolution. The `EncryptionKeySource` property of a volume can't be changed. |
+| `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Customer-managed key encryption isn't enabled on your NetApp account. Configure the NetApp account to use customer-managed keys. |
+| `EncryptionKeySource cannot be changed` | No resolution: the `EncryptionKeySource` property of a volume can't be changed. |
 | `Unable to use the configured encryption key, please check if key is active` | Check that: <br> -Are all access policies correct on the key vault: Get, Encrypt, Decrypt? <br> -Does a private endpoint for the key vault exist? <br> -Is there a Virtual Network NAT in the VNet, with the delegated Azure NetApp Files subnet enabled? |
 | `Could not connect to the KeyVault` | Ensure that the private endpoint is set up correctly and the firewalls aren't blocking the connection from your Virtual Network to your KeyVault. |
 
