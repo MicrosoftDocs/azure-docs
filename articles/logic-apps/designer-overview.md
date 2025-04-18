@@ -1,5 +1,5 @@
 ---
-title: About Standard Logic App Workflow Designer
+title: About the Standard Workflow Designer
 description: Learn how the designer in single-tenant Azure Logic Apps helps you visually create workflows through the Azure portal. Discover the benefits and features in this latest version.
 services: logic-apps
 ms.suite: integration
