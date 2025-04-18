@@ -1030,7 +1030,7 @@ groups:
   - id: callend
     title: Call end
 # Owner: prakulka
-- id: acs-tollfree-shortcode-alphanumeric-tendlc
+- id: acs-tollfree-shortcode-alphanumeric-tendlc-virtuallongcode
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1040,6 +1040,8 @@ groups:
     title: 10DLC
   - id: shortcode
     title: Short Code
+ - id: virtual-longcode
+    title: Virtual Long Code
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe
