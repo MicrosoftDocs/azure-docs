@@ -80,8 +80,8 @@ The following table shows the minimum version of SDKs that support individual AP
 |------------|-----|--------|-----|--------|---------|------------|---------|
 | Get event that transcription has started | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.0.0-beta.8 | 2.1.0, 2.1.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.1.0, 1.2.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.0.0, 1.0.0-beta.31 |
 | Get transcription state | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.0.0-beta.8 | 2.1.0, 2.1.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.1.0, 1.2.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.0.0, 1.0.0-beta.31 |
-| Learn whether explicit consent is required | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Learn whether explicit consent is required  | 1.31.2, 1.32.1-beta.1 | ❌ | 2.16.0-beta.1  | ❌ | 2.14.0-beta.1  | ❌ | 1.12.0-beta.1 |
+| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | 2.16.0-beta.1  | ❌ | 2.14.0-beta.1  | ❌ | 1.12.0-beta.1 |
 
 ## Next steps
 - [Learn how to manage video](./manage-video.md)
