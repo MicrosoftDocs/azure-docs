@@ -1040,7 +1040,7 @@ groups:
     title: 10DLC
   - id: shortcode
     title: Short Code
- - id: virtual-longcode
+  - id: virtual-longcode
     title: Virtual Long Code
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
