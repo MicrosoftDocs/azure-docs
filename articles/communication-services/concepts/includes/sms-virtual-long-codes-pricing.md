@@ -14,10 +14,10 @@ ms.author: dbasantes
 ---
 
 > [!IMPORTANT]
->- For billing locations in the US and Puerto Rico – Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products. Additionally, customer spend on the products is not eligible for Microsoft Azure Consumption Commitment drawdown.
+>- For billing locations in the US and Puerto Rico – Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products. Additionally, customer spend on the products isn't eligible for Microsoft Azure Consumption Commitment drawdown.
 >
 >
->- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products.
+>- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits aren't eligible for purchasing the products.
 
 Virtual Long Codes (also known as Mobile Numbers) are long-term leased numbers for A2P SMS messaging within select countries, billed on a pay-as-you-go basis.
 
