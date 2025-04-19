@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 4/19/2025
 ---
 
 # Known issues: Azure VMware Solution
