@@ -33,7 +33,7 @@ You will see the trigger configuration window, allowing you to choose the trigge
 
 :::image type="content" source="media/concepts-pipeline-execution-triggers/new-trigger-configuration.png" alt-text="Shows the new trigger configuration window with the type dropdown showing the various types of triggers you can create.":::
 
-Read more about [scheduled](#schedule-trigger-with-json), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
+Read more about [scheduled](#schedule-trigger), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
 
 
 ## Manual execution
