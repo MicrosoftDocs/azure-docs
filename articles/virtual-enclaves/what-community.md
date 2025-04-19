@@ -28,7 +28,7 @@ Communities come with the following primary platform-managed and platform-deploy
 > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a Community. Users shouldn't create Communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
 
 ## Community managed resource group
-When you create a community, the Azure Virtual Enclaves resource provider also creates and manages a separate resource group called the Community managed resource group. For more details regarding the Community managed resource group, learn more about [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
+When you create a community, the Azure Virtual Enclaves resource provider also creates and manages a separate resource group called the Community managed resource group. For more details regarding the Community managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 ## Template
 See [template documentation](./ave-templates.md#community-template)

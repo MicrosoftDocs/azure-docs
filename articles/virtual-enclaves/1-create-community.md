@@ -30,7 +30,7 @@ You learn how to:
 - ✅ Monitor your community, enclaves, workloads, and other resources
 
 ## Create a community in Azure Virtual Enclaves
-Before creating a community instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [community](./what-community.md) and [How-To Create a Community](./create-community-azure-portal.md).
+Before creating a community instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [community](./what-community.md) and [How-To Create a Community](./create-community-portal.md).
 
 > [!Important]
 >
@@ -40,9 +40,11 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 1. In the **Azure Virtual Enclaves** page, select the **Communities** option in the left menu.
 
-![Screenshot showing the Azure Virtual Enclaves portal page with the Communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
+[ ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png)
 
 2. On the `Communities` page, select `Create`.
+
+![Screenshot showing the Azure Virtual Enclaves portal page with the Communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
 
 3. Enter the basic details for your Community:
    - **Subscription**: Select an existing Subscription

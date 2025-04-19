@@ -47,53 +47,35 @@ landingContent:
             url: what-community-endpoint.md
           - text: "What is an Enclave?"
             url: what-enclave.md
-          - text: "What is a Enclave Endpoint?"
+          - text: "What is an Enclave Endpoint?"
             url: what-enclave-endpoint.md
-          - text: "What is a Enclave Connection?"
+          - text: "What is an Enclave Connection?"
             url: what-enclave-connection.md
           - text: "What is a Workload?"
             url: what-workload.md
           - text: "What is the Service Catalog?"
             url: what-service-catalog.md
-#     - name: Understanding Enclave Networking
-#       href: networking.md
-#     - name: Designing intra-enclave network isolation
-#       href: designing-intra-enclave-network-isolation.md
-#     - name: Best practices
-#       href: best-practices.md
-#     - name: Defense in Depth
-#       href: defense-in-depth.md
-#     - name: Workload and Application Planning
-#       href: workload-and-application-planning.md
-#     - name: Built in RBAC Roles
-#       href: built-in-rbac-roles.md
-#     - name: Air-Gapped Communities and Enclaves
-#       href: air-gapped-communities-and-enclaves.md
-#     - name: Understanding Admin Virtual Machines
-#       href: understanding-admin-vm.md
-#  # Card
-#   - title: Deploy an Azure Virtual Enclaves Environment
-#     linkLists:
-#       - linkListType: quickstart
-#         links:
-#           - text: Onboard to AVE
-#             url: Onboard-to-AVE.md
-#           - text: Deploy an AVE Community with Enclaves
-#             url: Deploy-an-AVE-Community-with-Enclaves.md
-#           - text: Create a Community Endpoint
-#             url: Create-a-Community-Community-Endpoint-in-the-Azure-Portal.md
-#           - text: Create an Enclave
-#             url: Create-an-Enclave-in-the-Azure-Portal.md
-#           - text: Create a Workload
-#             url: Create-a-Workload-in-the-Azure-Portal.md
-#           - text: Migrate workload resources
-#             url: Migrate-Workload-Resources.md
-#           - text: Deploy a Storage Account
-#             url: Deploy-a-Storage-Account-from-the-Service-Catalog-into-a-Workload.md
-#           - text: Create an Enclave Endpoint
-#             url: Create-a-Enclave-Endpoint-in-the-Azure-Portal.md
-#           - text: Create an Enclave Connection
-#             url: Create-an-Enclave-Connection-in-the-Azure-Portal.md
+ # Card
+  - title: Deploy an Azure Virtual Enclaves Environment
+    linkLists:
+      - linkListType: quickstart
+        links:
+          # - text: Onboard to AVE
+          #   url: Onboard-to-AVE.md
+          - text: Create a Community
+            url: create-community-portal.md
+          - text: Create a Community Endpoint
+            url: create-community-endpoint-portal.md
+          - text: Create an Enclave
+            url: create-enclave-portal.md
+          - text: Create an Enclave Endpoint
+            url: create-enclave-endpoint-portal.md
+          - text: Create an Enclave Connection
+            url: create-enclave-connection-portal.md
+          - text: Create a Workload
+            url: create-workload-portal.md
+          - text: Create a Transit Hub
+            url: create-transit-hub-portal.md
 #           - text: Easy button deployments
 #             url: Easy-Button-Deployments.md
    # Card
@@ -106,7 +88,7 @@ landingContent:
           - text: Tutorial 2 Create Enclaves inside a community
             url: 2-create-enclaves-inside-community.md
           - text: Tutorial 3 Create workloads inside an enclave
-            url: 3-create-Workloads-inside-enclave.md
+            url: 3-create-workloads-inside-enclave.md
           - text: Tutorial 4 Use the service catalog to create Azure resources inside a Workload
             url: 4-use-service-catalog-create-azure-resources-workloads.md
           - text: Tutorial 5 Create an enclave endpoint and connection
@@ -136,6 +118,13 @@ landingContent:
 #             url: regulatory-compliance-guidelines.md
 #           - text: Security best practices
 #             url: security-best-practices.md
+#  # Card
+#   - title: Azure Virtual Enclaves Service Catalog
+#     linkLists:
+#       - linkListType: how-to-guide
+#         links:
+#           - text: Deploy a Storage Account
+            # url: Deploy-a-Storage-Account-from-the-Service-Catalog-into-a-Workload.md
 #  # Card
 #   - title: Manage and Monitor Virtual Enclaves
 #     linkLists:
