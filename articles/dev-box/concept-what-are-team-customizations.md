@@ -54,7 +54,7 @@ Developers use individual customizations only for personal settings and apps.
 Sharing common YAML files among developer teams is inefficient, leads to errors, and violates compliance policies. Dev Box team customizations allow developer team leads and IT admins to preconfigure customization files, eliminating the need for developers to find and upload these files when creating a dev box.
 
 ## How do customizations work?
-Team customizationa and indivudual customizations are both YAML-based files that specify a list of tasks to apply when creating a dev box. Select the appropriate tab to learn more about how each type of customization works.
+Team customization and individual customizations are both YAML-based files that specify a list of tasks to apply when creating a dev box. Select the appropriate tab to learn more about how each type of customization works.
 
 # [Team customizations](#tab/team-customizations)
 ### How do team customizations work?
