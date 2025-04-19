@@ -104,8 +104,6 @@ Individual developers can attach a YAML-based customization file when creating t
 
 :::image type="content" source="media/concept-what-are-team-customizations/individual-customizations-workflow.png" alt-text="Diagram that shows the workflow for Dev Box individual customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/individual-customizations-workflow.png":::
 
----
-
 ### Configure your Dev Box service for individual customizations
 
 To set up your Dev Box service to support individual customizations, follow these steps:
@@ -127,6 +125,7 @@ To set up your Dev Box service to support individual customizations, follow thes
 
 For more information, see [Write an individual customization file](how-to-write-customization-file.md).
 
+---
 
 ## Related content
 
