@@ -57,9 +57,7 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 It can take 10 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-1. You should see a list of deployed resources similar to the following example:
-![image1.png](./media/image-48882257-ba0a-4dea-8f7c-1e3d78a60c91.png)
-2. Go to the specified Resource Group to confirm the intended resources were created. Including: Function App and new Storage Account
+Go to the specified Resource Group to confirm the intended resources were created. Including: Function App and new Storage Account
 
 ### Open the Function App resource
 1. Open the Function App resource

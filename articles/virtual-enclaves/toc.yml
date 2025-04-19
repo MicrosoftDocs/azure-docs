@@ -54,6 +54,10 @@
 #       href: workload-and-application-planning.md
 #     - name: Built in RBAC Roles
 #       href: built-in-rbac-roles.md
+#     - name: Air-Gapped Communities and Enclaves
+#       href: air-gapped-communities-and-enclaves.md
+#     - name: Understanding Admin Virtual Machines
+#       href: understanding-admin-vm.md
   - name: Tutorials
     items:
     - name: Tutorial 1 Create a community
@@ -122,8 +126,8 @@
 #       href: deployment-errors.md
 #     - name: Compliance validation
 #       href: compliance-validation.md
-# - name: Service Catalog
-#   items:
+  - name: Service Catalog
+    items:
 #     - name: Overview
 #       href: service-catalog.md
 #     - name: Deploy a Storage Account from Service Catalog
@@ -132,18 +136,14 @@
 #       href: deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md
 #     - name: Deploy Azure SQL from Service Catalog
 #       href: deploy-azure-sql-from-the-service-catalog-into-a-workload.md
-#     - name: List of Service Catalog Templates
-#       href: list-of-service-catalog-templates.md
+    - name: List of Service Catalog Templates
+      href: list-of-service-catalog-templates.md
 # - name: Resources
 #   items:
 #     - name: Support Policies
 #       href: support-policies.md
 #     - name: Videos
 #       href: videos.md
-#     - name: Air-Gapped Communities and Enclaves
-#       href: air-gapped-communities-and-enclaves.md
-#     - name: Understanding Admin Workstations
-#       href: understanding-admin-workstations.md
 #     - name: AVE Templates
 #       href: ave-templates.md
 #     - name: Migrate Azure Resources into AVE

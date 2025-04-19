@@ -55,6 +55,22 @@ landingContent:
             url: what-workload.md
           - text: "What is the Service Catalog?"
             url: what-service-catalog.md
+#     - name: Understanding Enclave Networking
+#       href: networking.md
+#     - name: Designing intra-enclave network isolation
+#       href: designing-intra-enclave-network-isolation.md
+#     - name: Best practices
+#       href: best-practices.md
+#     - name: Defense in Depth
+#       href: defense-in-depth.md
+#     - name: Workload and Application Planning
+#       href: workload-and-application-planning.md
+#     - name: Built in RBAC Roles
+#       href: built-in-rbac-roles.md
+#     - name: Air-Gapped Communities and Enclaves
+#       href: air-gapped-communities-and-enclaves.md
+#     - name: Understanding Admin Virtual Machines
+#       href: understanding-admin-vm.md
 #  # Card
 #   - title: Deploy an Azure Virtual Enclaves Environment
 #     linkLists:

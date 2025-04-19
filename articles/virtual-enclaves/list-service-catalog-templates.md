@@ -15,7 +15,11 @@ This is the current list of Azure services and workload templates in the Service
 
 | Template Name | Link | Status |
 |--|--|--|
+| Admin VM | [link](#admin-vm) | Available |
+| Common Dependencies | [link](#common-dependencies) | Available |
+| Remote App | [link](#remote-app) | Available |
 | Storage Account | [link](#storage-account) | Available |
+| Key Vault | [link](#key-vault) | Available |
 | App Service: Web App | [link](#app-service-web-app) | Available |
 | App Service: Functions | [link](#app-service-functions) | Available |
 | Azure SQL | [link](#azure-sql) | Available |
@@ -24,96 +28,98 @@ This is the current list of Azure services and workload templates in the Service
 | Azure Cosmos DB | [link](#azure-cosmos-db) | Available |
 | Service Bus | [link](#service-bus) | Available |
 | Azure Compute Gallery | [link](#azure-compute-gallery) | Future |
-| PostgreSQL | [link](#postgresql) | Future |
-
-## Table of Customer Workload templates
-
-| Template Name | Link | Status|
-|--|--|--|
-| RemoteApp | [link](#remote-app) | Available |
-| Remote Desktop | [link](#remote-desktop) | Future |
-| DNS Forwarder |  | Future |
-| Identity |  | Future |
-| Admin VM |  | Future |
-| Winget REST Source |  | Future |
-| Linux VM |  | Future |
 
 Additional templates will be added over time
 
+## Admin VM
+
+Description:
+
+Documentation:
+[Understanding Admin VMs](understanding-admin-vm.md)
+
+## Common Dependencies
+
+[How to create the common Azure service dependencies you will need to create the other resources from the service catalog](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md)
+
+Description: This template creates the resources needed to secure the other resources you can deploy from the service catalog and remain compliant with the Azure Virtual Enclaves policies. These resources include the key vault and Customer Managed Keys (CMK) needed to encrypt the resources in your enclave.
+
+Documentation:
+
 ## Remote App
 
-[How to create a Remote App VM](./deploy-remoteapp-vm-from-the-service-catalog-into-a-workload.md)
+[How to create a Remote App VM](./deploy-remoteapp-service-catalog.md)
 
 Description:
 This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](../virtual-desktop/publish-applications-stream-remoteapp.md) by joining and deploying a host pool, app location group, and workspace. The default application published as a remote app is the edge browser.
 
 Documentation:
 [Remote App Streaming Overview](../virtual-desktop/remote-app-streaming/overview.md)
-[How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-vm-from-the-service-catalog-into-a-workload.md)
+[How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-service-catalog.md)
 
-## Remote Desktop
-Description:
-Similar to a RemoteApp but the whole desktop is streamed to the user rather than a single application.
-
-Status: **Future Development**
 
 ## Storage Account
-[How to create an AVE compliant Storage Account](./deploy-a-storage-account-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant Storage Account](./deploy-storage-account-service-catalog.md)
 
-Description: This template deploys an azure storage account available from the virtual network inside the azure virtual enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an azure virtual enclave. [learn more](../storage/common/storage-account-overview.md)
+Description: This template deploys an azure storage account available from the virtual network inside the azure virtual enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an azure virtual enclave. [Learn more](../storage/common/storage-account-overview.md)
+
+## Key Vault
+
+Description: Azure Key Vault is one of several key management solutions in Azure, and helps solve the following problems:
+
+ - Secrets Management - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
+ - Key Management - Azure Key Vault can be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data.
+ - Certificate Management - Azure Key Vault lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
+
+Documentation:
+[About Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview)
+[Azure Key Vault basic concepts](https://learn.microsoft.com/azure/key-vault/general/basic-concepts)
 
 
 ## App Service Web App
-[How to create an AVE compliant App Service Web App](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant App Service Web App](./deploy-app-service-web-app-service-catalog.md)
 
-Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as .NET, Java, Node.js, Python, and PHP. [learn more](../app-service/overview.md)
+Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as .NET, Java, Node.js, Python, and PHP. [Learn more](../app-service/overview.md)
 
 ## App Service Functions
-[How to create an AVE compliant App Service Function](./deploy-an-app-service-function-app-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant App Service Function](./deploy-app-service-function-app-service-catalog.md)
 
-Description: Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. [learn more](../azure-functions/functions-overview.md)
+Description: Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. [Learn more](../azure-functions/functions-overview.md)
 
 
 ## Azure SQL
-[How to create an AVE compliant Azure SQL](./deploy-azure-sql-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant Azure SQL](./deploy-azure-sql-service-catalog.md)
 
-Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [learn more](https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview)
+Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [Learn more](https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview)
 
 
 ## Azure Kubernetes Service (AKS)
-[How to create an AVE compliant AKS](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant AKS](./deploy-azure-kubernetes-service-service-catalog.md)
 
-Description: Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You need minimal container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. [learn more](https://learn.microsoft.com/azure/aks/what-is-aks)
+Description: Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You need minimal container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. [Learn more](https://learn.microsoft.com/azure/aks/what-is-aks)
 
 
 ## Azure Container Registry (ACR)
-[How to create an AVE compliant ACR](./deploy-azure-container-registry-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant ACR](./deploy-azure-container-registry-service-catalog.md)
 
-Description: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers. [learn more](https://learn.microsoft.com/azure/container-registry/container-registry-intro)
-
-
-## PostgreSQL
-
-Description: Azure Database for PostgreSQL flexible server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. The service generally provides more flexibility and server configuration customizations based on user requirements. [learn more](https://learn.microsoft.com/azure/postgresql/flexible-server/service-overview)
-
-Status: **Future development**
+Description: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers. [Learn more](https://learn.microsoft.com/azure/container-registry/container-registry-intro)
 
 
 ## Azure Cosmos DB
-[How to create an AVE compliant Cosmos DB](./deploy-azure-cosmos-db-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant Cosmos DB](./deploy-azure-cosmos-db-service-catalog.md)
 
-Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to backup to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [learn more](https://learn.microsoft.com/azure/cosmos-db/introduction)
+Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to backup to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [Learn more](https://learn.microsoft.com/azure/cosmos-db/introduction)
 
 
 ## Service Bus
-[How to create an AVE compliant Service Bus](./deploy-service-bus-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant Service Bus](./deploy-service-bus-service-catalog.md)
 
-Description: Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other. [learn more](../service-bus-messaging/service-bus-messaging-overview.md)
+Description: Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other. [Learn more](../service-bus-messaging/service-bus-messaging-overview.md)
 
 
 ## Azure Compute Gallery
 
-Description: An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and applications. [learn more](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery)
+Description: An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and applications. [Learn more](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery)
 
 Status: **Future Development**
 
