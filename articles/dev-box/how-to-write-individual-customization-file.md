@@ -26,7 +26,7 @@ You can use customizations in Microsoft Dev Box in two ways. Team customizations
 | Configure on                | Dev box pool             | Dev box                         |
 | Customizations apply to     | All dev boxes in pool    | Individual dev box              |
 | Easily shareable            | Yes                      | No                              |
-| Customizations file name    | Imagedefinition.yaml     | myfilename.yaml or Workload.yaml |
+| Customizations file name    | Imagedefinition.yaml     | *myfilename.yaml* or *workload.yaml* |
 | Sourced from                | Catalog                  | Uploaded or from personal repository |
 | Supports key vault secrets  | Yes                      | Yes                             |
 
@@ -67,7 +67,7 @@ You can create and manage customization files by using VS Code. You can use the 
 
 1. When the customization file runs successfully, upload it to your catalog.
 
-### Customize your dev box by using existing WinGet Configuration files
+### Optional: Customize your dev box by using existing WinGet Configuration files
 
 WinGet configuration takes a config-as-code approach to defining the unique sets of software and configuration settings needed to get your Windows environment in a ready-to-code state. You can also use these configuration files to set up a dev box, by using a WinGet task included in the Microsoft-provided quickstart catalog.
 
@@ -85,7 +85,7 @@ To learn more, see [WinGet configuration](https://aka.ms/winget-configuration).
 ## Create a dev box using an individual customization file
 
 You can use an individual customization file by uploading it from a local drive when creating your dev box, or by downloading it from a repository. 
-Customization files stored in a repository must be called workload.yaml. Customization files that are stored locally for upload should be called myfilename.yaml. Name customization files stored locally for upload as *myfilename.yaml*.
+Customization files stored in a repository must be called *workload.yaml*. Customization files that are stored locally for upload should be called *myfilename.yaml*. Name customization files stored locally for upload as *myfilename.yaml*.
 
 ### Upload a file
 1. In the [developer portal](https://aka.ms/devbox-portal), select **New** > **New dev box**.
