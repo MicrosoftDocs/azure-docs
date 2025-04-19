@@ -53,7 +53,7 @@ To complete the steps in this article, you must:
 Dev Box tasks can be sourced from tasks built-in to the platform, or custom tasks stored in a catalog. Choose the source that best aligns with your customization needs and project requirements.
 
 ### Use WinGet and PowerShell tasks 
-Dev Box dev centers support PowerShell and WinGet tasks out of the box. If your customizations require only PowerShell and WinGet, proceed with creating your customizations file: [Create an image definition file](#create-an-image-definiton-file).
+Dev Box dev centers support PowerShell and WinGet tasks out of the box. If your customizations require only PowerShell and WinGet, proceed with creating your customizations file: [Create an image definition file](#create-an-image-definition-file).
 
 ### Use a catalog to define custom tasks
 You can create your own custom tasks. To make custom tasks available to your entire organization, attach a catalog that contains custom task definitions to your dev center. Dev Box supports Azure Repos and GitHub catalogs.
