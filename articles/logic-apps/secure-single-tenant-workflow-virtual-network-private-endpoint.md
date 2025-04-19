@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 04/15/2025
 # Customer intent: As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
 
@@ -87,9 +87,9 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 ### Copy the endpoint URL
 
-1. On the workflow menu, select **Overview**.
+1. On the workflow menu, under **Configuration**, select **Properties**.
 
-1. On the **Overview** page, copy and save the **Workflow URL** for later use.
+1. On the **Properties** page, copy and save the **Workflow URL** for later use.
 
 1. To test the URL and trigger the workflow, send an HTTP request to the URL by using your HTTP request tool and its instructions.
 
