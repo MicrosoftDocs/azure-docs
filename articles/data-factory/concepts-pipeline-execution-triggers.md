@@ -260,9 +260,9 @@ The following table provides a high-level overview of the major schema elements 
 | **schedule** | The recurrence schedule for the trigger. A trigger with a specified **frequency** value alters its recurrence based on a recurrence schedule. The **schedule** property contains modifications for the recurrence that are based on minutes, hours, weekdays, month days, and week number. |
 
  > [!NOTE]
-        > For time zones that observe daylight saving, trigger time auto-adjusts for the twice-a-year change, if the recurrence is set to **Days** or above. To opt out of the daylight saving change, select a time zone that doesn't observe daylight saving, for instance, UTC.
-        >
-        > Daylight saving adjustment only happens for a trigger with the recurrence set to **Days** or above. If the trigger is set to **Hours** or **Minutes** frequency, it continues to fire at regular intervals.
+ > For time zones that observe daylight saving, trigger time auto-adjusts for the twice-a-year change, if the recurrence is set to **Days** or above. To opt out of the daylight saving change, select a time zone that doesn't observe daylight saving, for instance, UTC.
+ >
+ > Daylight saving adjustment only happens for a trigger with the recurrence set to **Days** or above. If the trigger is set to **Hours** or **Minutes** frequency, it continues to fire at regular intervals.
 
 
 ### Schedule trigger example
