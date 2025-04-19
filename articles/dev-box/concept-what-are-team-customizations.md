@@ -71,29 +71,29 @@ When you configure Dev Box team customizations for your organization, careful pl
 To set up your Dev Box service to support team customizations, follow these steps:
 
 1. **Configure your dev center**:
-  - Enable project-level catalogs.
-  - Assign permissions for project admins.
+    a. Enable project-level catalogs.
+    b. Assign permissions for project admins.
 
-2. **Decide whether to use a catalog with custom reusable components**:
-  - **Built-in**:
-    - Use PowerShell or WinGet statements.
-  - **Catalog**:
-    - Host in Azure Repos or GitHub.
-    - Add tasks.
-    - Attach to a dev center.
+1. **Decide whether to use a catalog with custom reusable components**:
+    a. **Built-in**:
+    b. Use PowerShell or WinGet statements.
+    c. **Catalog**:
+    d. Host in Azure Repos or GitHub.
+    e. Add tasks.
+    f. Attach to a dev center.
 
-3. **Create a customization file**:
-  - Create a YAML file named `imagedefinition.yaml`.
+1. **Create a customization file**:
+    a. Create a YAML file named `imagedefinition.yaml`.
 
-4. **Specify an image in a dev box pool**:
-  - Create or modify a dev box pool and specify `imagedefinition.yaml` as the image definition.
+1. **Specify an image in a dev box pool**:
+    a. Create or modify a dev box pool and specify `imagedefinition.yaml` as the image definition.
 
-5. **Choose how you'll use the image definition**:
-  - Build the image each time you create a dev box.
-  - Optimize the image for team customizations.
+1. **Choose how you'll use the image definition**:
+    a. Build the image each time you create a dev box.
+    b. Optimize the image for team customizations.
 
-6. **Create a dev box**:
-  - Use the developer portal to create your dev box from the configured pool.
+1. **Create a dev box**:
+    a. Use the developer portal to create your dev box from the configured pool.
 
 For more information, see [Write a team customization file](how-to-write-customization-file.md).
 
@@ -109,19 +109,19 @@ Individual developers can attach a YAML-based customization file when creating t
 To set up your Dev Box service to support individual customizations, follow these steps:
 
 1. **Use a PowerShell and WinGet tasks**:
-  - Platform supports PowerShell and WinGet.
-  - No catalog required.
-  - No further configuration required.
+    a. Platform supports PowerShell and WinGet.
+    b. No catalog required.
+    c. No further configuration required.
 
-2. **Create a customization file**:
-  - Create a YAML-based customization file.
+1. **Create a customization file**:
+    a. Create a YAML-based customization file.
 
-3. **Create a dev box**:
-  - Use the developer portal to create your dev box from the configured pool.
-  - Upload and validate your customization file during the dev box creation process.
+1. **Create a dev box**:
+    a. Use the developer portal to create your dev box from the configured pool.
+    b. Upload and validate your customization file during the dev box creation process.
 
-4. **Dev box creation**:
-  - The dev box is created with the specified customizations.
+1. **Dev box creation**:
+    a. The dev box is created with the specified customizations.
 
 For more information, see [Write an individual customization file](how-to-write-customization-file.md).
 
