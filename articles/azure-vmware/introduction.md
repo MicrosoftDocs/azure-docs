@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 9/16/2024
+ms.date: 4/16/2025
 ms.custom: engagement-fy23
 ---
 
@@ -23,14 +23,13 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 You can deploy new or scale existing private clouds through the Azure portal or Azure CLI.
 
-## Azure VMware Solution deployment types
+## Azure VMware Solution private cloud types
 
-Azure VMware Solution provides two different deployment types:
+Azure VMware Solution provides two different private cloud generations:
 
-1. Azure VMware Solution provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure datacenter facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
+1. Azure VMware Solution Generation 1 provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure datacenter facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
 
-2. [Azure VMware Solution in a Virtual Network](native-introduction.md) (Public Preview) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution in an **Azure Virtual Network** features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering in only supported on the AV64 SKU. 
-
+1. [Azure VMware Solution Generation 2](native-introduction.md) (Public Preview) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution in an **Azure Virtual Network** features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering is only supported on the AV64 SKU. 
 
 ## Azure VMware Solution private cloud extension with AV64 node size
 
@@ -69,7 +68,7 @@ When a customer has a deployed Azure VMware Solution private cloud, they can sca
 
 The traditional Azure VMware Solution host clusters don't have explicit vSAN FD configuration. The reasoning is the host allocation logic ensures, within clusters, that no two hosts reside in the same physical fault domain within an Azure region. This feature inherently brings resilience and high availability for storage, which the vSAN FD configuration is supposed to bring. More information on vSAN FD can be found in the [VMware documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/expanding-and-managing-a-vsan-cluster/managing-fault-domains-in-vsan-clusters.html). 
 
-The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures seven vSAN fault domains (FDs) for AV64 clusters. Hosts are balanced evenly across the seven FDs as users scale up the hosts in a cluster from three nodes to 16 nodes. Some Azure regions still support a maximum of five FDs as part of the initial release of the AV64 SKU. Refer to the [Azure Region Availability Zone (AZ) to SKU mapping table](architecture-private-clouds.md#azure-region-availability-zone-az-to-sku-mapping-table) for more information.
+The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures seven vSAN fault domains (FDs) for AV64 clusters. Hosts are balanced evenly across the seven FDs as users scale up the hosts in a cluster from three nodes to 16 nodes. Some Azure regions still support a maximum of five FDs as part of the initial release of the AV64 SKU. Refer to the [Azure region availability zone to host type mapping table](architecture-private-clouds.md#azure-region-availability-zone-to-host-type-mapping-table) for more information.
 
 ### Cluster size recommendation
 
@@ -102,7 +101,7 @@ The following three scenarios show examples of instances that normally error out
 
 ### AV64 supported RAID configuration 
 
-This table provides the list of RAID configuration supported and host requirements in AV64 clusters. The RAID-6 FTT2 and RAID-1 FTT3 policies are supported with the AV64 SKU in some regions. In Azure regions that are currently constrained to five FDs, Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement (SLA). Refer to the [Azure Region Availability Zone (AZ) to SKU mapping table](architecture-private-clouds.md#azure-region-availability-zone-az-to-sku-mapping-table) for more information. 
+This table provides the list of RAID configuration supported and host requirements in AV64 clusters. The RAID-6 FTT2 and RAID-1 FTT3 policies are supported with the AV64 SKU in some regions. In Azure regions that are currently constrained to five FDs, Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement (SLA). Refer to the [Azure region availability zone to host type mapping table](architecture-private-clouds.md#azure-region-availability-zone-to-host-type-mapping-table) for more information. 
 
 | RAID configuration 	| Failures to tolerate (FTT) |	Minimum hosts required |
 |-------------------|--------------------------|------------------------|
