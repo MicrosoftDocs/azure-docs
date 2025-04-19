@@ -1,6 +1,6 @@
 ---
 title: Apply for 10 digit long code (10DLC) brand registration and campaign registration
-titleSuffix: An Azure Communication Services quickstart 
+titleSuffix: An Azure Communication Services article 
 description: This article describes how to apply for 10 digit long code (10DLC) brand registration and campaign registration.
 author: prakulka
 manager: darmour

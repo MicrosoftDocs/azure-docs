@@ -3,7 +3,7 @@ title: Connectivity to an Azure Virtual Network
 description: Learn about key concepts and use cases on connectivity to Azure Virtual Networks.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 4/18/2025
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to learn about connectivity to Azure Virtual Networks so that I can understand the features and benefits of this offering.
 ---
@@ -25,7 +25,7 @@ This Azure VMware Solution private cloud deployment is hosted in an Azure Virtua
 
 Azure VMware Solution creates the following read-only management subnets within the hosted Virtual Network to host required private cloud components. These Management Subnets are allocated from the management address block specified for private cloud creation. The following  are sample subnets derived from an SDDC with a 10.74.64.0/22 address block.
 
-:::image type="content" source="./media/native-connectivity/native-connectivity-private-vnet-peering.png" alt-text="Diagram showing an Azure VMware Solution Gen 2 connection to other Virtual Networks." lightbox="media/native-connectivity/native-virtual-network-management-subnets.png":::
+:::image type="content" source="./media/native-connectivity/native-virtual-network-management-subnets.png" alt-text="Screenshot showing Azure VMware Solution Gen 2 private cloud management networks." lightbox="media/native-connectivity/native-virtual-network-management-subnets.png":::
 
 ## Other Virtual Networks
 

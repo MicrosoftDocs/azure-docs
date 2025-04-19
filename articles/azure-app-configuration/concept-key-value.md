@@ -4,8 +4,8 @@ description: Understand key-value storage in Azure App Configuration, which stor
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual
-ms.date: 05/13/2024
+ms.topic: concept-article
+ms.date: 04/16/2025
 ms.custom: devdivchpfy22
 ---
 

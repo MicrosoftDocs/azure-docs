@@ -20,9 +20,9 @@ Azure Communication Services enables you to use phone numbers to make voice call
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Azure Communication Services offers three types of Numbers: Toll-Free, Local, and Short Codes.
+Azure Communication Services offers three types of Numbers: Toll-Free, Local, Alphanumeric Sender IDs and Short Codes.
 
-- **To send or receive an SMS**, choose a Toll-Free Number or a Short Code
+- **To send or receive an SMS**, choose a Toll-Free Number, local number or a Short Code
 - **To make or receive phone calls**, choose a Toll-Free Number or a Local Number
 
 This table summarizes the number types and supported capabilities:
@@ -32,6 +32,7 @@ This table summarizes the number types and supported capabilities:
 | [Toll-Free](../../quickstarts/telephony/get-phone-number.md) | +1 (8AB) XYZ PQRS | Yes | Yes | Yes | Yes | Receive calls on IVR bots, SMS Notifications | SMS in US and CA only |
 | [Local (Geographic)](../../quickstarts/telephony/get-phone-number.md) | +1 (ABC) XYZ PQRS | No | No | Yes | Yes | Geography Specific Number | Calling Only |
 | [Short-Codes](../../quickstarts/sms/apply-for-short-code.md) | ABC-XYZ | Yes | Yes | No | No | High-velocity SMS | SMS only |
+| [Alphanumeric Sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-dynamic-alphanumeric-sender-id) | CONTOSO | Yes | Yes | No | No | High-velocity SMS | SMS only |
 
 ## Next steps
 
