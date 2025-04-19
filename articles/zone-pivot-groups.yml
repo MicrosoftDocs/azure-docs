@@ -731,10 +731,8 @@ groups:
   title: Platform
   prompt: Choose a platform
   pivots:
-  - id: platform-azp
-    title: Azure portal
   - id: platform-azp-new
-    title: Azure portal (new)
+    title: Azure portal
   - id: platform-azcli
     title: Azure CLI
   - id: programming-language-java
@@ -1192,14 +1190,6 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: duau
-- id: front-door-tiers
-  title: Front Door tiers
-  prompt: "Select the Azure Front Door tier:"
-  pivots:
-  - id: front-door-standard-premium
-    title: Standard/Premium
-  - id: front-door-classic
-    title: Classic
 - id: expressroute-experience
   title: ExpressRoute experience
   prompt: "Select your ExpressRoute create experience:"
@@ -1208,6 +1198,23 @@ groups:
     title: Current
   - id: expressroute-preview
     title: Preview
+# Owner: halkazwini
+- id: front-door-tiers
+  title: Front Door tiers
+  prompt: "Select the Azure Front Door tier:"
+  pivots:
+  - id: front-door-standard-premium
+    title: Standard/Premium
+  - id: front-door-classic
+    title: Classic
+- id: flow-log-types
+  title: Flow Log types
+  prompt: "Select the flow log type:"
+  pivots:
+  - id: virtual-network
+    title: Virtual network
+  - id: network-security-group
+    title: Network security group
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door Developer experience
@@ -1387,6 +1394,21 @@ groups:
     title: iOS
   - id: programming-language-java
     title: Android
+
+# Owners: tayaras
+- id: acs-programming-languages-javascript-java-swift-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: Web
+  - id: programming-language-csharp
+    title: Windows
+  - id: programming-language-swift
+    title: iOS
+  - id: programming-language-java
+    title: Android
+
 - id: acs-programming-languages-support-kotlin-swift
   title: Programming languages
   prompt: Choose a programming language
