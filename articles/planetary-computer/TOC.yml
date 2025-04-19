@@ -7,30 +7,32 @@
   - name: STAC overview
     href: stac-overview.md  
   expanded: true
-- name: Quickstarts
+- name: Deployment & Management
   items:
   - name: Deploy a GeoCatalog resource
     href: deploy-geocatalog-resource.md
-  - name: Add STAC Items to a Collection
-    href: add-stac-item-to-collection.md
-  - name: Create a STAC collection with GeoCatalog using Python
-    href: create-stac-collection.md
-  - name: Use GeoCatalog in Azure Batch
-    href: azure-batch.md
-  - name: Use the Microsoft Planetary Computer Pro Explorer
-    href: use-explorer.md
-- name: How-to-guides
-  items:
-  - name: Assign a user-assigned managed identity to a GeoCatalog resource
-    href: assign-managed-identity-geocatalog-resource.md
-  - name: Add STAC Items to a Collection
-    href: add-stac-item-to-collection.md  
   - name: Delete a GeoCatalog resource
     href: delete-geocatalog-resource.md
+  - name: Assign a user-assigned managed identity to a GeoCatalog resource
+    href: assign-managed-identity-geocatalog-resource.md
+- name: Quickstarts
+  items:
+  - name: Create a STAC collection with GeoCatalog using Python
+    href: create-stac-collection.md
+  - name: Add STAC Items to a Collection
+    href: add-stac-item-to-collection.md
+  - name: Use the Microsoft Planetary Computer Pro Explorer
+    href: use-explorer.md
+  - name: Use GeoCatalog in Azure Batch
+    href: azure-batch.md
+- name: How-to-guides
+  items:
   - name: Setup an ingestion source using managed identity
     href: setup-ingestion-credentials-managed-identity.md 
   - name: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
     href: setup-ingestion-credentials-sas-tokens.md
+  - name: Ingest data with the Bulk Ingest API
+    href: bulk-ingest-api.md
   - name: Visualize assets
     href: visualize-assets.md  
 - name: Tutorials
