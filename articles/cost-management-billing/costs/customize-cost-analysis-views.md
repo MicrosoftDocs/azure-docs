@@ -2,8 +2,8 @@
 title: Customize views in cost analysis
 titleSuffix: Microsoft Cost Management
 description:  This article helps you customize views in cost analysis to understand how you're being charged and to investigate unexpected changes.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing

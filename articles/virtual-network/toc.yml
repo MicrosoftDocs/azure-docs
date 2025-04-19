@@ -126,10 +126,6 @@
         href: create-peering-different-subscriptions.md
       - name: Different subscriptions with SPNs
         href: create-peering-different-subscriptions-service-principal.md
-      - name: Different deployment model same subscription
-        href: create-peering-different-deployment-models.md
-      - name: Different deployment model and subscription
-        href: create-peering-different-deployment-models-subscriptions.md
     - name: Manage a virtual network peering
       href: virtual-network-manage-peering.md
     - name: Update the address space for a peered virtual network

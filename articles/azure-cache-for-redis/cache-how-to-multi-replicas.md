@@ -6,6 +6,8 @@ description: Learn how to add more replicas to your Premium tier Azure Cache for
 
 ms.topic: conceptual
 ms.date: 08/11/2020
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Add replicas to Azure Cache for Redis

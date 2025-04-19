@@ -265,7 +265,7 @@ PostgreSQL to return vector tiles.
 
 1. You can now use an Azure Function to Query PostgreSQL and return
     vector tiles for the contour lines. The tile server can be used with
-    the Azure Maps web SDK to create a web app that displays contour
+    the Azure Maps Web SDK to create a web app that displays contour
     lines on the map.
 
     ```python
@@ -363,7 +363,7 @@ http://localhost:7071/api/tileserver?zoom={z}&x={x}&y={y}
 [QGIS]: https://www.qgis.org/en/site/forusers/download.html
 [rio-rgbify]: https://pypi.org/project/rio-rgbify/
 [PostgreSQL]: https://www.postgresql.org/download/
-[PostGIS]: https://postgis.net/install/
+[PostGIS]: https://postgis.net/documentation/getting_started/#learn-about-spatial-sql
 [Azure Maps Web SDK]: about-azure-maps.md#web-sdk
 [Create Contour line vector tiles and RGB-encoded DEM tiles]: #create-contour-line-vector-tiles-and-rgb-encoded-dem-tiles
 [Create Contour line vector tile service using Azure Function and PostgreSQL]: #create-contour-line-vector-tile-service-using-azure-function-and-postgresql

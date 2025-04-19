@@ -1,8 +1,7 @@
 ---
-title: Create a user account by using Azure Active Directory B2C custom policy
+title: Create a user account by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
-description: Learn how to create a user account in Azure AD B2C storage by using a custom policy. 
-
+description: Learn how to create and read user accounts in Azure AD B2C using custom policies. Store and retrieve user information from Microsoft Entra ID storage.
 author: kengaderdus
 manager: CelesteDG
 
@@ -10,7 +9,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -421,7 +420,7 @@ You can configure a Microsoft Entra ID technical profile to update a user accoun
 
 In this article, you've learned how to store user details using [built-in user profile attributes](user-profile-attributes.md). However, you often need to create your own custom attributes to manage your specific scenario. To do so, follow the instructions in  [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) article.
 
-## Next steps 
+## Related content
 
 - Learn how to [Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md).
 

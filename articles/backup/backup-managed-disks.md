@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 04/16/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -10,19 +10,9 @@ ms.author: jsuri
 
 # Back up Azure Managed Disks
 
-This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) from the Azure portal.
+This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) from the Azure portal. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
-In this article, you'll learn how to:
-
-- Create a Backup vault
-
-- Create a backup policy
-
-- Configure a backup of an Azure Disk
-
-- Run an on-demand backup job
-
-For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
+Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
 
 ## Create a Backup vault
 

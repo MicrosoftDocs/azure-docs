@@ -1,8 +1,8 @@
 ---
 title: Technical requirements for Azure Operator Nexus Isolation Domains
 description: Overview of technical requirements for Operator Nexus Isolation Domains.
-author: joemarshallmsft
-ms.author: joemarshall
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.reviewer: jdasari
 ms.date: 01/31/2024
 ms.service: azure-operator-nexus

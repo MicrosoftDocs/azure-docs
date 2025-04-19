@@ -6,9 +6,10 @@ author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.author: yuajia 
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN

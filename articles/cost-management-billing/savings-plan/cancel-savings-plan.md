@@ -2,8 +2,8 @@
 title: Azure saving plan cancellation policies
 titleSuffix: Microsoft Cost Management
 description:  Learn about Azure saving plan cancellation policies.
-author: bandersmsft
-ms.author: banders
+author: nwokolo
+ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
