@@ -15,7 +15,7 @@ ms.date: 04/18/2025
 #customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
 
-# Write an image definition file for a dev box
+# Write an image definition file for Dev Box team customizations
 
 The Dev Box customizations feature helps you streamline the setup of cloud-based development environments. Getting developers started on a new project or team can be complex and time-consuming. Customizations let you configure ready-to-code workstations with applications, tools, repositories, code libraries, packages, and build scripts. This article guides you through the process of creating, testing, and editing an image definition file for your dev box using Visual Studio Code (VS Code). 
 
@@ -108,8 +108,9 @@ tasks:
 
 To learn more, see [WinGet configuration](https://aka.ms/winget-configuration).
 
-## Related content
+## Next step
 
-- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
-- [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
-- [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)
+Now that you have created an image definition file, upload it to a catalog and attach the catalog to a project. The image definition file will be used to configure and create dev boxes for your development teams.
+
+> [!div class="nextstepaction"]
+> [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
