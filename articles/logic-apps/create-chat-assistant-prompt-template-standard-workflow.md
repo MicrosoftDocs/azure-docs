@@ -62,7 +62,7 @@ The example workflow uses the following operations:
 | Operation | Description |
 |-----------|-------------|
 | Built-in trigger named **When an HTTP request is available** | Waits for an HTTPS request to arrive from external caller. This request causes the trigger to fire, start the workflow, and pass in a serialized token string with inputs for the workflow actions to use. |
-| Three **Compose** built-in actions | These actions store the following test data: <br><br>- **Question**: The question asked. <br><br>- **Product catalog**: Internal product catalog entries. <br><br>- **Employee**: Employee profile and past procurement orders. |
+| Three **Compose** built-in actions | These actions store the following test data: <br><br>- **Employee**: Employee profile and past procurement orders. <br><br>- **Question**: The question asked. <br><br>- **Products**: Internal product catalog entries. |
 | Built-in action named **Get chat completions using Prompt Template** | Gets [chat completions](/azure/ai-services/openai/how-to/chatgpt) for the specified prompt template. For more information, see [Get chat completions using prompt template](/azure/logic-apps/connectors/built-in/reference/openai/#get-chat-completions-using-prompt-template-(preview)).
 
 > [!TIP]
@@ -91,14 +91,14 @@ To follow the example, download the [sample prompt template and inputs](https://
 
     - The example in this how-to guide provides test data that you can use to try out the workflow. To chat with your own data by using the Azure OpenAI Service models, you have to create an Azure AI Foundry project and add your own data source. For more information, see the following documentation:
 
-    - [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
+      - [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
 
-    - [Getting started with customizing a large language model (LLM)](/azure/ai-services/openai/concepts/customizing-llms)
+      - [Getting started with customizing a large language model (LLM)](/azure/ai-services/openai/concepts/customizing-llms)
 
-  - When you add the **Azure OpenAI** action to your workflow, you can create a connection to your Azure OpenAI Service resource. You will need the endpoint URL for your **Azure OpenAI Service** resource and the following information, based on the selected [authentication type](/azure/logic-apps/connectors/built-in/reference/openai/#authentication):
+  - When you add the **Azure OpenAI** action to your workflow, you can create a connection to your Azure OpenAI Service resource. You need the endpoint URL for your **Azure OpenAI Service** resource and the following information, based on the selected [authentication type](/azure/logic-apps/connectors/built-in/reference/openai/#authentication):
 
-    | Authentication type | Requirements |
-    |---------------------|--------------|
+    | Authentication type | Required values to find |
+    |---------------------|-------------------------|
     | **URL and key-based authentication** | 1. Go to your **Azure OpenAI Service** resource. <br><br>2. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>3. Copy the **Endpoint** URL and either **Key** value. Store these values somewhere safe. |
     | **Active Directory OAuth** | 1. Set up your logic app resource for [OAuth 2.0 with Microsoft Entra ID authentication](/entra/architecture/auth-oauth2). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
     | **Managed identity** <br>(Recommended) | 1. Follow [these steps to set up the managed identity with Microsoft Entra ID for your logic app](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
@@ -307,7 +307,7 @@ When you're done, your workflow looks like the following example:
 
    - [Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps](/azure/logic-apps/connectors-native-reqres?tabs=standard)
 
-   After workflow execution completes, the run history page opens for finished workflow instance to show the status for each action.
+   After workflow execution completes, the run history page opens to show the status for each action.
 
    :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/run-history.png" alt-text="Screenshot shows run history for most recently complete workflow with status for each operation." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/run-history.png":::
 
