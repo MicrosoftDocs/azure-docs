@@ -184,7 +184,7 @@ Alphanumeric sender ID cannot receive inbound messages or `STOP` messages. Azure
 
 ### How does Azure Communication Services handle opt outs for short codes in Canada and United Kingdom?
 
-Azure Communication Services doesn't control or implement opt-out mechanisms for short codes within Canada and the United Kingdom. Recipients of text messages have the option to text ‘STOP’ to unsubscribe or ‘START’ to subscribe to the short code. These requests are relayed as incoming messages to your event grid. It is your responsibility to act on these messages by resubscribing recipients or ceasing message delivery accordingly.
+Azure Communication Services doesn't control or implement opt-out mechanisms for short codes within Canada and the United Kingdom. Recipients of text messages have the option to text ‘STOP’ to unsubscribe or ‘START’ to subscribe to the short code. These requests are relayed as incoming messages to your Event Grid. It is your responsibility to act on these messages by resubscribing recipients or ceasing message delivery accordingly.
 
 ## Short codes
 
