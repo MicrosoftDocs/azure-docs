@@ -4,7 +4,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 10/31/2024
+ms.date: 04/18/2025
 ms.author: danlep
 ---
 
@@ -17,4 +17,4 @@ ms.author: danlep
 * Subscription ID
 * Location
 * Gateway ID
-* Backend ID (use only in outbound policy section)
+* Backend ID
