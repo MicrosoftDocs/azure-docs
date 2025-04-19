@@ -119,14 +119,10 @@ To run the function locally, press `F5` in Visual Studio Code. We use [ngrok](ht
 
     Copy the `ngrok` link provided where your function is running.
 
-2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. The resource ID looks something like: 
-
-/subscriptions/`<<AZURE SUBSCRIPTION ID>>`/resourceGroups/`<<RESOURCE GROUP NAME>>`/providers/Microsoft.Communication/CommunicationServices/`<<RESOURCE NAME>>`
+2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. The resource ID looks something like: /subscriptions/`<<AZURE SUBSCRIPTION ID>>`/resourceGroups/`<<RESOURCE GROUP NAME>>`/providers/Microsoft.Communication/CommunicationServices/`<<RESOURCE NAME>>`
 
     ```bash
-
     az eventgrid event-subscription create --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type webhook --endpoint "<<NGROK URL>> " --source-resource-id "<<RESOURCE_ID>>"  --included-event-types Microsoft.Communication.SMSReceived 
-
     ```
 
 3. Now that everything is hooked up, test the flow by sending an SMS to the phone number on your Azure Communication Services resource. You should see the console logs on your terminal where the function is running. If you added the code to respond to the SMS, you should see that text message delivered back to you.
