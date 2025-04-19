@@ -24,11 +24,11 @@ Brand registration is the process of registering your business as a recognized b
 
 ### How do I complete brand registration with ACS?
 
-To register a brand, you’ll need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This can be done through the ACS portal by following [this quickstart](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+To register a brand, you need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This process can be done through the ACS portal by following [this quickstart](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### What types of information are required for brand registration?
 
-You’ll need to provide:
+You need to provide:
 - Legal business name
 - Business address
 - Tax ID or Employer Identification Number (EIN)
