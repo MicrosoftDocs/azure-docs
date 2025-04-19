@@ -173,12 +173,12 @@ The following table summarizes how the gateway handles API requests with or with
 -   If an API doesn't require subscription authentication, any API request that includes a subscription key is treated the same as a request without a subscription key. The subscription key is ignored.
 -	API access "context" means the policies and access controls that are applied at a particular scope (for example, API or product).
 
-## Consider using OAuth 2.0 for Client-Side and Mobile Apps
+## Client-Side and Mobile Apps
 
-For client-side web applications (e.g., single-page apps) and mobile apps, embedding subscription keys in client code or app binaries can pose security risks, as they may be exposed through browser tools, network inspection, or reverse engineering. Additionally, subscription keys are not tied to individual users, limiting their use for user-specific access control. The **OAuth 2.0 Authorization Code Flow with Proof Key for Code Exchange (PKCE)** provides a secure, user-centric alternative to subscription keys for accessing APIs managed by Azure API Management (Azure API Management), leveraging Microsoft Entra ID’s public keys (Entra) for authentication.
+For client-side web applications (e.g., single-page apps) and mobile apps, embedding subscription keys in client code or app binaries can pose security risks, as they may be exposed through browser tools, network inspection, or reverse engineering. Additionally, subscription keys are not tied to individual users, limiting their use for user-specific access control. The **OAuth 2.0 Authorization Code Flow with Proof Key for Code Exchange (PKCE)** provides a secure, user-centric alternative to subscription keys for accessing APIs managed by Azure API Management, leveraging Microsoft Entra ID’s public keys (Entra) for authentication.
 
 > [!CAUTION]
-> Secrets and subscriptions keys should almost never be stored in your client-side application code.
+> Secrets and subscriptions keys should not be stored in your client-side application code.
 
 
 ### Why Use OAuth 2.0 with PKCE?
@@ -186,7 +186,7 @@ For client-side web applications (e.g., single-page apps) and mobile apps, embed
 - **Security**: Uses short-lived access tokens (JWTs) instead of static keys, reducing exposure risks. PKCE prevents authorization code interception, making it safe for public clients like browsers and mobile apps.
 - **User-Specific Access**: Tokens are issued for authenticated users, enabling fine-grained authorization based on user identity or roles.
 - **No Subscription Keys**: Access tokens replace subscription keys, validated by Azure API Management's `validate-jwt` policy.
-- **Modern Experience**: Supports single sign-on (SSO) and seamless authentication via AAD.
+- **Modern Experience**: Supports single sign-on (SSO) and seamless authentication via Microsoft Entra ID, and supports Azure B2C.
 
 ### How It Works
 
@@ -279,7 +279,7 @@ For client-side web applications (e.g., single-page apps) and mobile apps, embed
 - **Error Handling**: Handle 401 errors by refreshing tokens or redirecting to login.
 - **Monitoring**: Use Azure API Management analytics and Microsoft Entra ID logs to track token usage.
 
-## How this mitigates the need for Subscription Keys in Client-side Applications
+## How this mitigates the need for Subscription Keys in Client-side and Mobile Applications
 
 OAuth 2.0 with PKCE eliminates the need for subscription keys by:
 Using dynamic tokens instead of static keys, reducing exposure risks.
