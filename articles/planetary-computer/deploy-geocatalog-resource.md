@@ -1,25 +1,33 @@
 ---
-title: Deploy a GeoCatalog resource - Microsoft Planetary Computer Pro
-description: Learn how to deploy a GeoCatalog resource using Azure portal or Azure Rest API, assign roles, and troubleshoot known issues.
-author: meaghanlewis
-ms.topic: quickstart
+title: Deploy a GeoCatalog resource | Microsoft Planetary Computer Pro
+description: Learn how to deploy a Microsoft Planetary Computer Pro GeoCatalog resource using Azure portal or Azure REST API
+author: aloverro
+ms.author: adamloverro
 ms.service: planetary-computer
+ms.topic: install-set-up-deploy #Don't change
 ms.date: 04/08/2025
-ms.author: mosagie
+
+# customer intent: As an Azure user I want to deploy a GeoCatalog resource so that I can use a GeoCatalog to organize, query, visualize and retrieve my geospatial data assets
+
 ---
 
 # Deploy a GeoCatalog resource
 
-The following tutorial guides the reader through the process of deploying a GeoCatalog resource.
+This article guides the reader through the process of deploying a GeoCatalog resource. The GeoCatalog resource is the top-level container for GeoSpatial data stored using Microsoft Planetary Computer (MPC) Pro. Once a GeoCatalog resource is deployed, the user can begin to ingest geospatial data into MPC Pro. Geospatial data stored in a GeoCatalog is indexed, queried, and retrieved using the SpatioTemporal Access Catalog (STAC) open-standard. For more information on STAC, see [STAC overview](./stac-overview.md).
 
-There are two ways to deploy a Microsoft Planetary Computer Pro GeoCatalog:
+## Prerequisites
+
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) (For using the REST API)
+
+## Methods
+
+This article describes two methods for deploying an MPC Pro GeoCatalog:
 
 1. Using the Azure portal.  
-1. Using the Azure Rest API.  
+1. Using the Azure REST API.  
 
-Extra resources provided in this tutorial include some guidance on assigning Azure Roles. Consult the "Known Issues" section of this document to help troubleshoot any deployment issues you encounter.  
-
-## Method 1: Azure portal deployment
+## Deploy GeoCatalog with the Azure portal
 
 1. Sign in to the Azure portal using: https://aka.ms/geocatalogsprod.
 
@@ -34,7 +42,7 @@ Extra resources provided in this tutorial include some guidance on assigning Azu
 1. From the "Basics" tab of the "Create GeoCatalog Resource" workflow, select the Subscription and Resource Group to which you would like to deploy your GeoCatalog. Provide a unique Name for your GeoCatalog resource, and select the Azure Region you wish to deploy into. Select "Next" to proceed to the next tab.
 
    > [!NOTE]
-   > We support deployment to the following regions in Public Preview:
+   > We support deployment to the following regions in Preview:
    >
    > - East US
    > - North Central US
@@ -46,7 +54,7 @@ Extra resources provided in this tutorial include some guidance on assigning Azu
 1. From the "Networking" tab, select your networking options. Select "Next" to proceed to the next tab.
 
    > [!NOTE]
-   > Only *Enable public access from all networks** option is supported in Public Preview.
+   > Only *Enable public access from all networks** option is supported in Preview.
 
    :::image type="content" source="media/enable-public-access-from-networks.png" alt-text="Screenshot of the Networking tab in the Create GeoCatalog Resource workflow.":::
 
@@ -66,7 +74,7 @@ Extra resources provided in this tutorial include some guidance on assigning Azu
 
    :::image type="content" source="media/geocatalog-deployment-complete.png" alt-text="Screenshot of the Your deployment is complete page in the Azure portal.":::
 
-## Method 2: Azure REST API using Cloud Shell Commands (az rest)
+## Deploy GeoCatalog with the Azure REST API
 
 1. Sign in to your Azure portal and open up Cloud Shell.
 
@@ -99,14 +107,10 @@ Extra resources provided in this tutorial include some guidance on assigning Azu
 
    :::image type="content" source="media/show-hidden-roles.png" alt-text="Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.":::
 
-## Assign Azure Roles
+## Related Content
 
-In addition to all the standard built-in roles, GeoCatalog supports "GeoCatalog Administrator" and "GeoCatalog Reader" roles.
-
-The definition of each role is described in the [Identity and Access Management (IAM) tab of the GeoCatalog resource on portal](/azure/role-based-access-control/role-assignments-cli).
-
-## Known issues
-
-1. If you're a classic admin of the Azure subscription, after you create a GeoCatalog, the GeoCatalog resource won’t inherit any role assignments from the subscription thus you might not have permission to read or write against the GeoCatalog. Workaround is to add yourself as Owner or Contributor role to either the subscription or the GeoCatalog resource.
-
-1. If you're unable to find the GeoCatalog resource in your resource group during preview, it might be because GeoCatalogs might still be a hidden resource type. To address this issue, go to the resource group and change the view to show hidden types.
+- [Delete a GeoCatalog](./delete-geocatalog-resource.md)
+- [Assign a user-assigend managed identity to a GeoCatalog resource](./assign-managed-identity-geocatalog-resource.md)
+- [Create a STAC Collection using Python](./create-stac-collection.md)
+- [Add STAC Items to a Collection using Python](./add-stac-item-to-collection.md)
+- [Use the Data Explorer](./use-explorer.md)
