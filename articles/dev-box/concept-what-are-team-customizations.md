@@ -52,10 +52,12 @@ When creating tasks, determine which need to run in a system context and which r
 Individual developers can upload a customization file when creating their dev box to control the development environment. Developers should use individual customizations only for personal settings and apps. Tasks specified in the individual customization file run only in the user context, after sign-in.
 Developers use individual customizations only for personal settings and apps.
 Sharing common YAML files among developer teams is inefficient, leads to errors, and violates compliance policies. Dev Box team customizations allow developer team leads and IT admins to preconfigure customization files, eliminating the need for developers to find and upload these files when creating a dev box.
- 
+
+## How do customizations work?
+Team customizationa and indivudual customizations are both YAML-based files that specify a list of tasks to apply when creating a dev box. Select the appropriate tab to learn more about how each type of customization works.
 
 # [Team customizations](#tab/team-customizations)
-## How do team customizations work?
+### How do team customizations work?
 
 You can use team customizations to define a shared Dev Box configuration for each of your development teams without having to invest in setting up an imaging solution like Packer or Azure virtual machine (VM) image templates. Team customizations provide a lightweight alternative that allows central platform engineering teams to delegate Dev Box configuration management to the teams that use them.
 
@@ -66,7 +68,7 @@ When you configure Dev Box team customizations for your organization, careful pl
 
 :::image type="content" source="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box team customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg":::
 
-### Configure your Dev Box service for team customizations
+#### Configure your Dev Box service for team customizations
 
 To set up your Dev Box service to support team customizations, follow these steps:
 
@@ -97,14 +99,13 @@ To set up your Dev Box service to support team customizations, follow these step
 
 For more information, see [Write a team customization file](how-to-write-customization-file.md).
 
-
 # [Individual customizations](#tab/individual-customizations)
-## How do individual customizations work?
+### How do individual customizations work?
 Individual developers can attach a YAML-based customization file when creating their dev box to control the development environment. Developers use individual customizations only for personal settings and apps.  
 
 :::image type="content" source="media/concept-what-are-team-customizations/individual-customizations-workflow.png" alt-text="Diagram that shows the workflow for Dev Box individual customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/individual-customizations-workflow.png":::
 
-### Configure your Dev Box service for individual customizations
+#### Configure your Dev Box service for individual customizations
 
 To set up your Dev Box service to support individual customizations, follow these steps:
 
