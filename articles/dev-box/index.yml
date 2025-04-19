@@ -86,8 +86,8 @@ landingContent:
         links:
           - text: What are Team Customizations
             url: concept-what-are-team-customizations.md
-          - text: Write a customization file
-            url: how-to-write-customization-file.md
+          - text: Create an image definition file
+            url: how-to-write-image-definition-file.md
           - text: Configure imaging for Customizations
             url: how-to-configure-customization-imaging.md
           - text: Create customization tasks
