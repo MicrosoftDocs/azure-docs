@@ -24,7 +24,7 @@ Suppose you want to automate the way that your enterprise or organization answer
 
 When you use your own data with the models in Azure OpenAI Service, you create a powerful AI-powered conversational platform that provides faster communication and draws context from specific domain knowledge. To build the process that handles each question, accesses your data source, and returns a response, you can create a Standard workflow in Azure Logic Apps to automate the necessary steps - all without writing code.
 
-This guide shows how to build a chat assistant by using a *prompt template* as your starting point. This template is a prebuilt reusable text-based structure that guides the interactions between the AI model and the questioners.
+This guide shows how to build a chat assistant by using a *prompt template* as the starting point. This template is a prebuilt reusable text-based structure that guides the interactions between the AI model and the questioners.
 
 The following diagram shows the example workflow that this guide creates:
 
@@ -283,7 +283,7 @@ Now, add the Azure OpenAI action to the workflow.
 
    1. From the dynamic content list, under **Employee**, select **Outputs**.
 
-      :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png" alt-text="Screenshot shows action named Get chat completions using Prompt Template, Prompt Template Variable table, open dynamic content list, and selected Outputs value in the Question section." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png":::
+      :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png" alt-text="Screenshot shows an action named Get chat completions using Prompt Template, Prompt Template Variable table, open dynamic content list, and selected Outputs value in the Question section." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png":::
 
    1. Repeat the same steps on the next row and following row for **Question** and **Products**.
 
