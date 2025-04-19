@@ -44,5 +44,5 @@ Securely ingesting data requires users to provide an authentication mechanism wh
 The following quickstarts are available to assist users in setting up ingestion sources using either the managed identity or SAS token approach:
 
 - [Setup Ingestion Credentials for MPC Pro using managed identity](./setup-ingestion-credentials-managed-identity.md)
-- [Setup Ingestion Credentials for MPC Pro using SAS okens](./setup-ingestion-credentials-sas-tokens.md)
+- [Setup Ingestion Credentials for MPC Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
 - [Ingestion overview](./ingestion-overview.md).
