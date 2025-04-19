@@ -1,22 +1,25 @@
 ---
-title: Write a Customization File
-description: Learn how to create, test, and edit a customization file for your dev box by using Visual Studio Code.
+title: Write an Individual Customization File for Your Dev Box
+description: Learn how to upload and validate individual customization files for dev boxes directly from your local drive or repository.
+#customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - ignite-2024
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:04/19/2025
+  - ai-gen-description
 ms.topic: how-to
-ms.date: 02/21/2025
-
-#customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
+ms.date: 04/19/2025
 ---
 
 # Write an individual customization file for a dev box
 
-The Dev Box individual customizations feature helps you streamline the setup of your dev boxes. Getting started on a new project or team can be complex and time-consuming. With customizations, you can configure your dev boxes with the applications, tools, repositories, code libraries, packages, and build scripts that you need. This article will guide you through the process of creating, testing, and editing an individual customization file for your dev box using Visual Studio Code (VS Code). 
+The Dev Box individual customizations feature helps you streamline the setup of your dev boxes. Starting a new project or joining a team is often complex and time consuming. With customizations, you can configure your dev boxes with the applications, tools, repositories, code libraries, packages, and build scripts that you need. This article guides you through the process of creating, testing, and editing an individual customization file for your dev box using Visual Studio Code (VS Code). 
 
-There are two ways to use customizations in Microsoft Dev Box. Team customizations are used to create a shared configuration for a team of developers. Individual customizations are used to create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
+You can use customizations in Microsoft Dev Box in two ways. Team customizations are used to create a shared configuration for a team of developers. Individual customizations are used to create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
 
 | Feature                     | Team customizations       | Individual customizations       |
 |-----------------------------|---------------------------|----------------------------------|
@@ -60,7 +63,7 @@ You can create and manage customization files by using VS Code. You can use the 
 
    :::image type="content" source="media/how-to-write-individual-customization-file/dev-box-command-apply-tasks.png" alt-text="Screenshot of the Dev Box command palette in Visual Studio Code, showing the command for applying customization tasks.":::
 
-1. The customization file runs immediately and applies the specified tasks to your test dev box. Inspect the changes, and check the VS Code terminal for any errors or warnings generated during the task execution.
+1. The customization file runs and applies the specified tasks to your test dev box. Inspect the changes, and check the VS Code terminal for any errors or warnings generated during the task execution. Review the VS Code terminal for errors or warnings during task execution.
 
 1. When the customization file runs successfully, upload it to your catalog.
 
@@ -68,7 +71,7 @@ You can create and manage customization files by using VS Code. You can use the 
 
 WinGet configuration takes a config-as-code approach to defining the unique sets of software and configuration settings needed to get your Windows environment in a ready-to-code state. You can also use these configuration files to set up a dev box, by using a WinGet task included in the Microsoft-provided quickstart catalog.
 
-The following example shows a dev box customization file that calls an existing WinGet Desired State Configuration (DSC) file:
+This example shows a dev box customization file that uses an existing WinGet Desired State Configuration (DSC) file:
 
 ```yml
 tasks:
@@ -82,7 +85,7 @@ To learn more, see [WinGet configuration](https://aka.ms/winget-configuration).
 ## Create a dev box using an individual customization file
 
 You can use an individual customization file by uploading it from a local drive when creating your dev box, or by downloading it from a repository. 
-Customization files stored in a repository must be called workload.yaml. Customization files that are stored locally for upload should be called myfilename.yaml. 
+Customization files stored in a repository must be called workload.yaml. Customization files that are stored locally for upload should be called myfilename.yaml. Name customization files stored locally for upload as *myfilename.yaml*.
 
 ### Upload a file
 1. In the [developer portal](https://aka.ms/devbox-portal), select **New** > **New dev box**.
@@ -99,7 +102,7 @@ Customization files stored in a repository must be called workload.yaml. Customi
 
    :::image type="content" source="media/how-to-write-individual-customization-file/customize-dev-box-validate.png" alt-text="Screenshot of the Validate button in the developer portal, showing the option to validate the customization file before proceeding.":::
  
-1. Check the dev box creation summary and select **Create**.
+1. Review the dev box creation summary, and then select **Create**.
      
     :::image type="content" source="media/how-to-write-individual-customization-file/customized-dev-box-create.png" alt-text="Screenshot of the dev box creation summary page in the developer portal, showing the option to create a customized dev box."::: 
 
@@ -118,7 +121,7 @@ Customization files stored in a repository must be called workload.yaml. Customi
 
    :::image type="content" source="media/how-to-write-individual-customization-file/customize-dev-box-validate.png" alt-text="Screenshot of the Validate button in the developer portal, showing the option to validate the customization file before proceeding.":::
  
-1. Check the dev box creation summary and select **Create**.
+1. Review the dev box creation summary, and then select **Create**.
      
     :::image type="content" source="media/how-to-write-individual-customization-file/customized-dev-box-create.png" alt-text="Screenshot of the dev box creation summary page in the developer portal, showing the option to create a customized dev box."::: 
 
