@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 04/16/2025
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
@@ -16,10 +16,10 @@ Azure NetApp Files supports NFS client encryption in Kerberos modes (krb5, krb5i
 
 The following requirements apply to NFSv4.1 client encryption: 
 
-* Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services connection to facilitate Kerberos ticketing 
+* Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services connection to facilitate Kerberos ticketing
 * DNS A/PTR record creation for both the client and Azure NetApp Files NFS server IP addresses
-* A Linux client: This article provides guidance for RHEL and Ubuntu clients.  Other clients will work with similar configuration steps. 
-* NTP server access: You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
+* **A Linux client:** This article provides guidance for RHEL and Ubuntu clients. Other clients also work with similar configuration steps. 
+* **NTP server access:** You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
 * To leverage Domain or LDAP user authentication, ensure that NFSv4.1 volumes are enabled for LDAP. See [Configure ADDS LDAP with extended groups](configure-ldap-extended-groups.md).
 * Ensure that User Principal Names for user accounts do *not* end with a `$` symbol (for example, user$@REALM.COM). <!-- Not using 'contoso.com' in this example; per Mark, A customers REALM namespace may be different from their AD domain name space. -->   
     For [Group managed service accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts) (gMSA), you need to remove the trailing `$` from the User Principal Name before the account can be used with the Azure NetApp Files Kerberos feature.
@@ -28,10 +28,10 @@ The following requirements apply to NFSv4.1 client encryption:
 
 1.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create the NFSv4.1 volume.   
 
-    On the Create a Volume page, set the NFS version to **NFSv4.1**, and set Kerberos to **Enabled**.
+    On the Create a volume page, set the NFS version to **NFSv4.1** and set Kerberos to **Enabled**.
 
     > [!IMPORTANT] 
-    > You cannot modify the Kerberos enablement selection after the volume is created.
+    > You can't modify the Kerberos enablement selection after the volume is created.
 
     ![Create NFSv4.1 Kerberos volume](./media/configure-kerberos-encryption/create-kerberos-volume.png)  
 
@@ -41,31 +41,29 @@ The following requirements apply to NFSv4.1 client encryption:
 
     You can also modify the Kerberos security methods for the volume by clicking Export Policy in the Azure NetApp Files navigation pane.
 
-3.	Click **Review + Create** to create the NFSv4.1 volume.
+3.	Select **Review + Create** to create the NFSv4.1 volume.
 
 ## Configure the Azure portal 
 
 1.	Follow the instructions in [Create an Active Directory connection](create-active-directory-connections.md).  
 
-    Kerberos requires that you create at least one computer account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine is account is created automatically during volume creation.
+    Kerberos requires that you create at least one computer account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine account is created automatically during volume creation.
 
 2.	Under **Kerberos Realm**, enter the **AD Server Name** and the **KDC IP** address.
 
-    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files will use DNS Server records to locate additional KDC servers as needed. 
+    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files uses DNS Server records to locate additional KDC servers as needed. 
 
     ![Kerberos Realm](./media/configure-kerberos-encryption/kerberos-realm.png)
  
-3.	Click **Join** to save the configuration.
+3.	Select **Join** to save the configuration.
 
 ## Configure Active Directory connection 
 
 Configuration of NFSv4.1 Kerberos creates two computer accounts in Active Directory:
 * A computer account for SMB shares
-* A computer account for NFSv4.1--You can identify this account by way of the prefix `NFS-`. 
+* A computer account for NFSv4.1--You can identify this account by using the prefix `NFS-`. 
 
-After creating the first NFSv4.1 Kerberos volume, set the encryption type for the computer account by using the following PowerShell command:
-
-`Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
+After creating the first NFSv4.1 Kerberos volume, set the encryption type for the computer account with the PowerShell command `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`.
 
 ## Configure the NFS client 
 
@@ -100,7 +98,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## <a name="kerberos_performance"></a>Performance impact of Kerberos on NFSv4.1 
 
-You should understand the security options available for NFSv4.1 volumes, the tested performance vectors, and the expected performance impact of kerberos. See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for details.  
+You should understand the security options available for NFSv4.1 volumes, the tested performance vectors, and the expected performance impact of kerberos. For detailed information, see [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md).  
 
 ## Next steps  
 

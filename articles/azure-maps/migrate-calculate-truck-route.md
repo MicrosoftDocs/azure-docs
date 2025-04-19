@@ -151,7 +151,7 @@ The following table lists the fields that can appear in the HTTP response when r
 |------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | actualEnd              | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = last_ defines the routable end location.                              |
 | actualStart            | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = 0_ defines the routable start location.                               |
-| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
+| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure Maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
 | compassDegrees         | Not supported             |                                                                                                                                     |
 | compassDirection       | Not supported             |                                                                                                                                     |
 | description            | Not supported             |                                                                                                                                     |

@@ -40,7 +40,7 @@ landingContent:
           - text: Provisioning
             url: migrate-to-azure-container-apps-provision.md
           - text: App containerization
-            url: migrate-to-azure-container-apps-build-overview.md
+            url: containerization-overview.md
           - text: Application
             url: migrate-to-azure-container-apps-application-overview.md
           - text: Network

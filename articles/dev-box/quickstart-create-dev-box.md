@@ -94,4 +94,6 @@ When you no longer need your dev box, you can delete it:
 
 In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
 
+- Find out [What's new in Microsoft Dev Box](https://aka.ms/devbox/WhatsNew)
+- Discover what's coming up next in Microsoft Dev Box: [Microsoft Dev Box roadmap](dev-box-roadmap.md)
 - Learn how to [Manage a dev box by using the Microsoft Dev Box developer portal](how-to-create-dev-boxes-developer-portal.md)

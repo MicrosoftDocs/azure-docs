@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 11/12/2024
+ms.date: 04/16/2025
 ms.custom:
 ---
 
@@ -19,19 +19,19 @@ Set up a [workspace](workspaces-overview.md) to enable an API team to manage and
 
 Follow the steps in this article to:
 
-* Create an API Management workspace and a workspace gateway using the Azure portal
+* Create an API Management workspace and associate a workspace gateway using the Azure portal
 * Optionally, isolate the workspace gateway in an Azure virtual network
 * Assign permissions to the workspace
 
 > [!NOTE]
 > * Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
-> * We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
+> * Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 15, 2025. [Learn more about shared workspace gateways](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
-* (Optional) An existing or new Azure virtual network and subnet to isolate the workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+* (Optional) A subnet in a new or existing Azure virtual network to isolate the workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
     
 ## Create a workspace - portal
 
@@ -41,20 +41,26 @@ Follow the steps in this article to:
 
 1. On the **Basics** tab, enter a descriptive **Display name**, resource **Name**, and optional **Description** for the workspace. Select **Next**.
 
-1. On the **Gateway** tab, configure settings for the workspace gateway:
+1. On the **Gateway** tab, configure settings for the workspace gateway.
 
-    * In **Gateway details**, enter a gateway name and select the number of scale **Units**. The gateway costs are based on the number of units you select. For more information, see [API Management pricing](https://aka.ms/apimpricing).
+    :::image type="content" source="media/how-to-create-workspace/create-workspace-gateway.png" alt-text="Screenshot of creating a workspace gateway in the portal.":::
 
-    * In **Network**, select a **Network configuration** for your workspace gateway. 
+    * Select **Create new** to create a new workspace gateway, or select **Use existing** to associate the workspace with an existing gateway that has other workspaces deployed on it.
 
-        > [!IMPORTANT]
-        > Plan your workspace's network configuration carefully. You can't change the network configuration after you create the workspace.
+    * If you choose to create a new gateway:
+        * In **Gateway details**, enter a new gateway name and select the number of scale **Units**. The gateway costs are based on the number of units. For more information, see [API Management pricing](https://aka.ms/apimpricing).
 
-    * If you select a network configuration that includes private inbound or private outbound network access, select a **Virtual network** and **Subnet** to isolate the workspace gateway, or create a new one. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
-
+        * In **Network**, select a **Network configuration** for your workspace gateway. 
+    
+          > [!IMPORTANT]
+          > Plan your workspace's network configuration carefully. You can't change the network configuration after you create the workspace.
+    
+        * If you select a network configuration that includes private inbound or private outbound network access, select a **Virtual network** and **Subnet** to isolate the workspace gateway, or create a new one. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+    
 1. Select **Next**. After validation completes, select **Create**.
 
-It can take from several minutes to up to several hours to create the workspace, workspace gateway, and related resources. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
+    > [!NOTE]
+    > Creation of a new workspace gateway, if selected, can take up to several hours to complete. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
 
 After the deployment completes, the new workspace appears in the list on the **Workspaces** page. Select the workspace to manage its settings and resources.
 

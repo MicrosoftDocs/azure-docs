@@ -8,11 +8,8 @@ metadata:
   description: Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
   ms.service: azure
   ms.topic: hub-page
-  ms.author: prwilk
-  author: PageWriter-MSFT
   ms.date: 03/11/2025
   adobe-target: true
-  ms.custom: migration
 
 productDirectory:
   title: Discover top picks
@@ -222,6 +219,9 @@ additionalContent:
     - title: Read migration blogs and articles from community members
       summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
       items:
+        - summary: We recently walked through a real-world migration of a typical web app from AWS EKS to Azure AKS, and while the containers came over cleanly, the supporting architecture required some careful rework.
+          title: "Migrating from EKS to AKS: What Actually Matters"
+          url: https://techcommunity.microsoft.com/blog/azuremigrationblog/migrating-from-eks-to-aks-what-actually-matters/4403067
         - summary: Boost your growth and access more customers by replicating your AWS app to Azure and selling through Azure Marketplace.
           title: "Embracing the multicloud advantage: a guide to replicating your app from AWS to Azure"
           url: https://techcommunity.microsoft.com/blog/marketplace-blog/embracing-the-multicloud-advantage-a-guide-to-replicating-your-app-from-aws-to-a/4385153
@@ -231,6 +231,4 @@ additionalContent:
         - summary: "A three-step process for secure migration to Azure: Establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience."
           title: "Mastering secure migration: Essentials for modernizing and innovating on Azure"
           url: https://techcommunity.microsoft.com/blog/azuremigrationblog/mastering-secure-migration-essentials-for-modernizing-and-innovating-on-azure/4284215
-        - summary: The Azure Migration Blog on Microsoft's Tech Community provides insights, best practices, and resources for organizations looking to migrate their workloads to Azure effectively and securely.
-          title: Azure Migration and Modernization Blog
-          url: https://techcommunity.microsoft.com/category/azure/blog/azuremigrationblog
+

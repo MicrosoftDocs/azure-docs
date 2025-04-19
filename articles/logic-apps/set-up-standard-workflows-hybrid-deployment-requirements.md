@@ -432,7 +432,6 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 > If you want to deploy to AKS on Azure Local, before you create and 
 > install the Azure Container Apps extension, make sure that you 
 > [set up **HAProxy** or a custom load balancer](/azure/aks/hybrid/configure-load-balancer). 
-> Also, make sure that you 
 
 1. Set the following environment variables to the following values:
    

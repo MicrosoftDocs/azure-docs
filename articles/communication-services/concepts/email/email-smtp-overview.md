@@ -1,7 +1,7 @@
 ---
 title: Email SMTP support in Azure Communication Services
 titleSuffix: An Azure Communication Services concept article
-description: Learn about how email SMTP support in Azure Communication Services offers a strategic solution for the sending of emails.
+description: This article describes how email Simple Mail Transfer Protocol (SMTP) support in Azure Communication Services offers a strategic solution for the sending of emails.
 author: bashan-git
 manager: darmour
 services: azure-communication-services
@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 Email is still a vital channel for global businesses to connect with customers. It's an essential part of business communications.
 
-Many businesses made large investments in on-premises infrastructures to support the strong SMTP email needs of their line-of-business (LOB) applications. Delivering and securing outgoing emails from these existing LOB applications can be challenging. As outgoing emails become more numerous and important, the difficulties of managing this critical aspect of communication become more obvious. Organizations often face problems such as email deliverability, security risks, and the need for centralized control over outgoing communications.
+Many businesses made large investments in on-premises infrastructures to support the strong Simple Mail Transfer Protocol (SMTP) email needs of their line-of-business (LOB) applications. Delivering and securing outgoing emails from these existing LOB applications can be challenging. As outgoing emails become more numerous and important, the difficulties of managing this critical aspect of communication become more obvious. Organizations often face problems such as email deliverability, security risks, and the need for centralized control over outgoing communications.
 
 Email SMTP support in Azure Communication Services offers a strategic solution to simplify the sending of emails, strengthen security features, and unify control over outbound communications. As a bridge between email clients and mail servers, SMTP support improves the effectiveness of email delivery. It creates a specialized relay infrastructure that not only increases the chances of successful email delivery but also enhances authentication to help secure communication. In addition, this capability provides business with a centralized platform to manage outgoing emails for all business-to-consumer (B2C) communications and gain insights into email traffic.
 
@@ -40,7 +40,7 @@ Email SMTP support in Azure Communication Services offers a strategic solution t
 - [Configure SMTP authentication with an Azure Communication Services resource](../../quickstarts/email/send-email-smtp/smtp-authentication.md)  
 - [Send email by using SMTP](../../quickstarts/email/send-email-smtp/send-email-smtp.md)
 
-The following documents might be interesting to you:
+## Related articles
 
 - Familiarize yourself with [email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md).
 - Learn how to send emails with [custom verified domains](../../quickstarts/email/add-custom-verified-domains.md).

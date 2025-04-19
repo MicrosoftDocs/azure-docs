@@ -1,6 +1,6 @@
 ---
-title:  Microsoft Azure Maps Weather services coverage
-description: Learn about Microsoft Azure Maps Weather services coverage
+title:  Microsoft Azure Maps Weather service coverage
+description: Learn about Microsoft Azure Maps Weather service coverage
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 11/08/2022
@@ -10,9 +10,9 @@ ms.subservice: weather
 ms.custom: references_regions
 ---
 
-# Azure Maps weather services coverage
+# Azure Maps Weather service coverage
 
-This article provides coverage information for Azure Maps [Weather services].
+This article provides coverage information for Azure Maps [Weather service].
 
 ## Weather information supported
 
@@ -329,14 +329,14 @@ Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Weather services in Azure Maps]
+> [Weather service in Azure Maps]
 
 > [!div class="nextstepaction"]
-> [Azure Maps weather services frequently asked questions (FAQ)]
+> [Azure Maps Weather service frequently asked questions (FAQ)]
 
 [active storms]: /rest/api/maps/weather/get-tropical-storm-active
 [Actuals]: /rest/api/maps/weather/get-daily-historical-actuals
-[Azure Maps weather services frequently asked questions (FAQ)]: weather-services-faq.yml
+[Azure Maps Weather service frequently asked questions (FAQ)]: weather-services-faq.yml
 [current]: /rest/api/maps/weather/get-current-air-quality
 [daily]: /rest/api/maps/weather/get-air-quality-daily-forecasts
 [forecasts]: /rest/api/maps/weather/get-tropical-storm-forecast
@@ -354,5 +354,5 @@ Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned
 [Records]: /rest/api/maps/weather/get-daily-historical-records
 [search]: /rest/api/maps/weather/get-tropical-storm-search
 [Severe weather alerts]: /rest/api/maps/weather/get-severe-weather-alerts
-[Weather services in Azure Maps]: weather-services-concepts.md
-[Weather services]: /rest/api/maps/weather
+[Weather service in Azure Maps]: weather-services-concepts.md
+[Weather service]: /rest/api/maps/weather

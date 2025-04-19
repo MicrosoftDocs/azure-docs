@@ -15,6 +15,8 @@ This quickstart shows you how to create a Pure Storage Cloud (preview) resource 
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 - You must [Subscribe to Azure Native Pure Storage Cloud (preview)](overview.md#subscribe-to-azure-native-pure-storage-cloud-preview)
+- A dedicated [subnet](../../virtual-network/manage-subnet-delegation.md) delegated to `PureStorage.Block/storagePools`. The subnet must be named *GatewaySubnet* and requires a minimum size of **/27**.
+- An [Azure VMware solution](../../azure-vmware/tutorial-create-private-cloud.md). All hosts must be in the same Host Location within the same Azure Subscription. 
 
 ## Create a resource
 
@@ -71,4 +73,4 @@ There are required fields that you need to fill out.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage Azure Native Pure Storage resources (preview)](manage.md)
+> [Manage Azure Native Pure Storage (preview) resources](manage.md)

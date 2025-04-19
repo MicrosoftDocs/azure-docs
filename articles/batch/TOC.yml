@@ -120,6 +120,8 @@
       href: batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md
     - name: Low-priority virtual machines
       href: low-priority-vms-retirement-migration-guide.md
+    - name: Classic compute node communication model
+      href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -155,7 +157,7 @@
       href: credential-access-key-vault.md
     - name: Role-based access control for Azure Batch service
       displayName: rbac, access control
-      href: batch-role-based-access-control.md      
+      href: batch-role-based-access-control.md
   - name: Copy files and applications to pool nodes
     items:
     - name: Copying applications and data to pool nodes
@@ -232,7 +234,7 @@
       displayName: release, job release
       href: batch-job-prep-release.md
     - name: Configure Container Data Isolation Task
-      href: batch-container-isolation-task.md  
+      href: batch-container-isolation-task.md
     - name: Concurrent node tasks
       displayName: variable, maximize
       href: batch-parallel-node-tasks.md

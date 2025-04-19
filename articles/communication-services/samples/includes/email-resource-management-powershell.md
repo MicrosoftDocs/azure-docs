@@ -12,11 +12,11 @@ ms.service: azure-communication-services
 ms.custom: include files
 ---
 
-Get started with Azure PowerShell to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains, and domain linking to communication resource.
+Get started with Azure PowerShell to automate the creation of Azure Communication Services, Email Communication Services, manage custom domains, configure DNS records, verify domains, and domain linking to communication resource.
 
-In this sample, we cover what the sample does and the prerequisites you need before running it locally on your machine.
+In this sample, we describe what the sample does and the prerequisites you need before running it locally on your machine.
 
-This documentation provides a detailed guide on using Azure PowerShell to automate the creation of Azure Communication Services (ACS) and Email Communication Services (ECS). It also covers the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
+This article describes how to use Azure PowerShell to automate the creation of Azure Communication Services and Email Communication Services. It also describes the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains, and domain linking to communication resource.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ This documentation provides a detailed guide on using Azure PowerShell to automa
 
 ## Prerequisite check
 
-- In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether the PowerShell is installed or not.
+- In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether PowerShell is installed.
 
 ## Initialize all the Parameters
 
@@ -35,10 +35,10 @@ Before proceeding, define the variables needed for setting up the ACS, ECS, and 
 ```azurepowershell-interactive
 # Parameters for configuration
 
-# Define the name of the Azure resource group where resources will be created
+# Define the name of the Azure resource group where resources are created
 $resourceGroup = "ContosoResourceProvider1"
 
-# Specify the region where the resources will be created
+# Specify the region where the resources are created
 $dataLocation = "United States"
 
 # Define the name of the Azure Communication Service resource
@@ -47,7 +47,7 @@ $commServiceName = "ContosoAcsResource1"
 # Define the name of the Email Communication Service resource
 $emailServiceName = "ContosoEcsResource1"
 
-# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+# Define the DNS zone name where the domains are managed (replace with actual DNS zone)
 $dnsZoneName = "contoso.net"
 
 # Define the list of domains to be created and managed (replace with your own list of domains)
@@ -62,7 +62,7 @@ $domains = @(
 
 ## Connect to Azure Account
 
-Before performing any actions with Azure resources, authenticate using the `Connect-AzAccount` cmdlet. This process allows you to log in and authenticate your Azure account for further tasks:
+Before performing any actions with Azure resources, authenticate using the `Connect-AzAccount` cmdlet. This process enables you to sign in and authenticate your Azure account for further tasks:
 
 ```azurepowershell-interactive
 # Attempt to authenticate the Azure session using the Connect-AzAccount cmdlet
@@ -139,14 +139,14 @@ Automate domain creation, configuration, and DNS record setup (including Domain,
 ```azurepowershell-interactive
 # Loop through each domain in the predefined list of domains to create and configure them
 foreach ($domainName in $domains){
-    # Extract the subdomain prefix from the fully qualified domain name (e.g., "sales" from "sales.contoso.net")
+    # Extract the subdomain prefix from the fully qualified domain name (for example: "sales" from "sales.contoso.net")
     $subDomainPrefix = $domainName.split('.')[0]
 
     # Output the domain name that is being created
     Write-Host "Creating domain: $domainName"
     try {
         # Attempt to create the domain in the Email Communication Service resource
-        # The "CustomerManaged" option means that the domain management will be done by the customer
+        # The "CustomerManaged" option means that the domain management is handled by the customer
         New-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName -DomainManagement "CustomerManaged"
     }
     catch {
@@ -155,11 +155,11 @@ foreach ($domainName in $domains){
         continue
     }
 
-    # Wait for 5 seconds before proceeding to allow time for the domain creation to be processed
+    # Wait for 5 seconds before proceeding to provide time for the domain creation to be processed
     Start-Sleep -Seconds 5
 
     # Retrieve the domain details after creation
-    # The domain details will be used during the DNS record setting request
+    # The domain details are used during the DNS record setting request
     $domainDetailsJson = Get-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
     
@@ -214,7 +214,7 @@ function Add-DkimRecord {
             # Retrieve the newly created record set to add the record value
             $recordSet = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $recordName -RecordType $recordType
             
-            # Add the provided record value to the newly created record set (e.g., CNAME)
+            # Add the provided record value to the newly created record set (such as CNAME)
             Add-AzDnsRecordConfig -RecordSet $recordSet -Cname $recordValue
             
             # Apply the changes and save the updated record set back to Azure DNS
@@ -369,10 +369,10 @@ else {
 ```azurepowershell-interactive
 # Parameters for configuration
 
-# Define the name of the Azure resource group where resources will be created
+# Define the name of the Azure resource group where resources are created
 $resourceGroup = "ContosoResourceProvider1"
 
-# Specify the region where the resources will be created
+# Specify the region where the resources are created
 $dataLocation = "United States"
 
 # Define the name of the Azure Communication Service resource
@@ -381,7 +381,7 @@ $commServiceName = "ContosoAcsResource1"
 # Define the name of the Email Communication Service resource
 $emailServiceName = "ContosoEcsResource1"
 
-# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+# Define the DNS zone name where the domains are managed (replace with actual DNS zone)
 $dnsZoneName = "contoso.net"
 
 # Define the list of domains to be created and managed (replace with your own list of domains)
@@ -532,7 +532,7 @@ function Verify-Domain {
 # Function to poll for domain verification
 
 # This function checks the verification status of a domain, including Domain, SPF, DKIM, and DKIM2.
-# It will keep checking the verification status at regular intervals (defined by $delayBetweenAttempts)
+# It keeps checking the verification status at regular intervals (defined by $delayBetweenAttempts)
 # until the domain is verified or the maximum number of attempts ($maxAttempts) is reached.
 function Poll-ForDomainVerification {
     param (
@@ -633,14 +633,14 @@ $linkedDomainIds = @()
 # Create domains and DNS records
 # Loop through each domain in the predefined list of domains to create and configure them
 foreach ($domainName in $domains){
-    # Extract the subdomain prefix from the fully qualified domain name (e.g., "sales" from "sales.contoso.net")
+    # Extract the subdomain prefix from the fully qualified domain name (for example: "sales" from "sales.contoso.net")
     $subDomainPrefix = $domainName.split('.')[0]
 
     # Output the domain name that is being created
     Write-Host "Creating domain: $domainName"
     try {
         # Attempt to create the domain in the Email Communication Service resource
-        # The "CustomerManaged" option means that the domain management will be done by the customer
+        # The "CustomerManaged" option means that the domain management is handled by the customer
         New-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName -DomainManagement "CustomerManaged"
     }
     catch {
@@ -649,7 +649,7 @@ foreach ($domainName in $domains){
         continue
     }
 
-    # Wait for 5 seconds before proceeding to allow time for the domain creation to be processed
+    # Wait for 5 seconds before proceeding to provide time for the domain creation to be processed
     Start-Sleep -Seconds 5
 
     # Retrieve the domain details after creation

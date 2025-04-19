@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 01/13/2025
+ms.date: 04/17/2025
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021

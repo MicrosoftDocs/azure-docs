@@ -8,7 +8,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/13/2024
+ms.date: 04/16/2025
 ---
 
 # Point-in-time key-values
@@ -141,7 +141,7 @@ For more examples and optional parameters, go to the [Azure CLI documentation](/
 
 ---
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)

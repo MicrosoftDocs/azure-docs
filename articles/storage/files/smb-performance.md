@@ -194,7 +194,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 Supported regions:
 
-- Asia East
+- East Asia 
 - Australia Central
 - Australia East
 - Australia Southeast
@@ -203,9 +203,9 @@ Supported regions:
 - Canada East
 - France Central
 - Germany West Central
-- India Central
-- India South
-- India West
+- Central India
+- South India
+- West India 
 - Italy North
 - Jio India West
 - Korea South
@@ -218,10 +218,11 @@ Supported regions:
 - Sweden Central
 - Switzerland North
 - UAE North
-- US South
-- US West 2
-- US West 3
-- US West Central
+- South Central US 
+- West US 2
+- West US 3
+- West Central US
+- UK West
 
 ### Performance improvements with metadata caching
 

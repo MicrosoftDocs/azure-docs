@@ -109,7 +109,7 @@ int main(void)
     // for extended periods of time when using DPS.
     else if ((deviceClient = CreateAndConfigureDeviceClientHandleForPnP()) == NULL)
     {
-        LogError("Failure creating Iot Hub device client");
+        LogError("Failure creating IoT Hub device client");
         PnP_ThermostatComponent_Destroy(g_thermostatHandle1);
         PnP_ThermostatComponent_Destroy(g_thermostatHandle2);
     }

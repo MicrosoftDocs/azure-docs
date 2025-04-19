@@ -56,7 +56,7 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 ### Operating system and domain prerequisites
 
-The following prerequisites are required for the standard Microsoft Entra Kerberos authentication flow as described in this article. If some or all of your client machines don't meet these, you can still enable Microsoft Entra Kerberos authentication, but you'll also need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
+The following prerequisites are required for the standard Microsoft Entra Kerberos authentication flow as described in this article. If some or all of your client machines don't meet these, you can still enable Microsoft Entra Kerberos authentication for SMB file shares, but you'll also need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
 
 Operating system requirements:
 

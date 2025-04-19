@@ -91,7 +91,7 @@ landingContent:
       - linkListType: how-to-guide  
         links:
           - text: Manage network security group flow logs
-            url: nsg-flow-logs-portal.md
+            url: nsg-flow-logs-manage.md
           - text: Manage virtual network flow logs
             url: vnet-flow-logs-manage.md
 
