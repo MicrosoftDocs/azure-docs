@@ -95,7 +95,7 @@ Use the following step-by-step instructions to deploy the Crowdstrike Falcon Dat
 **2. Deploy a Function App**
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-CrowdstrikeReplicatorV2-functionapp) file. Extract archive to your local development computer.
-2. Follow the [function app manual deployment instructions](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AzureFunctionsManualDeployment.md#function-app-manual-deployment-instructions) to deploy the Azure Functions app using VSCode.
+2. Follow the [function app manual deployment instructions](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AzureFunctionsManualDeployment.md#function-app-manual-deployment-instructions) to deploy the Azure Functions app using VS Code.
 3. After successful deployment of the function app, follow next steps for configuring it.
 
 

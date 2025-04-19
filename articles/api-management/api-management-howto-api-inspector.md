@@ -93,11 +93,11 @@ Detailed steps follow.
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/managed/listDebugCredentials?api-version=2023-05-01-preview
     ```
     
-    In the request body, pass the full resource ID of the API that you want to trace, and specify `purposes` as `tracing`. By default the token credential returned in the response expires after 1 hour, but you can specify a different value in the payload. For example:
+    In the request body, pass the full resource ID of the API that you want to trace, and specify `purposes` as `tracing`. By default the token credential returned in the response expires after 1 hour, but you can specify a different value in the payload. Note that the expiry time is limited to a maximum of 1 hour. For example:
 
     ```json
     {
-        "credentialsExpireAfter": PT1H,
+        "credentialsExpireAfter": "PT1H",
         "apiId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
         "purposes": ["tracing"]
     }

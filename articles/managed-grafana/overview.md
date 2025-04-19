@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: overview 
-ms.date: 04/25/2024
+ms.date: 04/16/2025
 --- 
 
 # What is Azure Managed Grafana?
@@ -66,7 +66,8 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 
 Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create an Azure Managed Grafana workspace using the Azure portal](./quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure portal](quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure CLI](quickstart-managed-grafana-cli.md)
+- [Frequently asked questions](faq.md)

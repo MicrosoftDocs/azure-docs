@@ -10,7 +10,7 @@ metadata:
     - ignite-2024
 
 
-  ms.date: 03/11/2025
+  ms.date: 04/14/2025
   appliesto:
     - ✅ Azure Cache for Redis
 
@@ -76,10 +76,10 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Managed Redis?
-            url: ../redis/overview.md
+            url: /azure/redis/overview
           - text: What's new?
-            url: ../redis/whats-new.md
+            url: /azure/redis/whats-new
           - text: Azure Managed Redis architecture
-            url: ../redis/architecture.md
+            url: /azure/redis/architecture
           - text: Moving to Azure Managed Redis from Azure Cache for Redis
-            url: ../redis/migrate/migrate-overview.md
+            url: /azure/redis/migrate/migrate-overview

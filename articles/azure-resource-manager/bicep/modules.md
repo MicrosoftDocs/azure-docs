@@ -65,15 +65,23 @@ Use the symbolic name to reference the module in another part of the Bicep file.
 
 The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM template for JSON. For more information, see [Path to a module](#path-to-a-module).
 
-The `name` property is required. It becomes the name of the nested deployment resource in the generated template.
+The `name` property is optional. It becomes the name of the nested deployment resource in the generated template. If no name is provided, a GUID will be generated as the name for the nested deployment resource.
 
-If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and are targeted to the same resource group, one deployment might show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name.
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and are targeted to the same resource group, one deployment might show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name. Another way to ensure unique module names is to leave out the `name` property, an unique module name will be generated automatically.
 
 The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
 
 ```bicep
 module stgModule 'storageAccount.bicep' = {
   name: '${deployment().name}-storageDeploy'
+  scope: resourceGroup('demoRG')
+}
+```
+
+Not providing any module name is also valid. A GUID will be generate as the module name.
+
+```bicep
+module stgModule 'storageAccount.bicep' = {
   scope: resourceGroup('demoRG')
 }
 ```

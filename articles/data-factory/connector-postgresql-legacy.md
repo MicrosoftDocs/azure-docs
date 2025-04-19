@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/26/2025
+ms.date: 04/14/2025
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL V1 using Azure Data Factory or Synapse Analytics 
@@ -15,7 +15,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The [PostgreSQL V2 connector](connector-postgresql.md) provides improved native PostgreSQL support. If you are using the [PostgreSQL V1 connector](connector-postgresql-legacy.md) in your solution, please [upgrade your PostgreSQL connector](connector-postgresql.md#upgrade-the-postgresql-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](connector-postgresql.md#differences-between-postgresql-and-postgresql-legacy) for details on the difference between V2 and V1.
+> The [PostgreSQL V2 connector](connector-postgresql.md) provides improved native PostgreSQL support. If you are using the [PostgreSQL V1 connector](connector-postgresql-legacy.md) in your solution, please [upgrade your PostgreSQL connector](connector-postgresql.md#upgrade-the-postgresql-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** (Disabled date) if not upgraded. Refer to this [section](connector-postgresql.md#differences-between-postgresql-and-postgresql-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 

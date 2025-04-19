@@ -15,7 +15,7 @@ ms.author: ruxu
 
 [!INCLUDE [appliesto-adf-asa-md](../data-factory/includes/appliesto-adf-asa-md.md)]
 
-The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
+The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 ## Create a Synapse notebook activity
 
@@ -27,20 +27,21 @@ Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipelin
 
 If you select an existing notebook from the current workspace, you can click the **Open** button to directly open the notebook's page.
 
-(Optional) You can also reconfigure Spark pool\Executor size\Dynamically allocate executors\Min executors\Max executors\Driver size in settings. It should be noted that the settings reconfigured here will replace the settings of the configure session in Notebook. If nothing is set in the settings of the current notebook activity, it will run with the settings of the configure session in that notebook.
+(Optional) You can also reconfigure Spark pool\Executor size\Dynamically allocate executors\Min executors\Max executors\Driver size\Authentication in settings. It should be noted that the settings reconfigured here will replace the settings of the configure session in Notebook. If nothing is set in the settings of the current notebook activity, it will run with the settings of the configure session in that notebook.
 
 > [!div class="mx-imgBorder"]
 > ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
 
 
 |  Property   | Description   |  Required   |
-| ----- | ----- | ----- |  
+| ----- | ----- | ----- |
 |Spark pool| Reference to the Spark pool. You can select Apache Spark pool from the list. If this setting is empty, it will run in the spark pool of the notebook itself.| No |
 |Executor size| Number of cores and memory to be used for executors allocated in the specified Apache Spark pool for the session.| No |
 |Dynamically allocate executors| This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation.| No |
 |Min executors| Min number of executors to be allocated in the specified Spark pool for the job.| No |
 |Max executors| Max number of executors to be allocated in the specified Spark pool for the job.| No |
 |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.| No |
+|Authentication| Can authenticate using either a system-assigned managed identity or a user-assigned managed identity.| No |
 
 > [!NOTE]
 > The execution of parallel Spark Notebooks in Azure Synapse pipelines be queued and executed in a FIFO manner, jobs order in the queue is according to the time sequence, the expire time of a job in the queue is 3 days, please notice that queue for notebook only work in synapse pipeline.

@@ -3,7 +3,7 @@ title: 'Invoke an OpenAPI App Service web app from Azure AI Agent Service'
 description: Learn how to integrate App Service with AI Agent Service and get started with agentic AI
 author: seligj95
 ms.author: jordanselig
-ms.date: 02/19/2025
+ms.date: 04/17/2025
 ms.topic: article
 ms.custom: devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot

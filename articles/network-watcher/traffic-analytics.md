@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/31/2024
+ms.date: 04/14/2025
 ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
@@ -74,7 +74,7 @@ To use traffic analytics, you need the following components:
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information, see [Network security group flow logs overview](nsg-flow-logs-overview.md) and [Create a network security group flow log](nsg-flow-logs-portal.md#create-a-flow-log).
+      For more information, see [Network security group flow logs overview](nsg-flow-logs-overview.md) and [Create a network security group flow log](nsg-flow-logs-manage.md#create-a-flow-log).
     
     - **Virtual network (VNet)**: A resource that enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. For more information, see [Virtual network overview](../virtual-network/virtual-networks-overview.md?toc=/azure/network-watcher/toc.json).
     
@@ -87,17 +87,7 @@ To use traffic analytics, you need the following components:
       For more information, see [Virtual network flow logs overview](vnet-flow-logs-overview.md) and [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log). To learn about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs). 
 
 > [!NOTE]
-> To use Traffic analytics, you must assign one of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) to your account:
-> 
-> | Deployment model | Role |
-> | ---------------- | ---- |
-> | Resource Manager | [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner) |
-> |                  | [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor) |
-> |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) |
-> 
-> <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
-> 
->  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Flow logs](required-rbac-permissions.md#flow-logs) and [Traffic analytics](required-rbac-permissions.md#traffic-analytics) permissions.
+> To use Traffic analytics, you must have the required permissions. For more information, see [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
 
 ## How traffic analytics works
 
@@ -113,107 +103,7 @@ Reduced logs are enhanced with geography, security, and topology information and
 
 The following tables list the supported regions where you can enable traffic analytics for your flow logs and the Log Analytics workspaces that you can use.
 
-# [North America / South America](#tab/Americas)
-
-> [!div class="mx-tableFixed"]
-> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
-> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
-> | Brazil South | ✓ | ✓ | ✓ | ✓ |
-> | Brazil Southeast | ✓ | ✓ | ✓ | ✓ |
-> | Canada Central | ✓ | ✓ | ✓ | ✓ |
-> | Canada East | ✓ | ✓ | ✓ | ✓ |
-> | Central US | ✓ | ✓ | ✓ | ✓ |
-> | East US | ✓ | ✓ | ✓ | ✓ |
-> | East US 2 | ✓ | ✓ | ✓ | ✓ |
-> | Mexico Central | ✓ | ✓ | ✓ |  |
-> | North Central US | ✓ | ✓ | ✓ | ✓ |
-> | South Central US | ✓ | ✓ | ✓ | ✓ |
-> | West Central US | ✓ | ✓ | ✓ | ✓ |
-> | West US | ✓ | ✓ | ✓ | ✓ |
-> | West US 2 | ✓ | ✓ | ✓ | ✓ |
-> | West US 3 | ✓ | ✓ | ✓ | ✓ |
-
-# [Europe](#tab/Europe)
-
-> [!div class="mx-tableFixed"]
-> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
-> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
-> | France Central | ✓ | ✓ | ✓ | ✓ |
-> | France South | ✓ | ✓ |  |  |
-> | Germany North| ✓ | ✓ | ✓ | ✓ |
-> | Germany West Central | ✓ | ✓ | ✓ | ✓ |
-> | Italy North | ✓ | ✓ | ✓ | ✓ |
-> | North Europe | ✓ | ✓ | ✓ | ✓ |
-> | Norway East | ✓ | ✓ | ✓ | ✓ |
-> | Norway West | ✓ | ✓ |  | ✓ |
-> | Poland Central | ✓ | ✓ | ✓ | ✓ |
-> | Spain Central | ✓ | ✓ | ✓ |  |
-> | Sweden Central | ✓ | ✓ | ✓ | ✓ |
-> | Switzerland North | ✓ | ✓ | ✓ | ✓ |
-> | Switzerland West | ✓ | ✓ | ✓ | ✓ |
-> | UK South | ✓ | ✓ | ✓ | ✓ |
-> | UK West | ✓ | ✓ | ✓ | ✓ |
-> | West Europe | ✓ | ✓ | ✓ | ✓ |
-
-# [Australia / Asia / Pacific](#tab/APAC)
-
-> [!div class="mx-tableFixed"]
-> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
-> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
-> | Australia Central | ✓ | ✓ | ✓ | ✓ |
-> | Australia Central 2 | ✓ | ✓ |  | ✓ |
-> | Australia East | ✓ | ✓ | ✓ | ✓ |
-> | Australia Southeast | ✓ | ✓ | ✓ | ✓ |
-> | Central India | ✓ | ✓ | ✓ | ✓ |
-> | China East | ✓ | ✓ |  |  |
-> | China East 2 | ✓ | ✓ | ✓ | ✓ |
-> | China East 3 | ✓ | ✓ | ✓ |  |
-> | China North | ✓ | ✓ | ✓ | ✓ |
-> | China North 2 | ✓ | ✓ | ✓ | ✓ |
-> | China North 3 | ✓ | ✓ | ✓ |  |
-> | East Asia | ✓ | ✓ | ✓ | ✓ |
-> | Japan East | ✓ | ✓ | ✓ | ✓ |
-> | Japan West | ✓ | ✓ | ✓ | ✓ |
-> | Jio India Central |  |  |  | ✓ |
-> | Jio India West | ✓ | ✓ | ✓ | ✓ |
-> | Korea Central | ✓ | ✓ | ✓ | ✓ |
-> | Korea South | ✓ | ✓ | ✓ | ✓ |
-> | South India | ✓ | ✓ | ✓ | ✓ |
-> | Southeast Asia | ✓ | ✓ | ✓ | ✓ |
-> | Taiwan North | ✓ | ✓ | ✓ |  |
-> | Taiwan Northwest | ✓ | ✓ |  |  |
-> | West India | ✓ | ✓ |  |  |
-
-# [Middle East / Africa](#tab/MiddleEast)
-
-> [!div class="mx-tableFixed"]
-> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
-> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
-> | Israel Central | ✓ | ✓ | ✓ | ✓ |
-> | Qatar Central | ✓ | ✓ | ✓ | ✓ |
-> | South Africa North | ✓ | ✓ | ✓ | ✓ |
-> | South Africa West | ✓ | ✓ |  | ✓ |
-> | UAE Central | ✓ | ✓ | ✓ | ✓ |
-> | UAE North | ✓ | ✓ | ✓ | ✓ |
-
-# [Azure Government](#tab/AzGov)
-
-> [!div class="mx-tableFixed"]
-> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
-> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
-> | US DoD Central | ✓ | ✓ |  |  |
-> | US DoD East | ✓ | ✓ |  |  |
-> | US Gov Arizona | ✓ | ✓ | ✓ | ✓ |
-> | US Gov Iowa | ✓ | ✓ |  |  |
-> | US Gov Texas | ✓ | ✓ | ✓ | ✓ |
-> | US Gov Virginia | ✓ | ✓ | ✓ | ✓ |
-> | US Nat East | ✓ | ✓ | ✓ | ✓ |
-> | US Nat West | ✓ | ✓ | ✓ | ✓ |
-> | US Sec East | ✓ | ✓ | ✓ | ✓ |
-> | US Sec West | ✓ | ✓ | ✓ | ✓ |
-> | US Sec West Central | ✓ | ✓ |  |  |
-
----
+[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
 
 > [!NOTE]
 > If flow logs are supported in a region, but Log Analytics workspace isn't supported in that region for traffic analytics, you can use a Log Analytics workspace from any other supported region. In this case, there won't be any additional cross-region data transfer charges for using a Log Analytics workspace from another region.

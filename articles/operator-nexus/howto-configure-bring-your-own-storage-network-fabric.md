@@ -35,6 +35,11 @@ Create the UAMI(s) required for accessing the necessary resources.
 
 For more information on creating managed identities, refer to [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 
+>[!Note]
+> When creating a User-Assigned Managed Identity (UAMI) to be used with Network Fabric, ensure that the total length of the fabric name + UAMI name does not exceed 48 characters. This is due to an internal platform constraint on the naming length used during resource configuration.<br>
+For example, if your fabric name is nf-westus-prod-01 (18 characters), the UAMI name should be 30 characters or fewer.
+
+
 ## Step 2: Configure the storage account
 
 ### 2.1 Create or identify a storage account

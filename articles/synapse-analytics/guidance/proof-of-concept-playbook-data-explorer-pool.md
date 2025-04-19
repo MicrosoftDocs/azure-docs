@@ -192,7 +192,7 @@ The following is a high level example of tasks that you can use to help you plan
 | 2 | Test connection to your chosen visualization and querying tools (such as Power BI, Grafana, etc.) |
 | 2 | Configure data access management rules |
 | 2 | Implement continuous ingestion |
-| 2 | Create data connections with Event Hubs/Iot Hub/Event Grid |
+| 2 | Create data connections with Event Hubs/IoT Hub/Event Grid |
 | 3 | Implement autorefreshing dashboard for near real-time monitoring in Azure Data Explorer Dashboards or Grafana |
 | 3 | Define how to perform load testing |
 | 3 | Optimize ingestion methods and processes based on learnings from previous sprints and completed backlog items |

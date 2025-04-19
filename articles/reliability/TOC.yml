@@ -200,6 +200,12 @@
       href: reliability-cosmos-db-nosql.md
     - name: Azure Cosmos DB for MongoDB vCore
       href: reliability-cosmos-mongodb.md
+    - name: Azure Cosmos DB for PostgreSQL
+      items: 
+      - name: Availability zones
+        href: /azure/cosmos-db/postgresql/concepts-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Disaster recovery
+        href: /azure/cosmos-db/postgresql/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Database for MySQL
       href: /azure/mysql/single-server/concepts-business-continuity?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#recover-from-an-azure-regional-data-center-outage
     - name: Azure Database for MySQL - Flexible Server

@@ -121,7 +121,7 @@ To change the order of your IP filter rules:
 
 There are two ways you can update your DPS IP filter:
 
-1. Call the IoT Hub Resource REST API method. To learn how to update your IP filter rules using REST,  see `IpFilterRule` in the [Definitions section](/rest/api/iothub/iot-hub-resource/update#definitions) of the [Iot Hub Resource - Update method](/rest/api/iothub/iot-hub-resource/update).
+1. Call the IoT Hub Resource REST API method. To learn how to update your IP filter rules using REST,  see `IpFilterRule` in the [Definitions section](/rest/api/iothub/iot-hub-resource/update#definitions) of the [IoT Hub Resource - Update method](/rest/api/iothub/iot-hub-resource/update).
 
 2. Use the Azure Resource Manager templates. For guidance on how to use the Resource Manager templates, see [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md). The examples that follow show you how to create, edit, and delete DPS IP filter rules with Azure Resource Manager templates.
 

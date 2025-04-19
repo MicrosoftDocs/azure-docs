@@ -30,7 +30,7 @@ The model's response time increases with history size because it needs to compar
 
 Gaps in the time series can be a result of the model not receiving events at certain points in time. This situation is handled by Stream Analytics using imputation logic. The history size, as well as a time duration, for the same sliding window is used to calculate the average rate at which events are expected to arrive.
 
-An anomaly generator available [here](https://aka.ms/asaanomalygenerator) can be used to feed an Iot Hub with data with different anomaly patterns. An Azure Stream Analytics job can be set up with these anomaly detection functions to read from this Iot Hub and detect anomalies.
+An anomaly generator available [here](https://aka.ms/asaanomalygenerator) can be used to feed an IoT Hub with data with different anomaly patterns. An Azure Stream Analytics job can be set up with these anomaly detection functions to read from this IoT Hub and detect anomalies.
 
 ## Spike and dip
 

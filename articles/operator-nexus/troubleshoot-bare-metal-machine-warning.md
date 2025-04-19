@@ -4,7 +4,7 @@ description: Troubleshooting guide for Bare Metal Machines Warning status messag
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
 ms.topic: troubleshooting
-ms.date: 03/03/2025
+ms.date: 04/17/2025
 author: robertstarling
 ms.author: robstarling
 ms.reviewer: ekarandjeff
@@ -46,7 +46,7 @@ For more information, use an Azure CLI Bare Metal Machine `run-read-command` com
 ```azurecli
 az networkcloud baremetalmachine run-read-command \
   -g <ResourceGroup_Name> \
-  -n <BareMetal Machine Name> \
+  -n rack1control01 \
   --limit-time-seconds 60 \
   --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack1compute01,-o,json]}]" \
   --output-directory .

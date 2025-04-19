@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 03/03/2025
+ms.date: 04/17/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -78,4 +78,10 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 ## Next steps
 
 [Overview of Azure Blobs backup for Azure Blobs](blob-backup-overview.md)
+
+## Related content
+
+- [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
+- [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
+- [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
 

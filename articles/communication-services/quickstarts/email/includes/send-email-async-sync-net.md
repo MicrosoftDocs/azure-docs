@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Send email.net sdk include file
+description: Send email.net SDK include file
 author: v-vprasannak
 manager: koagbakp
 services: azure-communication-services
@@ -20,8 +20,8 @@ Get started with Azure Communication Services by using the Communication Service
 The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for C#.
 
 
-| Name                | Description                                                                                                                                          |
-| --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name | Description |
+| --- | --- |
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
 | EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, binary data for content, and an optional content ID to define it as an inline attachment.                               |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
@@ -30,31 +30,31 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header. Email importance can also be specified through these headers using the header name 'x-priority' or 'x-msmail-priority'                                                                  |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| EmailSendOperation | This class represents the asynchronous email send operation and is returned from email send api call.                                             |
-| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable).                                            |
+| EmailSendOperation | This class represents the asynchronous email send operation and is returned from email send API call.                                             |
+| EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status, and error object (when applicable).                                            |
 
 
 EmailSendResult returns the following status on the email operation performed.
 
 
-| Status          | Description                       |
-| ---------------------| --------------------------------------------------------------------------------------------------------------------------------------------|
+| Status | Description |
+| --- | --- |
 | NotStarted | We're not sending this status from our service at this time. |
 | Running | The email send operation is currently in progress and being processed. |
-| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
+| Succeeded | The email send operation completes without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
 | Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure. |
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
-- An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
+- An Azure Email Communication Services Resource created and ready with a provisioned domain [Create Email Communication Resource](../create-email-communication-resource.md).
+- An active Communication Services resource connected with Email Domain and a Connection String. [Create and manage Email Communication Service resources](../connect-email-communication-resource.md).
 
-Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
+> You can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
 
 ### Prerequisite check
 
@@ -62,6 +62,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 - To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
 
 ### Create a new C# application
+
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EmailQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
 ```console
@@ -76,16 +77,16 @@ dotnet build
 ```
 
 ### Install the package
+
 While still in the application directory, install the Azure Communication Services Email client library for .NET package by using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Communication.Email
 ```
 
-## Creating the email client with authentication
+## Create the email client with authentication
 
-Open **Program.cs** and replace the existing code with the following
-to add `using` directives for including the `Azure.Communication.Email` namespace and a starting point for execution for your program.
+Open **Program.cs** and replace the existing code with the following to add `using` directives for including the `Azure.Communication.Email` namespace and a starting point for running for your program.
 
 ```csharp
 using System;
@@ -121,14 +122,14 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 EmailClient emailClient = new EmailClient(connectionString);
 ```
 
-#### [Azure Active Directory](#tab/aad)
+#### [Microsoft Entra ID](#tab/aad)
 
-To authenticate using [Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity), install the `Azure.Identity` library package for .NET by using the `dotnet add package` command.
+To authenticate using [Microsoft Entra ID](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity), install the `Azure.Identity` library package for .NET using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Identity
 ```
-Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#defaultazurecredential). The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
+Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#defaultazurecredential). The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Microsoft Entra ID Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
 
 ```csharp
 // This code demonstrates how to authenticate to your Communication Service resource using
@@ -140,7 +141,7 @@ EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new Default
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be authenticated using an [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+You can also authenticate email clients using an [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential). Both the `key` and the `endpoint` can be found on the **Keys** panel under **Settings** in your Communication Services Resource.
 
 ```csharp
 var key = new AzureKeyCredential("<your-key-credential>");
@@ -152,7 +153,7 @@ var emailClient = new EmailClient(endpoint, key);
 ---
 
 > [!NOTE]
-> It is recommended to use the manual polling (Send Email with asynchronous status polling) to send email.
+> We don't recommend using the manual polling (Send Email with asynchronous status polling) to send email.
 
 #### [Send Email with asynchronous status polling](#tab/send-email-and-get-status-async)
 
@@ -168,9 +169,10 @@ To send an email message, you need to:
 - Define the email subject and body.
 - Define your Sender Address. Construct your email message with your Sender information you get your MailFrom address from your verified domain.
 - Define the Recipient Address.
-- Call the SendAsync method. Add this code to the end of `Main` method in **Program.cs**:
+- Call the SendAsync method. Add this code to the end of `Main` method in `Program.cs`:
 
-Replace with your domain details and modify the content, recipient details as required
+Replace with your domain details and modify the content, recipient details as required:
+
 ```csharp
 
 //Replace with your domain and modify the content, recipient details as required
@@ -184,8 +186,8 @@ var recipient = "emailalias@contoso.com";
 ### Send and get the email send status
 
 To send an email message, you need to:
-- Call SendAsync method that sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service. Call with Azure.WaitUntil.Started if your method should return after starting the operation.
-- SendAsync method returns EmailSendOperation that returns "Succeeded" EmailSendStatus if email is out for delivery and throws an exception otherwise. Add this code to the end of `Main` method in **Program.cs**:
+- Call `SendAsync` method that sends the email request as an asynchronous operation. Call with `Azure.WaitUntil.Completed` if your method needs to wait to return until the long-running operation completes on the service. Call with `Azure.WaitUntil.Started` if your method needs to return after starting the operation.
+- The `SendAsync` method returns `EmailSendOperation` that returns **Succeeded** `EmailSendStatus` if email is out for delivery and throws an exception otherwise. Add this code to the end of `Main` method in `Program.cs`:
 
 ```csharp
 try
@@ -212,17 +214,17 @@ catch (RequestFailedException ex)
 }
 ```
 
-### Getting email delivery status
+### Get email delivery status
 
-EmailSendOperation only returns email operation status. To get the actual email delivery status, you can subscribe to "EmailDeliveryReportReceived" event that is generated when the email delivery is completed. The event returns the following delivery state:
+The `EmailSendOperation` only returns email operation status. To get the actual email delivery status, you can subscribe to `EmailDeliveryReportReceived` event that is generated when the email delivery completes. The event returns the following delivery state:
 
-- Delivered.
-- Failed.
-- Quarantined.
+- Delivered
+- Failed
+- Quarantined
 
 See [Handle Email Events](../handle-email-events.md) for details.
 
-You can also now subscribe to Email Operational logs that provide information related to delivery metrics for messages sent from the Email service.
+You can also subscribe to Email Operational logs that provide information related to delivery metrics for messages sent from the Email service.
 
 - Email Send Mail operational logs - provides detailed information related to the Email service send mail requests.
 - Email Status Update operational logs - provides message and recipient level delivery status updates related to the Email service send mail requests.
@@ -231,7 +233,7 @@ Access logs for [Email Communication Service](../../../concepts/analytics/logs/e
 
 ### Run the code
 
-Run the application from your application directory with the `dotnet run` command.
+Run the application from your application directory using the `dotnet run` command.
 
 ```console
 dotnet run
@@ -239,6 +241,6 @@ dotnet run
 
 ### Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
+You can download the sample app from GitHub Azure Samples [Send Email for .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
 
 ---
