@@ -25,6 +25,8 @@
     href: use-explorer.md
   - name: Use GeoCatalog in Azure Batch
     href: azure-batch.md
+  - name: Gest Started with Data Cubes
+    href: datacube-quickstart.md
 - name: How-to-guides
   items:
   - name: Setup an ingestion source using managed identity
@@ -41,8 +43,8 @@
     href: create-stac-item.md
 - name: Concepts
   items:
-  - name: Datacube enrichment
-    href: datacube-enrichment.md
+  - name: Data cube Overview
+    href: datacube-overview.md
   - name: Ingestion source
     href: ingestion-source.md
   - name: Manage access
