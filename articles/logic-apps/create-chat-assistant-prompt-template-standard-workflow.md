@@ -62,8 +62,8 @@ The example workflow uses the following operations:
 
 | Operation | Description |
 |-----------|-------------|
-| Built-in trigger named **When an HTTP request is available** | Waits for a external caller to send an HTTPS request. This request fires the trigger to start the workflow and passes in a serialized token string with the inputs for the workflow actions. |
-| Several **Compose** built-in actions | These actions store the following test data: <br><br>- **Question**: The question asked. <br><br>- **Product catalog**: Internal product catalog entries. <br><br>- **Employee**: Employee profile and past procurement orders. |
+| Built-in trigger named **When an HTTP request is available** | Waits for an HTTPS request to arrive from external caller. This request causes the trigger to fire, start the workflow, and pass in a serialized token string with inputs for the workflow actions to use. |
+| Three **Compose** built-in actions | These actions store the following test data: <br><br>- **Question**: The question asked. <br><br>- **Product catalog**: Internal product catalog entries. <br><br>- **Employee**: Employee profile and past procurement orders. |
 | Built-in action named **Get chat completions using Prompt Template** | Gets [chat completions](/azure/ai-services/openai/how-to/chatgpt) for the specified prompt template. For more information, see [Get chat completions using prompt template](/azure/logic-apps/connectors/built-in/reference/openai/#get-chat-completions-using-prompt-template-(preview)).
 
 > [!TIP]
@@ -106,6 +106,8 @@ To following along with the example, get the [sample prompt template and inputs]
 
     [!INCLUDE [highest-security-level-guidance](includes/highest-security-level-guidance.md)]
 
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
+
 ## Add a trigger
 
 To add the operation that starts your workflow when an event happens or a condition is met, follow these steps:
@@ -140,37 +142,9 @@ To add operations that store the trigger outputs for subsequent actions to use a
 
 1. Under the trigger, follow [these steps to add the data operation named **Compose** action](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
 
-   This example adds three **Compose** actions and uses the following test data as inputs:
+   The example adds three **Compose** actions and uses the following test data as inputs:
 
-   1. Rename the first **Compose** action to **Question**, and enter the following data in the **Inputs** box:
-
-      ```json
-      [
-          {
-              "role": "user",
-              "content": "When did we last order laptops for new hires in IT?"
-          }
-      ]
-      ```
-
-   1. Rename the next **Compose** action to **Product catalog**, and enter the following data in the **Inputs** box:
-
-      ```json
-      [
-          {
-              "id": "1",
-              "title": "Dell Latitude 5540 Laptop",
-              "content": "Intel i7, 16GB RAM, 512GB SSD, standard issue for IT new hire onboarding" 
-          },
-          {
-              "id": "2",
-              "title": "Docking Station",
-              "content": "Dell WD19S docking stations for dual monitor setup"
-          }
-      ]
-      ```
-
-   1. Rename the final **Compose** action as **Employee**, and enter the following data in the **Inputs** box:
+   1. Rename the first **Compose** action as **Employee**, and enter the following data in the **Inputs** box:
 
       ```json
       {
@@ -191,6 +165,34 @@ To add operations that store the trigger outputs for subsequent actions to use a
               }
           ]
       }
+      ```
+
+   1. Rename the next **Compose** action as **Question**, and enter the following data in the **Inputs** box:
+
+      ```json
+      [
+          {
+              "role": "user",
+              "content": "When did we last order laptops for new hires in IT?"
+          }
+      ]
+      ```
+
+   1. Rename the next **Compose** action as **Products**, and enter the following data in the **Inputs** box:
+
+      ```json
+      [
+          {
+              "id": "1",
+              "title": "Dell Latitude 5540 Laptop",
+              "content": "Intel i7, 16GB RAM, 512GB SSD, standard issue for IT new hire onboarding" 
+          },
+          {
+              "id": "2",
+              "title": "Docking Station",
+              "content": "Dell WD19S docking stations for dual monitor setup"
+          }
+      ]
       ```
 
 When you're done, your workflow looks like the following example:
@@ -214,12 +216,12 @@ Now, add the Azure OpenAI action to the workflow.
 
 1. When you're done, select **Create new**.
 
-1. After the action pane opens, provide the following information to use for the prompt template:
+1. After the action pane opens, on the **Parameters** tab, provide the following information to use for the prompt template:
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
-   | **Deployment Identifier** | - **gpt-4o** <br>- **gpt-35** | The deployed model name. |
-   | **Prompt Template** | <*template-text*> | The prompt template, which uses Prompty liquid format. For more information, see the following documentation: <br><br>- [Get chat completions using Prompt Template](/azure/logic-apps/connectors/built-in/reference/openai/#get-chat-completions-using-prompt-template-(preview)) |
+   | **Deployment Identifier** | - **gpt-4o** <br>- **gpt-35** | The name for the Azure OpenAI deployed model, which should match the one that you used for your Azure OpenAI resource. |
+   | **Prompt Template** | <*template-text*> | The prompt template. For more information, see [Get chat completions using Prompt Template](/azure/logic-apps/connectors/built-in/reference/openai/#get-chat-completions-using-prompt-template-(preview)). |
 
    For this example, replace the example template text with the following sample text:
 
@@ -227,38 +229,68 @@ Now, add the Azure OpenAI action to the workflow.
    system:
    You are an AI assistant for Contoso's internal procurement team. You help employees get quick answers about previous orders and product catalog details. Be brief, professional, and use markdown formatting when appropriate. Include the employee’s name in your response for a personal touch.
 
-   # Product Catalog
-   Use this documentation to guide your response. Include specific item names and any relevant descriptions.
-
-   {% for item in documents %}
-   Catalog Item ID: {{item.id}}
-   Name: {{item.title}}
-   Description: {{item.content}}
-   {% endfor %}
-
-   # Order History
-   Here is the employee's procurement history to use as context when answering their question.
-
-   {% for item in customer.orders %}
-   Order Item: {{item.name}}
-   Details: {{item.description}} — Ordered on {{item.date}}
-   {% endfor %}
-
-   # Employee Info
+   # Employee info
    Name: {{customer.firstName}} {{customer.lastName}}  
    Department: {{customer.department}}  
    Employee ID: {{customer.employeeId}}
 
    # Question
-   The employee has asked the following:
+   The employee asked the following:
 
    {% for item in question %}
    {{item.role}}:
    {{item.content}}
    {% endfor %}
 
+   # Product catalog
+   Use this documentation to guide your response. Include specific item names and any relevant descriptions.
+
+   {% for item in documents %}
+   Catalog item ID: {{item.id}}
+   Name: {{item.title}}
+   Description: {{item.content}}
+   {% endfor %}
+
+   # Order history
+   Here is the employee's procurement history to use as context when answering their question.
+
+   {% for item in customer.orders %}
+   Order Item: {{item.name}}
+   Details: {{item.description}} — Ordered on {{item.date}}
+   {% endfor %}
+   
    Based on the product documentation and order history above, please provide a concise and helpful answer to their question. Do not fabricate information beyond the provided inputs.
    ```
+
+   The following table describes how the example template works:
+
+   | Template element	| Task |
+   |------------------|------|
+   | **`{{ Employee.firstName }} {{ Employee.lastName }}`** |	Displays the employee name. |
+   | **`{{ Employee.department }}`** | Adds department context. |
+   | **`{{ Question[0].content }}`** | Injects the employee's question from the **Compose** action named **Question**. |
+   | **`{% for doc in Products %}`** | Loops through catalog data from the **Compose** action named **Products**. |
+   | **`{% for order in Employee.orders %}`** | Loops through the employee's order history from the **Compose** action named **Employee**. |
+
+   Each element value is dynamically pulled from the workflow's **Compose** actions - all without any code or external services needed. You can apply the same approach to reference data output from other operations, for example, a SharePoint list, SQL Server row, email body, or even AI Search results. You only have to map the outputs into the prompt template and let your workflow do the rest.
+
+1. From the **Advanced parameters** list, select **Prompt Template Variable**, which now appears on the **Parameters** tab.
+
+1. In the key-value table that appears on the **Parameters** tab, enter the following template variable names and outputs selected from the preceding **Compose** actions in the workflow, for example:
+
+   1. On the first row, in the first column, enter **Employee** as the variable name.
+
+   1. On the same row, in the next column, select inside the edit box, and then select the lightning icon to open the dynamic content list.
+
+   1. From the dynamic content list, under **Employee**, select **Outputs**.
+
+      :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png" alt-text="Screenshot shows the action named Get chat completions using Prompt Template, Prompt Template Variable table, open dynamic content list, and selected Outputs value in the Question section." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png":::
+
+   1. Repeat the same steps on the next row and following row for **Question** and **Products**.
+
+   When you're done, the table looks like the following example:
+
+   :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variables-complete.png" alt-text="Screenshot shows completed Prompt Template Variable table with Question, Product catalog, and Employee outputs." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variables-complete.png":::
 
 1. For other parameters, see [Get chat completions using Prompt Template](/azure/logic-apps/connectors/built-in/reference/openai/#get-chat-completions-using-prompt-template-(preview)).
 
@@ -268,8 +300,45 @@ When you're done, your workflow looks like the following example:
 
 ## Test your workflow
 
-## Delete your resources
+1. To trigger your workflow, send an HTTPS request to the callback URL for the **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool, based on the instructions.
 
+   For more information about the trigger's underlying JSON definition and how to call this trigger, see the following documentation:
+
+   - [**Request** trigger type](/azure/logic-apps/logic-apps-workflow-actions-triggers#request-trigger)
+
+   - [Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps](/azure/logic-apps/connectors-native-reqres?tabs=standard)
+
+   After workflow execution completes, the run history page opens for finished workflow instance to show the status for each action.
+
+   :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/run-history.png" alt-text="Screenshot shows run history for most recently complete workflow with status for each operation." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/run-history.png":::
+
+   1. To find the run history page for a specific workflow run at a later time, follow these steps:
+
+      1. On the workflow menu, under **Tools**, select **Run history**.
+
+      1. On the **Run history** tab, select the workflow run to inspect.
+
+1. To find the chat response, on the run history page, select the Azure OpenAI action.
+
+   A pane opens to show the inputs and outputs for the selected action.
+
+1. On the opened pane, scroll to the **Outputs** section.
+
+   :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/chat-response.png" alt-text="Screenshot shows the run history for most recently complete workflow with status for each operation and selected Azure OpenAI action with inputs and outputs." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/chat-response.png":::
+
+   The response is entirely based on the structured context that is passed into your workflow — no extra fine-tuning needed.
+
+## Clean up resources
+
+If you no longer need the resources that you created after you finish this guide, make sure to delete these resources so that you don't continue to get charged. You can either follow these steps to delete the resource group that contains these resources, or you can delete each resource individually.
+
+1. In the Azure search box, enter **resource groups**, and select **Resource groups**.
+
+1. Find and select the resource groups that contain the resources for this example.
+
+1. On the **Overview** page, select **Delete resource group**.
+
+1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 
 ## Related content
 
