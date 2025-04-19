@@ -5,7 +5,6 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
-
 ms.collection: ce-skilling-ai-copilot
 ms.date: 04/21/2025
 
@@ -78,7 +77,7 @@ This example creates and uses a prompt template that lets your workflow complete
 - Automatically populate the template with outputs from earlier actions in the workflow.
 - Generate consistent and structured prompts with minimal effort.
 
-To following along with the example, get the [sample prompt template and inputs](https://github.com/Azure/logicapps/tree/shahparth-lab-patch-2/AI-sample-demo) from the Azure Logic Apps GitHub repo. The example assumes that you're simulating procurement data with test inputs.
+To follow the example, download the [sample prompt template and inputs](https://github.com/Azure/logicapps/tree/shahparth-lab-patch-2/AI-sample-demo) from the Azure Logic Apps GitHub repo. The example assumes that you're simulating procurement data with test inputs.
 
 ## Prerequisites
 
@@ -96,7 +95,7 @@ To following along with the example, get the [sample prompt template and inputs]
 
     - [Getting started with customizing a large language model (LLM)](/azure/ai-services/openai/concepts/customizing-llms)
 
-  - When you add the **Azure OpenAI** action to your workflow, you can create a connection to your Azure OpenAI Service resource. You'll need the endpoint URL for your **Azure OpenAI Service** resource and the following information, based on the selected [authentication type](/azure/logic-apps/connectors/built-in/reference/openai/#authentication):
+  - When you add the **Azure OpenAI** action to your workflow, you can create a connection to your Azure OpenAI Service resource. You will need the endpoint URL for your **Azure OpenAI Service** resource and the following information, based on the selected [authentication type](/azure/logic-apps/connectors/built-in/reference/openai/#authentication):
 
     | Authentication type | Requirements |
     |---------------------|--------------|
@@ -284,7 +283,7 @@ Now, add the Azure OpenAI action to the workflow.
 
    1. From the dynamic content list, under **Employee**, select **Outputs**.
 
-      :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png" alt-text="Screenshot shows the action named Get chat completions using Prompt Template, Prompt Template Variable table, open dynamic content list, and selected Outputs value in the Question section." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png":::
+      :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png" alt-text="Screenshot shows action named Get chat completions using Prompt Template, Prompt Template Variable table, open dynamic content list, and selected Outputs value in the Question section." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png":::
 
    1. Repeat the same steps on the next row and following row for **Question** and **Products**.
 
@@ -326,11 +325,11 @@ When you're done, your workflow looks like the following example:
 
    :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/chat-response.png" alt-text="Screenshot shows the run history for most recently complete workflow with status for each operation and selected Azure OpenAI action with inputs and outputs." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/chat-response.png":::
 
-   The response is entirely based on the structured context that is passed into your workflow — no extra fine-tuning needed.
+   The response is entirely based on the structured context that is passed into your workflow—no extra fine-tuning needed.
 
 ## Clean up resources
 
-If you no longer need the resources that you created after you finish this guide, make sure to delete these resources so that you don't continue to get charged. You can either follow these steps to delete the resource group that contains these resources, or you can delete each resource individually.
+If you don't need the resources that you created for this guide, make sure to delete these resources so that you don't continue to get charged. You can either follow these steps to delete the resource group that contains these resources, or you can delete each resource individually.
 
 1. In the Azure search box, enter **resource groups**, and select **Resource groups**.
 
