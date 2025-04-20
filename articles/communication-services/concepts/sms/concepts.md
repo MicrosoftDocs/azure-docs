@@ -51,8 +51,6 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 
 
 \* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.
-> [!IMPORTANT]
-> Effective **April 19, 2024**, All UK alpha sender IDs now require a [registration application](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-preregistered-alphanumeric-sender-id) approval.
 
 ## Next steps
 
