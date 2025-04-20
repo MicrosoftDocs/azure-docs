@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 02/21/2025
+ms.date: 04/20/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
@@ -63,7 +63,7 @@ The dev center needs access to your key vault. Dev centers don't support service
 
 Dev centers don't support service tags, so if the key vault is private, allow trusted Microsoft services to bypass the firewall.
 
-:::image type="content" source="media/how-to-write-customization-file/trusted-services-bypass-firewall.png" alt-text="Screenshot that shows the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-write-customization-file/trusted-services-bypass-firewall.png":::
+:::image type="content" source="media/how-to-use-secrets-customization-files/trusted-services-bypass-firewall.png" alt-text="Screenshot that shows the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-use-secrets-customization-files/trusted-services-bypass-firewall.png":::
 
 To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
