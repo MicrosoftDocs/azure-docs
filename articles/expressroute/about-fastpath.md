@@ -111,6 +111,7 @@ The following Azure services are supported:
 > * ExpressRoute FastPath connectivity to Azure Private Link service and Private endpoint deployed in a spoke Virtual Network, peered to the Hub Virtual Network (where the ExpressRoute Virtual Network Gateway is deployed), is supported.
 > * ExpressRoute FastPath supports a maximum of 100-Gbps connectivity to a single availability zone.
 > * Azure Private Link pricing doesn't apply to traffic sent over ExpressRoute FastPath. For more information about pricing, see the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
+> * Enabling ExpressRoute FastPath does not prevent access to Azure services on Private Endpoints: reachability remains guaranteed by routing traffic through the ExpressRoute Virtual Network Gateway.
 
 ## Limitations
 

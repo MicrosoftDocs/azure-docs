@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 03/24/2025
+ms.date: 04/17/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes
@@ -114,6 +114,8 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * UAE North
 * UK West
 * UK South
+* US Gov Arizona
+* US Gov Texas
 * US Gov Virginia 
 * West Europe
 * West US

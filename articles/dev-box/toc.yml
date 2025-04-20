@@ -73,8 +73,8 @@ items:
   items:
   - name: What are Team Customizations
     href: concept-what-are-team-customizations.md
-  - name: Write a customization file
-    href: how-to-write-customization-file.md
+  - name: Create an image definition file
+    href: how-to-write-image-definition-file.md
   - name: Configure imaging for Customizations
     href: how-to-configure-customization-imaging.md
   - name: Create customization tasks

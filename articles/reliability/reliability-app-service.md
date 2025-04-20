@@ -54,6 +54,7 @@ Azure App Service can be configured as *zone redundant*, which means that your r
 Instance spreading with a zone-redundant deployment is determined using the following rules. These rules apply even as the app scales in and out:
 
 - The minimum App Service plan instance count is three.
+- Instances are spread across multiple availability zones automatically. The number of availability zones used for your plan is determined by Azure.
 - The instances spread evenly if you specify a capacity larger than three, and the number of instances is divisible by three.
 - Any instance counts beyond 3*N are spread across the remaining one or two zones.
 
@@ -160,7 +161,7 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 ### Normal operations
 
-The following information describes what happens when you have a zone-redundant App Service plan and all availability zones are operational:
+This section describes what to expect when Azure App Service plans are configured for zone redundancy and all availability zones are operational.
 
 - **Traffic routing between zones:** During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
 
@@ -168,7 +169,7 @@ The following information describes what happens when you have a zone-redundant 
 
 ### Zone-down experience
 
-The following information describes what happens when you have a zone-redundant App Service plan and there's an availability zone outage:
+This section describes what to expect when an Azure App Service plan is configured for zone redundancy and there's an availability zone outage:
 
 - **Detection and response:** The App Service platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
 
