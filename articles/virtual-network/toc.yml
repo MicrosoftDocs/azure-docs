@@ -256,7 +256,9 @@
     items:
     - name: Overview
       href: virtual-network-tap-overview.md
-    - name: Configure virtual network TAP
+    - name: Configure virtual network TAP - Azure portal
+      href: tutorial-virtual-network-tap-portal.md
+    - name: Configure virtual network TAP - Azure CLI
       href: tutorial-tap-virtual-network-cli.md
 - name: Reference
   items:
