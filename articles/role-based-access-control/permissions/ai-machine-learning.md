@@ -2493,6 +2493,42 @@ Azure service: [Azure AI Search](/azure/search/)
 > | Microsoft.Search/searchServices/indexes/documents/write | Upload documents to an index or modify existing documents. |
 > | Microsoft.Search/searchServices/indexes/documents/delete | Delete documents from an index. |
 
+
+## Microsoft.VideoIndexer
+
+Extract the insights from your videos using Azure AI Video Indexer video and audio models.
+
+Azure service: [Azure AI Video Indexer](/azure/azure-video-indexer/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.VideoIndexer/register/action | Register the Microsoft.VideoIndexer |
+> | Microsoft.VideoIndexer/unregister/action | Unregister the Microsoft.VideoIndexer |
+> | Microsoft.VideoIndexer/checknameavailability/action | action checknameavailability |
+> | Microsoft.VideoIndexer/accounts/generateAccessToken/action | Generate an Azure Video Indexer access token. |
+> | Microsoft.VideoIndexer/accounts/generateRestrictedViewerAccessToken/action | Generate an Azure Video Indexer restricted viewer access token. |
+> | Microsoft.VideoIndexer/accounts/generateExtensionAccessToken/action | Generate an Azure Video Indexer access token. |
+> | Microsoft.VideoIndexer/accounts/generateExtensionRestrictedViewerAccessToken/action | Generate an Azure Video Indexer restricted viewer access token. |
+> | Microsoft.VideoIndexer/accounts/read | List all Azure Video Indexer accounts available under the subscription |
+> | Microsoft.VideoIndexer/accounts/read | List all Azure Video Indexer accounts available under the resource group |
+> | Microsoft.VideoIndexer/accounts/read | Gets the properties of an Azure Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/write | Creates or updates an Azure Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/delete | Delete an Azure Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/write | Updates the properties of an existing Azure Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections on accounts |
+> | Microsoft.VideoIndexer/accounts/privateEndpointConnections/read | List all private endpoint connections in a Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/privateEndpointConnections/read | Get the specified private endpoint connection associated with the Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/privateEndpointConnections/write | Update the state of specified private endpoint connection associated with the Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/privateEndpointConnections/delete | Deletes the specified private endpoint connection associated with the Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/privateLinkResources/read | List all private link resources in a Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/privateLinkResources/read | Get the specified private link resource associated with the Video Indexer account. |
+> | Microsoft.VideoIndexer/locations/classicAccounts/read | Gets the properties of an Azure Video Indexer Classic account. |
+> | Microsoft.VideoIndexer/locations/operationstatuses/read | read operationstatuses |
+> | Microsoft.VideoIndexer/locations/operationstatuses/write | write operationstatuses |
+> | Microsoft.VideoIndexer/locations/userClassicAccounts/read | Lists all Azure Video Indexer classic accounts |
+> | Microsoft.VideoIndexer/operations/read | read operations |
+
 ## Next steps
 
 - [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types)
