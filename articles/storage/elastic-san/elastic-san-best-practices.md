@@ -4,7 +4,7 @@ description: Learn about the best practices for getting optimal performance when
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 04/16/2025
+ms.date: 04/21/2025
 ms.author: rogarana
 ---
 
@@ -30,15 +30,15 @@ This article provides some general guidance on getting optimal performance with 
 
 #### Azure VMware Solution
 
-- Deploy your Elastic SAN in the same region and availability zone as your Azure VMware Solution private cloud
+- Deploy your Elastic SAN in the same region and availability zone as your Azure VMware Solution cluster
 -  Configure Private Endpoints before mounting your Elastic SAN volume as an external datastore
 - If you plan for your environment to ever have 16 nodes in an Azure VMware Solution cluster, use one of the following configurations, depending on which hosts you have.
-    - AV36, AV36P, AV52 - Six sessions over three Private Endpoints
-    - AV64 - Seven sessions over seven Private Endpoints
-- If your environment won't have 16 nodes, use eight sessions
+    - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
+    - AV64 - Seven iSCSI sessions over seven Private Endpoints
+- If your environment won't have 16 nodes, use eight iSCSI sessions
 
     > [!NOTE]
-    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight sessions that uses the maximum number of connections (128). Configuring your nodes to use seven sessions ensures that if you need to attach an extra node (for maintenance) then you have available sessions. 
+    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use iSCSI eight sessions that uses the maximum number of connections (128). Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions. 
 
 - Use eager zeroed thick provisioning when creating virtual disks
 - Size ExpressRoute Gateway so that it can meet your throughput requirements
@@ -130,35 +130,35 @@ Update the following settings with recommended values in global iSCSI configurat
 
 ```
 # Variable declaration
-$volume_iqn=<Elastic SAN volume IQN>
-$portal_hostname=<Elastic SAN volume portal hostname>
-$port=3260
+volume_iqn=<Elastic SAN volume IQN>
+portal_hostname=<Elastic SAN volume portal hostname>
+port=3260
 
 # Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB
 sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.MaxXmitDataSegmentLength = 262144
 
 # Set maximum SCSI payload that the initiator negotiates with the target to 256 KB
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.MaxBurstLength = 262144
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.MaxBurstLength -v 262144
 
 # Set maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256 KB 
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.FirstBurstLength = 262144
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.FirstBurstLength -v 262144
 
 # Set maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB 
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.MaxRecvDataSegmentLength -v 262144
 
 # Disable R2T flow control 
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.InitialR2T = No
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.InitialR2T -v No
 
 # Enable immediate data
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.ImmediateData = Yes
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.ImmediateData -v Yes
 
 # Set timeout value for WMI requests
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].timeo.login_timeout = 30
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].timeo.logout_timeout = 15
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].timeo.login_timeout -v 30
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].timeo.logout_timeout -v 15
 
 # Enable CRC digest checking for header and data 
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.HeaderDigest = CRC32C
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.DataDigest = CRC32C 
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.HeaderDigest -v CRC32C
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.DataDigest -v CRC32C 
 
 ```
 
