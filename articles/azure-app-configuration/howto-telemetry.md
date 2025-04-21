@@ -11,11 +11,11 @@ ms.date: 03/05/2025
 
 # Tutorial: Enable telemetry for feature flags (preview)
 
-Telemetry allows you to make informed decisions about your feature management strategy. When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
+Telemetry is the process of collecting, transmitting, and analyzing data about the usage and performance of your application. It helps you monitor feature flag behavior and make data-driven decisions. When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
 
 - Are my flags enabled/disabled as expected?
 - Are targeted users getting access to a certain feature as expected?
-- How does a variant effect customer engagement?
+- How does a variant affect customer engagement?
 
 These types of questions can be answered through the emission and analysis of feature flag evaluation events.
 

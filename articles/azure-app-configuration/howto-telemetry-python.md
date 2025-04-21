@@ -11,7 +11,7 @@ ms.date: 03/05/2025
 
 # Tutorial: Enable telemetry for feature flags in a Python application (preview)
 
-In this tutorial, you use telemetry in your Python application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature lag named *Greeting* in your Configuration store with telemetry enabled.
+In this tutorial, you use telemetry in your Python application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
 ## Add telemetry to your python application
 
-1. Install the using pip:
+1. Install the required packages using pip:
 
     ```bash
     pip install azure-appconfiguration-provider
@@ -118,3 +118,6 @@ In this tutorial, you use telemetry in your Python application to track feature 
     ```
 
 You see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
+
+## Additional resources
+- [Flask Quote of the Day sample](https://github.com/Azure-Samples/quote-of-the-day-python)
