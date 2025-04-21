@@ -7,7 +7,7 @@ metadata:
   description: Create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
   author: asudbring
   ms.author: allensu
-  ms.date: 08/23/2023
+  ms.date: 04/21/2025
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
