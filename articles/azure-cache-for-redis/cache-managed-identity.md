@@ -139,7 +139,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
 1. In the **Select managed identities** pane, select the dropdown arrow under **Managed identities** to see all your available user-assigned and system-assigned managed identities. If you have many managed identities, you can search for the one you want. Choose the managed identities you want, and then select **Select**.
 
-   :::image type="content" source="media/cache-managed-identity/user-assigned.png"  alt-text="Screenshot showing add role assignment form with members pane.":::
+   :::image type="content" source="media/cache-managed-identity/user-assigned.png"  alt-text="Screenshot showing add Select managed identities pane.":::
 
 1. On the **Add role assignment** page, select **Review + assign**, and then select **Review + assign** again to confirm.
 
@@ -176,5 +176,5 @@ You can now save data persistence backups to the storage account using managed i
 
 ## Related content
 
-- [Learn more](cache-overview.md#service-tiers) about Azure Cache for Redis features
-- [What are managed identities](../active-directory/managed-identities-azure-resources/overview.md)
+- [Learn more](cache-overview.md#service-tiers) about Azure Cache for Redis features.
+- [What are managed identities?](/entra/identity/managed-identities-azure-resources/overview)
