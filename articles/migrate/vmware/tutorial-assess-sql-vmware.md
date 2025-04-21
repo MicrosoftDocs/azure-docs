@@ -1,5 +1,5 @@
 ---
-title: Tutorial to assess SQL instances in VMWare VMs for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
+title: Tutorial to assess SQL instances in VMware VMs for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
 description: Learn how to create assessment for Azure SQL in VMware VMs in Azure Migrate
 ms.topic: tutorial
 ms.service: azure-migrate
