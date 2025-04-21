@@ -82,7 +82,7 @@ If you have a mix of subscriptions, move the unsupported subscriptions to a sepa
 
 Managed resource groups created by certain resource providers - such as Azure Red Hat OpenShift (ARO) or Azure Databricks - can't be used as scopes for Cost Management features like budgets or exports. These resource groups typically include deny assignments that restrict modifications to protect critical resources, which can result in authorization errors. For more information on deny assignments, please refer to [List Azure deny assignments](/azure/role-based-access-control/deny-assignments?tabs=azure-portal).
 
-To avoid these issues, use other resource groups or higher-level scopes such as the subscription when configuring budgets or exports.
+To avoid these issues, use a higher-level scope such as the subscription scope which contains this managed resource group when configuring budgets or exports.
 
 #### Required permissions for exports at RBAC scope
 
