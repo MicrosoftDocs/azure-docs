@@ -21,7 +21,7 @@ The listed features were released in the last three months. For information abou
 ## April 2025
 
 - [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
-- [New threat intelligence tables support STIX objects and indicators (Preview)](#new-threat-intelligence-tables-support-stix-objects-and-indicators-preview)
+- [Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)](#microsoft-sentinel-now-ingests-all-stix-objects-and-indicators-into-new-threat-intelligence-tables-preview)
 
 ### Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)
 
