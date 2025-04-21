@@ -13,7 +13,7 @@ ms.date: 04/08/2025
 
 # Deploy a GeoCatalog resource
 
-This article guides the reader through the process of deploying a GeoCatalog resource. The GeoCatalog resource is the top-level container for GeoSpatial data stored using Microsoft Planetary Computer (MPC) Pro. Once a GeoCatalog resource is deployed, the user can begin to ingest geospatial data into MPC Pro. Geospatial data stored in a GeoCatalog is indexed, queried, and retrieved using the SpatioTemporal Access Catalog (STAC) open-standard. For more information on STAC, see [STAC overview](./stac-overview.md).
+This article guides the reader through the process of deploying a GeoCatalog resource. The GeoCatalog resource is the top-level container for Geospatial data stored using Microsoft Planetary Computer (MPC) Pro. Once a GeoCatalog resource is deployed, the user can begin to ingest geospatial data into MPC Pro. Geospatial data stored in a GeoCatalog is indexed, queried, and retrieved using the SpatioTemporal Access Catalog (STAC) open-standard. For more information on STAC, see [STAC overview](./stac-overview.md).
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
 
 ## Deploy GeoCatalog with the Azure portal
 
-1. Sign in to the Azure portal using: https://aka.ms/geocatalogsprod.
+1. Navigate to the [Azure Portal](https://portal.azure.com/)
 
 1. Find the **GeoCatalogs** resource type use the Azure portal search bar at the top of the page; select "GeoCatalogs" from under the list of Services.
 

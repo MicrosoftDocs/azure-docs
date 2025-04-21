@@ -201,7 +201,7 @@ You can use a `DELETE` request to remove the collection from your GeoCatalog. De
 1. All the assets that are children of those items.
 1. All the collection-level assets of that collection.
 
-The quickstart, [Add STAC Items to a collection](items-api-python.md), uses this collection so don't delete it yet if you plan to complete that quickstart.
+The quickstart, [Add STAC Items to a collection](./add-stac-item-to-collection.md), uses this collection so don't delete it yet if you plan to complete that quickstart.
 
 ```python
 response = requests.delete(
@@ -220,4 +220,4 @@ A status code of `204` indicates that your Collection was deleted.
 
 ## Next step
 
-[Add items to a STAC collection](./items-api-python.md)
+[Add items to a STAC collection](./add-stac-item-to-collection.md)
