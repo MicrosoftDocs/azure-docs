@@ -29,7 +29,7 @@ To get started, you'll need:
 - A HYPR cloud tenant
   - Request a HYPR [custom demo](https://get.hypr.com/get-a-demo)
 - A user mobile device registered using the HYPR REST APIs, or the HYPR Device Manager in your HYPR tenant
-  - For example, see [HYPR SDK for Java Web](https://docs.hypr.com/integratinghypr/docs/sdk-java-web) 
+  - For example, see [HYPR SDK for Java Web](https://docs.hypr.com/docs/sdk/sdkJava/sdk-java-web/) 
 
 ## Scenario description
 

@@ -3,14 +3,14 @@ title: Private and Public DNS forward lookup zone configuration
 description: Learn about DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 4/21/2025
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds so that I can manage domain name resolution for private cloud appliances.
 ---
 
 # Private and Public DNS forward lookup zone configuration
 
-In this article, you learn how to configure a Domain Name System (DNS) forward lookup zones for Azure VMware Solution Generation (Gen) 2 private cloud appliances. It explains the options and behaviors for domain name resolution within an Azure Virtual Network. 
+In this article, you learn how to configure a Domain Name System (DNS) forward lookup zones for Azure VMware Solution Generation 2 (Gen 2) private clouds. It explains the options and behaviors for domain name resolution within an Azure Virtual Network. 
 
 ## Prerequisite
 

@@ -45,13 +45,13 @@ This article provides information about known issues associated with Azure Digit
 | --- | --- | --- |
 | `DefaultAzureCredential` is used in most of the documentation examples for this service that include authentication. If you're writing authentication code using `DefaultAzureCredential` with version 1.3.0 of the `Azure.Identity` library and seeing this error message, this issue affects you. | It's likely a result of some configuration issue with the `Azure.Identity` library and `DefaultAzureCredential`, its authentication class. This class is a wrapper containing several credential types that are tried in order. The issue may occur when the authentication flow reaches the `SharedTokenCacheCredential` type. | One strategy to resolve this is to exclude `SharedTokenCacheCredential` from your credential, as described in this [DefaultAzureCredential issue](https://github.com/Azure/azure-sdk/issues/1970) that is currently open against `Azure.Identity`. You can exclude `SharedTokenCacheCredential` from your credential by instantiating the `DefaultAzureCredential` class using the following optional parameter: `new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeSharedTokenCacheCredential = true });`<br>Another option is to change your application to use an earlier version of `Azure.Identity`, such as [version 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). Using an earlier version has no functional impact to Azure Digital Twins, which makes it an accepted solution. |
 
-## az dt commands fail in Azure CLI version 2.70.0
+## az dt commands fail with old azure-iot extension 
 
-**Issue description:** CLI commands from the `az dt` command set fail in version 2.70.0 of the Azure CLI (this is not the latest Azure CLI version). The error message ends in *AttributeError: 'CredentialAdaptor' object has no attribute 'signed_session'*.
+**Issue description:** CLI commands from the `az dt` command set fail if you are using an earlier version of the `azure-iot` extension than 0.26.0 (0.26.0 is acceptable) alongside version 2.70.0 or later of the Azure CLI. The error message ends in *AttributeError: 'CredentialAdaptor' object has no attribute 'signed_session'*.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
-| If you're using a local Azure CLI that's on version 2.70.0 of the Azure CLI, this affects all `az dt` CLI commands. You can check your CLI version with the `az version` command. <br>This issue doesn't affect Cloud Shell users, because the Cloud Shell always has the latest CLI version. | This is a [known issue](https://github.com/Azure/azure-cli/issues/31042) with version 2.70.0 of the Azure CLI. | Use the `az upgrade` command to upgrade your CLI installation to the latest version. |
+| This issue affects your ability to run `az dt` commands if you're using an Azure CLI that's on version 2.70.0 or later, and a version of the `azure-iot` extension that's on an earlier version than 0.26.0. You can check your CLI version with the `az version` command and your `azure-iot` extension version with the `az extension show` command. | Version 0.26.0 or later of the `azure-iot` CLI extension is required to run `az dt` commands in version 2.70.0 or later of the Azure CLI. | Use the `az extension update` command to update the `azure-iot` extension to the latest version. |
 
 ## Next steps
 

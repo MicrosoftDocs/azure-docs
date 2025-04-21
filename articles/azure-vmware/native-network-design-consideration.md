@@ -3,7 +3,7 @@ title: Azure VMware Solution Generation 2 private cloud design considerations (p
 description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 4/21/2025
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.
 ---
 
@@ -18,24 +18,24 @@ This article outlines key design considerations for Azure VMware Solution Genera
 
 The following functionality is limited during this time. These limitations will be lifted in the future:
 
-- You cannot delete your Resource Group, which contains your Private Cloud.
-- You can only deploy **1 Private Cloud per Azure Virtual Network**.
-- You can only create **1 Private Cloud per Resource Group**. Multiple Private Clouds in a single Resource Group are not supported. 
-- Your Private Cloud and Virtual Network for your Private Cloud must be in the *same* Resource Group.
-- You cannot move your Private Cloud from one Resource Group to another after the Private Cloud is created.
+- You cannot delete your Resource Group, which contains your private cloud.
+- You can only deploy **1 private cloud per Azure Virtual Network**.
+- You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported. 
+- Your private cloud and Virtual Network for your private cloud must be in the *same* Resource Group.
+- You cannot move your private cloud from one Resource Group to another after the private cloud is created.
 - Virtual Network Service Endpoints direct connectivity from Azure VMware Solution workloads is not supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints is not supported.
 - **vSAN Stretched Clusters** is not supported.
 - Public IP down to the VMware NSX Microsoft Edge for configuring internet will not be supported.
 - Support for **AzCLI**, **PowerShell**, and **.NET SDK** are not available during Public Preview.
-- **Run Commands** interacting with customer segments aren't supported including run commands interacting with Zerto, Jetstream, and other 3rd-party integrations.
+- **Run commands** interacting with customer segments aren't supported, including Zerto, JetStream, and other 3rd-party integrations.
 
 ## Unsupported integrations during Public Preview
 
 The following 1st-party and 3rd-party integrations won't be available during Public Preview:
 - **Azure Elastic SAN**
 - **Zerto DR**
-- **Jetstream DR**
+- **JetStream DR**
 
 ## Routing and subnet considerations
 
@@ -46,16 +46,14 @@ The private cloud connects to your Azure virtual network using standard Azure ne
 > [!Note]
 > Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16. Replication network is not applicable to AV64 nodes and is planned for general deprecation at a future date.
 
-Avoid using the following IP schemas reserved for VMware NSX usage: 
+Avoid using the following IP schema reserved for VMware NSX usage: 
 
 - 169.254.0.0/24 - used for internal transit network 
 - 169.254.2.0/23 - used for inter-VRF transit network 
 - 100.64.0.0/16 - used to connect T1 and T0 gateways internally 
 - 100.73.x.x – used by Microsoft’s management network
 
-Example /22 CIDR network address block: 10.31.0.0/22 
-
-The subnets: 
+Example /22 CIDR network address block **10.31.0.0/22** is divided into the following subnets: 
 
 | **Network Usage** | **Subnet** | **Description** | **Example** |
 | :-- | :-- | :-- | :-- |
@@ -68,8 +66,8 @@ The subnets:
 | esx-cust-vmk1 | /24 | vmk1 is the management interface used by customers to access the host. IPs from the vmk1 interface come from these subnets. All of the vmk1 traffic for all hosts comes from this subnet range. | 10.31.1.0/24  |
 | esx-vmotion-vmk2 | /24 | vMotion VMkernel interfaces. | 10.31.2.0/24  |
 | esx-vsan-vmk3  | /24 | vSAN VMkernel interfaces and node communication. | 10.31.3.0/24 |
-| Reserved | Reserved Space. | /27 | 10.31.0.128/27 |
-| Reserved | Reserved Space. | /27 | 10.31.0.192/27 |
+| Reserved | /27 | Reserved Space. | 10.31.0.128/27 |
+| Reserved | /27 | Reserved Space. | 10.31.0.192/27 |
 
 ## Next steps
 

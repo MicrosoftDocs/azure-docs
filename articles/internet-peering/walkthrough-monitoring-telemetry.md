@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 04/21/2025
 ---
 
 # View metrics for an internet peering
