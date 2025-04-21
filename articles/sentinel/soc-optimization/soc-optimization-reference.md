@@ -33,7 +33,7 @@ This article provides a detailed reference of the types of SOC optimization reco
 
 ## Data value optimization recommendations
 
-To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables, and suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
+To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables. SOC optimization suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
 
 Data value optimizations only look at billable tables that ingested data in the past 30 days.
 
@@ -53,7 +53,7 @@ SOC optimization also surfaces unused columns in your tables. The following tabl
 
 | Type of observation | Action |
 |---------|---------|
-| The **ConditionalAccessPolicies** column in the **SignInLogs** table or the **AADNonInteractiveUserSignInLogs** table is not in use.  | Stop data ingestion for the column. |
+| The **ConditionalAccessPolicies** column in the **SignInLogs** table or the **AADNonInteractiveUserSignInLogs** table isn't in use.  | Stop data ingestion for the column. |
  
 
 > [!IMPORTANT]
@@ -77,17 +77,17 @@ The following table lists the available types of threat-based SOC optimization r
 
 ## Similar organizations recommendations
 
-SOC optimization uses advanced machine learning to identify tables that are missing from your workspace, but are used by organizations with similar ingestion trends and industry profiles to yours. It shows how other organizations use these tables and recommends to you the relevant data sources, along with related rules, to improve your security coverage.
+SOC optimization uses advanced machine learning to identify tables that are missing from your workspace, but are used by organizations with similar ingestion trends and industry profiles. It shows how other organizations use these tables and recommends the relevant data sources, along with related rules, to improve your security coverage.
 
 | Type of observation | Action |
 |---------|---------|
-| Log sources ingested by similar customers are missing   | Connect the suggested data sources. <br><br>This recommendation doesn't include: <ul><li>Custom connectors<li>Custom tables<li>Tables that are ingested by fewer than 10 workspaces <li>Tables that contain multiple log sources, like the `Syslog` or `CommonSecurityLog` tables   |
+| Log sources ingested by similar customers are missing   | Connect the suggested data sources. <br><br>This recommendation doesn't include: <ul><li>Custom connectors<li>Custom tables<li>Tables ingested by fewer than 10 workspaces <li>Tables that contain multiple log sources, like the `Syslog` or `CommonSecurityLog` tables   |
 
 ### Considerations
 
-- Not all workspaces get similar organizations recommendations. A workspace receives these recommendations only if our machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't. SOCs in their early or onboarding stages are generally more likely to receive these recommendations than SOCs with a higher level of maturity.
+- Not all workspaces get similar organizations recommendations. A workspace receives these recommendations only if our machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't. SOCs in their early or onboarding stages are more likely to receive these recommendations than SOCs with a higher level of maturity.
 
-- Recommendations are based on machine learning models that rely solely on Organizational Identifiable Information (OII) and system metadata. The models never access or analyze the content of customer logs or ingest them at any point. No customer data, content, or End User Identifiable Information (EUII) is exposed to the analysis.
+- Recommendations are based on machine learning models that rely solely on Organizational Identifiable Information (OII) and system metadata. The models never access or analyze the content of customer logs or ingest them at any point. No customer data, content, or personal data (EUII) is exposed to the analysis.
 
 ## Related content
 
