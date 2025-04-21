@@ -21,6 +21,7 @@ Peering is the interconnection between Microsoft’s global network (AS8075) and
     This refers to standard public peering connections at Internet Exchanges (IX). The physical connections between Microsoft network and your network are through switch fabric operated by the IX. BGP sessions are configured using IP space provided by the IX.
 
 ## Benefits of peering with Microsoft
+
 * Lower your transit costs by delivering Microsoft traffic using peering with Microsoft.
 * Improve performance for your customers by reducing network hops and latency to Microsoft Edge network.
 * Protect customer traffic against failures in your network or transit provider's network, by peering with Microsoft at redundant locations.
@@ -34,12 +35,14 @@ You may request for peering with Microsoft using Azure PowerShell or portal. Pee
 * Track status and bandwidth data for all your connections.
 * You can use the same subscription to access your Azure Cloud Services.
 
-If you already have established peerings with Microsoft, they are referred to as **legacy peerings**. You may choose to manage such peerings as Azure resource to take advantage of the above benefits. To submit a new peering request, or convert legacy peering to Azure resource, follow the links in the **Next steps** section below.
+If you already have established peerings with Microsoft, they're referred to as **legacy peerings**. You may choose to manage such peerings as Azure resource to take advantage of the above benefits. To submit a new peering request, or convert legacy peering to Azure resource, follow the links in the **[Related content](#related-content)**.
 
 ## Peering policy
-Microsoft has a selective, but generally open peering policy. Peers are selected based upon performance, capability, and where there is mutual benefit, and are subject to certain technical, commercial and legal requirements. For details, see [peering policy](policy.md).
+
+Microsoft has a selective, but generally open peering policy. Peers are selected based upon performance, capability, and where there's mutual benefit, and are subject to certain technical, commercial, and legal requirements. For details, see [peering policy](policy.md).
 
 ## FAQ
+
 For frequently asked questions about peering, see [Internet peering - FAQs](faqs.md).
 
 ## Related content
