@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: avirupcha
+ms.custom: references_regions
 ---
 
 # Virtual network TAP
