@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Container Registry (ACR) from the Service Catalog into a Workload
-description: Deploy Azure Container Registry (ACR) from the Service Catalog into a Workload
+description: Deploy Azure Container Registry (ACR) from the Service Catalog into a Workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -18,13 +18,13 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 > 
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
-## WARNING
-
-- If you plan on using this template in conjunction with the [AKS Template](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md) in the same enclave, perform the AKS Templates pre-requisite steps prior to deploying this as it will have you delete and recreate the enclave's subnets.
+> [!WARNING]
+> 
+> If you plan on using this template in conjunction with the [AKS Template](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md) in the same enclave, perform the AKS Templates pre-requisite steps _prior_ to following this guide as it will have you delete and recreate the enclave's subnets.
 
 ## Before you begin
 
-- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
+This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
@@ -32,30 +32,26 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 ## Prerequisites
 
-There are guardrails in the enclaves to ensure an Azure Container registry is using CMK encryption (customer-managed keys). This requires a key and identity to access the key to be accessible in the enclave.
-> [!NOTE] These resources are not deployed with the enclave or workload.
+There are guardrails in the enclaves to ensure an Azure Container Registry is using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md)
 
-1. An existing subnet to place a private endpoint into. 
-    - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
-2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. [Setup CMK](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md)
-    - The enclave Key Vault in the `HostedResources` RG can be used.
-    - Create a RSA (we recommend 4096 bits) key in the Key Vault.
-3. A user identity with access to the CMK key.
-    - [Create a user-assigned managed identity](./create-user-managed-identity.md) in the enclave `HostedResources` RG.
+1. A subnet with no [subnet delegation](../virtual-network/subnet-delegation-overview.md) to place a private endpoint into. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
+2. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, Managed Identity in [the Common Dependencies Service Catalog quickstart](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md) or create your own with the following requirements.
+    - These resources should be created inside a [Workload Resource Group](./create-workload-portal.md#create-workload-resource-groups)
+    - The CMK key that meets or exceeds the CMK key requirements.
+    - A User Managed Identity with an Access Policy to the CMK key (for example, `Key Vault Crypto Service Encryption User`) or `Unwrap Key, Wrap Key, Recover, Get` permissions.
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
 
 ## Deploy the template
 
 1. Navigate to the workload for the intended deployment.
-1. Select "Add Service" button.
-1. Select the Azure Container Registry" service template from the [Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
+2. Select `Add Service` button.
+3. Select the `Azure Container Registry` service template from the [Service Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
 
-   ![image1.png](./media/image-dc8ca6bf-02c1-44de-ba0a-23aedf76699b.png)
+   ![Screenshot showing the Azure Container Registry template selected from the Service Catalog list](./media/service-catalog-azure-container-registry.png)
 
-1. Select through the tabs and enter all the required parameters.
-   * Under the encryption tab you'll need to use the CMK Key and User Assigned Identity created in the pre-reqs.
-1. Adjust any of the prepopulated parameters as needed.
-1. Select Review + Add then Add.
+4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User Assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
+5. Adjust any of the prepopulated parameters as needed.
+6. Select Review + Add then Add.
 
 It can take a few minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
@@ -63,11 +59,9 @@ It can take a few minutes to finish all resource creation. Wait for the deployme
 
 ## Validate the deployment
 
-1. Go to the Workload's Resource Group to confirm the intended resources were created. Including: Container registry, Private endpoint, Network interface, privateDnsZoneGroups (hidden by default)
+Go to the Workload's Resource Group to confirm the intended resources were created. Including: Container registry and Private endpoint.
 
    ![image3.png](./media/image-10c58c02-2f1d-4524-96af-458073bd4fa2.png)
-
-1. If the Remote App was published: hostpool, app group, and workspace.
 
 ## Delete the deployment
 

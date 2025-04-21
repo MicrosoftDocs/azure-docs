@@ -33,7 +33,9 @@ Additional templates will be added over time
 
 ## Admin VM
 
-Description:
+[How to create an Admin VM](./deploy-admin-vm-service-catalog.md)
+
+Description: A Virtual Machine (VM) created for the purpose of securely accessing enclave resources for administrative purposes. Admin Workstation Virtual Machines (VMs) that can be remotely accessed through [Azure Bastion](https://aka.ms/bastion).
 
 Documentation:
 [Understanding Admin VMs](understanding-admin-vm.md)

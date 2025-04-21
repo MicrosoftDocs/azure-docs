@@ -32,10 +32,6 @@ If this is the first time using the Admin Workstation, reset the password with t
 ### Accessing enclaves through Azure Bastion
 AVE natively uses existing Azure user interface controls to allow for access into Admin VMs. [Learn more on how to Connect to a Windows VM using RDP - Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md).
 
-![image1.png](./media/image-a3fd8d57-aef1-4a03-a0ad-88ab0f010956.png)
-
-![image2.png](./media/image-d1f48850-363b-45f8-9eb6-4df428d52b38.png)
-
 For certain Community and Enclave Owners, this default access model may not be granular enough. For example, some Enclave Owners may have regulatory requirements for their workloads that does not authorize Azure Bastion. 
 
 If the default behavior of Admin VMs or the configurations that AVE allows to be changed are insufficient for customer use-cases, AVE recommends [creating a Workload, Virtual Machine(s) in the Workload, an Endpoint, and Connection(s) that function similarly to how Admin VMs function](./create-avd-workloads.md).
@@ -47,7 +43,6 @@ The default VM size for AVE Admin VMs is Standard_D4s_v3. Community and Enclave 
 It is the Community or Enclave Owner's (i.e. customer's) responsibility to [maintain and patch](https://learn.microsoft.com/azure/virtual-machines/updates-maintenance-overview) the Admin VMs deployed in their Enclaves. Currently, AVE will not perform any patching on Admin VMs after they are deployed in an Enclave.
 
 Admin VMs are intended only for bootstrapping Enclaves and to provide initial entry for Enclave setup. Enclave Owners and system administrators should either delete them after set-up, or continuously monitor, patch, and manage them just like any of their other enclave workloads or Azure resources. These Virtual Machines are deployed using known good images through Azure Marketplace but are not monitored or patched by AVE thereafter.
-
 
 ## Image
 Community and Enclave Owners may also have concerns regarding the default VM image used for these VMs. Currently, AVE uses the Azure Marketplace's Windows Server 2019 Datacenter image for Admin VMs. AVE does not currently support custom images for our Admin VMs.

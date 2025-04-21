@@ -19,7 +19,7 @@ In this article, you:
 > This sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
-- This article assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](/docs/concepts/Concepts-and-best-practices).
+- This article assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
@@ -63,4 +63,4 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 -- Purpose: `<publish abc app to users>`
 -- Service Catalog Name: `<RemoteApp>`
 -- Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies)
+- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
