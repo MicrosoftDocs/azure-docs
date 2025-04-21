@@ -313,6 +313,8 @@ Use these commands to create the resource:
 
 ---
 
+**Note:** Azure Data Share uses UTC (Coordinated Universal Time) for all scheduled operations, including snapshot schedules. Ensure you adjust your local time accordingly when setting the schedule.
+
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation.
 
 ## Clean up resources
