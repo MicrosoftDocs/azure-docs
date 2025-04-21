@@ -18,7 +18,7 @@ A managed identity lets you simplify the process of securely connecting to an Az
 - [Import or export](cache-how-to-import-export-data.md) to save snapshots of cache data or import data from a saved file.
 
 >[!NOTE]
->Only the Azure Redis data persistence and import-export features use managed identity. These features are available only in Azure Redis Premium tier, so managed identity is available for Azure Redis Premium tier only.
+>Only the Azure Redis data persistence and import-export features use managed identity. These features are available only in Azure Redis Premium tier, so managed identity is available only in Azure Redis Premium tier.
 
 Azure Cache for Redis supports both *system-assigned* and *user-assigned* managed identities. Each type of managed identity has advantages, but the functionality is the same in Azure Cache for Redis.
 
@@ -137,7 +137,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
    :::image type="content" source="media/cache-managed-identity/select-members.png"  alt-text="Screenshot showing add role assignment form with members pane.":::
 
-1. In the **Select managed identities** pane, select the dropdown arrow under **Managed identities** to see all your available user-assigned and system-assigned managed identities. If you have many managed identities, you can search for the one you want. Choose the managed identities you want, and then select **Select**.
+1. In the **Select managed identities** pane, select the dropdown arrow under **Managed identity** to see all your available user-assigned and system-assigned managed identities. If you have many managed identities, you can search for the one you want. Choose the managed identities you want, and then select **Select**.
 
    :::image type="content" source="media/cache-managed-identity/user-assigned.png"  alt-text="Screenshot showing add Select managed identities pane.":::
 
@@ -149,11 +149,22 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
    :::image type="content" source="media/cache-managed-identity/blob-data.png"  alt-text="Screenshot of Storage Blob Data Contributor list.":::
 
+>[!IMPORTANT]
+>For export to work with a storage account with firewall exceptions, you must:
+>
+>- Add the Azure Redis cache as a **Storage Blob Data Contributor** through system-assigned identity, and
+>- On the storage account **Networking** page, select [Allow Azure services on the trusted services list to access this storage account](/azure/storage/common/storage-network-security#grant-access-to-trusted-azure-services).
+>
+>If you don't use managed identity and instead authorize a storage account with a key, having firewall exceptions on the storage account breaks the persistence process and the import-export processes.
+
 ## Use managed identity with data persistence
 
 1. On the Azure portal page for your Azure Redis Premium cache that has the **Storage Blob Data Contributor** role, select **Data persistence** under **Settings** in the left navigation menu.
 
-1. Ensure that **Authentication Method** is set to **Managed Identity**. The selection defaults to the system-assigned managed identity if enabled. Otherwise, it uses the first listed user-assigned identity.
+1. Ensure that **Authentication Method** is set to **Managed Identity**.
+
+   >[!IMPORTANT]
+   >The selection defaults to the system-assigned identity if enabled. Otherwise, it uses the first listed user-assigned identity.
 
 1. Under **Storage Account**, select the storage account you configured to use managed identity, if not already selected, and select **Save** if necessary.
 
@@ -172,7 +183,13 @@ You can now save data persistence backups to the storage account using managed i
 
    :::image type="content" source="media/cache-managed-identity/export-data.png"  alt-text="Screenshot showing Managed Identity selected.":::
 
-1. On the **Import data** or **Export data** screen, select **Import** or **Export** respectively. It takes a few minutes to import or export the data.
+1. On the **Import data** or **Export data** screen, select **Import** or **Export** respectively.
+
+   >[!NOTE]
+   >It takes a few minutes to import or export the data.
+
+>[!IMPORTANT]
+>If you see an export or import failure, double check that your storage account has been configured with your cache's system-assigned or user-assigned identity. The identity used defaults to system-assigned identity if enabled. Otherwise, it uses the first listed user-assigned identity.
 
 ## Related content
 
