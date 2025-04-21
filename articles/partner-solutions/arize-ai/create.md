@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Create a Arize AI resource (preview)"
-description: Learn how to create a resource for LambdaTest (preview) using the Azure portal.
+description: Learn how to create a resource for Arize AI (preview) using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 10/29/2024
+ms.date: 04/21/2025
 
 ---
 # Quickstart: Create a Arize AI resource (preview)
