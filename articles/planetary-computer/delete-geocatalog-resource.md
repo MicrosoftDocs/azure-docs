@@ -25,7 +25,6 @@ Before you continue with the deletion steps, make sure you're ready to delete th
 
 - A Deployed GeoCatalog resource.
 - [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) (For using the REST API)
-- 
 
 ## Delete a GeoCatalog instance
 
