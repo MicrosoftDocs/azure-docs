@@ -70,7 +70,7 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 | United States    | ✅        | ✅         | ✅    | –              | –              | –              |
 | Canada           | ✅        | ✅         | –     | –              | –              | –              |
 | Puerto Rico      | ✅        | –          | –     | –              | –              | –              |
-| United Kingdom   | –         | ✅         | –     | ✅             | ✅             | ✅             |
+| United Kingdom   | –         | ✅         | –     | ✅             | –             | ✅             |
 | Australia        | –         | –          | –     | ✅             | –              | ✅             |
 | Germany          | –         | –          | –     | –              | ✅             | –              |
 | France           | –         | –          | –     | –              | ✅             | –              |

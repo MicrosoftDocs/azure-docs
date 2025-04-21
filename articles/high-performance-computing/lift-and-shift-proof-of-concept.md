@@ -1,9 +1,9 @@
 ---
 title: "Proof-of-concept migration overview"
-description: Learn about what a proof-of-concept migration entails and follow the guide through one.
+description: Learn what a high performance computing proof-of-concept migration entails.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
