@@ -118,7 +118,7 @@ In this step, you build a data flow that takes the moviesDB.csv in ADLS storage 
 
 1. Once you're back at the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file moviesDB.csv is located in container sample-data. As the file has headers, check **First row as header**. Select **From connection/store** to import the header schema directly from the file in storage. Select OK when done.
 
-    :::image type="content" source="media/tutorial-data-flow/source-linked-service.png" alt-text="Screenshot of the paine to create a dataset.":::
+    :::image type="content" source="media/tutorial-data-flow/source-linked-service.png" alt-text="Screenshot of the pane to create a dataset.":::
 
 1. If your debug cluster has started, go to the **Data Preview** tab of the source transformation and select **Refresh** to get a snapshot of the data. You can use data preview to verify your transformation is configured correctly.
 
