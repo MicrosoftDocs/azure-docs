@@ -1,7 +1,7 @@
 ---
-title: How to use SMTP and OAuth to send an email with Azure Communication Services.
-titleSuffix: An Azure Communication Services quick start guide.
-description: Learn about how to use SMTP and OAuth to send emails to Email Communication Services.
+title: Send email with SMTP and XOAuth2 using .NET
+titleSuffix: An Azure Communication Services article
+description: This article describes how to use SMTP and OAuth to send emails to Email Communication Services.
 author: ddouglas-msft
 services: azure-communication-services
 ms.author: ddouglas
@@ -10,24 +10,24 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: devx-track-dotnet
 ---
-# Quickstart: Send email with SMTP and XOAuth2 using .NET
+# Send email with SMTP and XOAuth2 using .NET
 
-This articles hows how to use XOAuth2 for authentication when sending emails using the Simple Mail Transfer Protocal (SMTP) and Azure Communication Services.
+This article describes how to use XOAuth2 for authentication when sending emails using the Simple Mail Transfer Protocol (SMTP) and Azure Communication Services.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
-- An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
-- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [How to create authentication credentials for sending emails using Smtp](smtp-authentication.md)
+- An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md).
+- An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md).
+- SMTP credentials created using a Microsoft Entra ID application with access to the Azure Communication Services Resource. [How to create authentication credentials for sending emails using SMTP](smtp-authentication.md).
 
-Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+Completing this example incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
+> You can also send an email from your own verified domain. See [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
 
-In this quick start, you learn about how to send email with Azure Communication Services using SMTP.
+This article describes how to send email with Azure Communication Services using SMTP.
 
 ### Prerequisite check
 
@@ -56,7 +56,7 @@ dotnet add package MailKit
 
 ### Retrieve an Entra token for SMTP OAuth authentication
 
-The following steps can be used to retrieve an Entra token. Replace the Entra application details with the values from the Entra application used to create the SMTP Username.
+Complete the following steps to retrieve a Microsoft Entra ID token. Replace the Microsoft Entra ID application details with the values from the Entra application used to create the SMTP Username.
 
 ```csharp
 using MailKit.Net.Smtp;
