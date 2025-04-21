@@ -34,6 +34,12 @@ Azure Container Registry [offers image streaming](/azure/container-apps/serverle
 > [!NOTE]
 > Artifact streaming is only supported with [serverless GPUs](./gpu-serverless-overview.md).
 
+## Manage large downloads
+
+Use [storage mounts](storage-mounts.md) to hold critical data close to your container app, especially when the file sizes are large. For instance, if your app requires a large language model, you can pre-download the model to your storage account. By reading large files from a storage account, you avoid the latency of pulling files across the internet.
+
+If you are creating a storage mount for AI workloads, make sure you use the most appropriate [mount options](/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files) for your needs.
+
 ## Implement custom liveness health probe or start listening early
 
 Azure Container Apps automatically sets up a [liveness probe](health-probes.md) when ingress is enabled. Images and applications take a long time to start after the image is launched can cause issues with the container. Container Apps could kill the starting application because it fails the liveness probe.
