@@ -4,7 +4,7 @@ description: Learn about Redis persistence, and how to configure and manage data
 
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/10/2025
+ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
@@ -16,6 +16,27 @@ This article describes Redis persistence, and how to configure and manage data p
 
 The ability to persist data is an important way to boost the durability of a cache instance, because it stores all cache data in memory. Persistence should be a key part of your Azure Redis [high availability and disaster recovery](cache-high-availability.md) strategy.
 
+>[!IMPORTANT]
+>The data persistence functionality provides resilience for unexpected Redis node failures. Data persistence isn't a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance, the corrupted data is also persisted. To make backups of your Redis instance, use the [Export](cache-how-to-import-export-data.md) feature.
+
+#### [Premium tier](#tab/premium)
+
+>[!IMPORTANT]
+>If you're using persistence on the Premium tier, check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes high storage costs. For more information, see [Should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
+
+#### [Enterprise tiers](#tab/enterprise)
+
+>[!IMPORTANT]
+>The *always write* option for AOF persistence on the Enterprise and Enterprise Flash tiers is retired and no longer recommended. This option had significant performance limitations. Use the *write every second* option or use RDB persistence instead.
+
+---
+
+## Scope of availability
+
+|Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
+|---------|---------|---------|---------|
+|Available  | No         | Yes        |  Yes (preview)  |
+
 ## Types of Redis data persistence
 
 Azure Redis offers two types of data persistence, the *Redis database* (RDB) format and the *Append-only File* (AOF) format.
@@ -26,9 +47,13 @@ Azure Redis offers two types of data persistence, the *Redis database* (RDB) for
 
 ## Requirements and limitations
 
-- Data persistence functionality provides resilience for unexpected Redis node failures. Data persistence isn't a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance, the corrupted data also persists. To back up your Redis instance, use the [export feature](cache-how-to-import-export-data.md).
+- Data persistence functionality provides resilience for unexpected Redis node failures. Data persistence isn't a data backup or PITR feature. If corrupted data is written to the Redis instance, the corrupted data also persists. To back up your Redis instance, use the [Export](cache-how-to-import-export-data.md) feature.
 
-- Azure Cache for Redis persistence features are intended to restore data automatically to the same cache after data loss. You can't import persisted data files to a new or existing cache. To move data across caches, use the [Import and Export data](cache-how-to-import-export-data.md) feature. To generate data backups to add to a cache, you can use automated PowerShell or Azure CLI scripts that export data periodically.
+- Azure Cache for Redis persistence features are intended to restore data automatically to the same cache after data loss. You can't import persisted data files to a new or existing cache.
+
+  - To move data across caches, use the [Import and Export data](cache-how-to-import-export-data.md) features.
+
+  - To generate any backups of data that can be added to a new cache, you can use automated scripts using PowerShell or Azure CLI that export data periodically.
 
 - Persistence isn't supported with caches that use [passive geo-replication](cache-how-to-geo-replication.md) or [active geo-replication](cache-how-to-active-geo-replication.md).
 
@@ -36,11 +61,11 @@ Azure Redis offers two types of data persistence, the *Redis database* (RDB) for
 
 - On the Premium tier, data is persisted directly to an Azure Storage account that you own and manage.
 
-  - The storage account for data persistence must be in the same region as the cache instance. However, you can use a storage account in a different subscription to persist data if you use [managed identity](cache-managed-identity.md) to connect to the storage account.
+- The storage account for Premium-tier data persistence must be in the same region as the cache instance. However, you can use a storage account in a different subscription to persist data if you use [managed identity](cache-managed-identity.md) to connect to the storage account.
 
-  - It's best to disable the soft delete feature on the storage account you use for data persistence. Using data persistence with soft delete causes high storage costs. For more information, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview) and [Should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
+- It's best to disable the soft delete feature on the storage account you use for Premium-tier data persistence. Using data persistence with soft delete causes high storage costs. For more information, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview) and [Should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 
-  - RDB files are backed up to storage in the form of page blobs. Page blobs aren't supported in storage accounts with Hierarchical Namespace (HNS) enabled, such as Azure Data Lake Storage Gen2, so persistence tends to fail in those storage accounts.
+- RDB files are backed up to storage in the form of page blobs. Page blobs aren't supported in storage accounts with Hierarchical Namespace (HNS) enabled, such as Azure Data Lake Storage Gen2, so persistence tends to fail in those storage accounts.
 
 - On the Premium tier, AOF persistence isn't supported with [multiple replicas](cache-how-to-multi-replicas.md).
 
@@ -49,11 +74,11 @@ Azure Redis offers two types of data persistence, the *Redis database* (RDB) for
 - On the Enterprise and Enterprise Flash tiers, data is persisted to a managed disk attached directly to the cache instance. The location isn't configurable nor accessible to the user. Using a managed disk improves persistence performance.
 
 >[!NOTE]
->The *always write* option for AOF persistence is retired and no longer recommended. This option had significant performance limitations. Use the *write every second* option or use RDB persistence instead.
+>The *always write* option for AOF persistence on the Enterprise and Enterprise Flash tiers is retired and no longer recommended. This option had significant performance limitations. Use the *write every second* option or use RDB persistence instead.
 
 ---
 
-### Data encryption
+## Data encryption
 
 Because Redis persistence creates data at rest, it's important to encrypt this data. Encryption options vary based on the Azure Redis tier you use.
 
@@ -80,9 +105,12 @@ You can use the Azure portal, Azure Resource Manager (ARM) templates, PowerShell
 
 ### Set up data persistence in the Azure portal
 
-In the Azure portal, you can set up data persistence when you create your Azure Redis Premium or Enterprise-level cache instance. You can also add persistence to a previously created cache by navigating to **Data persistence** under **Settings** in the left navigation menu for your cache.
+In the Azure portal, you can set up data persistence when you create your Azure Redis Premium or Enterprise-level cache instance.
 
 #### [Premium tier](#tab/premium)
+
+>[!NOTE]
+>You can also add persistence to a previously created cache by navigating to **Data persistence** under **Settings** in the left navigation menu for your cache.
 
 1. To create a Premium cache in the [Azure portal](https://portal.azure.com), follow the instructions at [Quickstart: Create an open-source Redis cache](quickstart-create-redis.md), and select **Premium** for the **Cache SKU** on the **Basics** tab.
 
@@ -120,6 +148,9 @@ With RDB persistence, the first backup starts once the backup frequency interval
 With AOF persistence, write operations to the cache save to the named storage account or accounts. If there's a catastrophic failure that takes down both the primary and replica caches, the stored AOF log is used to rebuild the cache.
 
 #### [Enterprise tiers](#tab/enterprise)
+
+>[!NOTE]
+>You can also add persistence to a previously created cache by navigating to **Advanced settings** under **Settings** in the left navigation menu for your cache.
 
 1. To create an Enterprise-level cache in the [Azure portal](https://portal.azure.com), follow the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md).
 
