@@ -16,37 +16,37 @@
 #       href: onboard-to-ave.md
     - name: Create a Community
       href: create-community-portal.md
-    - name: Create a Community Endpoint
-      href: create-a-community-endpoint-portal.md
     - name: Create an Enclave
       href: create-enclave-portal.md
+    - name: Create a Workload
+      href: create-workload-portal.md
+    - name: Create a Community Endpoint
+      href: create-a-community-endpoint-portal.md
     - name: Create an Enclave Endpoint
       href: create-enclave-endpoint-portal.md
     - name: Create an Enclave Connection
       href: create-enclave-connection-portal.md
-    - name: Create a Workload
-      href: create-workload-portal.md
     - name: Create a Transit Hub
       href: create-transit-hub-portal.md
 #     - name: Easy Button Deployments
 #       href: easy-button-deployments.md
   - name: Concepts
     items:
-    - name: "What is a community?"
+    - name: "What is a Community?"
       href: what-community.md
-    - name: "What is a transit hub?"
-      href: what-transit-hub.md
+    - name: "What is an Enclave?"
+      href: what-enclave.md
+    - name: "What is a Workload?"
+      href: what-workload.md
     - name: "What is a Community Endpoint?"
       href: what-community-endpoint.md
-    - name: "What is an enclave?"
-      href: what-enclave.md
     - name: "What is an Enclave Endpoint?"
       href: what-enclave-endpoint.md
     - name: "What is an Enclave Connection?"
       href: what-enclave-connection.md
-    - name: "What is a workload?"
-      href: what-workload.md
-    - name: "What is the service catalog?"
+    - name: "What is a Transit Hub?"
+      href: what-transit-hub.md
+    - name: "What is the Service Catalog?"
       href: what-service-catalog.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
