@@ -40,7 +40,7 @@ This article provides some general guidance on getting optimal performance with 
     - AV64 - Eight iSCSI sessions over eight Private Endpoints
 
     > [!NOTE]
-    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use iSCSI eight sessions that uses the maximum number of connections (128). Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions. 
+    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight iSCSI sessions that uses the maximum number of connections (128). Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions. 
 
 - Use eager zeroed thick provisioning when creating virtual disks
 - Size ExpressRoute Gateway so that it can meet your throughput requirements
