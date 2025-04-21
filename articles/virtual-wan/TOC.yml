@@ -126,8 +126,12 @@
       href: how-to-nva-hub.md
     - name: Restart an NVA in a virtual hub
       href: how-to-network-virtual-appliance-restart.md
+    - name: Reimage an NVA in a virtual hub
+      href: how-to-network-virtual-appliance-reimage.md
     - name: Configure DNAT/Internet inbound
       href: how-to-network-virtual-appliance-inbound.md
+    - name: Manage IP configurations
+      href: how-to-network-virtual-appliance-add-ip-configurations.md
 - name: Site-to-site (S2S) connections
   items:
   - name: Create a site-to-site connection
