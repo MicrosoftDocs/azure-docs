@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Create an Azure VMware Solution Generation 2 Private Cloud (preview)
 
-In this tutorial, you learn how to create an Azure VMware Solution Generation (Gen) 2 Private Cloud. This solution combines the first-party Azure VMware Solution with Azure hardware and network to simplify your networking architecture, and enhance performance and security. This initial launch of this generation utilizes the AV64 SKU.
+In this tutorial, you learn how to create an Azure VMware Solution Generation 2 (Gen 2) private cloud. This solution combines the first-party Azure VMware Solution with Azure hardware and network to simplify your networking architecture, and enhance performance and security. This initial launch of this generation utilizes the AV64 SKU.
 
 With this generation, you can directly create the private cloud using the AV64 SKU. You are no longer required to deploy a minimum of three hosts of AV36, AV36P, or AV52 to provision a cluster with AV64.
 
