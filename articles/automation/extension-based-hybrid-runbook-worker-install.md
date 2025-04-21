@@ -4,7 +4,7 @@ description: This article provides information about deploying the extension-bas
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
-ms.date: 04/07/2025
+ms.date: 04/21/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ms.service: azure-automation
@@ -105,12 +105,34 @@ If you use a proxy server for communication between Azure Automation and machine
 1. Install the Hybrid Worker Extension on the VM by running the following PowerShell cmdlet (Required module: Az.Compute). Use the `properties.automationHybridServiceUrl` provided by the above API call  
   
 
-**Proxy server settings**
+## Automation Account Hybrid Service URL
+
+You must retrieve and use the AutomationHybridServiceURL to deploy the Hybrid Worker extension to the VM/Arc machine.
+
+> [!NOTE]
+> The necessary URL is the automationHybridServiceUrl, NOT the RegistrationUrl.
+
+There are multiple ways to retrieve the value for AutomationHybridServiceUrl:
+
+- Copy it from the **Azure portal**, **Automation Account**, **Properties**, **Automation hybrid service URL**.
+
+Or
+
+- Copy it from the **Azure portal**, **Automation Account**,  **Overview**,  **JSON** view. </br> Select the latest API version, otherwise AutomationHybridServiceUrl might not be displayed.
+
+Or
+- The below REST API call:
+
+  ```rest
+  GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22 
+  
+  ```
+
 # [Windows](#tab/windows)
 
 ```azurepowershell-interactive
 $settings = @{
-    "AutomationAccountURL"  = "<registrationurl>";    
+    "AutomationAccountURL"  = "<automationHybridServiceUrl>";    
     "ProxySettings" = @{
         "ProxyServer" = "<ipaddress>:<port>";
         "UserName"="test";
@@ -139,7 +161,7 @@ $protectedsettings = @{
       "Proxy_URL"="http://username:password@<IP Address>"
 };
 $settings = @{
-    "AutomationAccountURL"  = "<registration-url>";    
+    "AutomationAccountURL"  = "<automationHybridServiceUrl>";    
 };
 ```
 **Azure VMs**
@@ -153,7 +175,6 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 ```powershell
 New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 1.1 -Setting $settings -ProtectedSetting $protectedsettings -NoWait -EnableAutomaticUpgrade
 ```
-
 ---
 
 ### Firewall use
@@ -312,6 +333,95 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
+
+#### [PowerShell](#tab/ps)
+
+You can use PowerShell cmdlets to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension.
+
+Follow the steps mentioned below as an example:
+
+1. Create a Hybrid Worker Group.
+
+   ```powershell-interactive
+       New-AzAutomationHybridRunbookWorkerGroup -AutomationAccountName "Contoso17" -Name "RunbookWorkerGroupName" -ResourceGroupName "ResourceGroup01" 
+   ```
+1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as the name of the Hybrid Worker. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
+
+    ```azurepowershell
+      #To fetch vmResourceId, go to the Properties tab of the VM on Azure portal.
+      $hwVM = "VmResourceId"
+      
+      # Generate a new GUID and pass it as the name of the Hybrid Worker
+      $hwguid = New-Guid
+ 
+      # Create the Hybrid Worker
+      New-AzAutomationHybridRunbookWorker `
+     -Name $hwguid `
+     -VmResourceId $hwVM `
+     -HybridRunbookWorkerGroupName "RunbookWorkerGroupName" `
+     -AutomationAccountName "Contoso17" `
+     -ResourceGroupName "AutomationAccountResourceGroup01"
+    ```
+1. Follow the steps [here](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
+
+1. Install Hybrid Worker Extension on the VM and Hybrid Worker extension settings for [proxy server use](#proxy-server-use).
+  
+    **Hybrid Worker extension settings**
+
+    ```powershell-interactive
+      $settings = @{
+    "AutomationAccountURL"  = "<automationHybridServiceUrl>";
+    };
+    ```
+    
+    **Azure VMs**
+
+   ```powershell
+    Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
+   ```
+    **Azure Arc-enabled VMs**
+
+   ```powershell
+     New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
+   ```
+
+1.  To confirm if the extension has been successfully installed on the VM, In **Azure portal**, go to the VM > **Extensions** tab and check the status of Hybrid Worker extension installed on the VM.
+
+
+**Manage Hybrid Worker Extension**
+
+You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and Hybrid Runbook Worker groups:
+
+| PowerShell cmdlet | Description |
+| ----- | ----------- |
+|[`Get-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/get-azautomationhybridrunbookworkergroup) | Gets Hybrid Runbook Worker group|
+|[`Remove-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/remove-azautomationhybridrunbookworkergroup) | Removes Hybrid Runbook Worker group|
+|[`Set-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/set-azautomationhybridrunbookworkergroup) | Updates Hybrid Worker group with Hybrid Worker credentials|
+|[`New-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/new-azautomationhybridrunbookworkergroup) | Creates new Hybrid Runbook Worker group|
+|[`Get-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/get-azautomationhybridrunbookworker) | Gets Hybrid Runbook Worker|
+|[`Move-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/move-azautomationhybridrunbookworker) | Moves Hybrid Worker from one group to other|
+|[`New-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/new-azautomationhybridrunbookworker) | Creates new Hybrid Runbook Worker|
+|[`Remove-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/remove-azautomationhybridrunbookworker)| Removes Hybrid Runbook Worker|
+
+After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker.
+
+**Hybrid Worker extension settings**
+
+```powershell-interactive
+$settings = @{
+    "AutomationAccountURL"  = "<automationHybridServiceUrl>";
+};
+```
+**Azure VMs**
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
+```
+**Azure Arc-enabled VMs**
+
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
+```
 
 #### [Bicep template](#tab/bicep-template)
 
@@ -1012,7 +1122,7 @@ Follow the steps mentioned below as an example:
 
    ```azurecli-interactive
        az vm extension set --name HybridWorkerExtension --publisher Microsoft.Azure.Automation.HybridWorker --version 1.1 --vm-name <vmname> -g <resourceGroupName> \ 
-      --settings '{"AutomationAccountURL" = "<registration-url>";}' --enable-auto-upgrade true 
+      --settings '{"AutomationAccountURL" = "<automationHybridServiceUrl>";}' --enable-auto-upgrade true 
    ```
 1. To confirm if the extension has been successfully installed on the VM, in **Azure portal**, go to the VM > **Extensions** tab and check the status of the Hybrid Worker extension installed on the VM.
 
@@ -1023,83 +1133,6 @@ Follow the steps mentioned below as an example:
 
 After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker using [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set).
 
-
-#### [PowerShell](#tab/ps)
-
-You can use PowerShell cmdlets to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension.
-
-Follow the steps mentioned below as an example:
-
-1. Create a Hybrid Worker Group.
-
-   ```powershell-interactive
-       New-AzAutomationHybridRunbookWorkerGroup -AutomationAccountName "Contoso17" -Name "RunbookWorkerGroupName" -ResourceGroupName "ResourceGroup01" 
-   ```
-1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as the name of the Hybrid Worker. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
-
-    ```azurepowershell
-      New-AzAutomationHybridRunbookWorker -AutomationAccountName "Contoso17" -Name "RunbookWorkerName" -HybridRunbookWorkerGroupName "RunbookWorkerGroupName" -VmResourceId "VmResourceId" -ResourceGroupName "ResourceGroup01" 
-    ```
-1. Follow the steps [here](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
-
-1. Install Hybrid Worker Extension on the VM.
-  
-    **Hybrid Worker extension settings**
-
-    ```powershell-interactive
-      $settings = @{
-    "AutomationAccountURL"  = "<registrationurl>";
-    };
-    ```
-    
-    **Azure VMs**
-
-   ```powershell
-    Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
-   ```
-    **Azure Arc-enabled VMs**
-
-   ```powershell
-     New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
-   ```
-
-1.  To confirm if the extension has been successfully installed on the VM, In **Azure portal**, go to the VM > **Extensions** tab and check the status of Hybrid Worker extension installed on the VM.
-
-
-**Manage Hybrid Worker Extension**
-
-You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and Hybrid Runbook Worker groups:
-
-| PowerShell cmdlet | Description |
-| ----- | ----------- |
-|[`Get-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/get-azautomationhybridrunbookworkergroup) | Gets Hybrid Runbook Worker group|
-|[`Remove-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/remove-azautomationhybridrunbookworkergroup) | Removes Hybrid Runbook Worker group|
-|[`Set-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/set-azautomationhybridrunbookworkergroup) | Updates Hybrid Worker group with Hybrid Worker credentials|
-|[`New-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/new-azautomationhybridrunbookworkergroup) | Creates new Hybrid Runbook Worker group|
-|[`Get-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/get-azautomationhybridrunbookworker) | Gets Hybrid Runbook Worker|
-|[`Move-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/move-azautomationhybridrunbookworker) | Moves Hybrid Worker from one group to other|
-|[`New-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/new-azautomationhybridrunbookworker) | Creates new Hybrid Runbook Worker|
-|[`Remove-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/remove-azautomationhybridrunbookworker)| Removes Hybrid Runbook Worker|
-
-After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker.
-
-**Hybrid Worker extension settings**
-
-```powershell-interactive
-$settings = @{
-    "AutomationAccountURL"  = "<registrationurl>";
-};
-```
-**Azure VMs**
-
-```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
-```
-**Azure Arc-enabled VMs**
-
-```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
-```
 ---
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
