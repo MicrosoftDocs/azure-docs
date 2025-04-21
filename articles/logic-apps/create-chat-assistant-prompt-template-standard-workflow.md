@@ -1,6 +1,6 @@
 ---
 title: Create AI chat assistants with prompt templates
-description: Build an AI chat assistant that answers questions using your own data with Standard workflows in Azure Logic Apps and Azure OpenAI prompt templates.
+description: Build an AI chat assistant that answers questions by using Standard workflows in Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, shahparth, azla
@@ -73,7 +73,7 @@ The example workflow uses the following operations:
 
 This example creates and uses a prompt template that lets your workflow complete the following tasks:
 
-- Define a prompt with placeholders such as **`{{ customer.orders }}`**.
+- Define a prompt with placeholders such as **`{{ Employee.orders }}`**.
 - Automatically populate the template with outputs from earlier actions in the workflow.
 - Generate consistent and structured prompts with minimal effort.
 
@@ -101,7 +101,7 @@ To follow the example, download the [sample prompt template and inputs](https://
     |---------------------|-------------------------|
     | **URL and key-based authentication** | 1. Go to your **Azure OpenAI Service** resource. <br><br>2. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>3. Copy the **Endpoint** URL and either **Key** value. Store these values somewhere safe. |
     | **Active Directory OAuth** | 1. Set up your logic app resource for [OAuth 2.0 with Microsoft Entra ID authentication](/entra/architecture/auth-oauth2). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
-    | **Managed identity** <br>(Recommended) | 1. Follow [these steps to set up the managed identity with Microsoft Entra ID for your logic app](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
+    | **Managed identity** <br>(Recommended) | 1. Follow the [general steps to set up the managed identity with Microsoft Entra ID for your logic app](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
 
     [!INCLUDE [highest-security-level-guidance](includes/highest-security-level-guidance.md)]
 
@@ -115,7 +115,7 @@ To add the operation that starts your workflow when an event happens or a condit
 
 1. Open your Standard logic app resource and blank workflow in the designer.
 
-1. Follow [these steps to add the trigger you want](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-trigger).
+1. Follow the [general steps to add the trigger you want](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-trigger).
 
    This example uses the built-in ("in app") trigger named **When an HTTP request is available**.
 
@@ -139,7 +139,7 @@ When you're done, your workflow looks like the following example:
 
 To add operations that store the trigger outputs for subsequent actions to use as inputs, follow these steps:
 
-1. Under the trigger, follow [these steps to add the data operation named **Compose** action](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
+1. Under the trigger, follow the [general steps to add the data operation named **Compose** action](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
 
    The example adds three **Compose** actions and uses the following test data as inputs:
 
@@ -147,8 +147,8 @@ To add operations that store the trigger outputs for subsequent actions to use a
 
       ```json
       {
-          "firstName": "Sophie",
-          "lastName": "Owen",
+          "firstName": "Alex",
+          "lastName": "Taylor",
           "department": "IT",
           "employeeId": "E12345",
           "orders": [
@@ -202,7 +202,7 @@ Now, add the Azure OpenAI action to the workflow.
 
 ## Add the Azure OpenAI action
 
-1. Under the last **Compose** action, follow [these steps to add the **Azure OpenAI** action named **Get chat completions using Prompt Template**](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
+1. Under the last **Compose** action, follow the [general steps to add the **Azure OpenAI** action named **Get chat completions using Prompt Template**](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
 
 1. After the action appears on the designer surface, the connection pane opens so that you can provide the following information:
 
@@ -229,9 +229,9 @@ Now, add the Azure OpenAI action to the workflow.
    You are an AI assistant for Contoso's internal procurement team. You help employees get quick answers about previous orders and product catalog details. Be brief, professional, and use markdown formatting when appropriate. Include the employee’s name in your response for a personal touch.
 
    # Employee info
-   Name: {{customer.firstName}} {{customer.lastName}}  
-   Department: {{customer.department}}  
-   Employee ID: {{customer.employeeId}}
+   Name: {{Employee.firstName}} {{Employee.lastName}}
+   Department: {{Employee.department}}
+   Employee ID: {{Employee.employeeId}}
 
    # Question
    The employee asked the following:
@@ -244,7 +244,7 @@ Now, add the Azure OpenAI action to the workflow.
    # Product catalog
    Use this documentation to guide your response. Include specific item names and any relevant descriptions.
 
-   {% for item in documents %}
+   {% for item in Products %}
    Catalog item ID: {{item.id}}
    Name: {{item.title}}
    Description: {{item.content}}
@@ -253,12 +253,12 @@ Now, add the Azure OpenAI action to the workflow.
    # Order history
    Here is the employee's procurement history to use as context when answering their question.
 
-   {% for item in customer.orders %}
+   {% for item in Employee.orders %}
    Order Item: {{item.name}}
    Details: {{item.description}} — Ordered on {{item.date}}
    {% endfor %}
    
-   Based on the product documentation and order history above, please provide a concise and helpful answer to their question. Do not fabricate information beyond the provided inputs.
+   Based on the product documentation and order history above, provide a concise and helpful answer to their question. Don't fabricate information beyond the provided inputs.
    ```
 
    The following table describes how the example template works:
@@ -329,7 +329,7 @@ When you're done, your workflow looks like the following example:
 
 ## Clean up resources
 
-If you don't need the resources that you created for this guide, make sure to delete these resources so that you don't continue to get charged. You can either follow these steps to delete the resource group that contains these resources, or you can delete each resource individually.
+If you don't need the resources that you created for this guide, make sure to delete the resources so that you don't continue to get charged. You can either follow these steps to delete the resource group that contains these resources, or you can delete each resource individually.
 
 1. In the Azure search box, enter **resource groups**, and select **Resource groups**.
 
