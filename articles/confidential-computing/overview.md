@@ -27,7 +27,7 @@ Microsoft is one of the founding members of the CCC and provides Trusted Executi
 
 Azure already encrypts data at rest and in transit. Confidential computing helps protect data in use, including cryptographic keys. Azure confidential computing helps customers prevent unauthorized access to data in use, including from the cloud operator, by processing data in a hardware-based and attested Trusted Execution Environment (TEE).  When Azure confidential computing is enabled and properly configured, Microsoft isn't able to access unencrypted customer data.
 
-The threat model aims to reduce trust or remove the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed. This is achieved in Azure using a hardware root of trust not controlled by the cloud provider, which is designed to ensure unauthorized access or modification of the environment.
+The threat model aims to reduce trust or remove the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed. This is achieved in Azure using a hardware root of trust not controlled by the cloud provider, which is designed to ensure there is no unauthorized access or modification of the environment.
 
 When used with data encryption at rest and in transit, confidential computing extends data protections further to protect data whilst it's in use. This is beneficial for organizations seeking further protections for sensitive data and applications hosted in cloud environments. 
 
