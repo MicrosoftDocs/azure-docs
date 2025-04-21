@@ -1,68 +1,90 @@
 ---
-title: Create, change, or delete a virtual network TAP - Azure portal
-description: Learn how to create, change, or delete a virtual network TAP using the Azure portal.
-services: virtual-network
+title: Azure virtual network TAP overview
+description: Learn about virtual network TAP. Virtual network TAP provides you with a copy of virtual machine network traffic that can be streamed to a packet collector.
 author: avirupcha
 ms.service: azure-virtual-network
-ms.topic: how-to
+ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: avirupcha
 ---
 
-# Work with a virtual network TAP using the Azure portal
+# Virtual network TAP
 
-Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions).
+Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Virtual network TAP is now in Public Preview. For more information, see the [Overview](virtual-network-tap-overview.md) article.
+> Virtual network TAP is now in public preview in select Azure regions. For more information, see the [Supported Region](#supported-regions) section in this article.
 
-## Before you begin
+The following diagram shows how virtual network TAP works. You can add a TAP configuration on a [network interface](virtual-network-network-interface.md) that is attached to a virtual machine deployed in your virtual network. The destination is a virtual network IP address in the same virtual network as the monitored network interface or a [peered virtual](virtual-network-peering-overview.md) network. The collector solution for virtual network TAP can be deployed behind an Azure Internal Load balancer for high availability.
 
-Before you create a virtual network TAP resource, review the following items:
+:::image type="content" source="./media/virtual-network-tap/architecture.png" alt-text="Diagram of how virtual network TAP works." lightbox="./media/virtual-network-tap/architecture.png":::
 
-* Read the [prerequisites](virtual-network-tap-overview.md#prerequisites) in the Overview article before you create a virtual network TAP resource.
-* You must sign in to Azure with an account that has the appropriate [permissions](virtual-network-tap-overview.md#permissions).
+## Prerequisites
 
-## Create a virtual network TAP resource
+Before you can create a virtual network TAP, ensure you've received the confirmation email that you're enrolled in the preview. You must have one or more virtual machines created with [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one. 
 
-The following steps show you how to create a virtual network TAP resource using the Azure portal.
+You can use the same virtual network TAP resource to aggregate traffic from multiple network interfaces in the same or different subscriptions. If the monitored network interfaces are in different subscriptions, the subscriptions must be associated to the same Microsoft Entra tenant. Additionally, the monitored network interfaces, and the destination endpoint for aggregating the TAP traffic can be in peered virtual networks in the same region. If you're using this deployment model, ensure that the [virtual network peering](virtual-network-peering-overview.md) is enabled before you configure virtual network TAP.
 
-In the portal, search for and select **Virtual network access points** to open the Virtual network terminal access points page.
+## Permissions
 
-:::image type="content" source="./media/virtual-network-tap/portal-tutorial-create.png" alt-text="Create a virtual network TAP resource." lightbox="./media/virtual-network-tap/portal-tutorial-create.png":::
+The accounts you use to apply TAP configuration on network interfaces must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the necessary actions from the following table:
 
-1. Select your subscription ID.
-1. Select the Resource Group for your virtual network TAP resource.
-1. Give your virtual network TAP resource a name.
-1. Select the Azure region for your virtual network TAP resource. The destination and source resource must be in the same region as your virtual network TAP resource.
-1. Next, click **Select destination resource** to open the **Add a destination** page.
+| Action | Name |
+|---|---|
+| Microsoft.Network/virtualNetworkTaps/* | Required to create, update, read, and delete a virtual network TAP resource |
+| Microsoft.Network/networkInterfaces/read | Required to read the network interface resource on which the TAP is configured |
+| Microsoft.Network/tapConfigurations/* | Required to create, update, read, and delete the TAP configuration on a network interface |
 
-### Add a destination resource
+## Limitations
 
-A virtual network TAP resource can only have a single destination resource and it must be in the same region as the virtual network TAP resource.
+- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
+- Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
+- Virtual network doesn't support Live Migration. VM set as source for virtual network TAP will have live migration disabled.
+- VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source.
+- VMs behind Basic Load Balancer can't be set as a mirroring source.
+- Virtual network doesn't support mirroring of inbound Private Link Service traffic.
+- VMs in a virtual network with encryption enabled can't be set as mirroring source.
+- Virtual network doesn't support IPv6 isn't supported.
+- Virtual network TAP doesn't support mirroring of AKS pods.
+- When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
 
-:::image type="content" source="./media/virtual-network-tap/portal-tutorial-add-destination.png" alt-text="Add destination resource for mirrored traffic" lightbox="./media/virtual-network-tap/portal-tutorial-add-destination.png":::
+## Supported Regions
 
-Use the following steps to add a destination resource.
+- Asia East
+- US West Central
 
-1. Select between network interface or a load balancer.
-1. Filter for your desired destination resource. You can filter by using the search bar.
-1. Select your destination resource.
-1. After you specify your destination resource, click **Select** to open the **Add source network interfaces** page.
+### Coming soon
 
-### Add a source resource
+- UK South (May 5)
+- US East (May 15)
 
-You can have multiple sources per virtual network resource. If you have multiple sources, traffic is mirrored to the same destination resource. Sources must be in the same region as the virtual network TAP resource.
+## Virtual network TAP partner solutions
 
-:::image type="content" source="./media/virtual-network-tap/portal-tutorial-add-source.png" alt-text="Add mirrored traffic source" lightbox="./media/virtual-network-tap/portal-tutorial-add-source.png":::
+### Network packet brokers
 
-Configure the following settings to add a source resource:
+|Partner|Product|
+|-------------|----------|
+|**Gigamon**|[GigaVUE Cloud Suite for Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)|
+|**cPacket -**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
+|**Keysight**|[CloudLens](https://www.keysight.com/us/en/products/network-visibility/cloud-visibility/cloudlens-software-suite.html)|
 
-1. Filter for your desired source network interface.
-1. Select the source network interface.
-1. Click **Add**.
-1. Click **Review and Create** to deploy your virtual network TAP resource.
+### Security analytics, network/application performance management
 
-## Next steps
+|Partner|Product|
+|-------------|----------|
+|**DarkTrace**|[Darktrace /NETWORK](https://www.darktrace.com/products/network)|
+|**Netscout**|[Omnis Cyber Intelligence NDR](https://www.netscout.com/product/cyber-intelligence)|
+|**Corelight**|[Corelight Open NDR Platform](https://corelight.com/solutions/why-open-ndr)|
+|**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
+|**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
+|**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
+|**Extrahop**|[Reveal(x)](https://hop.extrahop.com/partners/tech-partners/microsoft/)|
+|**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|
+|**eSentire**|[eSentire MDR](https://www.esentire.com/how-we-do-it/signals/mdr-for-network)|
+|**LinkShadow**|[LinkShadow NDR](https://www.linkshadow.com/products/network-detection-and-response)|
+|**AttackFence**|[AttackFence NDR](https://www.attackfence.com/products/ndr)|
+|**Arista Networks**|[Arista NDR](https://www.arista.com/en/products/network-detection-and-response)|
 
-Learn how to [Create a virtual network TAP](tutorial-tap-virtual-network-cli.md) using CLI.
+## Next Steps
+
+Learn how to Create a virtual network TAP using [CLI](tutorial-tap-virtual-network-cli.md) or the [Azure portal](tutorial-virtual-network-tap-portal.md).
