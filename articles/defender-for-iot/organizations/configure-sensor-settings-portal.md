@@ -221,7 +221,7 @@ Add the range of IP addresses to configure the DHCP settings that can apply to a
 
 Your OT sensor can have a backup server setup during it's initially deployment or later on. In both cases, follow this procedure to confirm that the backup server is correctly configured once it's setup.
 
-A misconfigured backup server might falsely recognized traffic as malware and trigger a [Malware engine alert](alert-engine-messages.md#malware-engine-alerts). If you think a **Suspicion of Malicious Activity** malware alert was triggered falsely, consider following this procedure to check the backup server configuration.
+A misconfigured backup server might falsely recognize traffic as malware and trigger a [Malware engine alert](alert-engine-messages.md#malware-engine-alerts). If you think a **Suspicion of Malicious Activity** malware alert was triggered falsely, consider following this procedure to check the backup server configuration.
 
 **To configure the backup server:**
 
