@@ -78,8 +78,6 @@
       href: https://youtu.be/OxmVds31qL8
     - name: Communicate between multiple apps
       href: connect-apps.md
-    - name: Reduce cold-start times
-      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -225,6 +223,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview

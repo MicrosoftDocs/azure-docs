@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 04/24/2025
 ms.author: cshoe
 ---
 
@@ -93,24 +93,10 @@ Serverless GPUs are run on consumption GPU workload profiles. You manage a consu
 
 ## Improve GPU cold start
 
-You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry. For more information, see [enable artifact streaming](/azure/container-registry/container-registry-artifact-streaming?pivots=development-environment-azure-cli).
+You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry. For more information, see [enable artifact streaming](/azure/container-registry/container-registry-artifact-streaming).
 
 > [!NOTE]
 > To use artifact streaming, your container images must be hosted in a premium Azure Container Registry.
-
-Use the following steps to enable image streaming:
-
-1. Open your Azure Container Registry in the Azure portal.
-
-1. Search for **Repositories**, and select **Repositories**.
-
-1. Select your repository name.
-
-1. From the *Repository* window, select **Start artifact streaming**.
-
-1. Select the image tag that you want to stream.
-
-1. In the window that pops up, select **Create streaming artifact**.
 
 ## Submit feedback
 
