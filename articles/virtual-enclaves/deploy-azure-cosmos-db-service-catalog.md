@@ -30,7 +30,9 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 ## Prerequisites
 
 There are guardrails in the enclaves to ensure a service bus is using CMK encryption (customer-managed keys). This requires a key and identity to access the key to be accessible from the storage account in the enclave.
-> [!NOTE] These resources are not deployed with the enclave or workload.
+> [!NOTE]
+> 
+> These resources are not deployed with the enclave or workload.
 
 1. An existing subnet to place a private endpoint into. 
     - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
@@ -48,7 +50,7 @@ There are guardrails in the enclaves to ensure a service bus is using CMK encryp
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select "Add Service" button.
-3. Select the Azure Cosmos DB service template from the [Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
+3. Select the Azure Cosmos DB service template from the [Service Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
 5. Select Review + Add then Add.
