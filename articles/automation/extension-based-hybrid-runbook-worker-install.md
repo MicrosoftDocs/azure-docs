@@ -116,11 +116,11 @@ There are multiple ways to retrieve the value for AutomationHybridServiceUrl:
 
 - Copy it from the **Azure portal**, **Automation Account**, **Properties**, **Automation hybrid service URL**.
 
-Or
+  Or
 
 - Copy it from the **Azure portal**, **Automation Account**,  **Overview**,  **JSON** view. </br> Select the latest API version, otherwise AutomationHybridServiceUrl might not be displayed.
 
-Or
+  Or
 - The below REST API call:
 
   ```rest
