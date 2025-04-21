@@ -191,7 +191,7 @@ The following table shows the redundancy options supported by each Azure Storage
 | Azure managed disks                             | &#x2705; | &#x2705; <sup>3</sup> |          |          |          |          |
 | Azure Elastic SAN                               | &#x2705; | &#x2705; |          |          |          |          |
 
-<sup>1</sup> Standard (HDD) file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
+<sup>1</sup> Standard (HDD) file shares are supported on LRS and ZRS. Standard and large file shares are supported on GRS and GZRS now.<br/>
 <sup>2</sup> SSD file shares are supported on LRS and ZRS.<br/>
 <sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
