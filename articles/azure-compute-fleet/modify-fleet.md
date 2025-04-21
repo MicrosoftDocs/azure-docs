@@ -1,7 +1,7 @@
 ---
 title: Modify a Compute Fleet
 description: Learn about how to modify your Azure Compute Fleet.
-author: vashan
+author: shandilvarun
 ms.author: vashan
 ms.topic: how-to
 ms.service: azure-compute-fleet
