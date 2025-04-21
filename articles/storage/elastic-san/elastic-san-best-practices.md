@@ -35,7 +35,9 @@ This article provides some general guidance on getting optimal performance with 
 - If you plan for your environment to ever have 16 nodes in an Azure VMware Solution cluster, use one of the following configurations, depending on which hosts you have.
     - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
     - AV64 - Seven iSCSI sessions over seven Private Endpoints
-- If your environment won't have 16 nodes, use eight iSCSI sessions
+- If your environment won't have 16 nodes, use one of the following configurations.
+    -  AV36, AV36P, AV52 - Eight iSCSI sessions over four Private Endpoints
+    - AV64 - Eight iSCSI sessions over eight Private Endpoints
 
     > [!NOTE]
     > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use iSCSI eight sessions that uses the maximum number of connections (128). Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions. 
@@ -135,7 +137,7 @@ portal_hostname=<Elastic SAN volume portal hostname>
 port=3260
 
 # Set maximum data the initiator sends in an iSCSI PDU to the target to 256 KB
-sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.MaxXmitDataSegmentLength = 262144
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.conn[0].iscsi.MaxXmitDataSegmentLength -v 262144
 
 # Set maximum SCSI payload that the initiator negotiates with the target to 256 KB
 sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n node.session.iscsi.MaxBurstLength -v 262144
