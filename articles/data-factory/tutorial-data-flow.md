@@ -114,11 +114,11 @@ In this step, you build a data flow that takes the moviesDB.csv in ADLS storage 
 
 1. In the linked service creation screen, name your ADLS gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this tutorial, we're using Account key to connect to our storage account. You can select **Test connection** to verify your credentials were entered correctly. Select Create when finished.
 
-    :::image type="content" source="media/tutorial-data-flow/create-linked-service.png" alt-text="Linked Service":::
+    :::image type="content" source="media/tutorial-data-flow/create-linked-service.png" alt-text="Screenshot of the pane to create a new linked service for Azure Data Lake Storage.":::
 
 1. Once you're back at the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file moviesDB.csv is located in container sample-data. As the file has headers, check **First row as header**. Select **From connection/store** to import the header schema directly from the file in storage. Select OK when done.
 
-    :::image type="content" source="media/tutorial-data-flow/source-linked-service.png" alt-text="Datasets":::
+    :::image type="content" source="media/tutorial-data-flow/source-linked-service.png" alt-text="Screenshot of the paine to create a dataset.":::
 
 1. If your debug cluster has started, go to the **Data Preview** tab of the source transformation and select **Refresh** to get a snapshot of the data. You can use data preview to verify your transformation is configured correctly.
 
@@ -126,7 +126,7 @@ In this step, you build a data flow that takes the moviesDB.csv in ADLS storage 
 
 1. Next to your source node on the data flow canvas, select the plus icon to add a new transformation. The first transformation you're adding is a **Filter**.
 
-    :::image type="content" source="media/tutorial-data-flow/dataflow-add-filter.png" alt-text="Data Flow Canvas":::
+    :::image type="content" source="media/tutorial-data-flow/dataflow-add-filter.png" alt-text="Screenshot of the data flow canvas.":::
 
 1. Name your filter transformation **FilterYears**. Select the expression box next to **Filter on** and then **Open expression builder**. Here you specify your filtering condition.
 
@@ -190,11 +190,11 @@ In this step, you build a data flow that takes the moviesDB.csv in ADLS storage 
 
 1. Choose **DelimitedText**. Select Continue.
 
-    :::image type="content" source="media/tutorial-data-flow/select-delimited.png" alt-text="Dataset":::
+    :::image type="content" source="media/tutorial-data-flow/select-delimited.png" alt-text="Screenshot of the pane to select a dataset type.":::
 
 1. Name your sink dataset **MoviesSink**. For linked service, choose the ADLS gen2 linked service you created in step 6. Enter an output folder to write your data to. In this tutorial, we're writing to folder 'output' in container 'sample-data'. The folder doesn't need to exist beforehand and can be dynamically created. Set **First row as header** as true and select **None** for **Import schema**. Select Finish.
 
-    :::image type="content" source="media/tutorial-data-flow/sink-properties.png" alt-text="Sink":::
+    :::image type="content" source="media/tutorial-data-flow/sink-properties.png" alt-text="Screenshot of the sink creation page with first row as header selected.":::
 
 Now you've finished building your data flow. You're ready to run it in your pipeline.
 
@@ -218,7 +218,7 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 
 1. Select a transformation to get detailed information about the columns and partitioning of the data.
 
-    :::image type="content" source="media/tutorial-data-flow/review-stage.png" alt-text="Monitoring":::
+    :::image type="content" source="media/tutorial-data-flow/review-stage.png" alt-text="Screenshot of the monitoring transformation pane.":::
 
 If you followed this tutorial correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data is correct by checking your blob storage.
 
