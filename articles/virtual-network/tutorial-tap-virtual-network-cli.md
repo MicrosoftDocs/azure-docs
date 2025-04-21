@@ -6,21 +6,21 @@ author: asudbring
 manager: ganesr
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 04/21/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 
 # Work with a virtual network TAP using the Azure CLI
 
-> [!IMPORTANT]
-> Virtual network TAP Preview is currently in Preview in select Azure regions. You can sign up for our Previews using the sign form (https://forms.office.com/r/EWqbgLGNcV) and we'll notify you when you're selected. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions).
 
-Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
+> [!IMPORTANT]
+> Virtual network TAP is now in Public Preview. For more information, see the [Overview](virtual-network-tap-overview.md) article.
 
 ## Create a virtual network TAP resource
 
-Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you create a virtual network TAP resource. You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. The Azure Cloud Shell is a free interactive shell that doesn't require installing the Azure CLI on your computer. You must sign in to Azure with an account that has the appropriate [permissions](virtual-network-tap-overview.md#permissions). This article requires the Azure CLI version 2.0.46 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). Virtual network TAP is currently available as an extension. To install the extension you need to run `az extension add -n virtual-network-tap`. If you're running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you create a virtual network TAP resource. You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. The Azure Cloud Shell is a free interactive shell that doesn't require installing the Azure CLI on your computer. You must sign in to Azure with an account that has the appropriate [permissions](virtual-network-tap-overview.md#permissions). This article requires the Azure CLI version 2.0.46 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). Virtual network TAP is currently available as an extension. To install the extension, you need to run `az extension add -n virtual-network-tap`. If you're running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
 1. Retrieve the ID of your subscription into a variable that is used in a later step:
 
@@ -155,4 +155,5 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
    ```
 
 ## Next steps
-- [Virtual network TAP overview](virtual-network-tap-overview.md)
+
+Learn how to [create a virtual network TAP](tutorial-virtual-network-tap-portal.md) using the Azure portal.
