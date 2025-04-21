@@ -3,7 +3,7 @@ title: Managed identity for storage accounts
 description: Learn to Azure Cache for Redis
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
@@ -14,28 +14,34 @@ A [managed identity](/entra/identity/managed-identities-azure-resources/overview
 
 A managed identity lets you simplify the process of securely connecting to an Azure Storage account for the following Azure Redis scenarios:
 
-- [Data persistence](cache-how-to-premium-persistence.md) backs up the data in your cache.
-- [Import or Export](cache-how-to-import-export-data.md) saves snapshots of cache data or imports data from a saved file.
+- [Data persistence](cache-how-to-premium-persistence.md) to back up the data in your cache.
+- [Import or export](cache-how-to-import-export-data.md) to save snapshots of cache data or import data from a saved file.
 
-Only the Azure Redis data persistence and import-export features use managed identity. These features are available only in Azure Redis Premium tier, so managed identity is available only for Azure Redis Premium tier.
+Only the Azure Redis data persistence and import-export features use managed identity. These features are available only in Azure Redis Premium tier, so managed identity is available for Azure Redis Premium tier only.
 
-Azure Cache for Redis supports both *system-assigned* and *user-assigned* managed identities. Each type of managed identity has advantages, but the Azure Cache for Redis functionality is the same.
+Azure Cache for Redis supports both *system-assigned* and *user-assigned* managed identities. Each type of managed identity has advantages, but the functionality is the same in Azure Cache for Redis.
 
 - **System-assigned identity** is specific to the cache resource. If the cache is deleted, the identity is deleted.
-- **User-assigned identity** is specific to a user. You can assign this identity to any resource, such as a storage account, that supports managed identity. This assignment remains even if you delete a specific resource.
+- **User-assigned identity** is specific to a user. You can assign this identity to any resource, such as a storage account, that supports managed identity. This assignment remains even if you delete the specific cache resource.
 
-Configuring managed identity for Azure Redis Premium persistence or import/export features consists of several parts:
+Configuring managed identity for Azure Redis Premium data persistence or import-export features consists of several parts:
 
-- Enable the managed identity in the Azure Redis cache.
-- Configure the Azure Storage account to use the managed identity.
-- Configure the data persistence or import/export features to use the managed identity.
+- [Enable the managed identity](#enable-managed-identity) in the Azure Redis cache.
+- [Configure the Azure Storage account](#configure-the-storage-account-to-use-managed-identity) to use the managed identity.
+- Configure the [data persistence](#use-managed-identity-with-data-persistence) or [import-export](#use-managed-identity-to-import-and-export-cache-data) features to use the managed identity.
 
 All the parts must be completed correctly before Azure Redis data persistence or import-export can access the storage account. Otherwise, you see errors or no data written.
+
+## Scope of availability
+
+|Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
+|---------|:---------:|:---------:|:---------:|
+|Available  | Yes         | Yes        |  No  |
 
 ## Prerequisites
 
 - Ability to create and configure a Premium-tier Azure Redis cache and an Azure Storage account in an Azure subscription.
-- To assign a user-assigned managed identity, a [managed identity created](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) in the same Azure subscription as the Azure Redis cache and Storage account.
+- To assign a user-assigned managed identity: A [managed identity created](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) in the same Azure subscription as the Azure Redis cache and Storage account.
 
 ## Enable managed identity
 
