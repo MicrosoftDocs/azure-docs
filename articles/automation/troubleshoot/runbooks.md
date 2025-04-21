@@ -21,7 +21,7 @@ When you import a PowerShell module you will not be able to use its cmdlets in g
 To improve the security posture of PowerShell runbooks, the service no longer processes the module manifest file to export the cmdlets and functions. This means that they cannot be used when authoring graphical PowerShell runbooks.
 
 ### Resolution
-There is no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VScode for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
+There is no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VS Code for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
 
 
 ## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
