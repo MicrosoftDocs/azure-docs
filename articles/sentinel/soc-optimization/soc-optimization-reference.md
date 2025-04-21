@@ -23,10 +23,8 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 Microsoft Sentinel SOC optimizations include the following types of recommendations:
 
-- **Threat-based recommendations** suggest adding security controls that help you close coverage gaps.
-
 - **Data value recommendations** suggest ways to improve your data use, such as a better data plan for your organization.
-
+- **Threat-based recommendations** suggest adding security controls that help you close coverage gaps.
 - **Similar organizations recommendations** suggest ingesting data from the types of sources used by organizations which have similar ingestion trends and industry profiles to yours.
 
 This article provides a detailed reference of the types of SOC optimization recommendations available.
