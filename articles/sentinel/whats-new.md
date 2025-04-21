@@ -38,9 +38,9 @@ For more information, see the following articles:
 - [View and manage incidents and alerts in Microsoft Defender multitenant management](/unified-secops-platform/mto-incidents-alerts)
 - [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting)
 
-### New threat intelligence tables support STIX objects and indicators (Preview)
+### Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)
 
-Microsoft Sentinel is now ingesting STIX objects and indicators into the new threat intelligence tables, [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects). The new tables support the new STIX 2.1 schema, which lets you ingest and query various threat intelligence objects, including `identity`, `attack-pattern`, `threat-actor`, and `relationship`. 
+Microsoft Sentinel now ingests STIX objects and indicators into the new threat intelligence tables, [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects). The new tables support the new STIX 2.1 schema, which lets you ingest and query various threat intelligence objects, including `identity`, `attack-pattern`, `threat-actor`, and `relationship`. 
 
 Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicator` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
 
