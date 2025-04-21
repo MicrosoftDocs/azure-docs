@@ -52,7 +52,7 @@ A route definition can contain these elements:
 * A filter that defines which events are sent to the endpoint
     - To disable the route so that no events are sent, use a filter value of `false`
     - To enable a route that has no specific filtering, use a filter value of `true`
-    - For details on any other type of filter, see the following [Filter events](#filter-events) section
+    - For details on any other type of filter, see the [Filter events](#filter-events) section
 
 If there's no route name, no messages are routed outside of Azure Digital Twins. 
 If there's a route name and the filter is `true`, all messages are routed to the endpoint. 
