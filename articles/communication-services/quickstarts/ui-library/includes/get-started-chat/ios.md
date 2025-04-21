@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application at [Azure Samples iOS SDK for chat](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ In Xcode, create a new project.
 
 ### Install the package and dependencies
 
-1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 

@@ -1,10 +1,10 @@
 ---
 title: What's new in Microsoft Sentinel
 description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: concept-article
-ms.date: 03/13/2025
+ms.date: 04/01/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -17,6 +17,39 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## April 2025
+
+- [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
+- [Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)](#microsoft-sentinel-now-ingests-all-stix-objects-and-indicators-into-new-threat-intelligence-tables-preview)
+
+### Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)
+
+For preview, in the Defender portal, connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. If you onboard Microsoft Sentinel with Defender XDR, a primary workspace's alerts are correlated with Defender XDR data. So incidents  include alerts from Microsoft Sentinel's primary workspace and Defender XDR. All other onboarded workspaces are considered secondary workspaces. Incidents are created based on the workspace’s data and won't include Defender XDR data. 
+
+- If you plan to use Microsoft Sentinel in the Defender portal without Defender XDR, you can manage multiple workspaces. But, the primary workspace doesn't include Defender XDR data and you won't have access to Defender XDR capabilities.
+- If you're working with multiple tenants and multiple workspaces per tenant, you can also use Microsoft Defender multitenant management to view incidents and alerts, and to hunt for data in Advanced hunting, across both multiple workspaces and tenants.
+
+For more information, see the following articles:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md)
+- [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard)
+- [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview)
+- [View and manage incidents and alerts in Microsoft Defender multitenant management](/unified-secops-platform/mto-incidents-alerts)
+- [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting)
+
+### Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)
+
+Microsoft Sentinel now ingests STIX objects and indicators into the new threat intelligence tables, [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects). The new tables support the new STIX 2.1 schema, which lets you ingest and query various threat intelligence objects, including `identity`, `attack-pattern`, `threat-actor`, and `relationship`. 
+
+Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicator` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+
+**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. 
+
+For more information, see the following articles:
+
+- [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
+- [Work with STIX objects and indicators to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)](work-with-stix-objects-indicators.md)
 
 ## March 2025
 

@@ -78,6 +78,9 @@ Each origin in your Azure Front Door origin group has a *Priority* property, whi
 
 ## <a name="weighted"></a>Weighted traffic-routing method
 
+> [!NOTE]
+> For customers with very low RPS (Requests Per Second), due to the nature of how distributed AFD POPs and machines are, we cannot guarantee that the weights configured by the customer will be strictly followed and the load balancing may appear skewed.
+
 The *Weighted* traffic-routing method allows you to distribute traffic based on predefined weights.
 
 In this method, you assign a weight to each origin in your Azure Front Door origin group. The weight is an integer between 1 and 1000, with a default value of **50**.

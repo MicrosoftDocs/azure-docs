@@ -74,7 +74,7 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 - Enable access rules to grant access outside the secure perimeter.
 - Manage access rules for all the PaaS resources within the network security perimeter in a single pane of glass.
 - Enable diagnostic settings to generate access logs of PaaS resources within the perimeter for Audit and Compliance.
-- Allow private endpoint traffic without other access rules.
+- Allow private endpoint traffic without the need for explicit access rules.
 
 
 ## How does a network security perimeter work?
@@ -101,14 +101,24 @@ A network security perimeter-aware private link resource is a PaaS resource that
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
 
+## Supported access rules' types
+
+Network security perimeter supports the following access rule types:
+
+| Direction | Access rule type | 
+|---------------------------|---------------|
+| Inbound | Subscription based rules |
+| Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
+| Outbound | FQDN based rules |
+
 ## Limitations of a network security perimeter
 
-### Regional limitations
+### Logging limitations
 
 Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 > [!NOTE]
-> For PaaS resource logs, use **Storage and Event Hub** as the log destination for any region associated to the same perimeter.
+> For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 

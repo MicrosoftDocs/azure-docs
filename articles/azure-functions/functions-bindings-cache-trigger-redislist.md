@@ -326,7 +326,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Redis lists](https://redis.io/docs/data-types/lists/)
