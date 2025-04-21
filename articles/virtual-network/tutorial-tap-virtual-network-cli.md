@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
+ms.custom: references_regions
 ---
 
 # Work with a virtual network TAP using the Azure CLI
