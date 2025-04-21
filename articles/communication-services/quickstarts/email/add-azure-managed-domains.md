@@ -1,7 +1,7 @@
 ---
-title: How to add Azure Managed Domains to Email Communication Service
+title: Add Azure Managed Domains to Email Communication Service
 titleSuffix: An Azure Communication Services quick start guide
-description: Learn about adding Azure Managed domains for Email Communication Services.
+description: This article describes how to add free Azure Managed domains for Email Communication Services.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -14,9 +14,9 @@ ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
 ---
 
-# Quickstart: How to add Azure Managed Domains to Email Communication Service
+# Add Azure Managed Domains to Email Communication Service
 
-This article describes how to provision an Azure Managed Domain for Email Communication Service in Azure Communication Services.
+This article describes how to provision Azure Managed Domains for Email Communication Service in Azure Communication Services. There's no charge for provisioning email domains.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-azure-managed-domain-resource-az-portal.md)]
@@ -41,7 +41,7 @@ Before provisioning an Azure Managed Domain, review the following table to decid
 | | [Azure Managed Domains](./add-azure-managed-domains.md) | [Custom Domains](./add-custom-verified-domains.md) | 
 |---|---|---|
 |**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
-|**Cons:** | - Sender domain is not personalized and cannot be changed<br/>- Sender usernames can't be personalized<br/>- Very limited sending volume<br />- User Engagement Tracking can't be enabled <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
+|**Cons:** | - Sender domain isn't personalized and can't be changed<br/>- Sender usernames can't be personalized<br/>- Very limited sending volume<br />- User Engagement Tracking can't be enabled <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
 
 ### Service limits
 

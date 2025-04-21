@@ -126,8 +126,12 @@
       href: how-to-nva-hub.md
     - name: Restart an NVA in a virtual hub
       href: how-to-network-virtual-appliance-restart.md
+    - name: Reimage an NVA in a virtual hub
+      href: how-to-network-virtual-appliance-reimage.md
     - name: Configure DNAT/Internet inbound
       href: how-to-network-virtual-appliance-inbound.md
+    - name: Manage IP configurations
+      href: how-to-network-virtual-appliance-add-ip-configurations.md
 - name: Site-to-site (S2S) connections
   items:
   - name: Create a site-to-site connection
@@ -312,6 +316,16 @@
       href: route-maps-about.md
     - name: Configure Route-maps
       href: route-maps-how-to.md
+    - name: Configure Route-maps to summarize routes leaving your virtual WAN
+      href: route-maps-how-to-summarize-routes-leaving-your-virtual-wan.md
+    - name: Configure Route-maps to drop inbound routes from branch sites
+      href: route-maps-drop-inbound-branch-sites.md
+    - name: Configure Route-maps to prepend routes
+      href: route-maps-prepend-routes.md
+    - name: Configure Route-maps to tag routes
+      href: route-maps-tag-routes.md
+    - name: Configure Route-maps to summarize routes from an NVA
+      href: route-maps-summarize-from-device-spoke-vnet-nva.md
   - name: View virtual hub effective routes
     href: effective-routes-virtual-hub.md
   - name: Configure routing intent and policies
