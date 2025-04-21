@@ -4,7 +4,7 @@ description: Learn how to complete basic tasks in the Standard workflow designer
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 ---
 
@@ -13,24 +13,6 @@ ms.date: 04/21/2025
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 When you work with Azure Logic Apps in the Azure portal, you can edit your [*workflows*](logic-apps-overview.md#logic-app-concepts) visually or programmatically.
-
-## Open the workflow designer
-
-1. In the [Azure portal](https://portal.azure.com), open your [*logic app* resource](logic-apps-overview.md#logic-app-concepts).
-
-1. On the logic app menu, under **Workflows**, select **Workflows**.
-
-1. On the **Workflows** page, select the workflow that you want.
-
-1. On the workflow menu, select **Designer**.
-
-   To visually develop, edit, and run your workflow, select the designer view. To edit the workflow in JSON view, select [**Code**](#code-view). You can switch between the designer view and code view at any time.
-
-   :::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
-
-1. When you select the **Designer** view, your workflow opens in the workflow designer.
-
-   :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 ## Prerequisites
 
@@ -53,6 +35,24 @@ The latest workflow designer offers a new experience with noteworthy features an
   - Move to the next card: **Ctrl** + **Down Arrow (&darr;)**
 
   - Move to the previous card: **Ctrl** + **Up Arrow (&uarr;)**
+
+## Open the workflow designer
+
+1. In the [Azure portal](https://portal.azure.com), open your [*logic app* resource](logic-apps-overview.md#logic-app-concepts).
+
+1. On the logic app menu, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page, select the workflow that you want.
+
+1. On the workflow menu, select **Designer**.
+
+   To visually develop, edit, and run your workflow, select the designer view. To edit the workflow in JSON view, select [**Code**](#code-view). You can switch between the designer view and code view at any time.
+
+   :::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
+
+1. When you select the **Designer** view, your workflow opens in the workflow designer.
+
+   :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 ## Add steps to workflows
 
