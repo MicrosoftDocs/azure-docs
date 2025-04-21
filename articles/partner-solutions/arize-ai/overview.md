@@ -30,7 +30,7 @@ Here are the key capabilities provided by the Arize Integration integration:
 
 ## Subscribe
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] *Arize AI*.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Arize AI Cloud Service*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
