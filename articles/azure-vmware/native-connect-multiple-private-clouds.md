@@ -5,14 +5,14 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.date: 4/15/2025
+ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to connect multiple Azure VMware Solution Generation 2 Private Clouds so that I can enable seamless communication between private clouds.
 ---
 
 # Connect multiple Azure VMware Solution Generation 2 Private Clouds
 
-In this article, you learn how to connect a Azure VMware Solution Generation (Gen) 2 private cloud to other Gen 2 private clouds.
+In this article, you learn how to connect a Azure VMware Solution Generation 2 (Gen 2) private cloud to other Gen 2 private clouds.
 
 ## Prerequisite
 

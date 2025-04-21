@@ -181,18 +181,18 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers and c
 
 ### How does Azure Communication Services handle opt-outs for short codes?
 
-Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Before provisioning your short code, you're asked for your preference to manage opt-outs. If you opt-in, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword.
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP`. Before provisioning your short code, you're asked for your preference to manage opt-outs. If you chose the Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword.
 
 ### How does Azure Communication Services handle opt-outs for short codes in United States?
 
-Azure communication service offers an opt-out management service for short codes in US that allows customers to configure responses to mandatory keywords STOP/START/HELP. Before you provision your short code, you're asked for your preference to manage opt-outs. If you opt in, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword. 
+Azure communication service offers an opt-out management service for short codes in US that allows customers to configure responses to mandatory keywords `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP`. Before you provision your short code, you're asked for your preference to manage opt-outs. If you chose the Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP` keywords. 
 
-*Example:* 
+**For example:**
 - **STOP** - If a text message recipient wishes to opt out, they can send `STOP` to the short code. Azure Communication Services sends your configured response for STOP: *`Contoso Alerts: You opted out and will not receive any more messages.`*
 - **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send `START` to the short code. Azure Communication Service sends your configured response for START: *`Contoso Promo Alerts: 3 msgs/week. Message & Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.`*
 - **HELP** - If the recipient wishes to get help with your service, they can send `HELP` to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *`Thanks for texting Contoso! Call 1-800-800-8000 for support.`*
 
-Azure Communication Services detects `STOP` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The `STOP`, `UNSTOP`, and `START` messages are relayed back to you. We encourage you to monitor and implement these *opt-outs* to ensure that no further message send attempts are made to recipients who opt out of your communications.
+Azure Communication Services detects `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`, or `UNSUBSCRIBE` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`UNSTOP`, and `START` messages are relayed back to you. We encourage you to monitor and implement these *opt-outs* to ensure that no further message send attempts are made to recipients who opt out of your communications.
 
 ### How does Azure Communication Services handle opt outs for alphanumeric sender ID?
 

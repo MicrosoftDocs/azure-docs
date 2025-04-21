@@ -7,7 +7,7 @@ ms.author: prakulka
 ms.date: 04/10/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
-zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc
+zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
 ---
 # SMS pricing 
 
@@ -25,6 +25,10 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc
 
 ::: zone pivot="alphanumeric-senderid"
 [!INCLUDE [Alphanumeric sender ID](./includes/sms-alphanumeric-sender-id-pricing.md)]
+::: zone-end
+
+::: zone pivot="mobile-number"
+[!INCLUDE [Mobile Numbers](./includes/sms-mobile-numbers.md)]
 ::: zone-end
 
 ## Next steps
