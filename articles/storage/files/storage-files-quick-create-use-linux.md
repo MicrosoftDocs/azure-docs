@@ -24,12 +24,18 @@ In this tutorial, you will:
 > * Mount the file share to your VM
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Getting started
 
@@ -37,16 +43,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-### Create a FileStorage storage account
+### Create a storage account
 
-Before you can work with an NFS 4.1 Azure file share, you have to create an Azure storage account with the premium performance tier. Currently, NFS 4.1 shares are only available as premium file shares.
+Before you can work with an NFS file share, you have to create a storage account for SSD file shares.
 
 1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 1. On the **Storage Accounts** window that appears, choose **+ Create**.
 1. On the **Basics** tab, select the subscription in which to create the storage account.
 1. Under the **Resource group** field, select **Create new** to create a new resource group to use for this tutorial.
 1. Enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
-1. Select a region for your storage account, or use the default region. Azure supports NFS file shares in all the same regions that support premium file storage.
+1. Select a region for your storage account, or use the default region. Azure supports NFS file shares in all the same regions that support SSD file shares.
 1. Select the *Premium* performance tier to store your data on solid-state drives (SSD). Under **Premium account type**, select *File shares*.
 1. Leave replication set to its default value of *Locally redundant storage (LRS)*.
 1. Select **Review + Create** to review your storage account settings and create the account.

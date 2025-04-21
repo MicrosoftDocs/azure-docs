@@ -3,7 +3,7 @@ title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 02/12/2025
+ms.date: 04/17/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -253,4 +253,5 @@ To update the backup instance, run the following command:
 
 ## Next steps
 
-[Restore Azure Blobs using Azure CLI](restore-blobs-storage-account-cli.md)
+- [Restore Azure Blobs using Azure CLI](restore-blobs-storage-account-cli.md).
+- [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

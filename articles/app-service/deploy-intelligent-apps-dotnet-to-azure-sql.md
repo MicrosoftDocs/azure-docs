@@ -3,7 +3,7 @@ title: 'Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azur
 description: Get started connecting Azure SQL to your OpenAI app
 author: jeffwmartinez
 ms.author: jefmarti
-ms.date: 02/10/2025
+ms.date: 04/17/2025
 ms.topic: article
 ms.custom: devx-track-dotnet, linux-related-content
 ms.collection: ce-skilling-ai-copilot

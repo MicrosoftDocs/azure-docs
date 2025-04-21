@@ -5,8 +5,8 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
-ms.date: 02/13/2025
+ms.topic: tutorial
+ms.date: 04/18/2025
 ---
 
 # Transform data using mapping data flows
@@ -17,9 +17,9 @@ If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](in
 
 In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
 
- >[!NOTE]
-   >This tutorial is meant for mapping data flows in general. Data flows are available both in Azure Data Factory and Synapse Pipelines. If you are new to data flows in Azure Synapse Pipelines, please follow [Data Flow using Azure Synapse Pipelines](../synapse-analytics/concepts-data-flow-overview.md) 
-   
+>[!NOTE]
+>This tutorial is meant for mapping data flows in general. Data flows are available both in Azure Data Factory and Synapse Pipelines. If you are new to data flows in Azure Synapse Pipelines, please follow [Data Flow using Azure Synapse Pipelines](../synapse-analytics/concepts-data-flow-overview.md) 
+
 In this tutorial, you do the following steps:
 
 > [!div class="checklist"]
@@ -30,6 +30,7 @@ In this tutorial, you do the following steps:
 > * Monitor a Data Flow activity
 
 ## Prerequisites
+
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 
@@ -40,7 +41,7 @@ The file that we are transforming in this tutorial is MoviesDB.csv, which can be
 In this step, you create a data factory and open the Data Factory UX to create a pipeline in the data factory.
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in the Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
+2. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
 
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 

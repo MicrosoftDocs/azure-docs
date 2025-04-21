@@ -49,6 +49,8 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of access policies per connection | 100 | 100 | 100 | 100 | 100 |
 | Maximum number of authorization requests per minute per connection | 250 | 250 | 250 | 250 | 250 |
 | Maximum number of [workspaces](../articles/api-management/workspaces-overview.md) per service instance | N/A | N/A | N/A | N/A | 100 |
+| Maximum number of APIs per [workspace](../articles/api-management/workspaces-overview.md#workspace-gateway) | N/A | N/A | N/A | N/A | 50 |
+| Maximum number of workspaces per [workspace gateway premium](../articles/api-management/workspaces-overview.md#workspace-gateway) | N/A | N/A | N/A | N/A | 30 |
 
 <sup>1</sup> Connections are pooled and reused unless explicitly closed by the backend.<br/>
 <sup>2</sup> Includes an up to 2048-bytes long query string.<br/>

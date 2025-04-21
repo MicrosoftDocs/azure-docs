@@ -1,6 +1,6 @@
 ---
 title: Sign an HTTP Request with C#
-description: This tutorial explains the C# version of signing an HTTP request with an HMAC signature for Azure Communication Services.
+description: This article describes how to use C# to sign an HTTP request with an HMAC signature for Azure Communication Services.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -11,8 +11,6 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 ## Prerequisites
-
-Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. If you don't have an Azure subscription, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
@@ -36,7 +34,7 @@ The `hmac-sha256-signature` consists of:
 
 ## Set up the authorization header
 
-The following steps describe how to construct the authorization header.
+Complete the following steps to construct the authorization header.
 
 ### Create a new C# application
 
@@ -46,7 +44,7 @@ In a console window, such as cmd, PowerShell, or Bash, use the `dotnet new` comm
 dotnet new console -o SignHmacTutorial
 ```
 
-Change your directory to the newly created app folder. Use the `dotnet build` command to compile your application.
+Change your directory to the newly created app folder. To compile your application, use the `dotnet build` command.
 
 ```console
 cd SignHmacTutorial

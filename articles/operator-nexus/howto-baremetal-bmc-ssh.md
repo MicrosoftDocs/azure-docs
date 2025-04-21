@@ -5,7 +5,7 @@ author: DanCrank
 ms.author: danielcrank
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/18/2025
+ms.date: 04/18/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -17,6 +17,7 @@ ms.custom: template-how-to, devx-track-azurecli
 There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure are exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Azure Group ID `--azure-group-id <Entra Group ID>`.
 
 Users in a keyset are validated every four hours, and also when any changes are made to any keyset. Each user's status is then set to "Active" or "Invalid." Invalid users remain in the keyset but their keys are removed from all hosts and they aren't allowed access. Reasons for a user being invalid are:
+
 - The user's User Principal Name isn't specified
 - The user's User Principal Name isn't a member of the given Entra group
 - The given Entra group doesn't exist (in which case all users in the keyset are invalid)
@@ -26,6 +27,7 @@ Users in a keyset are validated every four hours, and also when any changes are 
 > The User Principal Name is now required for keysets as Microsoft Entra ID validation is enforced for all users. Current keysets that don't specify User Principal Names for all users will continue to work until the expiration date. If a keyset without User Principal Names expires, the keyset will need to be updated with User Principal Names, for all users, in order to become valid again. Keysets that haven't been updated with the User Principal Names for all users before December 2024 are at-risk of being `Invalid`. Note that if any user fails to specify a User Principal Name this results in the entire keyset being invalidated.
 
 The keyset and each individual user also have detailed status messages communicating other information:
+
 - The keyset's detailedStatusMessage tells you whether the keyset is expired, and other information about problems encountered while updating the keyset across the cluster.
 - The user's statusMessage tells you whether the user is active or invalid, and a list of machines that aren't yet updated to the user's latest active/invalid state. In each case, causes of problems are included if known.
 
@@ -138,6 +140,19 @@ az networkcloud cluster bmckeyset create \
   --verbose                                              : Increase logging verbosity. Use --debug
                                                            for full debug logs.
 ```
+
+> [!NOTE]
+> The public key supplied for each user in a BMCKeyset must be one of the types supported by iDRAC.
+> Using a key of an unsupported type might result in an error or undefined behavior. Supported types
+> are:
+>
+> - rsa-sha2-512
+> - rsa-sha2-256
+> - ssh-rsa
+> - ecdsa-sha2-nistp256
+> - ssh-ed25519
+>
+> For more information, see the [Dell iDRAC9 Security Configuration Guide](https://www.dell.com/support/manuals/en-us/idrac9-lifecycle-controller-v5.x-series/idrac9_security_configuration_guide/supported-ssh-cryptography-schemes?guid=guid-5ab48ae4-72cb-4b95-8623-5124ed3b4f64&lang=en-us).
 
 This example creates a new keyset with two users that have standard access from two jump hosts.
 

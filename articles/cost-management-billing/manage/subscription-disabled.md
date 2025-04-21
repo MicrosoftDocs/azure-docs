@@ -32,8 +32,16 @@ To monitor and manage billing activity for Azure, see [Plan to manage Azure cost
 
 To resolve a past due balance, see one of the following articles:
 
+- For Microsoft Customer Agreement subscriptions, see [How to pay your bill for Microsoft Azure](../understand/pay-bill.md)![Screenshot on error banner for past due invoices for modern subscriptions.](media/subscription-disabled/past-due-banner-modern.png)
+
+You can click on the banner, and it will take you to **Invoice** in your **Billing Profile Scope**.
+
 - For Microsoft Online Subscription Program subscriptions including pay-as-you-go, see [Resolve past due balance for your Azure subscription after getting an email from Azure](resolve-past-due-balance.md).
-- For Microsoft Customer Agreement subscriptions, see [How to pay your bill for Microsoft Azure](../understand/pay-bill.md).
+  - If your subscription is in an active state but a past due invoice is pending, it will show the error message "This subscription will be disabled for non-payment. Settle outstanding charges."
+    
+  - If your subscription is in disabled state because of the past due, it will show this error message. "This subscription is disabled because payment wasn’t received. Settle outstanding charges."
+    
+- In both situations, you can click on the banner, and it will take you to **Settle Balance**.
 
 ## The bill exceeds your credit card limit
 

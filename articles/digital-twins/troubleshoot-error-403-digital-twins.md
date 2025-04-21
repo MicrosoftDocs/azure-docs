@@ -54,8 +54,6 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
-
 For more information about this role requirement and the assignment process, see [Set up your user's access permissions](how-to-set-up-instance-CLI.md#set-up-user-access-permissions).
 
 If you have this role assignment already and you're using a Microsoft Entra app registration to authenticate a client app, you can continue to the next solution if this solution didn't resolve the 403 issue.

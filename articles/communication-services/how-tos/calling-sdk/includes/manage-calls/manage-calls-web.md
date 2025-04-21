@@ -267,7 +267,11 @@ const state = remoteParticipant.state;
 
 To mute all other participants or mute a specific participant who is connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
 
- *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+Muting a PSTN endpoint using the calling WebJS SDK is currently in public preview and is available in build 1.34.1 [1.34.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1341-beta2-2025-03-20) and later versions.
+
+> [!NOTE]
+> Muting others on a 1:1 call is not supported.
 
 ```js
 //mute all participants except yourself

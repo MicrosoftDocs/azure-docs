@@ -24,11 +24,11 @@ Brand registration is the process of registering your business as a recognized b
 
 ### How do I complete brand registration with ACS?
 
-To register a brand, you’ll need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This can be done through the ACS portal by following [this quickstart](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+To register a brand, you need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This process can be done through the ACS portal by following [this quickstart](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### What types of information are required for brand registration?
 
-You’ll need to provide:
+You need to provide:
 - Legal business name
 - Business address
 - Tax ID or Employer Identification Number (EIN)
@@ -66,9 +66,9 @@ Yes, there is a fee. Refer to the [pricing page](../sms-pricing.md) for details 
 
 ## General 10DLC FAQs
 
-### Can I use 10DLC numbers in any country or region?
+### Can I use 10DLC numbers in any country?
 
-No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. Check the [ACS eligibility documentation](../../concepts/numbers/phone-number-management-for-united-states.md) for more details on supported countries/regions.
+No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. Check the [ACS eligibility documentation](../../concepts/numbers/phone-number-management-for-united-states.md) for more details on supported countries.
 
 ### What is a 10DLC number?
 A 10DLC (10-Digit Long Code) number is a standard 10-digit phone number used for Application-to-Person (A2P) messaging in the United States. It is designed for businesses to send SMS messages to customers at scale, without the restrictions of traditional long codes.
@@ -158,25 +158,25 @@ To increase the chances of your messages being delivered, the following list sho
 
 Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden.
 
-- **STOP** - If a text message recipient wishes to opt out, they can send `STOP` to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word STOP, which blocks all texts sent from this number. Text back UNSTOP to receive messages again."*
+- **STOP**/**QUIT**/**END**/**REVOKE**/**OPT OUT**/**CANCEL**/**UNSUBSCRIBE** - If a text message recipient wishes to opt out, they can send `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`, or `UNSUBSCRIBE` to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word STOP, which blocks all texts sent from this number. Text back UNSTOP to receive messages again."*
 - **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send `START` or `UNSTOP` to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied UNSTOP and will begin receiving messages again from this number.”*
-- Azure Communication Services detects `STOP` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.”
-- The `STOP`, `UNSTOP`, and `START` messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who opt out of your communications.
+- Azure Communication Services detects `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`, or `UNSUBSCRIBE` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.”
+- The `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`UNSTOP`, and `START` messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who opted out of your communications.
 
 ### How does Azure Communication Services handle opt-outs for short codes?
 
-Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Before provisioning your short code, you're asked for your preference to manage opt-outs. If you opt-in, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword.
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP`. Before provisioning your short code, you're asked for your preference to manage opt-outs. If you chose the Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword.
 
 ### How does Azure Communication Services handle opt-outs for short codes in United States?
 
-Azure communication service offers an opt-out management service for short codes in US that allows customers to configure responses to mandatory keywords STOP/START/HELP. Before you provision your short code, you're asked for your preference to manage opt-outs. If you opt in, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword. 
+Azure communication service offers an opt-out management service for short codes in US that allows customers to configure responses to mandatory keywords `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP`. Before you provision your short code, you're asked for your preference to manage opt-outs. If you chose the Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP` keywords. 
 
 *Example:* 
 - **STOP** - If a text message recipient wishes to opt out, they can send `STOP` to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You opted out and will not receive any more messages."*
-- **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send `START` to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Message & Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
+- **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send `START` to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Message & Data Rates May A'/
 - **HELP** - If the recipient wishes to get help with your service, they can send `HELP` to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
-Azure Communication Services detects `STOP` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The `STOP`, `UNSTOP`, and `START` messages are relayed back to you. We encourage you to monitor and implement these *opt-outs* to ensure that no further message send attempts are made to recipients who opt out of your communications.
+Azure Communication Services detects `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`, or `UNSUBSCRIBE` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`UNSTOP`, and `START` messages are relayed back to you. We encourage you to monitor and implement these *opt-outs* to ensure that no further message send attempts are made to recipients who opt out of your communications.
 
 ### How does Azure Communication Services handle opt outs for alphanumeric sender ID?
 
@@ -184,7 +184,7 @@ Alphanumeric sender ID cannot receive inbound messages or `STOP` messages. Azure
 
 ### How does Azure Communication Services handle opt outs for short codes in Canada and United Kingdom?
 
-Azure Communication Services doesn't control or implement opt-out mechanisms for short codes within Canada and the United Kingdom. Recipients of text messages have the option to text ‘STOP’ to unsubscribe or ‘START’ to subscribe to the short code. These requests are relayed as incoming messages to your event grid. It is your responsibility to act on these messages by resubscribing recipients or ceasing message delivery accordingly.
+Azure Communication Services doesn't control or implement opt-out mechanisms for short codes within Canada and the United Kingdom. Recipients of text messages have the option to text ‘STOP’ to unsubscribe or ‘START’ to subscribe to the short code. These requests are relayed as incoming messages to your Event Grid. It is your responsibility to act on these messages by resubscribing recipients or ceasing message delivery accordingly.
 
 ## Short codes
 

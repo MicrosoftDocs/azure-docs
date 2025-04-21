@@ -13,7 +13,7 @@ ms.subservice: manage-account
 
 Azure Maps is a global service that is available worldwide. When creating your Azure Maps account, you select a _Region_. The Region selection is the accounts geographic scope, which allows you to limit data residency to the selected region. All requests (including input data) are processed and stored exclusively in the specified geographic area (region).
 
-In some cases, you will need to enable your search requests to be processed in a region or geography other than the one your Azure Maps Account is in. For example, due to local data residency laws, all South Korean addresses must be processed in South Korea, which is the _Korea Central_ region in Azure Maps. To do this, you must give Azure Maps consent to process your data in the _Korea Central_ region. For more information on how to give Azure maps consent to process data in a different region, see [Configure global data processing].
+In some cases, you will need to enable your search requests to be processed in a region or geography other than the one your Azure Maps Account is in. For example, due to local data residency laws, all South Korean addresses must be processed in South Korea, which is the _Korea Central_ region in Azure Maps. To do this, you must give Azure Maps consent to process your data in the _Korea Central_ region. For more information on how to give Azure Maps consent to process data in a different region, see [Configure global data processing].
 
 For more information on geographic scope in Azure Maps, see [Azure Maps service geographic scope].
 

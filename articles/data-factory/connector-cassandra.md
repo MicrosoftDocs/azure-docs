@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/21/2025
+ms.date: 04/02/2025
 ms.author: jianleishen
 ---
 # Copy data from Cassandra using Azure Data Factory or Synapse Analytics
@@ -81,7 +81,7 @@ The following properties are supported for Cassandra linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **Cassandra** |Yes |
-| version | The version that you specify. The value is `2.0`. | Yes for version 2.0 (Preview), not supported for version 1.0. |
+| version | The version that you specify. | Yes for version 2.0 (Preview). |
 | host |One or more IP addresses or host names of Cassandra servers.<br/>Specify a comma-separated list of IP addresses or host names to connect to all servers concurrently. |Yes |
 | port |The TCP port that the Cassandra server uses to listen for client connections. |No (default is 9042) |
 | authenticationType | Type of authentication used to connect to the Cassandra database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |

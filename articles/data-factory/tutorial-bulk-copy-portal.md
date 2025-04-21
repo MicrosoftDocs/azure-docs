@@ -54,7 +54,7 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. On the left of the Azure portal menu, select **Create a resource** > **Integration** > **Data Factory**. 
+1. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
 
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 1. On the **New data factory** page, enter **ADFTutorialBulkCopyDF** for **name**. 

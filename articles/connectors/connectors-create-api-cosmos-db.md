@@ -7,7 +7,7 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 04/15/2025
 ---
 
 # Access, create, or process documents in Azure Cosmos DB with workflows in Azure Logic Apps
@@ -98,7 +98,7 @@ To add an Azure Cosmos DB action to a Consumption workflow, follow these steps:
 
 1. If the workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
+   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, follow [these general steps to add the **Azure Cosmos DB** action that you want](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=consumption#add-action).
 
@@ -135,9 +135,9 @@ To add an Azure Cosmos DB built-in action to a Standard workflow, follow these s
 
 1. If the workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create:
+   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create:
 
-   :::image type="content" source="./media/connectors-create-api-cosmos-db/http-trigger-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and trigger named When an HTTP request is received.":::
+   :::image type="content" source="./media/connectors-create-api-cosmos-db/http-trigger-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and trigger named When a HTTP request is received.":::
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, follow [these general steps to add the **Azure Cosmos DB** action that you want](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
@@ -158,7 +158,7 @@ To add an Azure Cosmos DB built-in action to a Standard workflow, follow these s
    | **Container Id** | Yes | <*container-ID*> | The container to query. |
    | **Item** | Yes | <*JSON-document*> | The JSON document to create. This example uses the **id** output from the Request trigger. <br><br>**Note**: If you use the **body** trigger output, make sure that the body content is well-formed JSON, and at a minimum, contains the **`id`** attribute and the **`partitionKey`** attribute for your document. If a document with these attributes exists, the document is updated. Otherwise, a new document is created. |
 
-   The following example shows the action named **Create or update item**, which includes the **Item** and **Partition Key** parameter values from the output for the trigger named **When an HTTP request is received**:
+   The following example shows the action named **Create or update item**, which includes the **Item** and **Partition Key** parameter values from the output for the trigger named **When a HTTP request is received**:
 
    :::image type="content" source="media/connectors-create-api-cosmos-db/create-action-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and Azure Cosmos DB built-in action named Create or update item.":::
 

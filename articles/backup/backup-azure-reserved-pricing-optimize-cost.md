@@ -3,7 +3,7 @@ title: Optimize costs for Azure Backup Storage with reserved capacity
 description: This article explains about how to optimize costs for Azure Backup Storage with reserved capacity.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 04/16/2024
+ms.date: 04/15/2025
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
@@ -11,9 +11,7 @@ ms.author: jsuri
 
 # Optimize costs for Azure Backup Storage with reserved capacity
 
-You can save money on backup storage costs for the vault-standard tier using Azure Backup Storage reserved capacity. Azure Backup Storage reserved capacity offers you a discount on capacity for backup data stored for the vault-standard tier when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of backup storage capacity for the term of the reservation.
-
-Azure Backup Storage reserved capacity can significantly reduce your capacity costs for Azure Backup data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the vault tier, and type of redundancy you've chosen for your vault. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Backup Storage resources.
+Azure Backup Storage reserved capacity allows cost savings for the vault-standard tier by providing discounts on backup storage when committing to a one- or three-year reservation. A reservation provides a fixed amount of backup storage capacity for the term of the reservation. The savings depend on the reservation term, total reserved capacity, vault tier, and chosen redundancy type. Reserved capacity reduces costs without impacting Azure Backup Storage resources.
 
 For information about Azure Backup pricing, see [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/).
 

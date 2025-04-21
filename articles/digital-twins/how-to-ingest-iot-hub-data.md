@@ -53,8 +53,6 @@ You then need to create one twin using this model. Use the following command to 
 az dt twin create  --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0}'
 ```
 
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
-
 When the twin is created successfully, the CLI output from the command should look something like this:
 ```json
 {

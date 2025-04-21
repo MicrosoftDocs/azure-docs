@@ -1,6 +1,6 @@
 ---
-title: Azure built-in roles for Hybrid + multicloud - Azure RBAC
-description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category. It lists Actions, NotActions, DataActions, and NotDataActions.
+title: Azure built-in roles for Hybrid + multicloud -  Azure RBAC
+description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category (Azure Stack HCI). It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
@@ -13,14 +13,15 @@ ms.custom: generated
 
 # Azure built-in roles for Hybrid + multicloud
 
-This article lists the Azure built-in roles in the Hybrid + multicloud category.
+This article lists the Azure built-in roles in the Hybrid + multicloud category (Azure Stack HCI).
 
 
 ## Azure Resource Bridge Deployment Role
 
-Azure Resource Bridge Deployment Role
+> [!IMPORTANT] 
+> This deployment role only applies to Azure Stack HCI. It does not apply to any other Arc Private Cloud and does not work for other private clouds.
 
-[Learn more](/azure-stack/hci/deploy/deployment-azure-resource-manager-template)
+Azure Resource Bridge Deployment Role is used only for Azure Stack HCI.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
