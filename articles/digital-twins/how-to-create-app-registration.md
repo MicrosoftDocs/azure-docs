@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Create an app registration with Azure Digital Twins access
 titleSuffix: Azure Digital Twins
 description: Create a Microsoft Entra app registration that can access Azure Digital Twins resources.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Create an app registration to use with Azure Digital Twins

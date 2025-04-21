@@ -21,9 +21,9 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: Architecture and design 
-      itemType: get-started
-      url: architecture-network-design-considerations.md
+    - title: Introduction to Azure VMware Solution Generation 2 Private Clouds (Public preview) 
+      itemType: overview
+      url: /azure/azure-vmware/native-introduction
     - title: Networking
       itemType: how-to-guide
       url: tutorial-expressroute-global-reach-private-cloud.md
@@ -223,6 +223,8 @@ additionalContent:
               url: using-run-command.md
             - text: Configure VMware Syslogs
               url: configure-vmware-syslogs.md
+            - text: Send syslogs to log management solutions via Azure Logic Apps
+              url: logs-via-logic-app.md
             - text: Configure Alerts
               url: configure-alerts-for-azure-vmware-solution.md
             - text: Configure Newest Metrics for Azure VMware Solution

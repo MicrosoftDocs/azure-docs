@@ -6,7 +6,7 @@ ms.service: azure-bastion
 ms.custom:
   - ignite-2024
 ms.topic: overview
-ms.date: 03/12/2025
+ms.date: 03/14/2025
 ms.author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ---
@@ -51,7 +51,7 @@ The following diagrams show the available architectures for Azure Bastion.
 
 **Bastion Developer**
 
-:::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
+:::image type="content" source="./media/quickstart-developer/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion Developer architecture." lightbox="./media/quickstart-developer/bastion-shared-pool.png":::
 
 **Private-only deployment**
 
@@ -82,7 +82,7 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 ## Next steps
 
 * [Quickstart: Deploy Bastion automatically with default settings and Standard SKU](quickstart-host-portal.md)
-* [Quickstart: Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md)
+* [Quickstart: Deploy Bastion Developer](quickstart-developer.md)
 * [Tutorial: Deploy Bastion using specified settings and SKUs](tutorial-create-host-portal.md)
 * [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/)
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure

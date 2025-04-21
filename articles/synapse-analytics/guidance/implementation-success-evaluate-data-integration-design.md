@@ -1,9 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate data integration design"
 description: "Learn how to evaluate the data integration design and validate that it meets guidelines and requirements."
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022

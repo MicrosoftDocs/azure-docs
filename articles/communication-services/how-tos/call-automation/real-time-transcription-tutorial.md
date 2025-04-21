@@ -65,7 +65,7 @@ In this tutorial, we're demonstrating option 2 and 3, starting transcription dur
 | TranscriptionStopped | 200 | 0 | Action completed successfully. |
 | TranscriptionUpdated | 200 | 0 | Action completed successfully. |
 | TranscriptionFailed | 400 | 8581 | Action failed, StreamUrl isn't valid. |
-| TrasncriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
+| TranscriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
 | TranscriptionFailed | 400 | 8565 | Action failed due to a request to Cognitive Services timing out. Try again later or check for any issues with the service. |
 | TranscriptionFailed | 400 | 8605 | Custom speech recognition model for Transcription is not supported. |
 | TranscriptionFailed | 400 | 8523 | Invalid Request, locale is missing. |

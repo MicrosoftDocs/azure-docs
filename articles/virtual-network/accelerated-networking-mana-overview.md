@@ -24,7 +24,6 @@ Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have
 
 #### Linux
 
-- Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
 - Red Hat Enterprise Linux 8.8
@@ -37,7 +36,7 @@ Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have
 - Oracle Linux 9.0 UEK R7
 
 > [!NOTE]
-> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer you distribution and kernel is, the more likely it is to have the latest updates. 
+> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
 
 #### Windows
 

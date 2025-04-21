@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Manage digital twins
 titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/04/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Manage digital twins
@@ -26,11 +20,11 @@ This article focuses on managing digital twins; to work with relationships and t
 
 ## Prerequisites
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-prereq-instance.md](includes/digital-twins-prereq-instance.md)]
 
-[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](includes/digital-twins-developer-interfaces.md)]
 
-[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](includes/digital-twins-visualization.md)]
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
@@ -90,7 +84,7 @@ To import twins in bulk, you need to structure your twins (and any other resourc
 
 You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
-[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+[!INCLUDE [digital-twins-bulk-blob.md](includes/digital-twins-bulk-blob.md)]
 
 Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You provide the blob storage URL of the input file, and a new blob storage URL to indicate where you'd like the output log to be stored after the service creates it.
 
@@ -275,7 +269,7 @@ Here's an example of the code to delete twins and their relationships. The `Dele
 
 For an example of how to delete all twins at once, download the sample app used in the [Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file deletes all digital twins in a `CommandDeleteAllTwins()` function.
 
-[!INCLUDE [digital-twins-bulk-delete-note.md](../../includes/digital-twins-bulk-delete-note.md)]
+[!INCLUDE [digital-twins-bulk-delete-note.md](includes/digital-twins-bulk-delete-note.md)]
 
 ## Runnable digital twin code sample
 
@@ -291,7 +285,7 @@ Then, **copy the following code** of the runnable sample into your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
 
-[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](includes/digital-twins-defaultazurecredential-note.md)]
 
 ### Configure project
 
@@ -306,7 +300,7 @@ Next, complete the following steps to configure your project code:
       ```
 
 You also need to set up local credentials if you want to run the sample directly. The next section walks through this prerequisite.
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](includes/digital-twins-local-credentials-outer.md)]
 
 ### Run the sample
 

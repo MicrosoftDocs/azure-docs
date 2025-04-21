@@ -7,9 +7,10 @@ ms.author: halkazwini
 manager: danielgi
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.custom: mvc
 #Customer intent: As an Azure Content Delivery Network administrator, I want to create custom rules on my content delivery network endpoint so that I can control how content is cached.
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Set Azure Content Delivery Network caching rules

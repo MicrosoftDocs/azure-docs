@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Private Link
 description: This article contains important reference material you need when you monitor Azure Private Link by using Azure Monitor.
-ms.date: 12/16/2024
+ms.date: 03/25/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: AbdullahBell

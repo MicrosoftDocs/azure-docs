@@ -1,5 +1,10 @@
 {
-  "redirections": [
+  "redirections": [    
+  {
+    "source_path": "transport-layer-security-configure-client-version.md",
+    "redirect_url": "/azure/service-bus-messaging/transport-layer-security-configure-minimum-version#tls-version-used-by-a-client",
+    "redirect_document_id": false
+  },  
   {
     "source_path": "migrate-java-apps-wild-fly.md",
     "redirect_url": "/azure/app-service/configure-language-java#use-service-bus-as-a-message-broker",

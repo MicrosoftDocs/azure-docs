@@ -3,6 +3,9 @@ title: Granular role-based access Azure HDInsight cluster configurations
 description: Learn about the changes required as part of the migration to granular role-based access for HDInsight cluster configurations.
 ms.service: azure-hdinsight
 ms.topic: conceptual
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 
@@ -195,6 +198,6 @@ If it still does not work, contact your Microsoft Entra admin to acquire the cor
 
 Beginning on September 3, 2019, `GET /configurations` and `POST /configurations/gateway` calls will no longer return any information and the `GET /configurations/{configurationName}` call will no longer return sensitive parameters, such as storage account keys or the cluster password. The same is true of corresponding SDK methods and PowerShell cmdlets.
 
-If you are using an older version of one of the tools for Visual Studio, VSCode, IntelliJ or Eclipse mentioned, it is no longer function until you update.
+If you are using an older version of one of the tools for Visual Studio, VS Code, IntelliJ or Eclipse mentioned, it is no longer function until you update.
 
 For more detailed information, see the corresponding section of this document for your scenario.

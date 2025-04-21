@@ -74,7 +74,9 @@ In this section, you learn how to configure BGP peering with a network virtual a
 # Add a peer.
 az network routeserver peering create --name 'myNVA' --peer-ip '10.0.0.4' --peer-asn '65001' --routeserver 'myRouteServer' --resource-group 'myResourceGroup'
 ``` 
-
+> [!NOTE]
+> The peer name doesn't have to be the same name of the NVA.
+ 
 ## Complete the configuration on the NVA 
 
 To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. Use [az network routeserver show](/cli/azure/network/routeserver#az-network-routeserver-show) command to get the IP and ASN of the route server.

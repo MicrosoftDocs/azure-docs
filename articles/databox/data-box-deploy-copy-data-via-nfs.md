@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data to Azure Data Box via NFS
@@ -15,7 +16,7 @@ ms.author: shaas
 > [!IMPORTANT]
 > Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
 >
->For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps containined within the [Copy data to Data Box](#copy-data-to-data-box) section to copy your data to the appropriate access tier.
+>For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps contained within the [Copy data to Data Box](#copy-data-to-data-box) section to copy your data to the appropriate access tier.
 >
 > The information contained within this section applies to orders placed after April 1, 2024.
 
@@ -30,15 +31,27 @@ In this tutorial, you learn how to:
 > * Copy data to Data Box
 
 ## Prerequisites
-
+:::zone pivot="dbx"
 Before you begin, make sure that:
 
-1. You complete the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
-2. You receive your Data Box and the order status in the portal is **Delivered**.
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
-    - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds are impacted.
 
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Before you begin, make sure that:
+
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
+3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, use a 10-GbE or 1-GbE data link but the copy speeds are impacted.
+
+:::zone-end
 ## Connect to Data Box
 
 Based on the storage account selected, Data Box creates up to:

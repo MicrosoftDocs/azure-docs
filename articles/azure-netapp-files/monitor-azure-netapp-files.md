@@ -20,6 +20,12 @@ To understand how Activity log works, see [Azure Activity log](/azure/azure-moni
 
 For Activity log warnings for Azure NetApp Files volumes, see [Activity log warnings for Azure NetApp Files volumes](troubleshoot-volumes.md#activity-log-warnings-for-volumes).
 
+## File access logs
+
+Azure NetApp Files provides file access logging for individual volumes, capturing file system operations on selected volumes. Standard file system operations are captured in the logs.
+
+To learn more about enabling and using this feature, see [file access logs](manage-file-access-logs.md).
+
 ## Azure NetApp Files metrics 
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. With these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.
@@ -43,6 +49,7 @@ For more information, see [Monitor capacity utilization](volume-hard-quota-guide
 ## Next steps  
 
 * [Azure Activity log](/azure/azure-monitor/essentials/activity-log)
+* [File access logs](manage-file-access-logs.md)
 * [Activity log warnings for Azure NetApp Files volumes](troubleshoot-volumes.md#activity-log-warnings-for-volumes)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Monitor capacity utilization](volume-hard-quota-guidelines.md#how-to-operationalize-the-volume-hard-quota-change)

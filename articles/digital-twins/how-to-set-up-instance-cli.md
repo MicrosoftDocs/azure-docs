@@ -3,7 +3,7 @@ title: Set up an instance and authentication (CLI)
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: azure-digital-twins
@@ -17,15 +17,15 @@ ms.devlang: azurecli
 
 # Set up an Azure Digital Twins instance and authentication (CLI)
 
-[!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
+[!INCLUDE [digital-twins-setup-selector.md](includes/digital-twins-setup-selector.md)]
 
 This article covers the steps to set up a new Azure Digital Twins instance, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-steps.md](includes/digital-twins-setup-steps.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
+[!INCLUDE [CLI setup for Azure Digital Twins](includes/digital-twins-cli.md)]
 
 ## Create the Azure Digital Twins instance
 
@@ -85,11 +85,11 @@ You now have an Azure Digital Twins instance ready to go. Next, you will give th
 
 ## Set up user access permissions
 
-[!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-role-assignment.md](includes/digital-twins-setup-role-assignment.md)]
 
 ### Prerequisites: Permission requirements
 
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](includes/digital-twins-setup-permissions.md)]
 
 ### Assign the role
 
@@ -116,7 +116,7 @@ The result of this command is outputted information about the role assignment th
 
 ### Verify success
 
-[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-verify-role-assignment.md](includes/digital-twins-setup-verify-role-assignment.md)]
 
 You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
 
