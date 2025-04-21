@@ -24,7 +24,7 @@ Typically, however, an application defines where a set of related messages start
 > [!IMPORTANT]
 > When sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. Clients must send messages as part of a session by setting the session ID and received by accepting the session. Clients might still peek a queue or subscription that has sessions enabled. See [Message browsing](message-browsing.md).
 
-The APIs for sessions exist on queue and subscription clients. There's an imperative model that controls when sessions and messages are received, and a handler-based model that hides the complexity of managing the receive loop. 
+The APIs for sessions exist on queue and subscription clients. There are two ways to receive sessions and messages: the imperative model, where you manually control when and how messages are received, and the handler-based model, which simplifies things by automatically managing the message loop and processing. 
 
 For samples, use links in the [Samples](#samples) section. 
 
