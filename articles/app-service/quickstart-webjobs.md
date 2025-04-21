@@ -12,10 +12,6 @@ zone_pivot_groups: app-service-webjobs
 
 # Quickstart: Create a scheduled WebJob
 
-> [!NOTE]
-> WebJobs for **Windows container**, **Linux code**, and **Linux container** is in preview. WebJobs for Windows code is generally available.
-WebJobs on [Azure App Service](index.yml) enable you automate repetitive tasks on your web app. WebJobs can be continuous, triggered manually, or scheduled. All [App Service Plans]() support WebJobs and there's no extra cost to use WebJobs. Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
-
 In this quickstart, you create a scheduled WebJob to delete temporary files from a specified directory.
 
 ## Prerequisites
