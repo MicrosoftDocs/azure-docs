@@ -29,7 +29,7 @@ The following steps show you how to create a virtual network TAP resource using 
 
 In the portal, search for and select **Virtual network access points** to open the Virtual network terminal access points page.
 
-:::image type="content" source="./media/virtual-network-tap/portal-tutorial-create.png" alt-text="Create a virtual network TAP resource." lightbox="./media/virtual-network-tap/portal-tutorial-create.png":::
+:::image type="content" source="./media/virtual-network-tap/portal-tutorial-create.png" alt-text="Screenshot of virtual network tap Azure portal showing how to start creating a virtual network TAP resource." lightbox="./media/virtual-network-tap/portal-tutorial-create.png":::
 
 1. Select your subscription ID.
 1. Select the Resource Group for your virtual network TAP resource.
@@ -41,7 +41,7 @@ In the portal, search for and select **Virtual network access points** to open t
 
 A virtual network TAP resource can only have a single destination resource and it must be in the same region as the virtual network TAP resource.
 
-:::image type="content" source="./media/virtual-network-tap/portal-tutorial-add-destination.png" alt-text="Add destination resource for mirrored traffic" lightbox="./media/virtual-network-tap/portal-tutorial-add-destination.png":::
+:::image type="content" source="./media/virtual-network-tap/portal-tutorial-add-destination.png" alt-text="Screenshot of virtual network tap Azure portal showing how to add destination resource for mirrored traffic." lightbox="./media/virtual-network-tap/portal-tutorial-add-destination.png":::
 
 Use the following steps to add a destination resource.
 
@@ -54,7 +54,7 @@ Use the following steps to add a destination resource.
 
 You can have multiple sources per virtual network resource. If you have multiple sources, traffic is mirrored to the same destination resource. Sources must be in the same region as the virtual network TAP resource.
 
-:::image type="content" source="./media/virtual-network-tap/portal-tutorial-add-source.png" alt-text="Add mirrored traffic source" lightbox="./media/virtual-network-tap/portal-tutorial-add-source.png":::
+:::image type="content" source="./media/virtual-network-tap/portal-tutorial-add-source.png" alt-text="Screenshot of virtual network tap Azure portal showing how to add mirrored traffic source." lightbox="./media/virtual-network-tap/portal-tutorial-add-source.png":::
 
 Configure the following settings to add a source resource:
 
