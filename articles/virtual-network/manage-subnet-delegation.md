@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 08/23/2023
+ms.date: 04/21/2025
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -31,7 +31,7 @@ Subnet delegation gives explicit permissions to the service to create service-sp
 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
-- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+- Sign in to Azure PowerShell and ensure the subscription with which you want to use this feature is selected. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 - Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name Az.Network` if necessary.
 
@@ -151,7 +151,7 @@ In this section, you delegate the subnet that you created in the preceding secti
 
 # [**PowerShell**](#tab/manage-subnet-delegation-powershell)
 
-Use [`Add-AzDelegation`](/powershell/module/az.network/add-azdelegation) to update the subnet named **subnet-1** with a delegation named **myDelegation** to an Azure service.  In this example **Microsoft.Sql/managedInstances** is used for the example delegation:
+Use [`Add-AzDelegation`](/powershell/module/az.network/add-azdelegation) to update the subnet named **subnet-1** with a delegation named **myDelegation** to an Azure service. In this example **Microsoft.Sql/managedInstances** is used for the example delegation:
 
 ```azurepowershell-interactive
 $net = @{
@@ -201,7 +201,7 @@ Get-AzDelegation @dg
 
 # [**Azure CLI**](#tab/manage-subnet-delegation-cli)
 
-Use [`az network virtual network subnet update`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to update the subnet named **subnet-1** with a delegation to an Azure service.  In this example **Microsoft.Sql/managedInstances** is used for the example delegation:
+Use [`az network virtual network subnet update`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to update the subnet named **subnet-1** with a delegation to an Azure service. In this example **Microsoft.Sql/managedInstances** is used for the example delegation:
 
 ```azurecli-interactive
 az network vnet subnet update \

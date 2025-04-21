@@ -1,15 +1,15 @@
 ---
-title: "End-to-end high-performance computing (HPC) lift and shift architecture overview"
-description: Learn about how to conduct a lift and shift migration of HPC infrastructure and workloads from an on-premises environment to the cloud.
+title: "End-to-end lift and shift architecture overview"
+description: Learn how to conduct a lift and shift migration of HPC infrastructure and workloads from an on-premises environment to the cloud.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# End-to-end HPC lift and shift architecture overview
+# End-to-end lift and shift architecture overview
 
 "Lift and shift" in the context of High-Performance Computing (HPC) mostly refers to the process of migrating an on-premises environment and workload to the cloud. Ideally, modifications are kept to a minimum (for example, applications, job schedulers, and their configurations should remain mostly the same). Adjustments on storage and hardware are natural to happen because resources are different from on-premises to cloud platforms. With the lift and shift approach, organizations can start benefiting from the cloud more quickly.
 

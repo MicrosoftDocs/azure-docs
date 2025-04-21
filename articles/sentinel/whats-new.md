@@ -21,6 +21,7 @@ The listed features were released in the last three months. For information abou
 ## April 2025
 
 - [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
+- [Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)](#microsoft-sentinel-now-ingests-all-stix-objects-and-indicators-into-new-threat-intelligence-tables-preview)
 
 ### Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)
 
@@ -36,6 +37,19 @@ For more information, see the following articles:
 - [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview)
 - [View and manage incidents and alerts in Microsoft Defender multitenant management](/unified-secops-platform/mto-incidents-alerts)
 - [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting)
+
+### Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)
+
+Microsoft Sentinel now ingests STIX objects and indicators into the new threat intelligence tables, [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects). The new tables support the new STIX 2.1 schema, which lets you ingest and query various threat intelligence objects, including `identity`, `attack-pattern`, `threat-actor`, and `relationship`. 
+
+Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicator` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+
+**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. 
+
+For more information, see the following articles:
+
+- [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
+- [Work with STIX objects and indicators to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)](work-with-stix-objects-indicators.md)
 
 ## March 2025
 

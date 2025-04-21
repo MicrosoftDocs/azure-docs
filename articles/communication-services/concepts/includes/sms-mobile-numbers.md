@@ -23,6 +23,24 @@ Mobile Numbers are long-term leased numbers for A2P SMS messaging within select 
 
 ##  Mobile Numbers Pricing
 
+### Phone Number Leasing Monthly Fee
+The Monthly leasing fees apply per phone number provisioned.
+
+The following prices are exclusive of the required communications taxes and fees:
+
+|Country| Monthly Fee | 
+|-----------|---------|
+|Australia| $6.50/mo |
+|Belgium| $1.25/mo | 
+|Denmark| $15/mo | 
+|Finland| $5/mo | 
+|Ireland | $6.50/mo |
+|Latvia | $1/mo |
+|Netherlands | $6/mo | 
+|Poland| $4/mo | 
+|Sweden | $3/mo | 
+|United Kingdom| $1.15/mo |
+
 ### Usage Fee
 SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a Mobile Number to phone numbers located within the destinations mentioned below. 
 
