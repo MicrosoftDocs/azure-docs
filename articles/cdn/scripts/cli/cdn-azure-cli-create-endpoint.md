@@ -10,6 +10,7 @@ ms.date: 04/21/2025
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.tool: azure-cli
+ROBOTS: NOINDEX
 ---
 
 # Create an Azure Content Delivery Network profile and endpoint using the Azure CLI
