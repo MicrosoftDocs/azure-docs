@@ -581,6 +581,7 @@ Use the following configuration to export Dapr traces and Keda metrics.
 ### Dapr Traces
 
 The following example ARM template shows how to export Dapr Traces to your traces destinations.
+
 ```json
 {
   ...
