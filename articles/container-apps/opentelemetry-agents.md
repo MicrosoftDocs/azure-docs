@@ -67,7 +67,7 @@ Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
 {
   ...
   "properties": {
-    "appInsightsConfiguration ": {  
+    "appInsightsConfiguration ": {
       "connectionString": "<APP_INSIGHTS_CONNECTION_STRING>"
     }
     "openTelemetryConfiguration": {
