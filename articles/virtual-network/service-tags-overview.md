@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 12/11/2024
+ms.date: 04/21/2025
 ms.author: allensu
 ---
 
@@ -110,7 +110,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Both | No | Yes |
 | **[MicrosoftCloudAppSecurity](/defender-cloud-apps/network-requirements)** | Microsoft Defender for Cloud Apps. | Both | No | Yes |
 | **[MicrosoftDefenderForEndpoint](/defender-endpoint/configure-device-connectivity)** | Microsoft Defender for Endpoint core services.<br/><br/>**Note**: Devices need to be onboarded with streamlined connectivity and meet requirements in order to use this service tag. Defender for Endpoint/Server require additional service tags, like OneDSCollector, to support all functionality.<br/></br> For more information, see [Onboarding devices using streamlined connectivity for Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-device-connectivity) | Both | No | Yes |
-| **[PowerBI](/power-bi/enterprise/service-premium-service-tags)** | Power BI platform backend services and API endpoints.<br/><br/> | Both | No | Yes |
+| **[PowerBI](/power-bi/enterprise/service-premium-service-tags)** | Power BI platform backend services and API endpoints.<br/><br/> | Both | Yes | Yes |
 | **[PowerPlatformInfra](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Both | Yes | Yes |
 | **[PowerPlatformPlex](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
 | **[PowerQueryOnline](/data-integration/gateway/service-gateway-communication)** | Power Query Online. | Both | No | Yes |
