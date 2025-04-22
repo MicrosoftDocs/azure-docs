@@ -57,7 +57,7 @@ Follow these steps to migrate to a new gateway using the Azure portal:
 
 > [!IMPORTANT]
 > - Before committing, verify that the new virtual network gateway has a working ExpressRoute connection and confirm traffic is flowing through the new connection.
-> - Expect a possible interruption of up to 30 seconds during migration.
+> - Expect a possible interruption of up to 3 minutes during migration.
 > - Once committed, the connection name can't be changed. To rename the connection, it must be deleted and recreated. Contact Azure support for assistance if needed.
 
 ## Next steps

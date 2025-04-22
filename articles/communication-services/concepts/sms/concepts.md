@@ -1,13 +1,13 @@
 ---
-title: SMS concepts in Azure Communication Services
-titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Services SMS concepts.
+title: SMS overview
+titleSuffix: An Azure Communication Services article
+description: This article describes Azure Communication Services short message service (SMS) concepts.
 author: prakulka
 manager: sundraman
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 07/10/2023
+ms.date: 04/10/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
@@ -18,7 +18,7 @@ ms.custom: references_regions
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Azure Communication Services enables you to send and receive short message service (SMS) text messages using the Communication Services SMS SDKs. These SDKs can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response metrics.
+Azure Communication Services enables you to send and receive short message service (SMS) text messages using the Communication Services SMS SDKs. You can use these SDKs to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Azure Communication Services SMS enables you to reliably send messages while exposing deliverability and response metrics.
 
 [!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
@@ -36,7 +36,7 @@ Key features of Azure Communication Services SMS SDKs include:
 
 ## Sender types supported
 
-Sending SMS to any recipient requires getting a phone number. Choosing the right number type is critical to the success of your messaging campaign. When choosing a number type, consider the message destination, the throughput needed for your campaign, and when you want to start sending messages. Azure Communication Services enables you to send SMS using various sender types - toll-free number (1-8XX), short codes (12345), 10 digit long codes (1-234-123-1234), mobile number (+XX XXXXX XXXXX), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
+You need a phone number to send SMS to any recipient. Choosing the right number type is critical to the success of your messaging campaign. When choosing a number type, consider the message destination, the throughput needed for your campaign, and when you want to start sending messages. Azure Communication Services enables you to send SMS using various sender types: toll-free number (1-8XX), short codes (12345), 10 digit long codes (1-234-123-1234), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
 
 ### Number Type overview
 
@@ -60,8 +60,7 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 | **10DLC** | Two-way SMS | Yes | 1 (425) ABC DEFG | 200 messages/min (can be increased upon request) |
 | **Mobile Numbers** | Two-way SMS | No | +XX XXXXX XXXXX | 200 messages/min (can be increased upon request) |
 
-
-\* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.
+\* For detailed formatting requirements, see [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) .
 
 ## Number Type Availability by Country
 
@@ -92,8 +91,6 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 | Norway           | –         | –          | –     | –              | –              | ✅             |
 | Slovakia         | –         | –          | –     | –              | –              | ✅             |
 | Slovenia         | –         | –          | –     | –              | –              | ✅             |
-
-
 
 ## Next steps
 
