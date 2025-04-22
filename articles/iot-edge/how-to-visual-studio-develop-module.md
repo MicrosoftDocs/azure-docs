@@ -410,7 +410,7 @@ Use the module's Dockerfile to build the module Docker image.
 docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
 ```
 
-For example, let's assume your command shell is in your project directory and your module name is *IotEdgeModule1*. To build the image for the local registry or an Azure container registry, use the following commands:
+For example, let's assume your command shell is in your project directory and your module name is *IotEdgeModule1*. To build the image for the local registry or an Azure Container Registry, use the following commands:
 
 ```bash
 # Build the image for the local registry
