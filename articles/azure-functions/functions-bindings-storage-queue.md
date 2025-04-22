@@ -80,7 +80,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-isolated-process-guide.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues), version 5.x.
 
