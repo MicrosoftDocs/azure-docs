@@ -4,7 +4,7 @@ description: This article provides information about deploying the extension-bas
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
-ms.date: 04/21/2025
+ms.date: 04/22/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ms.service: azure-automation
@@ -80,7 +80,28 @@ If extension-based Hybrid Worker is using custom Hybrid Worker credentials, then
 > - When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-runbooks-go-into-a-suspended-state-on-a-hybrid-runbook-worker-when-using-a-custom-account-on-a-server-with-user-account-control-uac-enabled).
 > - Due to a current limitation, these folder permissions are removed from the C:\ProgramData\AzureConnectedMachineAgent\Tokens folder on Azure Arc-enabled machines when the Azure Connected Machine agent is updated. The current resolution is to reapply these permissions to the folder. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-hybrid-runbook-worker-job-execution-on-azure-arc-enabled-windows-server-that-uses-a-custom-credential-is-unexpectedly-suspended).
 
+## Automation account hybrid service url
 
+You must retrieve and use the AutomationHybridServiceURL to deploy the Hybrid Worker extension to the VM/Arc machine.
+
+> [!NOTE]
+> The necessary URL is the automationHybridServiceUrl, NOT the RegistrationUrl.
+
+There are multiple ways to retrieve the value for AutomationHybridServiceUrl:
+
+- Copy it from the **Azure portal**, **Automation Account**, **Properties**, **Automation hybrid service URL**.
+
+  Or
+
+- Copy it from the **Azure portal**, **Automation Account**,  **Overview**,  **JSON** view. </br> Select the latest API version, otherwise AutomationHybridServiceUrl might not be displayed.
+
+  Or
+- The below REST API call:
+
+  ```rest
+   GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2023-11-01
+  
+  ```
 
 ## Network requirements
 
@@ -103,30 +124,6 @@ If you use a proxy server for communication between Azure Automation and machine
    The API call will provide the value with the key: `AutomationHybridServiceUrl`. Use the URL in the next step to enable extension on the VM.
 
 1. Install the Hybrid Worker Extension on the VM by running the following PowerShell cmdlet (Required module: Az.Compute). Use the `properties.automationHybridServiceUrl` provided by the above API call  
-  
-
-## Automation Account Hybrid Service URL
-
-You must retrieve and use the AutomationHybridServiceURL to deploy the Hybrid Worker extension to the VM/Arc machine.
-
-> [!NOTE]
-> The necessary URL is the automationHybridServiceUrl, NOT the RegistrationUrl.
-
-There are multiple ways to retrieve the value for AutomationHybridServiceUrl:
-
-- Copy it from the **Azure portal**, **Automation Account**, **Properties**, **Automation hybrid service URL**.
-
-  Or
-
-- Copy it from the **Azure portal**, **Automation Account**,  **Overview**,  **JSON** view. </br> Select the latest API version, otherwise AutomationHybridServiceUrl might not be displayed.
-
-  Or
-- The below REST API call:
-
-  ```rest
-  GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22 
-  
-  ```
 
 # [Windows](#tab/windows)
 
@@ -364,9 +361,11 @@ Follow the steps mentioned below as an example:
     ```
 1. Follow the steps [here](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
 
-1. Install Hybrid Worker Extension on the VM and Hybrid Worker extension settings for [proxy server use](#proxy-server-use).
+1. Install Hybrid Worker Extension on the VM. 
   
     **Hybrid Worker extension settings**
+    
+    If you want to add  proxy server, see [proxy server use](#proxy-server-use).
 
     ```powershell-interactive
       $settings = @{
