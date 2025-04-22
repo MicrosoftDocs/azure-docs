@@ -8,16 +8,7 @@ zone_pivot_groups: df-languages
 
 # Quickstart: Set a portable Durable Task SDK in your application to use Azure Functions Durable Task Scheduler (preview)
 
-This sample demonstrates how to use the Durable Task SDK, also known as the Portable SDK, with the Durable Task Scheduler to create orchestrations. These orchestrations not only spin off child orchestrations but also perform parallel processing by leveraging the fan-out/fan-in application pattern.
-
-This pattern is useful for:
-
-Processing large datasets in parallel for improved throughput
-Batch processing operations that can be executed independently
-Distributing computational workload across multiple workers
-Aggregating results from multiple sources or computations
-
-The scenario showcases an order processing system where orders are processed in batches.
+The Durable Task SDKs, or "portable SDKs", provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that leverage [the fan-out/fan-in application pattern](../durable/durable-functions-overview.md#pattern-2-fan-outfan-in) to perform parallel processing.
 
 ::: zone pivot="javascript"
 
@@ -33,9 +24,11 @@ The scenario showcases an order processing system where orders are processed in 
 
 ::: zone pivot="csharp,python,java"
 
-Checklist of what to expect in this quickstart
-
-Diagram?
+> [!div class="checklist"]
+>
+> - Set up and run the Durable Task Scheduler emulator for local development. 
+> - Run the worker and client projects.
+> - Review orchestration status and history via the Durable Task Scheduler dashboard.
 
 ## Prerequisites
 
@@ -66,6 +59,8 @@ Before you begin:
 ::: zone pivot="csharp,python,java"
 
 ## Set up the Durable Task Scheduler emulator
+
+The emulator simulates a scheduler and taskhub in a Docker container, making it ideal for the local development required in this quickstart.
 
 ::: zone-end
 
@@ -201,7 +196,7 @@ Since the example code automatically uses the default emulator settings, you don
 
 ::: zone pivot="python,java"
 
-## Update the orchestration and worker applications
+## Update the worker and client projects
 
 ::: zone-end
 
@@ -243,7 +238,7 @@ Since the example code automatically uses the default emulator settings, you don
 
 ::: zone pivot="csharp,python,java"
 
-## Run the applications
+## Run the projects
 
 ::: zone-end
 
