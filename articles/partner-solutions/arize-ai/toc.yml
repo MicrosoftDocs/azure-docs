@@ -14,5 +14,5 @@ items:
 - name: How to
   expanded: true
   items:
-  - name: Manage your resource
+  - name: Manage a resource
     href: manage.md
