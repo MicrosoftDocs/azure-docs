@@ -16,7 +16,7 @@ This articles describes how to register model context protocol (MCP) servers as 
 
 ## About MCP 
 
-AI agents are becoming widely adopted because of enhanced large language model (LLM) capabilities. However, even the most advanced models face limitations due to their isolation from external data. Each new data source potentially requires custom implementations to extract, prepare, and make data accessible for the models.
+AI agents are becoming widely adopted because of enhanced large language model (LLM) capabilities. However, even the most advanced models face limitations because of their isolation from external data. Each new data source potentially requires custom implementations to extract, prepare, and make data accessible for the models.
 
 The [model context protocol](https://www.anthropic.com/news/model-context-protocol) (MCP) helps solve this problem. MCP is an open standard for connecting AI models and agents with external data sources such as local data sources (databases or computer files) or remote services (systems available over the internet, such as remote databases or APIs).
 
@@ -49,16 +49,16 @@ The MCP standard supports two modes of operation:
 
 ## MCP servers in your API inventory
 
-The following sections describe how to register an MCP server in your API Center inventory. You can register remote or local MCP servers.
+The following sections describe how to inventory and discover an MCP server in your API Center inventory. You can register remote or local MCP servers.
 
 ### MCP API type
 
-When registering an MCP server in your API center inventory, specify the API type as **MCP**.
+To register an MCP server in your API center inventory, specify the API type as **MCP**.
 
 
 ### Environment and deployment for MCP server
 
-In API Center, specify an *environment* and a *deployment* for your MCP API. The environment is the location of the MCP server, such as an API management platform, and the deployment is a runtime URL for the MCP service. 
+In API Center, specify an *environment* and a *deployment* for your MCP server. The environment is the location of the MCP server, such as an API management platform, and the deployment is a runtime URL for the MCP service. 
 
 For information about creating an environment and a deployment, see [Tutorial: Add environments and deployments for APIs](configure-environments-deployments.md).
 
