@@ -30,7 +30,9 @@ In this article, you:
 ### Create CMK and identity:
 
 There are guardrails in the enclaves to ensure the Azure SQL is using CMK encryption (customer-managed keys). This requires a key and identity to access the key to be accessible in the enclave.
-> [!NOTE] These resources are not deployed with the enclave or workload.
+> [!NOTE]
+> 
+> These resources are not deployed with the enclave or workload.
 
 1. An existing subnet to place a private endpoint into. 
     - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
