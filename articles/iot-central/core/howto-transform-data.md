@@ -116,7 +116,7 @@ To create a container registry:
 
 1. Select the **Bash** shell.
 
-1. Run the following commands to create an Azure Container Registry:
+1. Run the following commands to create an Azure container registry:
 
     ```azurecli
     REGISTRY_NAME="{your unique container registry name}"
@@ -156,7 +156,7 @@ To create a device template for the IoT Edge gateway device:
 
 1. Open your local copy of the *moduledeployment.json* manifest file in a text editor.
 
-1. Find the `registryCredentials` section and replace the placeholders with the values you made a note of when you created the Azure Container Registry. The `address` value looks like `{your username}.azurecr.io`.
+1. Find the `registryCredentials` section and replace the placeholders with the values you made a note of when you created the Azure container registry. The `address` value looks like `{your username}.azurecr.io`.
 
 1. Find the `settings` section for the `transformmodule`. Replace `{your username}` with the same value you used in the previous step. Save the changes.
 
