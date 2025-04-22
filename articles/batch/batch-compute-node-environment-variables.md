@@ -67,6 +67,10 @@ The command lines executed by tasks on compute nodes don't run under a shell. Th
 | CCP_NODES                       | The list of nodes and number of cores per node that are allocated to a [multi-instance task](batch-mpi.md). Nodes and cores are listed in the format `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, where the number of nodes is followed by one or more node IP addresses and the number of cores for each. |  Multi-instance primary and subtasks. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 
+> [!Important]
+> Exact values for paths for Environment Variables are considered implementation details and are subject to change.
+> Use the Batch provided Environment Variables instead of attempting to construct raw path representations.
+
 ## Environment variables related to directory location
 
 The following table specifies the values of each environment variable value postfix after the AZ_BATCH_NODE_ROOT_DIR value, see [AZ_BATCH_NODE_ROOT_DIR](files-and-directories.md#batch-root-directory-location) for more information.
@@ -81,12 +85,12 @@ The following table specifies the values of each environment variable value post
 
 The job directory are different between [single-run job](jobs-and-tasks.md#jobs) and [job schedule](jobs-and-tasks.md#scheduled-jobs), following table specifies the values of job directory in single-run job and job schedule.
 
-|Job Directory Value Postfix after AZ_BATCH_NODE_ROOT_DIR|Job Type|
+|Job Type|Job Directory Value Postfix after AZ_BATCH_NODE_ROOT_DIR|
 |:---|:---|
-|`workitems\{job name}\job-1`|Job|
-|`workitems\{job schedule name}\{job name}`|Job Schedule|
+|Job|`workitems\{job name}\job-1`|
+|Job Schedule|`workitems\{job schedule name}\{job name}`|
 
-The following table specifies the values of each environment variable value postfix after job directory.
+The following table specifies the values of each environment variable value postfix after the job directory.
 
 |Environment Variable Name|Environment Variable Value Directory Postfix After Job Directory|
 |:---|:---|
