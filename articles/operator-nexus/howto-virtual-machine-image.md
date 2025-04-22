@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 
 # Create image for Azure Operator Nexus virtual machine
 
-In this article, you learn how to create a container image that can be used to create a virtual machine in Operator Nexus. Specifically, you learn how to add a virtual disk to the container image. Once the container image is built and pushed to an Azure container registry, it can be used to create a virtual machine in Operator Nexus.
+In this article, you learn how to create a container image that can be used to create a virtual machine in Operator Nexus. Specifically, you learn how to add a virtual disk to the container image. Once the container image is built and pushed to an Azure Container Registry, it can be used to create a virtual machine in Operator Nexus.
 
 ## Prerequisites
 
