@@ -6,8 +6,7 @@ metadata:
   description: Learn how to add network interfaces to or remove network interfaces from virtual machines.
   author: asudbring
   ms.author: allensu
-  manager: mtillman
-  ms.date: 11/16/2022
+  ms.date: 04/21/2025
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
@@ -38,7 +37,7 @@ prerequisites:
   
 procedureSection:
   - title: |
-      Add existing network interfaces to a new VM
+      Add existing network interfaces to a new virtual machine
     summary: |
       When you create a virtual machine through the portal, the portal creates a network interface with default settings and attaches the network interface to the VM for you. You can't use the portal to add existing network interfaces to a new VM, or to create a VM with multiple network interfaces. You can do both by using the CLI or PowerShell. Be sure to familiarize yourself with the [constraints](#constraints). If you create a VM with multiple network interfaces, you must also configure the operating system to use them properly after you create the VM. Learn how to configure [Linux](/azure/virtual-machines/linux/multiple-nics#configure-guest-os-for-multiple-nics) or [Windows](/azure/virtual-machines/windows/multiple-nics#configure-guest-os-for-multiple-nics) for multiple network interfaces.
     steps: 
@@ -164,11 +163,11 @@ procedureSection:
         [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 relatedContent:
-  - text: Create a VM with multiple NICs|CLI
+  - text: Create a VM with multiple NICs | CLI
     url: /azure/virtual-machines/linux/multiple-nics
-  - text: Create a single NIC VM with multiple IPv4 addresses|CLI
+  - text: Create a single NIC VM with multiple IPv4 addresses | CLI
     url: ./ip-services/virtual-network-multiple-ip-addresses-cli.md
-  - text: Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|CLI
+  - text: Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer) | CLI
     url: ../load-balancer/load-balancer-ipv6-internet-cli.md
 
 # ##Next steps
