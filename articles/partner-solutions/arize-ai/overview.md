@@ -5,10 +5,6 @@ author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
 ms.date: 04/21/2025
-ms.custom:
-  - ai-gen-docs-bap
-  - ai-gen-desc
-  - ai-seo-date:04/22/2025
 ---
 # What is Azure Native Arize AI (preview)?
 
