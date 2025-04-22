@@ -115,7 +115,7 @@ Before you begin, make sure you have:
 
     ![Successful sign in](media/azure-stack-edge-gpu-deploy-sample-module/successful-sign-in-1.png)
 
-6. Push your image to your Azure container registry. In the VS Code Explorer, select and right-click the **deployment.template.json** file and then select **Build and Push IoT Edge solution**. 
+6. Push your image to your Azure Container Registry. In the VS Code Explorer, select and right-click the **deployment.template.json** file and then select **Build and Push IoT Edge solution**. 
 
     ![Build and push IoT Edge solution](media/azure-stack-edge-gpu-deploy-sample-module/build-push-iot-edge-solution-1.png)   
 
