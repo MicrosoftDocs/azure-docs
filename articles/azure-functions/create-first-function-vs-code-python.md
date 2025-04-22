@@ -31,6 +31,8 @@ Before you begin, make sure that you have the following requirements in place:
 
 + A Python version that is [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
++ Azure Functions does not support Python 3.13. The latest officially supported version is Python 3.11. Python 3.12 is currently in preview, and support may be limited.
+
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
