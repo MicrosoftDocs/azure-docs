@@ -285,7 +285,7 @@ To create and apply resource modification, follow these steps:
     ```
 
 * **Replace**
-    
+
   You can use the **Replace** operation to replace a value for the path mentioned to an alternate one. In the following example, the operation replaces the `storageClassName` in the PVC with premium.
 
     ```json
