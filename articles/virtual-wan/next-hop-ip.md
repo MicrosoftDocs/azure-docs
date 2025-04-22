@@ -43,7 +43,7 @@ In this scenario, the virtual hub named "Hub 1" is connected to a virtual networ
 
    Verify what routes are currently being advertised and what the next hop IPs are for those routes.
 
-   :::image type="content" source="./media/next-hop-ip/effectiveroutes-before.png" alt-text="Screenshot that shows the route before changing the next hop IP." lightbox="./media/next-hop-ip/effectiveroutes-before.png":::
+   :::image type="content" source="./media/next-hop-ip/effective-routes-before.png" alt-text="Screenshot that shows the route before changing the next hop IP." lightbox="./media/next-hop-ip/effective-routes-before.png":::
 
    The next hop for route **10.222.222.0/24** is the NVA.
 
@@ -53,7 +53,7 @@ In this scenario, the virtual hub named "Hub 1" is connected to a virtual networ
 
    Check the effective routes to verify the next hop IP for the route **10.222.222.0/24** has changed to the load balancer (**192.168.1.40**). 
 
-   :::image type="content" source="./media/next-hop-ip/effectiveroutes-after.png" alt-text="Screenshot showing the routes after changing the next hop IP." lightbox="./media/next-hop-ip/effectiveroutes-after.png":::
+   :::image type="content" source="./media/next-hop-ip/effective-routes-after.png" alt-text="Screenshot showing the routes after changing the next hop IP." lightbox="./media/next-hop-ip/effective-routes-after.png":::
 
 ## Troubleshooting
 
@@ -61,11 +61,11 @@ In this scenario, the virtual hub named "Hub 1" is connected to a virtual networ
 
 2. Verify the BGP peering status is up. In the "BGP peer" section, select on "BGP Status". 
    
-   :::image type="content" source="./media/next-hop-ip/bgppeers.png" alt-text="Screenshot showing the confonfigured BGP peers." lightbox="./media/next-hop-ip/bgppeers.png":::
+   :::image type="content" source="./media/next-hop-ip/bgp-peers.png" alt-text="Screenshot showing the confonfigured BGP peers." lightbox="./media/next-hop-ip/bgp-peers.png":::
    
    Verify the BGP peer is up. 
 
-   :::image type="content" source="./media/next-hop-ip/bgppeersup.png" alt-text="Screenshot showing the bgp peers are up." lightbox="./media/next-hop-ip/bgppeersup.png"::: 
+   :::image type="content" source="./media/next-hop-ip/bgp-peers-up.png" alt-text="Screenshot showing the bgp peers are up." lightbox="./media/next-hop-ip/bgp-peers-up.png"::: 
 
 3. Check the current limitations for BGP peering with the hub.
 
