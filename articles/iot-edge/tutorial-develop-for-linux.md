@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 >
 > * Set up your development machine.
 > * Use the IoT Edge tools to create a new project.
-> * Build your project as a [Docker container](/dotnet/architecture/microservices/container-docker-introduction) and store it in an Azure container registry.
+> * Build your project as a [Docker container](/dotnet/architecture/microservices/container-docker-introduction) and store it in an Azure Container Registry.
 > * Deploy your code to an IoT Edge device.
 
 The IoT Edge module that you create in this tutorial filters the temperature data that your device generates. It only sends messages upstream if the temperature is above a specified threshold. This type of analysis at the edge is useful for reducing the amount of data that's communicated to and stored in the cloud.
@@ -305,7 +305,7 @@ Check to see if your credentials exist. If not, add them now:
 
 1. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal.
 1. Open the **.env** file in your module solution.
-1. Add the **username** and **password** values that you copied from your Azure container registry.
+1. Add the **username** and **password** values that you copied from your Azure Container Registry.
    For example:
 
     ```env
@@ -1084,7 +1084,7 @@ Use the module's Dockerfile to [build](https://docs.docker.com/engine/reference/
 docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
 ```
 
-For example, to build the image for the local registry or an Azure container registry, use the following commands:
+For example, to build the image for the local registry or an Azure Container Registry, use the following commands:
 
 ```bash
 # Build and tag the image for the local registry
@@ -1189,7 +1189,7 @@ Notice that the two parameters that had placeholders now contain their proper va
 
 ::: zone pivot="iotedge-dev-cli"
 
-Build and push the updated image with a *0.0.2* version tag. For example, to build and push the image for the local registry or an Azure container registry, use the following commands:
+Build and push the updated image with a *0.0.2* version tag. For example, to build and push the image for the local registry or an Azure Container Registry, use the following commands:
 
 # [C\#](#tab/csharp)
 
