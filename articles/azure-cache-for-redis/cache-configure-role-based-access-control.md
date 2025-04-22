@@ -4,7 +4,7 @@ description: Learn how to create and configure a data access policy for Azure Ca
 ms.custom: references_regions, ignite-2024
 
 ms.topic: conceptual
-ms.date: 04/15/2025
+ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
@@ -17,6 +17,12 @@ Managing access to your Azure Redis cache instance is critical to ensuring that 
 Azure Cache for Redis integrates this ACL functionality with Microsoft Entra to allow you to configure and assign data access policies for your application's users, service principal, and managed identity. Azure Cache for Redis offers three built-in access policies that you can assign via role-based access control (RBAC): **Data Owner**, **Data Contributor**, and **Data Reader**.
 
 If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policies. This article describes configuring a custom data access policy for Azure Cache for Redis and enabling RBAC via Microsoft Entra authentication.
+
+## Scope of availability
+
+| **Tier**         | Basic, Standard, Premium | Enterprise, Enterprise Flash |
+|:-----------------|:------------------------:|:----------------------------:|
+| **Availability** | Yes                      | No                           |
 
 ## Limitations
 
