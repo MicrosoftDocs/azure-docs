@@ -73,7 +73,7 @@ If you publish an updated package with the same name to Blob storage, you need t
 
 ## Deploy WebJob files when running from package
 
-There are two ways to deploy [WebJob](webjobs-create.md) files when you [enable running an app from package](#enable-running-from-package):
+There are two ways to deploy [WebJob](webjobs-create.md) files when you [enable running an app from package](#enable-running-from-zip-package):
 
 
 - Deploy in the same ZIP package as your app: include them as you normally would in `<project-root>\app_data\jobs\...` (which maps to the deployment path `\site\wwwroot\app_data\jobs\...` as specified in the [WebJobs quickstart](webjobs-create.md#webjob-types)).
