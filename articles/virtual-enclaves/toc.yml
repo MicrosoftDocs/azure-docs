@@ -5,7 +5,7 @@
   items:
   - name: "What is Azure Virtual Enclaves?"
     href: what-azure-virtual-enclaves.md
-  - name: Why use Azure Virtual Enclaves?
+  - name: "Why use Azure Virtual Enclaves?"
     href: why-azure-virtual-enclaves.md
   - name: Quotas and region availability
     href: quotas-and-region-availability-in-azure-virtual-enclaves.md
@@ -21,7 +21,7 @@
     - name: Create a Workload
       href: create-workload-portal.md
     - name: Create a Community Endpoint
-      href: create-a-community-endpoint-portal.md
+      href: create-community-endpoint-portal.md
     - name: Create an Enclave Endpoint
       href: create-enclave-endpoint-portal.md
     - name: Create an Enclave Connection
@@ -136,14 +136,14 @@
     items:
 #     - name: Overview
 #       href: service-catalog.md
-#     - name: Deploy a Storage Account from Service Catalog
-#       href: deploy-a-storage-account-service-catalog.md
-#     - name: Deploy an App Service Web App from Service Catalog
-#       href: deploy-an-app-service-web-app-service-catalog.md
-#     - name: Deploy Azure SQL from Service Catalog
-#       href: deploy-azure-sql-service-catalog.md
+    - name: Deploy a Storage Account from Service Catalog
+      href: deploy-storage-account-service-catalog.md
+    - name: Deploy an App Service Web App from Service Catalog
+      href: deploy-app-service-web-app-service-catalog.md
+    - name: Deploy Azure SQL from Service Catalog
+      href: deploy-azure-sql-service-catalog.md
     - name: List of Service Catalog Templates
-      href: list-of-service-catalog-templates.md
+      href: list-service-catalog-templates.md
 # - name: Resources
 #   items:
 #     - name: Support Policies
