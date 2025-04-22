@@ -12,11 +12,23 @@ This sample demonstrates how to use the Durable Task SDK, also known as the Port
 
 The scenario showcases an order processing system where orders are processed in batches.
 
+::: zone pivot="javascript"
+
+[!INCLUDE [preview-sample-limitations](./includes/preview-sample-limitations.md)]
+
+::: zone-end
+
+::: zone pivot="powershell"
+
+[!INCLUDE [preview-sample-limitations](./includes/preview-sample-limitations.md)]
+
+::: zone-end
+
+::: zone pivot="csharp,python,java"
+
 Checklist of what to expect in this quickstart
 
 Diagram?
-
-::: zone pivot="csharp,python"
 
 ## Prerequisites
 
@@ -38,7 +50,11 @@ Before you begin:
     
 ::: zone-end
 
-::: zone pivot="csharp,python"
+::: zone pivot="java"
+
+::: zone-end
+
+::: zone pivot="csharp,python,java"
 
 ## Set up the Durable Task Scheduler emulator
 
@@ -121,7 +137,11 @@ Before you begin:
 
 ::: zone-end
 
-::: zone pivot="csharp,python"
+::: zone pivot="java"
+
+::: zone-end
+
+::: zone pivot="csharp,python,java"
 
 ## Update the orchestration and worker applications
 
@@ -166,7 +186,11 @@ Before you begin:
 
 ::: zone-end
 
-::: zone pivot="csharp,python"
+::: zone pivot="java"
+
+::: zone-end
+
+::: zone pivot="csharp,python,java"
 
 ## Run the applications
 
@@ -218,7 +242,12 @@ Before you begin:
 
 ::: zone-end
 
-::: zone pivot="csharp,python"
+::: zone pivot="java"
+
+::: zone-end
+
+
+::: zone pivot="csharp,python,java"
 
 ## View orchestration status and history
 
@@ -229,7 +258,11 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ::: zone-end
 
+::: zone pivot="csharp,python,java"
+
 ## What happened?
+
+::: zone-end
 
 ::: zone pivot="csharp"
 
@@ -244,20 +277,12 @@ When you started the worker and orchestrator,
     
 ::: zone-end
 
-
-
-
-
-::: zone pivot="javascript"
-
-::: zone-end
-
 ::: zone pivot="java"
 
 ::: zone-end
 
-::: zone pivot="powershell"
 
-::: zone-end
+
+
 
 ## Next steps
