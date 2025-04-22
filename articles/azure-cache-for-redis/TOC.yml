@@ -65,7 +65,7 @@
 - name: Azure Cache for Redis 
   expanded: true
   items:
-  - name: What's new?
+  - name: What's new in Azure Cache for Redis?
     href: cache-whats-new.md
 
   - name: Deploy and configure
@@ -232,7 +232,17 @@
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
       href: cache-monitor-troubleshoot-faq.yml 
-      
+
+- name: Azure Managed Redis 
+  expanded: false
+  items:
+  - name: What's new with Azure Managed Redis
+    href: /redis/whats-new
+  - name: About Azure Managed Redis
+    href: /redis/overview
+  - name: Azure Managed Redis architecture
+    href: /redis/architecture
+
 - name: Samples
   items:
   - name: Use Azure Functions triggers and bindings
