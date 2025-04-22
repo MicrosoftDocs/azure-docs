@@ -46,7 +46,7 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 ### Container images
 
 - Your container images are present in either an existing ACR or an alternative container registry that supports the Docker API. Container images must be stored in your source registry in a structure that matches the image location defined in your helm charts. This requirement is explained in [CLI CNF image discovery and upload](concepts-cli-containerized-network-function-image-upload.md).
-- Use the `docker login` command to sign in to a non-Azure container registry hosting your container images before you run any `az aosm` commands. This step isn't required if you're using an ACR: the Azure CLI AOSM extension will automatically sign in.
+- Use the `docker login` command to sign in to a non-Azure Container Registry hosting your container images before you run any `az aosm` commands. This step isn't required if you're using an ACR: the Azure CLI AOSM extension will automatically sign in.
 
 ### Helm and Docker engine
 
