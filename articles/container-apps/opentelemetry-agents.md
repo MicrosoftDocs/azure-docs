@@ -606,6 +606,7 @@ To learn more about how to use Dapr in container apps, see [Dapr Overview](./dap
 ### Keda Metrics
 
 The following example ARM template shows how to export Keda metrics to your metrics destinations.
+
 ```json
 {
   ...
