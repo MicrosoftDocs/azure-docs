@@ -1,5 +1,5 @@
 ---
-title: Azure Cache for Redis with Azure Private Link
+title: Azure Cache for Redis Enterprise with Azure Private Link
 description: Learn how to create a Private Endpoint on the Enterprise tier using the Azure portal.
 
 ms.topic: how-to
