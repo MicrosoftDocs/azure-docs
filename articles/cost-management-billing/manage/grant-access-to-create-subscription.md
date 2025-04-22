@@ -1,13 +1,13 @@
 ---
 title: Grant access to create Azure Enterprise subscriptions
 description: Learn how to give a user or service principal the ability to programmatically create Azure Enterprise subscriptions.
-author: bandersmsft
+author: PreetiSGit
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: andalmia
+ms.reviewer: presharm
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: presharm
 ---
 
 # Grant access to create Azure Enterprise subscriptions (legacy)

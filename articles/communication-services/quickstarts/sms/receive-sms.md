@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Receive and Reply to SMS
+title: Receive an SMS message
 titleSuffix: Azure Communication Services
-description: "In this quickstart, you'll learn how to receive an SMS message by using Azure Communication Services."
+description: This article describes how to receive an SMS message by using Azure Communication Services.
 author: tophpalmer
 manager: shahen
 services: azure-communication-services
@@ -14,13 +14,13 @@ ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-power
 ---
 
-# Quickstart: Receive and Reply to SMS
+# Receive an SMS message
 
-Azure Communication Services SMS capabilities provide developers options to consume SMS received events. The events are posted to Azure Event Grid which provides out of the box integrations to process those using webhooks, Azure Functions, Power Automate / Logic App connectors, and more.
+Azure Communication Services SMS capabilities provide developers options to consume SMS received events. The events are posted to Azure Event Grid, which provides out of the box integrations to process those using webhooks, Azure Functions, Power Automate / Logic App connectors, and more.
 
-Once received, SMS messages can be processed to respond to them or to simply log them to a database for future access.
+Once received, SMS messages can be processed to respond to them or log them to a database for future access.
 
-In this QuickStart, we will focus on showcasing the processing of SMS received events through Azure Functions using Event Grid triggers and no-code connectors for Power Automate / Logic Apps.
+This article describes how to process SMS received events through Azure Functions using Event Grid triggers and no-code connectors for Power Automate / Logic Apps.
 
 The `SMSReceived` event generated when an SMS is sent to an Azure Communication Services phone number is formatted in the following way:
 
@@ -43,12 +43,12 @@ The `SMSReceived` event generated when an SMS is sent to an Azure Communication 
 }]
 ```
 
-To start generating the events, we must configure Azure Event Grid for our Azure Communication Services resource.
+To start generating events, configure Azure Event Grid to use your Azure Communication Services resource.
 
 > [!NOTE] 
-> Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
+> Using Azure Event Grid incurs more costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
-## Pre-requisites
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
@@ -69,11 +69,9 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Toll-free verification
 
-If you have a new toll-free number and want to send [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, please visit [here](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number. 
+If you have a new toll-free number and want to send a [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, see [SMS FAQ > Submit toll free verification](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number.
 
 ## Next steps
-
-In this quickstart, you learned how to send SMS messages by using Communication Services.
 
 > [!div class="nextstepaction"]
 > [Send SMS](./send.md)
