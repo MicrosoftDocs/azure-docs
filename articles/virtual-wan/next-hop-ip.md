@@ -10,7 +10,7 @@ ms.author: cfields
 ms.custom: references_region
 
 ---
-# About Next hop IP support for Virtual WAN
+# Next hop IP support for Virtual WAN
 
 Azure Virtual WAN hub router, also called virtual hub router, acts as a route manager and provides simplification in routing operation within and across virtual hubs. The virtual hub router exposes the ability to [peer with the hub](scenario-bgp-peering-hub.md), thus exchanging routing information directly through Border Gateway Protocol (BGP) routing protocol. Network Virtual Appliances (NVA) or a BGP end point provisioned in a virtual network connected to a virtual hub can directly peer with the virtual hub router. Peering with the hub is supported if the NVA supports the BGP routing protocol. The ASN (Autonomous System Number) of the NVA must be different from the virtual hub ASN.
 
