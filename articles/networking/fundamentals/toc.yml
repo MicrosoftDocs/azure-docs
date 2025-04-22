@@ -2,8 +2,8 @@
   href: index.yml
 - name: Get Started
   items:
-    - name: About Azure Networking
-      href: networking-overview.md
+  - name: About Azure Networking
+    href: networking-overview.md
   - name: Networking basics quickstarts
     items:
     - name: Create a virtual network
