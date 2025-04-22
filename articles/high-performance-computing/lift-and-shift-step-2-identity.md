@@ -1,21 +1,17 @@
 ---
-title: "Deployment step 2: base services - identity management component"
-description: Learn about the configuration of identity management during migration deployment step two.
+title: "Identity management configuration"
+description: Learn how to configure identity management during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 2: base services - identity management component
+# Identity management configuration
 
-Component to handle user identity and access levels. Identity management system should:
-
-- Allow creation/deletion of users and groups;
-- Allow update/reset of password;
-- Support single sign-on.
+A key aspect of your high performance computing migration is identity management configuration. Your identity management system ensures secure access to resources, seamless integration, and compliance with organizational policies. It should allow the creation and deltion of users and groups, allow updating and resetting of passwords, and support single sign-on. This part of the guide covers the needs, tools, services, and best practices associated with identity management.
 
 ## Define identity management needs
 
