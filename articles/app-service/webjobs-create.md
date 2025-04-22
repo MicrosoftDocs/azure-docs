@@ -21,9 +21,6 @@ Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload a
 
 If instead of the Azure App Service, you're using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-> [!NOTE]
-> WebJobs for **Windows container**, **Linux code**, and **Linux container** is in preview. WebJobs for Windows code is generally available and not in preview.
-
 ## Overview
 
 WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
@@ -42,22 +39,13 @@ Azure Functions provides another way to run programs and scripts. For a comparis
 The following file types are supported:<br>
 **.cmd**, **.bat**, **.exe** (using Windows cmd)<br>**.ps1** (using PowerShell)<br>**.sh** (using Bash)<br>**.js** (using Node.js)<br>**.jar** (using Java)<br><br>The necessary runtimes to run these file types are already installed on the web app instance.
 ### [Windows container](#tab/windowscontainer)
-> [!NOTE]
-> WebJobs for Windows container is in preview.
->
 
 The following file types are supported:<br>
 **.cmd**, **.bat**, **.exe** (using Windows cmd)<br><br>In addition to these file types, WebJobs written in the language runtime of the Windows container app.<br>Example: .jar and .war scripts if the container is a Java app.
 ### [Linux code](#tab/linuxcode)
-> [!NOTE]
-> WebJobs for Linux code is in preview. 
->
 
 **.sh** scripts are supported.<br><br>In addition to shell scripts, WebJobs written in the language of the selected runtime are also supported.<br>Example: Python (.py) scripts if the main site is a Python code app.
 ### [Linux container](#tab/linuxcontainer)
-> [!NOTE]
-> WebJobs for Linux container is in preview. 
->
 
 **.sh** scripts are supported. <br><br>In addition to shell scripts, WebJobs written in the language runtime of the Linux container app are also supported. <br>Example: Node (.js) scripts if the site is a Node.js app.
 

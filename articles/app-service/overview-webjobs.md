@@ -23,9 +23,7 @@ WebJobs come in two primary types:
 For scheduled tasks, NCRONTAB expressions are used to define precise execution intervals, giving you fine-grained control over when the jobs run.
 
 ## Supported Platforms and File Types
-Azure WebJobs support multiple platforms:
-- **Windows:** Fully supported for traditional WebJobs.
-- **Linux and Containers:** Preview support is available for Linux code, Linux containers, and Windows containers.
+Azure WebJobs is fully supported on Windows code, Windows containers, Linux code, and Linux containers.
 
 Supported file types include:
 - Windows command scripts (`.cmd`, `.bat`, `.exe`)
