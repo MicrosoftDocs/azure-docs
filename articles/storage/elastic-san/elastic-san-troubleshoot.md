@@ -5,7 +5,7 @@ author: adarshv98
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 04/15/2025
-ms.author: adarshv
+ms.author: rogarana
 ---
 
 # Troubleshoot Elastic SAN
