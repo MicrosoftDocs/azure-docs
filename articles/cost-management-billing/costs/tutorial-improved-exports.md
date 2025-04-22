@@ -353,7 +353,7 @@ To retrieve historical data:
 
 #### Retrieve data via REST API
 
-- To access data older than 13 months, use the [Exports - Execute REST API](https://learn.microsoft.com/en-us/rest/api/cost-management/exports/execute?view=rest-cost-management-2025-03-01&tabs=HTTP).
+- To access data older than 13 months, use the [Exports - Execute REST API](/rest/api/cost-management/exports/execute?view=rest-cost-management-2025-03-01&preserve-view=true).
 - This method allows programmatic backfill of data for specific date ranges, depending on dataset availability.
 
 #### Data retention limits by dataset
