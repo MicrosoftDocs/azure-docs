@@ -42,7 +42,7 @@ SMS operational logs contain information to help identify trends and patterns, r
  *   Messages sent.
  *   Message received.
  *   Messages delivered. 
- *   Messages opt-in & opt-out.  
+ *   Messages opt in & opt out.  
 
 ## Resource log categories
 

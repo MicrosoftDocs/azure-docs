@@ -60,7 +60,7 @@ The general rule of thumb for opt-in are:
 - Making sure the opt-in flow is thoroughly detailed.  
 - Consumer consent must be collected by the direct (first) party sending the messages. If you're a third party helping the direct party sending messages, the opt-in flow must disclose the (third party) name.
 - Ensure explicitly stated consent disclaimer language appears at the time of collection. (that is, when the phone number is collected there must be a disclosure about opting-in to messaging). 
-- If your message has Marketing/Promotional content, then it must be optional for customers to opt-in.
+- If your message has Marketing/Promotional content, then it must be optional for customers to opt in.
 
  Here are some tips on how to show the proof of your opt-in workflow:
 
@@ -69,7 +69,7 @@ The general rule of thumb for opt-in are:
 |Type of Opt-In| Tips|
 |--------------|-----|
 |Website       | Screenshots of the web form where the end customer adds a phone number and agrees to receive SMS messages. This screenshot must explicitly state the consent disclaimer language at the time of collection. |
-|Keyword or QR Code Opt-in| Image or screenshot of where the customer discovers the keyword/ QR Code in order to opt-in to these messages. |
+|Keyword or QR Code Opt-in| Image or screenshot of where the customer discovers the keyword/ QR Code in order to opt in to these messages. |
 |Verbal/IVR opt-in|Provide a screenshot record of opt-in via verbal in your database/ CRM to show how the opt-in data is stored. (that is, a check box on their CRM saying that the customer opted in and the date) OR an audio recording of the IVR flow.|
 |Point of Sale | For POS opt-ins on a screen/tablet, provide screenshot of the form. For verbal POS opt-ins of informational traffic, provide a screenshot of the database or a record of the entry. |
 |2FA/OTP| Provide a screenshot of the process to receive the initial text. |
@@ -87,7 +87,7 @@ Message senders are required to disclose all the types/categories of messages wi
 
 #### Examples
 
-- Contoso Promo Alerts: three msgs/week. Msg & Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.
+- Contoso Promo Alerts: three msgs/week. Msg & Data Rates May Apply. Reply HELP for help. Reply STOP to opt out.
 - Contoso: Your reservation is confirmed for 30th February 2022. Txt R to reschedule. Txt HELP or STOP. Msg&Data rates may apply.
 
  ## Next steps

@@ -60,7 +60,7 @@ Example: 234567, 234578, 234589.
 
 ### Directionality
 
-This field captures the directionality of the SMS program – 1-way or 2-way SMS. In the United States, 2-way SMS is mandated to honor opt-out requests from customers.
+This field captures the directionality of the SMS program – 1-way or 2-way SMS. In the United States, two-way SMS is mandated to honor opt-out requests from customers.
 
 ### Recurrence
 
@@ -86,8 +86,8 @@ Your terms of service must include terms specific to the short code program brie
 - Program Name and Description.
 - Message Frequency can either be listed as Message Frequency Varies or the accurate frequency. Message Frequency also needs to match the value listed in the call-to-action.
 - The disclaimer: "Message and data rates may apply" written verbatim.
-- Customer care information, for example: "For help call \[phone number\] or send an email to \[email\]".
-- Opt-Out message: "Text STOP to cancel".
+- Customer care information, for example: "For help call \[phone number\] or send an email to \[email\]."
+- Opt-Out message: "Text STOP to cancel."
 - A link to the Privacy Policy or the whole Privacy policy.
 
 ##### Example:
@@ -100,12 +100,12 @@ Your terms of service must contain ALL of the following information:
 - Program Name and Description.
 - Message Frequency can be either listed as Message Frequency Varies or the accurate frequency. Message Frequency also needs to match the value listed in the CTA (Call-To-Action).
 - The disclaimer: "Message and data rates may apply" written verbatim.
-- Customer care information, for example: "For help call \[phone number\] or send an email to \[email\]".
-- Opt-Out message: "Text STOP to cancel".
+- Customer care information, for example: "For help call \[phone number\] or send an email to \[email\]."
+- Opt-Out message: "Text STOP to cancel."
 - A link to the Privacy Policy or the whole Privacy policy. 
 
 > [!Note]
-> If you don’t have a URL of the website, mockups, or design, please send an email with the screenshots to [phone@microsoft.com](mailto:phone@microsoft.com) with "\[CompanyName - ProgramName\] Short Code Request".
+> If you don’t have a URL of the website, mockups, or design, please send an email with the screenshots to [phone@microsoft.com](mailto:phone@microsoft.com) with "\[CompanyName - ProgramName\] Short Code Request."
 
 ### Program Sign-up type and URL
 
@@ -135,11 +135,11 @@ In these fields, you must provide a URL of the website where customers discover 
 
 **SMS**
 
-Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Msg&Data Rates May Apply. Txt HELP or terms&conditions. Txt STOP to opt-out.
+Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Msg&Data Rates May Apply. Txt HELP or terms&conditions. Txt STOP to opt out.
 
 **Web opt-in**
 
-:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screen capture of the the web opt-in mock up.":::
+:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screen capture of the web opt-in mock up.":::
 
 **Point of sale (hardcopy leaflet) with SMS keyword call-to-action**
 
@@ -149,7 +149,7 @@ Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Cont
 
 *Example 1:*
  
-**Agent** - To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply. Visit margiestravel.com for privacy and terms and conditions.
+**Agent** - To sign up for our last-minute travel deals, Press 1. Message and data rates may apply. Visit margiestravel.com for privacy and terms and conditions.
 
 *Example 2:*
 
@@ -166,7 +166,7 @@ You need to provide information about your company and point of contact. Status 
 
 Customer care contact information must be clear and readily available to help customers understand program details and their status with the program. Customer care information should result in customers receiving help.
 
-In these fields, you're required to provide the customer care email address and a customer care phone number where customers can reach out to receive help.
+In these fields, you must provide the customer care email address and a customer care phone number where customers can reach out to receive help.
 
 ## Volume
 
@@ -176,15 +176,15 @@ In this field, you need to provide an approximate number of messages sent out pe
 
 ### Replies per user
  
-In this field, you must to provide an approximate number of replies you expect to get per customer.
+In this field, you must provide an approximate number of replies you expect to get per customer.
 
 ### Expected total messages sent
 
-In this field, you're required to provide an estimate of total messages sent per month.
+In this field, you must provide an estimate of total messages sent per month.
 
 ### Traffic spikes
 
-In this field, you're required to provide information on traffic spikes and their expected timing.
+In this field, you need to provide information on traffic spikes and their expected timing.
 Example: Traffic spikes are expected for delivery notifications program around holidays like Christmas.
 
 ## Templates
@@ -195,7 +195,7 @@ Azure communication service offers an opt-out management service for short codes
 
 CTIA requires that the customer must actively opt into short code programs by sending a keyword from their mobile device to the short code, providing consent on website, IVR, and so on.
 
-In this field, you're required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
+In this field, you must provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
 
 **Example:** Contoso Promo Alerts: Three msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt out.
 
@@ -203,7 +203,7 @@ In this field, you're required to provide a sample of the confirmation message t
 
 Message senders are required to respond to messages containing the HELP keyword with the program name and further information about how to contact the message sender.
 
-In this field, you're required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
+In this field, you must provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
 
 **Example:** Contoso Appointment reminders: Get help at support@contoso.com or 1-800 123 4567.Msg&Data Rates May Apply. Txt HELP for help. Txt STOP to opt out.
 
@@ -211,7 +211,7 @@ In this field, you're required to provide a sample of the response message that 
 
 Message senders are required to have mechanisms for customers to opt out of the program. You need to respond to customer messages containing the STOP keyword with the program name and confirmation that they won't receive any more messages. 
 
-In this field, you're required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
+In this field, you must provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
 
 **Example:** Contoso Appointment reminders: You’re opted out and won't receive any more messages.
 
@@ -219,9 +219,9 @@ See our [guide on opt-outs](./sms-faq.md#opt-out-handling) to learn about how Az
 
 ### Example messages
 
-Message senders are required to disclose all the types/categories of messages with samples that will be sent over the short code.
+Message senders are required to disclose all the types/categories of messages with samples that they plan to send over the short code.
 
-In this field, you're required to provide a sample message for each content type you intend on using the short code for. 
+In this field, you must provide a sample message for each content type you intend on using the short code for. 
 
 #### Example flow:
 - **Contoso**: Contoso: Your reservation is confirmed for 30th February 2022. Txt R to reschedule. Txt HELP or STOP. Msg&Data rates may apply.

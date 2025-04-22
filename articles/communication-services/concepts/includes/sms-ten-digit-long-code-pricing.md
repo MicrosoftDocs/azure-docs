@@ -62,7 +62,7 @@ SMS offers pay-as-you-go pricing. The price is a per-message segment* charge bas
   
 ### Carrier surcharges
 
-A carrier surcharge applies to messages exchanged using 10DLC numbers. This surcharge is a per-message segment fee that might vary over time. For outbound messages, the carrier of the recipient's number determines the surcharge. For inbound messages, it's determined by the carrier of the sender's number. See the SMS FAQ [Carrier fees](../sms/sms-faq.md#carrier-fees).
+A carrier surcharge applies to messages exchanged using 10DLC numbers. This surcharge is a per-message segment fee that might vary over time. For outbound messages, the carrier of the recipient's number determines the surcharge. For inbound messages, the surcharge is determined by the carrier of the sender's number. See the SMS FAQ [Carrier fees](../sms/sms-faq.md#carrier-fees).
 
 | Carrier            | Frequency      | Fee    |
 |--------------------|---------------------------------------|--------|
@@ -75,4 +75,6 @@ A carrier surcharge applies to messages exchanged using 10DLC numbers. This surc
 | C-Spire (Outbound) | per message segment                   |  $0     |
 | Commnet (Outbound) | per message segment                   |  $0     |
 
-*See our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
+## Related articles
+
+-  For more information about message segments, see [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit).
