@@ -139,7 +139,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    $DacpacFileSASURL = New-AzStorageBlobSASToken -Container "sqldatabasedacpac" -Blob "SQLDatabasedacpac.zip" -Context $sa.Context -Permission r -StartTime (Get-Date).DateTime -ExpiryTime (Get-Date).AddMonths(12) -FullUri
    ```
 
-1. Create an Azure container registry within this resource group.
+1. Create an Azure Container Registry within this resource group.
 
    ```powershell
    $containerRegistry = Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $containerRegistryName
