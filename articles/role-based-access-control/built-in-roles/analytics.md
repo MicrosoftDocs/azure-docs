@@ -512,7 +512,7 @@ Can read, create, modify and delete HDInsight on AKS cluster pools and create cl
 }
 ```
 
-## Schema Registry Contributor (Preview)
+## Schema Registry Contributor
 
 Read, write, and delete Schema Registry groups and schemas.
 
@@ -547,13 +547,13 @@ Read, write, and delete Schema Registry groups and schemas.
       "notDataActions": []
     }
   ],
-  "roleName": "Schema Registry Contributor (Preview)",
+  "roleName": "Schema Registry Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Schema Registry Reader (Preview)
+## Schema Registry Reader
 
 Read and list Schema Registry groups and schemas.
 
@@ -588,7 +588,7 @@ Read and list Schema Registry groups and schemas.
       "notDataActions": []
     }
   ],
-  "roleName": "Schema Registry Reader (Preview)",
+  "roleName": "Schema Registry Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
