@@ -364,7 +364,7 @@ To retrieve historical data:
 | Reservation transactions                     | Up to 13 months         | Up to 7 years          |
 | Reservation details                          | Up to 13 months         | Up to 13 months        |
 | Reservation recommendations                  | Current snapshot only   | Current snapshot only  |
-| Price sheet                                  | MCA/MPA: 13 months<br>EA: 25 months | Same as portal |
+| Price sheet                                  | Up to 13 months 	 | MCA/MPA: 13 months<br>EA: 25 months |
 
 > [!TIP]
 > For retrieving more than 13 months of historical data, or automating backfills at scale, the REST API is recommended.
