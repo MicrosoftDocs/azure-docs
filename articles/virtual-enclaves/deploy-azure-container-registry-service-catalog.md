@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for a Azure Container Registry into an existing Workload from the Portal.
+- Deploy a Service Catalog template for an Azure Container Registry into an existing Workload from the Portal.
 
 > [!NOTE]
 > 
@@ -75,5 +75,5 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Next Steps
 
-- Deploy any needed tools onto the management VM (examples: docker cli, azure powershell modules, ...)
+- Deploy any needed tools onto the management VM (examples: docker cli, Azure PowerShell modules, ...)
 - Read the [AKS Template](./deploy-azure-kubernetes-service-service-catalog.md) documentation to see if you would like to use it.

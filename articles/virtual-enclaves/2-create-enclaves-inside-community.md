@@ -47,7 +47,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 
 4. Select `Review + create`, ensure the details for your Enclave are correct, and select `Create`.
 
-5. Now, to deploy another Enclave -- **repeat Steps 1 and 2.** Once you are on the **Enclave Create** page, Enter these basic details for your second Enclave:
+5. Now, to deploy another Enclave -- **repeat Steps 1 and 2.** Once you're on the **Enclave Create** page, Enter these basic details for your second Enclave:
    - **Subscription**: Select an existing Subscription
    - **Resource Group**: `myResourceGroup`
    - **Enclave name**: `Enclave-DMZ`

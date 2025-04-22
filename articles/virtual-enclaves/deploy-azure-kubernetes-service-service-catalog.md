@@ -27,7 +27,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 ## Prerequisites
 
-You will need to create a subnet to host the AKS cluster. For a 30 pod cluster with a max node count of 3 a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: (number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure). Your Enclave's IP addresses may be different depending on the number of enclaves that were created before yours and the network size selected on enclave creation; assuming a `Small (/23)` subnet:
+You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster with a max node count of 3 a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: `(node count + 1) + ((node count + 1) * maximum pods per node that you configure)`. Your Enclave's IP addresses might be different depending on the number of enclaves that were created before yours and the network size selected on enclave creation; assuming a `Small (/23)` subnet:
 
 1. Subnet setup and creation: Create the Azure Kubernetes Service subnets. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation. Create these subnets:
     - Create new subnet `AzureVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
@@ -37,26 +37,26 @@ You will need to create a subnet to host the AKS cluster. For a 30 pod cluster w
         - Use this subnet for Azure Kubernetes Service agent pools
     - Create new subnet `agentSubnet 10.0.2.64/26 [10.0.2.64 - 10.0.2.127]`
         - Use this subnet for Azure Kubernetes Service managed cluster API server
-2. Create an rsa-ssh key named **aks-ssh-public-key** and store it as a secret in your key vault. To create the public key type use ssh-keygen from PowerShell: `ssh-keygen -t RSA -f test`
-    - This will output two files, you will be using the public key. (located in test.pub)
+2. Create an RSA key for SSH named **aks-ssh-public-key** and store it as a secret in your key vault. To create the public key type use ssh-keygen from PowerShell: `ssh-keygen -t RSA -f test`
+    - This will output two files, you'll be using the public key. (located in test.pub)
     - save this as a secret named 'aks-ssh-public-key' in your keyvault
     > [!NOTE]
     >
-    > You must provision or use a Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for `RBAC Access Policy`. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set in step 3 needs the `Key Vault Crypto Service Encryption User` role. After creating this new Key Vault, go to access configuration, and enable Azure Resource Manager (ARM) for template deployment (this requires disabling public network access and creating a private endpoint connected to the enclave virtual network):
+    > You must create or use a Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for Role Base Access Control (RBAC) by enabling the `RBAC Access Policy`. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set in step 3 needs the `Key Vault Crypto Service Encryption User` role. After creating this new Key Vault, go to access configuration, and enable Azure Resource Manager (ARM) for template deployment (this requires disabling public network access and creating a private endpoint connected to the enclave virtual network):
 
-3. [Create a user-assigned managed identity](./create-user-managed-identity.md) with `Virtual Machine Contributor` access on the resource group containing the Virtual Network and `Key Vault Contributor` access to the resource group containing the ssh-key. > [!NOTE] This may be the same resource group.
-    - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you will also need to grant the managed identity `Contributor` on the Virtual Network resource group. (This seems like it should be `Network Contributor` but in testing, that was not enough).
-4. To leverage CMK you will need to create the disk encryption set and give the disk encryption set the wrapkey, unwrapkey, and get permissions on the key vault that houses the key used for CMK. [Setup CMK](./setup-customer-managed-key-encryption-within-an-enclave.md). Use the managed identity created in step 3 while creating this disk encryption set.
-5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this, first set your azContext to ensure you are using the correct subscription, and then run the following:
+3. [Create a user-assigned managed identity](./create-user-managed-identity.md) with `Virtual Machine Contributor` access on the resource group containing the Virtual Network and `Key Vault Contributor` access to the resource group containing the ssh-key. > [!NOTE] This might be the same resource group.
+    - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you'll also need to grant the managed identity `Contributor` on the Virtual Network resource group. (This seems like it should be `Network Contributor` but in testing that wasn't enough).
+4. To leverage CMK you'll need to create the disk encryption set and give the disk encryption set the `wrapkey`, `unwrapkey`, and `get` permissions on the key vault that houses the key used for CMK. [Setup CMK](./setup-customer-managed-key-encryption-within-an-enclave.md). Use the managed identity created in step 3 while creating this disk encryption set.
+5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this, first set your azContext to ensure you're using the correct subscription, and then run the following:
 `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`.
 > [!NOTE]
 > 
-> This may take several minutes, to check on the status of this registration run:
+> This might take several minutes, to check on the status of this registration run:
 `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`
-6. In order to deploy AKS within a virtual enclave, you must deploy to a subscription that allows `EnableAPIServerVnetIntegrationPreview`. To do this, first set your azContext to ensure you are using the correct subscription, and then run the following: `Register-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`.
+6. In order to deploy AKS within a virtual enclave, you must deploy to a subscription that allows `EnableAPIServerVnetIntegrationPreview`. To do this, first set your azContext to ensure you're using the correct subscription, and then run the following: `Register-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`.
 > [!NOTE]
 > 
-> This may take several minutes, to check on the status pf this registration run: `Get-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`
+> This might take several minutes, to check on the status of this registration run: `Get-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`
 7. Add the following Firewall rule to your Community firewall policy as an Application rule:
     - Source: 10.0.2.0/23
     - Protocol: Https:443
@@ -94,13 +94,13 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 
 > [!IMPORTANT]
 >
-> If you're deploying an AKS cluster within a virtual enclave you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. To ensure that the user assigned managed identity does not get blocked by any enclave deny assignments, you will need to make sure that its principal is either added directly to an enclave's [Maintenance Mode](./maintenance-mode.md) configuration or that the managed identity is part of a Microsoft Entra ID group that is connected to an enclave's maintenance mode.
+> If you're deploying an AKS cluster within a virtual enclave you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. To ensure that the user assigned managed identity does not get blocked by any enclave deny assignments, you'll need to make sure that its principal is either added directly to an enclave's [Maintenance Mode](./maintenance-mode.md) configuration or that the managed identity is part of a Microsoft Entra ID group that is connected to an enclave's maintenance mode.
 
 ### Associating AKS Resource Groups to Workload
 
-The AVE Workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This means that a AVE Workload can now apply AVE policies to multiple resource groups.
+The AVE Workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This means that an AVE Workload can now apply AVE policies to multiple resource groups.
 
-Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a Workload by running a API PUT request for the workload resource. An example of a request body for an API PUT request for a Workload resource is provided below:
+Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a Workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a Workload resource is provided below:
 
 ```json
 {
@@ -133,8 +133,8 @@ Go to the specified Resource Group to confirm the intended resources were create
 
 ### Connect to the Application VM
 Via the Admin VM:
-The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM may also be called a jumpbox.
-1. Log in to a desktop session on the Admin VM via the Admin VM blade for the enclave.
+The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM is also called a "jumpbox".
+1. Sign-in to a desktop session on the Admin VM.
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
 4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.

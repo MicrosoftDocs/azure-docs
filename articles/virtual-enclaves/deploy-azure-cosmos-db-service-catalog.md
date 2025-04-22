@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for a Azure Cosmos DB account into an existing Workload from the Portal.
+- Deploy a Service Catalog template for an Azure Cosmos DB account into an existing Workload from the Portal.
 
 > [!NOTE]
 > 
@@ -34,16 +34,15 @@ There are guardrails in the enclaves to ensure a service bus is using CMK encryp
 > 
 > These resources are not deployed with the enclave or workload.
 
-1. An existing subnet to place a private endpoint into. 
-    - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
+1. An existing subnet to place a private endpoint into. Create the App Service subnets with subnet delegation. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
 2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. Create a new CMK, if needed, using the [Common Deployment Service Catalog template](./deploy-common-dependencies-service-catalog.md) article to:
-    - Create a RSA (2048) key in the Key Vault.
+    - Create an RSA (2048) key in the Key Vault.
     - [Create a user-assigned managed identity](./create-user-managed-identity.md) with access to the CMK key in the enclave `HostedResources` resource group (for example `your-enclave-name-HostedResources-...`).
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
-4. Create Private DNS Zone for Azure Cosmos db.
+4. Create Private DNS Zone for Azure Cosmos DB.
     - Create a new Private DNS Zone resource in the enclave HostedResources resource group.
       - Commercial cloud: "privatelink.cosmos.azure.com"
-    - Next go into the DNS zone and create a virtual network link to attach the enclave vnet.
+    - Next go into the DNS zone and create a virtual network link to attach the enclave virtual network.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.

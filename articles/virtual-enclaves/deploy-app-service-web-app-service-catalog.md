@@ -47,10 +47,8 @@ There are guardrails in the enclaves to ensure an App Service is isolated with p
     - Add subnet delegation `Microsoft.Web/serverFarms`
     - Use this subnet for Function App resources
 
-2. Create Private DNS Zone for Azure Websites
-  - Create a new Private DNS Zone resource in the enclave `HostedResources` resource group (for example `your-enclave-name-HostedResources-...`).
-    - Commercial cloud: "privatelink.azurewebsites.us"
-  -  Next go into the DNS zone and create a virtual network link to attach the enclave vnet.
+2. Create Private DNS Zone for Azure Websites: Create a new Private DNS Zone resource (for example `privatelink.azurewebsites.net`) in the enclave `HostedResources` resource group (for example `your-enclave-name-HostedResources-...`).
+3. Next go into the DNS zone and create a virtual network link to attach the enclave virtual network found in the enclave `HostedResources` resource group.
 
 ## Deploy the template
 1. Navigate to the [Workload](./what-workload.md) for the intended deployment.

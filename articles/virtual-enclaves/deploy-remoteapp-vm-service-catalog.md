@@ -11,7 +11,7 @@ ms.date: 04/08/2025
 # Deploy RemoteApp VM from the Service Catalog into a Workload
 The RemoteApp template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
-In this article, you will:
+In this article, you:
 
 - Deploy a Service Catalog template for a Remote Application (RemoteApp) into an existing Workload from the Portal.
 
@@ -63,15 +63,15 @@ Required:
 10. Select `Review + Create`, if all validations have passed, select `Create`
 
 ## Domain Join (Optional)
-1. Should you choose to Domain Join your RemoteApp, you will need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
+1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
    * The Domain name should be in the format of `contoso.com`
    * OU path should be in the format of `OU=Organizations,DC=contoso,DC=com`
    * `Domain admin username` and `Domain admin password` should match the domain joining credentials for the domain controller
 
 3. For the `Microsoft Entra ID` Domain join option
-   * First you will need to [deploy an Entra Domain Services managed domain](https://learn.microsoft.com/entra/identity/domain-services/tutorial-create-instance)
-   * Next you will need to use this domain to [create an OU](https://learn.microsoft.com/entra/identity/domain-services/create-ou)
+   * First you need to [deploy an Entra Domain Services managed domain](https://learn.microsoft.com/entra/identity/domain-services/tutorial-create-instance)
+   * Next you need to use this domain to [create an OU](https://learn.microsoft.com/entra/identity/domain-services/create-ou)
    * Use the previously created OU and Domain to fill in these respective parameters
 
 ## Publish Remote App (Optional)
@@ -80,7 +80,7 @@ If you publish your application, all of the following fields on this tab must be
 
 > Note
 > 
-> When testing domain join for the first time, it may be easiest to deploy a VM without domain joining, remotely sign in to the VM (e.g. via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
+> When testing domain join for the first time, it might be easiest to deploy a VM without domain joining, remotely sign in to the VM (e.g. via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
@@ -90,7 +90,7 @@ It can take 20+ minutes to finish all resource creation. Wait for the deployment
 
 ## Connect to the Application VM
 Via the [Admin Workstation](./understanding-admin-workstations.md):
-The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin Workstation may also be called a jumpbox.
+The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
 1. Sign in to a desktop session on the Admin Workstation via the [Admin Workstation](./understanding-admin-workstations.md) blade for the enclave.
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
@@ -100,18 +100,18 @@ The Admin VM is used to access the resources within the enclave boundary from ou
 7. Assign a security group assignment to give users access to your RemoteApp(s).
 
 ## Install RemoteApp (Optional)
-Install an application on your RemoteApp VM using one of these methods or a method you are familiar with.
+Install an application on your RemoteApp VM using one of these methods or a method you're familiar with.
 
 - [Install via Remote App VM](./application-deployment-using-remote-app-vm-in-ave.md) (install or configure an application for Remote App publishing)
 - Prerequisites:
     1. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
             - *Private Container* - securely store installers, main script, and any supporting scripts. 
-                - You may want to choose this option if your scripts or installers can not be shared with others who have access to that storage account container.
+                - You might want to choose this option if your scripts or installers can not be shared with others who have access to that storage account container.
             - *Public Container* - stores publicly accessible artifacts in the remoteappvm folder in the Service Catalog's container
         - App Folder:
             - app installer (ex: VSCodeSetup.exe)
-            - main script to install the application (and any additional supporting scripts)
+            - main script to install the application (and any other supporting scripts)
     2. A copy of [AzCopy.exe](./application-deployment-using-remote-app-vm-in-ave.md#prerequisites)
     1. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
     1. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoint.
@@ -128,7 +128,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
     4. Select `Next`
     5. Basics Tab:
         - For `Virtual Machine name`, input the name of the VM.
-        - For  `Admin username` and `Admin password`, input the username and password you will use to log into your VM. 
+        - For  `Admin username` and `Admin password`, input the username and password you use to log into your VM. 
     6. App Tab: 
         - For `App Folder URI` add the URI to the app folder from the container.
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.

@@ -32,8 +32,7 @@ There are guardrails in the enclaves to ensure a storage account is using CMK en
 > 
 > These resources are not deployed with the enclave or workload by default. Required:
 
-1. An existing subnet to place a private endpoint into. 
-    - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
+1. An existing subnet to place a private endpoint into. Create the Azure Kubernetes Service subnets. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
 2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. Create a new CMK, if needed, using the [Common Deployment Service Catalog template](./deploy-common-dependencies-service-catalog.md) article to:
     - Create an RSA (2048 or greater) key.
     - Create a user managed identity with access to the CMK key.

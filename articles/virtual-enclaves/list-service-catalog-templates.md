@@ -29,7 +29,7 @@ This is the current list of Azure services and workload templates in the Service
 | Service Bus | [link](#service-bus) | Available |
 | Azure Compute Gallery | [link](#azure-compute-gallery) | Future |
 
-Additional templates will be added over time
+New templates will be added over time
 
 ## Admin VM
 
@@ -42,7 +42,7 @@ Documentation:
 
 ## Common Dependencies
 
-[How to create the common Azure service dependencies you will need to create the other resources from the service catalog](./deploy-common-dependencies-service-catalog.md)
+[How to create the common Azure service dependencies you need to create the other resources from the service catalog](./deploy-common-dependencies-service-catalog.md)
 
 Description: This template creates the resources needed to secure the other resources you can deploy from the service catalog and remain compliant with the Azure Virtual Enclaves policies. These resources include the key vault and Customer Managed Keys (CMK) needed to encrypt the resources in your enclave.
 
@@ -63,7 +63,7 @@ Documentation:
 ## Storage Account
 [How to create an AVE compliant Storage Account](./deploy-storage-account-service-catalog.md)
 
-Description: This template deploys an azure storage account available from the virtual network inside the azure virtual enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an azure virtual enclave. [Learn more](../storage/common/storage-account-overview.md)
+Description: This template deploys an Azure storage account available from the virtual network inside the Azure virtual enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an Azure virtual enclave. [Learn more](../storage/common/storage-account-overview.md)
 
 ## Key Vault
 
@@ -71,7 +71,7 @@ Description: Azure Key Vault is one of several key management solutions in Azure
 
  - Secrets Management - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
  - Key Management - Azure Key Vault can be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data.
- - Certificate Management - Azure Key Vault lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
+ - Certificate Management - Azure Key Vault lets you easily create, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
 
 Documentation:
 [About Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview)
@@ -110,7 +110,7 @@ Description: Azure Container Registry allows you to build, store, and manage con
 ## Azure Cosmos DB
 [How to create an AVE compliant Cosmos DB](./deploy-azure-cosmos-db-service-catalog.md)
 
-Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to backup to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [Learn more](https://learn.microsoft.com/azure/cosmos-db/introduction)
+Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to back up to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [Learn more](https://learn.microsoft.com/azure/cosmos-db/introduction)
 
 
 ## Service Bus
