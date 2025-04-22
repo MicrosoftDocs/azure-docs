@@ -17,7 +17,7 @@ Access Azure Native Arize AI from the [Azure portal](https://portal.azure.com).
 The Arize platform provides tools for AI Engineers to develop, debug, and improve their AI applications.
 Deliver AI applications with enterprise quality leveraging Observability, Evaluation and Prompt Management/Optimization.
 
-This offering allows you to manage your Arize AI resource as an integrated native service in Azure. You can set up the resources through a resource provider named ArizeAi.ObservabilityEval. You can create and manage the billing, resource creation, and authorization through the Azure portal. Arize AI owns and runs the Software as a Service (SaaS) application including the resources created.
+This offering allows you to manage your Arize AI resource as an integrated native service in Azure. You can set up the resources through a resource provider named `ArizeAi.ObservabilityEval`. You can create and manage the billing, resource creation, and authorization through the Azure portal. Arize AI owns and runs the Software as a Service (SaaS) application including the resources created.
 
 ## Capabilities
 
