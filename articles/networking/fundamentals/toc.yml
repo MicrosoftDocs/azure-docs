@@ -70,20 +70,20 @@
         href: ../../virtual-network/nat-gateway/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Deploy networking resources
     items:
-  - name: Create and connect to cloud networks
-    items:
-    - name: Create a virtual network
-      href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Create a public IP address
-      href: ../../virtual-network/ip-services/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Optimize routing costs 
-      href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Create a NAT gateway for outbound connection
-      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Create an Azure DNS zone and record
-      href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Route traffic using route tables
-      href: ../../virtual-network/tutorial-create-route-table-portal.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Create and connect to cloud networks
+      items:
+      - name: Create a virtual network
+        href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Create a public IP address
+        href: ../../virtual-network/ip-services/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Optimize routing costs 
+        href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Create a NAT gateway for outbound connection
+        href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Create an Azure DNS zone and record
+        href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Route traffic using route tables
+        href: ../../virtual-network/tutorial-create-route-table-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect virtual networks
       items:
       - name: Connect virtual networks with peering
