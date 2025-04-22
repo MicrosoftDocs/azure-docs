@@ -50,6 +50,8 @@
         href: design-api-github-copilot-azure.md
       - name: Register APIs - GitHub Actions
         href: register-apis-github-actions.md
+      - name: Export API from API Center to Copilot Studio
+        href: export-to-copilot-studio.yml
 - name: API governance
   items:
       - name: Use metadata for governance
