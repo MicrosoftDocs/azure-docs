@@ -38,10 +38,12 @@ landingContent:
             url: get-started.md
       - linkListType: concept
         links:
-
+          - text: Get started with Microsoft Planetary Computer Pro
+            url: get-started.md
       - linkListType: how-to-guide
         links:
-
+          - text: Get started with Microsoft Planetary Computer Pro
+            url: get-started.md
 
   # Card
   - title: Concepts
