@@ -340,7 +340,7 @@ This checklist is a starting point for firewall rules:
 
 Since the IP address of an IoT hub can change without notice, always use the FQDN to allowlist configuration. To learn more, see [Understanding the IP address of your IoT Hub](../iot-hub/iot-hub-understand-ip-address.md).
 
-Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules).
+Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure Container Registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules).
 
 You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the *\*.blob.core.windows.net* FQDN. For more information, see [Enable dedicated data endpoints](/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints).
 
