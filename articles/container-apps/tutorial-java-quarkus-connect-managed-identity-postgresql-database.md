@@ -21,7 +21,7 @@ What you learn:
 
 > [!div class="checklist"]
 > * Configure a Quarkus app to authenticate using Microsoft Entra ID with a PostgreSQL Database.
-> * Create an Azure Container Registry and push a Java app image to it.
+> * Create an Azure Container Registry instance and push a Java app image to it.
 > * Create a Container App in Azure.
 > * Create a PostgreSQL database in Azure.
 > * Connect to a PostgreSQL Database with managed identity using Service Connector.
