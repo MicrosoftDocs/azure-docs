@@ -612,9 +612,9 @@ Before you set up your firewall with IP addresses, review these considerations:
 
 ### Inbound IP addresses
 
-For Azure Logic Apps to receive communication through your firewall from external services, you have to allow traffic through inbound IP addresses set aside for your logic app resource's Azure region. 
+For Azure Logic Apps to receive communication through your firewall from external services, you have to allow traffic through *all the inbound IP addresses* set aside for the Azure region where your logic app resources exists.
 
-To reduce complexity when you create security rules, use the [**LogicAppsManagement** service tag](../virtual-network/service-tags-overview.md), rather than specific inbound IP addresses for each Azure region. Service tags include static IP addresses, so if you can't use service tags, you can add all the IP addresses covered by the service tag. For more information, download [Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+To reduce complexity when you create security rules, use the [**LogicAppsManagement** service tag](../virtual-network/service-tags-overview.md), rather than specific inbound IP addresses. Service tags include static IP addresses, so if you can't use service tags, add all the IP addresses covered by the service tag instead. For more information, download [Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Otherwise, see the section named [Multitenant - Inbound IP addresses](#multitenant-inbound). If you're using Azure Government, see [Azure Government - Inbound IP addresses](#azure-government-inbound).
 
@@ -643,7 +643,7 @@ Otherwise, see the section named [Multitenant - Inbound IP addresses](#multitena
 
 #### Multitenant - Inbound IP addresses
 
-This section lists the inbound IP addresses that Azure Logic Apps requires for the logic app resource in your Azure region to receive communication through your firewall. Make sure that you review the [Inbound IP addresses introduction](#inbound) for all the requirements related to allowing inbound traffic into Azure Logic Apps.
+This section lists the inbound IP addresses that Azure Logic Apps requires for the Azure region where a logic app exists to receive communication through your firewall. Make sure that you review the [Inbound IP addresses introduction](#inbound) for all the requirements related to allowing inbound traffic into Azure Logic Apps.
 
 | Region | Azure Logic Apps IP |
 |--------|---------------------|
@@ -712,18 +712,18 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 
 ### Outbound IP addresses
 
-For Azure Logic Apps to send communication through your firewall, you have to allow traffic through *all the outbound IP addresses* set aside for your logic app resource's Azure region.
+For Azure Logic Apps to send communication through your firewall, you have to allow traffic through *all the outbound IP addresses* set aside for the Azure region where your logic app resource exists.
 
-To reduce complexity when you create security rules, use the [**LogicApps** service tag](/azure/virtual-network/service-tags-overview), rather than specific outbound IP addresses for each Azure region. If your workflow uses any [managed connector operations](/azure/connectors/managed) or [custom connectors](/connectors/custom-connectors), use the **AzureConnectors** service tag so that these connectors can make outbound calls to their respective services, such as Office 365 Outlook, or SQL Server. Both these tags work across the Azure regions where Azure Logic Apps is available. Service tags include static IP addresses, so if you can't use service tags, add *all the outbound IP addresses* covered by the service tags for your Azure region. For more information, download [Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+To reduce complexity when you create security rules, use the [**LogicApps** service tag](/azure/virtual-network/service-tags-overview), rather than specific outbound IP addresses. If your workflow uses any [managed connector operations](/azure/connectors/managed) or [custom connectors](/connectors/custom-connectors), use the **AzureConnectors** service tag so that these connectors can make outbound calls to their respective services, such as Office 365 Outlook, or SQL Server. Both these tags work across the Azure regions where Azure Logic Apps is available. Service tags include static IP addresses, so if you can't use service tags, add *all the outbound IP addresses* covered by the service tags for your Azure region. For more information, download [Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
 
 For custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](/azure/logic-apps/logic-apps-gateway-connection), you must set up the gateway installation to allow access for the corresponding [*managed* connector outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps).
 
-For more information about setting up communication settings on the gateway, see the following articles:
+For more information about setting up communication settings on the gateway, see the following documentation:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
 
-Otherwise, see the following sections, which list *all the outbound IP addresses that you need to add*:
+Otherwise, see the following sections, which list the outbound IP addresses that you need to add:
 
 - [Multitenant - Outbound IP addresses](#multitenant-outbound)
 - [Managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses/#azure-logic-apps)
@@ -734,7 +734,7 @@ If you're using Azure Government, see [Azure Government - Outbound IP addresses]
 
 #### Multitenant - Outbound IP addresses
 
-This section lists the outbound IP addresses that Azure Logic Apps requires for the logic app resource in your Azure region to send communication through your firewall. Make sure that you review the [Outbound IP addresses introduction](#outbound) for all the requirements related to allowing outbound traffic from Azure Logic Apps.
+This section lists the outbound IP addresses that Azure Logic Apps requires for the Azure region where a logic app resource exists to send communication through your firewall. Make sure that you review the [Outbound IP addresses introduction](#outbound) for all the requirements related to allowing outbound traffic from Azure Logic Apps.
 
 | Region | Azure Logic Apps IP |
 |--------|---------------------|
