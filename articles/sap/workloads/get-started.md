@@ -14,6 +14,8 @@ ms.author: juergent
 
 When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL Server, Oracle, Db2, etc., we've got you covered.
 
+### Just Adding a new Test Header - Dismiss
+
 Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. Our partnership with SAP resulted in various integration scenarios with the overall Microsoft ecosystem. Check out the **dedicated [Integration section](./integration-get-started.md)** to learn more.
 
 We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
