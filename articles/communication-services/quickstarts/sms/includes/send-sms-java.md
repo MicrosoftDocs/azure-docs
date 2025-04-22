@@ -15,10 +15,10 @@ ms.author: pvicencio
 
 Get started with Azure Communication Services by using the Communication Services Java SMS SDK to send SMS messages.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart).
+> See the finalized code Azure Samples GitHub [Send an SMS message using Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart).
 
 ## Prerequisites
 
@@ -35,11 +35,11 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ## Set up the application environment
 
-To set up an environment for sending messages, take the steps in the following sections.
+To set up an environment for sending messages, complete the following sections.
 
 ### Create a new Java application
 
-Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the following command to generate the Java project from the maven-archetype-quickstart template.
+Open a terminal or command window and navigate to the directory where you want to create your Java application. To generate the Java project from the maven-archetype-quickstart template, run the following command.
 
 - **Command Prompt**
 
@@ -87,19 +87,18 @@ public class App
         // Quickstart code goes here.
     }
 }
-
 ```
 
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Java.
 
-| Name                                                             | Description                                                                                     |
-| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| SmsClientBuilder              | This class creates the SmsClient. You provide it with an endpoint, a credential, and an HTTP client. |
-| SmsClient                    | This class is needed for all SMS functionality. You use it to send SMS messages.                |
-| SmsSendOptions               | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to true, an event is emitted when delivery is successful. |        
-| SmsSendResult                | This class contains the result from the SMS service.                                          |
+| Name  | Description |
+| --- | --- |
+| SmsClientBuilder | This class creates the SmsClient. You provide it with an endpoint, a credential, and an HTTP client. |
+| SmsClient | This class is needed for all SMS functionality. You use it to send SMS messages. |
+| SmsSendOptions | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to true, an event is emitted when delivery is successful. |        
+| SmsSendResult | This class contains the result from the SMS service. |
 
 ## Authenticate the client
 
@@ -145,15 +144,16 @@ System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<to-phone-number>` with a phone number that you'd like to send a message to.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
+> Provide phone numbers in E.164 international standard format, such as +14255550123. The value for `<from-phone-number>` can also be a short code, such as 23456 or an alphanumeric sender ID, such as CONTOSO.
 
 ## Send a 1:N SMS message with options
 
 To send an SMS message to a list of recipients, call the `send` method with a list of recipient phone numbers. You can also provide optional parameters to specify whether the delivery report should be enabled and to set custom tags.
+
 ```java
 SmsSendOptions options = new SmsSendOptions();
 options.setDeliveryReportEnabled(true);
@@ -175,7 +175,7 @@ for (SmsSendResult result : sendResults) {
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource
 - Replace `<to-phone-number-1>` and `<to-phone-number-2>` with phone numbers that you'd like to send a message to.
 
 > [!WARNING]
@@ -183,11 +183,11 @@ Make these replacements in the code:
 
 The `setDeliveryReportEnabled` method is used to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages.
 
-You can use the `setTag` method to apply a tag to the delivery report.
+To apply a tag to the delivery report, use the `setTag` method.
 
 ## Run the code
 
-1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
+1. Navigate to the directory that contains the **pom.xml** file and compile the project using the `mvn` command.
 
    ```console
 
