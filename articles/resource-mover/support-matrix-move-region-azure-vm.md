@@ -4,7 +4,7 @@ description: Review support for moving Azure VMs between regions with Azure Reso
 author: ankitaduttaMSFT
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 12/27/2024
+ms.date: 04/22/2025
 ms.author: ankitadutta
 ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 ---
@@ -16,6 +16,9 @@ This article summarizes support and prerequisites when you move virtual machines
 ## Windows VM support
 
 Resource Mover supports Azure VMs running these Windows operating systems.
+
+> [!NOTE]
+> Windows Trusted Launch VMs are supported by Resource Mover. 
 
 **Operating system** | **Details**
 --- | ---
@@ -34,9 +37,12 @@ Windows 7 (x64) with SP1 onwards | Install a Windows [servicing stack update (SS
 
 Resource Move supports Azure VMs running these Linux operating systems.
 
+> [!NOTE]
+> Linux Trusted Launch VMs are not supported by Resource Mover.
+
 **Operating system** | **Details**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, 9.4
 Ubuntu 14.04 LTS Server | [Supported kernel versions](#supported-ubuntu-kernel-versions)
 Ubuntu 16.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions)<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the cloud-init package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the cloud-init configuration). Password-based sign-in can be reenabled on the virtual machine by resetting the password from the Support > Troubleshooting > Settings menu (of the failed over VM in the Azure portal.
 Ubuntu 18.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions).
