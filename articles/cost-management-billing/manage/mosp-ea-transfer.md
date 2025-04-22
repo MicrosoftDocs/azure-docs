@@ -4,7 +4,6 @@ description: This article helps you understand the steps to transfer a Microsoft
 
 author: kendayMS
 ms.reviewer: macyso
-=======
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
