@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 2/13/2025
+ms.date: 4/17/2025
 ms.custom: template-how-to
 ---
 
@@ -30,7 +30,7 @@ See [Azure Operator Nexus Cluster support for managed identities and user provid
 
 To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
 
-The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
+The CommandOutputSettings can be cleared, directing run-read-command output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
 
 However, the CommandOutputSettings do need to be cleared if switching from a user-assigned identity to a system-assigned identity.
 
@@ -246,17 +246,19 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 The command syntax for a single command with no arguments is as follows, using `hostname` as an example:
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command --name "<machine-name>"
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>"
     --limit-time-seconds "<timeout>" \
     --commands "[{command:hostname}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
+- `--name` is the name of the BMM resource on which to execute the command.
 - The `--commands` parameter always takes a list of commands, even if there's only one command.
 - Multiple commands can be provided in json format using [Azure CLI Shorthand](https://aka.ms/cli-shorthand) notation.
 - Any whitespace must be enclosed in single quotes.
 - Any arguments for each command must also be provided as a list, as shown in the following examples.
+- Not all commands can run on any BMM. For example, `kubectl` commands can only be run from a BMM with the `control-plane` role.
 
 ```
 --commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm ifconfig'}]"
