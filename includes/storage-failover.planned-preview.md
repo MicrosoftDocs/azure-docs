@@ -12,6 +12,7 @@ ms.custom: "include file", references_regions
 ---
 
 > [!IMPORTANT]
+> User feedback is being incorporated into customer-managed planned failover (preview) and the feature is temporarily unavailable in all regions. After completion, updated documentation will be released to reflect the regions in which the feature is available.
 <!--
 > Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
 >
@@ -32,4 +33,3 @@ ms.custom: "include file", references_regions
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 -->
-> User feedback is being incorporated into customer-managed planned failover (preview) and the feature is temporarily unavailable in all regions. After completion, updated documentation will be released to reflect the regions in which the feature is available.
