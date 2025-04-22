@@ -210,7 +210,7 @@ You can use FTP/S to directly transfer files to Azure Functions, although this d
 
 >__When to use it:__ To reduce the chance of errors, you should avoid using deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Use [zip deployment](run-functions-from-deployment-package.md) when possible.
 
->__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
+>__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created. Please note that FTP/FTPS Deployments will fail on an Azure Files backed Function App as discussed at [FTP Limitations](https://learn.microsoft.com/en-us/azure/app-service/configure-connect-to-azure-storage?tabs=basic%2Cportal&pivots=code-windows#limitations) 
 
 ### Portal editing
 
