@@ -149,7 +149,7 @@ A solution is a logical way of developing and organizing multiple modules for a 
    | Provide a solution name | Enter a descriptive name for your solution, like **CustomVisionSolution**, or accept the default. |
    | Select module template | Choose **Python Module**. |
    | Provide a module name | Name your module **classifier**.<br><br>It's important that this module name is lowercase. IoT Edge is case-sensitive when referring to modules, and this solution uses a library that formats all requests in lowercase. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal.<br><br>The final string looks like **\<registry name\>.azurecr.io/classifier**. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure Container Registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal.<br><br>The final string looks like **\<registry name\>.azurecr.io/classifier**. |
  
    ![Provide Docker image repository](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -162,7 +162,7 @@ The environment file stores the credentials for your container registry and shar
 The IoT Edge extension tries to pull your container registry credentials from Azure and populates them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
 1. In the Visual Studio Code explorer, open the .env file.
-2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
+2. Update the fields with the **username** and **password** values that you copied from your Azure Container Registry.
 3. Save this file.
 
 >[!NOTE]
@@ -219,7 +219,7 @@ In this section, you add a new module to the same CustomVisionSolution and provi
    | Select deployment template file | Select the **deployment.template.json** file in the CustomVisionSolution folder. |
    | Select module template | Select **Python Module** |
    | Provide a module name | Name your module **cameraCapture** |
-   | Provide Docker image repository for the module | Replace **localhost:5000** with the **Login server** value for your Azure container registry.<br><br>The final string looks like **\<registryname\>.azurecr.io/cameracapture**. |
+   | Provide Docker image repository for the module | Replace **localhost:5000** with the **Login server** value for your Azure Container Registry.<br><br>The final string looks like **\<registryname\>.azurecr.io/cameracapture**. |
 
    The Visual Studio Code window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: classifier and cameraCapture. 
 
@@ -384,7 +384,7 @@ First, build and push your solution to your container registry.
 
 1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
 
-2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
+2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure Container Registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
