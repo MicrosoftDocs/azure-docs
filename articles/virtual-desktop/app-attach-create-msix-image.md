@@ -42,6 +42,9 @@ Here are example commands to create a CIM disk image from an MSIX package. You'l
 
 You should create a new folder for the destination because a CIM disk image is made up of multiple files and this helps differentiate between the images.
 
+> [!CAUTION]
+> An issue currently impacts CimFS images with Windows 11, version 24H2, which prevents the images from being mounted. We are actively working on a fix that is estimated to be available in June 2025. Workarounds are use VHDX images instead or use a version of Windows 11 prior to 24H2.
+
 > [!IMPORTANT]
 > To guarantee compatibility, make sure the CIM files storing your MSIX images are generated on a version of Windows that is lower than or equal to the version of Windows where you are planning to run the MSIX packages. For example, CIM files generated on Windows 11 may not work on Windows 10.
 

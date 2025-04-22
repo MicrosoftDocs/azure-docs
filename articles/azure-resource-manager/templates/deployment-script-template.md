@@ -61,6 +61,9 @@ For deployment script API version 2020-10-01 or later, there are two principals 
             "Microsoft.Resources/deployments/*",
             "Microsoft.Resources/deploymentScripts/*"
           ],
+         "dataActions": [
+            "Microsoft.Storage/storageAccounts/fileServices/*"
+          ]
         }
       ],
       "assignableScopes": [

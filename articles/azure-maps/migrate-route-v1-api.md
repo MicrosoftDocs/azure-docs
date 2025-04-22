@@ -56,7 +56,7 @@ This article explains how to migrate the [Azure Maps Route v1.0] APIs to [Azure
 
 ### Route Range notable differences
 
-| Feature           | V1.0      | V2025-01-01                                               |
+| Feature           | v1.0      | v2025-01-01                                               |
 |-------------------|-----------|-----------------------------------------------------------|
 | Coordinate format | Latitude/Longitude | Longitude/latitude, as defined by [GeoJSON].     |
 | Electric consumption model | Supported | Not Supported                                    |

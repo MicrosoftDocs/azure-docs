@@ -4,7 +4,7 @@ description: Learn how to troubleshoot Kubernetes container limits.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 11/01/2024
+ms.date: 04/17/2025
 ms.author: matthewernst
 author: matternst7258
 ---
@@ -19,17 +19,20 @@ We recommend that you have alerts set up for the Azure Operator Nexus cluster to
 
 The following table lists the metrics that are exposed to identify memory limits.
 
-| Metric name                          | Description                                      |
-| ------------------------------------ | ------------------------------------------------ |
-| Container Restarts                   | `kube_pod_container_status_restarts_total`       |
-| Container Status Terminated Reason   | `kube_pod_container_status_terminated_reason`    |
-| Container Resource Limits            | `kube_pod_container_resource_limits`             |
+| Metric name                        | Description                                   |
+| ---------------------------------- | --------------------------------------------- |
+| Container Restarts                 | `kube_pod_container_status_restarts_total`    |
+| Container Status Terminated Reason | `kube_pod_container_status_terminated_reason` |
+| Container Resource Limits          | `kube_pod_container_resource_limits`          |
 
 The `Container Status Terminated Reason` metric displays the `OOMKill` reason for pods that are affected.
 
 ## Identify Out of Memory (OOM) pods
 
 Start by identifying any components that are restarting or show `OOMKill`.
+
+- Replace `<bareMetalMachineName>` with the name of a healthy `control-plane` Bare Metal Machine resource on which to execute the `kubectl` command.
+- For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
 
 ```azcli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
@@ -92,6 +95,6 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 
 ## Known services susceptible to OOM issues
 
-* cdi-operator
-* vulnerability-operator
-* cluster-metadata-operator
+- cdi-operator
+- vulnerability-operator
+- cluster-metadata-operator
