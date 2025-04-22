@@ -2,13 +2,13 @@
 title: Copy billing roles from one MCA to another MCA across tenants with a script
 titleSuffix: Microsoft Cost Management
 description: Describes how to Copy billing roles from one MCA to another MCA across tenants using a PowerShell script.
-author: bandersmsft
-ms.reviewer: vkulkarni
+author: PreetiSGit
+ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: presharm
 ---
 
 # Copy billing roles from one MCA to another MCA across tenants with a script

@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 04/21/2025
 ms.author: kendownie
 ---
 
@@ -393,7 +393,8 @@ You can use the following mount options when mounting SMB Azure file shares on L
 | `multiuser` | n/a | Map user accesses to individual credentials when accessing the server. By default, CIFS mounts only use a single set of user credentials (the mount credentials) when accessing a share. With this option, the client instead creates a new session with the server using the user's credentials whenever a new user accesses the mount. Further accesses by that user also use those credentials. Because the kernel can't prompt for passwords, multiuser mounts are limited to mounts using `sec=` options that don't require passwords. |
 | `cifsacl` | n/a | This option is used to map CIFS/NTFS ACLs to/from Linux permission bits, map SIDs to/from UIDs and GIDs, and get and set Security Descriptors. Only supported for NTLMv2 authentication. |
 | `idsfromsid,modefromsid` | n/a | Recommended when client needs to do client-enforced authorization. Enables Unix-style permissions. Only works when UIDs/GIDs are uniform across all the clients. Only supported for NTLMv2 authentication. |
-| `sec=` | krb5 | Required for Kerberos authentication. To enable Kerberos security mode, set `sec=krb5`. You must omit username and password when using this option. The Linux client must be domain-joined. See [Enable Active Directory authentication over SMB for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md). |
+| `cruid=` | uid or username | Optional. Sets the uid of the owner of the credentials cache. This is primarily useful with `sec=krb5`. The default is the real uid of the process performing the mount. We recommend setting this parameter to the uid or username of the user who has the necessary Kerberos tickets in their default credentials cache file. This directs the upcall to look for a credentials cache owned by that user. |
+| `sec=` | krb5 | Required for Kerberos authentication. To enable Kerberos security mode, set `sec=krb5`. Example: `sudo mount -t cifs $SMB_PATH $MNT_PATH -o sec=krb5,cruid=$UID,serverino,nosharesock,actimeo=30,mfsymlinks`. You must omit username and password when using this option. The Linux client must be domain-joined. See [Enable Active Directory authentication over SMB for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md). |
 | `uid=` | 0 | Optional. Sets the uid that owns all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a username or a numeric uid. When not specified, the default is 0. |
 | `gid=` | 0 | Optional. Sets the gid that owns all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a groupname or a numeric gid. When not specified, the default is 0. |
 | `file_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default file mode. |
