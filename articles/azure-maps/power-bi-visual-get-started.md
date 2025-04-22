@@ -143,7 +143,7 @@ The availability of the above toggles depends on the selected style. Below is a 
 | [road] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [road shaded relief] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [satellite] | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [satellite road labels] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [satellite road labels] | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
 
 If an option is not supported by the currently selected style, it will have no effect until you choose a style that supports it.
 
