@@ -75,6 +75,16 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 
 The Event Hubs extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
+# [Bundle v4.x](#tab/extensionv5)
+
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
+
+You can add this version of the extension from the extension bundle v4 by adding or replacing the following code in your `host.json` file:
+
+[!INCLUDE [functions-extension-bundles-json-v4](./functions-extension-bundles-json-v4.md)]
+
+To learn more, see [Update your extensions].
+
 # [Bundle v3.x](#tab/extensionv5)
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
