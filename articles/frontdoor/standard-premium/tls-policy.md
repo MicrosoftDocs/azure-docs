@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door TLS policy (preview)
+title: Azure Front Door TLS policy
 description: Learn how custom TLS policies help you meet security requirements for your Azure Front Door custom domains.
 author: halkazwini
 ms.author: halkazwini

@@ -7,7 +7,7 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 04/16/2025
 ---
 
 # Create a dashboard in Azure Managed Grafana
@@ -213,7 +213,7 @@ az grafana dashboard update --name <AMG-name> --resource-group <AMG-resource-gro
 
 ---
 
-## Next steps
+## Next step
 
 In this how-to guide, you learned how to create a Grafana dashboard. To learn share this dashboard with internal and external stakeholders, go to:
 
