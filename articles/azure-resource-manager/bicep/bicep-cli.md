@@ -307,7 +307,7 @@ The command returns an array of available versions:
 
 ## publish
 
-The `publish` command adds a module to a registry. The Azure container registry must exist and the account publishing to the registry must have the correct permissions. For more information about setting up a module registry, see [Use private registry for Bicep modules](private-module-registry.md). To publish a module, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
+The `publish` command adds a module to a registry. The Azure Container Registry must exist and the account publishing to the registry must have the correct permissions. For more information about setting up a module registry, see [Use private registry for Bicep modules](private-module-registry.md). To publish a module, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
 
 After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
