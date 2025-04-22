@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/08/2024
+ms.date: 04/22/2025
 ms.author: b-ahibbard
 ---
 # Configure application volume groups for SAP HANA using REST API

@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/15/2025
+ms.date: 04/22/2025
 ---
 # Azure NetApp Files application volume group FAQs
 
