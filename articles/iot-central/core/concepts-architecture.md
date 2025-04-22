@@ -3,7 +3,7 @@ title: Azure IoT Central solution architecture
 description: This article introduces key IoT Central architectural concepts such as device management, security, integration, and extensibility.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2024
+ms.date: 04/15/2025
 ms.topic: conceptual
 ms.service: azure-iot-central
 services: iot-central
