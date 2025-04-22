@@ -47,7 +47,7 @@ There are guardrails in the enclaves to ensure an Azure Container Registry is us
 2. Select `Add Service` button.
 3. Select the `Azure Container Registry` service template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
-   ![Screenshot showing the Azure Container Registry template selected from the Service Catalog list](./media/service-catalog-azure-container-registry.png)
+   ![Screenshot showing the Azure Container Registry template selected from the Service Catalog list](./media/service-catalog-list-azure-container-registry.png)
 
 4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User Assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
 5. Adjust any of the prepopulated parameters as needed.

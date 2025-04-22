@@ -25,7 +25,7 @@ In this article, you:
 
 - A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
-## Prerequisites:
+## Prerequisites
 
 There are guardrails in the enclaves to ensure a storage account is using CMK encryption (customer-managed keys). This requires a key vault key and managed identity with access to the key in the enclave. 
 > [!NOTE]

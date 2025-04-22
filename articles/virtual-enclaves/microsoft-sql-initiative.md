@@ -1,6 +1,6 @@
 ---
 title: Microsoft SQL Initiative
-description: Microsoft SQL Initiative
+description: Microsoft SQL Initiative.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -9,6 +9,7 @@ ms.date: 04/08/2025
 ---
 
 # SQL Guardrails Initiative
+This is a description of the Policy gaurdrails in place to ensure Azure SQL is deployed securely.
 
 ## SQL GitHub Repository
 

@@ -27,7 +27,7 @@ In this article, you:
 
 ## Prerequisites
 
-### Create CMK and identity:
+### Create CMK and identity
 
 There are guardrails in the enclaves to ensure the Azure SQL is using CMK encryption (customer-managed keys). This requires a key and identity to access the key to be accessible in the enclave.
 > [!NOTE]

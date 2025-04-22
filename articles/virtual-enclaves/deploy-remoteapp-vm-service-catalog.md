@@ -33,7 +33,7 @@ The RemoteApp template can be deployed in multiple configurations:
 
 - A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
-## Prerequisites:
+## Prerequisites
 Required:
 
 1. An existing subnet. 
@@ -76,9 +76,9 @@ Required:
 
 ## Publish Remote App (Optional)
 If you publish your application, all of the following fields on this tab must be filled out.
-![image2.png](./media/image-483db51b-f65e-4b8b-9305-6cac55bb77bf.png)
+![Screenshot showing the inputs needed to publish an app on the Virtual Machine.](./media/service-catalog-remote-app-vm-publish-inputs.png)
 
-> Note
+> [!NOTE]
 > 
 > When testing domain join for the first time, it might be easiest to deploy a VM without domain joining, remotely sign in to the VM (e.g. via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
 
