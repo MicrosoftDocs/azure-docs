@@ -296,16 +296,13 @@ The throttling policies of rooms service are determined by grouping requests thr
 
 | API | Threshold |
 |--|--|
-| Create Room        | 20 req/sec |
-| Update Room        | 20 req/sec |
-| Get Room           | 40 req/sec |
-| List Rooms         | 10 req/sec |
-| Delete Room        | 20 req/sec |
-| Add participant    | 20 req/sec |
-| Update participant | 20 req/sec |
-| Get participant    | 40 req/sec |
-| Remove participant | 20 req/sec |
-| Patch participant  | 20 req/sec |
+| Create Room | 20 req/sec |
+| Update Room | 20 req/sec |
+| Delete Room | 20 req/sec |
+| Get Room    | 40 req/sec |
+| List Rooms  | 10 req/sec |
+| Update participant   | 20 req/sec |
+| List participants    | 40 req/sec |
 
 ### Action to take
 
