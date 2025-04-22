@@ -83,7 +83,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
 | version | The version that you specify. The value is `2.0`. | Yes |
-| authenticationType | Select from basic or service principal authentication | Yes |
+| authenticationType | Select from basic, service principal authentication, user-assigned managed identity or system-assigned managed identity | Yes |
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
@@ -156,6 +156,88 @@ The following properties are supported for the Azure Database for PostgreSQL lin
     }
 }
 ``` 
+### User-assigned managed identity
+
+A data factory or Synapse workspace can be associated with a [user-assigned managed identities](/azure/data-factory/data-factory-service-identity#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure database for PostgreSQL authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
+
+To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| credential | Specify the user-assigned managed identity as the credential object. | Yes |
+
+You also need to follow the steps:
+
+1. Make sure to create on **User-assigned Managed Identity** resource on Azure portal. To learn more, go to [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+1. Assign the **User-assigned Managed Identity** to your Azure database for PostgreSQL resource
+    1. In your Azure database for PostgreSQL server resource, under **Security**
+    1. Select **Authentication**
+    1. Verify if Authentication method is **Microsoft Entra authentication only** or **PostgreSQL and Microsoft Entra authentication**
+    1. Click on **+ Add Microsoft Entra administrators** and select your user-assigned managed identity
+
+        :::image type="content" source="media/connector-azure-database-for-postgresql/user-managed-identity-postgresql-configuration.png" alt-text="Screenshot of the user-assigned managed identity configuration in the Azure database for PostgreSQL server." lightbox="media/connector-azure-database-for-postgresql/user-managed-identity-postgresql-configuration.png":::
+
+1. Assign the **User-assigned Managed Identity** to your Azure Data Factory resource
+    1. Select **Settings** and then **Managed Identities**
+    1. Under the **User assigned** tab. Click on the **+ Add** and select your user-managed identity
+
+        :::image type="content" source="media/connector-azure-database-for-postgresql/data-factory-user-identity-configuration.png" alt-text="Screenshot of the user-assigned managed identity configuration in the Azure Data Factory resource." lightbox="media/connector-azure-database-for-postgresql/data-factory-user-identity-configuration.png":::
+
+1. Configure an Azure database for PostgreSQL linked service.
+
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzurePostgreSql",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>",
+            "port": 5432,
+            "database": "<database name>",
+            "sslMode": 2,
+            "authenticationType": "UserAssignedManagedIdentity",
+            "credential": {
+                "referenceName": "<your credential>",
+                "type": "CredentialReference"
+            }
+        }
+    }
+}
+```
+
+### System-assigned managed identity
+
+To use System-assigned managed identity, follow the steps:
+
+1. A data factory or Synapse workspace can be associated with a system-assigned managed identity. Learn More, [Generate system-assigned managed identity](/azure/data-factory/data-factory-service-identity#generate-managed-identity)
+
+1. The Azure data for PostgreSQL with System assigned managed identity **On**.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/system-managed-identity-configuration.png" alt-text="Screenshot of the system assigned managed identity configuration in the Azure database for PostgreSQL server resource." lightbox="media/connector-azure-database-for-postgresql/system-managed-identity-configuration.png":::
+
+1. Configure an Azure database for PostgreSQL linked service.
+
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzurePostgreSql",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>",
+            "port": 5432,
+            "database": "<database name>",
+            "sslMode": 2,
+            "authenticationType": "SystemAssignedManagedIdentity"
+        }
+    }
+}
+```
 
 ### Service principal authentication
 
