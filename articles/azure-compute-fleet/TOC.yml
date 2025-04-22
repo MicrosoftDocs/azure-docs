@@ -1,4 +1,4 @@
-- name: What is Azure Compute Fleet? (Preview)
+- name: What is Azure Compute Fleet?
   href: overview.md
 - name: Quickstarts
   items:

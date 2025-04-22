@@ -63,7 +63,7 @@ To use a new toll-free number for sending SMS messages, you must complete a toll
 
 ## Next steps
 
-In this quickstart, you learned how to send SMS messages using Azure Communication Services.
+This article described how to send SMS messages using Azure Communication Services.
 
 > [!div class="nextstepaction"]
 > [Receive and reply to SMS](./receive-sms.md)
