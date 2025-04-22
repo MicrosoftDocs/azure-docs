@@ -26,7 +26,7 @@ The following diagram illustrates cross-region replication between the source an
 > When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix then changes to `DR2-`. 
 
 > [!IMPORTANT]
-> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as SnapCenter and the[Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).
+> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as SnapCenter and the [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).
 > * You need to replicate at least the data volume and the log-backup volume. 
 > * You can optionally replicate the data-backup volume and the shared volume. 
 > * You should *never* replicate the log volume. The application volume group will create the log volume as a standard volume.
