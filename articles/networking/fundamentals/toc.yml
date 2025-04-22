@@ -1,14 +1,10 @@
 - name: Networking Fundamentals documentation
   href: index.yml
-- name: Overview
+- name: Get Started
   items:
     - name: About Azure Networking
       href: networking-overview.md
-- name: Get Started
-  items:
-- name: Networking basics
-  items:
-  - name: Quickstarts
+  - name: Networking basics quickstarts
     items:
     - name: Create a virtual network
       href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
@@ -73,7 +69,7 @@
       - name: Outbound-only internet connectivity
         href: ../../virtual-network/nat-gateway/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Deploy networking resources
-  items:
+    items:
   - name: Create and connect to cloud networks
     items:
     - name: Create a virtual network
