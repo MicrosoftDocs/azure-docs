@@ -57,7 +57,7 @@ Before you begin, make sure you have:
 
 ## Create a container registry
 
-An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. The two popular Docker registry services available in the cloud are Azure Container Registry and Docker Hub. This article uses the Container Registry.
+An Azure Container Registry is a private Docker registry in Azure where you can store and manage your private Docker container images. The two popular Docker registry services available in the cloud are Azure Container Registry and Docker Hub. This article uses the Container Registry.
 
 1. From a browser, ign in to the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource > Containers > Container Registry**. Click **Create**.
@@ -252,7 +252,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 2. When prompted for password, supply the password. You can also retrieve the values for login server, username, and password from the **Access Keys** in your container registry in the Azure portal.
  
-3. Once the credentials are supplied, you can push your module image to your Azure container registry. In the VS Code Explorer, right-click the **module.json** file and select **Build and Push IoT Edge solution**.
+3. Once the credentials are supplied, you can push your module image to your Azure Container Registry. In the VS Code Explorer, right-click the **module.json** file and select **Build and Push IoT Edge solution**.
 
     ![Build and push IoT Edge solution 2](./media/azure-stack-edge-gpu-create-iot-edge-module/build-iot-edge-solution-2.png)
  
