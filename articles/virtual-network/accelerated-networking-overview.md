@@ -77,6 +77,7 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)
 - Oracle Linux 7.5 and later with UEK version 5
 - FreeBSD 10.4, 11.1, 12.0, or later
+- Flatcar Container Linux 3510 or later
 
 ### Supported VM instances
 

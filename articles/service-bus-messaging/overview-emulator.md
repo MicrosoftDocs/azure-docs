@@ -42,6 +42,7 @@ The current version of the emulator has the following limitations:
 - It can't stream messages by using the JMS protocol.
 - Partitioned entities aren't compatible with emulator. 
 - It doesn't support on-the-fly management operations through a client-side SDK.
+- AMQP Web Sockets are not supported. AMQP TCP is the only supported transport type.
 
 > [!NOTE]
 > After a container restart, data and entities don't persist in the emulator.

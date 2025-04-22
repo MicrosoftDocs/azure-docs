@@ -46,10 +46,10 @@ Azure supports three scopes for resource management. Each scope supports managin
 
     Resource type: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Resource groups**](../../azure-resource-manager/management/overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
+- **[Resource groups](../../azure-resource-manager/management/overview.md#resource-groups)** - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
 
     Resource type: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
-
+  
 Management groups allow you to organize subscriptions into a hierarchy. For example, you might create a logical organization hierarchy using management groups. Then, give teams subscriptions for production and dev/test workloads. And then create resource groups in the subscriptions to manage each subsystem or component.
 
 Creating an organizational hierarchy allows cost and policy compliance to roll up organizationally. Then, each leader can view and analyze their current costs. And then they can create budgets to curb bad spending patterns and optimize costs with Advisor recommendations at the lowest level.
@@ -77,6 +77,36 @@ Cost Management Contributor is the recommended least-privilege role. The role al
 Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Microsoft Entra subscriptions, can't view costs. 
 
 If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Microsoft Entra ID** and **My Org**. Move your Microsoft Entra subscription to the **Microsoft Entra ID** management group and then view and manage costs using the **My Org** management group.
+
+### Managed resource groups 
+
+Managed resource groups created by certain resource providers - such as Azure Red Hat OpenShift (ARO) or Azure Databricks - can't be used as scopes for Cost Management features like budgets or exports. These resource groups typically include deny assignments that restrict modifications to protect critical resources, which can result in authorization errors. For more information on deny assignments, please refer to [List Azure deny assignments](/azure/role-based-access-control/deny-assignments?tabs=azure-portal).
+
+To avoid these issues, use a higher-level scope such as the subscription scope which contains this managed resource group when configuring budgets or exports.
+
+#### Required permissions for exports at RBAC scope
+
+- Microsoft.CostManagement/exports/Read – View exports
+
+- Microsoft.CostManagement/exports/Write – Create or update exports
+
+- Microsoft.CostManagement/exports/Delete – Delete exports
+
+- Microsoft.CostManagement/exports/Action – Run export
+
+*Note: Deny assignments can result in permission errors, so please check even with these permissions if there are any deny assignments at this scope.*
+
+#### Required permissions for budgets at RBAC scope
+
+- Microsoft.Consumption/budgets/Read – View budgets
+
+- Microsoft.Consumption/budgets/Write – Create or update budgets
+
+- Microsoft.Consumption/budgets/Delete – Delete budgets
+
+- (Optional) Microsoft.Insights/actionGroups/Read – If action groups are configured for alerts
+
+*Note: Deny assignments can result in permission errors, so please check even with these permissions if there are any deny assignments at this scope.*
 
 ### Feature behavior for each role
 
@@ -245,21 +275,6 @@ The following tables show how Cost Management features can be utilized by each r
 | **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update |
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |
-
-## AWS scopes
-
-> [!NOTE]
-> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
-
-After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
-
-- **External Billing account** - Represents a customer agreement with a third-party vendor. It's similar to the EA billing account.
-
-    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
-
-- **External subscription** - Represents a customer operational account with a third-party vendor. It's similar to an Azure subscription.
-
-    Resource type: `Microsoft.CostManagement/externalSubscriptions`
 
 ## Cloud Solution Provider (CSP) scopes
 

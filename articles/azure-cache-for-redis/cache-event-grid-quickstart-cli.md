@@ -4,6 +4,9 @@ description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, 
 
 
 ms.date: 1/5/2021
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ms.topic: quickstart
 
 ms.custom: mode-api, devx-track-azurecli

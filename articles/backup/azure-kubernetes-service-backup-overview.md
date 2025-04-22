@@ -6,7 +6,7 @@ ms.service: azure-backup
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 01/21/2025
+ms.date: 04/30/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -443,3 +443,4 @@ You incur charges for:
 * [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
 * [Back up AKS by using Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
 * Restore AKS by using the [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+* [Well-architected design for AKS cluster protection](/azure/cloud-adoption-framework/scenarios/app-platform/aks/management#design-considerations-1)
