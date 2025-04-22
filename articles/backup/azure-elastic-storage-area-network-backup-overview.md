@@ -33,7 +33,7 @@ Azure Elastic SAN volume protection (preview) includes the following key feature
 
 >[!Note]
 >- Deletion of snapshots isn't possible if **Delete Lock** is enabled on the resource group. Ensure that you disable **Delete Lock** before you use this feature.
->- The feature is currently available in specific regions only. 
+>- The feature is currently [available in specific regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions) only. 
 
 ## Backup flow for Azure Elastic SAN (preview)
 
@@ -58,3 +58,12 @@ The solution consists of the following cost components:
 
 - **Azure Backup protected instance fee for the Elastic SAN Volume**: No charges during preview.
 - **Managed Disk incremental snapshot fee**: Charges apply as per existing Azure rates for data stored in the operational tier of managed disk incremental snapshots during preview.
+
+## Next steps
+
+- [Configure backup for  Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-configure.md).
+- [Restore Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-restore.md).
+- [Manage Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
+ 
+
+
