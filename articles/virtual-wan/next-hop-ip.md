@@ -51,7 +51,7 @@ In this scenario, the virtual hub named "Hub 1" is connected to a virtual networ
 
    Use the NVA to change the next hop IP for the route **10.222.222.0/24** to the load balancer **192.168.1.40**.
 
-   Check the effective routes to verify the next hop IP for the route 10.222.222.0/24 has changed to the load balancer (**192.168.1.40**). 
+   Check the effective routes to verify the next hop IP for the route **10.222.222.0/24** has changed to the load balancer (**192.168.1.40**). 
 
    :::image type="content" source="./media/next-hop-ip/effectiveroutes-after.png" alt-text="Screenshot showing the routes after changing the next hop IP." lightbox="./media/next-hop-ip/effectiveroutes-after.png":::
 
