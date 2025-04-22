@@ -29,7 +29,7 @@ Considerations
 
 ## Scenario: Setting the Next Hop IP to a load balancer
 
-In this scenario, the virtual hub named "Hub 1" is connected to a virtual network (VNet-1). The goal is to have the NVA (NVA-1) set the next hop for the route 10.222.222.0/24 to the load balancer (192.168.1.40). 
+In this scenario, the virtual hub named "Hub 1" is connected to a virtual network (VNet-1). The goal is to have the NVA (NVA-1) set the next hop for the route **10.222.222.0/24** to the load balancer (**192.168.1.40**). 
 
 :::image type="content" source="./media/next-hop-ip/scenario.png" alt-text="Screenshot that shows the environment." lightbox="./media/next-hop-ip/scenario.png":::
 
@@ -45,13 +45,13 @@ In this scenario, the virtual hub named "Hub 1" is connected to a virtual networ
 
    :::image type="content" source="./media/next-hop-ip/effectiveroutes-before.png" alt-text="Screenshot that shows the route before changing the next hop IP." lightbox="./media/next-hop-ip/effectiveroutes-before.png":::
 
-   The next hop for route 10.222.222.0/24 is the NVA.
+   The next hop for route **10.222.222.0/24** is the NVA.
 
 3. Change the next hop in the NVA and verify in the next hop
 
-   Use the NVA to change the next hop IP for the route 10.222.222.0/24 to the load balancer 192.168.1.40.
+   Use the NVA to change the next hop IP for the route **10.222.222.0/24** to the load balancer **192.168.1.40**.
 
-   Check the effective routes to verify the next hop IP for the route 10.222.222.0/24 has changed to the load balancer (192.168.1.40). 
+   Check the effective routes to verify the next hop IP for the route 10.222.222.0/24 has changed to the load balancer (**192.168.1.40**). 
 
    :::image type="content" source="./media/next-hop-ip/effectiveroutes-after.png" alt-text="Screenshot showing the routes after changing the next hop IP." lightbox="./media/next-hop-ip/effectiveroutes-after.png":::
 
