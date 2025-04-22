@@ -65,7 +65,7 @@ Follow these steps to create a C# Function solution template that's customizable
    * Provide a solution name: add a descriptive name for your solution, like **FunctionSolution**, or accept the default.|
    * Select a module template: choose **Azure Functions - C#**.
    * Provide a module name | Name your module **CSharpFunction**.
-   * Provide a Docker image repository for the module. An image repository includes the name of your container registry and the name of your container image. Your container image is pre-populated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the **Login server** from the **Overview** page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
+   * Provide a Docker image repository for the module. An image repository includes the name of your container registry and the name of your container image. Your container image is pre-populated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure Container Registry. You can retrieve the **Login server** from the **Overview** page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
 
    :::image type="content" source="./media/tutorial-deploy-function/repository.png" alt-text="Screenshot showing where to add your Docker image repository name in Visual Studio Code.":::
 
@@ -76,7 +76,7 @@ The environment file of your solution stores the credentials for your container 
 The IoT Edge extension in Visual Studio Code tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already in the file. If not, add them now:
 
 1. In the Visual Studio Code explorer, open the `.env` file.
-2. Update the fields with the **username** and **password** values that you copied from your Azure container registry. You can find them again by going to your container registry in Azure and looking on the **Settings** > **Access keys** page.
+2. Update the fields with the **username** and **password** values that you copied from your Azure Container Registry. You can find them again by going to your container registry in Azure and looking on the **Settings** > **Access keys** page.
 3. Save this file.
 
 >[!NOTE]
@@ -177,7 +177,7 @@ In the previous section, you created an IoT Edge solution and modified the **CSh
 
 1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
 
-2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
+2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure Container Registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -195,7 +195,7 @@ In the previous section, you created an IoT Edge solution and modified the **CSh
 
 Visual Studio Code outputs a success message when your container image is pushed to your container registry. If you want to confirm the successful operation for yourself, you can view the image in the registry.
 
-1. In the Azure portal, browse to your Azure container registry.
+1. In the Azure portal, browse to your Azure Container Registry.
 2. Select **Services** > **Repositories**.
 3. You should see the **csharpfunction** repository in the list. Select this repository to see more details.
 4. In the **Tags** section, you should see the **0.0.1-amd64** tag. This tag indicates the version and platform of the image that you built. These values are set in the module.json file in the CSharpFunction folder.
