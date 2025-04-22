@@ -29,7 +29,7 @@ AKS backup allows you to store backups in both Operational Tier and Vault Tier. 
 
 After you install the Backup extension and enable Trusted Access, you can configure scheduled backups for the clusters per your backup policy. You can also restore the backups to the original cluster or to a different cluster in the same subscription and region. As you set up the specific operation, you can choose a specific namespace or an entire cluster as a backup and restore configuration.
 
-AKS backup enables backup operations for your AKS data sources that are deployed in the cluster. It also enables backup operations for the data stored in the Persistent Volume for the cluster. It then stores the backups in a blob container. The disk-based Persistent Volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob combine to form a recovery point called Operation Tier that's stored in your tenant. You can also convert backups (the first successful backup in a day, week, month, or year) in the Operational Tier to blobs, and then move them to a Vault (outside your tenant) once a day.
+AKS backup enables backup operations for your AKS data sources that are deployed in the cluster. It also enables backup operations for the data stored in the Persistent Volume for the cluster. It then stores the backups in a blob container. The disk-based Persistent Volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob combine to form a recovery point called Operation Tier stored in your tenant. You can also convert backups (the first successful backup in a day, week, month, or year) in the Operational Tier to blobs, and then move them to a Vault (outside your tenant) once a day.
 
 > [!NOTE]
 > Currently, Azure Backup supports only Persistent Volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other Persistent Volume types, such as Azure File Share and blobs. Also, if you set defined retention rules for Vault tier, backups are only eligible to be moved to the vault if the Persistent Volumes are less than or equal to 1 TB.
@@ -43,7 +43,7 @@ The Backup vault storage redundancy setting (locally redundant storage or geo-re
 > [!NOTE]
 > The Backup vault and the AKS cluster that you want to back up or restore must be in the same region and subscription.
 
-AKS backup automatically triggers a scheduled backup job. The job copies the cluster resources to a blob container and creates an incremental snapshot of the disk-based Persistent Volumes per the backup frequency. The backups are retained in the Operational Tier and Vault Tier per the retention duration defined in the backup policy and are deleted once the duration is over.
+AKS backup automatically triggers a scheduled backup job. The job copies the cluster resources to a blob container and creates an incremental snapshot of the disk-based Persistent Volumes per the backup frequency. The backups are retained in the Operational Tier and Vault Tier per the retention duration defined in the backup policy. They backups are deleted once the duration is over.
 
 You can use AKS backup to create multiple backup instances for a single AKS cluster by using different backup configurations per backup instance. However, we recommend that you create each backup instance of an AKS cluster in one of the following two ways:
 
@@ -392,7 +392,7 @@ To create and apply resource modification, follow these steps:
 
 * **Strategic merge patch**
 
-  This `configmap` applies the strategic merge patch to all the pods in the namespace default with the name starting with `nginx`. The strategic merge patch will update the image of container `nginx` to `mcr.microsoft.com/cbl-mariner/base/nginx:1.22`.
+  This `configmap` applies the strategic merge patch to all the pods in the namespace default with the name starting with `nginx`. The strategic merge patch updates the image of container `nginx` to `mcr.microsoft.com/cbl-mariner/base/nginx:1.22`.
 
     ```json
     version: v1
