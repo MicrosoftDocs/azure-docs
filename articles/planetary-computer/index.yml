@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
 title: Microsoft Planetary Computer Pro
-summary: Learn about Microsoft Planetary Computer Pro
+summary: Microsoft Planetary Computer Pro accelerates geospatial insights generation and the integration of these into mainstream enterprise data and AI workflows to ingest, manage, and leverage customers’ private geospatial datasets. 
 
 metadata:
   title: Microsoft Planetary Computer Pro
-  description: Learn how to deploy and manage Microsoft Planetary Computer Pro.
+  description: Microsoft Planetary Computer Pro accelerates geospatial insights generation and the integration of these into mainstream enterprise data and AI workflows to ingest, manage, and leverage customers’ private geospatial datasets. 
   ms.service: planetary-computer
   ms.topic: landing-page
   author: prasadkomma
-  ms.author: prasadkommamma
+  ms.author: prasadkomma
   ms.date: 04/11/2025
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -18,34 +18,50 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Microsoft Planetary Computer Pro
+  - title: About Microsoft Planetary Computer Pro
     linkLists:
       - linkListType: overview
         links:
           - text: What is Microsoft Planetary Computer Pro?
             url: microsoft-planetary-computer-pro-overview.md
+      - linkListType: concept
+        links:
           - text: STAC overview
             url: stac-overview.md  
+
+  # Card
+  - title: Get Started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started with Microsoft Planetary Computer Pro
+            url: get-started.md
+      - linkListType: concept
+        links:
+
+      - linkListType: how-to-guide
+        links:
+
 
   # Card
   - title: Concepts
     linkLists:
       - linkListType: concept
         links:
-          - text: Datacube enrichment
-            url: datacube-enrichment.md
-          - text: Ingestion source
-            url: ingestion-source.md
           - text: Manage access
             url: manage-access.md
+          - text: Ingestion source
+            url: ingestion-source.md
           - text: Mosaic configurations for collections
             url: mosaic-configurations-for-collections.md
-          - text: Queryables for data explorer custom search filters
-            url: queryables-for-explorer-custom-search-filter.md
           - text: Render configuration
             url: render-configuration.md
           - text: Tile settings
             url: tile-settings.md
+          - text: Queryables for data explorer custom search filters
+            url: queryables-for-explorer-custom-search-filter.md
+          - text: Datacube enrichment
+            url: datacube-enrichment.md
   
   # Card
   - title: Quickstarts
@@ -54,14 +70,15 @@ landingContent:
         links:
           - text: Deploy a GeoCatalog resource
             url: deploy-geocatalog-resource.md
-          - text: Add STAC Items to a Collection
-            url: add-stac-item-to-collection.md
           - text: Create a STAC collection with GeoCatalog using Python
             url: create-stac-collection.md
-          - text: Use GeoCatalog in Azure Batch
-            url: azure-batch.md
+          - text: Add STAC Items to a Collection
+            url: add-stac-item-to-collection.md
           - text: Use the Microsoft Planetary Computer Pro Explorer
             url: use-explorer.md
+          - text: Use GeoCatalog in Azure Batch
+            url: azure-batch.md
+
 
   # Card
   - title: How-to guides
@@ -70,6 +87,8 @@ landingContent:
         links:
           - text: Assign a user-assigned managed identity to a GeoCatalog resource
             url: assign-managed-identity-geocatalog-resource.md
+          - text: Create a STAC item
+            url: create-stac-item.md  
           - text: Add STAC Items to a Collection
             url: add-stac-item-to-collection.md  
           - text: Delete a GeoCatalog resource
@@ -80,5 +99,3 @@ landingContent:
             url: setup-ingestion-credentials-sas-tokens.md
           - text: Visualize assets
             url: visualize-assets.md
-          - text: Create a STAC item
-            url: create-stac-item.md  
