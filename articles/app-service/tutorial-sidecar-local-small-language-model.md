@@ -141,7 +141,7 @@ To build the sidecar image yourself, you need to install Docker Desktop locally 
     docker build --tag phi-3 .
     ```
 
-To upload the built image to Azure Container Registry, see [Push your first image to your Azure container registry using the Docker CLI](/azure/container-registry/container-registry-get-started-docker-cli).
+To upload the built image to Azure Container Registry, see [Push your first image to your Azure Container Registry using the Docker CLI](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## More resources
 
