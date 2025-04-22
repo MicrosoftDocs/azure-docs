@@ -322,8 +322,9 @@ You can create, delete, manage user-assigned managed identities in Microsoft Ent
 
 In order to use a user-assigned managed identity, you must first [create credentials](../data-factory/credentials.md) in your service instance for the UAMI.
 
->[!NOTE]
->  User-assigned Managed Identity is not currently supported in Synapse notebooks and Spark job definitions.
+> [!NOTE]
+>
+> User-assigned Managed Identity already supported Synapse Notebook activities and Spark job definition activities in pipeline.
 
 ## Next steps
 
