@@ -5,14 +5,14 @@ ms.author: jacobjaygbay
 description: Learn how to create an Azure VMware Solution Generation 2 Private Cloud to apply Azure's infrastructure and VMware expertise effectively.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to create an Azure VMware Solution Generation 2 Private Cloud so that I can leverage Azure's infrastructure and VMware expertise.
 ---
 
 # Create an Azure VMware Solution Generation 2 Private Cloud (preview)
 
-In this tutorial, you learn how to create an Azure VMware Solution Generation (Gen) 2 Private Cloud. This solution combines the first-party Azure VMware Solution with Azure hardware and network to simplify your networking architecture, and enhance performance and security. This initial launch of this generation utilizes the AV64 SKU.
+In this tutorial, you learn how to create an Azure VMware Solution Generation 2 (Gen 2) private cloud. This solution combines the first-party Azure VMware Solution with Azure hardware and network to simplify your networking architecture, and enhance performance and security. This initial launch of this generation utilizes the AV64 SKU.
 
 With this generation, you can directly create the private cloud using the AV64 SKU. You are no longer required to deploy a minimum of three hosts of AV36, AV36P, or AV52 to provision a cluster with AV64.
 
@@ -23,7 +23,7 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 - Enable the Azure VMware Solution Fleet Rp Service Principal as described in the [enable Azure VMware Solution Fleet Rp service Principal](native-first-party-principle-security.md).
 - Ensure you have appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
 - Hosts provisioned and the "Microsoft.AVS" resource provider is registered.
-- Deploy or us an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
+- Deploy or use an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
 - The newly created Azure Virtual Network and your Azure VMware Solution Gen 2 private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
 - The following Preview feature flags need to be registered under the subscription where your private cloud will reside. This commands can be run using Azure Cloud Shell. 

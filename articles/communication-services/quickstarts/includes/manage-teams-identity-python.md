@@ -74,7 +74,7 @@ scopes = [
 "https://auth.msft.communication.azure.com/Teams.ManageChats"
  ]
 
-# Retrieve the AAD token and object ID of a Teams user
+# Retrieve the Microsoft Entra ID token and object ID of a Teams user
 result = app.acquire_token_interactive(scopes)
 aad_token =  result["access_token"]
 user_object_id = result["id_token_claims"]["oid"] 
