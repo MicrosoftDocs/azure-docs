@@ -177,5 +177,5 @@ After you deploy the target registry, migrated content, and verified registry se
 ## Related content
 
 - To move registry resources to a new resource group either in the same subscription or a [new subscription], see [Move Azure resources to a new resource group or subscription](../move-resource-group-and-subscription.md).
-- Learn more about [importing container images](/azure/container-registry/container-registry-import-images) to an Azure container registry from a public registry or another private registry.
+- Learn more about [importing container images](/azure/container-registry/container-registry-import-images) to an Azure Container Registry from a public registry or another private registry.
 - See the [Resource Manager template reference](/azure/templates/microsoft.containerregistry/registries) for Azure Container Registry.
