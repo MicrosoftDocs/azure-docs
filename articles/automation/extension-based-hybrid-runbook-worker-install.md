@@ -117,7 +117,7 @@ If you use a proxy server for communication between Azure Automation and machine
 1. Get the automation account details using the below API call.
 
    ```http
-   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+   GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2023-11-01
 
    ```
 
@@ -362,10 +362,10 @@ Follow the steps mentioned below as an example:
 1. Follow the steps [here](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
 
 1. Install Hybrid Worker Extension on the VM. 
-  
-    **Hybrid Worker extension settings**
+
+   > [!NOTE]  
+   > If you want to add proxy server see [proxy server use](#proxy-server-use).
     
-    If you want to add  proxy server, see [proxy server use](#proxy-server-use).
 
     ```powershell-interactive
       $settings = @{
