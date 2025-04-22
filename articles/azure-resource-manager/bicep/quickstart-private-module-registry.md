@@ -64,7 +64,7 @@ Save the Bicep file as **storage.bicep**.
 
 ## Publish modules
 
-If you don't have an Azure container registry (ACR), see [Prerequisites](#prerequisites) to create one.  The login server name of the ACR is needed. The format of the login server name is: `<registry-name>.azurecr.io`. To get the login server name:
+If you don't have an Azure Container Registry (ACR), see [Prerequisites](#prerequisites) to create one.  The login server name of the ACR is needed. The format of the login server name is: `<registry-name>.azurecr.io`. To get the login server name:
 
 # [Azure CLI](#tab/azure-cli)
 
