@@ -1,8 +1,8 @@
 ---
 title: Use plant tissue nutrients APIs in Azure Data Manager for Agriculture
 description: Learn how to store nutrient data in Azure Data Manager for Agriculture
-author: gourdsay
-ms.author: angour
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 02/14/2023

@@ -24,6 +24,8 @@ ms.custom: "include file", references_regions
 > - India West 
 > - Switzerland West
 > - Switzerland North
+> - East US
+> - West Central US
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature) and specify AllowSoftFailover as the feature name. The provider name for this preview feature is Microsoft.Storage.
 > 

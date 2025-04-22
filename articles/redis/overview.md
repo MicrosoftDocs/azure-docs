@@ -154,7 +154,7 @@ To check the availability by region, see [Products available by region](https://
 
 ## Migration from Azure Cache for Redis
 
-For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](../migrate/migrate-overview.md)
+For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis (preview)](migrate/migrate-overview.md).
 
 ## Related content
 
