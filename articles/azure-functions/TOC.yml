@@ -759,7 +759,7 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
-    - name: Migrate .NET to isolated worker model
+    - name: Migrate .NET apps to the isolated model
       href: migrate-dotnet-to-isolated-model.md
     - name: Move resources
       items:
