@@ -100,8 +100,8 @@ $VM_DISK_SIZE="64"
 
 # Virtual Machine Image parameters
 $VM_IMAGE="<VM image, example: myacr.azurecr.io/ubuntu:20.04>"
-$ACR_URL="<Azure container registry URL, example: myacr.azurecr.io>"
-$ACR_USERNAME="<Azure container registry username>"
+$ACR_URL="<Azure Container Registry URL, example: myacr.azurecr.io>"
+$ACR_USERNAME="<Azure Container Registry username>"
 
 $NETWORKATTACHMENT = New-AzNetworkCloudNetworkAttachmentObject `
 -AttachedNetworkId $L3_NETWORK_ID `
