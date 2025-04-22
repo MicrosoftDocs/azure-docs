@@ -14,7 +14,7 @@ This quickstart shows you how to create a Arize AI (preview) resource using the 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to Arize AI](overview.md#subscribe)
+- You must [subscribe to Arize AI](overview.md#subscribe).
 
 ## Create a resource
 
