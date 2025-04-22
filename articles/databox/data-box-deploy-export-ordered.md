@@ -316,7 +316,7 @@ Perform the following steps in the Azure portal to order a device.
 
     If you don't want to use a customer-managed key, skip to Step 16.
 
-    ![Screen capture of the Security tab showing Encryption type settings for a Data Box Order](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+    ![Screen capture of the Security tab showing Encryption type settings for a Data Box Order.](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
 
 11. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
 
