@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 09/11/2024
+ms.date: 04/22/2025
 ---
 # Azure NetApp Files application volume group FAQs
 
@@ -135,7 +135,7 @@ Azure NetApp Files performance of each volume can be adjusted at runtime.  As su
 
 With an application volume group, you have the option to deploy volumes with an availability zone or proximity placement group volume placement. Both methods ensure that the data volumes are placed in close proximity to the HANA VMs, but using different principles.
 
-Using availability zone volume placement (available with extension 1) places the volumes in the same availability zone as the application VMs. Using availability zones also supports Standard network features, which support enhanced security via network security group support. This method doesn't require manual pinning. It'ss therefore easier and faster to use.
+Using availability zone volume placement places the volumes in the same availability zone as the application VMs. Using availability zones also supports Standard network features, which support enhanced security via network security group support. This method doesn't require manual pinning. It'ss therefore easier and faster to use.
 
 Using proximity placement group requires the creation of a proximity placement group (PPG) for your SAP HANA servers. This placement ensures the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. This method requires manual pinning of the proximity placement group, which application volume group uses to find the optimal location for deploying the volumes. This method only supports Basic network features. Note that log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, the application volume group places the backup volumes on a different storage location inside the region that has sufficient capacity and throughput availability.
 

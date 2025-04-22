@@ -18,11 +18,6 @@ The Microsoft Sentinel solution for Microsoft Business Apps helps you monitor an
 - [Microsoft Dynamics 365 Customer Engagement](/dynamics365/customerengagement/) is a cloud-based suite of customer relationship management (CRM) applications designed to streamline and automate business processes across sales, customer service, field service, project service automation, and marketing
 - [Microsoft Dynamics 365 for Finance and Operations](/dynamics365/finance) is a comprehensive Enterprise Resource Planning (ERP) solution that combines financial and operational capabilities to help businesses manage their day-to-day operations. It offers a range of features that enable businesses to streamline workflows, automate tasks, and gain insights into operational performance.
 
-> [!IMPORTANT]
->
-> - The Microsoft Sentinel solution for Microsoft Business Apps is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
-
 ## Securing Power Platform and Microsoft Dynamics 365 Customer Engagement activities
 
 The Microsoft Sentinel solution for Microsoft Business Apps helps you secure your Power Platform by allowing you to:

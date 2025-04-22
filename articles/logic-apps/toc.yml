@@ -95,7 +95,7 @@ items:
     items:
     - name: Overview
       href: single-tenant-overview-compare.md
-    - name: About the Standard workflow designer
+    - name: Navigate the Standard workflow designer
       href: designer-overview.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
