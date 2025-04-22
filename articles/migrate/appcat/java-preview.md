@@ -28,8 +28,8 @@ The tool is designed to help organizations modernize their Java applications in 
 
 With it, you can perform the following tasks:
 
-* Discover technology usage: Quickly see which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
-* Assess the code to a specific target: Assess an application for a specific Azure target. Check the effort and the modifications you have to do to replatform your applications to Azure.
+- Discover technology usage: Quickly see which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
+- Assess the code to a specific target: Assess an application for a specific Azure target. Check the effort and the modifications you have to do to replatform your applications to Azure.
 
 ### Supported targets
 
@@ -50,13 +50,13 @@ The rules used by Azure Migrate application and code assessment are grouped base
 
 When the tool assesses for Cloud Readiness and related Azure services, it can also report useful information for potential usage of different Azure services. The following list shows a few of the services covered:
 
-* Azure Databases
-* Azure Service Bus
-* Azure Storage
-* Azure Content Delivery Network
-* Azure Event Hubs
-* Azure Key Vault
-* Azure Front Door
+- Azure Databases
+- Azure Service Bus
+- Azure Storage
+- Azure Content Delivery Network
+- Azure Event Hubs
+- Azure Key Vault
+- Azure Front Door
 
 ## Download and Install
 
@@ -115,7 +115,7 @@ Extract the binary from the downloaded file. You should see the following folder
 ├── maven.default.index
 ├── jdtls/
 ├── static-report/
-├── rulesets/   
+├── rulesets/
 ├── readme.md
 └── readme.html
 ```
@@ -155,7 +155,7 @@ cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-prev
 ```
 
 > [!NOTE]
-> The `appcat` binary first looks for its dependencies in the current directory, and falls back to #Option 1 configration if the dependencies not found.
+> The `appcat` binary first looks for its dependencies in the current directory. If the dependencies aren't found, it falls back to the configuration described in the [Option 1](#option-1-add-the-appcat-binary-path-to-your-path) section.
 
 ## Usage
 
@@ -172,7 +172,7 @@ AppCAT provides two subcommands for usage:
 > ```bash
 > xattr -d -r com.apple.quarantine /path/to/appcat_binary
 > ```
-> 
+>
 > For example:
 >
 > ```bash
@@ -330,13 +330,13 @@ The reports are automatically generated and launched. You can find the reports u
 
 The landing page of the report lists all the technologies that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
 
-:::image type="content" source="media/java/AppCAT7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/AppCAT7-report-summary.png":::
+:::image type="content" source="media/java/appcat-7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/appcat-7-report-summary.png":::
 
 When you zoom in on the **Incidents by Category** pie chart, you can see the number of incidents by category: **Mandatory**, **Optional**, and **Potential**.
 
 The dashboard also shows the *story points*. The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change. `appcat` uses story points to express the level of effort needed to migrate a particular application. Story points don't necessarily translate to work hours, but the value should be consistent across tasks.
 
-:::image type="content" source="media/java/AppCAT7-report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/AppCAT7-report-summary-incident.png":::
+:::image type="content" source="media/java/appcat-7-report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/appcat-7-report-summary-incident.png":::
 
 ### Assessment report
 
@@ -344,17 +344,17 @@ The assessment report gives an overview of the transformation issues that would 
 
 These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, or *Potential*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
 
-:::image type="content" source="media/java/AppCAT7-report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/AppCAT7-report-assessment.png":::
+:::image type="content" source="media/java/appcat-7-report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/appcat-7-report-assessment.png":::
 
 ### Detailed information for a specific issue
 
 For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this incident.
 
-:::image type="content" source="media/java/AppCAT7-report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/AppCAT7-report-assessment-detail.png":::
+:::image type="content" source="media/java/appcat-7-report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/appcat-7-report-assessment-detail.png":::
 
 Then, for each file or class affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
 
-:::image type="content" source="media/java/AppCAT7-report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/AppCAT7-report-assessment-code.png":::
+:::image type="content" source="media/java/appcat-7-report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/appcat-7-report-assessment-code.png":::
 
 ## Release notes
 
@@ -362,19 +362,19 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 This release contains the following fixes and enhancements.
 
-- Support telemetry collection. `--disable-telemetry` flag to disable telemetry.
-- Refactor CLI command format, make it more clear.
-  - Update `--source` flag, change `--source <source1> --source <source2> ...` to `--source <source1>,<source2>,...`
-  - Update `--target` flag, change `--target <target1> --target <target2> ...` to ` --target <target1>,<target2>,...`
-  - Update `--rules` flag, change `--rules <rule1> --rules <rule2> ...` to `--rules <rule1>,<rule2>,...`
-  - Update `--maven-settings` flag to `--custom-maven-settings`
-  - Update `--limit-code-snips` flag to `--code-snips-number`
-  - Remove `--json-output` flag, use `--output-format` flag, choose output format: 'yaml' or 'json'. (default yaml)
-  - Remove `--provider`, `--override-provider-settings`, `--list-providers`, `--dependency-folders` flags
-- New `--exclude-paths` flag: Specify paths that should be ignored analysis. Use a comma-separated list for multiple values: `--exclude-paths <path1>,<path2>,...` (default []).
-- New `--packages` flag: Specify application class packages to be evaluated. Use a comma-separated list for multiple values: `--packages <package1>,<package2>,...` (default []).
-- New `--dry-run` flag: Only check if the flags are valid, not running the analysis actually. (default false).
-- Remove `azure-spring-apps` from appcat `--list-targets`.
+- Supports telemetry collection. Use the `--disable-telemetry` flag to disable telemetry.
+- Refactors the CLI command format to make it more clear.
+  - Updates the `--source` flag, changing from `--source <source1> --source <source2> ...` to `--source <source1>,<source2>,...`
+  - Updates the `--target` flag, changing from `--target <target1> --target <target2> ...` to ` --target <target1>,<target2>,...`
+  - Updates the `--rules` flag, changing from `--rules <rule1> --rules <rule2> ...` to `--rules <rule1>,<rule2>,...`
+  - Updates the `--maven-settings` flag to `--custom-maven-settings`
+  - Updates the `--limit-code-snips` flag to `--code-snips-number`
+  - Removes the `--json-output` flag, use `--output-format` flag, choose output format: 'yaml' or 'json'. (default yaml)
+  - Removes the `--provider`, `--override-provider-settings`, `--list-providers`, and `--dependency-folders` flags
+- A new `--exclude-paths` flag: Specifies paths that should be ignored in analysis. Use a comma-separated list for multiple values: `--exclude-paths <path1>,<path2>,...`. The default value is `[]`.
+- A new `--packages` flag: Specifies application class packages to be evaluated. Use a comma-separated list for multiple values: `--packages <package1>,<package2>,...`. The default value is `[]`.
+- A new `--dry-run` flag: Only checks whether the flags are valid without actually running the analysis actually. The default value is `false`.
+- Removes `azure-spring-apps` from the appcat `--list-targets`.
 
 ### 7.6.0.3
 
@@ -457,9 +457,9 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 ### 7.6.0.4
 
 - Rules issues:
-    - `azure-system-config-01000` rules aren't being triggered.
-    - `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
-- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+  - The `azure-system-config-01000` rules aren't being triggered.
+  - The `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- An error in the Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.6.0.3
 
