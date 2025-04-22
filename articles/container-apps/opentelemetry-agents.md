@@ -67,7 +67,7 @@ Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
 {
   ...
   "properties": {
-    "appInsightsConfiguration ": {  
+    "appInsightsConfiguration ": {
       "connectionString": "<APP_INSIGHTS_CONNECTION_STRING>"
     }
     "openTelemetryConfiguration": {
@@ -571,6 +571,62 @@ The following example ARM template shows how to use an OTLP endpoint named `cust
   }
 }
 ```
+
+## Export system components OpenTelemetry signals
+	
+From the OpenTelemetry API version `2024-08-02-preview`, you can configure your container app environment to export system components OpenTelemetry signals to your data destinations.
+	
+Use the following configuration to export Dapr traces and Keda metrics.
+
+### Dapr Traces
+
+The following example ARM template shows how to export Dapr Traces to your traces destinations.
+
+```json
+{
+  ...
+  "properties": {
+    ...
+    "openTelemetryConfiguration": {
+      ...
+      "tracesConfiguration": {
+        "destinations": [
+          "appInsights",
+          "customDashboard"
+        ]，
+        "includeDapr": true
+      }
+    }
+  }
+}
+```
+
+To learn more about how to use Dapr in container apps, see [Dapr Overview](./dapr-overview.md).
+
+### Keda Metrics
+
+The following example ARM template shows how to export Keda metrics to your metrics destinations.
+
+```json
+{
+  ...
+  "properties": {
+    ...
+    "openTelemetryConfiguration": {
+      ...
+      "metricsConfiguration": {
+        "destinations": [
+          "dataDog",
+          "customDashboard"
+        ]，
+        "includeKeda": true
+      }
+    }
+  }
+}
+```
+
+To learn more about KEDA support in Container Apps, see [Set scaling rules](scale-app.md).
 
 ## Example OpenTelemetry configuration
 

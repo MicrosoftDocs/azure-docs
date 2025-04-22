@@ -1267,6 +1267,9 @@ items:
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md
         displayName: troubleshooting
+      - name: ServiceNow
+        href: connector-troubleshoot-servicenow.md
+        displayName: troubleshooting
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
         displayName: troubleshooting
