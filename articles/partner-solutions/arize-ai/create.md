@@ -69,4 +69,4 @@ There are required fields (identified with a red asterisk) in each section that 
 ## Next step
 
 > [!div class="nextstepaction"]
-> 
+> [Manage a Arize AI resource](manage.md)

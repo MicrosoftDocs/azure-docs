@@ -1,5 +1,5 @@
 items:
-- name: Arize AI Documentation
+- name: Arize AI documentation
   href: index.yml
 - name: Overview
   expanded: true
