@@ -28,7 +28,7 @@ The *Basics* tab has three sections:
 - Azure Resource Details
 - ArizeAI organization details
 
-<!-->:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create Arize AI Resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::-->
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create Arize AI Resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
