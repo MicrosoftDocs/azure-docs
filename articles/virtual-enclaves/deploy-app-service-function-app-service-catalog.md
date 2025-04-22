@@ -50,7 +50,7 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Function App` service template from the [Service Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list) and select the required version (default: `latest`)
+3. Select the `Function App` service template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list) and select the required version (default: `latest`)
 4. On the Basics tab enter all the required parameters. The Storage Account name is the name of the new storage account.
 5. Once the two subnets are created, enter the new subnet names on the Networking tab.
 6. On the Encryption tab, enter the name of the new key added to the Key Vault for the Customer Managed Key (CMK) setup.

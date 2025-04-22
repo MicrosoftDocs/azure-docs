@@ -34,7 +34,7 @@ There are guardrails in the enclaves to ensure an App Service is isolated with p
 > 
 > A private endpoint can't be created on a [delegated subnet](../virtual-network/subnet-delegation-overview.md) and subnets can't be deleted with resources (like a virtual machine) attached or using that subnet.
 
-1. Subnet setup and creation:  for App Service delegation. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation. Create these subnets:
+1. Subnet setup and creation:  Create the App Service subnets with subnet delegation. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation. Create these subnets:
   - Create new subnet `AzureVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
     - Add NSG rule set
     - Use this subnet for private endpoint resources

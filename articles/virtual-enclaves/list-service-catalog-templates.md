@@ -42,7 +42,7 @@ Documentation:
 
 ## Common Dependencies
 
-[How to create the common Azure service dependencies you will need to create the other resources from the service catalog](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md)
+[How to create the common Azure service dependencies you will need to create the other resources from the service catalog](./deploy-common-dependencies-service-catalog.md)
 
 Description: This template creates the resources needed to secure the other resources you can deploy from the service catalog and remain compliant with the Azure Virtual Enclaves policies. These resources include the key vault and Customer Managed Keys (CMK) needed to encrypt the resources in your enclave.
 

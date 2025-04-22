@@ -1,6 +1,6 @@
 ---
 title: Deploy RemoteApp VM from the Service Catalog into a Workload
-description: Deploy RemoteApp VM from the Service Catalog into a Workload
+description: Deploy RemoteApp VM from the Service Catalog into a Workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -52,26 +52,24 @@ Required:
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
-2. Select "Add an Azure Service" button.
-3. Select the Remote App service template from the [Catalog](./what-is-the-service-catalog.md) of templates (the dropdown list).
+2. Select `+Add an Azure Service` button.
+3. Select the Remote App service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the ones used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
-1. (Optional) [Publish your RemoteApp](#publish-remote-app-optional) to other users
-6. (Optional) [Domain join](#domain-join-optional) your RemoteApp VM.
-1. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
-1.  Select `Review + Create`, if all validations have passed, select `Create`
+7. (Optional) [Publish your RemoteApp](#publish-remote-app-optional) to other users
+8. (Optional) [Domain join](#domain-join-optional) your RemoteApp VM.
+9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
+10. Select `Review + Create`, if all validations have passed, select `Create`
 
 ## Domain Join (Optional)
-1. Should you choose to Domain Join your RemoteApp, you will need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab
-2. Make sure to fill out the following fields if domain joining:
-![image1.png](./media/image-2c000f23-06d5-4d65-af00-1de550e484e4.png)
-3. For the `Active Directory` Domain join options, see the following examples
+1. Should you choose to Domain Join your RemoteApp, you will need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
+2. For the `Active Directory` Domain join options, see the following examples
    * The Domain name should be in the format of `contoso.com`
    * OU path should be in the format of `OU=Organizations,DC=contoso,DC=com`
    * `Domain admin username` and `Domain admin password` should match the domain joining credentials for the domain controller
 
-4. For the `Microsoft Entra ID` Domain join option
+3. For the `Microsoft Entra ID` Domain join option
    * First you will need to [deploy an Entra Domain Services managed domain](https://learn.microsoft.com/entra/identity/domain-services/tutorial-create-instance)
    * Next you will need to use this domain to [create an OU](https://learn.microsoft.com/entra/identity/domain-services/create-ou)
    * Use the previously created OU and Domain to fill in these respective parameters
@@ -80,32 +78,33 @@ Required:
 If you publish your application, all of the following fields on this tab must be filled out.
 ![image2.png](./media/image-483db51b-f65e-4b8b-9305-6cac55bb77bf.png)
 
->Note
->When testing domain join for the first time, it may be easiest to deploy a VM without domain joining, remotely sign in to the VM (e.g. via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
+> Note
+> 
+> When testing domain join for the first time, it may be easiest to deploy a VM without domain joining, remotely sign in to the VM (e.g. via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
 1. Go to the specified Resource Group, the Workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC and
-1. If the Remote App was published: hostpool, app group, and workspace.
+2. If the Remote App was published: hostpool, app group, and workspace.
 
 ## Connect to the Application VM
 Via the [Admin Workstation](./understanding-admin-workstations.md):
 The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin Workstation may also be called a jumpbox.
 1. Sign in to a desktop session on the Admin Workstation via the [Admin Workstation](./understanding-admin-workstations.md) blade for the enclave.
-1. From the start menu, type RDP, and open the RDP window
-1. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
-1. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
-1. From the Remote App VM desktop, validate any VM settings set during the deployment or complete any custom configuration.
-1. Next, [install application](#(install-remoteapp-optional)
-1. Assign a security group assignment to give users access to your RemoteApp(s).
+2. From the start menu, type `RDP`, and open the RDP window
+3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
+4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the Remote App VM desktop, validate any VM settings set during the deployment or complete any custom configuration.
+6. Next, [install application](#install-remoteapp-optional)
+7. Assign a security group assignment to give users access to your RemoteApp(s).
 
 ## Install RemoteApp (Optional)
 Install an application on your RemoteApp VM using one of these methods or a method you are familiar with.
 
 - [Install via Remote App VM](./application-deployment-using-remote-app-vm-in-ave.md) (install or configure an application for Remote App publishing)
 - Prerequisites:
-    1. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-a-storage-account-from-the-service-catalog-into-a-workload.md).
+    1. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
             - *Private Container* - securely store installers, main script, and any supporting scripts. 
                 - You may want to choose this option if your scripts or installers can not be shared with others who have access to that storage account container.
@@ -114,13 +113,13 @@ Install an application on your RemoteApp VM using one of these methods or a meth
             - app installer (ex: VSCodeSetup.exe)
             - main script to install the application (and any additional supporting scripts)
     2. A copy of [AzCopy.exe](./application-deployment-using-remote-app-vm-in-ave.md#prerequisites)
-    1. A [community endpoint](./create-a-community-endpoint-in-the-azure-portal.md) to the storage account and AzToolBox.
-    1. [Enclave connections](./create-an-enclave-connection-from-the-azure-portal.md) to the previously made community endpoint.
+    1. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
+    1. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoint.
         1. Make an enclave connection to your IP Groups ending in `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
         
         > [!NOTE]
         > 
-        > If the storage account is in a different enclave, create an [enclave endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md) in the enclave with the storage account and [enclave connection](./create-an-enclave-connection-from-the-azure-portal.md) to that storage account.
+        > If the storage account is in a different enclave, create an [enclave endpoint](./create-enclave-endpoint-portal.md) in the enclave with the storage account and [enclave connection](./create-enclave-connection-portal.md) to that storage account.
 
 1. Install Application:
     1. On the workload overview page, select `Add an Azure Service`.
@@ -150,10 +149,10 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 ## Recommendations
 - Session host or VM [Sizing](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs)
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
--- Owner: `<main POC>`
--- Deployer: `<yourName>`
--- Purpose: `<publish abc app to users>`
--- Service Catalog Name: `<RemoteApp>`
--- Service Catalog Version: `<version you deployed>`
+  - Owner: `<main POC>`
+  - Deployer: `<yourName>`
+  - Purpose: `<publish abc app to users>`
+  - Service Catalog Name: `<RemoteApp>`
+  - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
 - [Collect Custom Logs](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-custom-logs) from applications

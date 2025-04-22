@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for a RemoteApplication into an existing Workload from the Portal.
+- Deploy a Service Catalog template for a Azure Container Registry into an existing Workload from the Portal.
 
 > [!NOTE]
 > 
@@ -20,7 +20,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 > [!WARNING]
 > 
-> If you plan on using this template in conjunction with the [AKS Template](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md) in the same enclave, perform the AKS Templates pre-requisite steps _prior_ to following this guide as it will have you delete and recreate the enclave's subnets.
+> If you plan on using this template in conjunction with the [AKS Template](./deploy-azure-kubernetes-service-service-catalog.md) in the same enclave, perform the AKS Templates pre-requisite steps _prior_ to following this guide as it will have you delete and recreate the enclave's subnets.
 
 ## Before you begin
 
@@ -35,7 +35,7 @@ This quickstart assumes a basic understanding of networking and Azure Virtual En
 There are guardrails in the enclaves to ensure an Azure Container Registry is using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md)
 
 1. A subnet with no [subnet delegation](../virtual-network/subnet-delegation-overview.md) to place a private endpoint into. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
-2. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, Managed Identity in [the Common Dependencies Service Catalog quickstart](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md) or create your own with the following requirements.
+2. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, Managed Identity in [the Common Dependencies Service Catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own with the following requirements.
     - These resources should be created inside a [Workload Resource Group](./create-workload-portal.md#create-workload-resource-groups)
     - The CMK key that meets or exceeds the CMK key requirements.
     - A User Managed Identity with an Access Policy to the CMK key (for example, `Key Vault Crypto Service Encryption User`) or `Unwrap Key, Wrap Key, Recover, Get` permissions.
@@ -45,7 +45,7 @@ There are guardrails in the enclaves to ensure an Azure Container Registry is us
 
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Azure Container Registry` service template from the [Service Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
+3. Select the `Azure Container Registry` service template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
    ![Screenshot showing the Azure Container Registry template selected from the Service Catalog list](./media/service-catalog-azure-container-registry.png)
 
@@ -55,13 +55,9 @@ There are guardrails in the enclaves to ensure an Azure Container Registry is us
 
 It can take a few minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
-![image2.png](./media/image-1c9788bc-3c8b-47cc-954c-0ce611c48fda.png)
-
 ## Validate the deployment
 
 Go to the Workload's Resource Group to confirm the intended resources were created. Including: Container registry and Private endpoint.
-
-   ![image3.png](./media/image-10c58c02-2f1d-4524-96af-458073bd4fa2.png)
 
 ## Delete the deployment
 
@@ -70,14 +66,14 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 ## Recommendations
 
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
--- Owner: `<main POC>`
--- Deployer: `<yourName>`
--- Purpose: `<publish abc app to users>`
--- Service Catalog Name: `<RemoteApp>`
--- Service Catalog Version: `<version you deployed>`
+  - Owner: `<main POC>`
+  - Deployer: `<yourName>`
+  - Purpose: `<publish abc app to users>`
+  - Service Catalog Name: `<RemoteApp>`
+  - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
 
 ## Next Steps
 
 - Deploy any needed tools onto the management VM (examples: docker cli, azure powershell modules, ...)
-- Read the [AKS Template](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md) documentation to see if you would like to use it.
+- Read the [AKS Template](./deploy-azure-kubernetes-service-service-catalog.md) documentation to see if you would like to use it.

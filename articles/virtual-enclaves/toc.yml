@@ -137,11 +137,11 @@
 #     - name: Overview
 #       href: service-catalog.md
 #     - name: Deploy a Storage Account from Service Catalog
-#       href: deploy-a-storage-account-from-the-service-catalog-into-a-workload.md
+#       href: deploy-a-storage-account-service-catalog.md
 #     - name: Deploy an App Service Web App from Service Catalog
-#       href: deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md
+#       href: deploy-an-app-service-web-app-service-catalog.md
 #     - name: Deploy Azure SQL from Service Catalog
-#       href: deploy-azure-sql-from-the-service-catalog-into-a-workload.md
+#       href: deploy-azure-sql-service-catalog.md
     - name: List of Service Catalog Templates
       href: list-of-service-catalog-templates.md
 # - name: Resources

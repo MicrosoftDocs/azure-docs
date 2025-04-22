@@ -124,7 +124,7 @@ landingContent:
 #       - linkListType: how-to-guide
 #         links:
 #           - text: Deploy a Storage Account
-            # url: Deploy-a-Storage-Account-from-the-Service-Catalog-into-a-Workload.md
+            # url: Deploy-a-Storage-Account-service-catalog.md
 #  # Card
 #   - title: Manage and Monitor Virtual Enclaves
 #     linkLists:

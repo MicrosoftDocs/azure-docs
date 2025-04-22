@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload
-description: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload
+description: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -29,9 +29,8 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 You will need to create a subnet to host the AKS cluster. For a 30 pod cluster with a max node count of 3 a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: (number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure). Your Enclave's IP addresses may be different depending on the number of enclaves that were created before yours and the network size selected on enclave creation; assuming a `Small (/23)` subnet:
 
-1. Create new subnet for Azure Kubernetes Service. In order to create a new subnet, the existing resource `AzureVirtualEnclaveSubnet` must be broken down since it's utilizing the entire address space.
-    - Delete subnet `AzureVirtualEnclaveSubnet 10.0.2.0/23 [10.0.2.0 - 10.0.3.255]`
-    - Create new subnet `AzVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
+1. Subnet setup and creation: Create the Azure Kubernetes Service subnets. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation. Create these subnets:
+    - Create new subnet `AzureVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
         - Add NSG rule set
         - Use this subnet for private endpoint resources
     - Create new subnet `aksSubnet 10.0.3.0/24 [10.0.3.0 - 10.0.3.255]`
@@ -43,10 +42,10 @@ You will need to create a subnet to host the AKS cluster. For a 30 pod cluster w
     - save this as a secret named 'aks-ssh-public-key' in your keyvault
     > [!NOTE]
     >
-    > You must provision a separate Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for `RBAC Access Policy`, which the enclave Key Vault is using Vault Policy by default. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set in step 3 needs the `Key Vault Crypto Service Encryption User` role. After creating this new Key Vault, go to access configuration, and enable Azure Resource Manager (ARM) for template deployment (this requires disabling public network access and creating a private endpoint connected to the enclave virtual network):
-![image1.png](./media/image-8affb0cf-55cf-4fa3-ae50-2148adbefc29.png)
-3. [Create a user-assigned managed identity](./create-user-managed-identity.md) with `Virtual Machine Contributor` access on the resource group containing the VNet and `Key Vault Contributor` access to the resource group containing the ssh-key. > [!NOTE] This may be the same resource group.
-    - External services using the enclave VNet: If using the enclave VNet as the dedicated subnet for the cluster service, you will also need to grant the managed identity `Contributor` on the VNet resource group. (This seems like it should be `Network Contributor` but in testing, that was not enough).
+    > You must provision or use a Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for `RBAC Access Policy`. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set in step 3 needs the `Key Vault Crypto Service Encryption User` role. After creating this new Key Vault, go to access configuration, and enable Azure Resource Manager (ARM) for template deployment (this requires disabling public network access and creating a private endpoint connected to the enclave virtual network):
+
+3. [Create a user-assigned managed identity](./create-user-managed-identity.md) with `Virtual Machine Contributor` access on the resource group containing the Virtual Network and `Key Vault Contributor` access to the resource group containing the ssh-key. > [!NOTE] This may be the same resource group.
+    - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you will also need to grant the managed identity `Contributor` on the Virtual Network resource group. (This seems like it should be `Network Contributor` but in testing, that was not enough).
 4. To leverage CMK you will need to create the disk encryption set and give the disk encryption set the wrapkey, unwrapkey, and get permissions on the key vault that houses the key used for CMK. [Setup CMK](./setup-customer-managed-key-encryption-within-an-enclave.md). Use the managed identity created in step 3 while creating this disk encryption set.
 5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this, first set your azContext to ensure you are using the correct subscription, and then run the following:
 `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`.
@@ -84,8 +83,8 @@ Documentation around these rules can be found [here](https://learn.microsoft.com
 > Make sure the AKS cluster version is supported in the location where the AKS resource is being deployed. Run `az aks get-versions --location <location-name>` to get a list of supported versions for a given location.
 
 1. Navigate to the workload for the intended deployment.
-2. Select "Add an Azure Service" button.
-3. Select the Private AKS Cluster service template from the [Catalog](./what-is-the-service-catalog.md) of templates (the dropdown list).
+2. Select `+Add an Azure Service` button.
+3. Select the Private AKS Cluster service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
 4. Select through the tabs and enter all the required parameters.
 5. Use 172.16.0.0/16 for the serviceCidr and 172.16.0.10 for the dnsServiceIP
 6. Adjust any of the prepopulated parameters as needed.
@@ -130,26 +129,25 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
 ```
 
 ## Validate the deployment
-1. Go to the specified Resource Group to confirm the intended resources were created. Including: VM, OS Disk, NIC and
-1. If the Remote App was published: hostpool, app group, and workspace.
+Go to the specified Resource Group to confirm the intended resources were created.
 
 ### Connect to the Application VM
 Via the Admin VM:
 The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM may also be called a jumpbox.
 1. Log in to a desktop session on the Admin VM via the Admin VM blade for the enclave.
-1. From the start menu, type RDP, and open the RDP window
-1. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
-1. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
-1. From the Remote App VM desktop, validate any VM settings set during the deployment. Otherwise, start using the Remote App VM (e.g. install or configure an application for Remote App publishing).
+2. From the start menu, type `RDP`, and open the RDP window
+3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
+4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the Remote App VM desktop, validate any VM settings set during the deployment. Otherwise, start using the Remote App VM (e.g. install or configure an application for Remote App publishing).
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
 
 ## Recommendations
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
--- Owner: `<main POC>`
--- Deployer: `<yourName>`
--- Purpose: `<publish abc app to users>`
--- Service Catalog Name: `<RemoteApp>`
--- Service Catalog Version: `<version you deployed>`
+  - Owner: `<main POC>`
+  - Deployer: `<yourName>`
+  - Purpose: `<publish abc app to users>`
+  - Service Catalog Name: `<RemoteApp>`
+  - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
