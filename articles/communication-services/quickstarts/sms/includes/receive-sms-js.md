@@ -60,7 +60,7 @@ Event Grid provides out of the box support for Azure Functions, making it easy t
 
     ```
 
-At this point, you have successfully handled receiving an SMS through events. Now the possibilities of what to do with that event range from just logging it to responding to it. In the next section, we focus on responding to that SMS we received. If you don't want to do respond to the SMS, skip to the next section on running the function locally.
+At this point, you successfully handled receiving an SMS through events. Now the possibilities of what to do with that event range from just logging it to responding to it. In the next section, we focus on responding to that SMS we received. If you don't want to do respond to the SMS, skip to the next section on running the function locally.
 
 ## Responding to the SMS
 
@@ -105,40 +105,36 @@ At this point, you have successfully handled receiving an SMS through events. No
     export default eventGridTrigger;
     ```
 
-From here, the possibilities are endless. From responding to a message with a pre-canned answer, to adding a bot or simply storing responses, you can adapt the code in the last step to do that.
+From here, the possibilities are endless. You can respond to a message with a prewritten answer, add a bot, or store responses by adapting the code in the last step.
 
-## Running locally
+## Run locally
 
 To run the function locally, press `F5` in Visual Studio Code. We use [ngrok](https://ngrok.com/) to hook our locally running Azure Function with Azure Event Grid.
 
-1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
+1. Once the function is running, configure `ngrok`. You need to [download ngrok](https://ngrok.com/download) for your environment.
 
     ```bash
     ngrok http 7071
     ```
 
-    Copy the ngrok link provided where your function is running.
+    Copy the `ngrok` link provided where your function is running.
 
-2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. (The resource ID will look something like:  /subscriptions/`<<AZURE SUBSCRIPTION ID>>`/resourceGroups/`<<RESOURCE GROUP NAME>>`/providers/Microsoft.Communication/CommunicationServices/`<<RESOURCE NAME>>`)
+2. Configure SMS events through Event Grid within your Azure Communication Services resource. We do this using the [Azure CLI](/cli/azure/install-azure-cli). You need the resource ID for your Azure Communication Services resource found in the Azure portal. The resource ID looks something like: /subscriptions/`<<AZURE SUBSCRIPTION ID>>`/resourceGroups/`<<RESOURCE GROUP NAME>>`/providers/Microsoft.Communication/CommunicationServices/`<<RESOURCE NAME>>`
 
     ```bash
-
     az eventgrid event-subscription create --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type webhook --endpoint "<<NGROK URL>> " --source-resource-id "<<RESOURCE_ID>>"  --included-event-types Microsoft.Communication.SMSReceived 
-
     ```
 
-3. Now that everything is hooked up, test the flow by sending an SMS to the phone number you've on your Azure Communication Services resource. You should see the console logs on your terminal where the function is running. If you added the code to respond to the SMS, you should see that text message delivered back to you.
+3. Now that everything is hooked up, test the flow by sending an SMS to the phone number on your Azure Communication Services resource. You should see the console logs on your terminal where the function is running. If you added the code to respond to the SMS, you should see that text message delivered back to you.
 
 ## Deploy to Azure
 
 To deploy the Azure Function to Azure, you need to follow these [instructions](../../../../azure-functions/create-first-function-vs-code-node.md#deploy-the-project-to-azure). Once deployed, we configure Event Grid for the Azure Communication Services resource. With the URL for the Azure Function that was deployed (URL found in the Azure portal under the function), we run the following command:
 
 ```bash
-
 az eventgrid event-subscription update --name "<<EVENT_SUBSCRIPTION_NAME>>" --endpoint-type azurefunction --endpoint "<<AZ FUNCTION URL>> " --source-resource-id "<<RESOURCE_ID>>"
-
 ```
 
-Since we are updating the event subscription we created for local testing, make sure to use the same event subscription name you used above.
+Since we're updating the event subscription we created for local testing, make sure to use the same event subscription name you previously used.
 
-You can test by sending an SMS to the phone number you have procured through Azure Communication Services resource.
+You can test by sending an SMS to the phone number you set up in your Azure Communication Services resource.

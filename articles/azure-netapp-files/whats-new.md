@@ -233,7 +233,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## June 2024
 
-* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
+* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md) (Preview)
 
     Extension 1 of application volume group for SAP HANA improves your volume group deployment experience for SAP HANA with:
     - The use of [availability zone volume placement](use-availability-zones.md), eliminating the need for manual AVSet pinning with proximity placement groups.
