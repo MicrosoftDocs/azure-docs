@@ -37,4 +37,4 @@ Here are the key capabilities provided by the Arize Integration integration:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a resource](create.md)
+> [Create a resource](create.md)

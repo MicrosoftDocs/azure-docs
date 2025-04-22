@@ -1,5 +1,5 @@
 ---
-title: Manage a Arize AI resource through the Azure portal (preview)
+title: Manage an Arize AI resource through the Azure portal (preview)
 description: This article describes management functions for Arize AI on the Azure portal.
 
 ms.topic: how-to
