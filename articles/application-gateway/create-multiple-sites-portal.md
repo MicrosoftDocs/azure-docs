@@ -8,7 +8,6 @@ ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 06/13/2023
 ms.author: greglin
-ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
 

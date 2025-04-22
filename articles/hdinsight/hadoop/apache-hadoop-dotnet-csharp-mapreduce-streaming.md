@@ -4,6 +4,9 @@ description: Learn how to use C# to create MapReduce solutions with Apache Hadoo
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet, devx-track-azurepowershell
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

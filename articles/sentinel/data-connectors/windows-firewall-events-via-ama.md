@@ -2,7 +2,7 @@
 title: "Windows Firewall Events via AMA (Preview) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Windows Firewall Events via AMA (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 06/04/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

@@ -2,10 +2,10 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 04/16/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview of Azure Disk Backup
@@ -99,4 +99,10 @@ The number of recovery points is determined by the Backup policy used to configu
 
 ## Next steps
 
-[Azure Disk Backup support matrix](disk-backup-support-matrix.md)
+[Azure Disk Backup support matrix](disk-backup-support-matrix.md).
+
+## Related content
+
+- [Create a Backup policy for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Configure backup for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

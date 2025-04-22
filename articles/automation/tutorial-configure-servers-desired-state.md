@@ -93,7 +93,7 @@ $importAzAutomationDscConfigurationSplat = @{
     SourcePath = 'C:\DscConfigs\TestConfig.ps1'
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'myAutomationAccount'
-    Published = $ture
+    Published = $true
 }
 Import-AzAutomationDscConfiguration @importAzAutomationDscConfigurationSplat
 ```
@@ -233,7 +233,7 @@ $reports[0]
 <!-- link references -->
 [01]: ./automation-security-overview.md
 [02]: /azure/virtual-machines/windows/quick-create-portal
-[03]: /powershell/azure/azurerm/install-azurerm-ps
+[03]: /powershell/azure/install-azure-powershell
 [04]: /powershell/dsc/configurations/configurations
 [05]: /powershell/dsc/managing-nodes/metaConfig
 [06]: /powershell/dsc/overview
@@ -246,7 +246,7 @@ $reports[0]
 [13]: /powershell/module/Az.Automation/Import-AzAutomationDscConfiguration
 [14]: /powershell/module/Az.Automation/Register-AzAutomationDscNode
 [15]: /powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob
-[16]: /powershell/module/azurerm.automation/register-azurermautomationdscnode
+[16]: /powershell/module/az.automation/register-azautomationdscnode
 [17]: automation-dsc-cd-chocolatey.md
 [18]: automation-dsc-compile.md
 [19]: automation-dsc-getting-started.md

@@ -5,10 +5,9 @@ description: Get started learning about using Azure Instance Metadata Service to
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Retrieve load balancer information by using Azure Instance Metadata Service

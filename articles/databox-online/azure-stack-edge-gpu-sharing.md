@@ -12,7 +12,7 @@ ms.author: alkohli
 
 # GPU sharing on your Azure Stack Edge Pro GPU device
 
-Graphics processing unit (GPU) is a specialized processor designed to accelerate graphics rendering. GPUs can process many pieces of data simultaneously, making them useful for machine learning, video editing, and gaming applications. In addition to CPU for general purpose compute, your Azure Stack Edge Pro GPU devices can contain one or two Nvidia Tesla T4 GPUs for compute-intensive workloads such as hardware accelerated inferencing. For more information, see [Nvidia's Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+Graphics processing unit (GPU) is a specialized processor designed to accelerate graphics rendering. GPUs can process many pieces of data simultaneously, making them useful for machine learning, video editing, and gaming applications. In addition to CPU for general purpose compute, your Azure Stack Edge Pro GPU devices can contain one or two NVIDIA Tesla T4 GPUs for compute-intensive workloads such as hardware accelerated inferencing. For more information, see [NVIDIA's Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 
 
 ## About GPU sharing
@@ -32,11 +32,11 @@ If you are deploying containerized workloads, a GPU can be shared in more than o
 
     - You can specify one or both or no GPUs with this method. It is not possible to specify fractional usage.
     - Multiple modules can map to one GPU but the same module cannot be mapped to more than one GPU.
-    - With the Nvidia SMI output, you can see the overall GPU utilization including the memory utilization.
+    - With the NVIDIA SMI output, you can see the overall GPU utilization including the memory utilization.
 
     For more information, see how to [Deploy an IoT Edge module that uses GPU](azure-stack-edge-gpu-configure-gpu-modules.md) on your device.
 
-- The second approach requires you to enable the Multi-Process Service on your Nvidia GPUs. MPS  is  a runtime service that lets multiple processes using CUDA to run concurrently on a single shared GPU. MPS allows overlapping of kernel and memcopy operations from different processes on the GPU to achieve maximum utilization. For more information, see [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
+- The second approach requires you to enable the Multi-Process Service on your NVIDIA GPUs. MPS  is  a runtime service that lets multiple processes using CUDA to run concurrently on a single shared GPU. MPS allows overlapping of kernel and memcopy operations from different processes on the GPU to achieve maximum utilization. For more information, see [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
 
     Consider the following caveats when using this approach:
 
@@ -53,9 +53,9 @@ If you are deploying containerized workloads, a GPU can be shared in more than o
 
 ## GPU utilization
 
-When you share GPU on containerized workloads deployed on your device, you can use the Nvidia System Management Interface (nvidia-smi). Nvidia-smi is a command-line utility that helps you manage and monitor Nvidia GPU devices. For more information, see [Nvidia System Management Interface](https://developer.nvidia.com/nvidia-system-management-interface).
+When you share GPU on containerized workloads deployed on your device, you can use the NVIDIA System Management Interface (nvidia-smi). Nvidia-smi is a command-line utility that helps you manage and monitor NVIDIA GPU devices. For more information, see [NVIDIA System Management Interface](https://developer.nvidia.com/nvidia-system-management-interface).
 
-To view GPU usage, first connect to the PowerShell interface of the device. Run the `Get-HcsNvidiaSmi` command and view the Nvidia SMI output. You can also view how the GPU utilization changes by enabling MPS and then deploying multiple workloads on the device. For more information, see [Enable Multi-Process Service](azure-stack-edge-gpu-connect-powershell-interface.md#enable-multi-process-service-mps).
+To view GPU usage, first connect to the PowerShell interface of the device. Run the `Get-HcsNvidiaSmi` command and view the NVIDIA SMI output. You can also view how the GPU utilization changes by enabling MPS and then deploying multiple workloads on the device. For more information, see [Enable Multi-Process Service](azure-stack-edge-gpu-connect-powershell-interface.md#enable-multi-process-service-mps).
 
 
 ## Next steps

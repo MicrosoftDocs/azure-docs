@@ -12,7 +12,10 @@ ms.author: memccror
 # Upgrade your machines to the latest Automanage version
 
 > [!CAUTION]
-> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://portal.azure.com/).
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!CAUTION]
+> Starting February 1st 2025, Azure Automanage will begin rolling out changes to halt support and enforcement for all services dependent on the deprecated Microsoft Monitoring Agent (MMA). To continue using Change Tracking and Management, VM Insights, Update Management, and Azure Automation, [migrate to the new Azure Monitor Agent (AMA)](https://aka.ms/mma-to-ama/).
 
 Automanage machine best practices released the generally available API version. The API now supports creating custom profiles where you can pick and choose the services and settings you want to apply to your machines. This article describes the differences in the versions and how to upgrade. 
 

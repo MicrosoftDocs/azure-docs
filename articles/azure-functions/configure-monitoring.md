@@ -30,7 +30,7 @@ The following table summarizes the configuration options available for each stac
 |-|-|
 | .NET (in-process model) | `host.json` |
 | .NET (isolated model) | Default (send custom logs to the Functions host): `host.json`<br/>To send logs directly to Application Insights, see: [Configure Application Insights in the HostBuilder](./dotnet-isolated-process-guide.md#application-insights)  |
-| Node.JS | `host.json` |
+| Node.js | `host.json` |
 | Python | `host.json` |
 | Java | Default (send custom logs to the Functions host): `host.json`<br/>To send logs directly to Application Insights, see: [Configure the Application Insights Java agent](/azure/azure-monitor/app/monitor-functions#distributed-tracing-for-java-applications) |
 | PowerShell | `host.json` |
@@ -466,23 +466,23 @@ To configure these values at App settings level (and avoid redeployment on just 
 | Host.json path | App setting |
 |----------------|-------------|
 | logging.logLevel.default  | AzureFunctionsJobHost__logging__logLevel__default  |
-| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
+| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host.Aggregator |
 | logging.logLevel.Function | AzureFunctionsJobHost__logging__logLevel__Function |
-| logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function__Function1 |
-| logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function__Function1__User |
+| logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function.Function1 |
+| logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function.Function1.User |
 
 You can override the settings directly at the Azure portal Function App Configuration pane or by using an Azure CLI or PowerShell script.
 
 # [Azure CLI](#tab/v2)
 
 ```azurecli-interactive
-az functionapp config appsettings set --name MyFunctionApp --resource-group MyResourceGroup --settings "AzureFunctionsJobHost__logging__logLevel__Host__Aggregator=Information"
+az functionapp config appsettings set --name MyFunctionApp --resource-group MyResourceGroup --settings "AzureFunctionsJobHost__logging__logLevel__Host.Aggregator=Information"
 ```
 
 # [PowerShell](#tab/v1)
 
 ```powershell
-Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupName -AppSetting @{"AzureFunctionsJobHost__logging__logLevel__Host__Aggregator" = "Information"}
+Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupName -AppSetting @{"AzureFunctionsJobHost__logging__logLevel__Host.Aggregator" = "Information"}
 ```
 
 ---

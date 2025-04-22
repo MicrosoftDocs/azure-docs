@@ -15,8 +15,6 @@ ms.custom: template-how-to
 
 This article describes how to implement Microsoft Teams breakout rooms with Azure Communication Services. This capability enables Azure Communication Services users in Teams meetings to participate in breakout rooms. Teams administrators control the availability of breakout rooms in Teams meeting with Teams meeting policy. You can find additional information about breakout rooms in [Teams documentation](https://support.microsoft.com/office/use-breakout-rooms-in-microsoft-teams-meetings-7de1f48a-da07-466c-a5ab-4ebace28e461).
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. See [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 

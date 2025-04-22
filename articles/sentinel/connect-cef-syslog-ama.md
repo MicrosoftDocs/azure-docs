@@ -70,6 +70,9 @@ If you're collecting messages from a log forwarder, the following prerequisites 
 
 - Your log sources, security devices, and appliances, must be configured to send their log messages to the log forwarder's syslog daemon instead of to their local syslog daemon.
 
+> [!NOTE]
+> When deploying the AMA to a Virtual Machine Scale Set (VMSS), you're strongly encouraged to use a load balancer that supports the round-robin method to ensure load distribution across all deployed instances.
+
 ### Machine security prerequisites
 
 Configure the machine's security according to your organization's security policy. For example, configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. To improve your machine security configuration, [secure your VM in Azure](/azure/virtual-machines/security-policy), or review these [best practices for network security](../security/fundamentals/network-best-practices.md).

@@ -2,11 +2,11 @@
 title: Configure passive geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to use cross-region replication to provide disaster recovery on the Premium tier of Azure Cache for Redis.
 
-
-
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 12/15/2023
+ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
@@ -39,6 +39,7 @@ _Passive geo-replication_ is only available in the Premium tier of Azure Cache f
 To configure geo-replication between two caches, the following prerequisites must be met:
 
 - Both caches are [Premium tier](cache-overview.md#service-tiers) caches.
+- Both caches should have only one replica per primary per shard.
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache. To use geo-failover, both caches must be the same size.
 - Both caches are created and in a running state.
@@ -49,7 +50,6 @@ To configure geo-replication between two caches, the following prerequisites mus
 
 Some features aren't supported with geo-replication:
 
-- Zone Redundancy isn't supported with geo-replication.
 - Persistence isn't supported with geo-replication.
 - Caches with more than one replica can't be geo-replicated.
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
@@ -61,7 +61,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - The secondary linked cache is read-only. You can read from it, but you can't write any data to it. If you choose to read from the Geo-Secondary instance when a full data sync is happening between the Geo-Primary and the Geo-Secondary, the Geo-Secondary instance throws errors on any Redis operation against it until the full data sync is complete. The errors state that a full data sync is in progress. Also, the errors are thrown when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios. Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors.
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
-- You can't [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
+- You can't change the number of shards if the cache has clustering enabled.
 - You can't enable persistence on either cache.
 - You can [Export](cache-how-to-import-export-data.md#export) from either cache.
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
@@ -200,7 +200,7 @@ When the failover process is initiated, you see the link provisioning status upd
 
 ### Can I track the health of the geo-replication link?
 
-Yes, there are several [metrics available](monitor-cache-reference.md#metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
+Yes, there are several [metrics available](../redis/monitor-cache-reference.md#metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
 
 - **Geo Replication Healthy** shows the status of the geo-replication link. The link show as unhealthy if either the geo-primary or geo-secondary caches are down. This is typically due to standard patching operations, but it could also indicate a failure situation.
 - **Geo Replication Connectivity Lag** shows the time since the last successful data synchronization between geo-primary and geo-secondary.
@@ -266,7 +266,7 @@ Geo-replicated caches and their resource groups can't be deleted while linked un
 
 ### What region should I use for my secondary linked cache?
 
-In general, we recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, we recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
+In general, we recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, we recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../reliability/cross-region-replication-azure.md).
 
 ### Can I configure a firewall with geo-replication?
 

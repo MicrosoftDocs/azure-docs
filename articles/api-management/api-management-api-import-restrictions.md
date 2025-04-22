@@ -8,7 +8,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/24/2024
 ms.author: danlep
 ---
@@ -60,8 +60,8 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 API Management only supports:
 
-* OpenAPI version 2.
-* OpenAPI version 3.0.x (up to version 3.0.3).
+* OpenAPI version 2
+* OpenAPI version 3.0.x (up to version 3.0.3)
 * OpenAPI version 3.1 (import only)
 
 **Size limitations**
@@ -69,7 +69,7 @@ API Management only supports:
 | Size limit | Description |
 | ---------- | ----------- |
 | **Up to 4 MB** | When an OpenAPI specification is imported inline to API Management. |
-| **Azure Resource Manager API request size** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. See [Azure subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). |
+| **Azure Resource Manager API request size** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. See [Azure subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits). |
 
 #### Supported extensions
 
@@ -147,6 +147,7 @@ The following fields are included in either [OpenAPI version 3.0.x](https://swag
 | **PathItem** | <ul><li>`trace`</li><li>`servers`</li></ul> |
 | **Operation** | <ul><li>`externalDocs`</li><li>`callbacks`</li><li>`security`</li><li>`servers`</li></ul> |
 | **Parameter** | <ul><li>`allowEmptyValue`</li><li>`style`</li><li>`explode`</li><li>`allowReserved`</li></ul> |
+| **Server templating** | <ul><li>`API Server and Base URL`</li></ul> |
 
 ## OpenAPI import, update, and export mechanisms
 

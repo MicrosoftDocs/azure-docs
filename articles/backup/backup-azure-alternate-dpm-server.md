@@ -2,16 +2,19 @@
 title: Recover data from an Azure Backup Server by using Azure Backup
 description: Recover the data you've protected to a Recovery Services vault from any Azure Backup Server registered to that vault.
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 12/24/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Recover data from Azure Backup Server
 
 This article describes how to recover data from Azure Backup Server.
+
+[!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
+
 
 You can use Azure Backup Server to recover the data you've backed-up to a Recovery Services vault. The process for doing so is integrated into the Azure Backup Server management console, and is similar to the recovery workflow for other Azure Backup components.
 

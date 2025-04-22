@@ -2,11 +2,11 @@
 title: 'Deploy Azure Static Web Apps with Bicep'
 description: Deploy Azure Static Web Apps using Bicep, and optionally link an existing Azure Functions app as the backend to your static web app.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 08/28/2024
-ms.author: cshoe
+ms.author: wujia
 #customer intent: As a developer, I want create a Static Web App on Azure with a Bicep file so that the process can to automated.
 ---
 

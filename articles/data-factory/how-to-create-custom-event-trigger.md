@@ -4,14 +4,17 @@ description: Learn how to create a trigger in Azure Data Factory that runs a pip
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 12/16/2024
+ai-usage: ai-assisted
 ---
 
 # Create a custom event trigger to run a pipeline in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Event triggers in Azure Data Factory allow you to automate the execution of pipelines based on specific events occurring in your data sources. This is a key feature of event-driven architecture, enabling real-time data integration and processing. 
 
 Event-driven architecture is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Azure Data Factory customers to trigger pipelines when certain events occur. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [custom topics](../event-grid/custom-topics.md). You send events to an Event Grid topic. Data Factory subscribes to the topic, listens, and then triggers pipelines accordingly.
 
@@ -24,6 +27,16 @@ If you combine pipeline parameters and a custom event trigger, you can parse and
 
 > [!IMPORTANT]
 > If a key referenced in parameterization is missing in the custom event payload, `trigger run` fails. You get a message that states the expression can't be evaluated because the `keyName` property doesn't exist. In this case, **no** `pipeline run` is triggered by the event.
+
+## Event and trigger use cases
+
+Triggers can be fired by various events, including:
+
+**Blob Created**: When a new file is uploaded to a specified container.
+**Blob Deleted**: When a file is removed from the container.
+**Blob Modified**: When an existing file is updated.
+
+You can use events to dynamically control your pipeline executions. For example, when a new data file is uploaded to the 'incoming' folder in Azure Blob Storage, a trigger can automatically start a pipeline to process the data, ensuring timely data integration.
 
 ## Set up a custom topic in Event Grid
 
@@ -155,5 +168,5 @@ Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission
 
 ## Related content
 
-* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-types).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

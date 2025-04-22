@@ -25,26 +25,34 @@ Other requirements that are specific to client subnets and backup subnets are de
 
 ## Client subnet requirements
 
-The client subnet has the following IP address requirements:
+The Client Subnet has the following IP address requirements:
 
-- Each virtual machine requires 4 IP addresses. Virtual machine clusters must have a minimum of two virtual machines. Therefore, a virtual machine cluster with two virtual machines requires 8 IP addresses in the client subnet. Each virtual machine that's added to a virtual machine cluster increases the number of IP addresses required in the client subnet by 4 IP addresses.
-- Each virtual machine cluster requires 3 IP addresses for [Single Client Access Names (SCANs)](https://docs.oracle.com/en/cloud/paas/exadata-cloud/csexa/connect-db-using-net-services.html), regardless of how many virtual machines are in the virtual machine cluster.
-- In the client subnet, 17 IP addresses are reserved for networking services, regardless of how many virtual machine clusters are in the client subnet. The 17 IP addresses are the first 16 IP addresses and the last IP address.
+- 4 IP addresses are needed for each virtual machine. VM clusters have a minimum of 2 virtual machines. Therefore, a VM cluster with 2 virtual machines requires 8 IP addresses in the Client Subnet. Each additional virtual machine added to a VM cluster increases the number of IP addresses needed in the Client Subnet by 4 IPs.
 
-**Example**: The number of IP addresses required for a client subnet that has one virtual machine cluster with two virtual machines is *11 IPs (one virtual machine cluster with two virtual machines, plus three SCANs) + 17 IPs (for networking services) = 28 IPs*.
+- Each VM cluster requires 3 IP addresses for [Single Client Access Names (SCANs)](https://docs.oracle.com/en/cloud/paas/exadata-cloud/csexa/connect-db-using-net-services.html), regardless of how many virtual machines are present in the VM cluster.
 
+- 13 IP addresses are reserved for networking services in the Client Subnet, regardless of how many VM clusters are present in the Client Subnet. The 13 addresses are: the first 4 IP addresses, the 9th to 16th IP address, and the last IP address.
+
+For example, in a 10.0.0.0/24 subnet, the following 13 IPs are reserved:
+```
+- 10.0.0.0 to 10.0.0.3
+
+- 10.0.0.8 to 10.0.0.15
+
+- 10.0.0.255
+```
 ### Scenarios: CIDR size required for a client subnet
 
 The following table shows scenarios of provisioned virtual machine clusters of varying sizes. The number of instances of each scenario that can fit in a client subnet depends on the CIDR size of the subnet. This table doesn't show all possible scenarios.
 
 |Scenario|/27|/26|/25|/24|/23|/22|
 |--------|---|---|---|---|---|---|
-|One virtual machine cluster with two virtual machines *(11 IPs + 17 IPs for networking services = 28 IPs)*|1|4|10|21|45|91|
-|One virtual machine cluster with three virtual machines *(15 IPs + 17 IPs for networking services = 32* IPs)|1|3|7|15|33|67|
-|One virtual machine cluster with four virtual machines *(19 IPs + 17 IPs for networking services = 36 IPs)*| |2|5|12|26|53|
-|Two virtual machine clusters with two virtual machines each *(22 IPs + 17 IPs for networking services = 39 IPs)*| |2|5|10|22|45|
-|Two virtual machine clusters with three virtual machines each *(30 IPs + 17 IPs for networking services = 47 IPs)*| |1|3|7|16|33|
-|Two virtual machine clusters with four virtual machines each *(38 IPs + 17 IPs for networking services = 55 IPs)*| |1|2|6|13|26|
+|One virtual machine cluster with two virtual machines *(11 IPs + 13 IPs for networking services = 24 IPs)*|1|4|10|21|45|91|
+|One virtual machine cluster with three virtual machines *(15 IPs + 13 IPs for networking services = 28* IPs)|1|3|7|15|33|67|
+|One virtual machine cluster with four virtual machines *(19 IPs + 13 IPs for networking services = 34 IPs)*| |2|5|12|26|53|
+|Two virtual machine clusters with two virtual machines each *(22 IPs + 13 IPs for networking services = 35 IPs)*| |2|5|10|22|45|
+|Two virtual machine clusters with three virtual machines each *(30 IPs + 13 IPs for networking services = 43 IPs)*| |1|3|7|16|33|
+|Two virtual machine clusters with four virtual machines each *(38 IPs + 13 IPs for networking services = 51 IPs)*| |1|2|6|13|26|
 
 ## Backup subnet requirements
 
@@ -63,8 +71,8 @@ The following table shows scenarios of provisioned virtual machine clusters of d
 |--------|---|---|---|---|---|---|
 |One virtual machine cluster with two virtual machines *(6 IPs + 3 for networking services = 9 IPs)*|1|3|7|14|28|56|
 |One virtual machine cluster with three virtual machines *(9 IPs + 3 for networking services = 12 IPs)*|1|2|5|10|21|42|
-|One virtual machine cluster with four virtual machines *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|17|34|
-|Two virtual machine clusters with two virtual machines each *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|17|34|
+|One virtual machine cluster with four virtual machines *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|13|34|
+|Two virtual machine clusters with two virtual machines each *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|13|34|
 |Two virtual machine clusters with three virtual machines each *(18 IPs + 3 for networking services = 21 IPs)*| |1|3|6|12|24|
 |Two virtual machine clusters with four virtual machines each *(24 IPs + 3 for networking services = 27 IPs)*| |1|2|4|9|18|
 
@@ -77,13 +85,13 @@ The following table shows the number of IP addresses that are available for virt
 
 |Subnet CIDR|Reserved networking IPs for a client subnet|Usable IPs for a client subnet (virtual machines and SCANs)|Reserved networking IPs for a backup subnet|Usable IPs for a backup subnet (virtual machines and SCANs)|
 |-----------|-----------------------------------------|-----------------------------------------------------------|-----------------------------------------|-----------------------------------------------------------|
-|/28|17|0 (2<4 - 17)|3|13 (2^4 - 3)|
-|/27|17|15 (2^5 - 17)|3|29 (2^5 - 3)|
-|/26|17|47 (2^6 - 17)|3|61 (2^6 - 3)|
-|/25|17|111 (2^7 - 17)|3|125 (2^7 - 3)|
-|/24|17|239 (2^8 - 17)|3|253 (2^8 - 3)|
-|/23|17|495 (2^9 - 17)|3|509 (2^9 - 3)|
-|/22|17|1,007 (2^10 - 17)|3|1,021 (2^10 - 3)|
+|/28|13|0 (2<4 - 13)|3|13 (2^4 - 3)|
+|/27|13|15 (2^5 - 13)|3|29 (2^5 - 3)|
+|/26|13|47 (2^6 - 13)|3|61 (2^6 - 3)|
+|/25|13|111 (2^7 - 13)|3|125 (2^7 - 3)|
+|/24|13|239 (2^8 - 13)|3|253 (2^8 - 3)|
+|/23|13|495 (2^9 - 13)|3|509 (2^9 - 3)|
+|/22|13|1,007 (2^10 - 13)|3|1,021 (2^10 - 3)|
 
 ## Related content
 

@@ -197,7 +197,7 @@ Fleet data could describe the fleet description such as the number of vehicles, 
 ```
 
 - **Vehicle locations**: In the above example, fleet data indicates two vehicles, one array for each vehicle. Both vehicles start at location 0 and end trip at location 1. In the context of a cost matrix description of the environment, these vehicle locations correspond to row (or column) indices in the cost matrix.
-- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task json that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data. ​​​For example, if a truck is delivering goods, the capacity would be how much weight in total each vehicle can carry, and the demand would be the weight of each order. Make sure the same unit is used for both (such as pounds or kilograms).​
+- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task JSON that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data. ​​​For example, if a truck is delivering goods, the capacity would be how much weight in total each vehicle can carry, and the demand would be the weight of each order. Make sure the same unit is used for both (such as pounds or kilograms).​
 - **Vehicle time windows**: Time windows specify the operating time of the vehicle to complete the tasks. This could be the agent’s shift start and end time. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
 - **Vehicle breaks**: Vehicle break windows and duration can also be specified. This could represent the agent’s lunch break, or other breaks as needed. The break window format would be same as the vehicle time window format. All time/cost units provided to the cuOpt solver should be in the same unit.
 
@@ -348,7 +348,7 @@ Sample response
 
 ## Call Azure Maps Route Directions API for routing
 
-After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
+After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and Web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
 
 :::image type="content" source="media/multi-itinerary-optimization-service/multi-itinerary-route.png" alt-text="A screenshot showing the multi-itinerary route on a map.":::
 
@@ -370,9 +370,9 @@ After the locations in the cuOpt response are mapped to the corresponding coordi
 [Azure Maps Route Matrix API]: /rest/api/maps/route/post-route-matrix
 [Azure Maps]: /azure/azure-maps/
 [Azure Marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.nvidia-ai-enterprise?tab=Overview
-[cuOpt best practices]: https://docs.nvidia.com/cuopt/user-guide/best-practices.html
-[cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
-[List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
+[cuOpt best practices]: https://docs.nvidia.com/cuopt/service/latest/best-practices.html
+[cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/index.html
+[List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/index.html
 [Multi Itinerary Optimization]: https://samples.azuremaps.com/rest-services/mio
 [NVIDIA cuOpt]: https://www.nvidia.com/en-us/ai-data-science/products/cuopt/
 [Route Directions]: /rest/api/maps/route/post-directions

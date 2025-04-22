@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 4/15/2025
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -166,10 +166,6 @@ Microsoft.Network/EnableApplicationGatewayNetworkIsolation  Unregistered
 A list of all Azure CLI references for Private Link Configuration on Application Gateway can be found here: [Azure CLI CLI - Private Link](/cli/azure/network/application-gateway/private-link)
 
 ---
-
-## Regions and availability
-
-The Private Application Gateway preview is available to all public cloud regions [where Application Gateway v2 sku is supported](./overview-v2.md#unsupported-regions).
 
 ## Configuration of network controls
 
@@ -335,7 +331,7 @@ To create a route table and associate it to the Application Gateway subnet:
 
 2.	Select **Routes** and create the next hop rule for 0.0.0.0/0 and configure the destination to be the IP address of your VM:
 
- [ ![Screenshot of adding default route to network virtual applicance.](./media/application-gateway-private-deployment/default-route-nva.png) ](./media/application-gateway-private-deployment/default-route-nva.png#lightbox)
+ [ ![Screenshot of adding default route to network virtual appliance.](./media/application-gateway-private-deployment/default-route-nva.png) ](./media/application-gateway-private-deployment/default-route-nva.png#lightbox)
 
 3. Select **Subnets** and associate the route table to the Application Gateway subnet:
 

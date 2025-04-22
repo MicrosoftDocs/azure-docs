@@ -2,10 +2,10 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 04/14/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -110,6 +110,9 @@ To configure a backup policy, follow these steps:
 ### Back up ADE encrypted VMs with RBAC enabled key vaults
 
 To enable backups for ADE encrypted VMs using Azure RBAC enabled key vaults, you need to assign Key Vault Administrator role to the Backup Management Service Microsoft Entra app by adding a role assignment in Access Control of key vault.
+
+>[!Note]
+>VM Backup operations use the **Backup Management Service** app instead of **Recovery Services vault Managed Service Identity (MSI)** to access Key Vault. You must grant the necessary Key Vault permissions to this app for backups to function properly.
 
 :::image type="content" source="./media/backup-azure-vms-encryption/enable-key-vault-encryption-inline.png" alt-text="Screenshot shows the checkbox to enable ADE encrypted key vault." lightbox="./media/backup-azure-vms-encryption/enable-key-vault-encryption-expanded.png":::
 

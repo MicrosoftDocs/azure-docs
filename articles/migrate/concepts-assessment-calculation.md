@@ -1,12 +1,9 @@
 ---
 title: Azure VM assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate 
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/24/2024
+ms.date: 02/06/2025
 ms.custom: engagement-fy24
 ---
 
@@ -33,7 +30,7 @@ There are three types of assessments you can create using Azure Migrate: Discove
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
+> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
 Assessments you create with Azure Migrate are a point-in-time snapshot of data. An Azure VM assessment provides two sizing criteria options:
 
@@ -232,17 +229,25 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
 
 
-#### Calculate storage sizing
+#### Storage sizing in Azure VM Assessment
 
-For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows:
+Azure Migrate maps each disk attached to a server to an Azure disk. The sizing process is as follows:
 
-1. Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. In the case of import-based assessments, you have the option to provide the total IOPS, total throughput and total no. of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
+1. **IOPS and Throughput Calculation**
+    - The assessment calculates total IOPS and throughput by adding the read and write IOPS and throughput values of each disk.
+1. **Import-based assessments**
+    - You can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings.
+    - If this option is used, individual disk sizing is skipped and the supplied data is used directly to compute sizing and select an appropriate VM SKU.
+1. **Disk selection criteria and recommendations**
+   - If there is no disk that meets the required IOPS and throughput, the server is marked as unsuitable for Azure.
+   - If suitable disks are found, the assessment selects disks that support the specified location in the assessment settings.
+   - Among multiple eligible disks, the assessment selects the disk with the lowest cost.
+   - If the performance data for any disk is unavailable, the configured disk size is used to find a disk based on your preference.
+   > [!NOTE]
+   >- For all the new assessments if Premium disks are selected during assessment creation, we recommend using Premium managed disks for your OS disks and Premium V2 SSD (preview) for your data disks. 
+   >- If you don't see Premium V2 SSD (preview) recommendations for data disks, recalculate your assessment and check the assessment settings for Storage type. 
+   >- Currently, the Premium V2 SSD (preview) migration is applicable only for VMware environments even though, the assessments are previewed for all environments.
 
-1. Disks are selected as follows:
-    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure.
-    - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
-    - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
-    - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD disk in Azure.
 
 ##### Ultra disk sizing
 

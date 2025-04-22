@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Integrate Google Tag Manager to API Management developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 [Google Tag Manager](https://developers.google.com/tag-manager) is a tag management system created by Google. You can use it to manage JavaScript and HTML tags used for tracking and analytics on websites. For example, you can use Google Tag Manager to integrate Google Analytics, heatmaps, or chatbots like LiveChat.
 
@@ -82,7 +82,7 @@ Follow these steps to plug Google Tag Manager into your managed or self-hosted d
     }
     ```
 
-## Next steps
+## Related content
 
 - [Automate portal deployments](automate-portal-deployments.md)
 - [Self-host the developer portal](developer-portal-self-host.md)

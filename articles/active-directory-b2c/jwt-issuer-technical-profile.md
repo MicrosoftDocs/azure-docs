@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -50,7 +50,7 @@ The following example shows a technical profile for `JwtIssuer`:
 
 ## Input, output, and persist claims
 
-The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty or absent. The **InutputClaimsTransformations** and **OutputClaimsTransformations** elements are also absent.
+The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty or absent. The **InputClaimsTransformations** and **OutputClaimsTransformations** elements are also absent.
 
 ## Metadata
 

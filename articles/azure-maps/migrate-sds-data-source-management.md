@@ -37,12 +37,12 @@ Azure Maps integrates with other Azure services to store, manage, and perform sp
 
 To load and present your data on a map, you need to build a service layer (an API) that is used by the [Azure Maps Web SDK client] to get the data that needs to be displayed on the map. The following illustration is a simple architecture design showing what you need for this scenario:
 
-:::image type="content" source="./media/migration-guides/process-diagram.png" alt-text="A screenshot showing elements of an Azure Maps application with a section showing the Azure SQL database, Azure Function and Azure Maps accpount titled Azure subscription and another section titled your website with an Azure Maps web control in it.":::
+:::image type="content" source="./media/migration-guides/process-diagram.png" alt-text="A screenshot showing elements of an Azure Maps application with a section showing the Azure SQL database, Azure Function and Azure Maps account titled Azure subscription and another section titled your website with an Azure Maps web control in it.":::
 
 ### More information
 
 - [Create a data source for a map in Microsoft Azure Maps]
-- [How to use the Azure Maps spatial IO module]
+- [How to use the Azure Maps Spatial IO module]
 - [Read and write spatial data with Microsoft Azure Maps]
 
 ## Locator starter project
@@ -93,7 +93,7 @@ The Azure Maps store locator starter project gives you the following general arc
 [Data Source Management]: /bingmaps/spatial-data-services/data-source-management-api
 [Geocode Dataflow]: /bingmaps/spatial-data-services/geocode-dataflow-api
 [Geodata]: /bingmaps/spatial-data-services/geodata-api
-[How to use the Azure Maps spatial IO module]: how-to-use-spatial-io-module.md
+[How to use the Azure Maps Spatial IO module]: how-to-use-spatial-io-module.md
 [Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
 [Migrating Bing Maps SDS Geocode Dataflow API]: migrate-geocode-dataflow.md

@@ -1,9 +1,9 @@
 ---
 title: Reservation utilization alerts
 description: This article helps you set up and use reservation utilization alerts.
-author: bandersmsft
-ms.author: banders
-ms.date: 08/30/2023
+author: jojopm
+ms.author: jojoh
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,7 +26,7 @@ You can create a reservation utilization alert rule at any of the following scop
 | --- | --- | --- | --- |
 | Enterprise Agreement | Billing account | Enterprise admin, enterprise read only| Create, read, update, delete |
 |• Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA-E agreement.<br><br>• Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA-online agreement. | Billing profile |Billing profile owner, billing profile contributor, billing profile reader, and invoice manager | Create, read, update, delete|
-| Microsoft Partner Agreement (MPA) | Customer scope | Global admin, admin agent | Create, read, update, delete |
+| Microsoft Partner Agreement (MPA) | Customer scope | Admin agent, billing admin | Create, read, update, delete |
 
 For more information, see [scopes and roles](understand-work-scopes.md).
 
@@ -88,7 +88,7 @@ The following information provides more detail.
 
 **Creation portal** - Azure portal of partner tenant.
 
-**Permissions required for creation and management** - Global admin or admin agent.
+**Permissions required for creation and management** - Admin agent or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role).
 
 **Supported scope** - Customer scope. All the reservations that are active for the selected customer are monitored by default.
 

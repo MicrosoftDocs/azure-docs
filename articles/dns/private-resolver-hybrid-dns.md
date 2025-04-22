@@ -25,7 +25,7 @@ The [Azure DNS Private Resolver](dns-private-resolver-overview.md) is a service 
 Benefits of using the Azure DNS Private Resolver service vs. VM-based resolvers or DDI solutions include:
 - Zero maintenance: Unlike VM or hardware based solutions, the private resolver doesn't require software updates, vulnerability scans, or security patching. The private resolver service is fully managed.
 - Cost reduction: Azure DNS Private Resolver is a multitenant service and can cost a fraction of the expense that is required to use and license multiple VM-based DNS resolvers.
-- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](../availability-zones/az-overview.md) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
+- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](../reliability/availability-zones-overview.md) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
 - DevOps friendly: Traditional DNS solutions are hard to integrate with DevOps workflows as these often require manual configuration for every DNS change. Azure DNS private resolver provides a fully functional ARM interface that can be easily integrated with DevOps workflows.
 
 ## DNS forwarding ruleset
@@ -49,9 +49,6 @@ Create a private zone with at least one resource record to use for testing. The 
 - [Create a private zone - CLI](private-dns-getstarted-cli.md) 
 
 In this article, the private zone **azure.contoso.com** and the resource record **test** are used. Autoregistration isn't required for the current demonstration.
-
-> [!IMPORTANT]
-> A recursive server is used to forward queries from on-premises to Azure in this example. If the server is authoritative for the parent zone (contoso.com), forwarding is not possible unless you first create a delegation for azure.contoso.com.
 
 [ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 

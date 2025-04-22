@@ -37,7 +37,7 @@ Other advantages of Ultra disk can be the better read latency in comparison to p
 > You have the possibility to define the sector size of Ultra disk as 512 Bytes or 4096 Bytes. Default sector size is 4096 Bytes. Tests conducted with HCMT did not reveal any significant differences in performance and throughput between the different sector sizes. This sector size is different than stripe sizes that you need to define when using a logical volume manager. 
 
 ## Production recommended storage solution with pure Ultra disk configuration
-In this configuration, you keep the **/hana/data** and **/hana/log** volumes separately. The suggested values are derived out of the KPIs that SAP has to certify VM types for SAP HANA and storage configurations as recommended in the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html).
+In this configuration, you keep the **/hana/data** and **/hana/log** volumes separately. The suggested values are derived out of the KPIs that SAP has to certify VM types for SAP HANA and storage configurations as recommended in the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html).
 
 The recommendations are often exceeding the SAP minimum requirements as stated earlier in this article. The listed recommendations are a compromise between the size recommendations by SAP and the maximum storage throughput the different VM types provide.
 

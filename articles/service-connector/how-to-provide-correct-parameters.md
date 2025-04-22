@@ -1,10 +1,10 @@
 ---
 title: Provide correct parameters to Service Connector
-description: Learn how to pass correct parameters to Service Connector. 
+description: Learn how to pass correct parameters to Service Connector to generate service connections between your Cloud resources.
 author: houk-ms
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 12/18/2024
 ms.author: honc
 ---
 # Provide correct parameters to Service Connector
@@ -83,9 +83,9 @@ Client type refers to your compute service's runtime stack or development framew
 * `ruby`
 * `springBoot`
 
-A different subset of the client types can be used when specifying a different target service and a different authentication type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
+A different subset of the client types can be used when specifying a different target service and a different authentication type, check [how to integrate with target services](./how-to-integrate-ai-services.md) for their combinations.
 
-## Next steps
+## Related links
 
-> [!div class="nextstepaction"]
-> [How to integrate target services](./how-to-integrate-postgres.md)
+- [How to integrate target services](./how-to-integrate-ai-services.md)
+- [Create connections with IaC tools](./how-to-build-connections-with-iac-tools.md)

@@ -8,7 +8,6 @@ ms.author: duau
 ms.date: 09/20/2023
 ms.topic: quickstart
 ms.service: azure-application-gateway
-ms.custom: template tutorial
 ---
 
 # Tutorial: Protect your application gateway with Azure DDoS Network Protection

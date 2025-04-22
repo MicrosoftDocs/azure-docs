@@ -18,12 +18,18 @@ Administrators should enable root squash in environments where multiple users or
 In this article, you learn how to configure and change root squash settings for NFS Azure file shares.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![No, this article doesn't apply to standard SMB Azure file shares LRS/ZRS.](../media/icons/no-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![No, this article doesn't apply to standard SMB Azure file shares GRS/GZRS.](../media/icons/no-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![No, this article doesn't apply to premium SMB Azure file shares.](../media/icons/no-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## How root squash works with Azure Files
 
@@ -77,7 +83,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
    Select-AzSubscription -SubscriptionId "<your-subscription-id>"
    ```
 
-1. To enable root squash on the file share, run the following command. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To enable root squash on the file share, run the following command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurepowershell-interactive
    Update-AzRmStorageShare `
@@ -87,7 +93,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
      -RootSquash RootSquash
    ```
 
-1. To disable root squash on the file share, run the following command. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To disable root squash on the file share, run the following command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurepowershell-interactive
    Update-AzRmStorageShare `
@@ -97,7 +103,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
      -RootSquash NoRootSquash
    ```
 
-1. To force squash for all users, run the following command to map all user IDs to anonymous. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To force squash for all users, run the following command to map all user IDs to anonymous. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurepowershell-interactive
    Update-AzRmStorageShare `
@@ -107,7 +113,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
      -RootSquash AllSquash
    ```
 
-1. To view the root squash property for a file share, run the following command. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To view the root squash property for a file share, run the following command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurepowershell-interactive
    Get-AzRmStorageShare `
@@ -125,7 +131,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
    az account set --subscription "<your-subscription-id>"  
    ```
 
-1. To enable root squash on the file share, run the following command. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To enable root squash on the file share, run the following command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurecli-interactive
    az storage share-rm update \
@@ -135,7 +141,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
      --root-squash RootSquash 
    ```
 
-1. To disable root squash on the file share, run the following command. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To disable root squash on the file share, run the following command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurecli-interactive
    az storage share-rm update \
@@ -145,7 +151,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
      --root-squash NoRootSquash 
    ```
 
-1. To force squash for all users, run the following command to map all user IDs to anonymous. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To force squash for all users, run the following command to map all user IDs to anonymous. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurecli-interactive
    az storage share-rm update \
@@ -155,7 +161,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
      --root-squash AllSquash 
    ```
 
-1. To view the root squash property for a file share, run the following command. Replace `<resouce-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+1. To view the root squash property for a file share, run the following command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
    ```azurecli-interactive
    az storage share-rm show \

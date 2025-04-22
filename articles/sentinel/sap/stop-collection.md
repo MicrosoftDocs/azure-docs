@@ -16,9 +16,11 @@ ms.collection: usx-security
 
 # Stop SAP data collection
 
-There might be instances where you need to halt the data collection from your SAP applications by Microsoft Sentinel, whether for maintenance, troubleshooting, or other administrative reasons.
+There might be instances where you need to halt the data collection from your SAP applications by the Microsoft Sentinel data connector agent, whether for maintenance, troubleshooting, or other administrative reasons.
 
-This article provides step-by-step instructions on how to stop the ingestion of SAP logs into Microsoft Sentinel and disable the data connector.
+This article provides step-by-step instructions on how to stop the ingestion of SAP logs into Microsoft Sentinel and disable the data connector agent.
+
+If you're using the agentless data connector (Preview), remove the data connector and solution from Microsoft Sentinel, and then clean up any resources and [changes you'd made to your SAP system](preparing-sap.md) for the integration. 
 
 ## Prerequisites
 
@@ -51,7 +53,7 @@ To stop ingesting a specific SID for a multi-SID container, make sure that you a
 
 ## Remove the user role and any optional CR installed on your ABAP system
 
-If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, you might want to also remove the user role and optional CRs installed on your ABAP system.
+If you're turning off the SAP data connector and stopping log ingestion from your SAP system, you might want to also remove the user role and optional CRs installed on your ABAP system.
 
 To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 

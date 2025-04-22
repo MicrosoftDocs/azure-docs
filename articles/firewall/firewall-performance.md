@@ -2,11 +2,11 @@
 title: Azure Firewall performance 
 description: Compare Azure Firewall performance for Azure Firewall Basic, Standard, and Premium.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
-ms.topic: conceptual
-ms.date: 01/30/2024
-ms.author: victorh
+ms.topic: concept-article
+ms.date: 12/26/2024
+ms.author: duau
 ---
 
 # Azure Firewall performance
@@ -39,15 +39,12 @@ The following set of performance results demonstrates the maximal Azure Firewall
 
 |Firewall type and use case  |TCP/UDP bandwidth (Gbps)  |HTTP/S bandwidth (Gbps)  |
 |---------|---------|---------|
-|Basic|0.25|0.25|
-|Standard     |30|30|
-|Premium (no TLS/IDPS)     |100|100|
-|Premium with TLS (no IDS/IPS)     |-|100|
-|Premium with TLS and IDS     |100|100|
-|Premium with TLS and IPS      |10|10|
-
-> [!NOTE]
-> IPS (Intrusion Prevention System) takes place when one or more signatures are configured to *Alert and Deny* mode.
+|Basic SKU |0.25|0.25|
+|Standard SKU    |30|30|
+|Premium SKU with both TLS disabled and IDPS disabled     |100|100|
+|Premium SKU with TLS inspection enabled and IDPS disabled      |-|100|
+|Premium SKU with TLS enabled and IDPS enabled in Alert only mode     |100|100|
+|Premium SKU with TLS enabled and IDPS enabled in Deny mode     |10|10|
 
 ### Throughput for single connections
 
@@ -73,6 +70,7 @@ When performance testing, make sure you test for at least 10 to 15 minutes, and 
 > [!NOTE]
 > Azure Firewall Basic doesn't autoscale.
 
-## Next steps
+## Next step
 
-- Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md).
+> [!div class="nextstepaction"]
+> [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)

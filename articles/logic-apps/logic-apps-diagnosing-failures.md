@@ -155,7 +155,7 @@ Standard logic apps store all artifacts in an Azure storage account. You might g
 
 | Azure portal location | Error |
 |-----------------------|-------|
-| Overview pane | - **System.private.corelib:Access to the path 'C:\\home\\site\\wwwroot\\hostj.son is denied** <br><br>- **Azure.Storage.Blobs: This request is not authorized to perform this operation** |
+| Overview pane | - **System.private.corelib:Access to the path 'C:\\home\\site\\wwwroot\\host.json is denied** <br><br>- **Azure.Storage.Blobs: This request is not authorized to perform this operation** |
 | Workflows pane | - **Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (InternalServerError) from host runtime.'** <br><br>- **Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (ServiceUnavailable) from host runtime.'** <br><br>- **Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (BadGateway) from host runtime.'** |
 | During workflow creation and execution | - **Failed to save workflow** <br><br>- **Error in the designer: GetCallFailed. Failed fetching operations** <br><br>- **ajaxExtended call failed** |
 

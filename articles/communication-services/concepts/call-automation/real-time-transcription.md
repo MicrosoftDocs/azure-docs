@@ -25,7 +25,7 @@ Out of the box Microsoft utilizes a Universal Language Model as a base model tha
 ### Improved customer experience
 Assist agents better understand customer needs and respond more quickly and accurately, leading to a better overall customer experience.
 
-### Increased efficency 
+### Increased efficiency 
 Help agents focus on the conversation rather than note-taking, allowing them to handle more calls and improve productivity
 
 ### Context for agents

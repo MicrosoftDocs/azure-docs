@@ -4,7 +4,7 @@ description: Learn about the functions available from the Microsoft Sentinel sol
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.date: 09/15/2024
+ms.date: 03/03/2025
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 # Microsoft Sentinel solution for SAP applications - functions reference
 
-This article describes a selection of functions that are available in your workspace after you install the Microsoft Sentinel solution for SAP applications. Discover more functions by browsing in Microsoft Sentinel and loading the function code.
+This article describes a selection of functions that are available in your workspace after you install a Microsoft Sentinel solution for SAP applications. Discover more functions by browsing in Microsoft Sentinel and loading the function code.
 
 Find functions as follows:
 
@@ -28,6 +28,42 @@ Content in this article is intended for your **security** teams.
 We *strongly recommend* that you use the functions listed in this article as the subjects of their analysis whenever possible, instead of the underlying [logs or tables](sap-solution-log-reference.md).
 
 These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. Using functions allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
+
+## BAPI_XMI_LOGON (Preview)
+
+The **BAPI_XMI_LOGON** function is relevant when your SAP system is an older system using XAL, and authenticates to collect SAP XAL audit logs.
+
+The **BAPI_XMI_LOGON** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+
+## BAPI_SYSTEM_MTE_GETTIDBYNAME (Preview)
+
+The **BAPI_SYSTEM_MTE_GETTIDBYNAME** function is relevant when your SAP system is an older system using XAL, and retrieves the ID of a system monitoring element by name.
+
+The **BAPI_SYSTEM_MTE_GETTIDBYNAME** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+
+## BAPI_SYSTEM_MTE_GETTREE (Preview)
+
+The **BAPI_SYSTEM_MTE_GETTREE** function is relevant when your SAP system is an older system using XAL, and retrieves the structure of system monitoring elements.
+
+The **BAPI_SYSTEM_MTE_GETTREE** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+
+## BAPI_SYSTEM_MTE_GETMLHIS (Preview)
+
+The **BAPI_SYSTEM_MTE_GETMLHIS** function is relevant when your SAP system is an older system using XAL, and fetches historical performance and status data.
+
+The **BAPI_SYSTEM_MTE_GETMLHIS** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+
+## BAPI_XMI_SET_AUDITLEVEL (Preview)
+
+The **BAPI_XMI_SET_AUDITLEVEL** function is relevant when your SAP system is an older system using XAL, and configures the XAL audit logging level.
+
+The **BAPI_XMI_SET_AUDITLEVEL** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
+
+## BAPI_XMI_GET_LOGHISTORY (Preview)
+
+The **BAPI_XMI_GET_LOGHISTORY** function is relevant when your SAP system is an older system using XAL, and retrieves past XAL audit log entries.
+
+The **BAPI_XMI_GET_LOGHISTORY** function is supported only for the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## SAPUsersAssignments
 
@@ -91,7 +127,7 @@ The **SAPUsersAuthorizations** function returns the following data:
 | -------- | ----------- | ----- |
 | User     | SAP user ID |       |
 | Roles    | Set of roles (default max set size = 50) | `["Role 1", "Role 2",...,"Role 50"]` |
-| AuthorizationsDetails | Set of authorizations (default max set size = 100) | `{{AuthorizationsDeatils1}`,<br>`{AuthorizationsDeatils2}`, <br>...,<br>`{AuthorizationsDeatils100}}` |
+| AuthorizationsDetails | Set of authorizations (default max set size = 100) | `{{AuthorizationsDetails1}`,<br>`{AuthorizationsDetails2}`, <br>...,<br>`{AuthorizationsDetails100}}` |
 | Client   | Client ID   |       |
 | SystemID | System ID   |       |
 
@@ -343,7 +379,7 @@ The **SAPUsersGetVIP** function returns the following output:
 | The *SAP_User_Config* watchlist | User on-premises SID |  | |
 | The *SAP_User_Config* watchlist | User principal name |  | |
 | The *SAP_User_Config* watchlist | `TagsList` | A list of tags assigned to user | `ChangeUserMasterDataOK`;`RunObsoleteProgOK` |
-| Logic | TagsIntersect | A set of tags that matched `SearchForTags` | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
+| Logic | TagsIntersect | A set of tags that matched `SearchForTags` | `["ChangeUserMasterDataOK","RunObsoleteProgOK"]`  |
 | Logic | SpecialFocusTagged | Special focus indication | `True`, `False`  |
 | Logic | IntersectionSize | The number of intersected tags | |
 
@@ -383,7 +419,7 @@ The **SAPUsersHeader** function returns the following output:
 | SAP audit log | LastSeen | A timestamp | Last audit event observed for the user  |
 | SAP audit log | LastSeenDaysAgo | Days passed since `LastSeen` | |
 | SAP audit log | PrimaryIP | Most frequently used IP address | `ChangeUserMasterDataOK`;`RunObsoleteProgOK`  |
-| SAP audit log | LastKnownIP | Most recently used IP address | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
+| SAP audit log | LastKnownIP | Most recently used IP address | `["ChangeUserMasterDataOK","RunObsoleteProgOK"]`  |
 | SAP audit log | PrimaryEmail | Most frequently used email address | `True`, `False`  |
 | SAP audit log | KnownIPs | List of known IP addresses | Sorted by most frequent first  |
 | SAP audit log | KnownEmails | List of known email addresses | Sorted by most frequent first  |
@@ -391,6 +427,12 @@ The **SAPUsersHeader** function returns the following output:
 |  | SystemID | The SAP system ID | |
 |  | SystemRole | The SAP system's role | Production, UAT |
 |  | SystemUsage | The main usage of the SAP system | ERP, CRM |
+
+## TH_SERVER_LIST (Preview)
+
+The **TH_SERVER_LIST** function is relevant when your SAP system is an older system using XAL, and lists active SAP application servers.
+
+The **TH_SERVER_LIST** function is supported only with the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
 ## Related content
 

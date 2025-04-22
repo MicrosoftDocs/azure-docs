@@ -3,12 +3,48 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/26/2024
+ms.date: 02/12/2025
 ---
 
 # Deployment functions for Bicep
 
 This article describes the Bicep functions for getting values related to the current deployment.
+
+## deployer
+
+`deployer()`
+
+Returns the information about the current deployment principal.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Return value
+
+This function returns the information about the current deployment principal, including tenant ID and object ID.
+
+```json
+{
+  "objectId": "",
+  "tenantId": ""
+}
+```
+
+### Example
+
+The following example Bicep file returns the deployer object.
+
+```bicep
+output deployer object = deployer()
+```
+
+The preceding example returns the following object:
+
+```json
+{
+  "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+}
+```
 
 ## deployment
 

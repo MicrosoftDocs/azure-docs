@@ -94,6 +94,12 @@
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+  - name: Local emulator
+    items:
+    - name: Overview of Service Bus emulator
+      href: overview-emulator.md
+    - name: What's new with Service Bus emulator
+      href: service-bus-emulator-whats-new.md
   - name: Advanced features
     items:
     - name: Overview of advanced features
@@ -212,6 +218,8 @@
         href: service-bus-amqp-troubleshoot.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+    - name: Test locally with Service Bus emulator
+      href: test-locally-with-service-bus-emulator.md
   - name: Migrate
     items:
     - name: Migrate from ActiveMQ to Azure Service Bus
@@ -287,8 +295,6 @@
       href: transport-layer-security-configure-minimum-version.md
     - name: Audit minimum required TLS version
       href: transport-layer-security-audit-minimum-version.md
-    - name: Configure TLS version for client
-      href: transport-layer-security-configure-client-version.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide

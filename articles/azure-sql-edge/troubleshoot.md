@@ -63,7 +63,7 @@ If the SQL Edge container fails to run, try the following tests:
 - If you get an error such as `failed to create endpoint CONTAINER_NAME on network bridge. Error starting proxy: listen tcp 0.0.0.0:1433 bind: address already in use.`, you're attempting to map the container port 1433 to a port that is already in use. This can happen if you're running SQL Edge locally on the host machine. It can also happen if you start two SQL Edge containers and try to map them both to the same host port. If this happens, use the `-p` parameter to map the container port 1433 to a different host port. For example:
 
   ```bash
-  sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge-developer.
+  sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=<password>' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge-developer.
   ```
 
 - If you get an error such as `Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.30tdout=1&tail=all: dial unix /var/run/docker.sock: connect: permission denied` when trying to start a container, then add your user to the docker group in Ubuntu. Then sign out and sign back in again, as this change affects new sessions.

@@ -9,15 +9,15 @@ ms.service: azure-communication-services
 ## Prerequisites
 
 - An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) 13 or later and a valid developer certificate installed in your keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
+- A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) 13 or later, and a valid developer certificate installed in your keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md).
 
-## A complete sample
+## Get a complete sample
 
-You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-ios) from the GitHub.
+You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-ios) from GitHub.
 
-   :::image type="content" source="../../media/call-chat-ios-experience.gif" alt-text="animation to showcase the experience on iOS using call and chat in the same app.":::
+:::image type="content" source="../../media/call-chat-ios-experience.gif" alt-text="Animation to showcase the experience on iOS using call and chat in the same app.":::
 
 ## Set up the project
 
@@ -27,7 +27,7 @@ Complete the following sections to set up the quickstart project.
 
 In Xcode, create a new project:
 
-1. In the **File** menu, select **New** > **Project**.
+1. On the **File** menu, select **New** > **Project**.
 
 1. In **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
 
@@ -39,7 +39,7 @@ In Xcode, create a new project:
 
 ### Install the package and dependencies
 
-1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/HT211861) in Xcode.
+1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/HT211861) in Xcode.
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 
@@ -57,13 +57,13 @@ In Xcode, create a new project:
 
 1. Run `pod install --repo-update`.
 
-1. In Xcode, open the generated.xcworkspace* file.
+1. In Xcode, open the *generated.xcworkspace* file.
 
 ### Request access to device hardware
 
-To access the device's hardware, including the microphone, and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
+To access the device's hardware, including the microphone and camera, update your app's information property list. Set the associated value to a string that's included in the dialog that the system uses to request access from the user.
 
-1. Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines to the top level `<dict>` section, and then save the file.
+1. Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines to the top-level `<dict>` section, and then save the file.
 
    ```xml
    <key>NSCameraUsageDescription</key>
@@ -74,7 +74,7 @@ To access the device's hardware, including the microphone, and camera, update yo
 
    Here's an example of the `Info.plist` source code in an Xcode file:
 
-   :::image type="content" source="../../media/xcode-info-plist-source-code.png" alt-text="Screenshot that shows an example of the info plist source code in an Xcode file.":::
+   :::image type="content" source="../../media/xcode-info-plist-source-code.png" alt-text="Screenshot that shows example source code for the information property list in an Xcode file.":::
 
 1. To verify that device permission requests are added correctly, select **Open As** > **Property List**. Check that the information property list looks similar to the following example:
 
@@ -86,27 +86,28 @@ In the Xcode project, under **Build Settings**, set the **Enable Bitcode** optio
 
 :::image type="content" source="../../media/xcode-bitcode-option.png" alt-text="Screenshot that shows the Build Settings option to turn off Bitcode.":::
 
-### Download a Chat Icon
+### Download a Chat icon
 
-- Download an icon from [here](https://github.com/microsoft/fluentui-system-icons/blob/master/assets/Chat/SVG/ic_fluent_chat_24_regular.svg).
-- Open downloaded file and change `fill` to the `fill="#FFFFFF"`.
-- In the Xcode go to Assets. Create a new image set and name it ic_fluent_chat_24_regular. Select downloaded file as universal icon.
+1. Download an icon from the [GitHub repository](https://github.com/microsoft/fluentui-system-icons/blob/master/assets/Chat/SVG/ic_fluent_chat_24_regular.svg).
+1. Open the downloaded file and change `fill` to `fill="#FFFFFF"`.
+1. In Xcode, go to **Assets**. Create a new image set and name it **ic_fluent_chat_24_regular**. Select the downloaded file as the universal icon.
 
 ## Initialize the composite
 
-To initialize the composite:
+To initialize the composite, go to `ViewController` and update connection settings:
 
-- Go to `ViewController` and update connection settings:
-    - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
-    - Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
-    - Replace `DISPLAY_NAME` with your name.
-    - Replace `USER_ID` with ACS user ID.
-    - Replace `USER_ACCESS_TOKEN` with your token.
+- Replace `TEAM_MEETING_LINK` with the Teams meeting link.
+- Replace `ACS_ENDPOINT` with your Azure Communication Services resource's endpoint.
+- Replace `DISPLAY_NAME` with your name.
+- Replace `USER_ID` with your Azure Communication Services user ID.
+- Replace `USER_ACCESS_TOKEN` with your token.
 
-### Get a Teams meeting chat thread for a Communication Services user
-The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [joinWebUrl](/graph/api/resources/onlinemeeting) property
+### Get a Teams meeting chat thread for an Azure Communication Services user
 
-With the Graph APIs, you can also obtain the threadID. The response has a chatInfo object that contains the threadID.
+You can retrieve Teams meeting details by using Graph APIs, as described in the [Graph documentation](/graph/api/onlinemeeting-createorget). The Azure Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, which is accessible under the [joinWebUrl](/graph/api/resources/onlineMeeting) property.
+
+With the Graph APIs, you can also obtain the `threadID` value. The response has a `chatInfo` object that contains the `threadID` value.
+
 ```swift
 import UIKit
 import AzureCommunicationCalling

@@ -5,7 +5,7 @@ description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/26/2025
 ms.author: wellee
 
 ---
@@ -60,8 +60,6 @@ The steps to configure forced-tunneling are different, depending on the operatin
 
 1. Validate the version of your Azure VPN client is compatible with forced tunneling. To do this, click on the three dots at the bottom of the Azure VPN client, and click on Help. Alternatively, the keyboard short cut to navigate to Help is Ctrl-H. The version number can be found towards the top of the screen. Ensure your version number is **2:1900:39.0** or later.
 
-   :::image type="content" source="./media/virtual-wan-forced-tunnel/vpn-client-version.png"alt-text="Screenshot showing how to configure N V A private routing policies."lightbox="./media/virtual-wan-forced-tunnel/vpn-client-version.png":::
-
 1. Open the zip-file downloaded from the previous section. You should see a folder titled **AzureVPN**. Open the folder and open **azurevpnconfig.xml** in your favorite XML editing tool.
 
 1. In **azureconfig.xml**, there's a field called **version**. If the number between the version tags is **1**, change the **version** number to **2**.
@@ -74,7 +72,7 @@ The steps to configure forced-tunneling are different, depending on the operatin
 
 1. Connect to the newly added connection. You are now force-tunneling all traffic to Azure Virtual WAN.
 
-### MacOS clients
+### macOS clients
 
 Once a macOS client learns the default route from Azure, forced tunneling is automatically configured on the client device. There are no extra steps to take. For instructions on how to use the macOS Azure VPN client to connect to the Virtual WAN Point-to-site VPN gateway, see the [macOS Configuration Guide](openvpn-azure-ad-client-mac.md).
 
@@ -259,7 +257,7 @@ Below is a sample EAP XML file. Change the *TrustedRootCA* field to the thumbpri
                 <TLSExtensions xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">
                     <FilteringInfo xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV3">
                         <CAHashList Enabled="true">
-                            <IssuerHash> ROOT CERTIFCATE THUMBPRINT  </IssuerHash>
+                            <IssuerHash> ROOT CERTIFICATE THUMBPRINT  </IssuerHash>
                         </CAHashList>
                     </FilteringInfo>
                 </TLSExtensions>

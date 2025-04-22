@@ -181,5 +181,5 @@ Read more about [Large disk support in Azure Site Recovery](https://azure.micros
 
 - Supports only for VMware to Azure disaster recovery scenarios. For Hyper-V to Azure disaster recovery scenarios, use the [Hyper-V capacity planner tool](./hyper-v-deployment-planner-overview.md).
 - Doesn't support the GetThroughput operation for the US Government and China Microsoft Azure regions.
-- The tool cann't profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts.
+- The tool can't profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts.
 In this version, the tool skips profiling for duplicate VM names or IP addresses in the VMListFile. The workaround is to profile the VMs by using an ESXi host instead of the vCenter server. Ensure to run one instance for each ESXi host.

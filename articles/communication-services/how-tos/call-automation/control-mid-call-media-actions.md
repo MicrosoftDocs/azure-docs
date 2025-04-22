@@ -328,7 +328,7 @@ if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneFailed":
 ```
 -----
 
-### ContinuousDtmfRecogntionStopped Event
+### ContinuousDtmfRecognitionStopped Event
 Example of how to handle when continuous DTMF recognition has stopped, this could be because your application invoked the `StopContinuousDtmfRecognitionAsync` event or because the call has ended.
 ### [csharp](#tab/csharp)
 ``` csharp
@@ -353,7 +353,7 @@ if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionStopped") {
 ### [Python](#tab/python)
 ```python
 if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionStopped":
-    app.logger.info("Tone stoped: context=%s", event.data["operationContext"])
+    app.logger.info("Tone stopped: context=%s", event.data["operationContext"])
 ```
 -----
 
@@ -493,3 +493,15 @@ Audio streaming allows you to subscribe to real-time audio streams from an ongoi
 
 ### Real-time transcription (public preview)
 Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see [this page](real-time-transcription-tutorial.md).
+
+## Media Action Compatibility Table
+The following table illustrates the what media operations are allowed to run/queue if a previous operation is still running/queued.
+
+| Existing Operation | Call Leg	| Allowed | Disallowed |
+| -- | -- | -- | -- |
+| PlayToAll | Main | PlayToAll, Recognize(Non-Group Call), PlayTo, Recognize(Group Call), SendDTMF, StartContinuousDtmfRecognition | None |
+| Recognize(Non-Group Call) | Main | PlayToAll, Recognize(Non-Group Call), PlayTo, Recognize(Group Call), SendDTMF, StartContinuousDtmfRecognition | None |
+| PlayTo | Sub | PlayToAll, Recognize(Non-Group Call) | PlayTo, Recognize(Group Call), SendDTMF, StartContinuousDtmfRecognition |
+| Recognize(Group Call)	| Sub | PlayToAll, Recognize(Non-Group Call) | PlayTo, Recognize(Group Call), SendDTMF, StartContinuousDtmfRecognition |
+| SendDTMF | Sub | PlayToAll, Recognize(Non-Group Call) | PlayTo, Recognize(Group Call), SendDTMF, StartContinuousDtmfRecognition |
+| StartContinuousDtmfRecognition | Sub | PlayToAll, Recognize(Non-Group Call),PlayTo, Recognize(Group Call), SendDTMF, StartContinuousDtmfRecognition | None |

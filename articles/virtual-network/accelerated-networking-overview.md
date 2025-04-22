@@ -47,7 +47,7 @@ Accelerated Networking has the following benefits:
 
 - You can't deploy virtual machines (classic) with Accelerated Networking through Azure Resource Manager.
 
-- The Azure platform does not update the Mellanox NIC drivers in the VM. For VMs running Linux and FreeBSD, customers are encouraged to stay current with the latest kernel updates offered by the distribution. For VMs running Windows, customers should apply updated drivers from the Nvidia support page if any issues are later encountered with the driver delivered with the Marketplace image or applied to a custom image.
+- The Azure platform does not update the Mellanox NIC drivers in the VM. For VMs running Linux and FreeBSD, customers are encouraged to stay current with the latest kernel updates offered by the distribution. For VMs running Windows, customers should apply updated drivers from the NVIDIA support page if any issues are later encountered with the driver delivered with the Marketplace image or applied to a custom image.
 
 ### Supported regions
 
@@ -77,6 +77,7 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)
 - Oracle Linux 7.5 and later with UEK version 5
 - FreeBSD 10.4, 11.1, 12.0, or later
+- Flatcar Container Linux 3510 or later
 
 ### Supported VM instances
 
@@ -118,12 +119,11 @@ Accelerated Networking requires network configurations that mark the NVIDIA driv
 The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
 
 ```bash
-sudo mkdir -p /etc/NetworkManager/conf.d
-sudo cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF
-# Ignore SR-IOV interface on Azure, since it's transparently bonded
-# to the synthetic interface
-[keyfile]
-unmanaged-devices=driver:mlx4_core;driver:mlx5_core
+sudo cat <<EOF > /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+# Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+# This interface is transparentlybonded to the synthetic interface,
+# so NetworkManager should just ignore any SRIOV interfaces.
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
 EOF
 ```
 

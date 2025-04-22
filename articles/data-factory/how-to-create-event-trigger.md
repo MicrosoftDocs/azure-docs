@@ -6,9 +6,9 @@ ms.subservice: orchestration
 ms.custom: synapse
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 05/24/2024
+ms.date: 02/13/2025
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event
@@ -50,10 +50,10 @@ This section shows you how to create a storage event trigger within the Azure Da
 
 1. Select your storage account from the Azure subscription dropdown list or manually by using its storage account resource ID. Choose the container on which you want the events to occur. Container selection is required, but selecting all containers can lead to a large number of events.
 
-1. The `Blob path begins with` and `Blob path begins with` properties allow you to specify the containers, folders, and blob names for which you want to receive events. Your storage event trigger requires at least one of these properties to be defined. You can use various patterns for both `Blob path begins with` and `Blob path begins with` properties, as shown in the examples later in this article.
+1. The `Blob path begins with` and `Blob path ends with` properties allow you to specify the containers, folders, and blob names for which you want to receive events. Your storage event trigger requires at least one of these properties to be defined. You can use various patterns for both `Blob path begins with` and `Blob path ends with` properties, as shown in the examples later in this article.
 
     * `Blob path begins with`: The blob path must start with a folder path. Valid values include `2018/` and `2018/april/shoes.csv`. This field can't be selected if a container isn't selected.
-    * `Blob path begins with`: The blob path must end with a file name or extension. Valid values include `shoes.csv` and `.csv`. Container and folder names, when specified, must be separated by a `/blobs/` segment. For example, a container named `orders` can have a value of `/orders/blobs/2018/april/shoes.csv`. To specify a folder in any container, omit the leading `/` character. For example, `april/shoes.csv` triggers an event on any file named `shoes.csv` in a folder called `april` in any container.
+    * `Blob path ends with`: The blob path must end with a file name or extension. Valid values include `shoes.csv` and `.csv`. Container and folder names, when specified, must be separated by a `/blobs/` segment. For example, a container named `orders` can have a value of `/orders/blobs/2018/april/shoes.csv`. To specify a folder in any container, omit the leading `/` character. For example, `april/shoes.csv` triggers an event on any file named `shoes.csv` in a folder called `april` in any container.
    
     Note that `Blob path begins with` and `Blob path ends with` are the only pattern matching allowed in a storage event trigger. Other types of wildcard matching aren't supported for the trigger type.
 
@@ -154,5 +154,5 @@ Three noticeable callouts in the workflow are related to event triggering pipeli
 
 ## Related content
 
-* For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+* For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-types).
 * To reference trigger metadata in a pipeline, see [Reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

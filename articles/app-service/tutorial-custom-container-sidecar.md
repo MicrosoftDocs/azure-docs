@@ -1,43 +1,43 @@
 ---
-title: 'Tutorial: Configure a sidecar container'
+title: 'Tutorial: Configure a sidecar for a custom container app'
 description: Add sidecar containers to your custom container in Azure App Service. Add or update services to your application without changing your application container.
 ms.topic: tutorial
 ms.date: 04/07/2024
-ms.author: msangapu
-author: msangapu-msft
+ms.author: cephalin
+author: cephalin
 keywords: azure app service, web app, linux, windows, docker, container, sidecar
 ---
 
-# Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)
+# Tutorial: Configure a sidecar container for custom container in Azure App Service
 
-In this tutorial, you add OpenTelemetry collector as a sidecar container to a Linux custom container app in Azure App Service. 
+In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux custom container app in Azure App Service. For bring-your-own-code Linux apps, see [Tutorial: Configure a sidecar container for a Linux app in Azure App Service](tutorial-sidecar.md).
 
-In Azure App Service, you can add up to 4 sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
+In Azure App Service, you can add up to nine sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
-For more information about sidecars, see [Sidecar pattern](/azure/architecture/patterns/sidecar).
+For more information about side container in App Service, see:
 
-> [!NOTE]
-> For the preview period, sidecar support must be enabled at app creation. There's currently no way to enable sidecar support for an existing app.
+- [Introducing Sidecars for Azure App Service for Linux: Now Generally Available](https://azure.github.io/AppService/2024/11/08/Global-Availability-Sidecars.html)
+- [Announcing the general availability of sidecar extensibility in Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-general-availability-of-sidecar-extensibility-in-azure-app-servic/4267985)
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## 1. Set up the needed resources
 
-First you create the resources that the tutorial uses (for more information, see [Cloud Shell Overview](../cloud-shell/overview.md)). They're used for this particular scenario and aren't required for sidecar containers in general.
+First you create the resources that the tutorial uses. They're used for this particular scenario and aren't required for sidecar containers in general.
 
 1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands:
 
     ```azurecli-interactive
     git clone https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs
     cd app-service-sidecar-tutorial-prereqs
+    azd env new my-sidecar-env
     azd provision
     ```
 
-1. When prompted, supply the environment name, subscription, and region you want. For example:
+1. When prompted, supply the subscription and region you want. For example:
 
-    - Environment name: *my-sidecar-env*
-    - Subscription: your subscription
-    - Region: *(Europe) West Europe*
+    - Subscription: Your subscription.
+    - Region: *(Europe) West Europe*.
 
     When deployment completes, you should see the following output:
 
@@ -52,7 +52,7 @@ First you create the resources that the tutorial uses (for more information, see
     > [!NOTE]
     > `azd provision` uses the included templates to create the following Azure resources:
     > 
-    > - A resource group
+    > - A resource group called *my-sidecar-env_group*.
     > - A [container registry](/azure/container-registry/container-registry-intro) with two images deployed:
     >     - An Nginx image with the OpenTelemetry module.
     >     - An OpenTelemetry collector image, configured to export to [Azure Monitor](/azure/azure-monitor/overview).
@@ -108,9 +108,6 @@ In this section, you add a sidecar container to your custom container app.
     - **Registry**: The registry created by `azd provision`
     - **Image**: **otel-collector**
     - **Tag**: **latest**
-    - **Port**: **4317**
-
-    Port 4317 is the default port used by the sample container to receive OpenTelemetry data. It's accessible from any other container in the app at `localhost:4317`. This is exactly how the Nginx container sends data to the sidecar (see the [OpenTelemetry module configuration for the sample Nginx image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/nginx/opentelemetry_module.conf)).
 
 1. Select **Apply**.
 
@@ -124,13 +121,13 @@ For the sample scenario, the otel-collector sidecar is configured to export the 
 
 You configure environment variables for the containers like any App Service app, by configuring [app settings](configure-common.md#configure-app-settings). The app settings are accessible to all the containers in the app.
 
-1. In the app's management page, from the left menu, select **Configuration**.
+1. In the app's management page, from the left menu, select **Environment variables**.
 
-1. Add an app setting by selecting **New application setting** and configure it as follows:
+1. Add an app setting by selecting **Add** and configure it as follows:
     - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
-    - **Value**: The connection string in the output of `azd provision`
+    - **Value**: The connection string in the output of `azd provision`. If you lost the Cloud Shell session, you can also find it in the **Overview** page of the Application Insight resource, under **Connection String**.
 
-1. Select **Save**, then select **Continue**.
+1. Select **Apply**, then **Apply**, then **Confirm**.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
@@ -142,7 +139,7 @@ You configure environment variables for the containers like any App Service app,
 The otel-collector sidecar should export data to Application Insights now.
 
 1. Back in the browser tab for `https://<app-name>.azurewebsites.net`, refresh the page a few times to generate some web requests.
-1. Go back to the resource group overview page, select the Application Insights resource. You should now see some data in the default charts.
+1. Go back to the resource group overview page, then select the Application Insights resource. You should now see some data in the default charts.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/app-insights-view.png" alt-text="Screenshot of the Application Insights page showing data in the default charts.":::
 
@@ -157,6 +154,12 @@ When you no longer need the environment, you can delete the resource group, App 
 azd down
 ```
 
+## How do sidecar containers handle internal communication?
+
+Sidecar containers share the same network host as the main container, so the main container (and other sidecar containers) can reach any port on the sidecar with `localhost:<port>`. This is exactly how the Nginx container sends data to the sidecar (see the [OpenTelemetry module configuration for the sample Nginx image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/nginx/opentelemetry_module.conf)).
+
+In the **Edit container** dialog, the **Port** box isn't currently used by App Service. You can use it as part of the sidecar metadata, such as to indicate which port the sidecar is listening to.
+
 ## Differences for sidecar-enabled apps
 
 You configure sidecar-enabled apps differently than apps that aren't sidecar-enabled. Specifically, you don't configure the main container and sidecars with app settings, but directly in the resource properties. These app settings don't apply for sidecar-enabled apps:
@@ -167,5 +170,6 @@ You configure sidecar-enabled apps differently than apps that aren't sidecar-ena
 ## More resources
 
 - [Configure custom container](configure-custom-container.md)
+- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
 - [Deploy custom containers with GitHub Actions](deploy-container-github-action.md)
 - [OpenTelemetry](https://opentelemetry.io/)

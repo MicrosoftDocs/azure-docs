@@ -42,9 +42,6 @@ The systems listed in the following tables are supported by Microsoft, either ge
 | Ubuntu Server 22.04 | ![Ubuntu Server 22.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 22.04 + ARM64](./media/support/green-check.png) |
 
 
-> [!NOTE]
-> [Standard support for Ubuntu 18.04 LTS ends on May 31st, 2023](https://ubuntu.com/blog/18-04-end-of-standard-support). Beginning June 2023, Ubuntu 18.04 LTS won't be a supported platform. Ubuntu 18.04 LTS Device Update packages are available until Nov 30th, 2023. If you take no action, Ubuntu 18.04 LTS based Device Update devices continue to work but ongoing security patches and bug fixes in the host packages for Ubuntu 18.04 won't be available after Nov 30th, 2023. To continue to receive support and security updates, we recommend that you update your host OS to a supported platform. 
-
 ## Releases and Support
 
 Device Update for IoT Hub release assets and release notes are available on the [Device Update Release](https://github.com/Azure/iot-hub-device-update/releases) page. Support for the APIs, PnP Models, and device update reference agents is covered in the table. 

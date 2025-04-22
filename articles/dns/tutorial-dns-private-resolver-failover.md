@@ -17,7 +17,7 @@ This article details how to eliminate a single point of failure in your on-premi
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Resolve Azure Private DNS zones using on-premises conditional fowarders and Azure DNS private resolvers.
+> * Resolve Azure Private DNS zones using on-premises conditional forwarders and Azure DNS private resolvers.
 > * Enable on-premises DNS failover for your Azure Private DNS zones.
 
 The following diagram shows the failover scenario discussed in this article.

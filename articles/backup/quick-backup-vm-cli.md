@@ -3,11 +3,11 @@ title: Quickstart - Back up a VM with Azure CLI
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on a VM, and create the initial recovery point with Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/05/2022
+ms.date: 01/30/2025
 ms.custom: mvc, devx-track-azurecli, mode-api
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up a virtual machine in Azure with the Azure CLI
@@ -83,7 +83,7 @@ AZ_KEYVAULT_RGROUP=TestKeyVaultRG
 AZ_KEYVAULT_NAME=TestKeyVault
 
 # Get the object id for the Backup Management Service on your subscription
-AZ_ABM_OBJECT_ID=$( az ad sp list --display-name "Backup Management Service" --query '[].objectId' -o tsv --only-show-errors )
+AZ_ABM_OBJECT_ID=$( ad sp list --display-name "Backup Management Service" --query '[].id' -o tsv --only-show-errors )
 
 # This command will grant the permissions required by the Backup Management Service to access the key vault
 az keyvault set-policy --key-permissions get list backup --secret-permissions get list backup \
@@ -159,4 +159,5 @@ az group delete --name myResourceGroup
 In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md)

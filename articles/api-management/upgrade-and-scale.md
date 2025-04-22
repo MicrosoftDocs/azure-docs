@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 # Upgrade and scale an Azure API Management instance  
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 Customers can scale an Azure API Management instance in a dedicated service tier by adding and removing units. A **unit** is composed of dedicated Azure resources and has a certain load-bearing capacity expressed as a number of API calls per second. This number doesn't represent a call limit, but rather an estimated maximum throughput value to allow for rough capacity planning. Actual throughput and latency vary broadly depending on factors such as number and rate of concurrent connections, the kind and number of configured policies, request and response sizes, and backend latency.
 
@@ -36,11 +36,11 @@ To follow the steps from this article, you must:
 
 ## Upgrade and scale  
 
-You can choose between the following dedicated tiers: **Developer**, **Basic**, **Basic v2**, **Standard**, **Standard v2**, and **Premium**. 
+You can choose between the following dedicated tiers: **Developer**, **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2**. 
 
 * The **Developer** tier should be used to evaluate the service; it shouldn't be used for production. The **Developer** tier doesn't have SLA and you can't scale this tier (add/remove units). 
 
-* **Basic**, **Basic v2**, **Standard**, **Standard v2**, and **Premium** are production tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
+* **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2** (limited preview) are tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
 
 * The **Premium** tier enables you to distribute a single Azure API Management instance across any number of desired Azure regions. When you initially create an Azure API Management service, the instance contains only one unit and resides in a single Azure region (the **primary** region).
 
@@ -49,7 +49,7 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 * You can upgrade and downgrade to and from certain dedicated services tiers: 
     * You can upgrade and downgrade to and from classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**).
     
-    * You can upgrade and downgrade to and from v2 tiers (**Basic v2** and **Standard v2**). 
+    * You can upgrade and downgrade to and from the **Basic v2** and **Standard v2** tiers. 
 
     Downgrading can remove some features. For example, downgrading to **Standard** or **Basic** from the **Premium** tier can remove virtual networks or multi-region deployment.
 
@@ -108,4 +108,4 @@ If your security requirements include [compute isolation](../azure-government/az
 - [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 - [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
 - [Plan and manage costs for API Management](plan-manage-costs.md)
-- [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)
+- [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-api-management-limits)

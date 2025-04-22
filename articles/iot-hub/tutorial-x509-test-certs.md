@@ -2,13 +2,13 @@
 title: Tutorial - Create and upload certificates for testing
 titleSuffix: Azure IoT Hub
 description: Tutorial - Create a root certificate authority and use it to create subordinate CA and client certificates that you can use for testing purposes with Azure IoT Hub.
-author: kgremban
+author: SoniaLopezBravo
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 04/10/2024
-ms.author: kgremban
+ms.date: 03/27/2025
+ms.author: sonialopez
 ms.custom: [mvc, 'Role: Cloud Development']
 #Customer intent: As a developer, I want to create and use X.509 certificates to authenticate my devices on an IoT hub for testing purposes. 
 ---
@@ -17,10 +17,10 @@ ms.custom: [mvc, 'Role: Cloud Development']
 
 You can use X.509 certificates to authenticate devices to your IoT hub. For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services vendor. You can then issue certificates within your organization from an internal, self-managed certificate authority (CA) chained to the purchased CA certificate as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a professional certificate services vendor, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
 
-However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. A self-managed private CA with at least one subordinate CA chained to your internal root CA, with client certificates for your devices that are signed by your subordinate CAs, allows you to simulate a recommended production environment.
+However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. A self-managed private CA with at least one subordinate CA chained to your internal root CA, with client certificates for your devices signed by your subordinate CAs, allows you to simulate a recommended production environment.
 
 >[!IMPORTANT]
->We do not recommend the use of self-signed certificates for production environments. This tutorial is presented for demonstration purposes only.
+>We don't recommend the use of self-signed certificates for production environments. This tutorial is presented for demonstration purposes only.
 
 The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to describe how to accomplish the following tasks:
 
@@ -44,7 +44,7 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 * An [OpenSSL](https://www.openssl.org/) installation. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
   > [!NOTE]
-  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
+  > Unless you're familiar with OpenSSL and it's already installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL prebuilt from a non-Microsoft partner. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL, make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ## Create a root CA
 
@@ -165,7 +165,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
 1. In the Git Bash window, run the following command to generate a certificate signing request (CSR) in the `rootca` directory and a private key in the `rootca/private` directory. For more information about the OpenSSL `req` command, see the [openssl-req](https://www.openssl.org/docs/man3.1/man1/openssl-req.html) manual page in OpenSSL documentation.
 
     > [!NOTE]
-    > Even though this root CA is for testing purposes and won't be exposed as part of a public key infrastructure (PKI), we recommend that you do not copy or share the private key.
+    > We recommend that you don't copy or share the private key even though this root CA is for testing purposes and isn't exposed as part of a public key infrastructure (PKI).
 
     # [Windows](#tab/windows)
 
@@ -189,7 +189,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     -----
     ```
     
-    Confirm that the CSR file, `rootca.csr`, is present in the `rootca` directory and the private key file, `rootca.key`, is present in the `private` subdirectory before continuing.
+    Confirm that the CSR file, `rootca.csr`, is present in the `rootca` directory. Then, confirm that the private key file, `rootca.key`, is present in the `private` subdirectory before continuing.
 
 1. In the Git Bash window, run the following command to create a self-signed root CA certificate. The command applies the `ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). For more information about the OpenSSL `ca` command, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in OpenSSL documentation.
 
@@ -222,14 +222,14 @@ You must first create an internal root certificate authority (CA) and a self-sig
 
     1 out of 1 certificate requests certified, commit? [y/n]
     Write out database with 1 new entries
-    Data Base Updated
+    Database updated
     ```
     
     After OpenSSL updates the certificate database, confirm that both the certificate file, `rootca.crt`, is present in the `rootca` directory and the PEM certificate (.pem) file for the certificate is present in the `rootca/certs` directory. The file name of the .pem file matches the serial number of the root CA certificate.
 
 ## Create a subordinate CA
 
-After you've created your internal root CA, you should create a subordinate CA to use as an *intermediate CA* with which to sign client certificates for your devices. In theory, you don't need to create a subordinate CA; you can upload your root CA certificate to your IoT hub and sign client certificates directly from your root CA. However, using a subordinate CA as an intermediate CA to sign client certificates more closely simulates a recommended production environment, in which your root CA is kept offline. You can also use a subordinate CA to sign another subordinate CA, which in turn can sign another subordinate CA, and so on. Using subordinate CAs to sign other subordinate CAs creates a hierarchy of intermediate CAs as part of a *certificate chain of trust.* In a production environment, the certificate chain of trust allows a delegation of trust towards signing devices. For more information about signing devices into a certificate chain of trust, see [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust).
+After you create your internal root CA, you should create a subordinate CA to use as an *intermediate CA* with which to sign client certificates for your devices. In theory, you don't need to create a subordinate CA; you can upload your root CA certificate to your IoT hub and sign client certificates directly from your root CA. However, using a subordinate CA as an intermediate CA to sign client certificates more closely simulates a recommended production environment, in which your root CA is kept offline. You can also use a subordinate CA to sign another subordinate CA, which in turn can sign another subordinate CA, and so on. Using subordinate CAs to sign other subordinate CAs creates a hierarchy of intermediate CAs as part of a *certificate chain of trust.* In a production environment, the certificate chain of trust allows a delegation of trust towards signing devices. For more information about signing devices into a certificate chain of trust, see [Authenticate identities with X.509 certificates](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust).
 
 Similar to your root CA, the files used to create and maintain your subordinate CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
 
@@ -246,7 +246,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 
 1. In the Git Bash window, run the following commands, one at a time.
     
-    This step creates a directory structure and support files for the subordinate CA similar to the folder structure and files created for the root CA in the previous section.
+    This step creates a directory structure and support files for the subordinate CA that is similar to the folder structure and files created for the root CA in the previous section.
 
     ```bash
     mkdir subca
@@ -262,7 +262,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     
     As with the configuration file for your test root CA, this file provides OpenSSL with the values needed to configure your test subordinate CA. You can create multiple subordinate CAs, for managing testing scenarios or environments.
 
-    For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) master manual page in OpenSSL documentation.
+    For more information about the syntax of OpenSSL configuration files, see the [config](https://docs.openssl.org/master/man5/config/) master manual page in OpenSSL documentation.
 
     ```bash
     [default]
@@ -354,7 +354,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     -----
     ```
     
-    Confirm that the CSR file `subca.csr` is present in the subordinate CA directory and the private key file `subca.key` is present in the `private` subdirectory before continuing.
+    Confirm that the CSR file `subca.csr` is present in the subordinate CA directory. Then, confirm that the private key file `subca.key` is present in the `private` subdirectory before continuing.
 
 1. In the Git Bash window, run the following command to create a subordinate CA certificate in the subordinate CA directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate chain similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
 
@@ -387,10 +387,10 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 
     1 out of 1 certificate requests certified, commit? [y/n]
     Write out database with 1 new entries
-    Data Base Updated
+    Database updated
     ```
     
-    After OpenSSL updates the certificate database, confirm that the certificate file `subca.crt` is present in the subordinate CA directory and that the PEM certificate (.pem) file for the certificate is present in the `rootca/certs` directory. The file name of the .pem file matches the serial number of the subordinate CA certificate.
+    After OpenSSL updates the certificate database, confirm that the certificate file `subca.crt` is present in the subordinate CA directory. Then, confirm that the PEM certificate (.pem) file for the certificate is present in the `rootca/certs` directory. The file name of the .pem file matches the serial number of the subordinate CA certificate.
 
 ## Register your subordinate CA certificate to your IoT hub
 
@@ -414,7 +414,7 @@ Your uploaded subordinate CA certificate is shown with its status set to **Verif
 
 ## Create a client certificate for a device
 
-After you've created your subordinate CA, you can create client certificates for your devices. The files and folders created for your subordinate CA are used to store the CSR, private key, and certificate files for your client certificates. 
+After you created your subordinate CA, you can create client certificates for your devices. The files and folders created for your subordinate CA are used to store the CSR, private key, and certificate files for your client certificates. 
 
 The client certificate must have the value of its Subject Common Name (CN) field set to the value of the device ID that is used when registering the corresponding device in Azure IoT Hub.
 
@@ -469,7 +469,7 @@ Perform the following steps to:
     
     ```
 
-    Confirm that the CSR file is present in the subordinate CA directory and the private key file is present in the `private` subdirectory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    Confirm that the CSR file is present in the subordinate CA directory. Then, confirm that the private key file is present in the `private` subdirectory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
 1. In the Git Bash window, run the following command, replacing the device name placeholders with the same name you used in the previous steps.
 
@@ -504,13 +504,13 @@ Perform the following steps to:
 
     1 out of 1 certificate requests certified, commit? [y/n]
     Write out database with 1 new entries
-    Data Base Updated
+    Database updated
     ```
 
-    After OpenSSL updates the certificate database, confirm that the certificate file for the client certificate is present in the subordinate CA directory and that the PEM certificate (.pem) file for the client certificate is present in the *certs* subdirectory of the subordinate CA directory. The file name of the .pem file matches the serial number of the client certificate.
+    After OpenSSL updates the certificate database, confirm that the certificate file for the client certificate is present in the subordinate CA directory. Then, confirm that the PEM certificate (.pem) file for the client certificate is present in the *certs* subdirectory of the subordinate CA directory. The file name of the .pem file matches the serial number of the client certificate.
 
 ## Next steps
 
-You can register your device with your IoT hub for testing the client certificate that you've created for that device. For more information about registering a device, see [Create and manage device identities](create-connect-device.md).
+You can register your device with your IoT hub for testing the client certificate that you created for that device. For more information about registering a device, see [Create and manage device identities](create-connect-device.md).
 
 If you have multiple related devices to test, you can use the Azure IoT Hub Device Provisioning Service to provision multiple devices in an enrollment group. For more information about using enrollment groups in the Device Provisioning Service, see [Tutorial: Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).

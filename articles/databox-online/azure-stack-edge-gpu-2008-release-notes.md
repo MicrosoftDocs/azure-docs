@@ -4,7 +4,7 @@ description: Describes critical open issues and resolutions for the Azure Stack 
 services: databox
 author: alkohli
  
-ms.service: azure-data-box-gateway
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/05/2021
 ms.author: alkohli

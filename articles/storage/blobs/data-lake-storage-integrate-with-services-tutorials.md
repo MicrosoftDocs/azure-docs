@@ -6,7 +6,7 @@ author: normesta
 
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 03/07/2023
+ms.date: 11/18/2024
 ms.service: azure-data-lake-storage
 ---
 

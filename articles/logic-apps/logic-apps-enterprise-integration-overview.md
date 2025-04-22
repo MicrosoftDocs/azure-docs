@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: overview
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 ---
 
 # B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack
@@ -33,7 +33,7 @@ Although organizations use different protocols and formats for B2B communication
 
 * B2B artifacts, such as [trading partners](logic-apps-enterprise-integration-partners.md), [agreements](logic-apps-enterprise-integration-agreements.md), [maps](logic-apps-enterprise-integration-maps.md), [schemas](logic-apps-enterprise-integration-schemas.md), [certificates](logic-apps-enterprise-integration-certificates.md), and so on.
 
-* To create maps and schemas, you can use Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools). For Visual Studio 2015, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas). The extension is currently unavailable for Visual Studio 2022.
+* To create maps and schemas, you can use Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools). The extension is currently unavailable for Visual Studio 2022.
 
    > [!NOTE]
    > Don't install this extension alongside the BizTalk Server extension. Having both extensions might 
@@ -51,7 +51,7 @@ Although organizations use different protocols and formats for B2B communication
 
       Visual Studio downloads and installs the extension.
 
-* To create, manage, and deploy logic app resources, you can use the Azure portal, [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [PowerShell](/powershell/module/az.logicapp).
+* To create, manage, and deploy logic app resources, you can use the Azure portal, [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), or [PowerShell](/powershell/module/az.logicapp).
 
 After you create an integration account and add your artifacts, you can start building B2B workflows by creating a logic app resource.
 

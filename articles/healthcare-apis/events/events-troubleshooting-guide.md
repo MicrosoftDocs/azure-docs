@@ -6,18 +6,15 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: troubleshooting
-ms.date: 07/12/2023
+ms.date: 11/26/2024
 ms.author: chrupa
 ---
 # Troubleshoot events
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 This article provides resources to troubleshoot events.
 
 > [!IMPORTANT]
-> FHIR resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The event feature doesn't send messages on past FHIR resource or DICOM image changes or when the feature is turned off.
+> The Events feature must be turned on for FHIR&reg; resource and DICOM&reg; image change data to be written, and event messages sent. The event feature doesn't send messages on past FHIR resource or DICOM image changes, or when the feature is turned off.
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
 
@@ -42,21 +39,21 @@ This article provides resources to troubleshoot events.
 
 ### Events message structures
 
-Use this resource to learn about the events message structures, required and nonrequired elements, and see sample Events messages: 
+Use the following resource to learn about the events message structures, required and nonrequired elements, and to see sample Events messages.
 * [Events message structures](events-message-structure.md)
 
 ### How to's
 
-Use this resource to learn how to deploy events in the Azure portal: 
+Use the following resource to learn how to deploy events in the Azure portal.
 * [Deploy events by using the Azure portal](events-deploy-portal.md)
 
 > [!IMPORTANT]
-> The event subscription requires access to the endpoint you chose to send events messages to. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).
+> The event subscription requires access to the endpoint you chose to receive events messages. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).
 
-Use this resource to learn how to use events metrics: 
+Use the following resource to learn how to use events metrics.
 * [How to use events metrics](events-display-metrics.md)
 
-Use this resource to learn how to enable diagnostic settings for events: 
+Use the following resource to learn how to enable diagnostic settings for events.
 * [How to enable diagnostic settings for events](events-export-logs-metrics.md)
 
 ## Contact support
@@ -71,4 +68,4 @@ To learn about the frequently asked questions (FAQs) about events, see
 > [!div class="nextstepaction"]
 > [Frequently asked questions about events](events-faqs.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

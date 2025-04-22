@@ -20,7 +20,7 @@ This article describes how to configure Microsoft Sentinel for using Azure Funct
 > [!NOTE]
 > - Once ingested in to Microsoft Sentinel, data is stored in the geographic location of the workspace in which you're running Microsoft Sentinel.
 >
->     For long-term retention, you may also want to store data in log types such as *Auxiliary logs* or *Basic logs*. For more information, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+>     For long-term retention, you may also want to store data in log types such as *Auxiliary logs*. For more information, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 >
 > - Using Azure Functions to ingest data into Microsoft Sentinel may result in additional data ingestion costs. For more information, see the [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/) page.
 
@@ -45,7 +45,7 @@ Make sure that you have the following permissions and credentials before using A
 > [!NOTE]
 > - You can securely store workspace and API authorization keys or tokens in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
 >
-> - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. See the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
+> - Some data connectors depend on a parser based on a [Kusto Function](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) to work as expected. See the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
 
 
 ### Step 1: Get your source system's API credentials

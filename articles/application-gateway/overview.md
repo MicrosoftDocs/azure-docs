@@ -62,7 +62,7 @@ For Application Gateway SLA information, see [Application Gateway SLA](https://a
 
 ## What's new
 
-To learn what's new with Azure Application Gateway, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway).
+To learn what's new with Azure Application Gateway, see [Azure updates](https://azure.microsoft.com/updates?filters=%5B%22Application+Gateway%22%5D).
 
 ## Next steps
 

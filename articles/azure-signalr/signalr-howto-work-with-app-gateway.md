@@ -24,6 +24,8 @@ This article contains two parts,
 
 :::image type="content" source="./media/signalr-howto-work-with-app-gateway/architecture.png" alt-text="Diagram that shows the architecture of using SignalR Service with Application Gateway.":::
 
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 ## Set up and configure Application Gateway
 
 ### Create a SignalR Service instance
@@ -51,8 +53,6 @@ Create from the portal an Application Gateway instance **_AG1_**:
 
   - Accept the default values for the other settings and then select **Next: Frontends**
 
-  :::image type="content" source="./media/signalr-howto-work-with-app-gateway/basics.png" alt-text="Screenshot of creating Application Gateway instance with Basics tab.":::
-
 - On the **Frontends** tab:
 
   - **Frontend IP address type**: **Public**.
@@ -76,7 +76,7 @@ Create from the portal an Application Gateway instance **_AG1_**:
     - **Listener name**: Enter _myListener_ for the name of the listener.
     - **Frontend IP**: Select **Public** to choose the public IP you created for the frontend.
     - **Protocol**: HTTP
-      - We use the HTTP frontend protocol on Application Gateway in this article to simplify the demo and help you get started easier. But in reality, you may need to enable HTTPs and Customer Domain on it with production scenario.
+      - We use the HTTP frontend protocol on Application Gateway in this article to simplify the demo and help you get started easier. But in reality, you may need to enable HTTPS and Customer Domain on it with production scenario.
     - Accept the default values for the other settings on the **Listener** tab
     :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-create-rule-listener.png" alt-text="Screenshot of setting up the application gateway routing rule listener tab for the SignalR Service.":::
   - On the **Backend targets** tab, use the following values:
@@ -141,6 +141,8 @@ When **_AG1_** is created, go to **Health probes** tab under **Settings** sectio
 
 Now, the traffic can reach SignalR Service through the Application Gateway. The customer could use the Application Gateway public IP address or custom domain name to access the resource. Let’s use [this chat application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
 
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 - First let's get the connection string of **_ASRS1_**
 
   - On the **Connection strings** tab of **_ASRS1_**
@@ -155,7 +157,7 @@ Now, the traffic can reach SignalR Service through the Application Gateway. The 
   ```bash
   cd samples/Chatroom
   dotnet restore
-  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-onnection-string-with-client-endpoint>"
+  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-connection-string-with-client-endpoint>"
   dotnet run
   ```
 
@@ -196,9 +198,7 @@ Let's configure SignalR Service to only allow private access. You can find more 
       - Select **Next: DNS**
     - On **DNS** tab
       - **Integration with private DNS zone**: **Yes**
-    - Review and create the private endpoint
-
-  :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-setup-private-endpoint.png" alt-text="Screenshot of setting up the private endpoint resource for the SignalR Service.":::  
+    - Review and create the private endpoint  
 
 
 ### Refresh Application Gateway backend pool
@@ -297,7 +297,7 @@ Now the web app is deployed, let's go to the portal for **_WA1_** and make the f
 
 - On the **TLS/SSL settings** tab:
 
-  - **HTTPS Only**: **Off**. To Simplify the demo, we used the HTTP frontend protocol on Application Gateway. Therefore, we need to turn off this option to avoid changing the HTTP URL to HTTPs automatically.
+  - **HTTPS Only**: **Off**. To Simplify the demo, we used the HTTP frontend protocol on Application Gateway. Therefore, we need to turn off this option to avoid changing the HTTP URL to HTTPS automatically.
 
 - Go to the **Overview** tab and get the URL of **_WA1_**.
 - Get the URL, and replace scheme https with http, for example, `http://wa1.azurewebsites.net`, open the URL in the browser, now you can start chatting! Use F12 to open network traces, and you can see the SignalR connection is established through **_AG1_**.

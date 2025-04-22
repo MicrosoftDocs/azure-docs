@@ -3,7 +3,7 @@ title: Support requirements for Azure Site Recovery replication appliance
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: azure-site-recovery
 ms.topic: faq
-ms.date: 12/04/2023
+ms.date: 12/20/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -30,7 +30,7 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 **Component** | **Requirement**
 --- | ---
 CPU cores | 8
-RAM | 32 GB
+RAM | 16 GB
 Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 ### Software requirements

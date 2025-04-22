@@ -2,11 +2,11 @@
 title: Using Microsoft Sentinel with Azure Web Application Firewall 
 description: This article shows you how to use Microsoft Sentinel with Azure Web Application Firewall (WAF)
 services: web-application-firewall
-author: TreMansdoerfer
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 06/19/2023
-ms.author: victorh
 ms.topic: how-to
+ms.date: 06/19/2023
 ---
 
 # Using Microsoft Sentinel with Azure Web Application Firewall
@@ -62,8 +62,6 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
       1. CDN: ‘AzureCdnAccessLog’
    1. Select **Save**.
 
-   :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Diagnostic setting":::
-
 1. On the Azure home page, type *Microsoft Sentinel* in the search bar and select the **Microsoft Sentinel** resource. 
 
 1. Select an already active workspace or create a new workspace. 
@@ -78,13 +76,9 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 
 1. Search for and select **Azure Web Application Firewall (WAF)**. Select **Open connector page** on the bottom right.
 
-   :::image type="content" source="media//waf-sentinel/web-application-firewall-data-connector.png" alt-text="Screenshot of the data connector in Microsoft Sentinel.":::
-
 1. Follow the instructions under **Configuration** for each WAF resource that you want to have log analytic data for if you haven't done so previously.
 
 1. Once finished configuring individual WAF resources, select the **Next steps** tab. Select one of the recommended workbooks. This workbook will use all log analytic data that was enabled previously. A working WAF workbook should now exist for your WAF resources.
-
-   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="WAF workbooks" lightbox="media//waf-sentinel/waf-workbooks.png":::
    
 ## Automatically detect and respond to threats
 
@@ -92,10 +86,7 @@ Using Sentinel ingested WAF logs, you can use Sentinel analytics rules to automa
 
 Azure WAF also comes in with built-in Sentinel detection rules templates for SQLi, XSS, and Log4J attacks. These templates can be found under the Analytics tab in the 'Rule Templates' section of Sentinel. You can use these templates or define your own templates based on the WAF logs. 
 
-:::image type="content" source="media//waf-sentinel/waf-detections-1.png" alt-text="WAF Detections" lightbox="media//waf-sentinel/waf-detections-1.png":::
-
 The automation section of these rules can help you automatically respond to the incident by running a playbook. An example of such a playbook to respond to attack can be found in network security GitHub repository [here](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Playbook%20-%20WAF%20Sentinel%20Playbook%20Block%20IP%20-%20New). This playbook automatically creates WAF policy custom rules to block the source IPs of the attacker as detected by the WAF analytics detection rules.
-
 
 ## Next steps
 

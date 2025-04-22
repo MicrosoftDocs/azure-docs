@@ -81,7 +81,7 @@ The FTP managed connector and built-in connector each have only one trigger avai
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create and edit logic app workflows:
 
-* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
+* Consumption logic app workflows: [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
 * Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
 
@@ -210,11 +210,10 @@ A Consumption logic app workflow can use only the FTP managed connector. However
 
 * Built-in connector actions: These actions run only in a Standard logic app workflow.
 
-The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create and edit logic app workflows:
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to build logic app workflows:
 
-* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
-
-* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+* Consumption workflows: [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
+* Standard workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
 
 Before you can use an FTP action, your workflow must already start with a trigger, which can be any kind that you choose. For example, you can use the generic **Recurrence** built-in trigger to start your workflow on specific schedule.
 

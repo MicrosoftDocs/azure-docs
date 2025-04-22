@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 10/23/2024
-# Customer intent: As a developer, I want to learn about DevOps deployment support for Standard logi apps in single-tenant Azure Logic Apps.
+# Customer intent: As a developer, I want to learn about DevOps deployment support for Standard logic apps in single-tenant Azure Logic Apps.
 ---
 
 # DevOps deployment for Standard logic apps in single-tenant Azure Logic Apps
@@ -23,7 +23,7 @@ This article provides an introduction and overview about the current continuous 
 
 In the *multi-tenant* Azure Logic Apps, resource deployment is based on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both your Consumption logic app resources and infrastructure. In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between Standard logic app resources and infrastructure.
 
-When you create a Standard logic app resource, workflows are powered by the redesigned single-tenant Azure Logic Apps runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) extensibility and is [hosted as an extension on the Azure Functions runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564). This design provides portability, flexibility, and more performance for Standard logic apps plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
+When you create a Standard logic app resource, workflows are powered by the redesigned single-tenant Azure Logic Apps runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is [hosted as an extension on the Azure Functions runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564). This design provides portability, flexibility, and more performance for Standard logic apps plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
 
 For example, you can package the redesigned containerized runtime and workflows together as part of your Standard logic app. You can use generic steps or tasks that build, assemble, and zip your logic app resources into ready-to-deploy artifacts. To deploy Standard logic apps, copy the artifacts to the host environment, and then start your apps to run your workflows. Or, integrate your artifacts into deployment pipelines using the tools and processes that you already know and use. For example, if your scenario requires containers, you can containerize Standard logic apps and integrate them into your existing pipelines.
 
@@ -148,7 +148,7 @@ The following example shows how an API connection for the Azure Service Bus mana
          "id": "/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/servicebus"
       },
       "connection": { 
-         "id": "/subscriptions/{subscription-ID}/resourcegroups/{resource-group-name}/providers/Microsoft.Web/connections/servicebus"
+         "id": "/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/servicebus"
       }, 
       "connectionRuntimeUrl": "{connection-runtime-URL}",
       "authentication": { 

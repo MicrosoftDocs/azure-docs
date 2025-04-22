@@ -70,9 +70,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
    ```output
    [
    {
-    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
+    "address": "Ashburn, VA",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
     "location": null,
     "name": "Equinix-Ashburn-DC2",
@@ -81,9 +81,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "1950 N. Stemmons Freeway, Suite 1039A, DA3, Dallas, TX 75207",
+    "address": "Dallas, TX",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Dallas-DA3",
     "location": null,
     "name": "Equinix-Dallas-DA3",
@@ -92,9 +92,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "111 8th Avenue, New York, NY 10011",
+    "address": "New York, NY",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-New-York-NY5",
     "location": null,
     "name": "Equinix-New-York-NY5",
@@ -103,9 +103,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "11 Great Oaks Blvd, SV1, San Jose, CA 95119",
+    "address": "San Jose, CA",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-SV1",
     "location": null,
     "name": "Equinix-San-Jose-SV1",
@@ -114,9 +114,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "2001 Sixth Ave., Suite 350, SE2, Seattle, WA 98121",
+    "address": "Seattle, WA",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Seattle-SE2",
     "location": null,
     "name": "Equinix-Seattle-SE2",
@@ -136,14 +136,14 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 
    ```output
    {
-   "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
+   "address": "Ashburn, VA",
    "availableBandwidths": [
     {
       "offerName": "100 Gbps",
       "valueInGbps": 100
     }
    ],
-   "contact": "support@equinix.com",
+   "contact": "support@contoso.com",
    "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
    "location": null,
    "name": "Equinix-Ashburn-DC2",

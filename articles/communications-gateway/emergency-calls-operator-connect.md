@@ -1,8 +1,6 @@
 ---
 title: Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway
 description: Understand Azure Communications Gateway's support for emergency calling with Operator Connect and Teams Phone Mobile
-author: GemmaWakeford
-ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 10/09/2023

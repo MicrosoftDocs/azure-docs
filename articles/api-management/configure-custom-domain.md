@@ -89,8 +89,7 @@ To fetch a TLS/SSL certificate, API Management must have the list and get secret
     1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal ID on that page.
     1.  Assign permissions to the managed identity to access the key vault. Use steps in the following section.
     
-    [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
-
+    [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
 If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
 
@@ -206,7 +205,7 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## Next steps
+## Related content
 
 [Upgrade and scale your service](upgrade-and-scale.md)
 

@@ -18,11 +18,24 @@ This article provides a detailed overview of the enhancements introduced in the 
 >
 > Kindly report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-event-hubs-emulator-installer/issues).
 
-## Latest version ``1.2.4`` 
 
-> *Released July 1st, 2024*
+## Latest version ``2.1.0``
 
-This release provides enhanced connectivity fixes for Emulator. Details are below:
+> *Released March 11th, 2025*
+
+This release introduces health check API in Event Hubs emulator. 
+- Health check API can be accessed at *http://localhost:5300/health*
+
+## Previous releases
+
+### ``2.0.1`` (November 19th,2024)
+
+This release introduces Apache Kafka support in Event Hubs emulator. 
+- The producer and consumer APIs are now compatible with the Event Hubs emulator.
+
+### ``1.2.4`` (July 1st,2024)
+
+This release provides enhanced connectivity fixes for Emulator. 
  
   - When the emulator container and interacting application are running natively on local machine, use following connection string:
 
@@ -32,7 +45,7 @@ This release provides enhanced connectivity fixes for Emulator. Details are belo
 
   `"Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
-  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator has default value i.e."eventhubs-emulator":
+  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator container is "eventhubs-emulator":
 
   `Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
@@ -42,8 +55,6 @@ This release provides enhanced connectivity fixes for Emulator. Details are belo
 
 - Fixes emulator not accepting connections for initial few seconds after launch.
 - Namespace name and type are now optional parameters in user supplied JSON configuration. 
-
-## Previous releases
 
 ### ``1.2.3`` (21st May,2024)
 

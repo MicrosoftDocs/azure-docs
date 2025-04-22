@@ -1,5 +1,5 @@
 ---
-title: Check compliance for your SAP security controls with Microsoft Sentinel
+title: Check for SAP security controls with Microsoft Sentinel
 description: Learn about the SAP - Security Audit Controls workbook, used to monitor and track security control framework compliance across your SAP systems.
 author: batamig
 ms.author: bagol
@@ -18,7 +18,7 @@ ms.collection: usx-security
 
 This article describes how you can use the *SAP - Security Audit Controls* workbook to monitor and track security control framework compliance across your SAP systems, including the following functionality:
 
-- See recommendations on which analytics rules to enable, and enable them in-place with proper preset configuration.
+- See recommendations on which analytics rules to enable, and enable them in place with proper preset configuration.
 - Associate your analytics rules to the SOX or NIST control framework, or apply your own custom control framework.
 - Review incidents and alerts summarized by control, according to the selected control framework.
 - Export relevant incidents for further analysis, for auditing and reporting purposes.
@@ -33,11 +33,13 @@ Content in this article is intended for your **security** team.
 
 Before you can start using the **SAP - Security Audit log and Initial Access** workbook, you must have:
 
-- The Microsoft Sentinel solution for SAP applications solution installed and a data connector agent deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
+- A Microsoft Sentinel solution for SAP installed and a data connector configured. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
 
 - The **SAP Audit Controls** workbook installed in your Log Analytics workspace enabled for Microsoft Sentinel. For more information, see and [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
 
 - At least one incident in your workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
+
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
 
 ## View a demo
 

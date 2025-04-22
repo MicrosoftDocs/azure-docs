@@ -5,19 +5,21 @@ description: Learn how to set up user accounts with username and password authen
 
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 08/30/2022
+ms.topic: how-to
+ms.date: 01/10/2025
 ms.author: danlep
 ---
 
 # Configure users of the developer portal to authenticate using usernames and passwords 
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 In the developer portal for Azure API Management, the default authentication method for users is to provide a username and password. In this article, learn how to set up users with basic authentication credentials to the developer portal.
 
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md). 
 
+> [!CAUTION]
+> While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), if available. 
 
 ## Prerequisites
 
@@ -66,7 +68,7 @@ Deleting the identity provider prevents adding users to use username and passwor
 > If you want to disable all sign up or sign in functionality in the developer portal, see [How do I disable sign up in the developer portal?](developer-portal-faq.md#how-do-i-disable-sign-up-in-the-developer-portal)
 
 
-## Next steps
+## Related content
 
 For steps to add other identity providers for developer sign-up to the developer portal, see:
 

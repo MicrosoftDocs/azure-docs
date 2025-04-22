@@ -24,12 +24,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > * Mount the file share to your VM
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Getting started
 
@@ -69,16 +75,17 @@ Next, create an SMB Azure file share.
 
 So far, you've created an Azure storage account and a file share with one file in it. Next, create an Azure VM to represent the on-premises server.
 
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Select **Home**, and then select **Create a resource** in the upper left-hand corner of the Azure portal.
 1. Under **Popular services**, select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png" alt-text="Screenshot of the Basic tab with VM information filled out.":::
 
 1. Under **Instance details**, name the VM *qsVM*.
+1. Under **Availability options**, select **No infrastructure redundancy required**.
 1. For **Security type**, select **Standard**.
 1. For **Image**, select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**.
-1. Leave the default settings for **Region**, **Availability options**, and **Size**.
+1. Leave the default settings for **Region**, **VM architecture**, and **Size**.
 1. Under **Administrator account**, add a **Username** and enter a **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
 1. Select **Review + create**.
@@ -107,7 +114,7 @@ Now that you've created the VM, connect to it so you can mount your file share.
 1. Select a drive letter and then **Show script**.
 1. Copy the script from the Azure portal and paste it into **Notepad**, as in the following example.
 
-   :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot that shows the script that you should copy from the Azure portal and paste into Notepad." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
+   :::image type="content" source="media/storage-files-quick-create-use-windows/files-portal-mounting-script.png" alt-text="Screenshot that shows the mounting script that you should copy from the Azure portal and paste into Notepad." lightbox="media/storage-files-quick-create-use-windows/files-portal-mounting-script.png":::
 
 1. In the VM, open **PowerShell** and paste in the contents of the **Notepad**, then press enter to run the command. It should map the drive.
 

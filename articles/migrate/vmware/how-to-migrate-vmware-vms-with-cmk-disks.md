@@ -1,11 +1,11 @@
 ---
 title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool
 description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool 
-author: v-sreedevank
-ms.author: v-sreedevank
+author: SnehaSudhirG
+ms.author: sudhirsneha 
 ms.topic: how-to
-ms.date: 05/31/2023
-ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
+ms.date: 10/20/2024
+ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy25
 
 ---
 
@@ -14,6 +14,8 @@ ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 # Migrate VMware VMs to Azure VMs enabled with server-side encryption and customer-managed keys
 
 This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Migration and modernization (agentless replication).
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 The Migration and modernization portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience supports DES/CMK. DES should be created before starting replication and must be provided while starting replication. It cannot be provided at the time of migration. In this article, you'll see how to create and deploy an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
 
@@ -49,7 +51,7 @@ The Migration and modernization portal experience simplifies preparation of the 
 
 1. On the Azure portal, go the resource groups page and select the resource group in which the Azure Migrate project was created.
 2. Select **Deployments** from the left menu and search for a deployment name beginning with the string *"Microsoft.MigrateV2.VMwareV2EnableMigrate"*. You'll see a list of Resource Manager templates created by the portal experience to set up replication for VMs in this project. We'll download one such template and use that as the base to prepare the template for replication with CMK.
-3. To download the template, select any deployment matching the string pattern in the previous step > select **Template** from the left menu > Click **Download** from the top menu. Save the template.json file locally. You'll edit this template file in the last step.
+3. To download the template, select any deployment matching the string pattern in the previous step > select **Template** from the left menu > select **Download** from the top menu. Save the template.json file locally. You'll edit this template file in the last step.
 
 ## Create a Disk Encryption Set
 

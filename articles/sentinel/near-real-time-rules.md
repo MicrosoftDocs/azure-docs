@@ -41,7 +41,7 @@ The following limitations currently govern the use of NRT rules:
 
     - Since NRT rules use the ingestion time rather than the event generation time (represented by the TimeGenerated field), you can safely ignore the data source delay and the ingestion time latency (see above).
 
-    - Queries can run only within a single workspace. There is no cross-workspace capability.
+    - Queries can now run across multiple workspaces.
 
     - Event grouping is now configurable to a limited degree. NRT rules can produce up to 30 single-event alerts. A rule with a query that results in more than 30 events will produce alerts for the first 29, then a 30th alert that summarizes all the applicable events.
 

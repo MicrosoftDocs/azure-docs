@@ -7,15 +7,13 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with MQTT broker.
 ms.service: azure-iot-operations
 ---
 
 # Use MQTTnet to develop distributed application workloads that connect to MQTT broker
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 [MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token and MQTTnet to connect to MQTT broker. You should use service account tokens to connect in-cluster applications.
 
@@ -127,5 +125,5 @@ To run the sample, follow the instructions in its [README](https://github.com/Az
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
+- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-broker.md)
 - [Develop highly available distributed applications](edge-apps-overview.md)

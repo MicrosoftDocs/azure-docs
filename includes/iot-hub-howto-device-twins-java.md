@@ -2,14 +2,16 @@
 title: Get started with Azure IoT Hub device twins (Java)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Java to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
 ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-java, devx-track-extended-java
 ---
+
+  * Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
 
 ## Overview
 
@@ -27,6 +29,8 @@ This section describes how to create device application code to:
 
 The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class exposes all the methods you require to interact with device twins from the device.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
 ### Device import statements
 
 Use the following device import statements to access the Azure IoT SDK for Java.
@@ -36,9 +40,18 @@ import com.microsoft.azure.sdk.iot.device.*;
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
 ```
 
-### Connect to the device
+### Connect a device to IoT Hub
 
-To connect to a device:
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
+
+To connect a device to IoT Hub:
 
 1. Use [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol) to choose a transport protocol. For example:
 
@@ -58,6 +71,10 @@ To connect to a device:
     ```java
     client.open(true);
     ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
 
 ### Retrieve and view a device twin
 
@@ -154,27 +171,39 @@ import com.microsoft.azure.sdk.iot.service.devicetwin.*;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
 ```
 
-### Connect to the IoT hub service client
+### Connect to the IoT Hub
 
-To connect to IoT Hub to view and update device twin information:
+You can connect a backend service to IoT Hub using the following methods:
 
-1. Create a [DeviceTwinClientOptions](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwinclientoptions) object. Set any options that are needed for your application. These options are passed to the `DeviceTwin` object.
-1. Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub. As parameters, supply the **IoT Hub service connection string** that you created in the Prerequisites section and the `DeviceTwinClientOptions` object.
-1. The [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) object represents the device twin with its properties and tags.
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub.
+
+Your application needs the **service connect** permission to modify desired properties of a device twin, and it needs **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one if a one does not already exist. Supply this shared access policy connection string as a parameter to `fromConnectionString`. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+
+The [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) object represents the device twin with its properties and tags.
 
 For example:
 
 ```java
-public static final String iotHubConnectionString = "{IoT hub service connection string}";
+public static final String iotHubConnectionString = "{Shared access policy connection string}";
 public static final String deviceId = "myDeviceId";
 public static final String region = "US";
 public static final String plant = "Redmond43";
 
 // Get the DeviceTwin and DeviceTwinDevice objects
-DeviceTwinClientOptions twinOptions = new DeviceTwinClientOptions();
-DeviceTwin twinClient = new DeviceTwin(iotHubConnectionString,twinOptions);
+DeviceTwin twinClient = new DeviceTwin(iotHubConnectionString);
 DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
 ### Update device twin fields
 

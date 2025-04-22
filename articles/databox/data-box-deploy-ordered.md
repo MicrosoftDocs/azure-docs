@@ -8,11 +8,22 @@ ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
 
+:::zone pivot="dbx"
+[!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+:::zone-end
+
+:::zone pivot="dbx"
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 80 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 120 TB or 525 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
+:::zone-end
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:   
 
@@ -229,7 +240,7 @@ To order a device, perform the following steps:
    |street-address2| The secondary address information, such as apartment number or building number. | "Building 123" |
    |city| The city to which the device is shipped. | "Redmond" |
    |state-or-province| The state to which the device is shipped.| "WA" |
-   |country| The country to which the device is shipped. | "United States" |
+   |country| The country/region to which the device is shipped. | "United States" |
    |postal-code| The zip code or postal code associated with the shipping address.| "98052"|
    |company-name| The name of your company you work for.| "Contoso, LTD" |
    |storage account| The Azure Storage account from where you want to import data.| "mystorageaccount"|
@@ -243,7 +254,7 @@ To order a device, perform the following steps:
 2. In your command-prompt of choice or terminal, run [az data box job create](/cli/azure/databox/job#az-databox-job-create) to create your Azure Data Box order.
 
    ```azurecli
-   az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
+   az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country/region> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
    ```
 
    The following sample command illustrates the command's usage:
@@ -349,7 +360,7 @@ Do the following steps using Azure PowerShell to order a device:
     |StreetAddress3| The tertiary address information. | |
     |City [Required]| The city to which the device is shipped. | "Redmond" |
     |StateOrProvinceCode [Required]| The state to which the device is shipped.| "WA" |
-    |CountryCode [Required]| The country to which the device is shipped. | "United States" |
+    |CountryCode [Required]| The country/region to which the device is shipped. | "United States" |
     |PostalCode [Required]| The zip code or postal code associated with the shipping address.| "98052"|
     |CompanyName| The name of your company you work for.| "Contoso, LTD" |
     |StorageAccountResourceId [Required]| The Azure Storage account ID from where you want to import data.| &lt;AzstorageAccount&gt;.id |
@@ -698,3 +709,6 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
+:::zone pivot="dbx-ng"
+
+:::zone-end

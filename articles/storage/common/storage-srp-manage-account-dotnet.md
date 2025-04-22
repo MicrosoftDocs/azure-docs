@@ -5,7 +5,7 @@ description: Learn how to manage storage account resources with the Azure Storag
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/01/2024
+ms.date: 11/19/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
@@ -146,9 +146,25 @@ The following code example shows how to delete a storage account:
 
 You can pass an [ArmClientOptions](/dotnet/api/azure.resourcemanager.armclientoptions) instance when creating an `ArmClient` object. This class allows you to configure values for diagnostics, environment, transport, and retry options for a client object. 
 
-The following code example shows how to configure the `ArmClient` object to change the default retry policy:
+### Example: Configure retry options
+
+The following code example shows how to configure the `ArmClient` object to use a custom retry policy:
 
 :::code language="csharp" source="~/storage-mgmt-devguide-dotnet/StorageAccountManagement/Program.cs" id="Snippet_CreateArmClient":::
+
+If you don't specify a custom retry policy, the default retry values are used. The following table lists the properties of the [RetryOptions](/dotnet/api/azure.core.retryoptions) class, along with the type, a brief description, and the default value:
+
+| Property | Type | Description | Default value |
+| --- | --- | --- | --- |
+| [Delay](/dotnet/api/azure.core.retryoptions.delay) | [TimeSpan](/dotnet/api/system.timespan) | The delay between retry attempts for a fixed approach or the delay on which to base calculations for a backoff-based approach. If the service provides a Retry-After response header, the next retry is delayed by the duration specified by the header value. | 0.8 second |
+| [MaxDelay](/dotnet/api/azure.core.retryoptions.maxdelay) | [TimeSpan](/dotnet/api/system.timespan) | The maximum permissible delay between retry attempts when the service doesn't provide a Retry-After response header. If the service provides a Retry-After response header, the next retry is delayed by the duration specified by the header value. | 1 minute |
+| [MaxRetries](/dotnet/api/azure.core.retryoptions.maxretries) | int | The maximum number of retry attempts before giving up. | 3 |
+| [Mode](/dotnet/api/azure.core.retryoptions.mode) | [RetryMode](/dotnet/api/azure.core.retrymode) | The approach to use for calculating retry delays. | Exponential |
+| [NetworkTimeout](/dotnet/api/azure.core.retryoptions.networktimeout) | [TimeSpan](/dotnet/api/system.timespan) | The timeout applied to an individual network operation. | 100 seconds |
+
+As you configure retry options for an `ArmClient` object, it's important to note that the [scale targets](scalability-targets-resource-provider.md) are different between the Storage resource provider (management plane) and the data plane. Be sure to configure retry options with these limits in mind.
+
+If you exceed the rate limit for Azure Storage management plane APIs, you receive an HTTP status code `429 Too Many Requests`, which indicates that the request is being throttled. The response includes a `Retry-After` value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value elapses, your request isn't processed and a new `Retry-After` value is returned.
 
 ## Resources
 

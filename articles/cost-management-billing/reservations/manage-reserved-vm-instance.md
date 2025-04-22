@@ -3,11 +3,11 @@ title: Manage Azure Reservations
 description: Learn how to manage Azure Reservations. See steps to change the reservation scope, split a reservation, and optimize reservation use.
 ms.service: cost-management-billing
 ms.subservice: reservations
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 08/14/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 # Manage Reservations for Azure resources
 
@@ -84,6 +84,19 @@ If you're a billing administrator, use following steps to view and manage all re
 ## Change billing subscription for an Azure Reservation
 
 We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+
+## Check billing subscription for an Azure Reservation
+
+To check the billing subscription for an Azure reservation:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All services** > **Reservations**.
+3. Select the reservation.
+4. Select **Renewal**.
+5. Select **Replace this reservation with a new reservation purchase**
+
+This will show you the billing subscription of current reservation along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new reservation which will be purchased automatically upon expiry of current reservation.
+
 
 ## Change billing frequency for an Azure Reservation
 

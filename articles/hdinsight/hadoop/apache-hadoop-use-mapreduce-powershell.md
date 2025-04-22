@@ -4,6 +4,9 @@ description: Learn how to use PowerShell to remotely run MapReduce jobs with Apa
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurepowershell
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 

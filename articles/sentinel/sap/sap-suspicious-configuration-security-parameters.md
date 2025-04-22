@@ -118,6 +118,5 @@ For the Microsoft Sentinel solution for SAP applications to successfully monitor
 
 For more information, see:
 
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md)
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)
-- [Systemconfig.json file reference](reference-systemconfig-json.md)

@@ -2,27 +2,17 @@
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: how-to
-ms.date: 07/30/2024 
+ms.date: 04/16/2025
 ms.custom: devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Managed Disks using Azure PowerShell
 
-This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) using Azure PowerShell.
+This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) using Azure PowerShell. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
-In this article, you'll learn how to:
-
-- Create a Backup vault
-
-- Create a backup policy
-
-- Configure a backup of an Azure Disk
-
-- Run an on-demand backup job
-
-For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
+Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
 
 ## Create a Backup vault
 

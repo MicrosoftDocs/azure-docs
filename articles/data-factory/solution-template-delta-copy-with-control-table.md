@@ -113,7 +113,7 @@ The template defines following parameters:
 
 12. Results similar to the following example are displayed:
 
-    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png" alt-text="Sreenshot showing the result of the pipeline run.":::
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png" alt-text="Screenshot showing the result of the pipeline run.":::
 
 13. You can create new rows in your source table. Here is sample SQL language to create new rows:
 

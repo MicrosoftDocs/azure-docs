@@ -2,7 +2,7 @@
 title: Azure API Management soft-delete (preview) | Microsoft Docs
 description: Soft-delete allows you to recover a recently deleted API Management instance.
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: how-to
 author: dlepow
 ms.author: danlep
 ms.date: 02/07/2022
@@ -32,7 +32,7 @@ Recovery and other operations on a soft-deleted instance are enabled through [RE
 | [Create or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) | Creates or updates an API Management service.  | API Management Service | Any |
 | [Create or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) with `restore` property set to **true** | Recovers (undeletes) an API Management Service if it was previously soft-deleted. If `restore` is specified and set to `true` all other properties will be ignored.  | API Management Service |  2020-06-01-preview |
 | [Delete](/rest/api/apimanagement/current-ga/api-management-service/delete) | Deletes an existing API Management service. | API Management Service | 2020-06-01-preview|
-| [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) | Get soft-deleted Api Management Service by name. | Deleted Services | 2020-06-01-preview |
+| [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) | Get soft-deleted API Management service by name. | Deleted Services | 2020-06-01-preview |
 | [List By Subscription](/rest/api/apimanagement/current-ga/deleted-services/list-by-subscription) | Lists all soft-deleted services available for undelete for the given subscription. | Deleted Services | 2020-06-01-preview
 | [Purge](/rest/api/apimanagement/current-ga/deleted-services/purge) | Purges API Management Service (permanently deletes it with no option to undelete). | Deleted Services | 2020-06-01-preview
 
@@ -144,7 +144,7 @@ You **can't** reuse the name of an API Management instance in a new deployment:
     This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in a Microsoft Entra tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
 
 
-## Next steps
+## Related content
 
 Learn about long-term API Management backup and recovery options:
 
