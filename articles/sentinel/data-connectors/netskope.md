@@ -56,7 +56,7 @@ Netskope
 To integrate with Netskope (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
-- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://docs.netskope.com/en/netskope-help/admin-console/rest-api/rest-api-v1-overview/). **Note:** A Netskope account is required
+- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://docs.netskope.com/en/rest-api-v2-overview-312207/). **Note:** A Netskope account is required
 
 
 ## Vendor installation instructions
@@ -75,7 +75,7 @@ To integrate with Netskope (using Azure Functions) make sure you have:
 
 **STEP 1 - Configuration steps for the Netskope API**
 
- [Follow these instructions](https://docs.netskope.com/en/rest-api-v1-overview.html) provided by Netskope to obtain an API Token. **Note:** A Netskope account is required
+ [Follow these instructions](https://docs.netskope.com/en/rest-api-v2-overview-312207/) provided by Netskope to obtain an API Token. **Note:** A Netskope account is required
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
