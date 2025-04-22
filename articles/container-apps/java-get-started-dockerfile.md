@@ -82,7 +82,7 @@ Deploy the PetClinic application to Azure Container Apps by using the following 
     This command accomplishes the following tasks:
 
     - Creates the resource group.
-    - Creates an Azure container registry.
+    - Creates an Azure Container Registry.
     - Builds the container image and pushes it to the registry.
     - Creates the Container Apps environment with a Log Analytics workspace.
     - Creates and deploys the container app using the built container image.
