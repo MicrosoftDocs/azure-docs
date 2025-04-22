@@ -60,6 +60,7 @@ FWIPCONFIG_NAME="${PREFIX}-fwconfig"
 FWROUTE_TABLE_NAME="${PREFIX}-fwrt"
 FWROUTE_NAME="${PREFIX}-fwrn"
 FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
+MYClientIP="PassClientIP"
 ```
 
 ### Create a virtual network with multiple subnets
@@ -332,6 +333,21 @@ You should see the AKS store app. In this example, the Firewall public IP was `2
 :::image type="content" source="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png" alt-text="Screenshot showing the Azure Store Front App opened in a local browser." lightbox="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png":::
 
 On this page, you can view products, add them to your cart, and then place an order.
+
+### Alternate to having a DNAT rule and a Firewall for Ingress
+
+If you do not want to have a Firewall for the Ingress and still want to use Load Balancer, there are few options.
+
+**Create a route to bypass Firewall for the return traffic**
+
+The return traffic from the AKS workload is directly sent to the Client from where the source connection is made, hence bypassing firewall for the traffic to the client helps to solve the issue. 
+
+> az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $MYClientIP/32 --next-hop-type Internet
+
+
+**Add an Application Gateway for the ingress**
+
+Using an Application Gateway for AKS ingress helps to avoid asymmetric routing issue. The return traffic flow from the Pod goes directly to the Appgateway subnet and hence firewall is bypassed automatically for return traffic. 
 
 ## Clean up resources
 
