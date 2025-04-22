@@ -69,7 +69,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    | Provide a solution name | Enter a descriptive name for your solution, like **SqlSolution**, or accept the default. |
    | Select module template | Choose **Azure Functions - C#**. |
    | Provide a module name | Name your module **sqlFunction**. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlfunction. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure Container Registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlfunction. |
 
    The Visual Studio Code window loads your IoT Edge solution workspace.
 
@@ -80,7 +80,7 @@ The environment file stores the credentials for your container registry and shar
 The IoT Edge extension tries to pull your container registry credentials from Azure and populates them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
 1. In the Visual Studio Code explorer, open the .env file.
-2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
+2. Update the fields with the **username** and **password** values that you copied from your Azure Container Registry.
 3. Save this file.
 
 >[!NOTE]
