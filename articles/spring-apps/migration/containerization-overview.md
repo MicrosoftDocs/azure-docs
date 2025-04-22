@@ -37,6 +37,6 @@ To integrate an application performance monitoring (APM) agent into your contain
 
 ## Push the container image to a container registry
 
-After you build your artifact into a container image, you need to push it to a container registry, whether public or private. If you're using Azure Container Registry, see [Push your first image to your Azure container registry using the Docker CLI](/azure/container-registry/container-registry-get-started-docker-cli).
+After you build your artifact into a container image, you need to push it to a container registry, whether public or private. If you're using Azure Container Registry, see [Push your first image to your Azure Container Registry using the Docker CLI](/azure/container-registry/container-registry-get-started-docker-cli).
 
 If you have an Azure Container Registry instance, you can also use Azure Container Registry to build and push an image. For more information, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli).
