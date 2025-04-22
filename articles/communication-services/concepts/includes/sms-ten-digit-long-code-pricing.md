@@ -75,6 +75,4 @@ A carrier surcharge applies to messages exchanged using 10DLC numbers. This surc
 | C-Spire (Outbound) | per message segment                   |  $0     |
 | Commnet (Outbound) | per message segment                   |  $0     |
 
-## Related articles
-
--  For more information about message segments, see [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit).
+For more information about message segments, see [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit).
