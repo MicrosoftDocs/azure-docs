@@ -52,14 +52,14 @@ Deploy the project by using the following steps:
     This command performs the following tasks:
 
     - Creates the resource group.
-    - Creates an Azure container registry.
+    - Creates an Azure Container Registry.
     - Builds the container image and pushes it to the registry.
     - Creates the Container Apps environment with a Log Analytics workspace.
     - Creates and deploys the container app by using the built container image.
 
 The project is now deployed. When you push new code to the repository, a GitHub Action performs the following tasks:
 
-- Builds the container image and pushes it to the Azure container registry.
+- Builds the container image and pushes it to the Azure Container Registry.
 - Deploys the container image to the created container app.
 
 [!INCLUDE [java-get-started-verify-app-status-and-cleanup-and-next-steps](includes/java-get-started-verify-app-status-and-cleanup-and-next-steps.md)]
