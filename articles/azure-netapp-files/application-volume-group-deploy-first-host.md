@@ -98,7 +98,7 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
     The creation for the data-backup and log-backup volumes is optional.
 
-    [ ![Screenshot that summarizes the volume creation](./media/application-volume-group-deploy-first-host/volume-validation-extension-one.png)(./media/application-volume-group-deploy-first-host/volume-validation-extension-one.png#lightbox)]
+    [ ![Screenshot that summarizes the volume creation](./media/application-volume-group-deploy-first-host/volume-validation-extension-one.png)](./media/application-volume-group-deploy-first-host/volume-validation-extension-one.png#lightbox)
 
 8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-*volume-name*". 
 
