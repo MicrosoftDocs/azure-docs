@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# List of Service Catalog Templates
+# List of Service Catalog templates
 This is the current list of Azure services and workload templates in the Service Catalog.
 
 ## Table of Azure Service templates
@@ -48,7 +48,7 @@ Description: This template creates the resources needed to secure the other reso
 
 Documentation:
 
-## Remote App
+## Remote App VM
 
 [How to create a Remote App VM](./deploy-remoteapp-service-catalog.md)
 
@@ -83,7 +83,7 @@ Documentation:
 
 Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as .NET, Java, Node.js, Python, and PHP. [Learn more](../app-service/overview.md)
 
-## App Service Functions
+## App Service Function App
 [How to create an AVE compliant App Service Function](./deploy-app-service-function-app-service-catalog.md)
 
 Description: Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. [Learn more](../azure-functions/functions-overview.md)
