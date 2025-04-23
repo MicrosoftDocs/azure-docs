@@ -4,7 +4,7 @@ description: Learn how to create a data factory by using Azure Data Factory Stud
 author: whhender
 ms.topic: quickstart
 ms.subservice: authoring
-ms.date: 09/25/2024
+ms.date: 04/23/2025
 ms.author: whhender
 ms.reviewer: xupzhou
 ---
@@ -24,7 +24,7 @@ If you're new to Azure Data Factory, see the [introduction to the service](intro
 
 ## Create a data factory in Azure Data Factory Studio
 
-By using Azure Data Factory Studio, you can create a data factory in seconds:
+Using Azure Data Factory Studio, you can create a data factory in seconds:
 
 1. Open the Microsoft Edge or Google Chrome web browser. Currently, the Data Factory UI is supported only in these browsers.
 
@@ -60,9 +60,7 @@ When you use the Azure portal to create a data factory, the creation options are
 
    The list shows only locations that Data Factory supports, and where your Data Factory metadata will be stored. The associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
 
-1. For **Name**, enter **ADFTutorialDataFactory**.
-
-   The name of the data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, to **\<yourname\>ADFTutorialDataFactory**) and try creating it again. To learn about naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+1. For **Name**, the name of the data factory must be *globally unique*. If you see an error that your name is already taken, change the name of the data factory (for example, to **\<yourname\>ADFTutorialDataFactory**) and try creating it again. To learn more about naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Screenshot that shows an error for a new data factory that indicates a duplicate name.":::
 
