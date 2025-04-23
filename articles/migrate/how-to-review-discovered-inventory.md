@@ -341,6 +341,8 @@ Appliance Name | Total DB size (MB)	Size of the database instance in MB.
  
 # [Optional columns](#tab/optional-col)
 
+The optional view shows the optional columns.
+
 **Attribute name** | **Details**
 --- | --- 
 Version | Version of the database instance.
@@ -352,6 +354,8 @@ DB engine status | Power status of database engine if it's running or stopped.
 HADR enabled | High availability and disaster recovery enablement status.
 First discovery time | The database was first discovered at this timestamp.
 Last updated time | Azure Migrates last received the payload for the database at this timestamp.
+
+---
 
 ### Review databases data
 
