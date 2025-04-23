@@ -56,7 +56,7 @@ All Functions triggers are available in your containerized Functions app. Howeve
 
 Azure Functions on Container Apps are designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app.
 
-Auto scaling for Azure Cosmos DB trigger and Durable functions is currently supported using connection strings only. Managed identity support will be available soon.
+Auto scaling for Azure Cosmos DB trigger and Durable functions is currently supported using connection strings only.
 
 You can write your function code in any [language stack supported](/azure/azure-functions/supported-languages?tabs=isolated-process%2Cv4&pivots=programming-language-csharp) by Azure Functions. You can use the same Functions triggers and bindings with event-driven scaling.
 
