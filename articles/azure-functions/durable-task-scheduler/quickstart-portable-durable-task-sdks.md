@@ -324,7 +324,7 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ### The worker project
 
-To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#pattern-2-fan-outfan-in), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a separate task for each work item using `ProcessWorkItemActivity`.
