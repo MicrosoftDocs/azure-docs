@@ -442,52 +442,32 @@ var instance = await client.WaitForInstanceCompletionAsync(
 To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Receives a list of work items as input.
-1. It "fans out" by creating parallel tasks for each work item (calling process_work_item for each one)
-1. It waits for all tasks to complete using task.when_all
-1. It then "fans in" by aggregating the results with the aggregate_results activity
-1. The final aggregated result is returned to the client
+1. It "fans out" by creating parallel tasks for each work item (calling `process_work_item` for each one).
+1. It waits for all tasks to complete using `task.when_all`.
+1. It then "fans in" by aggregating the results with the `aggregate_results` activity.
+1. The final aggregated result is returned to the client.
 
 Using fan-out/fan-in, the orchestration creates parallel activity tasks and waits for all to complete. 
 
 ```csharp
-public override async Task<Dictionary<string, int>> RunAsync(TaskOrchestrationContext context, List<string> workItems)
-{
-    // Step 1: Fan-out by creating a task for each work item in parallel
-    List<Task<Dictionary<string, int>>> processingTasks = new List<Task<Dictionary<string, int>>>();
+# Orchestrator function
+def fan_out_fan_in_orchestrator(ctx, work_items: list) -> dict:
+    logger.info(f"Starting fan out/fan in orchestration with {len(work_items)} items")
     
-    foreach (string workItem in workItems)
-    {
-        // Create a task for each work item (fan-out)
-        Task<Dictionary<string, int>> task = context.CallActivityAsync<Dictionary<string, int>>(
-            nameof(ProcessWorkItemActivity), workItem);
-        processingTasks.Add(task);
-    }
+    # Fan out: Create a task for each work item
+    parallel_tasks = []
+    for item in work_items:
+        parallel_tasks.append(ctx.call_activity("process_work_item", input=item))
     
-    // Step 2: Wait for all parallel tasks to complete
-    Dictionary<string, int>[] results = await Task.WhenAll(processingTasks);
+    # Wait for all tasks to complete
+    logger.info(f"Waiting for {len(parallel_tasks)} parallel tasks to complete")
+    results = yield task.when_all(parallel_tasks)
     
-    // Step 3: Fan-in by aggregating all results
-    Dictionary<string, int> aggregatedResults = await context.CallActivityAsync<Dictionary<string, int>>(
-        nameof(AggregateResultsActivity), results);
+    # Fan in: Aggregate all the results
+    logger.info("All parallel tasks completed, aggregating results")
+    final_result = yield ctx.call_activity("aggregate_results", input=results)
     
-    return aggregatedResults;
-}
-```
-
-Each activity is implemented as a separate class decorated with the `[DurableTask]` attribute.
-
-```csharp
-[DurableTask]
-public class ProcessWorkItemActivity : TaskActivity<string, Dictionary<string, int>>
-{
-    // Implementation processes a single work item
-}
-
-[DurableTask]
-public class AggregateResultsActivity : TaskActivity<Dictionary<string, int>[], Dictionary<string, int>>
-{
-    // Implementation aggregates individual results
-}
+    return final_result
 ```
 
 ### `client.py`
@@ -498,39 +478,36 @@ The client project:
 - Creates a list of work items to be processed in parallel.
 - Schedules an orchestration instance with the list as input.
 - Waits for the orchestration to complete and displays the aggregated results.
-- Uses `` for efficient polling.
+- Uses `wait_for_orchestration_completion` for efficient polling.
 
-```csharp
-List<string> workItems = new List<string>
-{
-    "Task1",
-    "Task2",
-    "Task3",
-    "LongerTask4",
-    "VeryLongTask5"
-};
+```python
+# Generate work items (default 10 items if not specified)
+count = int(sys.argv[1]) if len(sys.argv) > 1 else 10
+work_items = list(range(1, count + 1))
 
-// Schedule the orchestration with the work items
-string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(
-    "ParallelProcessingOrchestration", 
-    workItems);
+logger.info(f"Starting new fan out/fan in orchestration with {count} work items")
 
-// Wait for completion
-var instance = await client.WaitForInstanceCompletionAsync(
-    instanceId,
-    getInputsAndOutputs: true,
-    cts.Token);
+# Schedule a new orchestration instance
+instance_id = client.schedule_new_orchestration(
+    "fan_out_fan_in_orchestrator", 
+    input=work_items
+)
+    
+logger.info(f"Started orchestration with ID = {instance_id}")
+    
+# Wait for orchestration to complete
+logger.info("Waiting for orchestration to complete...")
+result = client.wait_for_orchestration_completion(
+    instance_id,
+    timeout=60
+)
 ```
-
     
 ::: zone-end
 
 ::: zone pivot="java"
 
 ::: zone-end
-
-
-
 
 
 ## Next steps
