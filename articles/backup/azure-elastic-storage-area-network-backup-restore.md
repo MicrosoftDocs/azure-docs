@@ -63,7 +63,7 @@ To  restore Azure Elastic SAN  backups, follow these steps:
 
 1. On the **Review + restore** tab, select **Restore** to start the restore operation.
 
-You can track the progress of restore under **Backup Jobs**. 
+You can [track the progress of restore](azure-elastic-storage-area-network-backup-manage.md#view-the-azure-elastic-san-backup-and-restore-jobs-preview) under **Backup Jobs**. 
  
 ## Next steps
 
