@@ -12,6 +12,10 @@ ms.date: 12/05/2024
 Azure Lab Services will be retired on June 28, 2027, but we strongly recommend that you start developing your retirement plan now to resolve pricing differences, secure necessary cores, and enhance the student experience with seamless in-browser labs and other key features offered by our recommended Microsoft and Azure partner solutions.  
 
 > [!Note] 
+> On June 9, 2025, we will delete all virtual machines (VMs) which have been inactive since July 1st, 2023. A VM is considered inactive if no operations were performed on it.  This includes actions such as starting, stopping, resetting passwords, and reimaging. Any associated labs for these VMs will also be deleted. The inactive VMs can either be a template VM for the lab or the VMs in a production lab. After the VMs are deleted, we will not be able to recover them or on any data on them. 
+> **Action:** Backup any required data from these inactive VMs, and then delete the VMs if you don't need them. Delete the VMs and the associated labs yourself to avoid incurring any unnecessary charges. Once the VMs are deleted, there is no way to recover the VMs or the data on them.
+
+> [!Note] 
 > Transition your Azure Labs Services workflows to a Microsoft service or Microsoft partner solution by June 28, 2027. Azure Lab Services will be fully retired on this date.
 
 ## Call to action
