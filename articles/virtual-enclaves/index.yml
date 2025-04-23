@@ -55,6 +55,8 @@ landingContent:
             url: what-workload.md
           - text: "What is the Service Catalog?"
             url: what-service-catalog.md
+          - text: List of Service Catalog Templates
+            url: list-service-catalog-templates.md
  # Card
   - title: Deploy an Azure Virtual Enclaves Environment
     linkLists:
@@ -119,36 +121,39 @@ landingContent:
 #           - text: Security best practices
 #             url: security-best-practices.md
  # Card
-  - title: Azure Virtual Enclaves Service Catalog
+  - title: Service Catalog Popular Templates
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: List of Service Catalog Templates
-            url: list-service-catalog-templates.md
           - text: Deploy an Admin VM from the Service Catalog
             url: deploy-admin-vm-service-catalog.md
+          - text: Deploy Common Dependencies from the Service Catalog
+            url: deploy-common-dependencies-service-catalog.md
+          - text: Deploy a Storage Account from the Service Catalog
+            url: deploy-storage-account-service-catalog.md
+          - text: Deploy Azure Kubernetes Service from the Service Catalog
+            url: deploy-azure-kubernetes-service-service-catalog.md
+          - text: Deploy Remote App Virtual Machine from the Service Catalog
+            url: deploy-remote-app-vm-service-catalog.md
+          
+  - title: Service Catalog Additional Templates
+    linkLists:
+      - linkListType: how-to-guide
+        links:
           - text: Deploy Azure App Service from the Service Catalog
             url: deploy-app-service-service-catalog.md
           - text: Deploy Azure Container Registry from the Service Catalog
             url: deploy-azure-container-registry-service-catalog.md
           - text: Deploy Azure Cosmos DB from the Service Catalog
             url: deploy-azure-cosmos-db-service-catalog.md
-          - text: Deploy Common Dependencies from the Service Catalog
-            url: deploy-common-dependencies-service-catalog.md
           - text: Deploy Function App from the Service Catalog
             url: deploy-function-app-service-catalog.md
           # - text: Deploy Key Vault from the Service Catalog
           #   url: deploy-key-vault-service-catalog.md
           - text: Deploy Azure SQL from the Service Catalog
             url: deploy-azure-sql-service-catalog.md
-          - text: Deploy Azure Kubernetes Service from the Service Catalog
-            url: deploy-azure-kubernetes-service-service-catalog.md
-          - text: Deploy Remote App Virtual Machine from the Service Catalog
-            url: deploy-remote-app-vm-service-catalog.md
           - text: Deploy Azure Service Bus from the Service Catalog
             url: deploy-azure-service-bus-service-catalog.md
-          - text: Deploy a Storage Account from the Service Catalog
-            url: deploy-storage-account-service-catalog.md
 #  # Card
 #   - title: Manage and Monitor Virtual Enclaves
 #     linkLists:
