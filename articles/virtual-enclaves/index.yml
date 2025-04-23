@@ -118,13 +118,19 @@ landingContent:
 #             url: regulatory-compliance-guidelines.md
 #           - text: Security best practices
 #             url: security-best-practices.md
-#  # Card
-#   - title: Azure Virtual Enclaves Service Catalog
-#     linkLists:
-#       - linkListType: how-to-guide
-#         links:
-#           - text: Deploy a Storage Account
-            # url: Deploy-a-Storage-Account-from-the-Service-Catalog-into-a-Workload.md
+ # Card
+  - title: Azure Virtual Enclaves Service Catalog
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy a Storage Account from Service Catalog
+            url: deploy-storage-account-service-catalog.md
+          - text: Deploy an App Service Web App from Service Catalog
+            url: deploy-app-service-web-app-service-catalog.md
+          - text: Deploy Azure SQL from Service Catalog
+            url: deploy-azure-sql-service-catalog.md
+          - text: List of Service Catalog Templates
+            url: list-service-catalog-templates.md
 #  # Card
 #   - title: Manage and Monitor Virtual Enclaves
 #     linkLists:

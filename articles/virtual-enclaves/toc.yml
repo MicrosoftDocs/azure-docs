@@ -5,7 +5,7 @@
   items:
   - name: "What is Azure Virtual Enclaves?"
     href: what-azure-virtual-enclaves.md
-  - name: Why use Azure Virtual Enclaves?
+  - name: "Why use Azure Virtual Enclaves?"
     href: why-azure-virtual-enclaves.md
   - name: Quotas and region availability
     href: quotas-and-region-availability-in-azure-virtual-enclaves.md
@@ -16,37 +16,37 @@
 #       href: onboard-to-ave.md
     - name: Create a Community
       href: create-community-portal.md
-    - name: Create a Community Endpoint
-      href: create-a-community-endpoint-portal.md
     - name: Create an Enclave
       href: create-enclave-portal.md
+    - name: Create a Workload
+      href: create-workload-portal.md
+    - name: Create a Community Endpoint
+      href: create-community-endpoint-portal.md
     - name: Create an Enclave Endpoint
       href: create-enclave-endpoint-portal.md
     - name: Create an Enclave Connection
       href: create-enclave-connection-portal.md
-    - name: Create a Workload
-      href: create-workload-portal.md
     - name: Create a Transit Hub
       href: create-transit-hub-portal.md
 #     - name: Easy Button Deployments
 #       href: easy-button-deployments.md
   - name: Concepts
     items:
-    - name: "What is a community?"
+    - name: "What is a Community?"
       href: what-community.md
-    - name: "What is a transit hub?"
-      href: what-transit-hub.md
+    - name: "What is an Enclave?"
+      href: what-enclave.md
+    - name: "What is a Workload?"
+      href: what-workload.md
     - name: "What is a Community Endpoint?"
       href: what-community-endpoint.md
-    - name: "What is an enclave?"
-      href: what-enclave.md
     - name: "What is an Enclave Endpoint?"
       href: what-enclave-endpoint.md
     - name: "What is an Enclave Connection?"
       href: what-enclave-connection.md
-    - name: "What is a workload?"
-      href: what-workload.md
-    - name: "What is the service catalog?"
+    - name: "What is a Transit Hub?"
+      href: what-transit-hub.md
+    - name: "What is the Service Catalog?"
       href: what-service-catalog.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
@@ -60,6 +60,10 @@
 #       href: workload-and-application-planning.md
 #     - name: Built in RBAC Roles
 #       href: built-in-rbac-roles.md
+#     - name: Air-Gapped Communities and Enclaves
+#       href: air-gapped-communities-and-enclaves.md
+#     - name: Understanding Admin Virtual Machines
+#       href: understanding-admin-vm.md
   - name: Tutorials
     items:
     - name: Tutorial 1 Create a community
@@ -128,28 +132,24 @@
 #       href: deployment-errors.md
 #     - name: Compliance validation
 #       href: compliance-validation.md
-# - name: Service Catalog
-#   items:
+  - name: Service Catalog
+    items:
 #     - name: Overview
 #       href: service-catalog.md
-#     - name: Deploy a Storage Account from Service Catalog
-#       href: deploy-a-storage-account-from-the-service-catalog-into-a-workload.md
-#     - name: Deploy an App Service Web App from Service Catalog
-#       href: deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md
-#     - name: Deploy Azure SQL from Service Catalog
-#       href: deploy-azure-sql-from-the-service-catalog-into-a-workload.md
-#     - name: List of Service Catalog Templates
-#       href: list-of-service-catalog-templates.md
+    - name: Deploy a Storage Account from Service Catalog
+      href: deploy-storage-account-service-catalog.md
+    - name: Deploy an App Service Web App from Service Catalog
+      href: deploy-app-service-web-app-service-catalog.md
+    - name: Deploy Azure SQL from Service Catalog
+      href: deploy-azure-sql-service-catalog.md
+    - name: List of Service Catalog Templates
+      href: list-service-catalog-templates.md
 # - name: Resources
 #   items:
 #     - name: Support Policies
 #       href: support-policies.md
 #     - name: Videos
 #       href: videos.md
-#     - name: Air-Gapped Communities and Enclaves
-#       href: air-gapped-communities-and-enclaves.md
-#     - name: Understanding Admin Workstations
-#       href: understanding-admin-workstations.md
 #     - name: AVE Templates
 #       href: ave-templates.md
 #     - name: Migrate Azure Resources into AVE
