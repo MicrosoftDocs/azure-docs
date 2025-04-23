@@ -45,7 +45,7 @@ Follow these steps to connect an app to MongoDB Atlas:
     > [!TIP]
     > To find your cluster's connection string, in the MongoDB Astra platform, navigate to **Clusters** > **Connection** > **Drivers**, and copy the connection string.
 
-    :::image type="content" source="./media/mongo-service-connection/create-authentication-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Basics tab.":::
+    :::image type="content" source="./media/mongo-service-connection/create-authentication-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Authentication tab.":::
 
 1. Select **Next** until you reach  **Review + Create**, and review the provided information.
 1. Select **Create**.
