@@ -109,6 +109,7 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 
    >[!NOTE]
    >The **Enable hierarchical namespace** option on the blob isn't supported.
+   
    >[!NOTE]
    >Protecting a **shared disk** (eg WFC) is not supported.   
 
