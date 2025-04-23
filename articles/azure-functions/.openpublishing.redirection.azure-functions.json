@@ -191,6 +191,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-unit-testing-python.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-unit-testing-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-functions/durable-functions-versioning.md",
             "redirect_url": "/azure/azure-functions/durable/durable-functions-versioning",
             "redirect_document_id": false

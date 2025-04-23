@@ -379,6 +379,10 @@ After you verify that the function runs correctly on your local computer, it's t
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
+## Unit testing
+
+For more information on unit testing functions in Python, see our [Python unit testing guide](durable-functions-unit-testing-python.md)
+
 ## Test your function in Azure
 
 ::: zone pivot="python-mode-configuration"
