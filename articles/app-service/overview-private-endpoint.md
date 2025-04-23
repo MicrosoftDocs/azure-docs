@@ -92,7 +92,7 @@ When you set up this DNS configuration, you can reach your app privately with th
 
 If you need to use a custom domain name, add the custom name in your app. You must validate the custom name like any custom name, by using public DNS resolution. For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
 
-In your custom DNS zone, you need to update the DNS record to point to the private endpoint. If your app is already configured with DNS resolution for the default host name, the preferred way is to point the custom domain CNAME record to `mywebapp.azurewebsites.net`. If you only want the custom domain name to resolve to the private endpoint, you can add an A record with the private endpoint IP directly.
+In your custom DNS zone, you need to update the DNS record to point to the private endpoint. If your app is already configured with DNS resolution for the default host name, the preferred way is to add a `CNAME` record for the custom domain pointing to `mywebapp.azurewebsites.net`. If you only want the custom domain name to resolve to the private endpoint, you can add an `A` record with the private endpoint IP directly.
 
 ### Kudu/scm endpoint
 
