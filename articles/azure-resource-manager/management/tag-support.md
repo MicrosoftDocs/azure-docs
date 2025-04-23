@@ -2976,6 +2976,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | instancePools | Yes | Yes |
+> |instanceFailoverGroup|  No | No | 
 > | managedInstances | Yes | Yes |
 > | managedInstances / administrators | No | No |
 > | managedInstances / advancedThreatProtectionSettings | No | No |
