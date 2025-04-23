@@ -756,6 +756,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | hostpools | **Yes** | **Yes** | No |
 > | scalingplans | **Yes** | **Yes** | No |
 > | workspaces | **Yes** | **Yes** | No |
+> | appattachpackages | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices
 
