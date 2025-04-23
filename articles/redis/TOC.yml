@@ -202,10 +202,9 @@ items:
     href: /azure/azure-cache-for-redis/cache-migration-guide
 
 - name: Azure Cache for Redis 
+  href: /azure/azure-cache-for-redis/index
   expanded: true
   items:
-  - name: What's new with Azure Cache for Redis?
-    href: /azure/azure-cache-for-redis/cache-whats-new
   - name: About Azure Cache for Redis
     href: /azure/azure-cache-for-redis/cache-overview
   - name: Choosing the right Azure Cache for Redis tier

@@ -11,8 +11,6 @@
     items:
     - name: Create a cache
       items: 
-      - name: Create an Azure Managed Redis instance
-        href: /redis/quickstart-create-managed-redis
       - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
         href: quickstart-create-redis.md
       - name: Create an Azure Cache for Redis instance in the Enterprise tiers
@@ -234,10 +232,9 @@
       href: cache-monitor-troubleshoot-faq.yml 
 
 - name: Azure Managed Redis 
-  expanded: false
+  href: /azure/redis/index
+  expanded: true
   items:
-  - name: What's new with Azure Managed Redis
-    href: /azure/redis/whats-new
   - name: About Azure Managed Redis
     href: /azure/redis/overview
   - name: Azure Managed Redis architecture
