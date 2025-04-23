@@ -112,19 +112,19 @@ landingContent:
           - text: Bicep with GitHub Actions
             url: deploy-github-actions.md
   # Card
-  - title: Scoped deployments
+  - title: Deployment scopes
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Resource group
+          - text: Resource group scope
             url: deploy-to-resource-group.md
-          - text: Subscription
+          - text: Subscription scope
             url: deploy-to-subscription.md
-          - text: Management group
+          - text: Management group scope
             url: deploy-to-management-group.md
-          - text: Tenant
+          - text: Tenant scope
             url: deploy-to-tenant.md
-          - text: Scoping extension resource
+          - text: Scope extension resource
             url: scope-extension-resources.md
   # Card
   - title: Guidance & patterns
@@ -146,14 +146,14 @@ landingContent:
           url: /azure/templates/
         - text: Azure Quickstart Templates
           url: https://azure.microsoft.com/resources/templates/
-        - text: Bicep CLI
+        - text: Bicep CLI reference
           url: ./bicep-cli.md
-        - text: Bicep core diagnostics
+        - text: Bicep warnning and error codes
           url: ./bicep-core-diagnostics.md
+        - text: Azure CLI reference
+          url: /cli/azure/resource
+        - text: Azure PowerShell reference
+          url: /powershell/module/az.resources
         - text: Microsoft Graph Bicep reference
           url: https://learn.microsoft.com/graph/templates/reference/overview
-        - text: Azure PowerShell
-          url: /powershell/module/az.resources
-        - text: Azure CLI
-          url: /cli/azure/resource
 
