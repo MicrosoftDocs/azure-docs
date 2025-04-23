@@ -27,7 +27,7 @@ Backup vault uses managed identity to access other Azure resources. To restore f
 
 Backup vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using the Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created as mentioned [here](restore-managed-disks.md#restore-to-create-a-new-disk).
+Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks should be restored/created as mentioned [here](restore-managed-disks.md#restore-to-create-a-new-disk).
 
 ### Fetching the relevant recovery point
 
@@ -181,7 +181,7 @@ az dataprotection recovery-point list --backup-instance-name diskrg-CLITestDisk-
 
 ### Preparing the restore request
 
-Construct the ARM ID of the new disk to be created with the target resource group, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required disk name. We'll use an example of a disk named _CLITestDisk2_, under a resource group _targetrg_, under a different subscription.
+Construct the ARM ID of the new disk to be created with the target resource group, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required disk name. Let's use an example of a disk named _CLITestDisk2_, under a resource group _targetrg_, under a different subscription.
 
 ```azurecli-interactive
 $targetDiskId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.Compute/disks/CLITestDisk2
