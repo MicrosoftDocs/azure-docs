@@ -4,7 +4,7 @@ metadata:
   description: FAQ for Azure Synapse Link for SQL
   author: dearandyxu
   ms.author: yexu
-  ms.reviewer: wiassaf, imotiwala
+  ms.reviewer:  imotiwala
   ms.service: azure-synapse-analytics
   ms.topic: faq
   ms.subservice: synapse-link

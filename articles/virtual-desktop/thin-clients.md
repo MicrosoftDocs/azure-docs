@@ -30,4 +30,4 @@ The following partners have thin client devices that are approved to use with Az
 
 ## Next steps
 
-Learn more about Windows App at [What is Windows App](/windows-app/overview.md).
+Learn more about Windows App at [What is Windows App](/windows-app/overview).

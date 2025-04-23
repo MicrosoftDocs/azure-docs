@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 04/16/2025
 ms.author: danlep
 ---
 
@@ -71,8 +71,8 @@ The following are abbreviated steps to add a workspace gateway to a workspace. F
 1. In the left menu, under **APIs**, select **Workspaces**.
 1. Select a workspace.
 1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > **+ Add**.
-1. Complete the wizard to create a gateway. Currently, provisioning of the gateway can take from several minutes to up to 3 hours or longer.
-1. After your gateway is provisioned, go to the gateway's **Overview** page. Note the value of **Runtime hostname**. Use this value to update your client apps that call your workspace's APIs.
+1. Complete the wizard to create a new gateway or associate an existing gateway. Currently, provisioning a new gateway can take from several minutes to up to 3 hours or longer.
+1. After adding a gateway, go to the gateway's **Overview** page. Note the value of **Runtime hostname**. Use this value to update your client apps that call your workspace's APIs.
 1. Repeat the preceding steps for your remaining workspaces.
 
 ### Update client apps to use the new gateway hostname

@@ -22,6 +22,8 @@
     href: quick-backup-vm-template.md
   - name: Back up a VM - Bicep template
     href: quick-backup-vm-bicep-template.md
+  - name: Back up a VM - Terraform
+    href: quick-backup-vm-terraform.md
   - name: Back up Azure PostgreSQL Database
     items:
     - name: Back up the database - Azure portal
@@ -190,6 +192,8 @@
       href: disk-backup-support-matrix.md
     - name: Azure Blobs backup support matrix
       href: blob-backup-support-matrix.md
+    - name: Azure Data Lake Storage Gen2 backup support matrix (preview)
+      href: azure-data-lake-storage-backup-support-matrix.md  
     - name: Active Directory domain controllers
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
@@ -214,8 +218,10 @@
       href: backup-azure-file-folder-backup-faq.yml
     - name: FAQ-Back up Azure Files
       href: backup-azure-files-faq.yml
-    - name: FAQ- Azure Disk Backup
+    - name: FAQ-Azure Disk Backup
       href: disk-backup-faq.yml
+    - name: FAQ-Azure Backup for AKS
+      href: aks-backup-faq.yml
     - name: FAQ-Back up SQL Server databases on Azure VMs
       href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
@@ -266,6 +272,8 @@
       href: azure-kubernetes-service-cluster-backup-concept.md
   - name: Azure Blob backup
     href: blob-backup-overview.md
+  - name: Azure Data Lake Storage Gen2 backup (preview)
+    href: azure-data-lake-storage-backup-overview.md  
   - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
@@ -309,7 +317,7 @@
       - name: Delete
         href: backup-azure-delete-vault.md
       - name: Relocate
-        href: ../operational-excellence/relocation-backup.md?toc=/azure/backup/toc.json
+        href: ../azure-resource-manager/management/relocation/relocation-backup.md?toc=/azure/backup/toc.json
       - name: Manage
         href: backup-azure-manage-windows-server.md
     - name: Backup vault
@@ -624,6 +632,12 @@
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
+  - name: Azure Data Lake Storage Gen2 backup (preview)
+    items:
+    - name: Configure backup
+      href: azure-data-lake-storage-configure-backup.md
+    - name: Restore
+      href: azure-data-lake-storage-restore.md        
   - name: Azure Files backup
     items:
     - name: From the Azure portal
@@ -776,6 +790,10 @@
     items:
     - name: Review backup estate
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Monitor Azure Backup
+      href: monitor-backup.md
+    - name: Monitoring data reference
+      href: monitor-backup-reference.md
     - name: Alerts
       items:
       - name: Azure Monitor alerts
@@ -971,6 +989,24 @@
       href: backup-azure-alternate-dpm-server-troubleshoot.md
     - name: Monitoring and  alerts
       href:  backup-azure-monitor-troubleshoot.md
+- name: Script samples
+  items:
+  - name: Pre-Backup and Post-Backup Scripts
+    href: pre-backup-post-backup-scripts.md
+  - name: Find Vault for Storage Account PowerShell Script  
+    href: ./scripts/backup-powershell-script-find-recovery-services-vault.md
+  - name: Disable Soft delete for File Share
+    href: ./scripts/disable-soft-delete-for-file-shares.md
+  - name: Install the latest MARS agent on on-premises Windows servers
+    href: ./scripts/install-latest-microsoft-azure-recovery-services-agent.md
+  - name: Configure Backup for on-premises Windows server
+    href: ./scripts/microsoft-azure-recovery-services-powershell-all.md
+  - name: Register on-premises Windows server/ client machine with Recovery Services vault
+    href: ./scripts/register-microsoft-azure-recovery-services-agent.md
+  - name: Create/ modify the file and folder backup policy
+    href: ./scripts/set-file-folder-backup-policy.md
+  - name: Create/ modify the system state backup policy
+    href: ./scripts/set-system-state-backup-policy.md          
 - name: Reference
   items:
   - name: Archived release notes

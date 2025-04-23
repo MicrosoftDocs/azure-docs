@@ -3,7 +3,9 @@ title: Apache Kafka REST proxy - Azure HDInsight
 description: Learn how to do Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom:
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 04/09/2024
 ---
 

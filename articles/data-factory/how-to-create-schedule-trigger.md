@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a schedule.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 02/13/2025
@@ -590,5 +590,5 @@ The examples assume that the `interval` value is `1` and that the `frequency` va
 
 ## Related content
 
-- For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+- For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-types).
 - To learn how to reference trigger metadata in pipeline, see [Reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

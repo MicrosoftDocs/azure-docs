@@ -1,17 +1,19 @@
 ---
-title: "Deployment step 2: base services - job scheduler component"
-description: Learn about the configuration of the job scheduler during migration deployment step two.
+title: "Job scheduler configuration"
+description: Learn how to configure job schedulers during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 2: base services - job scheduler component
+# Job scheduler configuration
 
-Job schedulers are responsible for scheduling user jobs, that is, determining where and when jobs should be executed. In the context of the cloud, job schedulers interact with resource orchestrators to acquire/release resources on-demand, which is different from an on-premises environment where resources are fixed and fully available all the time. The most common HPC job schedulers are Slurm, OpenPBS, PBSPro, and LSF.
+A key aspect of your high performance computing migration is the configration of job schedulers. Job schedulers are responsible for scheduling user jobs, that is, determining where and when jobs should be executed. In the context of the cloud, job schedulers interact with resource orchestrators to acquire/release resources on-demand, which is different from an on-premises environment where resources are fixed and fully available all the time. This part of the guide covers the needs, tools, services, and best practices associated with your job schedulers.
+
+The most common HPC job schedulers are Slurm, OpenPBS, PBSPro, and LSF.
 
 ## Define job scheduler needs
 

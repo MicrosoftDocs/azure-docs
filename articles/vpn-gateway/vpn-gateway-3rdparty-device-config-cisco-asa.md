@@ -5,7 +5,7 @@ description: View sample configurations for connecting Cisco ASA devices to Azur
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---

@@ -4,6 +4,9 @@ description: Learn how to perform administrative tasks for the Apache Hadoop clu
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurepowershell
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 10/17/2024
 ---
 

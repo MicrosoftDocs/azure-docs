@@ -1,11 +1,11 @@
 ---
 title: Metrics for Azure NetApp Files | Microsoft Docs
-description: Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. Use these metrics to understand usage and performance.
+description: Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. Use these metrics to understand usage and performance.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/28/2025
+ms.date: 04/16/2025
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -130,7 +130,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 - From the Azure NetApp Files capacity pool or volume, select **Metrics**. Then select **Metric** to view the available metrics:
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
-    
+
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 - *Pool Allocated Size*   
@@ -148,21 +148,41 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
-- *Percentage Volume Consumed Size*    
+Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. Use these metrics to understand usage and performance.
+
+- *Percentage Volume Consumed Size*
+
     The percentage of the volume consumed, including snapshots.  
     Aggregation metrics (for example, min, max) aren't supported for percentage volume consumed size.
-- *Volume Allocated Size*   
+- *Volume Allocated Size* 
+  
     The provisioned size of a volume
 - *Volume Quota Size*    
+
     The quota size (GiB) the volume is provisioned with.   
 - *Volume Consumed Size*   
+
     Logical size of the volume (used bytes).  
     This size includes logical space used by active file systems and snapshots.  
 - *Volume Snapshot Size*   
+ 
    The size of all snapshots in a volume.  
+- *Volume Inodes Quota*
+    
+    The volume's maximum allowed [inodes (or `maxfiles`)](maxfiles-concept.md) if the limit was increased via support request. If the limit hasn't been increased via support request, this metric's value is 0.
+
+- *Volume Inodes Total*
+
+    The volume's maximum allowed [inodes (or `maxfiles`)](maxfiles-concept.md) based on the volume size.
+- *Volume Inodes Used*
+
+    The volume's used [inodes (or `maxfiles`)](maxfiles-concept.md).
+
 - *Volume Inodes Percentage* 
 
-    The percentage of the volume's available [inodes (or `maxfiles`)](maxfiles-concept.md) consumed. 
+    The percentage of the volume's available [inodes (or `maxfiles`)](maxfiles-concept.md) consumed.
+
+    If the volume inode limit has been increased by a support request, the percentage is calculated based on Volume Inodes Quota metric. If the volume inode limit is the default value based on the volume size, the percentage is calculated based on the Volume Inodes Total metric.
 
 - *Throughput limit reached*
     
@@ -184,7 +204,6 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
         Consider repurposing the volume and delegating a different volume with a larger size and/or in a higher service level to meet your application requirements. If it's an NFS volume, consider changing mount options to reduce data flow if your application supports those changes.
 
     :::image type="content" source="./media/azure-netapp-files-metrics/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="./media/azure-netapp-files-metrics/throughput-limit-reached.png":::
-
 
 ## Performance metrics for volumes
 

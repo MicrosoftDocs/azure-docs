@@ -84,5 +84,5 @@ To restore the database to the secondary region, follow these steps:
 
 For more information about backup and restore with Cross Region Restore, see:
 
-- [Cross Region Restore for PostGreSQL Servers](manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
+- [Cross Region Restore for PostgreSQL Servers](manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
 - [Restore Azure Database for PostgreSQL backups](./restore-azure-database-postgresql.md).

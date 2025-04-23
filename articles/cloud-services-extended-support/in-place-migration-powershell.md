@@ -10,9 +10,13 @@ author: hirenshah1
 ms.author: hirshah
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: As an IT administrator managing legacy Azure Cloud Services, I want to migrate from classic to extended support using PowerShell, so that I can leverage the improved reliability and features of the Azure Resource Manager deployment model.
 ---
 
 # Migrate to Azure Cloud Services (extended support) using PowerShell
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 These steps show you how to use Azure PowerShell commands to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
 

@@ -71,7 +71,9 @@ For understanding the type of change that was captured in the resource (i.e. Cre
 
 > [!NOTE]
 > Snapshots are not currently supported for deleted resources.
-> For records with `changeType`: Delete, the `changesCount` is shown as 0 because the resource itself gets deleted, and there are no properties remaining.
+> For records with `changeType`: Delete, the `changesCount` is shown as 0 because the resource itself gets deleted, and there are no properties remaining. For records with `changeType`: Create, the `changesCount` is also shown as 0 because every resource property gets modified during resource creation, and logging every property change would cause too much noise.
+>
+> When new properties are introduced, they will not be shown as changes. For example, this can occur when a new API version introduces new properties. Similarly, if new keys are added to tags without any values, these changes will not be shown.
 
 ## Run a query
 

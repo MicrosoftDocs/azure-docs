@@ -5,7 +5,7 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
 ms.date: 01/25/2025
 ms.custom: generated

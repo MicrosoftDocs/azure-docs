@@ -43,7 +43,7 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Service Bus](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones)
 - [Azure Service Fabric](migrate-service-fabric.md)
 - [Azure SQL Database](migrate-sql-database.md)
-- [Azure SQL Managed Instance](migrate-sql-managed-instance.md)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-zone-redundancy-configure)
 - [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md)
 - [Azure Storage: Managed Disks](migrate-vm.md)
 - [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)
@@ -54,6 +54,6 @@ To improve the reliability of your solution, it's a good practice to enable avai
 ## Related resources
 - [Azure reliability guides](overview-reliability-guidance.md)
 - [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [List of Azure regions](regions-list.md)
 - [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)

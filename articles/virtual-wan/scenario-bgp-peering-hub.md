@@ -5,7 +5,7 @@ description: Learn about BGP peering with an Azure Virtual WAN virtual hub.
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 10/25/2024
+ms.date: 03/26/2025
 ms.author: cherylmc
 
 ---
