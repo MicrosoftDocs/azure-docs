@@ -73,7 +73,7 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 Container Apps supports TCP-based protocols other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
-> External TCP ingress is only supported for Container Apps environments that use a [virtual network](vnet-custom.md). TCP ingress is not supported for apps that accept inbound traffic through a [private endpoint](networking.md#private-endpoint).
+> External TCP ingress is only supported for Container Apps environments that use a [virtual network](vnet-custom.md). TCP ingress is not supported for apps that accept inbound traffic through a [private endpoint](custom-virtual-networks.md#private-endpoint-preview).
 
 With TCP ingress enabled, your container app:
 
