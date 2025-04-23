@@ -27,6 +27,8 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
+    - title: Arize AI
+      imageSrc: ./media/index/arize-ai.svg
     - title: Astro
       imageSrc: ./media/index/astronomer.svg
       links:
