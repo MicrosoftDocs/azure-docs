@@ -29,7 +29,7 @@ Follow these steps to connect an app to MongoDB Atlas:
 
 1. Open **Settings** > **Service Connector** from the left menu and select **Create**.
 
-     :::image type="content" source="./media/service-connection/create-connection.png" alt-text="Screenshot from the Azure portal showing the Create option.":::
+    :::image type="content" source="./media/mongo-service-connection/create-connection.png" alt-text="Screenshot from the Azure portal showing the Create option.":::
 
 1. Enter or select the following information.
 
@@ -38,7 +38,7 @@ Follow these steps to connect an app to MongoDB Atlas:
     | **Service type**           | *MongoDB Atlas Cluster (Preview)*    | The name of the target service: **MongoDB Atlas Cluster (Preview)**.                                                                                                                                                                                                                                     |
     | **Connection name**        | *mongodb_atlas_01*            | The name of the connection between the Azure compute resource and the MongoDB Atlas Cluster resource. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
  
-     :::image type="content" source="./media/service-connection/create-basics-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Basics tab.":::
+    :::image type="content" source="./media/mongo-service-connection/create-basics-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Basics tab.":::
 
 1. Select **Next: Authentication** and enter your cluster connection string. Optionally also edit your cluster connection string variable name under **Advanced**.
 
