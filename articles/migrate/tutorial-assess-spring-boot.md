@@ -4,8 +4,9 @@ description: Learn how to create assessment for Azure Spring Apps in Azure Migra
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.topic: tutorial
-ms.date: 09/28/2023
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
+monikerRange: migrate-classic
 ---
 
 
@@ -32,7 +33,8 @@ In this tutorial, you learn how to:
 
 Run an assessment as follows:
 
-1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Web apps on Azure**.
 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Spring Boot to Azure Apps**. 
 
