@@ -9,7 +9,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Support matrix for backup of SAP ASE databases on Azure VMs (preview)
+# Support matrix for backup of SAP ASE databases on Azure VMs
 
 This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP Adaptive Server Enterprise (ASE) (Sybase) databases on Azure VMs.
 
@@ -62,6 +62,6 @@ Learn more [about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sy
 
 ## Next steps
 
-- [Back up SAP ASE (Sybase) databases on Azure VMs (preview)](sap-ase-database-backup.md)
-- [Restore SAP ASE (Sybase) databases on Azure VMs (preview)](sap-ase-database-restore.md)
-- [Manage SAP ASE (Sybase) databases backup (preview)](sap-ase-database-manage.md)
+- [Back up SAP ASE (Sybase) databases on Azure VMs](sap-ase-database-backup.md).
+- [Restore SAP ASE (Sybase) databases on Azure VMs](sap-ase-database-restore.md).
+- [Manage SAP ASE (Sybase) databases backup](sap-ase-database-manage.md).

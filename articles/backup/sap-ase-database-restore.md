@@ -10,14 +10,14 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore SAP ASE databases on Azure VMs (preview)
+# Restore SAP ASE databases on Azure VMs
 
 This article describes how to restore SAP ASE databases that are running on Azure virtual machines (VMs). You can use the restored data to create copies for development and test scenarios or to return to a previous state.
 
 >[!Note]
 >The master database can't be restored using original or alternate locations directly because the SAP ASE instance must be started in single-user/single-server mode. Instead, you should use the **restore as files** method to recover and apply the dump files. 
 
-## Recover the SAP ASE (Sybase) database (preview)
+## Recover the SAP ASE (Sybase) database
 
 To recover the SAP ASE (Sybase) database, follow these steps:
 
@@ -64,7 +64,7 @@ Ensure that you have the following permissions to restore a database:
 
 To restore a user database, follow these steps:
 
-1. Go to the **Recovery Services vault**, select **Backup items** > **SAP ASE (Sybase) in Azure VM (preview)** under the **Backup Management Type**. 
+1. Go to the **Recovery Services vault**, select **Backup items** > **SAP ASE (Sybase) in Azure VM** under the **Backup Management Type**. 
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png" alt-text="Screenshot showing how to select backup items." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png":::
 
@@ -160,5 +160,5 @@ Learn about the [minimum role requirements for cross-region restore](/azure/back
 
 ## Next steps
 
-- [Manage SAP ASE databases by using Azure Backup](sap-ase-database-manage.md)
-- [About backing up SAP ASE databases on Azure VMs](sap-ase-database-about.md)
+[Manage SAP ASE databases by using Azure Backup](sap-ase-database-manage.md).
+

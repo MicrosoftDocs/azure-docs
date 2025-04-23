@@ -10,7 +10,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Manage and monitor backed-up SAP ASE databases (preview)
+# Manage and monitor backed-up SAP ASE databases
 
 This article describes how to manage the SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on an Azure virtual machine (VM) by using the [Azure Backup](./backup-overview.md) service. 
 
