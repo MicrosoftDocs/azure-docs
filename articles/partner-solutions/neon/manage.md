@@ -1,24 +1,55 @@
 ---
-title: Manage a Neon resource through the Azure portal (Preview)
+title: Manage a Neon resource through the Azure portal
 description: This article describes management functions for Neon on the Azure portal.
 author: ProfessorKendrick
 ms.topic: how-to
-ms. custom:
-
-ms.date: 12/04/2024
+ms.date: 04/23/2025
 ---
 
-# Manage your Neon integration through the portal (Preview)
+# Manage your Neon integration through the portal
 
-This article describes how to access the Neon Console and how to delete the Neon Serverless Postgres (Preview) resource using the Azure portal.
+This article describes how to manage the settings for Neon for Azure.
+
+## Resource overview
+
+[!INCLUDE [manage](../includes/manage.md)]
+
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Pure Storage resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+
+The *Essentials* details include:
+
+- Resource group
+- Location
+- Subscription
+- Subscription ID
+- Tags
+
+To manage your resource, select the links next to corresponding details.
+
+Below the essentials, you can navigate to other details about your resource by selecting the links.
+
+- 
+- 
+ 
+## Projects
+
+When you create your first Neon organization, a default project is created for you. You can create and view your projects from the Azure resource.
+
+### View projects
+
+To view your projects, Choose the projects tab from the menu.
+
+### Create a new project
+
+From the
+
+
 
 ## Single sign-on
 
-Single sign-on (SSO) is already enabled when you create your Neon resource. To access Neon through SSO, follow these steps:
+Single sign-on (SSO) is already enabled when you create your Neon resource.
 
-1. Navigate to the **Overview** for your instance of the Neon resource. 
-
-1. Select the portal SSO URL.
+[!INCLUDE [sso](../includes/sso.md)]
 
    :::image type="content" source="media/manage/overview.png" alt-text="Screenshot from the Azure portal showing the Neon SSO URL.":::
 
@@ -27,19 +58,8 @@ Single sign-on (SSO) is already enabled when you create your Neon resource. To a
 
 ## Delete a Neon resource
 
-Once the Neon resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete it, follow these steps:
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-1. From the **Resource** menu, select the Neon resource you would like to delete.
+## Related content
 
-1. On the working pane of the **Overview** menu, select **Delete**.
-
-1. Confirm deletion.
-
-1. Select a reason for deleting the resource.
-
-1. Select **Delete**.
-
-## Next steps
-
-> [!div class"nextstepaction"]
-> [Neon Serverless Postgres developer resources and tools](tools.md)
+[Neon Serverless Postgres developer resources and tools](tools.md)
