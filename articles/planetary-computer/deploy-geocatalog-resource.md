@@ -29,7 +29,7 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
 
 ## Deploy GeoCatalog with the Azure portal
 
-1. Navigate to the [Azure Portal](https://portal.azure.com/)
+1. Navigate to the [Azure portal](https://portal.azure.com/)
 
 1. Find the **GeoCatalogs** resource type use the Azure portal search bar at the top of the page; select "GeoCatalogs" from under the list of Services.
 
