@@ -120,7 +120,7 @@ Key features include:
 - Stores up to **450 restore points**, with backup frequencies from **4 hours** to **24 hours**.
 
 >[!Note]
->This feature is in preview and available in specific Azure regions.
+>This feature is in preview and [available in specific Azure regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
 
 For more information, see [About Azure Elastic SAN backup (preview)](azure-elastic-storage-area-network-backup-overview.md).
 
