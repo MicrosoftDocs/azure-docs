@@ -709,7 +709,7 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!NOTE]
-> The output binding supports all special characters, including dollar sign ($), backtick (`), hyphen (-), and underscore (_) . For more information, see the [MySQL community documentation](https://dev.mysql.com/doc/refman/8.0/en/identifiers.html).
+> The output binding supports all special characters, including dollar sign ($), backtick (`), hyphen (-), and underscore (_). For more information, see the [MySQL community documentation](https://dev.mysql.com/doc/refman/8.0/en/identifiers.html).
 >
 > A programming language might define member attributes that contain special characters that it supports. For example, C# has a few limitations for defining [variables](/dotnet/csharp/fundamentals/coding-style/identifier-names).
 >
