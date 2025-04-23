@@ -37,7 +37,7 @@ Azure Functions on Container Apps provide a versatile combination of services to
 
 - **Serverless workloads**: Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources.
 
-- **Common Azure Functions scenario**: In general, all common Azure Functions scenarios like processing file uploads, running scheduled tasks, responding to database changes, machine learning/AI and others mentioned [here](/azure/azure-functions/functions-scenarios?pivots=programming-language-csharp). 
+- **Common Azure Functions scenarios**: All common Azure Functions scenarios like processing file uploads, running scheduled tasks, responding to database changes, machine learning/AI and others detailed in [Azure Functions scenarios](/azure/azure-functions/functions-scenarios?pivots=programming-language-csharp). 
 
 ## Event-driven scaling
 
