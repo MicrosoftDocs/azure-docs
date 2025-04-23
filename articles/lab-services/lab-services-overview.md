@@ -16,9 +16,6 @@ ms.date: 03/12/2024
 
 Azure Lab Services enables you to create labs with infrastructure managed by Azure. The service handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure. For example, configure labs for specific class types, such as data science or general programming, and quickly assign lab users their dedicated lab virtual machine.
 
-> [!WARNING]
-> On June 9, 2025, we will delete all virtual machines (VMs) which have been inactive since July 1, 2023. A VM is considered inactive if no operations were performed on it. These operations include actions such as starting, stopping, resetting passwords, and reimaging. Any associated labs for these VMs will also be deleted. This policy applies to template VMs and production VMs. After the VMs are deleted, we will not be able to recover them or their data. Back up any required data from these inactive VMs, and then delete the VMs if you don't need them. Delete the VMs and the associated labs yourself to avoid incurring any unnecessary charges. Once the VMs are deleted, there is no way to recover the VMs or the data on them.
-
 To create, manage, and access labs in Azure Lab Services, use the dedicated Azure Lab Services website, or directly integrate labs in Microsoft Teams or the Canvas Learning Management System (LMS).
 
 Azure Lab Services is designed with three major personas in mind: administrators, educators, and students. Take advantage of Azure Role-Based Access Control (RBAC) to grant the right access to the different personas in your organization. In this article, you learn about these personas and how to use Azure Lab Services for conducting classes.
