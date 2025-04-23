@@ -1,8 +1,8 @@
 ### YamlMime:HowTo
 
 metadata:
-  title: "Export API from API Center to Copilot Studio"
-  description: "Learn how to export an API from your Azure API center to a connector in Microsoft Copilot Studio."
+  title: Export API from API Center to Copilot Studio connector
+  description: Learn how to export an API definition from your Azure API center as a connector in Microsoft Copilot Studio.
   author: dlepow
   ms.author: danlep
   ms.service: azure-api-management
@@ -15,29 +15,29 @@ metadata:
   # - item
   # - item
 
-  #customer intent: As an API program manager, I want to export an API from my API center inventory as a connector in Microsoft Copilot Studio for re-use by citizen developers.
+  #customer intent: As an API program manager, I want to export an API from my API center inventory as a connector in Microsoft Copilot Studio for use in agents.
 title: |
-  "Export API from API Center to Copilot Studio as a connector"
+  Export API definition from API Center to Copilot Studio as a connector
 
 introduction: |
-  You can export an API from your Azure API center to a connector in Microsoft Copilot Studio. This allows you to share the API with citizen developers who can use it in their applications. The exported connector is available for use in Microsoft Copilot Studio, where it can be used to create applications and workflows.
+  You can export an API definition from your Azure API center as a [connector in Microsoft Copilot Studio](/connectors/overview). The exported connector is available for use in Microsoft Copilot Studio, where it can be used by citizen developers to extend the capabilities of AI agents. [Learn more about extending agent capabilities with Copilot connectors](/microsoft-copilot-studio/copilot-connectors-in-copilot-studio).
 
-  In this article, you create a custom connector using an OpenAPI definition in OpenAPI 2.0 format. Learn more about [creating a custom connector](/connectors/custom-connectors/define-openapi-definition) from an OpenAPI definition in the [Microsoft documentation](https://learn.microsoft.com/en-us/connectors/custom-connectors/define-openapi-connector).
+  In this article, you create a custom connector from an OpenAPI definition associated with an API in an API center. Learn more about [creating a custom connector](/connectors/custom-connectors/define-openapi-definition) from an OpenAPI definition.
 prerequisites:
   summary: |
     The following are prerequisites for this procedure.
 
   dependencies:
     - An API center instance. You can [create one](set-up-api-center.md) in the Azure portal.
-    - An API registered in the API center inventory. The API must have a version associated with a [deployment](configure-environments-depoloyments.md) and an API definition in OpenAPI 2.0 format
+    - An API registered in the API center inventory. The API must have a version associated with a [deployment](configure-environments-deployments.md) and an API definition in OpenAPI 2.0 format
     - A Power Apps [environment](/power-apps/powerapps-overview#power-apps-for-admins) to export the API to.
 
 
 procedureSection:
   - title: | 
-        "Export API from API Center to Copilot Studio"
+        Export API definition from API Center
     summary: |
-      Follow these steps to export an API from your Azure API center as a custom connector in Microsoft Copilot Studio. 
+      Follow these steps to export an API definition from your Azure API center as a custom connector in Microsoft Copilot Studio. 
        
     steps:
       - |
@@ -57,23 +57,21 @@ procedureSection:
       - |
         Select the **API definition** to use for the connector.
       - |
-        Select the **Security requirement** type to use for the connector. 
+        Optionally, select an available **Security requirement** type to use for the connector.
       - |
         Select **Create**. 
-         The connector is now available for use in Microsoft Copilot Studio.
 
-  - title: | 
-        "[verb] * [noun]"
-    summary: |
-      [Introduce the procedure.]
-    steps:
-      - |
-        Procedure step
-      - |
-        Procedure step
-      - |
-        Procedure step
+        :::image type="content" source="media/export-to-copilot-studio/copilot-studio-menu-item.png" alt-text="Screenshot of creating a Copilot Studio connector in the portal.":::
 
-nextStep:
-  text: "[Next step text]"
-  url: link.md
+        
+        The connector is now available for use in Microsoft Copilot Studio.
+    
+        You can [test the connector](/connectors/custom-connectors/define-openapi-definition#test-the-connector) in Power Automate or Power Apps.  Manage the custom connector in Microsoft Copilot Studio. After testing, you can use the connector in [Microsoft Copilot Studio]() to create applications and workflows.
+
+relatedContent:
+  
+    - text: Learn more about building AI-driven agents with Microsoft Copilot Studio
+      url: /microsoft-copilot-studio/nlu-gpt-overview
+
+    - text: Get started with Microsoft Copilot Studio 
+      url: /training/modules/power-virtual-agents-bots
