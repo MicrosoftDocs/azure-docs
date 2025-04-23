@@ -140,7 +140,7 @@ Outlined below are the steps and code snippets to connect to SQL database in Fab
 
 1. Complete creating your service connection on the Cloud Shell, or on your local Azure CLI.
 
-1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service Connector menu, and locate your SQL database in Fabric service connection. Select **SQL Database** to navigate to the Fabric portal.
+1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service Connector menu, and locate your SQL database in Fabric service connection. Select **SQL database** to navigate to the Fabric portal.
 
     :::image type="content" source="./media/how-to-integrate-fabric-sql/navigate-to-fabric-sql-database.png" alt-text="Screenshot of the Azure portal, selecting SQL Database link to navigate to the Fabric portal.":::
 
