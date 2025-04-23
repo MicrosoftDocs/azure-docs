@@ -386,7 +386,7 @@
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 			</v:userDefs>
 			<title>Virtual Machine.1026</title>
-			<desc>Admin Workstation</desc>
+			<desc>Admin VM</desc>
 			<g id="shape1218-54" v:mID="1218" v:groupContext="shape" transform="translate(0,-3.42877)">
 				<title>Sheet.1218</title>
 				<v:userDefs>
@@ -1058,7 +1058,7 @@
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<title>Virtual Machine.1026</title>
-				<desc>Admin Workstation</desc>
+				<desc>Admin VM</desc>
 				<g id="shape1330-260" v:mID="1330" v:groupContext="shape" transform="translate(0,-3.42877)">
 					<title>Sheet.1330</title>
 					<v:userDefs>

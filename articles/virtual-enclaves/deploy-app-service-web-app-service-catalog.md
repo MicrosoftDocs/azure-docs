@@ -54,9 +54,12 @@ There are guardrails in the enclaves to ensure an App Service is isolated with p
 1. Navigate to the [Workload](./what-workload.md) for the intended deployment.
 2. Select `+Add Azure Service` button.
 3. Select the `App Service` template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+
+![Screenshot showing the App Service template selected from the Service Catalog list.](./media/service-catalog-list-app-service.png)
+
 4. Enter all the required parameters on each page.
 5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Add` then `Add`.
+5. Select `Review + Add` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

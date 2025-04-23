@@ -134,16 +134,32 @@
 #       href: compliance-validation.md
   - name: Service Catalog
     items:
-#     - name: Overview
-#       href: service-catalog.md
-    - name: Deploy a Storage Account from Service Catalog
-      href: deploy-storage-account-service-catalog.md
-    - name: Deploy an App Service Web App from Service Catalog
-      href: deploy-app-service-web-app-service-catalog.md
-    - name: Deploy Azure SQL from Service Catalog
-      href: deploy-azure-sql-service-catalog.md
     - name: List of Service Catalog Templates
       href: list-service-catalog-templates.md
+    - name: Deploy an Admin VM from the Service Catalog
+      href: deploy-admin-vm-service-catalog.md
+    - name: Deploy Azure App Service from the Service Catalog
+      href: deploy-app-service-service-catalog.md
+    - name: Deploy Azure Container Registry from the Service Catalog
+      href: deploy-azure-container-registry-service-catalog.md
+    - name: Deploy Azure Cosmos DB from the Service Catalog
+      href: deploy-azure-cosmos-db-service-catalog.md
+    - name: Deploy Common Dependencies from the Service Catalog
+      href: deploy-common-dependencies-service-catalog.md
+    - name: Deploy Function App from the Service Catalog
+      href: deploy-function-app-service-catalog.md
+    # - name: Deploy Key Vault from the Service Catalog
+    #   href: deploy-key-vault-service-catalog.md
+    - name: Deploy Azure SQL from the Service Catalog
+      href: deploy-azure-sql-service-catalog.md
+    - name: Deploy Azure Kubernetes Service from the Service Catalog
+      href: deploy-azure-kubernetes-service-service-catalog.md
+    - name: Deploy Remote App Virtual Machine from the Service Catalog
+      href: deploy-remote-app-vm-service-catalog.md
+    - name: Deploy Azure Service Bus from the Service Catalog
+      href: deploy-azure-service-bus-service-catalog.md
+    - name: Deploy a Storage Account from the Service Catalog
+      href: deploy-storage-account-service-catalog.md
 # - name: Resources
 #   items:
 #     - name: Support Policies

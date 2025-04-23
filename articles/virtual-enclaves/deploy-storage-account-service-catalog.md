@@ -42,9 +42,12 @@ There are guardrails in the enclaves to ensure a storage account is using CMK en
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
 3. Select the `Storage Account` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+
+![Screenshot showing the Storage Account template selected from the Service Catalog list.](./media/service-catalog-list-storage-account.png)
+
 4. Enter the required parameters on each tab
 5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Add` then `Add`.
+5. Select `Review + Add` then `Create`.
 
 It can take up to 15+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

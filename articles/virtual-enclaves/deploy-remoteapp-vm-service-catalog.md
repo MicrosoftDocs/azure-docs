@@ -39,23 +39,21 @@ Required:
 1. An existing subnet. 
     - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
 2. (optional) An existing domain to join if the RemoteApp will be domain joined.
-3. Create a `Disk Encryption Set`
-    - Follow the steps for [creating a CMK](./setup-customer-managed-key-encryption-within-an-enclave.md)
-    - Follow the steps for [creating a managed Identity](./create-user-managed-identity.md) for the previous key.
-    - From the azure portal, create a `Disk Encryption Set`
-    - Enter the Workload Resource Group (RG) and provide a name for the Disk Encryption Set
-    - For `encryption type` select **Encryption at-rest with a customer-managed key**
-    - For `Encryption key`, select the **Select Azure key vault key** option
-    - For `Key Vault` and `Key` use the ones created previously
-    - For user assigned Identity select the one created previously
-    - Select on `Review + create` and then `Create`
+3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
+    - [Disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
+    - [How to create a user assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+    - [Manage User Assigned Identity](https://learn.microsoft.com/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
+    - Create an Access Policy in the Key Vault for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the Remote App service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `Remote App VM` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+
+![Screenshot showing the Remote App VM (aka Virtual Machine) template selected from the Service Catalog list.](./media/service-catalog-list-virtual-machine.png)
+
 4. Enter all the required parameters on each of the tabs.
-5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the ones used in the prerequisites section.
+5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
 7. (Optional) [Publish your RemoteApp](#publish-remote-app-optional) to other users
 8. (Optional) [Domain join](#domain-join-optional) your RemoteApp VM.
@@ -85,13 +83,13 @@ If you publish your application, all of the following fields on this tab must be
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-1. Go to the specified Resource Group, the Workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC and
+1. Go to the specified Resource Group, the Workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC.
 2. If the Remote App was published: hostpool, app group, and workspace.
 
 ## Connect to the Application VM
-Via the [Admin Workstation](./understanding-admin-workstations.md):
-The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
-1. Sign in to a desktop session on the Admin Workstation via the [Admin Workstation](./understanding-admin-workstations.md) blade for the enclave.
+Via the [Admin VM](./understanding-admin-workstations.md):
+The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
+1. Sign in to a desktop session on the [Admin VM](./understanding-admin-workstations.md) blade for the enclave.
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
 4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.

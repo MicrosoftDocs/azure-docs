@@ -52,9 +52,12 @@ The Administrators tab requires login info. Here is an example of some input:
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
 3. Select the `Azure SQL` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+
+![Screenshot showing the Azure SQL template selected from the Service Catalog list.](./media/service-catalog-list-azure-sql.png)
+
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Add` then `Add`.
+5. Select `Review + Add` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

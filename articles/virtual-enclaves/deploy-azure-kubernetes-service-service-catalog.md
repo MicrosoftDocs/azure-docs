@@ -84,11 +84,14 @@ Documentation around these rules can be found [here](https://learn.microsoft.com
 
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the Private AKS Cluster service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `Private AKS Cluster` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+
+![Screenshot showing the Azure Kubernetes Service template selected from the Service Catalog list.](./media/service-catalog-list-azure-kubernetes-service.png)
+
 4. Select through the tabs and enter all the required parameters.
-5. Use 172.16.0.0/16 for the serviceCidr and 172.16.0.10 for the dnsServiceIP
+5. Use `172.16.0.0/16` for the serviceCidr and `172.16.0.10` for the dnsServiceIP
 6. Adjust any of the prepopulated parameters as needed.
-7. Select Review + Add then Add.
+7. Select `Review + Add` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
@@ -133,7 +136,7 @@ Go to the specified Resource Group to confirm the intended resources were create
 
 ### Connect to the Application VM
 Via the Admin VM:
-The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM is also called a "jumpbox".
+The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM is also called a "jumpbox".
 1. Sign-in to a desktop session on the Admin VM.
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.

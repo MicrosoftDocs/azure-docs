@@ -30,11 +30,14 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
-2. Select "Add Service" button.
-3. Select the Remote App service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+2. Select `Add Service` button.
+3. Select the `Service Bus` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+
+![Screenshot showing the Service Bus template selected from the Service Catalog list.](./media/service-catalog-list-service-bus.png)
+
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
-6. Select Review + Add then Add.
+6. Select `Review + Add` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
@@ -43,7 +46,7 @@ Go to the specified Resource Group to confirm the intended resources were create
 
 ### Connect to the Application VM
 Via the Admin VM:
-The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a jumpbox.
+The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a jumpbox.
 1. Sign-in to the Admin VM you have deployed for your enclave or [create a new Admin VM](./understanding-admin-vm.md)
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
