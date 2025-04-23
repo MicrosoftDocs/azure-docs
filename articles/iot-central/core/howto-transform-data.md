@@ -108,7 +108,7 @@ In this scenario, the IoT Edge device runs a custom module that transforms the d
 - Build the custom module.
 - Add the custom module to a container registry.
 
-The IoT Edge runtime downloads custom modules from a container registry such as an Azure container registry or Docker Hub. The [Azure Cloud Shell](../../cloud-shell/overview.md) has all the tools you need to create a container registry, build the module, and upload the module to the registry:
+The IoT Edge runtime downloads custom modules from a container registry such as an Azure Container Registry or Docker Hub. The [Azure Cloud Shell](../../cloud-shell/overview.md) has all the tools you need to create a container registry, build the module, and upload the module to the registry:
 
 To create a container registry:
 
