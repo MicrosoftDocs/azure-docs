@@ -3,8 +3,8 @@ title: Review a business case with Azure Migrate | Microsoft Docs
 description: Describes how to review a business case with Azure Migrate
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 11/08/2024
-ms.custom: engagement-fy25
+ms.date: 02/06/2025
+ms.custom: engagement-fy24
 
 ---
 
