@@ -5,7 +5,7 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 04/21/2025
+ms.date: 04/22/2025
 ms.devlang: php
 ms.custom: mode-other, devdivchpfy22, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
@@ -35,7 +35,9 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 ### [Azure CLI](#tab/cli)
 
-You can create the web app by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample PHP code to the web app.
+In the following steps, you create the web app by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and then you deploy sample PHP code to the web app.
+
+You can use the [Azure Cloud Shell](https://shell.azure.com).
 
 1. In a terminal window, run the following commands to clone the sample application to your local machine and navigate to the project root.
 
