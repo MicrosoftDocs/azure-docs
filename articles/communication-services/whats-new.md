@@ -25,9 +25,9 @@ Calling Native SDKs can now place calls to a Teams call queue or auto attendant.
 
 For more information, see: 
 
-- [Contact center scenarios](./tutorials/contact-center#chat-on-a-website-that-escalates-to-a-voice-call-answered-by-a-teams-agent.md).
-- [Teams Call Queue on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-call-queue?pivots=platform-android.md).
-- [Teams Auto Attendant on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-auto-attendant?pivots=platform-android.md).
+- [Contact center scenarios](./tutorials/contact-center.md#chat-on-a-website-that-escalates-to-a-voice-call-answered-by-a-teams-agent).
+- [Teams Call Queue on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-call-queue.md).
+- [Teams Auto Attendant on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-auto-attendant.md).
 
 ### Calling Web & Graph Beta SDKs add Teams shared line appearance
 
