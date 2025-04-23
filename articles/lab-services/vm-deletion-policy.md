@@ -13,6 +13,6 @@ ms.date: 04/23/2025
 
 On June 9, 2025, Azure Lab Services will delete all virtual machines (VMs) that have been inactive since July 1, 2023. 
 
-A VM is considered inactive if no operations were performed on it. These operations include actions such as starting, stopping, resetting passwords, and reimaging. Any associated labs for these VMs will also be deleted. This policy applies to template VMs and production VMs. 
+A virtual machine is considered inactive if no operations were performed on it. These operations include actions such as starting, stopping, resetting passwords, and reimaging. Any associated labs for these virtual machines will also be deleted. This policy applies to template VMs and production VMs. 
 
-After the VMs are deleted, we will not be able to recover them or their data. Back up any required data from these inactive VMs, and then delete the VMs if you don't need them. Delete the VMs and the associated labs yourself to avoid incurring any unnecessary charges. Once the VMs are deleted, there is no way to recover the VMs or the data on them.
+After the virtual machines are deleted, we will not be able to recover them or their data. Back up any required data from these inactive virtual machines, and then delete the virtual machines if you don't need them. Delete the virtual machines and the associated labs yourself to avoid incurring any unnecessary charges. Once the virtual machines are deleted, there is no way to recover the virtual machines or the data on them.
