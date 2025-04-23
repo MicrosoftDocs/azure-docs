@@ -201,11 +201,11 @@ items:
   - name: Migrate to Azure Redis from other caches
     href: /azure/azure-cache-for-redis/cache-migration-guide
 
-- name: Azure Managed Redis 
-  expanded: false
+- name: Azure Cache for Redis 
+  expanded: true
   items:
   - name: What's new with Azure Cache for Redis?
-    href: /azure/azure-cache-for-redis/whats-new
+    href: /azure/azure-cache-for-redis/cache-whats-new
   - name: About Azure Cache for Redis
     href: /azure/azure-cache-for-redis/cache-overview
   - name: Choosing the right Azure Cache for Redis tier

@@ -237,11 +237,11 @@
   expanded: false
   items:
   - name: What's new with Azure Managed Redis
-    href: /redis/whats-new
+    href: /azure/redis/whats-new
   - name: About Azure Managed Redis
-    href: /redis/overview
+    href: /azure/redis/overview
   - name: Azure Managed Redis architecture
-    href: /redis/architecture
+    href: /azure/redis/architecture
 
 - name: Samples
   items:
