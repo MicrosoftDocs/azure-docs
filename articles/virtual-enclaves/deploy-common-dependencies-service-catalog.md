@@ -33,11 +33,14 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
-2. Select "Add Service" button.
-3. Select the Common Dependencies template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+2. Select `Add Service` button.
+3. Select the `Common Dependencies` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+
+![Screenshot showing the Common Dependencies template selected from the Service Catalog list.](./media/service-catalog-list-common-dependencies.png)
+
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
-5. Select Review + Add then Add.
+5. Select `Review + Add` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

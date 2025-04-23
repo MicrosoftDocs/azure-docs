@@ -10,21 +10,21 @@ ms.date: 04/08/2025
 
 # Understanding Admin VMs in Azure Virtual Enclaves (AVE)
 
-A Virtual Machine (VM) created to securely access enclave resources for administrative purposes. Admin Workstation Virtual Machines (VMs) that can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave.
+A Virtual Machine (VM) created to securely access enclave resources for administrative purposes and can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave.
 
 ## Access
 By default, AVE creates an Azure Bastion instance for Community or Enclave Owners to access their enclaves.
 
 ### Enable Enclave access to the Azure portal
-Azure portal access is restricted by default for enclaves. This means you need to create endpoint rules and connections to access the Azure portal from within the Admin Workstation or enclave.
+Azure portal access is restricted by default for enclaves. This means you need to create endpoint rules and connections to access the Azure portal from within the Admin VM or enclave.
 
 1. [Create Enclave endpoint in the Azure portal](./create-enclave-endpoint-portal.md)
 2. [Create Community Endpoint in the Azure portal](./create-community-endpoint-portal.md)
 3. [Create Enclave Connection in the Azure portal](./create-enclave-connection-portal.md)
 
-### Signing in to Admin Workstation
-#### Reset password
-If this is the first time using the Admin Workstation, reset the password with the instructions below. Otherwise continue to sign in to the Admin Workstation. Starting from the portal:
+### Signing in to Admin VM
+Reset password
+If this is the first time using the Admin VM, reset the password with the instructions below. Otherwise continue to sign in to the Admin VM. Starting from the portal:
 1. Select the VM name to open that VM resource
 3. Scroll to the bottom of the blades and select "Reset Password"
 4. Enter the new password twice and select "Update"

@@ -34,7 +34,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
 - [**Enclaves**](./what-enclave.md) - Isolated, zero-trust, platform-managed virtual networks connected to the Community hub protected through a combination of Network Security Groups (NSG), policy guardrails, and RBAC Deny Assignments that serve as the Virtual Network for one or more Workloads. Enclave virtual networks and NSGs can't be directly modified and must be managed through Enclave Endpoints and Enclave Connection resources to establish network connectivity. The primary components of an Enclave include:
   - Azure Virtual Network
   - Zero-trust Network Security Groups
-  - Admin Workstations
+  - Admin VMs
   - Private DNS Zones
   - Azure Bastion
   - Private-Links for the following managed resources:

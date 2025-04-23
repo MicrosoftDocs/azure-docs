@@ -9,7 +9,7 @@ ms.date: 04/08/2025
 ---
 
 # SQL Guardrails Initiative
-This is a description of the Policy gaurdrails in place to ensure Azure SQL is deployed securely.
+This article describes the Policy guardrails in place to ensure Azure SQL is deployed securely.
 
 ## SQL GitHub Repository
 

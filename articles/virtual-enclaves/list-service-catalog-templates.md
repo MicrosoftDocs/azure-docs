@@ -35,7 +35,7 @@ New templates will be added over time
 
 [How to create an Admin VM](./deploy-admin-vm-service-catalog.md)
 
-Description: A Virtual Machine (VM) created for the purpose of securely accessing enclave resources for administrative purposes. Admin Workstation Virtual Machines (VMs) that can be remotely accessed through [Azure Bastion](https://aka.ms/bastion).
+Description: A Virtual Machine (VM) created for the purpose of securely accessing enclave resources for administrative purposes. Admin VM Virtual Machines (VMs) that can be remotely accessed through [Azure Bastion](https://aka.ms/bastion).
 
 Documentation:
 [Understanding Admin VMs](understanding-admin-vm.md)
@@ -50,14 +50,14 @@ Documentation:
 
 ## Remote App VM
 
-[How to create a Remote App VM](./deploy-remoteapp-service-catalog.md)
+[How to create a Remote App VM](./deploy-remoteapp-vm-service-catalog.md)
 
 Description:
 This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](../virtual-desktop/publish-applications-stream-remoteapp.md) by joining and deploying a host pool, app location group, and workspace. The default application published as a remote app is the edge browser.
 
 Documentation:
 [Remote App Streaming Overview](../virtual-desktop/remote-app-streaming/overview.md)
-[How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-service-catalog.md)
+[How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-vm-service-catalog.md)
 
 
 ## Storage Account
