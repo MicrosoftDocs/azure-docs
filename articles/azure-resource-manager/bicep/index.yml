@@ -66,30 +66,24 @@ landingContent:
         links:
           - text: Bicep file structure & syntax
             url: ./file.md
-          - text: Define parameters
-            url: ./parameters.md
-          - text: Define variables
-            url: ./variables.md
           - text: Define resources
             url: ./resource-declaration.md
           - text: Define modules
             url: ./modules.md
-          - text: Define outputs
-            url: ./outputs.md
           - text: User-defined data types
             url: ./user-defined-data-types.md
           - text: User-defined functions
             url: ./user-defined-functions.md
           - text: Create parameters file
-            url: ./parameters-file.md
+            url: ./parameter-files.md
           - text: Use iterative loops
             url: ./loops.md
           - text: Use conditionals
-            url: ./conditionals-resource-deployment.md
+            url: ./conditional-resource-deployment.md
           - text: Reference existing resources
-            url: ./existing-resources.md
+            url: ./existing-resource.md
           - text: Use deployment script
-            url: ./deployment-script.md
+            url: ./deployment-script-bicep.md
       - linkListType: reference
         links:
           - text: Data types
