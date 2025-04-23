@@ -47,6 +47,14 @@ There are two options to enable the service principal for Azure VMware Solution.
     Set-AzureADServicePrincipal -ObjectId 0a9fa53e-1930 -AccountEnabled $True  
     ```
 
+### Option 3: From Azure CLI
+
+1. Run the following command:
+
+    ```shell
+    az ad sp update --id "1a5e141d-70dd-4594-8442-9fc46fa48686" --set accountEnabled=true
+    ```
+    
 ## Next steps
   
 - Follow a tutorial for [Creating an Azure VMware Gen 2 private cloud](native-create-azure-vmware-virtual-network-private-cloud.md)
