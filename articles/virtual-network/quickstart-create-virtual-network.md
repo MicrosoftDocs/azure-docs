@@ -618,8 +618,6 @@ The script creates the following resources:
 
 - Two subnets: Segments of a virtual network's IP address range where you can place groups of isolated resources.
 
-:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-bicep/virtual-network-bicep-resources.png":::
-
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 ## Implement the Terraform code
@@ -681,6 +679,10 @@ The script creates the following resources:
         --name $virtual_network_name
     ```
 
+## Troubleshoot Terraform on Azure
+
+For information about troubleshooting Terraform, see [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
+
 ---
 
 ## Connect to a virtual machine
@@ -733,16 +735,61 @@ The script creates the following resources:
 
 ## Clean up resources
 
+### [Portal](#tab/portal)
 
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
-## Next step -or- Related content
+### [PowerShell](#tab/powershell)
 
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
+When you finish with the virtual network and the VMs, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all its resources:
 
--or-
+```azurepowershell-interactive
+$rgParams = @{
+    Name = 'test-rg'
+    Force = $true
+}
+Remove-AzResourceGroup @rgParams
+```
 
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)
+### [CLI](#tab/cli)
+
+When you finish with the virtual network and the VMs, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources:
+
+```azurecli-interactive
+az group delete \
+    --name test-rg \
+    --yes
+```
+
+### [ARM](#tab/arm)
+
+When you no longer need the resources that you created with the virtual network, delete the resource group. This action removes the virtual network and all the related resources.
+
+To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name <your resource group name>
+```
+
+### [Bicep](#tab/bicep)
+
+1. In the Azure portal, on the **Resource groups** page, select the **TestRG** resource group.
+
+1. At the top of the **TestRG** page, select **Delete resource group**.
+
+1. On the **Delete a resource group** page, under **Enter resource group name to confirm deletion**, enter **TestRG**, and then select **Delete**.
+
+1. Select **Delete** again.
+
+### [Terraform](#tab/terraform)
+
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+
+---
+## Related content
+
+- [Filter network traffic](tutorial-filter-network-traffic.md)
+
+- [Learn more about using Terraform on Azure](/azure/terraform)
+
 
