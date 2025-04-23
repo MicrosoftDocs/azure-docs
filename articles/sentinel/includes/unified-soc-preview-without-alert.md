@@ -2,10 +2,10 @@
 title: "include file" 
 description: "include file" 
 services: microsoft-sentinel
-author: cwatson-cat
+author: batamig
 ms.topic: "include"
 ms.date:  10/16/2024
-ms.author: cwatson
+ms.author: bagol
 ms.custom: "include file"
 ---
 
