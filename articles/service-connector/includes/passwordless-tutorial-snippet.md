@@ -196,7 +196,7 @@ az webapp connection create fabricsql \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
     --fabric-workspace-uuid $FABRIC_WORKSPACE_UUID \
-    --fabric-sql-db-uuid $FABRIC_SQL_DB_UUID$ \
+    --fabric-sql-db-uuid $FABRIC_SQL_DB_UUID \
     --user-identity client-id=XX subs-id=XX \
     --client-type dotnet
 ```
@@ -208,7 +208,7 @@ az webapp connection create fabricsql \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
     --fabric-workspace-uuid $FABRIC_WORKSPACE_UUID \
-    --fabric-sql-db-uuid $FABRIC_SQL_DB_UUID$ \
+    --fabric-sql-db-uuid $FABRIC_SQL_DB_UUID \
     --system-identity \
     --client-type dotnet
 ```
