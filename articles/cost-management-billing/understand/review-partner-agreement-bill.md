@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 03/21/2024
+ms.date: 04/22/2025
 ms.author: jkinma
 ---
 

@@ -136,7 +136,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | attestationproviders | **Yes** | **Yes** | No |
+> | attestationproviders | No | No | No |
 
 ## Microsoft.Authorization
 

@@ -72,7 +72,7 @@ To get your quota request approved, you must first register the portable VCF det
 >The "Qty" represents the number of cores eligible for VCF portability. Your quota request shouldn't surpass the number of nodes equivalent to your entitled cores from Broadcom. If your quota request exceeds the approved cores, the quota request will be granted only for the number of nodes that are fully covered by the entitled cores.
 
 - VCF with VMware vDefend entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with Vmware vDefend entitlement sample format." border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with VMware vDefend entitlement sample format." border="false":::
 
 Sample Email to register portable VCF entitlements: 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Screenshot of sample email to register portable VCF subscription." border="true":::
