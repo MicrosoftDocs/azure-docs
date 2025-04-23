@@ -44,8 +44,6 @@ Use these values in the following [az dt command](/cli/azure/dt) to create the i
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
 ```
 
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
-
 There are several optional parameters that can be added to the command to specify additional things about your resource during creation, including creating a managed identity for the instance or enabling/disabling public network access. For a full list of supported parameters, see the [az dt create](/cli/azure/dt#az-dt-create) reference documentation.
 
 ### Create the instance with a managed identity
@@ -106,13 +104,11 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 The result of this command is outputted information about the role assignment that has been created for the user.
 
 > [!NOTE]
-> If this command returns an error saying that the CLI **cannot find user or service principal in graph database**:
->
-> Assign the role using the user's Object ID instead. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
+> If this command returns an error saying that the CLI **cannot find user or service principal in graph database**, assign the role using the user's Object ID instead. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
 >
 > Use the [Azure portal page of Microsoft Entra users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's **Object ID**:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Screenshot of the user page in Azure portal highlighting the GUID in the 'Object ID' field." lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Screenshot of the user page in Azure portal highlighting the GUID in the 'Object ID' field." lightbox="media/includes/user-id-large.png":::
 >
 > Then, repeat the role assignment list command using the user's Object ID for the `assignee` parameter above.
 
