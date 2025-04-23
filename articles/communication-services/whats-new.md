@@ -25,9 +25,9 @@ Calling Native SDKs can now place calls to a Teams call queue or auto attendant.
 
 For more information, see: 
 
-- [Contact center scenarios](./tutorials/contact-center#chat-on-a-website-that-escalates-to-a-voice-call-answered-by-a-teams-agent).
-- [Teams Call Queue on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-call-queue?pivots=platform-android).
-- [Teams Auto Attendant on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-auto-attendant?pivots=platform-android).
+- [Contact center scenarios](./tutorials/contact-center#chat-on-a-website-that-escalates-to-a-voice-call-answered-by-a-teams-agent.md).
+- [Teams Call Queue on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-call-queue?pivots=platform-android.md).
+- [Teams Auto Attendant on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-auto-attendant?pivots=platform-android.md).
 
 ### Calling Web & Graph Beta SDKs add Teams shared line appearance
 
@@ -37,8 +37,8 @@ Microsoft Teams shared line appearance lets a user choose a delegate to answer o
 
 For more information, see: 
 
-- [Microsoft Teams shared line appearance](./concepts/interop/teams-user/teams-shared-line-appearance).
-- [Teams Shared Line Appearance](./how-tos/cte-calling-sdk/shared-line-appearance).
+- [Microsoft Teams shared line appearance](./concepts/interop/teams-user/teams-shared-line-appearance.md).
+- [Teams Shared Line Appearance](./how-tos/cte-calling-sdk/shared-line-appearance.md).
 
 ### Number Lookup API
 
