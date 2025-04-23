@@ -33,7 +33,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 5. Enter the basic details for your Workload
    - Enclave: Select an existing Enclave. This value is automatically applied if you started the Workload creation from the existing Enclave.
-   - Workload name: Name of the Workload (for example `contoso4-identity`)
+   - Workload name: Name of the Workload (for example `cyber-monitoring-apps`)
 
 ![Screenshot showing the Workload creation basics page.](./media/create-workload-tab-1-basics.png)
 
@@ -41,9 +41,13 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 >
 > Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
-6. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Workload.
+## Create Workload Resource Groups
 
-7. Select `Review + create`, ensure the details for your Workload are correct, and select `Create`.
+6. You can also create new resource groups on this page view or later after Workload creation. You can also move existing resource groups into your workload after the Workload is created. To add a new Resource Group select `Add`, provide a name, and repeat as needed.
+
+7. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Workload.
+
+8. Select `Review + create`, ensure the details for your Workload are correct, and select `Create`.
 
 
 **References**

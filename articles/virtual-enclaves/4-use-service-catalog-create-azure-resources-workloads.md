@@ -25,7 +25,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 - This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 - A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
-- Complete the [prerequisites](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for an App Service Web App. Including subnet delegation for the
+- Complete the [prerequisites](./deploy-app-service-web-app-service-catalog.md#prerequisites) for an App Service Web App. Including subnet delegation for the
 
 ![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-four-service-catalog-app-service-subnet-delegate.png)
 

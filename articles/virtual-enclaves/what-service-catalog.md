@@ -25,7 +25,7 @@ The Service Catalog contains two template categories:
 See the [Service Catalog List](./list-service-catalog-templates.md) to view the available templates in the Service Catalog. Review the documentation for each Service Catalog template you wish to deploy to determine if there are any prerequisite steps.
 
 ## Editing Service Catalog templates before deployment
-You can edit the Service Catalog template itself but edits may change the formatting of the parameter input flow. 
+You can edit the Service Catalog template itself but edits might change the formatting of the parameter input flow. 
 
 ## Ready? Deploy from the Service Catalog!
 

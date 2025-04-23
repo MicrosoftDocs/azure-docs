@@ -42,4 +42,4 @@ Refer to this guidance for more information on the different types of Transit Hu
 
 > [!NOTE]
 > 
-> Transit Hub connectivity may be a "break-glass" scenario due to configuration variability of transit connections.
+> Transit Hub connectivity might be a "break-glass" scenario due to configuration variability of transit connections.
