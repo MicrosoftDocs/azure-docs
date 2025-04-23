@@ -50,8 +50,8 @@
         href: design-api-github-copilot-azure.md
       - name: Register APIs - GitHub Actions
         href: register-apis-github-actions.md
-      - name: Register MCP servers
-        href: add-mcp-server-apis.md
+      - name: Register and discover MCP servers
+        href: register-discover-mcp-server.md
 - name: API governance
   items:
       - name: Use metadata for governance
