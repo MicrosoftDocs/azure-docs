@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 04/11/2025
 ms.custom: engagement-fy23
 monikerRange: migrate
 
@@ -22,7 +22,7 @@ You can do the following in the new experience:
 
 - Review the inventory of different type of workloads discovered from your datacenter along with their key attributes - all in a **single view**. 
 - **Expand a server** and review the inventory of databases and web applications running on the server. 
-- Use  the **filtering** capability with the combination of filters to scope the list of workloads.
+- Use the **filtering** capability with the combination of filters to scope the list of workloads.
 - **Add and edit tags** at scale to the discovered workloads from the inventory views.
 - **Export** the inventory of your entire datacenter to review the details offline.
 - Review the discovered inventory specifically for your **infrastructure (servers), databases, and web applications** by switching to these inventory views. 
@@ -56,7 +56,7 @@ As you configure the appliance, you must specify the following in the appliance 
 
 - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
 - Server credentials, which can be domain, Windows (non-domain) or Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
-- Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the *CAP_DAC_READ_SEARCH* and *CAP_SYS_PTRACE* permissions on `/bin/netstat` and `/bin/ls` files. If you provide a sudo user account, ensure that you've enabled *NOPASSWD* for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a Sudo user account with permissions to execute ls and netstat commands or create a user account that has the *CAP_DAC_READ_SEARCH* and *CAP_SYS_PTRACE* permissions on `/bin/netstat` and `/bin/ls` files. If you provide a Sudo user account, ensure that you've enabled *NOPASSWD* for the account to run the required commands without prompting for a password every time Sudo command is invoked.
 
 ### Add credentials and initiate a discovery
 
@@ -148,10 +148,10 @@ You can perform any of the following actions after you review the inventory:
 Discover | Discover using appliance or CSV import to inventory more workloads.
 Create assessment | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads.<br/> You must select one or more workloads to perform this action. <br/> Learn how to [create an assessment]().
 Build business case | Build business case for TCO/RoI analysis for all or scoped set of workloads. <br/> You must select one or more workloads to perform this action. <br/> Learn how to [build a business case]().
-Dependency analysis | Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to [export dependency data](how-to-create-group-machine-dependencies-agentless.md#export-dependency-data).
-Tags | Add/edit tags at scale to all or a scoped set of workloads. <br/> You must select one or more workloads to perform this action. <br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file. <br/> Learn how to [add tags]().
+Dependency analysis | Export dependency data for servers that have auto-enabled dependency data gathering. Learn how to [export dependency data](how-to-create-group-machine-dependencies-agentless.md#export-dependency-data).
+Tags | Add or edit tags at scale for all workloads or a scoped set of workloads. <br/> YTo perform this action, select one or more workloads. <br/> You can also import tags by using an exported list of the entire inventory and importing the tags information from that CSV file. <br/> Learn how to [add tags]().
 Export data | Export the inventory data for all workloads. <br/> Review [exported data](#export-all-inventory-data).
-Columns | Choose optional attributes for the discovered workloads.
+Columns | Select optional attributes for the discovered workloads.
 Refresh | Refresh the view to review any updates in discovery.
 Feedback | Provide your feedback about the view and its utility.
 
@@ -165,7 +165,7 @@ ID |
 Parent ID | 
 Workload | Name of the Server, Database, or Web application 
 Category | Category of the inventoried asset across Server, Database, and Web app
-Type | Type of workload.<br/> For instance, a Server can be a Windows server or a inux server, a Database can be SQL Server, and a Web app can be .NET or IIS
+Type | Type of workload.<br/> For instance, a Server can be a Windows server or a Linux server, a Database can be SQL Server, and a Web app can be .NET or IIS
 Edition | Edition of the Server, Database, or Web app
 Version | Version of the Server, Database, or Web app
 Dependencies | Network dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation, etc.
@@ -191,7 +191,7 @@ HADR configuration |
 
 Select **Explore inventory** > **Infrastructure inventory** from the left pane to view the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or CSV import.
 
-**Infrastructure inventory** view helps you review all the servers discovered from your datacenter including VMware VMs, Hyper-V VMs,Physical servers, or servers running in other public clouds.
+**Infrastructure inventory** view helps you review all the servers discovered from your datacenter including VMware VMs, Hyper-V VMs,  Physical servers, or servers running in other public clouds.
 
 # [Default columns](#tab/default)
 
@@ -230,7 +230,7 @@ Software inventory | Lists the installed Roles and Features *(Windows Servers on
 DB Instances | Lists the DB instances running on the server along with attributes such as DB platform, Support status, user databases, etc.
 Web apps | Lists the web apps running on the server along with attributes such as Web server, framework, etc.
 Tags | Lists the custom tags applied to the server with an option to edit or delete the existing tags and add new tags.
-Issues | Lists the discovery issues encountered on the server categorized by features that provids error message, possible causes, and remediation steps.
+Issues | Lists the discovery issues encountered on the server categorized by features that provides error message, possible causes, and remediation steps.
 
 ### Scope server data
 
@@ -257,7 +257,7 @@ Operating system | Name of the Server Operating system
 IPv6/IPv4 | IP address of the server
 Dependencies | Network dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation, etc.
 Software inventory | Count of the softwares installed on the server
-DB instances | Number fo DB instances running on the server
+DB instances | Number of DB instances running on the server
 Web app | Number of web apps running on the server
 Issues | Number of discovery issues reported on the server
 Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support, or in Extended support.
@@ -304,12 +304,81 @@ You can perform the following actions on all or a scoped set of web apps after y
 
 - **Discover**: Discover using appliance or CSV import to inventory more workloads.
 - **Create assessment**: Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. You must select one or more workloads to perform this action. [Learn more](how-to-create-assessment.md).
-- **Dependency analysis**: Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to export dependency data.
-- **Tags**: You can add/edit Tags at scale to all or a scoped set of workloads.
-    - You must select one or more workloads to perform this action. 
-    - You can also import tags using an exported list of all inventory and importing the tags information from that CSV file.
+- **Dependency analysis**: Export dependency data for servers that have auto-enabled dependency data gathering. Learn how to export dependency data.
+- **Tags**: Add or edit tags at scale for all workloads or a scoped set of workloads. 
+    - To perform this action, select one or more workloads. 
+    - You can also import tags by using an exported list of the entire inventory and importing the tags information from that CSV file.
 - **Export data**: Export the inventory data for all web apps.
 - **Refresh**: Refresh the view to review any updates in discovery.
+
+## Review databases inventory
+
+You can view all the discovered databases in your environment. Select **Databases** > **Explore Inventory** from the left pane.
+
+The Databases Inventory view allows you to review all the discovered SQL Server databases running on the identified servers. By default, it displays all databases, but you can use specific filters, such as SQL, to filter the databases by type.
+
+>[!NOTE]
+> If you are unable to see all the discovered databases, ensure that the software inventory is completed for all the servers. [Learn more].
+
+# [Default columns](#tab/default-col)
+
+The default view shows the discovered databases along with a set of attributes.
+
+**Attribute name** | **Details**
+--- | --- 
+DB instance | Name of the database instance.
+Server | Name of the server on which the database is discovered.
+DB platform | Type of database that is hosted on the server
+Support status | OEM support status for the database.
+User databases | Number of databases hosted on the database instance.
+Issues | Number of discovery issues reported on the database.
+Instance HADR participants | Number of database instances nodes that are part of HADR cluster.
+Database HADR participants | Number of databases that are part of HADR cluster.
+Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags only.[Learn more]
+HADR configuration | Name of the HADR configuration.
+Discovery Source | Method of discovery for the database - Appliance or import.
+Appliance Name | Total DB size (MB)	Size of the database instance in MB.
+ 
+# [Optional columns](#tab/optional-col)
+
+**Attribute name** | **Details**
+--- | --- 
+Version | Version of the database instance.
+Edition | Edition of the database instance.
+Total DB size (MB) | Size of the database instance in MB.
+Max server memory (MB) | Maximum memory of the server on which the database is hosted.
+Azure Migrate connection status | This field shows if the Azure Migrate appliance successfully connected to the SQL Server instance to gather information. If the value is **Not Connected**, the available information is either incomplete or outdated.
+DB engine status | Power status of database engine if it's running or stopped.
+HADR enabled | High availability and disaster recovery enablement status.
+First discovery time | The database was first discovered at this timestamp.
+Last updated time | Azure Migrate last received the payload for the database at this timestamp.
+
+### Review databases data
+
+You can select the name of a database to view all the attributes and additional metadata discovered for that workload in a detailed view. This allows you to explore any issues encountered during the discovery of the database and can add, edit, or delete tags for an individual database. You can review the following details for each database:
+
+**Tab name** | **Details**
+--- | --- 
+Overview | This tab provides an overview of the database instance, including the server name hosting the database, its support status, and the database size. It also offers a comprehensive overview of the platform configuration, HADR configuration, and discovery details.
+Tags | The database has a list of custom tags, and you can edit or delete existing tags or add new ones.
+Issues |This section details the issues encountered during the database discovery, their possible causes, and the recommended remediations for successful discovery.
+
+### Scope database data
+
+After reviewing the databases and their attributes, you can either **Select all workloads across pages** or use the **Search** and **Filter** capabilities to perform the necessary actions on the database inventory.
+
+You can narrow down the list in the database view by searching for the database name or applying filters based on attributes or tags. You can also add a tag to name the scoped workload.
+
+After reviewing the inventory, you can perform the following actions on all databases or a scoped set of databases:
+
+**Action name** | **Details**
+--- | --- 
+Discover |Use an appliance or import a CSV file into the inventory to discover more workloads.
+Create assessment | Create an assessment of all or a selected set of workloads to review their suitability, mapped Azure services, cost, and readiness analysis. Perform this action by selecting one or more workloads.
+Tags | Add or edit tags at scale by selecting all workloads or a scoped set of workloads. To perform this action, select one or more workloads. Import tags by using an exported list of the entire inventory and then importing the tags information from that CSV file.[Learn how to add tags].
+Export data | Export the inventory data for all databases.
+Columns | Select optional attributes for the discovered workloads.
+Refresh | Refresh the view to review any updates in discovery.
 
 ## Next steps
 
