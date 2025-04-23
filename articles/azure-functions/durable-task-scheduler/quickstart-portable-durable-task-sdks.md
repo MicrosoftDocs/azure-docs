@@ -55,6 +55,9 @@ Before you begin:
 
 ::: zone pivot="java"
 
+- Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
+
 ::: zone-end
 
 ::: zone pivot="csharp,python,java"
@@ -97,7 +100,7 @@ Since the example code automatically uses the default emulator settings, you don
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample dirctory. 
 
      ```bash
-     cd samples/portable-sdks/python/sub-orchestrations-with-fan-out-fan-in
+     cd samples/portable-sdks/python/fan-out-fan-in
      ```
 
 1. Pull the Docker image for the emulator.
@@ -119,6 +122,28 @@ Since the example code automatically uses the default emulator settings, you don
 ::: zone-end
 
 ::: zone pivot="java"
+
+1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Java SDK sample dirctory. 
+
+     ```bash
+     cd samples/portable-sdks/java/fan-out-fan-in
+     ```
+
+1. Pull the Docker image for the emulator.
+    
+     ```bash
+     docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     ```
+
+1. Run the emulator. The container may take a few seconds to be ready.
+    
+     ```bash
+     docker run --name dtsemulator -d -p 8080:8080 mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     ```
+
+Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
+- Endpoint: `http://localhost:8080`
+- Task hub: `default`
 
 ::: zone-end
 
@@ -148,12 +173,18 @@ Since the example code automatically uses the default emulator settings, you don
 
 ### Understanding the output
 
-When you run this sample, you receive output from both the worker and client processes. The worker output shows:
+When you run this sample, you receive output from both the worker and client processes. 
+
+#### Worker output
+
+The worker output shows:
 
 - Registration of the orchestrator and activities
 - Log entries when each activity is called
 - Parallel processing of multiple work items
 - Final aggregation of results
+
+#### Client output
 
 The client output shows: 
 
@@ -162,7 +193,7 @@ The client output shows:
 - The final aggregated results, showing each work item and its corresponding result
 - Total count of processed items
 
-**Example output**
+#### Example output
 
 ```
 Starting Fan-Out Fan-In Pattern - Parallel Processing Client
@@ -221,11 +252,11 @@ Total items processed: 5
      You'll see output indicating that the worker has started and is waiting for work items.
 
      ```
-     INFO:__main__:Starting Fan Out/Fan In pattern worker...
+     Starting Fan Out/Fan In pattern worker...
      Using taskhub: default
      Using endpoint: http://localhost:8080
-     2025-04-23 12:56:58.612 durabletask-worker INFO: Starting gRPC worker that connects      to http://localhost:8080
-     2025-04-23 12:56:58.830 durabletask-worker INFO: Successfully connected to http://     localhost:8080. Waiting for work items...
+     Starting gRPC worker that connects to http://localhost:8080
+     Successfully connected to http://localhost:8080. Waiting for work items...
      ```
      
 1. In a new terminal (with the virtual environment activated, if applicable), run the client.
@@ -242,12 +273,18 @@ Total items processed: 5
 
 ### Understanding the output
 
-When you run this sample, you receive output from both the worker and client processes. The worker output shows:
+When you run this sample, you receive output from both the worker and client processes. 
+
+#### Worker output
+
+The worker output shows:
 
 - Registration of the orchestrator and activities.
 - Status messages when processing each work item in parallel, showing that they're executing concurrently.
 - Random delays for each work item (between 0.5 and 2 seconds) to simulate varying processing times.
 - A final message showing the aggregation of results.
+
+#### Client output
 
 The client output shows: 
 
@@ -258,7 +295,7 @@ The client output shows:
    - Sum of all results (each item result is the square of its value)
    - Average of all results
 
-**Example output**
+#### Example output
 
 ```
 Starting fan out/fan in orchestration with 10 items
@@ -293,6 +330,60 @@ Orchestration completed with status: COMPLETED
 
 ::: zone pivot="java"
 
+1. Install the required packages. 
+     
+     ```bash
+
+     ```
+
+1. Start the worker. 
+     
+     ```bash
+
+     ```
+     
+1. In a new terminal, run the client.
+
+     ```bash
+     
+     ```
+
+     You can provide the number of work items as an argument. If no argument is provided, the example runs 10 items by default.
+
+     ```bash
+     
+     ```
+
+### Understanding the output
+
+When you run this sample, you receive output from both the worker and client processes. 
+
+#### Worker output
+
+The worker output shows:
+
+- Registration of the orchestrator and activities.
+- Status messages when processing each work item in parallel, showing that they're executing concurrently.
+- Random delays for each work item (between 0.5 and 2 seconds) to simulate varying processing times.
+- A final message showing the aggregation of results.
+
+#### Client output
+
+The client output shows: 
+
+- Starting the orchestration with the specified number of work items.
+- The unique orchestration instance ID.
+- The final aggregated result, which includes:
+   - Total number of items processed
+   - Sum of all results (each item result is the square of its value)
+   - Average of all results
+
+#### Example output
+
+```
+
+```
+
 ::: zone-end
 
 
@@ -310,13 +401,17 @@ You can view the orchestration status and history via the [Durable Task Schedule
    - The input and output at each step
    - The time taken for each step
 
+::: zone-end
+
+::: zone pivot="csharp"
+
 :::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard.png" alt-text="Screenshot showing the orchestartion instance's details.":::
 
 ::: zone-end
 
 ::: zone pivot="csharp,python,java"
 
-## What happened?
+## Understanding the code structure
 
 ::: zone-end
 
@@ -506,6 +601,55 @@ result = client.wait_for_orchestration_completion(
 ::: zone-end
 
 ::: zone pivot="java"
+
+### Worker
+
+To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+
+1. Takes a list of work items as input.
+1. Fans out by creating a separate task for each work item using ``.
+1. Executes all tasks in parallel.
+1. Waits for all tasks to complete using ``.
+1. Fans in by aggregating all individual results using ``.
+1. Returns the final aggregated result to the client.
+
+Using fan-out/fan-in, the orchestration creates parallel activity tasks and waits for all to complete. 
+
+```java
+
+```
+
+#### Client
+
+The worker uses `Microsoft.Extensions.Hosting` for proper lifecycle management.
+
+```csharp
+using Microsoft.Extensions.Hosting;
+//..
+
+builder.Services.AddDurableTaskWorker()
+    .AddTasks(registry =>
+    {
+        registry.AddOrchestrator<ParallelProcessingOrchestration>();
+        registry.AddActivity<ProcessWorkItemActivity>();
+        registry.AddActivity<AggregateResultsActivity>();
+    })
+    .UseDurableTaskScheduler(connectionString);
+```
+
+### The client project
+
+The client project:
+
+- Uses the same connection string logic as the worker.
+- Creates a list of work items to be processed in parallel.
+- Schedules an orchestration instance with the list as input.
+- Waits for the orchestration to complete and displays the aggregated results.
+- Uses `` for efficient polling.
+
+```java
+
+```
 
 ::: zone-end
 
