@@ -10,13 +10,13 @@ metadata:
   ms.author: jgao
   ms.subservice: bicep
   ms.topic: landing-page
-  ms.date: 03/17/2025
+  ms.date: 04/23/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: Bicep
+  - title: About Bicep
     linkLists:
       - linkListType: overview
         links:
@@ -32,6 +32,12 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Install Bicep tools
+            url: install.md
+          - text: Decompile JSON to Bicep
+            url: decompile.md
       - linkListType: quickstart
         links:
           - text: Create Bicep files - VS Code
@@ -42,10 +48,6 @@ landingContent:
             url: quickstart-create-template-specs.md
           - text: Create deployment stacks
             url: quickstart-create-deployment-stacks.md
-          - text: Use private module registry
-            url: quickstart-private-module-registry.md
-          - text: Create and deploy Microsoft Graph resources
-            url: https://learn.microsoft.com/graph/templates/quickstart-create-bicep-interactive-mode
       - linkListType: learn
         links:
           - text: Fundamentals of Bicep
@@ -54,7 +56,7 @@ landingContent:
             url: /training/paths/intermediate-bicep/
           - text: Advanced Bicep
             url: /training/paths/advanced-bicep/
-          - text: Use deployment stacks
+          - text: Deployment stacks
             url: /training/modules/introduction-to-deployment-stacks/
 
   # Card
@@ -78,33 +80,43 @@ landingContent:
             url: ./user-defined-data-types.md
           - text: User-defined functions
             url: ./user-defined-functions.md
+          - text: Create parameters file
+            url: ./parameters-file.md
+          - text: Use iterative loops
+            url: ./loops.md
+          - text: Use conditionals
+            url: ./conditionals-resource-deployment.md
+          - text: Reference existing resources
+            url: ./existing-resources.md
+          - text: Use deployment script
+            url: ./deployment-script.md
       - linkListType: reference
         links:
           - text: Data types
             url: ./data-types.md
-          - text: Operators
-            url: ./operators.md
           - text: Functions
             url: ./bicep-functions.md
+          - text: Operators
+            url: ./operators.md
   # Card
   - title: Deploy Bicep files
     linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy with Azure CLI
+            url: deploy-cli.md
+          - text: Deploy with Azure PowerShell
+            url: deploy-powershell.md
+          - text: Deploy with Cloud Shell
+            url: deploy-cloud-shell.md
+          - text: Use What-if operation
+            url: deploy-what-if.md
       - linkListType: quickstart
         links:
           - text: Bicep with pipelines
             url: add-template-to-azure-pipelines.md
           - text: Bicep with GitHub Actions
             url: deploy-github-actions.md
-      - linkListType: how-to-guide
-        links:
-          - text: PowerShell
-            url: deploy-powershell.md
-          - text: Azure CLI
-            url: deploy-cli.md
-          - text: Cloud Shell
-            url: deploy-cloud-shell.md
-          - text: What-if deployment
-            url: deploy-what-if.md
   # Card
   - title: Scoped deployments
     linkLists:
@@ -138,12 +150,12 @@ landingContent:
         links:
         - text: Bicep resource reference
           url: /azure/templates/
+        - text: Azure Quickstart Templates
+          url: https://azure.microsoft.com/resources/templates/
         - text: Bicep CLI
           url: ./bicep-cli.md
         - text: Bicep core diagnostics
           url: ./bicep-core-diagnostics.md
-        - text: Azure Quickstart Templates
-          url: https://azure.microsoft.com/resources/templates/
         - text: Microsoft Graph Bicep reference
           url: https://learn.microsoft.com/graph/templates/reference/overview
         - text: Azure PowerShell
