@@ -54,7 +54,7 @@ You must deploy the Azure Migrate appliance to start discovery. To deploy the ap
 
 As you configure the appliance, you must specify the following in the appliance configuration manager:
 
-- The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
+- The details of the source environment (vCenter Server(s) /Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
 - Server credentials, which can be domain, Windows (non-domain) or Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
 - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a Sudo user account with permissions to execute ls and netstat commands or create a user account that has the *CAP_DAC_READ_SEARCH* and *CAP_SYS_PTRACE* permissions on `/bin/netstat` and `/bin/ls` files. If you provide a Sudo user account, ensure that you've enabled *NOPASSWD* for the account to run the required commands without prompting for a password every time Sudo command is invoked.
 
@@ -84,7 +84,7 @@ You can select the count of workloads on **Overview** of your project or select 
 
 **All Inventory** view helps you review all the workloads discovered from your datacenter that includes servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases, and web applications which can be found inline by expanding the server. 
 
-While the default view shows databases and web applications when you expand a server in a hierarchical list, you can also choose to see a flat list of all workloads by switching to that view from the action on top right of the page. 
+While the default view shows databases and web applications when you expand a server in a hierarchical list, you can also choose to see a flat list of all workloads. To switch to that view, use the action located at the top right of the page.
 
 :::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="The screenshot illustrates how to switch to flat list view." lightbox="./media/how-to-review-discovered-inventory/switch-to-flat-list.png":::
 
@@ -104,11 +104,11 @@ Version | Version of the Server, Database, or Web app.
 Dependencies | Network dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed*.
 Support Status | Support status for the Servers, Databases to indicate if they're in Mainstream support, End of Support, or in Extended support. [Learn more](vmware/tutorial-discover-vmware.md#view-support-status).
 Discovery source | Source of discovery of the workload (Appliance or Import).
-Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags only. 
+Tags | Tags applied to the workload. <br/> Currently, Azures Migrate supports custom tags only. 
 
 # [Optional columns](#tab/optional-col)
 
-You can view more attributes that are gathered by Azure Migrate as part of the discovery. To do this, select **Columns** from the command bar on top and choose the additional attributes that you want to review. 
+To view more attributes gathered by Azure Migrate during the discovery process, select **Columns** from the command bar at the top. Then, select more attributes that you want to review.
 
 > [!Note]
 > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](#export-all-inventory-data).
@@ -149,7 +149,7 @@ Discover | Discover using appliance or CSV import to inventory more workloads.
 Create assessment | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads.<br/> You must select one or more workloads to perform this action. <br/> Learn how to [create an assessment]().
 Build business case | Build business case for TCO/RoI analysis for all or scoped set of workloads. <br/> You must select one or more workloads to perform this action. <br/> Learn how to [build a business case]().
 Dependency analysis | Export dependency data for servers that have auto-enabled dependency data gathering. Learn how to [export dependency data](how-to-create-group-machine-dependencies-agentless.md#export-dependency-data).
-Tags | Add or edit tags at scale for all workloads or a scoped set of workloads. <br/> YTo perform this action, select one or more workloads. <br/> You can also import tags by using an exported list of the entire inventory and importing the tags information from that CSV file. <br/> Learn how to [add tags]().
+Tags | Add or edit tags at scale for all workloads or a scoped set of workloads. <br/> To perform this action, select one or more workloads. <br/> You can also import tags by using an exported list of the entire inventory and importing the tags information from that CSV file. <br/> Learn how to [add tags]().
 Export data | Export the inventory data for all workloads. <br/> Review [exported data](#export-all-inventory-data).
 Columns | Select optional attributes for the discovered workloads.
 Refresh | Refresh the view to review any updates in discovery.
@@ -171,7 +171,7 @@ Version | Version of the Server, Database, or Web app
 Dependencies | Network dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation, etc.
 Support Status | Support status for the Servers and Databases that indicates if they are in Mainstream support, End of Support, or in Extended support.
 Discovery source | Source of discovery of the workload between Appliance and Import
-Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags. 
+Tags | Tags applied to the workload. <br/> Currently, Azure Migrates supports custom tags. 
 Cores | Number of processor cores allocated to the server
 Memory (MBs) | Total RAM in MB allocated to the server
 Disks | Number of disks allocated to the server
@@ -202,17 +202,17 @@ The default view shows the inventoried servers, along with a set of attributes.
 Server | Name of the Server
 Operating system | Name of the Server Operating system
 IPv6/IPv4 | IP address of the server
-Dependencies | Network dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed*. [Learn more]().
+Dependencies | Network dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed*. 
 DB instances | Number fo DB instances running on the server
 Web app | Number of web apps running on the server
 Issues | Number of discovery issues reported on the server
 Support Status | Support status for the Servers and Databases to indicate if they are in Mainstream support, End of Support, or in Extended support. [Learn more](vmware/tutorial-discover-vmware.md#view-support-status).
-Tags | Tags applied to the server. <br/> Currently, Azure Migrate supports custom tags. 
+Tags | Tags applied to the server. <br/> Currently, Azure Migrates supports custom tags. 
 
 
 # [Optional columns](#tab/optional)
 
-You can view more attributes that are gathered by Azure Migrate as part of the discovery. To do this, select **Columns** from the command bar on top and choose the additional attributes that you want to review. 
+To view more attributes gathered by Azure Migrate during the discovery process, select **Columns** from the command bar at the top. Then, select more attributes that you want to review.
 
  > [!Note]
  > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported server data](#export-all-inventory-data).
@@ -225,7 +225,7 @@ Select the name of a server to see all the attributes and additional metadata di
 
 **Tab name** | **Details**
 --- | --- 
-Overview | Provides overview of the server with basic details, Storage, Network, Operating system and Hardware configuration. 
+Overview | Provides overview of the server with basic details, Storage, Network, Operating system, and Hardware configuration. 
 Software inventory | Lists the installed Roles and Features *(Windows Servers only)* and software on a Windows or Linux server.
 DB Instances | Lists the DB instances running on the server along with attributes such as DB platform, Support status, user databases, etc.
 Web apps | Lists the web apps running on the server along with attributes such as Web server, framework, etc.
@@ -256,7 +256,7 @@ Server | Name of the Server
 Operating system | Name of the Server Operating system
 IPv6/IPv4 | IP address of the server
 Dependencies | Network dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation, etc.
-Software inventory | Count of the softwares installed on the server
+Software inventory | Count of the software installed on the server
 DB instances | Number of DB instances running on the server
 Web app | Number of web apps running on the server
 Issues | Number of discovery issues reported on the server
@@ -278,7 +278,7 @@ Last updated time | Last known time stamp of when the server discovery data was 
 Processor | Processor details of the server
 Resource type | Type of resource created in Azure 
 Power Status | Power status of the server
-Machine type | Type of server whether virtualized on VMware, Hyper-V or bare-metal (physical)
+Machine type | Type of server whether virtualized on VMware, Hyper-V, or bare-metal (physical)
 Discovery source | Source of discovery (Appliance or Import)
 Support ends in (Days) | Number of days for the support to end
 Appliance name | Name of the appliance used to discover the workload.
@@ -318,7 +318,7 @@ To see all the discovered databases from your environment, select **Databases** 
 The **Databases Inventory** view allows you to review all the discovered SQL Server databases running on the discovered servers. The default view displays all databases, but you can select on specific filters, such as SQL, to filter the databases by type.
 
 >[!NOTE]
-> If you are unable to see all the discovered databases, ensure that the software inventory is completed for all servers. [Learn more](add-server-credentials.md)
+> If you're unable to see all the discovered databases, ensure that the software inventory is completed for all servers. [Learn more](add-server-credentials.md)
 
 # [Default columns](#tab/default-col)
 
@@ -347,15 +347,15 @@ Version | Version of the database instance.
 Edition | Edition of the database instance.
 Total DB size (MB) | Size of the database instance in MB.
 Max server memory (MB) | Maximum memory of the server on which the database is hosted.
-Azure Migrate connection status | This field shows if the Azure Migrate appliance successfully connected to the SQL Server instance to gather information. If the value is **Not Connected**, the available information is either incomplete or outdated.
+Azure Migrates connection status | This field shows if the Azure Migrate appliance successfully connected to the SQL Server instance to gather information. If the value is **Not Connected**, the available information is either incomplete or outdated.
 DB engine status | Power status of database engine if it's running or stopped.
 HADR enabled | High availability and disaster recovery enablement status.
 First discovery time | The database was first discovered at this timestamp.
-Last updated time | Azure Migrate last received the payload for the database at this timestamp.
+Last updated time | Azure Migrates last received the payload for the database at this timestamp.
 
 ### Review databases data
 
-You can select the name of a database to view all the attributes and additional metadata discovered for that workload in a detailed view. This allows you to explore any issues encountered during the discovery of the database and can add, edit, or delete tags for an individual database. You can review the following details for each database:
+You can select the name of a database to view all the attributes and additional metadata discovered for that workload in a detailed view. This enables you to explore any issues encountered during the discovery of the database and to add, edit, or delete tags for an individual database. You can review the following details for each database:
 
 **Tab name** | **Details**
 --- | --- 
