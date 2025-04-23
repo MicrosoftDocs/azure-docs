@@ -42,7 +42,7 @@ When configuring autopurge retention policy, you can set either a *specific* or 
      }
      ```
     
-You can add specific policies to override the default which applies to orchestrations of all statuses. In the example below, the second and third policies override the default, so data associated with completed orchestrations is deleted immediately and those associated with failed orchestrations is purged after 60 days. However, because there's no specific policy for orchestrations of statuses canceled and terminated, the default policy still applies so these data are purged after 1 day: 
+You can add specific policies to override the default policy that's applied to orchestrations of all statuses. In the example below, the second and third policies override the default policy, so data associated with completed orchestrations is deleted immediately and those associated with failed orchestrations is purged after 60 days. However, because there's no specific policy for orchestrations of statuses canceled and terminated, the default policy still applies so these data are purged after 1 day: 
 
   ```json
   [
@@ -65,11 +65,11 @@ You can add specific policies to override the default which applies to orchestra
 # [Azure Resource Manager](#tab/arm)  
 
 # [Azure CLI](#tab/cli)  
-Set the retention policy by running the following:
+Create or update the retention policy by running the following:
 
 ```azurecli
   az rest --method put --url "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2025-04-01-preview" --body '{
-    "name": "orchestration-retention",
+    "name": "default",
     "type": "private.durabletask/schedulers/retentionPolicies", 
     "properties": {
       "retentionPolicies": [
@@ -89,6 +89,36 @@ Set the retention policy by running the following:
   }'
 ```
 
+The following is returned upon successful creation:
+```json
+{
+  "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAMER/retentionPolicies/default",
+  "name": "default",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "retentionPolicies": [
+      {
+        "orchestrationState": "Completed",
+        "retentionPeriodInDays": 0
+      },
+      {
+        "orchestrationState": "Failed",
+        "retentionPeriodInDays": 30
+      }
+    ]
+  },
+  "systemData": {
+    "createdAt": "2025-04-23T23:41:17.3165122Z",
+    "createdBy": "someone@microsoft.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2025-04-23T23:41:17.3165122Z",
+    "lastModifiedBy": "someone@microsoft.com",
+    "lastModifiedByType": "User"
+  },
+  "type": "microsoft.durabletask/schedulers/retentionpolicies"
+}
+```
+
 # [Azure portal](#tab/portal)
 Experience coming soon!  
 ---
@@ -97,15 +127,10 @@ Experience coming soon!
 # [Azure Resource Manager](#tab/arm)  
 
 # [Azure CLI](#tab/cli)  
-To disable autopurge, run the following with the `retentionPolicies` property removed. The Durable Task Scheduler automatically stops cleaning up instances.
+To disable autopurge, simply delete the retention policies. The Durable Task Scheduler will stop cleaning orchestration data within 5 to 10 minutes.
 
 ```azurecli
-az rest --method put --url "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2025-04-01-preview" --body '{
-    "name": "orchestration-retention",
-    "type": "private.durabletask/schedulers/retentionPolicies", 
-    "properties": {
-    }
-  }'
+az rest --method delete --url "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAMER/retentionPolicies/default?api-version=2025-04-01-preview"
 ```
 
 # [Azure portal](#tab/arm) 
