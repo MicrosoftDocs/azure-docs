@@ -83,7 +83,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
 | version | The version that you specify. The value is `2.0`. | Yes |
-| authenticationType | Select from basic, service principal authentication, user-assigned managed identity or system-assigned managed identity | Yes |
+| authenticationType | Select from basic,  service principal, system-assigned managed identity and user-assigned managed identity authentication types | Yes |
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
@@ -156,9 +156,9 @@ The following properties are supported for the Azure Database for PostgreSQL lin
     }
 }
 ``` 
-### User-assigned managed identity
+### User-assigned managed identity authentication
 
-A data factory or Synapse workspace can be associated with a [user-assigned managed identities](/azure/data-factory/data-factory-service-identity#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure database for PostgreSQL authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
+A data factory or Synapse workspace can be associated with a [User-assigned managed identity](/azure/data-factory/data-factory-service-identity#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure database for PostgreSQL authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
 To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -208,7 +208,9 @@ You also need to follow the steps:
 }
 ```
 
-### System-assigned managed identity
+### System-assigned managed identity authentication
+
+A data factory or Synapse workspace can be associated with a [System-assigned managed identity](/azure/data-factory/data-factory-service-identity#system-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure database for PostgreSQL authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
 To use System-assigned managed identity, follow the steps:
 
