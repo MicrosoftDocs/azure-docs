@@ -19,7 +19,11 @@ To  restore Azure Elastic SAN  backups, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center**, and then select **Recover**.
 1. On the **Recover** pane, select **Datasource type** as **Elastic SAN volumes (Preview)**,  and then under **Protected item**, click **Select**.
+
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-restore/select-protected-item.png" alt-text="Screenshot shows the selection of datasource type." lightbox="./media/azure-elastic-storage-area-network-backup-restore/select-protected-item.png":::
+
 1. On the **Select protected item** pane, select the Elastic SAN instance that you want to restore, and then click **Select**.
+1. On the **Recover** pane, select **Continue**.
 1. On the **Restore** pane, on the **Restore point** tab, under **Restore point**, click **Select restore point**.
 
    By default, the latest restore point is selected.
@@ -27,13 +31,14 @@ To  restore Azure Elastic SAN  backups, follow these steps:
 1. On the **Select restore point** pane, select the required restore point from the list.
 1. On the **Restore** pane, on the **Restore parameters** tab, specify the restore configuration parameters by clicking **Select**.
 
-   :::image type="content" source="./media/azure-data-lake-storage-restore/configure-restore-parameter.png" alt-text="Screenshot shows the configuration of restore parameters." lightbox="./media/azure-data-lake-storage-restore/configure-restore-parameter.png":::
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-restore/set-restore-parameter.png" alt-text="Screenshot shows how to configure restore." lightbox="./media/azure-elastic-storage-area-network-backup-restore/set-restore-parameter.png":::
 
 1. On the **Restore configuration** pane, select the **Target subscription**, **Resource group**, **Target Elastic SAN instance**, and **Target Elastic SAN volume group**, to recover.
 
    By default the source Elastic SAN instance is selected.
 
-1. Under **Volume name**, enter a name for the volume to be created.
+1. Under **Target volume details**, select the volumes you want to restore.
+1. Under **Volume name**, enter a name for the volume to be created, and then click **Select**.
 
    >[!Note]
    >- You can't overwrite an existing volume. If a volume with the same name exists, the restore operation fails.
@@ -47,6 +52,8 @@ To  restore Azure Elastic SAN  backups, follow these steps:
 
    >[!Note]
    >If you don't have the **Role-Based Access Control Administrator** permissions, the **Assign Missing Roles** option is disabled.
+
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-restore/assign-missing-roles.png" alt-text="Screenshot shows how to assign missing roles for the restore operation." lightbox="./media/azure-elastic-storage-area-network-backup-restore/assign-missing-roles.png":::
 
 1. On the **Grant missing permissions** pane, select the scope (Target Elastic SAN instance, Target resource group, or Target subscription) at which the access permissions must be granted, and then select **Next**.
 

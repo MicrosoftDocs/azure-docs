@@ -34,12 +34,14 @@ To create a backup policy for Azure Elastic SAN from Azure Business Continuity C
 1. In the [Azure portal](https://portal.azure.com/), go to the **Azure Business Continuity Center** > **Protection policies**, and then select **+ Create Policy** > **Create Backup Policy**.
 1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**, and then select **Datasource type** as **Elastic SAN (Preview)**.
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-data-lake-storage-configure-backup/create-policy.png":::
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-elastic-storage-area-network-backup-configure/create-policy.png":::
 
 1. On the **Schedule + retention** tab, under the **Backup schedule** section, set the schedule for creating recovery points for backups.
 
    >[!Note]
    >Azure Backup currently supports **Daily** backup frequency only, which is selected by default.
+
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/set-backup-schedule.png" alt-text="Screenshot shows how to configure the backup schedule." lightbox="./media/azure-elastic-storage-area-network-backup-configure/set-backup-schedule.png":::
 
 1. Under the **Retention rules** section, edit the default retention rule or add new rules to specify the retention of recovery points.
 
@@ -57,6 +59,9 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Business Continuity Center**, and then select **+ Configure protection**. 
 1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Elastic SAN volumes (Preview)**, **Solution** as **Azure Backup**, and then select **Continue**.
+
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/start-protection-configuration.png" alt-text="Screenshot shows how to start configuring backup." lightbox="./media/azure-elastic-storage-area-network-backup-configure/start-protection-configuration.png":::
+
 1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasource type** is selected as **Elastic SAN volumes (Preview)**.
 1. Under **Vault**, click **Select vault** to choose the Backup vault you created.
 
@@ -72,20 +77,18 @@ To configure backup for Azure Elastic SAN, follow these steps:
    >- The default retention duration for the recovery points is **7 days**.
    >- Maximum of **450** recovery points are retained at any point in time across your retention rules.
  
-1. On the **Datasources** tab, select**Add** to choose the volumes for backup. 
+1. On the **Datasources** tab, select**Add** to choose the Elastic SAN instance for backup. 
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png" alt-text="Screenshot shows how to add resources for backup." lightbox="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png":::
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/add-resource-for-backup.png" alt-text="Screenshot shows how to add resources for backup." lightbox="./media/azure-elastic-storage-area-network-backup-configure/add-resource-for-backup.png":::
 
 1. On the **Select resources to backup** pane, select an Elastic SAN instance from the dropdown list, and then select **Add**.
 
    >[!Note]
    >Instances that're in the same subscription and region as the vault only appear.
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png" alt-text="Screenshot shows how to provide the backup instance name." lightbox="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png":::
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/specify-backup-instance-name.png" alt-text="Screenshot shows how to select an instance for backup." lightbox="./media/azure-elastic-storage-area-network-backup-configure/specify-backup-instance-name.png":::
 
 1. On the **Add backup instance** pane, filter by **Volume group**, select a volume from the list, and then select **Add**.
-
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/select-storage-account.png" alt-text="Screenshot shows the selection of storage accounts." lightbox="./media/azure-data-lake-storage-configure-backup/select-storage-account.png":::
 
    >[!Note]
    >- You can select multiple volumes within a single backup request.
@@ -104,7 +107,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
 1. On the **Grant missing permissions** pane, select the scope (resource, resource group, or subscription) at which the access permissions must be granted, and then select **Next**.
 
-   Once the process starts, the missing access permissions on the Elastic SAN are granted to the backup vault. 
+   After the process starts, the missing access permissions on the Elastic SAN are granted to the backup vault. 
 
 1. When the role assignment is complete, on the **Configure Backup** pane, on the **Datasource** tab, select **Revalidate**.
 
@@ -112,7 +115,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
 1. On the **Review + configure** tab, review the configuration details, and then select **Configure Backup**.
 
-You can [track the progress of the backup configuration](azure-elastic-storage-area-network-backup-manage.md#view-the-azure-elastic-san-backup-and-restore-jobs-preview) under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points. You can also [trigger an on-demand backup](azure-elastic-storage-area-network-backup-manage.md#run-an-on-demand-backup) to crearte the first full backup.
+You can [track the progress of the backup configuration](azure-elastic-storage-area-network-backup-manage.md#view-the-azure-elastic-san-backup-and-restore-jobs-preview) under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points. You can also [trigger an on-demand backup](azure-elastic-storage-area-network-backup-manage.md#run-an-on-demand-backup) to create the first full backup.
 
 ## Next steps
 

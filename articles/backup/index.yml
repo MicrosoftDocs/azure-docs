@@ -64,6 +64,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Elastic SAN backup (preview)
+            url: azure-elastic-storage-area-network-backup-overview.md
           - text: Azure Data Lake Storage Gen2 backup support (preview)
             url: azure-data-lake-storage-backup-overview.md
           - text: Azure Files vaulted backup support

@@ -21,7 +21,7 @@ Azure Backup enables Elastic SAN volume backups via Backup vault. It offers a fu
 >- This preview solution is not recommended for production environment.
 >- For any queries, write to [AzureEsanBackup@microsoft.com](mailto:AzureEsanBackup@microsoft.com).
 
-## Key benefits of Azure Elastic SAN protection (preview)
+## Key features of Azure Elastic SAN protection (preview)
 
 Azure Elastic SAN volume protection (preview) includes the following key features:
 

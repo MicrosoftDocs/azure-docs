@@ -19,8 +19,14 @@ To run an on-demand backup for Azure Elastic SAN (preview), follow these steps:
 
 1. Go to **Business Continuity Center**, and then select **Protection Inventory** > **Protected items**.
 1. On the **Protected items** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**, and then select the Elastic SAN instance you want to back up.
-1. On the selected **Elastic SAN instance** pane, select the associated protected item. 
+1. On the selected **Elastic SAN instance** pane, under **Associated items**, select a protected item from the list. 
+
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-manage/select-protected-item-to-back-up.png" alt-text="Screenshot shows the selection of a backup instance to trigger backup." lightbox="./media/azure-elastic-storage-area-network-backup-manage/select-protected-item-to-back-up.png":::
+
 1. On the selected **protected item** pane, select **Backup Now**.
+
+   :::image type="content" source="./media/azure-elastic-storage-area-network-backup-manage/trigger-backup.png" alt-text="Screenshot shows how to start backup." lightbox="./media/azure-elastic-storage-area-network-backup-manage/trigger-backup.png":::
+
 
 When a backup job completes, a Managed Disk incremental snapshot (restore point) is created in the snapshot resource group with the name pattern `AzureBackup_<datasource guid>_<timestamp>`. The restore point is retained as per the retention duration set in the backup policy.
 
