@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 9/16/2024
+ms.date: 4/23/2025
 ms.custom: engagement-fy23
 ---
 
@@ -17,20 +17,19 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 :::image type="content" source="media/introduction/adjacency-overview-drawing-final.png" alt-text="Diagram showing Azure VMware Solution private cloud adjacency to Azure services and on-premises environments." border="false" lightbox="media/introduction/adjacency-overview-drawing-final.png":::
 
+## Azure VMware Solution private cloud types
+
+Azure VMware Solution provides two different private cloud generations:
+
+1. Azure VMware Solution Generation 1 provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure datacenter facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
+
+1. [Azure VMware Solution Generation 2](native-introduction.md) (Public Preview) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution Generation 2 features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering is only supported on the AV64 SKU.
+
 ## Hosts, clusters, and private clouds
 
 [!INCLUDE [host-sku-sizes](includes/disk-capabilities-of-the-host.md)]
 
 You can deploy new or scale existing private clouds through the Azure portal or Azure CLI.
-
-## Azure VMware Solution deployment types
-
-Azure VMware Solution provides two different deployment types:
-
-1. Azure VMware Solution provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure datacenter facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
-
-2. [Azure VMware Solution in a Virtual Network](native-introduction.md) (Public Preview) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution in an **Azure Virtual Network** features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering in only supported on the AV64 SKU. 
-
 
 ## Azure VMware Solution private cloud extension with AV64 node size
 
@@ -42,7 +41,7 @@ The AV64 is an Azure VMware Solution host SKU, which is available to expand the 
 
 See the following prerequisites for AV64 cluster deployment. 
 
-- An Azure VMware solution private cloud is created using AV36, AV36P, or AV52 in AV64 supported [region/AZ](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware). 
+- An Azure VMware solution private cloud is created using AV36, AV36P, AV48, or AV52 in AV64 supported [region/AZ](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware). 
 
 - You need one /23 or three (contiguous or noncontiguous) /25 address blocks for AV64 cluster management. 
 

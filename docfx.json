@@ -11,6 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "migrate/**",
           "cyclecloud/**",
           "**/_themes/**",
           "**/includes/**",
@@ -36,6 +37,20 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -97,6 +112,22 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -266,6 +297,7 @@
         "articles/azure-resource-manager/custom-providers/**/*.md": "MSEvanhi",
         "articles/azure-resource-manager/managed-applications/**/*.md": "MSEvanhi",
         "articles/azure-resource-manager/management/**/*.md": "mumian",
+        "articles/azure-resource-manager/management/relocation/**/*.md": "SomilGanguly",        
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "mumian",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
@@ -325,6 +357,8 @@
         "articles/media-services/**/**/*.md": "Juliako",
         "articles/migrate/**/*.md": "SnehaSudhirG",
         "articles/migrate/**/*.yml": "SnehaSudhirG",
+        "articles/migration/**/*.md": "robbyatmicrosoft",
+        "articles/migration/**/*.yml": "robbyatmicrosoft",
         "articles/network-watcher/**/*.md": "halkazwini",
         "articles/network-watcher/**/*.yml": "halkazwini",
         "articles/notebooks/*.md": "j-martens",
@@ -870,6 +904,7 @@
         "articles/azure-resource-manager/custom-providers/**/*.md": "evanhi",
         "articles/azure-resource-manager/managed-applications/**/*.md": "evanhi",
         "articles/azure-resource-manager/management/**/*.md": "jgao",
+        "articles/azure-resource-manager/management/relocation/**/*.md": "sogangul",        
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "jgao",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako",
@@ -921,6 +956,8 @@
         "articles/media-services/**/*.md": "juliako",
         "articles/migrate/**/*.md": "sudhirsneha",
         "articles/migrate/**/*.yml": "sudhirsneha",
+        "articles/migration/**/*.md": "robbymillsap",
+        "articles/migration/**/*.yml": "robbymillsap",
         "articles/notebooks/*.md": "joshuapa",
         "articles/openshift/**/*.md": "johnmarc",
         "articles/openshift/**/*.yml": "johnmarc",
@@ -970,6 +1007,8 @@
         "articles/internet-peering/*.yml": "networking",
         "articles/load-balancer/*.md": "networking",
         "articles/load-balancer/*.yml": "networking",
+        "articles/migration/*.md": "migration",
+        "articles/migration/*.yml": "migration",
         "articles/network-watcher/*.md": "networking",
         "articles/network-watcher/*.yml": "networking",
         "articles/networking/*.md": "networking",
@@ -1233,6 +1272,9 @@
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
         "articles/governance/management-groups/**/*.md": "azure-governance"
       },
+      "monikerRange": {
+        "articles/migrate/**/*.md": "<=migrate-classic >=migrate"
+      },
       "recommendations": {
       },
       "no-loc": {
@@ -1429,8 +1471,8 @@
         "articles/migrate/**/*.md": "Azure Migrate",
         "articles/openshift/**/*.md": "Azure Red Hat OpenShift",
         "articles/openshift/**/*.yml": "Azure Red Hat OpenShift",
-        "articles/partner-solutions/**/*.md": "Azure Native ISV Services",
-        "articles/partner-solutions/**/*.yml": "Azure Native ISV Services",
+        "articles/partner-solutions/**/*.md": "Azure Native Integrations",
+        "articles/partner-solutions/**/*.yml": "Azure Native Integrations",
         "articles/playwright-testing/**/*.md": "Microsoft Playwright Testing",
         "articles/quotas/**/*.md": "Azure Quotas",
         "articles/quotas/**/*.yml": "Azure Quotas",
@@ -1470,6 +1512,10 @@
       "cyclecloud-7-group": {
         "dest": "tempdest_cyclecloud_7",
         "moniker_range": ">= cyclecloud-7"
+      },
+      "migrate": {
+        "dest": "migrate",
+        "moniker_range": "<=migrate-classic >=migrate"
       }
     },
     "dest": "azure",
