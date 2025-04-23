@@ -311,14 +311,14 @@ You can perform the following actions on all or a scoped set of web apps after y
 - **Export data**: Export the inventory data for all web apps.
 - **Refresh**: Refresh the view to review any updates in discovery.
 
-## Review databases inventory
+### Review databases inventory
 
-You can view all the discovered databases in your environment. Select **Databases** > **Explore Inventory** from the left pane.
+To see all the discovered databases from your environment, select **Databases** > **Explore inventory** from the menu on the left.
 
-The Databases Inventory view allows you to review all the discovered SQL Server databases running on the identified servers. By default, it displays all databases, but you can use specific filters, such as SQL, to filter the databases by type.
+The **Databases Inventory** view allows you to review all the discovered SQL Server databases running on the discovered servers. The default view displays all databases, but you can select on specific filters, such as SQL, to filter the databases by type.
 
 >[!NOTE]
-> If you are unable to see all the discovered databases, ensure that the software inventory is completed for all the servers. [Learn more].
+> If you are unable to see all the discovered databases, ensure that the software inventory is completed for all servers. [Learn more](add-server-credentials.md)
 
 # [Default columns](#tab/default-col)
 
@@ -334,7 +334,7 @@ User databases | Number of databases hosted on the database instance.
 Issues | Number of discovery issues reported on the database.
 Instance HADR participants | Number of database instances nodes that are part of HADR cluster.
 Database HADR participants | Number of databases that are part of HADR cluster.
-Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags only.[Learn more]
+Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags only.[Learn more](resource-tagging.md).
 HADR configuration | Name of the HADR configuration.
 Discovery Source | Method of discovery for the database - Appliance or import.
 Appliance Name | Total DB size (MB)	Size of the database instance in MB.
@@ -369,13 +369,13 @@ After reviewing the databases and their attributes, you can either **Select all 
 
 You can narrow down the list in the database view by searching for the database name or applying filters based on attributes or tags. You can also add a tag to name the scoped workload.
 
-After reviewing the inventory, you can perform the following actions on all databases or a scoped set of databases:
+**User actions on database inventory**: After reviewing the inventory, you can perform the following actions on all databases or a scoped set of databases:
 
 **Action name** | **Details**
 --- | --- 
 Discover |Use an appliance or import a CSV file into the inventory to discover more workloads.
-Create assessment | Create an assessment of all or a selected set of workloads to review their suitability, mapped Azure services, cost, and readiness analysis. Perform this action by selecting one or more workloads.
-Tags | Add or edit tags at scale by selecting all workloads or a scoped set of workloads. To perform this action, select one or more workloads. Import tags by using an exported list of the entire inventory and then importing the tags information from that CSV file.[Learn how to add tags].
+Create assessment | Create an assessment of all or a selected set of workloads to review their suitability, mapped Azure services, cost, and readiness analysis. Perform this action by selecting one or more workloads. [Learn how to create assessment](tutorial-assess-webapps.md).
+Tags | Add or edit tags at scale by selecting all workloads or a scoped set of workloads. To perform this action, select one or more workloads. Import tags by using an exported list of the entire inventory and then importing the tags information from that CSV file.[Learn how to add tags](resource-tagging.md).
 Export data | Export the inventory data for all databases.
 Columns | Select optional attributes for the discovered workloads.
 Refresh | Refresh the view to review any updates in discovery.

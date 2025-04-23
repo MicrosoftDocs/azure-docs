@@ -26,7 +26,7 @@ Public preview: Azure Migrate supports Application Awareness, offering an enhanc
 
 - Application Assessment: This feature allows customers to include constituent workloads, such as application servers, web apps, and databases. The assessment then evaluates all potential Azure target services for these workloads, providing a recommended migration path, along with cost and readiness details. [Learn more](review-application-assessment.md).
 
-- Action center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within their project. [Learn more](centralized-issue-tracking.md).
+- Action Center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within their project. [Learn more](centralized-issue-tracking.md).
 
 ## Update (February 2025)
 
