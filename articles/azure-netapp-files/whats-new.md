@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 04/16/2025
+ms.date: 04/23/2025
 ms.author: anfdocs
 ---
 
@@ -14,14 +14,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## April 2025
+
 * [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) (preview)
 
 
-    Cross-tenant customer-managed keys enables you to manage you own keys across different tenancies. In scenarios such as ISP/user configurations, it ensures that the end user retains full control of their keys, rather than the ISP. This capability grants SaaS providers with flexibility to offer customizable key management options.
-
-    <!-- It is available in all CMK regions. This feature is currently in preview. -->
-
-## April 2025
+    Cross-tenant customer-managed keys for Azure NetApp Files volume encryption enables you to manage your own keys across different tenancies. In scenarios such as SaaS provider/user configurations, this feature ensures the end user retains full control of their keys rather than the SaaS provider. This capability provides SaaS providers with the flexibility to offer customers customizable key management options. This feature is available in all Azure NetApp Files supported regions. This feature is currently in preview. 
 
 * [New volume usage metrics:](azure-netapp-files-metrics.md#volumes) Volume Inodes Quota, Volume Inodes Total, Volume Inodes Used
 

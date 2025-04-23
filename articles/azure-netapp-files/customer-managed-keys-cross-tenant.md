@@ -5,8 +5,8 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-## ms.custom: references_regions
-ms.date: 12/19/2024
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 04/23/2025
 ms.author: anfdocs
 ---
 
@@ -14,7 +14,7 @@ ms.author: anfdocs
 
 Cross-tenant customer-managed keys (CMK) for Azure NetApp Files volume encryption allows service providers based on Azure to offer [customer-managed key encryption](configure-customer-managed-keys.md). In the cross-tenant scenario, the NetApp account resides in a tenant managed by an independent software vendor, while the key used for encryption of volumes in that NetApp account resides in a key vault in a tenant that you manage.
 
-Cross-tenant CMK is supported in all regions where Azure NetApp Files is supported. 
+Cross-tenant customer-managed keys is available in all Azure NetApp Files supported regions.
 
 ## Understand cross-tenant customer-managed keys
 
@@ -32,59 +32,7 @@ Following these steps, you install the service provider's application in your te
 
 With these three parameters, the service provider provisions Azure resources in tenant 1 that can be encrypted with the customer-managed key in tenant 2. 
 
-
-<!--
-## Supported regions 
-
-Azure NetApp Files cross-tenant customer-managed keys for volume encryption is supported for the following regions:
-
-- Australia Central 
-- Australia Central 2 
-- Australia East 
-- Australia Southeast 
-- Brazil South 
-- Brazil Southeast 
-- Canada Central 
-- Canada East 
-- Central India 
-- Central US 
-- East Asia 
-- East US 
-- East US 2 
-- France Central 
-- Germany North 
-- Germany West Central 
-- Israel Central 
-- Italy North 
-- Japan East 
-- Japan West 
-- Korea Central 
-- Korea South 
-- North Central US 
-- North Europe 
-- Norway East 
-- Norway West 
-- Qatar Central 
-- South Africa North 
-- South Central US 
-- South India 
-- Southeast Asia 
-- Spain Central 
-- Sweden Central 
-- Switzerland North 
-- Switzerland West 
-- UAE Central 
-- UAE North 
-- UK South 
-- UK West 
-- West Europe 
-- West US 
-- West US 2 
-- West US 3 
--->
-
 ## Register the feature 
-
 
 This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
@@ -106,9 +54,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Configure cross-tenant customer-managed keys for Azure NetApp Files 
 
-Cross-tenant CMK is currently only supported for the REST API. 
+The configuration process for cross-tenant customer-managed keys has portions that can only be completed using the REST API and Azure CLI. 
 
-##  Configure a NetApp account to use a key from a vault in another tenant.
+##  Configure a NetApp account to use a key from a vault in another tenant
 
 1. Create the application registration. 
     1. Navigate to Microsoft Entra ID in the Azure portal
@@ -133,7 +81,7 @@ Cross-tenant CMK is currently only supported for the REST API.
     1. Choose **Select a managed identity**. From the pane, select the subscription. Under **Managed identity**, select **User-assigned managed identity**. In the Select box, search for the managed identity you created earlier, then choose **Select** at the bottom of the pane.
     1. Under Credential details, provide a name and optional description for the credential. Select **Add**.
 1. Create a private endpoint to your key vault:
-    1. Have the customer share the full Azure ResourceId of their Key Vault. <!-- huh? -->
+    1. Share the full Azure ResourceId of their Key Vault. <!-- huh? -->
     1. Navigate to **Private Endpoints**.
     1. Select **+ Create**.
     1. Choose your subscription and resource group, and enter a name for the Private Endpoint, then select **Next > Resource**.
@@ -147,9 +95,9 @@ Cross-tenant CMK is currently only supported for the REST API.
 ### Authorize access to the key vault 
 
 1. Install the service provider application in the customer tenant
-    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like: `https://login.microsoftonline.com/<tenant1 tenantId>/adminconsent/client_id=<client/application ID for the cross tenant-application>`. This opens a login page where you enter your credentials. Once you enter your credentials, you may see an error stating there's no redirect URL configured. This is OK.
+    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like: `https://login.microsoftonline.com/<tenant1-tenantId>/adminconsent/client_id=<client/application ID for the cross tenant-application>`. This opens a login page where you enter your credentials. Once you enter your credentials, you may see an error stating there's no redirect URL configured; this is OK.
 1. Grant the service provider application access to the key vault. 
-    1. Navigate to your key vault. Select Access Control (IAM) from the left pane.  
+    1. Navigate to your key vault. Select **Access Control (IAM)** from the left pane.  
     1. Under Grant access to this resource, select **Add role assignment**. 
     1. Search for then select **Key Vault Crypto User**. 
     1. Under Members, select **User, group, or service principal**. 
@@ -162,10 +110,13 @@ Cross-tenant CMK is currently only supported for the REST API.
 
 ### Configure the NetApp account to use your keys 
 
-1. You must use the `az rest` command to configure your NetApp account to use CMK in a different tenant. Issue the following command: 
+>[!NOTE]
+>Using the `az rest` command is the only supported way to to configure your NetApp account to use CMK in a different tenant.
+
+1. With the `az rest` command, configure the NetApp account to use CMK in a different tenant:  
 
     ```azurecli
-    az rest --method put --uri "/subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp Account name>?api-version=2024-01-01-preview" --body 
+    az rest --method put --uri "/subscriptions/<subscription Id>/resourceGroups/<resourceGroupName>/providers/Microsoft.NetApp/netAppAccounts/<NetAppAccountName>?api-version=2024-01-01-preview" --body 
     '{  \"properties\":
         {    \"encryption\":
             {      \"keySource\": \"Microsoft.KeyVault\",   \"keyVaultProperties\":    
@@ -186,10 +137,12 @@ Cross-tenant CMK is currently only supported for the REST API.
     ```
     Once you have sent the `az rest` command, your NetApp Account has been successfully configured with cross-tenant CMK. 
 
-
 ### Create a volume 
 
-1. To create a volume using cross-tenant CMK, you must use the Azure CLI. Issue the following command: 
+>[!NOTE]
+>To create a volume using cross-tenant CMK, you must use the Azure CLI.
+
+1. Create the volume using the CLI: 
 
 ```azurecli
 az netappfiles volume create -g <resource group name> --account-name <NetApp account name> --pool-name <pool name> --name <volume name> -l southcentralus --service-level premium --usage-threshold 100 --file-path "<file path>" --vnet <virtual network name> --subnet default --network-features Standard --encryption-key-source Microsoft.KeyVault --kv-private-endpoint-id <full resource ID to the private endpoint to the customer's vault> --debug 
