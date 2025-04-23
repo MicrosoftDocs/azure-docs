@@ -41,4 +41,5 @@ Azure Native MongoDB Atlas provides the following capabilities:
 
 ## Next Step
 
-[Quickstart: Get started with MongoDB Atlas (preview)](create.md)
+> [!div class"nextstepaction"]
+> [Create a resource](create.md)
