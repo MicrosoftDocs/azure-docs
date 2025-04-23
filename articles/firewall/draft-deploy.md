@@ -9,7 +9,7 @@ ms.date: 04/22/2025
 ms.author: duau
 ---
 
-# Azure Firewall Draft and Deploy
+# Azure Firewall Draft and Deploy (Preview)
 
 Organizations are required to make frequent changes to their Firewall Policy for several reasons: onboarding a new application or workload, patching security issue, or for maintenance and optimizing their policy by merging rules or deleting unused rules. These updates can be performed by multiple people, while each update can take up to a few minutes to be deployed.
 With Azure Firewall Policy Save & Commit, you can now update your policy in a 2-phased approach: 
