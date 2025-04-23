@@ -5,7 +5,7 @@ items:
   items:
   - name: What is Neon Serverless Postgres?
     href: overview.md
-  - name: Neon Postgres resources and developer tools
+  - name: Resources and developer tools
     href: tools.md
 - name: Quickstart
   expanded: true
