@@ -88,6 +88,10 @@
         href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
       - name: Outbound-only internet connectivity
         href: ../../virtual-network/nat-gateway/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
+
+    href: ../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=/azure/networking/fundamentals/toc.json
+- name: Deploy
+  items:
   - name: Deploy networking resources
     items:
     - name: Create and connect to cloud networks
@@ -147,7 +151,6 @@
   - name: Deploy and manage a VPN gateway
     href: ../../vpn-gateway/tutorial-create-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
   - name: Deploy and configure Azure Firewall using the Azure portal
-    href: ../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=/azure/networking/fundamentals/toc.json
 - name: Secure
   items:
   - name: Restrict network access
