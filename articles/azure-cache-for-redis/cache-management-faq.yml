@@ -43,7 +43,7 @@ sections:
             `redis-benchmark.exe -h <yourcache>.redis.cache.windows.net -a <yourAccesskey> -t GET -n 1000000 -d 1024 -P 50`
           
       - question: |
-          How can I enable server GC to get more throughput on the client when I use StackExchange.Redis?
+          How can I enable server GC to get more throughput on the client when using StackExchange.Redis?
         answer: |
           Enabling server garbage collection (GC) can optimize the client and provide better performance and throughput when you use StackExchange.Redis. For more information on server GC and how to enable it, see the following articles:
           
@@ -99,7 +99,9 @@ sections:
           - Use at least the default `connectTimeout` of 5 seconds. This interval gives StackExchange.Redis sufficient time to reestablish the connection if there's a network blip.
           - Be aware of the performance costs associated with different operations you run. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io](https://redis.io/commands/) site has details about the time complexity of each operation it supports. Select each command to see the complexity for each operation.
           
-          ### Important details about ThreadPool growth
+      - question: |
+          Important details about ThreadPool growth
+        answer: |
           
           The Common Language Runtime (CLR) ThreadPool has two types of threads, Worker and I/O Completion Port (IOCP).
           
