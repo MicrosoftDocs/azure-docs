@@ -17,39 +17,35 @@ sections:
       - question: |
           How can I benchmark and test the performance of my cache?
         answer: |
-          - Use `redis-benchmark.exe` to load test your Redis server.
-          - Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own performance tests. 
-          - If you use Transport Layer Security/Secure Socket Layer (TLS/SSL) on your cache instance, add the `--tls` parameter to your `redis-benchmark` command or use a proxy like `stunnel` to enable TLS/SSL.
-          - `Redis-benchmark` uses port `6379` by default. Use the `-p` parameter to override this setting if your cache uses the SSL/TLS port `6380` or the Enterprise tier port `10000`. 
-          - If necessary, you can [enable the non-TLS port through the Azure portal](cache-configure.md#access-ports) before you run the test.
-          - The client virtual machine (VM) you use for testing should be in the same region as your Azure Cache for Redis instance.
-          - Use D-series and E-series VMs for your clients for best results.
-          - Make sure your client VM has at least as much computing and bandwidth capability as the cache you're testing.
-          - Enable Virtual Receive-side Scaling (VRSS) on the client machine if you're on Windows. For more information, see [Virtual Receive-side Scaling in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
+          - Use `redis-benchmark.exe` to load test your Redis server. Use `redis-benchmark.exe` to get a feel for possible throughput before writing your own performance tests.
+          - Use `redis-cli` to monitor the cache using the `INFO` command. For instructions on downloading the Redis tools, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
+          - If you use Transport Layer Security/Secure Socket Layer (TLS/SSL) on your cache instance, add the `--tls` parameter to your Redis tools commands, or use a proxy like `stunnel` to enable TLS/SSL.
+          - `Redis-benchmark` uses port `6379` by default. Use the `-p` parameter to override this setting if your cache uses the SSL/TLS port `6380` or the Enterprise tier port `10000`.
+          - If necessary, you can [enable the non-TLS port through the Azure portal](cache-configure.md#access-ports) before you run the load test.
+          - Make sure the client virtual machine (VM) you use for testing is in the same region as your Azure Cache for Redis instance.
+          - Ensure that your client VM has at least as much computing and bandwidth capability as the cache you're testing. For best results, use D-series and E-series VMs for your clients.
+          - If you're on Windows, enable Virtual Receive-side Scaling (VRSS) on the client machine. For more information, see [Virtual Receive-side Scaling in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
           - Enable cache diagnostics so you can [monitor](../redis/monitor-cache.md) the health of your cache. You can view the metrics in the Azure portal, and you can also [download and review your metrics](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) using the tools of your choice.
-          - Ensure that the load testing client and the Azure Redis cache are in the same region.
-          - Use `redis-cli` to monitor the cache using the `INFO` command.
           - If your load is causing high memory fragmentation, scale up to a larger cache size.
-          - For instructions on downloading the Redis tools, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
           
-          Here are some examples of using `redis-benchmark.exe`. Run these commands from a VM in the same region as your cache for accurate results.
+          The following examples show how to use `redis-benchmark.exe`. Run these commands from a VM in the same region as your cache for accurate results.
           
-          - First, test pipelined `SET` requests using a 1k payload:
+          First, test pipelined `SET` requests using a 1k payload:
           
-            `redis-benchmark.exe -h <yourcache>.redis.cache.windows.net -a <yourAccesskey> -t SET -n 1000000 -d 1024 -P 50`
+          `redis-benchmark.exe -h <yourcache>.redis.cache.windows.net -a <yourAccesskey> -t SET -n 1000000 -d 1024 -P 50`
           
-          - After you run the `SET` test, run pipelined `GET` requests using a 1k payload:
+          After you run the `SET` test, run pipelined `GET` requests using a 1k payload:
           
-            `redis-benchmark.exe -h <yourcache>.redis.cache.windows.net -a <yourAccesskey> -t GET -n 1000000 -d 1024 -P 50`
+          `redis-benchmark.exe -h <yourcache>.redis.cache.windows.net -a <yourAccesskey> -t GET -n 1000000 -d 1024 -P 50`
           
       - question: |
           How can I enable server GC to get more throughput on the client when using StackExchange.Redis?
         answer: |
           Enabling server garbage collection (GC) can optimize the client and provide better performance and throughput when you use StackExchange.Redis. For more information on server GC and how to enable it, see the following articles:
           
-          -  [Enable server GC](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
-          -  [Fundamentals of Garbage Collection](/dotnet/standard/garbage-collection/fundamentals)
-          -  [Garbage Collection and Performance](/dotnet/standard/garbage-collection/performance)
+          -  [The \<gcServer> element](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+          -  [Fundamentals of garbage collection](/dotnet/standard/garbage-collection/fundamentals)
+          -  [Garbage collection and performance](/dotnet/standard/garbage-collection/performance)
           
       - question: |
           Should I enable the non-TLS/SSL port for connecting to Redis?
@@ -67,7 +63,7 @@ sections:
       - question: |
           What are some considerations for using common Redis commands?
         answer: |
-          - Avoid using certain Redis commands that take a long time to complete, unless you fully understand the result of these commands. For example, don't run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Redis is a single-threaded server that processes commands one at a time. Redis doesn't process commands issued after `KEYS` until it finishes processing the `KEYS` command.
+          - Avoid using certain Redis commands that take a long time to complete, unless you fully understand the result of these commands. For example, don't run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Redis is a single-threaded server that processes commands one at a time. If you issue the `KEYS` command, Redis doesn't process subsequent commands until it finishes processing the `KEYS` command.
           
             The [redis.io](https://redis.io/commands/) site has time complexity details for each operation it supports. Select each command to see the complexity for each operation.
           - What size keys to use depends on the scenario. If your scenario requires larger keys, you can adjust the `ConnectionTimeout`, then retry values and adjust your retry logic. From a Redis server perspective, smaller key values give better performance.
@@ -104,14 +100,14 @@ sections:
         answer: |
           The Common Language Runtime (CLR) ThreadPool has two types of threads, Worker and I/O Completion Port (IOCP).
           
-          - Worker threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. Various components in the CLR also use these threads when work needs to happen on a background thread.
-          - IOCP threads are used for asynchronous I/O, such as when reading from the network.
+          - `WORKER` threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. Various components in the CLR also use these threads when work needs to happen on a background thread.
+          - `IOCP` threads are used for asynchronous I/O, such as when reading from the network.
           
           The thread pool provides new worker threads or I/O completion threads on demand without any throttling until it reaches the `minimum` setting for each type of thread. By default, the minimum number of threads is set to the number of processors on a system.
           
           Once the number of existing busy threads hits the `minimum` threads number, the ThreadPool throttles the rate at which it injects new threads to one thread per 500 milliseconds.
           
-          Typically, if your system gets a burst of work that needs an IOCP thread, it processes that work quickly. However, if the burst is more than the configured `minimum` setting, there's some delay in processing some of the work as the ThreadPool waits for one of two possibilities:
+          Typically, if your system gets a burst of work that needs an `IOCP` thread, it processes that work quickly. However, if the burst is more than the configured `minimum` setting, there's some delay in processing some of the work as the ThreadPool waits for one of two possibilities:
           
           - An existing thread becomes free to process the work.
           - No existing thread becomes free for 500 ms so a new thread is created.
@@ -122,12 +118,12 @@ sections:
           
           ```output
           System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-          `queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-          `IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-          `WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+          queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+          IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+          WORKER: (Busy=3,Free=997,Min=4,Max=1000)
           ```
           
-          The example shows that for the IOCP thread, there are six busy threads and the system is configured to allow four minimum threads. In this case, the client is likely to see two 500-ms delays, because 6 > 4.
+          The example shows that for the `IOCP` thread, there are six busy threads and the system is configured to allow four minimum threads. In this case, the client is likely to see two 500-ms delays, because 6 > 4.
           
           > [!NOTE]
           > StackExchange.Redis can hit timeouts if growth of either `IOCP` or `WORKER` threads is throttled.
