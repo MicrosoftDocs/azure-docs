@@ -20,18 +20,16 @@ title: |
   Export API definition from API Center to Copilot Studio as a connector
 
 introduction: |
-  You can export an API definition from your Azure API center as a [connector in Microsoft Copilot Studio](/connectors/overview) (preview). Using Microsoft Copilot Studio, citizen developers can use the exported connector to extend the capabilities of AI agents. [Learn more about extending agent capabilities with Copilot connectors](/microsoft-copilot-studio/copilot-connectors-in-copilot-studio).
+  You can export an API definition from your Azure API center as a [connector in Microsoft Copilot Studio](/connectors/overview) (preview). In Microsoft Copilot Studio, citizen developers can use the exported connector to extend the capabilities of AI agents. [Learn more about extending agent capabilities with Copilot connectors](/microsoft-copilot-studio/copilot-connectors-in-copilot-studio).
 
-  In this article, you create a custom connector from an OpenAPI definition associated with an API in an API center. Learn more about [creating a custom connector](/connectors/custom-connectors/define-openapi-definition) from an OpenAPI definition.
+  In this article, you create a custom connector from an OpenAPI definition associated with an API in an API center. Learn more about [creating custom connectors](/connectors/custom-connectors/define-openapi-definition) from OpenAPI definitions.
 prerequisites:
   summary: |
-    The following are prerequisites for this procedure.
 
   dependencies:
     - An API center instance. You can [create one](set-up-api-center.md) in the Azure portal.
-    - An API registered in the API center inventory. The API must have a version associated with a [deployment](configure-environments-deployments.md), and an API definition in OpenAPI 2.0 format
-    - A Power Platform [environment](/power-apps/powerapps-overview#power-apps-for-admins) to export the API to.
-
+    - An API registered in the API center inventory. The API must have a version associated with a [deployment](configure-environments-deployments.md), and it must have an API definition in OpenAPI 2.0 format.
+    - A Power Platform [environment](/power-apps/powerapps-overview#power-apps-for-admins)**.
 
 procedureSection:
   - title: | 
@@ -45,13 +43,13 @@ procedureSection:
       - |
         In the left menu, under **Assets**, select **Copilot Studio (preview)**.
       - |
-        Select **Create a connector**. The **Create a connector** pane opens.
+        Select **Create a connector**. The **Create a connector** window opens.
       - |
-        Select a **Power Platform environment** to publish the API to. 
+        Select a **Power Platform environment** to expoert the API to. 
       - |
         Enter a **Connector display name**.
       - |
-        Select the **API**, **API version**, and **Deployment** to connect to the Power Platform. The **Host** URL is populated with the deployment's runtime URL.
+        Select the **API**, **API version**, and **Deployment** for the connector. The **Host** URL is populated with the deployment's runtime URL.
       - |
         Select the **API definition** to use for the connector.
       - |
@@ -64,7 +62,11 @@ procedureSection:
         
         The connector is now available for use in Microsoft Copilot Studio.
     
-        You can [test the connector](/connectors/custom-connectors/define-openapi-definition#test-the-connector) in Power Automate or Power Apps.  Manage the custom connector in Microsoft Copilot Studio. After testing, you can use the connector in [Microsoft Copilot Studio]() to create applications and workflows.
+        After creating the connector:
+        
+        - You can [test the connector](/connectors/custom-connectors/define-openapi-definition#test-the-connector) in Power Automate or Power Apps. 
+        
+        - After testing, use the connector in [Microsoft Copilot Studio]() to create applications and workflows.
 
 relatedContent:
   
