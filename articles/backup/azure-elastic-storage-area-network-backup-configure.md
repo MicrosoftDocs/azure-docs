@@ -100,7 +100,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
    Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) don't have the **Elastic SAN Snapshot Exporter** and **Contributor** roles  assigned.
 
-1.To assign the required roles, on the **Configure Backup** pane, on the**Datasource** tab, select **Assign missing roles**.
+1. To assign the required roles, on the **Configure Backup** pane, on the**Datasource** tab, select **Assign missing roles**.
 
    >[!Note]
    >If you don't have the **Role-Based Access Control Administrator** permissions, the **Assign Missing Roles** option is disabled.
