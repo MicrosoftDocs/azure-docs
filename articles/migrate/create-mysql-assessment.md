@@ -6,6 +6,7 @@ ms.author: ankitsurkar
 ms.topic: tutorial
 ms.date: 02/24/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
+monikerRange: migrate-classic
 ---
 
 # Tutorial: Assess MySQL databases for migration to Azure Database for MySQL (preview)
