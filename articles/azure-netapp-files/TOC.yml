@@ -441,7 +441,7 @@
         href: backup-delete.md 	
     - name: Manage replication
       items:
-      - name: Create cross-region replication
+      - name: Create volume replication
         href: cross-region-replication-create-peering.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md

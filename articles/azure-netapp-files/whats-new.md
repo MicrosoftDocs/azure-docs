@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Cross-subscription replication](cross-region-replication-create-peering.md)
+
+    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This features enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md). This feature is available with both [cross-zone replication](cross-zone-replication-introduction.md) and [cross-zone replication](cross-region-replication-introduction.md).
+
 ## April 2025
 
 * [New volume usage metrics:](azure-netapp-files-metrics.md#volumes) Volume Inodes Quota, Volume Inodes Total, Volume Inodes Used
