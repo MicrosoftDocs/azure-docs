@@ -54,7 +54,7 @@ sections:
       - question: |
           Should I enable the non-TLS/SSL port for connecting to Redis?
         answer: |
-          Redis server doesn't natively support TLS, but Azure Cache for Redis does support TLS. If you connect to Azure Cache for Redis with a client like StackExchange.Redis that supports TLS, then use TLS.
+          Redis server doesn't natively support Transport Layer Security (TLS), but Azure Cache for Redis does support TLS. If you connect to Azure Cache for Redis with a client like StackExchange.Redis that supports TLS, then use TLS.
           
           >[!NOTE]
           >The non-TLS port is disabled by default for new Azure Redis instances. If your client doesn't support TLS, enable the non-TLS port by following the directions at [Access ports](cache-configure.md#access-ports).
@@ -89,19 +89,18 @@ sections:
           - Be aware that Redis is an *in-memory* data store, and data loss can occur in some scenarios. For more information, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md).
           - Develop your system so it can handle connection blips caused by [patching and failover](cache-failover.md).
           - Use Premium-tier Azure Redis instances for better network latency and throughput, because they have better hardware for both CPU and network.
-      - question: |
-          What are some StackExchange.Redis best practices?
-        answer: |
+          
+          ### StackExchange.Redis best practices
+          
           - Set `AbortConnect` to false, then let the `ConnectionMultiplexer` reconnect automatically.
           - Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request.
           - Redis works best with smaller values, so consider chopping up bigger data into multiple keys. For example, in [What is the ideal value size range for redis?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb is considered large. For more information, see [Consider more keys and smaller values](cache-best-practices-development.md#consider-more-keys-and-smaller-values).
-          - Configure your [ThreadPool settings](#what-are-some-threadpool-growth-details-and-recommendations-) to avoid timeouts.
+          - Configure your [ThreadPool settings](#important-details-about-threadpool-growth) to avoid timeouts.
           - Use at least the default `connectTimeout` of 5 seconds. This interval gives StackExchange.Redis sufficient time to reestablish the connection if there's a network blip.
           - Be aware of the performance costs associated with different operations you run. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io](https://redis.io/commands/) site has details about the time complexity of each operation it supports. Select each command to see the complexity for each operation.
           
-      - question: |
-          What are some ThreadPool growth details and recommendations?
-        answer: |
+          ### Important details about ThreadPool growth
+          
           The Common Language Runtime (CLR) ThreadPool has two types of threads, Worker and I/O Completion Port (IOCP).
           
           - Worker threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. Various components in the CLR also use these threads when work needs to happen on a background thread.
@@ -118,12 +117,14 @@ sections:
           
           Basically, when the number of `Busy` threads is greater than `Min` threads, you experience a 500-ms delay before the application processes the network traffic. Also, an existing thread that stays idle for longer than 15 seconds is cleaned up, and this cycle of growth and shrinkage can repeat.
           
-          Error message from StackExchange.Redis build 1.0.450 or later print ThreadPool statistics, as shown in the following example.
+          Error messages from StackExchange.Redis build 1.0.450 or later print ThreadPool statistics, as shown in the following example.
           
-          `System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,`
-          `queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,`
-          `IOCP: (Busy=6,Free=994,Min=4,Max=1000),`
-          `WORKER: (Busy=3,Free=997,Min=4,Max=1000)`
+          ```output
+          System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+          `queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+          `IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+          `WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+          ```
           
           The example shows that for the IOCP thread, there are six busy threads and the system is configured to allow four minimum threads. In this case, the client is likely to see two 500-ms delays, because 6 > 4.
           
@@ -132,7 +133,7 @@ sections:
           
           It's best to set the minimum configuration value for `IOCP` and `WORKER` threads to something larger than the default value. There's no one-size-fits-all guidance on this value, because the right value for one application is likely too high or low for another application. This setting can also affect the performance of other parts of complicated applications. You need to fine-tune this setting to your specific needs. A good starting place is `200` or `300`. Then test and tweak as needed.
           
-          ### Configure the minimum threads setting
+          #### Configure the minimum threads setting
           
           You can change this setting programmatically by using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method.
           
