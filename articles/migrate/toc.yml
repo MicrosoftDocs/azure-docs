@@ -263,11 +263,11 @@ items:
   - name: Discovery
     items:
     - name: Deploy appliance
-        items:
-          - name: Deploy appliance using script
-            href: deploy-appliance-script.md
-          - name: Deploy appliance with template
-            href: how-to-set-up-appliance-physical.md
+      items:
+      - name: Deploy appliance using script
+        href: deploy-appliance-script.md
+      - name: Deploy appliance with template
+        href: how-to-set-up-appliance-physical.md
     - name: Deploy appliance in Azure Government
       href: deploy-appliance-script-government.md
     - name: Limit discovery scope for servers in VMware environment
