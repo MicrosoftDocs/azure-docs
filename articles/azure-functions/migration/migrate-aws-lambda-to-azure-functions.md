@@ -1,5 +1,5 @@
 ---
-title: Migrate AWS Lambda workloads to Azure Functions
+title: Migrate AWS Lambda Workloads to Azure Functions
 description: Learn how to migrate workloads from AWS Lambda to Azure Functions. Compare functionality and optimize workloads on Azure.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
@@ -48,14 +48,14 @@ To have a comprehensive strategy, you must combine the recommendations presented
 
 The first step is to conduct a detailed discovery process to evaluate your existing AWS Lambda workload. The goal is to understand which AWS features and services your workload relies on. Compile a comprehensive inventory of your AWS Lambda functions by using AWS tooling like service-specific SDKs, APIs, and CloudTrail to assess the workload on AWS. You should understand the following key aspects of your AWS Lambda inventory:
 
-- Use cases.
-- Configurations.
-- Security and networking setups.
-- Tooling, monitoring, logging, and observability mechanisms.
-- Dependencies.
-- Reliability objectives and current reliability status.
-- Cost of ownership.
-- Performance targets and current performance.
+- Use cases
+- Configurations
+- Security and networking setups
+- Tooling, monitoring, logging, and observability mechanisms
+- Dependencies
+- Reliability objectives and current reliability status
+- Cost of ownership
+- Performance targets and current performance
 
 ## Perform premigration planning
 
@@ -63,7 +63,7 @@ Before you start migrating your workload, you must map AWS Lambda features to Az
 
 You also need to [map the AWS services](/azure/architecture/aws-professional) that Lambda depends on to the equivalent dependencies in Azure. For example, Azure Functions has a dependency on Azure Blob Storage in the same way that Lambda requires Amazon S3.
 
-## Map AWS Lambda features to Azure Funtions
+## Map AWS Lambda features to Azure Functions
 
 The following tables compare AWS Lambda concepts, resources, and properties with their corresponding equivalents on Azure Functions.
 
@@ -622,7 +622,7 @@ Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop
 
 - Continuous integration and continuous deployment (CI/CD) pipelines: Set up a CI/CD pipeline by using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
 
-   For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
+   For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
 
 ## Explore sample migration scenarios
 
