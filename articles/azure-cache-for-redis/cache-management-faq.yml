@@ -15,22 +15,22 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          How can I benchmark and test my cache performance?
+          How can I benchmark and test the performance of my cache?
         answer: |
           - Use `redis-benchmark.exe` to load test your Redis server.
           - Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own performance tests. 
-          - If you use TLS/SSL on your cache instance, you need to add the `--tls` parameter to your `redis-benchmark` command or use a proxy like `stunnel` to enable TLS/SSL.
-          - Redis-benchmark uses port `6379` by default. Use the `-p` parameter to override this setting if your cache uses the SSL/TLS port `6380` or the Enterprise tier port `10000`. 
-          - If necessary, you can [enable the non-TLS port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
+          - If you use Transport Layer Security/Secure Socket Layer (TLS/SSL) on your cache instance, add the `--tls` parameter to your `redis-benchmark` command or use a proxy like `stunnel` to enable TLS/SSL.
+          - `Redis-benchmark` uses port `6379` by default. Use the `-p` parameter to override this setting if your cache uses the SSL/TLS port `6380` or the Enterprise tier port `10000`. 
+          - If necessary, you can [enable the non-TLS port through the Azure portal](cache-configure.md#access-ports) before you run the test.
           - The client virtual machine (VM) you use for testing should be in the same region as your Azure Cache for Redis instance.
           - You should use D-series and E-series VMs for your clients for best results.
           - Make sure your client VM has at least as much computing and bandwidth capability as the cache you're testing.
           - Enable Virtual Receive-side Scaling (VRSS) on the client machine if you're on Windows. For more information, see [Virtual Receive-side Scaling in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
           - Enable cache diagnostics so you can [monitor](../redis/monitor-cache.md) the health of your cache. You can view the metrics in the Azure portal, and you can also [download and review your metrics](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) using the tools of your choice.
-          - Ensure that the load testing client and the Azure Cache for Redis are in the same region.
+          - Ensure that the load testing client and the Azure Redis cache are in the same region.
           - Use `redis-cli` to monitor the cache using the `INFO` command.
           - If your load is causing high memory fragmentation, scale up to a larger cache size.
-          - For instructions on downloading the Redis tools, see the [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-) section.
+          - For instructions on downloading the Redis tools, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
           
           Here are some examples of using `redis-benchmark.exe`. Run these commands from a VM in the same region as your cache for accurate results.
           
@@ -43,9 +43,9 @@ sections:
             `redis-benchmark.exe -h <yourcache>.redis.cache.windows.net -a <yourAccesskey> -t GET -n 1000000 -d 1024 -P 50`
           
       - question: |
-          How can I enable server garbage collection (GC) to get more throughput on the client when I use StackExchange.Redis?
+          How can I enable server GC to get more throughput on the client when I use StackExchange.Redis?
         answer: |
-          Enabling server GC can optimize the client and provide better performance and throughput when you use StackExchange.Redis. For more information on server GC and how to enable it, see the following articles:
+          Enabling server garbage collection (GC) can optimize the client and provide better performance and throughput when you use StackExchange.Redis. For more information on server GC and how to enable it, see the following articles:
           
           -  [Enable server GC](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
           -  [Fundamentals of Garbage Collection](/dotnet/standard/garbage-collection/fundamentals)
@@ -62,26 +62,30 @@ sections:
           
           If the cache uses TLS, you must enable TLS by using the `--tls` option for Redis tools like `redis-cli`. You can also use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/) blog post.
           
-          For instructions on downloading the Redis tools, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-).
+          For instructions on downloading the Redis tools, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
           
       - question: |
           What are some considerations for using common Redis commands?
         answer: |
-          - Avoid using certain Redis commands that take a long time to complete, unless you fully understand the result of these commands. For example, don't run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Redis is a single-threaded server and it processes commands one at a time.Other commands issued after `KEYS`, aren't processed until Redis processes the `KEYS` command. The [redis.io](https://redis.io/commands/) site has time complexity details for each operation it supports. Select each command to see the complexity for each operation.
+          - Avoid using certain Redis commands that take a long time to complete, unless you fully understand the result of these commands. For example, don't run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Redis is a single-threaded server that processes commands one at a time. Redis doesn't process commands issued after `KEYS` until it processes the `KEYS` command.
+          
+            The [redis.io](https://redis.io/commands/) site has time complexity details for each operation it supports. Select each command to see the complexity for each operation.
           - Whether to use small or large key sizes depends on the scenario. If your scenario requires larger keys, you can adjust the `ConnectionTimeout`, then retry values and adjust your retry logic. From a Redis server perspective, smaller key values give better performance.
-          - These considerations don't mean that you can't store larger values in Redis, just be aware that latencies are higher. If you have one set of data that's larger than another, you can use multiple `ConnectionMultiplexer` instances, each configured with a different set of timeout and retry values. For more information, see [What do the StackExchange.Redis configuration options do?](cache-development-faq.yml#what-do-the-stackexchange-redis-configuration-options-do-)
+          - These considerations don't mean that you can't store larger values in Redis, but be aware that latencies are higher. If you have one set of data that's larger than another, you can use multiple `ConnectionMultiplexer` instances, each configured with a different set of timeout and retry values. For more information, see [What do the StackExchange.Redis configuration options do?](cache-development-faq.yml#what-do-the-stackexchange-redis-configuration-options-do-)
           
       - question: |
           What are some performance considerations for connections?
         answer: |
-          Each Azure Cache for Redis pricing tier has different limits for client connections, memory, and bandwidth. While each size of cache allows *up to* some number of connections, each connection to Redis has associated overhead. An example of such overhead is CPU and memory usage because of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you don't exceed the connection limit for the current cache size.
+          Each Azure Cache for Redis pricing tier has different limits for client connections, memory, and bandwidth. While each size of cache allows *up to* some number of connections, each connection to Redis involves associated overhead. An example of such overhead is CPU and memory usage because of TLS/SSL encryption.
+          
+          The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you don't exceed the connection limit for the current cache size.
           
           For more information about the connection limits for each tier, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). For more information about connections and other default configurations, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
           
       - question: |
           What are some production best practices?
         answer: |
-          - Use Standard or Premium tier for Production systems. The Basic Tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache for Production. C0 caches are typically used for simple dev/test scenarios.
+          - Use Standard or Premium tier for Production systems. The Basic Tier is a single node system with no data replication and no service-level agreement (SLA). Also, use at least a C1 cache for Production. C0 caches are typically used for simple dev/test scenarios.
           - Be aware that Redis is an *in-memory* data store, and data loss can occur in some scenarios. For more information, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md).
           - Develop your system so it can handle connection blips caused by [patching and failover](cache-failover.md).
           - Use Premium-tier Azure Redis instances for better network latency and throughput, because they have better hardware for both CPU and network.
@@ -112,18 +116,16 @@ sections:
           - An existing thread becomes free to process the work.
           - No existing thread becomes free for 500 ms so a new thread is created.
           
-          Basically, when the number of `Busy` threads is greater than `Min` threads, you experience a 500 ms delay before the application processes the network traffic. Also, when an existing thread stays idle for longer than 15 seconds, it's cleaned up, and this cycle of growth and shrinkage can repeat.
+          Basically, when the number of `Busy` threads is greater than `Min` threads, you experience a 500-ms delay before the application processes the network traffic. Also, an existing thread that stays idle for longer than 15 seconds is cleaned up, and this cycle of growth and shrinkage can repeat.
           
-          Error message from StackExchange.Redis build 1.0.450 or later print ThreadPool statistics, as shown in the following example. See IOCP and WORKER details later in the article.
+          Error message from StackExchange.Redis build 1.0.450 or later print ThreadPool statistics, as shown in the following example.
           
-          ```output
-          System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-          queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-          IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-          WORKER: (Busy=3,Free=997,Min=4,Max=1000)
-          ```
+          `System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,`
+          `queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,`
+          `IOCP: (Busy=6,Free=994,Min=4,Max=1000),`
+          `WORKER: (Busy=3,Free=997,Min=4,Max=1000)`
           
-          The example shows that for the IOCP thread, there are six busy threads and the system is configured to allow four minimum threads. In this case, the client is likely to see two 500 ms delays, because 6 > 4.
+          The example shows that for the IOCP thread, there are six busy threads and the system is configured to allow four minimum threads. In this case, the client is likely to see two 500-ms delays, because 6 > 4.
           
           > [!NOTE]
           > StackExchange.Redis can hit timeouts if growth of either `IOCP` or `WORKER` threads is throttled.
@@ -135,8 +137,8 @@ sections:
           You can change this setting programmatically by using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method.
           
           For example, in NET Framework, you set this value in *Global.asax.cs* in the `Application_Start` method:
-              
-                        ```csharp
+          
+          ```csharp
               private readonly int minThreads = 200;
               void Application_Start(object sender, EventArgs e)
               {
@@ -146,22 +148,23 @@ sections:
                   BundleConfig.RegisterBundles(BundleTable.Bundles);
                   ThreadPool.SetMinThreads(minThreads, minThreads);
               }
-              ```
-          If you use .NET Core, you set it the value in *Program.cs*, just before the call to `WebApplication.CreateBuilder()`:
+          ```
+          
+          If you use .NET Core, you set the value in *Program.cs* just before the call to `WebApplication.CreateBuilder()`:
               
-              ```csharp
+          ```csharp
               const int minThreads = 200
                             
               ThreadPool.SetMinThreads(minThreads, minThreads);
               
               var builder = WebApplication.CreateBuilder(args);
               // rest of application setup
-              ```
-
+          ```
+          
           > [!NOTE]
           > The value specified by this method is a global setting that affects the whole AppDomain. For example, if you have a four-core VM and want to set `minWorkerThreads` and `minIoThreads` to 50 per CPU during runtime, use `ThreadPool.SetMinThreads(200, 200)`.
           
-          It's also possible to specify the minimum threads setting by using the `minIoThreads` or `minWorkerThreads` [configuration setting](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) under the `<processModel>` configuration element in *Machine.config*. *Machine.config* is typically located at *%SystemRoot%\\Microsoft.NET\\Framework\\\<versionNumber>\\CONFIG\\`. 
+          It's also possible to specify the minimum threads setting by using the `minIoThreads` or `minWorkerThreads` [configuration setting](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) under the `<processModel>` configuration element in *Machine.config*. *Machine.config* is typically located at *%SystemRoot%\\Microsoft.NET\\Framework\\\<versionNumber>\\CONFIG\\*. 
           
           Setting the number of minimum threads in this way isn't recommended because it's a system-wide setting. If you do set minimum threads this way, you must restart the application pool. 
           
