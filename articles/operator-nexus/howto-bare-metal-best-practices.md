@@ -176,6 +176,7 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
+- Validate Bare Metal Machine has been powered on.
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
