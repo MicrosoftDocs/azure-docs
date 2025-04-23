@@ -84,4 +84,4 @@ In Neon, everything starts with a project: the top-level object in the Neon obje
 ## Next step
 
 > [!div class="nextstepaction"]
->  [Manage your Neon  integration through the portal](manage.md)
+>  [Manage your resource](manage.md)
