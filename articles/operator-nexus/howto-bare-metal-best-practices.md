@@ -1,7 +1,7 @@
 ---
 title: Best practices for Bare Metal Machine operations
 description: Steps that should be taken before executing any Bare Metal Machine replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
-ms.date: 04/17/2025
+ms.date: 04/23/2025
 ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, best-practices
@@ -176,6 +176,7 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
+- Validate Bare Metal Machine has been powered on.
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
