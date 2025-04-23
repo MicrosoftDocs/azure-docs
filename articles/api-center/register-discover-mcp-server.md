@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-center
 ms.custom: 
 ms.topic: concept-article
-ms.date: 04/21/2025
+ms.date: 04/23/2025
 ms.author: danlep 
 # Customer intent: As an API program manager, I want to register and discover MCP servers as APIs in my API Center inventory.
 ---
@@ -62,9 +62,9 @@ In API Center, specify an *environment* and a *deployment* for your MCP server. 
 
 For information about creating an environment and a deployment, see [Tutorial: Add environments and deployments for APIs](configure-environments-deployments.md).
 
-### API definition for MCP server
+### Definition for remote MCP server
 
-Optionally, add an API definition for your MCP server in OpenAPI 3.0 format. The API definition must include a URL endpoint for the MCP server. For an example of adding an OpenAPI definition, see [Tutorial: Register APIs in your API inventory](register-apis.md#add-a-definition-to-your-version).
+Optionally, add an API definition for a remote MCP server in OpenAPI 3.0 format. The API definition must include a URL endpoint for the MCP server. For an example of adding an OpenAPI definition, see [Tutorial: Register APIs in your API inventory](register-apis.md#add-a-definition-to-your-version).
 
 
 The following is an example of an OpenAPI 3.0 API definition for an MCP server, which includes a `url` endpoint for the MCP server:
@@ -90,11 +90,10 @@ The following is an example of an OpenAPI 3.0 API definition for an MCP server, 
 
 Set up the [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover MCP servers in your API inventory. Users can browse and filter MCP servers in the inventory and view details such as a the URL endpoint of the MCP server, if available in the MCP server's API definition. 
 
-:::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/add-mcp-server-apis/mcp-server-portal.png" alt-text="Screenshot of MCP server in API Center portal.":::
+:::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP server in API Center portal.":::
 
 ## Related content
 
-* See the [Azure CLI reference for Azure API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata), and [services](/cli/azure/apic).
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
 * [Use the Visual Studio extension for API Center](build-register-apis-vscode-extension.md) to build and register APIs from Visual Studio Code.
 
