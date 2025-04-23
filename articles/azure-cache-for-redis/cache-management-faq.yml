@@ -23,7 +23,7 @@ sections:
           - `Redis-benchmark` uses port `6379` by default. Use the `-p` parameter to override this setting if your cache uses the SSL/TLS port `6380` or the Enterprise tier port `10000`. 
           - If necessary, you can [enable the non-TLS port through the Azure portal](cache-configure.md#access-ports) before you run the test.
           - The client virtual machine (VM) you use for testing should be in the same region as your Azure Cache for Redis instance.
-          - You should use D-series and E-series VMs for your clients for best results.
+          - Use D-series and E-series VMs for your clients for best results.
           - Make sure your client VM has at least as much computing and bandwidth capability as the cache you're testing.
           - Enable Virtual Receive-side Scaling (VRSS) on the client machine if you're on Windows. For more information, see [Virtual Receive-side Scaling in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
           - Enable cache diagnostics so you can [monitor](../redis/monitor-cache.md) the health of your cache. You can view the metrics in the Azure portal, and you can also [download and review your metrics](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) using the tools of your choice.
@@ -67,11 +67,11 @@ sections:
       - question: |
           What are some considerations for using common Redis commands?
         answer: |
-          - Avoid using certain Redis commands that take a long time to complete, unless you fully understand the result of these commands. For example, don't run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Redis is a single-threaded server that processes commands one at a time. Redis doesn't process commands issued after `KEYS` until it processes the `KEYS` command.
+          - Avoid using certain Redis commands that take a long time to complete, unless you fully understand the result of these commands. For example, don't run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Redis is a single-threaded server that processes commands one at a time. Redis doesn't process commands issued after `KEYS` until it finishes processing the `KEYS` command.
           
             The [redis.io](https://redis.io/commands/) site has time complexity details for each operation it supports. Select each command to see the complexity for each operation.
-          - Whether to use small or large key sizes depends on the scenario. If your scenario requires larger keys, you can adjust the `ConnectionTimeout`, then retry values and adjust your retry logic. From a Redis server perspective, smaller key values give better performance.
-          - These considerations don't mean that you can't store larger values in Redis, but be aware that latencies are higher. If you have one set of data that's larger than another, you can use multiple `ConnectionMultiplexer` instances, each configured with a different set of timeout and retry values. For more information, see [What do the StackExchange.Redis configuration options do?](cache-development-faq.yml#what-do-the-stackexchange-redis-configuration-options-do-)
+          - What size keys to use depends on the scenario. If your scenario requires larger keys, you can adjust the `ConnectionTimeout`, then retry values and adjust your retry logic. From a Redis server perspective, smaller key values give better performance.
+          - These considerations don't mean that you can't store larger values in Redis, but latencies are higher. If you have one set of data that's larger than another, you can use multiple `ConnectionMultiplexer` instances, each configured with a different set of timeout and retry values. For more information, see [What do the StackExchange.Redis configuration options do?](cache-development-faq.yml#what-do-the-stackexchange-redis-configuration-options-do-)
           
       - question: |
           What are some performance considerations for connections?
@@ -178,4 +178,4 @@ additionalContent: |
 
   ## Related content
   
-  - See other [Azure Cache for Redis FAQs](../redis/faq.yml)
+  - See other [Azure Cache for Redis FAQs](../redis/faq.yml).
