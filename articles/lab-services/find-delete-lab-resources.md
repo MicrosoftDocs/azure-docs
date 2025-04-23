@@ -13,9 +13,6 @@ ms.date: 12/05/2024
 
 There are two versions of Azure Lab Services. Labs created from lab accounts use the older version, while labs created from lab plans use the newer version. This guide explains how to review lab resources, determine lab version, and delete unused resources.
 
-> [!WARNING]
-> On June 9, 2025, we will delete all virtual machines (VMs) which have been inactive since July 1, 2023. A VM is considered inactive if no operations were performed on it. These operations include actions such as starting, stopping, resetting passwords, and reimaging. Any associated labs for these VMs will also be deleted. This policy applies to template VMs and production VMs. After the VMs are deleted, we will not be able to recover them or their data. Back up any required data from these inactive VMs, and then delete the VMs if you don't need them. Delete the VMs and the associated labs yourself to avoid incurring any unnecessary charges. Once the VMs are deleted, there is no way to recover the VMs or the data on them.
-
 ## Review labs
 A lab inventory can be found in the Azure portal under [Labs - Microsoft Azure](https://ms.portal.azure.com/#browse/Microsoft.LabServices%2Flabs). 
 * Browse and manage deployed lab resources
