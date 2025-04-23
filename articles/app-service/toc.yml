@@ -466,8 +466,8 @@ items:
     - name: Overview 
       href: overview-webjobs.md 
       displayname: WebJobs overview
-    - name: Create a scheduled WebJob
-      displayName: WebJobs
+    - name: WebJob Quickstart
+      displayName: Create a scheduled WebJob
       href: quickstart-webjobs.md
     - name: WebJobs How-to
       href: webjobs-create.md

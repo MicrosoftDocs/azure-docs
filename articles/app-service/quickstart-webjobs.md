@@ -19,6 +19,7 @@ In this quickstart, you create a scheduled WebJob to delete temporary files from
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An App Service App on Linux. In this quickstart, [a Python app](quickstart-python.md) is used.
 - **[Always on](configure-common.md?tabs=portal)** must enabled on your app.
+- App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `FALSE`.
 
 ## Create a scheduled WebJob
 
