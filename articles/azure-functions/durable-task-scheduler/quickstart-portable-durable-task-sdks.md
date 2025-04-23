@@ -2,13 +2,13 @@
 title: "Quickstart: Set a portable Durable Task SDK in your application to use Azure Functions Durable Task Scheduler (preview)"
 description: Learn how to configure an existing app for the Azure Functions Durable Task Scheduler using the portable Durable Task SDKs.
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 04/23/2025
 zone_pivot_groups: df-languages
 ---
 
 # Quickstart: Set a portable Durable Task SDK in your application to use Azure Functions Durable Task Scheduler (preview)
 
-The Durable Task SDKs, or "portable SDKs", provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that leverage [the fan-out/fan-in application pattern](../durable/durable-functions-overview.md#pattern-2-fan-outfan-in) to perform parallel processing.
+The Durable Task SDKs, or "portable SDKs", provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that leverage [the fan-out/fan-in application pattern](../durable/durable-functions-overview.md#fan-in-out) to perform parallel processing.
 
 ::: zone pivot="javascript"
 
@@ -47,6 +47,7 @@ Before you begin:
 
 ::: zone pivot="python"
 
+- Make sure you have [Python 3.9+](https://www.python.org/downloads/) or later.
 - Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
     
@@ -67,51 +68,22 @@ The emulator simulates a scheduler and taskhub in a Docker container, making it 
 ::: zone pivot="csharp"
 
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample dirctory. 
-
-     # [Bash](#tab/bash)
-     
+    
      ```bash
      cd samples/portable-sdks/dotnet/FanOutFanIn
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     cd samples/portable-sdks/dotnet/FanOutFanIn
-     ```
-     
-     ---
 
 1. Pull the Docker image for the emulator.
-
-     # [Bash](#tab/bash)
-     
+    
      ```bash
      docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
-     ```
-     
-     ---
 
 1. Run the emulator. The container may take a few seconds to be ready.
 
-     # [Bash](#tab/bash)
-     
      ```bash
      docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6     ```
-     
-     ---
 
 Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
 - Endpoint: `http://localhost:8080`
@@ -124,111 +96,25 @@ Since the example code automatically uses the default emulator settings, you don
 
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample dirctory. 
 
-     # [Bash](#tab/bash)
-     
      ```bash
      cd samples/portable-sdks/python/sub-orchestrations-with-fan-out-fan-in
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     cd samples/portable-sdks/python/sub-orchestrations-with-fan-out-fan-in
-     ```
-     
-     ---
 
 1. Pull the Docker image for the emulator.
-
-     # [Bash](#tab/bash)
-     
+    
      ```bash
      docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
-     ```
-     
-     ---
 
 1. Run the emulator. The container may take a few seconds to be ready.
-
-     # [Bash](#tab/bash)
-     
+    
      ```bash
      docker run --name dtsemulator -d -p 8080:8080 mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     docker run --name dtsemulator -d -p 8080:8080 mcr.microsoft.com/dts/dts-emulator:v0.0.6
-     ```
-     
-     ---
 
-1. Set the environment variables.
-
-     # [Bash](#tab/bash)
-     
-     ```bash
-     export TASKHUB=<taskhubname>
-     export ENDPOINT=<taskhubEndpoint>
-     ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     $env:TASKHUB = "<taskhubname>"
-     $env:ENDPOINT = "<taskhubEndpoint>"
-     ```
-     
-     ---
-
-::: zone-end
-
-::: zone pivot="java"
-
-::: zone-end
-
-::: zone pivot="python,java"
-
-## Update the worker and client projects
-
-::: zone-end
-
-::: zone pivot="python"
-
-1. Open the sample in your preferred code editor and select the `worker.py` application.
-
-1. Change the `token_credential` input value for `DurableTaskSchedulerWorker` to `None`.
-
-     ```python
-     # ...
-
-     with DurableTaskSchedulerWorker(host_address=endpoint, secure_channel=True,
-                                taskhub=taskhub_name, token_credential=None) as w:
-
-     # ...
-     ```
-     
-1. Save `worker.py`.
-1. Open the `orchestrator.py` application.
-1. Change the `token_credential` input value for `DurableTaskSchedulerClient` to `None`.
-
-     ```python
-     # ...
-
-     c = DurableTaskSchedulerClient(host_address=endpoint, secure_channel=True,
-                               taskhub=taskhub_name, token_credential=None)
-
-     # ...
-     ```
-
-1. Save `orchestrator.py`.
+Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
+- Endpoint: `http://localhost:8080`
+- Task hub: `default`
 
 ::: zone-end
 
@@ -245,44 +131,20 @@ Since the example code automatically uses the default emulator settings, you don
 ::: zone pivot="csharp"
 
 1. From the `FanOutFanIn` directory, navigate to the `Worker` directory to build and run the worker. 
-
-     # [Bash](#tab/bash)
-     
+    
      ```bash
      cd Worker
      dotnet build
      dotnet run
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     cd Worker
-     dotnet build
-     dotnet run
-     ```
-     
-     ---
 
 1. In a separate terminal, from the `FanOutFanIn` directory, navigate to the `Client` directory to build and run the client.
-
-     # [Bash](#tab/bash)
      
      ```bash
      cd Client
      dotnet build
      dotnet run
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     cd Client
-     dotnet build
-     dotnet run
-     ```
-     
-     ---
 
 ### Understanding the output
 
@@ -324,40 +186,108 @@ Total items processed: 5
 ::: zone pivot="python"
 
 
-1. Start the worker. Ensure the `TASKHUB` and `ENDPOINT` environment variables are set in your shell. 
+1. If you're using a Python virtual environment, activate it now.
 
-     # [Bash](#tab/bash)
+      # [Windows](#tab/windows)
+
+      ```bash
+      python -m venv venv
+      venv/Scripts/activate
+      ```      
+
+      # [Linux](#tab/linux)
+
+      ```bash
+      python -m venv venv
+      source venv/bin/activate
+      ```      
+
+      ---
+
+1. Install the required packages. 
      
      ```bash
-     python3 ./worker.py
+     pip install -r requirements.txt
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     python3 ./worker.py
-     ```
-     
-     ---
 
-1. Start the orchestrator. Ensure the `TASKHUB` and `ENDPOINT` environment variables are set in your shell. 
-
-     # [Bash](#tab/bash)
+1. Start the worker. 
      
      ```bash
-     python3 ./orchestrator.py
+     python worker.py
      ```
-     
-     # [PowerShell](#tab/powershel)
-     
-     ```powershell
-     python3 ./orchestrator.py
-     ```
-     
-     ---
 
-> [!NOTE]
-> Python3.exe is not defined in Windows. If you receive an error when running `python3`, try `python` instead.
+     **Expected output**
+
+     You'll see output indicating that the worker has started and is waiting for work items.
+
+     ```
+     INFO:__main__:Starting Fan Out/Fan In pattern worker...
+     Using taskhub: default
+     Using endpoint: http://localhost:8080
+     2025-04-23 12:56:58.612 durabletask-worker INFO: Starting gRPC worker that connects      to http://localhost:8080
+     2025-04-23 12:56:58.830 durabletask-worker INFO: Successfully connected to http://     localhost:8080. Waiting for work items...
+     ```
+     
+1. In a new terminal (with the virtual environment activated, if applicable), run the client.
+
+     ```bash
+     python client.py
+     ```
+
+     You can provide the number of work items as an argument. If no argument is provided, the example runs 10 items by default.
+
+     ```bash
+     python client.py [number_of_items]
+     ```
+
+### Understanding the output
+
+When you run this sample, you receive output from both the worker and client processes. The worker output shows:
+
+- Registration of the orchestrator and activities.
+- Status messages when processing each work item in parallel, showing that they're executing concurrently.
+- Random delays for each work item (between 0.5 and 2 seconds) to simulate varying processing times.
+- A final message showing the aggregation of results.
+
+The client output shows: 
+
+- Starting the orchestration with the specified number of work items.
+- The unique orchestration instance ID.
+- The final aggregated result, which includes:
+   - Total number of items processed
+   - Sum of all results (each item result is the square of its value)
+   - Average of all results
+
+**Example output**
+
+```
+Starting fan out/fan in orchestration with 10 items
+Waiting for 10 parallel tasks to complete
+Orchestrator yielded with 10 task(s) and 0 event(s) outstanding.
+Processing work item: 1
+Processing work item: 2
+Processing work item: 10
+Processing work item: 9
+Processing work item: 8
+Processing work item: 7
+Processing work item: 6
+Processing work item: 5
+Processing work item: 4
+Processing work item: 3
+Orchestrator yielded with 9 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 8 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 7 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 6 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 5 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 4 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 3 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 2 task(s) and 0 event(s) outstanding.
+Orchestrator yielded with 1 task(s) and 0 event(s) outstanding.
+All parallel tasks completed, aggregating results
+Orchestrator yielded with 1 task(s) and 0 event(s) outstanding.
+Aggregating results from 10 items
+Orchestration completed with status: COMPLETED
+```
 
 ::: zone-end
 
@@ -505,10 +435,93 @@ var instance = await client.WaitForInstanceCompletionAsync(
 
 ::: zone-end
 
-
 ::: zone pivot="python"
 
-When you started the worker and orchestrator, 
+### `worker.py`
+
+To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+
+1. Receives a list of work items as input.
+1. It "fans out" by creating parallel tasks for each work item (calling process_work_item for each one)
+1. It waits for all tasks to complete using task.when_all
+1. It then "fans in" by aggregating the results with the aggregate_results activity
+1. The final aggregated result is returned to the client
+
+Using fan-out/fan-in, the orchestration creates parallel activity tasks and waits for all to complete. 
+
+```csharp
+public override async Task<Dictionary<string, int>> RunAsync(TaskOrchestrationContext context, List<string> workItems)
+{
+    // Step 1: Fan-out by creating a task for each work item in parallel
+    List<Task<Dictionary<string, int>>> processingTasks = new List<Task<Dictionary<string, int>>>();
+    
+    foreach (string workItem in workItems)
+    {
+        // Create a task for each work item (fan-out)
+        Task<Dictionary<string, int>> task = context.CallActivityAsync<Dictionary<string, int>>(
+            nameof(ProcessWorkItemActivity), workItem);
+        processingTasks.Add(task);
+    }
+    
+    // Step 2: Wait for all parallel tasks to complete
+    Dictionary<string, int>[] results = await Task.WhenAll(processingTasks);
+    
+    // Step 3: Fan-in by aggregating all results
+    Dictionary<string, int> aggregatedResults = await context.CallActivityAsync<Dictionary<string, int>>(
+        nameof(AggregateResultsActivity), results);
+    
+    return aggregatedResults;
+}
+```
+
+Each activity is implemented as a separate class decorated with the `[DurableTask]` attribute.
+
+```csharp
+[DurableTask]
+public class ProcessWorkItemActivity : TaskActivity<string, Dictionary<string, int>>
+{
+    // Implementation processes a single work item
+}
+
+[DurableTask]
+public class AggregateResultsActivity : TaskActivity<Dictionary<string, int>[], Dictionary<string, int>>
+{
+    // Implementation aggregates individual results
+}
+```
+
+### `client.py`
+
+The client project:
+
+- Uses the same connection string logic as the worker.
+- Creates a list of work items to be processed in parallel.
+- Schedules an orchestration instance with the list as input.
+- Waits for the orchestration to complete and displays the aggregated results.
+- Uses `` for efficient polling.
+
+```csharp
+List<string> workItems = new List<string>
+{
+    "Task1",
+    "Task2",
+    "Task3",
+    "LongerTask4",
+    "VeryLongTask5"
+};
+
+// Schedule the orchestration with the work items
+string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(
+    "ParallelProcessingOrchestration", 
+    workItems);
+
+// Wait for completion
+var instance = await client.WaitForInstanceCompletionAsync(
+    instanceId,
+    getInputsAndOutputs: true,
+    cts.Token);
+```
+
     
 ::: zone-end
 
