@@ -102,7 +102,6 @@ sections:
       - question: |
           Important details about ThreadPool growth
         answer: |
-          
           The Common Language Runtime (CLR) ThreadPool has two types of threads, Worker and I/O Completion Port (IOCP).
           
           - Worker threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. Various components in the CLR also use these threads when work needs to happen on a background thread.
