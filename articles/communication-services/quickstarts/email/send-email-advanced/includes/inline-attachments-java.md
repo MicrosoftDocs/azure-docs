@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Inline Attachments Java SDK include file
+description: Inline Attachments Java SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Send an email message with inline attachments
 
-We can add an inline attachment by defining one or more EmailAttachment objects, defining a unique `ContentId` for each, and adding them to our EmailMessage object. Read the attachment file and encode it using Base64.
+Add an inline attachment by defining one or more EmailAttachment objects, defining a unique `ContentId` for each, and adding them to our EmailMessage object. Read the attachment file and encode it using Base64.
 
 ```java
 byte[] jpgContent = Files.readAllBytes(new File("./inline-attachment.jpg").toPath());
@@ -50,13 +50,12 @@ System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
 > [!NOTE]
-> Regular attachments can be combined with inline attachments, as well. Defining a `ContentId` will treat an attachment as inline, while an attachment without a `ContentId` will be treated as a regular attachment.
+> You can combine regular attachments with inline attachments. Defining a `ContentId` treats an attachment as inline. An attachment without a `ContentId` is treated as a regular attachment.
 
 ### Allowed MIME types
 
-Although most modern clients support inline attachments, the rendering behavior of an inline attachment is largely dependent on the recipient's email client. For this reason, it is suggested to use more common image formats inline whenever possible, such as .png, .jpg, or .gif. For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
+Although most modern clients support inline attachments, the rendering behavior of an inline attachment is largely dependent on the recipient's email client. For this reason, we recommend using more common image formats inline whenever possible, such as `.png`, `.jpg`, or `.gif`. For more information on acceptable MIME types for email attachments, see the [Supported MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 ### Sample code
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced/send-email-inline-attachments)
-
+You can download the sample app demonstrating this action from GitHub Azure Samples [Send email inline attachments using Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced/send-email-inline-attachments)

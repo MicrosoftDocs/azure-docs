@@ -1,7 +1,7 @@
 ---
-title: Request real-time and forecasted weather data using Azure Maps Weather services
+title: Request real-time and forecasted weather data using Azure Maps Weather service
 titleSuffix: Microsoft Azure Maps
-description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services 
+description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather service 
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 08/08/2024
@@ -12,9 +12,9 @@ ms.custom: mvc
 ---
 
 
-# Request real-time and forecasted weather data using Azure Maps Weather services
+# Request real-time and forecasted weather data using Azure Maps Weather service
 
-Azure Maps [Weather services] are a set of RESTful APIs that allows developers to integrate highly dynamic historical, real-time, and forecasted weather data and visualizations into their solutions.
+Azure Maps [Weather service] are a set of RESTful APIs that allows developers to integrate highly dynamic historical, real-time, and forecasted weather data and visualizations into their solutions.
 
 This article demonstrates how to request both real-time and forecasted weather data:
 
@@ -24,7 +24,7 @@ This article demonstrates how to request both real-time and forecasted weather d
 * Request hourly forecasts using the [Get Hourly Forecast API].
 * Request minute by minute forecasts using the [Get Minute Forecast API].
 
-This video provides examples for making REST calls to Azure Maps Weather services.
+This video provides examples for making REST calls to Azure Maps Weather service.
 
 </br>
 
@@ -781,7 +781,7 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 > [Weather service concepts]
 
 > [!div class="nextstepaction"]
-> [Weather services]
+> [Weather service]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Get Current Conditions API]: /rest/api/maps/weather/getcurrentconditions
@@ -793,4 +793,4 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 [bruno]: https://www.usebruno.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather service concepts]: weather-services-concepts.md
-[Weather services]: /rest/api/maps/weather
+[Weather service]: /rest/api/maps/weather

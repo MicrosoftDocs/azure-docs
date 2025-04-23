@@ -367,11 +367,11 @@ To ensure the Azure VPN client is prompted for reauthentication every time it ge
 
 ```
 <azvpnprofile> 
-<clientauth> 
-  <aad>  
-<cachesigninuser>false</cachesigninuser> 
-  </aad> 
-</clientauth>    
+    <clientauth> 
+      <aad>  
+          <cachesigninuser>false</cachesigninuser> 
+      </aad> 
+    </clientauth>    
 </azvpnprofile> 
 ```
 
