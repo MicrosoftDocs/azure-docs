@@ -14,6 +14,20 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (April 2025)
+
+Public preview: Azure Migrate supports Application Awareness, offering an enhanced and modernized user experience. This feature streamlines the discovery, assessment, and migration of on-premises applications and workloads to Microsoft Azure. It streamlines and enhances the decision-making, planning, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
+
+- Updated Inventory View: Explore the inventory of discovered workloads across the Infrastructure, Data, and Web tiers. [Learn more](how-to-review-discovered-inventory.md).
+
+- Tags in Azure Migrate Tags in Azure Migrate enhances analysis by allowing customers to group and visualize related resources based on specific properties. [Learn more](resource-tagging.md).
+
+- Enhanced Dependency Analysis: Leverage the new dependency analysis experience to identify application boundaries and group workloads accordingly. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
+
+- Application Assessment: This feature allows customers to include constituent workloads, such as application servers, web apps, and databases. The assessment then evaluates all potential Azure target services for these workloads, providing a recommended migration path, along with cost and readiness details. [Learn more](review-application-assessment.md).
+
+- Action center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within their project. [Learn more](centralized-issue-tracking.md).
+
 ## Update (February 2025)
 
 Public Preview: Azure Migrate now supports discovery and assessment of MySQL databases. You can use this capability to discover MySQL instances and their attributes within your environment, assess their readiness for migration to Azure Database for MySQL, and obtain recommendations on the suitable compute and storage options, along with the associated costs. [Learn more](assessments-overview-migrate-to-azure-db-mysql.md).
@@ -96,7 +110,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (January 2023)
 - Envision savings with [Azure Savings Plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) (ASP) savings option with Azure Migrate business case and assessments. ASP as a savings option assumption/setting is now available for business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment. 
 - Support for export of business case report into an .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
-- Azure Migrate is now supported in Sweden geography. [Learn more](migrate-support-matrix.md#public-cloud).
+- Azure Migrate is now supported in Sweden geography. [Learn more](supported-geographies.md#public-cloud).
 
 ## Update (December 2022)
 - General Availability: Perform software inventory and agentless dependency analysis at-scale for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
@@ -167,10 +181,10 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
     - Support for storage utilization parameter in storage sizing logic (only for discovery via a .csv file) 
 
 ## Update (October 2021)
-- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#public-cloud).
+- Azure Migrate now supports new public cloud geographies and regions. [Learn more](supported-geographies.md#public-cloud).
 
 ## Update (September 2021)
-- Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md) is now in preview in supported [government cloud geographies.](migrate-support-matrix.md#azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
+- Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md) is now in preview in supported [government cloud geographies.](supported-geographies.md#azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 - Support to tag and add custom names to resources for agentless VMware VM migrations using PowerShell.
 - Azure Migrate appliance: Option to remove servers from the physical servers discovery list.
 
@@ -191,7 +205,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (June 2021)
 
-- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#public-cloud)
+- Azure Migrate now supports new public cloud geographies and regions. [Learn more](supported-geographies.md#public-cloud)
 - Azure Migrate allows you to register servers running SQL server with SQL VM RP during replication to automatically install SQL IaaS Agent Extension. This feature is available for agentless VMware, agentless Hyper-V, and agent-based migrations.
 - Import CSV file for assessment now supports up to 20 disks. Earlier it was limited to eight disks per server.
 
@@ -250,7 +264,7 @@ Azure Migrate supports deployments in Azure Government.
 - You can discover and assess VMware VMs, Hyper-V VMs, and physical servers.
 - You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
 - For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
-- [Review](migrate-support-matrix.md#azure-government) supported geographies and regions for Azure Government.
+- [Review](supported-geographies.md#azure-government) supported geographies and regions for Azure Government.
 - [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
 - Features in preview are supported in Azure Government, [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 
@@ -284,7 +298,7 @@ New assessment and migration tools were added to Azure Migrate:
 The current version of Azure Migrate (released in July 2019) provides many new features:
 
 - **Unified migration platform**: Azure Migrate now provides a single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.
-- **Assessment and migration tools**: Azure Migrate provides native tools, and integrates with other Azure services, and with independent software vendor (ISV) tools. [Learn more](migrate-services-overview.md#isv-integration) about ISV integration.
+- **Assessment and migration tools**: Azure Migrate provides native tools, and integrates with other Azure services, and with independent software vendor tools. 
 - **Azure Migrate assessment**: Using the Azure Migrate Server Assessment tool, you can assess VMware VMs and Hyper-V VMs for migration to Azure. You can also assess for migration using other Azure services, and ISV tools.
 - **Azure Migrate migration**: Using the Migration and modernization tool, you can migrate on-premises VMware VMs and Hyper-V VMs to Azure, as well as physical servers, other virtualized servers, and private/public cloud VMs. In addition, you can migrate to Azure using ISV tools.
 - **Azure Migrate appliance**: Azure Migrate deploys a lightweight appliance for discovery and assessment of on-premises VMware VMs and Hyper-V VMs.
