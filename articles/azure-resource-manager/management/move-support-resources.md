@@ -1805,8 +1805,8 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | sqlvirtualmachinegroups | **Yes** | **Yes** | No |
-> | sqlvirtualmachines | **Yes** | **Yes** | No |
+> | sqlvirtualmachinegroups | **No** | **No** | No |
+> | sqlvirtualmachines | **No** | **No** | No |
 
 ## Microsoft.Storage
 
