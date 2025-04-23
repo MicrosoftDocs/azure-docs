@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Tutorial 4: Create Azure resources from the service catalog in an AVE Workload
 
-The service catalog enables customers to deploy Azure services and streaming applications into AVE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
+The service catalog enables you to deploy Azure services and streaming applications into AVE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
 
 In this tutorial, part four of eight, you create Azure resources using service catalog in workloads. You learn how to:
 
