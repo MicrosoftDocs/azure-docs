@@ -15,7 +15,7 @@ ms.author: jsuri
 This article describes how to configure backup for SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on Azure virtual machines (VMs) on the Azure portal.
 
 >[!Note]
->- Currently, the SAP ASE Public Preview is available only in non-US public regions. This feature will be available in US public regions soon. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
+>- Currently, the SAP ASE is available only in non-US public regions. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
 >- Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
 
 ## Prerequisites
@@ -255,7 +255,7 @@ The following sections detail about the usage of the connectivity options.
 Private endpoints allow you to connect securely from servers in a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources in the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Learn  more on [private endpoints for Azure Backup](private-endpoints.md).
 
 >[!Note]
->- Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support for private end-points in this preview. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for ASE VMs. For more information, see the [proxy support section](backup-azure-sap-hana-database.md#use-an-http-proxy-server-to-route-traffic).
+>- Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support for private end-points. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for ASE VMs. For more information, see the [proxy support section](backup-azure-sap-hana-database.md#use-an-http-proxy-server-to-route-traffic).
 >- The download operation for SAP ASE Pre-registration script (ASE workload scripts) requires Internet access. However, on VMs with Private Endpoint (PE) enabled, the pre-registration script can't download these workload scripts directly. So, it’s necessary to download the script on a local VM or another VM with internet access, and then use SCP or any other transfer method to move it to the PE enabled VM.
 
 ### Network Security Group tags
@@ -353,7 +353,7 @@ To discover the SAP ASE databases, follow these steps:
 
    :::image type="content" source="./media/sap-ase-database-backup/initiate-database-backup.png" alt-text="Screenshot shows how to start the SAP database backup." lightbox="./media/sap-ase-database-backup/initiate-database-backup.png"::: 
 
-2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (preview)** as the datasource type.
+2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM** as the datasource type.
 
    :::image type="content" source="./media/sap-ase-database-backup/select-data-source-type.png" alt-text="Screenshot shows the selection of the data source type." lightbox="./media/sap-ase-database-backup/select-data-source-type.png":::
  
@@ -476,5 +476,5 @@ To run on-demand backups, follow these steps:
 
 ## Next step
 
-- [Restore the SAP ASE database on Azure VMs (preview)](sap-ase-database-restore.md)
-- [Manage the SAP ASE database on Azure VMs (preview)](sap-ase-database-manage.md)
+- [Restore the SAP ASE database on Azure VMs](sap-ase-database-restore.md).
+- [Manage the SAP ASE database on Azure VMs](sap-ase-database-manage.md).

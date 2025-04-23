@@ -10,13 +10,13 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# About SAP ASE (Sybase) database backup on Azure VMs (preview)
+# About SAP ASE (Sybase) database backup on Azure VMs
 
 SAP Adaptive Server Enterprise (ASE) (Sybase) databases are mission critical workloads that require a low recovery point objective (RPO) and a fast recovery time objective (RTO). You can now back up SAP ASE (Sybase) databases that are running on Azure virtual machines (VMs) by using [Azure Backup](./backup-overview.md).
 
 This offering from Azure Backup aligns with the Azure Backup's concept of *zero-infrastructure backups*, which eliminate the need to deploy and manage the backup infrastructure. You can now seamlessly back up and restore SAP ASE (Sybase) databases that are running on Azure VMs. You can also apply the enterprise management capabilities that Azure Backup provides.
 
-## Key benefits of SAP ASE (Sybase) database backup (preview)
+## Key benefits of SAP ASE (Sybase) database backup
 
 By using the Azure Backup service to back up and restore SAP ASE (Sybase) databases, you get the following advantages:
 
@@ -32,13 +32,13 @@ By using the Azure Backup service to back up and restore SAP ASE (Sybase) databa
 
 To learn about the supported backup and restore scenarios, see the [SAP ASE scenario support matrix](sap-ase-backup-support-matrix.md).
 
-## Backup architecture for SAP ASE (Sybase) databases (preview)
+## Backup architecture for SAP ASE (Sybase) databases
 
 You can back up SAP ASE (Sybase) databases that are running inside an Azure VM and stream backup data directly to the Azure Recovery Services vault.
 
 * You begin the backup process by creating a Recovery Services vault in Azure. This vault will be used to store the backups and recovery points that are created over time.
 * The Azure VM that's running the SAP ASE server is registered with the vault, and the databases to be backed up are discovered. To enable the Azure Backup service to discover databases, a [preregistration script](https://go.microsoft.com/fwlink/?linkid=2173610) must be run on the ASE server as a root user.
-* This script creates the *AZUREWLBACKUPASEUSER* database user or uses the custom Backup user you already created. It then creates a corresponding key with the same name in *hdbuserstore*. To learn more about the functionality of the script, see [Back up SAP ASE (Sybase) databases in an Azure VM (preview)](sap-ase-database-backup.md).
+* This script creates the *AZUREWLBACKUPASEUSER* database user or uses the custom Backup user you already created. It then creates a corresponding key with the same name in *hdbuserstore*. To learn more about the functionality of the script, see [Back up SAP ASE (Sybase) databases in an Azure VM](sap-ase-database-backup.md).
 * The Azure Backup service now installs the Azure Backup plugin for ASE on the registered SAP ASE server.
 * The `AZUREWLBACKUPASEUSER` database user (created by the preregistration script or the custom Backup user you created, and added as input to the preregistration script) is used by the Azure Backup plugin for ASE to back up and restore. If you attempt to configure backup for SAP ASE (Sybase) databases without running this script, you might receive the UserErrorHanaScriptNotRun error.
 * To configure a backup on the databases that you discovered, choose the required backup policy, and then enable backups.
@@ -63,7 +63,7 @@ You can back up SAP ASE (Sybase) databases that are running inside an Azure VM a
 
 In addition to using SAP ASE backup in Azure, which provides database-level backup and recovery, you can use the Azure VM backup solution to back up the operating system and nondatabase disks.
 
-You can use the [Backint certified Azure SAP ASE backup solution](#backup-architecture-for-sap-ase-sybase-databases-preview) for database backup and recovery.
+You can use the [Backint certified Azure SAP ASE backup solution](#backup-architecture-for-sap-ase-sybase-databases) for database backup and recovery.
 
 You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up the operating system and other nondatabase disks. The VM backup is run once a day, and it backs up all disks except the Write Accelerator operating system disks and ultra disks. Because you're backing up the database by using the Azure SAP ASE backup solution, you can take a file-consistent backup of only the operating system and nondatabase disks by using the [selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
 
@@ -92,6 +92,6 @@ For example, if you're protecting 1.2 TB of ASE database in one instance running
 
 Learn how to:
 
-- [Back up SAP ASE (Sybase) databases on Azure VMs (preview)](sap-ase-database-backup.md)
-- [Restore SAP ASE (Sybase) databases on Azure VMs (preview)](sap-ase-database-restore.md)
-- [Manage SAP ASE (Sybase) databases backup (preview)](sap-ase-database-manage.md)
+- [Back up SAP ASE (Sybase) databases on Azure VMs](sap-ase-database-backup.md).
+- [Restore SAP ASE (Sybase) databases on Azure VMs](sap-ase-database-restore.md).
+- [Manage SAP ASE (Sybase) databases backup](sap-ase-database-manage.md).
