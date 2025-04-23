@@ -20,13 +20,13 @@ Public preview: Azure Migrate supports Application Awareness, offering an enhanc
 
 - Updated Inventory View: Explore the inventory of discovered workloads across the Infrastructure, Data, and Web tiers. [Learn more](how-to-review-discovered-inventory.md).
 
-- Tags in Azure Migrate Tags in Azure Migrate enhances analysis by allowing customers to group and visualize related resources based on specific properties. [Learn more](resource-tagging.md).
+- Tags: in Azure Migrate Tags in Azure Migrate enhances analysis by allowing customers to group and visualize related resources based on specific properties. [Learn more](resource-tagging.md).
 
 - Enhanced Dependency Analysis: Leverage the new dependency analysis experience to identify application boundaries and group workloads accordingly. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
 
 - Application Assessment: This feature allows customers to include constituent workloads, such as application servers, web apps, and databases. The assessment then evaluates all potential Azure target services for these workloads, providing a recommended migration path, along with cost and readiness details. [Learn more](review-application-assessment.md).
 
-- Action center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within their project. [Learn more](centralized-issue-tracking.md).
+- Action Center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within their project. [Learn more](centralized-issue-tracking.md).
 
 ## Update (February 2025)
 
