@@ -45,7 +45,7 @@ This feature is currently in preview. You need to register the feature before us
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossTenantCMK
@@ -95,7 +95,7 @@ The configuration process for cross-tenant customer-managed keys has portions th
 ### Authorize access to the key vault 
 
 1. Install the service provider application in the customer tenant
-    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like: `https://login.microsoftonline.com/<tenant1-tenantId>/adminconsent/client_id=<client/application ID for the cross tenant-application>`. This opens a login page where you enter your credentials. Once you enter your credentials, you may see an error stating there's no redirect URL configured; this is OK.
+    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like: `https://login.microsoftonline.com/<tenant1-tenantId>/adminconsent/client_id=<client/application-ID-for-the-cross-tenant-application>`. The URL opens a sign-in page prompting you to enter your credentials. Once you enter your credentials, you might see an error stating there's no redirect URL configured; this is OK.
 1. Grant the service provider application access to the key vault. 
     1. Navigate to your key vault. Select **Access Control (IAM)** from the left pane.  
     1. Under Grant access to this resource, select **Add role assignment**. 
@@ -111,7 +111,7 @@ The configuration process for cross-tenant customer-managed keys has portions th
 ### Configure the NetApp account to use your keys 
 
 >[!NOTE]
->Using the `az rest` command is the only supported way to to configure your NetApp account to use CMK in a different tenant.
+>Using the `az rest` command is the only supported way to configure your NetApp account to use CMK in a different tenant.
 
 1. With the `az rest` command, configure the NetApp account to use CMK in a different tenant:  
 
