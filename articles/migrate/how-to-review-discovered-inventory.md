@@ -78,7 +78,7 @@ To add credentials and initiate a discovery, follow these steps:
 
 After the discovery is complete, navigate to Azure portal and refresh the **Overview** in your project to see the count of the discovered workloads.
  
-## Review All inventory
+## Review all inventory
 
 You can select the count of workloads on **Overview** of your project or select **All inventory** > **Explore inventory** from the left pane to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or using CSV import.
 
@@ -311,7 +311,7 @@ You can perform the following actions on all or a scoped set of web apps after y
 - **Export data**: Export the inventory data for all web apps.
 - **Refresh**: Refresh the view to review any updates in discovery.
 
-### Review databases inventory
+## Review databases inventory
 
 To see all the discovered databases from your environment, select **Databases** > **Explore inventory** from the menu on the left.
 
