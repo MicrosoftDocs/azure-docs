@@ -3,7 +3,7 @@ title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 04/16/2025
+ms.date: 04/23/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -487,6 +487,12 @@ You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Us
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --status Completed
 ```
 
-## Next step
+## Next steps
 
-[Restore Azure Managed Disks using Azure CLI](restore-managed-disks-cli.md)
+[Restore Azure Managed Disks using Azure CLI](restore-managed-disks-cli.md).
+
+## Related content
+
+- [Create a backup policy to protect Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Back up Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
