@@ -53,6 +53,8 @@ If you don't have a service subscription, [create a free trial account](https://
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+
 ### [Bicep](#tab/bicep)
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -410,6 +412,274 @@ The VMs take a few minutes to create. After Azure creates each VM, the Azure CLI
 
 ### [ARM](#tab/arm)
 
+## Review the template
+
+The template that you use in this quickstart is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json).
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" :::
+
+The template defines the following Azure resources:
+
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Create a virtual network.
+- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Create a subnet.
+
+## Deploy the template
+
+Deploy the Resource Manager template to Azure:
+
+1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates a virtual network with two subnets.
+
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-two-subnets%2Fazuredeploy.json":::
+
+1. In the portal, on the **Create a Virtual Network with two Subnets** page, enter or select the following values:
+   - **Resource group**: Select **Create new**, enter **CreateVNetQS-rg** for the resource group name, and then select **OK**.
+   - **Virtual Network Name**: Enter a name for the new virtual network.
+1. Select **Review + create**, and then select **Create**.
+1. When deployment finishes, select the **Go to resource** button to review the resources that you deployed.
+
+## Review deployed resources
+
+Explore the resources that you created with the virtual network by browsing through the settings panes for **VNet1**:
+
+- The **Overview** tab shows the defined address space of **10.0.0.0/16**.
+
+- The **Subnets** tab shows the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the template.
+
+To learn about the JSON syntax and properties for a virtual network in a template, see [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
+
+### [Bicep](#tab/bicep)
+
+## Create the virtual network and VMs
+
+This quickstart uses the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to create the virtual network, resource subnet, and VMs. The Bicep template defines the following Azure resources:
+
+- [Microsoft.Network virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
+- [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet for the VMs.
+- [Microsoft.Compute virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Creates the VMs.
+- [Microsoft.Compute availabilitySets](/azure/templates/microsoft.compute/availabilitysets): Creates an availability set.
+- [Microsoft.Network networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): Creates network interfaces.
+- [Microsoft.Network loadBalancers](/azure/templates/microsoft.network/loadbalancers): Creates an internal load balancer.
+- [Microsoft.Storage storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Creates a storage account.
+
+Review the Bicep file:
+
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep" :::
+
+### Deploy the Bicep template
+
+1. Save the Bicep file to your local computer as *main.bicep*.
+1. Deploy the Bicep file by using either the Azure CLI or Azure PowerShell:
+
+   ### CLI
+
+    ```azurecli
+    az group create \
+        --name TestRG \
+        --location eastus
+   
+    az deployment group create \
+        --resource-group TestRG \
+        --template-file main.bicep
+    ```
+
+   ### PowerShell
+
+   ```azurepowershell
+    $rgParams = @{
+        Name     = 'TestRG'
+        Location = 'eastus'
+    }
+    New-AzResourceGroup @rgParams
+
+    $deploymentParams = @{
+        ResourceGroupName = 'TestRG'
+        TemplateFile      = 'main.bicep'
+    }
+    New-AzResourceGroupDeployment @deploymentParams
+    ```
+
+When the deployment finishes, a message indicates that the deployment succeeded.
+
+## Deploy Azure Bastion
+
+Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+
+> [!NOTE]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Bastion in your virtual network. This Bicep template defines the following Azure resources:
+
+- [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an **AzureBastionSubnet** subnet.
+- [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Bastion host.
+- [Microsoft.Network publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses): Creates a public IP address for the Bastion host.
+- [Microsoft Network networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the settings for network security groups.
+
+Review the Bicep file:
+
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/azure-bastion/main.bicep" :::
+
+### Deploy the Bicep template
+
+1. Save the Bicep file to your local computer as *bastion.bicep*.
+1. Use a text or code editor to make the following changes in the file:
+
+   - Line 2: Change `param vnetName string` from `'vnet01'` to `'VNet'`.
+   - Line 5: Change `param vnetIpPrefix string` from `'10.1.0.0/16'` to `'10.0.0.0/16'`.
+   - Line 12: Change `param vnetNewOrExisting string` from `'new'` to `'existing'`.
+   - Line 15: Change `param bastionSubnetIpPrefix string` from `'10.1.1.0/26'` to `'10.0.1.0/26'`.
+   - Line 18: Change `param bastionHostName string` to `param bastionHostName = 'VNet-bastion'`.
+
+   The first 18 lines of your Bicep file should now look like this example:
+
+   ```bicep
+   @description('Name of new or existing vnet to which Azure Bastion should be deployed')
+   param vnetName string = 'VNet'
+   
+   @description('IP prefix for available addresses in vnet address space')
+   param vnetIpPrefix string = '10.0.0.0/16'
+   
+   @description('Specify whether to provision new vnet or deploy to existing vnet')
+   @allowed([
+     'new'
+     'existing'
+   ])
+   param vnetNewOrExisting string = 'existing'
+   
+   @description('Bastion subnet IP prefix MUST be within vnet IP prefix address space')
+   param bastionSubnetIpPrefix string = '10.0.1.0/26'
+   
+   @description('Name of Azure Bastion resource')
+   param bastionHostName = 'VNet-bastion'
+   
+   ```
+
+1. Save the *bastion.bicep* file.
+
+1. Deploy the Bicep file by using either the Azure CLI or Azure PowerShell:
+
+   #### CLI
+
+   ```azurecli
+   az deployment group create \
+        --resource-group TestRG \
+        --template-file bastion.bicep
+   ```
+
+   ### PowerShell
+
+    ```azurepowershell
+    $deploymentParams = @{
+        ResourceGroupName = 'TestRG'
+        TemplateFile      = 'bastion.bicep'
+    }
+    New-AzResourceGroupDeployment @deploymentParams
+    ```
+
+When the deployment finishes, a message indicates that the deployment succeeded.
+
+> [!NOTE]
+> VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+
+## Review deployed resources
+
+Use the Azure CLI, Azure PowerShell, or the Azure portal to review the deployed resources:
+
+### CLI
+
+```azurecli
+az resource list --resource-group TestRG
+```
+
+### PowerShell
+
+```azurepowershell
+Get-AzResource -ResourceGroupName TestRG
+```
+
+### Portal
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **resource groups**. On the **Resource groups** page, select **TestRG** from the list of resource groups.
+
+1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two VMs, and the Bastion host.
+
+1. Select the **VNet** virtual network. On the **Overview** page for **VNet**, note the defined address space of **10.0.0.0/16**.
+
+1. On the left menu, select **Subnets**. On the **Subnets** page, note the deployed subnets of **backendSubnet** and **AzureBastionSubnet** with the assigned values from the Bicep files.
+
+### [Terraform](#tab/terraform)
+
+The script uses the Azure Resource Manager (`azurerm`) provider to interact with Azure resources. It uses the  Random (`random`) provider to generate random pet names for the resources.
+
+The script creates the following resources:
+
+- A resource group: A container that holds related resources for an Azure solution.
+
+- A virtual network: A fundamental building block for your private network in Azure.
+
+- Two subnets: Segments of a virtual network's IP address range where you can place groups of isolated resources.
+
+:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-bicep/virtual-network-bicep-resources.png":::
+
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
+## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-create-two-subnets). You can view the log file that contains the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-create-two-subnets/TestRecord.md).
+>
+> For more articles and sample code that show how to use Terraform to manage Azure resources, see the [documentation page for Terraform on Azure](/azure/terraform).
+
+1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
+
+1. Create a file named *main.tf* and insert the following code:
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-virtual-network-create-two-subnets/main.tf":::
+
+1. Create a file named *outputs.tf* and insert the following code:
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-virtual-network-create-two-subnets/outputs.tf":::
+
+1. Create a file named *providers.tf* and insert the following code:
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-virtual-network-create-two-subnets/providers.tf":::
+
+1. Create a file named *variables.tf* and insert the following code:
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-virtual-network-create-two-subnets/variables.tf":::
+
+## Initialize Terraform
+
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+
+## Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+
+## Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+## Verify the results
+
+1. Get the Azure resource group name:
+
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Get the virtual network name:
+
+    ```console
+    virtual_network_name=$(terraform output -raw virtual_network_name)
+    ```
+
+1. Use [`az network vnet show`](/cli/azure/network/vnet#az-network-vnet-show) to display the details of your newly created virtual network:
+
+    ```azurecli
+    az network vnet show \
+        --resource-group $resource_group_name \
+        --name $virtual_network_name
+    ```
 
 ---
 
