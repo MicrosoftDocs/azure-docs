@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 3/31/2025
+ms.date: 04/23/2025
 ms.author: wgries
 ---
 
