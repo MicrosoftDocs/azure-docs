@@ -35,7 +35,7 @@ Follow these steps to connect an app to MongoDB Atlas:
 
     | Setting                    | Example                       | Description                                                                                                                                                                                                                                                                                       |
     |----------------------------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Service type**           | *MongoDB Atlas Cluster (Preview)*    | The name of the target service: **MongoDB Atlas Cluster (Preview)**.                                                                                                                                                                                                                                     |
+    | **Service type**           | *MongoDB Atlas Cluster (preview)*    | The name of the target service: **MongoDB Atlas Cluster (Preview)**.                                                                                                                                                                                                                                     |
     | **Connection name**        | *mongodb_atlas_01*            | The name of the connection between the Azure compute resource and the MongoDB Atlas Cluster resource. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
  
     :::image type="content" source="./media/mongo-service-connection/create-basics-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Basics tab.":::
@@ -44,6 +44,8 @@ Follow these steps to connect an app to MongoDB Atlas:
 
     > [!TIP]
     > To find your cluster's connection string, in the MongoDB Astra platform, navigate to **Clusters** > **Connection** > **Drivers**, and copy the connection string.
+
+    :::image type="content" source="./media/mongo-service-connection/create-authentication-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Basics tab.":::
 
 1. Select **Next** until you reach  **Review + Create**, and review the provided information.
 1. Select **Create**.
