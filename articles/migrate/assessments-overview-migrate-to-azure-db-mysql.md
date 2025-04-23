@@ -5,6 +5,7 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: conceptual
 ms.date: 02/24/2025
+monikerRange: migrate-classic
 ---
 
 # Assessment overview - Migrate to Azure Database for MySQL (preview)
