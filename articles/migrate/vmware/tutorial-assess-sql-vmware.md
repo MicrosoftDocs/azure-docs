@@ -218,7 +218,7 @@ The confidence rating helps you estimate the reliability of size recommendations
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](../concepts-azure-sql-assessment-calculation.md#confidence-ratings) about confidence ratings.
+[Learn more](../confidence-ratings.md) about confidence ratings.
 
 
 ## Next steps

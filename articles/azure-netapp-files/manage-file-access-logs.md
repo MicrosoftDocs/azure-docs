@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/07/2025
+ms.date: 04/18/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -104,18 +104,24 @@ Availability for file access log is limited to the following regions:
 - Canada East
 - Central India
 - Central US
+- East Asia
 - East US
 - East US 2
 - Japan East
 - Japan West
+- Korea Central
+- Korea South
 - North Europe
 - South Central US
+- Southeast Asia
+- South India
 - Switzerland North
 - Switzerland West
 - UK South
 - West Europe
 - West US
 - West US 2
+- West US 3
 
 ## Set SACLs or Audit ACEs on files and directories  
 

@@ -199,9 +199,17 @@ items:
   - name: Migrate to Azure Managed Redis from Azure Cache for Redis
     href: migrate/migrate-overview.md
   - name: Migrate to Azure Redis from other caches
-    href: ../azure-cache-for-redis/cache-migration-guide.md
+    href: /azure/azure-cache-for-redis/cache-migration-guide
 
-      
+- name: Azure Cache for Redis 
+  href: /azure/azure-cache-for-redis/index
+  expanded: true
+  items:
+  - name: About Azure Cache for Redis
+    href: /azure/azure-cache-for-redis/cache-overview
+  - name: Choosing the right Azure Cache for Redis tier
+    href: /azure/azure-cache-for-redis/cache-overview#choosing-the-right-tier
+
 - name: Samples
   items:
   - name: Use Azure Functions triggers and bindings

@@ -67,9 +67,9 @@ Although official support for Windows Server 2012 R2 and the Azure File Sync v17
 
 Perform one of the following options for your Windows Server 2012 R2 servers prior to v17 agent expiration on May 6, 2025:
 
-- Option #1: Perform an [in-place upgrade](/windows-server/get-started/perform-in-place-upgrade) to a [supported operation system version](file-sync-planning.md#operating-system-requirements). Once the in-place upgrade completes, uninstall the Azure File Sync agent for Windows Server 2012 R2, restart the server, and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, Windows Server 2022 or Windows Server 2025).
+- Option #1: Perform an [in-place upgrade](/windows-server/get-started/perform-in-place-upgrade) to a [supported operating system version](file-sync-planning.md#operating-system-requirements). Once the in-place upgrade completes, uninstall the Azure File Sync agent for Windows Server 2012 R2, restart the server, and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, Windows Server 2022 or Windows Server 2025).
 
-- Option #2: Deploy a new Azure File Sync server that's running a [supported operation system version](file-sync-planning.md#operating-system-requirements) to replace your Windows 2012 R2 servers. For guidance, see [Replace an Azure File Sync server](file-sync-replace-server.md).
+- Option #2: Deploy a new Azure File Sync server that's running a [supported operating system version](file-sync-planning.md#operating-system-requirements) to replace your Windows 2012 R2 servers. For guidance, see [Replace an Azure File Sync server](file-sync-replace-server.md).
 
 >[!NOTE]
 >Azure File Sync agent v17.3 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
