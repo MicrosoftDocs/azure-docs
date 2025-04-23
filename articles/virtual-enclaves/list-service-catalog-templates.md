@@ -50,14 +50,14 @@ Documentation:
 
 ## Remote App VM
 
-[How to create a Remote App VM](./deploy-remoteapp-service-catalog.md)
+[How to create a Remote App VM](./deploy-remoteapp-vm-service-catalog.md)
 
 Description:
 This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](../virtual-desktop/publish-applications-stream-remoteapp.md) by joining and deploying a host pool, app location group, and workspace. The default application published as a remote app is the edge browser.
 
 Documentation:
 [Remote App Streaming Overview](../virtual-desktop/remote-app-streaming/overview.md)
-[How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-service-catalog.md)
+[How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-vm-service-catalog.md)
 
 
 ## Storage Account

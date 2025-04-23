@@ -34,22 +34,22 @@ AVE makes the following overall recommendations:
 1. [Communities](./what-community.md) should be deployed when you have networking requirements to provide an [Azure Firewall](https://aka.ms/azurefirewall), which is Azure's intelligent firewall security Platform-as-a-Service.
 2. Communities should be deployed when you have organizational or data sensitivity requirements to separate a hub-and-spoke virtual wide-area-network (VWAN) from another hub-and-spoke VWAN.
 3. Communities should be deployed when you have networking requirements to support systems spanning [multiple Azure regions](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), in which each region requires its own Azure Firewall. [Learn more about multi-hub Azure Firewall use-cases](../firewall/firewall-multi-hub-spoke.md). 
-4. Communities should be deployed when you have networking requirements to support a very large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure VWAN](../virtual-wan/virtual-wan-faq).
+4. Communities should be deployed when you have networking requirements to support a very large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure VWAN](../virtual-wan/virtual-wan-faq.md).
 5. [Enclaves](./what-enclave.md) should be deployed when you have networking requirements to deploy similar workloads as part of the same private network.
 6. Enclaves should be deployed when you have a planned workload requirement that needs to be within the same VWAN as an existing community for ease of network management.
 
 #### Community network design considerations
 AVE advises customers to follow, wherever possible, underlying Azure service best practices documentation when planning their community networks. Some, but not all, of these best practices documentation are provided below:
-- [Azure Firewall best practices](../firewall/firewall-best-practices)
-- [Azure Firewall multi-hub-and-spoke](../firewall/firewall-multi-hub-spoke)
+- [Azure Firewall best practices](../firewall/firewall-best-practices.md)
+- [Azure Firewall multi-hub-and-spoke](../firewall/firewall-multi-hub-spoke.md)
 - [Hub-and-spoke Azure VWAN Architecture](https://learn.microsoft.com/azure/architecture/networking/hub-spoke-vwan-architecture)
 - [Azure VWAN Network topology](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
-- [Azure VWAN FAQ](../virtual-wan/virtual-wan-faq)
+- [Azure VWAN FAQ](../virtual-wan/virtual-wan-faq.md)
 
 #### Enclave network design considerations
 AVE advises customers to follow, wherever possible, underlying Azure service best practices documentation when planning their enclave networks. Some, but not all, of these best practices documentation are provided below:
-- [Azure Virtual Network concepts and best practices](../virtual-network/concepts-and-best-practices)
-- [Network security groups overview](../virtual-network/network-security-groups-overview)
+- [Azure Virtual Network concepts and best practices](../virtual-network/concepts-and-best-practices.md)
+- [Network security groups overview](../virtual-network/network-security-groups-overview.md)
 
 Learn more about overall [Azure networking best practices](https://learn.microsoft.com/azure/security/fundamentals/network-best-practices).
 

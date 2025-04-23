@@ -61,9 +61,9 @@ Required:
 Go to the specified Resource Group to confirm the intended resources were created. Including: VM, OS Disk, NIC.
 
 ## Connect to the Application VM
-Via the [Admin VM](./understanding-admin-workstations.md):
+Via the [Admin VM](./understanding-admin-vm.md):
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
-1. Sign in to a desktop session on the [Admin VM](./understanding-admin-workstations.md).
+1. Sign in to a desktop session on the [Admin VM](./understanding-admin-vm.md).
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
 4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
