@@ -20,7 +20,7 @@
       - name: Create and manage with Azure PowerShell
         href: /azure/redis/how-to-manage-redis-cache-powershell
       - name: Create and manage with Azure CLI
-        href: /azure/redis/scripts/create-managed-cache
+        href: /azure/redis/scripts/create-manage-cache?pivots=azure-cache-redis
       - name: Create and manage premium cache with Azure CLI
         href: scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
@@ -93,7 +93,7 @@
       - name: Overview
         href: cli-samples.md
       - name: Create and manage a cache
-        href: /azure/redis/scripts/create-managed-cache
+        href: /azure/redis/scripts/create-manage-cache?pivots=azure-cache-redis
       - name: Create and manage a premium cache
         href: scripts/create-manage-premium-cache-cluster.md
 
@@ -190,8 +190,6 @@
       href: cache-administration.md#update-channel-and-schedule-updates
     - name: Configure redis-cli access
       href: cache-how-to-redis-cli-tool.md
-    - name: Create and manage a cache using CLI
-      href: cache-manage-cli.md
     - name: Move between regions
       href: cache-moving-resources.md
     - name: Publishing Azure Cache for Redis events
