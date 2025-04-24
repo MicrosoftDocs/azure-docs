@@ -453,11 +453,24 @@ In the above example, the feature is enabled for users named `Jeff` and `Alicia`
 
 An example web application that uses the targeting feature filter is available in this [example](https://github.com/microsoft/FeatureManagement-JavaScript/tree/preview/examples/express-app) project.
 
-#### Ambient targeting context
-
 In web applications, especially those with multiple components or layers, passing targeting context (`userId` and `groups`) to every feature flag check can become cumbersome and repetitive. This scenario is referred to as "ambient targeting context," where the user identity information is already available in the application context (such as in session data or authentication context) but needs to be accessible to feature management evaluations throughout the application.
 
-The library provides a solution through the `targetingContextAccessor` pattern. Instead of explicitly passing the targeting context with each `isEnabled` or `getVariant` call, you can provide a function that knows how to retrieve the current user's targeting information from your application's context:
+#### ITargetingContextAccessor
+
+The library provides a solution through the `ITargetingContextAccessor` pattern. 
+
+``` typescript
+interface ITargetingContext {
+    userId?: string;
+    groups?: string[];
+}
+
+interface ITargetingContextAccessor {
+    getTargetingContext: () => ITargetingContext | undefined;
+}
+```
+
+Instead of explicitly passing the targeting context with each `isEnabled` or `getVariant` call, you can provide a function that knows how to retrieve the current user's targeting information from your application's context:
 
 ```typescript
 import { FeatureManager, ConfigurationObjectFeatureFlagProvider } from "@microsoft/feature-management";
@@ -827,6 +840,22 @@ trackEvent(appInsights.defaultClient, "<TARGETING_ID>", {name: "TestEvent",  pro
 ---
 
 The telemetry publisher sends `FeatureEvaluation` custom events to the Application Insights when a feature flag enabled with telemetry is evaluated. The custom event follows the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
+
+### Targeting telemetry processor
+
+If you have implemented [`ITargetingContextAccessor`](#itargetingcontextaccessor), you can use the built-in Application Insights telemetry processor to automatically attached targeting id information to telemetry by calling `createTargetingTelemetryProcessor` function.
+
+```typescript
+const appInsights = require("applicationinsights");
+appInsights.setup(process.env.APPINSIGHTS_CONNECTION_STRING).start();
+
+const { createTargetingTelemetryProcessor } = require("@microsoft/feature-management-applicationinsights-node");
+appInsights.defaultClient.addTelemetryProcessor(
+    createTargetingTelemetryProcessor(targetingContextAccessor)
+);
+```
+
+This ensures that every telemetry sent to Application Insights includes the targeting id information, allowing you to correlate feature flag usage in your analytics.
 
 ## Next steps
 
