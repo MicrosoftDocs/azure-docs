@@ -4,7 +4,7 @@ description: Quickly and easily deploy a sample Azure Virtual Desktop environmen
 ms.topic: quickstart
 ms.custom: mode-portal
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 03/05/2025
 #customer intent: As an IT admin, I want quickly and easily deploy Azure Virtual Desktop so that I can evaluate and become familiar with the service before deploying it in production.
 ---

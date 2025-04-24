@@ -4,7 +4,7 @@ description: How to customize feed for Azure Virtual Desktop users using the Azu
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 02/01/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 
