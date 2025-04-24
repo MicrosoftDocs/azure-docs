@@ -166,7 +166,7 @@ Currently, during public preview, you must manually create the **Asset** and **A
 
 ### Access the PTZ capabilities of the camera
 
-Use the PTZ capabilities of an ONVIF compliant camera to control its position and orientation.To manually create an asset that represents the PTZ capabilities of the camera discovered previously:
+Use the PTZ capabilities of an ONVIF compliant camera to control its position and orientation. To manually create an asset that represents the PTZ capabilities of the camera discovered previously:
 
 # [Bash](#tab/bash)
 
