@@ -457,7 +457,8 @@ Network TAP allows Operators to define destinations and encapsulation mechanism 
 | destinationTapRuleId| ARMID of the Tap rule, which needs to be applied | |True |
 
 > [!NOTE] 
-> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap
+> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap. <br>
+> IP, VLAN, and port group name must be unique across all Network Tap rules associated with the same Network Fabric.
 
 ### NetworkTAP device programming naming conventions/ best practices:
 
