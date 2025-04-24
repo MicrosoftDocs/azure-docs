@@ -20,10 +20,8 @@ landingContent:
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
             url: overview.md
-      - linkListType: video
-        links: 
-          - text: Azure Native Qumulo Scalable File Service
-            url: https://www.youtube.com/watch?v=s-5DXAuYZss 
+          - text: FAQ
+            url: faq.yml
 
 
   # Card
