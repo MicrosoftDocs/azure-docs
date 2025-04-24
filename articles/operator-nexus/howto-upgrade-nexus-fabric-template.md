@@ -150,7 +150,7 @@ Runtime changes are categorized as follows:
    >[!Note]
    > Resolve any connection and cable issues before continuing the upgrade.
 
-7. Review Operator Nexus Release notes for any additional checks and configuration updates prior to upgrading the Fabric.
+7. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
    
 ## Send notification to Operations of upgrade schedule for the Fabric.
 
