@@ -15,10 +15,6 @@ appliesto:
 
 Azure Managed Redis runs on the [Redis Enterprise](https://redis.io/technology/advantages/) stack, which offers significant advantages over the community edition of Redis. The following information provides greater detail about how Azure Managed Redis is architected, including information that can be useful to power users.
 
-> [!IMPORTANT]
-> Azure Managed Redis is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Comparison with Azure Cache for Redis
 
 The Basic, Standard, and Premium tiers of Azure Cache for Redis were built on the community edition of Redis. This version of Redis has several significant limitations, including being single-threaded by design. This reduces performance significantly and makes scaling less efficient as more vCPUs aren't fully utilized by the service. A typical Azure Cache for Redis instance uses an architecture like this:
