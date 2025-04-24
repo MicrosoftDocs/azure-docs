@@ -349,6 +349,8 @@ Disk caching | Disk Caching isn't supported for disks 4 TB and larger. If multip
 
 > [!NOTE]
 > Azure Site Recovery supports storage accounts with page blob for unmanaged disk replication.
+>
+> Unmanaged disks were deprecated on September 30, 2022, and are slated to retire by September 30, 2025. Managed disks now offers the full capabilities of unmanaged disks, along with additional advancements.
 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk.
 
