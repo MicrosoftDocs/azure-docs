@@ -4,7 +4,7 @@ description: Learn how to set custom RDP properties on a host pool that add to t
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 08/22/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 

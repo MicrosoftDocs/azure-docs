@@ -463,7 +463,7 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 
 
 
-### Self-contained interactive authoring (preview)
+### Self-contained interactive authoring
 In order to perform interactive authoring actions such as data preview and connection testing, the self-hosted integration runtime requires a connection to Azure Relay. If the connection isn't established, there are two possible solutions to ensure uninterrupted functionality. The first option is to add the Azure Relay endpoints to your firewall's allowlist [Get URL of Azure Relay](#get-url-of-azure-relay). Alternatively, you can enable self-contained interactive authoring.
 
 > [!NOTE]
