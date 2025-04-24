@@ -10,7 +10,10 @@ ms.author: mmasheke
 # Automanage Best Practices to Azure Policy migration planning
 
 > [!CAUTION]
-> On September 30, 2027, the Azure Automanage Best Practices service will be retired. Migrate to Azure Policy before that date. For more information on migration, see the [Azure portal](https://portal.azure.com/).
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. Migrate to Azure Policy before that date. For more information on migration, see the [Azure portal](https://portal.azure.com/). Learn how to [disable Azure Automanage][22].
+
+> [!CAUTION]
+> Starting February 1st 2025, Azure Automanage will begin rolling out changes to halt support and enforcement for all services dependent on the deprecated Microsoft Monitoring Agent (MMA). To continue using Change Tracking and Management, VM Insights, Update Management, and Azure Automation, [migrate to the new Azure Monitor Agent (AMA)](https://aka.ms/mma-to-ama/).
 
 Azure Policy is a more robust cloud resource governance, enforcement, and compliance offering with full parity with the Azure Automanage Best Practices service. When possible, you should plan to move your content and machines to the new service. This article provides guidance on developing a migration strategy from Azure Automation to machine
 configuration. Azure Policy implements a robust array of features, including:
@@ -139,3 +142,4 @@ Now that you have an overview of Azure Policy and some of the key concepts, here
 [19]: /azure/update-manager/overview
 [20]: /azure/automation/policy-reference
 [21]: /azure/automation/overview
+[22]: /azure/automanage/how-to-disable-automanage

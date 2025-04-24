@@ -1,12 +1,12 @@
 ---
-title: Azure IoT support and help options | Microsoft Docs
+title: Azure IoT support and help options
 description: How to obtain help and support for questions or problems when you create solutions using Azure IoT Services.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 03/18/2025
 
 ---
 
@@ -42,7 +42,6 @@ If you can't find an answer to your problem using search, submit a new question 
 * [Azure Digital Twins](/answers/topics/azure-digital-twins.html)
 * [Azure IoT Plug and Play](/answers/topics/azure-iot-pnp.html)
 * [Azure Sphere](/answers/topics/azure-sphere.html)
-* [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
 * [Azure Maps](/answers/topics/azure-maps.html)
 
 ## Post a question on Stack Overflow
@@ -62,7 +61,6 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 * [Azure IoT SDKs](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
 * [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
 * [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
-* [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
 
 ## Stay informed of updates and new releases
 
@@ -72,10 +70,6 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=iot).
 
-News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/internet-of-things/) and on the [Internet of Things Show on Channel 9](/Shows/Internet-of-Things-Show).
+News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/internet-of-things/).
 
 Also, share your experiences, engage and learn from experts in the [Internet of Things Tech Community](https://techcommunity.microsoft.com/t5/Internet-of-Things-IoT/ct-p/IoT).
-
-## Next steps
-
-[What is Azure IoT?](iot-introduction.md)

@@ -9,7 +9,7 @@ ms.date: 9/30/2024
 
 # Use Portable VMware Cloud Foundations (VCF) on Azure VMware Solution
 
-This article discusses how to modernize your VMware workloads by bringing your portable VMware Cloud Foundations (VCF) to Azure VMware Solutions and take advantage of incredible cost savings as you modernize your VMware workloads. With Azure VMware Solution, you access both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF subscription portability option, you can apply your on-premises VCF entitlements, purchased from Broadcom, directly to the Azure VMware Solution infrastructure. This flexibility means you can seamlessly integrate your VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solution today! 
+This article discusses how to modernize your VMware workloads by bringing your portable VMware Cloud Foundations (VCF) to Azure VMware Solution and take advantage of incredible cost savings as you modernize your VMware workloads. With Azure VMware Solution, you access both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF subscription portability option, you can apply your on-premises VCF entitlements, purchased from Broadcom, directly to the Azure VMware Solution infrastructure. This flexibility means you can seamlessly integrate your VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solution today! 
 
 ## What's changing?
 
@@ -43,8 +43,8 @@ To request quota for portable VCF offering, provide the following additional inf
 - Region Name 
 - Number of hosts 
 - Host SKU type  
-- Add the following statement as is, by replacing "N" with the "Number of VCF BYOL cores" you purchased from Broadcom for VCF portability to Azure VMware Solutions:  
-**"I acknowledge that I have procured portable VCF subscription from Broadcom for "N" cores to use with Azure VMware Solutions."**
+- Add the following statement as is, by replacing "N" with the "Number of VCF BYOL cores" you purchased from Broadcom for VCF portability to Azure VMware Solution:  
+**"I acknowledge that I have procured portable VCF subscription from Broadcom for "N" cores to use with Azure VMware Solution."**
 - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-license-portability.png" alt-text="Screenshot of the quota request description for VCF subscription portability offering on Azure VMware Solution.":::
@@ -72,7 +72,7 @@ To get your quota request approved, you must first register the portable VCF det
 >The "Qty" represents the number of cores eligible for VCF portability. Your quota request shouldn't surpass the number of nodes equivalent to your entitled cores from Broadcom. If your quota request exceeds the approved cores, the quota request will be granted only for the number of nodes that are fully covered by the entitled cores.
 
 - VCF with VMware vDefend entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with Vmware vDefend entitlement sample format." border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with VMware vDefend entitlement sample format." border="false":::
 
 Sample Email to register portable VCF entitlements: 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Screenshot of sample email to register portable VCF subscription." border="true":::

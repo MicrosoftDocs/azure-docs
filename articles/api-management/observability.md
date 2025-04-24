@@ -43,7 +43,7 @@ The following table summarizes all the observability capabilities supported by A
 
 *3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
 
-## Next Steps
+## Related content
 
 - Get started with [Azure Monitor for API Management](monitor-api-management.md)
 - Learn how to log requests with [Application Insights](api-management-howto-app-insights.md)

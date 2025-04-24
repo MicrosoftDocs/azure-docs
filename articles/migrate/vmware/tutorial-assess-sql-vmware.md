@@ -1,8 +1,6 @@
 ---
-title: Tutorial to assess SQL instances in VMWare VMs for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
+title: Tutorial to assess SQL instances in VMware VMs for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
 description: Learn how to create assessment for Azure SQL in VMware VMs in Azure Migrate
-author: rashi-ms
-ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/26/2024
@@ -220,7 +218,7 @@ The confidence rating helps you estimate the reliability of size recommendations
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](../concepts-azure-sql-assessment-calculation.md#confidence-ratings) about confidence ratings.
+[Learn more](../confidence-ratings.md) about confidence ratings.
 
 
 ## Next steps

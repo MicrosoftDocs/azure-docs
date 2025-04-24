@@ -68,7 +68,7 @@ Deleting the identity provider prevents adding users to use username and passwor
 > If you want to disable all sign up or sign in functionality in the developer portal, see [How do I disable sign up in the developer portal?](developer-portal-faq.md#how-do-i-disable-sign-up-in-the-developer-portal)
 
 
-## Next steps
+## Related content
 
 For steps to add other identity providers for developer sign-up to the developer portal, see:
 

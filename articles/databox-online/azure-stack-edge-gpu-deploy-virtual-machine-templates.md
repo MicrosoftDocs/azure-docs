@@ -963,4 +963,4 @@ Follow these steps to connect to a Linux VM.
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)
+[Azure Resource Manager cmdlets](/azure/automation/shared-resources/modules)

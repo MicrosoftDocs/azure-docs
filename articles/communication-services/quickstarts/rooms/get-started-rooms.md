@@ -3,11 +3,11 @@ title: Quickstart - Create and manage a room resource
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to create a Room within your Azure Communication Services resource.
 services: azure-communication-services
-author: radubulboaca
-manager: mariusu
+author: mayssamm
+manager: alexokun
 
-ms.author: antonsamson
-ms.date: 09/01/2022
+ms.author: mayssamm
+ms.date: 02/27/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
@@ -28,7 +28,7 @@ The following table lists the main properties of `room` objects:
 | `validUntil`          | Latest time a `room` can be used. |
 | `pstnDialOutEnabled`  | Enable or disable dialing out to a PSTN number in a room.|
 | `participants`        | List of participants to a `room`. Specified as a `CommunicationUserIdentifier`. |
-| `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
+| `roleType`            | The role of a room participant. Can be `Presenter`, `Attendee`, `Consumer` or `Collaborator`. |
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]

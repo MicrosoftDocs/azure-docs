@@ -104,8 +104,8 @@ You can [configure application settings in Azure App Service](../app-service/con
 |AppSettings:SigningCertThumbprint|The created self-signed certificate thumbprint| N/A |
 |AppSettings:IdTokenSigningKey| Signing key created using PowerShell |N/A |
 |AppSettings:IdTokenEncryptionKey |Encryption key created using PowerShell|N/A|
-|AppSettings:IdTokenIssuer | Issuer for the JWT token (a GUID value is preferred) |N/A|
-|AppSettings:IdTokenAudience  | Audience for the JWT token (a GUID value is preferred) |N/A|
+|AppSettings:IdTokenIssuer | Issuer for the JWT (a GUID value is preferred) |N/A|
+|AppSettings:IdTokenAudience  | Audience for the JWT (a GUID value is preferred) |N/A|
 |AppSettings:BaseRedirectUrl | Azure AD B2C policy base URL | https://{your-tenant-name}.b2clogin.com/{your-application-id}|
 |WEBSITE_LOAD_CERTIFICATES| The created self-signed certificate thumbprint |N/A|
 

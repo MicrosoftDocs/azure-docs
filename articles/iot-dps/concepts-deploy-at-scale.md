@@ -3,7 +3,6 @@ title: Best practices for large-scale IoT deployments
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Best practices, patterns, and sample code you can use to help with large-scale deployments of Azure IoT Hub and Device Provisioning Service.
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article

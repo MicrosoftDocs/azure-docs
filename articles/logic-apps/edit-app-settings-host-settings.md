@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/14/2024
+ms.date: 03/14/2025
 ms.custom: fasttrack-edit
 ---
 
@@ -27,20 +27,21 @@ In multitenant Azure Logic Apps, deployment depends on Azure Resource Manager te
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
-App settings integrate with Azure Key Vault. You can [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to Azure Resource Manager templates (ARM templates), where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
+App settings integrate with Azure Key Vault. You can [directly reference secure strings](/azure/app-service/app-service-key-vault-references), such as connection strings and keys. Similar to Azure Resource Manager templates (ARM templates), where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
 
 > [!NOTE]
 >
-> If you use Key Vault, make sure that you store only secrets, such as passwords, credentials, and certificates. 
-> In a logic app workflow, don't use Key Vault to store non-secret values, such as URL paths, that the workflow designer needs to make calls. 
-> The designer can't dereference an app setting that references a Key Vault resource type, which results in an 
-> error and a failed call. For non-secret values, store them directly in app settings.
+> If you use Azure Key Vault, make sure to store only secrets, such as passwords, credentials, 
+> and certificates. Don't use a key vault in a logic app workflow to store non-secret values, 
+> such as URL paths, that the workflow designer needs to make calls. The designer can't 
+> dereference an app setting that references an Azure Key Vault resource, which results 
+> in an error and a failed call. For non-secret values, store them directly in app settings.
 
 For more information about setting up your logic apps for deployment, see the following documentation:
 
 - [Create parameters for values that change in workflows between environments for single-tenant Azure Logic Apps](parameterize-workflow-app.md)
-- [DevOps deployment overview for single-tenant based logic apps](devops-deployment-single-tenant-azure-logic-apps.md)
-- [Set up DevOps deployment for single-tenant based logic apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
+- [DevOps deployment overview for single-tenant based logic apps](/azure/logic-apps/devops-deployment-single-tenant-azure-logic-apps)
+- [Set up DevOps deployment for single-tenant based logic apps](/azure/logic-apps/set-up-devops-deployment-single-tenant-azure-logic-apps)
 
 ## Visual Studio Code project structure
 
@@ -54,7 +55,7 @@ In Visual Studio Code, at your logic app project's root level, the **local.setti
 
 App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-develop-local.md#local-settings-file).
 
-For your workflow to run properly, some app settings are required.
+The following table describes the app settings that your logic app uses. Some settings are required for your logic app to work correctly:
 
 | Setting | Required | Value | Description |
 |---------|----------|-------|-------------|
@@ -62,7 +63,7 @@ For your workflow to run properly, some app settings are required.
 | `AZURE_AUTHORITY_HOST` | No | None | Sets the Standard logic app's default authority to use for OAuth authentication. |
 | `AzureWebJobsStorage` | Yes | None | Required to set the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage). |
 | `FUNCTIONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
-| `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to **`node`**, but now the required value is **`dotnet`** for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
+| `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to **`node`**, but now the required value is **`dotnet`** for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](/azure/azure-functions/functions-app-settings#functions_worker_runtime). |
 | `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | No | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
 | `ServiceProviders.Sftp.OperationTimeout` | No | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
 | `ServiceProviders.Sftp.ServerAliveInterval` | No | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |

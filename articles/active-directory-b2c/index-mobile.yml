@@ -50,5 +50,3 @@ landingContent:
         links:
           - text: iOS (Objective-C)
             url: https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth
-          - text: Xamarin native  
-            url: https://github.com/Azure-Samples/active-directory-b2c-xamarin-native

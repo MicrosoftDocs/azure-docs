@@ -3,6 +3,9 @@ title: What is speculative execution in Spark in Azure HDInsight?
 description: Learn what is speculative execution in Spark? In HDInsight.
 ms.service: azure-hdinsight
 ms.topic: overview
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 03/04/2025
 ---
 

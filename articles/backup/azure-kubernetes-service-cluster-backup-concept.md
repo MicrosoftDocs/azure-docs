@@ -76,6 +76,14 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - If you have any previous installation of *Velero* in the AKS cluster, you need to delete it before installing Backup Extension.
 
+[!NOTE]
+>
+>The Velero CRDs installed in the cluster are shared between AKS Backup and the customer’s own Velero installation. However, the versions used by each installation may differ, potentially leading to failures due to contractmismatches.
+>
+>Additionally, custom Velero configurations created by the customer—such as a VolumeSnapshotClass for Velero CSI-based snapshotting—might interfere with the AKS Backup snapshotting setup.
+>
+>Velero annotations containing `velero.io` applied to various resources in the cluster can also impact the behavior of AKS Backup in unsupported ways.
+
 - If you are using [Azure policies in your AKS cluster](/azure/aks/policy-reference), ensure that the extension namespace *dataprotection-microsoft* is excluded from these policies to allow backup and restore operations to run successfully.
 
 - If you are using Azure network security group to filter network traffic between Azure resources in an Azure virtual network then set an inbound rule to allow service tags *azurebackup* and *azurecloud*. 

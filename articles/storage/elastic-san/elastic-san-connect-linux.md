@@ -50,7 +50,8 @@ defaults {
     path_grouping_policy multibus	# To place all the paths in one priority group
     path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
     failback immediate			# For immediate failback to highest priority path group with active paths
-    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
+    no_path_retry 3			# To disable I/O queueing after retrying once when all paths are down
+    polling_interval 5         # Set path check polling interval to 5 seconds
 }
 devices {
   device {

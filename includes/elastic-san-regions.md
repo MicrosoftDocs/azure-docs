@@ -40,6 +40,18 @@ Elastic SAN is also available in the following regions, but without Availability
 - Canada East - LRS
 - Japan West - LRS
 - North Central US - LRS
+- Australia Central - LRS
+- Southeast Brazil - LRS
+- Korea South - LRS
+- UAE Central - LRS
+- Switzerland West - LRS
+- Germany North - LRS
+- France South- LRS
+- Norway West - LRS
+- Sweden South - LRS
+- West Central US - LRS
+- West US - LRS
+- UK West - LRS
 
 To enable these regions, run the following command to register the necessary feature flag: 
 ```azurepowershell

@@ -32,7 +32,7 @@ A boolean of the converted value.
 
 ### Examples
 
-The following example shows how to use bool with a string or integer.
+The following example shows how to use `bool` with a string or integer.
 
 ```bicep
 output trueString1 bool = bool('true')

@@ -21,7 +21,7 @@
   - name: Add, change, or delete a subnet
     href: virtual-network-manage-subnet.md
   - name: Create a virtual network
-    href: quick-create-portal.md
+    href: quickstart-create-virtual-network.md
   - name: Monitoring
     href: monitor-virtual-network.md
   - name: Plan virtual networks
@@ -70,18 +70,6 @@
     href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks.md
-  - name: Create a virtual network
-    items:
-    - name: ARM template
-      href: quick-create-template.md
-    - name: Azure CLI
-      href: quick-create-cli.md
-    - name: Bicep
-      href: quick-create-bicep.md
-    - name: PowerShell
-      href: quick-create-powershell.md
-    - name: Terraform
-      href: quick-create-terraform.md
   - name: Create and associate service endpoint policies
     href: virtual-network-service-endpoint-policies.md
   - name: Filter network traffic
@@ -126,14 +114,12 @@
         href: create-peering-different-subscriptions.md
       - name: Different subscriptions with SPNs
         href: create-peering-different-subscriptions-service-principal.md
-      - name: Different deployment model same subscription
-        href: create-peering-different-deployment-models.md
-      - name: Different deployment model and subscription
-        href: create-peering-different-deployment-models-subscriptions.md
     - name: Manage a virtual network peering
       href: virtual-network-manage-peering.md
     - name: Update the address space for a peered virtual network
       href: update-virtual-network-peering-address-space.yml
+    - name: Configure subnet peering
+      href: how-to-configure-subnet-peering.md
   - name: Routing
     items: 
     - name: Manage route tables
@@ -227,7 +213,7 @@
   - name: Azure Policy Regulatory Compliance controls
     href: ./security-controls-policy.md
   - name: Azure security baseline for Virtual Network
-    href: /azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: DDoS protection

@@ -1,12 +1,11 @@
 ---
 title: Configure Azure Front Door rules match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door rules. 
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/12/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
