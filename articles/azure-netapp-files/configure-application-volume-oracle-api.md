@@ -1122,9 +1122,9 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
 }
 ```
 
-## Configure cross-region or cross-zone replication
+## <a name="replication"></a> Configure cross-region or cross-zone replication (preview)
 
-You can use [cross-zone](cross-zone-replication-introduction.md) or [cross-region](cross-region-replication-introduction.md) replication for disaster recovery for your application volume group. This example configures cross-zone replication. 
+You can use [cross-zone](cross-zone-replication-introduction.md) or [cross-region](cross-region-replication-introduction.md) replication for disaster recovery for your application volume group. This example configures cross-zone replication. This feature is currently in _preview_. 
 
 >[!NOTE]
 >In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 
