@@ -111,13 +111,9 @@ Note that:
 
 **Query by version:**
 
-For version 2 type:
+For version 2 type: `snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
 
-`snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
-
-For version 3 type:
-
-`snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
+For version 3 type: `snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
 
 ## Next steps
 
