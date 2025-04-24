@@ -24,7 +24,7 @@ Runtime changes are categorized as follows:
 
 ## Required Parameters:
 - <START_DATE>: Planned start date/time of upgrade
-- <ENVIRONMENT>: - Instance name
+- \<ENVIRONMENT\>: Instance name
 - <AZURE_REGION>: - Azure region of instance
 - <CUSTOMER_SUB_NAME>: Subscription name
 - <CUSTOMER_SUB_TENANT_ID>: Tenant ID
@@ -42,7 +42,7 @@ Runtime changes are categorized as follows:
 - <NFC_RID>: NFC ARM ID
 - <CLUSTER_KEYVAULT_ID>: Cluster Keyvault ARM ID
 - <NFC_MRG>: Cluster Managed Resource Group
-- <DURATION>: Estimated Duration of upgrade
+- \<DURATION\>: Estimated Duration of upgrade
 - <DE_ID>: Deployment Engineer performing upgrade
 
 ## Links
