@@ -3,7 +3,7 @@ title: Microsoft Planetary Computer Pro overview
 description: This article provides an overview of Microsoft Planetary Computer Pro.
 author: brentharris
 ms.author: brentharris
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: overview
 ms.date: 04/11/2025
 ---

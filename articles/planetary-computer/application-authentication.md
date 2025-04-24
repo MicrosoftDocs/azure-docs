@@ -3,9 +3,9 @@ title: Configure Application Authentication for Microsoft Planetary Computer Pro
 description: "This article provides guidance on setting up application authentication and access to Microsoft Planetary Computer Pro using Microsoft Entra ID and managed identities."
 author: pcoma55
 ms.author: prasadkomma
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: how-to #Don't change
-ms.date: [04/23/2025]
+ms.date: 04/23/2025
 
 #customer intent: As a developer or administrator, I want to set up application authentication and access to Microsoft Planetary Computer Pro so that my applications can securely interact with its resources.
 

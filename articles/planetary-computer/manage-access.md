@@ -3,7 +3,7 @@ title: Manage access to Microsoft Planetary Computer Pro
 description: This article shows you how to manage role-based access control (RBAC) access to Microsoft Planetary Computer Pro.
 author: prasadkomma
 ms.author: prasadkomma
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: how-to
 md.date: 04/09/2025
 #customer intent: I want to manage access to Microsoft Planetary Computer Pro.

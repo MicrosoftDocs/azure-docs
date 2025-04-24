@@ -3,12 +3,10 @@ title: Ingestion Overview | Microsoft Planetary Computer Pro
 description: Learn about the features that enable you to bring your own data into MPC Pro for standardized and scalable storage and management of your geospatial assets.
 author: brentharris
 ms.author: brentharris
-ms.service: mpcpro
+ms.service: azure
 ms.topic: concept
-ms.date: 11-24-2024
-
+ms.date: 04/24/2025
 #customer intent: As a geospatial data producer, I want to understand the the concept of a GeoCatalog ingestion source so that I can ingest petabytes of geospatial assets into my GeoCatalog resource. 
-
 ---
 
 # Ingest data into Microsoft Planetary Computer Pro

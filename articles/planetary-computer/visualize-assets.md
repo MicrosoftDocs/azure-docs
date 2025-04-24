@@ -3,7 +3,7 @@ title: Visualize assets for Microsoft Planetary Computer Pro
 description: Learn how to visualize geospatial assets using the Microsoft Planetary Computer Pro's tiler. This guide includes examples for working with GRIB and NetCDF datasets.
 author: tanyamarton
 ms.author: tanyamarton
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: how-to
 ms.date: 04/09/2025
 ---
