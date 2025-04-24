@@ -20,4 +20,10 @@ sections:
       - question: Can I edit videos with Azure Native Qumulo (ANQ)?
         answer: | 
               With Azure Native Qumulo (ANQ), content creators, editors, and artists in various geographical locations can work on video editing projects at the same speed and efficiency as if they were located in the same studio using the same local data center for processing and file storage. 
-              Video editing teams can work and collaborate remotely and still meet the demands for high-quality video content. For more information, see [Video editing with Azure Native Qumulo](https://qumulo.com/resources/video-editing-with-azure-native-qumulo-scalable-file-service/). 
+              Video editing teams can work and collaborate remotely and still meet the demands for high-quality video content. 
+              For more information, see [Video editing with Azure Native Qumulo](https://qumulo.com/resources/video-editing-with-azure-native-qumulo-scalable-file-service/). 
+      - question: What is a Vendor-Neutral Archive, and how can I use one with Azure Native Qumulo?
+        answer: | 
+              A Vendor-Neutral Archive (VNA) provides a means for healthcare providers to store, use, and archive medical images and other data from one or more vendor-specific PACS (Picture Archiving and Communication Systems) platforms. 
+              Whereas PACS data can be proprietary by vendor and inaccessible to outside applications, VNAs offer a standardized data format and interface regardless of which vendor or system originated the data. 
+              For more information about Vendor-Neutral Archives on Azure Native Qumulo, see [Azure Native Qumulo Reference Architecture - Vendor-Neutral Archives for PACS](https://qumulo.com/resources/azure-native-qumulo-reference-architecture-vendor-neutral-archive-for-pacs/).
