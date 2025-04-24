@@ -10,16 +10,16 @@ ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
 
-Azure NetApp Files supports [cross-zone](cross-region-replication-introduction.md) and [cross-zone replication](cross-zone-replication-introduction.md).
+Azure NetApp Files supports [cross-region](cross-region-replication-introduction.md) and [cross-zone replication](cross-zone-replication-introduction.md).
 
 Setting up replication peering enables you to asynchronously replicate data from an Azure NetApp Files volume (source) to another Azure NetApp Files volume (destination). You can create volume replication between regions (the source and destination volumes reside in different regions, this is known as cross-region replication), or within a region where the replication is established to a different zone in the same region (this is known as cross-zone replication).  
 
 >[!NOTE] 
 >During normal operation, the destination volume in an Azure NetApp Files replication relationship is available for read-only access. The destination volume becomes available for read-write operations when the replication is stopped. Any subsequent changes to the destination volume need to be synchronized with the source volume with a [reverse-resync operation](cross-region-replication-manage-disaster-recovery.md#resync-replication), after after which the normal replication can be resumed. 
 
-Replication is permitted between different subscriptions under the same tenant ID. Replication across tenants isn't supported. Replication is supported with capacity pools of the same and different service level. For example, the source volume can be in an Ultra service level capacity pool, and the destination volume can be in a Standard service level capacity pool or any other service level. Volumes can be moved to a capacity pool with a different service level dynamically and without interruption to the service. 
+Replication is permitted between different subscriptions under the same tenant ID. Replication across tenants isn't supported. Replication is supported with capacity pools of the same and different service levels. For example, the source volume can be in an Ultra service level capacity pool, and the destination volume can be in a Standard service level capacity pool. You can use this flexibility to reduce cost for the recovery volume if a lower service level is acceptable. If the recovery volume requires a higher service level, you can dynamically move the volume to a capacity pool with a higher service leve without interruption to the service. 
 
-Before you begin, ensure you have reviewed the [requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).  
+Before you begin, review the [requirements and considerations for cross-region replication](cross-region-replication-requirements-considerations.md) and [cross-zone replication](cross-zone-replication-requirements-considerations.md).
 
 ## Register for cross-subscription replication 
 
@@ -60,7 +60,7 @@ You need to create a destination volume where you want the data from the source 
 For **cross-zone replication**, begin with step four. 
 
 1. If necessary, create a NetApp account in the Azure region to be used for replication by following the steps in [Create a NetApp account](azure-netapp-files-create-netapp-account.md).   
-You can also select an existing NetApp account in a different region.  
+You can also select an existing NetApp account in this region.  
 
 2. If necessary, create a capacity pool in the newly created NetApp account by following the steps in [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 
