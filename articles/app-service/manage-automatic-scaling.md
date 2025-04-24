@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 # Automatic scaling in Azure App Service
 
 > [!NOTE]
-> Automatic scaling is available for all app types: Windows and Linux (deploy as code or container). Automatic scaling isn't supported for deployment slot traffic.
+> Automatic scaling is available for all app types: Windows and Linux (deploy as code and container). Automatic scaling isn't supported for deployment slot traffic.
 >
 
 Automatic scaling is a scale-out option that automatically handles scaling decisions for your web apps and App Service plans. It's different from **[Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview)**, which lets you define scaling rules based on schedules and resources.
