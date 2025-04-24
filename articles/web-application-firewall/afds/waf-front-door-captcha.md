@@ -11,17 +11,21 @@ ms.date: 04/29/2025
 
 # Azure Front Door Web Application Firewall CAPTCHA (preview)
 
-Azure Web Application Firewall (WAF) now offers a CAPTCHA feature designed specifically to verify human users and differentiate them from automated bots. This interactive challenge ensures that only genuine users can access web applications by requiring suspected traffic to complete a CAPTCHA test. By blocking malicious automated requests while allowing legitimate users to proceed seamlessly, WAF helps protect applications from bot-driven attacks, including brute-force attempts and account takeover risks. This feature is especially valuable for login and sign-up flows, where ensuring human authentication is critical to safeguarding sensitive user data. 
+Web Application Firewall CAPTCHA on Azure Frond Door is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-CAPTCHA on Azure WAF serves as a powerful defense against a variety of automated threats. It effectively prevents bots from accessing critical website elements, such as login pages, forms, and sensitive user accounts, protecting against credential stuffing and brute-force attacks. Additionally, CAPTCHA helps reduce spam by ensuring only real users can submit comments, register accounts, or complete transactions. With its ability to enhance security while minimizing friction for legitimate users, this feature strengthens the overall protection of web applications against sophisticated automated threats. 
+Azure Web Application Firewall (WAF) offers a CAPTCHA feature designed to differentiate human users from automated bots. This interactive challenge requires suspected traffic to complete a CAPTCHA test, blocking malicious automated requests while allowing legitimate users to proceed seamlessly. As a result, WAF helps protect applications from bot-driven attacks, including brute-force attempts and account takeover risks.
+
+CAPTCHA on Azure WAF is particularly useful in login and sign-up flows where human authentication is crucial to protect sensitive user data. It acts as a strong defense against a variety of automated threats, preventing bots from accessing critical website elements like login pages and forms, and reducing spam by ensuring only real users can submit comments, register accounts, or complete transactions.
+
+Incorporating CAPTCHA into Azure WAF not only enhances security but also minimizes friction for legitimate users. This balance strengthens the overall protection of web applications against sophisticated automated threats.
 
 ## How it works
 
-When the CAPTCHA challenge is active on Azure WAF and a client's HTTP(s) request matches a specific rule, the client is presented with an interactive Microsoft CAPTCHA page to verify that they're human. This challenge requires user participation to complete verification before their request is validated by Azure WAF. Upon successful completion, WAF recognizes the request as originating from a legitimate user and proceeds with standard rule processing. Requests that fail to complete the challenge are blocked, preventing automated bots from accessing protected resources. 
+When the CAPTCHA challenge is active on Azure WAF, any client's HTTP(s) request matches a specific rule prompts an interactive Microsoft CAPTCHA page. This challenge requires user participation to verify they're human before their request is validated by Azure WAF. Upon successful completion, WAF recognizes the request as originating from a legitimate user, and proceeds with standard rule processing. Requests that fail to complete the challenge are blocked, thus preventing automated bots from accessing protected resources. 
 
 ## Expiration 
 
-The WAF policy setting defines the CAPTCHA challenge cookie validity lifetime in minutes, determining how long a user remains validated before facing a new challenge. Once the lifetime expires, the user must complete the CAPTCHA challenge again to verify their identity. The lifetime is configurable between 5 and 1,440 minutes, with a default setting of 30 minutes.  
+The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetime in minutes, determining how long a user remains validated before facing a new challenge. Once the lifetime expires, the user must complete the CAPTCHA challenge again to verify their identity. The lifetime is configurable between 5 and 1,440 minutes, with a default setting of 30 minutes.  
 
 The CAPTCHA challenge cookie name is **afd_azwaf_captcha** on Azure Front Door. 
 
