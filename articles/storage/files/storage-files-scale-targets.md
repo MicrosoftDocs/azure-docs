@@ -100,7 +100,7 @@ Azure file share scale targets apply at the file share level.
 | Maximum storage size | 100 TiB | 256 TiB | 100 TiB |
 | Maximum number of files | Unlimited | Unlimited | Unlimited |
 | Maximum IOPS (Data) | 102,400 IOPS (dependent on provisioning) | 50,000 IOPS (dependent on provisioning) | 20,000 IOPS |
-| Maximum IOPS (Metadata<sup>1</sup>) | Up to 12,000 IOPS | Up to 12,000 IOPS | Up to 12,000 IOPS |
+| Maximum IOPS (Metadata<sup>1</sup>) | Up to 35,000 IOPS | Up to 12,000 IOPS | Up to 12,000 IOPS |
 | Maximum throughput | 10,340 MiB / sec (dependent on provisioning) | 5,120 MiB / sec (dependent on provisioning) | Up to storage account limits |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots | 200 snapshots |
 | Maximum filename length<sup>2</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters |
@@ -184,10 +184,10 @@ The following table indicates which targets are soft, representing the Microsoft
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon many factors in your infrastructure, including:
 
 - Windows Server and the underlying disk configuration
-- Network bandwidth between the server and the Azure storage
-- File size
-- Total dataset size
-- Activity on the dataset
+- Network bandwidth between the server and Azure storage
+- File size
+- Total dataset size
+- Activity on the dataset
 
 Because Azure File Sync works on the file level, you should measure the performance characteristics of an Azure File Sync-based solution by the number of objects (files and directories) processed per second.
 
