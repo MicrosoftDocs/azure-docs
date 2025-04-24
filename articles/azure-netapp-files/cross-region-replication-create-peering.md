@@ -23,6 +23,8 @@ Before you begin, ensure you have reviewed the [requirements and considerations 
 
 ## Register for cross-subscription replication 
 
+Cross-subscription replication is supported in all regions that support [availability zones](../reliability/regions-list.md) and is subject to the regional pairings for [cross-region replication](cross-region-replication-introduction.md#supported-region-pairs).
+
 Before using cross-subscription replication, you must register for the feature. Feature registration can take up to 60 minutes to complete.
 
 1. Register the feature
