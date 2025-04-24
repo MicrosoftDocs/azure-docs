@@ -29,27 +29,13 @@ Azure Native Qumulo Scalable File Service provides the following capabilities:
 - **Private access** - The service is directly connected to your own virtual network (sometimes called VNet injection).
 - **Cloud Data Fabric** - CDF enables seamless integration with on-premises or other cloud region Qumulo instances.
 
-### Billing
-
-See Qumulo's documentation for [billing information](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#usage-billing-and-metering-for-azure-native-qumulo). 
-
-You can choose between available plans when you create your Qumulo resource. 
-
 ## Subscribe to Qumulo
 
 [!INCLUDE [subscribe](../includes/subscribe.md)] *Azure Native Qumulo*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
-> [!NOTE]
-> 
-> When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace:
-> 
-> - A delegated subnet that enables the Qumulo service to inject service endpoints (eNICs) into your virtual network.
-> - A managed resource group that has internal networking and other resources required for the Qumulo service.
-> - A Qumulo resource in the region of your choosing. This entity stores and manages your data.
-> - A Software as a Service (SaaS) resource, based on the plan that you select in the Azure Marketplace offer for Qumulo. This resource is used for billing.
+## Next step
 
-## Next steps
-
-- [Quickstart: Get started with Azure Native Qumulo](create.md)
+> [!div class="nextstepaction"]
+> [Create a resource](create.md)

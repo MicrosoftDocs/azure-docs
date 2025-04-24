@@ -27,6 +27,10 @@ sections:
               - A managed resource group that has internal networking and other resources required for the Qumulo service. <br  />
               - A Qumulo resource in the region of your choosing. This entity stores and manages your data. <br  />
               - A Software as a Service (SaaS) resource, based on the plan that you select in the Azure Marketplace offer for Qumulo. This resource is used for billing. <br  />
+      - question: Where can I learn more about billing for Azure Native Qumulo? 
+        answer: |
+              See Qumulo's documentation for [billing information](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#usage-billing-and-metering-for-azure-native-qumulo). <br />
+              You can choose between available plans when you create your Qumulo resource. 
       - question: What developer tools and interfaces are available for Azure Native Qumulo?
         answer: |
               Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management, including [Qumulo CLI](https://docs.qumulo.com/qq-cli-command-guide/), [Qumulo REST API](https://docs.qumulo.com/rest-api-guide/), and [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit).

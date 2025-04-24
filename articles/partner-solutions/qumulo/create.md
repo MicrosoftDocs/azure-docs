@@ -94,4 +94,4 @@ Enter the values for each required setting.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage the Qumulo Scalable File Service in the Azure portal](manage.md)
+> [Manage a resource](manage.md)
