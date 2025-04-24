@@ -6,7 +6,7 @@ ms.service: azure-cloud-services-extended-support
 author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
-ms.date: 07/24/2024
+ms.date: 04/23/2025
 # Customer intent: As an IT administrator, I want to configure the Key Vault VM extension for Azure Cloud Services, so that I can automate certificate management and ensure timely updates for secured operations.
 ---
 

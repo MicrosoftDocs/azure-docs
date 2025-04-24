@@ -4,7 +4,7 @@ description: How to install language packs for Windows 10 multi-session VMs in A
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 06/01/2022
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # Add language packs to a Windows 10 multi-session image
