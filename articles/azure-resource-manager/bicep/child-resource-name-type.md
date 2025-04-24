@@ -16,7 +16,7 @@ This article show different ways you can declare a child resource.
 
 ### Training resources
 
-If you would rather learn about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-files).
+If you would rather learn about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-templates).
 
 ## Name and type pattern
 

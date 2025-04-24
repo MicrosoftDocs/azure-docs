@@ -16,7 +16,6 @@ The extension-based onboarding is only for **User** Hybrid Runbook Workers. This
 
 For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
-
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), [Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview), and [Arc-enabled SCVMM](/azure/azure-arc/system-center-virtual-machine-manager/overview). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
@@ -263,7 +262,7 @@ To install Hybrid worker extension on an existing agent based hybrid worker, ens
 
 The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
    
-For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep-arm-templates-rest-api-azure-cli-and-powershell) such as - Bicep, ARM templates, PowerShell cmdlets, REST API, and Azure CLI.
+For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as - Bicep, ARM templates, PowerShell cmdlets, REST API, and Azure CLI.
 
 
 ## Delete a Hybrid Runbook Worker
