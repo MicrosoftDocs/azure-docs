@@ -27,7 +27,7 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
-    - title: Arize AI
+    - title: Arize AI (preview)
       imageSrc: ./media/index/arize-ai.svg
       links: 
       - url: ./arize-ai/overview.md
@@ -62,7 +62,7 @@ productDirectory:
       links:
         - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy, and master data management.
-    - title: Neon Serverless Postgres
+    - title: Neon Serverless Postgres (preview)
       imageSrc: ./media/index/neon.svg
       links:
         - url: ./neon/overview.md
@@ -81,8 +81,8 @@ productDirectory:
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md
-          text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
-    - title: Pure Storage
+          text: Protect your organization with a next generation firewall solution integrated with Azure.
+    - title: Pure Storage (preview)
       imageSrc: ./media/index/pure-storage.svg
       links:
         - url: pure-storage/overview.md
