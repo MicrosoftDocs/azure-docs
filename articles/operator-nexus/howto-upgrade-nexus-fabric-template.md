@@ -24,10 +24,10 @@ Runtime changes are categorized as follows:
 
 ## Required Parameters:
 - <START_DATE>: Planned start date/time of upgrade
-- <ENVIRONMENT> - Instance name
-- <AZURE_REGION> - Azure region of instance
+- <ENVIRONMENT>: - Instance name
+- <AZURE_REGION>: - Azure region of instance
 - <CUSTOMER_SUB_NAME>: Subscription name
-- <CUSTOMER_SUB_TENANT_ID>: Tenant ID  // From 'az account show'
+- <CUSTOMER_SUB_TENANT_ID>: Tenant ID
 - <CUSTOMER_SUB_ID>: Subscription ID
 - <NEXUS_VERSION>: Operator Nexus release version (e.g. 2504.1)
 - <NNF_VERSION>: Operator Nexus Fabric release version (e.g. 8.1) 
@@ -43,12 +43,12 @@ Runtime changes are categorized as follows:
 - <CLUSTER_KEYVAULT_ID>: Cluster Keyvault ARM ID
 - <NFC_MRG>: Cluster Managed Resource Group
 - <DURATION>: Estimated Duration of upgrade
-- <DE_ID> Deployment Engineer performing upgrade
+- <DE_ID>: Deployment Engineer performing upgrade
 
 ## Links
-[Azure Portal](https://aka.ms/nexus-portal)
-[Operator Nexus Releases and Notes](./release-notes-2402.2)
-[Network Fabric Upgrade](./howto-upgrade-nexus-fabric)
+- [Azure Portal](https://aka.ms/nexus-portal)
+- [Operator Nexus Releases and Notes](./release-notes-2402.2)
+- [Network Fabric Upgrade](./howto-upgrade-nexus-fabric)
 
 ## Pre-Checks before executing the Fabric upgrade
 
