@@ -550,7 +550,7 @@ If the staging storage location has a firewall enabled, access issues may occur.
 #### Workarounds
 
 - **Different Regions**:  
-  If the Fabric capacity and staging storage are in different regions, whitelist the required IP addresses in the storage location firewall to allow connectivity.
+  If the Fabric capacity and staging storage are in different regions, ensure the required IP addresses are allowed in the storage location firewall to enable connectivity.
 
 - **Same Region**:  
   If the Fabric capacity and staging storage are in the same region and access issues persist, choose an alternative staging storage location in a different region than the Fabric capacity.
