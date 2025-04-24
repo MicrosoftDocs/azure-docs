@@ -43,10 +43,10 @@
     items:
     - name: Create a durable task function app - Durable Functions
       displayName: get started, durable task scheduler
-      href: quickstart-durable-task-scheduler.md
+      href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
     - name: Create a durable task web app - Portable SDKs
       displayName: get started, durable task scheduler
-      href: quickstart-portable-durable-task-sdks.md
+      href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
   - name: MSSQL
     items:
     - name: Configure a storage provider - MSSQL
@@ -114,21 +114,21 @@
 - name: Durable Task Scheduler
   items: 
   - name: Overview
-    href: durable-task-scheduler.md
+    href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Choose your orchestration framework
-    href: durable-task-scheduler-framework.md
+    href: ./durable-task-scheduler/durable-task-scheduler-framework.md
   - name: Manage and monitor
-    href: durable-task-scheduler-dashboard.md
+    href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
   - name: Durable Functions
     items:
     - name: Concepts
       items:
       - name: Work item throughput
-        href: durable-task-scheduler-work-item-throughput.md
+        href: ./durable-task-scheduler/durable-task-scheduler-work-item-throughput.md
     - name: How-to guides
       items:
       - name: Develop
-        href: develop-with-durable-task-scheduler.md
+        href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
   - name: Portable SDKs
     items:
     - name: Concepts
@@ -136,11 +136,11 @@
     - name: How-to guides
       items:
       - name: Use the portable SDKs with Azure computes
-        href: durable-task-scheduler-dashboard.md #placeholder
+        href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md #placeholder
   - name: Billing
-    href: durable-task-scheduler-dedicated-sku.md
+    href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
   - name: Troubleshoot
-    href: troubleshoot-durable-task-scheduler.md
+    href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
 - name: Reference
   items:
   - name: Azure Functions
