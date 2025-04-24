@@ -55,6 +55,7 @@ Before you begin:
 
 ::: zone pivot="java"
 
+- Make sure you have [Java 8 or 11](https://www.java.com/en/download/).
 - Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
