@@ -15,7 +15,7 @@ When you use confidential computing technologies, you can harden your virtualize
 
 - **Prevent unauthorized access.** Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
 - **Meet regulatory compliance.** Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
-- **Ensure secure and untrusted collaboration.** Tackle industrywide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
+- **Ensure secure and untrusted collaboration.** Tackle industrywide work-scale problems by combining data across organizations, even competitors, to unlock broad data analytics and deeper insights.
 - **Isolate processing.** Offer a new wave of products that remove liability on private data with blind processing. The service provider can't retrieve user data.
 
 ## Scenarios
@@ -41,7 +41,7 @@ Public and private organizations require their data to be protected from unautho
 
 For example, the use of machine learning for healthcare services has grown significantly through access to larger datasets and imagery of patients captured by medical devices. Disease diagnosis and drug development benefit from multiple data sources. Hospitals and health institutes can collaborate by sharing their patient medical records with a centralized Trusted Execution Environment (TEE).
 
-Machine learning services running in the TEE aggregate and analyze data. This aggregated data analysis can provide higher prediction accuracy because of training models that are based on consolidated datasets. With confidential computing, hospitals can minimize the risk of compromising the privacy of their patients.
+Machine learning services that run in the TEE aggregate and analyze data. This aggregated data analysis can provide higher prediction accuracy because of training models that are based on consolidated datasets. With confidential computing, hospitals can minimize the risk of compromising the privacy of their patients.
 
 Azure confidential computing lets you process data from multiple sources without exposing the input data to other parties. This type of secure computation enables scenarios such as anti-money laundering, fraud detection, and secure analysis of healthcare data.
 
@@ -71,7 +71,7 @@ Privacy must be balanced with cost and environmental needs in scenarios when org
 
 Determining which areas of corporate real estate are under- or overoccupied by staff from individual departments typically requires processing some personally identifiable data alongside less individual data like temperature and light sensors.
 
-In this use case, the primary goal is to allow analysis of occupancy data and temperature sensors to be processed alongside CCTV motion tracing sensors and badge-swipe data to understand usage without exposing the raw aggregate data to anyone.
+In this use case, the primary goal is to allow analysis of occupancy data and temperature sensors to be processed alongside closed-circuit television (CCTV) motion-tracing sensors and badge-swipe data to understand usage without exposing the raw aggregate data to anyone.
 
 Confidential computing is used here by placing the analysis application inside a TEE where the in-use data is protected by encryption. In this example, the application is running on confidential containers on Azure Container Instances.
 
@@ -143,9 +143,9 @@ Confidential computing can expand the number of workloads that are eligible for 
 
 ### Bring Your Own Key (BYOK) scenarios
 
-The adoption of hardware secure modules (HSMs) like [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) enables secure transfer of keys and certificates to protected cloud storage. With an HSM, the cloud service provider isn't allowed to access such sensitive information.
+The adoption of hardware security modules (HSMs) like [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) enables secure transfer of keys and certificates to protected cloud storage. With an HSM, the cloud service provider isn't allowed to access such sensitive information.
 
-Secrets being transferred never exist outside an HSM in plaintext form. Scenarios for the sovereignty of keys and certificates that are client generated and managed can still use cloud-based secure storage.
+Secrets that are being transferred never exist outside an HSM in plaintext form. Scenarios for the sovereignty of keys and certificates that are client generated and managed can still use cloud-based secure storage.
 
 ## Secure blockchain
 
