@@ -34,7 +34,7 @@ The Sample Builder can help:
 -  **Integrate with Microsoft Bookings** to support scheduling workflows
 -  **Launch Microsoft Teams meetings** using Azure Communication Services and enable guest access via the web app
 
-### How It Works
+### How it works
 This sample is built on top of Azure Communication Services UI components and composites, providing a robust, accessible, and consistent user interface out of the box. It serves as both a deployment tool and a reference architecture for best practices in communication-driven experiences.
 
 The Sample Builder creates a hybrid virtual visit solution by integrating:
@@ -54,7 +54,7 @@ Virtual Appointment Flow (Using Microsoft Bookings):
 
 This architecture ensures that providers can join virtual appointments using Microsoft Teams. In the same call, consumers can access a fully branded, browser-based experience—no Teams account required.
 
-### What You Get
+### What you get
 Upon deployment, the Sample Builder provides:
 -  A fully deployed Azure web app
 -  Microsoft Teams meeting integration
@@ -70,8 +70,7 @@ After deployment, you can immediately test the deployed sample by visiting these
 The following tutorial goes into more depth on how you can set this up.
  
 
-
-# Tutorial: Building a Virtual Appointment Sample
+# Tutorial: Build a virtual appointment sample
 In this section, we're going to use a Sample Builder tool to deploy a Microsoft 365 + Azure hybrid virtual appointments application to an Azure subscription. This application is a desktop and mobile-friendly browser experience, with code that you can use to explore and make the final product. 
 
 ## Step 0: Configure Microsoft 365 Bookings (Optional)
@@ -95,7 +94,7 @@ And then, make sure "Add online meeting" is enabled.
  
  
 
-## Step 1: Creating a Sample in the Builder
+## Step 1: Create a sample in the builder
 
 ### Prerequisites
 To use the Sample Builder, you need:
