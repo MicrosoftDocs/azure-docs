@@ -13,7 +13,7 @@ ms.date: 11/14/2024
 
 Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
 
-The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep files.
+The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep templates.
 
 Edge services use message schemas to filter and transform messages as they're routed across your industrial edge scenario.
 
