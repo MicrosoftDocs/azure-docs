@@ -63,8 +63,8 @@ Here's what's included in an Azure VMware Solution assessment:
 
 | **Property** | **Details** |
 | - | - |
-| **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.<br/><br/> Azure VMware Solution Assessment currently supports these target regions: East US, West Europe, and West US. |
-| **Storage type** | Specifies the storage engine to be used in Azure VMware Solution.<br/><br/> Note that Azure VMware Solution assessments only support vSAN as a default storage type. |
+| **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate. |
+| **Storage type** | Specifies the storage engine to be used in Azure VMware Solution. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required. You can alternatively use Elastic SAN instead of Azure NetApp Files, in case you prefer, for assessing the cost using Elastic SAN as the external storage option. |
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution. RIs are currently not supported for Azure VMware Solution nodes. |
 **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to map the on-premises VMs. Note that default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution. |
 **FTT Setting, RAID Level** | Specifies the applicable Failure to Tolerate (FTT) and Raid combinations. The selected FTT option combined with the on-premises VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. |
