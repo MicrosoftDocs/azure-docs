@@ -64,7 +64,7 @@ Ensure that you have the following permissions to restore a database:
 
 To restore a user database, follow these steps:
 
-1. Go to the **Recovery Services vault**, select **Backup items** > **SAP ASE (Sybase) in Azure VM** under the **Backup Management Type**. 
+1. Go to the **Recovery Services vault**, and then select **Backup items** > **SAP ASE (Sybase) in Azure VM** under the **Backup Management Type**. 
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png" alt-text="Screenshot showing how to select backup items." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png":::
 
@@ -120,7 +120,7 @@ The files that are dumped are:
 - Database backup files
 - JSON metadata files (for each backup file involved)
 
-Typically, a network share path, or the path of a mounted Azure file share specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
+When you set a network share path or a mounted Azure Files as the destination, other machines can then access the files seamlessly.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/restore-files.png" alt-text="Screenshot showing how to restore files." lightbox="media/sap-adaptive-server-enterprise-db-restore/restore-files.png":::
 
@@ -129,7 +129,7 @@ Typically, a network share path, or the path of a mounted Azure file share speci
 
 4. All the backup files associated with the selected restore point are dumped into the destination path.
 
-5. Depending on the type of restore point you've chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders, *Data_\<date and time of restore\>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential).
+5. Depending on the selected restore point (**Point in time** or **Full & Differential**), you see one or more folders created in the destination path. One of the folders, *Data_\<date and time of restore\>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential).
 
 >[!Note]
 > If you've selected **Restore to a point in time**, the log files, which were dumped to the target VM, might sometimes contain logs beyond the point in time that were chosen for restore. Azure Backup does this to ensure that log backups for all ASE services are available for consistent and successful restore to the chosen point in time.
@@ -157,6 +157,26 @@ The secondary region restore user experience is similar to the primary region re
 
 Learn about the [minimum role requirements for cross-region restore](/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups).
 
+
+## Restore to a Private Endpoint enabled vault in a different subscription
+
+Before you do Cross Subscription Restore (CSR), ensure that the Recovery Services vault has the necessary [Azure role-based access control (Azure RBAC) permissions.](backup-rbac-rs-vault.md#minimum-role-requirements-for-sap-ase-sybase-database--cross-subscription-restore).
+
+To trigger Cross Subscription Restore to a Private Endpoint enabled vault, follow these steps:
+
+1. In the Azure portal, go to the source **Recovery Services vault** , and then [create Private Endpoints](private-endpoints.md#create-private-endpoints-for-azure-backup).
+
+   During Private Endpoint creation, ensure that you enter the following details:
+
+   - Select the subscription of the target vault in which you want to restore.
+   - Select the VNet of the target VM that you want to restore across subscription.
+
+1. After the Private Endpoint is created, [trigger restore](#restore-sap-ase-databases-on-azure-vms).
+
+>[!Note]
+>By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to the **Recovery Services vault** > **Properties** > **Cross Subscription Restore** and then select **Update** to implement the required changes.
+>
+> :::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png" alt-text="Screenshot shows how to update Cross Subscription settings for a vault." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png":::
 
 ## Next steps
 
