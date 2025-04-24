@@ -57,40 +57,20 @@ Organizations operating in multiple countries often need to comply with data sov
 ### Migration and Upgrades
 Geo-replication can also be used to facilitate data migration, maintenance, and system upgrades. Organizations can migrate their namespace proactively from a primary to a secondary region to allow for any maintenance and upgrades on the primary region.
 
-## Geo-replication 
-The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:
+## Basic concepts
 
-- Customer managed keys encryption (CMK).
--	Managed identity for capture.
--	Private endpoints.
--	Large messages support (currently in public preview).
--	Kafka Streams and Transactions (currently in public preview).
- 
-Some of the key aspects of Geo-data Replication public preview are: 
+The Geo-Replication feature implements metadata and data replication in a primary-secondary replication model. At a given time there’s a single primary region, which is serving both producers and consumers. The secondaries act as hot stand-by regions, meaning that it isn't possible to interact with these secondary regions. However, they run in the same configuration as the primary region, allowing for fast promotion, and meaning they your workloads can immediately continue running after promotion has been completed. 
+
+Some of the key aspects of Geo-data Replication feature are: 
 
 -	Primary-secondary replication model – Geo-replication is built on primary-secondary replication model, where at a given time there’s only one primary namespace that serves event producers and event consumers. 
 -	Event Hubs performs fully managed byte-to-byte replication of metadata, event data, and consumer offset across secondaries with the configured consistency levels. 
--	Stable namespace fully qualified domain name (FQDN) – The FQDN doesn't need to change when promotion is performed. 
+-	Single namespace hostname - Upon successful configuration of a Geo-Replication enabled namespace, users can use the namespace hostname in their client application. The hostname behaves agnostic of the configured primary and secondary regions, and always points to the primary region.
+- When a customer initiates a promotion, the hostname points to the region selected to be the new primary region. The old primary becomes a secondary region.
+- It isn't possible to read or write on the secondary regions.
+- Customer-managed promotion from primary to secondary region, providing full ownership and visibility for outage resolution. Metrics are available, which can help to automate the promotion from customer side.
+Secondary regions can be added or removed at the customer's discretion.
 -	Replication consistency - There are two replication consistency settings, synchronous and asynchronous.
--	User-managed promotion of a secondary to being the new primary.
-
-Changing a secondary to being a new primary is done two ways:
-
-- **Planned**: a promotion of the secondary to primary where traffic isn't processed until the new primary catches up with all of the data held by the former primary instance.
-- **Forced**: as a failover where the secondary becomes primary as fast as possible. The Geo-replication feature replicates all data and metadata from the primary region to the selected secondary regions. The namespace FQDN always points to the primary region.
-
-:::image type="content" source="./media/geo-replication/a-as-primary.png" alt-text="Diagram showing when region A is primary, B is secondary."::: 
- 
-When you initiate a promotion of a secondary, the FQDN points to the region selected to be the new primary. The old primary then becomes a secondary. You can promote your secondary to be the new primary for reasons other than a failover. Those reasons can include application upgrades, failover testing, or any number of other things. In those situations, it's common to switch back when those activities are completed.
-
- :::image type="content" source="./media/geo-replication/b-as-primary.png" alt-text="Diagram showing when B is made the primary, that A becomes the new secondary."::: 
- 
-Secondary regions are added, or removed at the customer's discretion. There are some current limitations worth noting:
-
--	There's no ability to support read-only views on secondary regions.
--	There's no automatic promotion/failover capability. All promotions are customer initiated.
--	Secondary regions must be different from the primary region. You can't select another dedicated cluster in the same region.
--	Only one secondary is supported for public preview.
  
 ## Replication modes
 There are two replication consistency configurations, synchronous and asynchronous. It's important to know the differences between the two configurations as they have an impact on your applications and your data consistency.
@@ -119,12 +99,12 @@ With **asynchronous** replication:
 
 As such, it doesn’t have the absolute guarantee that all regions have the data before we commit it like synchronous replication does, and data loss or duplication may occur. However, as you're no longer immediately impacted when a single region lags or is unavailable, application availability improves, in addition to having a lower latency.
 
-| Capability | Synchronous replication | Asynchronous replication |
-| --- | --- | --- |
-| Latency | Longer due to distributed commit operations	 | Minimally impacted |
-| Availability | 	Tied to availability of secondary regions | 	Loss of a secondary region doesn't immediately impact availability |
-| Data consistency | Data always committed in both regions before acknowledgment | Data committed in primary only before acknowledgment |
-| Recovery point objective (RPO) | RPO 0, no data loss on promotion | RPO > 0, possible data loss on promotion |
+| Capability                     | Synchronous replication                                      | Asynchronous replication                                           |
+|--------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------|
+| Latency                        | Longer due to distributed commit operations                  | Minimally impacted                                                 |
+| Availability                   | Tied to availability of secondary regions                    | Loss of a secondary region doesn't immediately impact availability |
+| Data consistency               | Data always committed in both regions before acknowledgment  | Data committed in primary only before acknowledgment               |
+| RPO (Recovery Point Objective) | RPO 0, no data loss on promotion                             | RPO > 0, possible data loss on promotion                           |
 
 The replication mode can be changed after configuring Geo-Replication. You can go from synchronous to asynchronous or from asynchronous to synchronous. If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous. The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs, or compliance reasons, rather than availability of your application.
 
@@ -143,6 +123,57 @@ The Geo-Replication feature enables customers to configure a secondary region to
 -	**Configure the replication consistency** - Synchronous and asynchronous replication is set when Geo-Replication is configured but can also be switched afterwards.
 -	**Trigger promotion/failover** - All promotions are customer initiated.
 -	**Remove a secondary** - If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
+
+## Setup
+
+### Using Azure portal
+
+The following section is an overview to set up the Geo-Replication feature on a new namespace through the Azure portal.
+
+1. Create a new premium-tier namespace, or create a new namespace on a dedicated cluster.
+1. Check the **Enable Geo-replication checkbox** under the *Replication* section.
+1. Click on the **Add secondary region** button, and choose a region.
+1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
+TBD :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
+
+### Using Bicep template
+
+To create a namespace with the Geo-Replication feature enabled, add the *geoDataReplication* properties section.
+
+```bicep
+TBD
+```
+
+## Management
+
+Once you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade. 
+
+### Switch replication mode
+
+To switch between replication modes, or update the maximum replication lag, click on the link under **Replication consistency**, and click the checkbox to enable / disable synchronous replication, or update the value in the textbox to change the asynchronous maximum replication lag.
+TBD :::image type="content" source="./media/service-bus-geo-replication/update-namespace-geo-replication-configuration.png" alt-text="Screenshot showing how to update the configuration of the Geo-Replication feature.":::
+
+### Delete secondary region
+
+To remove a secondary region, click on the **...**-ellipsis next to the region, and click **Delete**. To delete the region, follow the instructions in the pop-up blade.
+TBD :::image type="content" source="./media/service-bus-geo-replication/delete-secondary-region-from-geo-replication.png" alt-text="Screenshot showing how to delete a secondary region.":::
+
+### Promotion flow
+
+A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
+
+| State | Diagram |
+| --- | ---|
+| Before failover (promotion of secondary) | :::image type="content" source="./media/geo-replication/a-as-primary.png" alt-text="Diagram showing when region A is primary, B is secondary."::: |
+| After failover (promotion of secondary) | :::image type="content" source="./media/geo-replication/b-as-primary.png" alt-text="Diagram showing when B is made the primary, that A becomes the new secondary."::: |
+
+#### Using Azure portal
+
+TBD
+
+#### Using Azure CLI
+
+TBD
  
 ## Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Application Metrics logs.
@@ -159,7 +190,7 @@ Users can monitor the progress of the replication job by monitoring the replicat
     ```
 -	The column `count_d` indicates the replication lag in seconds between the primary and secondary region.
 
- ## Publishing Data 
+## Publishing Data 
 Event publishing applications can publish data to geo-replicated namespaces via stable namespace FQDN of the geo replicated namespace. The event publishing approach is the same as the non-Geo DR case and no changes to client applications are required. 
 
 Event publishing might not be available during the following circumstances: 
@@ -174,13 +205,20 @@ Event consuming applications can consume data using the stable namespace FQDN of
 ### Checkpointing/Offset Management
 Event consuming applications can continue to maintain offset management as they would do it with a single namespace. 
 
-**Kafka**
+#### Kafka
 
 Offsets are committed to Event Hubs directly and offsets are replicated across regions. Therefore, consumers can start consuming from where it left off in the primary region. 
 
-**Event Hubs SDK/AMQP**
+#### Event Hubs SDK/AMQP
 
 Clients that use the Event Hubs SDK need to upgrade to the April 2024 version of the SDK. The latest version of the Event Hubs SDK supports failover with an update to the checkpoint. The checkpoint is managed by users with a checkpoint store such as Azure Blob storage, or a custom storage solution. If there's a failover, the checkpoint store must be available from the secondary region so that clients can retrieve checkpoint data and avoid loss of messages.
+
+## Considerations
+
+Note the following considerations to keep in mind with this feature:
+
+- In your promotion planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the promotion.
+- Promoting a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
 
 ## Pricing
 Event Hubs dedicated clusters are priced independently of geo-replication. Use of geo-replication with Event Hubs dedicated requires you to have at least two dedicated clusters in separate regions. The dedicated clusters used as secondary instances for geo-replication can be used for other workloads. There's a charge for geo-replication based on the published bandwidth * the number of secondary regions. The geo-replication charge is waived in early public preview. 
