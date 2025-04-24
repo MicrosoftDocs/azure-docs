@@ -1,19 +1,21 @@
 ---
-title: Azure Data Factory tutorials
-description: A list of tutorials demonstrating Azure Data Factory concepts
+title: Azure Data Factory Tutorials
+description: A list of top tutorials and guides for developing pipelines, data flows, and managing your Azure Data Factory.
 author: whhender
 ms.author: whhender
 ms.reviewer: makromer
-ms.topic: tutorial
+ms.topic: get-started
 ms.subservice: authoring
-ms.date: 02/13/2025
+ms.date: 04/22/2025
 ---
 
 # Azure Data Factory tutorials
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Below is a list of tutorials to help explain and walk through a series of Data Factory concepts and scenarios.
+This is a list of our top tutorials to help explain and walk through a series of Data Factory concepts and scenarios.
+
+Search the table of contents to the side for the full list of tutorials.
 
 ## Copy and ingest data
 
@@ -23,13 +25,15 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Copy data from on-premises to the cloud](tutorial-hybrid-copy-data-tool.md)
 
+[Conditional execution](tutorial-pipeline-failure-error-handling.md)
+
+[Troubleshooting pipelines](data-factory-troubleshoot-guide.md)
+
 [Amazon S3 to ADLS Gen2](load-azure-data-lake-storage-gen2.md)
 
 [Incremental copy pattern overview](tutorial-incremental-copy-overview.md)
 
 [Incremental pattern with change tracking](tutorial-incremental-copy-change-tracking-feature-portal.md)
-
-[Incremental SQL DB single table](tutorial-incremental-copy-portal.md)
 
 [Incremental SQL DB multiple tables](tutorial-incremental-copy-multiple-tables-portal.md)
 
@@ -43,11 +47,17 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Bulk copy multiple tables](tutorial-bulk-copy-portal.md)
 
-[Copy pipeline with managed VNet](tutorial-copy-data-portal-private.md)
+## Managed virtual network
+
+[On-premises SQL Server from Data Factory Managed virtual network using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md)
+
+[Copy pipeline with managed virtual network](tutorial-copy-data-portal-private.md)
 
 ## Data flows
 
 [Data flow tutorial videos](data-flow-tutorials.md)
+
+[Dynamically set column names](data-flow-tutorials.md)
 
 [Code-free data transformation at scale](tutorial-data-flow.md)
 
@@ -55,11 +65,9 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Data wrangling with Power Query](wrangling-tutorial.md)
 
-[Data flows inside managed VNet](tutorial-data-flow-private.md)
+[Data flows inside managed virtual network](tutorial-data-flow-private.md)
 
 [Best practices for lake data in ADLS Gen2](tutorial-data-flow-write-to-lake.md)
-
-[Dynamically set column names](data-flow-tutorials.md)
 
 ## External data services
 
@@ -73,6 +81,8 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Control flow](tutorial-control-flow-portal.md)
 
+[Monitor pipelines with email notifications](how-to-send-email.md)
+
 ## SSIS
 
 [SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md)
@@ -85,5 +95,3 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Microsoft Purview](turorial-push-lineage-to-purview.md)
 
-## Related content
-Learn more about Data Factory [pipelines](concepts-pipelines-activities.md) and [data flows](concepts-data-flow-overview.md).
