@@ -17,40 +17,34 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Create a Durable Functions app - C#
+    displayName: get started, chaining
+    href: durable-functions-isolated-create-first-csharp.md
+  - name: Create a Durable Functions app - JavaScript
+    displayName: get started, chaining
+    href: quickstart-js-vscode.md
+  - name: Create a Durable Functions app - TypeScript
+    displayName: get started, chaining
+    href: quickstart-ts-vscode.md
+  - name: Create a Durable Functions app - Python
+    displayName: get started, chaining
+    href: quickstart-python-vscode.md
+  - name: Create a Durable Functions app - PowerShell
+    displayName: get started, chaining
+    href: quickstart-powershell-vscode.md
+  - name: Create a Durable Functions app - Java
+    displayName: get started, chaining
+    href: quickstart-java.md
+  - name: Create an app with Durable Task SDK - Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
+  - name: Configure a storage provider - Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
+  - name: Configure a storage provider - MSSQL
+    href: quickstart-mssql.md
   - name: Configure Durable Functions app with managed identity
     href: durable-functions-configure-managed-identity.md   
-  - name: Azure Storage
-    items:
-    - name: Create a durable task function app - C#
-      displayName: get started, chaining
-      href: durable-functions-isolated-create-first-csharp.md
-    - name: Create a durable task function app - JavaScript
-      displayName: get started, chaining
-      href: quickstart-js-vscode.md
-    - name: Create a durable task function app - TypeScript
-      displayName: get started, chaining
-      href: quickstart-ts-vscode.md
-    - name: Create a durable task function app - Python
-      displayName: get started, chaining
-      href: quickstart-python-vscode.md
-    - name: Create a durable task function app - PowerShell
-      displayName: get started, chaining
-      href: quickstart-powershell-vscode.md
-    - name: Create a durable task function app - Java
-      displayName: get started, chaining
-      href: quickstart-java.md
-  - name: Durable Task Scheduler
-    items:
-    - name: Create a durable task function app - Durable Functions
-      displayName: get started, durable task scheduler
-      href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
-    - name: Create a durable task web app - Portable SDKs
-      displayName: get started, durable task scheduler
-      href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
-  - name: MSSQL
-    items:
-    - name: Create a durable task function app
-      href: quickstart-mssql.md
 - name: Tutorials
   items:
   - name: Function chaining
