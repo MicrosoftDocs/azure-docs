@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: reference
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a security analyst, I want to use the SAP Security Audit log and Initial Access workbook so that I can monitor and investigate user audit activity across SAP systems for enhanced security and quick detection of suspicious actions.
