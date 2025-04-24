@@ -27,7 +27,6 @@ Runtime changes are categorized as follows:
 - \<ENVIRONMENT\>: Instance name
 - <AZURE_REGION>: - Azure region of instance
 - <CUSTOMER_SUB_NAME>: Subscription name
-- <CUSTOMER_SUB_TENANT_ID>: Tenant ID
 - <CUSTOMER_SUB_ID>: Subscription ID
 - <NEXUS_VERSION>: Operator Nexus release version (e.g. 2504.1)
 - <NNF_VERSION>: Operator Nexus Fabric release version (e.g. 8.1) 
@@ -37,13 +36,13 @@ Runtime changes are categorized as follows:
 - <NF_NAME>: Network Fabric Name
 - <NF_RG>: Network Fabric Resource Group
 - <NF_RID>: Network Fabric ARM ID
-- <NFC_NAME>: Associated NFC
+- <NFC_NAME>: Associated Network Fabric Controller (NFC)
 - <NFC_RG>: NFC Resource Group
 - <NFC_RID>: NFC ARM ID
-- <CLUSTER_KEYVAULT_ID>: Cluster Keyvault ARM ID
-- <NFC_MRG>: Cluster Managed Resource Group
+- <NFC_MRG>: NFC Managed Resource Group
 - \<DURATION\>: Estimated Duration of upgrade
 - <DE_ID>: Deployment Engineer performing upgrade
+- <CLUSTER_NAME> Associated Cluster name
 
 ## Links
 - [Azure Portal](https://aka.ms/nexus-portal)
@@ -103,19 +102,11 @@ Runtime changes are categorized as follows:
 
 4. Minimum available disk space on each device(CE, TOR, NPB, Mgmt Switch) must be more than 3.5 GB for a successful device upgrade.
 
-   Verify the available space on all devices using the following  admin action.If there isn't enough space, remove archived EOS images and support bundle files.
+   Verify the available space on all Fabric Devices using the following Azure CLI command. If there isn't enough space, remove archived EOS images and support bundle files.
    ```
    az networkfabric device run-ro --resource-name <ND_DEVICE_NAME> --resource-group <NF_RG> --ro-command "dir flash" --subscription <CUSTOMER_SUB_ID> --debug
    ```
-   
-5. Check no simultaneous fabric upgrade within NFC to prevent contention issues with the NFC storage account:
-   ```
-   az networkfabric fabric list --subscription <CUSTOMER_SUB_ID> -o table | grep <NFC_NAME>
-   ```
-
-   Verify there are no other Fabrics showing `provisioningState` as `Updating` on the same Network Fabric Controller. 
-        
-6. Check Network Packet Broker for any orphaned Network Taps:
+5. Check Network Packet Broker for any orphaned Network Taps:
    In the AZ Portal:
    * Select Network Fabrics -> <NF_NAME>.
    * Click on the Resource group.
@@ -128,14 +119,13 @@ Runtime changes are categorized as follows:
    If any taps are "not found", failed" or "error" status, do not start the upgrade until the network taps issues are cleared.
    
 7. Run cabling validation report:
+
+#Link
    ```
    az networkfabric fabric validate-configuration --resource-group $NF_RG --resource-name $NF_NAME --validate-action "Cabling" --debug
    ```
-   Following link to Storage Account in output where report is uploaded in JSON format. Satya wrote a python tool to convert to html (see Teams chat).
-
-   Attached zipped html validation report to iTrack: e.g. report-01-05-2024-15-00.zip
-
-   Add comment to itrack with interface NotConnected Status or ports mismatched.
+   
+    interface NotConnected Status or ports mismatched.
 
    Report identifies following issues:
    Device Name Interface Map Name Validation Result Status Destination Hostname Destination Port Device 
