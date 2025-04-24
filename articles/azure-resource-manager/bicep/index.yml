@@ -10,28 +10,18 @@ metadata:
   ms.author: jgao
   ms.subservice: bicep
   ms.topic: landing-page
-  ms.date: 04/23/2025
+  ms.date: 04/24/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: About Bicep
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
           - text: What is Bicep?
             url: overview.md
-      - linkListType: video
-        links:
-          - text: Learn live - Bicep
-            url: /events/learntv/learnlive-iac-and-bicep/
-          - text: Learn Live - Bicep and GitHub Actions
-            url: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
-
-  # Card (optional)
-  - title: Get started
-    linkLists:
       - linkListType: get-started
         links:
           - text: Install Bicep tools
@@ -58,7 +48,16 @@ landingContent:
             url: /training/paths/advanced-bicep/
           - text: Deployment stacks
             url: /training/modules/introduction-to-deployment-stacks/
-
+      - linkListType: video
+        links:
+          - text: Learn live - Bicep
+            url: /events/learntv/learnlive-iac-and-bicep/
+          - text: Learn Live - Bicep and GitHub Actions
+            url: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
+      - linkListType: how-to-guide
+        links:
+          - text: Best practices
+            url: best-practices.md
   # Card
   - title: Author Bicep files
     linkLists:
@@ -126,17 +125,6 @@ landingContent:
             url: deploy-to-tenant.md
           - text: Scope extension resource
             url: scope-extension-resources.md
-  # Card
-  - title: Guidance & patterns
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-        - text: Best practices
-          url: best-practices.md
-        - text: Configuration set pattern
-          url: patterns-configuration-set.md
-        - text: Shared variable file pattern
-          url: patterns-shared-variable-file.md
   # Card
   - title: Explore reference content
     linkLists:
