@@ -2,14 +2,14 @@
 title: Simplified experience for Azure Migrate
 description: Describes the simplified experience an upgraded agent-based migration stack for physical and VMware environments
 author: rashi-ms
-ms.author: habibaum
+ms.author: v-uhabiba
 ms.manager: pallavi
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/24/2025
 ---
 
-# Overview
+# Overview of Simplified expereince for Azure Migrate
 
 The enhanced agent-based migration stack specifically designed for physical and VMware environments. The upgraded stack offers several significant benefits, such as:
 
