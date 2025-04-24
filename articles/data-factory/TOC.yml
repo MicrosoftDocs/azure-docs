@@ -699,6 +699,8 @@ items:
       href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
+    - name: Databricks Job activity
+      href: transform-data-databricks-job.md
       displayName: data bricks
     - name: Databricks Notebook activity
       href: transform-data-databricks-notebook.md
