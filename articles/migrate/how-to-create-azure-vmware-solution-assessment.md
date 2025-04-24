@@ -106,7 +106,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png":::
 
 1. In **Assess Servers**, select **Next**.
 
