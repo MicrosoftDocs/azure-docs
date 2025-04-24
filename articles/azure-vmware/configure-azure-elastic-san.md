@@ -20,26 +20,25 @@ To accompany the steps below, you can use this [interactive demo](https://regale
 
 The following prerequisites are required to continue.
 
-- Verify you have a private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
+- Have a private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
 - Know the availability zone your private cloud is in. 
   - In the UI, select an Azure VMware Solution host.
     > [!NOTE]
     > The host exposes its Availability Zone. You should use that AZ when deploying other Azure resources for the same subscription.
     
-- You have permission to set up new resources in the subscription your private cloud is in.
-
+- Have permission to set up new resources in the subscription your private cloud is in.
 - Reserve a dedicated address block for your external storage.
+- 
 
 ## Supported host types
 
 To use Elastic SAN with Azure VMware Solution, you can use any of these host types:
 
-- AV36 
+You can use the following host types when Azure Elastic SAN is the backing storage for Azure VMware solution:
 
-- AV36P 
-
-- AV52 
-
+- AV36
+- AV36P
+- AV52
 - AV64
 
 ## Set up Elastic SAN
