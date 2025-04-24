@@ -97,6 +97,28 @@ Note that:
 - Nonexisting keys respond with null, HTTP 200.
 - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be non applicable.
 
+## Query SNMP conf on the sensor
+
+**Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
+
+1. In the OT sensor, go to **System settings > Sensor management**
+
+    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-mib-monitoring-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
+
+1. SSH to your remote host, configured on the SNMP MIB Monitoring.
+
+1. Install SNMP package by running `sudo apt install snmp`.
+
+**Query by version:**
+
+For version 2 type:
+
+`snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
+
+For version 3 type:
+
+`snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
+
 ## Next steps
 
 For more information, see [Maintain OT network sensors from the GUI](how-to-manage-individual-sensors.md).
