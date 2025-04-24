@@ -4,7 +4,7 @@ description: How to use the Scheduled Agent Updates feature to choose a date and
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/20/2022
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

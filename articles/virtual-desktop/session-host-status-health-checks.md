@@ -4,7 +4,7 @@ description: Learn about the different statuses and health checks for session ho
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/05/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # Session host statuses and health checks in Azure Virtual Desktop

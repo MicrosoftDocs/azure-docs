@@ -26,14 +26,14 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 - Deploy or use an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
 - The newly created Azure Virtual Network and your Azure VMware Solution Gen 2 private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
-- The following Preview feature flags need to be registered under the subscription where your private cloud will reside. This commands can be run using Azure Cloud Shell. 
+- The following Preview feature flags need to be registered under the subscription where your private cloud will reside. These commands can be run using Azure Cloud Shell. 
 
 ```bash
-az feature register--namespace "Microsoft.Network" --name “EnablePrivateIpPrefixAllocation”--subscription **Subscription ID**
+az feature register --namespace "Microsoft.Network" --name "EnablePrivateIpPrefixAllocation"  --subscription "<Subscription ID>"
 ```
 
 ```bash
-az feature registrations create --namespace "Microsoft.AVS"--name "Early Access"--subscription **Subscription ID**
+az feature registration create --namespace "Microsoft.AVS" --name "EarlyAccess"  --subscription "<Subscription ID>"
 ```
 
 ```bash
