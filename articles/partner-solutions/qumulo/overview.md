@@ -11,7 +11,7 @@ ms.date: 01/21/2025
 
 Microsoft and Qumulo developed this service and manage it together.
 
-Azure Native Qumulo offers a high-performance, scalable, and cost-effective cloud file system with Pay-as-you-Go and Pre-Pay pricing options. ANQ separates performance and capacity pricing, giving users full control over storage and data acceleration economics.
+ANQ is a fully managed service that provisions a Qumulo file system and creates a resource (for managing the file system) under your Azure subscription. ANQ provides the same multi-protocol support, interfaces, and functionality as Qumulo on premises. ANQ makes it possible to configure file protocols, quotas, replication, and other features regardless of underlying infrastructure or storage and without tracking resource quotas or costs. The service receives the latest updates and features continuously and, if any issues occur, replaces compute and storage resources automatically.
 
 You can find Azure Native Qumulo (ANQ) in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview).
 
