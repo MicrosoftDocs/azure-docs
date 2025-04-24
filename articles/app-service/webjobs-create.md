@@ -19,8 +19,6 @@ adobe-target-content: ./webjobs-create-ieux
 
 This article explains how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. WebJobs is a feature of [Azure App Service](index.yml) that allows you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
-You can use the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) with WebJobs to simplify many programming tasks.
-
 > [!NOTE]
 > WebJobs for *Windows container*, *Linux code*, and *Linux container* is in preview. WebJobs for Windows code is generally available and not in preview.
 
@@ -119,7 +117,7 @@ when making changes in one don't forget the other two.
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myContinuousWebJob | A name that's unique within an App Service app. Must start with a letter or a number and must not contain special characters other than `"-"` and `"_"`. |
+   | **Name** | myContinuousWebJob | A unique WebJob name. Must start with a letter or a number and must not contain special characters other than `"-"` and `"_"`. |
    | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Scale** | Multi Instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
@@ -149,7 +147,7 @@ when making changes in one don't forget the other two.
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myTriggeredWebJob | A name that's unique within an App Service app. Must start with a letter or a number and must not contain special characters other than `"-"` and `"_"`.|
+   | **Name** | myTriggeredWebJob | A unique WebJob name. Must start with a letter or a number and must not contain special characters other than `"-"` and `"_"`. |
    | **File Upload** | ConsoleApp1.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Triggered | The [WebJob types](#webjob-types) are described previously in this article. |
    | **Triggers** | Manual | |
@@ -181,7 +179,7 @@ when making changes in one don't forget the other two.
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myScheduledWebJob | A name that's unique within an App Service app. Must start with a letter or a number and must not contain special characters other than `"-"` and `"_"`. |
+   | **Name** | myScheduledWebJob | A unique WebJob name. Must start with a letter or a number and must not contain special characters other than `"-"` and `"_"`. |
    | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
