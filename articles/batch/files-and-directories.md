@@ -50,6 +50,8 @@ The value of the `AZ_BATCH_NODE_ROOT_DIR` compute node environment variable will
 |No|Windows|`C:\batch\data`|
 |Yes|Windows|`D:\batch`|
 
+These environment variable values are implementation details and should not be considered immutable. As these values may change at any time, the use of environment variables instead of hardcoding the value is recommended.
+
 ## Next steps
 
 - Learn about [error handling and detection](error-handling.md) in Azure Batch.
