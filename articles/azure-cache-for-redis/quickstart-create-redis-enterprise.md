@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Redis Enterprise cache'
 description: Learn how to create an instance of Azure Cache for Redis Enterprise.
 ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
-ms.date: 04/23/2025
+ms.date: 04/24/2025
 appliesto:
   - ✅ Azure Cache for Redis
 #Customer intent: As a Redis Enterprise developer who is new to Azure Cache for Redis, I want to create a new cache in the Enterprise tier of Azure Cache for Redis.
@@ -26,7 +26,7 @@ Both Enterprise and Enterprise Flash tiers support open-source Redis 6 and some 
 > The following Enterprise settings can be enabled or configured only at cache creation time. Gather the information you need to configure these settings before you create your cache.
 > 
 > - You must enable Enterprise modules at the time you create the cache instance. You can't change modules or enable module configuration after you create a cache.
-> - Redis Enterprise supports two clustering policies, **Enterprise** or **OSS**. You can't change the clustering policy of an Enterprise cache after you create it.
+> - Redis Enterprise supports two clustering policies, **Enterprise** or **OSS**. Know which policy you need before you create your cache. You can't change the clustering policy of an Enterprise cache after you create it.
 > - If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created. Be sure to know the eviction policies of your primary nodes before you create the cache.
 
 ### Availability by region
@@ -63,8 +63,8 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 1. On the **Advanced** tab, configure the following options:
    - **Modules**: Select the Redis modules you want to use.
    - **Zone redundancy**: Select whether to enable zone redundancy (recommended).
-   - **Non-TLS access only**: Choose whether to **Enable** the non-TLS port and connect to the new cache without using TLS. However, disabling TLS isn't recommended.
-   - **Eviction policy**: Select an eviction policy.
+   - **Non-TLS access only**: Choose whether to **Enable** the non-TLS port and connect to the new cache without using Transport Layer Security (TLS). However, disabling TLS isn't recommended.
+   - **Eviction Policy**: Select an eviction policy.
    - **Capacity**: Set the total number of virtual machines running for the cache.
    - **Clustering Policy**: Set to **Enterprise** to use the Redis API, or to **OSS** to use the OSS Cluster API.
 1. Under **(PREVIEW) Data Persistence**, choose whether to enable **Redis Database (RDB)**, **Append-only file (AOF)**, or no data persistence for your cache.
@@ -90,7 +90,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. Select **Review + create**, and once validation passes, select **Create**.
 
-It takes some time for the cache to create. You can monitor deployment progress in the Azure **Notifications** pane. When the deployment completes, select **Go to resource**. On the cache **Overview** page, when **Status** displays **Running**, the cache is ready to use.
+It takes some time for the cache to create. You can monitor deployment progress on the portal Azure Cache for Redis page. When the cache **Status** displays **Running**, the cache is ready to use.
 
 ## Related content
 
