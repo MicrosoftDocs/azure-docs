@@ -969,10 +969,9 @@ items:
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
   - name: Redis
+    tocHref: /azure/redis/
+    topicHref: /azure/redis/index
     items:
-    - name: Azure Managed Redis
-      tocHref: /azure/redis/
-      topicHref: /azure/redis/index
     - name: Azure Cache for Redis
       tocHref: /azure/azure-cache-for-redis/
       topicHref: /azure/azure-cache-for-redis/index
