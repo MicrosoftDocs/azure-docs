@@ -81,15 +81,15 @@ The Sample builder provides an option to configure the sample using Microsoft 36
 
 If you do want to use Bookings, create a Bookings calendar and get the Booking page URL from https://outlook.office.com/bookings/calendar.
 
-![Screenshot of Booking configuration experience.](../media/virtual-visits/Bookings-URL-4.25.png)
+![Screenshot of Booking configuration experience.](../media/virtual-visits/bookings-url-4.25.png)
 
 Make sure online meeting is enabled for the calendar by going to https://outlook.office.com/bookings/services.
 
-![Screenshot of Booking services configuration experience.](../media/virtual-visits/Bookings-Services-4.25.png)
+![Screenshot of Booking services configuration experience.](../media/virtual-visits/bookings-services-4.25.png)
 
 And then, make sure "Add online meeting" is enabled.
 
-![Screenshot of Booking services online meeting configuration experience.](../media/virtual-visits/Bookings-Online-Meeting-4.25.png)
+![Screenshot of Booking services online meeting configuration experience.](../media/virtual-visits/bookings-online-meeting-4.25.png)
 
  
  
