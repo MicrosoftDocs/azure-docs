@@ -4,7 +4,7 @@ description: How to enforce Microsoft Entra multifactor authentication for Azure
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 04/02/2025
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

@@ -34,15 +34,6 @@ sections:
           To register the Microsoft.CodeSigning app, go to the subscription **Resource providers** pane as shown in this example:
           
           :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png":::
-
-      - question: What if Organization identity validation fails?
-        answer: | 
-          - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
-          - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
-          - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
-      - question: What if I need assistance with identity validation?
-        answer: | 
-          - For questions about identity validation in Trusted Signing, contact us via Azure Support or by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**).
       - question: What is the cost of using Trusted Signing?
         answer: | 
           - For pricing information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
@@ -66,7 +57,17 @@ sections:
       - question: What if my identity validation expires?
         answer: |
           - If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Trusted Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
-       
+      - question: What if Organization identity validation fails?
+        answer: | 
+          - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
+          - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
+          - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+      - question: What if I need assistance with identity validation?
+        answer: | 
+          - For questions about identity validation in Trusted Signing, contact us via Azure Support or by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**).
+      - question: What if email validation link has expired?
+        answer: | 
+          - If you missed to click on the email verification within 7 dyas, you need to start a new identity validation request. A new link cannot be resent on the same request.
   - name: Signing
     questions:
       - question: What types of files can we sign by using Trusted Signing?

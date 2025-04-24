@@ -194,7 +194,7 @@
       href: disk-backup-support-matrix.md
     - name: Azure Blobs backup support matrix
       href: blob-backup-support-matrix.md
-    - name: Azure Data Lake Storage Gen2 backup support matrix (preview)
+    - name: Azure Data Lake Storage backup support matrix (preview)
       href: azure-data-lake-storage-backup-support-matrix.md  
     - name: Active Directory domain controllers
       href: active-directory-backup-restore.md
@@ -274,7 +274,7 @@
       href: azure-kubernetes-service-cluster-backup-concept.md
   - name: Azure Blob backup
     href: blob-backup-overview.md
-  - name: Azure Data Lake Storage Gen2 backup (preview)
+  - name: Azure Data Lake Storage backup (preview)
     href: azure-data-lake-storage-backup-overview.md  
   - name: Azure Elastic SAN backup (preview)
     href: azure-elastic-storage-area-network-backup-overview.md  
@@ -638,7 +638,7 @@
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
-  - name: Azure Data Lake Storage Gen2 backup (preview)
+  - name: Azure Data Lake Storage backup (preview)
     items:
     - name: Configure backup
       href: azure-data-lake-storage-configure-backup.md

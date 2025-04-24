@@ -253,7 +253,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     
     ```javascript
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
-    const { Client } = require('pg');
+    import { Client } from 'pg';
 
     // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
