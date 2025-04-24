@@ -4,7 +4,7 @@ description: Learn about using User profile management for Azure Virtual Desktop
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 08/22/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

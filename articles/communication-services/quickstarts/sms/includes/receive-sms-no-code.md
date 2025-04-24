@@ -16,13 +16,13 @@ Logic Apps and Power Automate provide out of the box connectors to help handle e
 
 ## Handling events with the Event Grid connector
 
-1. Start by creating a new flow in your preferred environment. Pick the `When a resource event occurs` trigger to get started.
+1. Start by creating a new flow in your preferred environment. Select the `When a resource event occurs` trigger to get started.
 
-    ![Screenshot of trigger pick for Power Automate.](../media/receive-sms/trigger-pick.png)
+   :::image type="content" source="../media/receive-sms/trigger-pick.png" alt-text="Screenshot of trigger selection for Power Automate.":::
 
-2. Now, lets configure it. The connector requires you to provide a subscription you want to use. (Should be the same subscription where your Azure Communication Services resource is). Specify the type of resource. In this case, choose `Microsoft.Communication.CommunicationServices`. Then you need to provide a resource name for the Azure Communication Services resource you want it to connect to. Finally, we need to pick the event types we want to receive, in this case: `Microsoft.Communication.SMSReceived`.
+2. Now, you can configure the connector. You need to provide a subscription you want to use. (Should be the same subscription where your Azure Communication Services resource is). Specify the type of resource. In this case, choose `Microsoft.Communication.CommunicationServices`. Then you need to provide a resource name for the Azure Communication Services resource you want it to connect to. Finally, we need to select the event types we want to receive, in this case: `Microsoft.Communication.SMSReceived`.
 
-    ![Screenshot of event grid connector.](../media/receive-sms/event-grid-connector.png)
+   :::image type="content" source="../media/receive-sms/event-grid-connector.png" alt-text="Screenshot of Event Grid connector.":::
 
     The connector automatically sets up the event subscription on your behalf and configures the events it wants to receive.
 
@@ -84,20 +84,20 @@ Logic Apps and Power Automate provide out of the box connectors to help handle e
 
     </details>
 
-    ![Screenshot of Parse JSON connector.](../media/receive-sms/parse-json-sms.png)
+   :::image type="content" source="../media/receive-sms/parse-json-sms.png" alt-text="Screenshot of Parse JSON connector.":::
 
-At this point, you've successfully handled the SMS event. You then have multiple options of what to do with it ranging from logging the event to responding to the SMS. In the context of this document, we will show how to respond to it. Continue reading to learn the steps to respond to the SMS.
+At this point, you successfully handled the SMS event. You have multiple options of what to do with it ranging from logging the event to responding to the SMS. In the context of this document, we respond to the received SMS message.
 
 ## Responding to the SMS
 
 1. Start by adding the SMS connector into our flow and configuring it with the information for our Azure Communication Services resource. It allows the connector to access the resource and send the SMS on our behalf. You need the `connection string` for your resource.
 
-    ![Screenshot of set up screen for the SMS connector.](../media/receive-sms/sms-connection.png)
+   :::image type="content" source="../media/receive-sms/sms-connection.png" alt-text="Screenshot of setup page for the SMS connector.":::
 
 2. Next, we configure the connector with the information for the sender and recipient. We use the information from the event we received to populate them. Fip the `to` and `from` numbers to send an SMS back to the original sender. Finally, add a message.
 
-   ![Screenshot of the SMS connector configuration.](../media/receive-sms/sms-configure.png)
+   :::image type="content" source="../media/receive-sms/sms-configure.png" alt-text="Screenshot of the SMS connector configuration.":::
 
 Now, you can save the flow and test it by sending an SMS to the phone number associated with your Azure Communication Services resource. You should receive back a text message.
 
-From here, the possibilities are endless. From responding to a message with a pre-canned answer, to adding a bot or simply storing responses, you can add more logic to the flow.
+From here, the possibilities are endless. You can respond to a message with a prewritten answer, add a bot, store the response, or add workflow automation.

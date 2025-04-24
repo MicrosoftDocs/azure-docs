@@ -76,3 +76,4 @@ Update Manager offers many new features and provides enhanced and native functio
 - [Schedule recurring updates](scheduled-patching.md)
 - [Manage update settings via the portal](manage-update-settings.md).
 - [Manage multiple machines by using Update Manager](manage-multiple-machines.md).
+- [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus#azure-update-manager)

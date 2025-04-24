@@ -17,13 +17,13 @@ ms.author: v-vprasannak
 
    :::image type="content" source="../media/email-communication-search.png" alt-text="Screenshot that shows how to search Email Communication Service in market place.":::
 
-3. Select **Email Communication Services** and press **Create**
+3. Select **Email Communication Services** and click **Create**.
  
    :::image type="content" source="../media/email-communication-create.png" alt-text="Screenshot that shows Create link to create Email Communication Service.":::
 
-4. Enter the required information in the Basics tab:
+4. Enter the required information in the **Basics** tab:
     - Select an existing Azure subscription.
-    - Select an existing resource group, or create a new one by clicking the **Create new** link.
+    - Select an existing resource group, or to create a new one click the **Create new** link.
     - Provide a valid name for the resource. 
     - Select the region where the resource needs to be available.
     - Select **United States** as the data location.
@@ -31,8 +31,9 @@ ms.author: v-vprasannak
     - Add any name/value pairs. 
     
       :::image type="content" source="../media/email-communication-create-review.png" alt-text="Screenshot that shows how to the summary for review and create Email Communication Service.":::
+      
 5. Click **Next: Review + create**.
-6. Wait for the validation to pass, then click **Create**.
+6. Wait for the validation to complete, then click **Create**.
 7. Wait for the Deployment to complete, then click **Go to Resource** to open the Email Communication Service overview.
 
    :::image type="content" source="../media/email-communication-overview.png" alt-text="Screenshot that shows the overview of Email Communication Service resource.":::

@@ -5,9 +5,8 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 04/22/2025
 ms.author: anfdocs
-ms.custom: references_regions
 ---
 # Create a capacity pool for Azure NetApp Files
 
@@ -15,7 +14,7 @@ Creating a capacity pool enables you to create volumes within it.
 
 ## Before you begin 
 
-* You need [a NetApp account](azure-netapp-files-create-netapp-account.md).   
+* You need a [NetApp account](azure-netapp-files-create-netapp-account.md).   
 * If you're using Azure CLI, ensure that you're using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 * To enable cool access, ensure you are registered to use [cool access](manage-cool-access.md).
 * If you're using PowerShell, ensure that you're using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module).
@@ -23,7 +22,7 @@ Creating a capacity pool enables you to create volumes within it.
     >[!IMPORTANT]
     >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`.
 * The Standard, Premium, and Ultra service levels are generally available (GA). No registration is required. 
-* The **Flexible** service level is currently in preview. You must submit a waitlist request to access the Flexible service level by using [the request form](https://aka.ms/ANFFlexibleSLpreviewsignup). After you submit the waitlist request, it can take approximately one week to enable the feature.
+* The **Flexible** service level is currently in preview and supported in all Azure NetApp Files regions. You must submit a waitlist request to access the Flexible service level by using [the request form](https://aka.ms/ANFFlexibleSLpreviewsignup). After you submit the waitlist request, it can take approximately one week to enable the feature.
     
     Check the status of feature registration with the command:
 
@@ -33,33 +32,6 @@ Creating a capacity pool enables you to create volumes within it.
     
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
     
-### <a name="regions"></a> Supported regions for the Flexible service level
-
->[!NOTE]
->Standard, Premium, and Ultra service levels are supported in all Azure NetApp Files regions. This list only applies to the _Flexible_ service level. 
-
-The Flexible service level is currently available in the following regions:
-
-- Australia Central
-- Brazil South
-- Canada East
-- East Asia
-- East US
-- East US 2
-- France Central
-- Israel Central
-- Japan West
-- Korea Central
-- North Central US
-- Qatar Central
-- South Africa North
-- UAE North
-- US Gov Arizona
-- US Gov Texas
-- US Gov Virginia
-- West US 2
-- West US 3
-
 ## Considerations
 
 * If you're using the **Flexible** service level:

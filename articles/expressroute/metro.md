@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/07/2025
+ms.date: 04/18/2025
 ms.author: duau
 ms.custom: references_regions, ai-usage
 ---
@@ -16,7 +16,7 @@ ExpressRoute facilitates the creation of private connections between your on-pre
 
 Within the peering location, two types of connections can be established:
 
-* **ExpressRoute circuit** - an ExpressRoute circuit consist of two logical connections between your on-premises network and Azure. These connections are made through a pair of physical links provided by an ExpressRoute partner, such as AT&T, Verizon, Equinix, among others.
+* **ExpressRoute circuit** - an ExpressRoute circuit consist of two logical connections between your on-premises network and Azure. These connections are made through a pair of physical links provided by an ExpressRoute partner, such as AT&T, Verizon, Megaport, Equinix, among others.
 
 * **ExpressRoute Direct** - ExpressRoute Direct is a dedicated and private connection between your on-premises network and Azure, eliminating the need for partner provider involvement. It enables the direct connection of your routers to the Microsoft global network using dual 10G or 100G Ports.
 

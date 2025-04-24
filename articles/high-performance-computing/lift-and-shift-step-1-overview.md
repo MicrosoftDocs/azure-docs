@@ -1,19 +1,19 @@
 ---
-title: "Deployment step 1: basic infrastructure - overview"
-description: Learn about production-level environment migration deployment step one.
+title: "Basic infrastructure migration overview"
+description: Get a high level idea of the steps involved when migrating basic infrastructure components during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 1: basic infrastructure - overview
+# Basic infrastructure migration overview
 
 The critical foundational components required to establish a landing zone in the cloud for an HPC environment are outlined here. The focus is on setting up resource groups, networking, and basic storage, which serve as the backbone of a successful HPC lift-and-shift deployment.
 
-This section provides a clear understanding of the purpose and requirements of these components, along with available tools and best practices tailored to HPC workloads. A quick start guide is also included to help users efficiently deploy and manage these core components, with the expectation that more advanced automation will be implemented as the HPC environment evolves.
+This section provides a clear understanding of the purpose and requirements of these components, along with available tools and best practices tailored to HPC workloads. A quick start guide is also included to help users efficiently deploy and manage these core components, with the expectation of more advanced automation as the HPC environment evolves.
 
 ## Resource group
 

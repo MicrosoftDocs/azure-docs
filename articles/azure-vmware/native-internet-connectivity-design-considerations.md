@@ -3,13 +3,13 @@ title: Internet Configuration for Azure VMware Solution Generation 2 Private Clo
 description: Learn about Azure VMware Solution in an Azure Virtual Network Internet connectivity configuration.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/28/2025
+ms.date: 4/21/2025
 ms.custom: engagement-fy25
 ---
 
 # Connect to Internet
 
-After you deploy an Azure VMware Solution Generation (Gen) 2 private cloud, you may require network connectivity between the private cloud and other networks you have in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or the internet. In this article, you learn to connect Azure VMware Solution on an Azure Virtual Network private cloud to the internet.
+After you deploy an Azure VMware Solution Generation 2 (Gen 2) private cloud, you may require network connectivity between the private cloud and other networks you have in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or the internet. In this article, you learn to connect Azure VMware Solution on an Azure Virtual Network private cloud to the internet.
 
 ## Prerequisites
 - Gen 2 private cloud deployed successfully.
@@ -20,9 +20,9 @@ After you deploy an Azure VMware Solution Generation (Gen) 2 private cloud, you 
 
 Azure VMware Solution provides necessary internet connectivity to SDDC appliances like vCenter, NSX Manager, and HCX Manager for management functions. This private cloud relies on the internet connectivity configured on the Virtual Network it's deployed in. The customer workload can connect to the internet through either virtual WAN, Azure Firewall, or third-party Network Virtual Appliances. The standard Azure Supported topology for virtual WAN, Azure Firewall, and third-party Network Virtual Appliances are supported.
 
-:::image type="content" source="./media/native-connectivity/native-connect-private-cloud-internet.png" alt-text="Diagram showing an Azure VMware Solution connection to other virtual networks." lightbox="media/native-connectivity/native-connect-private-cloud-internet.png":::
+:::image type="content" source="./media/native-connectivity/native-connect-private-cloud-internet.png" alt-text="Diagram showing an Azure VMware Solution Gen 2 connection to internet via Azure Firewall." lightbox="media/native-connectivity/native-connect-private-cloud-internet.png":::
 
-Internet connectivity using Azure Firewall is similar to the way Azure virtual network internet connectivity is achieved, which is described in more detail in the Azure Firewall documentation. The only thing specific to the Azure VMware solution is the subnets which need to be associated with a user-defined route table (UDR) to point to Azure Firewall or third-party Network Virtual Appliance for internet connectivity.
+Internet connectivity using Azure Firewall is similar to the way Azure virtual network internet connectivity is achieved, which is described in more detail in the Azure Firewall documentation. The only thing specific to the Azure VMware Solution Gen 2 private cloud is the subnets which need to be associated with a user-defined route table (UDR) to point to Azure Firewall or third-party Network Virtual Appliance for internet connectivity.
 
 ## Steps:
 

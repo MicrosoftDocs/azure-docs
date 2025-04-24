@@ -5,14 +5,14 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.date: 3/14/2025
+ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to connect multiple Azure VMware Solution Generation 2 Private Clouds so that I can enable seamless communication between private clouds.
 ---
 
 # Connect multiple Azure VMware Solution Generation 2 Private Clouds
 
-In this article, you learn how to connect a Azure VMware Solution Generation (Gen) 2 private cloud to other Gen 2 private clouds.
+In this article, you learn how to connect a Azure VMware Solution Generation 2 (Gen 2) private cloud to other Gen 2 private clouds.
 
 ## Prerequisite
 
@@ -24,7 +24,7 @@ Private clouds deployed in different Azure Virtual Networks can be connected usi
 
 Depending on the location of the private cloud, you may require local Virtual Network peering or a global Virtual Network peering.
 
-:::image type="content" source="./media/native-connectivity/native-connect-multiple-solutions-on-premises.png" alt-text="Diagram of an Azure VMware Solution connection to on-premise environment." lightbox="media/native-connectivity/native-connect-multiple-solutions-on-premises.png":::
+:::image type="content" source="./media/native-connectivity/native-connect-multiple-solutions-on-premises.png" alt-text="Diagram of an multiple Azure VMware Solution Gen 2 private clouds connected together." lightbox="media/native-connectivity/native-connect-multiple-solutions-on-premises.png":::
 
 ## Related topics 
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)

@@ -25,6 +25,10 @@ Azure Native Pure Storage Cloud for Azure VMware Solution is now in public previ
 
 Public Preview of the next generation of Azure VMware Solution is here. Azure VMware Solution Generation 2 Private Clouds is now available in East US, UK South, Switzerland North, and Japan East on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. [Learn more](native-introduction.md)
 
+**Azure VMware Solution was approved as a service within the DISA Provisional Authorization of Azure Government at Impact Level 5**
+
+Azure VMware Solution in Azure Government was approved and added as a service within the DISA Provisional Authorization of Azure Government at Impact Level 5. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/avs-was-approved-as-a-service-within-the-disa-provisional-authorization-of-azure/4404484)
+
 ## March 2025
 
 To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in Broadcom security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074) 
