@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: What is Azure Native Qumulo Scalable File Service?
   href: overview.md
-- name: Frequently asked questions
+- name: FAQ
   href: faq.yml
 - name: Get started
   expanded: true
