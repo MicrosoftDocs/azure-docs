@@ -17,10 +17,10 @@ az login
 Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
 
 ```azurecli
-az webapp up --runtime PYTHON:3.9 --sku B1 --logs
+az webapp up --runtime PYTHON:3.13 --sku B1 --logs
 ```
 
-* The `--runtime` parameter specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
+* The `--runtime` parameter specifies what version of Python your app is running. This example uses Python 3.13. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan. This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * The `--logs` flag configures default logging required to enable viewing the log stream immediately after launching the webapp.
 * You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name will be automatically generated.
@@ -47,7 +47,7 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
   "name": "&lt;app-name>",
   "os": "&lt;os-type>",
   "resourcegroup": "&lt;group-name>",
-  "runtime_version": "python|3.9",
+  "runtime_version": "python|3.13",
   "runtime_version_detected": "0.0",
   "sku": "FREE",
   "src_path": "&lt;your-folder-location>"
