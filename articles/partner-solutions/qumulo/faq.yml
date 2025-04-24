@@ -13,6 +13,8 @@ summary: |
 sections:
   - name: Frequently asked questions
     questions:
+      - question: Where can I learn more about Azure Native Qumulo?
+        answer: To learn more about Azure Native Qumulo, see [Qumulo's documentation](https://docs.qumulo.com/azure-native-administrator-guide/).
       - question: What is the difference between Azure Native Qumulo (ANQ) and Cloud Native Qumulo (CNQ)?
         answer: |
             [Azure Native Qumulo (ANQ)](https://learn.microsoft.com/azure/partner-solutions/qumulo/overview) is a co-developed service by Microsoft and Qumulo, offered and managed as a fully managed Storage-as-a-Service. ANQ manages the underlying infrastructure and software automatically, relieving the customer from day-to-day service management and administration. 

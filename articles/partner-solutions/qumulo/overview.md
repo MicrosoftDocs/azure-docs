@@ -11,11 +11,11 @@ ms.date: 01/21/2025
 
 Microsoft and Qumulo developed this service and manage it together.
 
-You can find Azure Native Qumulo (ANQ) in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview).
-
 Azure Native Qumulo offers a high-performance, scalable, and cost-effective cloud file system with Pay-as-you-Go and Pre-Pay pricing options. ANQ separates performance and capacity pricing, giving users full control over storage and data acceleration economics.
 
-The Azure Native Qumulo offering on Azure Marketplace enables you to create and manage a Qumulo file system using the Azure portal, providing a seamless integrated experience. You can also create and manage Qumulo resources by using the Azure portal through the resource provider Qumulo.Storage/fileSystem. Qumulo manages the service while giving you full administrative rights to configure details including file system shares, exports, quotas, snapshots, and Active Directory users.
+You can find Azure Native Qumulo (ANQ) in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview).
+
+The Azure Native Qumulo offering on Azure Marketplace enables you to create and manage a Qumulo file system using the Azure portal, providing a seamless integrated experience. You can also create and manage Qumulo resources by using the Azure portal through the resource provider `Qumulo.Storage/fileSystem`. Qumulo manages the service while giving you full administrative rights to configure details including file system shares, exports, quotas, snapshots, and Active Directory users.
 
 ## Capabilities
 
@@ -49,18 +49,6 @@ You can choose between available plans when you create your Qumulo resource.
 > - A managed resource group that has internal networking and other resources required for the Qumulo service.
 > - A Qumulo resource in the region of your choosing. This entity stores and manages your data.
 > - A Software as a Service (SaaS) resource, based on the plan that you select in the Azure Marketplace offer for Qumulo. This resource is used for billing.
-
-## Qumulo links
-
-To learn more about Azure Native Qumulo, see the [Qumulo documentation](https://docs.qumulo.com/azure-native-administrator-guide/).
-
-### Developer tools
-
-Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management:
-
-- [Qumulo CLI](https://care.qumulo.com/hc/en-us/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0)
-- [Qumulo REST API](https://care.qumulo.com/hc/en-us/articles/115007063227-Getting-Started-with-Qumulo-Core-REST-API#in-this-article-0-0)
-- [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit)
 
 ## Next steps
 
