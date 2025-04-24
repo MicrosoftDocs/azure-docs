@@ -15,7 +15,7 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Azure Databricks Job Activity in a [pipeline](concepts-pipelines-activities.md) runs a Databricks job in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
+The Azure Databricks Job Activity in a [pipeline](concepts-pipelines-activities.md) runs serverless Databricks jobs in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
 You can create a Databricks job with an ARM template using JSON, or directly through the Azure Data Factory Studio user interface.
 
@@ -26,7 +26,7 @@ To use a Job activity for Azure Databricks in a pipeline, complete the following
 1. Search for _Job_ in the pipeline Activities pane, and drag a Job activity to the pipeline canvas.
 1. Select the new Job activity on the canvas if it isn't already selected.
 1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that execute the Job activity.
-1. Select the **Settings** tab and specify the job path to be executed on Azure Databricks, optional base parameters to be passed to the job, and any other libraries to be installed on the cluster to execute the job.
+1. Select the **Settings** tab and specify the job to be executed on Azure Databricks, optional base parameters to be passed to the job, and any other libraries to be installed on the cluster to execute the job.
 
 ## Databricks Job activity definition
 
