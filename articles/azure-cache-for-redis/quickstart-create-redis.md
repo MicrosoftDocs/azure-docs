@@ -13,7 +13,7 @@ appliesto:
 ---
 # Quickstart: Create an Azure Redis cache
 
-Azure Cache for Redis provides a managed [Redis](https://redis.io/) cache within Azure. You can start with a Basic, Standard, or Premium tier cache of any size, and scale it to meet your application's performance needs. This quickstart demonstrates how to use the Azure portal to create a new Azure Cache for Redis instance.
+Azure Cache for Redis provides a fully managed [open-source Redis](https://redis.io/) cache within Azure. You can start with a Basic, Standard, or Premium tier cache of any size, and scale it to meet your application's performance needs. This quickstart demonstrates how to use the Azure portal to create a new Azure Cache for Redis instance.
 
 ## Prerequisites
 

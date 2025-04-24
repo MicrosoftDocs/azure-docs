@@ -22,6 +22,13 @@ Both Enterprise and Enterprise Flash tiers support open-source Redis 6 and some 
 
 - You need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [Special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
 
+> [!IMPORTANT]
+> The following Enterprise settings can be enabled or configured only at cache creation time. Gather the information you need to configure these settings before you create your cache.
+> 
+> - You must enable Enterprise modules at the time you create the cache instance. You can't change modules or enable module configuration after you create a cache.
+> - Redis Enterprise supports two clustering policies, **Enterprise** or **OSS**. You can't change the clustering policy of an Enterprise cache after you create it.
+> - If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created. Be sure to know the eviction policies of your primary nodes before you create the cache.
+
 ### Availability by region
 
 Azure Cache for Redis is continually expanding into new regions. To check the availability by region for all tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
