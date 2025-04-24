@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure Managed Redis (preview)
+title: What's new in Azure Managed Redis 
 description: Recent updates for Azure Managed Redis
 
 ms.custom: references_regions
@@ -13,6 +13,12 @@ appliesto:
 # What's New in Azure Managed Redis (preview)
 
 Find out what's new in Azure Managed Redis (preview).
+
+## May 2024
+
+Azure Managed Redis is now Generally Available (GA) to create and use managed caches. Azure Managed Redis runs on the [Redis Enterprise](https://redis.io/technology/advantages/) stack, which offers significant advantages over the community edition of Redis. 
+
+Certain features in Azure Managed Redis are still in Public Preview.
 
 ## November 2024
 

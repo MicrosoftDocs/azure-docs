@@ -11,7 +11,7 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Development with Azure Managed Redis(preview)
+# Development with Azure Managed Redis
 
 ## Connection resilience and server load
 

@@ -1,5 +1,5 @@
 ---
-title: Best practices for connection resilience for Azure Managed Redis(preview)
+title: Best practices for connection resilience for Azure Managed Redis
 description: Learn how to make your Azure Managed Redis connections resilient.
 
 

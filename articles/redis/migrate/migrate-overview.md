@@ -29,7 +29,7 @@ In this article, you learn to migrate from Azure Cache for Redis instance to an 
 
 ## Feature comparison between Azure Cache for Redis and Azure Managed Redis
 
-| Feature Description | Basic | Standard | Premium | Balanced (preview) | Memory Optimized (preview) | Compute Optimized (preview) |
+| Feature Description | Basic | Standard | Premium | Balanced  | Memory Optimized | Compute Optimized |
 | ------------------- | :-----: | :------: | :---: | :---: | :---: |:---: |
 | Availability |N/A|99.9%|99.9%|N/A|N/A|N/A |
 | Data encryption in transit |Yes|Yes|Yes|Yes|Yes|Yes|
