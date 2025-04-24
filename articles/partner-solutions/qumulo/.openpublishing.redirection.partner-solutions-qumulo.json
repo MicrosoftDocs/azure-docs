@@ -6,7 +6,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-disaster-recovery.md",
+            "source_path_from_root": "/articles/partner-solutions/qumulo/disaster-recovery.md",
             "redirect_url": "/azure/partner-solutions/qumulo/overview",
             "redirect_document_id": false
         },
@@ -36,17 +36,17 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-vendor-neutral-archive.md",
+            "source_path_from_root": "/articles/partner-solutions/qumulo/vendor-neutral-archive.md",
             "redirect_url": "/azure/partner-solutions/qumulo/overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-video-editing.md",
+            "source_path_from_root": "/articles/partner-solutions/qumulo/video-editing.md",
             "redirect_url": "/azure/partner-solutions/qumulo/overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-virtual-desktop.md",
+            "source_path_from_root": "/articles/partner-solutions/qumulo/virtual-desktop.md",
             "redirect_url": "/azure/partner-solutions/qumulo/overview",
             "redirect_document_id": false
         }
