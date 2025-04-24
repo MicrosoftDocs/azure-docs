@@ -176,7 +176,7 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
     ```
 
     In these commands:
-    - You set the Quarkus port in the *application.properties* file.
+    - You set the Quarkus port in the *application.properties* file to match the default port that the Linux Java container uses.
     - `quarkus.package.jar.type=uber-jar` tells Maven to [generate an Uber-Jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven), which includes all dependencies in the JAR file.
 
     > [!TIP]
