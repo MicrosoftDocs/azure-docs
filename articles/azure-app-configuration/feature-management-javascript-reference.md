@@ -632,8 +632,8 @@ The process of allocating a feature's variants is determined by the `allocation`
 
 ```json
 "allocation": { 
-    "default_when_enabled": "Small", 
     "default_when_disabled": "Small",  
+    "default_when_enabled": "Small", 
     "user": [ 
         { 
             "variant": "Big", 
@@ -843,7 +843,7 @@ The telemetry publisher sends `FeatureEvaluation` custom events to the Applicati
 
 ### Targeting telemetry processor
 
-If you have implemented [`ITargetingContextAccessor`](#itargetingcontextaccessor), you can use the built-in Application Insights telemetry processor to automatically attached targeting id information to telemetry by calling `createTargetingTelemetryProcessor` function.
+If you have implemented [`ITargetingContextAccessor`](#itargetingcontextaccessor), you can use the built-in Application Insights telemetry processor to automatically attach targeting ID information to all telemetry by calling the `createTargetingTelemetryProcessor` function.
 
 ```typescript
 const appInsights = require("applicationinsights");
@@ -855,7 +855,17 @@ appInsights.defaultClient.addTelemetryProcessor(
 );
 ```
 
-This ensures that every telemetry sent to Application Insights includes the targeting id information, allowing you to correlate feature flag usage in your analytics.
+This ensures that every telemetry item sent to Application Insights includes the user's targeting ID information (userId and groups), allowing you to correlate feature flag usage with specific users or groups in your analytics.
+
+If you are using the targeting telemetry processor, instead of calling the `trackEvent` method provided by the feature management package, you can directly call the `trackEvent` method from the Application Insights SDK. The targeting ID information will be automatically attached to the custom event telemetry's `customDimensions`.
+
+```typescript
+// Instead of calling trackEvent and passing the app insights client
+// trackEvent(appInsights.defaultClient, "<TARGETING_ID>", {name: "TestEvent",  properties: {"Tag": "Some Value"}});
+
+// directly call trackEvent method provided by App Insights SDK
+appInsights.defaultClient.trackEvent({ name: "TestEvent" });
+```
 
 ## Next steps
 
