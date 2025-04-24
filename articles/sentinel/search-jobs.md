@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 03/07/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -33,11 +33,13 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
 1. Select the **Table** menu and choose a table for your search.
 1. In the **Search** box, enter a search term.
 
+   #### [Defender portal](#tab/defender-portal)
+   :::image type="content" source="media/search-jobs/search-job-defender-portal.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-defender-portal.png":::
+
    #### [Azure portal](#tab/azure-portal)
    :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
 
-   #### [Defender portal](#tab/defender-portal)
-   :::image type="content" source="media/search-jobs/search-job-defender-portal.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-defender-portal.png":::
+   ---
 
 1. Select the **Start**  to open the advanced Kusto Query Language (KQL) editor and preview of the results for a set time range.
 

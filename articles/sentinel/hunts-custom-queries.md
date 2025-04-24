@@ -7,8 +7,8 @@ ms.author: austinmc
 ms.topic: how-to
 ms.date: 04/24/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -28,11 +28,12 @@ In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Qu
 1. Select the **Queries** tab.
 1. From the command bar, select **New query**.
 
+   # [Defender portal](#tab/defender-portal)
+   :::image type="content" source="./media/hunts-custom-queries/save-query-defender.png" alt-text="Save query" lightbox="./media/hunts-custom-queries/save-query-defender.png":::
+
    # [Azure portal](#tab/azure-portal)
    :::image type="content" source="./media/hunts-custom-queries/save-query.png" alt-text="Save query" lightbox="./media/hunts-custom-queries/save-query.png":::
 
-   # [Defender portal](#tab/defender-portal)
-   :::image type="content" source="./media/hunts-custom-queries/save-query-defender.png" alt-text="Save query" lightbox="./media/hunts-custom-queries/save-query-defender.png":::
    ---
 
 1. Fill in all the blank fields.
@@ -54,10 +55,12 @@ Clone a custom or built-in query and edit it as needed.
 1. From the **Hunting** > **Queries** tab, select the hunting query you want to clone.
 1. Select the ellipsis (...) in the line of the query you want to modify, and select **Clone**.
 
-   # [Azure portal](#tab/azure-portal)
-   :::image type="content" source="./media/hunts-custom-queries/clone-hunting-query.png" alt-text="Clone query" lightbox="./media/hunts-custom-queries/clone-hunting-query.png":::
    # [Defender portal](#tab/defender-portal)
    :::image type="content" source="./media/hunts-custom-queries/clone-hunting-query-defender.png" alt-text="Clone query" lightbox="./media/hunts-custom-queries/clone-hunting-query-defender.png":::
+
+   # [Azure portal](#tab/azure-portal)
+   :::image type="content" source="./media/hunts-custom-queries/clone-hunting-query.png" alt-text="Clone query" lightbox="./media/hunts-custom-queries/clone-hunting-query.png":::
+
    ---
 1. Edit the query and other fields as appropriate.
 1. Select **Create**.
