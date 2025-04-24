@@ -24,6 +24,9 @@ sections:
       - question: Can I deploy a Vendor-Neutral Archive (VNA) solution using Azure Native Qumulo?
         answer: | 
               Yes. You can learn about Vendor-Neutral Archives, including solution architecture, benefits, components, potential use cases, and scenarios, by reviewing [Azure Native Qumulo's reference architecture - Vendor-Neutral Archives for PACS](https://qumulo.com/resources/azure-native-qumulo-reference-architecture-vendor-neutral-archive-for-pacs/).
-      - question: What storage class options are available with Azure Native Qumulo.
+      - question: What storage class options are available with Azure Native Qumulo?
         answer: | 
               Azure Native Qumulo offers multiple storage class options, including Hot LRS, Hot ZRS, and Cold LRS. See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
+      - question: What developer tools are available for Azure Native Qumulo?
+        answer: |
+              Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management, including [Qumulo CLI](https://care.qumulo.com/hc/en-us/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0), [Qumulo REST API](https://care.qumulo.com/hc/en-us/articles/115007063227-Getting-Started-with-Qumulo-Core-REST-API#in-this-article-0-0), and [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit).
