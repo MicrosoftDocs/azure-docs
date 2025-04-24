@@ -15,7 +15,7 @@ ms.date: 11/07/2024
 
 This article describes how to create an Azure VMware Solution assessment for on-premises VMs in a VMware vSphere environment with Azure Migrate: Discovery and assessment.
 
-[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as Partner independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, and Partner independent software vendor (ISV) offerings.
 
 ## Before you start
 
@@ -67,7 +67,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. In **Assessment settings** > **Target settings**:
 
-    - In **Assessment type**, specify "New SDDC" in case you are creating a new SDDC and use "AVS SDDC expansion" in case you already have an AVS SDDC with hosts deployed and are looking to add more VMs to the existing SDDC. While performing an assessment for expanding an SDDC, it would not take into account the available capacity in the AVS SDDC but would not consider capacity requirements for management appliances.
+    - In **Assessment type**, specify "New SDDC" in case you're creating a new SDDC and use "AVS SDDC expansion" in case you already have an AVS SDDC with hosts deployed and are looking to add more VMs to the existing SDDC. While performing an assessment for expanding an SDDC, it wouldn't take into account the available capacity in the AVS SDDC but wouldn't consider capacity requirements for management appliances.
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
     - The **Storage type** is defaulted to **vSAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. ANF is an external storage type in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & elastic SAN as the storage datastores. When performance metrics are provided (IOPS and throughput) in settings or via the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using the Azure Migrate appliance or an RVTools file or without providing performance metrics like throughput and IOPS, **ANF - Standard** tier is used for assessment by default.
@@ -80,7 +80,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - In **IOPS per GiB**, select the expected average read and write speed per gibibyte of the external storage device. This, along with the disk capacity requirement would help Azure Migrate determine the external storage capacity requirements.
     - In **Throughput per GiB**, select the expected average amount of data transfer speed per gibibyte of the storage device. This, along with the disk capacity requirement would help Azure Migrate determine the external storage capacity requirements.
 1. In **Elastic SAN Settings**:
-    - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the elastic SAN datastore to the AVS SDDC. It is defaulted to **11%**.
+    - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the elastic SAN datastore to the AVS SDDC. It's defaulted to **11%**.
 1. In **CPU Settings**:
     - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
     - In **CPU headroom**, specify the CPU headroom you want to reserve for planned & unplanned management operations.
