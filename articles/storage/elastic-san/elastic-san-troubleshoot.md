@@ -12,7 +12,7 @@ ms.author: rogarana
 
 This article lists common issues related to Azure Elastic SAN. It also provides possible causes and resolutions for these issues.
 
-## Common Azure Elastic SAN Errors
+## Common Azure Elastic SAN errors
 
 ***Encountered get_iqns timeout error with Linux documentation script - Exception: Command took longer than 10 s***
 
@@ -72,7 +72,7 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 - Next, modify the $NumSession parameter of the connect script from either the portal or using the [Windows](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) script. You need to ensure that the total number of sessions per volume attached to the VM is less than 255 sessions. 
 - Run the script on your VM. These values can also be entered during runtime of the script.
 
-## Next Steps
+## Next steps
 - [Deploy an Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create)
 - [Connect to Windows](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-connect-windows)
 - [Connect to Linux](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-connect-linux)
