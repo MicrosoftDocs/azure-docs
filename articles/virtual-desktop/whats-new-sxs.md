@@ -4,7 +4,7 @@ description: New features and product updates for the Azure Virtual Desktop SxS 
 author: sipastak
 ms.topic: release-notes
 ms.date: 03/18/2025
-ms.author: sipastak
+ms.author: avdcontent
 ms.custom: references_regions
 ---
 

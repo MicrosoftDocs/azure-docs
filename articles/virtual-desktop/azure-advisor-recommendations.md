@@ -4,7 +4,7 @@ description: How to resolve Azure Advisor recommendations for Azure Virtual Desk
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # How to resolve Azure Advisor recommendations

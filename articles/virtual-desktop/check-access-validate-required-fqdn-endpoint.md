@@ -4,7 +4,7 @@ description: The Azure Virtual Desktop Agent URL Tool enables you to check that 
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Check access to required FQDNs and endpoints for Azure Virtual Desktop
