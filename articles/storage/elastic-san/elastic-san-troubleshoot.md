@@ -72,7 +72,7 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 - Next, modify the $NumSession parameter of the connect script from either the portal or using the [Windows](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) script. You need to ensure that the total number of sessions per volume attached to the VM is less than 255 sessions. 
 - Run the script on your VM. These values can also be entered during runtime of the script.
 
-## Need help?
+## Next Steps
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Also linked here are some additional documents that may be helpful:
 [Deploy an Elastic SAN](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-create)
 [Connect to Windows](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-connect-windows)
