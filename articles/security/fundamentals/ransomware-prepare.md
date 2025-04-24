@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/28/2024
+ms.date: 04/23/2025
 ---
 
 # Prepare for a ransomware attack
