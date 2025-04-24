@@ -731,10 +731,8 @@ groups:
   title: Platform
   prompt: Choose a platform
   pivots:
-  - id: platform-azp
-    title: Azure portal
   - id: platform-azp-new
-    title: Azure portal (new)
+    title: Azure portal
   - id: platform-azcli
     title: Azure CLI
   - id: programming-language-java
@@ -1030,7 +1028,8 @@ groups:
   - id: callend
     title: Call end
 # Owner: prakulka
-- id: acs-tollfree-shortcode-alphanumeric-tendlc
+# SMS Number types pricing
+- id: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1040,6 +1039,8 @@ groups:
     title: 10DLC
   - id: shortcode
     title: Short Code
+  - id: mobile-number
+    title: Mobile Numbers
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe

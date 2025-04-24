@@ -748,9 +748,6 @@ items:
   - name: Private 5G Core
     tocHref: /azure/private-5g-core/
     topicHref: /azure/private-5g-core/
-  - name: Redis
-    tocHref: /azure/azure-cache-for-redis/
-    topicHref: /azure/azure-cache-for-redis/index
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
@@ -971,3 +968,11 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
+  - name: Redis
+    tocHref: /azure/redis/
+    topicHref: /azure/redis/index
+    items:
+    - name: Azure Cache for Redis
+      tocHref: /azure/azure-cache-for-redis/
+      topicHref: /azure/azure-cache-for-redis/index
+

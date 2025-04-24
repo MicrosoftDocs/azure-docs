@@ -2,7 +2,7 @@
 title: Reservation discounts for Azure App Service
 description: Learn how reservation discounts apply to Azure App Service Premium v3 and Isolated v2 instances.
 author: pri-mittal
-ms.reviewer: jordanselig
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

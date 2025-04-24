@@ -11,6 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "migrate/**",
           "cyclecloud/**",
           "**/_themes/**",
           "**/includes/**",
@@ -36,6 +37,20 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -97,6 +112,22 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -1241,6 +1272,9 @@
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
         "articles/governance/management-groups/**/*.md": "azure-governance"
       },
+      "monikerRange": {
+        "articles/migrate/**/*.md": "<=migrate-classic >=migrate"
+      },
       "recommendations": {
       },
       "no-loc": {
@@ -1478,6 +1512,10 @@
       "cyclecloud-7-group": {
         "dest": "tempdest_cyclecloud_7",
         "moniker_range": ">= cyclecloud-7"
+      },
+      "migrate": {
+        "dest": "migrate",
+        "moniker_range": "<=migrate-classic >=migrate"
       }
     },
     "dest": "azure",

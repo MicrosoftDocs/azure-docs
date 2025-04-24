@@ -111,7 +111,7 @@ items:
       href: native-create-azure-vmware-virtual-network-private-cloud.md
   - name: Architecture
     items:
-    - name: Design Considerations for Gen 2
+    - name: Design considerations for Gen 2
       href: native-network-design-consideration.md
   - name: Security
     items:
@@ -362,7 +362,7 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-  - name: Self service maintenance orchestration (public preview)
+  - name: Self service maintenance orchestration (preview)
     href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware solution
     href: enable-vmware-cds-with-azure.md
