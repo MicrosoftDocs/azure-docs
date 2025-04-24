@@ -29,6 +29,9 @@ productDirectory:
   items:
     - title: Arize AI
       imageSrc: ./media/index/arize-ai.svg
+      links: 
+      - url: ./arize-ai/overview.md
+        text: An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.
     - title: Astro
       imageSrc: ./media/index/astronomer.svg
       links:
