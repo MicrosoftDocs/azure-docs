@@ -29,7 +29,7 @@ Learn more foundational concepts in the virtual appointments [overview](../../co
 ### Capabilities
 The Sample Builder can help:
 -  **Deploy a working virtual visit experience in minute**s—minimal code required
--  **Try new features early**—test UI capabilities that ahead of release
+-  **View cutting edge new AI capabilites**— try out new AI powered features 
 -  **Customize the consumer experience** with by altering prebuilt user interface, post-call surveys, and more
 -  **Integrate with Microsoft Bookings** to support scheduling workflows
 -  **Launch Microsoft Teams meetings** using Azure Communication Services and enable guest access via the web app
@@ -70,10 +70,10 @@ After deployment, you can immediately test the deployed sample by visiting these
 The following tutorial goes into more depth on how you can set this up.
  
 
-# Tutorial: Build a virtual appointment sample
+## Tutorial: Build a virtual appointment sample
 In this section, we're going to use a Sample Builder tool to deploy a Microsoft 365 + Azure hybrid virtual appointments application to an Azure subscription. This application is a desktop and mobile-friendly browser experience, with code that you can use to explore and make the final product. 
 
-## Step 0: Configure Microsoft 365 Bookings (Optional)
+### Step 0: Configure Microsoft 365 Bookings (Optional)
 
 The Sample builder provides an option to configure the sample using Microsoft 365 Bookings. This functionality allows the bookings app to power the consumer scheduling experience and create meetings for providers.  
 
@@ -94,9 +94,9 @@ And then, make sure "Add online meeting" is enabled.
  
  
 
-## Step 1: Create a sample in the builder
+### Step 1: Create a sample in the builder
 
-### Prerequisites
+#### Prerequisites
 To use the Sample Builder, you need:
 - An active Azure subscription
 - Admin permissions to deploy resources in Azure
@@ -119,7 +119,7 @@ As you progress through the wizard, select through different setting to see what
 [![Screenshot of Sample builder start page.](../media/virtual-visits/sample-builder-themes-4.25.png)](../media/virtual-visits/sample-builder-themes-4.25.png#lightbox)
 
 
-## Step 2: Deploy
+### Step 2: Deploy
 At the end of the Sample Builder wizard, you're met with three options. You can deploy to Azure, download the code as a zip, or clone to GitHub. The sample builder code is publicly available on [GitHub](https://github.com/Azure-Samples/communication-services-virtual-visits-js).
 
 [![Screenshot of Sample builder deployment page.](../media/virtual-visits/sample-builder-landing-4.25.png)](../media/virtual-visits/sample-builder-landing-4.25.png#lightbox)
@@ -132,7 +132,7 @@ After walking through the ARM template, you can **Go to resource group**.
 
 ![Screenshot of a completed Azure Resource Manager Template.](../media/virtual-visits/azure-complete-deployment-4.25.png)
 
-## Step 3: Test
+### Step 3: Test
 The Sample Builder creates three resources in the selected Azure subscriptions. The **App Service** is the consumer front end, powered by Azure Communication Services.
 
 ![Screenshot of produced azure resources in azure portal.](../media/virtual-visits/azure-resources-4.25.png)
@@ -141,11 +141,11 @@ Opening the App Service's URL and navigating to `https://<YOUR URL>/VISIT` allow
 
 ![Screenshot of final view of azure app service.](../media/virtual-visits/azure-resource-final-4.25.png)
 
-## Step 4: Set deployed app URL in Bookings 
+### Step 4: Set deployed app URL in Bookings 
 
 If using Bookings, enter the application URL followed by "/visit" in the "Deployed App URL" field at https://outlook.office.com/bookings/businessinformation. Otherwise, ignore this step.
 
-# Further Actions
+## Further Actions
 Congrats! You deployed a custom sample. As you try it out, consider the following
 
 ### Launching patterns
@@ -161,7 +161,7 @@ For more flexibility and customization, consider using:
 ### Identity & security
 The sample app issues ACS access tokens without user authentication. In production, implement secure user auth. [Azure Communication Services user access tokens](../../quickstarts/identity/access-tokens.md)
 
-# Next steps
+## Next steps
 - [Overview of virtual appointments](../../concepts/interop/virtual-visits/overview.md)
 - [Learn about Teams controls](../../concepts/interop/guest/teams-administration.md).
 - [Govern user experience in Teams meetings](../../concepts/interop/virtual-visits/govern-meeting-experience.md)
