@@ -608,7 +608,7 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
-#### 1.11.0
+#### 1.11.1
 Security improvements.
 
 - Released April 2025
