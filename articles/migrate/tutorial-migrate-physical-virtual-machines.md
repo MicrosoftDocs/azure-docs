@@ -171,7 +171,7 @@ Follow the steps to navigate to the Azure Migrate project:
 
 **Step 1**: Navigate to Azure Migrate project
 
-1. Open [Azure portal](/view/Microsoft_Azure_Migrate/AmhResourceMenuBlade/~/serverGoal) 
+1. Open [Azure portal](https://portal.azure.com) 
 1. Search for the **Azure Migrate** service.
 1. Create a new project or select an existing one. [Learn more](/azure/migrate/)
 
