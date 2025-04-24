@@ -123,7 +123,7 @@ You can pass parameters to jobs using *baseParameters* property in databricks ac
 
 In certain cases, you might require to pass back certain values from job back to the service, which can be used for control flow (conditional checks) in the service or be consumed by downstream activities (size limit is 2 MB).
 
-1. In your job, you can call [dbutils.job.exit("returnValue")](/azure/databricks/jobs/job-workflows#python-1) and corresponding "returnValue" will be returned to the service.
+1. In your job, you can call `dbutils.job.exit("returnValue")` and corresponding "returnValue" will be returned to the service.
 
 1. You can consume the output in the service by using expression such as `@{activity('databricks job activity name').output.runOutput}`. 
 
