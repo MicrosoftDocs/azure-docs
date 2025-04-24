@@ -1,11 +1,10 @@
 ---
 title: ASP.NET app containerization and migration to App Service
 description: This tutorial demonstrates how to containerize ASP.NET applications and migrate them to Azure App Service.
-author: SnehaSudhirG
-ms.author: sudhirsneha
+ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/19/2024
+ms.date: 02/06/2025
 ms.custom: engagement-fy24
 ---
 # ASP.NET app containerization and migration to Azure App Service
@@ -26,7 +25,7 @@ The App Containerization tool helps you:
 - **Deploy to Azure App Service.**  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
 
 > [!NOTE]
-> The Azure Migrate App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises computers, use the [Azure Migrate Discovery and assessment tool](tutorial-discover-vmware.md).
+> The Azure Migrate App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises computers, use the [Azure Migrate Discovery and assessment tool](./tutorial-discover-vmware.md).
 
 Not all applications will benefit from a straight shift to containers without significant rearchitecting. But some of the benefits of moving existing apps to containers without rewriting include:
 
