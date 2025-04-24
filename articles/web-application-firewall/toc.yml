@@ -184,6 +184,8 @@ items:
     href: waf-copilot.md
   - name: JavaScript challenge
     href: waf-javascript-challenge.md
+  - name: CAPTCHA challenge
+    href: ./afds/captcha-challenge.md
 - name: Operational excellence
   items:
   - name: Application Gateway

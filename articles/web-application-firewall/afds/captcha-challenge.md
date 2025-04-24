@@ -24,11 +24,15 @@ Incorporating CAPTCHA into Azure WAF not only enhances security but also minimiz
 
 When the CAPTCHA challenge is active on Azure WAF, any client's HTTP(s) request matches a specific rule prompts an interactive Microsoft CAPTCHA page. This challenge requires user participation to verify they're human before their request is validated by Azure WAF. Upon successful completion, WAF recognizes the request as originating from a legitimate user, and proceeds with standard rule processing. Requests that fail to complete the challenge are blocked, thus preventing automated bots from accessing protected resources. 
 
+:::image type="content" source="../media/captcha-challenge/browser-captcha.png" alt-text="Web Application Firewall CAPTCHA in the browser." lightbox="../media/captcha-challenge/browser-captcha.png":::
+
+
 ## Expiration 
 
-The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetime in minutes, determining how long a user remains validated before facing a new challenge. Once the lifetime expires, the user must complete the CAPTCHA challenge again to verify their identity. The lifetime is configurable between 5 and 1,440 minutes, with a default setting of 30 minutes.  
+The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetime in minutes, determining how long a user remains validated before facing a new challenge. Once the lifetime expires, the user must complete the CAPTCHA challenge again to verify their identity. The lifetime is configurable between 5 and 1,440 minutes, with a default setting of 30 minutes.  The CAPTCHA challenge cookie name is `afd_azwaf_captcha` on Azure Front Door. 
 
-The CAPTCHA challenge cookie name is **afd_azwaf_captcha** on Azure Front Door. 
+> [!NOTE]
+> The CAPTCHA challenge expiration cookie is injected into the user’s browser after successfully completing the challenge.
 
 ## Limitations 
 
