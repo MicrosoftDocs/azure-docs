@@ -4,7 +4,7 @@ description: Learn about using Microsoft Entra joined session hosts in Azure Vir
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 04/17/2025
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
