@@ -19,7 +19,7 @@ sections:
             [Cloud Native Qumulo (CNQ) on Microsoft Azure](https://qumulo.com/product/azure-cnq/) uses the same technology as ANQ but operates as a user-managed Platform-as-a-Service system within the customer’s tenant. CNQ users manually control the architectural resources. Elastic performance is managed through the system controls and capacity expands dynamically as the organization adds more data.
       - question: What storage class options are available with Azure Native Qumulo?
         answer: | 
-              Azure Native Qumulo offers multiple storage class options. See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
+              Azure Native Qumulo offers multiple storage class options, including Hot and Cold Locally Redundant Storage (LRS) and Hot Zone-Redundant Storage (ZRS). See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
       - question: What developer tools and interfaces are available for Azure Native Qumulo?
         answer: |
               Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management, including [Qumulo CLI](https://docs.qumulo.com/qq-cli-command-guide/), [Qumulo REST API](https://docs.qumulo.com/rest-api-guide/), and [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit).
