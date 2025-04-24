@@ -2,7 +2,7 @@
 title: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
 description: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations by committing to a reservation for your provisioned throughput units.
 author: pri-mittal
-ms.reviewer: primittal
+ms.reviewer: primittal, benshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to

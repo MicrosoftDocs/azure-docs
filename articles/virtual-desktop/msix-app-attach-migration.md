@@ -4,7 +4,7 @@ description: Learn how to migrate MSIX packages from MSIX app attach to app atta
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 04/23/2025
 ---
 

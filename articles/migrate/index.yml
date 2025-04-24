@@ -101,3 +101,9 @@ landingContent:
             url: /answers/topics/azure-migrate.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure VMware Solution landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone

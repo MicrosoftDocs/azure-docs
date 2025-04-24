@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 04/23/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -207,3 +207,11 @@ To configure simultaneous backups, follow these steps:
 * [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
 * [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
 * [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

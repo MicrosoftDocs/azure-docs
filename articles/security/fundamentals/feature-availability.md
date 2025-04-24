@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 06/27/2024
+ms.date: 04/23/2025
 ---
 
 # Cloud feature availability for commercial and US Government customers

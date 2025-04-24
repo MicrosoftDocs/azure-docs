@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 03/04/2024
 ---
 

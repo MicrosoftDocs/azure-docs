@@ -5,7 +5,7 @@ author: dknappettmsft
 ms.custom: devx-track-azurepowershell, docs_inherited
 ms.topic: how-to
 ms.date: 12/03/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Configure single sign-on for Azure Virtual Desktop using AD FS

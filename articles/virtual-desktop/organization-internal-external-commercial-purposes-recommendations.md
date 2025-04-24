@@ -3,7 +3,7 @@ title: Recommendations for deploying Azure Virtual Desktop for internal or exter
 description: Learn about recommendations for deploying Azure Virtual Desktop for internal or external commercial purposes, such as for your organization's workers, or using delivering software-as-a-service applications.
 ms.topic: conceptual
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ms.date: 07/14/2021
 ---

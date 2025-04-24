@@ -4,7 +4,7 @@ description: A glossary of terms and concepts for the Azure Virtual Desktop auto
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/19/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # Autoscale glossary for Azure Virtual Desktop

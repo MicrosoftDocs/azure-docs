@@ -5,7 +5,7 @@ author: dknappettmsft
 ms.topic: conceptual
 ms.custom: references_regions, docs_inherited
 ms.date: 03/27/2025
-ms.author: daknappe
+ms.author: avdcontent
 ---
 # Data locations for Azure Virtual Desktop
 

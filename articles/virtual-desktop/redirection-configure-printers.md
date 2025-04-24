@@ -4,7 +4,7 @@ description: Learn how to redirect printers from a local device to a remote sess
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 07/02/2024
 ---
 

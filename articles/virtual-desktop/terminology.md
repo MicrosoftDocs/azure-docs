@@ -4,7 +4,7 @@ description: Learn about the basic elements of Azure Virtual Desktop, like host 
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 10/01/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
