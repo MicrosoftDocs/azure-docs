@@ -44,14 +44,10 @@ If you didn't use a watchlist template to create your file,
 
 1. Select **+ New**.
 
-   #### [Defender portal](#tab/defender-portal)
-
+   ### [Defender portal](#tab/defender-portal)
    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new-defender.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new-defender.png":::
-
-   #### [Azure portal](#tab/azure-portal)
-
+   ### [Azure portal](#tab/azure-portal)
    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
-
    ---
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.
