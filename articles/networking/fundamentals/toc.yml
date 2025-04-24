@@ -106,7 +106,7 @@
     items:
     - name: Load balancing and content delivery overview
       href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/networking/fundamentals/toc.json
-    - name: load balancer
+    - name: Load balancer
       items:
         - name: Load balancing options in Azure
           href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/networking/fundamentals/toc.json
@@ -126,9 +126,9 @@
         href: ../../application-gateway/overview.md?toc=/azure/networking/fundamentals/toc.json
       - name: Create a web application load balancer
         href: ../../application-gateway/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Dns-based load balancer
+    - name: DNS-based load balancer
       href: ../../traffic-manager/traffic-manager-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Create a dns-based load balancer
+    - name: Create a DNS-based load balancer
       href: ../../traffic-manager/quickstart-create-traffic-manager-profile.md?toc=/azure/networking/fundamentals/toc.json
   - name: Deploy and manage a VPN gateway
     href: ../../vpn-gateway/tutorial-create-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
