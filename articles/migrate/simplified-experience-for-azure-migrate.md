@@ -19,7 +19,7 @@ The enhanced agent-based migration stack specifically designed for physical and 
 
 The upgraded agent-based migration stack provides customers with the tools and capabilities to efficiently migrate newer Linux distributions, utilize WS2019 for replication, and enjoy a unified OS support matrix, enhancing the overall migration process to Azure. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience)
 
-## Key difference
+## Key differences
 
 The key differences between the Classic and Simplified experience:
 
