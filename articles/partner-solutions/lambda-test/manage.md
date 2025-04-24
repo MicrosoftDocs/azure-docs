@@ -22,7 +22,7 @@ The *Essentials* details include:
 - Subscription
 - Subscription ID
 - Tags
-- Single Sign-On
+- Single sign-on
 - Status
 - Pricing Plan
 - Billing Term
