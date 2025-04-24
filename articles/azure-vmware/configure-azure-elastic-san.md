@@ -28,7 +28,8 @@ The following prerequisites are required to continue.
     
 - Have permission to set up new resources in the subscription your private cloud is in.
 - Reserve a dedicated address block for your external storage.
-- 
+- Use either the [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell), or [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli) to create an Elastic SAN in the same region and availability zone as your private cloud.
+- Setup a Private Endpoint using either the [Azure Portal](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-portal#tabpanel_2_azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint), or [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli) so your volume group can connect your SDDC to your Elastic SAN.
 
 ## Supported host types
 
@@ -41,32 +42,9 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 - AV52
 - AV64
 
-## Set up Elastic SAN
-
-In this section, you create a virtual network for your Elastic SAN. Then you create the Elastic SAN that includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up private endpoints for your Elastic SAN that allows your private cloud to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your private cloud.
-
-1. Use one of the following instruction options to set up a dedicated virtual network for your Elastic SAN:
-	- [Azure portal](../virtual-network/quick-create-portal.md)
-	- [Azure PowerShell module](../virtual-network/quick-create-powershell.md)
-	- [Azure CLI](../virtual-network/quick-create-cli.md)
-1. Use one of the following instruction options to set up an Elastic SAN, your dedicated volume group, and initial volume in that group:
-      > [!IMPORTANT]
-   > 
-   > Create your Elastic SAN in the same region and availability zone as your private cloud for best performance.
-   - [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
-   - [PowerShell](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
-   - [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
-1. Use one of the following instructions to configure a Private Endpoint (PE) for your Elastic SAN:
-      > [!IMPORTANT]
-   > 
-   > You must have a Private Endpoint set up for your dedicated volume group to be able to connect your SDDC to the Elastic SAN.
-   - [Azure Portal](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-portal#tabpanel_2_azure-portal)
-   - [PowerShell](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
-   - [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
-
 ## Configuration recommendations
 
-You should use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume group you intend to connect to your SDDC. Because of how Elastic SAN handles sessions, having multiple sessions comes with two benefits: increased performance thanks to parallelization, and increased reliability to handle single session disconnects due to unexpected factors like network glitches. When you establish multiple sessions, it mitigates the impact of session disconnects, as long as the connection re-established within a few seconds, your other sessions help load-balance traffic.
+Use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume group you intend to connect to your SDDC. Having multiple sessions comes with two benefits: better performance thanks to parallelization, and better reliability to handle single session disconnects from unexpected factors like network glitches. When you establish multiple sessions, it also mitigates the impact of session disconnects, as long as the connection is re-established within a few seconds, your other sessions help load-balance traffic.
 
    > [!NOTE]
    > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it will show the identifier of a device or filesystem, and state it has entered the All Paths Down state.
@@ -74,7 +52,8 @@ You should use multiple private endpoints to establish multiple sessions between
 Each private endpoint provides two sessions to Elastic SAN per host. The recommended number of sessions to Elastic SAN per host is 8, but because the maximum number of sessions an Elastic SAN datastore can handle is 128, the ideal number for your setup depends on the number of hosts in your private cloud. 
 
    > [!IMPORTANT]
-   > You should configure all Private Endpoints before attaching a volume as a datastore. Adding Private Endpoints after a volume is attached as a datastore will require detaching the datastore and reconnecting it to the cluster.
+   > Configure all Private Endpoints before attaching a volume as a datastore. Adding Private Endpoints after a volume is attached as a datastore will require detaching the datastore and reconnecting it to the cluster.
+
 ## Configure external storage address block
 
 Start by providing an IP block for deploying external storage. Navigate to the **Storage** tab in your Azure VMware Solution private cloud in the Azure portal. The address block should be a /24 network. 
@@ -93,6 +72,7 @@ After you provide an External storage address block, you need to connect your pr
 > [!NOTE]
 > Connection to Elastic SAN from Azure VMware Solution happens via private endpoints to provide the highest network security. Since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
 > These connectivity issues aren't expected to impact the availability of the datastore backed by Elastic SAN as the connection will be re-established within seconds. The potential impact from gateway maintenance is covered under the [Service Level Agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for ExpressRoute virtual network gateways and private endpoints.
+
 ## Add an Elastic SAN volume as a datastore
 
 Once your SDDC express route is connected with the private endpoint for your Elastic SAN volume group, use the following steps to connect the volume to your SDDC: 
