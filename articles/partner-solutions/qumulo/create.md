@@ -11,6 +11,13 @@ ms.date: 02/09/2025
 
 In this quickstart, you create an instance of Qumulo Scalable File Service.
 
+When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace: 
+
+- A delegated subnet that enables the Qumulo service to inject service endpoints (eNICs) into your virtual network.
+- A managed resource group that has internal networking and other resources required for the Qumulo service.
+- A Qumulo resource in the region of your choosing. This entity stores and manages your data.
+- A Software as a Service (SaaS) resource, based on the plan that you select in Azure Marketplace offer for Qumulo. This resource is used for billing.
+
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
@@ -64,7 +71,7 @@ There are required fields (identified with a red asterisk) in each section that 
    | Availability Zone  | Choose the availability zone for your resource. |
 
    > [!NOTE]
-   > If you select *Hot ZRS* as your storage class, you will not specify an Availability Zone.
+   > If you select *Hot ZRS* as your storage class, you won't specify an Availability Zone.
    
    Select the **Change plan** link to change your billing plan.
 

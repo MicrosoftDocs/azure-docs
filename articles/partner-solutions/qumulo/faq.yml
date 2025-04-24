@@ -20,13 +20,6 @@ sections:
       - question: What storage class options are available with Azure Native Qumulo?
         answer: | 
               Azure Native Qumulo offers multiple storage class options, including Hot and Cold Locally Redundant Storage (LRS) and Hot Zone-Redundant Storage (ZRS). See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
-      - question: What entities are created and mapped to a Qumulo file system namespace when I create a service instance? 
-        answer: |
-              When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace: <br />
-              - A delegated subnet that enables the Qumulo service to inject service endpoints (eNICs) into your virtual network. <br  />
-              - A managed resource group that has internal networking and other resources required for the Qumulo service. <br  />
-              - A Qumulo resource in the region of your choosing. This entity stores and manages your data. <br  />
-              - A Software as a Service (SaaS) resource, based on the plan that you select in Azure Marketplace offer for Qumulo. This resource is used for billing. <br  />
       - question: Where can I learn more about billing for Azure Native Qumulo? 
         answer: |
               See Qumulo's documentation for [billing information](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#usage-billing-and-metering-for-azure-native-qumulo). <br />
