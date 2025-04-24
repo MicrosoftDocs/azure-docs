@@ -5,6 +5,9 @@ description: Learn how to connect apps to your MongoDB Atlas (Preview) service u
 ms.topic: how-to
 ms.date: 04/22/2025
 ms.custom: service-connector
+ms.author: malev
+author: maud-lv
+
 ---
 
 # Connect apps to MongoDB Atlas (Preview)
@@ -17,9 +20,9 @@ This guide shows step by step instructions to connect an app deployed to Azure A
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* An existing MongoDB Atlas resource. If you don't have one yet, refer to [Quickstart: Get started with MongoDB Atlas (preview)](./create.md)
-* An app deployed to an [Azure compute service supported by Service Connector](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An existing MongoDB Atlas resource. If you don't have one yet, go to [MongoDB Atlas](https://www.mongodb.com/atlas).
+* An app deployed to an [Azure compute service supported by Service Connector](./overview.md#what-services-are-supported-by-service-connector).
 
 ## Create a new connection
 
@@ -56,5 +59,5 @@ Follow these steps to connect an app to MongoDB Atlas:
 
 ## Related content
 
-- [What is Service Conenctor](overview.md)
+- [What is Service Connector](overview.md)
 - [Learn about Service Connector concepts](concept-service-connector-internals.md)
