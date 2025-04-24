@@ -137,7 +137,7 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
 
 # VCD on Azure VMware Solution network scenarios 
  
-## How VCD tenant workload connect to public Internet
+## Connecting VCD tenants to internet
 
 - Tenants can use public IP to do SNAT configuration to enable Internet access for VM hosted in organization VDC. 
 
@@ -155,7 +155,7 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
     >  Overlapping IP address can be managed using NAT to prevent conflicts in end-to-end routing scenarios.
 
 
-## How VCD tenants and their organization virtual datacenters can connects to Azure services
+## How VCD tenants and their organization virtual datacenters can connect to Azure services
 
 - To enable access to VNet based Azure resources, each tenant can have a dedicated Azure VNet with an Azure VPN gateway. 
 - A site-to-site VPN is established between tenant’s organization VDC and Azure VNet. To achieve this connectivity, the tenant provides a public IP to the organization VDC. 
@@ -187,7 +187,7 @@ Eligible Enterprise and hosters can self-install and self-managed VMware Cloud D
 
 ### How is VMware Cloud Director supported on Azure VMware Solution?
 
-VMware Cloud Director on Azure VMware solution is supported for eligible enterprise customers and hosters only. BYOL VCD customers opens a support ticket directly with Broadcom for VCD issues. Non-BYOL customers open all support tickets to Microsoft support. Broadcom and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director issues on Azure VMware Solution. Please contact your account team to learn more.
+VMware Cloud Director on Azure VMware solution is supported for eligible enterprise customers and hosters only. BYOL (Bring your own license) VCD customers must open a support ticket directly with Broadcom for VCD issues. Non-BYOL customers open all support tickets to Microsoft support. Broadcom and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director issues on Azure VMware Solution. Please contact your account team to learn more.
 
 
 ### VCD responsibility matrix on Azure VMware Solution
