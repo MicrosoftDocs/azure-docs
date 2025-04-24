@@ -50,4 +50,4 @@ For information about which Azure compute services best fit your scenario, see [
 
 ## Next Steps
 
-- [Get Started with Azure App Service](https://azure.microsoft.com/services/app-service/)
+- [Getting started with Azure App Service](getting-started.md)
