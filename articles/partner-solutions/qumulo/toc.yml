@@ -14,16 +14,6 @@ items:
   items:
   - name: Manage resources
     href: manage.md
-  - name: Troubleshoot Azure Native Qumulo
-    href: troubleshoot.md
-- name: Disaster recovery
-  href: qumulo-disaster-recovery.md
-- name: Video editing
-  href: qumulo-video-editing.md
-- name: PACS VNA
-  href: qumulo-vendor-neutral-archive.md
-- name: Virtual desktops
-  href: qumulo-virtual-desktop.md
 - name: SDKs and command-lines
   items:
   - name: Python
