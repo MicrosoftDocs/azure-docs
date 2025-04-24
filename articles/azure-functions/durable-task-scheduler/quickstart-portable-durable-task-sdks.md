@@ -8,7 +8,7 @@ zone_pivot_groups: df-languages
 
 # Quickstart: Set a portable Durable Task SDK in your application to use Azure Functions Durable Task Scheduler (preview)
 
-The Durable Task SDKs, or "portable SDKs", provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that leverage [the fan-out/fan-in application pattern](../durable/durable-functions-overview.md#fan-in-out) to perform parallel processing.
+The Durable Task SDKs, or "portable SDKs", provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that leverage [the fan-out/fan-in application pattern](../durable/durable-functions-overview.md#fan-in-out) to perform parallel processing. 
 
 ::: zone pivot="javascript"
 
@@ -64,7 +64,7 @@ Before you begin:
 
 ## Set up the Durable Task Scheduler emulator
 
-The emulator simulates a scheduler and taskhub in a Docker container, making it ideal for the local development required in this quickstart.
+The code looks for a deployed scheduler and task hub. If none are found, the code falls back to the emulator. The emulator simulates a scheduler and taskhub in a Docker container, making it ideal for the local development required in this quickstart.
 
 ::: zone-end
 
