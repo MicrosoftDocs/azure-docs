@@ -19,8 +19,7 @@ sections:
             [Cloud Native Qumulo (CNQ) on Microsoft Azure](https://qumulo.com/product/azure-cnq/) uses the same technology as ANQ but operates as a user-managed Platform-as-a-Service system within the customer’s tenant. CNQ users manually control the architectural resources. Elastic performance is managed through the system controls and capacity expands dynamically as the organization adds more data.
       - question: Can I edit videos with Azure Native Qumulo?
         answer: | 
-              Yes. With Azure Native Qumulo (ANQ), content creators, editors, and artists in various geographical locations can work on video editing projects at the same speed and efficiency as if they were located in the same studio using the same local data center for processing and file storage. 
-              Video editing teams can work and collaborate remotely and still meet the demands for high-quality video content. 
+              Yes. With Azure Native Qumulo (ANQ), video editing teams can work and collaborate remotely and still meet the demands for high-quality video content. 
               For more information, see [Video editing with Azure Native Qumulo](https://qumulo.com/resources/video-editing-with-azure-native-qumulo-scalable-file-service/). 
       - question: Can I deploy a Vendor-Neutral Archive (VNA) solution using Azure Native Qumulo?
         answer: | 
