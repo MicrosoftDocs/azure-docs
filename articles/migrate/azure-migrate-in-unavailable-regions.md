@@ -1,6 +1,6 @@
 ---
 title: Azure Migrate in regions where it isn't available yet
-description: Describes how to create SQL Azure assessment with the Azure Migrate 
+description: Describes the regions that Azure Migrate doesn't support
 author: habiba
 ms.author: v-uhabiba
 ms.manager: ankitsurkar
