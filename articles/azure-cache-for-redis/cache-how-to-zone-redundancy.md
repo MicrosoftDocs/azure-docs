@@ -6,6 +6,8 @@ description: Learn how to set up zone redundancy for your Premium and Enterprise
 
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
@@ -73,9 +75,7 @@ To create a cache, follow these steps:
 
 Azure Cache for Redis automatically allocates zones to the cache on behalf of the user based on the number of nodes per shard and region's zonal support such that the cache is spread across multiple zones for high availability.
 
-With this type of allocation, users don't need to worry about choosing the zones manually for the cache and the capacity issues associated with the zones as Azure handles them.
-
-The actual zones that are allocated to the cache are abstracted from the user.
+With this type of allocation, users don't need to worry about choosing zones manually. The actual zones that are allocated to the cache are abstracted from the user. Azure ensures that the cache's primary and replica nodes are spread across different zones for high availability.
 
 The REST API spec for different types of zonal allocation can be found at: [Create - ZonalAllocationPolicy](/rest/api/redis/redis/create#zonalallocationpolicy).
 

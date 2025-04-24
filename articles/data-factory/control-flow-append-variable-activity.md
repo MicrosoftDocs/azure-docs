@@ -7,7 +7,7 @@ ms.custom: synapse
 ms.topic: conceptual
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.date: 09/26/2024
 ---
 

@@ -84,7 +84,7 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    ```
 
 
-### [zypper (OpenSUSE, SLES)](#tab/zypper)
+### [zypper (openSUSE, SLES)](#tab/zypper)
 
 1. Download the repository configuration package.
 
@@ -269,7 +269,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy login status](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login_status)|Lists the entities in a given resource.|
 |[azcopy logout](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_logout)|Logs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_make)|Creates a container or file share.|
-|[azcopy remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_remove)|Delete blobs or files from an Azure storage account.|
+|[azcopy remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_remove)|Delete blobs or files from an Azure storage account.|
 |[azcopy sync](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_sync)|Replicates the source location to the destination location.|
 |[azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties)|Change the access tier of one or more blobs and replace (overwrite) the metadata, and index tags of one or more blobs.|
 

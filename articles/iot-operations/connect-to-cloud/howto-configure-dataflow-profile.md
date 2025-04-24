@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 03/06/2025
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a a data flow profile to control a data flow behavior.
 ---
@@ -21,9 +21,10 @@ The most important setting is the instance count, which determines the number of
 
 ## Default data flow profile
 
-By default, a data flow profile named "default" is created when Azure IoT Operations is deployed. This data flow profile has a single instance count. You can use this data flow profile to get started with Azure IoT Operations.
+By default, a data flow profile named *default* is created when Azure IoT Operations is deployed. This data flow profile has a single instance count. You can use this data flow profile to get started with Azure IoT Operations.
 
-Currently, when using the [operations experience portal](https://iotoperations.azure.com/), the default data flow profile is used for all data flows.
+> [!IMPORTANT]
+> Currently, the default data flow profile is the only profile supported by the [operations experience web UI](https://iotoperations.azure.com/). All data flows created using the operations experience use the default data flow profile.
 
 # [Bicep](#tab/bicep)
 
@@ -69,37 +70,6 @@ spec:
 
 ---
 
-Unless you need additional throughput or redundancy, you can use the default data flow profile for your data flows. If you need to adjust the instance count or other settings, you can create a new data flow profile.
-
-## Create a new data flow profile
-
-To create a new data flow profile, specify the name of the profile and the instance count.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
-  parent: aioInstance
-  name: '<NAME>'
-  properties: {
-    instanceCount: <COUNT>
-  }
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1
-kind: DataflowProfile
-metadata:
-  name: '<NAME>'
-  namespace: azure-iot-operations
-spec:
-  instanceCount: <COUNT>
-```
-
----
 
 ## Scaling
 

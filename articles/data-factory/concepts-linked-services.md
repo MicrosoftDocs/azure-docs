@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about linked services in Azure Data Factory and Azure Synapse Analytics. Linked services link compute and data stores to the service.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual

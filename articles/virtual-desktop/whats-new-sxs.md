@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: sipastak
 ms.topic: release-notes
-ms.date: 02/05/2025
+ms.date: 03/18/2025
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -31,8 +31,28 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.2409.29800  |
-| Validation | 1.0.2409.29600  |
+| Production | 1.0.2409.29850  |
+| Validation | 1.0.2501.05600  |
+
+## Version 1.0.2501.05600
+
+*Published March 2025*
+
+In this release, we've made the following changes:
+
+- Connection reliability bug fixes.
+- Improved diagnostics checkpoints for UDP connections.
+- Added a diagnostic checkpoint to log all graphics codecs in use and whether hardware graphics encoding is active for each connection session.
+- Resolved a RemoteApp issue where the Office clipboard status box would disrupt the local work area.
+- Fixed an issue with high-contrast settings to ensure proper RemoteApp connection establishment.
+
+## Version 1.0.2409.29850
+
+*Published: March 2025*
+
+In this release, we've made the following changes:
+
+- A fix has been implemented to resolve a deadlock issue that was causing session hosts to stop accepting new Azure Virtual Desktop connections. 
 
 ## Version 1.0.2409.29800
 

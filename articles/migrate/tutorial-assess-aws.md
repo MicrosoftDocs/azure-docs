@@ -1,13 +1,11 @@
 ---
 title: Assess AWS instances for migration to Azure with Azure Migrate
 description: Learn to access AWS instances for migration to Azure with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/08/2024
+ms.date: 02/06/2025
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
+monikerRange: migrate-classic
 #Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
 ---
 
@@ -48,7 +46,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
@@ -69,7 +67,7 @@ Run an assessment as follows:
 1. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
         - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you'll be prompted to specify **Reserved Instances** and **VM series**.
-        - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government)
+        - In Azure Government, you can target assessments in [these regions](supported-geographies.md#azure-government)
     - In **Storage type**,
         - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
         - Alternatively, select the storage type you want to use for VM when you migrate it.
@@ -186,7 +184,7 @@ Confidence ratings are as follows.
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
 
 ## Next steps
 

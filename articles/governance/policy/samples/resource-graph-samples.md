@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure Policy
 description: Sample Azure Resource Graph queries for Azure Policy showing use of resource types and tables to access Azure Policy related resources and properties.
-ms.date: 02/25/2025
+ms.date: 03/19/2025
 ms.topic: sample
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -18,14 +18,6 @@ for Azure Policy.
 ## Azure Policy exemptions
 
 [!INCLUDE [policy-resources-exemption-query](../../includes/policy/policy-resources-exemption-query.md)]
-
-<!--
-## Azure Policy Guest Configuration
-
-[!INCLUDE [azure-resource-graph-samples-cat-policy-gc](../../includes/policy/azure-policy-guest-configuration.md)]
-
--->
-
 
 ## Next steps
 

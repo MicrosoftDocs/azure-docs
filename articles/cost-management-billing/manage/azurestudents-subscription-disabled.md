@@ -1,13 +1,13 @@
 ---
 title: Reactivate disabled Azure for Students subscription
 description: Explains why your Azure for Students subscription is disabled and how to reactivate it.
-author: bandersmsft
-ms.reviewer: amberbhargava
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Why is my Azure for Students subscription disabled and how do I reactivate it?

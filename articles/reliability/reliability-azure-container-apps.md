@@ -29,7 +29,7 @@ By enabling Container Apps' zone redundancy feature, replicas are automatically 
 
 Azure Container Apps offers the same reliability support regardless of your plan type.
 
-Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](availability-zones-region-support.md).
+Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](regions-list.md).
 
 ### SLA improvements
 

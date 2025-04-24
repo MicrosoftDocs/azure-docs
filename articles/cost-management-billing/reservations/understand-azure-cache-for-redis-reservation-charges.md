@@ -4,10 +4,10 @@ description: Learn how reservation discount is applied to Azure Cache for Redis 
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.author: banders
-ms.reviewer: franlanglois
-author: bandersmsft
-ms.date: 12/06/2024
+ms.author: primittal
+ms.reviewer: primittal
+author: pri-mittal
+ms.date: 03/26/2025
 
 ---
 

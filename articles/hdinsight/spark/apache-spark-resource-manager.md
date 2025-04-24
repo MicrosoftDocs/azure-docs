@@ -4,6 +4,9 @@ description: Learn how to manage resources for Spark clusters on Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 07/12/2024
 ---
 

@@ -4,7 +4,7 @@ description: This article tells how to use Microsoft Entra ID within Azure Autom
 services: automation
 ms.date: 09/09/2024
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure
@@ -19,18 +19,13 @@ You can enable Microsoft Entra ID through the following PowerShell modules:
 
 * Azure Active Directory PowerShell for Graph (AzureRM and Az modules). Azure Automation ships with the AzureRM module and its recent upgrade, the Az module. Functionality includes non-interactive authentication to Azure using Microsoft Entra user (OrgId) credential-based authentication. See [Microsoft Entra ID 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
 
-* Microsoft Entra ID for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Microsoft 365.
-
->[!NOTE]
->PowerShell Core does not support the MSOnline module. To use the module cmdlets, you must run them from Windows PowerShell. You're encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module.
-
-[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+* Microsoft Entra ID for Windows PowerShell. This module enables interactions with Microsoft Online, including Microsoft 365.
 
 ### Preinstallation
 
 Before installing the Microsoft Entra modules on your computer:
 
-* Uninstall any previous versions of the AzureRM/Az module and the MSOnline module. 
+* Uninstall any previous versions of the AzureRM/Az module and the retired MSOnline module.
 
 * Uninstall the Microsoft Online Services Sign-In Assistant to ensure correct operation of the new PowerShell modules.  
 
@@ -41,12 +36,12 @@ Before installing the Microsoft Entra modules on your computer:
 
 1. Install Windows Management Framework (WMF) 5.1. See [Install and Configure WMF 5.1](/powershell/scripting/wmf/setup/install-configure).
 
-2. Install AzureRM and/or Az using instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps).
+2. Install AzureRM and/or Az using instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
-### Install the MSOnline module
+### Install the module
 
 >[!NOTE]
->To install the MSOnline module, you must be a member of an admin role. See [About admin roles](/microsoft-365/admin/add-users/about-admin-roles).
+>To install the module, you must be a member of an admin role. See [About admin roles](/microsoft-365/admin/add-users/about-admin-roles).
 
 1. Ensure that the Microsoft .NET Framework 3.5.x feature is enabled on your computer. It's likely that your computer has a newer version installed, but backward compatibility with older versions of the .NET Framework can be enabled or disabled. 
 
@@ -54,7 +49,7 @@ Before installing the Microsoft Entra modules on your computer:
 
 3. Run Windows PowerShell as an administrator to create an elevated Windows PowerShell command prompt.
 
-4. Deploy Microsoft Entra ID from [MSOnline 1.0](https://www.powershellgallery.com/packages/MSOnline/1.0).
+4. Deploy Microsoft Entra ID from [Microsoft.Entra](https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.4).
 
 5. If you're prompted to install the NuGet provider, type Y and press ENTER.
 
