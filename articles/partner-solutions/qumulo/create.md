@@ -21,9 +21,9 @@ When you create the service instance, the following entities are also created an
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- For custom roles, you also need *write* access to the resource groups for your delegated subnet and Qumulo file system namespace.
 - You must [subscribe to Qumulo](overview.md#subscribe-to-qumulo).
-- A [virtual network](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with a [subnet](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with at least 256 IP Addresses delegated to `Qumulo.Storage/fileSystems`.
+- A [virtual network](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with a [delegated subnet](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with at least 256 IP Addresses delegated to `Qumulo.Storage/fileSystems`.
+- For custom roles, you also need *write* access to the resource groups for your delegated subnet and Qumulo file system namespace.
 
 ## Create a Qumulo resource
 
