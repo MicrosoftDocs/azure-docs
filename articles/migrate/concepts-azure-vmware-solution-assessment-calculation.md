@@ -44,8 +44,29 @@ Azure VMware Solution assessment provides two sizing criteria options:
 
 There are a couple of ways to run an assessment.
 
-- Assess servers by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises servers. It then sends server metadata and performance data to Azure Migrate. This allows for more precision.
+- Assess servers by using server metadata that's imported in an RVTools XLSX file.
 - Assess servers by using server metadata that's imported in a comma-separated values (CSV) format.
+- Assess servers by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises servers. It then sends server metadata and performance data to Azure Migrate. This allows for more precision.
+
+
+## How do I assess with data imported using an RVTools file?
+
+If you're assessing servers by using an RVTools file, you don't need an appliance. Instead, do the following steps:
+
+1. Set up Azure to work with Azure Migrate.
+2. For your first assessment, create an Azure Migrate project and add the Discovery and assessment tool to it.
+3. Import your RVTools XLSX file into Azure Migrate.
+4. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
+
+## How do I assess with data using a CSV file?
+
+If you're assessing servers by using a CSV file, you don't need an appliance. Instead, do the following steps:
+
+1. Set up Azure to work with Azure Migrate.
+2. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
+3. Download a CSV template and add server data to it.
+4. Import the template into Azure Migrate.
+5. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
 
 ## How do I assess with the appliance?
 
@@ -58,16 +79,6 @@ If you're deploying an Azure Migrate appliance to discover on-premises servers, 
 After the appliance begins server discovery, you can gather servers you want to assess into a group and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
 
 Create your first Azure VMware Solution assessment by following the steps [here](how-to-create-azure-vmware-solution-assessment.md).
-
-## How do I assess with imported data?
-
-If you're assessing servers by using a CSV file, you don't need an appliance. Instead, do the following steps:
-
-1. Set up Azure to work with Azure Migrate.
-2. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
-3. Download a CSV template and add server data to it.
-4. Import the template into Azure Migrate.
-5. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
 
 ## What data does the appliance collect?
 
