@@ -3,9 +3,9 @@ title: Render configuration for Microsoft Planetary Computer Pro
 description: Learn how to configure render settings for geospatial data visualization in the Microsoft Planetary Computer Pro data explorer.
 author: MarcLichtman
 ms.author: marclichtman
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: concept-article
-ms.date: 04/09/2025
+ms.date: 04/24/2025
 ---
 
 # Render configuration in Microsoft Planetary Computer Pro

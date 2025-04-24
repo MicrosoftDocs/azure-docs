@@ -258,7 +258,7 @@ items:
     - name: Azure Custom Providers
       tocHref: /azure/azure-resource-manager/custom-providers/
       topicHref: /azure/azure-resource-manager/custom-providers/
-  - name: Azure Native ISV Services
+  - name: Azure Native Integrations
     tocHref: /azure/partner-solutions/
     topicHref: /azure/partner-solutions/
     items:
@@ -574,6 +574,16 @@ items:
   - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
+    items:
+    - name: Connectors
+      tocHref: /azure/logic-apps/connectors/
+      topicHref: /azure/logic-apps/connectors/
+    - name: B2B and EDI
+      tocHref: /azure/logic-apps/enterprise-integration/
+      topicHref: /azure/logic-apps/enterprise-integration/
+    - name: Rules Engine
+      tocHref: /azure/logic-apps/rules-engine/
+      topicHref: /azure/logic-apps/rules-engine/
   - name: Machine Learning
     tocHref: /azure/machine-learning
     topicHref: /azure/machine-learning/
@@ -738,9 +748,6 @@ items:
   - name: Private 5G Core
     tocHref: /azure/private-5g-core/
     topicHref: /azure/private-5g-core/
-  - name: Redis
-    tocHref: /azure/azure-cache-for-redis/
-    topicHref: /azure/azure-cache-for-redis/index
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
@@ -961,3 +968,11 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
+  - name: Redis
+    tocHref: /azure/redis/
+    topicHref: /azure/redis/index
+    items:
+    - name: Azure Cache for Redis
+      tocHref: /azure/azure-cache-for-redis/
+      topicHref: /azure/azure-cache-for-redis/index
+

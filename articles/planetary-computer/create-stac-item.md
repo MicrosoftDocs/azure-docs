@@ -1,37 +1,36 @@
 ---
-title: Create a STAC Item | Microsoft Planetary Computer Pro
+title: Create a STAC Item in Microsoft Planetary Computer Pro
 description: Learn how to create A STAC Item for a geospatial data asset for use with Microsoft Planetary Computer (MPC) Pro. 
 author: meaghanlewis
 ms.author: prasadkomma
-ms.service: planetary-computer
-ms.topic: tutorial
+ms.service: azure
+ms.topic: how-to
 ms.date: 04/08/2025
 
 # customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an MPC Pro GeoCatalog.
 ---
 
-# Tutorial: Create a SpatioTemporal Asset Catalog (STAC) item
+# Create a SpatioTemporal Asset Catalog (STAC) item
 
-In this tutorial, you'll be creating a SpatioTemporal Asset Catalog (STAC) item for a raster geospatial data asset. Every geospatial data asset that is uploaded to a Microsoft Planetary Computer (MPC) Pro GeoCatalog must have an associated STAC-compliant Item.
+Learn how to create a SpatioTemporal Asset Catalog (STAC) item for a raster geospatial data asset. Every geospatial data asset that is uploaded to a Microsoft Planetary Computer (MPC) Pro GeoCatalog must have an associated STAC-compliant Item.
 
-In this tutorial, you:
+In this guide, you:
 
-> [!div class="checklist"]
-> * Install the required Python libraries using PIP.
-> * Display and inspect GOES-18 data using the provided Python code.
-> * Extract metadata from the file name using regular expressions.
-> * Create STAC Items from Cloud-Optimized GeoTIFF files using `rio-stac`.
-> * Enhance the STAC Item with metadata extracted from the file name.
-> * Add the STAC Item to a parent STAC Collection.
-> * Validate and save the STAC catalog, collection, and items.
-> * Add the STAC Items to Microsoft Planetary Computer Pro.
+- Install the required Python libraries using PIP.
+- Display and inspect GOES-18 data using the provided Python code.
+- Extract metadata from the file name using regular expressions.
+- Create STAC Items from Cloud-Optimized GeoTIFF files using `rio-stac`.
+- Enhance the STAC Item with metadata extracted from the file name.
+- Add the STAC Item to a parent STAC Collection.
+- Validate and save the STAC catalog, collection, and items.
+- Add the STAC Items to Microsoft Planetary Computer Pro.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure CLI: [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+- Azure CLI: [Install Azure CLI](/cli/azure/install-azure-cli)
 - A Python environment with at least version 3.8.
 - Some familiarity with the STAC standard and its implementation in MPC Pro [STAC Overview](./stac-overview.md)
 
@@ -930,6 +929,6 @@ We can now add the STAC Collection and STAC Item we created to MPC Pro.
 
 - To add the entire catalog, follow the [Bulk Ingestion Quickstart](bulk-ingestion-api.md)
 
-- To add a single item, follow the [Add STAC Items to a Collection](items-api-python.md)
+- To add a single item, follow the [Add STAC Items to a Collection](./add-stac-item-to-collection.md)
 
 We also offer the [STAC Forge tool](/tools/stacforge-functions/README.md) which provides increased automation using templates around data. 

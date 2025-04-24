@@ -1,5 +1,5 @@
 ---
-title: Traffic coverage
+title: Azure Maps Traffic service coverage
 titleSuffix: Microsoft Azure Maps
 description: Learn about traffic coverage in Azure Maps. See whether information on traffic flow and incidents is available in various regions throughout the world.
 author: farazgis
@@ -12,7 +12,7 @@ zone_pivot_groups: azure-maps-coverage
 ---
 
 
-# Azure Maps traffic coverage
+# Azure Maps Traffic service coverage
 
 ::: zone pivot="service-previous"
 <!-----------------------------  Traffic v1   ---------------------------------------------------------------------------->

@@ -3,12 +3,10 @@ title: Deploy a GeoCatalog resource | Microsoft Planetary Computer Pro
 description: Learn how to deploy a Microsoft Planetary Computer Pro GeoCatalog resource using Azure portal or Azure REST API
 author: aloverro
 ms.author: adamloverro
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: install-set-up-deploy #Don't change
-ms.date: 04/08/2025
-
+ms.date: 04/24/2025
 # customer intent: As an Azure user I want to deploy a GeoCatalog resource so that I can use a GeoCatalog to organize, query, visualize and retrieve my geospatial data assets
-
 ---
 
 # Deploy a GeoCatalog resource
@@ -29,7 +27,7 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
 
 ## Deploy GeoCatalog with the Azure portal
 
-1. Navigate to the [Azure Portal](https://portal.azure.com/)
+1. Navigate to the [Azure portal](https://portal.azure.com/)
 
 1. Find the **GeoCatalogs** resource type use the Azure portal search bar at the top of the page; select "GeoCatalogs" from under the list of Services.
 

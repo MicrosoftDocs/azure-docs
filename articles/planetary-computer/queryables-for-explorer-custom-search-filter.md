@@ -3,7 +3,7 @@ title: Overview of Queryables | Microsoft Planetary Computer Pro
 description: Learn how to configure and use queryables in Microsoft Planetary Computer Pro to create custom search filters for geospatial data in the Data Explorer.
 author: tanyamarton
 ms.author: tanyamarton
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: concept-article
 ms.date: 04/09/2025
 

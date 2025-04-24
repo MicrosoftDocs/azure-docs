@@ -121,11 +121,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Expand the menu at the top left and select **Create a resource**.  Then select > **Integration** > **Data Factory**:
+1. Expand the menu at the top left and select **Create a resource**.  Then select **Analytics** > **Data Factory** :
 
-   :::image type="content" source="./media/tutorial-control-flow-portal/create-resource.png" alt-text="Shows a screenshot of the &quot;Create a resource&quot; button in the Azure portal.":::
-
-   :::image type="content" source="./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png" alt-text="Shows a screenshot of the Data Factory selection in the &quot;New&quot; pane.":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Shows a screenshot of the Data Factory selection in the &quot;New&quot; pane.":::
 
 1. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 

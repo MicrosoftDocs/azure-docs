@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: madsd
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 01/31/2025
+ms.date: 04/10/2025
 ms.author: madsd
 ms.custom: "UpdateFrequency3, fasttrack-edit"
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
@@ -115,15 +115,18 @@ In addition to there being an App Service plan SKU requirement, there's an extra
 
 ## Hybrid Connection Manager
 
-The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download HCM:
+> [!NOTE]
+> The new version of the Hybrid Connection Manager is in public preview and supports both Windows and Linux. To download and learn more about the new version, see [Announcing the Public Preview of the New Hybrid Connection Manager](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-public-preview-of-the-new-hybrid-connection-manager-hcm/4401657).
+>
 
-1. In the [Azure portal], select your app. Select **Settings** > **Networking**.
-1. Next to **Hybrid connections**, select the link to open the **Hybrid connections page**.
-1. Select **Download connection manager**.
+The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download the HCM:
+
+> [!div class="nextstepaction"]
+> [Download the Hybrid Connection Manager](https://download.microsoft.com/download/0/e/4/0e48d57b-c563-4877-8acb-cb740c7c6a78/HybridConnectionManager-0.7.9.msi)
 
 This tool runs on Windows Server 2012 and later. The HCM runs as a service and connects outbound to Azure Relay on port 443.
 
-After you install HCM, you can run *HybridConnectionManagerUi.exe* to use the UI for the tool. This file is in the Hybrid Connection Manager installation directory. In Windows 10, you can also search for *Hybrid Connection Manager UI* in your search box.
+After you install HCM, you can run *HybridConnectionManagerUi.exe* to use the UI for the tool. This file is in the Hybrid Connection Manager installation directory. In Windows 10 and later, you can also search for *Hybrid Connection Manager UI* in your search box.
 
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm.png" alt-text="Screenshot of Hybrid Connection Manager.":::
 

@@ -6,7 +6,7 @@ summary: Microsoft Planetary Computer Pro accelerates geospatial insights genera
 metadata:
   title: Microsoft Planetary Computer Pro
   description: Microsoft Planetary Computer Pro accelerates geospatial insights generation and the integration of these into mainstream enterprise data and AI workflows to ingest, manage, and leverage customers’ private geospatial datasets. 
-  ms.service: planetary-computer
+  ms.service: azure
   ms.topic: landing-page
   author: prasadkomma
   ms.author: prasadkomma
@@ -35,15 +35,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Get started with Microsoft Planetary Computer Pro
-            url: get-started.md
-      - linkListType: concept
-        links:
-          - text: Get started with Microsoft Planetary Computer Pro
-            url: get-started.md
-      - linkListType: how-to-guide
-        links:
-          - text: Get started with Microsoft Planetary Computer Pro
-            url: get-started.md
+            url: get-started-with-planetary-computer.md
 
   # Card
   - title: Concepts

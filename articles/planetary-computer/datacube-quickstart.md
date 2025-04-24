@@ -1,14 +1,12 @@
 ---
 title: "Quickstart: Get Started with Data Cubes in Microsoft Planetary Computer Pro"
-description: "Description of how to work with data cube data Microsoft Planetary Computer Pro "
-author: "brentharris"
-ms.author: "brentharris"
+description: Learn how to work with data cube data Microsoft Planetary Computer Pro.
+author: brentharris
+ms.author: brentharris
 ms.service: mpcpro
 ms.topic: quickstart
-ms.date: 4/9/2025
-
+ms.date: 4/24/2025
 #customer intent: help customers understand the nuances of ingesting and rendering data cube assets in Microsoft Planetary Computer Pro. 
-
 ---
 
 # Quickstart: Get started with data cubes in Microsoft Planetary Computer Pro

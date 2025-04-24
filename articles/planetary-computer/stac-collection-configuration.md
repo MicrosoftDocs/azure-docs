@@ -1,11 +1,13 @@
 ---
-title: Concept - Collection configuration in Microsoft Planetary Computer Pro
-description: "This article describes how to configure your collections in Microsoft Planetary Computer Pro to enable visualization of your data in the Explorer."
+title: Configure and Visualize STAC Collections
+description: "[Article description]."
 author: brentharris
 ms.author: brentharris
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: concept-article #Don't change.
-ms.date: [04/24/2025]
+ms.date: mm/dd/yyyy
+
+#customer intent: As a Microsoft Planetary Computer Pro user I want to understand how to configure my STAC Collection to help visualize my data. 
 
 #customer intent: As a Microsoft Planetary Computer Pro user I want to understand how to configure my collections so I can vizualize data in the Explorer.
 ---

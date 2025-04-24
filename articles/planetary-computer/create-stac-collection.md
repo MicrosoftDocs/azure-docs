@@ -2,10 +2,10 @@
 title: "Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog using Python"
 description: Learn how to add and use STAC collections in Microsoft Planetary Computer Pro GeoCatalog using Python.
 author: Prasad Komma
-ms.author: prasadkommamma
-ms.service: planetary-computer
+ms.author: prasadkomma
+ms.service: azure
 ms.topic: quickstart
-ms.date: 04/08/2025
+ms.date: 04/24/2025
 #customer intent: As a user of geospatial data, I want to create a STAC collection so that I can organize metadata for geospatial assets for later querying.
 ---
 

@@ -3,7 +3,7 @@ title: "Quickstart: Add STAC Items to a Collection with Microsoft Planetary Comp
 description: Learn how to add and use STAC Items in Microsoft Planetary Computer Pro GeoCatalog and Python.
 author: aloverro
 ms.author: adamloverro
-ms.service: planetary-computer
+ms.service: azure
 ms.topic: quickstart
 ms.date: 04/09/2025
 

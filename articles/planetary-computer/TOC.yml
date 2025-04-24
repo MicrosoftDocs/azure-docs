@@ -29,6 +29,8 @@
     href: datacube-quickstart.md
 - name: How-to-guides
   items:
+  - name: Create a STAC item
+    href: create-stac-item.md
   - name: Setup an ingestion source using managed identity
     href: setup-ingestion-credentials-managed-identity.md 
   - name: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
@@ -37,10 +39,6 @@
     href: bulk-ingest-api.md
   - name: Visualize assets
     href: visualize-assets.md  
-- name: Tutorials
-  items:
-  - name: Create a STAC item
-    href: create-stac-item.md
 - name: Concepts
   items:
   - name: Data cube Overview

@@ -1,14 +1,12 @@
 ---
-title: "Supported Data Types | Microsoft Planetary Computer Pro"
-description: "Discover the supported data types in Microsoft Planetary Computer Pro, including raster, data cubes, and future formats like Zarr and 3D data."
-author: "beharris"
-ms.author: "brentharris"
+title: Supported data types in Microsoft Planetary Computer Pro
+description: Discover the supported data types in Microsoft Planetary Computer Pro, including raster, data cubes, and future formats like Zarr and 3D data.
+author: beharris
+ms.author: brentharris
 ms.service: planetary-computer
-ms.topic: feature
+ms.topic: concept-article
 ms.date: 4/9/2025
-
 #customer intent: As a user of an Microsoft Planetary Computer (MPC) Pro GeoCatalog, I want to understand which geospatial data formats are supported so that I can understand the capabilities of MPC Pro. 
-
 ---
 
 # Supported data types in Microsoft Planetary Computer Pro

@@ -1,14 +1,12 @@
 ---
-title: "The Bulk Ingestion API | Microsoft Planetary Computer Pro" 
-description: "This article shows how to use the Microsoft Planetary Computer Pro Bulk Ingestion API to ingest a large volume of geospatial data into a GeoCatalog"
-author: "karthick.narendran"
-ms.author: "kanarend"
-ms.service: planetary-computer
+title: The Bulk Ingestion API - Microsoft Planetary Computer Pro
+description: This article shows how to use the Microsoft Planetary Computer Pro Bulk Ingestion API to ingest a large volume of geospatial data into a GeoCatalog.
+author: karthick.narendran
+ms.author: kanarend
+ms.service: azure
 ms.topic: how-to #Don't Change
 ms.date: 04/18/2024
-
 #customer intent: As a geocatalog user, I want to use the Bulk Ingestion API so that I can efficiently ingest a large amount of geospatial data into my GeoCatalog.
-
 ---
 
 # Ingest data into GeoCatalog with the Bulk Ingestion API
@@ -21,7 +19,7 @@ This article shows you how to ingest many geospatial data assets at once into a 
 
 In your Azure subscription:
 1. [GeoCatalog](./deploy-geocatalog-resource.md)
-1. [Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)
+1. [Azure Storage Account](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
 A geospatial dataset in your storage account blob container:
 1. Geospatial data assets (for example, GeoTIFF files) 
@@ -31,8 +29,8 @@ A geospatial dataset in your storage account blob container:
 In your local / development environment:
 
 1. A Python environment running Python 3.8, or later.
-1. [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
-1. You're [signed in to Azure](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively)
+1. [Azure CLI](/cli/azure/install-azure-cli)
+1. You're [signed in to Azure](/cli/azure/authenticate-azure-cli-interactively)
 
 Microsoft Planetary Computer (MPC) Pro must have access to the Azure Blob Storage container. In this article, we create and use a temporary SAS token credential to grant this access. Alternatively, you can use these guides to set up Managed Identity or hard-coded SAS Tokens.
 
