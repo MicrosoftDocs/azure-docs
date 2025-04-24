@@ -23,23 +23,9 @@ This article provides a comprehensive guide to set up a Network Security Perimet
 
 - An active Azure subscription.
 
-- Enable the Azure Feature Exposure Control (AFEC) flag `AllowNetworkSecurityPerimeter` and `AcsNspPreview` for your subscription.
+- The latest Azure CLI. This article requires [Azure CLI version 2.38.0 or later](/cli/azure/install-azure-cli-windows).
 
-- Register for the Azure Network Security Perimeter public preview. To register, add the `AllowNSPInPublicPreview` feature flag to your subscription.
-   
-   :::image type="content" source="media/allow-nsp-public-preview.png" alt-text="Screen capture of Preview features page showing AllowNSPInPublicPreview for Azure Subscription and the display name Feature flag to approve creation of Network Security Perimeter.":::
-   
-   For more information on adding feature flags, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
-
-- After adding the feature flag, you need to re-register the `Microsoft.Network` resource provider in your subscription.
-   
-   `az provider register --namespace Microsoft.Network`
-
-- The latest Azure CLI.
-   
-   - This article requires version 2.38.0 or later of the Azure CLI.
-   
-- After upgrading to the latest version of Azure CLI, import the network security perimeter commands using:
+- After installing or upgrading to the latest version of Azure CLI, import the network security perimeter commands using:
 
    `az extension add –name nsp`
 
@@ -47,11 +33,23 @@ This article provides a comprehensive guide to set up a Network Security Perimet
 
    `az extension add --name communication`
 
-## Set up your Network Security Perimeter for Email 
+## Set up your Network Security Perimeter for Email
 
 ### Step 1: Share the subscription ID to test NSP
 
 Complete and submit the form at  [Network Security Perimeter for Azure Communication Services](https://aka.ms/acs-nsp). You need to provide a company name, subscription ID, and scenario.
+
+1. Enable the Azure Feature Exposure Control (AFEC) flag `AllowNetworkSecurityPerimeter` and `AcsNspPreview` for your subscription.
+
+2. Register for the Azure Network Security Perimeter public preview. To register, add the `AllowNSPInPublicPreview` feature flag to your subscription.
+
+   :::image type="content" source="media/allow-nsp-public-preview.png" alt-text="Screen capture of Preview features page showing AllowNSPInPublicPreview for Azure Subscription and the display name Feature flag to approve creation of Network Security Perimeter.":::
+
+   For more information on adding feature flags, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
+
+3. After adding the feature flag, you need to re-register the `Microsoft.Network` resource provider in your subscription.
+
+   `az provider register --namespace Microsoft.Network`
 
 ### Step 2: Create a new resource or update an existing Azure Communication Services resource using Azure CLI/Cloud Shell
 
@@ -59,7 +57,7 @@ Use the following command to set `PublicNetworkAccess` to `SecuredByPerimeter`.
 
 `az rest --method PUT --uri https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource-group-name> /providers/Microsoft.Communication/communicationServices/<acs-resource name>?api-version=2023-12-25-preview --body "{'location': 'Global', 'properties': {'dataLocation': ''<acs-datalocation>, 'publicNetworkAccess': 'SecuredByPerimeter',}}"`
 
-## Step 3: Create a network security perimeter
+### Step 3: Create a network security perimeter
 
 `az network perimeter create --name <network-security-perimeter-name> --resource-group <resource-group-name> -l <location>`
 
@@ -75,7 +73,7 @@ Provide the same network security perimeter name used in **Step 3**.
 
 > [!NOTE]
 >
-> NSP currently supports only IPV4 addresses. Use Classless Inter-Domain Routing (CIDR), not just one IP address. For more information, see [Understanding CIDR Notation when designing Azure Virtual Networks and Subnets](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
+> NSP currently supports only IPV4 addresses. Use Microsoft Classless Inter-Domain Routing (CIDR), not just one IP address. For more information, see [Understanding CIDR Notation when designing Azure Virtual Networks and Subnets](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
 
 ### Step 6: Associate the Azure Communication Services (PaaS resource) with the network security perimeter profile with the following commands
 
@@ -83,7 +81,7 @@ Provide the same network security perimeter name used in **Step 3**.
 
    `az communication show --name <acs-resource-name> --resource-group <acs-resource-group> --query 'id'`
 
-2.	Get the profile ID.
+2. Get the profile ID.
 
    `az network perimeter profile show --name <network-perimeter-profile-name> --resource-group <network-perimeter-resource-group> --perimeter-name <network-security-perimeter-name> --query 'id'`
 
