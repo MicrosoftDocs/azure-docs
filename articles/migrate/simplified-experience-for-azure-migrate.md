@@ -11,7 +11,7 @@ ms.date: 04/24/2025
 
 # Overview
 
-The enhanced agent-based migration stack specifically designed for physical and VMware environments. The upgraded stack offers several significant benefits, such as: ...
+The enhanced agent-based migration stack specifically designed for physical and VMware environments. The upgraded stack offers several significant benefits, such as:
 
 1.  It enables the migration of newer Linux distributions to Azure, expanding the range of supported operating systems and ensuring that customers can leverage the latest advancements in Linux technology. 
 1. The stack utilizes Windows Server 2019 (WS2019) for the replication appliance.\
