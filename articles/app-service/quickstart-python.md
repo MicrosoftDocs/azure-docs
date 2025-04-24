@@ -11,9 +11,7 @@ ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdi
 
 # Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
-In this quickstart, you deploy a Python web app (Django, Flask, or FastAPI) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python apps hosted in a Linux server environment.
+In this quickstart, you deploy a Python web app (Django, Flask, or FastAPI) to [Azure App Service](./overview.md). Azure App Service is a fully managed web hosting service that supports Python apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 
