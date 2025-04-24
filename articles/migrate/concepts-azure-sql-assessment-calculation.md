@@ -41,9 +41,9 @@ You can assess your on-premises SQL Server instances by using the configuration 
 
 ## How do I assess with the appliance?
 If you're deploying an Azure Migrate appliance to discover on-premises servers, do the following steps:
-1.	Set up Azure and your on-premises environment to work with Azure Migrate.
-2.	For your first assessment, create an Azure Migrate project and add the Azure Migrate: Discovery and assessment tool to it.
-3.	Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance data to Azure Migrate. Deploy the appliance as a VM or a physical server. You don't need to install anything on servers that you want to assess.
+1.  Set up Azure and your on-premises environment to work with Azure Migrate.
+2.  For your first assessment, create an Azure Migrate project and add the Azure Migrate: Discovery and assessment tool to it.
+3.  Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance data to Azure Migrate. Deploy the appliance as a VM or a physical server. You don't need to install anything on servers that you want to assess.
 
 After the appliance begins discovery, you can gather servers you want to assess into a group and run an assessment for the group with assessment type **Azure SQL**.
 

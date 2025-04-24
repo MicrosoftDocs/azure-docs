@@ -3,7 +3,7 @@ title: Onboard Azure Virtual Desktop session hosts to forensic evidence from Mic
 description: Learn how to onboard Azure Virtual Desktop session hosts to forensic evidence. When using Azure Virtual Desktop with forensic evidence, you can set policies to trigger recordings of desktop and RemoteApp sessions automatically.
 ms.topic: how-to
 author: sipastak
-ms.author: sipastak
+ms.author: avdcontent
 ms.date: 08/13/2024
 ---
 
