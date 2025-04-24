@@ -24,7 +24,7 @@ Incorporating CAPTCHA into Azure WAF not only enhances security but also minimiz
 
 When the CAPTCHA challenge is active on Azure WAF, any client's HTTP(s) request matches a specific rule prompts an interactive Microsoft CAPTCHA page. This challenge requires user participation to verify they're human before their request is validated by Azure WAF. Upon successful completion, WAF recognizes the request as originating from a legitimate user, and proceeds with standard rule processing. Requests that fail to complete the challenge are blocked, thus preventing automated bots from accessing protected resources. 
 
-:::image type="content" source="../media/captcha-challenge/browser-captcha.png" alt-text="Web Application Firewall CAPTCHA in the browser." lightbox="../media/captcha-challenge/browser-captcha.png":::
+:::image type="content" source="../media/captcha-challenge/browser-captcha.png" alt-text="Web Application Firewall CAPTCHA in the browser.":::
 
 
 ## Expiration 
