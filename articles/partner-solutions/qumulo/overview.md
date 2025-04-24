@@ -29,16 +29,6 @@ Azure Native Qumulo Scalable File Service provides the following capabilities:
 - **Private access** - The service is directly connected to your own virtual network (sometimes called VNet injection).
 - **Cloud Data Fabric** - CDF enables seamless integration with on-premises or other cloud region Qumulo instances.
 
-### Storage class
-
-Azure Native Qumulo offers multiple storage class options for your workloads.
-
-- Hot LRS
-- Hot ZRS 
-- Cold LRS
-
-See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
-
 ### Billing
 
 See Qumulo's documentation for [billing information](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#usage-billing-and-metering-for-azure-native-qumulo). 
