@@ -19,6 +19,15 @@ sections:
         answer: |
             [Azure Native Qumulo (ANQ)](https://learn.microsoft.com/azure/partner-solutions/qumulo/overview) is a co-developed service by Microsoft and Qumulo, offered and managed as a fully managed Storage-as-a-Service. ANQ manages the underlying infrastructure and software automatically, relieving the customer from day-to-day service management and administration. 
             [Cloud Native Qumulo (CNQ) on Microsoft Azure](https://qumulo.com/product/azure-cnq/) uses the same technology as ANQ but operates as a user-managed Platform-as-a-Service system within the customer’s tenant. CNQ users manually control the architectural resources. Elastic performance is managed through the system controls and capacity expands dynamically as the organization adds more data.
+      - question: What storage class options are available with Azure Native Qumulo?
+        answer: | 
+              Azure Native Qumulo offers multiple storage class options, including Hot LRS, Hot ZRS, and Cold LRS. See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
+      - question: What developer tools are available for Azure Native Qumulo?
+        answer: |
+              Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management, including [Qumulo CLI](https://care.qumulo.com/hc/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0), [Qumulo REST API](https://care.qumulo.com/hc/articles/115007063227-Getting-Started-with-Qumulo-Core-REST-API#in-this-article-0-0), and [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit).
+      - question: Does Azure Native Qumulo offer disaster recovery? 
+        answer: |
+              Yes. Azure Native Qumulo provides several options for disaster recover to ensure data availability and business continuity.  For more information, see [Disaster Recovery with Azure Native Qumulo Scalable File Service](https://qumulo.com/resources/disaster-recovery-with-azure-native-qumulo-scalable-file-service/).     
       - question: Can I edit videos with Azure Native Qumulo?
         answer: | 
               Yes. With Azure Native Qumulo (ANQ), video editing teams can work and collaborate remotely and still meet the demands for high-quality video content. 
@@ -26,12 +35,4 @@ sections:
       - question: Can I deploy a Vendor-Neutral Archive (VNA) solution using Azure Native Qumulo?
         answer: | 
               Yes. You can learn about Vendor-Neutral Archives, including solution architecture, benefits, components, potential use cases, and scenarios, by reviewing [Azure Native Qumulo's reference architecture - Vendor-Neutral Archives for PACS](https://qumulo.com/resources/azure-native-qumulo-reference-architecture-vendor-neutral-archive-for-pacs/).
-      - question: What storage class options are available with Azure Native Qumulo?
-        answer: | 
-              Azure Native Qumulo offers multiple storage class options, including Hot LRS, Hot ZRS, and Cold LRS. See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
-      - question: What developer tools are available for Azure Native Qumulo?
-        answer: |
-              Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management, including [Qumulo CLI](https://care.qumulo.com/hc/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0), [Qumulo REST API](https://care.qumulo.com/hc/articles/115007063227-Getting-Started-with-Qumulo-Core-REST-API#in-this-article-0-0), and [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit).
-      - question: Does Azure Native Qumulo offer disaster recovery?
-        answer: |
-              Yes. Azure Native Qumulo provides several options for disaster recover to ensure data availability and business continuity.  For more information, see [Disaster Recovery with Azure Native Qumulo Scalable File Service](https://qumulo.com/resources/disaster-recovery-with-azure-native-qumulo-scalable-file-service/).
+
