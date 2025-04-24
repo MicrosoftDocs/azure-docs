@@ -19,7 +19,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 > [!IMPORTANT]
 > SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, see [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md).
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 <br/>
 

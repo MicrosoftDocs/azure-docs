@@ -5,7 +5,7 @@ author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, docs_inherited
 ms.date: 11/01/2023
-ms.author: daknappe
+ms.author: avdcontent
 ---
 # Set up scaling tool using Azure Automation and Azure Logic Apps for Azure Virtual Desktop
 
