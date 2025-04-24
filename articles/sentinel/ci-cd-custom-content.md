@@ -8,7 +8,9 @@ ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 12/31/2024
 ms.custom: template-concept
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to manage dynamic Microsoft Sentinel content as code based on source control repositories using CI/CD pipelines so that I can automate updates and ensure consistent configurations across workspaces. As an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
