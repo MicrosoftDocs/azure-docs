@@ -32,7 +32,7 @@ The following table provides some considerations when choosing a framework.
 
 ## Durable Task Scheduler for Durable Functions
 
-When used with Durable Functions, a feature of Azure Functions, the Durable Task Scheduler works as a fully managed backend provider, persisting state data as your app runs. While [other backend providers are supported](../durable/durable-functions-storage-providers.md), the Durable Task Scheduler offers a fully managed experience, which removes operational overhead. The scheduler offers exceptional performance, reliability, and the ease of monitoring orchestrations.
+When used with Durable Functions, a feature of Azure Functions, the Durable Task Scheduler works as a fully managed backend provider, persisting state data as your app runs. While [other backend providers are supported](../durable-functions-storage-providers.md), the Durable Task Scheduler offers a fully managed experience, which removes operational overhead. The scheduler offers exceptional performance, reliability, and the ease of monitoring orchestrations.
 
 The Durable Task Scheduler plays a similar role in the Durable Task Framework as in Durable Functions.
 

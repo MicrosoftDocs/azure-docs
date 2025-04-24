@@ -27,11 +27,11 @@ The durable task scheduler is a fully managed, high performance backend provider
 The key benefits of the durable task scheduler include:
 
 * Lower management and operation overhead compared to BYO backend providers
-* First-class observability and management [dashboard](../durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
+* First-class observability and management [dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
 * Supports the highest throughput of all backends today.
 * Support for authentication using managed identity.
 
-Existing Durable Functions users can leverage the scheduler with no code changes. Learn more about the [durable task scheduler](../durable-task-scheduler/durable-task-scheduler.md), and [how to get started](../durable-task-scheduler/quickstart-durable-task-scheduler.md). 
+Existing Durable Functions users can leverage the scheduler with no code changes. Learn more about the [durable task scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/quickstart-durable-task-scheduler.md). 
 
 Samples for durable task scheduler can be found on [GitHub](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
 
@@ -123,7 +123,7 @@ Configuring alternate storage providers is generally a two-step process:
 If no storage provider is explicitly configured in host.json, the Azure Storage provider will be enabled by default.
 
 ### Configuring durable task scheduler (preview)
-See the [durable task scheduler getting started documentation](../durable-task-scheduler/quickstart-durable-task-scheduler.md).
+See the [durable task scheduler getting started documentation](./durable-task-scheduler/quickstart-durable-task-scheduler.md).
 
 ### Configuring the Netherite storage provider
 
@@ -204,7 +204,7 @@ There are many significant tradeoffs between the various supported storage provi
 |- |-              |-          |-      |- |
 | Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) | Public preview|
 | External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database | N/A | 
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | [Durable task scheduler emulator](../durable-task-scheduler/durable-task-scheduler.md#emulator-for-local-development) | 
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | [Durable task scheduler emulator](./durable-task-scheduler/durable-task-scheduler.md#emulator-for-local-development) | 
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) | Explicit | 
 | Maximum throughput | Moderate | Very high | Moderate | Very high | 
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A | N/A | 

@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler (preview)
 description: Learn about the characteristics of the Azure Functions Durable Task Scheduler backend.
 ms.topic: conceptual
-ms.date: 04/11/2025
+ms.date: 04/24/2025
 ---
 
 # Azure Functions Durable Task Scheduler (preview)
@@ -13,7 +13,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Data processing
 - Infrastructure management, and others. 
 
-The Durable Task Scheduler, coupled with a developer orchestration framework like [Durable Functions](../durable/durable-functions-overview.md) or the [Durable Task SDKs][todo], enables you to author stateful apps that run on any compute environment without the need to architect for fault tolerance.
+The Durable Task Scheduler, coupled with a developer orchestration framework like [Durable Functions](../durable-functions-overview.md) or the [Durable Task SDKs][todo], enables you to author stateful apps that run on any compute environment without the need to architect for fault tolerance.
 
 ## Orchestration frameworks
 
@@ -33,7 +33,7 @@ For all Durable Task Scheduler orchestration frameworks, you can create instance
 - Storing and querying history at scale with minimal latency
 - Providing a rich monitoring experience through [the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
 
-Unlike [the BYO storage providers](../durable/durable-functions-storage-providers.md), the Durable Task Scheduler provider is a purpose-built backend-as-a-service optimized for the specific needs of the [Durable Task Framework](https://github.com/Azure/durabletask).
+Unlike [the BYO storage providers](../durable-functions-storage-providers.md), the Durable Task Scheduler provider is a purpose-built backend-as-a-service optimized for the specific needs of the [Durable Task Framework](https://github.com/Azure/durabletask).
 
 The following diagram shows the architecture of the Durable Task Scheduler backend and its interaction with connected apps.
 
@@ -86,7 +86,7 @@ Access to the dashboard is secured by identity and role-based access controls.
 
 ### Multiple task hubs
 
-State is durably persisted in a *task hub*. A [task hub](../durable/durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. With one scheduler instance, you can create multiple task hubs that can be used by different apps. To access a task hub, the caller's identity *must* have the required role-based access control (RBAC) permissions.
+State is durably persisted in a *task hub*. A [task hub](../durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. With one scheduler instance, you can create multiple task hubs that can be used by different apps. To access a task hub, the caller's identity *must* have the required role-based access control (RBAC) permissions.
 
 Creating multiple task hubs isolates different workloads that can be managed independently. For example, you can create a task hub for each environment (dev, test, prod) or for different teams within your organization. 
 
@@ -138,9 +138,9 @@ curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
 
 - **Feature parity:** Some features might not be available in the Durable Task Scheduler backend yet. For example, at the time of writing, the Durable Task Scheduler doesn't support the following features:
 
-    - [Orchestration rewind](../durable/durable-functions-instance-management.md#rewind-instances-preview)
-    - [Extended sessions](../durable/durable-functions-azure-storage-provider.md#extended-sessions)
-    - [Management operations using the Azure Functions Core Tools](../durable/durable-functions-instance-management.md#azure-functions-core-tools)
+    - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
+    - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)
+    - [Management operations using the Azure Functions Core Tools](../durable-functions-instance-management.md#azure-functions-core-tools)
 
     > [!NOTE]
     > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
