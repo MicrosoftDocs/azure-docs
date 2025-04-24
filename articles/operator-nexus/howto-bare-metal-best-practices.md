@@ -1,7 +1,7 @@
 ---
 title: Best practices for Bare Metal Machine operations
 description: Steps that should be taken before executing any Bare Metal Machine replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
-ms.date: 03/25/2025
+ms.date: 04/23/2025
 ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, best-practices
@@ -63,8 +63,9 @@ Connected
 
 Take a deeper look at the NetworkFabric resources by checking the NetworkFabric resources statuses, alerts, and metrics.
 See related articles:
-  - [How to monitor interface In and Out packet rate for network fabric devices]
-  - [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
+
+- [How to monitor interface In and Out packet rate for network fabric devices]
+- [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
 
 Evaluate for any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems.
 For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
@@ -73,7 +74,9 @@ For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Mac
 
 Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` or `reimage` operation.
 Interrupting an ongoing firmware upgrade can leave the Bare Metal Machine in an inconsistent state.
-You can view in the iDRAC GUI the `jobqueue` or use a `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
+
+- You can view in the iDRAC GUI the `jobqueue` or use `run-read-command` `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
+- For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command \
@@ -86,6 +89,7 @@ az networkcloud baremetalmachine run-read-command \
 ```
 
 Here's an example output from the `racadm jobqueue view` command which shows `Firmware Update`.
+
 ```
 [Job ID=JID_833540920066]
 Job Name=Firmware Update: iDRAC
@@ -97,6 +101,7 @@ Percent Complete= [50%]
 ```
 
 Here's an example output from the `racadm jobqueue view` command showing common happy-path statements.
+
 ```
 -------------------------JOB QUEUE------------------------
 [Job ID=JID_429400224349]
@@ -171,6 +176,7 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
+- Validate Bare Metal Machine has been powered on.
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
@@ -191,9 +197,10 @@ Some repairs don't require a Bare Metal Machine `replace` to be executed.
 For example, a `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the Bare Metal Machine host will continue to function normally after the repair.
 However, if the Bare Metal Machine failed hardware validation, the Bare Metal Machine `replace` is required even if the hot swappable repairs are done.
 Examine the Bare Metal Machine status messages to determine if hardware validation failures or other degraded conditions are present.
-  - [Troubleshoot Degraded Status Errors on Bare Metal Machines]
-  - [Troubleshoot Bare Metal Machine Warning Status]
-  - [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
+
+- [Troubleshoot Degraded Status Errors on Bare Metal Machines]
+- [Troubleshoot Bare Metal Machine Warning Status]
+- [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
 Other repairs of this type might be:
 

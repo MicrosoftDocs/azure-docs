@@ -59,7 +59,7 @@ To learn more, review [Select a VMware migration option](./server-migrate-overvi
 
 ### What geographies are supported for migration with Azure Migrate?
 
-Review the supported geographies for [public clouds](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ### Can I use the same Azure Migrate project to migrate to multiple regions?
 

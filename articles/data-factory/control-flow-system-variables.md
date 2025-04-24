@@ -39,7 +39,7 @@ These system variables can be referenced anywhere in the pipeline JSON.
 
 ## Schedule trigger scope
 
-These system variables can be referenced anywhere in the trigger JSON for triggers of type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger-with-json).
+These system variables can be referenced anywhere in the trigger JSON for triggers of type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Variable Name | Description |
 | --- | --- |
