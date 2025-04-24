@@ -4,7 +4,7 @@ description: How to configure the assignment type of a personal host pool, unass
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: devx-track-azurepowershell
 ---
 

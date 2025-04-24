@@ -5,7 +5,7 @@ author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, docs_inherited
 ms.date: 01/31/2022
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Migrate automatically from Azure Virtual Desktop (classic)

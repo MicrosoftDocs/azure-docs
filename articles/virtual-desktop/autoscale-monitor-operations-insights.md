@@ -3,7 +3,7 @@ title: Monitor Autoscale operations with Insights in Azure Virtual Desktop
 description: Learn how to monitor Autoscale operations with Insights in Azure Virtual Desktop to help optimize your scaling plan configuration and identify issues.
 ms.topic: how-to
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 02/23/2024
 ---
 
