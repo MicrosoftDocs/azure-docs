@@ -36,7 +36,7 @@ This article summarizes the scenarios supported and limitations present when you
 | **Security Capabilities** | Immutability, Soft Delete, MUA, Private Endpoint, Encryption at rest are supported. | |
 
 >[!NOTE]
->- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP ASE (Sybase) database running in an Azure VM. We recommend you to modify the policy manually as needed.
+>- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up an SAP ASE (Sybase) database running in an Azure VM. We recommend you to modify the policy manually as needed.
 >- You can now monitor the backup and restore jobs (to the same machine) triggered from ASE native clients (SAP ASE Studio/Cockpit/DBA Cockpit) in the Azure portal.
 
 ## Support for multistreaming data backups
@@ -46,7 +46,7 @@ This article summarizes the scenarios supported and limitations present when you
   - *data_backup_buffer_size (optional)*
 
   >[!Note]
-  >The above ASE parameters lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other ASE operations.
+  >The previous ASE parameters lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other ASE operations.
 
 - **Backup performance for databases**: The performance gain becomes more prominent for larger databases.
 
@@ -55,10 +55,29 @@ This article summarizes the scenarios supported and limitations present when you
 - **Supported backup throughput**: Multistreaming currently supports the data backup throughput of up to *1.5 GBps*. Recovery throughput is slower than the backup throughput.
 
 - **VM configuration applicable for multistreaming**: To utilize the benefits of multistreaming, the VM needs to have a minimum configuration of *16 vCPUs* and *128 GB* of RAM.
-- **Limiting factors**: Throughput of *total disk LVM striping* and *VM network*, whichever hits first. 
+- **Limiting factors**: Throughput of *total disk Logical Volume Management (LVM) striping* and *VM network*, whichever hits first. 
 
 Learn more [about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sybase) Azure virtual machine Premium SSD storage configurations](sap-ase-database-backup.md). To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
 
+
+## Support for multiple SAP ASE instances on a single host
+
+Azure Backup for SAP ASE supports backing up multiple SAP ASE Instances (SIDs) on a single host. SAP ASE Multi-SID support includes the following configurations:
+| Sap ASE instance | Support |
+| --- |--- |
+| Standalone (SID1)+ Standalone (SID2) | Supported |
+| HA (SID1) + Standalone (SID2) | Supported |
+| HA (SID1) + HA (SID2)| Supported |
+
+***SID1(HXE) and SID2 (HYE) represent two ASE instances running on the same host.**
+
+The following table lists the required parameters for adding/removing SAP ASE instances:
+
+| Action | Parameter | Description | Example script |
+| --- | --- | --- | --- |
+| Add an instance | `--sid` | SAP ASE database instance that you want to protect. <br><br> By default, the first instance is selected. | `./PreReg.sh  --add --sid HXE` <br><br> Or <br><br> `./PreReg.sh --sid HXE` <br><br> (Default mode is `add` for the script.) <br><br> After you add instances, registration needs to be done on recovery services vault. If a new instance is added later, re-registration is required. |
+| Remove an instance | `--sid` | SAP ASE database instance that you want to remove protection. <br><br> SID is a mandate parameter for remove. | `./PreReg.sh --remove --sid HXE` |
+|    | `--dbHost` | The private IP of the specific SID instance that you intend to register. <br><br> In multi-instance setups, each System ID (SID) might have a different private IP. Use the IP available in `/sybase/<SID>/interfaces` for the correct instance. |     |
 
 ## Next steps
 
