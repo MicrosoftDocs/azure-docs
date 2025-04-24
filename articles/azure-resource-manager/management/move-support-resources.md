@@ -1808,6 +1808,8 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | sqlvirtualmachinegroups | **No** | **No** | No |
 > | sqlvirtualmachines | **No** | **No** | No |
 
+If you need to move your SQL virtual machines resource, first delete the [SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#delete-the-extension) from the virtual machine, move the virtual machine to a different resource group or subscription, and then [re-register](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#register-with-extension) your SQL Server VM with the SQL IaaS Agent extension again. 
+
 ## Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
