@@ -11,7 +11,7 @@ summary: |
   of the FAQ as it's displayed.]
 
 sections:
-  - name:
+  - name: Frequently asked questions
     questions:
       - question: What is the difference between Azure Native Qumulo (ANQ) and Cloud Native Qumulo (CNQ)?
         answer: |
