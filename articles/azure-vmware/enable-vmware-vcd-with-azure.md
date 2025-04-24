@@ -30,9 +30,8 @@ Azure VMware Solution provides private clouds that contain VMware vSphere cluste
 
 VMware Cloud Director enables multi-tenancy by using organizations. Each organization can have one or more organization virtual data centers (VDC). Every Organization's VDC can have its own dedicated Tier-1 router (Organization VDC Edge Gateway), which connects to the provider managed shared Tier-0 router.
 
-:::image type="content" source="media/vmware-vcd/VCD_architecture-diagram.png" alt-text="Diagram showing typical architecture of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/VCD_architecture-diagram.png":::
+:::image type="content" source="media/vmware-vcd/VCD_architecture-diagram.png" alt-text="Diagram showing typical architecture of VMware Cloud Director in Azure VMware Solution." lightbox="media/vmware-vcd/VCD_architecture-diagram.png":::
 
-![Diagram showing typical architecture of VMware Cloud Director in Azure VMware Solution.](media/vmware-vcd/VCD_architecture-diagram.png)
 
 ## VMware Cloud Director Installation 
 
