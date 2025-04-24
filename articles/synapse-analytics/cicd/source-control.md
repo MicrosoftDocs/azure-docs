@@ -225,6 +225,13 @@ A side pane opens where you confirm that the publish branch and pending changes 
 > [!IMPORTANT]
 > The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually.
 
+> [!NOTE]
+> When you are using [Custom parameters in the workspace template](https://learn.microsoft.com/en-us/azure/synapse-analytics/cicd/continuous-integration-delivery#create-custom-parameters-in-the-workspace-template) and the custom parameter file extracts a large number of parameters such as refrenceName in Microsoft.Synapse/workspaces/notebooks resources and referenceName in Microsoft.Synapse/workspaces/sqlscripts resources, you will receive below warning from Synapse Studio when you have large number of mentioned workspace artifacts:
+>     
+> ```Your ARM template exceeds the limit of 256 parameters. Please use custom parameters in your ARM template if you need to do CI/CD integration.``` 
+>       
+> Please note that above message is a warning and it will not block the template generation and will not block the CI/CD process as well. All new changes will still be updated to the templates.
+
 ## Switch to a different Git repository
 
 To switch to a different Git repository, go to Git configuration page in the management hub under **Source control**. Select **Disconnect**.
