@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Assessment overview (migrate to Azure VMware Solution)
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, as well as partner independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, and partner independent software vendor (ISV) offerings.
 
 Discovery and assessment tool in Azure Migrate assesses on-premises servers for migration to Azure virtual machines and Azure VMware Solution. This article provides information about how Azure VMware Solution assessments are calculated.
 
@@ -170,7 +170,7 @@ After a vSphere server is marked as ready for Azure VMware Solution, Azure VMwar
 - If the assessment uses *performance-based sizing*, Azure Migrate considers the performance history of the server to make the appropriate sizing recommendation for Azure VMware Solution. This method is especially helpful if you've over-allocated the on-premises vSphere VM, but utilization is low and you want to right-size the VM in Azure VMware Solution to save costs. This method helps you optimize the sizes during migration.
 
 > [!NOTE] 
->If your import serves by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Storage in use, Disk IOPS, and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
+>If your import serves by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Storage in use, Disk IOPS, and throughput) are used if you choose performance-based sizing. You won't be able to provide performance history and percentile information.
 
 - If you don't want to consider the performance data for VM sizing and want to take the on-premises vSphere servers as-is to Azure VMware Solution, you can set the sizing criteria to *as on-premises*. Then, the assessment sizes the VMs based on the on-premises vSphere configuration without considering the utilization data.
 
@@ -199,13 +199,13 @@ For performance-based sizing, Azure Migrate appliance profiles the on-premises v
 
 After the effective utilization value is determined, the storage, network, and compute sizing is handled as follows.
 
-**Storage sizing**: Azure Migrate uses the total on-premises VM disk space as a calculation parameter to determine Azure VMware Solution vSAN storage requirements in addition to the customer-selected FTT setting. FTT - Failures to tolerate as well as requiring a minimum number of nodes per FTT option will determine the total vSAN storage required combined with the VM disk requirement. If your import serves by using a CSV file, storage utilization is taken into consideration when you create a performance based assessment. If you create an as-on-premises assessment, the logic only looks at allocated storage per VM.
+**Storage sizing**: Azure Migrate uses the total on-premises VM disk space as a calculation parameter to determine Azure VMware Solution vSAN storage requirements in addition to the customer-selected FTT setting. FTT - Failures to tolerate and requiring a minimum number of nodes per FTT option determine the total vSAN storage required combined with the VM disk requirement. If your import serves by using a CSV file, storage utilization is taken into consideration when you create a performance based assessment. If you create an as-on-premises assessment, the logic only looks at allocated storage per VM.
 
 **Network sizing**:  Azure VMware Solution assessments currently don't take any network settings into consideration for node sizing. While migrating to Azure VMware Solution, minimums and maximums as per VMware NSX- T Data Center standards are used.
 
 **Compute sizing**: After it calculates storage requirements (FTT Sizing Parameters), Azure VMware Solution assessment considers CPU and memory requirements to determine the number of nodes required for Azure VMware Solution based on the node type.
 
-- Based on the sizing criteria, Azure VMware Solution assessment looks at either the performance-based VM data or the on-premises vSphere VM configuration. The comfort factor setting allows for specifying growth factor of the cluster. Currently by default, hyperthreading is enabled and thus a 36 core nodes will have 72 vCores. 4 vCores per physical is used to determine CPU thresholds per cluster using the VMware standard of not exceeding 80% utilization to allow for maintenance or failures to be handled without compromising cluster availability. There's currently no override available to change the oversubscription values and we might have this in future versions.
+- Based on the sizing criteria, Azure VMware Solution assessment looks at either the performance-based VM data or the on-premises vSphere VM configuration. The comfort factor setting allows for specifying growth factor of the cluster. Currently by default, hyperthreading is enabled and thus a 36 core nodes has 72 vCores. 4 vCores per physical is used to determine CPU thresholds per cluster using the VMware standard of not exceeding 80% utilization to allow for maintenance or failures to be handled without compromising cluster availability. There's currently no override available to change the oversubscription values and we might have this in future versions.
 
 ### As on-premises sizing
 
@@ -236,7 +236,7 @@ Storage utilization is calculated based on the following sequence:
 5. Apply required 25% slack for vSAN
 6. Result available storage for VMs out of total storage including management overhead.
 
-The available storage on a 3 node cluster will be based on the default storage policy, which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in Azure VMware Solution, the storage policy for customer workload can be changed by the administrator or Run Command(Currently in Preview). [Learn more](/azure/azure-vmware/configure-storage-policy).
+The available storage on a 3 node cluster will be based on the default storage policy, which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. In Azure VMware Solution, the storage policy for customer workload can be changed by the administrator or Run Command. [Learn more](/azure/azure-vmware/configure-storage-policy).
 
 ### Limiting factor
 
