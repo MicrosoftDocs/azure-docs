@@ -4,7 +4,7 @@ description: Information about autoscale and a collection of four example scenar
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/19/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: references_regions, docs_inherited
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop

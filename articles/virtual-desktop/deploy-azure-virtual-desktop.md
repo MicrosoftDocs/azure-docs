@@ -5,7 +5,7 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 10/18/2024
 ---
 
