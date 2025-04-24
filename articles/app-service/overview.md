@@ -18,6 +18,8 @@ App Serivce supports a variety of web stacks: .NET, Java (in Java SE, Tomcat, an
 
 ## Why Use Azure App Service?
 
+Whether you're a student, a small business, a startup, or an enterprise, App Service offers a wide range of features tailored to meet your needs.
+
 ### Students
 
 - **Free access**: In addition to the widely-available [free tier](https://azure.microsoft.com/pricing/details/app-service/), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p) program.
