@@ -86,7 +86,7 @@ sections:
 
           - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store per region in the Free tier. Subscriptions can have an unlimited number of configuration stores in the Developer, Standard and Premium tiers.
           - **Storage per resource**: In the Free tier, each configuration store is limited to 10 MB of regular storage and 10 MB of snapshot storage. In the Developer tier, each configuration store can use up to 500 MB of regular storage and an additional 500 MB of snapshot storage. In the Standard tier, each configuration store can use up to 1 GB of regular storage and an additional 1 GB of snapshot storage. In the Premium tier, each configuration store can use up to 4 GB of regular storage and an additional 4 GB of snapshot storage.
-          - **Revision history**: App Configuration stores a history of all changes made to keys. In the Free and Developer tier, this history is stored for seven days. In the Standard and Premium tiers, this history is stored for 30 days.
+          - **Revision history**: App Configuration stores a history of all changes made to keys. In the Free and Developer tiers, this history is stored for seven days. In the Standard and Premium tiers, this history is stored for 30 days.
           - **Requests quota**: Free tier stores are limited to 1,000 requests per day. When a store reaches 1,000 requests, it returns HTTP status code 429 for all requests until midnight UTC.
 
               Developer tier stores are limited to 6,000 requests per hour. Once the hourly quota is exhausted, additional requests may return an HTTP status code 429, indicating too many requests, until the end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
@@ -142,7 +142,7 @@ sections:
         answer: |        
           App Configuration stores have different request quotas based on their tier. Free tier stores are limited to 1,000 requests per day, Developer tier stores to 6,000 requests per hour, Standard tier stores to 30,000 requests per hour, and Premium tier stores have no request limits, ensuring uninterrupted access.
 
-          App Configuration stores have throughput allowances based on their tier. Free and Developer tier stores don't have guaranteed throughput. Standard tier stores support run rate up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support run rate up to 450 RPS for read operations and up to 100 RPS for write operations.
+          App Configuration stores have throughput allowances based on their tier. Free tier and Developer tier stores don't have guaranteed throughput. Standard tier stores support run rate up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support run rate up to 450 RPS for read operations and up to 100 RPS for write operations.
 
       - question: How do I estimate the number of requests my application may send to App Configuration?
         answer: |
