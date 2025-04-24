@@ -1,6 +1,6 @@
 ---
 title: Apply for 10 digit long code (10DLC) brand registration and campaign registration
-titleSuffix: An Azure Communication Services quickstart 
+titleSuffix: An Azure Communication Services article 
 description: This article describes how to apply for 10 digit long code (10DLC) brand registration and campaign registration.
 author: prakulka
 manager: darmour
@@ -123,7 +123,7 @@ Fill in the campaign and content attributes as follows:
    - **Subscriber Help**: Select **Yes** or **No** to indicate if subscriber help is available.
    - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
 
-#### Additional attributes
+#### More attributes
 
    - **Direct Lending or Loan Arrangement**: Indicate if the campaign involves any lending or loan arrangements.
    - **Embedded Link**: Select **Yes** or **No** to specify if the campaign includes an embedded link.
@@ -132,7 +132,7 @@ Fill in the campaign and content attributes as follows:
 
 #### Terms and conditions
 
-Affiliate marketing is not permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
+Affiliate marketing isn't permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-registration-4.png":::
 

@@ -15,10 +15,6 @@ ms.date: 11/14/2024
 
 This article describes how to deploy the Dynamics 365 Finance and Operations content within the Microsoft Sentinel solution for Microsoft Business Applications. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
 
-> [!IMPORTANT]
-> - The Microsoft Sentinel solution for Dynamics 365 Finance and Operations is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
-
 ## Prerequisites
 
 Before you begin, verify that:

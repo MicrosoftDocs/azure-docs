@@ -32,6 +32,8 @@ landingContent:
             url: create.md
       - linkListType: how-to-guide
         links:
+          - text: Connect to compute services
+            url: create-service-connection.md
           - text: Troubleshooting Neon Serverless Postgres
             url: troubleshoot.md
   

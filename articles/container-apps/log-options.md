@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/05/2024
+ms.date: 04/10/2025
 ms.author: cshoe
 ---
 
@@ -118,6 +118,11 @@ az monitor diagnostic-settings create \
 
 For more information about Azure Monitor diagnostic settings commands, see [az monitor diagnostic-settings](/cli/azure/monitor/diagnostic-settings). Container Apps log categories are `ContainerAppConsoleLogs` and `ContainerAppSystemLogs`.
 
+## Limitations
+
+The following limitations exist as you set up your log options.
+
+- **Private link**: Sending logs directly to a Log Analytics Workspace through Private Link isn't supported. However, you can use Azure Monitor and send your logs to the same Log Analytics Workspace. This indirection is required to prevent system log data loss.
 
 ## Next steps
 

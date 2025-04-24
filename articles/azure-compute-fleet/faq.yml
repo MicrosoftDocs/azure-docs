@@ -2,8 +2,8 @@
 metadata:
   title: FAQ for Azure Compute Fleet
   description: Get answers to the most frequently asked questions about Azure Compute Fleet.
-  author: rrajeesh
-  ms.author: rajeeshr
+  author: vashan
+  ms.author: vashan
   ms.topic: faq
   ms.service: azure-compute-fleet
   ms.date: 06/19/2024

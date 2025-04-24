@@ -61,12 +61,12 @@ Choose your tool based on what you want to do:
 
 ## Which geographies are supported?
 
-Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ## What does Azure Migrate do to ensure data residency?
 
 When you create a project, you select a geography of your choice. The project and related resources are created in one of the regions in the geography, as allocated by the Azure Migrate service. 
-See the metadata storage locations for each geography [here](migrate-support-matrix.md#public-cloud).
+See the metadata storage locations for each geography [here](supported-geographies.md#public-cloud).
 
 Azure Migrate doesn't move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography.
 
