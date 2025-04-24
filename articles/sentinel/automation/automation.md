@@ -6,8 +6,8 @@ author: batamig
 ms.author: bagol
 ms.date: 02/12/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a SOC analyst, I want to automate incident response and remediation tasks using SOAR capabilities so that I can focus on investigating advanced threats and reduce the risk of missed alerts.
 
