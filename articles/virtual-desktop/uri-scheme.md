@@ -3,7 +3,7 @@ title: Uniform Resource Identifier schemes with the Remote Desktop client for Az
 description: Learn how to use Uniform Resource Identifier (URI) schemes with the Remote Desktop client to subscribe and connect to Azure Virtual Desktop
 ms.topic: conceptual
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 06/03/2024
 ---
 
