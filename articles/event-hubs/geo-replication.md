@@ -13,7 +13,7 @@ ms.custom: references_regions
 The Event Hubs Geo-replication feature is one of the options to insulate Azure Event Hubs against outages and disasters, providing replication of both metadata (entities, configuration and properties) and data (event payloads).
  
 > [!NOTE]
-> The Event Hubs Geo-replication feature is available for the Premium tier namespaces as well as namespaces provisioned on Dedicated clusters only.
+> The Event Hubs Geo-replication feature is available for the Premium tier namespaces and namespaces provisioned on Dedicated clusters only.
 >
 
 This feature ensures that metadata and data of a namespace is continuously replicated from a primary region to the secondary region. The namespace can be thought of as being virtually extended to more than one region, with one region being the primary and the other being the secondary.
@@ -23,13 +23,13 @@ At any time, the secondary region can be promoted to become a primary region. Pr
 
 ## Geo-replication vs other business continuity options
 
-In this section, we will briefly touch upon other BCDR (business continuity and disaster recovery story) offerings, the distintion they have with geo-replication and the compatibility between these features.
+In this section, we touch upon other BCDR (business continuity and disaster recovery story) offerings, the distinction they have with geo-replication and the compatibility between these features.
 
 ### Availability Zones
 
 Event Hubs offers [Availability Zones support](../reliability/reliability-event-hubs.md#availability-zone-support), depending on the Azure regions where the Event Hubs namespace is provisioned. Availability zones support offers fault isolation and provide resiliency **within** the same datacenter region.
 
-Geo-replication provides fault isolation **across** Azure regions, by pairing 2 regions together and ensuring the data is copied over for a RPO (recovery point objective).
+Geo-replication provides fault isolation **across** Azure regions, by pairing 2 regions together and ensuring the data is copied over for an RPO (recovery point objective).
 
 Availability Zones are **fully supported** along with geo-replication.
 
@@ -37,16 +37,16 @@ Availability Zones are **fully supported** along with geo-replication.
 
 The [Metadata disaster recovery feature](./event-hubs-geo-dr.md) replicates configuration information (or metadata) for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than configuration information nor are permission assignments replicated. 
 
-Geo-replication feature replicates configuration information and all of the data from a primary namespace to the secondary region. Failover is performed by promoting the selected secondary to primary (and consequently demoting the previous primary to a secondary). Users can fail back to the original primary when desired.
+Geo-replication feature replicates configuration information and all of the data from a primary namespace to the secondary region. Failover is performed by promoting the selected secondary to primary (and demoting the previous primary to a secondary). Users can fail back to the original primary when desired.
 
-Metadata disaster recovery (DR) is ***not supported*** along with geo-replication.You can migrate from *Metadata disaster recovery (DR)* to *Geo-replication*, by breaking the metadata DR pairing and enabling Geo-replication as mentioned in this document.
+Metadata disaster recovery (DR) is ***not supported*** along with geo-replication. You can migrate from *Metadata disaster recovery (DR)* to *Geo-replication*, by breaking the metadata DR pairing and enabling Geo-replication as mentioned in this document.
 
 ## Scenarios
 
 Event Hubs Geo-replication can be used in multiple different scenarios, as described here.
 
 ### Ensuring Business Continuity and Disaster Recovery
-Geo-replication ensures disaster recovery and business continuity for all streaming data on your namespace. By replicating data across regions, organizations can safeguard against data loss and ensure that their applications remain operational even in the event of a regional outage. This is particularly crucial for mission-critical applications that require high availability and minimal downtime.
+Geo-replication ensures disaster recovery and business continuity for all streaming data on your namespace. By replicating data across regions, organizations can safeguard against data loss and ensure that their applications remain operational even in the event of a regional outage. This feature is crucial for mission-critical applications that require high availability and minimal downtime.
 
 ### Global Data Distribution
 Geo-replication can be used to distribute data globally, allowing applications to access data from the nearest region. This reduces latency and improves performance for workloads located in different parts of the world.
@@ -55,7 +55,7 @@ Geo-replication can be used to distribute data globally, allowing applications t
 Organizations operating in multiple countries often need to comply with data sovereignty laws that require data to be stored within specific geographic boundaries. Geo-replication allows these organizations to replicate data to regions that comply with local regulations, ensuring that they meet legal requirements while still maintaining a unified data platform.
 
 ### Migration and Upgrades
-Geo-replication can also be used to facilitate data migration, maintenance and system upgrades. Organizations can migrate their namespace proactively from a primary to a secondary region to allow for any maintenance and upgrades on the primary region.
+Geo-replication can also be used to facilitate data migration, maintenance, and system upgrades. Organizations can migrate their namespace proactively from a primary to a secondary region to allow for any maintenance and upgrades on the primary region.
 
 ## Geo-replication 
 The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:
@@ -129,7 +129,7 @@ As such, it doesn’t have the absolute guarantee that all regions have the data
 The replication mode can be changed after configuring Geo-Replication. You can go from synchronous to asynchronous or from asynchronous to synchronous. If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous. The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs, or compliance reasons, rather than availability of your application.
 
 > [!NOTE]
-> In case a secondary region lags or becomes unavailable, the application will no longer be able to replicate to this region and will start throttling once the replication lag is reached. To continue using the namespace in the primary location, the afflicted secondary region can be removed. If no more secondary regions are configured, the namespace will continue without Geo-Replication enabled. It's possible to add additional secondary regions at any time. Top-level entities, which are queues and topics, are replicated synchronously, regardless of the replication mode configured. However, topic subscriptions adhere to the selected replication mode, and therefore, it's crucial to take them into account when deciding on the appropriate replication mode.
+> In case a secondary region lags or becomes unavailable, the application will no longer be able to replicate to this region and will start throttling once the replication lag is reached. To continue using the namespace in the primary location, the afflicted secondary region can be removed. If no more secondary regions are configured, the namespace continues without Geo-Replication enabled. It's possible to add other secondary regions at any time. Top-level entities, which are event hubs, are replicated synchronously, regardless of the replication mode configured.
 >
 
 ## Secondary region selection
