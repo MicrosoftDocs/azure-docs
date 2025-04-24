@@ -21,10 +21,8 @@ The Azure Native Qumulo offering on Azure Marketplace enables you to create and 
 
 Azure Native Qumulo Scalable File Service provides the following capabilities:
 
-- **Seamless onboarding** - Easily include Qumulo as a natively integrated service on Azure. The service can be deployed quickly.
 - **Multi-protocol support** - ANQ supports all standard file system protocols NFS, SMB, FTP, and S3.
 - **Exabyte scale storage scaling** - Each Qumulo instance can be scaled up to exabytes of storage capacity.
-- **Unified billing** - Each ANQ deployment appears as a single line item in your Azure bill, including infrastructure and software.
 - **Elastic performance** - ANQ enables workflows to consume capacity and performance independently of each other. The base configuration includes 1 GB/s throughput and 10,000 IOPS, which can scale to over 1 TB/s and exceed 6 million IOPS.
 - **Private access** - The service is directly connected to your own virtual network (sometimes called VNet injection).
 - **Cloud Data Fabric** - CDF enables seamless integration with on-premises or other cloud region Qumulo instances.
