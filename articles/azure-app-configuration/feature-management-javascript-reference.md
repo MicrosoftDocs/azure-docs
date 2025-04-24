@@ -449,6 +449,83 @@ When defining an audience, users and groups can be excluded from the audience. E
 
 In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
 
+### Targeting in a Web Application
+
+An example web application that uses the targeting feature filter is available in this [example](https://github.com/microsoft/FeatureManagement-JavaScript/tree/preview/examples/express-app) project.
+
+#### Ambient targeting context
+
+In web applications, especially those with multiple components or layers, passing targeting context (`userId` and `groups`) to every feature flag check can become cumbersome and repetitive. This scenario is referred to as "ambient targeting context," where the user identity information is already available in the application context (such as in session data or authentication context) but needs to be accessible to feature management evaluations throughout the application.
+
+The library provides a solution through the `targetingContextAccessor` pattern. Instead of explicitly passing the targeting context with each `isEnabled` or `getVariant` call, you can provide a function that knows how to retrieve the current user's targeting information from your application's context:
+
+```typescript
+import { FeatureManager, ConfigurationObjectFeatureFlagProvider } from "@microsoft/feature-management";
+
+// Create a targeting context accessor that uses your application's auth system
+const targetingContextAccessor = {
+    getTargetingContext: () => {
+        // In a web application, this might access request context or session data
+        // This is just an example - implement based on your application's architecture
+        return {
+            userId: getCurrentUserId(), // Your function to get current user
+            groups: getUserGroups()     // Your function to get user groups
+        };
+    }
+};
+
+// Configure the feature manager with the accessor
+const featureManager = new FeatureManager(featureProvider, {
+    targetingContextAccessor: targetingContextAccessor
+});
+
+// Now you can call isEnabled without explicitly providing targeting context
+// The feature manager will use the accessor to get the current user context
+const isBetaEnabled = await featureManager.isEnabled("Beta");
+```
+
+This pattern is particularly useful in server-side web applications where user context may be available in a request scope or in client applications where user identity is managed centrally.
+
+#### Using AsyncLocalStorage for request context
+
+One common challenge when implementing the targeting context accessor pattern is maintaining request context throughout an asynchronous call chain. In Node.js web applications, user identity information is typically available in the request object, but becomes inaccessible once you enter asynchronous operations.
+
+Node.js provides [`AsyncLocalStorage`](https://nodejs.org/api/async_context.html#class-asynclocalstorage) from the `async_hooks` module to solve this problem. It creates a store that persists across asynchronous operations within the same logical "context" - perfect for maintaining request data throughout the entire request lifecycle.
+
+Here's how to implement a targeting context accessor using AsyncLocalStorage in an express application:
+
+```typescript
+import { AsyncLocalStorage } from "async_hooks";
+import express from "express";
+
+const requestAccessor = new AsyncLocalStorage();
+
+const app = express();
+// Middleware to store request context
+app.use((req, res, next) => {
+    // Store the request in AsyncLocalStorage for this request chain
+    requestAccessor.run(req, () => {
+        next();
+    });
+});
+
+// Create targeting context accessor that retrieves user data from the current request
+const targetingContextAccessor = {
+    getTargetingContext: () => {
+        // Get the current request from AsyncLocalStorage
+        const request = requestContext.getStore();
+        if (!request) {
+            return undefined; // Return undefined if there's no current request
+        }
+        // Extract user data from request (from session, auth token, etc.)
+        return {
+            userId: request.user?.id,
+            groups: request.user?.groups || []
+        };
+    }
+};
+```
+
 ## Variants
 
 When new features are added to an application, there may come a time when a feature has multiple different proposed design options. A common solution for deciding on a design is some form of A/B testing, which involves providing a different version of the feature to different segments of the user base and choosing a version based on user interaction. In this library, this functionality is enabled by representing different configurations of a feature with variants.
@@ -457,7 +534,7 @@ Variants enable a feature flag to become more than a simple on/off flag. A varia
 
 ### Getting a variant with targeting context
 
-For each feature, a variant can be retrieved using the `FeatureManager`'s `getVariant` method. The variant assignment is dependent on the user currently being evaluated, and that information is obtained from the targeting context you passed in.
+For each feature, a variant can be retrieved using the `FeatureManager`'s `getVariant` method. The variant assignment is dependent on the user currently being evaluated, and that information is obtained from the targeting context you passed in. If you have registered a targeting context accessor to the `FeatureManager`, the targeting context will be automatically retrieved from it. But you can still override it by manually passing targeting context when calling `getVariant`. 
 
 ```typescript
 const variant = await featureManager.getVariant("MyVariantFeatureFlag", { userId: "Sam" });
