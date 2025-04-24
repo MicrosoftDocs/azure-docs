@@ -36,13 +36,13 @@ The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetim
 
 ## Limitations 
 
-- **Mobile Apps**: Not supported 
+- **Mobile Apps**: Not supported.
 
-- **AJAX and API calls aren't supported**: CAPTCHA verification doesn't apply to AJAX and API requests. 
+- **AJAX and API calls aren't supported**: CAPTCHA verification doesn't apply to AJAX and API requests.
 
 - **POST body size restriction**: The first request that triggers a CAPTCHA challenge will be blocked if its POST body exceeds 128 KB.
 
 - **Non-HTML embedded resources**: CAPTCHA is designed for HTML resources. Placing CAPTCHA in front of non-HTML resources, such as images, CSS, or JavaScript files, may likely result in issues with content loading and rendering.
 
-- **Browser compatibility**: CAPTCHA isn't supported on Microsoft Internet Explorer. It's compatible with the latest versions of Microsoft Edge, Chrome, Firefox, and Safari. 
+- **Browser compatibility**: CAPTCHA isn't supported on Microsoft Internet Explorer. It's compatible with the latest versions of Microsoft Edge, Chrome, Firefox, and Safari.
 
