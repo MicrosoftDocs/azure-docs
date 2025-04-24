@@ -95,7 +95,7 @@ You can use basic user flows or advanced Identity Enterprise Framework (IEF) pol
 
    ![Screenshot of the subject sub claim URL on the Token compatibility dialog.](./media/partner-ping/token-setting.png)
 
-In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
+In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT issuer technical profile](./jwt-issuer-technical-profile.md).
 
 ## Configure PingAccess and PingFederate
 

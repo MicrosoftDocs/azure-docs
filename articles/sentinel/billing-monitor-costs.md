@@ -8,8 +8,8 @@ ms.topic: conceptual
 ms.date: 03/07/2024
 ms.collection: usx-security
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a cloud administrator, I want to manage and monitor costs for Microsoft Sentinel so that I can optimize spending and prevent budget overruns.
