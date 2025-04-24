@@ -34,11 +34,11 @@ The CAPTCHA challenge cookie name is **afd_azwaf_captcha** on Azure Front Door.
 
 - **Mobile Apps**: Not supported 
 
-- **AJAX and API calls aren't supported**: CAPTCHA verification doesn't apply to these types of requests. 
+- **AJAX and API calls aren't supported**: CAPTCHA verification doesn't apply to AJAX and API requests. 
 
-- **POST body size restriction**: If the first request triggering a CAPTCHA challenge has a POST body exceeding 128 KB, it will be blocked. 
+- **POST body size restriction**: The first request that triggers a CAPTCHA challenge will be blocked if its POST body exceeds 128 KB.
 
-- **Non-HTML embedded resources**: CAPTCHA is designed for HTML resources. If you put CAPTCHA in front of non-HTML resources like images, CSS, or JavaScript files you'll likely encounter issues with contents loading and rendering.  
+- **Non-HTML embedded resources**: CAPTCHA is specifically designed for HTML resources. Placing CAPTCHA in front of non-HTML resources, such as images, CSS, or JavaScript files, may likely result in issues with content loading and rendering.
 
 - **Browser compatibility**: CAPTCHA isn't supported on Microsoft Internet Explorer. It's compatible with the latest versions of Microsoft Edge, Chrome, Firefox, and Safari. 
 
