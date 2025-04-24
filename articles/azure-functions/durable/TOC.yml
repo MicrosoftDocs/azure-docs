@@ -21,22 +21,22 @@
     href: durable-functions-configure-managed-identity.md   
   - name: Azure Storage
     items:
-    - name: Create a Durable Functions app - C#
+    - name: Create a durable task function app - C#
       displayName: get started, chaining
       href: durable-functions-isolated-create-first-csharp.md
-    - name: Create a Durable Functions app - JavaScript
+    - name: Create a durable task function app - JavaScript
       displayName: get started, chaining
       href: quickstart-js-vscode.md
-    - name: Create a Durable Functions app - TypeScript
+    - name: Create a durable task function app - TypeScript
       displayName: get started, chaining
       href: quickstart-ts-vscode.md
-    - name: Create a Durable Functions app - Python
+    - name: Create a durable task function app - Python
       displayName: get started, chaining
       href: quickstart-python-vscode.md
-    - name: Create a Durable Functions app - PowerShell
+    - name: Create a durable task function app - PowerShell
       displayName: get started, chaining
       href: quickstart-powershell-vscode.md
-    - name: Create a Durable Functions app - Java
+    - name: Create a durable task function app - Java
       displayName: get started, chaining
       href: quickstart-java.md
   - name: Durable Task Scheduler
@@ -49,7 +49,7 @@
       href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
   - name: MSSQL
     items:
-    - name: Configure a storage provider - MSSQL
+    - name: Create a durable task function app
       href: quickstart-mssql.md
 - name: Tutorials
   items:
@@ -115,8 +115,6 @@
   items: 
   - name: Overview
     href: ./durable-task-scheduler/durable-task-scheduler.md
-  - name: Choose your orchestration framework
-    href: ./durable-task-scheduler/durable-task-scheduler-framework.md
   - name: Manage and monitor
     href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
   - name: Durable Functions
@@ -143,6 +141,8 @@
     href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
 - name: Reference
   items:
+  - name: Choose your orchestration framework
+    href: ./durable-task-scheduler/durable-task-scheduler-framework.md
   - name: Azure Functions
     items: 
     - name: Host.json settings
