@@ -11,7 +11,7 @@ ms.custom: azure-operator-nexus, template-include
 
 # Fabric runtime upgrade template
 
-This how-to guide provides a step-by-step template for upgrading a Fabric. It is designed to assist users in enhancing their network infrastructure through Azure APIs, which facilitate the lifecycle management of various network devices. Regular updates are crucial for maintaining system integrity and accessing the latest product improvements.
+This how-to guide provides a step-by-step template for upgrading a Nexus Fabric. It is designed to assist users in managing a reproducable end-to-end upgrade through Azure APIs. Regular updates are crucial for maintaining system integrity and accessing the latest product improvements.
 
 ## Overview
 
@@ -48,6 +48,10 @@ Runtime changes are categorized as follows:
 - [Azure Portal](https://aka.ms/nexus-portal)
 - [Operator Nexus Releases and Notes](./release-notes-2402.2)
 - [Network Fabric Upgrade](./howto-upgrade-nexus-fabric)
+
+## Prerequisites
+- Install Azure CLI
+- Install Azure CLI Extensions
 
 ## Pre-Checks before executing the Fabric upgrade
 
@@ -118,7 +122,7 @@ Runtime changes are categorized as follows:
 
    If any taps are "not found", failed" or "error" status, do not start the upgrade until the network taps issues are cleared.
    
-7. Run cabling validation report:
+6. Run cabling validation report:
 
 #Link
    ```
@@ -136,11 +140,11 @@ Runtime changes are categorized as follows:
 
    List all port connection and cabling issues in the iTrack and notify AT&T Nitro/Team
 
-11. Notify SRE of Upgrade and ETA:
+7. Notify Operations of upgrade and ETA:
 
-   DE will send notification to SRE of production resource upgrade and ETA using the following template:
+   Send notification to Operations of production Fabric upgrade and ETA using the following template:
    ```
-   Title: <ENVIRONMENT> <REGION> <FABRIC_NAME> Runtime upgrade to <FABRIC_RUNTIME_VERSION> <START_TIME> - 
+   Title: <ENVIRONMENT> <AZURE_REGION> <FABRIC_NAME> Runtime upgrade to <FABRIC_RUNTIME_VERSION> <START_TIME> - 
    Completion ETA <DURATION>
 
    AODS_SRE@microsoft.com:
@@ -155,21 +159,19 @@ Runtime changes are categorized as follows:
    Cluster: <CLUSTER_NAME>
    Region: <AZURE_REGION>
    Version: <NEXUS_VERSION>
- 
-   cc: aods-de- 
-   vendor@microsoft.com;jacobsmith@microsoft.com;steve.laughman@microsoft.com;jegallagher@microsoft.com
+
+   CC: stakeholder-list
    ```
 
-12. Azure Resource Tags on Deployment Resources:
+8. Azure Resource Tags on Deployment Resources:
 
    ```
-   To help track customer deployments, DE will add tags to DE created Azure resources in Azure portal for 
-   Fabric:
+   To help track upgrades, the DE can add a tag to the Fabric resources in Azure portal:
    |Name          | Value          |
    ---------------|-----------------
    |BF in progress|<DE_CUSTOMER_ID>|
 
-   When deployment is complete or issue is resolved, the DE will remove the tag.
+   When deployment is complete, the DE will remove the tag.
    ```
 
 
