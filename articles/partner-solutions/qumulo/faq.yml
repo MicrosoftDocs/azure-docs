@@ -7,11 +7,9 @@ metadata:
 
 title: Azure Native Qumulo FAQ
 summary: |
-  [This summary appears as the introductory paragraph 
-  of the FAQ as it's displayed.]
 
 sections:
-  - name: Frequently asked questions
+  - name: General
     questions:
       - question: Where can I learn more about Azure Native Qumulo?
         answer: To learn more about Azure Native Qumulo, see [Qumulo's documentation](https://docs.qumulo.com/azure-native-administrator-guide/).
