@@ -7,7 +7,7 @@ ms.date: 01/13/2025
 ms.custom: engagement-fy23
 ---
 
-# Deploy disaster recovery with VMware Site Recovery Manager (SRM)
+# Deploy disaster recovery with VMware Live Site Recovery
 
 This article explains how to implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs. The solution in this article uses [VMware Site Recovery Manager (SRM)](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8.html) and vSphere Replication with Azure VMware Solution. Instances of VMware SRM and replication servers are deployed at both the protected and the recovery sites.       
 
@@ -17,7 +17,7 @@ VMware vSphere Replication is VMware's hypervisor-based replication technology f
 
 
 > [!NOTE]
-> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.7.0.3.
+> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.8.0.3.
 
 ## Supported scenarios
 
@@ -281,11 +281,9 @@ If you no longer require VMware SRM, you must uninstall it in a clean manner. Be
 
 ## Support 
 
-VMware Site Recovery Manager (SRM) is a Disaster Recovery solution from VMware.  
+VMware Live Site Recovery is a Disaster Recovery solution from VMware by Broadcom. Microsoft supports the installation and uninstallation of VMware Live Site Recovery and vSphere Replication Manager, as well as the scaling up or down of vSphere Replication appliances within Azure VMware Solution.
 
-Microsoft only supports install/uninstall of VMware SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances within Azure VMware Solution. 
-
-For all other issues, such as configuration and replication, contact VMware for support.
+For any other issues, customers are requested to contact Broadcom for support regarding site configurations, licensing issues, replication, pairing failures, and DNS-related problems.
 
 VMware and Microsoft support teams engage each other as needed to troubleshoot VMware SRM issues on Azure VMware Solution.
 

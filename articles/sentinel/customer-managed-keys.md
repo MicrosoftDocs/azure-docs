@@ -5,8 +5,9 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/08/2023
 ms.author: yelevin
-appliesto: 
-    - Microsoft Sentinel
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a security administrator, I want to configure a customer-managed key for Microsoft Sentinel so that I can enhance data protection with my own encryption key.

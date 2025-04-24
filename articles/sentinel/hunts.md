@@ -7,8 +7,8 @@ ms.author: austinmc
 ms.topic: how-to
 ms.date: 03/12/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 

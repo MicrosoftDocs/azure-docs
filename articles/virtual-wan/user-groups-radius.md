@@ -23,7 +23,7 @@ Verify that you have a working RADIUS server (NPS) already registered to Active 
 
 ## Configure the NPS server
 
-Use the following steps to help you configure a network policy on your NPS server. Steps might vary, depending on vendor and version. For more information about how to configure network policies, see [Network Policy Server](https://learn.microsoft.com/windows-server/networking/technologies/nps/nps-np-configure).
+Use the following steps to help you configure a network policy on your NPS server. Steps might vary, depending on vendor and version. For more information about how to configure network policies, see [Network Policy Server](/windows-server/networking/technologies/nps/nps-np-configure).
 
 [!INCLUDE [NPS steps](../../includes/vpn-gateway-vwan-user-groups-radius.md)]
 

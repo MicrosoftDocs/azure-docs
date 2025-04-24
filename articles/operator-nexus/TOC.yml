@@ -165,6 +165,8 @@
               href: howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md
             - name: Network Fabric Upgrades
               href: howto-upgrade-nexus-fabric.md
+            - name: Network Fabric Upgrades Template
+              href: howto-upgrade-nexus-fabric-template.md
             - name: Credential Rotation
               href: howto-credential-rotation.md
             - name: Credential Manager Key Vault

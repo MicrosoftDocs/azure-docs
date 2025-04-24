@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 03/01/2024
 ms.author: cwatson
 appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
-    - Microsoft Sentinel in the Microsoft Defender portal.
 
 
 #Customer intent: As a security operations center (SOC) analyst, I want to delete Microsoft Sentinel out-of-the-box content and solutions so that I can manage and customize my security monitoring environment effectively.
@@ -24,7 +24,7 @@ If you installed a Microsoft Sentinel out-of-the-box solution, you can remove co
 
 Delete content items for an installed solution deployed by the content hub.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
 1. Select an installed solution where the version is 2.0.0 or higher.
 1. On the solutions details page, select **Manage**.
 1. Select the content item or items you want to delete.
