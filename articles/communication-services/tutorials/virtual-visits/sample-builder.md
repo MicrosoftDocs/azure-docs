@@ -14,17 +14,23 @@ ms.subservice: calling
 
 # Sample Builder
 
-The Azure Communication Services Sample Builder is a no-code tool designed to help teams rapidly launch virtual appointment experiences—without needing to write custom code. Whether you're running a healthcare clinic, financial consultation, or support center, it lets you prototype, customize, and deploy real-time customer interactions that can integrate directly with Microsoft Teams and Bookings. 
+The Azure Communication Services Sample Builder is a no-code tool designed to help teams rapidly launch virtual appointment experiences—without needing to write custom code. Whether you're running a healthcare clinic, financial consultation, or support center, the sample builder lets you prototype, customize, and deploy real-time customer interactions that can integrate directly with Microsoft Teams and Bookings. 
 
 👉 **Launch the Sample Builder**: [Go to the Sample Builder](https://ms.portal.azure.com/#view/Microsoft_Azure_VirtualVisitsBuilder/SampleBuilder.ReactView)
 
-This tutorial describes concepts for virtual appointment applications. After completing this tutorial and using associated Sample Builder, you will understand common use cases that a virtual appointments application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further. You can learn more concepts about virtual appointments in the [overview](../../concepts/interop/virtual-visits/overview.md).
+This tutorial introduces key concepts for building virtual appointment applications. After completing this tutorial and using the Sample Builder, you will:
+
+- Understand common use cases for virtual appointments
+- Explore Microsoft technologies that support these scenarios
+- Deploy a working sample application that integrates Microsoft 365 and Azure
+
+Learn more foundational concepts in the virtual appointments [overview](../../concepts/interop/virtual-visits/overview.md).
 
 ### Capabilities
 The Sample Builder can help:
 -  **Deploy a working virtual visit experience in minute**s—minimal code required
--  **Try new features early**—test UI capabilities that haven’t fully entered the Azure Communications Services UI library
--  **Customize the consumer experience** with a prebuilt user interface, optional pre-call survey, post-call survey, waiting room, and more
+-  **Try new features early**—test UI capabilities that ahead of release
+-  **Customize the consumer experience** with by altering prebuilt user interface, post-call surveys, and more
 -  **Integrate with Microsoft Bookings** to support scheduling workflows
 -  **Launch Microsoft Teams meetings** using Azure Communication Services and enable guest access via the web app
 
@@ -37,17 +43,18 @@ The Sample Builder creates a hybrid virtual visit solution by integrating:
 The following diagram shows the user steps for a virtual appointment (using Microsoft Booking):
 ![High-level architecture of a hybrid virtual appointments solution.](../media/virtual-visits/virtual-visit-arch.svg)
 
-For this Virtual Appointments scenario using Microsoft Bookings, this chart showcases:
-1. Consumer schedules the appointment using Microsoft 365 Bookings.
-2. Consumer gets an appointment reminder through SMS and Email.
-3. Provider joins the appointment using Microsoft Teams.
-4. Consumer uses a link from the Bookings reminders to launch the Contoso consumer app and join the underlying Teams meeting.
-5. The users communicate with each other using voice, video, and text chat in a meeting.
+Virtual Appointment Flow (Using Microsoft Bookings):
 
-This architecture ensures that providers can join virtual appointments using Microsoft Teams and that Consumers can access a fully branded, browser-based experience—no Teams account required.
+1. Consumer schedules the appointment using Microsoft 365 Bookings
+2. Consumer receives reminders via SMS and email
+3. Provider joins via Microsoft Teams
+4. Consumer uses a link from the reminder to launch the Contoso app and join the Teams meeting
+5. Both users interact via video, voice, and chat
+
+This architecture ensures that providers can join virtual appointments using Microsoft Teams. In the same call, consumers can access a fully branded, browser-based experience—no Teams account required.
 
 ### What You Get
-Once the tutorial and Sample Builder have been completed, the Sample Builder will provide:
+Once the tutorial and Sample Builder have been completed, the Sample Builder provides:
 -  A fully deployed Azure web app
 -  Microsoft Teams meeting integration
 -  Custom UI implementation powered by Azure Communication Services composites
@@ -59,7 +66,7 @@ After deployment, you can immediately test the deployed sample by visiting these
 -  `https://your-app-url>/visit` to simulate a consumer joining the appointment
 -  `https://<your-app-url>/book` to access the embedded booking interface
 
-The following tutorial will go into more depth on how you can set this up.
+The following tutorial goes into more depth on how you can set this up.
  
 
 
@@ -90,7 +97,7 @@ And then, make sure "Add online meeting" is enabled.
 ## Step 1: Creating a Sample in the Builder
 
 ### Prerequisites
-To use the Sample Builder, you’ll need:
+To use the Sample Builder, you need:
 - An active Azure subscription
 - Admin permissions to deploy resources in Azure
 - Access to Microsoft Bookings (if you plan to enable scheduling integration)
@@ -103,17 +110,17 @@ You can also  navigate to the page within the Azure Communication Services resou
 
 1. Choose an industry scenario (Template)
 2. Choose a scheduling method (Bookings or Rooms)
-3. Customize the theme, colors, banners and add any logos
+3. Customize the theme, colors, banners, and add any logos
 4. Select and customize the Post-Call experience
 5. Preview your configuration live, including your brand colors and features available
 
-As you progress through the wizard, click through different setting to see what functionality is available. Different setups will provide different features, experiences, and options. 
+As you progress through the wizard, click through different setting to see what functionality is available. Different setups provide different features, experiences, and options. 
 
 [ ![Screenshot of Sample builder start page.](../media/virtual-visits/sample-builder-themes-4.25.png)](../media/virtual-visits/sample-builder-themes-4.25.png#lightbox)
 
 
 ## Step 2: Deploy
-At the end of the Sample Builder wizard, you are met with 3 options. You can deploy to Azure, download the code as a zip, or clone to Github. The sample builder code is publicly available on [GitHub](https://github.com/Azure-Samples/communication-services-virtual-visits-js).
+At the end of the Sample Builder wizard, you are met with three options. You can deploy to Azure, download the code as a zip, or clone to Github. The sample builder code is publicly available on [GitHub](https://github.com/Azure-Samples/communication-services-virtual-visits-js).
 
 [ ![Screenshot of Sample builder deployment page.](../media/virtual-visits/sample-builder-landing-4.25.png)](../media/virtual-visits/sample-builder-landing-4.25.png#lightbox)
 
@@ -139,18 +146,20 @@ Opening the App Service's URL and navigating to `https://<YOUR URL>/VISIT` allow
 If using Bookings, enter the application URL followed by "/visit" in the "Deployed App URL" field at https://outlook.office.com/bookings/businessinformation. Otherwise, ignore this step.
 
 # Going to production
-Congrats! You have deplyed the a customer sample! The Sample Builder gives you the basics of a Microsoft 365 and Azure virtual appointment: consumer scheduling via Bookings, consumer joining via a custom app, and the provider joining via Teams. However, several things to consider as you take this scenario to production.
+Congrats! You've deployed a custom sample. As you transition to production, consider the following
 
 ### Launching patterns
-Consumers want to jump directly to the virtual appointment from the scheduling reminders they receive from Bookings. In Bookings, you can provide a URL prefix that is used in reminders. If your prefix is `https://<YOUR URL>/VISIT`, Bookings will point users to `https://<YOUR URL>/VISIT?MEETINGURL=<MEETING URL>.`
+Consumers often want to join their virtual appointment directly from the reminders sent by Bookings. To support this, Bookings lets you specify a URL prefix that will be included in those reminders. For example, if your prefix is https://<YOUR URL>/visit, the reminders will direct users to https://<YOUR URL>/visit?MEETINGURL=<MEETING URL>.
 
 ### Integrate into your existing app
-The app service generated by the Sample Builder is a stand-alone artifact designed for desktop and mobile browsers. However, you may already have a website or mobile application and need to migrate these experiences to the existing codebase. The code generated by the Sample Builder should help, but you can also use the following:
--  **UI SDKs –** [Production Ready Web and Mobile](../../concepts/ui-library/ui-library-overview.md) components to build graphical applications.
--  **Core SDKs –** The underlying [Call](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and [Chat](../../quickstarts/chat/meeting-interop.md) services can be accessed, and you can build any kind of user experience.
+The app service generated by the Sample Builder is a standalone experience optimized for desktop and mobile browsers. If you already have an existing website or mobile app, you can adapt the provided code to fit into your current codebase.
+
+For more flexibility and customization, consider using:
+- **UI SDKs** – [Prebuilt, production-ready web and mobile UI components](../../concepts/ui-library/ui-library-overview.md) that allow you to match your existing look and feel.
+- **Core SDKs** – Access the underlying [Calling](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and [Chat](../../quickstarts/chat/meeting-interop.md) services directly to build fully custom experiences.
 
 ### Identity & security
-The Sample Builder's consumer experience doesn't authenticate the end user but provides [Azure Communication Services user access tokens](../../quickstarts/identity/access-tokens.md) to any random visitor. In most scenarios you want to implement an authentication scheme.
+The sample app issues ACS access tokens without user authentication. In production, implement secure user auth (e.g., Azure AD B2C). [Azure Communication Services user access tokens](../../quickstarts/identity/access-tokens.md)
 
 # Next steps
 - [Overview of virtual appointments](../../concepts/interop/virtual-visits/overview.md)
