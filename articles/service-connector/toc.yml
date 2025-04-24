@@ -64,8 +64,8 @@ items:
         href: tutorial-java-jboss-connect-managed-identity-mysql-database.md
       - name: Python app to PostgreSQL
         href: tutorial-django-webapp-postgres-cli.md
-      - name: Web app to MongoDB Application installation and servicing
-        href: tutorial-mongodb-atlas-service-connection.md
+      - name: Web app to MongoDB Atlas
+        href: howto-mongodb-atlas-service-connection.md
     - name: Azure Functions
       expanded: false
       items:
