@@ -127,7 +127,7 @@ Here's what's included in an Azure VMware Solution assessment:
 **Property** | **Details**
 --- | --- 
 **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.
-**Storage type** | Specifies the storage engine to be used in Azure VMware Solution. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required.
+**Storage type** | Specifies the storage engine to be used in Azure VMware Solution. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required. You can alternatively use Elastic SAN instead of Azure NetApp Files, in case you prefer, for assessing the cost using Elastic SAN as the external storage option.
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates take the option chosen into account. [Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify "Discount (%)".
 **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. By default, all node types available in the selected region are used for the assessment. Currently, AV64 node type can only be used along with AV36, AV36P, or AV52 and can't be used as a single node type in an SDDC. The node type available for use depends on the capacity availability of the SKU in the region.
 **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
@@ -298,7 +298,7 @@ As the pricing for Azure VMware Solution is per node, the total cost doesn't hav
 In the Azure readiness report for Azure VMware Solution assessment, you can see the following suggested tools:
 
 - **VMware HCX or Enterprise**: For VMware vSphere servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises vSphere workload to your Azure VMware Solution private cloud. [Learn More](../azure-vmware/install-vmware-hcx.md).
-- **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware vSphere servers, it's recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
+- **Unknown**: For servers imported via an RVTools or CSV file, the default migration tool is unknown. Though for VMware vSphere servers, it's recommended to use VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps
 
