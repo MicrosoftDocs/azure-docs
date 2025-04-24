@@ -29,7 +29,7 @@ Follow these steps to connect an app to MongoDB Atlas:
 
 1. Open **Settings** > **Service Connector** from the left menu and select **Create**.
 
-    :::image type="content" source="./media/mongo-service-connection/create-connection.png" alt-text="Screenshot from the Azure portal showing the Create option.":::
+    :::image type="content" source="./media/tutorial-mongodb-atlas/create-connection.png" alt-text="Screenshot from the Azure portal showing the Create option.":::
 
 1. Enter or select the following information.
 
@@ -38,23 +38,23 @@ Follow these steps to connect an app to MongoDB Atlas:
     | **Service type**           | *MongoDB Atlas Cluster (preview)*    | The name of the target service: **MongoDB Atlas Cluster (Preview)**.                                                                                                                                                                                                                                     |
     | **Connection name**        | *mongodb_atlas_01*            | The name of the connection between the Azure compute resource and the MongoDB Atlas Cluster resource. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
  
-    :::image type="content" source="./media/mongo-service-connection/create-basics-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Basics tab.":::
+    :::image type="content" source="./media/tutorial-mongodb-atlas/create-basics-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Basics tab.":::
 
 1. Select **Next: Authentication** and enter your cluster connection string. Optionally also edit your cluster connection string variable name under **Advanced**.
 
     > [!TIP]
-    > To find your cluster's connection string, in the MongoDB Astra platform, navigate to **Clusters** > **Connection** > **Drivers**, and copy the connection string.
+    > To find your cluster's connection string, in the MongoDB Atlas platform, navigate to **Clusters** > **Connection** > **Drivers**, and copy the connection string.
 
-    :::image type="content" source="./media/mongo-service-connection/create-authentication-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Authentication tab.":::
+    :::image type="content" source="./media/tutorial-mongodb-atlas/create-authentication-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Authentication tab.":::
 
 1. Select **Next** until you reach  **Review + Create**, and review the provided information.
 1. Select **Create**.
 
 ## View and edit connections
 
-[!INCLUDE [view-edit-connection](../includes/view-edit-connection.md)]
+[!INCLUDE [view-edit-connection](../partner-solutions/includes/view-edit-connection.md)]
 
 ## Related content
 
-- [MongoDB Atlas developer resources and tools](tools.md)
-- [Manage a MongoDB Atlas resource](manage.md)
+- [What is Service Conenctor](overview.md)
+- [Learn about Service Connector concepts](concept-service-connector-internals.md)
