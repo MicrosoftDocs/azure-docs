@@ -1,13 +1,13 @@
 ### YamlMime:HowTo
 
 metadata:
-  title: Export API from API Center to Copilot Studio connector
-  description: Learn how to export an API definition from your Azure API center as a connector in Microsoft Copilot Studio.
+  title: Export API from API Center as Copilot Studio connector
+  description: Learn how to export an API definition from your Azure API center as a custom connector in Microsoft Copilot Studio.
   author: dlepow
   ms.author: danlep
   ms.service: azure-api-management
   ms.topic: how-to 
-  ms.date: 04/22/2025
+  ms.date: 04/24/2025
   ms.custom: template-how-to
   # appliesTo: <optional> leave commented out.
   # - item
@@ -29,7 +29,7 @@ prerequisites:
   dependencies:
     - An API center instance. You can [create one](set-up-api-center.md) in the Azure portal.
     - An API registered in the API center inventory. The API must have a version associated with a [deployment](configure-environments-deployments.md), and it must have an API definition in OpenAPI 2.0 format.
-    - A Power Platform [environment](/power-apps/powerapps-overview#power-apps-for-admins)**.
+    - A Power Platform [environment](/power-apps/powerapps-overview#power-apps-for-admins).
 
 procedureSection:
   - title: | 
