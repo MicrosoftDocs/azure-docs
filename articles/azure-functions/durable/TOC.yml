@@ -17,36 +17,40 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Durable Functions app - C#
-    displayName: get started, chaining
-    href: durable-functions-isolated-create-first-csharp.md
-  - name: Create a Durable Functions app - JavaScript
-    displayName: get started, chaining
-    href: quickstart-js-vscode.md
-  - name: Create a Durable Functions app - TypeScript
-    displayName: get started, chaining
-    href: quickstart-ts-vscode.md
-  - name: Create a Durable Functions app - Python
-    displayName: get started, chaining
-    href: quickstart-python-vscode.md
-  - name: Create a Durable Functions app - PowerShell
-    displayName: get started, chaining
-    href: quickstart-powershell-vscode.md
-  - name: Create a Durable Functions app - Java
-    displayName: get started, chaining
-    href: quickstart-java.md
-  - name: Create a durable task function app - Durable Task Scheduler
-    displayName: get started, durable task scheduler
-    href: quickstart-durable-task-scheduler.md
-  - name: Create a durable task web app - Durable Task Scheduler
-    displayName: get started, durable task scheduler
-    href: quickstart-portable-durable-task-sdks.md
-  - name: Configure a storage provider - Netherite
-    href: quickstart-netherite.md
-  - name: Configure a storage provider - MSSQL
-    href: quickstart-mssql.md
   - name: Configure Durable Functions app with managed identity
     href: durable-functions-configure-managed-identity.md   
+  - name: Azure Storage
+    items:
+    - name: Create a Durable Functions app - C#
+      displayName: get started, chaining
+      href: durable-functions-isolated-create-first-csharp.md
+    - name: Create a Durable Functions app - JavaScript
+      displayName: get started, chaining
+      href: quickstart-js-vscode.md
+    - name: Create a Durable Functions app - TypeScript
+      displayName: get started, chaining
+      href: quickstart-ts-vscode.md
+    - name: Create a Durable Functions app - Python
+      displayName: get started, chaining
+      href: quickstart-python-vscode.md
+    - name: Create a Durable Functions app - PowerShell
+      displayName: get started, chaining
+      href: quickstart-powershell-vscode.md
+    - name: Create a Durable Functions app - Java
+      displayName: get started, chaining
+      href: quickstart-java.md
+  - name: Durable Task Scheduler
+    items:
+    - name: Create a durable task function app - Durable Functions
+      displayName: get started, durable task scheduler
+      href: quickstart-durable-task-scheduler.md
+    - name: Create a durable task web app - Portable SDKs
+      displayName: get started, durable task scheduler
+      href: quickstart-portable-durable-task-sdks.md
+  - name: MSSQL
+    items:
+    - name: Configure a storage provider - MSSQL
+      href: quickstart-mssql.md
 - name: Tutorials
   items:
   - name: Function chaining
@@ -107,47 +111,37 @@
     href: durable-functions-disaster-recovery-geo-distribution.md
   - name: Data persistence and serialization
     href: durable-functions-serialization-and-persistence.md
-- name: Operational guides
-  items:
-  - name: Durable Task Scheduler
-    items: 
-    - name: Overview
-      href: durable-task-scheduler.md
-    - name: Choose your orchestration framework
-      href: durable-task-scheduler-framework.md
-    - name: Manage and monitor
-      href: durable-task-scheduler-dashboard.md
-    - name: Durable Functions
+- name: Durable Task Scheduler
+  items: 
+  - name: Overview
+    href: durable-task-scheduler.md
+  - name: Choose your orchestration framework
+    href: durable-task-scheduler-framework.md
+  - name: Manage and monitor
+    href: durable-task-scheduler-dashboard.md
+  - name: Durable Functions
+    items:
+    - name: Concepts
       items:
-      - name: Concepts
-        items:
-        - name: Work item throughput
-          href: durable-task-scheduler-work-item-throughput.md
-      - name: How-to guides
-        items:
-        - name: Develop
-          href: develop-with-durable-task-scheduler.md
-    - name: Portable SDKs
+      - name: Work item throughput
+        href: durable-task-scheduler-work-item-throughput.md
+    - name: How-to guides
       items:
-      - name: Concepts
-        items:
-      - name: How-to guides
-        items:
-        - name: Use the portable SDKs with Azure computes
-          href: durable-task-scheduler-dashboard.md #placeholder
-    - name: Billing
-      href: durable-task-scheduler-dedicated-sku.md
-  - name: Azure Storage
-    items: 
-     - name: Azure storage provider
-       href: durable-functions-azure-storage-provider.md
-  - name: MSSQL
-    items: 
-  - name: Troubleshooting
-    items: 
-    - name: Durable Task Scheduler
-      href: troubleshoot-durable-task-scheduler.md
-- name: Developer reference
+      - name: Develop
+        href: develop-with-durable-task-scheduler.md
+  - name: Portable SDKs
+    items:
+    - name: Concepts
+      items:
+    - name: How-to guides
+      items:
+      - name: Use the portable SDKs with Azure computes
+        href: durable-task-scheduler-dashboard.md #placeholder
+  - name: Billing
+    href: durable-task-scheduler-dedicated-sku.md
+  - name: Troubleshoot
+    href: troubleshoot-durable-task-scheduler.md
+- name: Reference
   items:
   - name: Azure Functions
     items: 
@@ -191,6 +185,8 @@
          href: /java/api/com.microsoft.durabletask
     - name: PowerShell
       items:
+  - name: Azure storage provider
+    href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
   - name: Develop
