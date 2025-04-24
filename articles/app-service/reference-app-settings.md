@@ -180,6 +180,7 @@ This section shows the configurable runtime settings for each supported language
 | `WEBSITE_JAVA_MAX_HEAP_MB` | Java maximum heap, in megabytes. This setting is effective only when you use an experimental Tomcat version. |
 | `WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION` | Manually disable `WEBSITE_JAVA_MAX_HEAP_MB` by setting this variable to `true` or `1`. |
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interfaces](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`, `getLocalPort`, `getRequestURL`. To disable it, set the value to `1`. |
+| `WEBSITE_AUTH_EXPIRED_SESSION_LOGOFF` | Set this to `true` or `1` to force users to logout when the session has expired in the web app (as defined by `session-timeout` in the file `web.xml`). |
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters that App Service added, set to `1`. |
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. |
 | `PORT` | Read-only. For Linux apps, the port that the Java runtime listens to in the container. |
