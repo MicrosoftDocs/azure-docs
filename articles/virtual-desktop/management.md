@@ -4,7 +4,7 @@ description: Recommended ways for you to manage your Azure Virtual Desktop sessi
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 04/11/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

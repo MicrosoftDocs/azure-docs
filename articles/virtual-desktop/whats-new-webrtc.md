@@ -4,7 +4,7 @@ description: New features and product updates the Remote Desktop WebRTC Redirect
 author: sipastak
 ms.topic: release-notes
 ms.date: 08/21/2024
-ms.author: sipastak
+ms.author: avdcontent
 ms.custom: references_regions
 ---
 
