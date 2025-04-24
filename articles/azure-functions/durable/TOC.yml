@@ -121,13 +121,13 @@
       items:
       - name: Develop
         href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
-  - name: Portable SDKs
+  - name: Durable Task SDKs
     items:
     - name: Concepts
       items:
     - name: How-to guides
       items:
-      - name: Use the portable SDKs with Azure computes
+      - name: Use the Durable Task SDKs with Azure computes
         href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md #placeholder
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
@@ -163,13 +163,13 @@
       items:
       - name: Durable Functions
         href: /javascript/api/durable-functions/
-      - name: Portable SDK
+      - name: Durable Task SDK
         href: /javascript/api/durable-functions/ #placeholder
     - name: Python API
       items:
       - name: Durable Functions
         href: /python/api/azure-functions-durable/azure.durable_functions
-      - name: Portable SDK
+      - name: Durable Task SDK
         href: /python/api/azure-functions-durable/azure.durable_functions #placeholder
     - name: Java API
       items:
