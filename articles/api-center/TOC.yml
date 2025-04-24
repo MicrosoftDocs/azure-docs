@@ -76,6 +76,8 @@
         href: self-host-api-center-portal.md
       - name: Discover and consume APIs - VS Code extension
         href: discover-apis-vscode-extension.md
+      - name: Authorize access to APIs
+        href: authorize-api-access.md  
       - name: Check API calls use minimal permissions with Dev Proxy
         href: check-minimal-api-permissions-dev-proxy.md
 - name: API center management and operations
