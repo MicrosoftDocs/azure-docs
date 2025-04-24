@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 04/09/2025
 ---
 
-# Render configuration for Microsoft Planetary Computer Pro
+# Render configuration in Microsoft Planetary Computer Pro
 
 For the Microsoft Planetary Computer Pro (MPC Pro) data explorer, and Tiler API to work together, a render configuration must be set up along with a definition of the **item assets** inside the collection JSON ([collection item assets](#collection-item_assets-field)). 
 

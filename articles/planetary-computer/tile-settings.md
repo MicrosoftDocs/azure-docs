@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 04/09/2025
 ---
 
-# Tile settings for Microsoft Planetary Computer Pro
+# Tile settings in Microsoft Planetary Computer Pro
 
 For each collection in Microsoft Planetary Computer Pro, you can configure the tile settings, which determine mosaic behavior such as the default location, and minimum zoom level.
 
