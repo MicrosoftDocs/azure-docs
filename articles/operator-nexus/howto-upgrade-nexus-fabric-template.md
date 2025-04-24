@@ -57,7 +57,6 @@ Runtime changes are categorized as follows:
 
 ## Links
 - [Azure portal](https://aka.ms/nexus-portal)
-- [Operator Nexus Releases and Notes](release-notes-2402.2.md)
 - [Network Fabric Upgrade](howto-upgrade-nexus-fabric.md)
 - [Azure CLI](https://aka.ms/azcli)
 - [Install CLI Extension](howto-install-cli-extensions.md)
@@ -146,10 +145,12 @@ Runtime changes are categorized as follows:
    > If any Taps show `Not Found`, `Failed`, or `Error` status, stop the upgrade until issues are cleared. Provide this information to Microsoft Support when opening a support ticket for Tap issues.
    
 6. Run and validate the Fabric cable validation report.
-   Follow [Validate Cables for Nexus Network Fabric](./how-to-validate-cables) to set up and run the report
+   Follow [Validate Cables for Nexus Network Fabric](how-to-validate-cables.md) to set up and run the report
 
    >[!Note]
    > Resolve any connection and cable issues before continuing the upgrade.
+
+7. Review Operator Nexus Release notes for any additional checks and configuration updates prior to upgrading the Fabric.
    
 ## Send notification to Operations of upgrade schedule for the Fabric.
 
