@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/23/2025
+ms.date: 04/25/2025
 ms.author: anfdocs
 ---
 
@@ -39,6 +39,7 @@ Cross-tenant customer-managed keys is available in all Azure NetApp Files suppor
 * If Azure Key Vault becomes inaccessible, Azure NetApp Files loses its access to the encryption keys and the ability to read or write data to volumes enabled with customer-managed keys. In this situation, create a support ticket to have access manually restored for the affected volumes.
 * Azure NetApp Files supports customer-managed keys on source and data replication volumes with cross-region replication or cross-zone replication relationships.
 * Applying Azure network security groups (NSG) on the private link subnet to Azure Key Vault is supported for Azure NetApp Files customer-managed keys. NSGs don’t affect connectivity to private links unless a private endpoint network policy is enabled on the subnet.
+* Wrap/unwrap is not supported. Customer-managed keys uses encrypt/decrypt. For more information, see [RSA algorithms](/azure/key-vault/keys/about-keys-details#rsa-algorithms).
 
 ## Requirements
 

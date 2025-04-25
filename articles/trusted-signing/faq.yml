@@ -62,6 +62,7 @@ sections:
           - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
           - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+          - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we cannot proceed further with the onboarding.
       - question: What if I need assistance with identity validation?
         answer: | 
           - For questions about identity validation in Trusted Signing, contact us via Azure Support or by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**).
