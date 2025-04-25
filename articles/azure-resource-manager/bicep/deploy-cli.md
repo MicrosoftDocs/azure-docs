@@ -201,7 +201,7 @@ You can use inline parameters and a location parameters file in the same deploym
 
 Before deploying your Bicep file, you can preview the changes the Bicep file will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the Bicep file makes the changes that you expect. What-if also validates the Bicep file for errors.
 
-## Deploy file specs
+## Deploy template specs
 
 Currently, the Azure CLI doesn't provide Bicep files to help create template specs. However, you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. The [Create template spec sample](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) shows how to create a template spec in a Bicep file. You can also build your Bicep file to JSON by using the Bicep CLI and then a JSON template to create a template spec.
 
