@@ -30,8 +30,8 @@ Runtime changes are categorized as follows:
 4. Target Cluster must be healthy in a running state.
 
 ## Required Parameters:
-- /<ENVIRONMENT/> - Instance Name
-- <AZURE_REGION> - Azure Region of Instance
+- \<ENVIRONMENT\>: - Instance Name
+- <AZURE_REGION>: - Azure Region of Instance
 - <CUSTOMER_SUB_NAME>: Subscription Name
 - <CUSTOMER_SUB_ID>: Subscription ID
 - <CLUSTER_NAME>: Cluster Name
@@ -41,7 +41,7 @@ Runtime changes are categorized as follows:
 - <CLUSTER_CONTROL_BMM>: Cluster Control plane baremetalmachine
 - <CLUSTER_VERSION>: Runtime version for upgrade
 - <START_TIME>: Planned start time of upgrade
-- /<DURATION/>: Estimated Duration of upgrade
+- \<DURATION\>: Estimated Duration of upgrade
 - <DEPLOYMENT_THRESHOLD>: Compute deployment threshold
 - <DEPLOYMENT_PAUSE_MINS>: Time to wait before moving to the next Rack once the current Rack meets the deploymen threshold
 - <NFC_NAME>: Associated Nework Fabric Controller (NFC)
@@ -95,7 +95,7 @@ Runtime changes are categorized as follows:
    >[!Note]
    > If CM `Provisioning state` isn't `Succeeded` and Cluster `Detailed status` isn't `Running` stop the upgrade until issues are resolved.
 
-3.  Check the Bare Metal Machine status `Detailed status` is `Running`:
+3. Check the Bare Metal Machine status `Detailed status` is `Running`:
    ```
    az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
    ```
@@ -167,7 +167,8 @@ If `updateStrategy` isn't set, the default values are as follows:
 ```
 az networkcloud cluster update -n $CLUSTER_NAME -g $CLUSTER_RG --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=$THRESHOLD wait-time-minutes=$PAUSE_MINS --subscription $SUBSCRIPTION_ID
 ```
->[!Important] If 100% threshold is required, review the BMM status reported during pre-checks and make sure all BMM are healthy before proceeding with the upgrade.
+>[!Important]
+> If 100% threshold is required, review the BMM status reported during pre-checks and make sure all BMM are healthy before proceeding with the upgrade.
 
 Verify update:
 ```
@@ -176,8 +177,8 @@ az networkcloud cluster show -n $CLUSTER_NAME -g $CLUSTER_RG --subscription $SUB
    "maxUnavailable": 32767,
    "strategyType": "Rack",
    "thresholdType": "PercentSuccess",
-   "thresholdValue": 80,
-   "waitTimeMinutes": 1
+   "thresholdValue": $THRESHOLD,
+   "waitTimeMinutes": $PAUSE_MINS
 }
 ```
 
