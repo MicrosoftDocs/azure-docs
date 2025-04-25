@@ -27,6 +27,11 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
+    - title: Arize AI (preview)
+      imageSrc: ./media/index/arize-ai.svg
+      links: 
+      - url: ./arize-ai/overview.md
+        text: Develop, debug, and improve AI applications with enterprise quality using observability and evaluation tools.
     - title: Astro
       imageSrc: ./media/index/astronomer.svg
       links:
@@ -81,7 +86,7 @@ productDirectory:
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md
-          text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
+          text: Protect your organization with a next generation firewall solution integrated with Azure.
     - title: Pure Storage (preview)
       imageSrc: ./media/index/pure-storage.svg
       links:
