@@ -138,5 +138,5 @@ landingContent:
             url: /azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr
           - text: Designed to minimize VM downtime in Azure VMware Solution during disasters
             url: /azure/well-architected/azure-vmware/operations
-          - text: Integrate virtualized workloads running on Azure Local
+          - text: Azure Local stretched clusters for disaster recovery
             url: /azure/architecture/hybrid/azure-local-dr
