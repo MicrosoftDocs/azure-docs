@@ -71,7 +71,7 @@ After saving the script and replacing the variables, run it using the following 
 .\assign_identity.ps1
 ```
 
-Once complete, proceed to the [Give a User-assigned Managed Identity read permissions to Azure Blob Storage](#give-a-user-assigned-managed-identity-read-permissions-to-azure-blob-storage) instructions. 
+Once complete, proceed to the [Give a User-assigned Managed Identity read permissions to Azure Blob Storage](./setup-ingestion-credentials-managed-identity.md#give-a-user-assigned-managed-identity-storage-blob-data-reader-to-azure-blob-storage) instructions. 
 
 ## Use a bash script to assign a user-assigned managed identity
 
@@ -151,3 +151,5 @@ az rest --method PUT \
     ```bash
     ./assign_identity.sh
     ```
+
+Once complete, proceed to the [Give a User-assigned Managed Identity read permissions to Azure Blob Storage](./setup-ingestion-credentials-managed-identity.md#give-a-user-assigned-managed-identity-storage-blob-data-reader-to-azure-blob-storage) instructions. 

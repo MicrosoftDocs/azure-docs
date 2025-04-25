@@ -26,7 +26,7 @@ This article provides step-by-step guidance for developers and administrators to
 
 ## Applications running on Azure
 
-For applications that are running on Azure, we recommend you create a type of Microsoft Entra identity called user-assigned Managed Identity to access MPC Pro resource. The applications can use the managed identities to obtain Microsoft Entra tokens (see section [Acquire access token to access MPC Pro](#acquire-access-token-to-access-mpc-pro)) without having to manage any credentials. For more information of Managed Identities and which type to choose, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). To create user-assigned managed identities for your application running on Azure, follow [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity?tabs=portal%2Chttp).
+For applications that are running on Azure, we recommend you create a type of Microsoft Entra identity called user-assigned Managed Identity to access MPC Pro resource. The applications can use the managed identities to obtain Microsoft Entra tokens (see section [Acquire access token to access MPC Pro](#acquire-access-token-to-access-microsoft-planetary-computer-pro) without having to manage any credentials. For more information of Managed Identities and which type to choose, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). To create user-assigned managed identities for your application running on Azure, follow [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity?tabs=portal%2Chttp).
 
 ## Applications not running on Azure
 
@@ -38,7 +38,7 @@ If you can't register the application in Microsoft Entra as recommended previous
 !az login  --identity --username <client_id|object_id|resource_id> 
 ```
 
-You can find the client ID, object ID, or resource ID of the managed identity from Azure portal. As an alternative to the CLI, sample Python code is under the section [Acquire access token to access MPC Pro](#acquire-access-token-to-access-mpc-pro).
+You can find the client ID, object ID, or resource ID of the managed identity from Azure portal. As an alternative to the CLI, sample Python code is under the section [Acquire access token to access MPC Pro](#acquire-access-token-to-access-microsoft-planetary-computer-pro).
 
 ```python
 azure.identity.DefaultAzureCredential(managed_identity_client_id=<client_id>)
@@ -52,7 +52,7 @@ In this access scenario, the application acts on its own with no user signed in 
 
 ## Delegated access
 
-In this access scenario, a user signed into a client application. The client application accesses the resource on behalf of the user. You need to ensure the users of the application are assigned proper RBAC roles as described under the section of [Users Access to MPC Pro](#users-access-to-mpc-pro). You also need to configure the application's API permissions with delegated permissions following these steps:  
+In this access scenario, a user signed into a client application. The client application accesses the resource on behalf of the user. You need to ensure the users of the application are assigned proper RBAC roles as described under the section of [Users Access to MPC Pro](./manage-access.md#users-access). You also need to configure the application's API permissions with delegated permissions following these steps:  
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/)
 1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application

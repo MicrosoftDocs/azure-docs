@@ -106,7 +106,7 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
    :::image type="content" source="media/show-hidden-roles.png" alt-text="Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.":::
 
 ## Next Steps
-- [Create a STAC Collection](./create-collection-UI.md)
+- [Create a STAC Collection](./create-collection-portal.md)
 - [Create a STAC Collection from the API](./create-stac-collection.md)
 - [Manage Access to your GeoCatalog resource](./manage-access.md)
 - [Assign a user-assigned managed identity to a GeoCatalog resource](./assign-managed-identity-geocatalog-resource.md)

@@ -22,8 +22,8 @@ Before you continue with the deletion steps, make sure you're ready to delete th
 
 ## Prerequisites
 
-- A Deployed GeoCatalog resource.
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) (For using the REST API)
+- A Deployed GeoCatalog resource. Refer to [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md) for deployment instructions.
+- [Azure CLI](/cli/azure/install-azure-cli) (For using the REST API) 
 
 ## Delete a GeoCatalog instance
 
@@ -53,3 +53,9 @@ Before you continue with the deletion steps, make sure you're ready to delete th
    ```bash
    az rest --method DELETE --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2024-01-31-preview"
    ```
+
+## Next Steps
+- [Get Started With Microsoft Planetary Computer Pro](./get-started-planetary-computer.md)
+
+## Related Content
+- [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md)
