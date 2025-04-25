@@ -4,10 +4,10 @@ description: Learn how to configure access to APIs in the Azure API Center inven
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/23/2025
+ms.date: 04/25/2025
 ms.author: danlep 
 ms.custom: 
-# Customer intent: As an API program manager, I want to ... TBD 
+# Customer intent: As an API program manager, I want to store API authorization information in my API center and enable authorized users to test APIs in the API Center portal.
 ---
 
 # Authorize access to APIs in your API Center inventory
@@ -39,26 +39,27 @@ You can configure settings to authorize access to APIs in your API center invent
 
 ## Configure settings for API key authentication
 
-Follow these steps to configure settings for API key authentication. The API key must be stored in Azure Key Vault, and access to the key vault is through your API center's managed identity.
+For an API that supports API key authentication, follow these steps to configure settings in your API center. The API key must be stored in Azure Key Vault, and access to the key vault is through your API center's managed identity.
 
-### Store secret in Azure Key Vault
+### 1. Store secret in Azure Key Vault
 
 To store the API key securely, use Azure Key Vault. You can create a new key vault or use an existing one, using the Azure portal, Azure tools, or Azure SDKs. Your key vault should use the Azure role-based access control (RBAC) permission model.
 
 * For steps to create a key vault, see [Create a Key Vault](/azure/key-vault/general/quick-create-portal).
 
-* To store the API key as a secret in the Key Vault, see [Set and retrieve secret in Key Vault](/azure/key-vault/secrets/quick-create-portal).
+* To store the API key as a secret in the key vault, see [Set and retrieve secret in Key Vault](/azure/key-vault/secrets/quick-create-portal).
 
-    Note the *secret identifier* of the secret. This is a URI of the form `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`. You need this value when you add the API key configuration in your API center.
+    > [!NOTE]
+    > The *secret identifier* of the secret appears on the secret's details page. This is a URI of the form `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`. You need this value when you add the API key configuration in your API center.
 
 <!-- Should we use the version of the secret in the URI? -->
 
 
-### Enable a managed identity in your API center
+### 2. Enable a managed identity in your API center
 
-For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access Azure resources. Depending on your needs, enable either a system-assigned or one or more user-assigned managed identities. 
+For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access the key vault. Depending on your needs, enable either a system-assigned or one or more user-assigned managed identities. 
 
-The following examples show how to enable a system-assigned managed identity by using the Azure portal. At a high level, configuration steps are similar for a user-assigned managed identity. 
+The following example shows how to enable a system-assigned managed identity by using the Azure portal. At a high level, configuration steps are similar for a user-assigned managed identity. 
 
 
 1. In the [portal](https://azure.microsoft.com), navigate to your API center.
@@ -66,7 +67,7 @@ The following examples show how to enable a system-assigned managed identity by 
 1. Select **System assigned**, and set the status to **On**.
 1. Select **Save**.
 
-### Assign the Key Vault Secrets User role to the managed identity
+### 3. Assign the Key Vault Secrets User role to the managed identity
 
 Assign your API center's managed identity the **Key Vault Secrets User** role in your key vault. The following steps use the Azure portal.
 
@@ -80,7 +81,7 @@ Assign your API center's managed identity the **Key Vault Secrets User** role in
     1. Select **Review + assign**.
 
 
-### Add API key configuration in your API center
+### 4. Add API key configuration in your API center
 
 1. In the [portal](https://azure.microsoft.com), navigate to your key API center.
 1. In the left menu, under **Assets**, select **Authorization (preview)** > **+ Add configuration**.
@@ -98,45 +99,44 @@ Assign your API center's managed identity the **Key Vault Secrets User** role in
 <!-- Which identity providers are supported? Just Entra? -->
 
 
-Follow these steps to configure settings for OAuth 2.0 authorization to APIs. You can configure settings for one or both of the following OAuth 2.0 authorization flows:
+For an API that supports OAuth 2.0 authorization, follow these steps to configure authentication settings in your API center. You can configure settings for one or both of the following OAuth 2.0 authorization flows:
 
 * **Authorization code flow with PKCE (Proof Key for Code Exchange)** - This flow is recommended for authenticating users in mobile and web applications such as the API Center portal.
 * **Client credentials flow** - This flow is recommended for machine-to-machine applications that don't require a specific user's permissions to access data, such as background services or daemons.
 
 
-### Create an OAuth 2.0 app
+### 1. Create an OAuth 2.0 app
 
-For OAuth 2.0 authorization, create an app registration in an identity provider, such as the Microsoft Entra tenant associated with your Azure subscription. The exact steps depend on the identity provider you use. The following example shows how to create an app registration in the Microsoft Entra tenant associated with your Azure subscription.
+For OAuth 2.0 authorization, create an app registration in an identity provider, such as the Microsoft Entra tenant associated with your Azure subscription. The exact steps depend on the identity provider you use. 
 
+The following example shows how to create an app registration in Microsoft Entra ID.
 
-Minimally you need to configure:
-
-* A client secret for the app registration.
-* Any required scopes for the API.
-* A redirect URI for the app registration, when using the authorization code flow.
+<!-- NOT COMPLETE. What about Redirect URI? How to configure scopes? -->
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account with sufficient permissions in the tenant.
 1. Navigate to **Microsoft Entra ID** > **+ New registration**.     
-1. On the **Register an application** page, enter your application registration settings:
+1. In the **Register an application** page, enter your application registration settings:
     1. In **Name**, enter a meaningful name for the app.
     1. In **Supported account types**, select an option that suits your scenario, for example, **Accounts in this organizational directory only (Single tenant)**.
     1. Set the **Redirect URI** to **SPA**, and set the URI. Enter the URI of your API Center portal deployment, in the following form: `https://<service-name>.portal.<location>.azure-api-center.ms` 
     1. Select **Register**.
-1. On the left menu, under **Manage**, select **Certificates & secrets**, and then select **+ New client secret**.    
+1. In the left menu, under **Manage**, select **Certificates & secrets**, and then select **+ New client secret**.    
     1. Enter a **Description**.
     1. Select an option for **Expires**.
     1. Select **Add**.
     1. Copy the client secret's **Value** before leaving the page. You will need it in the following section.
+1. Optionally, to configure API scopes for your app registration, see [Configure an application to expose a web API](/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope).
+    
+In the following section, you will need the following values from the app registration:
 
-In the following section, you will need the following values:
-
-* The **Application (client) ID** and **Directory (tenant) ID** values from the app registration's **Overview** page. 
-* The following endpoints on the app registration's **Overview** > **Endpoints** page:
+* The **Application (client) ID** from the app registration's **Overview** page, and the **Client secret** you copied previously. 
+* The following endpoint URLs on the app registration's **Overview** > **Endpoints** page:
     * **OAuth2.0 authorization endpoint (v2)** - the authorization endpoint for Microsoft Entra ID 
-    * **OAuth 2.0tToken endpoint** - the token URL for Microsoft Entra ID.
+    * **OAuth 2.0 token endpoint (v2)** - the token URL endpoint for Microsoft Entra ID
+*  Any scopes configured for the app registration.
 
-### Add OAuth 2.0 authorization in your API center
+### 2. Add OAuth 2.0 authorization in your API center
 
 1. In the [portal](https://azure.microsoft.com), navigate to your key API center.
 1. In the left menu, under **Assets**, select **Authorization (preview)** > **+ Add configuration**.
@@ -153,7 +153,7 @@ In the following section, you will need the following values:
 
 ## Add authentication settings to an API version
 
-After configuring settings for an API key or an OAuth 2.0 flow, add the API key or OAuth 2.0 authentication to an API versions in your inventory.
+After configuring settings for an API key or an OAuth 2.0 flow, add the API key or OAuth 2.0 authentication method to an API version in your inventory. 
 
 1. In the [portal](https://azure.microsoft.com), navigate to your key API center.
 1. In the left menu, under **Assets**, select **APIs**.
@@ -181,7 +181,7 @@ You can limit access to the authentication settings associated with an API to sp
 1. Click **Select**. 
 
 > [!TIP]
-> You can also remove users or groups from the access policy. In the **Manage access** page, select **Delete** in the context (...) menu  for the user or group.
+> You can also remove users or groups from the access policy. In the **Manage access** page, select **Delete** in the context (...) menu for the user or group.
 
 ## Test API in API Center portal
 
