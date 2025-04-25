@@ -69,7 +69,7 @@ To create a load test for a function app:
 
     Learn more about [adding HTTP requests to a load test](./how-to-add-requests-to-url-based-test.md).
 
-1. For a script-based test, upload your test script in the **Test plan** tab. Learn more about [creating a test by uploading a test script](./how-to-create-manage-test#create-a-test-by-using-a-test-script.md).
+1. For a script-based test, upload your test script in the **Test plan** tab. Learn more about [creating a test by uploading a test script](./how-to-create-manage-test.md#create-a-test-by-using-a-test-script).
 
 
 1. After entering all the required details, select **Review + create** to review the test configuration, and then select **Create** to create the load test.
