@@ -80,7 +80,6 @@
       href: configure-custom-domain.md
     - name: Use an external cache
       href: api-management-howto-cache-external.md
-    - name: Migrate from stv1 to stv2 platform
     - name: Configure update settings
       href: configure-service-update-settings.md
     - name: Move instances between regions
