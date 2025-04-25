@@ -8,7 +8,7 @@ metadata:
   description: Microsoft Planetary Computer Pro accelerates geospatial insights generation and the integration of these into mainstream enterprise data and AI workflows to ingest, manage, and leverage customers’ private geospatial datasets. 
   ms.service: azure
   ms.topic: landing-page
-  author: prasadkomma
+  author: prasadko
   ms.author: prasadkomma
   ms.date: 04/11/2025
   

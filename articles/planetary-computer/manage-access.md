@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: azure
 ms.topic: how-to
-md.date: 04/09/2025
+ms.date: 04/09/2025
 #customer intent: I want to manage access to Microsoft Planetary Computer Pro.
 ---
 

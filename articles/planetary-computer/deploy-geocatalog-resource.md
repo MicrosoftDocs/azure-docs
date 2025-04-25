@@ -16,7 +16,7 @@ This article guides the reader through the process of deploying a GeoCatalog res
 ## Prerequisites
 
 - An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) (For using the REST API)
+- [Azure CLI](/cli/azure/install-azure-cli) (For using the REST API) 
 
 ## Methods
 
@@ -33,7 +33,7 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
 
    :::image type="content" source="media/search-for-geocatalogs.png" alt-text="Screenshot of searching for GeoCatalogs in the Azure portal.":::
 
-1. Start the GeoCatalog creation process by either 1) selecting the **Create** button at the top left of the screen, or 2) selecting the **Create geocatalog** button in the lower center of the screen. The **Create geocatalog** button doesn't appear if you have one or more existing GeoCatalogs.
+1. Start the GeoCatalog creation process by either 1) selecting the **Create** button at the top left of the screen, or 2) selecting the **Create geo catalog** button in the lower center of the screen. The **Create geocatalog** button doesn't appear if you have one or more existing GeoCatalogs.
 
    :::image type="content" source="media/create-geocatalogs-button.png" alt-text="Screenshot of the Create GeoCatalog button in the Azure portal.":::
 
@@ -105,10 +105,12 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
 
    :::image type="content" source="media/show-hidden-roles.png" alt-text="Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.":::
 
+## Next Steps
+- [Create a STAC Collection](./create-collection-UI.md)
+- [Create a STAC Collection from the API](./create-stac-collection.md)
+- [Manage Access to your GeoCatalog resource](./manage-access.md)
+- [Assign a user-assigned managed identity to a GeoCatalog resource](./assign-managed-identity-geocatalog-resource.md)
+
 ## Related Content
 
 - [Delete a GeoCatalog](./delete-geocatalog-resource.md)
-- [Assign a user-assigend managed identity to a GeoCatalog resource](./assign-managed-identity-geocatalog-resource.md)
-- [Create a STAC Collection using Python](./create-stac-collection.md)
-- [Add STAC Items to a Collection using Python](./add-stac-item-to-collection.md)
-- [Use the Data Explorer](./use-explorer.md)
