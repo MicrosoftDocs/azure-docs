@@ -4,7 +4,7 @@ description: How to configure Microsoft Configuration Manager to deploy software
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/05/2022
-ms.author: daknappe
+ms.author: avdcontent
 ms.reviewer: v-cawood; clemr
 ---
 # Use Microsoft Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts

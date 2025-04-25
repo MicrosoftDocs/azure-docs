@@ -5,7 +5,7 @@ description: How to set up QoS for Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

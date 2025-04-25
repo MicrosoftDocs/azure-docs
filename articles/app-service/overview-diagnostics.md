@@ -17,7 +17,7 @@ Azure App Service diagnostics is an interactive experience to help you troublesh
 
 Although this experience is most helpful for problems that occured within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-App Service diagnostics works for not only apps on Windows, but also for apps on [Linux or containers](./overview.md#app-service-on-linux), [App Service Environments](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
+App Service diagnostics works for not only apps on Windows, but also for apps on built-in or custom containers, [App Service Environments](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
 
 ## Steps for opening App Service diagnostics
 

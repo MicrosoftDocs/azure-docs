@@ -4,7 +4,7 @@ description: Learn about new features and product updates for Azure Virtual Desk
 ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
-ms.author: sipastak
+ms.author: avdcontent
 ms.date: 04/02/2025
 ---
 
