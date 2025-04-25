@@ -19,7 +19,7 @@ Azure Container Apps assigns different quota types to different scopes. In addit
 | [Manual requests](quota-requests.md#manual-requests) | Manual requests always result in generating a support ticket. Approval is often automated, but some requests can take up to a few days for us to process. | ▪ environment | [Azure CLI](#list-usage-cli) |
   
 > [!NOTE]
-> Azure Container Apps is a production grade service designed for at-scale workloads. Making a quota request that escalates to the support team isn't out of the norm, but part of the process of managing resources on behalf of our customers. Microsoft makes every effort to accommodate most quota change requests with limited exceptions.
+> Azure Container Apps is a production grade service designed for at-scale workloads. Making a quota request that escalates to the support team isn't out of the norm, but part of the process of managing resources on behalf of our customers. **Microsoft makes every effort to accommodate most quota change requests with limited exceptions**.
 
 ## View current quotas levels
 

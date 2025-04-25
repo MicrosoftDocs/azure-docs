@@ -20,9 +20,10 @@ Integrated requests use the [Azure Quota Management System](https://ms.portal.az
 Make an integrated request for the following quotas:
 
 - Managed environment count
-- Managed environment consumption cores
-- Managed environment general purpose cores
-- Managed environment memory optimized cores
+- Session pools
+- Subscription consumption NCA 100 GPUs
+- Subscription consumption T 4 GPUs
+- Subscription NCA 100 GPUs
 
 ### Make an integrated request
 
