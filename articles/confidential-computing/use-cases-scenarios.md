@@ -123,7 +123,7 @@ The attestation service returns cryptographically signed details from the hardwa
 
 Even though the security level provided by Azure is quickly becoming one of the top drivers for cloud computing adoption, customers trust their providers to different extents. Customers ask for:
 
-- Minimal hardware, software, and operational trusted computing bases (TCBs) for sensitive workloads.
+- Minimal hardware, software, and operational Trusted Computing Bases (TCBs) for sensitive workloads.
 - Technical enforcement rather than only business policies and processes.
 - Transparency about the guarantees, residual risks, and mitigations that they get.
 
