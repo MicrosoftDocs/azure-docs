@@ -24,18 +24,19 @@ landingContent:
         links:
           - text: What is Microsoft Planetary Computer Pro?
             url: microsoft-planetary-computer-pro-overview.md
+      - linkListType: get-started
+        links:
+          - text: Get started with Microsoft Planetary Computer Pro
+            url: get-started-with-planetary-computer.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Microsoft Planetary Computer Pro
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: STAC overview
             url: stac-overview.md  
 
-  # Card
-  - title: Get Started
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Get started with Microsoft Planetary Computer Pro
-            url: get-started-with-planetary-computer.md
 
   # Card
   - title: Concepts

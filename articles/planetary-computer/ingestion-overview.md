@@ -1,8 +1,8 @@
 ---
 title: Ingestion Overview | Microsoft Planetary Computer Pro
 description: Learn about the features that enable you to bring your own data into MPC Pro for standardized and scalable storage and management of your geospatial assets.
-author: brentharris
-ms.author: brentharris
+author: prasadko
+ms.author: prasadkomma
 ms.service: azure
 ms.topic: concept
 ms.date: 04/24/2025

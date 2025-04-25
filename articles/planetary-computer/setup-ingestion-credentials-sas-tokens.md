@@ -2,7 +2,7 @@
 title: Setup ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro.
 author: prasadkomma
-ms.author: prasadkommamma
+ms.author: prasadkomma
 ms.service: azure
 ms.topic: how-to
 ms.date: 04/09/2025
