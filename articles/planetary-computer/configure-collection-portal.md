@@ -1,0 +1,58 @@
+---
+title: "Quickstart: Configure a collection with the Microsoft Planetary Computer Pro portal"
+description: Learn how to configure collections in the Microsoft Planetary Computer Pro portal. 
+author: Brent Harris
+ms.author: brentharris
+ms.service: azure
+ms.topic: quickstart
+ms.date: 04/23/2025
+#customer intent: As a user of geospatial data, I want to configure a collection in the Planetary Computer Pro portal so that I can visualize my data in the Explorer.
+---
+
+# Quickstart: Configure a collection with the Microsoft Planetary Computer Pro portal
+
+This quickstart explains how to configure a collection in Microsoft Planetary Computer Pro via the portal. This approach is ideal if you are less comfortable using ur APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
+
+## Prerequisites
+
+To complete this quickstart, you need:
+
+- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active GeoCatalog instance. Use the link to [Create a GeoCatalog](./deploy-geocatalog-resource.md).
+- An Azure blob storage container with:
+  - A geospatial dataset in a supported format. See [Supported data types](./supported-data-types.md) for more information.
+  - Associated STAC metadata for the dataset. See [Create STAC Item](./create-stac-item.md) for more information.
+- A web browser to access the Planetary Computer Pro portal.
+- A collection in Microsoft Planetary Computer Pro with at least one item in it. 
+
+## Configure a collection
+
+To configure a collection in the Microsoft Planetary Computer Pro portal, follow these steps:
+
+1. Navigate to the **Overview** tab of your collection, and click the **Configuration** button.
+   
+2. The **Configure collection** panel will open and you will see tabs for **Mosaic**, **Render**, **Tile Settings**, and **Queryables**, each of which you can define in JSON format. You can either write your own JSON or load and modify a template. 
+
+### Mosaic
+
+To define a mosaic configuration, follow the guidelines in [Quickstart: Mosaic configuration for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md).
+
+### Render
+
+To define a render configuration, follow the guidelines in [Quickstart: Render configuration in Microsoft Planetary Computer Pro](./render-configuration.md).
+
+### Tile Settings
+To define tile settings, follow the guidelines in [Quickstart: Tile settings in Microsoft Planetary Computer Pro](./tile-settings.md).
+
+### Queryables
+To define queryables, follow the guidelines in [Quickstart: Queryables for Microsoft Planetary Computer Pro Explorer custom search filters](./queryables-configuration.md).
+
+**NOTE:** While it is helpful to define configuration JSONs for all four tabs, only the Render configuration is required to visualize your data in the Explorer. The other three tabs are optional and can be used to customize the behavior of your collection in the Explorer.
+
+3. Once you have configured your collection, click **Update** to save your changes.
+   
+4. When you have successfuclly configured your collection, you will see a clickable **Launch in Explorer** button below the **Spatial Extent** basemap on the righthand side of your collection's **Overview** tab. Click this button to open the Explorer and visualize your data.
+ 
+## Next steps
+
+Now that your collection is ready to be vizualized, it's time to view it in the Explorer. Follow along with the [Quickstart: Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md) to learn how.
