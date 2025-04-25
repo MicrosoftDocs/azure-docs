@@ -101,17 +101,17 @@ If the VNet is peered with another VNet, you can't expand the VNet address space
 If the subnet has a combination of volumes with the Standard and Basic network features, user-defined routes (UDRs) and network security groups (NSGs) applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
 > [!NOTE]
-> Associating NSGs at the network interface level is not supported for the Azure NetApp Files network interfaces.
+> Associating NSGs at the network interface level isn't supported for the Azure NetApp Files network interfaces.
 
 Configuring UDRs on the source VM subnets with the address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
 > [!NOTE]
-> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
+> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address doesn't forward the Azure NetApp Files traffic to the firewall. 
 
 >[!NOTE]
-> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Azure NetApp Files standard volume from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is less specific than the delegated subnet size, it isn't be effective. 
+> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Azure NetApp Files standard volume from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is less specific than the delegated subnet size, it isn't effective. 
 >
-> For example, if your delegated subnet is `x.x.x.x/24`, you must configured your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
+> For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
 
 ## Azure native environments
 
@@ -125,7 +125,7 @@ A basic scenario is to create or connect to an Azure NetApp Files volume from a 
 
 ### <a name="vnet-peering"></a> VNet peering
 
-If you have other VNets in the same region that need access to each other’s resources, the VNets can be connected using [VNet peering](../virtual-network/virtual-network-peering-overview.md) to enable secure connectivity through the Azure infrastructure. 
+If you have other VNets in the same region requiring access to each other’s resources, the VNets can be connected using [VNet peering](../virtual-network/virtual-network-peering-overview.md) to enable secure connectivity through the Azure infrastructure. 
 
 Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 2 or Volume 2, or if VM 2 needs to connect to VM 1 or Volume 1, then you need to enable VNet peering between VNet 2 and VNet 3. 
 
