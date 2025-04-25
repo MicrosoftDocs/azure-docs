@@ -7,7 +7,7 @@ ms.manager: ankitsurkar
 ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 04/24/2025
-ms.custom: engagement-fy23
+ms.custom: reference_regions
 
 ---
 
@@ -23,7 +23,7 @@ Azure provides multiple methods to facilitate seamless migration to a new region
 
 ### Agentless migration for VMware (recommended)
 
-- VMware Virtual Machiness without using an agent by utilizing the Migration and Modernization tool. See, [Azure Migrate documentation](vmware/tutorial-migrate-vmware.md).
+- VMware Virtual Machines without using an agent by utilizing the Migration and Modernization tool. See, [Azure Migrate documentation](vmware/tutorial-migrate-vmware.md).
 - When using Azure Migrate’s replication wizard for the first time, specify the *new region* as the target region for migration.
 - Create the storage account used for replication in the new region.
 - For private endpoint configurations, manually create and configure the storage account in the new region with a Private Endpoint and associate it with the migration project.
@@ -68,7 +68,7 @@ List of available regions for the resource type:
 - Poland Central
 - Qatar Central
 - Spain Central
-- Swedenc Cntral
+- Sweden Central
 - UAE North
 - West Central US
 - West Europe
