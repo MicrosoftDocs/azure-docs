@@ -150,7 +150,7 @@ Since the example code automatically uses the default emulator settings, you don
 
 ::: zone pivot="csharp,python,java"
 
-## Run the projects
+## Run the quickstart
 
 ::: zone-end
 
@@ -174,7 +174,7 @@ Since the example code automatically uses the default emulator settings, you don
 
 ### Understanding the output
 
-When you run this sample, you receive output from both the worker and client processes. 
+When you run this sample, you receive output from both the worker and client processes. [Unpack what happened in the code when you ran the project.](#understanding-the-code-structure)
 
 #### Worker output
 
@@ -274,7 +274,7 @@ Total items processed: 5
 
 ### Understanding the output
 
-When you run this sample, you receive output from both the worker and client processes. 
+When you run this sample, you receive output from both the worker and client processes. [Unpack what happened in the code when you ran the project.](#understanding-the-code-structure)
 
 #### Worker output
 
@@ -346,6 +346,8 @@ When you run this sample, you receive output that shows:
 - Random delays for each work item (between 0.5 and 2 seconds) to simulate varying processing times.
 - A final message showing the aggregation of results.
 
+[Unpack what happened in the code when you ran the project.](#understanding-the-code-structure)
+
 #### Example output
 
 ```
@@ -359,7 +361,6 @@ Output: 60
 ```
 
 ::: zone-end
-
 
 ::: zone pivot="csharp,python,java"
 
@@ -682,5 +683,68 @@ logger.info("Output: {}", completedInstance.readOutputAs(int.class));
 
 ::: zone-end
 
+::: zone pivot="csharp,python,java"
+
+## Deploy to Azure
+
+Now that you've run the sample locally, you can choose to deploy to Azure for a production scenario. You can deploy for any compute, including Azure container Apps, Azure Kubernetes Service, Azure App Service, and Virtual Machines. 
+
+[Make sure you're aware of related costs with creating scheduler and task hub resources.](./durable-task-scheduler-dedicated-sku.md)
+
+1. In a new terminal, install or upgrade the Durable Task Scheduler CLI extension.
+
+    ```azurecli
+    az extension add --name durabletask
+    ```
+
+    ```azurecli
+    az extension add --upgrade --name durabletask
+    ```
+
+1. Create a resource group
+
+    ```azurecli
+    az group create --name <rg-name> --location <location>
+    ```
+
+1. Create a scheduler.
+
+    ```azurecli
+    az durabletask scheduler create --resource-group <rg-name> --name <scheduler-name> --location <location> --ip-allowlist "[0.0.0.0/0]" --sku-capacity 1 --sku-name "Dedicated" --tags "{'myattribute':'myvalue'}"
+    ```
+
+1. Create your task hub.
+
+    ```azurecli
+    az durabletask taskhub create --resource-group <rg-name> --scheduler-name <scheduler-name> --name <taskhub-name>
+    ```
+
+1. Navigate to your scheduler resource in the Azure portal. 
+
+1. In the overview page, under **Essentials**, copy the scheduler's endpoint.
+
+1. In the terminal, set the environment variables for the task hub and the endpoint.
+
+     # [Bash](#tab/bash)
+    
+     ```bash
+     export TASKHUB=<taskhubname>
+     export ENDPOINT=<taskhubEndpoint>
+     ```
+     
+     # [PowerShell](#tab/powershell)
+
+     ```powershell
+     $env:TASKHUB = "<taskhubname>"
+     $env:ENDPOINT = "<taskhubEndpoint>"
+     ```
+     
+     ---
+
+1. [Run the sample following the steps from earlier.](#run-the-quickstart)
+
+::: zone-end
+
 
 ## Next steps
+
