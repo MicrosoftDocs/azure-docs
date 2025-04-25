@@ -82,11 +82,11 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   
     This capability addresses a problem with the SAP managed connector where the outcome from the autocommit behavior is silent and observable only through logs.
 
-* A longer time out compared to the managed connector.
+* A longer time-out compared to the managed connector.
 
-  The SAP built-in connector runs with the Azure Logic Apps runtime, not the shared or global connector infrastructure in Azure. This behavior means that you can change the default time-out value on the Standard logic app resource by using the **host.json** setting named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and the [functionsTimeout host setting](/azure/azure-functions/functions-host-json#functiontimeout). compared to the SAP managed connector where the time-out is two minutes.
-  
-    This capability means that long-running requests can work without you having to manually implement the long-running webhook-based request action pattern.
+  The SAP built-in connector runs with the Azure Logic Apps runtime, not the shared or global connector infrastructure in Azure. This behavior means that you can change the default time-out value on the Standard logic app resource by using the **host.json** settings named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and [**functionTimeout**](/azure/azure-functions/functions-host-json#functiontimeout).
+
+  This capability means that you can use the SAP built-in connector instead. Long-running requests work without following the long-running webhook-based request action pattern in the SAP managed connector, which has a two-minute time-out.
 
 * By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -1187,7 +1187,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the Logs page for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
 
-1. On the **Logs** page, you can create a [query](/kusto/query/) by using the [Kusto Query Language (KQL)](/kusto/concepts/) based on your specific requirements.
+1. On the **Logs** page, you can create a [query that uses Kusto Query Language (KQL)](/kusto/query/?view=azure-monitor), based on your specific requirements.
 
    You can use a query pattern similar to the following example query:
 
