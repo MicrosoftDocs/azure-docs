@@ -36,7 +36,7 @@ The RemoteApp template can be deployed in multiple configurations:
 ## Prerequisites
 Required:
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
 2. (optional) An existing domain to join if the RemoteApp will be domain joined.
 3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
