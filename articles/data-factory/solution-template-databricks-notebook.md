@@ -4,7 +4,7 @@ description:  Learn how to use a solution template to transform data by using a 
 ms.author: abnarain
 author: nabhishek
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 01/15/2025
 ms.subservice: orchestration
 ---
 
@@ -36,9 +36,8 @@ For simplicity, the template in this tutorial doesn't create a scheduled trigger
 
 To import a **Transformation** notebook to your Databricks workspace:
 
-1. Sign in to your Azure Databricks workspace, and then select **Import**.
-       :::image type="content" source="media/solution-template-Databricks-notebook/import-notebook.png" alt-text="Menu command for importing a workspace":::
-   Your workspace path can be different from the one shown, but remember it for later.
+1. Sign in to your Azure Databricks workspace.
+1. Right-click a folder in your workspace and select **Import**.
 1. Select **Import from: URL**. In the text box, enter `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`.
 
    :::image type="content" source="media/solution-template-Databricks-notebook/import-from-url.png" alt-text="Selections for importing a notebook":::
@@ -73,15 +72,16 @@ To import a **Transformation** notebook to your Databricks workspace:
     ```
 
 1. Generate a **Databricks access token** for Data Factory to access Databricks.
-   1. In your Databricks workspace, select your user profile icon in the upper right.
-   1. Select **User Settings**.
-    :::image type="content" source="media/solution-template-Databricks-notebook/user-setting.png" alt-text="Menu command for user settings":::
-   1. Select **Generate New Token** under the **Access Tokens** tab.
-   1. Select **Generate**.
 
-    :::image type="content" source="media/solution-template-Databricks-notebook/generate-new-token.png" alt-text="&quot;Generate&quot; button":::
+    1. In your Azure Databricks workspace, select your Azure Databricks username in the top bar, and then select Settings from the drop-down.
+    1. Select Developer.
+    1. Next to Access tokens, select Manage.
+    1. Select Generate new token.
+    1. (Optional) Enter a comment that helps you to identify this token in the future, and change the token’s default lifetime of 90 days. To create a token with no lifetime (not recommended), leave the Lifetime (days) box empty (blank).
+    1. Select Generate.
+    1. Copy the displayed token to a secure location, and then select Done.
 
-   *Save the access token* for later use in creating a Databricks linked service. The access token looks something like `dapi32db32cbb4w6eee18b7d87e45exxxxxx`.
+*Save the access token* for later use in creating a Databricks linked service. The access token looks something like `dapi32db32cbb4w6eee18b7d87e45exxxxxx`.
 
 ## How to use this template
 

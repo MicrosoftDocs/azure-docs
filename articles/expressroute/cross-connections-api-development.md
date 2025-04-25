@@ -1,24 +1,24 @@
 ---
-title: 'Azure ExpressRoute CrossConnnections API development and integration'
+title: 'Azure ExpressRoute CrossConnections API development and integration'
 description: This article provides a detailed overview for ExpressRoute partners about the expressRouteCrossConnections resource type.
 services: expressroute
 author: duongau
 
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/06/2020
 ms.author: duau
 
 ---
 
 
-# ExpressRoute CrossConnnections API development and integration
+# ExpressRoute CrossConnections API development and integration
 
 The ExpressRoute Partner Resource Manager API allows ExpressRoute partners to manage the layer-2 and layer-3 configuration of customer ExpressRoute circuits. The ExpressRoute Partner Resource Manager API introduces a new resource type, **expressRouteCrossConnections**. Partners use this resource to manage customer ExpressRoute circuits.
 
 ## Workflow
 
-The expressRouteCrossConnections resource is a shadow resource to the ExpressRoute circuit. When an Azure customer creates an ExpressRoute circuit and selects a specific ExpressRoute partner, Microsoft creates an expressRouteCrossConnections resource in the partner's Azure ExpressRoute management subscription. In doing so, Microsoft defines a resource group to create the expressRouteCrossConnections resource in. The naming standard for the resource group is **CrossConnection-*PeeringLocation***; where PeeringLocation = the ExpressRoute Location. For example, if a customer creates an ExpressRoute circuit in Denver, the CrossConnection will be created in the partner's Azure subscription in the following resource group: **CrossConnnection-Denver**.
+The expressRouteCrossConnections resource is a shadow resource to the ExpressRoute circuit. When an Azure customer creates an ExpressRoute circuit and selects a specific ExpressRoute partner, Microsoft creates an expressRouteCrossConnections resource in the partner's Azure ExpressRoute management subscription. In doing so, Microsoft defines a resource group to create the expressRouteCrossConnections resource in. The naming standard for the resource group is **CrossConnection-*PeeringLocation***; where PeeringLocation = the ExpressRoute Location. For example, if a customer creates an ExpressRoute circuit in Denver, the CrossConnection will be created in the partner's Azure subscription in the following resource group: **CrossConnection-Denver**.
 
 ExpressRoute partners manage layer-2 and layer-3 configuration by issuing REST operations against the expressRouteCrossConnections resource.
 
@@ -108,7 +108,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   {
     "value": [
       {
-        "name": "24e6ea2b-6940-4bec-b0b3-3a9e5471e512",
+        "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/24e6ea2b-6940-4bec-b0b3-3a9e5471e512",
         "etag": "W/\"19fa7ada-5189-4817-a9d6-499b02e379cc\"",
         "type": "Microsoft.Network/expressRouteCrossConnections",
@@ -125,8 +125,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
         }
       },
       {
-        "name": "9ee700ad-50b2-4b98-a63a-4e52f855ac24",
-        "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/<ProviderManagementSubscription>",
+        "name": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
+        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/<ProviderManagementSubscription>",
         "etag": "W/\"f07a267f-4a5c-4538-83e5-de1fcb183801\"",
         "type": "Microsoft.Network/expressRouteCrossConnections",
         "location": "eastus2euap",
@@ -148,7 +148,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 2. **GET expressRouteCrossConnection:** Once you have identified both the *Name* and *ResourceGroupName* of the target expressRouteCrossConnection resource, you need to perform the GET expressRouteCrossConnection API call.
 
   ```
-  GET /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24?api-version=2018-02-01 HTTP/1.1
+  GET /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
@@ -171,8 +171,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   Date: Tue, 01 May 2018 19:32:29 GMT
 
   {
-    "name": "9ee700ad-50b2-4b98-a63a-4e52f855ac24",
-    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24",
+    "name": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
+    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
     "etag": "W/\"f07a267f-4a5c-4538-83e5-de1fcb183801\"",
     "type": "Microsoft.Network/expressRouteCrossConnections",
     "location": "eastus2euap",
@@ -194,7 +194,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 3. **PUT expressRouteCrossConnection:** Once you provision layer-2 connectivity, update the *ServiceProviderProvisioningState* to **Provisioned**. At this point, the customer can configure Microsoft or Private Peering and create a connection from the ExpressRoute circuit to a virtual network gateway deployed in the customer's subscription.
 
   ```
-  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24?api-version=2018-02-01 HTTP/1.1
+  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
@@ -217,8 +217,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   HTTP/1.1 200 OK
   Pragma: no-cache
   Retry-After: 10
-  x-ms-request-id: 0a8d458b-8fe3-44e6-89c9-1b156b946693
-  Azure-AsyncOperation: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
+  x-ms-request-id: cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a
+  Azure-AsyncOperation: https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Network/locations/eastus2euap/operations/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a?api-version=2018-02-01
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: no-cache
   Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
@@ -229,8 +229,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   Date: Tue, 01 May 2018 22:21:04 GMT
 
   {
-    "name": "9ee700ad-50b2-4b98-a63a-4e52f855ac24",
-    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24",
+    "name": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
+    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
     "etag": "W/\"ecdcb1a4-873b-4dad-ae56-a4b17795a84a\"",
     "type": "Microsoft.Network/expressRouteCrossConnections",
     "location": "eastus2euap",
@@ -249,7 +249,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     }
   }
 
-  C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
+  C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a?api-version=2018-02-01
   {
     "status": "Succeeded"
   }
@@ -258,7 +258,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 4. **(Optional) PUT expressRouteCrossConnection to configure Private Peering** If you manage layer-3 BGP connectivity, you can enable Private Peering
 
   ```
-  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/AzurePrivatePeering?api-version=2018-02-01 HTTP/1.1
+  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/AzurePrivatePeering?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
@@ -281,8 +281,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   HTTP/1.1 201 Created
   Pragma: no-cache
   Retry-After: 10
-  x-ms-request-id: 344eccc8-2958-4958-aa6f-3958f3fd5648
-  Azure-AsyncOperation: https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/344eccc8-2958-4958-aa6f-3958f3fd5648?api-version=2018-02-01
+  x-ms-request-id: dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b
+  Azure-AsyncOperation: https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b?api-version=2018-02-01
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: no-cache
   Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
@@ -294,7 +294,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 
   {
     "name": "AzurePrivatePeering",
-    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/AzurePrivatePeering",
+    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/AzurePrivatePeering",
     "properties": {
       "provisioningState": "Updating",
       "peeringType": "AzurePrivatePeering",
@@ -309,7 +309,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     }
   }
 
-  C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/344eccc8-2958-4958-aa6f-3958f3fd5648?api-version=2018-02-01
+  C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b?api-version=2018-02-01
   {
     "status": "Succeeded"
   }
@@ -318,7 +318,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   5. **(Optional) PUT expressRouteCrossConnection to configure Microsoft Peering** If you manage layer-3 BGP connectivity, you can enable Microsoft Peering
 
   ```
-  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/MicrosoftPeering?api-version=2018-02-01 HTTP/1.1
+  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/MicrosoftPeering?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
@@ -347,8 +347,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   HTTP/1.1 201 Created
   Pragma: no-cache
   Retry-After: 10
-  x-ms-request-id: e3aa0bbd-4709-4092-a1f1-aa78080929d0
-  Azure-AsyncOperation: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
+  x-ms-request-id: eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c
+  Azure-AsyncOperation: https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Network/locations/eastus2euap/operations/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c?api-version=2018-02-01
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: no-cache
   Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
@@ -360,7 +360,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 
   {
     "name": "MicrosoftPeering",
-    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/MicrosoftPeering",
+    "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/MicrosoftPeering",
     "properties": {
       "provisioningState": "Updating",
       "peeringType": "MicrosoftPeering",
@@ -383,7 +383,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     }
   }
 
-  C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
+  C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c?api-version=2018-02-01
   {
     "status": "Succeeded"
   }

@@ -10,8 +10,9 @@ ms.author: lianwei
 
 # Use Azure SignalR Service
 
-
 This article shows you how to use SDK in your app server side to connect to SignalR Service when you are using SignalR in your app server.
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Create an Azure SignalR Service instance
 
@@ -46,6 +47,8 @@ public void Configure(IApplicationBuilder app)
 ```
 
 ### Configure connection string
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 There are two approaches to configure SignalR Service's connection string in your application.
 
@@ -153,6 +156,14 @@ You can increase this value to avoid client disconnect.
 - Default value: All transports are enabled.
 - This option defines a function to customize the transports that clients can use to send HTTP requests.
 - Use this options instead of [`HttpConnectionDispatcherOptions.Transports`](/aspnet/core/signalr/configuration?&tabs=dotnet#advanced-http-configuration-options) to configure transports. 
+
+#### `AllowStatefulReconnects`
+
+- Default value is `null`
+- This option enables or disables stateful reconnects for all hubs.
+- If `null`, SDK will read [hub settings](/dotnet/api/microsoft.aspnetcore.http.connections.httpconnectiondispatcheroptions.allowstatefulreconnects).
+- If `true`, Azure SignalR Service will enable stateful reconnects in all of declared hubs. And clients need [enable stateful reconnects in client side](/aspnet/core/signalr/configuration).
+- If `false`, Azure SignalR Service will disable stateful reconnects in all of declared hubs.
 
 ### Sample
 

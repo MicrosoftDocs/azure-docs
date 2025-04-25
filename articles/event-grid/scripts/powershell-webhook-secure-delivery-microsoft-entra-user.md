@@ -18,11 +18,22 @@ Here are the high level steps from the script:
 1. Add service principal of user who is creating the subscription to the AzureEventGridSecureWebhookSubscriber role.
 1. Add service principal of Microsoft.EventGrid to the AzureEventGridSecureWebhookSubscriber.
 
+## Get Microsoft.EventGrid application ID
+
+1. Navigate to [Azure portal](https://portal.azure.com).
+1. In the search bar, type `Microsoft.EventGrid`, and then select **Microsoft.EventGrid (Service Principal)** in the drop-down list. 
+    
+    :::image type="content" source="../media/event-grid-app-id/select-microsoft-event-grid.png" alt-text="Screenshot that shows the selection of Microsoft Event Grid from the drop-down list.":::
+1. On the **Microsoft.EventGrid** page, note down or copy the **Application ID** to the clipboard.
+1. In the following script, set the `$eventGridAppId` variable to this value before running it. 
+
+ 
 ## Sample script
 
 ```azurepowershell
 # NOTE: Before run this script ensure you are logged in Azure by using "az login" command.
 
+$eventGridAppId = "[REPLACE_WITH_EVENT_GRID_APP_ID]"
 $webhookAppObjectId = "[REPLACE_WITH_YOUR_ID]"
 $eventSubscriptionWriterUserPrincipalName = "[REPLACE_WITH_USER_PRINCIPAL_NAME_OF_THE_USER_WHO_WILL_CREATE_THE_SUBSCRIPTION]"
 
@@ -50,8 +61,6 @@ try {
     # You don't need to modify this id
     # But Azure Event Grid Microsoft Entra Application Id is different for different clouds
    
-    $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7" # Azure Public Cloud
-    # $eventGridAppId = "54316b56-3481-47f9-8f30-0300f5542a7b" # Azure Government Cloud
     $eventGridSP = Get-MgServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
     if ($eventGridSP.DisplayName -match "Microsoft.EventGrid")
     {

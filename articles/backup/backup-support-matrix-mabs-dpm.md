@@ -4,8 +4,8 @@ description: This article summarizes Azure Backup support when you use Microsoft
 ms.service: azure-backup
 ms.date: 09/11/2024
 ms.topic: reference
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

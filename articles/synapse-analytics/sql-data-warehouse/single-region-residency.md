@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/15/2021
 ms.author: joanpo
-ms.reviewer: wiassaf
+
 ms.custom: devx-track-azurepowershell
 ---
 
 # Configure single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
-In this article, you will learn to provision your database on locally redundant storage to ensure that your data stays within your geographic boundary. This article is only applicable to dedicated SQL pools that reside in a region where the Azure regional pair is located outside of the country/region. Following the steps in this article will result in most data and all backups not being replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Note that some metadata such as logical server name, logical database name, resource group name is still replicated to a paired region by default and this cannot be changed. 
+In this article, you will learn to provision your database on locally redundant storage to ensure that your data stays within your geographic boundary. This article is only applicable to dedicated SQL pools that reside in a region where the Azure regional pair is located outside of the country/region. Following the steps in this article will result in most data and all backups not being replicated to a [paired region](../../reliability/cross-region-replication-azure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Note that some metadata such as logical server name, logical database name, resource group name is still replicated to a paired region by default and this cannot be changed. 
 
 To achieve single region residency, provision your dedicated SQL pool (formerly SQL DW) to locally redundant storage by selecting 'No' to geo-redundant option when provisioning your SQL pool. If you have already provisioned your SQL pool and it resides on geo redundant storage, you can restore your SQL pool and select 'No' to geo-redundant storage during the restore process. Instructions for both scenarios are detailed below. 
 
@@ -91,7 +91,7 @@ To create a new dedicated SQL pool through PowerShell, use the [New-AzSqlDatabas
 4. Select the subscription that contains the database to be restored.
 5. List the restore points for the dedicated SQL pool (formerly SQL DW).
 1. Pick the desired restore point using the RestorePointCreationDate.
-1. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using Restore-AzSqlDatabase PowerShell cmdlet specifying BackupStorageRedundnacy as 'Local'. 
+1. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using Restore-AzSqlDatabase PowerShell cmdlet specifying BackupStorageRedundancy as 'Local'. 
 
 ```powershell
 

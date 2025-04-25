@@ -21,7 +21,7 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 
 - Intended for loading FHIR resources into an empty FHIR server.
 
-- Supports only `create` operations and (when enabled) blocks API writes to the FHIR server.
+- Blocks API writes to the FHIR server.
 
 ### Incremental mode
 
@@ -30,12 +30,10 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 - Allows you to load `lastUpdated` and `versionId` values from resource metadata if they're present in the resource JSON.
 
 - Allows you to load resources in a nonsequential order of versions.
- 
-  - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in the FHIR service.
+  Note for non-sequential ingestion of resources
+  - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing all resources in the FHIR service.
   - If import files have resources with duplicate `version` and `lastUpdated` field values, only one resource is randomly ingested in the FHIR service.
-  - If multiple resources share the same resource ID, only one of those resources is imported at random. An error is logged for the resources that share the same resource ID.
-
-- Allows you to ingest soft-deleted resources. This capability is beneficial when you migrate from Azure API for FHIR to the FHIR service in Azure Health Data Services.
+  - During parallel execution, if multiple resources share the same resource ID, only one of those resources is imported at random.
 
 The following table shows the difference between import modes.
 
@@ -252,8 +250,11 @@ Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. 
 The `import` operation fails and returns `500 Internal Server Error`. The response body contains diagnostic content
 
 **import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.**
+
 Cause: You reached the storage limit of the FHIR service.
+
 Solution: Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+
 
 ### 423 Locked
 

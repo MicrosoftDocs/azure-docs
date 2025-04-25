@@ -11,7 +11,7 @@ This article describes basic troubleshooting tools for the sensor. In addition t
 
 - **Alerts**: An alert is created when the sensor interface that monitors the traffic is down.
 - **SNMP**: Sensor health is monitored through SNMP. Microsoft Defender for IoT responds to SNMP queries sent from an authorized monitoring server.
-- **System notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
+- **System notifications**: When an OT sensor console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
 For any other issues, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
@@ -139,7 +139,7 @@ Verify that you can access the console web GUI:
 
 1. The test is successful when the Defender for IoT sign-in screen appears.
 
-   :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
+   :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to OT sensor console.":::
 
 ## Download a diagnostics log for support
 
@@ -232,9 +232,9 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 
 1. Navigate to the Azure portal and select **Sites and sensors**.
 
-1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
+1. Select the **More Actions** drop down menu and select **Recover OT sensor password**.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text=" Screenshot of the recover on-premises management console password option.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text=" Screenshot of the recover OT sensor password option.":::
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded. Don't extract or modify the zip file.
 
@@ -244,7 +244,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 
 1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
 
-1. Select **Next**, and your user, and a system-generated password for your management console will then appear.
+1. Select **Next**, and your user, and a system-generated password for your OT sensor will then appear.
 
     > [!NOTE]
     > When you sign in to a sensor for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *admin* user. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).
@@ -267,7 +267,7 @@ When a new sensor is deployed or a sensor is working slowly or not showing any a
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
 1. Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert hasn't been handled yet, the sensor console doesn't show a new alert.
-1. Make sure you didn't exclude this alert by using the **Alert Exclusion** rules in the management console.
+1. Make sure you didn't exclude this alert by using the **Alert Exclusion** rules in the OT sensor console.
 
 ## Investigate dashboard that shows no data
 
@@ -289,7 +289,7 @@ For more information, see:
 
 ## Connect the sensor to NTP
 
-You can configure a standalone sensor and a management console, with the sensors related to it, to connect to NTP.
+You can configure a standalone sensor and a OT sensor console, with the sensors related to it, to connect to NTP.
 
 > [!TIP]
 > When you're ready to start managing your OT sensor settings at scale, define NTP settings from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
@@ -298,9 +298,9 @@ To connect a standalone sensor to NTP:
 
 - [See the CLI documentation](./references-work-with-defender-for-iot-cli-commands.md).
 
-To connect a sensor controlled by the management console to NTP:
+To connect a sensor controlled by the OT sensor to NTP:
 
-- The connection to NTP is configured on the management console. All the sensors that the management console controls get the NTP connection automatically.
+- The connection to NTP is configured on the OT sensor. All the sensors that the OT sensor controls get the NTP connection automatically.
 
 ## Investigate when devices aren't shown on the map, or you have multiple internet-related alerts
 

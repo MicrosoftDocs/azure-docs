@@ -6,13 +6,16 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 09/26/2024
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 # Agent-based migration architecture
 
+
 This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](../migrate-services-overview.md) tool.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 Using the Migration and modernization tool, you can replicate VMware VMs with a couple of options:
 
@@ -24,7 +27,7 @@ Learn more about [selecting and comparing](server-migrate-overview.md?context=/a
 
 ## Agent-based migration
 
-Agent-based migration is used to migrate on-premises VMware VMs and physical servers to Azure. It can also be used to migrate other on-premises virtualized servers, as well as private and public cloud VMs, including AWS instances, and GCP VMs. Agent-based migration in Azure Migrate uses some backend functionality from the [Azure Site Recovery]../../site-recovery/site-recovery-overview.md) service.
+Agent-based migration is used to migrate on-premises VMware VMs and physical servers to Azure. It can also be used to migrate other on-premises virtualized servers, as well as private and public cloud VMs, including AWS instances, and GCP VMs. Agent-based migration in Azure Migrate uses some backend functionality from the [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) service.
 
 
 ## Architectural components

@@ -4,7 +4,7 @@ description: Learn how you can integrate Azure Application Gateway with Key Vaul
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/02/2024
 ms.author: greglin
 ---

@@ -239,7 +239,7 @@ Storage Table Data Contributor role. If you do not give your job access, the job
 Repeat the steps if you selected user-assigned managed identity to connect ASA to Synapse:
 1. Create a contained database user. Replace ASA_Job_Name with User-Assigned Managed Identity. See the example below.
    ```sql
-   CREATE USER [User-Assigned Managed Identit] FROM EXTERNAL PROVIDER;
+   CREATE USER [User-Assigned Managed Identity] FROM EXTERNAL PROVIDER;
    ```
 2. Grant permissions to the User-Assigned Managed Identity. Replace ASA_Job_Name with User-Assigned Managed Identity.
 

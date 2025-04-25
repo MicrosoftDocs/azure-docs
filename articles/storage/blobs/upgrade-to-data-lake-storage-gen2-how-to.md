@@ -5,7 +5,7 @@ author: normesta
 ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 11/15/2024
 ms.author: normesta
 ---
 
@@ -36,17 +36,12 @@ The following features are supported for Data Lake Storage accounts, but are not
 - Blob snapshots
 - Encryption scopes
 - Immutable storage
-- Last access time tracking for lifecycle management
 - Soft delete for blobs
 - Soft delete for containers
 
 If your storage account has such features enabled, you must disable them before performing the upgrade. If you want to resume using the features after the upgrade is complete, re-enable them.
 
 In some cases, you will have to allow time for clean-up operations after a feature is disabled before upgrading. One example is the [blob soft delete](soft-delete-blob-overview.md) feature. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
-
-> [!IMPORTANT]
-> You cannot upgrade a storage account to Data Lake Storage that has **ever** had the change feed feature enabled.
-> Simply disabling change feed will not allow you to perform an upgrade. Instead, you must create an account with the hierarchical namespace feature enabled on it, and move then transfer your data into that account.
 
 ### Remove page blobs from the storage account
 

@@ -3,7 +3,7 @@ title: Azure Relay metrics in Azure Monitor  | Microsoft Docs
 description: This article provides information on how you can use Azure Monitor to monitor to state of Azure Relay. 
 services: service-bus-relay
 ms.topic: article
-ms.date: 08/10/2023
+ms.date: 12/11/2024
 ---
 
 # Azure Relay metrics in Azure Monitor 
@@ -32,7 +32,7 @@ For metrics supporting dimensions, you must filter with the desired dimension va
 
 ## Billing
 
-Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you're billed by Azure Storage if you archive metrics data to an Azure Storage account. You're also billed by Azure Monitor logs if you stream metrics data to Azure Monitor logs for advanced analysis.
+Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you might be billed by these solutions. For example, you're billed by Azure Storage if you archive metrics data to an Azure Storage account. You're also billed by Azure Monitor logs if you stream metrics data to Azure Monitor logs for advanced analysis.
 
 The following metrics give you an overview of the health of your service. 
 

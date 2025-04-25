@@ -4,7 +4,10 @@ description: Learn how extract, transform, and load is used in HDInsight with Ap
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/05/2023
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 12/02/2024
 ---
 
 # Extract, transform, and load (ETL) at scale

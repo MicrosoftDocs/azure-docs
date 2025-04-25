@@ -1,12 +1,12 @@
 ---
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: include
 ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli
-ms.date: 01/31/2023
+ms.date: 03/28/2025
 ---
 
 This quickstart uses two Java applications: 
@@ -34,9 +34,9 @@ This quickstart uses two Java applications:
     mvn --version
     ```
 
-* Clone or download the [Azure IoT Java samples](https://github.com/Azure-Samples/azure-iot-samples-java/) from GitHub.
+* Clone or download the [Azure IoT Samples for Java](https://github.com/Azure-Samples/azure-iot-samples-java/) from GitHub.
 
-* Make sure that port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see the [Connect to IoT Hub](../articles/iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub) section of [Communicate with an IoT hub using the MQTT protocol](../articles/iot/iot-mqtt-connect-to-iot-hub.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -54,7 +54,7 @@ This quickstart uses two Java applications:
 
 You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
-**YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
+**YourIoTHubName**: Replace this placeholder in the following command with the name you chose for your IoT hub.
 
 ```azurecli-interactive
 az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table
@@ -90,7 +90,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Output from the telemetry sent by the device to your IoT hub](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
+    :::image type="content" source="./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png" alt-text="Screenshot of a terminal window that shows the output of the simulated device application.":::
 
 ## Call the direct method
 
@@ -116,8 +116,9 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
-    ![Output as the application makes a direct method call through your IoT hub](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
+    :::image type="content" source="./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png" alt-text="Screenshot of a terminal window that shows the result of the direct method call from the service application.":::
+    
+    After you run the back-end application, you see a message in the local terminal window running the simulated device, and the rate at which it sends messages changes:
 
-    After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
-
-    ![Console message from device shows the rate at which it changes](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
+    :::image type="content" source="./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png" alt-text="Screenshot of a terminal window that shows the direct message result and updated output from the simulated device application.":::
+    

@@ -57,5 +57,5 @@
 
 - name: Integrations
   items: 
-  - name: Copilot for Security and Defender EASM
+  - name: Microsoft Security Copilot and Defender EASM
     href: easm-copilot.md

@@ -17,6 +17,8 @@ Azure Functions applications can use the [Azure SignalR Service bindings](../azu
 
 This article describes the concepts for developing and configuring an Azure Function app that is integrated with SignalR Service.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## SignalR Service configuration
 
 Azure SignalR Service can be configured in [different modes](concept-service-mode.md). When used with Azure Functions, the service must be configured in **Serverless** mode.
@@ -153,7 +155,10 @@ public interface IChatClient
 }
 ```
 
-Then you can use the strongly typed methods as follows:
+Then you can use the strongly typed methods as follows.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 ```cs
 [SignalRConnection("AzureSignalRConnectionString")]
 public class Functions : ServerlessHub<IChatClient>

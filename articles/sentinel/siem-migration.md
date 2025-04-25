@@ -6,8 +6,9 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 9/23/2024
 ms.author: austinmc
-appliesto: 
-- Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As an security operations administrator, I want to use the SIEM migration experience so I can streamline a migration to Microsoft Sentinel to enhance my security monitoring capabilities.
 
 
@@ -52,7 +53,7 @@ Current capabilities:
 
 - Map Splunk detections to OOTB Microsoft Sentinel analytics rules.
 - Translate simple queries with a single data source.
-- Automatic translations of SPL to KQL for the mappings listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
+- Automatic translations of SPL to KQL for the mappings listed in the article, [Splunk to Kusto cheat sheet](/kusto/query/splunk-cheat-sheet?view=microsoft-sentinel&preserve-view=true).
 - **Schema Mapping (Preview)** creates logical links for the translated rules by mapping Splunk data sources to Microsoft Sentinel tables, and Splunk lookups to watchlists.
 - Translated query review provides error feedback with edit capability to save time in the detection rule translation process.
 - **Translation State** indicating how completely SPL syntax is translated to KQL at the grammatical level.
@@ -62,7 +63,7 @@ Current capabilities:
 
 ## Start the SIEM migration experience
 
-1. Find the SIEM migration experience in Microsoft Sentinel from the [Azure portal](https://portal.azure.com) or the [Defender portal](https://security.microsoft.com/), under **Content management**  > **Content hub**.
+1. Find the SIEM migration experience in Microsoft Sentinel from the [Defender portal](https://security.microsoft.com/) or the [Azure portal](https://portal.azure.com), under **Content management**  > **Content hub**.
 
 1. Select **SIEM Migration**. 
 

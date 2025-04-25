@@ -8,6 +8,8 @@ ms.date: 06/06/2023
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
+
 ## Prerequisites
 
 To complete the steps in this tutorial, you need:
@@ -107,7 +109,7 @@ int main(void)
     // for extended periods of time when using DPS.
     else if ((deviceClient = CreateAndConfigureDeviceClientHandleForPnP()) == NULL)
     {
-        LogError("Failure creating Iot Hub device client");
+        LogError("Failure creating IoT Hub device client");
         PnP_ThermostatComponent_Destroy(g_thermostatHandle1);
         PnP_ThermostatComponent_Destroy(g_thermostatHandle2);
     }

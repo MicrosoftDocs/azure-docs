@@ -7,7 +7,7 @@ ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 11/13/2024
 ---
 
 # Set up a lab with GPU virtual machines in Azure Lab Services
@@ -20,7 +20,7 @@ In this article, you learn how to choose between the different GPU-based virtual
 
 ## Choose between visualization and compute GPU sizes
 
-When you create a lab in Azure Lab Services, you have to select a virtual machine size. Choose the right virtual machine size, based on the usage scenario or [class type](./class-types.md).
+When you create a lab in Azure Lab Services, you have to select a virtual machine size. Choose the right virtual machine size, based on the usage scenario.
 
 :::image type="content" source="./media/how-to-setup-gpu/lab-gpu-selection.png" alt-text="Screenshot of the New lab window for creating a new lab in the Lab Services website, highlighting the VM sizes dropdown.":::
 
@@ -34,20 +34,24 @@ Azure Lab Services has two GPU-based virtual machines size categories:
 
 ### Compute GPU sizes
 
-The *compute* GPU size is intended for compute-intensive applications.  For example, the [Deep Learning in Natural Language Processing class type](./class-type-deep-learning-natural-language-processing.md) uses the **Small GPU (Compute)** size.  The compute GPU is suitable for this type of class, because lab users apply deep learning frameworks and tools that are provided by the [Data Science Virtual Machine image](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) to train deep learning models with large sets of data.
+The *compute* GPU size is intended for compute-intensive applications. 
 
-| Size | vCPUs | RAM | Description |
-| ---- | ----- | --- | ----------- |
-| Small GPU (Compute) | 6  vCPUs | 112 GB RAM  | [Standard_NC6s_v3](/azure/virtual-machines/ncv3-series). This size supports both Windows and Linux and is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
+| Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
+| - | - | - | - | - | - | - |
+| Small GPU (Compute) | 8 | 56 | [NC8as_T4_v3](/azure/virtual-machines/nct4-v3-series) | AI & deep learning | NVIDIA Tesla T4 | 16 |
+| Alternative Small GPU (Compute) | 6 | 112 | [NC6s_v3](/azure/virtual-machines/ncv3-series) | AI & deep learning | NVIDIA Tesla V100 | 16 |
 
 ### Visualization GPU sizes
 
-The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SOLIDWORKS engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because lab users interact with the SOLIDWORKS 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
+The *visualization* GPU sizes are intended for graphics-intensive applications.
 
-| Size | vCPUs | RAM | Description |
-| ---- | ----- | --- | ----------- |
-| Small GPU (Visualization) | 8 vCPUs | 28 GB RAM  | [Standard_NV8as_v4](/azure/virtual-machines/nvv4-series).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. Currently, this size supports Windows only. |
-| Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12s_v3](/azure/virtual-machines/nvv3-series).  This size supports both Windows and Linux.  It's best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
+| - | - | - | - | - | - | - |
+| Small GPU (Visualization) | 8 | 28 | [NV8as_v4](/azure/virtual-machines/nvv4-series) | (Windows only) Remote visualization, streaming, gaming | AMD Radeon Instinct MI25 (1/4) | 4 |
+| Medium GPU (Visualization) | 12 | 112 | [NV12s_v3](/azure/virtual-machines/nvv3-series) | Remote visualization, streaming, gaming | NVIDIA Tesla M60 | 8 |
+| Alternative Small GPU (Visualization) | 6 | 55 | [NV6ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA A10 (1/6) | 4 |
+| Alternative Medium GPU (Visualization) | 12 | 110 | [NV12ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA A10 (1/3) | 8 |
+
 
 ## Ensure that the appropriate GPU drivers are installed
 
@@ -55,10 +59,8 @@ To take advantage of the GPU capabilities of your lab VMs, ensure that the appro
 
 :::image type="content" source="./media/how-to-setup-gpu/lab-gpu-drivers.png" alt-text="Screenshot of the New lab page in the Lab Services website, highlighting the Install GPU drivers option.":::
 
-When you select **Install GPU drivers**, it ensures that recently released drivers are installed for the type of GPU and image that you selected.
+When you select **Install GPU drivers**, it ensures that recently released drivers are installed for the type of GPU and image that you selected. 
 
-- When you select the Small GPU *(Compute)* size, your lab VMs are powered by the [NVIDIA Tesla V100 GPU](https://www.nvidia.com/en-us/data-center/v100/) GPU.  In this case, recent Compute Unified Device Architecture (CUDA) drivers are installed, which enables high-performance computing.
-- When you select the Small GPU *(Visualization)* size, your lab VMs are powered by the AMD Radeon Instinct MI25 Accelerator GPU.  In this case, recent AMD GPU drivers are installed, which enables the use of graphics-intensive applications.
 - When you select the Medium GPU *(Visualization)* size, your lab VMs are powered by the [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU and [GRID technology](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  In this case, recent GRID drivers are installed, which enables the use of graphics-intensive applications.
 
 > [!IMPORTANT]
@@ -165,6 +167,4 @@ To verify driver installation for Linux images, see [verify driver installation 
 
 ## Next steps
 
-- Learn how to [create and manage labs](how-to-manage-labs.md).
-- Create a lab with the [SOLIDWORKS computer-aided design (CAD)](class-type-solidworks.md) software.
-- Create a lab with the [MATLAB (matrix laboratory)](class-type-matlab.md) software.
+- Learn how to [create and manage labs](how-to-manage-labs.md)

@@ -2,12 +2,12 @@
 title: Manage resources through private link
 description: Restrict management access for resource to private link
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 01/22/2025
 ---
 
 # Use APIs to create a private link for managing Azure resources
 
-This article explains how you can use [Azure Private Link](../../private-link/index.yml) to restrict access for managing resources in your subscriptions.
+This article explains how to use [Azure Private Link](../../private-link/index.yml) to restrict access for managing resources in your subscriptions.
 
 [!INCLUDE [Create content](../../../includes/resource-manager-create-rmpl.md)]
 
@@ -67,11 +67,11 @@ To create resource management private link, send the following request:
   
 ---
 
-Note the ID that is returned for the new resource management private link. You'll use it for creating the private link association.
+Note the ID that is returned for the new resource management private link. You use it for creating the private link association.
 
 ## Create private link association
 
-The resource name of a private link association resource must be a GUID, and it isn't yet supported to disable the publicNetworkAccess field. 
+The resource name of a private link association resource must be a GUID, and you can't disable the `publicNetworkAccess` field.
 
 To create the private link association, use:
 
@@ -81,7 +81,7 @@ To create the private link association, use:
 
   ```azurecli
   # Login first with az login if not using Cloud Shell
-  az private-link association create --management-group-id fc096d27-0434-4460-a3ea-110df0422a2d --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 --privatelink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL"
+  az private-link association create --management-group-id fc096d27-0434-4460-a3ea-110df0422a2d --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 --privatelink "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL"
   ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -90,7 +90,7 @@ To create the private link association, use:
 
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
-  New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
+  New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
   ```
 
 # [REST](#tab/REST)
@@ -133,7 +133,7 @@ To create the private link association, use:
 
 ## Add private endpoint
 
-This article assumes you already have a virtual network. In the subnet that will be used for the private endpoint, you must turn off private endpoint network policies. If you haven't turned off private endpoint network policies, see [Disable network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md).
+This article assumes you already have a virtual network. In the subnet that you plan to use for the private endpoint, you must turn off private endpoint network policies. To turn off private endpoint network policies, see [Disable network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md).
 
 To create a private endpoint, see Private Endpoint documentation for creating via [Portal](../../private-link/create-private-endpoint-portal.md), [PowerShell](../../private-link/create-private-endpoint-powershell.md), [CLI](../../private-link/create-private-endpoint-cli.md), [Bicep](../../private-link/create-private-endpoint-bicep.md), or [template](../../private-link/create-private-endpoint-template.md).
 

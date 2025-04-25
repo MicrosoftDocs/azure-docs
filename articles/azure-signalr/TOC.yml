@@ -141,7 +141,9 @@
       href: signalr-howto-authorize-application.md
     - name: Authorize from managed identity
       href: signalr-howto-authorize-managed-identity.md
-    - name: Disable local authentication.
+    - name: Configure cross tenant authorization
+      href: signalr-howto-authorize-cross-tenant.md
+    - name: Disable local authentication
       href: howto-disable-local-auth.md
     - name: Custom domain
       href: howto-custom-domain.md
@@ -227,7 +229,7 @@
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos
     href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
-  - name: StackOverflow
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=signalr+service
   - name: X
     href: https://x.com/SignalR

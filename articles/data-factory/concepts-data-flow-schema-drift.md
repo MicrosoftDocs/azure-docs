@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Schema drift in mapping data flow
@@ -29,7 +29,7 @@ You need to make an architectural decision in your data flow to accept schema dr
 
 This video provides an introduction to some of the complex solutions that you can build easily in Azure Data Factory or Synapse Analytics pipelines with data flow's **schema drift** feature. In this example, we build reusable patterns based on flexible database schemas:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=941aff82-3f60-45be-853c-088bff9d703e]
 
 ## Schema drift in source
 

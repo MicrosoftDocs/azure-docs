@@ -1,12 +1,13 @@
 ---
 title: Manage Spark application dependencies on Azure HDInsight
 description: This article provides an introduction of how to manage Spark dependencies in HDInsight Spark cluster for PySpark and Scala applications.
-author: apurbasroy
-ms.author: apsinhar
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive, devx-track-python
 ms.topic: how-to
-ms.date: 11/28/2023
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
+ms.date: 11/25/2024
 #Customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
 ---
 
@@ -57,14 +58,14 @@ Use comma-separated list of jar paths for multiple jar files, Globs are allowed.
 %%configure { "conf": {"spark.jars": "wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/azure-cosmosdb-spark_2.3.0_2.11-1.3.3.jar" }}
 ```
 
-After configuring external packages, you can run import in code cell to verify if the packages has been placed correctly.
+After configuring external packages, you can run import in code cell to verify if the packages have been placed correctly.
 
 ```scala
 import com.microsoft.azure.cosmosdb.spark._
 ```
 
 ### Use Azure Toolkit for IntelliJ
-[Azure Toolkit for IntelliJ plug-in](./apache-spark-intellij-tool-plugin.md) provides UI experience to submit Spark Scala application to an HDInsight cluster. It provides `Referenced Jars` and `Referenced Files` properties to configure jar libs paths when submitting the Spark application. See more details about [How to use Azure Toolkit for IntelliJ plug-in for HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
+[Azure Toolkit for IntelliJ plug-in](./apache-spark-intellij-tool-plugin.md) provides UI experience to submit Spark Scala application to HDInsight cluster. It provides `Referenced Jars` and `Referenced Files` properties to configure jar libs paths when submitting the Spark application. See more details about [How to use Azure Toolkit for IntelliJ plug-in for HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
 
 :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="The Spark Submission dialog box." border="true":::
 

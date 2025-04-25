@@ -79,13 +79,13 @@ To enable Background Blur Video Effect:
 
 ```java
 private void handleOnVideoEffectEnabled(VideoEffectEnabledEvent args) {
-   Log.i("VideoEfects", "Effect enabled for effect " + args.getVideoEffectName());
+   Log.i("VideoEffects", "Effect enabled for effect " + args.getVideoEffectName());
 }
 private void handleOnVideoEffectDisabled(VideoEffectDisabledEvent args) {
-   Log.i("VideoEfects", "Effect disabled for effect " + args.getVideoEffectName());
+   Log.i("VideoEffects", "Effect disabled for effect " + args.getVideoEffectName());
 }
 private void handleOnVideoEffectError(VideoEffectErrorEvent args) {
-   Log.i("VideoEfects", "Error " + args.getCode() + ":" + args.getMessage()
+   Log.i("VideoEffects", "Error " + args.getCode() + ":" + args.getMessage()
            + " for effect " + args.getVideoEffectName());
 }
 
@@ -131,13 +131,13 @@ To enable Background Replacement Video Effect:
 
 ```java
 private void handleOnVideoEffectEnabled(VideoEffectEnabledEvent args) {
-   Log.i("VideoEfects", "Effect enabled for effect " + args.getVideoEffectName());
+   Log.i("VideoEffects", "Effect enabled for effect " + args.getVideoEffectName());
 }
 private void handleOnVideoEffectDisabled(VideoEffectDisabledEvent args) {
-   Log.i("VideoEfects", "Effect disabled for effect " + args.getVideoEffectName());
+   Log.i("VideoEffects", "Effect disabled for effect " + args.getVideoEffectName());
 }
 private void handleOnVideoEffectError(VideoEffectErrorEvent args) {
-   Log.i("VideoEfects", "Error " + args.getCode() + ":" + args.getMessage()
+   Log.i("VideoEffects", "Error " + args.getCode() + ":" + args.getMessage()
            + " for effect " + args.getVideoEffectName());
 }
 

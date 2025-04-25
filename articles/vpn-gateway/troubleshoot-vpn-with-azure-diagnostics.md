@@ -154,18 +154,18 @@ This query on **IKEDiagnosticLog** shows you multiple columns.
 |**TimeGenerated** | the timestamp of each event, in UTC timezone.|
 | **RemoteIP** | the IP address of the on-premises VPN device. In real world scenarios, it's useful to filter by the IP address of the relevant on-premises device shall there be more than one. |
 |**LocalIP** | the IP address of the VPN Gateway we're troubleshooting. In real world scenarios, it's useful to filter by the IP address of the relevant VPN gateway shall there be more than one in your subscription. |
-|**Event** | contains a diagnostic message useful for troubleshooting. They usually start with a keyword and refer to the actions performed by the Azure Gateway: **\[SEND\]** indicates an event caused by an IPSec packet sent by the Azure Gateway. **\[RECEIVED\]** indicates an event in consequence of a packet received from on-premises device. **\[LOCAL\]** indicates an action taken locally by the Azure Gateway. |
+|**Event** | contains a diagnostic message useful for troubleshooting. They usually start with a keyword and refer to the actions performed by the Azure Gateway: **\[SEND\]** indicates an event caused by an IPsec packet sent by the Azure Gateway. **\[RECEIVED\]** indicates an event in consequence of a packet received from on-premises device. **\[LOCAL\]** indicates an action taken locally by the Azure Gateway. |
 
 
 Notice how RemoteIP, LocalIP, and Event columns aren't present in the original column list on AzureDiagnostics database, but are added to the query by parsing the output of the "Message" column to simplify its analysis.
 
 Troubleshooting tips:
 
-- In order to identify the start of an IPSec negotiation, you need to find the initial SA\_INIT message. Such message could be sent by either side of the tunnel. Whoever sends the first packet is called "initiator" in IPsec terminology, while the other side becomes the "responder". The first SA\_INIT message is always the one where rCookie = 0.
+- In order to identify the start of an IPsec negotiation, you need to find the initial SA\_INIT message. Such message could be sent by either side of the tunnel. Whoever sends the first packet is called "initiator" in IPsec terminology, while the other side becomes the "responder". The first SA\_INIT message is always the one where rCookie = 0.
 
 - If the IPsec tunnel fails to establish, Azure keeps retrying every few seconds. For this reason, troubleshooting "VPN down" issues is convenient on IKEdiagnosticLog because you don't have to wait for a specific time to reproduce the issue. Also, the failure will in theory always be the same every time we try so you could just zoom into one "sample" failing negotiation at any time.
 
-- The SA\_INIT contains the IPSec parameters that the peer wants to use for this IPsec negotiation. 
+- The SA\_INIT contains the IPsec parameters that the peer wants to use for this IPsec negotiation. 
 The official document   
 [Default IPsec/IKE parameters](./vpn-gateway-about-vpn-devices.md#ipsec) lists the IPsec parameters supported by the Azure Gateway with default settings.
 

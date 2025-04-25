@@ -84,7 +84,7 @@ namespace CommunicationAccessTokensQuickstart
 The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](/entra/identity-platform/reference-v2-libraries). The code below retrieves Microsoft Entra client ID and tenant ID from environment variables named `AAD_CLIENT_ID` and `AAD_TENANT_ID`. It's essential to configure the MSAL client with the correct authority, based on the `AAD_TENANT_ID` environment variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `userObjectId` variable.
 
 ```csharp
-// This code demonstrates how to fetch an AAD client ID and tenant ID 
+// This code demonstrates how to fetch an Microsoft Entra ID client ID and tenant ID 
 // from an environment variable.
 string appId = Environment.GetEnvironmentVariable("AAD_CLIENT_ID");
 string tenantId = Environment.GetEnvironmentVariable("AAD_TENANT_ID");
@@ -103,7 +103,7 @@ List<string> scopes = new() {
     "https://auth.msft.communication.azure.com/Teams.ManageChats"
 };
 
-// Retrieve the AAD token and object ID of a Teams user
+// Retrieve the Microsoft Entra ID token and object ID of a Teams user
 var result = await aadClient
                         .AcquireTokenInteractive(scopes)
                         .ExecuteAsync();

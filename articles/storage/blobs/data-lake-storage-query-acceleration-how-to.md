@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 05/14/2024
+ms.date: 11/18/2024
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.devlang: csharp
@@ -34,11 +34,11 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
   Not applicable
 
-  ### [.NET v12 SDK](#tab/dotnet)
+  ### [.NET](#tab/dotnet)
 
   The [.NET SDK](https://dotnet.microsoft.com/download)
 
-  ### [Java v12 SDK](#tab/java)
+  ### [Java](#tab/java)
 
   - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 
@@ -47,11 +47,11 @@ Query acceleration enables applications and analytics frameworks to dramatically
     > [!NOTE]
     > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
 
-  ### [Python v12 SDK](#tab/python)
+  ### [Python](#tab/python)
 
   [Python](https://www.python.org/downloads/) 3.8 or greater.
 
-  ### [Node.js v12 SDK](#tab/nodejs)
+  ### [Node.js](#tab/nodejs)
 
   There are no additional prerequisites required to use the Node.js SDK.
 
@@ -75,7 +75,7 @@ To update from an older version of Az, run the following command:
 Update-Module -Name Az
 ```
 
-#### [.NET v12 SDK](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 
 1. Open a command prompt and change directory (`cd`) into your project folder For example:
 
@@ -95,7 +95,7 @@ Update-Module -Name Az
    dotnet add package CsvHelper
    ```
 
-#### [Java v12 SDK](#tab/java)
+#### [Java](#tab/java)
 
 1. Open the *pom.xml* file of your project in a text editor. Add the following dependency elements to the group of dependencies.
 
@@ -118,7 +118,7 @@ Update-Module -Name Az
     </dependency>
    ```
 
-#### [Python v12 SDK](#tab/python)
+#### [Python](#tab/python)
 
 Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
 
@@ -126,7 +126,7 @@ Install the Azure Data Lake Storage client library for Python by using [pip](htt
 pip install azure-storage-blob==12.4.0
 ```
 
-#### [Node.js v12 SDK](#tab/nodejs)
+#### [Node.js ](#tab/nodejs)
 
 Install Data Lake client library for JavaScript by opening a terminal window, and then typing the following command.
 
@@ -143,7 +143,7 @@ Install Data Lake client library for JavaScript by opening a terminal window, an
 
 Not applicable
 
-#### [.NET v12 SDK](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 
 Add these `using` statements to the top of your code file.
 
@@ -153,7 +153,7 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 ```
 
-Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these `using` statements to the top of the code file.
+Query acceleration retrieves CSV and JSON formatted data. Therefore, make sure to add using statements for any CSV or JSON parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these `using` statements to the top of the code file.
 
 ```csharp
 using CsvHelper;
@@ -168,7 +168,7 @@ using System.IO;
 using System.Globalization;
 ```
 
-#### [Java v12 SDK](#tab/java)
+#### [Java](#tab/java)
 
 Add these `import` statements to the top of your code file.
 
@@ -182,7 +182,7 @@ import java.util.function.Consumer;
 import org.apache.commons.csv.*;
 ```
 
-#### [Python v12 SDK](#tab/python)
+#### [Python](#tab/python)
 
 Add these import statements to the top of your code file.
 
@@ -191,7 +191,7 @@ import sys, csv
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 ```
 
-### [Node.js v12 SDK](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 Include the `storage-blob` module by placing this statement at the top of your code file.
 
@@ -199,7 +199,7 @@ Include the `storage-blob` module by placing this statement at the top of your c
 const { BlobServiceClient } = require("@azure/storage-blob");
 ```
 
-Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add statements for any CSV or Json parsing modules that you choose to use. The examples that appear in this article parse a CSV file by using the [fast-csv](https://www.npmjs.com/package/fast-csv) module. Therefore, we'd add this statement to the top of the code file.
+Query acceleration retrieves CSV and JSON formatted data. Therefore, make sure to add statements for any CSV or JSON parsing modules that you choose to use. The examples that appear in this article parse a CSV file by using the [fast-csv](https://www.npmjs.com/package/fast-csv) module. Therefore, we'd add this statement to the top of the code file.
 
 ```javascript
 const csv = require('@fast-csv/parse');
@@ -231,7 +231,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ```
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 The async method `BlockBlobClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](/dotnet/api/system.io.stream) object.
 
@@ -294,7 +294,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 
 ```
 
-### [Java v12 SDK](#tab/java)
+### [Java](#tab/java)
 
 The method `BlockBlobClient.openInputStream()` sends the query to the query acceleration API, and then streams the results back to the application as a `InputStream` object which can be read like any other InputStream object.
 
@@ -341,7 +341,7 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
 }
 ```
 
-### [Python v12 SDK](#tab/python)
+### [Python](#tab/python)
 
 ```python
 def query_hemingway(blob: BlobClient):
@@ -356,7 +356,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
         print("*".join(row))
 ```
 
-### [Node.js v12 SDK](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 This example sends the query to the query acceleration API, and then streams the results back. The `blob` object passed into the `queryHemingway` helper function is of type [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). To learn more about how to get a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, see [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
@@ -422,7 +422,7 @@ Get-QueryCsv $ctx $container $blob "SELECT BibNum FROM BlobStorage" $true
 
 ```
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 ```cs
 static async Task QueryBibNum(BlockBlobClient blob)
@@ -432,7 +432,7 @@ static async Task QueryBibNum(BlockBlobClient blob)
 }
 ```
 
-### [Java v12 SDK](#tab/java)
+### [Java](#tab/java)
 
 ```java
 static void QueryBibNum(BlobClient blobClient)
@@ -442,7 +442,7 @@ static void QueryBibNum(BlobClient blobClient)
 }
 ```
 
-### [Python v12 SDK](#tab/python)
+### [Python](#tab/python)
 
 ```python
 def query_bibnum(blob: BlobClient):
@@ -450,7 +450,7 @@ def query_bibnum(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### [Node.js v12 SDK](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 async function queryBibNum(blob)
@@ -484,7 +484,7 @@ $query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
 
 ```
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 ```cs
 static async Task QueryDvds(BlockBlobClient blob)
@@ -497,7 +497,7 @@ static async Task QueryDvds(BlockBlobClient blob)
 }
 ```
 
-### [Java v12 SDK](#tab/java)
+### [Java](#tab/java)
 
 ```java
 static void QueryDvds(BlobClient blobClient)
@@ -510,7 +510,7 @@ static void QueryDvds(BlobClient blobClient)
 }
 ```
 
-### [Python v12 SDK](#tab/python)
+### [Python](#tab/python)
 
 ```python
 def query_dvds(blob: BlobClient):
@@ -521,7 +521,7 @@ def query_dvds(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### [Node.js v12 SDK](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 async function queryDvds(blob)

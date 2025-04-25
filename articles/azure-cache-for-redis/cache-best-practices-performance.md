@@ -5,8 +5,11 @@ description: Learn how to test the performance of Azure Cache for Redis.
 
 
 ms.topic: conceptual
-ms.date: 07/01/2024
-
+ms.custom:
+  - ignite-2024
+ms.date: 11/08/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Performance testing
@@ -29,7 +32,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 1. `Redis-benchmark` uses port 6379 by default. Use the `-p` parameter to override this setting. You need to do use `-p`, if you're using the SSL/TLS (port 6380) or are using the Enterprise tier (port 10000).
 
-1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you need to add the `--cluster` parameter to your `redis-benchmark` command. Enterprise tier caches using the [Enterprise clustering policy](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise) can be treated as nonclustered caches and don't need this setting.
+1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you need to add the `--cluster` parameter to your `redis-benchmark` command. Enterprise tier caches using the Enterprise [Clustering](../redis/architecture.md#clustering) can be treated as nonclustered caches and don't need this setting.
 
 1. Launch `redis-benchmark` from the CLI or shell of the VM. For instructions on how to configure and run the tool, see the [redis-benchmark documentation](https://redis.io/docs/management/optimization/benchmarks/) and the [redis-benchmark examples](#redis-benchmark-examples) sections.
 
@@ -45,7 +48,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 - Using TLS/SSL decreases throughput performance, which can be seen clearly in the example benchmarking data in the following tables.
 
-- Even though a Redis server is single-threaded, scaling up tends to improve throughput performance. System processes can use the extra vCPUs instead of sharing the vCPU being used by the Redis process. Scaling up is especially helpful on the Enterprise and Enterprise Flash tiers because Redis Enterprise isn't limited to a single thread. For more information, see [Enterprise tier best practices](cache-best-practices-enterprise-tiers.md#scaling).
+- Even though a Redis server is single-threaded, scaling up tends to improve throughput performance. System processes can use the extra vCPUs instead of sharing the vCPU being used by the Redis process. Scaling up is especially helpful on the Enterprise and Enterprise Flash tiers because Redis Enterprise isn't limited to a single thread.
 
 - On the Premium tier, scaling out, clustering, is typically recommended before scaling up. Clustering allows Redis server to use more vCPUs by sharding data. Throughput should increase roughly linearly when adding shards in this case.
 
@@ -92,13 +95,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 ## Example performance benchmark data
 
-The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark` from an IaaS Azure VM against the Azure Cache for Redis endpoint. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. These numbers are optimized for throughput. Real-world throughput under acceptable latency conditions might be lower.
-
-The following configuration was used to benchmark throughput for the Basic, Standard, and Premium tiers:
-
-```dos
-redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
-```
+The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark` and `memtier-benchmark` from an IaaS Azure VM against the Azure Cache for Redis endpoint. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. These numbers are optimized for throughput. Real-world throughput under acceptable latency conditions might be lower.
 
 >[!CAUTION]
 >These values aren't guaranteed and there's no SLA for these numbers. We strongly recommend that you should [perform your own performance testing](cache-best-practices-performance.md) to determine the right cache size for your application.
@@ -109,7 +106,15 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 >Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect older generation cache hardware in a single region. You may see better or different results in practice.
 >
 
-### Standard tier
+### [redis-benchmark](#tab/redis)
+
+The following configuration was used to benchmark throughput for the Basic, Standard, and Premium tiers:
+
+```dos
+redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
+```
+
+#### Standard tier Redis benchmarks
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
 | --- | ---:| ---:| ---:| ---:| ---:|
@@ -121,7 +126,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 | C5 |  26 GB | 4      | 1,000 | 102,000 |  93,000 |
 | C6 |  53 GB | 8      | 2,000 | 126,000 | 120,000 |
 
-### Premium tier
+#### Premium tier Redis benchmarks
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
 | --- | ---| ---:|---:| ---:| ---:|
@@ -134,19 +139,57 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 > [!IMPORTANT]
 > P5 instances in the China East and China North regions use 20 cores, not 32 cores.
 
-### Enterprise & Enterprise Flash tiers
+### [memtier-benchmark](#tab/memtier)
 
-The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise). Benchmarks for both cluster policies are shown in the following tables.
+The following configuration was used to benchmark throughput for the Basic, Standard, and Premium tiers:
+
+```bash
+memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 -c 50 -t 6 -d 1024 --key-maximum={number-of-keys} --key-pattern=P:P --ratio=0:1 --distinct-client-seed --randomize --test-time=600 --json-out-file=test_results.json --tls --tls-skip-verify
+```
+
+#### Standard tier memtier benchmarks
+
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second with SSL (1-kB value size) |
+| --- | ---:| ---:| ---:| ---:| ---:|
+| C0 | 250 MB | Shared | 100 |  7,500 |
+| C1 |   1 GB | 1      | 500 | 19,700 |
+| C2 | 2.5 GB | 2      | 500 |  50,000 |
+| C3 |   6 GB | 4      | 1000 | 75,000 |
+| C4 |  13 GB | 2      | 500 |  55,000 |
+| C5 |  26 GB | 4      | 1,000 | 85,000 |
+| C6 |  53 GB | 8      | 2,000 | 83,000 |
+
+#### Premium tier memtier benchmarks
+
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps) | GET requests per second with SSL (1-kB value size) |
+| --- | ---| ---:|---:| ---:| ---:|
+| P1 |   6 GB |  2 | 1,500 | 182,000|
+| P2 |  13 GB |  4 | 3,000 | 225,000|
+| P3 |  26 GB |  4 | 3,000 | 225,000 |
+| P4 |  53 GB |  8 | 6,000 | 275,000 |
+| P5 | 120 GB | 32 | 6,000 | 275,000 |
+
+> [!IMPORTANT]
+> P5 instances in the China East and China North regions use 20 cores, not 32 cores.
+
+---
+
+### [redis-benchmark](#tab/redis)
+
+#### Enterprise & Enterprise Flash tiers
+
+The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering](../redis/architecture.md#clustering) . Benchmarks for both cluster policies are shown in the following tables.
 
 The following configuration was used to benchmark throughput for the Enterprise and Enterprise flash tiers:
 
 ```dos
 redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a yourAccesskey -t GET -n 10000000 -d 1024 -P 50 -c 50 --threads 32
 ```
+
 > [!NOTE]
 > This configuration is nearly identical to the one used to benchmark the Basic, Standard, and Premium tiers. The previous configuration, however, did not fully utilize the greater compute performance of the Enterprise tiers. Additional requests and threads were added to this configuration in order to demonstrate full performance.
 
-#### Enterprise Cluster Policy
+##### Enterprise Cluster Policy
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without SSL (1-kB value size) | `GET` requests per second with SSL (1-kB value size) |
 |:---:| --- | ---:|---:| ---:| ---:|
@@ -158,7 +201,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 | F700 | 715 GB | 16 | 6,400 | 500,000 | 370,000 |
 | F1500 | 1455 GB | 32 | 12,800 | 530,000 | 390,000 |
 
-#### OSS Cluster Policy
+##### OSS Cluster Policy
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without SSL (1-kB value size) | `GET` requests per second with SSL (1-kB value size) |
 |:---:| --- | ---:|---:| ---:| ---:|
@@ -170,13 +213,13 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 | F700 | 715 GB | 16 | 6,400 | 1,600,000 | 1,200,000 |
 | F1500 | 1455 GB | 32 | 12,800 | 1,600,000 | 1,110,000 |
 
-### Enterprise & Enterprise Flash Tiers - Scaled Out
+#### Enterprise & Enterprise Flash Tiers - Scaled Out
 
-In addition to scaling up by moving to larger cache size, you can boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, scaling out is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance was scaled out by a factor of two. Scaling out provides access to more memory and vCPUs. Details on how many vCPUs are used by the core Redis process at each cache size and capacity can be found at the [Enterprise tiers best practices page](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization). Scaling out is most effective when using the OSS cluster policy.
+In addition to scaling up by moving to larger cache size, you can boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, scaling out is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance was scaled out by a factor of two. Scaling out provides access to more memory and vCPUs. Details on how many vCPUs are used by the core Redis process at each cache size and capacity can be found at the [Sharding configuration](../redis/architecture.md#sharding-configuration). Scaling out is most effective when using the OSS cluster policy.
 
 The following tables show the `GET` requests per second at different capacities, using SSL and a 1-kB value size.
 
-#### Scaling out - Enterprise cluster policy
+##### Scaling out - Enterprise cluster policy
 
 | Instance | Capacity 2 | Capacity 4 | Capacity 6 |
 |:---:| ---:| ---:| ---:|
@@ -191,7 +234,7 @@ The following tables show the `GET` requests per second at different capacities,
 | F700 | 370,000 | 610,000 |
 | F1500 | 390,000 | 670,000 |
 
-#### Scaling out - OSS cluster policy
+##### Scaling out - OSS cluster policy
 
 | Instance | Capacity 2 | Capacity 4 | Capacity 6 |
 |:---:| ---:| ---:| ---:|
@@ -205,6 +248,12 @@ The following tables show the `GET` requests per second at different capacities,
 | F300 | 1,200,000 | 2,600,000 |
 | F700 | 1,200,000 | 2,600,000 |
 | F1500 | 1,100,000 | 2,800,000 |
+
+### [memtier-benchmark](#tab/memtier)
+
+The memtier benchmarks are not yet available for the Azure Cache for Redis Enterprise tiers.
+
+---
 
 ## Next steps
 

@@ -6,14 +6,14 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/12/2024
+ms.date: 01/26/2025
 ms.author: jianleishen
 ---
 # Copy data from Zoho using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!IMPORTANT]
-> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Zoho. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -77,7 +77,7 @@ The following properties are supported for Zoho linked service:
 | endpoint | The endpoint of the Zoho server (`crm.zoho.com/crm/private`). | Yes |
 | authenticationType | Allowed values are `OAuth_2.0` and `Access Token`. | Yes |
 | clientId | The client ID associated with your Zoho application. | Yes for OAuth 2.0 authentication | 
-| clientSecrect | The clientsecret associated with your Zoho application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication | 
+| clientSecret | The clientsecret associated with your Zoho application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication | 
 | refreshToken | The OAuth 2.0 refresh token associated with your Zoho application, used to refresh the access token when it expires. Refresh token will never expire. To get a refresh token, you must request the `offline` access_type, learn more from [this article](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes for OAuth 2.0 authentication |
 | accessToken | The access token for Zoho authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
@@ -96,7 +96,7 @@ The following properties are supported for Zoho linked service:
                 "authenticationType":"OAuth_2.0", 
                 "endpoint": "crm.zoho.com/crm/private", 
                 "clientId": "<client ID>", 
-                "clientSecrect": {
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<client secret>"
                 },

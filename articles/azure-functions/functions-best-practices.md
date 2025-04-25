@@ -7,6 +7,7 @@ ms.date: 08/30/2021
 ms.devlang: csharp
 ms.custom:
   - build-2024
+  - ignite-2024
 # ms.devlang: csharp, java, javascript, powershell, python
 # Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---
@@ -24,8 +25,6 @@ When you create a function app in Azure, you must choose a hosting plan for your
 + [Flex Consumption plan](./flex-consumption-plan.md)
 + [Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
-
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
 In the context of the App Service platform, the _Premium_ plan used to dynamically host your functions is the Elastic Premium plan (EP). There are other Dedicated (App Service) plans called Premium. To learn more, see the [Premium plan](functions-premium-plan.md) article.
 
@@ -64,6 +63,9 @@ You can use the following ARM template examples to help correctly configure thes
 + [Dedicated plan](https://azure.microsoft.com/resources/templates/function-app-create-dedicated/)
 + [Premium plan with VNET integration](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/)
 + [Consumption plan with a deployment slot](https://azure.microsoft.com/resources/templates/function-app-create-dynamic-slot/)
+
+> [!IMPORTANT]
+> The Azure Files service doesn't currently support identity-based connections. For more information, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files). 
 
 ### Storage account configuration
 

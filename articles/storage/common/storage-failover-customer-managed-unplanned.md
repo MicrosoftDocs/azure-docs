@@ -23,8 +23,6 @@ Customer-managed (unplanned) failover enables you to fail over your entire geo-r
 
 This article describes what happens during a customer-managed (unplanned) failover and failback at every stage of the process.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
-
 ## Redundancy management during unplanned failover and failback
 
 > [!TIP]
@@ -36,7 +34,7 @@ During the customer-managed (unplanned) failover process, the Domain Name System
 
 The original and current redundancy configurations are stored within the storage account's properties. This functionality allows you to return to your original configuration when you fail back. For a complete list of resulting redundancy configurations, read [Recovery planning and failover](storage-disaster-recovery-guidance.md#plan-for-failover).
 
-To regain geo-redundancy after a failover, you need to reconfigure your account as GRS.<!--Keep in mind that GZRS isn't a post-failover option because your storage account utilizes LRS after the failover completes.--> After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access to the secondary region, that access is available. However, replication from the primary to the secondary region might take some time to complete.
+To regain geo-redundancy after a failover, you need to reconfigure your account as GRS. After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access to the secondary region, that access is available. However, replication from the primary to the secondary region might take some time to complete.
 
 > [!WARNING]
 > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.
@@ -126,10 +124,11 @@ Read access to the new secondary region isn't available again until the issue ca
 >
 > **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate potential data loss.
 
-After the issue causing the original outage is resolved, you can initiate failback to the original primary region. This process is described in the following image:
+After the issue causing the original outage is resolved, you can initiate failback to the original primary region. The failback process is the same as the original failover process previously explained.
 
-1. The current primary region becomes read only.
-1. With customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back.
+Important points to consider:
+
+1. With customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. 
 1. The DNS entries for the storage service endpoints are switched. The endpoints within the secondary region become the new primary endpoints for your storage account.
 
 :::image type="content" source="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-redundant.png" alt-text="Diagram that shows how the customer initiates account failback to original primary region." lightbox="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-redundant.png":::
@@ -193,11 +192,12 @@ Read access to the new secondary region isn't available again until the original
 >
 > **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate potential data loss.
 
-After the issue causing the original outage is resolved, you can initiate failback to the original primary region. This process is described in the following image:
+After the issue causing the original outage is resolved, you can initiate failback to the original primary region. The failback process is the same as the original failover process previously explained.
 
-1. The current primary region becomes read only.
-1. During customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back.
-1. The DNS entries for the storage service endpoints are switched. The secondary endpoints become the new primary endpoints for your storage account.
+Important points to consider:
+
+1. With customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. 
+1. The DNS entries for the storage service endpoints are switched. The endpoints within the secondary region become the new primary endpoints for your storage account.
 
 :::image type="content" source="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-zone-redundant.png" alt-text="Diagram that shows the customer initiating account failback to the original primary region." lightbox="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-zone-redundant.png":::
 

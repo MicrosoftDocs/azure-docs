@@ -1,13 +1,13 @@
 ---
 title: Get started with Microsoft Customer Agreement billing account - Azure
 description: Learn about your Microsoft Customer Agreement billing account, including billing profiles and invoice payment methods.
-author: bandersmsft
-ms.reviewer: amberbhargava
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 06/27/2024
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Get started with your Microsoft Customer Agreement billing account

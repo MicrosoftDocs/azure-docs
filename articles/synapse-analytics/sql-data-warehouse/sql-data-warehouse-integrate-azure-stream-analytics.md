@@ -1,8 +1,8 @@
 ---
 title: Use Azure Stream Analytics in dedicated SQL pool
 description: Tips for using Azure Stream Analytics with dedicated SQL pool in Azure Synapse for developing real-time solutions.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 10/07/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -125,7 +125,8 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 On the Azure portal for Stream Analytics job, click on your job name.  Click on the ***Test*** button in the ***Output details*** pane.
 
-![Test button on Outpout details](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)
+![Screenshot showing Test button on Output details.](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)
+
 When the connection to the database succeeds, you will see a notification in the portal.
 
 ### Step 6

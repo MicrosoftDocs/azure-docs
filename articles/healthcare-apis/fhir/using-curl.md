@@ -53,9 +53,6 @@ curl --version
 $fhirservice="https://<fhirservice>.fhir.azurehealthcareapis.com"
 $token=(Get-AzAccessToken -ResourceUrl $fhirservice).Token
 
-### Get access token for the DICOM service
-$dicomtokenurl= "https://dicom.healthcareapis.azure.com/"
-$token=$( Get-AzAccessToken -ResourceUrl $dicomtokenurl).Token
 ```
 
 # [CLI](#tab/CLI)
@@ -100,23 +97,7 @@ fhirservice="https://<fhirservice>.fhir.azurehealthcareapis.com"
 
 [ ![Access data in the FHIR service with curl script.](media/curl-fhir.png) ](media/curl-fhir.png#lightbox)
 
-## Access data in the DICOM service
-
-# [PowerShell](#tab/PowerShell)
-
-```powershell-interactive
-$dicomservice="https://<dicomservice>.dicom.azurehealthcareapis.com"
-```
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-dicomservice="https://<dicomservice>.dicom.azurehealthcareapis.com"
-```
 ---
-
-`curl -X GET --header "Authorization: Bearer $token" $dicomservice/changefeed?includemetadata=false`
-
-[ ![Access data in the DICOM service with curl script.](media/curl-dicom.png) ](media/curl-dicom.png#lightbox)
 
 ## Next steps
 

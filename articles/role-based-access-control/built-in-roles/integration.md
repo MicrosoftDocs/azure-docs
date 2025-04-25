@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -645,7 +645,7 @@ Allows full access to App Configuration data.
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/delete |  |
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action | Use SAS authentication for the configuration store. |
 
 ```json
 {
@@ -665,7 +665,9 @@ Allows full access to App Configuration data.
         "Microsoft.AppConfiguration/configurationStores/*/delete",
         "Microsoft.AppConfiguration/configurationStores/*/action"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.AppConfiguration/configurationStores/useSasAuth/action"
+      ]
     }
   ],
   "roleName": "App Configuration Data Owner",
@@ -1093,6 +1095,7 @@ Lets you create system topics and event subscriptions on all system topics expos
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a MaintenanceResources system topic |
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a ComputeResources system topic |
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a ComputeScheduleResources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a ContainerServiceEventResources system topic |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/eventSubscriptions/write | Create or update an eventSubscription |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/systemTopics/eventSubscriptions/write | Create or update a SystemTopic eventSubscription |
 > | **NotActions** |  |
@@ -1118,6 +1121,7 @@ Lets you create system topics and event subscriptions on all system topics expos
         "Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action",
         "Microsoft.EventGrid/eventSubscriptions/write",
         "Microsoft.EventGrid/systemTopics/eventSubscriptions/write"
       ],
@@ -1329,17 +1333,17 @@ Lets you manage everything under your Modeling and Simulation Workbench chamber.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/*/read |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/* |  |
+> | Microsoft.ModSimWorkbench/*/read |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/manage/action | manage fileRequests |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/connector/setCopyPaste/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connector/setCopyPaste/action |  |
 > | **DataActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/files/* |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/upload/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1386,17 +1390,17 @@ Lets you view everything under your Modeling and Simulation Workbench chamber, b
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/*/read |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/workloads/* |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/getUploadUri/action | getUploadUri chambers |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/getDownloadUri/action | getDownloadUri fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/*/read |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/* |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/upload/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1681,6 +1685,131 @@ Read and search DICOM data.
     }
   ],
   "roleName": "DICOM Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Data Contributor
+
+Durable Task role for all data access operations.
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Durable Task role for all data access operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0ad04412-c4d5-4796-b79c-f76d14c8d402",
+  "name": "0ad04412-c4d5-4796-b79c-f76d14c8d402",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Data Reader
+
+Read all Durable Task Scheduler data.
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read all Durable Task Scheduler data.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/d6a5505f-6ebb-45a4-896e-ac8274cfc0ac",
+  "name": "d6a5505f-6ebb-45a4-896e-ac8274cfc0ac",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read",
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/metadata/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Worker
+
+Used by worker applications to interact with the Durable Task service
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by worker applications to interact with the Durable Task service",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/80d0d6b0-f522-40a4-8886-a5a11720c375",
+  "name": "80d0d6b0-f522-40a4-8886-a5a11720c375",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Worker",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

@@ -1,28 +1,34 @@
 ---
-title: Restore Azure Database for PostgreSQL -Flexible server backups (preview)
+title: Restore Azure Database for PostgreSQL -Flexible server using Azure portal
 description: Learn about how to restore Azure Database for PostgreSQL -Flexible backups.
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 03/18/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom:
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Restore Azure Database for PostgreSQL Flexible backups (preview)
+# Restore Azure Database for PostgreSQL - Flexible Server using Azure portal
 
-This article explains how to restore an Azure PostgreSQL -flex server backed up by Azure Backup.
+This article describes how to restore an Azure PostgreSQL -Flexible Server backed up using Azure portal.
 
 ## Prerequisites
 
-1. Before you restore from Azure Database for PostgreSQL Flexible server backups, ensure that you have the required [permissions for the restore operation](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup).
+Before you restore from Azure Database for PostgreSQL Flexible server backups, review the following prerequisites:
 
-2. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true**.
+- Ensure that you have the required [permissions for the restore operation](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup).
+
+- Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true**.
+
+- Ensure the target storage account for restoring backup as a file is accessible via a public network. If the storage account uses a private endpoint, [update its public network access settings](backup-azure-database-postgresql-flex-manage.md#enable-public-network-access-for-the-database-storage-account) before executing a restore operation.
 
 ## Restore Azure PostgreSQL-Flexible database
 
 Follow these steps:
 
-1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL-Flex server to be restored and select **Restore**.
+1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL - Flexible server to be restored and select **Restore**.
 
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/restore.png" alt-text="Screenshot showing how to restore a database.":::
 
@@ -37,7 +43,7 @@ Follow these steps:
 1. Once the validation is successful, select **Review + restore**.
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/review-restore.png" alt-text="Screenshot showing the restore parameter process.":::
 
-1. After final review of the parameters, select **Restore** to restore the selected PostgreSQL-Flex server backup in target storage account.
+1. After final review of the parameters, select **Restore** to restore the selected PostgreSQL - Flexible server backup in target storage account.
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/review.png" alt-text="Screenshot showing the review process page."::: 
    
 1. Submit the Restore operation and track the triggered job under **Backup jobs**.
@@ -69,7 +75,7 @@ Follow these steps:
 
    If you have more than one database to restore, re-run the earlier command for each database.
 
-   Also, by using multiple concurrent jobs **-j**, you can reduce the time it takes to restore a large database on a multi-vCore target server. The number of jobs can be equal to or less than the number of vCPUs that are allocated for the target server.
+   Also, by using multiple concurrent jobs `-j`, you can reduce the time it takes to restore a large database on a multi-vCore target server. The number of jobs can be equal to or less than the number of vCPUs that are allocated for the target server.
 
 1. To restore the other three files (roles, schema and tablespaces), use the psql utility to restore them to a PostgreSQL Flexible server.
 
@@ -80,4 +86,4 @@ Follow these steps:
  
 ## Next steps
 
-[Support matrix for PostgreSQL-Flex database backup by using Azure Backup](backup-azure-database-postgresql-flex-support-matrix.md).
+[Manage backup of Azure PostgreSQL - Flexible Server using Azure portal](backup-azure-database-postgresql-flex-manage.md).

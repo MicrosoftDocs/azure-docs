@@ -3,7 +3,7 @@ title: Linter rule - what-if short circuiting
 description: Linter rule - what-if short circuiting
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 09/19/2024
+ms.date: 02/12/2025
 ---
 
 # Linter rule - what-if short circuiting

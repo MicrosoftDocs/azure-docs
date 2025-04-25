@@ -5,7 +5,7 @@ ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024
-# CustomerIntent: As an integration developer, I want a way to logically organize and manage the Azure resoruces related to my organization's integration solutions.
+# CustomerIntent: As an integration developer, I want a way to logically organize and manage the Azure resources related to my organization's integration solutions.
 ms.subservice: azure-integration-environments
 ---
 

@@ -18,7 +18,7 @@ If your point-to-site (P2S) VPN environment requires a custom IPsec policy for e
 
 ### Prerequisites
 
-Verify that you have a functioning point-to-site VPN already configured. If you don't, configure one using the steps the **Create a point-to-site VPN**  article using either [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md), or the [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Verify that you have a functioning point-to-site VPN already configured. If you don't, configure one using the steps the **Create a point-to-site VPN**  article using either [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md), or the [Azure portal](point-to-site-certificate-gateway.md).
 
 ### Working with Azure PowerShell
 

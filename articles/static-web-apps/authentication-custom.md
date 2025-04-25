@@ -2,8 +2,8 @@
 title: Custom authentication in Azure Static Web Apps
 description: Learn to configure custom authentication for Azure Static Web Apps
 services: static-web-apps
-author: aaronpowell
-ms.author: aapowell
+author: v1212
+ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 06/28/2024
@@ -33,7 +33,7 @@ To create the registration, begin by creating the following [application setting
 | Setting Name | Value |
 | --- | --- |
 | `AZURE_CLIENT_ID` | The Application (client) ID for the Microsoft Entra app registration. |
-| `AZURE_CLIENT_SECRET_APP_SETTING_NAME | The name of the application setting that holds the client secret for the Microsoft Entra app registration. |
+| `AZURE_CLIENT_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the client secret for the Microsoft Entra app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -484,7 +484,7 @@ See the following example payload from Microsoft Entra ID:
 ```json
 {
   "identityProvider": "aad",
-  "userId": "72137ad3-ae00-42b5-8d54-aacb38576d76",
+  "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
   "userDetails": "ellen@contoso.com",
   "claims": [
       {
@@ -509,7 +509,7 @@ See the following example payload from Microsoft Entra ID:
       },
       {
           "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
-          "val": "72137ad3-ae00-42b5-8d54-aacb38576d76"
+          "val": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee"
       },
       {
           "typ": "http://schemas.microsoft.com/identity/claims/tenantid",

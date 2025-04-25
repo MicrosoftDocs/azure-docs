@@ -4,11 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about datasets in Azure Data Factory and Azure Synapse Analytics pipelines. Datasets represent input/output data.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 12/16/2024
+ai-usage: ai-assisted
 ---
 
 # Datasets in Azure Data Factory and Azure Synapse Analytics
@@ -144,6 +145,9 @@ For example, for a Delimited Text dataset, the dataset type is set to **Delimite
 }
 ```
 
+> [!NOTE]
+> The schema value is defined using JSON syntax. For more detailed information on schema mapping and data type mapping, refer to the [Azure Data Factory Copy Activity Schema and Type Mapping](copy-activity-schema-and-type-mapping.md) documentation.
+
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
@@ -156,9 +160,16 @@ Here are some differences between datasets in Data Factory current version (and 
 - Scoped datasets (datasets defined in a pipeline) aren’t supported in the current version.
 
 ## Related content
+
+### Quickstarts
+
 See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
 - [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
 - [Quickstart: create a data factory using Azure portal](quickstart-create-data-factory-portal.md)
+
+### Dataset schema references
+- [Azure Data Factory Copy Activity Schema and Type Mapping](copy-activity-schema-and-type-mapping.md)
+- [Azure Data Factory Concepts - Datasets and Linked Services](concepts-datasets-linked-services.md)

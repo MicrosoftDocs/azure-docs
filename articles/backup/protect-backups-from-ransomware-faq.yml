@@ -4,9 +4,9 @@ metadata:
   description: In this article, discover answers to protect backups from ransomware with Azure Backup.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 03/14/2022
-  author: AbhishekMallick-MS
-  ms.author: v-abhmallick
+  ms.date: 12/04/2024
+  author: jyothisuri
+  ms.author: jsuri
     
 title: Frequently asked questions - Protect backups from Ransomware
 summary: |
@@ -42,9 +42,9 @@ sections:
           
           - **Set-up alerts and notifications for critical backup operations**.
           
-            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they're configured correctly for timely alerts and required actions. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they're configured correctly for timely alerts and required actions. [Learn more](backup-azure-monitor-alerts-notification.md#configure-alerts-and-notifications-on-your-metrics)
             
-            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup).
+            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
           
           - **Ensure network connectivity between backup services and workloads is secure**.
           

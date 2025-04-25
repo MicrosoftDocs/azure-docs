@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.0.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -23,6 +23,7 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from.|alternative|string|
 |connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string.|alternative|string|
 |replicaDiscoveryEnabled|The setting that determines whether replicas of Azure App Configuration are automatically discovered and used for failover. If the property is absent, a default value of `true` is used.|false|bool|
+|loadBalancingEnabled|The setting that enables your workload to distribute requests to App Configuration across all available replicas. If the property is absent, a default value of `false` is used.|false|bool|
 |target|The destination of the retrieved key-values in Kubernetes.|true|object|
 |auth|The authentication method to access Azure App Configuration.|false|object|
 |configuration|The settings for querying and processing key-values in Azure App Configuration.|false|object|
@@ -79,7 +80,7 @@ The `spec.configuration.refresh` property has the following child properties.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |enabled|The setting that determines whether key-values from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` is used.|false|bool|
-|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed.|true|object|
+|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed. If this property is absent, all the selected key-values will be monitored for refresh. |false|object|
 |interval|The interval at which the key-values are refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds is used.|false|duration string|
 
 The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
@@ -444,6 +445,57 @@ Two Kubernetes built-in [types of Secrets](https://kubernetes.io/docs/concepts/c
 |---|---|
 |.kubernetes.secret.type|kubernetes.io/tls|
 
+The following examples show how the data is populated in the generated Secrets with different types.
+
+Assuming an App Configuration store has these Key Vault references:
+
+|key|value|tags|
+|---|---|---|
+|app1-secret1|<Key Vault reference 1>|`{}`|
+|app1-secret2|<Key Vault reference 2>|`{}`|
+|app1-certificate|<Key Vault reference 3>|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
+
+The following sample generates Secrets of both Opaque and TLS types.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+```
+
+The generated Secrets are populated with the following data:
+
+```yaml
+name: secret-created-by-appconfig-provider
+type: Opaque
+data:
+  app1-secret1: <secret value retrieved from Key Vault>
+  app1-secret2: <secret value retrieved from Key Vault>
+```
+
+```yaml
+name: app1-certificate
+type: kubernetes.io/tls
+data:
+  tls.crt: |
+    <certificate data retrieved from Key Vault>
+  tls.key: |
+    <certificate key retrieved from Key Vault>
+```
+
 #### Refresh of secrets from Key Vault
 
 Refreshing secrets from Key Vaults usually requires reloading the corresponding Key Vault references from Azure App Configuration. However, with the `spec.secret.refresh` property, you can refresh the secrets from Key Vault independently. This is especially useful for ensuring that your workload automatically picks up any updated secrets from Key Vault during secret rotation. Note that to load the latest version of a secret, the Key Vault reference must not be a versioned secret.
@@ -496,6 +548,34 @@ spec:
     refresh:
       enabled: true
       interval: 10m
+```
+
+### On-demand Refresh
+
+While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. This can be done by adding or updating any annotations in the `metadata.annotations` section of the `AzureAppConfigurationProvider`. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
+
+In the following example, the `AzureAppConfigurationProvider` is updated with a new annotation. After the modification, apply the changes using `kubectl apply` to trigger an on-demand refresh.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+  annotations:
+    key1: value1
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
 ```
 
 ### ConfigMap Consumption

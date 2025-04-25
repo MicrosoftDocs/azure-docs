@@ -85,7 +85,7 @@ To create a workflow, follow these steps:
     on: push
 
     env:
-      clientId: 00000000-0000-0000-0000-000000000000
+      clientId: 00001111-aaaa-2222-bbbb-3333cccc4444
       tenant: your-tenant.onmicrosoft.com
     
     jobs:

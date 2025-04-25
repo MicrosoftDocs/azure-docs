@@ -6,7 +6,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 03/04/2025
 
 ms.reviewer: nachakra
 ms.custom: devx-track-arm-template
@@ -23,19 +23,9 @@ This article provides an overview of how to remediate anonymous access for your 
 
 ## Recommendations for remediating anonymous access
 
-To remediate anonymous access, first determine whether your storage account uses the Azure Resource Manager deployment model or the classic deployment model. For more information, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
+You can remediate anonymous access for an account at any time by setting the account's **AllowBlobPublicAccess** property to **False**. After you set the **AllowBlobPublicAccess** property to **False**, all requests for blob data to that storage account will require authorization, regardless of the anonymous access setting for any individual container.
 
-### Azure Resource Manager accounts
-
-If your storage account is using the Azure Resource Manager deployment model, then you can remediate anonymous access for an account at any time by setting the account's **AllowBlobPublicAccess** property to **False**. After you set the **AllowBlobPublicAccess** property to **False**, all requests for blob data to that storage account will require authorization, regardless of the anonymous access setting for any individual container.
-
-If your storage account is using the Azure Resource Manager deployment model, then you can remediate anonymous access for an account at any time by setting the account's **AllowBlobAnonymousAccess** property to **False**. After you set the **AllowBlobAnonymousAccess** property to **False**, all requests for blob data to that storage account will require authorization, regardless of the anonymous access setting for any individual container.
-
-To learn more about how to remediate anonymous access for Azure Resource Manager accounts, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
-
-### Classic accounts
-
-If your storage account is using the classic deployment model, then you can remediate anonymous access by setting each container's access property to **Private**. To learn more about how to remediate anonymous access for classic storage accounts, see [Remediate anonymous read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md).
+To learn more about how to remediate anonymous access for Azure Resource Manager accounts, see [Remediate anonymous read access to blob data](anonymous-read-access-prevent.md).
 
 ### Scenarios requiring anonymous access
 
@@ -45,5 +35,4 @@ For information on how to configure containers for anonymous access, see [Config
 
 ## Next steps
 
-- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
-- [Remediate anonymous read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)
+- [Remediate anonymous read access to blob data](anonymous-read-access-prevent.md)

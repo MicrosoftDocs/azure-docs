@@ -7,7 +7,7 @@ ms.author: amagginetti
 manager: mvivion
 
 services: azure-communication-services
-ms.date: 4/03/2023
+ms.date: 12/12/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -80,6 +80,11 @@ You can also customize input ranges to suit your needs. The default input range 
 To send the log data of your surveys to a Log Analytics workspace, an Azure Event Hubs instance, or an Azure storage account for analysis, you must enable a diagnostic setting in Azure Monitor. If you don't enable a diagnostic setting to send survey data to one of these options, your survey data won't be stored and will be lost.
 
 To enable logs for Communications Services, see [End of Call Survey logs](../analytics/logs/end-of-call-survey-logs.md).
+
+### View survey data as a Teams administrator
+When your Azure Communication Services SDKs submits a survey as part of any [Teams interop meeting scenarios](../../how-tos/calling-sdk/teams-interoperability.md), the survey data will be accessible through the Teams meeting organizer's supportability tools, including Call Analytics, PowerBI, and Graph API. Any administrator of the Teams meeting organizer can access the call survey data. The values `CallSurvey.audioRating.score`, `CallSurvey.videoRating.score`, and `CallSurvey.screenshareRating.score` are specific to Azure Communication Services and will not be available in Teams supportability tools.
+
+To send the survey data to Teams supportability tools, the `CallSurvey.overallRating.score` value must be present. Teams supportability tools expect a rating scale from 0 to 4, so the overall rating score will be converted accordingly.
 
 ## Related content
 

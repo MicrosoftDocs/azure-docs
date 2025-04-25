@@ -3,7 +3,10 @@ title: Compare storage options for use with Azure HDInsight clusters
 description: Provides an overview of storage types and how they work with Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 06/14/2024
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 12/17/2024
 ---
 
 # Compare storage options for use with Azure HDInsight clusters
@@ -21,13 +24,13 @@ The following table summarizes the Azure Storage services that are supported wit
 
 | Storage service | Account type | Namespace Type | Supported services | Supported performance tiers | Supported access tiers | HDInsight Version | Cluster type |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | 3.6+ | All except Spark 2.1 and 2.2|
-|Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
+|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | All | All except Spark 2.1 and 2.2|
+|Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
 |Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
-|Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
-|Azure Storage| Block Blob| Object | Block Blob | Premium | N/A| 3.6+ | Only HBase with accelerated writes|
-|Azure Data Lake Storage Gen2| Block Blob| Hierarchical (filesystem) | Block Blob | Premium | N/A| 3.6+ | Only HBase with accelerated writes|
+|Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | All | All except HBase |
+|Azure Storage| Block Blob| Object | Block Blob | Premium | N/A| All | Only HBase with accelerated writes|
+|Azure Data Lake Storage Gen2| Block Blob| Hierarchical (filesystem) | Block Blob | Premium | N/A| All| Only HBase with accelerated writes|
 
 **For HDInsight clusters, only secondary storage accounts can be of type BlobStorage and Page Blob isn't a supported storage option.
 
@@ -39,16 +42,15 @@ You can create clusters using combinations of services for primary and optional 
 
 | HDInsight Version | Primary Storage | Secondary Storage | Supported |
 |---|---|---|---|
-| 3.6 & 4.0 | General Purpose V1, General Purpose V2 | General Purpose V1, General Purpose V2, BlobStorage(Block Blobs) | Yes |
-| 3.6 & 4.0 | General Purpose V1, General Purpose V2 | Data Lake Storage Gen2 | No |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | General Purpose V1, General Purpose V2, BlobStorage(Block Blobs) | Yes |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
-| 3.6 | Data Lake Storage Gen1 | General Purpose V1, General Purpose V2, BlobStorage(Block Blobs) | Yes |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
-| 4.0 | Data Lake Storage Gen1 | Any | No |
-| 4.0 | General Purpose V1, General Purpose V2 | Data Lake Storage Gen1 | No |
+| 4.0, 5.0, 5.1 | General Purpose V1, General Purpose V2 | General Purpose V1, General Purpose V2, BlobStorage(Block Blobs) | Yes |
+| 4.0, 5.0, 5.1 | General Purpose V1, General Purpose V2 | Data Lake Storage Gen2 | No |
+| 4.0, 5.0, 5.1| Data Lake Storage Gen2 | Data Lake Storage Gen2 | Yes |
+| 4.0, 5.0, 5.1 | Data Lake Storage Gen2* | General Purpose V1, General Purpose V2, BlobStorage(Block Blobs) | Yes |
+| 4.0, 5.0, 5.1| Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
+| 4.0, 5.0, 5.1 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
+| 4.0, 5.0, 5.1 | Data Lake Storage Gen1 | General Purpose V1, General Purpose V2, BlobStorage(Block Blobs) | Yes |
+| 4.0, 5.0, 5.1 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
+| 4.0, 5.0, 5.1 | General Purpose V1, General Purpose V2 | Data Lake Storage Gen1 | No |
 
 *=This could be one or multiple Data Lake Storage Gen2, as long as they're all setup to use the same managed identity for cluster access.
 
@@ -57,9 +59,9 @@ You can create clusters using combinations of services for primary and optional 
 
 ## Data replication
 
-Azure HDInsight does not store customer data. The primary means of storage for a cluster are its associated storage accounts. You can attach your cluster to an existing storage account, or create a new storage account during the cluster creation process. If a new account is created, it will be created as a locally redundant storage (LRS) account, and will satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net).
+Azure HDInsight doesn't store customer data. The primary means of storage for a cluster are its associated storage accounts. You can attach your cluster to an existing storage account, or create a new storage account during the cluster creation process. If a new account is created, it will be created as a locally redundant storage (LRS) account, and will satisfy in-region data residency requirements including those specified in the [Azure global infrastructure site](https://datacenters.microsoft.com/globe/explore/).
 
-You can validate that HDInsight is properly configured to store data in a single region by ensuring that the storage account associated with your HDInsight is LRS or another storage option mentioned on [Trust Center](https://azuredatacentermap.azurewebsites.net).
+You can validate that HDInsight is properly configured to store data in a single region by ensuring that the storage account associated with your HDInsight is LRS or another storage option mentioned on [Azure global infrastructure site](https://datacenters.microsoft.com/globe/explore/).
 
 >[!NOTE]
 > Upgrading the primary or secondary storage account of a running cluster with Azure Data Lake Storage Gen2 capabilities is not supported. To change the storage type of an existing HDInsight cluster to Data Lake Storage Gen2, you will need to recreate the cluster and select an hierarchical namespace enabled storage account.

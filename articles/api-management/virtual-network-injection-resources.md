@@ -1,10 +1,10 @@
 ---
 title: Azure API Management virtual network injection - network resources
-description: Learn about requirements for network resources when you deploy (inject) your API Management instance in an Azure virtual network.
+description: Learn about requirements for network resources when you deploy (inject) your API Management Developer or Premium tier instance in an Azure virtual network.
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/10/2024
 ms.author: danlep
 ---
@@ -13,7 +13,10 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
-The following are virtual network resource requirements for API Management injection into a virtual network. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
+The following are virtual network resource requirements for injection of an API Management Developer or Premium instance into a virtual network. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
+
+> [!NOTE]
+> To inject a Premium v2 instance in a virtual network, the requirements and configuration are different. [Learn more](inject-vnet-v2.md)
 
 #### [stv2](#tab/stv2)
 

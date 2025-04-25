@@ -251,23 +251,13 @@ The sample dashboard provides several visualizations of the Suricata alert logs:
 
 - **Alert by GeoIP**: A map that shows the distribution of alerts by their country/region of origin based on geographic location (determined by IP).
 
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure3.png" alt-text="Screenshot shows a map for geographic IP alerts." lightbox="./media/network-watcher-intrusion-detection-open-source-tools/figure3.png":::
-
 - **Top 10 Alerts**: A summary of the 10 most frequently triggered alerts and their descriptions. Selecting an individual alert filters the dashboard to the information that pertains to that specific alert.
-
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure4.png" alt-text="Screenshot that shows the most frequently triggered alerts.":::
 
 - **Number of Alerts**: The total count of alerts that the rule set triggered.
 
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure5.png" alt-text="Screenshot shows the number of alerts.":::
-
 - **Top 20 ScrIP - Alerts**, **Top 20 DestIP - Alerts**, **Top 20 SrcPort - Alerts**, **Top 20 DestPort - Alerts**: Pie charts that show the sources and destinations for the top 20 IPs and ports that alerts were triggered on. You can filter on specific IPs or ports to see how many and what kinds of alerts are being triggered.
 
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure6.png" alt-text="Screenshot that shows pie charts of the top 20 IPs and ports that alerts were triggered on." lightbox="./media/network-watcher-intrusion-detection-open-source-tools/figure6.png":::
-
 - **Alert Summary**: A table that summarizes specific details of each alert. You can customize this table to show other parameters of interest for each alert.
-
-    :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure7.png" alt-text="Screenshot shows a summary table with details about individual alerts." lightbox="./media/network-watcher-intrusion-detection-open-source-tools/figure7.png":::
 
 For more information on creating custom visualizations and dashboards, see [Kibana's official documentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 

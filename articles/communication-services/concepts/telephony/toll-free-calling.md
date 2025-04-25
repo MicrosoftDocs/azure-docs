@@ -13,7 +13,7 @@ ms.subservice: pstn
 ---
 
 # Outbound and inbound calling with toll-free numbers
-Azure Communication Services supports inbound and outbound calling capability with toll-free numbers in many countries. However, there are some common limitations that you should be aware of. 
+Azure Communication Services supports inbound and outbound calling capability with toll-free numbers in many countries or regions. However, there are some common limitations that you should be aware of. 
 
 **Outbound calling with toll-free numbers**
 
@@ -22,4 +22,4 @@ Microsoft provides toll-free telephone numbers that have outbound calling capabi
 
 **Inbound calls to Toll-Free numbers**
 
-All of our toll-free numbers have inbound calling capability, but do note that inbound calls to your toll-free numbers are only guaranteed to work if both the Toll-Free number and the caller's phone number are from the same country. If a call to your toll-free number originates outside the toll-free number country, we can't guarantee the delivery of the call. In most cases, international reachability on our toll-free numbers is supported, but there can be certain international carrier and country combinations where we can't guarantee that the call reaches to your Toll-Free number.
+All of our toll-free numbers have inbound calling capability, but do note that inbound calls to your toll-free numbers are only guaranteed to work if both the Toll-Free number and the caller's phone number are from the same country/region. If a call to your toll-free number originates outside the toll-free number country/region, we can't guarantee the delivery of the call. In most cases, international reachability on our toll-free numbers is supported, but there can be certain international carrier and country/region combinations where we can't guarantee that the call reaches to your Toll-Free number.

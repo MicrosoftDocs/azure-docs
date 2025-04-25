@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 10/01/2024
 ms.author: danlep
 ms.custom: fasttrack-edit
 ---
 
 # Capacity of an Azure API Management instance
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 API Management provides [Azure Monitor metrics](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) to detect use of system capacity, helping you troubleshoot gateway problems and make informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. 
 
@@ -123,10 +123,6 @@ Access metrics in the portal to understand how much capacity is used over time.
 > [!IMPORTANT]
 > Currently, the **CPU Percentage of Gateway** and **Memory Consumption of Gateway** metrics also appear in the portal for instances in classic tiers. However, they're not supported for use in classic tiers and show a value of 0.
 
-
-
-
-
 > [!NOTE]
 > * You can set a [metric alert](api-management-howto-use-azure-monitor.md#set-up-an-alert-rule) to let you know when something unexpected is happening. For example, get notifications when your API Management instance has exceeded its expected peak capacity for more than 20 minutes.
 > * You can use Azure Monitor [autoscaling](api-management-howto-autoscale.md) to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  
@@ -145,6 +141,9 @@ Use capacity metrics for making decisions whether to scale an API Management ins
 
 >[!TIP]  
 > If you are able to estimate your traffic beforehand, test your API Management instance on workloads you expect. You can increase the request load on your tenant gradually and monitor the value of the capacity metric that corresponds to your peak load. Follow the steps from the previous section to use Azure portal to understand how much capacity is used at any given time.
+
+> [!IMPORTANT]
+> When defining autoscaling rules, make sure to avoid autoscaling flapping that will cause a scale in/scale out loop. To learn more, we recommend reading [Azure Monitor Autoscale's guidance around flapping](/azure/azure-monitor/autoscale/autoscale-flapping).
 
 ## Related content
 

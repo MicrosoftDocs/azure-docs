@@ -56,8 +56,6 @@ Depending on your browser, you might need to click **Advanced** and verify that 
 
 Enter the username `admin` and the administrative password you provided when creating the cluster.
 
-![Screenshot of the Avere sign in page populated with the username 'admin' and a password](media/avere-vfxt-gui-login.png)
-
 Click **Login** or press enter on your keyboard.
 
 ## Next steps

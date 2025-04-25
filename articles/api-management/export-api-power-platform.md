@@ -64,7 +64,7 @@ From API Management, you can update a connector to target a different API or Pow
 1. Select the API you want to update the connector for, update settings as needed, and select **Update**.
 
 
-## Next steps
+## Related content
 
 * [Learn more about the Power Platform](https://powerplatform.microsoft.com/) and [licensing](/power-platform/admin/pricing-billing-skus)
 * [Learn more about creating and using custom connectors](/connectors/custom-connectors/)

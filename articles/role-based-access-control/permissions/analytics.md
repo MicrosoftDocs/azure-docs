@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Analy
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -371,7 +371,7 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusterPools/write | Create or Update HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/delete | Delete a HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/upgrade/action | Upgrade HDInsight on AKS Cluster Pool |
-> | Microsoft.HDInsight/clusterPools/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster Pool |
+> | Microsoft.HDInsight/clusterPools/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/clusters/read | Get details about HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/write | Create or Update HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/delete | Delete a HDInsight on AKS cluster |
@@ -379,11 +379,11 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
 > | Microsoft.HDInsight/clusterPools/clusters/upgrade/action | Upgrade HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/rollback/action | Rollback HDInsight on AKS Cluster Upgrade |
-> | Microsoft.HDInsight/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libaries |
-> | Microsoft.HDInsight/clusterPools/clusters/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libraries |
+> | Microsoft.HDInsight/clusterPools/clusters/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/instanceviews/read | Get details about HDInsight on AKS Cluster Instance View |
 > | Microsoft.HDInsight/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
-> | Microsoft.HDInsight/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libaries |
+> | Microsoft.HDInsight/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libraries |
 > | Microsoft.HDInsight/clusterPools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |
 > | Microsoft.HDInsight/clusterPools/clusters/upgradehistories/read | Read HDInsight on AKS Cluster Upgrade Histories |
 > | Microsoft.HDInsight/clusterPools/upgradehistories/read | Read HDInsight on AKS Cluster Pool Upgrade Histories |
@@ -463,13 +463,14 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/Migrate/action | Migrates the cluster data to another cluster. |
 > | Microsoft.Kusto/Clusters/DetachFollowerDatabases/action | Detaches follower's databases. |
 > | Microsoft.Kusto/Clusters/ListFollowerDatabases/action | Lists the follower's databases. |
-> | Microsoft.Kusto/Clusters/AddCalloutPolicy/action | Add callout policies. |
+> | Microsoft.Kusto/Clusters/AddCalloutPolicies/action | Add callout policies. |
 > | Microsoft.Kusto/Clusters/RemovePrincipals/action | Remove callout policy. |
 > | Microsoft.Kusto/Clusters/ListCalloutPolicies/action | Lists the service callout policies. |
 > | Microsoft.Kusto/Clusters/DiagnoseVirtualNetwork/action | Diagnoses network connectivity status for external resources on which the service is dependent. |
 > | Microsoft.Kusto/Clusters/ListLanguageExtensions/action | Lists language extensions. |
 > | Microsoft.Kusto/Clusters/AddLanguageExtensions/action | Add language extensions. |
 > | Microsoft.Kusto/Clusters/RemoveLanguageExtensions/action | Remove language extensions. |
+> | Microsoft.Kusto/Clusters/PrivateEndpointConnectionsApproval/action | Approval of private endpoint connections |
 > | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | Reads an attached database configuration resource. |
 > | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/write | Writes an attached database configuration resource. |
 > | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/delete | Deletes an attached database configuration resource. |
@@ -501,6 +502,11 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/ManagedPrivateEndpoints/read | Reads a managed private endpoint |
 > | Microsoft.Kusto/Clusters/ManagedPrivateEndpoints/write | Writes a managed private endpoint |
 > | Microsoft.Kusto/Clusters/ManagedPrivateEndpoints/delete | Deletes a managed private endpoint |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterAssociationProxies/read | Reads a network security perimeter association proxy |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterAssociationProxies/write | Writes network security perimeter association proxy |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterAssociationProxies/delete | Deletes network security perimeter association proxy |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterConfigurations/read | Reads a network security perimeter configurations |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterConfigurations/write | Writes a network security perimeter configurations |
 > | Microsoft.Kusto/Clusters/OutboundNetworkDependenciesEndpoints/read | Reads outbound network dependencies endpoints for a resource |
 > | Microsoft.Kusto/Clusters/PrincipalAssignments/read | Reads a Cluster principal assignments resource. |
 > | Microsoft.Kusto/Clusters/PrincipalAssignments/write | Writes a Cluster principal assignments resource. |
@@ -524,6 +530,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/SKUs/PrivateEndpointConnectionProxyValidation/action | Validates a private endpoint connection proxy |
 > | Microsoft.Kusto/Locations/CheckNameAvailability/action | Checks resource name availability. |
 > | Microsoft.Kusto/Locations/Skus/action |  |
+> | Microsoft.Kusto/Locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Checks resource name availability. |
 > | Microsoft.Kusto/locations/operationresults/read | Reads operations resources |
 > | Microsoft.Kusto/Operations/read | Reads operations resources |
 > | Microsoft.Kusto/SKUs/read | Reads a SKU resource. |

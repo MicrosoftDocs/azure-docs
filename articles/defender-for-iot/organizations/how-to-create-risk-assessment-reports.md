@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Risk assessment reports provide details about security scores, vulnerabilities, and operational issues on devices detected by a specific OT network sensor, as well as risks coming from imported firewall rules.
 
-Each Defender for IoT network sensor can generate a risk assessment report, while the on-premises management console collects those reports from all connected sensors.
+Each Defender for IoT network sensor can generate a risk assessment report.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ To create risk assessment reports, you must be able to access the OT network sen
 
 - You must be an **Admin** user to import firewall rules to an OT sensor or add backup and anti-virus server addresses.
 
-- You must be an **Admin** or **Security Analyst** user to create or view risk assessment reports on the OT sensor or on-premises management console.
+- You must be an **Admin** or **Security Analyst** user to create or view risk assessment reports on the OT sensor.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 
@@ -88,11 +88,11 @@ Backup and anti-virus servers aren't defined on your sensor by default. We recom
 
 ## View risk assessment reports for multiple sensors
 
-Use an on-premises management console to view risk assessment reports for all connected sensors.
+Use an OT sensor to view risk assessment reports for all connected sensors.
 
 **To generate a report**:
 
-1. Sign in to your on-premises management console and select **Risk assessment**.
+1. Sign in to your OT sensor and select **Risk assessment**.
 
 1. From the **Select Sensor** drop-down menu, select the sensor for which you want to generate the report, and then select **Generate Report**.
 

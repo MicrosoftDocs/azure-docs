@@ -2,9 +2,8 @@
 title: X.509 certificate attestation with Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes concepts specific to using X.509 certificate attestation with Device Provisioning Service (DPS) and IoT Hub
-author: kgremban
-
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 04/30/2024
 ms.topic: concept-article
 ms.service: azure-iot-hub
@@ -49,7 +48,23 @@ Imagine that Contoso is a large corporation with its own Public Key Infrastructu
 
 A *leaf certificate*, or *end-entity certificate*, identifies a certificate holder. It has the root certificate in its certificate chain and zero or more intermediate certificates. A leaf certificate is not used to sign any other certificates. It uniquely identifies a device to the provisioning service and is sometimes referred to as a *device certificate*. During authentication, a device uses the private key associated with its certificate to respond to a proof of possession challenge from the service.
 
-## Use X.509 certificates with DPS
+## Prepare certificates
+
+Devices use two different types of certificates when they connect to IoT Hub through DPS. When preparing your device, make sure you have all the proper certificates created and added to the device before connecting.
+
+* Public root certificates: All devices need a copy of the public root certificates that IoT Hub, IoT Central, and Device Provisioning Service use to authorize connections.
+* Authentication certificates: X.509 certificates are the recommended method for authenticating a device identity.
+
+### Required public root certificates
+
+Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. Each device needs a copy of the root certificate that IoT Hub and DPS use. We recommend that all devices include the following root CAs in their trusted certificate store:
+
+* DigiCert Global G2 root CA
+* Microsoft RSA root CA 2017
+
+For more information about recommended certificate practices, see [TLS support](./tls-support.md).
+
+## Authentication using X.509 certificates
 
 The provisioning service exposes two enrollment types that you can use to control device access with the X.509 attestation mechanism:  
 
@@ -69,7 +84,7 @@ The Device Provisioning Service only accepts X.509 certificates that use either 
 If you use ECC methods to generate X.509 certificates for device attestation, we recommend the following elliptic curves:
 
 * nistP256
-* nistP284
+* nistP384
 * nistP521
 
 ### DPS certificate naming requirements

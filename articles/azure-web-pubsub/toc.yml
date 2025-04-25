@@ -48,7 +48,7 @@
       items:
         - name: Create WebSocket clients
           href: howto-websocket-connect.md
-        - name: Create reliable Websocket clients
+        - name: Create reliable WebSocket clients
           href: howto-develop-reliable-clients.md
         - name: How to connect MQTT WebSocket clients
           href: howto-connect-mqtt-websocket-client.md
@@ -320,5 +320,5 @@
       href: resource-faq.md
     - name: Microsoft Q&A
       href: /answers/topics/azure-web-pubsub.html
-    - name: StackOverflow
+    - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-web-pubsub

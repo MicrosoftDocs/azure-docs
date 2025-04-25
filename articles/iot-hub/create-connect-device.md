@@ -2,9 +2,9 @@
 title: Register and connect an IoT device
 titleSuffix: Azure IoT Hub
 description: How to create, manage, and delete Azure IoT devices and how to retrieve the device connection string.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 06/19/2024
@@ -21,6 +21,34 @@ Create a device identity for your device to connect to Azure IoT Hub. This artic
 * Depending on which tool you use, either have access to the [Azure portal](https://portal.azure.com) or [install the Azure CLI](/cli/azure/install-azure-cli).
 
 * If your IoT hub is managed with role-based access control (RBAC), then you need **Read/Write/Delete Device/Module** permissions for the steps in this article. Those permissions are included in [IoT Hub Registry Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#iot-hub-registry-contributor) role.
+
+## Prepare certificates
+
+Devices use two different types of certificates to connect to IoT Hub. When preparing your device, make sure you have all the proper certificates created and added to the device before connecting.
+
+* Public root certificates: All devices need a copy of the public root certificates that IoT Hub, IoT Central, and Device Provisioning Service use to authorize connections.
+* Authentication certificates: X.509 certificates are the recommended method for authenticating a device identity.
+
+### Required public root certificates
+
+Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. Each device needs a copy of the root certificate that IoT Hub and DPS use. We recommend that all devices include the following root CAs in their trusted certificate store:
+
+* DigiCert Global G2 root CA
+* Microsoft RSA root CA 2017
+
+For more information about IoT Hub's recommended certificate practices, see [TLS support](./iot-hub-tls-support.md).
+
+### Authentication certificates
+
+If you use X.509 certificate authentication for your devices, make sure your certificates are ready before registering a device:
+
+* For CA-signed certificates, the tutorial [Create and upload certificates for testing](./tutorial-x509-test-certs.md) provides a good introduction for how to create CA-signed certificates and upload them to IoT Hub. After completing that tutorial, you're ready to register a device with **X.509 CA signed** authentication.
+
+* For self-signed certificates, you need two device certificates (a primary and a secondary certificate) on the device and thumbprints for both to upload to IoT Hub. One way to retrieve the thumbprint from a certificate is with the following OpenSSL command:
+
+  ```bash
+  openssl x509 -in <certificate filename>.pem -text -fingerprint
+  ```
 
 ## Register a device
 
@@ -41,18 +69,6 @@ When you register a device, you choose its authentication method. IoT Hub suppor
 * **X.509 CA signed** - *This option is recommended for production scenarios.*
 
   If your device has a CA-signed X.509 certificate, then you upload a root or intermediate certificate authority (CA) certificate in the signing chain to IoT Hub before you register the device. The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA. For more information, see [Authenticate identities with X.509 certificates](./authenticate-authorize-x509.md).
-
-### Prepare certificates
-
-If you're using either of the X.509 certificate authentication methods, make sure your certificates are ready before registering a device:
-
-* For CA-signed certificates, the tutorial [Create and upload certificates for testing](./tutorial-x509-test-certs.md) provides a good introduction for how to create CA-signed certificates and upload them to IoT Hub. After completing that tutorial, you're ready to register a device with **X.509 CA signed** authentication.
-
-* For self-signed certificates, you need two device certificates (a primary and a secondary certificate) on the device and thumbprints for both to upload to IoT Hub. One way to retrieve the thumbprint from a certificate is with the following OpenSSL command:
-
-  ```bash
-  openssl x509 -in <certificate filename>.pem -text -fingerprint
-  ```
 
 ### Add a device
 

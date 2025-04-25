@@ -33,7 +33,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of API operations per service instance | 1,000 | Unlimited | Unlimited | Unlimited | Unlimited |
 | Maximum total request duration | 30 seconds | Unlimited | Unlimited | Unlimited | Unlimited |
 | Maximum request payload size | 1 GiB | Unlimited | Unlimited | Unlimited | Unlimited | 
-| Maximum buffered payload size | 2 MiB | Unlimited | Unlimited | Unlimited | Unlimited |
+| Maximum buffered payload size | 2 MiB | 500 MiB | 500 MiB | 500 MiB | 500 MiB |
 | Maximum request/response payload size in diagnostic logs | 8,192 bytes | 8,192 bytes | 8,192 bytes | 8,192 bytes | 8,192 bytes |
 | Maximum request URL size<sup>2</sup> | 16,384 bytes | Unlimited | Unlimited | Unlimited | Unlimited |
 | Maximum character length of URL path segment | 1,024  | 1,024  | 1,024  | 1,024  | 1,024  |
@@ -49,6 +49,8 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of access policies per connection | 100 | 100 | 100 | 100 | 100 |
 | Maximum number of authorization requests per minute per connection | 250 | 250 | 250 | 250 | 250 |
 | Maximum number of [workspaces](../articles/api-management/workspaces-overview.md) per service instance | N/A | N/A | N/A | N/A | 100 |
+| Maximum number of APIs per [workspace](../articles/api-management/workspaces-overview.md#workspace-gateway) | N/A | N/A | N/A | N/A | 50 |
+| Maximum number of workspaces per [workspace gateway premium](../articles/api-management/workspaces-overview.md#workspace-gateway) | N/A | N/A | N/A | N/A | 30 |
 
 <sup>1</sup> Connections are pooled and reused unless explicitly closed by the backend.<br/>
 <sup>2</sup> Includes an up to 2048-bytes long query string.<br/>

@@ -1,11 +1,13 @@
 ---
-title: Change the account SKU 
-description: Learn how to change your SKU or pricing tier for a Trusted Signing account. 
-author: mehasharma 
-ms.author: mesharm 
-ms.service: trusted-signing 
-ms.topic: how-to 
-ms.date: 05/30/2024 
+title: Change the account SKU
+description: Learn how to change your SKU or pricing tier for a Trusted Signing account.
+author: TacoTechSharma
+ms.author: mesharm
+ms.service: trusted-signing
+ms.custom:
+  - ignite-2024
+ms.topic: how-to
+ms.date: 05/30/2024
 ---
 
 

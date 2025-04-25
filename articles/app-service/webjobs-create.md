@@ -28,8 +28,6 @@ If instead of the Azure App Service, you're using Visual Studio to develop and d
 
 WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
@@ -96,7 +94,7 @@ when making changes in one don't forget the other two.
 
 1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**.
 
-    :::image type="content" source="media/webjobs-create/configure-new-continuous-webjob.png" alt-text="Screenshot that shows how to configure a mult-instance continuous WebJob for an App Service app.":::
+    :::image type="content" source="media/webjobs-create/configure-new-continuous-webjob.png" alt-text="Screenshot that shows how to configure a multi-instance continuous WebJob for an App Service app.":::
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |

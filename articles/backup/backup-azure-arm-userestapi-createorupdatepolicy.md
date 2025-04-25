@@ -2,16 +2,16 @@
 title: Create backup policies via REST API in Azure Backup
 description: In this article, you'll learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 02/25/2025
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Create Azure Recovery Services backup policies by using REST API
 
-This article describes how to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure File share.
+This article describes how to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure Files.
 
 Learn more about [creating or modifying a backup policy for an Azure Recovery Services vault by using REST API](/rest/api/backup/protection-policies/create-or-update). 
 
@@ -38,7 +38,7 @@ For the complete list of definitions in the request body, see the [backup policy
 
 ### Example request body
 
-This section provides the example request body to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure File share.
+This section provides the example request body to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure Files.
 
 **Choose a datasource**:
 
@@ -629,9 +629,9 @@ The following is an example of a policy that takes a full backup once a week and
 ```
 
 
-# [Azure File share](#tab/azure-file-share)
+# [Azure Files](#tab/azure-file-share)
 
-The following request body defines the policy for Azure File share backup.
+The following request body defines the policy for Azure Files backup.
 
 This policy:
 

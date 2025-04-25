@@ -1,29 +1,32 @@
 ---
 title: 'Quickstart: Get started analyzing with Spark' 
-description: In this tutorial, you'll learn to analyze data with Apache Spark.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+description: In this tutorial, you'll learn to analyze some sample data with Apache Spark in Azure Synapse Analytics.
+author: ms-arali
+ms.author: arali
 ms.service: azure-synapse-analytics
 ms.subservice: spark
-ms.topic: tutorial
-ms.date: 11/18/2022
+ms.topic: quickstart
+ms.date: 11/15/2024
 ---
 
-# Analyze with Apache Spark
+# Quickstart: Analyze with Apache Spark
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
+
+## Prerequisites
+
+Make sure you have [placed the sample data in the primary storage account](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account).
 
 ## Create a serverless Apache Spark pool
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
-1. Select **New** 
+1. Select **New**
 1. For **Apache Spark pool name** enter **Spark1**.
 1. For **Node size** enter **Small**.
 1. For **Number of nodes** Set the minimum to 3 and the maximum to 3
 1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
 
-## Understanding serverless Apache Spark pools
+## Understand serverless Apache Spark pools
 
 A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool, a Spark session is created if needed. The pool controls how many Spark resources will be used by that session and how long the session will last before it automatically pauses. You pay for spark resources used during that session and not for the pool itself. This way a Spark pool lets you use Apache Spark without managing clusters. This is similar to how a serverless SQL pool works.
 
@@ -63,6 +66,7 @@ Data is available via the dataframe named **df**. Load it into a Spark database 
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
+
 ## Analyze the NYC Taxi data using Spark and notebooks
 
 1. Create a new code cell and enter the following code. 
@@ -93,7 +97,7 @@ Data is available via the dataframe named **df**. Load it into a Spark database 
 
 1. In the cell results, select **Chart** to see the data visualized.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Analyze data with dedicated SQL pool](get-started-analyze-sql-pool.md)

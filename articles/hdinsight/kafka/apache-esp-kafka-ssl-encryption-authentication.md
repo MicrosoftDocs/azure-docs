@@ -4,6 +4,9 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 04/11/2024
 ---
 

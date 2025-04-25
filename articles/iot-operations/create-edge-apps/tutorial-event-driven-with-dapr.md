@@ -5,15 +5,13 @@ author: PatAltimore
 ms.author: patricka 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ms.service: azure-iot-operations
 ---
 
 # Tutorial: Build an event-driven app with Dapr and MQTT broker
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to MQTT broker, applies a windowing function, and then publishes the result back to MQTT broker. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the MQTT broker state store to cache past values needed for the window calculations.
 
@@ -30,7 +28,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations Preview installed - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* Azure IoT Operations installed - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 * MQTT broker Dapr components installed - [Install MQTT broker Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application

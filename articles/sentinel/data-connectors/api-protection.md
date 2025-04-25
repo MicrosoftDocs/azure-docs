@@ -2,7 +2,7 @@
 title: "API Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector API Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/28/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -72,7 +72,7 @@ Copy the values shown below and save them for configuration of the API log forwa
 
 Step 3: Install the 42Crunch protection and log forwarder
 
-The next step is to install the 42Crunch protection and log forwarder to protect your API. Both components are availabe as containers from the [42Crunch repository](https://hub.docker.com/u/42crunch). The exact installation depends on your environment, consult the [42Crunch protection documentation](https://docs.42crunch.com/latest/content/concepts/api_firewall_deployment_architecture.htm) for full details. Two common installation scenarios are described below:
+The next step is to install the 42Crunch protection and log forwarder to protect your API. Both components are available as containers from the [42Crunch repository](https://hub.docker.com/u/42crunch). The exact installation depends on your environment, consult the [42Crunch protection documentation](https://docs.42crunch.com/latest/content/concepts/api_firewall_deployment_architecture.htm) for full details. Two common installation scenarios are described below:
 
 
 Installation via Docker Compose
@@ -93,7 +93,7 @@ The sample application can be installed locally using a [Docker compose file](ht
 
 4.2 Run the sample
 
-Verfify the API protection is connected to the 42Crunch platform, and then exercise the API locally on the *localhost* at port 8080 using curl, or similar. You should see a mixture of passing and failing API calls. 
+Verify the API protection is connected to the 42Crunch platform, and then exercise the API locally on the *localhost* at port 8080 using curl, or similar. You should see a mixture of passing and failing API calls. 
 
 4.3 Verify the data ingestion on Log Analytics
 

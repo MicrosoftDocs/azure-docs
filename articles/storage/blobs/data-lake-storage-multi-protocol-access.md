@@ -6,9 +6,8 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 11/18/2024
 ms.author: normesta
-ms.reviewer: stewu
 ---
 
 # Multi-protocol access on Azure Data Lake Storage

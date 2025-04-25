@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
@@ -57,7 +57,7 @@ az containerapp create \
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ImageParams = @{
@@ -94,7 +94,7 @@ By setting `IngressExternal` to `$true`, you make the container app available to
 
 The `create` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Get the fully qualified domain name for the container app.
 
@@ -123,7 +123,7 @@ If you're not going to continue to use this application, run the following comma
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force

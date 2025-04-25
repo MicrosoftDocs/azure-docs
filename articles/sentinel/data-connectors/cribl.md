@@ -2,7 +2,7 @@
 title: "Cribl connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cribl to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -59,7 +59,7 @@ CriblUIAccess_CL
 
 Installation and setup instructions for Cribl Stream for Microsoft Sentinel
 
-Use the documentation from this Github repository and configure Cribl Stream using 
+Use the documentation from this GitHub repository and configure Cribl Stream using 
 
 https://docs.cribl.io/stream/usecase-azure-workspace/
 

@@ -395,7 +395,7 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
     | Firewall tier | Select **Premium**. |
     | Firewall policy | Select **Add new**.|
     | **Create a new Firewall Policy** | |
-    | Policy name | Enter **myFirewalPolicy**. |
+    | Policy name | Enter **myFirewallPolicy**. |
     | Policy tier | Select **Premium** and select **OK**. |
     | Choose a virtual network | Select **Use existing**. |
     | Virtual network | Select **hub-vnet**. |
@@ -408,7 +408,7 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
 In this task, you'll configure the firewall policy used for packet inspection.
 
 1. Navigate to the Azure Firewall that you previously created.
-1. In the **Overview** page, locate and select the link to the **myFirewalPolicy** firewall policy.
+1. In the **Overview** page, locate and select the link to the **myFirewallPolicy** firewall policy.
 1. In the **Firewall Policy** page, select the **IDPS** under **Settings**.
 1. On the **IDPS** page, select **Alert and deny** and then select **Apply**. Wait for the firewall policy to complete updating before proceeding to the next step.
 1. Select **TLS inspection** under **Settings**

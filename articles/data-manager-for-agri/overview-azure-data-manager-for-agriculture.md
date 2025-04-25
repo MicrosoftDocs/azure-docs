@@ -1,9 +1,9 @@
 ---
 title: What is Microsoft Azure Data Manager for Agriculture?
 description: About Azure Data Manager for Agriculture
-author: gourdsay
+author: BlackRider97
 ms.service: azure-data-manager-agriculture
-ms.author: angour
+ms.author: ramithar
 ms.topic: overview
 ms.date: 02/14/2023
 ms.custom: template-overview

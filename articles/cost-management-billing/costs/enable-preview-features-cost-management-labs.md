@@ -2,13 +2,13 @@
 title: Enable preview features in Cost Management Labs
 titleSuffix: Microsoft Cost Management
 description: This article explains how to explore preview features and provides a list of the recent previews you might be interested in.
-author: bandersmsft
-ms.author: banders
-ms.date: 01/26/2024
+author: shasulin
+ms.author: shasulin
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ---
 
 # Enable preview features in Cost Management Labs

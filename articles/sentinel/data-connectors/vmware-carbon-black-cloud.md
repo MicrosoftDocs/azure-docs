@@ -2,7 +2,7 @@
 title: "VMware Carbon Black Cloud (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector VMware Carbon Black Cloud (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -93,7 +93,7 @@ To integrate with VMware Carbon Black Cloud (using Azure Functions) make sure yo
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-This method provides an automated deployment of the VMware Carbon Black connector using an ARM Tempate.
+This method provides an automated deployment of the VMware Carbon Black connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
@@ -102,7 +102,7 @@ This method provides an automated deployment of the VMware Carbon Black connecto
 3. Enter the **Workspace ID**, **Workspace Key**, **Log Types**, **API ID(s)**, **API Key(s)**, **Carbon Black Org Key**, **S3 Bucket Name**, **AWS Access Key Id**, **AWS Secret Access Key**, **EventPrefixFolderName**,**AlertPrefixFolderName**,  and validate the **URI**.
 > - Enter the URI that corresponds to your region. The complete list of API URLs can be [found here](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346)
  - The default **Time Interval** is set to pull the last five (5) minutes of data. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion. 
- - Carbon Black requires a seperate set of API ID/Keys to ingest Notification alerts. Enter the SIEM API ID/Key values or leave blank, if not required. 
+ - Carbon Black requires a separate set of API ID/Keys to ingest Notification alerts. Enter the SIEM API ID/Key values or leave blank, if not required. 
 > - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
@@ -115,9 +115,9 @@ Use the following step-by-step instructions to deploy the VMware Carbon Black co
 **1. Create a Function App**
 
 1.  From the Azure Portal, navigate to [Function App](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp), and select **+ Add**.
-2. In the **Basics** tab, ensure Runtime stack is set to **Powershell Core**. 
+2. In the **Basics** tab, ensure Runtime stack is set to **PowerShell Core**. 
 3. In the **Hosting** tab, ensure the **Consumption (Serverless)** plan type is selected.
-4. Make other preferrable configuration changes, if needed, then click **Create**.
+4. Make other preferable configuration changes, if needed, then click **Create**.
 
 
 **2. Import Function App Code**
@@ -153,7 +153,7 @@ Use the following step-by-step instructions to deploy the VMware Carbon Black co
 		logAnalyticsUri (optional) 
 > - Enter the URI that corresponds to your region. The complete list of API URLs can be [found here](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346). The `uri` value must follow the following schema: `https://<API URL>.conferdeploy.net` - There is no need to add a time suffix to the URI, the Function App will dynamically append the Time Value to the URI in the proper format.
 > - Set the `timeInterval` (in minutes) to the default value of `5` to correspond to the default Timer Trigger of every `5` minutes. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly to prevent overlapping data ingestion.
-> - Carbon Black requires a seperate set of API ID/Keys to ingest Notification alerts. Enter the `SIEMapiId` and `SIEMapiKey` values, if needed, or omit, if not required. 
+> - Carbon Black requires a separate set of API ID/Keys to ingest Notification alerts. Enter the `SIEMapiId` and `SIEMapiKey` values, if needed, or omit, if not required. 
 > - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 > - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`
 4. Once all application settings have been entered, click **Save**.

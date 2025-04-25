@@ -175,7 +175,7 @@ Here's an example:
 "properties"
 {  "TimeGenerated": "2023-05-09T15:58:30.100Z",
     "Level": "Informational",
-    "CorrelationId": "a999f996-b4e1-xxxx-ac04-a59test87d97",
+    "CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "OperationName": "ResumeCallRecording",
     "OperationVersion": "2023-03-06",
     "URI": "https://acsresouce.communication.azure.com/calling/recordings/   eyJQbGF0Zm9ybUVuZHBviI0MjFmMTIwMC04MjhiLTRmZGItOTZjYi0...:resume?api-version=2023-03-06",

@@ -2,13 +2,13 @@
 title: Identify anomalies and unexpected changes in cost
 titleSuffix: Microsoft Cost Management
 description: Learn how to identify anomalies and unexpected changes in cost.
-author: bandersmsft
-ms.reviewer: micflan
+author: shasulin
+ms.reviewer: shasulin
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 03/19/2024
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: shasulin
 ---
 
 # Identify anomalies and unexpected changes in cost

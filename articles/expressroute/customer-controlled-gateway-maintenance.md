@@ -6,18 +6,16 @@ author: cherylmc
 ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 03/11/2025
 ms.author: cherylmc
 ---
-# Configure customer-controlled gateway maintenance for ExpressRoute (Preview)
+# Configure customer-controlled gateway maintenance for ExpressRoute
 
 This article helps you configure customer-controlled maintenance windows for your ExpressRoute virtual network gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell.
 
 [!INCLUDE [Overview](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-overview.md)]
 
 For more information on limitations and frequently asked questions related to customer-controlled maintenance, see the [ExpressRoute FAQ](expressroute-faqs.md#customer-controlled).
-
-[!INCLUDE [Preview rollout](../../includes/vpn-gateway-customer-controlled-maintenance-rollout-note.md)]
 
 ## Azure portal steps
 

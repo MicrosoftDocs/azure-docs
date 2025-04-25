@@ -7,7 +7,8 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/02/2024
+ms.date: 12/16/2024
+ai-usage: ai-assisted
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -432,6 +433,10 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
 ]
 ```
 
+When you select an [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) in the copy activity sink, the connector mapping supports the `partitionid` column. You can map your source data column to the sink's `partitionid` column. If not mapped, the primary key value is used as the default value for the `partitionid` column.
+
+`partitionid` can be used in Dataverse alternate keys or primary key scenarios on the write path. Each elastic table contains a system-defined `partitionid` column and has an alternate key named `KeyForNoSqlEntityWithPKPartitionId`, which combines the primary key of the table with the `partitionid` column. For more information, see this [article](/power-apps/developer/data-platform/elastic-tables).
+
 ## Retrieving data from views
 
 To retrieve data from Dynamics views, you need to get the saved query of the view, and use the query to get the data.
@@ -499,6 +504,15 @@ To write data into a lookup field with multiple targets like Customer and Owner,
    - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
 
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+### Setting the Owner field
+
+When setting the Owner field in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, it is important to provide a valid reference. The valid options for the `@EntityReference` are:
+
+- `systemuser`: This refers to an individual user within the system.
+- `team`: This refers to a team of users within the organization.
+
+Ensure that the value provided corresponds to one of these options to avoid errors during data transformation.
 
 For example, assume the source has these two columns:
 

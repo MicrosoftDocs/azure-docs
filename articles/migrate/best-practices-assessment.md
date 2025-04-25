@@ -1,9 +1,6 @@
 ---
 title: Assessment best practices in Azure Migrate Discovery and assessment tool
 description: Tips for creating assessments with Azure Migrate Discovery and assessment tool.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/11/2021
@@ -16,14 +13,14 @@ ms.custom: engagement-fy23
 
 This article summarizes the best practices when creating assessments using the Azure Migrate Discovery and assessment tool.
 
-Assessments you create with Azure Migrate: Discovery and assessment tool are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate: Discovery and assessment:
+Assessments you can create with Azure Migrate: Discovery and assessment tool are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate: Discovery and assessment:
 
 **Assessment Type** | **Details**
 --- | ---
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type. [Learn more](concepts-assessment-calculation.md)
-**Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md)
-**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps running on IIS (Internet Information Services) web server, from your VMware environment to Azure App Service. [Learn More](concepts-azure-webapps-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md).
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps running on IIS (Internet Information Services) web server, from your VMware environment to Azure App Service. [Learn More](concepts-azure-webapps-assessment-calculation.md).
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 > [!NOTE]
 > If the number of Azure VM or AVS assessments is incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool shows the correct count for that assessment type. 

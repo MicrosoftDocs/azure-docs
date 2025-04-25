@@ -102,7 +102,7 @@ Use these steps to generate custom values of error code and error message:
     </ClaimsTransformations> -->
     ```
 
-1. Add the two claims transformations in the `OutputClaimsTransformations` element of any technical profile before Oauth2 technical that you define:
+1. Add the two claims transformations in the `OutputClaimsTransformations` element of any technical profile before OAuth2 technical that you define:
 
     ```xml
         <OutputClaimsTransformations>
@@ -160,7 +160,7 @@ In the following example:
 </UserJourney>
 ```
 
-Optionally, you can use preconditions to manipulate the Oauth2 error technical profile. For example, if there is no email claim, you can set to call Oauth2 error technical profile:
+Optionally, you can use preconditions to manipulate the OAuth2 error technical profile. For example, if there is no email claim, you can set to call OAuth2 error technical profile:
 
 ```xml
 <OrchestrationStep Order="3" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="ReturnOAuth2Error">

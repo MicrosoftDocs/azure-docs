@@ -14,7 +14,7 @@ ms.subservice: data-flows
 
 By using code snippets in mapping data flows, you can easily perform common tasks such as data deduplication and null filtering. This article explains how to easily add those functions to your pipelines by using data flow script snippets.
 <br>
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=9caa524f-5af1-4bfa-845f-72a170ac0e5d]
 
 ## Create a pipeline
 

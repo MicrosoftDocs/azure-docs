@@ -231,6 +231,9 @@ In your IoT Central application, verify that the **Device status** for the `ther
 
 ## Configure a downstream device
 
+> [!NOTE]
+> IoT Central does not support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
+
 In the previous section, you configured the `edgegateway` virtual machine with the demo certificates to enable it to run as gateway. The `leafdevice` virtual machine is ready for you to install a thermostat simulator that uses the gateway to connect to IoT Central.
 
 The `leafdevice` virtual machine needs a copy of the root CA certificate you created on the `edgegateway` virtual machine. Copy the */home/AzureUser/certs/certs/azure-iot-test-only.root.ca.cert.pem* file from the `edgegateway` virtual machine to your home directory on the `leafdevice` virtual machine. You can use the **scp** command to copy files between Linux virtual machines. For example, from the `leafdevice` machine:

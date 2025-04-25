@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Assign devices to multiple hubs using DPS
 description: This tutorial shows how to provision devices using a custom allocation policy in your Azure IoT Hub Device Provisioning Service (DPS) instance.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 03/21/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
@@ -359,6 +359,9 @@ In this section, you create a new enrollment group that uses the custom allocati
 1. On the **Review + create** tab, verify all of your values then select **Create**.
 
 After saving the enrollment, reopen it and make a note of the **Primary key**. You must save the enrollment first to have the keys generated. This key is used to generate unique device keys for simulated devices in the next section.
+
+>[!TIP]
+>When you create an enrollment group in the Azure portal and select a custom allocation policy, the Azure portal automatically retrieves and embeds the function key on your behalf. If you create an enrollment programmatically, you need to provide the key as part of the creation step.
 
 ## Derive unique device keys
 

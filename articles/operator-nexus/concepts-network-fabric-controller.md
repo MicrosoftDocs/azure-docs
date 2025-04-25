@@ -128,7 +128,7 @@ Managed Resource Group:
         ],
         "workloadExpressRouteConnections": [
             {
-                "expressRouteCircuitId": "/subscriptions/b256be71-d296-4e0e-99a1-408d9edc8718/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
+                "expressRouteCircuitId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
             }
         ],
         "ipv4AddressSpace": "10.245.224.0/19",
@@ -173,7 +173,7 @@ For optimal performance and redundancy, it is recommended to utilize two Express
 
 **What types of NFC SKUs are available?**
 
-NFC supports various SKUs including Basic, Standard, and High Performance options.
+NFC supports the Standard SKU and uses virtual machines from the DSv3 family.
 
 **Is it possible to update the NFC with a new Express Route Circuit?**
 

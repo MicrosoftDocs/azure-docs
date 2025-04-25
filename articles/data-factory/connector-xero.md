@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/12/2024
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory or Synapse Analytics
@@ -36,6 +36,9 @@ Specifically, this Xero connector supports:
 - OAuth 2.0 authentication.
 - All Xero tables (API endpoints) except "Reports".
 - Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
+>[!NOTE]
+>Due to the [sunset of OAuth 1.0 authentication in Xero](https://devblog.xero.com/an-update-on-why-we-are-saying-goodbye-oauth-1-0a-hello-oauth-2-0-6a839230908f), please [upgrade to OAuth 2.0 authentication type](#linked-service-properties) if you are currently using OAuth 1.0 authentication type. 
 
 ## Getting started
 

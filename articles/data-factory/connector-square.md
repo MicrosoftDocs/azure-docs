@@ -109,7 +109,7 @@ Authentication via personal access token only needs `accessToken`, while authent
             "connectionProperties": {
                 "host": "<e.g. mystore.mysquare.com>", 
                 "clientId": "<client ID>", 
-                "clientSecrect": {
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<clientSecret>"
                 }, 

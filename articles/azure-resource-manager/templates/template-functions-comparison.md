@@ -3,7 +3,7 @@ title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 02/12/2025
 ---
 
 # Comparison functions for ARM templates
@@ -104,7 +104,7 @@ The output from the preceding example with the default values is:
 | Name | Type | Value | Note |
 | ---- | ---- | ----- | ---- | 
 | checkInts | Bool | True |  |
-| checkStrings | Bool | False | The result is `false` becasue the comparison is case-sensitive. | 
+| checkStrings | Bool | False | The result is `false` because the comparison is case-sensitive. | 
 | checkArrays | Bool | True | |
 | checkObjects | Bool | True | |
 

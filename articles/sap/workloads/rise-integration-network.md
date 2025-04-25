@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 12/21/2023
+ms.date: 11/15/2024
 ms.author: robiro
 ---
 
@@ -18,11 +18,11 @@ With your SAP landscape operated within RISE and running in a separate virtual n
 
 ## Virtual network peering with SAP RISE/ECS
 
-A virtual network (vnet) peering is the most performant way to connect securely between two virtual networks, all in a private network address space. The peered networks appear as one for connectivity purposes, allowing applications to talk to each other. Applications running in different virtual networks, subscriptions, Azure tenants or regions can communicate directly. Like network traffic on a single virtual network, peering traffic remains in a private address space and doesn't traverse the internet.
+A virtual network (vnet) peering is the most performant way to connect securely between two virtual networks, all in a private network address space. The peered networks appear as one for connectivity purposes, allowing applications to talk to each other. Applications running in different virtual networks, subscriptions, Azure tenants or regions can communicate directly. Like network traffic on a single virtual network, peering traffic remains in a private address space and doesn't traverse the internet. Virtual network peering charges apply.
 
 For SAP RISE/ECS deployments, virtual peering is the preferred way to establish connectivity with customer’s existing Azure environment. Primary benefits are:
 - Minimized network latency and maximum throughput between SAP RISE landscape and own applications and services running in Azure.
-- No extra complexity and cost with different on-premises communication path for SAP RISE, instead using existing Azure network hub(s).
+- No extra complexity and cost with a dedicated on-premises communication path for SAP RISE workload. Instead using on-premises communication path of the existing Azure network hub(s).
 
 Virtual network peering can be set up within the same region as your SAP managed environment, but also through [global virtual network peering](../../virtual-network/virtual-network-peering-overview.md) between any two Azure regions. With SAP RISE/ECS available in many [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/), the region should match with workload running in customer virtual networks due to latency and peering cost considerations. However, some of the scenarios (for example, central S/4HANA deployment for a globally present company) also require to peer networks globally. For such globally distributed SAP landscape, we recommend to use multi-region network architecture within your own Azure environment, with SAP RISE peering locally in each geography to your network hubs.
 

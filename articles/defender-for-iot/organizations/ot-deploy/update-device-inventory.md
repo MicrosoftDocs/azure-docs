@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Verify and update your detected device inventory
 
-This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for Opertaional Technology (OT) monitoring with Microsoft Defender for IoT, and describes how to review your device inventory and enhance security monitoring with fine-tuned device details.
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for Operational Technology (OT) monitoring with Microsoft Defender for IoT, and describes how to review your device inventory and enhance security monitoring with fine-tuned device details.
 
 :::image type="content" source="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png" alt-text="Diagram of a progress bar with Fine-tune OT monitoring highlighted." border="false" lightbox="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png":::
 

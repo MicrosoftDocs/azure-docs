@@ -249,7 +249,7 @@ In the most basic terms, **RemoteRenderedModel** holds the data needed to load a
 
 ## Load the Test Model
 
-Let's test the new script by loading the test model again. For this test, we need a Game Object to contain the script and be a parent to the test model, and we also need a virtual stage that contains the model. The stage stays fixed relative to the real world using a [WorldAnchor](/windows/mixed-reality/develop/unity/spatial-anchors-in-unity?tabs=worldanchor). We use a fixed stage so that the model itself can still be moved around later on.
+Let's test the new script by loading the test model again. For this test, we need a Game Object to contain the script and be a parent to the test model, and we also need a virtual stage that contains the model. We use a fixed stage so that the model itself can still be moved around later on.
 
 1. Create a new empty Game Object in the scene and name it **ModelStage**.
 1. Add a World Anchor component to **ModelStage**

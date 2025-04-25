@@ -7,7 +7,7 @@ author: mbender-ms
 manager: KumudD
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 10/25/2023
+ms.date: 11/26/2024
 ms.author: mbender
 ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
 #Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
@@ -63,7 +63,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
-   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $location = Read-Host -Prompt "Enter the location (i.e. EastUS)"
    $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
    $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
@@ -84,7 +84,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 1. Enter the values.
 
-   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **centralus**.
+   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../reliability/availability-zones-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
    The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
 

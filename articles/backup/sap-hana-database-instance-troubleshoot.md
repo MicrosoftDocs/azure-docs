@@ -4,8 +4,8 @@ description: This article describes how to troubleshoot common errors that might
 ms.topic: troubleshooting
 ms.date: 09/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot SAP HANA snapshot backup jobs on Azure Backup

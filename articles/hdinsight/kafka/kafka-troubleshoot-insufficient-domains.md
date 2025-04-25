@@ -3,7 +3,10 @@ title: Not sufficient fault domains in region error in Azure HDInsight
 description: Cluster creation failed due to not sufficient fault domains in region in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 01/04/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 01/02/2025
 ---
 
 # Scenario: Cluster creation failed due to `not sufficient fault domains in region` in Azure HDInsight
@@ -24,7 +27,7 @@ In HDInsight, Kafka clusters are required to be provisioned in a region with at 
 
 ## Resolution
 
-If the region you wish to create the cluster does not have sufficient fault domains, reach out to product team to allow provisioning of the cluster even if there are not three fault domains.
+If the region you wish to create the cluster doesn't have sufficient fault domains, reach out to product team to allow provisioning of the cluster even if there aren't three fault domains.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: 
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 01/10/2025
 ms.author: danlep
 ---
 
@@ -35,9 +35,12 @@ For this scenario, you create a managed WordPress site hosted on Azure App Servi
 
 1. In the Azure portal, navigate to [https://portal.azure.com/#create/WordPress.WordPress](https://portal.azure.com/#create/WordPress.WordPress). 
 
-1. On the **Create WordPress on App Service** page, in the **Basics** tab, enter your project details. 
+1. On the **Create WordPress on App Service** page, in the **Basics** tab, enter your project details, Web App details, and WordPress setup settings. 
 
-    Record the WordPress admin username and password in a safe place. These credentials are required to sign into the WordPress admin site and install the plugin in a later step.
+    Store the WordPress admin username and password in a safe place. These credentials are required to sign into the WordPress admin site and install the plugin in a later step.
+
+    > [!CAUTION]
+    > Avoid using the default WordPress `admin` username, and create a strong password. [Learn more about WordPress password best practices](https://wordpress.org/documentation/article/password-best-practices/)
 
 1. On the **Add-ins** tab:
 
@@ -69,7 +72,7 @@ In this step, create a new Microsoft Entra app. In later steps, you configure th
     
     `https://<apim-instance-name>.developer.azure-api.net/signin`
     
-1. Select **+ Add a platform** again. Select **Single-page application** agaain.
+1. Select **+ Add a platform** again. Select **Single-page application** again.
 1. On the **Configure single-page application** page, enter the following redirect URI, substituting the name of your API Management instance, and select **Configure**:
     
     `https://<apim-instance-name>.developer.azure-api.net/`

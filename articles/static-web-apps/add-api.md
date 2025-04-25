@@ -2,17 +2,17 @@
 title: Add an API to Azure Static Web Apps with Azure Functions
 description: Get started with Azure Static Web Apps by adding a Serverless API to your static web app using Azure Functions.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  how-to
-ms.date: 08/29/2022
-ms.author: cshoe
+ms.date: 11/25/2024
+ms.author: wujia
 ms.custom:
 ---
 
 # Add an API to Azure Static Web Apps with Azure Functions
 
-You can add serverless APIs to Azure Static Web Apps that are powered by Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
+You can add serverless APIs to Azure Static Web Apps powered by Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
 
 > [!NOTE]
 > The functions provided by default in Static Web Apps are pre-configured to provide secure API endpoints and only support HTTP-triggered functions. See [API support with Azure Functions](apis-functions.md) for information on how they differ from standalone Azure Functions apps.
@@ -34,10 +34,12 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
 
 Before adding an API, create and deploy a frontend application to Azure Static Web Apps by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
 
-Once you have a frontend application deployed to Azure Static Web Apps, [clone your app repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). For example, to clone using the `git` command line:
+Once you have a frontend application deployed to Azure Static Web Apps, [clone your app repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). For example, you can clone your repository using the `git` command line.
+
+Before you run the following command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
 
 ```bash
-git clone https://github.com/my-username/my-first-static-web-app
+git clone https://github.com/<YOUR_GITHUB_USERNAME>/my-first-static-web-app
 ```
 
 In Visual Studio Code, open the root of your app's repository. The folder structure contains the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_ folder.
@@ -63,12 +65,12 @@ You create an Azure Functions project for your static web app's API. By default,
     | Prompt | Value |
     | --- | --- |
     | Select a language | **JavaScript** |
-    | Select a programming model | **V3** |
+    | Select a programming model | **V4** |
     | Provide a function name | **message** |
 
     > [!TIP]
     > You can learn more about the differences between programming models in the [Azure Functions developer guide](/azure/azure-functions/functions-reference)
-    
+
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
 
     ```Files
@@ -77,24 +79,31 @@ You create an Azure Functions project for your static web app's API. By default,
     │       └── azure-static-web-apps-<DEFAULT_HOSTNAME>.yml
     │
     ├── api
-    │   ├── message
-    │   │   ├── function.json
-    │   │   └── index.js
+    ├── └──src
+    │   │  │ functions
+    │   │  │  └── message.js
+    │   │  └── index.js
+    │   ├── .funcignore
     │   ├── host.json
     │   ├── local.settings.json
+    │   ├── package-lock.json
     │   └── package.json
     │
-    └── (folders and files from your static web app)
+    └── (...plus other folders and files from your static web app)
     ```
 
-1. Next, change the `message` function to return a message to the frontend. Update the function in _api/message/index.js_ with the following code.
+1. Next, change the `message` function to return a message to the frontend. Update the function in _src/functions/message.js_ with the following code.
 
     ```javascript
-    module.exports = async function (context, req) {
-        context.res.json({
-            text: "Hello from the API"
-        });
-    };
+    const { app } = require('@azure/functions');
+    
+    app.http('message', {
+        methods: ['GET', 'POST'],
+        authLevel: 'anonymous',
+        handler: async (request, context) => {
+            return { body: `Hello, from the API!` };
+        }
+    });
     ```
 
 > [!TIP]
@@ -235,6 +244,8 @@ To run your frontend app and API together locally, Azure Static Web Apps provide
 
 Ensure you have the necessary command line tools installed.
 
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
+
 ```bash
 npm install -g @azure/static-web-apps-cli
 ```
@@ -319,11 +330,11 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ---
 
-1. Windows Firewall may prompt to request that the Azure Functions runtime can access the Internet. Select **Allow**.
-   
-2. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
+1. Windows Firewall might prompt to request that the Azure Functions runtime can access the Internet. Select **Allow**.
 
-3. To stop the CLI, type <kbd>Ctrl + C</kbd>.
+1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
+
+1. To stop the CLI, type <kbd>Ctrl + C</kbd>.
 
 ## Add API location to workflow
 
@@ -341,7 +352,8 @@ Before you can deploy your app to Azure, update your repository's GitHub Actions
    output_location: "" # Built app content directory - optional
    ###### End of Repository/Build Configurations ######
    ```
-   **Note**: The above values of `api_location` ,`app_location`,`output_location`  are for no framework and these value changes based on framework.
+
+   **Note**: The above values of `api_location` ,`app_location`,`output_location`  are for no framework and these values change based on your framework.
 
 1. Save the file.
 

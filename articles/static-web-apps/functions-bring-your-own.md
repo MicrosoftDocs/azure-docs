@@ -3,11 +3,11 @@ title: Bring your own functions to Azure Static Web Apps
 description: Use an existing Azure Functions app with your Azure Static Web Apps site.
 ms.custom: engagement-fy23
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 10/13/2022
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Bring your own functions to Azure Static Web Apps
@@ -133,7 +133,7 @@ Your function app is now able to receive anonymous traffic.
 - Only one Azure Functions app is available to a single static web app.
 - The `api_location` value in the [workflow configuration](./build-configuration.md) must be set to an empty string.
 - Not supported in Static Web Apps pull request environments.
-- While your Azure Functions app may respond to various triggers, the static web app can only access functions via Http endpoints.
+- While your Azure Functions app may respond to various triggers, the static web app can only access functions via HTTP endpoints.
 
 ## Next steps
 

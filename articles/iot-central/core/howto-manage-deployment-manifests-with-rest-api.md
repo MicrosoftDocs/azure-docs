@@ -286,7 +286,7 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/deploymentManifests/{deploymentManifestId}?api-version=2022-10-31-preview
 ```
 
-The following sample request body updates the `SendInterval` desired property setting for the `SimuatedTemperatureSetting` module:
+The following sample request body updates the `SendInterval` desired property setting for the `SimulatedTemperatureSetting` module:
 
 ```json
 {

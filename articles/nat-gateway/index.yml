@@ -5,8 +5,7 @@ summary: Learn how to use NAT gateway. Quickstarts, tutorials, samples, and more
 metadata:
   title: Azure NAT Gateway Documentation - Tutorials, quickstarts, API references
   description: Learn how to use NAT gateway. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
-  ms.service: azure-virtual-network
-  ms.subservice: nat
+  ms.service: azure-nat-gateway
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu
@@ -39,7 +38,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Virtual%20Network%20NAT
+            url: https://azure.microsoft.com/updates?searchterms=NAT+Gateway
       - linkListType: video
         links:
           - text: How to get better outbound connectivity using Azure NAT Gateway

@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, ignite-2023
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -114,13 +114,13 @@ Before you create the workflow, the source code for your app must be in a GitHub
 
 1. Sign in to Azure with the Azure CLI.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
 1. Next, install the latest Azure Container Apps extension for the CLI.
 
-    ```azurecli-interactive
+    ```azurecli
     az extension add --name containerapp --upgrade
     ```
 
@@ -149,7 +149,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
 
 1. Create a service principal with the *Contributor* role on the resource group that contains the container app and container registry.
 
-    ```azurecli-interactive
+    ```azurecli
     az ad sp create-for-rbac \
       --name my-app-credentials \
       --role contributor \

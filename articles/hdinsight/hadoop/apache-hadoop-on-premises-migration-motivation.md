@@ -3,7 +3,10 @@ title: 'Benefits: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 12/08/2023
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 12/02/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
@@ -119,7 +122,7 @@ This section provides template questionnaires to help gather important informati
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||
-|Data sources|Flat files, Json, Kafka, RDBMS||
+|Data sources|Flat files, JSON, Kafka, RDBMS||
 |Data orchestration|Oozie workflows, Airflow||
 |In memory lookups|Apache Ignite, Redis||
 |Data destinations|HDFS, RDBMS, Kafka, MPP ||

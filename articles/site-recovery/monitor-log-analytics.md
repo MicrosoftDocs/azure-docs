@@ -80,7 +80,6 @@ You can capture the data churn rate information and source data upload rate info
 6. [Complete the agent installation](/azure/azure-monitor/agents/agent-windows#install-the-agent) by providing the obtained workspace ID and key.
 7. Once the installation is complete, go to Log Analytics workspace and select **Legacy agents management**. Go to the **Data** page and select **Windows Performance Counters**. 
 8. Select **'+'** to add the following two counters with a sample interval of 300 seconds:
-
     - ASRAnalytics(*)\SourceVmChurnRate
     - ASRAnalytics(*)\SourceVmThrpRate
     
@@ -93,8 +92,13 @@ You can capture the data churn rate information and source data upload rate info
     ![Screenshot of the Windows performance counter.](./media/monitoring-log-analytics/performance-counter.png)
 
 
-- `ASRAnalytics(*)\SourceVmChurnRate` provides insights into the churn rate for replicated virtual machines. 
-- `ASRAnalytics(*)\SourceVmThrpRate` represents the throughput rate for replicated virtual machines that is indicator of the data transfer speed between the source and target during replication. 
+> [!NOTE]
+> Currently, you can't search for these counters. However, you can add them by copying and pasting their full names.
+> - **SourceVmThrpRate** shows the network through put rate on the source.
+> - **SourceVmChurnRate** shows the data change rate on the disk at the source virtual machine.
+> 
+> ![Screenshot of the counters setting screen.](./media/monitoring-log-analytics/counters.png)
+
 
 ## Query the logs - examples
 

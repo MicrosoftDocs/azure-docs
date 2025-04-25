@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 09/12/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Manage network access security in Azure Health Data Services

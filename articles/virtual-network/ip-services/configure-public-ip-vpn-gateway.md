@@ -7,8 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 09/19/2023
-ms.custom: template-how-to, engagement-fy23
+ms.date: 01/07/2025
 ---
 
 # Manage a public IP address with a VPN gateway
@@ -47,7 +46,7 @@ In this section, you create a VPN gateway. You select the IP address you created
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroupVPN**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **myResourceGroupVPN**.</br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myVNet**. |
     | Region | Select **West US 2**. |
@@ -64,11 +63,16 @@ In this section, you create a VPN gateway. You select the IP address you created
 
 11. Select **Subnets** in **Settings** of **myVNET**.
 
-12. Select **+ Gateway subnet**.
+12. Select **+ Subnet**.
 
-13. In **Add subnet**, change the **Subnet address range** from **/24** to **/27**.
+13. In **Add subnet**, select or enter the following information, leaving the other options as their defaults:
 
-14. Select **Save**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Select Purpose | Select **Virtual Network Gateway**. |
+    | Size | Select **/27**. |
+
+14. Select **Add**.
 
 ### Create VPN gateway
 
@@ -88,10 +92,10 @@ In this section, you create a VPN gateway. You select the IP address you created
     | Name | Enter **myVPNGateway**. |
     | Region | Select **West US 2**. |
     | Gateway type | Leave the default of **VPN**. |
-    | VPN type | Leave the default of **Route-based**. |
     | SKU | Select **VpnGw1AZ**. |
+    | Generation | Leave the default of **Generation2**. |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Entry will autoselect **GatewaySubnet** you created earlier |
+    | Subnet | Entry will autoselect the **GatewaySubnet** created earlier. |
     | **Public IP address** |   |
     | Public IP address | Select **Use existing**. |
     | Choose public IP address | Select **myStandardPublicIP** or your public IP address |

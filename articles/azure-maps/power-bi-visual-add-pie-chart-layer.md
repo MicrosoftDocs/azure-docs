@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article describes how to use the pie chart layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 07/17/2023
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -17,9 +17,6 @@ This article describes how to add a pie chart layer to an Azure Maps Power BI vi
 A pie chart is a visual representation of data in the form of a circular chart or *pie* where each slice represents an element of the dataset that is shown as a percentage of the whole. A list of numerical variables along with categorical (location) variables are required to represent data in the form of a pie chart.
 
 :::image type="content" source="./media/power-bi-visual/pie-chart-layer.png" alt-text="A Power B I visual showing the pie chart layer." lightbox="./media/power-bi-visual/pie-chart-layer.png":::
-
-> [!NOTE]
-> The data used in this article comes from the [Power BI Sales and Marketing Sample].
 
 ## Prerequisites
 

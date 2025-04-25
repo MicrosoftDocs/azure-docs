@@ -12,6 +12,9 @@ ms.author: chrupa
 
 # How to use the MedTech service monitoring and health checks tabs
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 In this article, learn how to use the MedTech service monitoring and health check tabs in the Azure portal. The monitoring and health check tabs provide access to crucial MedTech service metrics and health checks. These metrics and health checks can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
 
 ## Use the MedTech service monitoring tab

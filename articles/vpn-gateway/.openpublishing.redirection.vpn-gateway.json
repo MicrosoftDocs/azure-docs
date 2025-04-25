@@ -11,6 +11,16 @@
            "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/active-active-portal.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+         },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-activeactive-rm-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-gateway-powershell",
+            "redirect_document_id": false
+         },
+        {
            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md",
            "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
            "redirect_document_id": false

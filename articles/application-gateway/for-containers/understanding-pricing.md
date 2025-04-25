@@ -4,7 +4,7 @@ description: Learn how Azure Application Gateway for Containers is billed.
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 5/9/2024
 ms.author: greglin
 ---

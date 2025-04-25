@@ -156,7 +156,7 @@ This example uses the **OR** logical operator to separate two conditional statem
 
 * Basic editor:
 
-    :::image type="content" source="./media/how-to-exclude-elements/or-operator.png" alt-text="Screenshot of network group conditional statement using the OR logical operator.":::
+    :::image type="content" source="./media/how-to-define-network-group-membership-azure-policy/or-operator.png" alt-text="Screenshot of network group conditional statement using the OR logical operator.":::
 
 * Advanced operator:
 
@@ -181,7 +181,7 @@ The `"anyOf"` parameter contains both the conditional statements that are separa
 
 * Basic editor:
 
-    :::image type="content" source="./media/how-to-exclude-elements/both-operator.png" alt-text="Screenshot of network group conditional statement using both OR and AND logical operator.":::
+    :::image type="content" source="./media/how-to-define-network-group-membership-azure-policy/both-operator.png" alt-text="Screenshot of network group conditional statement using both OR and AND logical operator.":::
 
 * Advanced editor:
 

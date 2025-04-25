@@ -1,7 +1,7 @@
 ---
 title: Understanding networkReceiveQuality UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Overview and detiled reference of networkReceiveQuality UFD
+description: Overview and detailed reference of networkReceiveQuality UFD
 author: sloanster
 ms.author: micahvivion
 

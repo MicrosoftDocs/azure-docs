@@ -161,7 +161,7 @@ You need to select which architecture you're targeting with each solution, becau
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        using (var filteredMessage = new Message(messageBytes))
                        {
                             // Copy the properties of the original message into the new Message object.

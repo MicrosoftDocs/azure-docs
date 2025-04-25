@@ -1,10 +1,10 @@
 ---
 title: Store credentials in Azure Key Vault 
-description: Learn how to store credentials for data stores used in an Azure key vault that Azure Data Factory can automatically retrieve at runtime. 
+description: Learn how to store credentials for data stores used in an Azure Key Vault that Azure Data Factory can automatically retrieve at runtime. 
 author: nabhishek
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: abnarain
 ---
 

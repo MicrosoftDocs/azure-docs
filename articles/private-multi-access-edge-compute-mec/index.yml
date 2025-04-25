@@ -20,18 +20,6 @@ landingContent:
 # Start card title with a verb
 
   # Card
-  - title: About Azure private MEC
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure private MEC?
-            url: overview.md
-      - linkListType: concept
-        links:
-          - text: Partner solutions
-            url: partner-programs.md
-
-  # Card
   - title: About Azure Private 5G Core
     linkLists:
       - linkListType: concept

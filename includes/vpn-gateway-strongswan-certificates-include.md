@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 09/12/2019
+ ms.date: 02/26/2025
  ms.author: cherylmc
- ms.custom: include file
 ---
 
 Generate the CA certificate.
@@ -17,13 +13,16 @@ Generate the CA certificate.
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Print the CA certificate in base64 format. This is the format that is supported by Azure. You upload this certificate to Azure as part of the [P2S configuration steps](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Print the CA certificate in base64 format, the format that Azure supports. You upload this certificate to Azure as part of the [P2S configuration steps](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo
   ```
 
 Generate the user certificate.
+
+> [!NOTE]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
   ```
   export PASSWORD="password"

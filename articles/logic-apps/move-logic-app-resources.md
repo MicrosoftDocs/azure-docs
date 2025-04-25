@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 ---
 
 # Move logic app resources to other Azure resource groups, regions, or subscriptions
@@ -72,7 +72,9 @@ When you want to move a logic app to a different region, your options depend on 
 
 * In the Azure portal, recreate the logic app in the new region and reconfigure the workflow settings. To save time, you can copy the underlying workflow definition and connections from the source app to the destination app. To view the "code" behind a logic app, on the Logic App Designer toolbar, select **Code view**.
 
-* By using Visual Studio and the Azure Logic Apps Tools for Visual Studio, you can [open and download your logic app](../logic-apps/manage-logic-apps-with-visual-studio.md) from the Azure portal as an [Azure Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). This template is mostly ready for deployment and includes the resource definitions for your logic app, including the workflow itself, and connections. The template also declares parameters for the values to use at deployment. That way, you can more easily change where and how you deploy the logic app, based on your needs. To specify the location and other necessary information for deployment, you can use a separate parameters file.
+* If you use Visual Studio and the Azure Logic Apps Tools for Visual Studio, you can [open and download your logic app](../logic-apps/manage-logic-apps-with-visual-studio.md) from the Azure portal as an [Azure Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). This template is mostly ready for deployment and includes the resource definitions for your logic app, including the workflow itself, and connections. The template also declares parameters for the values to use at deployment. That way, you can more easily change where and how you deploy the logic app, based on your needs. To specify the location and other necessary information for deployment, you can use a separate parameters file.
+
+  [!INCLUDE [visual-studio-extension-deprecation](includes/visual-studio-extension-deprecation.md)]
 
 * If you created and deployed your logic app by using continuous integration (CI) and continuous delivery (CD) tools, such as Azure Pipelines in Azure DevOps, you can deploy your app to another region by using those tools.
 

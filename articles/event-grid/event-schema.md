@@ -46,27 +46,28 @@ For example, the schema published for an Azure Blob storage event is:
 ```json
 [
   {
-    "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
-    "subject": "/blobServices/default/containers/oc2d2817345i200097container/blobs/oc2d2817345i20002296blob",
+    "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/contosostorage",
+    "subject": "/blobServices/default/containers/testcontainer/blobs/dataflow.jpg",
     "eventType": "Microsoft.Storage.BlobCreated",
-    "eventTime": "2017-06-26T18:41:00.9584103Z",
-    "id": "831e1650-001e-001b-66ab-eeb76e069631",
+    "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
     "data": {
-      "api": "PutBlockList",
-      "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-      "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-      "eTag": "0x8D4BCC2E4835CD0",
-      "contentType": "application/octet-stream",
-      "contentLength": 524288,
+      "api": "PutBlob",
+      "clientRequestId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+      "requestId": "cccccccc-2222-3333-4444-dddddddddddd",
+      "eTag": "0x8DD15A69488FE5A",
+      "contentType": "image/jpeg",
+      "contentLength": 52577,
       "blobType": "BlockBlob",
-      "url": "https://oc2d2817345i60006.blob.core.windows.net/oc2d2817345i200097container/oc2d2817345i20002296blob",
-      "sequencer": "00000000000004420000000000028963",
+      "accessTier": "Default",
+      "url": "https://contosostorage.blob.core.windows.net/testcontainer/dataflow.jpg",
+      "sequencer": "0000000000000000000000000003A13C00000000007da85d",
       "storageDiagnostics": {
-        "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+        "batchId": "9d292d9f-e006-00a5-008f-47b300000000"
       }
     },
     "dataVersion": "",
-    "metadataVersion": "1"
+    "metadataVersion": "1",
+    "eventTime": "2024-12-06T03:32:15.7238874Z"
   }
 ]
 ```

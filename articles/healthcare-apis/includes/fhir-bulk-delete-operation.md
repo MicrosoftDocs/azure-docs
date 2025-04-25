@@ -52,7 +52,7 @@ Query parameters allow you to filter the raw resources you plan to delete. To su
 |Query parameter        | Default Value   |  Description|
 |------------------------|---|------------|
 |_hardDelete|False|Allows you to hard delete a resource. If you don't pass this parameter or set hardDelete to false, the historic versions of the resource are still available.|
-|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources.|
+|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources. Note: When _purgeHistory used with the _hardDelete parameter set to true, it permanently deletes all versions associated with the resource.|
 |FHIR service supported search parameters||Allows you to specify search criteria and resources matching the search criteria are deleted. For example: `address:contains=Meadow subject:Patient.birthdate=1987-02-20`|
 
 All the query parameters are optional.
@@ -127,3 +127,16 @@ Here's a list of error messages that might occur if the bulk delete operation fa
 > [!NOTE]
 > If you cancel and then restart a bulk delete job, the deletion process resumes from where it was stopped.
 
+## Preview capabilities for the bulk delete operation
+### `$bulk-delete` with `_include` and `_revinclude`
+Note: When using FHIR service-supported search parameters with `$bulk-delete`, the `$bulk-delete` operation now supports using `_include` and `_revinclude` in the search criteria for conditional and bulk delete. Please note that this does not affect current behavior of singular deletes, which does not support extra parameters. Additionally, when using bulk delete with FHIR search parameters, consider using the same query in a FHIR search first, so that you can verify the data that you want to delete.
+
+Some examples of using `$bulk-delete` with `_include` and `_revinclude`:
+
+The following example using `_revinclude` will bulk delete all Patient resources that were last updated before 12/18/2021, as well as all resources that reference to those patients:
+
+`DELETE [base]/Patient/$bulk-delete?_lastUpdated=lt2021-12-18&_revinclude=*:*`
+
+The following example using `_include` will bulk delete all DiagnosticReport resources that were last updated before 12/18/2021, as well as all ServiceRequest resources that are referenced by those DiagnosticReport resources (via DiagnosticReport.basedOn relationship), and all Encounter resources that are referenced by those ServiceRequest resources (via ServiceRequest.encounters relationship):
+
+`DELETE [base]/DiagnosticReport/$bulk-delete?_lastUpdated=lt2021-12-12&_include=DiagnosticReport:based-on:ServiceRequest&_include:iterate=ServiceRequest:encounter`

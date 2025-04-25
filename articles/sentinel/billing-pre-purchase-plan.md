@@ -26,7 +26,7 @@ To buy a pre-purchase plan, you must have one of the following Azure subscriptio
    - [Allow the customer to buy their own reservations](/partner-center/customers/give-customers-permission)
 
 >[!NOTE]
-> Microsoft Sentinel Commit Units are different from Security Compute Units in Copilot for Security. Customers cannot use Sentinel Commit Units to run Copilot workloads and vice versa.
+> Microsoft Sentinel Commit Units are different from Security Compute Units in Security Copilot. Customers cannot use Sentinel Commit Units to run Copilot workloads and vice versa.
 
 ## Determine the right size to buy
 

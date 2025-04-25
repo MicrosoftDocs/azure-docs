@@ -250,7 +250,7 @@ You can add more identity claims that eID-Me supports.
 2. Find the `BuildingBlocks` element. 
 
 > [!NOTE]
-> Find supported eID-Me identity claims lists on [OID repository](https://oid-rep.orange-labs.fr/get/1.3.6.1.4.1.50715) with OIDC identifiers on [well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
+> Find supported eID-Me identity claims lists on [OID repository](https://oid-base.com/get/1.3.6.1.4.1.12356.101.2.0.1102) with OIDC identifiers on [well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
 
    ```xml
    <BuildingBlocks>

@@ -4,7 +4,7 @@ description: Learn how to enable watermarking in Azure Virtual Desktop to help p
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/08/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Watermarking in Azure Virtual Desktop
@@ -113,7 +113,7 @@ To enable watermarking using Group Policy:
 
 1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain) available in Group Policy.
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain, then create or edit a policy that targets the computers providing a remote session you want to configure.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain, then create or edit a policy that targets the computers providing a remote session you want to configure.
 
 1. Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
 

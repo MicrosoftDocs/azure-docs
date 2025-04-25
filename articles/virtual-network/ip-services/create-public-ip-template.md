@@ -8,8 +8,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 08/24/2023
-ms.custom: mode-other
+ms.date: 01/08/2025
 ---
 
 # Quickstart: Create a public IP address using a Resource Manager template
@@ -63,7 +62,7 @@ Template section to add:
 >
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### Zonal
 
@@ -92,13 +91,13 @@ Template section to add:
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Create standard public IP without zones
 
 In this section, you create a non-zonal IP address. 
 
-The code in this section creates a standard no-zone public IPv4 address named **myStandardPublicIP**. The code section is valid for all regions with or without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The code in this section creates a standard no-zone public IPv4 address named **myStandardPublicIP**. The code section is valid for all regions with or without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **IPv6**.
 
@@ -151,7 +150,7 @@ Template section to add:
 If it's acceptable for the IP address to change over time, **publicIPAllocationMethod** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
 
 >[!NOTE]
-> A basic IPv6 address must always be 'Dynamic'.
+> A basic IPv6 address must always be `Dynamic`.
 
 ## Routing preference and tier
 

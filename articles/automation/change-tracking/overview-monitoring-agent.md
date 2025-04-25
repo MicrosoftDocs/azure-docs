@@ -3,26 +3,47 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/23/2024
+ms.date: 03/13/2025
 ms.topic: overview
 ms.service: azure-automation
 ---
 
 # Overview of change tracking and inventory using Azure Monitoring Agent
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
-
 > [!Important]
-> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will work on limited support till **01 February 2025**. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md)
+> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md)
 > - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
 
 > [!NOTE]
-> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](https://learn.microsoft.com/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. Follow the guidance to migrate from:
-> - [FIM with Change Tracking and Inventory using AMA](https://learn.microsoft.com/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-ama).
-> - [FIM with Change Tracking and Inventory using MMA](https://learn.microsoft.com/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-mma).
+> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. If you have FIM configured with either AMA or LA, follow the guidance to migrate from:
+> - [FIM with Change Tracking and Inventory using AMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-ama).
+> - [FIM with Change Tracking and Inventory using MMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-mma).
 
+## What is Change Tracking & Inventory
+
+Azure Change Tracking & Inventory service enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
+
+1. **Change Tracking**
+
+    a. Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
+    b. Provides detailed logs of what and when the changes were made, enabling you to quickly detect configuration drifts or unauthorized changes. </br>
+    Change Tracking metadata will get ingested into the ConfigurationChange table in the connected LA workspace. [Learn more](/azure/azure-monitor/reference/tables/configurationchange)
+    
+1. **Inventory**
+
+    a. Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked LA workspace </br>
+    b. Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.</br>
+    Inventory metadata will get ingested into the ConfigurationData table in the connected LA workspace. [Learn more](/azure/azure-monitor/reference/tables/configurationdata)
+
+## Support matrix
+
+|**Component**| **Applies to**|
+|---| ---|
+|Operating systems| Windows </br> Linux | 
+|Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
+|Data types | Windows registry </br> Windows services </br> Linux Daemons </br> Files </br> Software
 
 ## Key benefits
 
@@ -31,23 +52,6 @@ This article explains on the latest version of change tracking support using Azu
 - **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
-## Current limitations
-
-Change Tracking and Inventory using Azure Monitoring Agent doesn't support or has the following limitations:
-
-- Recursion for Windows registry tracking
-- Network file systems
-- Different installation methods
-- ***.exe** files stored on Windows
-- The **Max File Size** column and values are unused in the current implementation.
-- If you are tracking file changes, it is limited to a file size of 5 MB or less. 
-- If the file size appears >1.25MB, then FileContentChecksum is incorrect due to memory constraints in the checksum calculation.
-- If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
-- If network traffic is high, change records can take up to six hours to display.
-- If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
-- Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
-- Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written. 
-- Change Tracking extension doesn't support any hardening standards for any Linux Operating systems or Distros. 
 
 ## Limits
 
@@ -130,7 +134,7 @@ Change Tracking and Inventory supports recursion, which allows you to specify wi
 
 ## Change Tracking and Inventory data collection
 
-The next table shows the data collection frequency for the types of changes supported by Change Tracking and Inventory. For every type, the data snapshot of the current state is also refreshed at least every 24 hours.
+The next table shows the data collection frequency for the types of changes supported by Change Tracking and Inventory. Inventory logs will be populated every 10 hours by default for all data types. Additionally, when there is a change registered for any of the data types, the inventory and change logs will be generated for this instance.
 
 | **Change Type** | **Frequency** |
 | --- | --- |
@@ -188,6 +192,25 @@ The default collection frequency for Windows services is 30 minutes. To configur
 - under **Edit** Settings, use a slider on the **Windows services** tab.
 
 :::image type="content" source="media/overview-monitoring-agent/frequency-slider-inline.png" alt-text="Screenshot of frequency slider." lightbox="media/overview-monitoring-agent/frequency-slider-expanded.png":::
+
+## Current limitations
+
+Change Tracking and Inventory using Azure Monitoring Agent doesn't support or has the following limitations:
+
+- Recursion for Windows registry tracking
+- Currently, only the HKEY_LOCAL_MACHINE is supported. You will encounter this limitation whenever you manually add the registry key.
+- Network file systems
+- Different installation methods
+- ***.exe** files stored on Windows
+- The **Max File Size** column and values are unused in the current implementation.
+- If you are tracking file changes, it is limited to a file size of 5 MB or less. 
+- If the file size appears >1.25MB, then FileContentChecksum is incorrect due to memory constraints in the checksum calculation.
+- If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
+- If network traffic is high, change records can take up to six hours to display.
+- If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
+- Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
+- Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written. 
+- Change Tracking extension doesn't support any hardening standards for any Linux Operating systems or Distros. 
 
 
 ## Support for alerts on configuration state

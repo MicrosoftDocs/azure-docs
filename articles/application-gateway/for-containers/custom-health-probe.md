@@ -4,7 +4,7 @@ description: Learn how to configure a custom health probe for Azure Application 
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/28/2024
 ms.author: greglin
 ---
@@ -29,7 +29,7 @@ The following properties make up custom health probes:
 | timeout | How long in seconds the request should wait until it's marked as a failure. The minimum interval must be > 0 seconds. |
 | healthyThreshold | Number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
 | port | The port number used when probing the backend target. |
-| unhealthyTreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
+| unhealthyThreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
 | grpc | Specified if the backend service is expecting gRPC connections. The value must be `{}`. |
 | (http) | Specified if the backend service is expecting http connections. |
 | (http) host | The hostname specified in the request to the backend target. |
@@ -51,8 +51,8 @@ When the default health probe is used, the following values for each health prob
 | -------- | ------------- |
 | interval | 5 seconds |
 | timeout | 30 seconds |
-| healthyTrehshold | 1 probe |
-| unhealthyTreshold | 3 probes |
+| healthyThreshold | 1 probe |
+| unhealthyThreshold | 3 probes |
 | port | The port number used is defined by the backend port number in the Ingress resource or HttpRoute backend port in the HttpRoute resource. |
 | (http) host | localhost |
 | (http) path | / |

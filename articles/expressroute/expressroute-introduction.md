@@ -145,7 +145,7 @@ For frequently asked questions about ExpressRoute, see [ExpressRoute FAQ](expres
 
 ## <a name="new"></a>What's new?
 
-Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) page.
+Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+ExpressRoute%22%5D) page.
 
 ## Next steps
 

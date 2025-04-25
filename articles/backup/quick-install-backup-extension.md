@@ -2,12 +2,12 @@
 title: Quickstart - Install Azure Backup extension in an AKS cluster
 description: In this quickstart, learn how to install the Azure Backup extension in an AKS cluster and get it ready to configure backup.
 ms.topic: quickstart
-ms.date: 11/14/2023
+ms.date: 07/31/2024
 ms.service: azure-backup
 ms.custom:
-  - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2023, engagement-fy24
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Install Azure Backup extension in an AKS cluster  

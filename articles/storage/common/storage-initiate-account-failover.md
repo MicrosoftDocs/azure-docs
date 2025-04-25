@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ---
@@ -17,8 +17,6 @@ ms.subservice: storage-common-concepts
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages might occasionally occur. To help minimize downtime, Azure Storage supports customer-managed failover to keep your data available during both partial and complete outages.
 
 This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or the Azure CLI. To learn more about account failover, see [Azure storage disaster recovery planning and failover](storage-disaster-recovery-guidance.md).
-
-[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
 ## Prerequisites
 

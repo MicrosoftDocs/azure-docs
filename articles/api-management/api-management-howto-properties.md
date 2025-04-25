@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli
@@ -17,7 +17,7 @@ ms.custom: engagement-fy23, devx-track-azurecli
 
 [API Management policies](api-management-howto-policies.md) are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and named values.
 
-*Named values* are a global collection of name/value pairs in each API Management instance. There is no imposed limit on the number of items in the collection. Named values can be used to manage constant string values and secrets across all API configurations and policies. 
+*Named values* are a global collection of name/value pairs in each API Management instance. Named values can be used to manage constant string values and secrets across all API configurations and policies. 
 
 :::image type="content" source="media/api-management-howto-properties/named-values.png" alt-text="Named values in the Azure portal":::
 
@@ -44,10 +44,10 @@ Using key vault secrets is recommended because it helps improve API Management s
 * Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
 
 > [!NOTE]
-> The secrets stored in Azure Key Vault must be between 1 and 4096 characters, as API Management cannot retrieve values that exceed this limit.
+> The secrets stored in Azure Key Vault must be between 1 and 4096 characters, as API Management can't retrieve values that exceed this limit.
 ## Prerequisites
 
-* If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
+* If you haven't created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 
 ### Prerequisites for key vault integration
 
@@ -59,8 +59,7 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 - Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
 
-[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
-
+[!INCLUDE [api-management-key-vault-secret-access](../../includes/api-management-key-vault-secret-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
@@ -134,7 +133,7 @@ az apim nv show --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --named-value-id named_value_01
 ```
 
-This example is a secret value. The previous command does not return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az-apim-nv-show-secret) command:
+This example is a secret value. The previous command doesn't return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az-apim-nv-show-secret) command:
 
 ```azurecli
 az apim nv show-secret --resource-group apim-hello-word-resource-group \
@@ -217,7 +216,7 @@ To delete a named value, select the name and then select **Delete** from the con
 > [!IMPORTANT]
 > If the named value is referenced by any API Management policies, you can't delete it until you remove the named value from all policies that use it.
 
-## Next steps
+## Related content
 
 -   Learn more about working with policies
     -   [Policies in API Management](api-management-howto-policies.md)

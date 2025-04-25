@@ -7,7 +7,7 @@ ms.topic: reference
 
 # HPE Edgeline EL300
 
-This article describes the HPE Edgeline EL300 appliance for OT sensors or on-premises management consoles.
+This article describes the HPE Edgeline EL300 appliance for OT sensors.
 
 > [!NOTE]
 > Legacy appliances are certified but aren't currently offered as pre-configured appliances.
@@ -149,4 +149,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

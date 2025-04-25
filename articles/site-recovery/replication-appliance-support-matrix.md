@@ -3,7 +3,7 @@ title: Support requirements for Azure Site Recovery replication appliance
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: azure-site-recovery
 ms.topic: faq
-ms.date: 12/04/2023
+ms.date: 04/23/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -30,14 +30,14 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 **Component** | **Requirement**
 --- | ---
 CPU cores | 8
-RAM | 32 GB
+RAM | 16 GB
 Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 ### Software requirements
 
 **Component** | **Requirement**
 --- | ---
-Operating system | Windows Server 2019
+Operating system | Windows Server 2022
 Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))

@@ -7,6 +7,8 @@ metadata:
   
   ms.topic: faq
   ms.date: 02/02/2022
+  appliesto:
+    - ✅ Azure Cache for Redis
 title: Azure Cache for Redis planning FAQs
 summary: |
           This article provides answers to common questions about how to plan for Azure Cache for Redis.
@@ -60,7 +62,7 @@ sections:
           - [Azure Government Databases - Azure Cache for Redis](../azure-government/compare-azure-government-global-azure.md)
           - [Azure operated by 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
           
-          For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud and Azure operated by 21Vianet Cloud, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+          For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud and Azure operated by 21Vianet Cloud, see [How to connect to other clouds - Azure Cache for Redis PowerShell](../redis/how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
           
           The _Enterprise_ and _Enterprise Flash_ tiers of Azure Cache for Redis are only available in the Public cloud for the time being.
           
@@ -68,4 +70,4 @@ additionalContent: |
 
   ## Next steps
   
-  Learn about other [Azure Cache for Redis FAQs](cache-faq.yml).
+  Learn about other [Azure Redis FAQs](../redis/faq.yml).

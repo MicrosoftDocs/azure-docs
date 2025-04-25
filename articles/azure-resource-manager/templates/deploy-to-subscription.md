@@ -78,7 +78,7 @@ For security, use:
 * [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
 * [connectors](/azure/templates/microsoft.security/connectors)
 * [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
-* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [ingestionSettings](/javascript/api/@azure/arm-security/ingestionsettings)
 * [pricings](/azure/templates/microsoft.security/pricings)
 * [securityContacts](/azure/templates/microsoft.security/securitycontacts)
 * [settings](/azure/templates/microsoft.security/settings)

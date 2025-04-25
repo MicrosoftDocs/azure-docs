@@ -9,7 +9,7 @@ ms.date: 10/22/2024
 #Customer intent: As an app developer, I want to connect Azure Container Apps to a storage account in the Azure portal using Service Connector.
 ---
 
-# Quickstart: Create a service connection in Azure Container Apps from the Azure portal
+# Quickstart: Create a service connection in Azure Container Apps from the Azure portal (preview)
 
 This quickstart shows you how to connect Azure Container Apps to other Cloud resources using the Azure portal and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
@@ -30,7 +30,7 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Create a new service connection
+## Create a new service connection (preview)
 
 Use Service Connector to create a new service connection in Container Apps.
 

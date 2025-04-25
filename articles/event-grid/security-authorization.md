@@ -1,8 +1,9 @@
 ---
 title: Azure Event Grid security and authentication
-description: Describes Azure Event Grid and its concepts.
-ms.topic: conceptual
-ms.date: 11/27/2023
+description: This article describes how you can authorize access to Azure Event Grid resources using role-based access control roles. 
+ms.topic: concept-article
+ms.date: 12/16/2024
+# Customer intent: I want to know how to secure access to Azure Event Grid resources. 
 ---
 
 # Authorizing access to Event Grid resources
@@ -142,6 +143,6 @@ For example, to subscribe to a custom topic named **mytopic**, you need the Micr
 
 
 
-## Next steps
+## Related content
 
 * For an introduction to Event Grid, see [About Event Grid](overview.md)

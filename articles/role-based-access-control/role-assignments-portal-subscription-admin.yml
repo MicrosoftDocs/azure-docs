@@ -5,8 +5,8 @@ metadata:
   description: Learn how to make a user an administrator of an Azure subscription with conditions using the Azure portal and Azure role-based access control (Azure RBAC).
   author: rolyon
   ms.author: rolyon
-  manager: amycolannino
-  ms.date: 01/30/2024
+  manager: femila
+  ms.date: 03/30/2025
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:

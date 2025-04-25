@@ -49,7 +49,7 @@ To use an HDInsight Pig activity to a pipeline, complete the following steps:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "scriptPath": "MyAzureStorage\\PigScripts\\MyPigSript.pig",
+        "scriptPath": "MyAzureStorage\\PigScripts\\MyPigScript.pig",
         "getDebugInfo": "Failure",
         "arguments": [
             "SampleHadoopJobArgument1"

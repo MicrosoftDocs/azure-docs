@@ -1,8 +1,9 @@
 ---
-title: Quickstart - Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan
+title: Quickstart - Set Up Autoscale for Applications in Azure Spring Apps Standard Consumption and Dedicated Plan
 description: Learn how to set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan.
 author: KarlErickson
-ms.author: haojianzhong
+ms.author: karler
+ms.reviewer: haojianzhong
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/29/2024
@@ -13,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ❎ Basic/Standard ❎ Enterprise
 
 This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption and dedicated plan. The plan uses an Azure Container Apps environment to host your Spring applications, and provides the following management and support:
 
@@ -25,7 +26,7 @@ For more information, see [Azure Container Apps documentation](../../container-a
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance.
 - A Spring app deployed to Azure Spring Apps.
 
 ## Scale definition
@@ -71,7 +72,9 @@ Use the following steps to define autoscale settings and rules.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following commands to create an application in Azure Spring Apps with an autoscaling rule, based on [Keda Azure Service Bus Scaler](https://keda.sh/docs/2.8/scalers/azure-service-bus/).   
+Use the following commands to create an application in Azure Spring Apps with an autoscaling rule, based on [Keda Azure Service Bus Scaler](https://keda.sh/docs/2.8/scalers/azure-service-bus/).
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```azurecli-interactive
 az spring app create \
@@ -100,6 +103,8 @@ For information on defining custom rules, see [Keda scalers](https://keda.sh/doc
 ### Set up auto scaling rules on MySQL database
 
 The following CLI commands show you how to autoscale your Spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/). First, create a secret to store your SQL connection string. This secret is used for your scale rule authentication. Then, set up a rule which scales the app based on the rows count of a table.
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```azurecli-interactive
 az spring app update \

@@ -151,7 +151,7 @@ Before you start, make sure you've completed the following steps:
     WHERE times >= DATEADD(day, -1, GETDATE())
     ```
 
-    :::image type="content" source="./media/stream-analytics-no-code/power-bi-direct-query.png" alt-text="Screenshot that shows the configuration of Power BI Destop to connect to Azure Synapse SQL Database." lightbox="./media/stream-analytics-no-code/power-bi-direct-query.png":::  
+    :::image type="content" source="./media/stream-analytics-no-code/power-bi-direct-query.png" alt-text="Screenshot that shows the configuration of Power BI Desktop to connect to Azure Synapse SQL Database." lightbox="./media/stream-analytics-no-code/power-bi-direct-query.png":::  
 
     Switch to **Database** tab, and enter your credentials (user name and password) to connect to the database and run the query.
 1. Select **Load** to load data into the Power BI. 

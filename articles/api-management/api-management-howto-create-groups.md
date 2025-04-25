@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 ---
 # How to create and use groups to manage developer accounts in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 In API Management, groups are used to manage the visibility of products to developers in the developer portal. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
 
@@ -23,7 +23,7 @@ API Management has the following immutable groups:
     > [!NOTE]
     > At any time, a service owner can update the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications from your API Management instance.
 
-* **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
+* **Developers** - Authenticated developer portal [users](api-management-howto-create-or-invite-developers.md) fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
 In addition to these system groups, administrators can create custom groups or [use external groups in associated Microsoft Entra tenants][leverage external groups in associated Azure Active Directory tenants]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.

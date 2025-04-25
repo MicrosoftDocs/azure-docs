@@ -345,6 +345,7 @@ You can extract different parts of the JSON web token for the [different API sce
 
 ## Next steps
 
+- [Learn more about the guest attestation design](guest-attestation-confidential-virtual-machines-design.md)
 - [Learn to use a sample application with the guest attestation APIs](guest-attestation-example.md)
 - [Learn how to use Microsoft Defender for Cloud integration with confidential VMs with guest attestation installed](guest-attestation-defender-for-cloud.md)
 - [Learn about Azure confidential VMs](confidential-vm-overview.md)

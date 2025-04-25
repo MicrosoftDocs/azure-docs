@@ -4,7 +4,7 @@ description: Learn what VPN Gateway is, and how to use a VPN gateway to connect 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: overview
-ms.date: 07/23/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 ms.custom: e2e-hybrid
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -94,7 +94,7 @@ Azure VPN Gateway is updated regularly. To stay current with the latest announce
 * Known issues
 * Deprecated functionality (if applicable)
 
-You can also subscribe to the RSS feed and view the latest VPN Gateway feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway) page.
+You can also subscribe to the RSS feed and view the latest VPN Gateway feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22VPN+Gateway%22%5D) page.
 
 ## <a name="faq"></a>FAQ
 
@@ -105,4 +105,4 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 * [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
 * [Learn module: Introduction to Azure VPN Gateway](/training/modules/intro-to-azure-vpn-gateway).
 * [Learn module: Connect your on-premises network to Azure with VPN Gateway](/training/modules/connect-on-premises-network-with-vpn-gateway/).
-* [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#vpn-gateway-limits).
+* [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vpn-gateway-limits).

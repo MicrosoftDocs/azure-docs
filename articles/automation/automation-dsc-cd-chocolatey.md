@@ -313,7 +313,7 @@ For each package that you put into the package repository, you need a Nuspec tha
 must be compiled and stored on your NuGet server. For more information, see
 [[Create a NuGet package using nuget.exe CLI]][15].
 
-You can use **MyGet.org** as a NuGet server. You can buy this service, but thee is a free starter
+You can use **MyGet.org** as a NuGet server. You can buy this service, but there is a free starter
 SKU. For instructions on installing your own NuGet server for your private packages, see the
 documentation on [Nuget.org][21].
 

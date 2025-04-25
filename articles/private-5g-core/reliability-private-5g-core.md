@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Private 5G Core
 description: Find out about reliability in Azure Private 5G Core. 
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
@@ -20,7 +20,7 @@ You can also deploy Azure Private 5G Core as a Highly Available (HA) service on 
 [!INCLUDE [Availability zone description](../reliability/includes/reliability-availability-zone-description-include.md)]
 
 
-The Azure Private 5G Core service is automatically deployed as zone-redundant in Azure regions that support availability zones, as listed in [Availability zone service and regional support](../reliability/availability-zones-service-support.md). If a region supports availability zones then all Azure Private 5G Core resources created in a region can be managed from any of the availability zones.
+The Azure Private 5G Core service is automatically deployed as zone-redundant in Azure regions that support availability zones, as listed in [Azure regions with availability zone support](../reliability/availability-zones-region-support.md). If a region supports availability zones then all Azure Private 5G Core resources created in a region can be managed from any of the availability zones.
 
 No further work is required to configure or manage availability zones. Failover between availability zones is automatic.
 

@@ -1,12 +1,12 @@
 ---
 title: Partitioning tables in dedicated SQL pool
 description: Recommendations and examples for using table partitions in dedicated SQL pool.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.date: 11/02/2021
+author: ajagadish-24
+ms.author: ajagadish
+ms.date: 01/21/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - azure-synapse
 ---
@@ -17,7 +17,7 @@ Recommendations and examples for using table partitions in dedicated SQL pool.
 
 ## What are table partitions?
 
-Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning is supported on all dedicated SQL pool table types; including clustered columnstore, clustered index, and heap. Partitioning is also supported on all distribution types, including both hash or round robin distributed.  
+Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning is supported on all dedicated SQL pool table types; including clustered columnstore, clustered index, and heap. Partitioning is also supported on all distribution types, including both hash or round robin distributed. 
 
 Partitioning can benefit data maintenance and query performance. Whether it benefits both or just one is dependent on how data is loaded and whether the same column can be used for both purposes, since partitioning can only be done on one column.
 
@@ -25,9 +25,9 @@ Partitioning can benefit data maintenance and query performance. Whether it bene
 
 The primary benefit of partitioning in dedicated SQL pool is to improve the efficiency and performance of loading data by use of partition deletion, switching and merging. In most cases data is partitioned on a date column that is closely tied to the order in which the data is loaded into the SQL pool. One of the greatest benefits of using partitions to maintain data is the avoidance of transaction logging. While simply inserting, updating, or deleting data can be the most straightforward approach, with a little thought and effort, using partitioning during your load process can substantially improve performance.
 
-Partition switching can be used to quickly remove or replace a section of a table.  For example, a sales fact table might contain just data for the past 36 months. At the end of every month, the oldest month of sales data is deleted from the table.  This data could be deleted by using a delete statement to delete the data for the oldest month. 
+Partition switching can be used to quickly remove or replace a section of a table. For example, a sales fact table might contain just data for the past 36 months. At the end of every month, the oldest month of sales data is deleted from the table. This data could be deleted by using a delete statement to delete the data for the oldest month. 
 
-However, deleting a large amount of data row-by-row with a delete statement can take too much time, as well as create the risk of large transactions that take a long time to rollback if something goes wrong. A more optimal approach is to drop the oldest partition of data. Where deleting the individual rows could take hours, deleting an entire partition could take seconds.
+However, deleting a large amount of data row-by-row with a delete statement can take too much time, and create the risk of large transactions that take a long time to rollback if something goes wrong. A more optimal approach is to drop the oldest partition of data. Where deleting the individual rows could take hours, deleting an entire partition could take seconds.
 
 ### Benefits to queries
 
@@ -37,11 +37,11 @@ For example, if the sales fact table is partitioned into 36 months using the sal
 
 ## Partition sizing
 
-While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables. 
+While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances. These concerns are especially true for clustered columnstore tables. 
 
-For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create. There is no hard fast rule as to how many partitions are too many, it depends on your data and how many partitions you are loading simultaneously. A successful partitioning scheme usually has tens to hundreds of partitions, not thousands.
+For partitioning to be helpful, it's important to understand when to use partitioning and the number of partitions to create. There's no hard fast rule as to how many partitions are too many, it depends on your data and how many partitions you're loading simultaneously. A successful partitioning scheme usually has tens to hundreds of partitions, not thousands.
 
-When creating partitions on **clustered columnstore** tables, it is important to consider how many rows belong to each partition. For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed. Before partitions are created, dedicated SQL pool already divides each table into 60 distributions. 
+When creating partitions on **clustered columnstore** tables, it's important to consider how many rows belong to each partition. For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed. Before partitions are created, dedicated SQL pool already divides each table into 60 distributions. 
 
 Any partitioning added to a table is in addition to the distributions created behind the scenes. Using this example, if the sales fact table contained 36 monthly partitions, and given that a dedicated SQL pool has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated. If a table contains fewer than the recommended minimum number of rows per partition, consider using fewer partitions in order to increase the number of rows per partition. 
 
@@ -49,7 +49,7 @@ For more information, see the [Indexing](sql-data-warehouse-tables-index.md) art
 
 ## Syntax differences from SQL Server
 
-Dedicated SQL pool introduces a way to define partitions that is simpler than SQL Server. Partitioning functions and schemes are not used in dedicated SQL pool as they are in SQL Server. Instead, all you need to do is identify partitioned column and the boundary points. 
+Dedicated SQL pool introduces a way to define partitions that is simpler than SQL Server. Partitioning functions and schemes aren't used in dedicated SQL pool as they are in SQL Server. Instead, all you need to do is identify partitioned column and the boundary points. 
 
 While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same. SQL Server and dedicated SQL pool support one partition column per table, which can be ranged partition. To learn more about partitioning, see [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
@@ -85,7 +85,7 @@ To migrate SQL Server partition definitions to dedicated SQL pool simply:
 - Eliminate the SQL Server [partition scheme](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - Add the [partition function](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) definition to your CREATE TABLE.
 
-If you are migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows in each partition. Keep in mind that if the same partitioning granularity is used in dedicated SQL pool, the number of rows per partition decreases by a factor of 60.  
+If you're migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows in each partition. Keep in mind that if the same partitioning granularity is used in dedicated SQL pool, the number of rows per partition decreases by a factor of 60. 
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -124,9 +124,9 @@ GROUP BY    s.[name]
 
 Dedicated SQL pool supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement.
 
-To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries are not the same, then the partition switch will fail as the partition metadata will not be synchronized.
+To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints aren't available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries aren't the same, then the partition switch will fail as the partition metadata won't be synchronized.
 
-A partition split requires the respective partition (not necessarily the whole table) to be empty if the table has a clustered columnstore index (CCI). Other partitions in the same table can contain data. A partition that contains data cannot be split, it will result in error: `ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.` As a workaround to split a partition containing data, see [How to split a partition that contains data](#how-to-split-a-partition-that-contains-data). 
+A partition split requires the respective partition (not necessarily the whole table) to be empty if the table has a clustered columnstore index (CCI). Other partitions in the same table can contain data. A partition that contains data can't be split, it will result in error: `ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.` As a workaround to split a partition containing data, see [How to split a partition that contains data](#how-to-split-a-partition-that-contains-data). 
 
 ### How to split a partition that contains data
 
@@ -234,7 +234,7 @@ AND     [OrderDateKey] <  20010101;
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-Once you have completed the movement of the data, it is a good idea to refresh the statistics on the target table. Updating statistics ensures the statistics accurately reflect the new distribution of the data in their respective partitions.
+Once you have completed the movement of the data, it's a good idea to refresh the statistics on the target table. Updating statistics ensures the statistics accurately reflect the new distribution of the data in their respective partitions.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
@@ -243,11 +243,11 @@ Finally, in the case of a one-time partition switch to move data, you could drop
 
 ### Load new data into partitions that contain data in one step
 
-Loading data into partitions with partition switching is a convenient way to stage new data in a table that is not visible to users.  It can be challenging on busy systems to deal with the locking contention associated with partition switching.  
+Loading data into partitions with partition switching is a convenient way to stage new data in a table that isn't visible to users. It can be challenging on busy systems to deal with the locking contention associated with partition switching. 
 
-To clear out the existing data in a partition, an `ALTER TABLE` used to be required to switch out the data.  Then another `ALTER TABLE` was required to switch in the new data.  
+To clear out the existing data in a partition, an `ALTER TABLE` used to be required to switch out the data. Then another `ALTER TABLE` was required to switch in the new data. 
 
-In dedicated SQL pool, the `TRUNCATE_TARGET` option is supported in the `ALTER TABLE` command.  With `TRUNCATE_TARGET` the `ALTER TABLE` command overwrites existing data in the partition with new data.  Below is an example that uses `CTAS` to create a new table with the existing data, inserts new data, then switches all the data back into the target table, overwriting the existing data.
+In dedicated SQL pool, the `TRUNCATE_TARGET` option is supported in the `ALTER TABLE` command. With `TRUNCATE_TARGET` the `ALTER TABLE` command overwrites existing data in the partition with new data. Below is an example that uses `CTAS` to create a new table with the existing data, inserts new data, then switches all the data back into the target table, overwriting the existing data.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -274,7 +274,7 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ### Table partitioning source control
 
 > [!NOTE]
-> If your source control tool is not configured to ignore partition schemas, altering a table's schema to update partitions may cause a table to be dropped and recreated as part of the deployment, which may be unfeasible. A custom solution to implement such a change, as described below, may be necessary. Check that your continuous integration/continuous deployment (CI/CD) tool allows for this. In SQL Server Data Tools (SSDT), look for the Advanced Publish Settings "Ignore partition schemes" to avoid a generated script that cause a table to be dropped and recreated.
+> If your source control tool isn't configured to ignore partition schemas, altering a table's schema to update partitions may cause a table to be dropped and recreated as part of the deployment, which may be unfeasible. A custom solution to implement such a change, as described below, may be necessary. Check that your continuous integration/continuous deployment (CI/CD) tool allows for this. In SQL Server Data Tools (SSDT), look for the Advanced Publish Settings "Ignore partition schemes" to avoid a generated script that causes a table to be dropped and recreated.
 
 This example is useful when updating partition schemas of an empty table. To continuously deploy partition changes on a table with data, follow the steps in [How to split a partition that contains data](#how-to-split-a-partition-that-contains-data) alongside deployment to temporarily move data out of each partition before applying the partition SPLIT RANGE. This is necessary since the CI/CD tool isn't aware of which partitions have data.
 
@@ -353,6 +353,6 @@ To avoid your table definition from **rusting** in your source control system, y
 
 With this approach, the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the SQL pool over time.
 
-## Next steps
+## Related content
 
-For more information about developing tables, see the articles on [Table Overview](sql-data-warehouse-tables-overview.md).
+For more information about developing tables, see the [Table Overview](sql-data-warehouse-tables-overview.md).

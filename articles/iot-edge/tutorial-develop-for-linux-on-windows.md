@@ -2,9 +2,8 @@
 title: Develop modules for Linux devices using Azure IoT Edge for Linux on Windows
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules running in Linux containers for Windows devices, by using Azure IoT Edge for Linux on Windows.
 author: PatAltimore
-
-ms.author: fcabrera
-ms.date: 01/04/2024
+ms.author: patricka
+ms.date: 01/21/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -14,7 +13,7 @@ zone_pivot_groups: iotedge-dev
 
 # Tutorial: Develop IoT Edge modules with Linux containers by using IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This tutorial walks you through developing, debugging, and deploying your own code to an Azure IoT Edge device by using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions by deploying a C# module to a Linux device. You'll deploy and debug a custom IoT Edge module running in a Linux container on Windows. Even if you plan to use a different language or deploy an Azure service, this tutorial is still useful for learning about the development tools and concepts.
 
@@ -263,7 +262,7 @@ The deployment template includes:
 
 ### Set the IoT Edge runtime version
 
-Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices:
+Currently, the latest stable runtime version is 1.5. Update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices:
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -273,17 +272,17 @@ Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime
 
 1. Use the dropdown menu to choose the runtime version that your IoT Edge devices are running. Then select **OK** to save your changes. If you didn't make any changes, select **Cancel**.
 
-    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open the `deployment.debug.template.json` deployment manifest file. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open the `deployment.debug.template.json` deployment manifest file. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
        "edgeAgent": {
         //...
-          "image": "mcr.microsoft.com/azureiotedge-agent:1.4"
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.5"
         //...
        "edgeHub": {
        //...
-          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
        //...
     ```
 
@@ -294,17 +293,17 @@ Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime
 ::: zone pivot="iotedge-dev-cli"
 
 1. Open the `deployment.debug.template.json` deployment manifest file.
-1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
         "edgeAgent": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
         //...
         "edgeHub": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
         //...
     ```
 

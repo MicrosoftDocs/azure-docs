@@ -1,34 +1,28 @@
 ---
-# Mandatory fields.
 title: Query the twin graph
 titleSuffix: Azure Digital Twins
 description: See how to query the Azure Digital Twins twin graph for information.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 03/02/2023
+ms.author: baanders
+ms.date: 03/06/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Query the Azure Digital Twins twin graph
 
 This article offers query examples and instructions for using the *Azure Digital Twins query language* to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Query language](concepts-query-language.md).)
 
-The article contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](concepts-apis-sdks.md#data-plane-apis).
+The article contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you write them, using the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](concepts-apis-sdks.md#data-plane-overview).
 
 > [!NOTE]
-> If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
+> If you run the following sample queries with an API or SDK call, you need to condense the query text into a single line.
 
-[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
+[!INCLUDE [digital-twins-query-reference.md](includes/digital-twins-query-reference.md)]
 
 ## Show all digital twins
 
-Here's the basic query that will return a list of all digital twins in the instance:
+Here's the basic query that returns a list of all digital twins in the instance:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
@@ -38,10 +32,10 @@ Get digital twins by properties (including ID and metadata):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty1":::
 
-As shown in the query above, the ID of a digital twin is queried using the metadata field `$dtId`.
+As shown in the previous query, the ID of a digital twin is queried using the metadata field `$dtId`.
 
 >[!TIP]
-> If you are using Cloud Shell to run a query with metadata fields that begin with `$`, you should escape the `$` with a backslash to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text.
+> If you're using Cloud Shell to run a query with metadata fields that begin with `$`, you should escape the `$` with a backslash to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text.
 
 You can also get twins based on whether a certain property is defined. Here's a query that gets twins that have a defined `Location` property:
 
@@ -60,7 +54,7 @@ You can also get twins based on the type of a property. Here's a query that gets
 If a property is of the complex type `Map`, you can use the map keys and values directly in the query, like this:
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty4":::
 
-If the map key starts with a numeric character, you'll need to wrap the key in double square brackets (`[[<mapKey>]]`) to escape it in the query, similar to the strategy for [querying with reserved keywords](reference-query-reserved.md#escaping-reserved-keywords-in-queries).
+If the map key starts with a numeric character, you need to wrap the key in double square brackets (`[[<mapKey>]]`) to escape it in the query, similar to the strategy for [querying with reserved keywords](reference-query-reserved.md#escaping-reserved-keywords-in-queries).
 
 ## Query by model
 
@@ -71,7 +65,7 @@ It considers [inheritance](concepts-models.md#model-inheritance) and model [vers
 * The twin directly implements the model provided to `IS_OF_MODEL()`, and the version number of the model on the twin is greater than or equal to the version number of the provided model
 * The twin implements a model that extends the model provided to `IS_OF_MODEL()`, and the twin's extended model version number is greater than or equal to the version number of the provided model
 
-So for example, if you query for twins of the model `dtmi:example:widget;4`, the query will return all twins based on version 4 or greater of the widget model, and also twins based on version 4 or greater of any models that inherit from widget.
+So for example, if you query for twins of the model `dtmi:example:widget;4`, the query returns all twins based on version 4 or greater of the widget model, and also twins based on version 4 or greater of any models that inherit from widget.
 
 `IS_OF_MODEL` can take several different parameters, and the rest of this section is dedicated to its different overload options.
 
@@ -97,12 +91,12 @@ Here's a query example specifying a value for all three parameters:
 
 ## Query by relationship
 
-When querying based on digital twins' relationships, the Azure Digital Twins query language has a special syntax.
+To query based on digital twins' relationships, the Azure Digital Twins query language provides a special syntax.
 
 Relationships are pulled into the query scope in the `FROM` clause. Unlike in "classical" SQL-type languages, each expression in the `FROM` clause isn't a table; rather, the `FROM` clause expresses a cross-entity relationship traversal. To traverse across relationships, Azure Digital Twins uses a custom version of `JOIN`.
 
-Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships don't exist independently of twins, meaning that relationships here can't be queried independently and must be tied to a twin.
-To reflect this fact, the keyword `RELATED` is used in the `JOIN` clause to pull in the set of a certain type of relationship coming from the twin collection. The query must then filter in the `WHERE` clause, to indicate which specific twin(s) to use in the relationship query (using the twins' `$dtId` values).
+Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships don't exist independently of twins. The result is that relationships can't be queried independently and must be tied to a twin.
+To reflect this fact, the keyword `RELATED` is used in the `JOIN` clause to pull in the set of a certain type of relationship coming from the twin collection. The query must then filter in the `WHERE` clause, to indicate which specific twins to use in the relationship query (using the twins' `$dtId` values).
 
 The following sections give examples of what this looks like.
 
@@ -112,10 +106,10 @@ Here's a sample relationship-based query. This code snippet selects all digital 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship1":::
 
-The type of the relationship (`contains` in the example above) is indicated using the relationship's `name` field from its [DTDL definition](concepts-models.md#basic-relationship-example).
+The type of the relationship (`contains` in the previous example) is indicated using the relationship's `name` field from its [DTDL definition](concepts-models.md#basic-relationship-example).
 
 > [!NOTE]
-> The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
+> The developer doesn't need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). The system automatically computes this correlation, as the relationship properties themselves identify the target entity.
 
 ### Query by the source or target of a relationship
 
@@ -131,14 +125,13 @@ You can also start with the target of the relationship and trace the relationshi
 
 ### Query the properties of a relationship
 
-Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. You can query twins based on the properties of their relationships.
-The Azure Digital Twins query language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause.
+Similar to the way that digital twins have properties described via DTDL, relationships can also have properties. You can query twins based on the properties of their relationships. The Azure Digital Twins query language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause.
 
-As an example, consider a `servicedBy` relationship that has a `reportedCondition` property. In the below query, this relationship is given an alias of `R` to reference its property.
+As an example, consider a `servicedBy` relationship that has a `reportedCondition` property. In the following query, this relationship is given an alias of `R` to reference its property.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship2":::
 
-In the example above, note how `reportedCondition` is a property of the `servicedBy` relationship itself (NOT of some digital twin that has a `servicedBy` relationship).
+In the previous example, note how `reportedCondition` is a property of the `servicedBy` relationship itself (NOT of some digital twin that has a `servicedBy` relationship).
 
 ### Query with multiple JOINs
 
@@ -156,7 +149,7 @@ You can count the number of items in a result set using the `Select COUNT` claus
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount1":::
 
-Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [Query by model](#query-by-model) below):
+Add a `WHERE` clause to count the number of items that meet a certain criteria. The following examples demonstrate counting with an applied filter based on the type of twin model. For more information on this syntax, see [Query by model](#query-by-model).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount2":::
 
@@ -172,7 +165,7 @@ You can select the several "top" items in a query using the `Select TOP` clause.
 
 ## Filter results: specify return set with projections
 
-By using projections in the `SELECT` statement, you can choose which columns a query will return. Projection is now supported for both primitive and complex properties. For more information about projections with Azure Digital Twins, see the [SELECT clause reference documentation](reference-query-clause-select.md#select-columns-with-projections).
+By using projections in the `SELECT` statement, you can choose which columns a query returns. Projection is now supported for both primitive and complex properties. For more information about projections with Azure Digital Twins, see the [SELECT clause reference documentation](reference-query-clause-select.md#select-columns-with-projections).
 
 Here's an example of a query that uses projection to return twins and relationships. The following query projects the Consumer, Factory, and Edge from a scenario where a Factory with an ID of `ABC` is related to the Consumer through a relationship of `Factory.customer`, and that relationship is presented as the `Edge`.
 
@@ -182,7 +175,7 @@ You can also use projection to return a property of a twin. The following query 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections2":::
 
-You can also use projection to return a property of a relationship. Like in the previous example, the following query projects the `Name` property of the Consumers related to the Factory with an ID of `ABC` through a relationship of `Factory.customer`; but now it also returns two properties of that relationship, `prop1` and `prop2`. It does this by naming the relationship `Edge` and gathering its properties.  
+You can also use projection to return a property of a relationship. Like in the previous example, the following query projects the `Name` property of the Consumers related to the Factory with an ID of `ABC` through a relationship of `Factory.customer`; but now it also returns two properties of that relationship, `prop1` and `prop2`. The query returns those two properties by naming the relationship `Edge` and gathering its properties.  
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections3":::
 
@@ -192,7 +185,7 @@ The following query does the same operations as the previous example, but it ali
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections4":::
 
-Here's a similar query that queries the same set as above, but projects only the `Consumer.name` property as `consumerName`, and projects the complete Factory as a twin.
+Here's a similar query that queries the same set as the previous query, but projects only the `Consumer.name` property as `consumerName`, and projects the complete Factory as a twin.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections5":::
 
@@ -206,7 +199,7 @@ For example, consider a scenario in which Buildings contain Floors and Floors co
 
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="INOperatorWithout":::
 
-2. To find rooms, instead of considering the floors one-by-one and running a `JOIN` query to find the rooms for each one, you can query with a collection of the floors in the building (named Floor in the query below).
+2. To find rooms, instead of considering the floors one-by-one and running a `JOIN` query to find the rooms for each one, you can query with a collection of the floors in the building (named `Floor` in the following query).
 
     In client app:
     
@@ -220,7 +213,7 @@ For example, consider a scenario in which Buildings contain Floors and Floors co
 
 ## Other compound query examples
 
-You can combine any of the above types of query using combination operators to include more detail in a single query. Here are some other examples of compound queries that query for more than one type of twin descriptor at once.
+You can combine any of the previously described types of query using combination operators to include more detail in a single query. Here are some other examples of compound queries that query for more than one type of twin descriptor at once.
 
 * Out of the devices that Room 123 has, return the MxChip devices that serve the role of Operator
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples1":::
@@ -231,17 +224,17 @@ You can combine any of the above types of query using combination operators to i
 
 ## Run queries with the API
 
-Once you've decided on a query string, you execute it by making a call to the [Query API](/rest/api/digital-twins/dataplane/query).
+Once you decide on a query string, you execute it by making a call to the [Query API](/rest/api/digital-twins/dataplane/query).
 
-You can call the API directly, or use one of the [SDKs](concepts-apis-sdks.md#data-plane-apis) available for Azure Digital Twins.
+You can call the API directly, or use one of the [SDKs](concepts-apis-sdks.md#data-plane-overview) available for Azure Digital Twins.
 
 The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) call from a client app:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
-* Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
-* Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
+The query used in this call returns a list of digital twins, which the previous example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) objects. The return type of your data for each query depends on what terms you specify with the `SELECT` statement:
+* Queries that begin with `SELECT * FROM ...` return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you might create).
+* Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` return a dictionary with keys `<A>`, `<B>`, and `<C>`.
 * Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle customized result sets. 
 
 ### Query with paging

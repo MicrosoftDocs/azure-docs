@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/27/2024
+ms.date: 03/04/2025
 ms.topic: troubleshooting
 ---
 
@@ -333,12 +333,12 @@ Guest configuration relies on custom metadata added to policy definitions when c
 #### Resolution
 
 Instead of using the portal, duplicate the policy definition using the Policy
-Insights API. The following PowerShell sample provides an option.
+Insights API. The following PowerShell sample can copy the policy definition including the metadata using **Az.Resources 7.3.0** or higher.
 
 ```powershell
 # duplicates the built-in policy which audits Windows machines for pending reboots
-$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
-New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+$def = Get-AzPolicyDefinition -id "/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c"
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameter | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
 ```
 
 ### Scenario: Kubernetes resource gets created during connectivity failure despite deny policy being assigned
@@ -356,6 +356,23 @@ The GK fail-open model is by design and based on community feedback. Gatekeeper 
 In the prior event, the error case can be monitored from the [admission webhook metrics](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#admission-webhook-metrics) provided by the `kube-apiserver`. If evaluation is bypassed at creation time and an object is created, it's reported on Azure Policy compliance as non-compliant as a flag to customers.
 
 Regardless of the scenario, Azure policy retains the last known policy on the cluster and keeps the guardrails in place.
+
+### Scenario: The regex I provided in my policy assignment isn't matching the resources I expected it to match
+
+#### Cause
+The `regex.match` function in rego uses RE2, which is not the default flavor served by many online regex matchers. If you are testing your regex in an online matcher, you may see different results from what will be evaluated on the cluster.
+
+#### Resolution
+
+You will need to select the RE2 or golang flavor of regex in your matcher. See [the rego docs](https://docs.styra.com/opa/rego-by-example/builtins/regex/match) for more details on the RE2 flavor and what online tooling is recommended to test your regex.
+
+### Scenario: I'm seeing a large number of updates on constraint.gatekeeper.sh CRDs and other Gatekeeper resources
+
+#### Cause
+This is caused by a standalone instance of Gatekeeper being installed alongside the addon's Gatekeeper instance.
+
+#### Resolution
+Check for the existence of multiple Gatekeeper installations. Remove all Gatekeeper components not managed by AKS.
 
 ## Next steps
 

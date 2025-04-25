@@ -26,12 +26,8 @@ In this tutorial, you:
 
 ## Prerequisites
 
-To complete this project, you need the following items:
-
-| Requirement  | Instructions |
-|--|--|
-| Azure account | An active subscription is required. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/free/).
+* [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Considerations
 
@@ -45,36 +41,36 @@ Use the following steps to create your Eureka service cluster.
 
 1. Create variables that hold application configuration values.
 
-    ```bash
-    export LOCATION=eastus
-    export RESOURCE_GROUP=my-services-resource-group
-    export ENVIRONMENT=my-environment
-    export EUREKA_COMPONENT_FIRST=eureka01
-    export EUREKA_COMPONENT_SECOND=eureka02
-    export APP_NAME=sample-service-eureka-client
-    export IMAGE="mcr.microsoft.com/javacomponents/samples/sample-service-eureka-client:latest"
-    ```
+   ```bash
+   export LOCATION=eastus
+   export RESOURCE_GROUP=my-services-resource-group
+   export ENVIRONMENT=my-environment
+   export EUREKA_COMPONENT_FIRST=eureka01
+   export EUREKA_COMPONENT_SECOND=eureka02
+   export APP_NAME=sample-service-eureka-client
+   export IMAGE="mcr.microsoft.com/javacomponents/samples/sample-service-eureka-client:latest"
+   ```
 
 1. Sign in to Azure with the Azure CLI.
 
-    ```azurecli
-    az login
-    ```
+   ```azurecli
+   az login
+   ```
 
 1. Create a resource group.
 
-    ```azurecli
-    az group create --name $RESOURCE_GROUP --location $LOCATION
-    ```
+   ```azurecli
+   az group create --name $RESOURCE_GROUP --location $LOCATION
+   ```
 
 1. Create your Container Apps environment.
 
-    ```azurecli
-    az containerapp env create \
-      --name $ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --location $LOCATION
-    ```
+   ```azurecli
+   az containerapp env create \
+       --name $ENVIRONMENT \
+       --resource-group $RESOURCE_GROUP \
+       --location $LOCATION
+   ```
 
 ## Create a cluster
 
@@ -82,19 +78,19 @@ Next, create two Eureka server instances and link them together as a cluster.
 
 1. Create two Eureka Server for Spring components.
 
-    ```azurecli
-    az containerapp env java-component eureka-server-for-spring create \
-        --environment $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --name $EUREKA_COMPONENT_FIRST
-    ```
+   ```azurecli
+   az containerapp env java-component eureka-server-for-spring create \
+       --environment $ENVIRONMENT \
+       --resource-group $RESOURCE_GROUP \
+       --name $EUREKA_COMPONENT_FIRST
+   ```
 
-    ```azurecli
-    az containerapp env java-component eureka-server-for-spring create \
-        --environment $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --name $EUREKA_COMPONENT_SECOND
-    ```
+   ```azurecli
+   az containerapp env java-component eureka-server-for-spring create \
+       --environment $ENVIRONMENT \
+       --resource-group $RESOURCE_GROUP \
+       --name $EUREKA_COMPONENT_SECOND
+   ```
 
 ## Bind components together
 
@@ -102,23 +98,23 @@ For the Eureka servers to work in a high-availability configuration, they need t
 
 1. Bind the first Eureka server to the second.
 
-    ```azurecli
-    az containerapp env java-component eureka-server-for-spring update \
-        --environment $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --name $EUREKA_COMPONENT_FIRST \
-        --bind $EUREKA_COMPONENT_SECOND
-    ```
+   ```azurecli
+   az containerapp env java-component eureka-server-for-spring update \
+       --environment $ENVIRONMENT \
+       --resource-group $RESOURCE_GROUP \
+       --name $EUREKA_COMPONENT_FIRST \
+       --bind $EUREKA_COMPONENT_SECOND
+   ```
 
 1. Bind the second Eureka server to the first.
 
-    ```azurecli
-    az containerapp env java-component eureka-server-for-spring update \
-        --environment $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --name $EUREKA_COMPONENT_SECOND \
-        --bind $EUREKA_COMPONENT_FIRST
-    ```
+   ```azurecli
+   az containerapp env java-component eureka-server-for-spring update \
+       --environment $ENVIRONMENT \
+       --resource-group $RESOURCE_GROUP \
+       --name $EUREKA_COMPONENT_SECOND \
+       --bind $EUREKA_COMPONENT_FIRST
+   ```
 
 ## Deploy and bind the application
 
@@ -126,35 +122,35 @@ With the server components linked together, you can create the container app and
 
 1. Create the container app.
 
-    ```azurecli
-    az containerapp create \
-        --name $APP_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --environment $ENVIRONMENT \
-        --image $IMAGE \
-        --min-replicas 1 \
-        --max-replicas 1 \
-        --ingress external \
-        --target-port 8080
-    ```
+   ```azurecli
+   az containerapp create \
+       --name $APP_NAME \
+       --resource-group $RESOURCE_GROUP \
+       --environment $ENVIRONMENT \
+       --image $IMAGE \
+       --min-replicas 1 \
+       --max-replicas 1 \
+       --ingress external \
+       --target-port 8080
+   ```
 
 1. Bind the container app to the first Eureka server component.
 
-    ```azurecli
-    az containerapp update \
-        --name $APP_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --bind $EUREKA_COMPONENT_FIRST 
-    ```
+   ```azurecli
+   az containerapp update \
+       --name $APP_NAME \
+       --resource-group $RESOURCE_GROUP \
+       --bind $EUREKA_COMPONENT_FIRST 
+   ```
 
 1. Bind the container app to the second Eureka server component.
 
-    ```azurecli
-    az containerapp update \
-        --name $APP_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --bind $EUREKA_COMPONENT_SECOND
-    ```
+   ```azurecli
+   az containerapp update \
+       --name $APP_NAME \
+       --resource-group $RESOURCE_GROUP \
+       --bind $EUREKA_COMPONENT_SECOND
+   ```
 
 ## View the dashboards
 
@@ -163,65 +159,66 @@ With the server components linked together, you can create the container app and
 
 1. Create the custom role definition.
 
-    ```azurecli
-    az role definition create --role-definition '{
-        "Name": "Java Component Dashboard Access",
-        "IsCustom": true,
-        "Description": "Can access managed Java Component dashboards in managed environments",
-        "Actions": [
-            "Microsoft.App/managedEnvironments/write"
-        ],
-        "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>"]
-    }'
-    ```
+   ```azurecli
+   az role definition create --role-definition '{
+       "Name": "Java Component Dashboard Access",
+       "IsCustom": true,
+       "Description": "Can access managed Java Component dashboards in managed environments",
+       "Actions": [
+           "Microsoft.App/managedEnvironments/write"
+       ],
+       "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>"]
+   }'
+   ```
 
-    Make sure to replace placeholder in between the `<>` brackets in the `AssignableScopes` value with your subscription ID.
+   Make sure to replace placeholder in between the `<>` brackets in the `AssignableScopes` value with your subscription ID.
 
 1. Assign the custom role to your account on managed environment resource.
 
-    Get the resource ID of the managed environment.
+   Get the resource ID of the managed environment.
 
-    ```azurecli
-    export ENVIRONMENT_ID=$(az containerapp env show \
-      --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \
-      --query id -o tsv)
-    ```
+   ```azurecli
+   export ENVIRONMENT_ID=$(az containerapp env show \
+       --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \
+       --query id \
+       --output tsv)
+   ```
 
 1. Assign the role to your account.
 
-    Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
+   Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
 
-    ```azurecli
-    az role assignment create \
-      --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
-      --role "Java Component Dashboard Access" \
-      --scope $ENVIRONMENT_ID
-    ```
+   ```azurecli
+   az role assignment create \
+       --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
+       --role "Java Component Dashboard Access" \
+       --scope $ENVIRONMENT_ID
+   ```
 
 1. Get the URL of the Eureka Server for Spring dashboard.
 
-    ```azurecli
-    az containerapp env java-component eureka-server-for-spring show \
-      --environment $ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $EUREKA_COMPONENT_FIRST \
-      --query properties.ingress.fqdn -o tsv
-    ```
+   ```azurecli
+   az containerapp env java-component eureka-server-for-spring show \
+       --environment $ENVIRONMENT \
+       --resource-group $RESOURCE_GROUP \
+       --name $EUREKA_COMPONENT_FIRST \
+       --query properties.ingress.fqdn \
+       --output tsv
+   ```
 
-    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, you can verify that the Eureka server setup consists of two replicas.
+   This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, you can verify that the Eureka server setup consists of two replicas.
 
-    :::image type="content" source="media/java-components/eureka-highly-available.png" alt-text="Screenshot of a highly available Eureka Server for Spring dashboard.":::
+   :::image type="content" source="media/java-components/eureka-highly-available.png" alt-text="Screenshot of a highly available Eureka Server for Spring dashboard.":::
 
 ## Clean up resources
 
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
 
 ```azurecli
-az group delete \
-    --resource-group $RESOURCE_GROUP
+az group delete --resource-group $RESOURCE_GROUP
 ```
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
-> [Configure Eureka Server for Spring settings](java-eureka-server-usage.md)
+> [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](java-eureka-server.md)

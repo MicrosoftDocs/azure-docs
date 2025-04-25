@@ -4,10 +4,9 @@ description: This article helps you understand the different traffic routing met
 services: traffic-manager
 author: greg-lindsay
 ms.service: azure-traffic-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: greglin
-ms.custom: template-concept
 ---
 
 # Traffic Manager routing methods

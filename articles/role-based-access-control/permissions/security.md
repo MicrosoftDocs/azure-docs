@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Secur
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -55,6 +55,8 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot list. |
 > | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/snapshots/download/action | Download compliance needs from snapshot, like: Compliance Report, Resource List. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/controls/read | Get the AppComplianceAutomation control list. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/controls/read | Get the AppComplianceAutomation control and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook list. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/write | Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook. |
@@ -127,7 +129,7 @@ Azure service: Data Protection
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | The Get ResourceGuard operation gets an object representing the Azure resource of type 'ResourceGuard' |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/delete | The Delete ResourceGuard operation deletes the specified Azure resource of type 'ResourceGuard' |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | Gets list of ResourceGuards in a Resource Group |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResouceGuard operation updates an Azure resource of type 'ResourceGuard' |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResourceGuard operation updates an Azure resource of type 'ResourceGuard' |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard operation request info |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard default operation request info |
 
@@ -544,10 +546,14 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/ConfidentialWatchlists/read | Gets Confidential Watchlists |
 > | Microsoft.SecurityInsights/ConfidentialWatchlists/write | Creates Confidential Watchlists |
 > | Microsoft.SecurityInsights/ConfidentialWatchlists/delete | Deletes Confidential Watchlists |
-> | Microsoft.SecurityInsights/ContentPackages/read | Read available Content Packages. |
-> | Microsoft.SecurityInsights/ContentPackages/write | Install or uninstall Content Packages. |
+> | Microsoft.SecurityInsights/ContentPackages/read | Read Installed Content Packages. |
+> | Microsoft.SecurityInsights/ContentPackages/write | Install Content Packages. |
+> | Microsoft.SecurityInsights/ContentPackages/delete | Delete Installed Content Packages. |
+> | Microsoft.SecurityInsights/ContentProductPackages/read | Read Available Product Packages |
+> | Microsoft.SecurityInsights/ContentProductTemplates/read | Read Available Product Templates |
+> | Microsoft.SecurityInsights/ContentTemplates/write | Install Content Templates. |
 > | Microsoft.SecurityInsights/ContentTemplates/read | Read installed Content Templates. |
-> | Microsoft.SecurityInsights/ContentTemplates/delete | Delete installed Content Templates. |
+> | Microsoft.SecurityInsights/ContentTemplates/delete | Delete Installed Content Templates. |
 > | Microsoft.SecurityInsights/dataConnectors/read | Gets the data connectors |
 > | Microsoft.SecurityInsights/dataConnectors/write | Updates a data connector |
 > | Microsoft.SecurityInsights/dataConnectors/delete | Deletes a data connector |

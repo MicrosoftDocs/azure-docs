@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 10/29/2024
 ms.author: ankitadutta
 
 ---
@@ -69,6 +69,9 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
     - **Key encryption key vaults**
 
    By default, Site Recovery creates a new key vault in the target region. The vault's name has an "asr" suffix that's based on the source VM disk encryption keys. If a key vault already exists that was created by Site Recovery, it's reused. Select a different key vault from the list if necessary.
+
+> [!NOTE]
+> Alternatively, you can download the key, import it in the secondary key vault region. You can then modify your replicas disks to use the keys.
 
 ## Enable replication
 

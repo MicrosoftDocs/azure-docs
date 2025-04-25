@@ -72,7 +72,7 @@
         },
         {
             "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
-            "redirect_url": "/azure/iot/iot-security-architecture",
+            "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
             "redirect_document_id": false
         },
         {

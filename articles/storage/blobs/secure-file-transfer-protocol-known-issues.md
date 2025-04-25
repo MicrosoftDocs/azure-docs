@@ -79,7 +79,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - Maximum file upload size via the SFTP endpoint is 500 GB.
 
-- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#hierarchical-namespace-hns).
+- Customer-managed planned failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md).
 
 - To change the storage account's redundancy/replication settings, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
 

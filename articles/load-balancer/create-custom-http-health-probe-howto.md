@@ -134,7 +134,7 @@ In this section, you create the load balancer rule that uses the HTTP health pro
     | **Protocol** | Select **TCP** |
     | **Port** | Enter **5000** |
     | **Backend port** | Enter **5000** |
-    | **Health probe** | Select **HTTP_Health (HTTP:5000/health_checkk/)** |
+    | **Health probe** | Select **HTTP_Health (HTTP:5000/health_check/)** |
     | **Session persistence** | Select **None** |
     | **Idle timeout (minutes)** | Enter **5** |
 

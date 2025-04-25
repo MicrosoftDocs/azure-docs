@@ -125,7 +125,7 @@ function InitMap()
     map.events.add('ready', function () {
 
       //Load the custom image icon into the map resources.
-      map.imageSprite.add('my-custom-icon', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/showers.png').then(function () {
+      map.imageSprite.add('my-custom-icon', '/images/icons/showers.png').then(function () {
 
         //Create a data source and add it to the map.
         var datasource = new atlas.source.DataSource();
@@ -160,12 +160,15 @@ function InitMap()
 
 :::image type="content" source="./media/map-add-pin/add-custom-icon-to-symbol-layer.png" alt-text="A screenshot of map with a pin added using the symbol layer with a custom icon.":::
 
+> [!NOTE]
+> For a copy of the image file used in the above sample, see [showers.png](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Static/images/icons/showers.png) in GitHub.
+
 <!-------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ------------------------------------->
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates] document.
+> The Azure Maps Web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates] document.
 
 ## Customize a symbol layer
 

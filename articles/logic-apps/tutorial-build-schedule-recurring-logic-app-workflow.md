@@ -7,7 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.custom: mvc
-ms.date: 08/07/2024
+ms.date: 02/27/2025
 ---
 
 # Tutorial: Create schedule-based automated workflows using Azure Logic Apps
@@ -83,7 +83,7 @@ You can create a similar workflow with a Standard logic app resource. However, t
    > [!NOTE]
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
-   > [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+   > [Azure regions that support availability zones](../reliability/availability-zones-region-support.md). 
    > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 

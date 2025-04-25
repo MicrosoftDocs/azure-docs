@@ -222,7 +222,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. Provide information about the email as specified in the following table:
 
-   ![Screenshot that shows the workflow designer with dynamic content being addded to email subject line for a true condition.](./media/monitor-virtual-machine-changes-logic-app/logic-app-empty-email-action.png)
+   ![Screenshot that shows the workflow designer with dynamic content being added to email subject line for a true condition.](./media/monitor-virtual-machine-changes-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
    > To select output from the previous steps in your workflow, click inside an edit box so that the dynamic content list appears, 

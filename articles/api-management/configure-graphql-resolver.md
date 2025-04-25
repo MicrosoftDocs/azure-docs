@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/02/2024
 ms.author: danlep
 ---
@@ -195,7 +195,7 @@ You can define the resolver as follows:
 </http-data-source>
 ```
 
-## Next steps
+## Related content
 
 For more resolver examples, see:
 

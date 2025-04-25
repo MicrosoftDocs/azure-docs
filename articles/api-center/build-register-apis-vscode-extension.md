@@ -4,7 +4,7 @@ description: API developers can use the Azure API Center extension for Visual St
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 11/08/2024
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -13,12 +13,12 @@ ms.custom:
 
 # Build and register APIs with the Azure API Center extension for Visual Studio Code
 
-API developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
+API producer developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
 
 * Add an existing API to an API center as a one-time operation, or integrate a development pipeline to register APIs as part of a CI/CD workflow.
-* Generate OpenAPI specification files from API code using GitHub Copilot, and register the API to an API center.
+* Use GitHub Copilot to generate new OpenAPI specs from API code.
 
-API developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
+API consumer developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
 
@@ -51,9 +51,9 @@ The following steps register an API in your API center with a CI/CD pipeline. Wi
 
 Learn more about setting up a [GitHub Actions workflow](register-apis-github-actions.md) to register APIs with your API center.
 
-## Generate OpenAPI specification file from API code 
+## Generate OpenAPI spec from API code 
  
-Use the power of GitHub Copilot with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
+Use the power of [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
@@ -62,11 +62,14 @@ Use the power of GitHub Copilot with the Azure API Center extension for Visual S
 
 After generating the OpenAPI specification file and checking for accuracy, you can register the API with your API center using the **Azure API Center: Register API** command.
 
+> [!TIP]
+> API developers can also generate new OpenAPI specs using natural language prompts with the API Center plugin for GitHub Copilot for Azure. [Learn more](design-api-github-copilot-azure.md).
 
 ## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
 * [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable and view platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
+* [Overview of GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction)
 

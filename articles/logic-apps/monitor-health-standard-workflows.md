@@ -1,11 +1,11 @@
 ---
 title: Monitor Standard workflows with Health Check
 description: Set up Health Check to monitor health for Standard workflows in Azure Logic Apps.
-services: azure-logic-apps
+services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 04/15/2025
 # Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
@@ -14,6 +14,7 @@ ms.date: 08/06/2024
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
+>
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -65,21 +66,13 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 1. In the [Azure portal](https://portal.azure.com), go to your Standard logic app resource.
 
-1. On the logic app menu, select **Diagnose and solve problems**.
+1. On the logic app menu, under Monitoring**, select **Health check**. On the **Health check** page, on the **Health check** tab, select **Enable**.
 
-1. On the **Diagnose and solve problems** page, in the search box, find and select **Health Check feature**.
-
-   :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Diagnose and solve problems, search box with health check entered, and selected option for Health Check feature." lightbox="media/monitor-health-standard-workflows/health-check.png":::
-
-1. In the **Health Check feature** section, select **View Solution**.
-
-1. On the pane that opens, select **Configure and enable health check feature**. 
-
-1. On the **Health check** tab, next to **Health check**, select **Enable**.
+   :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Health check, and selected option for Enable." lightbox="media/monitor-health-standard-workflows/health-check.png":::
 
 1. Under **Health probe path**, in the **Path** box, enter a valid URL path for your workflow, for example:
 
-   **`/api/{workflow-name}/triggers/{request-trigger-name}/invoke?api-version=2022-05-01`**
+   **`/api/<workflow-name>/triggers/<request-trigger-name>/invoke?api-version=2022-05-01`**
 
 1. Save your changes. On the toolbar, select **Save**.
 
@@ -97,7 +90,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
       "extensions": {
           "workflow": {
               "settings": {
-                  "Workflows.HealthCheckWorkflowName" : "{workflow-name}"
+                  "Workflows.HealthCheckWorkflowName" : "<workflow-name>"
               }
           }
       }
@@ -122,6 +115,42 @@ After Health Check removes the unhealthy instance, the feature continues to ping
    - Confirm that the **Workflows.HealthCheckWorkflowName** property and your health workflow name appear correctly.
 
    - Confirm that the specified path matches the workflow and **Request** trigger name.
+
+## Common health problems
+
+### My logic app resource doesn't have any workflows, but the resource still scales out to multiple instances, which incur costs.
+
+This behavior can happen if the logic app resource isn't healthy, or typically, when the resource can't access the associated storage account. Try checking whether the storage account has a networking setting that blocks access, or whether you have a networking firewall policy that blocks access.
+
+### My logic app resource has workflows, but they aren't running or running a lot. However, the resource still scales out to multiple instances, which incur costs.
+
+1. Check whether the resource can access the associated storage account.
+
+   For example, does the storage account have a networking setting that blocks access? Do you have a networking firewall policy that blocks access?
+
+1. If your workflow starts with a [service provider-based trigger](/azure/connectors/built-in#service-provider-based-built-in-connectors), make sure that the trigger successfully works as expected.
+
+   - A failed service provider-based trigger might create unnecessary scaling, which can dramatically increase costs.
+   
+     For example, a common oversight is setting a trigger without giving your logic app permission or access to the destination, such as a Service Bus queue, Storage blob container, and so on.
+   
+   - Make sure to monitor such triggers at all times, so that you can promptly detect and fix any issues.
+
+### My workflow intermittently stops processing messages for hours but runs well most other times.
+
+If your Standard logic app uses the hosting option named **Workflow Service Plan** and isn't hosted in an App Service Environment, make sure that **Runtime Scale Monitoring** is turned on and that **Always Ready Instances** is set to at least **1**.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app, if not already open.
+
+1. On the logic app menu, under **Settings**, select **Configuration**.
+
+1. On the **Workflow runtime settings** tab, next to **Runtime Scale Monitoring**, select **On**.
+
+1. On the **Configuration** page toolbar, select **Save**.
+
+1. On the logic app menu, under **Settings**, select **Scale out (App Service plan)**.
+
+1. Under **App Scale out**, make sure that the **Always Ready Instances** value *isn't set* to **0**.
 
 ## Related content
 
