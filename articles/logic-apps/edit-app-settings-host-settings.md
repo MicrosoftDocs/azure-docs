@@ -230,12 +230,12 @@ The following settings work only for workflows that start with a recurrence-base
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the amount of time for a workflow action job to run before timing out and retrying. To change the default time-out for a built-in operations such as SAP, also set the **`functionTimeout`** host setting, which appears at the same level as the **`extensions`** object. This setting affects all workflow executions in the same logic app. | 
-| `functionTimeout` | `00:05:00` <br>(5 minutes) | Sets the time-out duration for all workflow executions in the same logic app. Keeping an upper bound is recommended, but you can use a value of **`-1`** for unbounded execution. <br><br>In the **host.json** file, the **`functionTimeout`** setting exists at the same level as the **`extensions`** object because this setting is available in Azure Functions, which provided the infrastructure that is extended by Azure Logic Apps (Standard). |
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the duration for a workflow action job to run before timing out and retrying. To change the default time-out for a built-in operation such as SAP, also set the **`functionTimeout`** host setting. For more information, see the next entry. |
+| `functionTimeout` | `00:05:00` <br>(5 minutes) | Sets the duration to run before timing out for function calls in Azure Functions and some built-in operations, such as SAP, that run as function calls. Standard logic apps use the same underlying design as function apps. So, the **`functionTimeout`** host setting in Azure Functions also affects built-in operations that run as function calls. <br><br>**Note**: In the **host.json** file, the **`functionTimeout`** setting exists at the same level outside the **`extensions`** object where Standard workflow host settings exist. For more information, see the example in this section: [Change time-out value for function-based built-in operations](#change-time--out-value-for-function--based-built--in-operations). |
 
-#### Change time-out value for built-in operations
+#### Change time-out value for function-based built-in operations
 
-For this task, add both the **`Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout`** and **`functionTimeout`** host settings to your **host.json** file as shown in the following example:
+For built-in operations that run as function calls in Azure Functions, add both the **`Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout`** and **`functionTimeout`** host settings to your **host.json** file as shown in the following example:
 
 ```json
 {
