@@ -126,6 +126,15 @@ landingContent:
           - text: Scope extension resource
             url: scope-extension-resources.md
   # Card
+  - title: Patterns
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Configuration set pattern
+          url: patterns-configuration-set.md
+        - text: Shared variable file pattern
+          url: patterns-shared-variable-file.md            
+  # Card
   - title: Explore reference content
     linkLists:
       - linkListType: reference
