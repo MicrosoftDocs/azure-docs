@@ -30,26 +30,25 @@ Runtime changes are categorized as follows:
 4. Target Cluster must be healthy in a running state.
 
 ## Required Parameters:
-- <ENVIRONMENT> - Instance Name
+- /<ENVIRONMENT/> - Instance Name
 - <AZURE_REGION> - Azure Region of Instance
 - <CUSTOMER_SUB_NAME>: Subscription Name
-- <CUSTOMER_SUB_TENANT_ID>  // From 'az account show'
 - <CUSTOMER_SUB_ID>: Subscription ID
 - <CLUSTER_NAME>: Cluster Name
 - <CLUSTER_RG>: Cluster Resource Group
 - <CLUSTER_RID>: Cluster ARM ID
-- <CLUSTER_KEYVAULT_ID>: Cluster Keyvault ARM ID
 - <CLUSTER_MRG>: Cluster Managed Resource Group
 - <CLUSTER_CONTROL_BMM>: Cluster Control plane baremetalmachine
-- <CLUSTER_RUNTIME_VERSION>: Runtime version for upgrade
+- <CLUSTER_VERSION>: Runtime version for upgrade
 - <START_TIME>: Planned start time of upgrade
-- <DURATION>: Estimated Duration of upgrade
+- /<DURATION/>: Estimated Duration of upgrade
+- <DEPLOYMENT_THRESHOLD>: Compute deployment threshold
+- <DEPLOYMENT_PAUSE_MINS>: Time to wait before moving to the next rack once the current rack percent of Compute servers complete upgrade
 - <NFC_NAME>: Associated NFC
 - <CM_NAME>: Associated CM
 - <ETCD_LAST_ROTATION_DATE>: Control plane etcd credential last rotation date
 - <ETCD_ROTATION_DAYS>: Control plane etcd credential next rotation period
-- <FABRIC_NAME>: Associated Fabric
-- <NEXUS_VERSION>: Target upgrade version
+- <BMM_ISSUE_LIST>: List of BMM with provisioining issues afer Cluster upgrade is complete
 
 ## Pre-Checks
 
@@ -59,13 +58,13 @@ Runtime changes are categorized as follows:
    - Validate the `lastRotationTime` and `rotationPeriodDays` under the `etcd credential` section:
      ```
      {
-	    "lastRotationTime": "<ETCD_LAST_ROTATION_DATE>",
-        "rotationPeriodDays": <ETCD_ROTATION_DAYS>,
-        "secretType": "etcd credential"
-	 }
-	 ```
-	 
-	 >[!Important]
+       "lastRotationTime": "<ETCD_LAST_ROTATION_DATE>",
+       "rotationPeriodDays": <ETCD_ROTATION_DAYS>,
+       "secretType": "etcd credential"
+     }
+     ```
+
+     >[!Important]
      > If the upgrade will occur within three days of the next `etcd credential` rotation (<ETCD_LAST_ROTATION_DATE> + <ETCD_ROTATION_DAYS>), contact Miscrosoft Support to complete a manual rotation before starting the upgrade.
 	 
 2. Validate the provisioning and detailed status for the Cluster Manager (CM) and Cluster.
@@ -77,6 +76,10 @@ Runtime changes are categorized as follows:
    export CM_NAME=<CM_NAME>
    export CLUSTER_RG=<CLUSTER_RG>
    export CLUSTER_NAME=<CLUSTER_NAME>
+   export CLUSTER_RID=<CLUSTER_RID>
+   export CLUSTER_MRG=<CLUSTER_MRG>
+   export THRESHOLD=<DEPLOYMENT_THRESHOLD>
+   export PAUSE_MINS=<DEPLOYMENT_PAUSE_MINS>
    ```
 
    Check that the CM is in `Succeeded` for `Provisioning state`:
@@ -92,5 +95,237 @@ Runtime changes are categorized as follows:
    >[!Note]
    > If CM `Provisioning state` is not `Succeeded` and Cluster `Detailed status` is not `Running` stop the upgrade until issues are resolved.
 
-3. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
+3.  Check the Bare Metal Machine status `Detailed status` is `Running`:
+   ```
+   az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+   ```
 
+   Check the following for each BMM:
+   - ReadyState: True
+   - ProvisioningState: Succeeded
+   - DetailedStatus: Provisioned
+   - CordonStatus: Uncordoned
+   - PowerState: On
+
+4. Collect a profile of the tenant workloads pre-upgrade:
+   ```
+   az networkcloud clustermanager show -g $CM_RG --resource-name $CM_NAME --subscription $SUBSCRIPTION_ID -o table
+   az networkcloud virtualmachine list --sub $SUBSCRIPTION_ID --query "reverse(sort_by([?clusterId=='$CLUSTER_RID'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
+   az networkcloud kubernetescluster list --sub $SUBSCRIPTION_ID --query "[?clusterId=='$CLUSTER_RID'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
+   ```
+5. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
+
+## Send notification to Operations of upgrade schedule for the Cluster.
+
+The following template can be used through email or support ticket:
+```
+Title: <ENVIRONMENT> <AZURE_REGION> <CLUSTER_NAME> runtime upgrade to <CLUSTER_VERSION> <START_TIME> - Completion ETA <DURATION>
+
+Operations Support:
+
+Deployment Team notification for <ENVIRONMENT> <AZURE_REGION> <CLUSTER_NAME> runtime upgrade to <CLUSTER_VERSION> <START_TIME> - Completion ETA <DURATION>
+
+Subscription: <CUSTOMER_SUB_ID>
+NFC: <NFC_NAME>
+CM: <CM_NAME>
+Fabric: <NF_NAME>
+Cluster: <CLUSTER_NAME>
+Region: <AZURE_REGION>
+Version: <NEXUS_VERSION>
+
+CC: stakeholder-list
+```
+
+## Add resource tag on Cluster resource in Azure portal
+To help track upgrades, add a tag to the Cluster resource in Azure portal (optional):
+```
+|Name            | Value          |
+|----------------|-----------------
+|BF in progress  |<DE_ID>         |
+```
+
+## Set deployment strategy and Compute threshold on Cluster if different from default
+The default threshold for the percent of Compute BMM to pass hardware validation and provisioning is 80% with a default pause between Racks of one minute.
+
+`update-strategy` can be the following:
+* `Rack` - Upgrade each Rack one at a time and move to the next Rack once the Compute threshold is met for the curren Rack. Pause for <DEPLOYMENT_PAUSE_MINS> before starting next Rack.
+* `PauseAfterRack` - Wait for user API response to continue to the next Rack once the Compute threshold is met for the current Rack.
+
+If `updateStrategy` is not set, the default are as follows:
+```
+"updateStrategy": {
+   "maxUnavailable": 32767,
+   "strategyType": "Rack",
+   "thresholdType": "PercentSuccess",
+   "thresholdValue": 80,
+   "waitTimeMinutes": 1
+}
+```
+
+### Set a deployment threshold and wait time different than default:
+```
+az networkcloud cluster update -n $CLUSTER_NAME -g $CLUSTER_RG --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=$THRESHOLD wait-time-minutes=$PAUSE_MINS --subscription $SUBSCRIPTION_ID
+```
+>[!Important] If 100% threshold is required, review the BMM status reported during pre-checks and make sure all BMM are healthy before proceeding with the upgrade.
+
+Verify update:
+```
+az networkcloud cluster show -n $CLUSTER_NAME -g $CLUSTER_RG --subscription $SUBSCRIPTION_ID| grep -A5 updateStrategy
+"updateStrategy": {
+   "maxUnavailable": 32767,
+   "strategyType": "Rack",
+   "thresholdType": "PercentSuccess",
+   "thresholdValue": 80,
+   "waitTimeMinutes": 1
+}
+```
+
+### Running Cluster upgrade with `PauseAfterRack` Strategy
+
+`PauseAferRack` strategy allows the customer to control the upgrade by requiring an API call to continue to the next Rack after each Compute Rack completes to the configured threshold.
+
+To configure strategy to use `PauseAfterRack`:
+```
+az networkcloud cluster update -n $CLUSTER_NAME -g $CLUSTER_RG --update-strategy strategy-type="PauseAfterRack" wait-time-minutes=0 threshold-type="PercentSuccess" threshold-value=$THRESHOLD --subscription $SUBSCRIPTION_ID
+```
+
+Verify update:
+```
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -A5 updateStrategy
+  "updateStrategy": {
+    "maxUnavailable": 32767,
+    "strategyType": "PauseAfterRack",
+    "thresholdType": "PercentSuccess",
+    "thresholdValue": $THRESHOLD,
+    "waitTimeMinutes": 0
+```
+
+## Run upgrade from either portal or cli:
+* To start upgrade from Azure portal, go to Cluster resource, click `Update`, select <CLUSTER_VERSION>, then click `Update`
+* To run upgrade from Azure CLI, run the following:
+  ```
+  az networkcloud cluster update-version --subscription $SUBSCRIPTION_ID --cluster-name $CLUSTER_NAME --target-cluster-version $CLUSTER_VERSION --resource-group $CLUSTER_RG --no-wait --debug
+  ```
+
+  Gather ASYNC URL and Correlation ID info for further troubleshooting if needed.
+  ```
+  cli.azure.cli.core.sdk.policies:     'mise-correlation-id': '<MISE_CID>'
+  cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '<CORRELATION_ID>'
+  cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': '<ASYNC_URL>'
+  ```
+  Provide this information to Microsoft Support when opening a support ticket for upgrade issues.
+
+## Monitor status of Cluster:
+```
+az networkcloud cluster list -g $CLUSTER_RG --subscription $SUBSCRIPTION_ID -o table
+```
+When the upgrade is complete, the Cluster `Detailed status` will move to `Running` state and the `Detailed status message` will show 'Cluster is up and running.`
+
+## Monitor status of Bare Metal Machines:
+```
+az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID -o table
+az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+```
+
+Validate the following for each BMM:
+- ReadyState: True
+- ProvisioningState: Succeeded
+- DetailedStatus: Provisioned
+- CordonStatus: Uncordoned
+- PowerState: On
+- KubernetesVersion: <NEW_VERSION>
+- MachineClusterVersion: <NEXUS_VERSION>
+
+For any BMM that does not complete provisioning, and Cluster upgrade is complete, add a Tag to the BMM resource (optional):
+```
+|Name                | Value          |
+|--------------------|-----------------
+|BF provision issue  |<DE_ID>         |
+```
+
+## Continuing upgrade during `PauseAfterRack` strategy:
+Once a compute rack has met the success threshold, the upgrade will move into a pause until the user signals to the operator to continue the upgrade.
+
+Use the following to continue upgrade once a Compute Rack has met the Compute deployment threshold for the rack:
+```
+az networkcloud cluster continue-update-version -g $CLUSTER_RG -n $CLUSTER_NAME$ --subscription $SUBSCRIPTION_ID
+```
+## Troubleshooting Cluster and BMM upgrade failures.
+The following troubleshooting documents can help recover BMM upgrade issues:
+- [Hardware validation failures](troubleshoot-hardware-validation-failure.md)
+- [BMM Provisioning issues](troubleshoot-bare-metal-machine-provisioning.md)
+- [BMM Degraded Status](troubleshoot-bare-metal-machine-degraded.md)
+- [BMM Warning Status](troubleshoot-bare-metal-machine-warning.md)
+
+If troubleshooting does not resolve the issue, open a Microsoft support ticket:
+1. Collect any errors in the Azure CLI output.
+2. Collect Cluster and BMM operation state from Azure portal or Azure CLI.
+3. Create Azure Support Request for any Cluster or BMM upgrade failures and attach any errors along with ASYNC URL, correlation ID, and operation state of the Cluster and BMMs.
+
+## Post-upgrade Validation
+Run the following commands to check the status of the CM, Cluster, and BMM:
+
+1. Check that the CM is in `Succeeded` for `Provisioning state`:
+   ```
+   az networkcloud clustermanager show -g $CM_RG --resource-name $CM_NAME --subscription $SUBSCRIPTION_ID -o table
+   ```
+
+2. Check the Cluster status `Detailed status` is `Running`:
+   ```  
+   az networkcloud cluster show -g $CLUSTER_RG --resource-name $CLUSTER_NAME --subscription $SUBSCRIPTION_ID -o table
+   ```
+
+3. Check the Bare Metal Machine status:
+   ```
+   az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+   ```
+
+   Check the following for each BMM:
+   - ReadyState: True
+   - ProvisioningState: Succeeded
+   - DetailedStatus: Provisioned
+   - CordonStatus: Uncordoned
+   - PowerState: On
+
+4. Collect a profile of the tenant workloads:
+   ```
+   az networkcloud clustermanager show -g $CM_RG --resource-name $CM_NAME --subscription $SUBSCRIPTION_ID -o table
+   az networkcloud virtualmachine list --sub $SUBSCRIPTION_ID --query "reverse(sort_by([?clusterId=='$CLUSTER_RID'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
+   az networkcloud kubernetescluster list --sub $SUBSCRIPTION_ID --query "[?clusterId=='$CLUSTER_RID'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
+   ```
+
+## Send notification to Operations of Cluster upgrade completion
+
+The following template can be used through email or ticketing system:
+```
+Title: <ENVIRONMENT> <AZURE_REGION> <CLUSTER_NAME> Runtime <CLUSTER_VERSION> Upgrade Complete
+
+Operations:
+Deployment Team notification for <ENVIRONMENT> <AZURE_REGION> <CLUSTER_NAME> runtime <CLUSTER_VERSION> Upgrade Complete
+
+Subscription: <CUSTOMER_SUB_ID>
+NFC: <NFC_NAME>
+CM: <CM_NAME>
+Fabric: <NF_NAME>
+Cluster: <CLUSTER_NAME>
+Region: <AZURE_REGION>
+Version: <NEXUS_VERSION>
+
+The following is a list of BMM with provisioning issues during upgrade:
+<BMM_ISSUE_LIST>
+ 
+CC: stakeholder_list
+```
+
+## Remove resource tag on Cluster resource in Azure portal
+Remove the resource tag on the Cluster resource tracking the upgrade in Azure portal (if added previously):
+```
+|Name            | Value          |
+|----------------|-----------------
+|BF in progress  |<DE_ID>         |
+```
+
+## Close out any Work Items in your ticketing system
+* Update Task hours for upgrade duration.
+* Set Cluster upgrade work item to `Complete`.
+* Add any notes on support tickets and issues encountered during upgrade
