@@ -46,7 +46,7 @@ Follow these steps to resolve the issue:
 1. Verify that the private DNS zone is linked to the virtual network where the AKS cluster or other service is deployed.
 1. Ensure the DNS zone contains the correct records for the private link service (e.g., `privatelink.<service>.azure.com`).
 1. Test DNS resolution from the AKS cluster or other service to confirm it resolves to the private IP address of the private link service.
-1. For more information, see [Create and manage private DNS zones using the Azure portal](https://learn.microsoft.com/en-us/azure/dns/private-dns-portal).
+1. For more information, see [Create and manage private DNS zones using the Azure portal](/azure/dns/private-dns-portal).
 
 ### Step 3: Review Network Security Group (NSG) rules
 
