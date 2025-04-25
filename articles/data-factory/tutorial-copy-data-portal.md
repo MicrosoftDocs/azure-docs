@@ -3,7 +3,7 @@ title: Use the Azure portal to create a data factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
 author: jianleishen
 ms.topic: tutorial
-ms.date: 04/25/2025
+ms.date: 10/03/2024
 ms.subservice: data-movement
 ms.author: jianleishen
 ---
@@ -28,7 +28,6 @@ In this tutorial, you perform the following steps:
 > * Monitor the pipeline and activity runs.
 
 ## Prerequisites
-
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 * **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one.
@@ -39,7 +38,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 
 #### Create a source blob
 
-1. Launch Notepad. Copy the following text, and save it as an **emp.txt** file:
+1. Launch Notepad. Copy the following text, and save it as an **emp.txt** file on your disk:
 
     ```
     FirstName,LastName
@@ -47,8 +46,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     Jane,Doe
     ```
 
-1. Move that file into a folder called input.
-1. Create a container named **adftutorial** in your Blob storage. Upload your **input** folder with the **emp.txt** file to this container. You can use the Azure portal or tools such as [Azure Storage Explorer](https://storageexplorer.com/) to do these tasks.
+1. Create a container named **adftutorial** in your Blob storage. Create a folder named **input** in this container. Then, upload the **emp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](https://storageexplorer.com/) to do these tasks.
 
 #### Create a sink SQL table
 
@@ -66,14 +64,13 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, go to your SQL Server in the Azure portal, select **Security** > **Networking** > enable **Selected networks**> chech **Allow Azure services and resources to access this server** under the **Exceptions**.
+1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, go to logical SQL server > Overview > Set server firewall> set the **Allow access to Azure services** option to **ON**.
 
 ## Create a data factory
-
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**.
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**.
 3. On the **Create Data Factory** page, under **Basics** tab, select the Azure **Subscription** in which you want to create the data factory.
 4. For **Resource Group**, take one of the following steps:
 
@@ -82,8 +79,10 @@ In this step, you create a data factory and start the Data Factory UI to create 
     b. Select **Create new**, and enter the name of a new resource group.
     
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
-5. Under **Region**, select a location for the data factory. Your data stores can be in a different region than your data factory, if they need to be.
-6. Under **Name**, the name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFDemo). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+5. Under **Region**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
+6. Under **Name**, enter **ADFTutorialDataFactory**.
+
+   The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
     :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
@@ -91,11 +90,17 @@ In this step, you create a data factory and start the Data Factory UI to create 
 8. Select **Git configuration** tab on the top, and select the **Configure Git later** check box.
 9. Select **Review + create**, and select **Create** after the validation is passed.
 10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
-11. Select **Launch Studio** on the **Azure Data Factory Studio** tile.
+11. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory UI in a separate tab.
+
 
 ## Create a pipeline
+In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](quickstart-create-data-factory-portal.md), you created a pipeline by following these steps:
 
-In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database.
+1. Create the linked service.
+1. Create input and output datasets.
+1. Create a pipeline.
+
+In this tutorial, you start with creating the pipeline. Then you create linked services and datasets when you need them to configure the pipeline.
 
 1. On the home page, select **Orchestrate**.
 
@@ -117,7 +122,7 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
 1. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. The source data is in Blob storage, so you select **Azure Blob Storage** for the source dataset.
 
-1. In the **Select Format** dialog box, choose **Delimited Text**, and then select **Continue**.
+1. In the **Select Format** dialog box, choose the format type of your data, and then select **Continue**.
 
 1. In the **Set Properties** dialog box, enter **SourceBlobDataset** for Name. Select the checkbox for **First row as header**. Under the **Linked service** text box, select **+ New**.
 
@@ -132,16 +137,15 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
     :::image type="content" source="./media/tutorial-copy-data-portal/source-dataset-selected.png" alt-text="Source dataset":::
 
 ### Configure sink
-
 >[!TIP]
 >In this tutorial, you use *SQL authentication* as the authentication type for your sink data store, but you can choose other supported authentication methods: *Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-sql-database.md#linked-service-properties) for details.
 >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
 
 1. Go to the **Sink** tab, and select **+ New** to create a sink dataset.
 
-1. In the **New Dataset** dialog box, input "SQL" in the search box to filter the connectors, select **Azure SQL Database**, and then select **Continue**.
+1. In the **New Dataset** dialog box, input "SQL" in the search box to filter the connectors, select **Azure SQL Database**, and then select **Continue**. In this tutorial, you copy data to a SQL database.
 
-1. In the **Set Properties** dialog box, enter **OutputSqlDataset** for Name. From the **Linked service** dropdown list, select **+ New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to SQL Database at runtime, and specifies where the data will be copied to.
+1. In the **Set Properties** dialog box, enter **OutputSqlDataset** for Name. From the **Linked service** dropdown list, select **+ New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to SQL Database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied.
 
 1. In the **New Linked Service (Azure SQL Database)** dialog box, take the following steps:
 
