@@ -48,13 +48,15 @@ Once your request is approved, then you'll see a success message that resembles 
 
 :::image type="content" source="media/quotas/azure-container-apps-quota-success.png" alt-text="Screenshot of successful quota request.":::
 
-## Manual request
+## Manual requests
 
 Manual requests could take up to a few days to complete. Use this option for the following quotas:
 
 - Managed environment consumption cores
 - Managed environment general purpose cores
 - Managed environment memory optimized cores
+
+### Make a manual request
 
 1. Open [New support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV4Blade/callerName/Quota/summary/Quota%20request) form in the Azure portal.
 

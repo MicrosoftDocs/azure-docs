@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Quotas for Azure Container Apps
 
-Azure Container Apps assigns different quota types to different scopes. In addition to the subscription scope, quotas also apply to region, environment, and application scopes. All quota requests are initiated using Azure Quota Management System (QMS), which features two options for a quota requests.
+Azure Container Apps assigns different quota types to different scopes. In addition to the subscription scope, quotas also apply to region, environment, and application scopes. All quota requests are initiated using Azure Quota Management System (QMS), which features two options for making quota requests.
 
 | Request type| Description | Use for these scopes... | View request status via |
 |---|---|---|---|
@@ -23,17 +23,19 @@ Azure Container Apps assigns different quota types to different scopes. In addit
 
 ## View current quotas levels
 
-You can view your quota levels via the [Azure portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) and through the Azure CLI, depending on the quota type.
+<a name="list-usage-portal"></a>
 
-<a name="list-usage-portal">
+You can view your quota levels via the [Azure portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) and through the Azure CLI, depending on the quota type.
 
 When in the portal, select **Azure Container Apps** for the *Provider*.
 
 :::image type="content" source="media/quotas/azure-container-apps-quota-header.png" alt-text="Screenshot of provider and subscription dropdowns in the quota window.":::
 
+<a id="list-usage-cli"></a>
+
 Quotas change requests made via manual requests aren't available in the portal. Use the following command to view your quotas on a per environment basis.
 
-<a id="list-usage-cmd"></a>
+Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
 ```azurecli
 az containerapp env list-usages \
@@ -45,16 +47,18 @@ az containerapp env list-usages \
 
 If an environment or subscription reaches a quota limit, it can have unintended consequences which include:
 
-- Provisioning timing out with a failure
 - Scaling restrictions on an app
-- Container Apps environment or workload profile creation can fail
+- Provisioning times out with a failure
+- Container Apps environment or workload profile creation failure
 
 Your default quotas depend on factors which include the age and type of your subscription, and service use. If your app could receive thousands of requests per minute, you check your current quota allocations before moving your application into production.
 
 If you encounter a *Maximum Allowed Cores exceeded for the Managed Environment* error, similar to the following example, you need to request a quota increase.
 
 ```text
-Maximum Allowed Cores exceeded for the Managed Environment. Please check https://learn.microsoft.com/en-us/azure/container-apps/quotas for resource limits
+Maximum Allowed Cores exceeded for the Managed Environment.
+
+Please check https://learn.microsoft.com/en-us/azure/container-apps/quotas for resource limits
 ```
 
 Other error messages could indicate that you've reached an environment or other quota limit. The Azure Quota Management System allows you to [monitor and alert](azure/quotas/monitoring-alerting) on quota usage to proactively prevent constraints.
@@ -70,9 +74,9 @@ The most requested quota changes are listed in the following table. Each scope i
 | Quota | Scope | Request | View | Remarks |
 |---|---|---|---|---|
 | Managed Environment Count | Region | [Integrated request](quota-requests.md#integrated-requests) | [Portal](#list-usage-portal) | The number of environments per region. |
-| Managed Environment Consumption Cores | Environment | [Manual request](quota-requests.md#manual-request) | CLI | The number of maximum consumption cores the environment is allocated to use. This value is the sum of cores requested by each active replica (across all apps) in an environment. |
-| Managed Environment General Purpose Cores | Environment | [Manual request](quota-requests.md#manual-request) | CLI | The total cores available to all general purpose (D-series) profiles within an environment. |
-| Managed Environment Memory Optimized Cores | Environment | [Manual request](quota-requests.md#manual-request) | CLI | The total cores available to all memory optimized (E-series) profiles within an environment. |
+| Managed Environment Consumption Cores | Environment | [Manual request](quota-requests.md#manual-request) | [CLI](#list-usage-cli) | The number of maximum consumption cores the environment is allocated to use. This value is the sum of cores requested by each active replica (across all apps) in an environment. |
+| Managed Environment General Purpose Cores | Environment | [Manual request](quota-requests.md#manual-request) | [CLI](#list-usage-cli) | The total cores available to all general purpose (D-series) profiles within an environment. |
+| Managed Environment Memory Optimized Cores | Environment | [Manual request](quota-requests.md#manual-request) | [CLI](#list-usage-cli) | The total cores available to all memory optimized (E-series) profiles within an environment. |
 
 ### GPU quotas
 
