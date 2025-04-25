@@ -364,6 +364,8 @@ Output: 60
 
 ::: zone pivot="csharp,python,java"
 
+Now that you've run the project locally, you can also [deploy to Azure](#next-steps). 
+
 ## View orchestration status and history
 
 You can view the orchestration status and history via the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). By default, the dashboard runs on port 8082. 
