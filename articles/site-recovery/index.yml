@@ -135,4 +135,4 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Azure VMware Solution landing zone accelerator
-            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone  
+            url: /azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr
