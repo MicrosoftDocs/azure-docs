@@ -12,7 +12,7 @@ ROBOTS: noindex
 
 # Quickstart: Create a Python app using Azure App Service on Linux (Azure portal)
 
-In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the Azure portal to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a basic App Service tier that incurs a small cost in your Azure subscription.
+In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md), Azure's highly scalable, self-patching web hosting service. You use the Azure portal to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a basic App Service tier that incurs a small cost in your Azure subscription.
 
 ## Configure accounts
 

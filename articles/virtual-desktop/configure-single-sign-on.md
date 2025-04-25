@@ -3,7 +3,7 @@ title: Configure single sign-on for Azure Virtual Desktop using Microsoft Entra 
 description: Learn how to configure single sign-on for an Azure Virtual Desktop environment using Microsoft Entra ID.
 ms.topic: how-to
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 09/17/2024
 ---
 
