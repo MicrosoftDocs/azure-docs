@@ -611,7 +611,7 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 #### 1.11.1
 Security improvements.
 
-- Released April 2025
+- Released May 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.19.0
 ##### Gatekeeper 3.19.0-1
