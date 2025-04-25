@@ -1,6 +1,6 @@
 ---
-title: Azure Migrate in regions where it isn't available yet
-description: Describes the regions that Azure Migrate doesn't support
+title: Use Azure Migrate in unsupported regions
+description: Describes and lists the regions that Azure Migrate doesn't support
 author: habiba
 ms.author: v-uhabiba
 ms.manager: ankitsurkar
