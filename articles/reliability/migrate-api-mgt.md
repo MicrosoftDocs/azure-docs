@@ -20,6 +20,8 @@ The Azure API Management service supports [availability zones](../reliability/av
 
 This article describes four scenarios for migrating an API Management instance to availability zones. For more information about configuring API Management for high availability, see [Ensure API Management availability and reliability](../api-management/high-availability.md).
 
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
 ## Prerequisites
 
 * To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](regions-list.md).
@@ -28,7 +30,6 @@ This article describes four scenarios for migrating an API Management instance t
 
 * If you have an existing API Management instance, make sure that it's in the Premium tier. If it isn't, [upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
-* If your API Management instance is deployed (injected) in an [Azure virtual network](../api-management/api-management-using-with-vnet.md), check the version of the [compute platform](../api-management/compute-infrastructure.md) (`stv1` or `stv2`) that hosts the service.
 
 ## Downtime requirements
 

@@ -275,7 +275,7 @@ The following table lists currently supported maximum scale-out values for a sin
 |Spain Central| 20 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
-|UAE North| 100 | 20 |
+|UAE North| 100 | 100 |
 |UK South| 100 | 100 |
 |UK West| 100 | 20 |
 |USGov Arizona| 20 | 20 |
