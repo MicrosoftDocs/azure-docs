@@ -391,7 +391,7 @@
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
     - name: Azure NetApp Files
-      href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-azure-netapp-files.md
     - name: Azure Storage Actions
       href: reliability-storage-actions.md
     - name: Azure Storage-Disk Storage
