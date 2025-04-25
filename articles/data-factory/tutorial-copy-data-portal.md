@@ -1,14 +1,16 @@
 ---
-title: Use the Azure portal to create a data factory pipeline
-description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
+title: 'Use the Azure portal to create a data factory pipeline'
+description: This tutorial provides instructions to create a data factory with a pipeline with a copy activity to copy data from Azure Blob storage to Azure SQL Database.
 author: jianleishen
 ms.topic: tutorial
 ms.date: 04/25/2025
 ms.subservice: data-movement
 ms.author: jianleishen
+
+#customer intent: As a new Azure Data Factory user I want to create a data factory and quickly create my first pipeline to move data between resources, so I can apply it to my own needs.
 ---
 
-# Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
+# Tutorial: Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -20,12 +22,13 @@ In this tutorial, you create a data factory by using the Azure Data Factory user
 In this tutorial, you perform the following steps:
 
 > [!div class="checklist"]
-> * Create a data factory.
-> * Create a pipeline with a copy activity.
+> * [Create a data factory.](#create-a-data-factory)
+> * [Create a pipeline with a copy activity.](#create-a-pipeline)
 > * Test run the pipeline.
-> * Trigger the pipeline manually.
-> * Trigger the pipeline on a schedule.
+> * [Trigger the pipeline manually.](#trigger-the-pipeline-manually)
+> * [Trigger the pipeline on a schedule.](#trigger-the-pipeline-on-a-schedule)
 > * Monitor the pipeline and activity runs.
+> * [Disable or delete your scheduled trigger.](#disable-trigger)
 
 ## Prerequisites
 
@@ -66,7 +69,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, go to your SQL Server in the Azure portal, select **Security** > **Networking** > enable **Selected networks**> chech **Allow Azure services and resources to access this server** under the **Exceptions**.
+1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, go to your SQL Server in the Azure portal, select **Security** > **Networking** > enable **Selected networks**> check **Allow Azure services and resources to access this server** under the **Exceptions**.
 
 ## Create a data factory
 
@@ -110,7 +113,7 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 ### Configure source
 
 >[!TIP]
->In this tutorial, you use *Account key* as the authentication type for your source data store, but you can choose other supported authentication methods: *SAS URI*,*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-blob-storage.md#linked-service-properties) for details.
+>In this tutorial, you use *Account key* as the authentication type for your source data store, but you can choose other supported authentication methods: *SAS URI*, *Service Principal*, and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-blob-storage.md#linked-service-properties) for details.
 >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
 
 1. Go to the **Source** tab. Select **+ New** to create a source dataset.
@@ -161,7 +164,7 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
     :::image type="content" source="./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png" alt-text="Save new linked service":::
 
-1. It automatically navigates to the **Set Properties** dialog box. In **Table**, select **[dbo].[emp]**. Then select **OK**.
+1. It automatically navigates to the **Set Properties** dialog box. In **Table**, select **Enter manually**, and enter **[dbo].[emp]**. Then select **OK**.
 
 1. Go to the tab with the pipeline, and in **Sink Dataset**, confirm that **OutputSqlDataset** is selected.
 
@@ -170,42 +173,49 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 You can optionally map the schema of the source to corresponding schema of destination by following [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md).
 
 ## Validate the pipeline
+
 To validate the pipeline, select **Validate** from the tool bar.
 
 You can see the JSON code associated with the pipeline by clicking **Code** on the upper right.
 
 ## Debug and publish the pipeline
+
 You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Azure Repos Git repository.
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window.
 
 1. Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
-1. Wait until you see the **Successfully published** message. To see notification messages, click the **Show Notifications**  on the top-right (bell button).
+1. Wait until you see the **Successfully published** notification message. To see notification messages, select the **Show Notifications**  on the top-right (bell button).
 
 ## Trigger the pipeline manually
+
 In this step, you manually trigger the pipeline you published in the previous step.
 
-1. Select **Trigger** on the toolbar, and then select **Trigger Now**. On the **Pipeline Run** page, select **OK**.  
+1. Select **Add trigger** on the toolbar, and then select **Trigger Now**.
+
+1. On the **Pipeline Run** page, select **OK**.  
 
 1. Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
     :::image type="content" source="./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png" alt-text="Monitor pipeline runs" lightbox="./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png":::
 
-1. To see activity runs associated with the pipeline run, select the **CopyPipeline** link under the **PIPELINE NAME** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
+1. To see activity runs associated with the pipeline run, select the **CopyPipeline** link under the **PIPELINE NAME** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, hover over the activity and
+1. select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
     :::image type="content" source="./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox" alt-text="Monitor activity runs" lightbox="./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png":::
 
 1. Verify that two more rows are added to the **emp** table in the database.
 
 ## Trigger the pipeline on a schedule
+
 In this schedule, you create a schedule trigger for the pipeline. The trigger runs the pipeline on the specified schedule, such as hourly or daily. Here you set the trigger to run every minute until the specified end datetime.
 
 1. Go to the **Author** tab on the left above the monitor tab.
 
-1. Go to your pipeline, click **Trigger** on the tool bar, and select **New/Edit**.
+1. Go to your pipeline, select **Trigger** on the tool bar, and select **New/Edit**.
 
-1. In the **Add triggers** dialog box, select **+ New** for **Choose trigger** area.
+1. In the **Add triggers** dialog box, select **Choose trigger** and select **+ New**.
 
 1. In the **New Trigger** window, take the following steps:
 
@@ -228,7 +238,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. On the **Edit trigger** page, review the warning, and then select **Save**. The pipeline in this example doesn't take any parameters.
 
-1. Click **Publish all** to publish the change.
+1. Select **Publish all** to publish the change.
 
 1. Go to the **Monitor** tab on the left to see the triggered pipeline runs.
 
@@ -240,7 +250,22 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. Verify that two rows per minute (for each pipeline run) are inserted into the **emp** table until the specified end time.
 
+## Disable trigger
+
+To disable your every minute trigger that you created, follow these steps:
+
+1. Select the **Manage** pane on the left side.
+
+1. Under **Author** select **Triggers**.
+
+1. Hover over the **RunEveryMinute** trigger you created.
+    1. Select the **Stop** button to disable the trigger from running.
+    1. Select the **Delete** button to disable and delete the trigger.
+
+1. Select **Publish all** to save your changes.
+
 ## Related content
+
 The pipeline in this sample copies data from one location to another location in Blob storage. You learned how to:
 
 > [!div class="checklist"]
@@ -250,6 +275,7 @@ The pipeline in this sample copies data from one location to another location in
 > * Trigger the pipeline manually.
 > * Trigger the pipeline on a schedule.
 > * Monitor the pipeline and activity runs.
+> * Disable or delete your scheduled trigger.
 
 
 Advance to the following tutorial to learn how to copy data from on-premises to the cloud:
