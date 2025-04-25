@@ -343,6 +343,8 @@ items:
     items:
     - name: Troubleshoot Azure Migrate projects
       href: troubleshoot-project.md
+    - name: Azure Migrate in unsupported regions
+      href: azure-migrate-in-unsupported-regions.md
   - name: Appliance configuration
     items:
     - name: Troubleshoot Azure Migrate appliance
@@ -379,8 +381,6 @@ items:
       href: troubleshoot-webapps-migration.md
     - name: Windows OS upgrade issues
       href: troubleshoot-upgrade.md
-  - name: Azure Migrate in unavailable regions
-    href: azure-migrate-in-unavailable-regions.md
 - name: FAQs
   items:
   - name: General

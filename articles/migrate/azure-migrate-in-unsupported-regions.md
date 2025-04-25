@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 ---
 
-# Use Azure Migrate in unavailable regions
+# Use Azure Migrate in unsupported regions
 
 Azure Migrate is a geo-level service that is deployed in at least one region of each geography. The service depends on other Azure services that need to be available before it can be deployed in a new region. As a result, it may not be available immediately when a region is launched. However, customers can still migrate their workloads to the new regions using the Azure Migrate service from a nearby region within the same geography.  
 
