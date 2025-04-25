@@ -2,7 +2,7 @@
 title: Restore Azure Elastic SAN using Azure portal (preview)
 description: Learn how to restore Azure Elastic Storage Area Network (SAN)  backups (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 05/15/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -46,7 +46,7 @@ To  restore Azure Elastic SAN  backups, follow these steps:
 
 1. On the **Restore parameters** tab, select **Validate** to ensure that the required permissions to perform the restore are assigned to the backed-up Elastic SAN volume. 
 
-   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) don't have the **Elastic SAN Volume Importer** and **Reader (on the snapshot resource group)** roles assigned.
+   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) doesn't have the **Elastic SAN Volume Importer** and **Reader (on the snapshot resource group)** roles assigned.
 
 1. To assign the required roles, select **Assign missing roles**.
 

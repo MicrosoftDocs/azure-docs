@@ -2,7 +2,7 @@
 title: Support matrix for Azure Elastic SAN Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for backups of Azure Elastic SAN (preview).
 ms.topic: reference
-ms.date: 04/16/2025
+ms.date: 05/15/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri

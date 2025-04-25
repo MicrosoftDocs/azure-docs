@@ -2,7 +2,7 @@
 title: Configure backup for Azure Elastic storage area network using Azure portal (preview)
 description: Learn how to configure backup for Azure Elastic storage area network (SAN) (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 05/15/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -71,7 +71,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
    >A Backup vault uses a System Assigned Managed Identity to create and manage snapshots.
 
 1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
-   If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](#create-a-backup-policy-for-azure-elastic-san-preview).
+   If you want to create a new backup policy, select **Create new**. Learn how to [create a backup policy](#create-a-backup-policy-for-azure-elastic-san-preview).
 
    >[!Note]
    >- The default retention duration for the recovery points is **7 days**.
@@ -98,9 +98,9 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
    After you add the backup instances, backup readiness validation starts on the **Configure Backup** pane, under **Datasources** tab. If the required roles are assigned, the  validation succeeds with the **Success** message.
 
-   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) don't have the **Elastic SAN Snapshot Exporter** and **Contributor** roles  assigned.
+   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) doesn't have the **Elastic SAN Snapshot Exporter** and **Contributor** roles  assigned.
 
-1. To assign the required roles, on the **Configure Backup** pane, on the**Datasource** tab, select **Assign missing roles**.
+1. To assign the required roles, on the **Configure Backup** pane, on the**Datasources** tab, select **Assign missing roles**.
 
    >[!Note]
    >If you don't have the **Role-Based Access Control Administrator** permissions, the **Assign Missing Roles** option is disabled.
@@ -109,7 +109,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
    After the process starts, the missing access permissions on the Elastic SAN are granted to the backup vault. 
 
-1. When the role assignment is complete, on the **Configure Backup** pane, on the **Datasource** tab, select **Revalidate**.
+1. When the role assignment is complete, on the **Configure Backup** pane, on the **Datasources** tab, select **Revalidate**.
 
    When the validation succeeds, the **Success** message appears.
 

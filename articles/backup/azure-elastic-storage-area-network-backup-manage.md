@@ -2,7 +2,7 @@
 title: Manage Azure Elastic SAN backups using Azure portal (preview)
 description: Learn how to manage Azure Elastic Storage Area Network (SAN)  backups (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 05/15/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -82,7 +82,7 @@ To stop backups and delete data for an Azure Elastic SAN volume (preview), follo
    >[!Warning]
    >This is a destructive operation. After completing the delete operation, the backed-up data is retained in the **Soft deleted** state for 14 days, and then deletes for ever. After the backups are deleted, the restore operation for the Elastic SAN instance is not possible.
    >
-   >If the immutability is enabled on the vault, the restore points are deleted only after all the recovery points are expired.
+   >If the immutability is enabled on the vault, the restore points are deleted only after all the recovery points have expired.
 
 1. Select **Stop backup**, and then select **Confirm**. 
 1. On the **Delete Backup Data** pane, under **Type the name of Backup Item**, enter the Elastic SAN instance name that you want to delete.
