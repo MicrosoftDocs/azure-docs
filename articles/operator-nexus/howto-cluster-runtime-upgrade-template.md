@@ -29,7 +29,7 @@ Runtime changes are categorized as follows:
 - Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
 -Target Cluster must be healthy in a running state.
 
-## Required Parameters:
+## Required Parameters
 - \<ENVIRONMENT\>: - Instance Name
 - <AZURE_REGION>: - Azure Region of Instance
 - <CUSTOMER_SUB_NAME>: Subscription Name
@@ -106,7 +106,7 @@ Runtime changes are categorized as follows:
 
 4. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
 
-## Send notification to Operations of upgrade schedule for the Cluster.
+## Send notification to Operations of upgrade schedule for the Cluster
 
 The following template can be used through email or support ticket:
 ```
@@ -153,7 +153,7 @@ If `updateStrategy` isn't set, the default values are as follows:
 }
 ```
 
-### Set a deployment threshold and wait time different than default:
+### Set a deployment threshold and wait time different than default
 ```
 az networkcloud cluster update -n $CLUSTER_NAME -g $CLUSTER_RG --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=$THRESHOLD wait-time-minutes=$PAUSE_MINS --subscription $SUBSCRIPTION_ID
 ```
@@ -192,7 +192,7 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <C
     "waitTimeMinutes": 0
 ```
 
-## Run upgrade from either portal or cli:
+## Run upgrade from either portal or cli
 * To start upgrade from Azure portal, go to Cluster resource, click `Update`, select <CLUSTER_VERSION>, then click `Update`
 * To run upgrade from Azure CLI, run the following command:
   ```
@@ -207,13 +207,13 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <C
   ```
   Provide this information to Microsoft Support when opening a support ticket for upgrade issues.
 
-## Monitor status of Cluster:
+## Monitor status of Cluster
 ```
 az networkcloud cluster list -g $CLUSTER_RG --subscription $SUBSCRIPTION_ID -o table
 ```
 The Cluster `Detailed status` shows `Running` and the `Detailed status message` shows 'Cluster is up and running.` when the upgrade is complete.
 
-## Monitor status of Bare Metal Machines:
+## Monitor status of Bare Metal Machines
 ```
 az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID -o table
 az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
@@ -242,7 +242,7 @@ Use the following command to continue upgrade once a Compute Rack is paused afte
 ```
 az networkcloud cluster continue-update-version -g $CLUSTER_RG -n $CLUSTER_NAME$ --subscription $SUBSCRIPTION_ID
 ```
-## How to troubleshoot Cluster and BMM upgrade failures.
+## How to troubleshoot Cluster and BMM upgrade failures
 The following troubleshooting documents can help recover BMM upgrade issues:
 - [Hardware validation failures](troubleshoot-hardware-validation-failure.md)
 - [BMM Provisioning issues](troubleshoot-bare-metal-machine-provisioning.md)
@@ -254,7 +254,7 @@ If troubleshooting doesn't resolve the issue, open a Microsoft support ticket:
 - Collect Cluster and BMM operation state from Azure portal or Azure CLI.
 - Create Azure Support Request for any Cluster or BMM upgrade failures and attach any errors along with ASYNC URL, correlation ID, and operation state of the Cluster and BMMs.
 
-## Post-upgrade Validation
+## Post-upgrade validation
 Run the following commands to check the status of the CM, Cluster, and BMM:
 
 1. Check that the CM is in `Succeeded` for `Provisioning state`:
