@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 04/25/2025
 
 #customer intent: As a developer, I want to know the prerequisites and details about using SAP with Azure Logic Apps, so I can connect to an SAP server from my Consumption or Standard workflow.
 ---
@@ -82,11 +82,11 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   
     This capability addresses a problem with the SAP managed connector where the outcome from the autocommit behavior is silent and observable only through logs.
 
-* A longer time-out compared to the managed connector.
+* A longer time-out compared to the SAP managed connector.
 
-  The SAP built-in connector runs with the Azure Logic Apps runtime, not the shared or global connector infrastructure in Azure. This behavior means that you can change the default time-out value on the Standard logic app resource by using the **host.json** settings named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and [**functionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions).
+  The SAP built-in connector runs on the Azure Logic Apps runtime, not the shared or global connector infrastructure in Azure. This behavior means that you can change the default time-out value on the Standard logic app resource by using the **host.json** settings named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and [**functionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions).
 
-  This capability means that you can use the SAP built-in connector instead. Long-running requests work without following the long-running webhook-based request action pattern in the SAP managed connector, which has a two-minute time-out.
+  This capability means that you can use the SAP built-in connector as-is for long-running synchronous requests. Otherwise, these requests have to use the long-running webhook-based request action pattern in the SAP managed connector, which has a much shorter two-minute time-out for synchronous requests.
 
 * By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
