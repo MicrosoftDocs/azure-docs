@@ -53,28 +53,11 @@ Runtime changes are categorized as follows:
 - <DEPLOYMENT_PAUSE_MINS>: Time to wait before moving to the next Rack once the current Rack meets the deployment threshold
 - <NFC_NAME>: Associated Network Fabric Controller (NFC)
 - <CM_NAME>: Associated Cluster Manager (CM)
-- <ETCD_LAST_ROTATION_DATE>: Control plane etcd credential last rotation date
-- <ETCD_ROTATION_DAYS>: Control plane etcd credential next rotation period
 - <BMM_ISSUE_LIST>: List of BMM with provisioning issues after Cluster upgrade is complete
 
 ## Pre-Checks
 
-1. On each control-plane Bare Metal Machine (BMM), verify the next rotation date on `etcd credential` doesn't occur during the upgrade:
-   - Check in Azure portal from the following path: `Clusters` -> <CLUSTER_NAME> -> `Resources` -> `Bare Metal Machines`
-   - Select each BMM with `control-plane` under the `Role`: <CLUSTER_CONTROL_BMM>  -> `JSON View`
-   - Validate the `lastRotationTime` and `rotationPeriodDays` under the `etcd credential` section:
-     ```
-     {
-       "lastRotationTime": "<ETCD_LAST_ROTATION_DATE>",
-       "rotationPeriodDays": <ETCD_ROTATION_DAYS>,
-       "secretType": "etcd credential"
-     }
-     ```
-
-     >[!Important]
-     > If the upgrade will occur within three days of the next `etcd credential` rotation (<ETCD_LAST_ROTATION_DATE> + <ETCD_ROTATION_DAYS>), contact Miscrosoft Support to complete a manual rotation before starting the upgrade.
-	 
-2. Validate the provisioning and detailed status for the CM and Cluster.
+1. Validate the provisioning and detailed status for the CM and Cluster.
    
    Set up the subscription, CM, and Cluster parameters:
    ```  
@@ -102,7 +85,7 @@ Runtime changes are categorized as follows:
    >[!Note]
    > If CM `Provisioning state` isn't `Succeeded` and Cluster `Detailed status` isn't `Running` stop the upgrade until issues are resolved.
 
-3. Check the Bare Metal Machine status `Detailed status` is `Running`:
+2. Check the Bare Metal Machine status `Detailed status` is `Running`:
    ```
    az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
    ```
@@ -114,14 +97,14 @@ Runtime changes are categorized as follows:
    - CordonStatus: Uncordoned
    - PowerState: On
 
-4. Collect a profile of the tenant workloads:
+3. Collect a profile of the tenant workloads:
    ```
    az networkcloud clustermanager show -g $CM_RG --resource-name $CM_NAME --subscription $SUBSCRIPTION_ID -o table
    az networkcloud virtualmachine list --sub $SUBSCRIPTION_ID --query "reverse(sort_by([?clusterId=='$CLUSTER_RID'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
    az networkcloud kubernetescluster list --sub $SUBSCRIPTION_ID --query "[?clusterId=='$CLUSTER_RID'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
    ```
 
-5. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
+4. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
 
 ## Send notification to Operations of upgrade schedule for the Cluster.
 
@@ -295,6 +278,14 @@ Run the following commands to check the status of the CM, Cluster, and BMM:
    - DetailedStatus: Provisioned
    - CordonStatus: Uncordoned
    - PowerState: On
+
+   >[!Note]
+   > One control-plane BMM is labeled as a spare with the following BMM status profile:
+   > - ReadyState: False
+   > - ProvisioningState: Succeeded
+   > - DetailedStatus: Available
+   > - CordonStatus: Uncordoned
+   > - PowerState: Off
 
 4. Collect a profile of the tenant workloads:
    ```
