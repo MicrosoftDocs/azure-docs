@@ -4,7 +4,7 @@ description: Describes how to apply the Windows license for Azure Virtual Deskto
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 11/14/2022
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited 
 ---
 # Apply Windows license to session host virtual machines
