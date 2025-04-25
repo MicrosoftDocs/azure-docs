@@ -113,7 +113,7 @@ Since the example code automatically uses the default emulator settings, you don
 1. Run the emulator. The container may take a few seconds to be ready.
     
      ```bash
-     docker run --name dtsemulator -d -p 8080:8080 mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
 
 Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
@@ -139,7 +139,7 @@ Since the example code automatically uses the default emulator settings, you don
 1. Run the emulator. The container may take a few seconds to be ready.
     
      ```bash
-     docker run --name dtsemulator -d -p 8080:8080 mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
 
 Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
@@ -331,58 +331,31 @@ Orchestration completed with status: COMPLETED
 
 ::: zone pivot="java"
 
-1. Install the required packages. 
-     
-     ```bash
+From the `fan-out-fan-in` directory, build and run the application using Gradle.
 
-     ```
-
-1. Start the worker. 
-     
-     ```bash
-
-     ```
-     
-1. In a new terminal, run the client.
-
-     ```bash
-     
-     ```
-
-     You can provide the number of work items as an argument. If no argument is provided, the example runs 10 items by default.
-
-     ```bash
-     
-     ```
+```bash
+./gradlew runFanOutFanInPattern
+```
 
 ### Understanding the output
 
-When you run this sample, you receive output from both the worker and client processes. 
-
-#### Worker output
-
-The worker output shows:
+When you run this sample, you receive output that shows: 
 
 - Registration of the orchestrator and activities.
 - Status messages when processing each work item in parallel, showing that they're executing concurrently.
 - Random delays for each work item (between 0.5 and 2 seconds) to simulate varying processing times.
 - A final message showing the aggregation of results.
 
-#### Client output
-
-The client output shows: 
-
-- Starting the orchestration with the specified number of work items.
-- The unique orchestration instance ID.
-- The final aggregated result, which includes:
-   - Total number of items processed
-   - Sum of all results (each item result is the square of its value)
-   - Average of all results
-
 #### Example output
 
 ```
+Starting a Gradle Daemon (subsequent builds will be faster)
 
+> Task :runFanOutFanInPattern
+Durable Task worker is connecting to sidecar at localhost:8080.
+Started new orchestration instance
+Orchestration completed: [Name: 'FanOutFanIn_WordCount', ID: '<id-number>', RuntimeStatus: COMPLETED, CreatedAt: 2025-04-25T15:24:47.170Z, LastUpdatedAt: 2025-04-25T15:24:47.287Z, Input: '["Hello, world!","The quick brown fox jumps over t...', Output: '60']
+Output: 60
 ```
 
 ::: zone-end
@@ -406,7 +379,19 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ::: zone pivot="csharp"
 
-:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard.png" alt-text="Screenshot showing the orchestartion instance's details.":::
+:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-dotnet.png" alt-text="Screenshot showing the orchestartion instance's details for the .NET sample.":::
+
+::: zone-end
+
+::: zone pivot="python"
+
+:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-python.png" alt-text="Screenshot showing the orchestartion instance's details for the Python sample.":::
+
+::: zone-end
+
+::: zone pivot="java"
+
+:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-java.png" alt-text="Screenshot showing the orchestartion instance's details for the Java sample.":::
 
 ::: zone-end
 
@@ -603,9 +588,7 @@ result = client.wait_for_orchestration_completion(
 
 ::: zone pivot="java"
 
-### Worker
-
-To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the `FanOutFanInPattern` project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a separate task for each work item using ``.
@@ -614,31 +597,54 @@ To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overvie
 1. Fans in by aggregating all individual results using ``.
 1. Returns the final aggregated result to the client.
 
+The project contains:
+
+- **`DurableTaskSchedulerWorkerExtensions` worker**: Defines the orchestrator and activity functions.
+- **`DurableTaskSchedulerClientExtension` client**: Sets up the worker host with proper connection string handling.
+
+### Worker
+
 Using fan-out/fan-in, the orchestration creates parallel activity tasks and waits for all to complete. 
 
 ```java
+DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(connectionString)
+    .addOrchestration(new TaskOrchestrationFactory() {
+        @Override
+        public String getName() { return "FanOutFanIn_WordCount"; }
 
-```
-
-#### Client
-
-The worker uses `Microsoft.Extensions.Hosting` for proper lifecycle management.
-
-```csharp
-using Microsoft.Extensions.Hosting;
-//..
-
-builder.Services.AddDurableTaskWorker()
-    .AddTasks(registry =>
-    {
-        registry.AddOrchestrator<ParallelProcessingOrchestration>();
-        registry.AddActivity<ProcessWorkItemActivity>();
-        registry.AddActivity<AggregateResultsActivity>();
+        @Override
+        public TaskOrchestration create() {
+            return ctx -> {
+                List<?> inputs = ctx.getInput(List.class);
+                List<Task<Integer>> tasks = inputs.stream()
+                        .map(input -> ctx.callActivity("CountWords", input.toString(), Integer.class))
+                        .collect(Collectors.toList());
+                List<Integer> allWordCountResults = ctx.allOf(tasks).await();
+                int totalWordCount = allWordCountResults.stream().mapToInt(Integer::intValue).sum();
+                ctx.complete(totalWordCount);
+            };
+        }
     })
-    .UseDurableTaskScheduler(connectionString);
+    .addActivity(new TaskActivityFactory() {
+        @Override
+        public String getName() { return "CountWords"; }
+
+        @Override
+        public TaskActivity create() {
+            return ctx -> {
+                String input = ctx.getInput(String.class);
+                StringTokenizer tokenizer = new StringTokenizer(input);
+                return tokenizer.countTokens();
+            };
+        }
+    })
+    .build();
+
+// Start the worker
+worker.start();
 ```
 
-### The client project
+### Client
 
 The client project:
 
@@ -646,10 +652,32 @@ The client project:
 - Creates a list of work items to be processed in parallel.
 - Schedules an orchestration instance with the list as input.
 - Waits for the orchestration to complete and displays the aggregated results.
-- Uses `` for efficient polling.
+- Uses `waitForInstanceCompletion` for efficient polling.
 
 ```java
+DurableTaskClient client = DurableTaskSchedulerClientExtensions.createClientBuilder(connectionString).build();
 
+// The input is an arbitrary list of strings.
+List<String> listOfStrings = Arrays.asList(
+        "Hello, world!",
+        "The quick brown fox jumps over the lazy dog.",
+        "If a tree falls in the forest and there is no one there to hear it, does it make a sound?",
+        "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+        "Always remember that you are absolutely unique. Just like everyone else.");
+
+// Schedule an orchestration which will reliably count the number of words in all the given sentences.
+String instanceId = client.scheduleNewOrchestrationInstance(
+        "FanOutFanIn_WordCount",
+        new NewOrchestrationInstanceOptions().setInput(listOfStrings));
+logger.info("Started new orchestration instance: {}", instanceId);
+
+// Block until the orchestration completes. Then print the final status, which includes the output.
+OrchestrationMetadata completedInstance = client.waitForInstanceCompletion(
+        instanceId,
+        Duration.ofSeconds(30),
+        true);
+logger.info("Orchestration completed: {}", completedInstance);
+logger.info("Output: {}", completedInstance.readOutputAs(int.class));
 ```
 
 ::: zone-end
