@@ -42,9 +42,17 @@ This section outlines known issues related to migrating virtual machines to a ne
 
 Enabling replication encounters the following failure initially but succeeds upon retrying:
 
-Provided location - isn't available for resource type:
+The provided location `'<new region>` - isn't available for resource type.
+`'Microsoft.Resources/deploymentScripts'`
 
-'Microsoft.Resources/deploymentScripts'. List of available regions for the resource type is 'eastasia, southeastasia, australiaeast, australiasoutheast, brazilsouth, canadacentral,canadaeast, switzerlandnorth, germanywestcentral, eastus2, eastus, centralus,northcentralus, francecentral, uksouth, ukwest, centralindia, southindia, jioindiawest,italynorth, japaneast, japanwest, koreacentral, koreasouth, mexicocentral, northeurope,norwayeast, polandcentral, qatarcentral, spaincentral, swedencentral, uaenorth,westcentralus, westeurope, westus2, westus, southcentralus, westus3, southafricanorth,centraluseuap, eastus2euap, taiwannorth, taiwannorthwest'.
+List of available regions for the resource type: 
+- Eastasia
+- South east asia 
+- Australia east
+- Australia south east
+- Brazil south
+- 
+- canadacentral,canadaeast, switzerlandnorth, germanywestcentral, eastus2, eastus, centralus,northcentralus, francecentral, uksouth, ukwest, centralindia, southindia, jioindiawest,italynorth, japaneast, japanwest, koreacentral, koreasouth, mexicocentral, northeurope,norwayeast, polandcentral, qatarcentral, spaincentral, swedencentral, uaenorth,westcentralus, westeurope, westus2, westus, southcentralus, westus3, southafricanorth,centraluseuap, eastus2euap, taiwannorth, taiwannorthwest'.
 
 This error happens because the deployment scripts functionality might not be available when the region launches. However, retrying the replication process after a short interval should fix the issue.
 
@@ -52,7 +60,27 @@ This error happens because the deployment scripts functionality might not be ava
 
 When migrating a Virtual Machine with SQL Server, if you select the option to register with the SQL Virtual Machine resource provider, you encounter the following error:
 
-The virtual machine couldn't be registered with the SQL Virtual Machine Resource Provider. Azure error message: 'No registered resource provider found for location '' and API version '2017-03-01-preview' for type 'Locations/registerSqlVmCandidate'. The supported api-versions are '2017-03-01-preview, 2021-11-01-preview, 2022-02-01-preview, 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview, 2023-10-01'. The supported locations are 'australiacentral, australiacentral2, australiaeast, australiasoutheast, brazilsouth, canadacentral, canadaeast, centralindia, centralus, eastasia, eastus, eastus2, francecentral, francesouth, germanywestcentral, israelcentral, italynorth, japaneast, japanwest, jioindiawest, koreacentral, koreasouth, mexicocentral, northcentralus, northeurope, norwayeast, polandcentral, qatarcentral, southafricanorth, southcentralus, southindia, southeastasia, spaincentral, swedencentral, switzerlandnorth, uaecentral, uaenorth, uksouth, ukwest, westcentralus, westeurope, westindia, westus, westus2, westus3'.
+The virtual machine couldn't be registered with the SQL Virtual Machine Resource Provider. Azure error message: `'No registered resource provider found for `<new region>` and API version '2017-03-01-preview' for type 'Locations/registerSqlVmCandidate`. 
+
+The supported api-versions: 
+
+- 2017-03-01-preview 
+- 2021-11-01-preview 
+- 2022-02-01-preview 
+- 2022-02-01
+- 2022-07-01-preview 
+- 2022-08-01-preview 
+- 2023-01-01-preview
+- 2023-10-01
+
+The supported locations:
+
+- Australia central
+- Australia central2
+- Australia east
+- Australia south east
+-
+-  brazilsouth, canadacentral, canadaeast, centralindia, centralus, eastasia, eastus, eastus2, francecentral, francesouth, germanywestcentral, israelcentral, italynorth, japaneast, japanwest, jioindiawest, koreacentral, koreasouth, mexicocentral, northcentralus, northeurope, norwayeast, polandcentral, qatarcentral, southafricanorth, southcentralus, southindia, southeastasia, spaincentral, swedencentral, switzerlandnorth, uaecentral, uaenorth, uksouth, ukwest, westcentralus, westeurope, westindia, westus, westus2, westus3'.
 
 > [!NOTE]
 > Despite this error, the Virtual Machine migration succeeds. However, users must know that the Virtual Machine won't be registered with the SQL Virtual Machine Resource Provider in the specified region.
