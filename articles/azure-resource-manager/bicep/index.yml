@@ -145,7 +145,7 @@ landingContent:
           url: https://azure.microsoft.com/resources/templates/
         - text: Bicep CLI reference
           url: ./bicep-cli.md
-        - text: Bicep warnning and error codes
+        - text: Bicep warning and error codes
           url: ./bicep-core-diagnostics.md
         - text: Azure CLI reference
           url: /cli/azure/resource
