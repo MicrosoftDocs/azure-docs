@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -37,35 +37,17 @@ If you're investigating an incident using the **[new investigation experience](i
 
 If you're using the **[Microsoft Sentinel in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690)**, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page.
 
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal." lightbox="./media/entity-pages/entity-page-sentinel.png":::
-
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
 
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal." lightbox="./media/entity-pages/entity-page-sentinel.png":::
+
 ---
 
 ## The timeline
-
-# [Azure portal](#tab/azure-portal)
-
-The timeline is a major part of the entity page's contribution to behavior analytics in Microsoft Sentinel. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
-
-You can choose the **time range** from among several preset options (such as *last 24 hours*), or set it to any custom-defined time frame. Additionally, you can set filters that limit the information in the timeline to specific types of events or alerts.
-
-The following types of items are included in the timeline.
-
-- **Alerts**: any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
-
-- **Bookmarks**: any bookmarks that include the specific entity shown on the page.
-
-- **Anomalies**: UEBA detections based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
-
-- **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
-
-:::image type="content" source="./media/entity-pages/entity-pages-timeline-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal." lightbox="./media/entity-pages/entity-pages-timeline-sentinel.png":::
 
 # [Defender portal](#tab/defender-portal)
 
@@ -90,6 +72,24 @@ As of January 2025, **activities** for the device entity are visible on the main
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
 
 This timeline displays information from the past 24 hours. This period is not currently adjustable.
+
+# [Azure portal](#tab/azure-portal)
+
+The timeline is a major part of the entity page's contribution to behavior analytics in Microsoft Sentinel. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
+
+You can choose the **time range** from among several preset options (such as *last 24 hours*), or set it to any custom-defined time frame. Additionally, you can set filters that limit the information in the timeline to specific types of events or alerts.
+
+The following types of items are included in the timeline.
+
+- **Alerts**: any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
+
+- **Bookmarks**: any bookmarks that include the specific entity shown on the page.
+
+- **Anomalies**: UEBA detections based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
+
+- **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
+
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal." lightbox="./media/entity-pages/entity-pages-timeline-sentinel.png":::
 
 ---
 
