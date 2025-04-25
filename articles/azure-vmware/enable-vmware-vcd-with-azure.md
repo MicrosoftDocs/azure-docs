@@ -16,7 +16,7 @@ In this document you will learn about enabling and using VMware Cloud director o
 Eligible Enterprise and hoster can install VMware Cloud director on Azure VMware solution and integrate it with Azure VMware Solution private cloud datacenter to enable multi tenancy, using its underlying resources to deliver the secure, isolated virtual datacenters that VCD offers.
 
 ## Audience and scope
-VMware Cloud Director is currently available for eligible hosters and select Enterprise customers only. Please contact your account team for more information.
+VMware Cloud Director on Azure VMware Solution is currently available for eligible hosters and select Enterprise customers only. Please contact your account team for more information.
 
 ## VCD on Azure VMware Solution Architecture Overview
 
@@ -98,7 +98,7 @@ Once VCD is installed, you can then add Azure VMware solution vCenter and NSX-T 
 VMware Cloud Director derives its resources from an underlying virtual infrastructure. After you register vSphere resources in VMware Cloud Director, you can allocate these resources for organizations to use.
 
 > [!Note]
-> Review and complete the following pre-requisites before adding Azure VMware solution private cloud to VCD.
+> Review and complete the following pre-configuration steps before adding Azure VMware solution private cloud to VCD.
 
 ### Pre-configuration steps
 
@@ -106,7 +106,7 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
     - You must perform this task before adding Azure VMware Solution vCenter server is added to VCD, else it may impact features such as Console proxy, Powering on VM with guest customization and OVF/Media uploads. Learn more using this link.
 -	Please [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to perform customization on NSX-T before you integrate Azure VMware Solution NSX-T manager with VMware cloud director and create provider gateway.
     - You must perform this task before adding Azure VMware Solution NSX-T manager is added to VCD, else adding provide gateway will fail.
--	Integrate Azure VMware Solution vCenter and NSX-T using “CloudAdmin” role
+-	Integrate Azure VMware Solution vCenter and NSX-T using credentials mapped with “CloudAdmin” role
     - CloudAdmin credentials can be found under your Azure private cloud portal. 
     - Learn about [CloudAdmin role and permissions](https://learn.microsoft.com/azure/azure-vmware/architecture-identity).
 
@@ -140,7 +140,7 @@ Learn about [VMware Cloud Director Network scenarios on Azure VMware Solution](e
 
 Eligible Enterprise and hosters can self-install and self-managed VMware Cloud Director on Azure VMware Solution. Use **CloudAdmin** role to integrate VMware Cloud Director with Azure VMware solution vCenter and NSX-T. 
 
-### What limitations does **CloudAdmin** role have for VMware Cloud Director in Azure VMware Solution?
+### What limitations does NSX-T **CloudAdmin** role have for VMware Cloud Director in Azure VMware Solution?
 
 **CloudAdmin** Role is restricted role, and it currently does not allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption and CMK with VMware Cloud Director on Azure VMware Solution. Note:  VM encryption works at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](https://learn.microsoft.com/azure/azure-vmware/architecture-identity)
 
