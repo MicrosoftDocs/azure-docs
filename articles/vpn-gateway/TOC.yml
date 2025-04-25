@@ -285,11 +285,11 @@
   - name: Assign IP addresses to specific user groups
     items:
     - name: About user groups and client address pools
-      href: user-groups-about.md
+      href: point-to-site-user-groups-about.md
     - name: Configure user groups for address pools - PowerShell
-      href: user-groups-create.md
+      href: point-to-site-user-groups-create.md
     - name: RADIUS - Configure NPS and user groups
-      href: user-groups-radius.md
+      href: point-to-site-user-groups-radius.md
   - name: Configure Always On tunnels
     items:
     - name: Device tunnel
