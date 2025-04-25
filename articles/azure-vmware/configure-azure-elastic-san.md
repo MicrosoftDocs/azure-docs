@@ -44,15 +44,20 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 
 ## Configuration recommendations
 
-Use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume group you intend to connect to your SDDC. Having multiple sessions comes with two benefits: better performance thanks to parallelization, and better reliability to handle single session disconnects from unexpected factors like network glitches. When you establish multiple sessions, it also mitigates the impact of session disconnects, as long as the connection is re-established within a few seconds, your other sessions help load-balance traffic.
+Use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume group you intend to connect to your software defined data center (SDDC). Having multiple sessions provides better performance due to parallelization, and better reliability to handle single session disconnects from unexpected factors. When you establish multiple sessions, it also mitigates the impact of session disconnects, as long as the connection is re-established within a few seconds, your other sessions help load-balance traffic.
 
    > [!NOTE]
    > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it will show the identifier of a device or filesystem, and state it has entered the All Paths Down state.
 
-Each private endpoint provides two sessions to Elastic SAN per host. The recommended number of sessions to Elastic SAN per host is 8, but because the maximum number of sessions an Elastic SAN datastore can handle is 128, the ideal number for your setup depends on the number of hosts in your private cloud. 
+If your environment will ever have 16 nodes in a cluster, use one of the following configurations:
+- AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
+- AV64 - Seven iSCSI sessions over seven Private Endpoints
 
-   > [!IMPORTANT]
-   > Configure all Private Endpoints before attaching a volume as a datastore. Adding Private Endpoints after a volume is attached as a datastore will require detaching the datastore and reconnecting it to the cluster.
+If your environment won't have 16 nodes, use one of the following configurations.
+-  AV36, AV36P, AV52 - Eight iSCSI sessions over four Private Endpoints
+- AV64 - Eight iSCSI sessions over eight Private Endpoints
+
+Configure all Private Endpoints before attaching a volume as a datastore. Adding Private Endpoints after a volume is attached as a datastore requires detaching the datastore and reconnecting it to the cluster.
 
 ## Configure external storage address block
 
@@ -63,11 +68,11 @@ Start by providing an IP block for deploying external storage. Navigate to the *
 - The address block must be unique and not overlap with the /22 used to create your Azure VMware Solution private cloud or any other connected Azure virtual networks or on-premises network. 
 - The address block must fall within the following allowed network blocks: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. If you want to use a non-RFC 1918 address block, submit a support request. 
 - The address block can't overlap any of the following restricted network blocks: 100.72.0.0/15 
-- The address block provided is used to enable multipathing from the ESXi hosts to the target, it can’t be edited or changed. If you do need to change it, submit a support request. 
+- The address block provided is used to enable multipathing from the ESXi hosts to the target, it can’t be edited or changed. If you do need to change it, submit a support request.
 
 ## Connect Elastic SAN
 
-After you provide an External storage address block, you need to connect your private cloud express route with the private endpoint(s) you set up for your Elastic SAN volume group(s). To learn how to establish these connections, see [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
+After you provide an External storage address block, connect your private cloud express route with the private endpoint(s) you set up for your Elastic SAN volume group(s). To learn how to establish these connections, see [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
 
 > [!NOTE]
 > Connection to Elastic SAN from Azure VMware Solution happens via private endpoints to provide the highest network security. Since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
