@@ -99,7 +99,7 @@ The following list includes basic but important concepts about unit tests for St
    :::image type="content" source="media/create-unit-tests-standard-workflow-runs-visual-studio-code/unit-test-project-structure.png" alt-text="Screenshot shows Visual Studio Code, Standard logic app project, and Tests folder with unit test folders and files." lightbox="media/create-unit-tests-standard-workflow-runs-visual-studio-code/unit-test-project-structure.png":::
 
    | Folder or file | Description |
-   |----------------|------------|
+   |----------------|-------------|
    | **`Tests`** <br>**\|\| <`logic-app-name`>** | In the **`Tests`** folder, a **<`logic-app-name`>** folder appears when you add unit tests to a logic app project.|
    | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** | In the **<`logic-app-name`>** folder, a **<`workflow-name`>** folder appears when you add unit tests for a workflow. |
    | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** <br>**\|\|\|\| `MockOutputs`** <br>**\|\|\|\|\| <`operation-name-outputs`>**.**`cs`** | In the **<`workflow-name`>** folder, the **`MockOutputs`** folder contains a C# (**.cs**) file with strongly-typed classes for each connector operation in the workflow. Each **.cs** file name uses the following format: <br><br>**<`operation-name`>[`Trigger\|Action`]`Output.cs`** <br><br>If a connector operation has *dynamic contracts*, a class appears for each *dynamic type*. A dynamic type refers to an operation parameter that has different inputs and outputs based on the value provided for that parameter. You can use these classes to extend your unit tests and create new mocks from scratch. |
