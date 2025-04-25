@@ -16,7 +16,7 @@ Azure Container Apps assigns different quota types to different scopes. In addit
 | Request type| Description | Use for these scopes... | View request status via |
 |---|---|---|---|
 | [Integrated requests](quota-requests.md#integrated-requests) | Integrated requests are often approved within a few minutes. If your request exceeds a quotas threshold, then a support ticket is generated for a Support Engineer to review the request. Review times can delay approval by up to a few days. | ▪ region<br><br>▪ subscription | [Azure portal](#list-usage-portal) |
-| [Manual requests](quota-requests.md#manual-request) | Manual requests always result in generating a support ticket. Approval is often automated, but some requests can take up to a few days for us to process. | ▪ environment | [Azure CLI](#list-usage-cli) |
+| [Manual requests](quota-requests.md#manual-requests) | Manual requests always result in generating a support ticket. Approval is often automated, but some requests can take up to a few days for us to process. | ▪ environment | [Azure CLI](#list-usage-cli) |
   
 > [!NOTE]
 > Azure Container Apps is a production grade service designed for at-scale workloads. Making a quota request that escalates to the support team isn't out of the norm, but part of the process of managing resources on behalf of our customers. Microsoft makes every effort to accommodate most quota change requests with limited exceptions.
@@ -74,9 +74,9 @@ The most requested quota changes are listed in the following table. Each scope i
 | Quota | Scope | Request | View | Remarks |
 |---|---|---|---|---|
 | Managed Environment Count | Region | [Integrated request](quota-requests.md#integrated-requests) | [Portal](#list-usage-portal) | The number of environments per region. |
-| Managed Environment Consumption Cores | Environment | [Manual request](quota-requests.md#manual-request) | [CLI](#list-usage-cli) | The number of maximum consumption cores the environment is allocated to use. This value is the sum of cores requested by each active replica (across all apps) in an environment. |
-| Managed Environment General Purpose Cores | Environment | [Manual request](quota-requests.md#manual-request) | [CLI](#list-usage-cli) | The total cores available to all general purpose (D-series) profiles within an environment. |
-| Managed Environment Memory Optimized Cores | Environment | [Manual request](quota-requests.md#manual-request) | [CLI](#list-usage-cli) | The total cores available to all memory optimized (E-series) profiles within an environment. |
+| Managed Environment Consumption Cores | Environment | [Manual request](quota-requests.md#manual-requests) | [CLI](#list-usage-cli) | The number of maximum consumption cores the environment is allocated to use. This value is the sum of cores requested by each active replica (across all apps) in an environment. |
+| Managed Environment General Purpose Cores | Environment | [Manual request](quota-requests.md#manual-requests) | [CLI](#list-usage-cli) | The total cores available to all general purpose (D-series) profiles within an environment. |
+| Managed Environment Memory Optimized Cores | Environment | [Manual request](quota-requests.md#manual-requests) | [CLI](#list-usage-cli) | The total cores available to all memory optimized (E-series) profiles within an environment. |
 
 ### GPU quotas
 
