@@ -343,6 +343,8 @@ items:
     items:
     - name: Troubleshoot Azure Migrate projects
       href: troubleshoot-project.md
+    - name: Azure Migrate in unsupported regions
+      href: azure-migrate-unsupported-regions.md
   - name: Appliance configuration
     items:
     - name: Troubleshoot Azure Migrate appliance
