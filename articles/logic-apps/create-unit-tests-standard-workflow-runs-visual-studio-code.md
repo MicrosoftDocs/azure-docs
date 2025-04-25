@@ -7,7 +7,8 @@ author: wsilveiranz
 ms.author: wsilveira
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 04/24/2025
+
 ---
 
 # Create unit tests from Standard workflow runs in Azure Logic Apps with Visual Studio Code (Preview)
