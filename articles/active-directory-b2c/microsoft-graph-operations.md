@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 02/19/2025
+ms.date: 04/18/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -139,9 +139,9 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 ## Applications
 
 - [List applications](/graph/api/application-list)
-- [Create an application](/graph/api/resources/application)
+- [Create an application](/graph/api/application-post-applications)
 - [Update application](/graph/api/application-update)
-- [Create servicePrincipal](/graph/api/resources/serviceprincipal)
+- [Create servicePrincipal](/graph/api/serviceprincipal-post-serviceprincipals)
 - [Create oauth2Permission Grant](/graph/api/resources/oauth2permissiongrant)
 - [Delete application](/graph/api/application-delete)
 
@@ -195,7 +195,7 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 - [List the built-in templates for Conditional Access policy scenarios](/graph/api/conditionalaccessroot-list-templates)
 - [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies)
 - [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
-- [Create a new Conditional Access policy](/graph/api/resources/application)
+- [Create a new Conditional Access policy](/graph/api/conditionalaccessroot-post-policies)
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
 - [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
 

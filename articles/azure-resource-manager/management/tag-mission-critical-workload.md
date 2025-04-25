@@ -37,8 +37,8 @@ To enable use by Microsoft in a workload assessment, the tags used for mission-c
 
   | **Tag Name** | **Value Type** | **Purpose** | **Value Format** |
   |---|---|---|---|
-  | **Azure.MissionCriticalWorkload** | String | Workload | DeptName-WorkloadName |
-  | **Azure.MissionCriticalWorkload** | String | SharedServices | SharedServices-Service |
+  | **Az.MissionCriticalWorkload** | String | Workload | DeptName-WorkloadName |
+  | **Az.MissionCriticalWorkload** | String | SharedServices | SharedServices-Service |
 
 ### Examples
 
@@ -46,16 +46,16 @@ To enable use by Microsoft in a workload assessment, the tags used for mission-c
 
 | **Workload Component** | **Tag Name** | **Tag Value** |
 |---|---|---|
-| **Workload A** | Azure.MissionCriticalWorkload | Finance-Workload |
-| **Shared Services** | Azure.MissionCriticalWorkload | SharedServices-ExpressRoute |
+| **Workload A** | Az.MissionCriticalWorkload | Finance-Workload |
+| **Shared Services** | Az.MissionCriticalWorkload | SharedServices-ExpressRoute |
 
 #### Mission-critical workload #2
 
 | **Workload Component** | **Tag Name** | **Tag Value** |
 |---|---|---|
-| **Workload B** | Azure.MissionCriticalWorkload | HR-Workload |
-| **Shared Services** | Azure.MissionCriticalWorkload | SharedServices-Firewall |
-| **Shared Services** | Azure.MissionCriticalWorkload | SharedServices-ExpressRoute |
+| **Workload B** | Az.MissionCriticalWorkload | HR-Workload |
+| **Shared Services** | Az.MissionCriticalWorkload | SharedServices-Firewall |
+| **Shared Services** | Az.MissionCriticalWorkload | SharedServices-ExpressRoute |
 
 ## How to apply Azure tags
 

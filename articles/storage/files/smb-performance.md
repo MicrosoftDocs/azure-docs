@@ -201,6 +201,7 @@ Supported regions:
 - Brazil South
 - Canada Central
 - Canada East
+- North Europe
 - France Central
 - Germany West Central
 - Central India
@@ -218,7 +219,9 @@ Supported regions:
 - Sweden Central
 - Switzerland North
 - UAE North
+- North Central US
 - South Central US 
+- West US
 - West US 2
 - West US 3
 - West Central US

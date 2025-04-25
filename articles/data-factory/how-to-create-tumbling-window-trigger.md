@@ -365,6 +365,6 @@ To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipe
 
 ## Related content
 
-* [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json)
+* [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-types)
 * [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md)
 * [Reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md)

@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Deploy a Python Django web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md) instead.
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)**) to **[Azure App Service](./overview.md)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md) instead.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 

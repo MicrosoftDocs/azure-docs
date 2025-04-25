@@ -91,6 +91,8 @@ az webapp list-runtimes --os windows | grep java
 
 For more information on version support, see [App Service language runtime support policy](language-support-policy.md).
 
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
+
 ## Deploying your app
 
 ### Build tools
