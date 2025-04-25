@@ -34,4 +34,4 @@ The key differences between the Classic and Simplified experience:
 ## Next steps
 
 - Learn about the [Classic experience](tutorial-migrate-physical-virtual-machines.md).
-- Learn about the [[Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience)].
+- Learn about the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience).
