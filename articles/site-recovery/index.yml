@@ -135,4 +135,4 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Multiregion Business Continuity and Disaster Recovery
-            url: /azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr
+            url: /azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr

@@ -65,4 +65,4 @@ Site Recovery can manage replication for:
 - Get started with [Azure VM replication between regions](azure-to-azure-quickstart.md).
 - Get started with [VMware VM replication](vmware-azure-enable-replication.md).
 - Get started with [Disaster recovery for VMs on Azure Extended Zones](disaster-recovery-for-edge-zone-vm-tutorial.md).
-- Get started with [Cloud Adoption Framework for Multiregion Business Continuity](/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr). 
+- Get started with [Cloud Adoption Framework for Multiregion Business Continuity](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr). 
