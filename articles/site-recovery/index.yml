@@ -130,4 +130,9 @@ landingContent:
             url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
-  
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure VMware Solution landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone  
