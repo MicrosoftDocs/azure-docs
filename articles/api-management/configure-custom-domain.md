@@ -202,6 +202,9 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
+[!INCLUDE [api-management-standard-v2-limitation](../../includes/api-management-standard-v2-limitation.md)]
+
+
 ## Related content
 
 [Upgrade and scale your service](upgrade-and-scale.md)

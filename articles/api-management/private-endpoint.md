@@ -259,7 +259,7 @@ To list private endpoint connections to the API Management instance:
 
 ## Optionally disable public network access
 
-To optionally limit incoming traffic to the API Management instance only to private endpoints, disable the public network access property. 
+To optionally limit incoming traffic to the API Management instance only to private endpoints, disable the public network access property. You can only disable public network access after you've configured a private endpoint. 
 
 > [!NOTE] 
 > Public network access can only be disabled in API Management instances configured with a private endpoint, not with other networking configurations.
@@ -334,13 +334,6 @@ Request originated from client public IP address 192.0.2.12, public network acce
        
 To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the Private Endpoint from inside your virtual network. 
 ```
-
-## Limitation for custom domain name in Standard v2 tier
-
-Currently, in the Standard v2 tier, API Management requires a publicly resolvable DNS name to allow traffic to the Gateway endpoint. If you configure a custom domain name for the Gateway endpoint, that name must be publicly resolvable, not restricted to a private DNS zone. 
-
-As a workaround in scenarios where you limit public access to the gateway and you configure a private domain name, you can set up Application Gateway to receive traffic at the private domain name and route it to the API Management instance's Gateway endpoint. 
-
 
 ## Related content
 
