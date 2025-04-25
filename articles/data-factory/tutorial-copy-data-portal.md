@@ -282,3 +282,8 @@ Advance to the following tutorial to learn how to copy data from on-premises to 
 
 > [!div class="nextstepaction"]
 >[Copy data from on-premises to the cloud](tutorial-hybrid-copy-portal.md)
+
+For more information on copying data to or from Azure Blob Storage and Azure SQL Database, see these connector guides:
+
+- [Copy and transform data in Azure Blob Storage](connector-azure-blob-storage.md)
+- [Copy and transform data in Azure SQL Database](connector-azure-sql-database.md)
