@@ -1,12 +1,12 @@
 ---
 title: Manage an Arize AI resource through the Azure portal (preview)
-description: This article describes management functions for Arize AI on the Azure portal.
+description: Learn how to manage Arize AI resources on the Azure portal.
 
 ms.topic: how-to
 ms.date: 04/21/2025
 ---
 
-# Manage a Arize AI resource (preview)
+# Manage an Arize AI resource (preview)
 
 This article describes how to manage the settings for Arize AI resources.
 
@@ -14,7 +14,7 @@ This article describes how to manage the settings for Arize AI resources.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Arize AI resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Arize AI resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
 The *Essentials* details include:
 - Resource group
@@ -22,7 +22,7 @@ The *Essentials* details include:
 - Subscription
 - Subscription ID
 - Tags
-- Single Sign-On
+- Single sign-on
 - Status
 - Pricing Plan
 - Billing Term
@@ -35,4 +35,4 @@ To manage your resource, select the links next to corresponding details.
 
 ## Get support
 
-Contact [Arize](https://arize.com/contact/) for customer support.  You can also visit the [Slack Support Community](https://arize-ai.slack.com/ssb/redirect) for additional help. 
+Contact [Arize](https://arize.com/contact/) for customer support. You can also visit the [Slack Support Community](https://arize-ai.slack.com/ssb/redirect) for more help. 
