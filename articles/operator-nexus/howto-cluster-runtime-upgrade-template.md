@@ -172,7 +172,7 @@ az networkcloud cluster show -n $CLUSTER_NAME -g $CLUSTER_RG --subscription $SUB
 }
 ```
 
-### Running Cluster upgrade with `PauseAfterRack` Strategy
+### How to run Cluster upgrade with `PauseAfterRack` Strategy
 
 `PauseAferRack` strategy allows the customer to control the upgrade by requiring an API call to continue to the next Rack after each Compute Rack completes to the configured threshold.
 
@@ -235,14 +235,14 @@ Add a Tag to the BMM resource to track any BMM that fails to complete provisioni
 |BF provision issue  |<DE_ID>         |
 ```
 
-## Continuing upgrade during `PauseAfterRack` strategy:
+## How to continue upgrade during `PauseAfterRack` strategy
 Once a compute Rack meets the success threshold, the upgrade pauses until the user signals to the operator to continue the upgrade.
 
 Use the following command to continue upgrade once a Compute Rack is paused after meeting the deployment threshold for the Rack:
 ```
 az networkcloud cluster continue-update-version -g $CLUSTER_RG -n $CLUSTER_NAME$ --subscription $SUBSCRIPTION_ID
 ```
-## Troubleshooting Cluster and BMM upgrade failures.
+## How to troubleshoot Cluster and BMM upgrade failures.
 The following troubleshooting documents can help recover BMM upgrade issues:
 - [Hardware validation failures](troubleshoot-hardware-validation-failure.md)
 - [BMM Provisioning issues](troubleshoot-bare-metal-machine-provisioning.md)
