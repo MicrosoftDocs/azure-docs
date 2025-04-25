@@ -108,7 +108,7 @@ sections:
 
               The Developer tier also includes support for Private Link.
 
-              The Standard and Premium tiers offer more functionalities, including encryption with customer-managed keys, soft delete protection, and geo-replication capability.
+              The Standard and Premium tiers offer more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
 
           - **Cost**: There's no cost to use a Free tier store.
 
