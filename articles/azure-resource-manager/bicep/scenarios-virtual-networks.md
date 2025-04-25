@@ -3,7 +3,7 @@ title: Create virtual network resources by using Bicep
 description: Describes how to create virtual networks, network security groups, and route tables by using Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/02/2025
+ms.date: 04/25/2025
 ---
 
 # Create virtual network resources by using Bicep
@@ -21,7 +21,7 @@ Virtual networks contain subnets, which are logical groupings of IP addresses wi
 > [!NOTE]
 > The Azure Virtual Network API is updated to allow modifications to virtual networks without requiring the inclusion of the subnet property in PUT requests. Previously, omitting the subnet property would result in the deletion of existing subnets. With the new behavior, if the subnet property isn't included in a PUT request, the existing subnets remain unchanged. Explicitly setting the subnet property to an empty value deletes all existing subnets, while providing specific subnet configurations creates or updates subnets accordingly. This change simplifies virtual network management by preventing unintended subnet deletions during updates. For more information, see [Azure Virtual Network now supports updates without subnet property](https://techcommunity.microsoft.com/blog/azurenetworkingblog/azure-virtual-network-now-supports-updates-without-subnet-property/4067952).
 
-It's best to define your subnets as child resources, as in this example:
+It's best to define your subnets as [child resources](./child-resource-name-type.md#within-parent-resource), as in this example:
 
 ```bicep
 param location string = resourceGroup().location
@@ -59,60 +59,7 @@ output subnet1ResourceId string = virtualNetwork::subnet1.id
 output subnet2ResourceId string = virtualNetwork::subnet2.id
 ```
 
-### Access subnet resource IDs
-
-You often need to refer to a subnet's resource ID. When you use the `subnets` property to define your subnet, [you can use the `existing` keyword](existing-resource.md) to also obtain a strongly typed reference to the subnet, and then access the subnet's `id` property:
-
-> The following example is part of a larger example. For a Bicep file that you can deploy, [see the complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-virtual-networks/vnet.bicep).
-
-```bicep
-param location string = resourceGroup().location
-
-var virtualNetworkName = 'my-vnet'
-var subnet1Name = 'Subnet-1'
-var subnet2Name = 'Subnet-2'
-
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
-  name: virtualNetworkName
-  location: location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        '10.0.0.0/16'
-      ]
-    }
-    subnets: [
-      {
-        name: subnet1Name
-        properties: {
-          addressPrefix: '10.0.0.0/24'
-        }
-      }
-      {
-        name: subnet2Name
-        properties: {
-          addressPrefix: '10.0.1.0/24'
-        }
-      }
-    ]
-  }
-
-  resource subnet1 'subnets' existing = {
-    name: subnet1Name
-  }
-
-  resource subnet2 'subnets' existing = {
-    name: subnet2Name
-  }
-}
-
-output subnet1ResourceId string = virtualNetwork::subnet1.id
-output subnet2ResourceId string = virtualNetwork::subnet2.id
-```
-
-Because this example uses the `existing` keyword to access the subnet resource, instead of defining the complete subnet resource, it doesn't have the risks outlined in the previous section.
-
-You can also combine the `existing` and `scope` keywords to refer to a virtual network or subnet resource in another resource group.
+To reference a nested resource outside the parent resource, it must be qualified with the containing resource name and the :: operator as shown in the preceding exeample.
 
 ## Network security groups
 
@@ -133,4 +80,3 @@ Private endpoint approval is an operation, so you can't perform it directly with
 - Quickstart templates
   - [Create a Virtual Network with two Subnets](https://azure.microsoft.com/resources/templates/vnet-two-subnets/)
   - [Virtual Network with diagnostic logs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-create-with-diagnostic-logs)
- 
