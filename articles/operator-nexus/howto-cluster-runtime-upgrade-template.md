@@ -29,6 +29,13 @@ Runtime changes are categorized as follows:
 3. Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
 4. Target Cluster must be healthy in a running state.
 
+## Links
+- [Azure portal](https://aka.ms/nexus-portal)
+- [Cluster Upgrade](howto-cluster-runtime-upgrade.md)
+- [Cluster Upgrade with PauseAfterRack](howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md)
+- [Azure CLI](https://aka.ms/azcli)
+- [Install CLI Extension](howto-install-cli-extensions.md)
+  
 ## Required Parameters:
 - \<ENVIRONMENT\>: - Instance Name
 - <AZURE_REGION>: - Azure Region of Instance
