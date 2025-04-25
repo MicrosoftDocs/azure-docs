@@ -64,8 +64,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
-<!-- <a> element here to preserve external links-->
-<a name="access-environment-variables"></a>
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
 
 ## Customize build automation
 > [!NOTE]
@@ -353,6 +352,9 @@ App Service ignores any errors that occur when processing a custom startup comma
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
     ```
+
+<!-- <a> element here to preserve external links-->
+<a name="access-environment-variables"></a>
 
 ## Access app settings as environment variables
 
