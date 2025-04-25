@@ -29,11 +29,9 @@ The following prerequisites are required to continue.
 - Have permission to set up new resources in the subscription your private cloud is in.
 - Reserve a dedicated address block for your external storage.
 - Use either the [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell), or [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli) to create an Elastic SAN in the same region and availability zone as your private cloud.
-- Setup a Private Endpoint using either the [Azure Portal](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-portal#tabpanel_2_azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint), or [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli) so your volume group can connect your SDDC to your Elastic SAN.
+- Setup a Private Endpoint using either the [Azure portal](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-portal#tabpanel_2_azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint), or [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli) so your volume group can connect your SDDC to your Elastic SAN.
 
 ## Supported host types
-
-To use Elastic SAN with Azure VMware Solution, you can use any of these host types:
 
 You can use the following host types when Azure Elastic SAN is the backing storage for Azure VMware solution:
 
@@ -47,7 +45,7 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 Use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume group you intend to connect to your software defined data center (SDDC). Having multiple sessions provides better performance due to parallelization, and better reliability to handle single session disconnects from unexpected factors. When you establish multiple sessions, it also mitigates the impact of session disconnects, as long as the connection is re-established within a few seconds, your other sessions help load-balance traffic.
 
    > [!NOTE]
-   > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it will show the identifier of a device or filesystem, and state it has entered the All Paths Down state.
+   > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it shows the identifier of a device or filesystem, and states it entered the All Paths Down state.
 
 If your environment will ever have 16 nodes in a cluster, use one of the following configurations:
 - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
@@ -72,7 +70,7 @@ Start by providing an IP block for deploying external storage. Navigate to the *
 
 ## Connect Elastic SAN
 
-After you provide an External storage address block, connect your private cloud express route with the private endpoint(s) you set up for your Elastic SAN volume group(s). To learn how to establish these connections, see [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
+After you provide an External storage address block, connect your private cloud express route with the private endpoints you set up for your Elastic SAN volume groups. To learn how to establish these connections, see [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
 
 > [!NOTE]
 > Connection to Elastic SAN from Azure VMware Solution happens via private endpoints to provide the highest network security. Since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
@@ -93,10 +91,10 @@ Once your SDDC express route is connected with the private endpoint for your Ela
 To delete the Elastic SAN-based datastore, use the following steps from the Azure portal.
 
 1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Datastore list**.
-1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the Cluster(s).
+1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the clusters.
    
    :::image type="content" source="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png" alt-text="Screenshot showing Elastic SAN volume removal." border="false"lightbox="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png":::
    
-1. Optionally you can delete the volume you previously created in your Elastic SAN.
+1. Optionally, you can delete the volume you previously created in your Elastic SAN.
       > [!NOTE]
    > This operation can't be completed if virtual machines or virtual disks reside on an Elastic SAN VMFS Datastore.
