@@ -84,7 +84,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * A longer time-out compared to the managed connector.
 
-  The SAP built-in connector runs with the Azure Logic Apps runtime, not the shared or global connector infrastructure in Azure. This behavior means that you can change the default time-out value on the Standard logic app resource by using the **host.json** setting named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and the [**functionTimeout** host setting](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions).
+  The SAP built-in connector runs with the Azure Logic Apps runtime, not the shared or global connector infrastructure in Azure. This behavior means that you can change the default time-out value on the Standard logic app resource by using the **host.json** setting named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and [**functionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions).
   
     This capability means that you can use the SAP built-in connector instead, and long-running requests work without having to use the long-running webhook-based request action pattern in the SAP managed connector, which has a two-minute time-out.
 
