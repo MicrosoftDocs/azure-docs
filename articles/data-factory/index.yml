@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Data Factory documentation
+title: Azure Data Factory Documentation
 summary: Azure Data Factory is Azure's cloud ETL service for scale-out serverless data integration and data transformation.  It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. You can also lift and shift existing SSIS packages to Azure and run them with full compatibility in ADF. SSIS Integration Runtime offers a fully managed service, so you don't have to worry about infrastructure management.
 metadata:
   title: Azure Data Factory Documentation
@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 02/13/2025
+  ms.date: 04/17/2025
 landingContent:
   - title: What's New in Azure Data Factory
     linkLists:
@@ -34,28 +34,50 @@ landingContent:
             url: ./pricing.md
           - text: Request a feature
             url: /answers/topics/azure-data-factory.html
+  - title: Data Factory in Microsoft Fabric
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Introduction to Data Factory in Microsoft Fabric
+            url: /fabric/data-factory/data-factory-overview
+          - text: What's new for Data Factory in Microsoft Fabric
+            url: /fabric/fundamentals/whats-new?toc=%2Ffabric%2Fdata-factory%2Ftoc.json#data-factory-in-microsoft-fabric
+          - text: Migrate to Data Factory in Microsoft Fabric
+            url: /fabric/data-factory/migrate-from-azure-data-factory
+      - linkListType: tutorial
+        links:
+          - text: Create your first dataflow
+            url: /fabric/data-factory/create-first-dataflow-gen2
+          - text: Create a Copy job
+            url: /fabric/data-factory/create-copy-job
+      - linkListType: training
+        links:
+          - text: Data Factory in Microsoft Fabric training
+            url: /training/browse/?terms=data%20factory%20fabric
   - title: Get started
     linkLists:
       - linkListType: concept
         links:
-          - text: Monitor Azure Data Factory
-            url: ./monitor-data-factory.md
           - text: Pipelines and activities in Azure Data Factory
             url: ./concepts-pipelines-activities.md
           - text: Pipeline execution and triggers
             url: ./concepts-pipeline-execution-triggers.md
+          - text: Monitor Azure Data Factory
+            url: ./monitor-data-factory.md
           - text: Mapping data flows in Azure Data Factory
             url: ./concepts-data-flow-overview.md
           - text: Using expressions and functions
             url: ./control-flow-expression-language-functions.md
       - linkListType: quickstart
         links:
-          - text: Create an Azure Data Factory with UI
-            url: ./quickstart-create-data-factory-portal.md
           - text: Use the Copy Data tool
             url: ./quickstart-hello-world-copy-data-tool.md
           - text: Transform data with mapping data flows
             url: ./tutorial-data-flow.md
+      - linkListType: training
+        links:
+          - text: Azure Data Factory training
+            url: data-factory-tutorials.md
   - title: Data movement
     linkLists:
       - linkListType: overview
@@ -70,6 +92,8 @@ landingContent:
             url: ./copy-activity-performance-troubleshooting.md
           - text: Troubleshoot connectors
             url: ./connector-troubleshoot-guide.md
+          - text: Create a self-hosted integration runtime
+            url: ./create-self-hosted-integration-runtime.md
   - title: Data transformation
     linkLists:
       - linkListType: tutorial
@@ -77,23 +101,7 @@ landingContent:
           - text: Create data flow
             url: ./data-flow-create.md
           - text: Copy and transform data from a REST endpoint
-            url: ./connector-rest.md
-  - title: Lift and shift SSIS packages
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: SSIS migration assessment rules
-            url: ./scenario-ssis-migration-rules.md
-      - linkListType: concept
-        links:
-          - text: Integration runtime in Azure Data Factory
-            url: ./concepts-integration-runtime.md
-          - text: Create a self-hosted integration runtime
-            url: ./create-self-hosted-integration-runtime.md
-      - linkListType: tutorial
-        links:
-          - text: Running SSIS packages in Azure
-            url: ./tutorial-deploy-ssis-packages-azure.md            
+            url: ./connector-rest.md         
   - title: Workflow Orchestration Manager
     linkLists:
       - linkListType: concept
@@ -118,19 +126,7 @@ landingContent:
         links:
           - text: Capture changed data with a CDC resource
             url: how-to-change-data-capture-resource.md
-  - title: SAP knowledge center
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Overview
-            url: industry-sap-overview.md            
-          - text: SAP connectors
-            url: industry-sap-connectors.md
-          - text: SAP templates
-            url: industry-sap-templates.md
-          - text: SAP change data capture (CDC) capabilities
-            url: sap-change-data-capture-introduction-architecture.md
-  - title: Author, Monitor and Manage
+  - title: Author, Monitor, and Manage
     linkLists:
       - linkListType: how-to-guide
         links:

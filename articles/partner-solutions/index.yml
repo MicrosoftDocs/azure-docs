@@ -57,7 +57,12 @@ productDirectory:
       links:
         - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy, and master data management.
-    - title: Neon Serverless Postgres
+    - title: LambdaTest - HyperExecute (preview)
+      imageSrc: ./media/index/lambda-test.svg
+      links: 
+        - url: ./lambda-test/overview.md
+          text: An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.
+    - title: Neon Serverless Postgres (preview)
       imageSrc: ./media/index/neon.svg
       links:
         - url: ./neon/overview.md
@@ -77,7 +82,7 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
-    - title: Pure Storage
+    - title: Pure Storage (preview)
       imageSrc: ./media/index/pure-storage.svg
       links:
         - url: pure-storage/overview.md

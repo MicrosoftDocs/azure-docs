@@ -7,8 +7,8 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 01/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
 

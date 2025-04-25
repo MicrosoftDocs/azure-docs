@@ -4,7 +4,7 @@ description: An overview of the Azure Virtual Desktop Agent and update processes
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 12/16/2020
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

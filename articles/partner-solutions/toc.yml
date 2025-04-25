@@ -20,6 +20,8 @@ items:
     href: ./elastic/index.yml
   - name: Informatica 
     href: ./informatica/index.yml
+  - name: LambdaTest - HyperExecute (preview)
+    href: ./lambda-test/index.yml
   - name: Neon Serverless Postgres (preview)
     href: ./neon/index.yml 
   - name: New Relic
