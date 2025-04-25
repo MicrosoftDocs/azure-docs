@@ -155,6 +155,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.HealthBot](./permissions/ai-machine-learning.md#microsofthealthbot) |  | [Azure AI Health Bot](/azure/health-bot/overview) |
 > | [Microsoft.MachineLearningServices](./permissions/ai-machine-learning.md#microsoftmachinelearningservices) | Enterprise-grade machine learning service to build and deploy models faster. | [Machine Learning](/azure/machine-learning/) |
 > | [Microsoft.Search](./permissions/ai-machine-learning.md#microsoftsearch) | Leverage search services and get comprehensive results. | [Azure AI Search](/azure/search/) |
+> | [Microsoft.VideoIndexer](./permissions/ai-machine-learning.md#microsoftvideoindexer) | Extract the insights from your videos using Azure AI Video Indexer video and audio models. | [Azure AI Video Indexer](/azure/azure-video-indexer/) |
 
 ## Internet of Things
 
