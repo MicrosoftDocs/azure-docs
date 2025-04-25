@@ -36,8 +36,7 @@ The RemoteApp template can be deployed in multiple configurations:
 ## Prerequisites
 Required:
 
-1. An existing subnet. 
-    - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
 2. (optional) An existing domain to join if the RemoteApp will be domain joined.
 3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
@@ -89,7 +88,7 @@ It can take 20+ minutes to finish all resource creation. Wait for the deployment
 ## Connect to the Application VM
 Via the [Admin VM](./understanding-admin-vm.md):
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
-1. Sign in to a desktop session on the [Admin VM](./understanding-admin-vm.md) blade for the enclave.
+1. Sign in to a desktop session on the [Admin VM](./understanding-admin-vm.md) page for the enclave.
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
 4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.

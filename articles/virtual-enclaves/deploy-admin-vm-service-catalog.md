@@ -36,8 +36,7 @@ The Admin VM template can be deployed in multiple configurations:
 ## Prerequisites
 Required:
 
-1. An existing subnet. 
-    - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
 2. (optional) An existing domain to join if the Admin VM will be domain joined.
 3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
