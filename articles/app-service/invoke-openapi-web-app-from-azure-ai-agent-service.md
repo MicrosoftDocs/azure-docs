@@ -17,7 +17,7 @@ Azure App Service is a fully managed platform for building, deploying, and scali
 
 In this tutorial, you're using an Azure AI Agent to invoke an API hosted on Azure App Service. By the end of this tutorial, you have a fashion assistant chat application running in App Service using an AI agent from the Azure AI Agent Service.
 
-:::image type="content" source="media/tutorial-invoke-openapi-web-app-from-azure-ai-agent-service/browse-app.png" alt-text="A screenshot showing an AI agent running within App Service.":::
+:::image type="content" source="media/invoke-openapi-web-app-from-azure-ai-agent-service/browse-app.png" alt-text="A screenshot showing an AI agent running within App Service.":::
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The sample repository has the following content:
 
 | Content            | Description                                                                 |
 |--------------------|-----------------------------------------------------------------------------|
-| *src/webapp*       | A front-end .NET Blazor application. See [How does the front-end app work?](#how-does-the-front-end-app-work) |
+| *src/webapp*       | A front-end .NET Blazor application. |
 | *infra*            | Infrastructure-as-code for deploying a .NET web app in Azure and Azure AI Foundry resources for the AI Agent. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
 | *azure.yaml*       | Azure Developer CLI configuration that deploys the Blazor application to App Service. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
 
@@ -83,7 +83,7 @@ For detailed guidance with screenshots and additional information, see [Add Open
 
 1. Leave the authentication method as anonymous. There's no authentication on the web app. If the app required an API key or managed identity to access it, this location is where you would specify this information.
 1. Copy and paste the OpenAPI specification in the text box. The OpenAPI specification is provided in the Codespace in the `src/webapp` directory and is called `swagger.json`.
-1. Before you complete creating the tool, you need to copy and paste your app's URL into the OpenAPI specification. Replace the placeholder <APP-SERVICE-URL> in line 10 of the OpenAPI specification with your app's URL. It's in the format `https://<app-name>.azurewebsites.net`.
+1. Before you complete creating the tool, you need to copy and paste your app's URL into the OpenAPI specification. Replace the placeholder `<APP-SERVICE-URL>` in line 10 of the OpenAPI specification with your app's URL. It's in the format `https://<app-name>.azurewebsites.net`.
     - To find your app's URL, go back to your resource group and navigate to your **App Service**. The URL is on the **Overview** page of your App Service.
 1. Select **Next**, review the details you provided, and then select **Create Tool**.
 
@@ -107,12 +107,12 @@ After setting up the AI Agent and adding the OpenAPI Specified Tool, you need to
 
 In the azd output, find the URL of your app and navigate to it in the browser. The URL looks like this in the azd output:
 
-    <pre>
-    Deploying services (azd deploy)
-    
-      (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>.azurewebsites.net/
-    </pre>
+<pre>
+Deploying services (azd deploy)
+
+    (✓) Done: Deploying service web
+    - Endpoint: https://&lt;app-name>.azurewebsites.net/
+</pre>
 
 In the chat window, ask the agent questions such as:
 - What's in my cart?
@@ -126,9 +126,9 @@ You can also ask general questions about the items and the agent should be able 
 
 When you're done with this app, run the following to delete the resource group with all of the resources created during this tutorial.
 
-    ```bash
-    azd down
-    ```
+```bash
+azd down
+```
 
 ## Troubleshooting
 

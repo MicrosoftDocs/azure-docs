@@ -460,7 +460,7 @@ items:
     - name: Deploy a .NET app with Azure OpenAI and Azure SQL
       href: deploy-intelligent-apps-dotnet-to-azure-sql.md
     - name: Invoke OpenAPI app from Azure AI Agent
-      href: tutorial-invoke-openapi-web-app-from-azure-ai-agent-service.md
+      href: invoke-openapi-web-app-from-azure-ai-agent-service.md
 - name: WebJobs
   items:
     - name: Create WebJobs
