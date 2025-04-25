@@ -24,18 +24,11 @@ Runtime changes are categorized as follows:
 
 ## Prerequisites
 
-1. Install the latest version of [Azure CLI](https://aka.ms/azcli).
-2. The latest `networkcloud` CLI extension is required. It can be installed following the steps listed in [Install CLI Extension](howto-install-cli-extensions.md).
-3. Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
-4. Target Cluster must be healthy in a running state.
+- Install the latest version of [Azure CLI](https://aka.ms/azcli).
+- The latest `networkcloud` CLI extension is required. It can be installed following the steps listed in [Install CLI Extension](howto-install-cli-extensions.md).
+- Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
+-Target Cluster must be healthy in a running state.
 
-## Links
-- [Azure portal](https://aka.ms/nexus-portal)
-- [Cluster Upgrade](howto-cluster-runtime-upgrade.md)
-- [Cluster Upgrade with PauseAfterRack](howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md)
-- [Azure CLI](https://aka.ms/azcli)
-- [Install CLI Extension](howto-install-cli-extensions.md)
-  
 ## Required Parameters:
 - \<ENVIRONMENT\>: - Instance Name
 - <AZURE_REGION>: - Azure Region of Instance
@@ -257,9 +250,9 @@ The following troubleshooting documents can help recover BMM upgrade issues:
 - [BMM Warning Status](troubleshoot-bare-metal-machine-warning.md)
 
 If troubleshooting doesn't resolve the issue, open a Microsoft support ticket:
-1. Collect any errors in the Azure CLI output.
-2. Collect Cluster and BMM operation state from Azure portal or Azure CLI.
-3. Create Azure Support Request for any Cluster or BMM upgrade failures and attach any errors along with ASYNC URL, correlation ID, and operation state of the Cluster and BMMs.
+- Collect any errors in the Azure CLI output.
+- Collect Cluster and BMM operation state from Azure portal or Azure CLI.
+- Create Azure Support Request for any Cluster or BMM upgrade failures and attach any errors along with ASYNC URL, correlation ID, and operation state of the Cluster and BMMs.
 
 ## Post-upgrade Validation
 Run the following commands to check the status of the CM, Cluster, and BMM:
@@ -331,3 +324,10 @@ Remove the resource tag on the Cluster resource tracking the upgrade in Azure po
 * Update Task hours for upgrade duration.
 * Set Cluster upgrade work item to `Complete`.
 * Add any notes on support tickets and issues encountered during upgrade
+
+## Links
+- [Azure portal](https://aka.ms/nexus-portal)
+- [Cluster Upgrade](howto-cluster-runtime-upgrade.md)
+- [Cluster Upgrade with PauseAfterRack](howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md)
+- [Azure CLI](https://aka.ms/azcli)
+- [Install CLI Extension](howto-install-cli-extensions.md)
