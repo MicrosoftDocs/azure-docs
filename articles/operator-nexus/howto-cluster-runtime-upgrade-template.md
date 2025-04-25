@@ -90,12 +90,19 @@ Runtime changes are categorized as follows:
    az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
    ```
 
-   Validate the following resource states for each BMM:
+   Validate the following resource states for each BMM (except spare):
    - ReadyState: True
    - ProvisioningState: Succeeded
    - DetailedStatus: Provisioned
    - CordonStatus: Uncordoned
    - PowerState: On
+
+   One control-plane BMM is labeled as a spare with the following BMM status profile:
+   - ReadyState: False
+   - ProvisioningState: Succeeded
+   - DetailedStatus: Available
+   - CordonStatus: Uncordoned
+   - PowerState: Off
 
 3. Collect a profile of the tenant workloads:
    ```
@@ -219,7 +226,7 @@ az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTI
 az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
 ```
 
-Validate the following states for each BMM:
+Validate the following states for each BMM (except spare):
 - ReadyState: True
 - ProvisioningState: Succeeded
 - DetailedStatus: Provisioned
@@ -272,7 +279,7 @@ Run the following commands to check the status of the CM, Cluster, and BMM:
    az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
    ```
 
-   Validate the following resource states for each BMM:
+   Validate the following resource states for each BMM (except spare)
    - ReadyState: True
    - ProvisioningState: Succeeded
    - DetailedStatus: Provisioned
@@ -280,12 +287,7 @@ Run the following commands to check the status of the CM, Cluster, and BMM:
    - PowerState: On
 
    >[!Note]
-   > One control-plane BMM is labeled as a spare with the following BMM status profile:
-   > - ReadyState: False
-   > - ProvisioningState: Succeeded
-   > - DetailedStatus: Available
-   > - CordonStatus: Uncordoned
-   > - PowerState: Off
+   > One control-plane BMM is labeled as a spare and is inactive.
 
 4. Collect a profile of the tenant workloads:
    ```
