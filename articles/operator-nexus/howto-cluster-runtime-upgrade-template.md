@@ -50,8 +50,8 @@ Runtime changes are categorized as follows:
 - <START_TIME>: Planned start time of upgrade
 - \<DURATION\>: Estimated Duration of upgrade
 - <DEPLOYMENT_THRESHOLD>: Compute deployment threshold
-- <DEPLOYMENT_PAUSE_MINS>: Time to wait before moving to the next Rack once the current Rack meets the deploymen threshold
-- <NFC_NAME>: Associated Nework Fabric Controller (NFC)
+- <DEPLOYMENT_PAUSE_MINS>: Time to wait before moving to the next Rack once the current Rack meets the deployment threshold
+- <NFC_NAME>: Associated Network Fabric Controller (NFC)
 - <CM_NAME>: Associated Cluster Manager (CM)
 - <ETCD_LAST_ROTATION_DATE>: Control plane etcd credential last rotation date
 - <ETCD_ROTATION_DAYS>: Control plane etcd credential next rotation period
@@ -236,7 +236,7 @@ az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTI
 az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
 ```
 
-Validate the following for each BMM:
+Validate the following states for each BMM:
 - ReadyState: True
 - ProvisioningState: Succeeded
 - DetailedStatus: Provisioned
