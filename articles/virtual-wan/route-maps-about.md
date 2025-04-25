@@ -139,7 +139,7 @@ You can apply route-maps on each connection for the inbound, outbound, or both i
 
 * **Inbound direction:** When a route-map is configured on a connection in the inbound direction, all the ingress route advertisements on that connection are processed by the route-map before they're entered into the virtual hub router’s routing table, *defaultRouteTable*.
 
-* **Outbound direction:** When a route-map is configured on a connection in the outbound direction, the route-map processes all the egress route advertisements on that connection before they're advertised by the virtual hub router across the connection.
+* **Outbound direction:** When a route-map is configured on a connection in the outbound direction, the route-map processes all the egress route advertisements on that connection before they're advertised by the virtual hub router across the connection. Outbound route-maps can only modify the routes that are advertised by Virtual WAN to a specific connection and can't be used to select which route or path a connection uses to access a specific prefix. This is because best-path selection via [hub routing preference](about-virtual-hub-routing-preference.md) occurs prior to applying any outbound route-maps. Therefore, outbound routes can't be used to influence best-path selection in Azure.
 
 For steps to apply route-maps to connections, see [How to configure Route-maps](route-maps-how-to.md).
 

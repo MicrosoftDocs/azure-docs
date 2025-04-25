@@ -4,7 +4,7 @@ description: Learn how to enable watermarking in Azure Virtual Desktop to help p
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/08/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Watermarking in Azure Virtual Desktop

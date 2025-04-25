@@ -125,7 +125,7 @@ We look forward to partnering with you in addressing ransomware protection, dete
 
 Connect with us:
 - [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity@microsoft.com)
-- [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
+- [www.microsoft.com/services](https://www.microsoft.com/servicesagreement)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).
 

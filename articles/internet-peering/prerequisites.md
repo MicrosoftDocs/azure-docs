@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: internet-peering
 ms.topic: concept-article
-ms.date: 02/09/2024
+ms.date: 04/21/2025
 
 #CustomerIntent: As an administrator, I want to learn what the prerequisites are to set up internet peering with Microsoft so I can plan correctly for the set up.
 ---

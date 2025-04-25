@@ -4,7 +4,7 @@ description: Learn about app attach and MSIX app attach in Azure Virtual Desktop
 ms.topic: conceptual
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 01/17/2025
 ---
 
