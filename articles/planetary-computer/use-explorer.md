@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Use the Microsoft Planetary Computer Pro Explorer"
 description: This quickstart provides guidance on how to interact with the Microsoft Planetary Computer Pro Explorer.
-author: brentharris
+author: beharris
 ms.author: brentharris
 ms.service: azure
 ms.topic: quickstart
 ms.date: 04/09/2025
-#customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my data in the UI.
+#customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my data.
 ---
 
 # Quickstart: Use the Microsoft Planetary Computer Pro Explorer
@@ -20,25 +20,21 @@ This quickstart provides instructions on how to interact with the Microsoft Plan
 * A Geocatalog collection with:
   * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.md).
   * Items ingested. Learn how to [ingest STAC items](./ingestion-source.md).
-  * Visualization configurations set:
-    * [Create a Render Configuration](./render-configuration.md).
-    * [Configure Colleciton Tile Settings](./tile-settings.md).
-    * [Mosaic Configuration](./mosaic-configurations-for-collections.md)
-    * [Queryables Configuration](./queryables-for-explorer-custom-search-filter.md)
+  * A collection that has been configured for visualization per the guidelines provided in [Configure a collection with the Microsoft Planetary Computer Pro portal](./configure-collection-portal.md)
 
-## Open a GeoCatalog
+## Open the Microsoft Planetary Computer Pro portal
 
 1. Sign in to Azure Portal
 1. In the Azure Portal search box, enter GeoCatalogs. Select GeoCatalogs in the search results.
 1. In the GeoCatalogs page, select the GeoCatalog you want to explore.
-1. In the GeoCatalog's "Resource" page, under the Essentials section, follow the GeoCatalog URI link to open the GeoCatalog collection Manager.
+1. In the GeoCatalog's "Resource" page, under the Essentials section, follow the GeoCatalog URI link to open the Planetary Computer Pro portal.
 
-## Launch the Data Explorer
+## Launch the Planetary Computer Pro Explorer
 
-The Data Explorer can be opened in two ways:
+The Explorer can be opened in two ways:
 
-1. Select Data Explorer in the navigation bar, **or** select a valid collection to explore.
-1. From the collection overview page, click Launch in Explorer. This loads this collection in the Explorer.
+1. Select **Explorer** in the navigation bar, **or** select a valid collection to explore.
+1. From the collection's **Overview** page, click **Launch in Explorer** on the right side below the **Spatial extents** map. This loads the collection in the Explorer.
 
 > [!NOTE]
 > If the "Launch In Explorer" button is grey, you must [Create a Render Configuration](./render-configuration.md).
