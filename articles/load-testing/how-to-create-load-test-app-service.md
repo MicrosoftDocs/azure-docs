@@ -38,7 +38,7 @@ To create a load test for a web app:
 
     On this page, you can see the list of tests and the load test runs for this web app.
    
-:::image type="content" source="./media/how-to-create-load-test-app-service/app-service-load-testing.png" lightbox="./media/how-to-create-load-test-app-service/app-service-load-testing.png" alt-text="Screenshot that shows Load Testing page in App Service.":::
+   :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-load-testing.png" lightbox="./media/how-to-create-load-test-app-service/app-service-load-testing.png" alt-text="Screenshot that shows Load Testing page in App Service.":::
 
 1. Select **Create test** to start load test for the web app. Select **Create a URL-based test** if you don't have a test script. Select **Upload a script** if you have a JMeter or Locust test script.
 
