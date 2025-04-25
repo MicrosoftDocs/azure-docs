@@ -140,25 +140,25 @@ Outlined below are the steps and code snippets to connect to SQL database in Fab
 
 1. Complete creating your service connection on the Cloud Shell, or on your local Azure CLI.
 
-1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service Connector menu, and locate your SQL database in Fabric service connection. Select **SQL database** to navigate to the Fabric portal.
+1. Once your connection is created, open your compute service resource in the Azure portal, open the Service Connector menu, and locate your SQL database in Fabric service connection. Select **SQL database** to navigate to the Fabric portal.
 
-    :::image type="content" source="./media/how-to-integrate-fabric-sql/navigate-to-fabric-sql-database.png" alt-text="Screenshot of the Azure portal, selecting SQL Database link to navigate to the Fabric portal.":::
+    :::image type="content" source="./media/integrate-fabric-sql/navigate-to-fabric-sql-database.png" alt-text="Screenshot of the Azure portal, selecting SQL Database link to navigate to the Fabric portal.":::
 
 1. On the Fabric portal, locate the **Security** tab and select **Manage SQL security**.
 
-    :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-manage-security.png" alt-text="Screenshot of the Fabric portal, selecting Manage SQL Security.":::
+    :::image type="content" source="./media/integrate-fabric-sql/fabric-portal-manage-security.png" alt-text="Screenshot of the Fabric portal, selecting Manage SQL Security.":::
 
 1. Select the role db_ddladmin, then **Manage access**.
 
-    :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-manage-access-sql-role.png" alt-text="Screenshot of the Fabric portal, selecting the db_ddladmin role, and then clicking Manage access":::
+    :::image type="content" source="./media/integrate-fabric-sql/fabric-portal-manage-access-sql-role.png" alt-text="Screenshot of the Fabric portal, selecting the db_ddladmin role, and then clicking Manage access.":::
 
 1. You should see the name of your system-assigned managed identity, and/or any user-assigned managed identities with a service connection to this SQL database in Fabric. Select **Share database**. If you do not see the **Share database** option, you do not need to continue with the remaining steps.
 
-    :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-share-database.png" alt-text="Screenshot of the Fabric portal, viewing a list of groups added to the role, and clicking Share database":::
+    :::image type="content" source="./media/integrate-fabric-sql/fabric-portal-share-database.png" alt-text="Screenshot of the Fabric portal, viewing a list of groups added to the role, and clicking Share database.":::
 
 1. Enter and select the name of your newly created system-assigned managed identity, and/or any user-assigned managed identities as they appear on the **Manage access** pane. Add any other identities as needed. Select the **Read all data using SQL database** checkbox, then select **Grant**.
 
-    :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-grant-access-type-name.png" alt-text="Screenshot of the Fabric portal, typing in the names of any assigned managed identities, selecting Read all data using SQL database, and then clicking Grant":::
+    :::image type="content" source="./media/integrate-fabric-sql/fabric-portal-grant-access-type-name.png" alt-text="Screenshot of the Fabric portal, typing in the names of any assigned managed identities, selecting Read all data using SQL database, and then clicking Grant.":::
 
 1. You're now ready to use your new service connection to SQL database in Fabric.
 
