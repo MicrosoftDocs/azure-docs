@@ -20,7 +20,7 @@ This article lists the Azure built-in roles in the Containers category.
 
 Delete repositories, tags, or manifests from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -61,7 +61,7 @@ Delete repositories, tags, or manifests from a container registry.
 
 Push trusted images to or pull trusted images from a container registry enabled for content trust.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -104,7 +104,7 @@ Push trusted images to or pull trusted images from a container registry enabled 
 
 Pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -145,7 +145,7 @@ Pull artifacts from a container registry.
 
 Push artifacts to or pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -188,7 +188,7 @@ Push artifacts to or pull artifacts from a container registry.
 
 Pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -231,7 +231,7 @@ Pull quarantined images from a container registry.
 
 Push quarantined images to or pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2844,6 +2844,8 @@ Read the configuration of Cache Rules in Container Registry. This permission doe
 
 Provides permissions to list container registries and registry configuration properties. Provides permissions to list data access configuration such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
 
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -2934,6 +2936,8 @@ Provides permissions to list container registries and registry configuration pro
 ## Container Registry Contributor and Data Access Configuration Administrator
 
 Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3166,6 +3170,8 @@ Read the configuration of Credential Sets in Container Registry. This permission
 
 Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.
 
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -3383,6 +3389,8 @@ Allows for read and write access to Azure Container Registry repositories, but e
 
 Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.
 
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -3467,6 +3475,8 @@ Provides permissions to configure, read, list, trigger, or cancel Container Regi
 ## Container Registry Transfer Pipeline Contributor
 
 Provides the ability to transfer, import, and export artifacts through configuring registry transfer pipelines that involve intermediary storage accounts and key vaults. Does not provide permissions to push or pull images. Does not provide permissions to create, manage, or list storage accounts or key vaults. Does not provide permissions to perform role assignments.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
