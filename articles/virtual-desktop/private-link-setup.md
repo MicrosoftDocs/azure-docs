@@ -5,7 +5,7 @@ author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 04/19/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Set up Private Link with Azure Virtual Desktop

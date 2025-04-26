@@ -4,7 +4,7 @@ description: Learn how multimedia redirection redirects video playback and calls
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 09/30/2024
 ---
 

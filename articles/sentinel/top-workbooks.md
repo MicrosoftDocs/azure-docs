@@ -6,7 +6,8 @@ ms.topic: reference
 ms.date: 06/14/2024
 ms.author: yelevin
 appliesto:
-- Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 

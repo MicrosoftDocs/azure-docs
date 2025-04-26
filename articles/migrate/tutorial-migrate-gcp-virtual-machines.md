@@ -4,7 +4,7 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 12/30/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
 ms.collection:
@@ -40,14 +40,14 @@ To set up an assessment:
 
 1. Follow the [tutorial](./tutorial-discover-gcp.md) to set up Azure and prepare your GCP VMs for an assessment. Note that:
 
-    * Azure Migrate and Modernize uses password authentication to discover GCP VM instances. GCP instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
-        * For Windows machines, allow WinRM port 5985 (HTTP). This port allows remote WMI calls.
-        * For Linux machines:
+    - Azure Migrate and Modernize uses password authentication to discover GCP VM instances. GCP instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
+        - For Windows machines, allow WinRM port 5985 (HTTP). This port allows remote WMI calls.
+        - For Linux machines:
             1. Sign in to each Linux machine.
             1. Open the *sshd_config* file: `vi /etc/ssh/sshd_config`.
             1. In the file, locate the `PasswordAuthentication` line and change the value to `yes`.
             1. Save the file and close it. Restart the ssh service.
-    * If you're using a root user to discover your Linux VMs, ensure that root login is allowed on the VMs.
+    - If you're using a root user to discover your Linux VMs, ensure that root login is allowed on the VMs.
         1. Sign in to each Linux machine.
         1. Open the *sshd_config* file: `vi /etc/ssh/sshd_config`.
         1. In the file, locate the `PermitRootLogin` line and change the value to `yes`.
@@ -59,12 +59,12 @@ Although we recommend that you try out an assessment, performing an assessment i
 
 ## Prerequisites
 
-* Ensure that the GCP VMs you want to migrate are running a supported operating system (OS) version. GCP VMs are treated like physical machines for the migration. Review the [supported operating systems and kernel versions](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. You can use standard commands like `hostnamectl` or `uname -a` to check the OS and kernel versions for your Linux VMs. We recommend that you perform a test migration to validate if the VM works as expected before you proceed with the actual migration.
-* Make sure your GCP VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
-* Verify that the GCP VMs that you replicate to Azure comply with [Azure VM requirements](./migrate-support-matrix-physical-migration.md#azure-vm-requirements).
-* Some changes are needed on the VMs before you migrate them to Azure:
-  * For some operating systems, Azure Migrate and Modernize makes these changes automatically.
-  * Make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
+- Ensure that the GCP VMs you want to migrate are running a supported operating system (OS) version. GCP VMs are treated like physical machines for the migration. Review the [supported operating systems and kernel versions](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. You can use standard commands like `hostnamectl` or `uname -a` to check the OS and kernel versions for your Linux VMs. We recommend that you perform a test migration to validate if the VM works as expected before you proceed with the actual migration.
+- Make sure your GCP VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
+- Verify that the GCP VMs that you replicate to Azure comply with [Azure VM requirements](./migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+- Some changes are needed on the VMs before you migrate them to Azure:
+    - For some operating systems, Azure Migrate and Modernize makes these changes automatically.
+    - Make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 ### Prepare Azure resources for migration
@@ -81,16 +81,16 @@ Verify permissions for your Azure account | Your Azure account needs permissions
 1. In the Azure portal, open the subscription and select **Access control (IAM)**.
 1. In **Check access**, find the relevant account and select it to view permissions.
 1. You should have **Contributor** or **Owner** permissions.
-    * If you just created a free Azure account, you're the owner of your subscription.
-    * If you're not the subscription owner, work with the owner to assign the role.
+    - If you just created a free Azure account, you're the owner of your subscription.
+    - If you're not the subscription owner, work with the owner to assign the role.
 
 ### Assign Azure account permissions
 
 Assign the VM Contributor role to the Azure account. This role provides permissions to:
 
-* Create a VM in the selected resource group.
-* Create a VM in the selected virtual network.
-* Write to an Azure managed disk.
+- Create a VM in the selected resource group.
+- Create a VM in the selected virtual network.
+- Write to an Azure managed disk.
 
 ### Create an Azure network
 
@@ -104,22 +104,22 @@ To prepare for GCP to Azure migration, you need to prepare and deploy a replicat
 
 The Migration and modernization tool uses a replication appliance to replicate machines to Azure. The replication appliance runs the following components:
 
-* **Configuration server**: The configuration server coordinates communications between the GCP VMs and Azure and manages data replication.
-* **Process server**: The process server acts as a replication gateway. It receives replication data and optimizes that data with caching, compression, and encryption. Then it sends the data to a cache storage account in Azure.
+- **Configuration server**: The configuration server coordinates communications between the GCP VMs and Azure and manages data replication.
+- **Process server**: The process server acts as a replication gateway. It receives replication data and optimizes that data with caching, compression, and encryption. Then it sends the data to a cache storage account in Azure.
 
 To prepare for appliance deployment:
 
-* Set up a separate GCP VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](./migrate-replication-appliance.md#appliance-requirements) the hardware, software, and networking requirements for the appliance.
-* The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
-* The source GCP VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary firewall rules to enable this capability. We recommend that you deploy the replication appliance in the same virtual private cloud (VPC) network as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs must be connected through VPC peering.
-* The source GCP VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
+- Set up a separate GCP VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](./migrate-replication-appliance.md#appliance-requirements) the hardware, software, and networking requirements for the appliance.
+- The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
+- The source GCP VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary firewall rules to enable this capability. We recommend that you deploy the replication appliance in the same virtual private cloud (VPC) network as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs must be connected through VPC peering.
+- The source GCP VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
 
    ![Screenshot that shows GCP firewall rules.](./media/tutorial-migrate-gcp-virtual-machines/gcp-firewall-rules.png)
 
    ![Screenshot that shows editing firewall rules.](./media/tutorial-migrate-gcp-virtual-machines/gcp-edit-firewall-rule.png)
 
-* The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
-* Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
+- The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
+- Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
 
 ## Set up the replication appliance
 
@@ -128,13 +128,16 @@ The first step of migration is to set up the replication appliance. To set up th
 ### Download the replication appliance installer
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
+
+    ![Screenshot that shows the Discover button.](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
+
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is \<region-name\>**.
 1. Select **Create resources**. This step creates an Azure Site Recovery vault in the background.
-    * If you already set up migration with the Migration and modernization tool, the target option can't be configured because the resources were set up previously.
-    * You can't change the target region for this project after you select this button.
-    * To migrate your VMs to a different region, you need to create a new or different Azure Migrate project.
+    - If you already set up migration with the Migration and modernization tool, the target option can't be configured because the resources were set up previously.
+    - You can't change the target region for this project after you select this button.
+    - To migrate your VMs to a different region, you need to create a new or different Azure Migrate project.
     > [!NOTE]
     > If you selected private endpoint as the connectivity method for the Azure Migrate project when it was created, the Recovery Services vault is also configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance. [Learn more](troubleshoot-network-connectivity.md).
 
@@ -165,10 +168,10 @@ The first step of migration is to set up the replication appliance. To set up th
 
 A Mobility service agent must be preinstalled on the source GCP VMs to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent might depend on your organization's preferences and existing tools. The "push" installation method built into Azure Site Recovery isn't currently supported. Approaches you might want to consider:
 
-* [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-* [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
-* [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
-* [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
+- [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
+- [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
+- [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
 1. Extract the contents of the installer tarball to a local folder (for example, /tmp/MobSvcInstaller) on the GCP VM, as follows:
 
@@ -196,6 +199,9 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 > Through the portal, you can add up to 10 VMs for replication at once. To replicate more VMs simultaneously, you can add them in batches of 10.
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
+
+    ![Screenshot that shows selecting Replicate.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
+
 1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 1. In **Process Server**, select the name of the replication appliance.
@@ -212,38 +218,38 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 1. In **Cache storage account**, keep the default option to use the cache storage account that was automatically created for the project. Use the dropdown list if you want to specify a different storage account to use as the cache storage account for replication. <br/>
     > [!NOTE]
     >
-    > * If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-hyper-v-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
-    > * To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](migrate-hyper-v-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account).
+    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
+    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1).
 1. In **Availability options**, select:
-    *  **Availability Zone**: Pins the migrated machine to a specific availability zone in the region. Use this option to distribute servers that form a multinode application tier across availability zones. If you select this option, you need to specify the availability zone to use for each of the selected machines on the **Compute** tab. This option is only available if the target region selected for the migration supports availability zones.
-    *  **Availability Set**: Place the migrated machine in an availability set. The target resource group that was selected must have one or more availability sets in order to use this option.
-    * **No infrastructure redundancy required**: Use this option if you don't need either of these availability configurations for the migrated machines.
+    -  **Availability Zone**: Pins the migrated machine to a specific availability zone in the region. Use this option to distribute servers that form a multinode application tier across availability zones. If you select this option, you need to specify the availability zone to use for each of the selected machines on the **Compute** tab. This option is only available if the target region selected for the migration supports availability zones.
+    -  **Availability Set**: Place the migrated machine in an availability set. The target resource group that was selected must have one or more availability sets in order to use this option.
+    - **No infrastructure redundancy required**: Use this option if you don't need either of these availability configurations for the migrated machines.
 1. In **Disk encryption type**, select:
 
-    * Encryption-at-rest with platform-managed key.
-    * Encryption-at-rest with customer-managed key.
-    * Double encryption with platform-managed and customer-managed keys.
+    - Encryption-at-rest with platform-managed key.
+    - Encryption-at-rest with customer-managed key.
+    - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
    > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
 
-    * Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
-    * Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions and you want to apply the benefit to the machines you're migrating. Then select **Next**.
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 
     ![Screenshot that shows Target settings.](./media/tutorial-migrate-vmware/target-settings.png)
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
-    * **VM size**: If you're using assessment recommendations, the VM size dropdown list shows the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
-    * **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
-    * **Availability Zone**: Specify the availability zone to use.
-    * **Availability Set**: Specify the availability set to use.
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown list shows the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
+    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
+    - **Availability Zone**: Specify the availability zone to use.
+    - **Availability Set**: Specify the availability set to use.
 
 1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
-    * You can exclude disks from replication.
-    * If you exclude disks, won't be present on the Azure VM after migration.
+    - You can exclude disks from replication.
+    - If you exclude disks, won't be present on the Azure VM after migration.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/disks-inline.png" alt-text="Screenshot that shows the Disks tab in the Replicate dialog." lightbox="./media/tutorial-migrate-physical-virtual-machines/disks-expanded.png":::
 
@@ -258,9 +264,9 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 
 ## Track and monitor replication status
 
-* When you select **Replicate**, a Start Replication job begins.
-* When the Start Replication job finishes successfully, the VMs begin their initial replication to Azure.
-* After initial replication finishes, delta replication begins. Incremental changes to GCP VM disks are periodically replicated to the replica disks in Azure.
+- When you select **Replicate**, a Start Replication job begins.
+- When the Start Replication job finishes successfully, the VMs begin their initial replication to Azure.
+- After initial replication finishes, delta replication begins. Incremental changes to GCP VM disks are periodically replicated to the replica disks in Azure.
 
 You can track job status in the portal notifications.
 
@@ -272,13 +278,15 @@ You can monitor replication status by selecting **Replicating servers** in **Mig
 
 When delta replication begins, you can run a test migration for the VMs before you run a full migration to Azure. We highly recommend the test migration. It provides an opportunity to discover any potential issues and fix them before you proceed with the actual migration. We recommend that you do this step at least once for each VM before you migrate it.
 
-* Running a test migration checks that migration works as expected, without affecting the GCP VMs, which remain operational and continue replicating.
-* Test migration simulates the migration by creating an Azure VM using replicated data. (The test usually migrates to a nonproduction virtual network in your Azure subscription.)
-* You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
+- Running a test migration checks that migration works as expected, without affecting the GCP VMs, which remain operational and continue replicating.
+- Test migration simulates the migration by creating an Azure VM using replicated data. (The test usually migrates to a nonproduction virtual network in your Azure subscription.)
+- You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
 To do a test migration:
 
-1. In **Servers, databases, and web apps** > **Migration and modernization**, select **Test migrated servers**.
+1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization** > **Test migrated servers**.
+
+     ![Screenshot that shows Test migrated servers.](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
 1. Right-click the VM to test and select **Test migrate**.
 
@@ -293,17 +301,20 @@ To do a test migration:
 
     > [!NOTE]
     > You can now register your servers running SQL Server with SQL VM RP to take advantage of automated patching, automated backup, and simplified license management by using the SQL IaaS Agent Extension.
-    >* Select **Manage** > **Replicating servers** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
-    >* Select **Azure Hybrid Benefit for SQL Server** if you have SQL Server instances that are covered with active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.
+    >- Select **Manage** > **Replicating servers** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
+    >- Select **Azure Hybrid Benefit for SQL Server** if you have SQL Server instances that are covered with active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.
 
 ## Migrate GCP VMs
 
 After you verify that the test migration works as expected, you can migrate the GCP VMs.
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
+
+    ![Screenshot that shows Replicating servers.](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
+
 1. In **Replicating machines**, right-click the VM and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-
+    
     > [!NOTE]
     > Automatic shutdown isn't supported while you migrate GCP VMs.
 
@@ -313,9 +324,9 @@ After you verify that the test migration works as expected, you can migrate the 
 ### Complete the migration
 
 1. After the migration is finished, right-click the VM and select **Stop migration**. This action:
-    * Stops replication for the GCP VM.
-    * Removes the GCP VM from the **Replicating servers** count in the Migration and modernization tool.
-    * Cleans up replication state information for the VM.
+    - Stops replication for the GCP VM.
+    - Removes the GCP VM from the **Replicating servers** count in the Migration and modernization tool.
+    - Cleans up replication state information for the VM.
 1. Verify and [troubleshoot any Windows activation issues on the Azure VM](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).
 1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
@@ -324,17 +335,17 @@ After you verify that the test migration works as expected, you can migrate the 
 
 ## Post-migration best practices
 
-* For increased resilience:
-  * Keep data secure by backing up Azure VMs by using Azure Backup. [Learn more](../backup/quick-backup-vm-portal.md).
-  * Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
-* For increased security:
-  * Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
-  * Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
-  * Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
-  * Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
-  * Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
-* For monitoring and management:
-  * Consider deploying [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
+- For increased resilience:
+    - Keep data secure by backing up Azure VMs by using Azure Backup. [Learn more](../backup/quick-backup-vm-portal.md).
+    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+- For increased security:
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
+    - Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
+    - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
+    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
+- For monitoring and management:
+    - Consider deploying [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 
 ## Troubleshooting and tips
 
@@ -359,9 +370,9 @@ After you verify that the test migration works as expected, you can migrate the 
 **Question:** Do I have to make any changes before I migrate my GCP VMs to Azure?<br>
 **Answer:** You might have to make the following changes before you migrate your GCP VMs to Azure:
 
-* If you're using cloud-init for your VM provisioning, you might want to disable cloud-init on the VM before you replicate it to Azure. The provisioning steps performed by cloud-init on the VM might be specific to GCP and won't be valid after the migration to Azure. ​
-* Review the [Prerequisites](#prerequisites) section to determine whether there are any changes necessary for the operating system before you migrate them to Azure.
-* We always recommend that you run a test migration before the final migration.
+- If you're using cloud-init for your VM provisioning, you might want to disable cloud-init on the VM before you replicate it to Azure. The provisioning steps performed by cloud-init on the VM might be specific to GCP and won't be valid after the migration to Azure. ​
+- Review the [Prerequisites](#prerequisites) section to determine whether there are any changes necessary for the operating system before you migrate them to Azure.
+- We always recommend that you run a test migration before the final migration.
 
 ## Next steps
 

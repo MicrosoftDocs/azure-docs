@@ -15,7 +15,7 @@ zone_pivot_groups: app-service-sku
 
 This article describes reliability support in [Azure App Service](../app-service/overview.md), covering intra-regional resiliency with [availability zones](#availability-zone-support), [multi-region deployments](#multi-region-support), and transient fault handling.
 
-Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. Azure App Service adds the power of Microsoft Azure to your application, with capabilities for security, load balancing, autoscaling, and automated management. To explore how Azure App Service can bolster the reliability and resiliency of your application workload, see [Why use App Service?](../app-service/overview.md#why-use-app-service)
+Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. Azure App Service adds the power of Microsoft Azure to your application, with capabilities for security, load balancing, autoscaling, and automated management. To explore how Azure App Service can bolster the reliability and resiliency of your application workload, see [App Service overview](../app-service/overview.md)
 
 When you deploy Azure App Service, you can create multiple instances of an *App Service plan*, which represents the compute workers that run your application code. For more information, see [Azure App Service plan](/azure/app-service/overview-hosting-plans). Although the platform makes an effort to deploy the instances across different fault domains, it doesn't automatically spread the instances across availability zones.
 

@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/28/2024
+ms.date: 04/23/2025
 ---
 
 # Prepare for a ransomware attack
@@ -38,7 +38,12 @@ Ultimately, the Framework is aimed at reducing and better managing cybersecurity
 
 ## Prioritize mitigation
 
-Based on our experience with ransomware attacks, we find that prioritization should focus on: 1) prepare, 2) limit, 3) prevent. This may seem counterintuitive, since most people want to prevent an attack and move on. Unfortunately, we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after.
+Based on our experience with ransomware attacks, we find that prioritization should focus on:
+1. Prepare
+1. Limit
+1. Prevent
+ 
+This may seem counterintuitive, since most people want to prevent an attack and move on. Unfortunately, we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after.
 
 While these priorities should govern what to do first, we encourage organizations to run steps in parallel where possible, including pulling quick wins forward from step 1 when you can.
 
@@ -48,7 +53,7 @@ Prevent a ransomware attacker from entering your environment and rapidly respond
 
 To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry, and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy [here](https://aka.ms/zerotrust). Specifically, against Ransomware, organizations should prioritize:
 - Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate. 
-- Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility and alerting on attacker activity and respond to active threats.
+- Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility, and alerting on attacker activity and respond to active threats.
 
 ## Limit scope of damage
 
@@ -138,8 +143,8 @@ Ensure your organization undertakes a number of activities roughly following the
 1. **Investigation / Analysis**: This stage describes the activities that should be undertaken to investigate and analyze available data when it isn't clear that an incident has occurred, with the goal of either confirming that an incident should be declared or concluded that an incident hasn't occurred.
 1. **Incident Declaration**: This stage covers the steps that must be taken to declare an incident, typically with the raising of a ticket within the enterprise incident management (ticketing) system and directing the ticket to the appropriate personnel for further evaluation and action.
 1. **Containment / Mitigation**: This stage covers the steps that may be taken either by the Security Operations Center (SOC), or by others, to contain or mitigate (stop) the incident from continuing to occur or limiting the effect of the incident using available tools, techniques, and procedures.
-1. **Remediation / Recovery**: This stage covers the steps that may be taken to remediate or recover from damage that was caused by the incident before it was contained and mitigated.
-1. **Post-Incident Activity**: This stage covers the activities that should be performed once the incident has been closed.  This can include capturing the final narrative associated with the incident as well as identifying lessons learned.
+2. **Remediation / Recovery**: This stage covers the steps that may be taken to remediate or recover from damage caused by the incident before it was contained and mitigated.
+3. **Post-Incident Activity**: This stage covers the activities that should be performed once the incident is closed. This can include capturing the final narrative associated with the incident and identifying lessons learned.
 
 :::image type="content" source="./media/ransomware/ransomware-17.png" alt-text="Flowchart of an incident handling process":::
 
@@ -147,9 +152,9 @@ Ensure your organization undertakes a number of activities roughly following the
 
 Ensure that you have appropriate processes and procedures in place. Almost all ransomware incidents result in the need to restore compromised systems. So appropriate and tested backup and restore processes and procedures should be in place for most systems. There should also be suitable containment strategies in place with suitable procedures to stop ransomware from spreading and recovery from ransomware attacks.
 
-Ensure that you have well-documented procedures for engaging any third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider. These contacts may be useful if the ransomware variant may have known weaknesses or decryption tools may be available.
+Ensure that you have well-documented procedures for engaging any third-party support, particularly support from threat intelligence providers, anti-malware solution providers and from the malware analysis provider. These contacts may be useful if the ransomware variant may have known weaknesses or decryption tools may be available.
 
-The Azure platform provides backup and recovery options through Azure Backup as well built-in within various data services and workloads.
+The Azure platform provides backup and recovery options through Azure Backup as well built in within various data services and workloads.
 
 Isolated backups with [Azure Backup](../../backup/backup-azure-security-feature.md#prevent-attacks)
 - Azure Virtual Machines

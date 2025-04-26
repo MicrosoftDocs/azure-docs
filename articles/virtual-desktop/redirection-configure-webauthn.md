@@ -4,7 +4,7 @@ description: Learn how to redirect WebAuthn requests from a remote session to a 
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 06/25/2024
 ---
 

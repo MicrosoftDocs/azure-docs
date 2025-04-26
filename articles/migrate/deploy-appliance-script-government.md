@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 08/07/2024
+ms.date: 03/21/2025
 ms.custom: engagement-fy25
 ---
 
@@ -42,10 +42,10 @@ You can use the script to deploy the Azure Migrate appliance on an existing phys
 
 ### Download the script
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover server** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3. Provide an appliance name and generate a project key in the portal.
-4. Select **Download**, to download the zipped file.
+3. Select **Download**, to download the zipped file.
 
 ### Verify security
 
@@ -89,6 +89,15 @@ Check that the zipped file is secure, before you deploy it.
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
 
+::: moniker range="migrate"
+After you deploy the appliance server and before you start the configuration, ensure to complete these steps to try out the new dependency analysis enhancements: 
+
+1. On the server running the appliance, open the Registry Editor.
+2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (find the one without space)
+3. Find a registry key- DepMapAutoEnable with a type of "String" and set value as "true"
+4. Restart the appliance server and start with appliance configuration. 
+::: moniker-end
+
 ### Verify access
 
 Make sure that the appliance can connect to Azure URLs for [government clouds](migrate-appliance.md#government-cloud-urls).
@@ -102,10 +111,10 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
-2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
+1.	In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+2.	In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. Provide an appliance name and generate a project key in the portal.
-1. Select **Download** to download the zipped file.
+3. Select **Download**, to download the zipped file. 
 
 ### Verify security
 
@@ -153,6 +162,7 @@ After the script has executed successfully, the appliance configuration manager 
 
 Make sure that the appliance can connect to Azure URLs for [government clouds](migrate-appliance.md#government-cloud-urls).
 
+
 ## Set up the appliance for physical servers
 
 1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2191847).
@@ -162,9 +172,9 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen etc.)**.
-3. Select **Download** to download the zipped file.
+3. Select **Download**, to download the zipped file.
 
 ### Verify security
 

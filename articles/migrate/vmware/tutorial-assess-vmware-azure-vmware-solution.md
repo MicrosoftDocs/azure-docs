@@ -4,19 +4,17 @@ description: Learn how to assess servers in VMware environment for migration to 
 author: jobingeorge-microsoft
 ms.author: jobingeorge
 ms.topic: tutorial
-ms.date: 11/06/2024
+ms.date: 02/06/2025
 ms.service: azure-migrate
-ms.custom: vmware-scenario-422, MVC, engagement-fy25
+ms.custom: vmware-scenario-422, MVC, engagement-fy23
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure VMware Solution (AVS)
 ---
 
-# Assess VMware servers for migration to AVS
+# Tutorial: Assess VMware servers for migration to AVS
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
 This article shows you how to assess discovered VMware virtual machines/servers for migration to Azure VMware Solution (AVS), using the Azure Migrate. AVS is a managed service that allows you to run the VMware platform in Azure.
-
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -83,7 +81,7 @@ Run an assessment as follows:
    Node size | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Node size | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
    Node size | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, consider a comfort factor of 2 for effective utilization of 2 Cores. In this case, the assessment considers the effective cores as 4 cores. Similarly, for the same comfort factor and an effective utilization of 8 GB memory, the assessment considers effective memory as 16 GB.
-   Pricing | **Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed. The assessment estimates the cost for that offer.
+   Pricing | **Offer/Licencing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed. The assessment estimates the cost for that offer.
    Pricing | **Currency** | Select the billing currency for your account.
    Pricing | **Discount (%)** | Add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 
@@ -179,7 +177,7 @@ Confidence ratings are as follows.
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](../concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](../assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
 
 ## Next steps
 

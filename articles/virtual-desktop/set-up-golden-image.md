@@ -4,7 +4,7 @@ description: A walkthrough for how to set up a golden image for your Azure Virtu
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 12/01/2021
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

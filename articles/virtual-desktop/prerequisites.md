@@ -4,7 +4,7 @@ description: Find what prerequisites you need to complete to successfully connec
 ms.topic: overview
 ms.custom: references_regions
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 09/17/2024
 ---
 # Prerequisites for Azure Virtual Desktop

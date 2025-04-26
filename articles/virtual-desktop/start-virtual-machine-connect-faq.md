@@ -4,7 +4,7 @@ description: Frequently asked questions and best practices for using the Start V
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/01/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # Start VM on Connect FAQ

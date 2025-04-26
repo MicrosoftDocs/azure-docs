@@ -4,7 +4,7 @@ description: How to set up and query the connection quality data table for Azure
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 01/05/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: engagement-fy23, docs_inherited
 ---
 # Collect and query connection quality data

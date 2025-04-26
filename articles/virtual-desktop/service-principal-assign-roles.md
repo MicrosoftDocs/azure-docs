@@ -4,7 +4,7 @@ description: Learn how to assign Azure RBAC roles or Microsoft Entra roles to th
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 12/20/2023
 ---
 

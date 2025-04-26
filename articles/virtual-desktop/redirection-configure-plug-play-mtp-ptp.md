@@ -4,7 +4,7 @@ description: Learn how to redirect MTP and PTP plug and play peripherals from a 
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 07/03/2024
 ---
 

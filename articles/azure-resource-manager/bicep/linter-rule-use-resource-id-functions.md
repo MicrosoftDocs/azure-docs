@@ -3,7 +3,7 @@ title: Linter rule - use resource ID functions
 description: Linter rule - use resource ID functions
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 04/23/2025
 ---
 
 # Linter rule - use resource ID functions
@@ -19,6 +19,9 @@ The allowed functions include:
 - [`reference`](./bicep-functions-resource.md#reference)
 - [`subscription`](./bicep-functions-scope.md#subscription)
 - [`guid`](./bicep-functions-string.md#guid)
+
+> [!NOTE]
+> This rule is off by default. Change the level in [bicepconfig.json](./bicep-config-linter.md) to enable it.
 
 ## Linter rule code
 

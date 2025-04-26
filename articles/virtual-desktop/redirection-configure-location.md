@@ -4,7 +4,7 @@ description: Learn how to redirect location information from a local device to a
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 07/09/2024
 ---
 

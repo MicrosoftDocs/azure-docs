@@ -1,6 +1,6 @@
 ---
-title: Azure Database for MySQL trigger for Functions
-description: Learn to use the Azure Database for MySQL trigger in Azure Functions.
+title: Azure Database for MySQL Trigger Binding for Functions
+description: Learn how to use the Azure Database for MySQL trigger binding in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom:
@@ -15,15 +15,14 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Database for MySQL trigger for Functions (Preview)
+# Azure Database for MySQL trigger binding for Azure Functions (preview)
 
 > [!NOTE]
-> While input and output bindings are supported on all plans, the MySQL Trigger binding will be available only on [dedicated and premium plans](functions-scale.md) during the public preview. Support for Consumption plans in the MySQL Trigger binding will be introduced at general availability.
-> 
+> Although input and output bindings are supported on all plans, Azure Database for MySQL trigger binding is available only on [Dedicated and Premium plans](functions-scale.md) during the preview.
 
-The Azure Database for MySQL Trigger bindings monitor the user table for changes (inserts, updates) and invokes the function with updated row data.
+Azure Database for MySQL trigger bindings monitor the user table for changes (inserts and updates) and invoke the function with updated row data.
 
-Azure MySQL Trigger bindings use "az_func_updated_at" and column's data, to monitor the user table for changes. As such, it's necessary to alter the table structure to allow change tracking on the MySQL table before using the trigger support. The change tracking can be enabled on a table through following query. For example, enable on ‘Products’ table:
+Azure Database for MySQL trigger bindings use `az_func_updated_at` and column data to monitor the user table for changes. As such, you need to alter the table structure to allow change tracking on the MySQL table before you use the trigger support. You can enable the change tracking on a table through the following query. For example, enable it on the `Products` table:
 
 ```sql
 ALTER TABLE Products
@@ -31,14 +30,13 @@ ADD az_func_updated_at TIMESTAMP DEFAULT
 CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The leases table contains all columns corresponding to the primary key from the user table and three more columns _az_func_AttemptCount, _az_func_LeaseExpirationTime, _az_func_SyncCompletedTime. So, if any of the primary key columns happen to have the same name that will result in an error message listing any conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
+The table for leases contains all columns that correspond to the primary key from the user table and three more columns: `az_func_AttemptCount`, `az_func_LeaseExpirationTime`, and `az_func_SyncCompletedTime`. If any of the primary key columns have the same name, the result is an error message that lists conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
 
+## Functionality overview
 
-## Functionality Overview
+When the trigger function starts, it initiates two separate loops: the change polling loop and the lease renewal loop. These loops run continuously until the function is stopped.
 
-When the trigger function starts, it initiates two separate loops (Change Polling Loop and Lease Renewal Loop) that will run continuously until the function is stopped.
-
-The Azure Database for MySQL trigger binding uses a polling loop to check for changes, triggering the user function when changes are detected. At a high level, the loop looks like this:
+The Azure Database for MySQL trigger binding uses the polling loop to check for changes. The polling loop triggers the user function when it detects changes. At a high level, the loop looks like this example:
 
 ```
 while (true) {
@@ -48,25 +46,22 @@ while (true) {
 }
 ```
 
-Changes are processed in the order that they were made, with the oldest changes being processed first. A couple notes about change processing:
-1. If changes to multiple row are made once then the exact order they're sent to the function is based on, the ascending order of “az_func_updated_at” column and primary key columns.
-2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop, then only the latest change entry exists for that row will be considered.
+Changes are processed in the order that they're made. The oldest changes are processed first. Consider these points about change processing:
+
+- If changes occur in multiple rows at once, the exact order in which they're sent to the function is based on the ascending order of the `az_func_updated_at` column and primary key columns.
+- Changes are batched for a row. If multiple changes occur in a row between each iteration of the loop, only the latest change entry that exists for that row is considered.
 
 > [!NOTE]
->Currently, we aren't supporting Managed Identity for connections between Functions and Azure Database for MySQL.
->
-
+> Currently, managed identities aren't supported for connections between Azure Functions and Azure Database for MySQL.
 
 ::: zone pivot="programming-language-csharp"
 
 ## Example usage
 <a id="example"></a>
 
-
 # [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure Database for MySQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples).
-
 
 The example refers to a `Product` class and a corresponding database table:
 
@@ -93,19 +88,17 @@ namespace AzureMySqlSamples.Common
     }
 ```
 
-
 ```sql
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
-
-Change tracking is enabled on the database by adding one column to the table:
+You enable change tracking on the database by adding one column to the table:
 
 ```sql
 ALTER TABLE <table name>  
@@ -114,11 +107,12 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The MySQL trigger binds to a `IReadOnlyList<MySqlChange<T>>`, a list of `MySqlChange` objects each with two properties:
-- **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `ToDoItem` class.
-- **Operation:** a value from `MySqlChangeOperation` enum. The possible value is `Update` for both insert and update.
+The Azure Database for MySQL trigger binds to `IReadOnlyList<MySqlChange<T>>`, which lists `MySqlChange` objects. Each object has two properties:
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `Product` table:
+- `Item`: The item that was changed. The type of the item should follow the table schema, as seen in the `ToDoItem` class.
+- `Operation`: A value from the `MySqlChangeOperation` enumeration. The possible value is `Update` for both inserts and updates.
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that's invoked when changes occur in the `Product` table:
 
 ```cs
 using Microsoft.Azure.Functions.Worker;
@@ -147,12 +141,9 @@ namespace AzureMySqlSamples.TriggerBindingSamples
 }
 ```
 
-
 # [In-process model](#tab/in-process)
 
-
 More samples for the Azure Database for MySQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-csharp).
-
 
 The example refers to a `Product` class and a corresponding database table:
 
@@ -183,13 +174,13 @@ namespace AzureMySqlSamples.Common
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
-Change tracking is enabled on the database by adding one column to the table:
+You enable change tracking on the database by adding one column to the table:
 
 ```sql
 ALTER TABLE <table name>  
@@ -198,11 +189,12 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The MySQL trigger binds to a `IReadOnlyList<MySqlChange<T>>`, a list of `MySqlChange` objects each with two properties:
-- **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `Product` class.
-- **Operation:** a value from `MySqlChangeOperation` enum. The possible value is `Update` for both insert and update.
+The Azure Database for MySQL trigger binds to `IReadOnlyList<MySqlChange<T>>`, which lists `MySqlChange` objects. Each object has two properties:
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `Products` table:
+- `Item`: The item that was changed. The type of the item should follow the table schema, as seen in the `Product` class.
+- `Operation`: A value from the `MySqlChangeOperation` enumeration. The possible value is `Update` for both inserts and updates.
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that's invoked when changes occur in the `Products` table:
 
 ```cs
 using System.Collections.Generic;
@@ -238,15 +230,15 @@ namespace AzureMySqlSamples.TriggerBindingSamples
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
 ## Example usage
 <a id="example"></a>
 
 More samples for the Azure Database for MySQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-java).
 
+The example refers to a `Product` class, a `MySqlChangeProduct` class, a `MySqlChangeOperation` enumeration, and a corresponding database table.
 
-The example refers to a `Product` class, a `MySqlChangeProduct` class, a `MySqlChangeOperation` enum, and a corresponding database table:
-
-In a separate file `Product.java`:
+In a separate file named Product.java:
 
 ```java
 package com.function.Common;
@@ -272,7 +264,8 @@ public class Product {
 }
 ```
 
-In a separate file `MySqlChangeProduct.java`:
+In a separate file named MySqlChangeProduct.java:
+
 ```java
 package com.function.Common;
 
@@ -290,7 +283,8 @@ public class MySqlChangeProduct {
 }
 ```
 
-In a separate file `MySqlChangeOperation.java`:
+In a separate file named MySqlChangeOperation.java:
+
 ```java
 package com.function.Common;
 
@@ -306,14 +300,13 @@ public enum MySqlChangeOperation {
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
-
-Change tracking is enabled on the database by adding the following column to the table:
+You enable change tracking on the database by adding the following column to the table:
 
 ```sql
 ALTER TABLE <table name>  
@@ -322,12 +315,12 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The MySQL trigger binds to a `MySqlChangeProduct[]`, an array of `MySqlChangeProduct` objects each with two properties:
-- **item:** the item that was changed. The type of the item should follow the table schema as seen in the `Product` class.
-- **operation:** a value from `MySqlChangeOperation` enum. The possible value is `Update` for both insert and update.
+The Azure Database for MySQL trigger binds to `MySqlChangeProduct[]`, which is an array of `MySqlChangeProduct` objects. Each object has two properties:
 
+- `item`: The item that was changed. The type of the item should follow the table schema, as seen in the `Product` class.
+- `operation`: A value from the `MySqlChangeOperation` enumeration. The possible value is `Update` for both inserts and updates.
 
-The following example shows a Java function that is invoked when there are changes to the `Product` table:
+The following example shows a Java function that's invoked when changes occur in the `Product` table:
 
 ```java
 /**
@@ -363,14 +356,12 @@ public class ProductsTrigger {
 
 ::: zone-end
 
-
-
 ::: zone pivot="programming-language-powershell"
+
 ## Example usage
 <a id="example"></a>
 
 More samples for the Azure Database for MySQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-powershell).
-
 
 The example refers to a `Product` database table:
 
@@ -378,13 +369,13 @@ The example refers to a `Product` database table:
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
-Change tracking is enabled on the database by adding one column to the table:
+You enable change tracking on the database by adding one column to the table:
 
 ```sql
 ALTER TABLE <table name>  
@@ -393,14 +384,14 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The MySQL trigger binds to `Product`, a list of objects each with two properties:
-- **item:** the item that was changed. The structure of the item follows the table schema.
-- **operation:** The possible value is `Update` for both insert and update.
+The Azure Database for MySQL trigger binds to `Product`, which lists objects. Each object has two properties:
 
+- `item`: The item that was changed. The structure of the item follows the table schema.
+- `operation`: The possible value is `Update` for both inserts and updates.
 
-The following example shows a PowerShell function that is invoked when there are changes to the `Product` table.
+The following example shows a PowerShell function that's invoked when changes occur in the `Product` table.
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -417,10 +408,9 @@ The following is binding data in the function.json file:
   }
 ```
 
+The [Configuration](#configuration) section explains these properties.
 
-The [configuration](#configuration) section explains these properties.
-
-The following is sample PowerShell code for the function in the `run.ps1` file:
+The following example is sample PowerShell code for the function in the run.ps1 file:
 
 ```powershell
 using namespace System.Net
@@ -431,15 +421,15 @@ param($changes)
 $changesJson = $changes | ConvertTo-Json -Compress
 Write-Host "MySql Changes: $changesJson"
 ```
+
 ::: zone-end
 
-
 ::: zone pivot="programming-language-javascript"
+
 ## Example usage
 <a id="example"></a>
 
 More samples for the Azure Database for MySQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-js).
-
 
 The example refers to a `Product` database table:
 
@@ -447,13 +437,13 @@ The example refers to a `Product` database table:
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
-Change tracking is enabled on the database by adding one column to the table:
+You enable change tracking on the database by adding one column to the table:
 
 ```sql
 ALTER TABLE <table name>  
@@ -462,14 +452,14 @@ DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The MySQL trigger binds `Changes`, an array of objects each with two properties:
-- **item:** the item that was changed. The structure of the item follows the table schema.
-- **operation:** The possible value is `Update` for both insert and update.
+The Azure Database for MySQL trigger binds to `Changes`, which is an array of objects. Each object has two properties:
 
+- `item`: The item that was changed. The structure of the item follows the table schema.
+- `operation`: The possible value is `Update` for both inserts and updates.
 
-The following example shows a JavaScript function that is invoked when there are changes to the `Product` table.
+The following example shows a JavaScript function that's invoked when changes occur in the `Product` table.
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -486,10 +476,9 @@ The following is binding data in the function.json file:
   }
 ```
 
+The [Configuration](#configuration) section explains these properties.
 
-The [configuration](#configuration) section explains these properties.
-
-The following is sample JavaScript code for the function in the `index.js` file:
+The following example is sample JavaScript code for the function in the `index.js` file:
 
 ```javascript
 module.exports = async function (context, changes) {
@@ -499,28 +488,26 @@ module.exports = async function (context, changes) {
 
 ::: zone-end
 
-
 ::: zone pivot="programming-language-python"
+
 ## Example usage
 <a id="example"></a>
 
 More samples for the Azure Database for MySQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-python).
 
-
 The example refers to a `Product` database table:
-
 
 ```sql
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
-Change tracking is enabled on the database by adding one column to the table:
+You enable change tracking on the database by adding one column to the table:
 
 ```sql
 ALTER TABLE <table name>  
@@ -530,20 +517,18 @@ ON UPDATE CURRENT_TIMESTAMP;
 ```
 
 > [!NOTE]
-> Please note that Azure Functions version 1.22.0b4 must be used for Python.
->
+> You must use Azure Functions version 1.22.0b4 for Python.
 
+The Azure Database for MySQL trigger binds to a variable named `Product`, which lists objects. Each object has two properties:
 
-The MySQL trigger binds to a variable `Product`, a list of objects each with two properties:
-- **item:** the item that was changed. The structure of the item follows the table schema.
-- **operation:** The possible value is `Update` for both insert and update.
+- `item`: The item that was changed. The structure of the item follows the table schema.
+- `operation`: The possible value is `Update` for both inserts and updates.
 
-
-The following example shows a Python function that is invoked when there are changes to the `Product` table.
+The following example shows a Python function that's invoked when changes occur in the `Product` table.
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following example is sample Python code for the function_app.py file:
 
 ```python
 import json
@@ -552,7 +537,7 @@ import azure.functions as func
 
 app = func.FunctionApp()
 
-# The function gets triggered when a change (Insert, Update)
+# The function is triggered when a change (insert, update)
 # is made to the Products table.
 @app.function_name(name="ProductsTrigger")
 @app.mysql_trigger(arg_name="products",
@@ -565,8 +550,7 @@ logging.info("MySQL Changes: %s", json.loads(products))
 
 # [v1](#tab/python-v1)
 
-
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -583,10 +567,9 @@ The following is binding data in the function.json file:
   }
 ```
 
+The [Configuration](#configuration) section explains these properties.
 
-The [configuration](#configuration) section explains these properties.
-
-The following is sample Python code for the function in the `__init__.py` file:
+The following example is sample Python code for the function in the init.py file:
 
 ```python
 import json
@@ -600,59 +583,53 @@ def main(changes):
 
 ::: zone-end
 
-
-
-
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
 
-
 | Attribute property |Description|
 |---------|---------|
-| **TableName** | Required. The name of the table monitored by the trigger.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.|
-| **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name is Leases_{FunctionId}_{TableId}. 
-
+| `TableName` | Required. The name of the table that the trigger monitors.  |
+| `ConnectionStringSetting` | Required. The name of an app setting that contains the connection string for the database that contains the table monitored for changes. The name of the connection string setting corresponds to the application setting (in local.settings.json for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to Azure Database for MySQL.|
+| `LeasesTableName` | Optional. The name of the table for storing leases. If it's not specified, the name is `Leases_{FunctionId}_{TableId}`.|
 
 ::: zone-end
 
-
-
 ::: zone pivot="programming-language-java"  
+
 ## Annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@MySQLTrigger` annotation on parameters whose value would come from Azure Database for MySQL. This annotation supports the following elements:
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@MySQLTrigger` annotation on parameters whose values would come from Azure Database for MySQL. This annotation supports the following elements:
 
 | Element |Description|
 |---------|---------|
-| **name** | Required. The name of the parameter that the trigger binds to. |
-| **tableName** | Required. The name of the table monitored by the trigger.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.|
-| **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name is Leases_{FunctionId}_{TableId}. 
+| `name` | Required. The name of the parameter that the trigger binds to. |
+| `tableName` | Required. The name of the table that the trigger monitors.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database that contains the table monitored for changes. The name of the connection string setting corresponds to the application setting (in local.settings.json for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to Azure Database for MySQL.|
+| `LeasesTableName` | Optional. The name of the table for storing leases. If it's not specified, the name is `Leases_{FunctionId}_{TableId}`.|
 
 ::: zone-end
-
 
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
-|function.json property | Description|
+|Property | Description|
 |---------|----------------------|
-| **name** | Required. The name of the parameter that the trigger binds to. |
-| **type** | Required. Must be set to `MysqlTrigger`. |
-| **direction** | Required. Must be set to `in`. |
-| **tableName** | Required. The name of the table monitored by the trigger.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database containing the table monitored for changes. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.|
-| **LeasesTableName** | Optional. Name of the table used to store leases. If not specified, the leases table name is Leases_{FunctionId}_{TableId}. 
+| `name` | Required. The name of the parameter that the trigger binds to. |
+| `type` | Required. Must be set to `MysqlTrigger`. |
+| `direction` | Required. Must be set to `in`. |
+| `tableName` | Required. The name of the table that the trigger monitors.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database that contains the table monitored for changes. The name of the connection string setting corresponds to the application setting (in local.settings.json for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to Azure Database for MySQL.|
+| `LeasesTableName` | Optional. The name of the table for storing leases. If it's not specified, the name is `Leases_{FunctionId}_{TableId}`.|
 
 ::: zone-end
 
-## Optional Configuration
+## Optional configuration
 
-The following optional settings can be configured for the MySQL trigger for local development or for cloud deployments.
+You can configure the following optional settings for the Azure Database for MySQL trigger for local development or for cloud deployments.
 
 ### host.json
 
@@ -660,9 +637,9 @@ The following optional settings can be configured for the MySQL trigger for loca
 
 | Setting | Default| Description|
 |---------|---------|---------|
-|**MaxBatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
-|**PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1,000 ms is 1 second)|
-|**MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
+|`MaxBatchSize` | `100` |The maximum number of changes processed with each iteration of the trigger loop before they're sent to the triggered function.|
+|`PollingIntervalMs` | `1000` | The delay in milliseconds between processing each batch of changes. (1,000 ms is 1 second.)|
+|`MaxChangesPerWorker`| `1000` | The upper limit on the number of pending changes in the user table that are allowed per application worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting applies only for Azure function apps with [runtime-driven scaling enabled](#enable-runtime-driven-scaling).|
 
 #### Example host.json file
 
@@ -694,16 +671,16 @@ Here's an example host.json file with the optional settings:
 
 ### local.setting.json
 
-The local.settings.json file stores app settings and settings used by local development tools. Settings in the local.settings.json file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
+The local.settings.json file stores app settings and settings that local development tools use. Settings in the local.settings.json file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
 
 > [!IMPORTANT]  
-> Because the local.settings.json may contain secrets, such as connection strings, you should never store it in a remote repository. Tools that support Functions provide ways to synchronize settings in the local.settings.json file with the [app settings](functions-how-to-use-azure-function-app-settings.md#settings) in the function app to which your project is deployed.
+> Because the local.settings.json file might contain secrets, such as connection strings, you should never store it in a remote repository. Tools that support Azure Functions provide ways to synchronize settings in the local.settings.json file with the [app settings](functions-how-to-use-azure-function-app-settings.md#settings) in the function app to which your project is deployed.
 
 | Setting | Default| Description|
 |---------|---------|---------|
-|**MySql_Trigger_BatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
-|**MySql_Trigger_PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1,000 ms is 1 second)|
-|**MySql_Trigger_MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
+|`MySql_Trigger_BatchSize` | `100` |The maximum number of changes processed with each iteration of the trigger loop before they're sent to the triggered function.|
+|`MySql_Trigger_PollingIntervalMs` | `1000` | The delay in milliseconds between processing each batch of changes. (1,000 ms is 1 second.)|
+|`MySql_Trigger_MaxChangesPerWorker`| `1000` | The upper limit on the number of pending changes in the user table that are allowed per application worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting applies only for Azure function apps with [runtime-driven scaling enabled](#enable-runtime-driven-scaling).|
 
 #### Example local.settings.json file
 
@@ -725,11 +702,9 @@ Here's an example local.settings.json file with the optional settings:
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure Database for MySQL trigger requires to add a column in table using a function.  These steps can be completed from any MySQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
+Setting up change tracking for use with the Azure Database for MySQL trigger requires you to add a column in a table by using a function. You can complete these steps from any MySQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
 
-Azure Database for MySQL Trigger bindings use "az_func_updated_at" and column's data, to monitor the user table for changes. As such, it's necessary to alter the table structure to allow change tracking on the MySQL table before using the trigger support.
-
-The change tracking can be enabled on a table through following query. For example, enable on ‘Products’ table:
+Azure Database for MySQL trigger bindings use `az_func_updated_at` and column data to monitor the user table for changes. As such, you need to alter the table structure to allow change tracking on the MySQL table before you use the trigger support. You can enable the change tracking on a table through the following query. For example, enable it on the `Products` table:
 
 ```sql
 ALTER TABLE Products;
@@ -738,26 +713,27 @@ TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The leases table contains all columns corresponding to the primary key from the user table and two more columns _az_func_AttemptCount and _az_func_LeaseExpirationTime. So, if any of the primary key columns happen to have the same name, that will result in an error message listing any conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
-
+The table for leases contains all columns that correspond to the primary key from the user table and two more columns: `az_func_AttemptCount` and `az_func_LeaseExpirationTime`. If any of the primary key columns have the same name, the result is an error message that lists conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
 
 ## Enable runtime-driven scaling
 
-Optionally, your functions can scale automatically based on the number of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using MySQL triggers, you need to enable runtime scale monitoring.
+Optionally, your functions can scale automatically based on the number of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when you're using Azure Database for MySQL triggers, you need to enable runtime scale monitoring.
 
 [!INCLUDE [functions-runtime-scaling](../../includes/functions-runtime-scaling.md)]
 
 ## Retry support
 
 ### Startup retries
-If an exception occurs during startup then the host runtime automatically attempts to restart the trigger listener with an exponential backoff strategy. These retries continue until either the listener is successfully started or the startup is canceled.
+
+If an exception occurs during startup, the host runtime automatically attempts to restart the trigger listener with an exponential backoff strategy. These retries continue until either the listener is successfully started or the startup is canceled.
 
 ### Function exception retries
-If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the time-out period has elapsed.
 
-If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch aren't deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
+If an exception occurs in the user function during change processing, the batch of rows currently being processed is retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the time-out period elapses.
 
-## Next steps
+If the function execution fails five consecutive times for a particular row, that row is ignored for all future changes. Because the rows in a batch aren't deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This behavior means that not all rows in the failed batch are necessarily ignored. If other rows in the batch caused the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
 
-- [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
-- [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
+## Related content
+
+- [Read data from a database (input binding)](./functions-bindings-azure-mysql-input.md)
+- [Save data to a database (output binding)](./functions-bindings-azure-mysql-output.md)

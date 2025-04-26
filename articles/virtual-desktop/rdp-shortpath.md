@@ -4,7 +4,7 @@ description: Learn about RDP Shortpath, which establishes a UDP-based transport 
 ms.topic: concept-article
 ms.custom: references_regions
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 10/03/2024
 ---
 

@@ -119,7 +119,7 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-resource-id-functions": {
-          "level": "warning"
+          "level": "off"
         },
         "use-resource-symbol-reference": {
           "level": "warning"

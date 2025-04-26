@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/01/2025
+ms.date: 04/23/2025
 ms.author: phjensen
 ---
 
@@ -89,9 +89,12 @@ The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP 
     KEY FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.KEY
 
     KEY AZACSNAP
-    ENV : <IP_address_of_host>:
-    USER: AZACSNAP
+      ENV : <IP_address_of_host>:
+      USER: AZACSNAP
     ```
+    
+    > [!IMPORTANT]
+    > The value of the `KEY` field is used for the configuration question "What is the SAP HANA HDB User Store Key (e.g. `hdbuserstore List`)?".
 
 ### Using SSL for communication with SAP HANA
 

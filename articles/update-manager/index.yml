@@ -105,4 +105,10 @@ landingContent:
           - text: Create pre and post events
             url: pre-post-events-schedule-maintenance-configuration.md
           - text: Manage pre and post events maintenance configuration events
-            url: manage-pre-post-events.md     
+            url: manage-pre-post-events.md    
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Plan deployment for updating Windows VMs in Azure
+            url: /azure/architecture/example-scenario/wsus#azure-update-manager
