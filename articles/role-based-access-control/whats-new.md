@@ -5,7 +5,7 @@ author: rolyon
 manager: femila
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 04/24/2025
+ms.date: 04/26/2025
 ms.author: rolyon
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| April 2025 | Roles | Added Azure Container Registry roles.<br/>[Container Registry Cache Rule Administrator](./built-in-roles/containers.md#container-registry-cache-rule-administrator)<br/>[Container Registry Cache Rule Reader](./built-in-roles/containers.md#container-registry-cache-rule-reader)<br/>[Container Registry Credential Set Administrator](./built-in-roles/containers.md#container-registry-credential-set-administrator)<br/>[Container Registry Credential Set Reader](./built-in-roles/containers.md#container-registry-credential-set-reader) |
 | April 2025 | Limits | Added system-managed deny assignments limit. See [Azure RBAC limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). |
 | April 2025 | Roles | Added [Compute Fleet Contributor](built-in-roles/compute.md#compute-fleet-contributor) role. |
 | April 2025 | Roles | Added [Azure Red Hat OpenShift](built-in-roles/containers.md#azure-red-hat-openshift-cloud-controller-manager) roles. |
