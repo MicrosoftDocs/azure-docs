@@ -39,9 +39,9 @@ Required:
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
 2. (optional) An existing domain to join if the Admin VM will be domain joined.
 3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
-    - [Disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
-    - [How to create a user assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
-    - [Manage User Assigned Identity](https://learn.microsoft.com/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
+    - [Disk encryption options](/azure/virtual-machines/disk-encryption-overview.md)
+    - [How to create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp)
+    - [Manage User Assigned Identity](/azure/operator-service-manager/how-to-create-user-assigned-managed-identity.md)
     - Create an Access Policy in the Key Vault for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
 
 ## Deploy the template
