@@ -177,8 +177,6 @@
          href: /java/api/com.microsoft.durabletask.azurefunctions
        - name: Durable Task SDK
          href: /java/api/com.microsoft.durabletask
-    - name: PowerShell
-      items:
   - name: Azure storage provider
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides
