@@ -123,7 +123,6 @@ In the following section, you will need the following values from the app regist
 * The following endpoint URLs on the app registration's **Overview** > **Endpoints** page:
     * **OAuth2.0 authorization endpoint (v2)** - the authorization endpoint for Microsoft Entra ID 
     * **OAuth 2.0 token endpoint (v2)** - the token URL endpoint for Microsoft Entra ID
-    * **
 *  Any API scopes configured in the app registration.
 
 ### 2. Add OAuth 2.0 authorization in your API center
