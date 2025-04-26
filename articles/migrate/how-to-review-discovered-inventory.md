@@ -14,39 +14,39 @@ monikerRange: migrate
 
 # Review discovered inventory (preview) in Azure Migrate
 
-This article describes the new experience to review the inventory that you discovery by using the Azure Migrate Discovery and Assessment tool.
+This article describes the new experience to review the inventory that you discovered by using the Azure Migrate Discovery and Assessment tool.
 
 ## What's new?
 
 You can do the following in the new experience:
 
-- Review the inventory of different type of workloads discovered from your datacenter along with their key attributes - all in a single view.
+- Review the inventory of various types of workloads discovered from your datacenter, along with their key attributes - all in a single view.
 - Expand a server and review the inventory of databases and web applications running on the server.
 - Use the filtering capability with the combination of filters to scope the list of workloads.
-- Add and edit tags at scale to the discovered workloads from the inventory views.
+- Add and edit tags at scale for the discovered workloads from the inventory views.
 - Export the inventory of your entire datacenter to review the details offline.
-- Review the discovered inventory specifically for your infrastructure (servers), databases, and web applications by switching to these inventory views.
+- Review the discovered inventory specifically for your infrastructure (servers), databases, and web applications by switching to the inventory views.
 
 How you open the new experience depends on whether you're an existing or new user.
 
-# [Existing users](#tab/existing)
+# [Existing user](#tab/existing)
 
-The existing users who have already created an Azure Migrate project and performed discovery of their datacenter assets can switch to the new Overview by using the prompt in their existing project. From the new Overview, select the count of workloads to review the discovered inventory across your datacenter.
+If you're an existing user who already created an Azure Migrate project and performed discovery of your datacenter assets, you can switch to the new **Overview** tab by using the prompt in your existing project. On the new **Overview** tab, select the count of workloads to review the discovered inventory across your datacenter.
 
-# [New users](#tab/new)
+# [New user](#tab/new)
 
-Ensure the following prerequisites:
+Ensure that you meet the following prerequisites:
 
-- Ensure that you've [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
-- Review the requirements based on your environment and the appliance you set up to perform inventory.
+- [Create a project](./create-manage-projects.md) with the Azure Migrate Discovery and Assessment tool added to it.
+- Review the requirements based on your environment and the appliance that you set up to perform inventory:
 
     Environment | Requirements
     --- | ---
-    Servers running in VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements). <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware).<br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements).
-    Servers running in Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements). <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v).<br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access).
+    Servers running in a VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements). <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware).<br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements).
+    Servers running in a Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements). <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v).<br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access).
     Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements). <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical).<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access).
 
-- Review the Azure URLs that the appliances require to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
+- Review the Azure URLs that the appliances require you to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
 ---
 
