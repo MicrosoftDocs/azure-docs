@@ -183,7 +183,7 @@ You can use the API Center portal to test an API that you configured for authent
 1. In the API Center portal, select an API that you want to test. 
 1. Select a version of the API that has an authentication method configured.
 1. Under **Options**, select **View documentation**.
-   :::image type="content" source="media/authorize-api-access/view-api-documentation.png" alt-text="Screenshot of API details in API Center portal.":::
+   :::image type="content" source="media/authorize-api-access/view-api-documentation-small.png" lightbox="media/authorize-api-access/view-api-documentation.png" alt-text="Screenshot of API details in API Center portal.":::
 
 1. Select an operation in the API, and select **Try this API**.
 1. In the window that opens, review the authentication settings. If you have access to the API, select **Send** to try the API.
