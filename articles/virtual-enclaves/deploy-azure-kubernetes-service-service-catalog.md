@@ -29,7 +29,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster with a max node count of 3 a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: `(node count + 1) + ((node count + 1) * maximum pods per node that you configure)`. Your Enclave's IP addresses might be different depending on the number of enclaves that were created before yours and the network size selected on enclave creation; assuming a `Small (/23)` subnet:
 
-1. Subnet setup and creation: Create the Azure Kubernetes Service subnets. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation. Create these subnets:
+1. Subnet setup and creation: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation. Create these subnets:
     - Create new subnet `AzureVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
         - Add NSG rule set
         - Use this subnet for private endpoint resources
