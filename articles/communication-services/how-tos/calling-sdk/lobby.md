@@ -67,10 +67,9 @@ The Calling SDK Lobby capabilities support the following API operations for both
 
 ### SDKs
 
-| | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+| Ability | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Supported | ✔️ |  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-
 
 \* Only Communication Services user and Microsoft 365 user assigned the role of organizer, co-organizer, or presenter. 
 
