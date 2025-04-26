@@ -1,6 +1,6 @@
 ---
 title: Using the Planetary Computer Pro APIs to Ingest and Visualize Data
-description: "In this tutorial you'll create and store satellite imagery within a Planetary Computer Pro GeoCatalog"
+description: "In this tutorial, you'll create and store satellite imagery within a Planetary Computer Pro GeoCatalog"
 author: TaylorCorbett
 ms.author: TaylorCorbett
 ms.service: azure
@@ -13,7 +13,7 @@ ms.date: 4/25/2025
 
 # Tutorial: Using the Planetary Computer Pro APIs to Ingest and Visualize Data
 
-STAC (SpatioTemporal Asset Catalog) Collections are used within a GeoCatalog to index and store related spatiotemporal assets, such as a set of satellite images that are taken by the same satellite over a period of time. In this end-to-end tutorial, you'll walk through the process of creating a new STAC collection, ingesting Sentinel-2 images into the collection, and querying those images via GeoCatalog's APIs.
+STAC (SpatioTemporal Asset Catalog) Collections are used within a GeoCatalog to index and store related spatiotemporal assets. In this end-to-end tutorial, you will create a new STAC collection, ingesti Sentinel-2 images into the collection, and query those images via GeoCatalog's APIs.
 
 In this tutorial, you:
 > * Will create your very own STAC collection within a Planetary Computer Pro GeoCatalog
@@ -40,7 +40,7 @@ The following command logs you into Azure using the Azure CLI. Run the command a
 
 ## Select Tutorial Options
 
-Before running this tutorial you need contributor access to an existing GeoCatalog instance. Enter the url of your GeoCatalog instance in the geocatalog_url variable. In this tutorial, you'll create a collection for Sentinel-2 imagery provided by the European Space Agency (ESA) that is currently stored in Microsoft's Planetary Computer Data Catalog.
+Before running this tutorial, you need contributor access to an existing GeoCatalog instance. Enter the url of your GeoCatalog instance in the geocatalog_url variable. In this tutorial, you'll create a collection for Sentinel-2 imagery provided by the European Space Agency (ESA) that is currently stored in Microsoft's Planetary Computer Data Catalog.
 
 
 ```python
@@ -149,7 +149,7 @@ pc_collection_asset_container = (
 stac_collection
 ```
 
-When creating a collection within GeoCatalog a collection JSON can't have any collection level assets (such as a collection thumbnail) associated with the collection, so you'll remove those existing assets (don't worry you'll add these back later). However, before you remove the assets save the thumbnail url for this collection for use later on.
+When creating a collection within GeoCatalog a collection JSON can't have any collection level assets (such as a collection thumbnail) associated with the collection, so first remove those existing assets (don't worry you add the thumbnail back later).
 
 
 ```python
@@ -180,7 +180,7 @@ else:
     raise_for_status(response)
 ```
 
-If you open your GeoCatalog portal you should see your new collection listed under the "Collections" tab.
+Open your GeoCatalog portal and you should see your new collection listed under the "Collections" tab.
 
 ### Access Collection Thumbnail
 
@@ -231,7 +231,7 @@ else:
 
 ### Read new collection from within your Planetary Computer Pro GeoCatalog
 
-If you refresh your browser you should be able to see the thumbnail.  You can also retrieve the collection JSON programmatically by making the following call to the collections endpoint:
+Refresh your browser and you should be able to see the thumbnail.  You can also retrieve the collection JSON programmatically by making the following call to the collections endpoint:
 
 
 ```python
@@ -261,7 +261,7 @@ You can view your collection by visiting the GeoCatalog Explorer: {geocatalog_ur
 
 ## Ingest STAC Items & Assets
 
-After creating the collection above you're ready to ingest new STAC items into your STAC collection using your GeoCatalog's Items API! Accomplish this by:
+After creating this collection you're ready to ingest new STAC items into your STAC collection using your GeoCatalog's Items API! Accomplish this by:
 
 1. Obtaining a SAS token from Microsoft's Planetary Computer
 2. Register that token as an Ingestion Source within GeoCatalog
@@ -331,7 +331,7 @@ First you need to query the Planetary Computer to search for Sentinel-2 images t
 * Time range - Collected between February 4 and February 11 2024
 * Area of interest - Imagery collected over southern Iceland (defined as a bounding box)
 
-After performing this search you can see the matching STAC items are found within the Planetary Computer.
+By performing this search you can see the matching STAC items are found within the Planetary Computer.
 
 
 ```python
@@ -368,11 +368,11 @@ items[0]
 ```
 
 ### Register an Ingestion Source
-Before you can ingest these STAC items and their related assets (images) into our GeoCatalog collection you'll need to determine if you need to register a new ingestion source for these items. Ingestion Sources are used by GeoCatalog to track which storage locations (Azure Blob Storage containers) it has access to. 
+Before you can ingest these STAC items and their related assets (images) into a GeoCatalog collection you need to determine if you need to register a new ingestion source. Ingestion Sources are used by GeoCatalog to track which storage locations (Azure Blob Storage containers) it has access to. 
 
-Within GeoCatalog, this is accomplished by providing GeoCatalog the location of the storage container and a SAS token with read permissions to access the container. If STAC items or their related assets are located in a storage container that GeoCatalog hasn't been given access to it will be unable to read those items and our ingest will fail.
+Within GeoCatalog, this is accomplished by providing GeoCatalog the location of the storage container and a SAS token with read permissions to access the container. If STAC items or their related assets are located in a storage container your GeoCatalog hasn't been given access to the ingest will fail.
 
-Given this, first you'll request a SAS token from the Planetary Computer that grants us read access to the container where the Sentinel-2 images reside.
+Given this, you first request a SAS token from the Planetary Computer that grants us read access to the container where the Sentinel-2 images reside.
 
 
 ```python
@@ -382,7 +382,7 @@ pc_token = requests.get("https://planetarycomputer.microsoft.com/api/sas/v1/toke
 print(f"Planetary Computer API Token will expire {pc_token['msft:expiry']}")
 ```
 
-Next you'll attempt to register this Azure Blob Storage container and associated SAS token as an ingestion source with GeoCatalog. There is the potential that an ingestion source already exists for this storage container. If so, find the ID of the existing ingestion source.
+Next attempt to register this Azure Blob Storage container and associated SAS token as an ingestion source with GeoCatalog. There is the potential that an ingestion source already exists for this storage container. If so, find the ID of the existing ingestion source.
 
 **Warning** - If a duplicate ingestion source is found with a token that expires in the next 15 minutes, it is deleted and replaced. Deleting an ingestion source that is in use by currently running ingestions may break those ingestions.
 
@@ -479,7 +479,7 @@ You should be able to refresh your web browser and click on the Items tab to see
 
 ## Collection Management
 
-Now that you ingested these STAC items and their associated assets (images) into our STAC collection, you'll provide GeoCatalog with some other configuration files so you'll be able to visualize the items within our collection using the Explorer in the GeoCatalog portal.
+Now that you ingested these STAC items and their associated assets (images) into our STAC collection, you need to provide you GeoCatalog with some other configuration files before you can visualize these items in the GeoCatalog portal.
 
 ### Collection Render Config
 First you'll download a render configuration file for our collection from the Planetary Computer. This config file can be read by GeoCatalog to render images in different ways within the Explorer. This is because STAC items may contain many different assets (images) that can be combined to create entirely new images of a given area that highlight visible or nonvisible features. For instance, Sentinel-2 STAC items have over 12 different images from different portions of the electromagnetic spectrum. This render config instructs GeoCatalog on how to combine these images so it can display images in Natural Color or False Color (Color Infrared).
