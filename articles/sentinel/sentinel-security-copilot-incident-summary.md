@@ -61,6 +61,10 @@ Copilot automatically generates an incident summary when you open the incident's
  
 :::image type="content" source="media/sentinel-security-copilot-incident-summary/copilot-sentinel-incident-summary.png" alt-text="Screenshot that shows the Copilot-generated incident summary on the details pane of the Microsoft Sentinel incident page." lightbox="media/sentinel-security-copilot-incident-summary/copilot-sentinel-incident-summary.png":::
 
+Select **Show more** to expand the summary to see its complete content.
+
+:::image type="content" source="media/sentinel-security-copilot-incident-summary/copilot-sentinel-incident-summary-expanded.png" alt-text="Screenshot that shows the expanded incident summary.":::
+
    > [!TIP]
    > You can navigate to a file, IP, or URL page from the Copilot results pane by clicking on the evidence in the results.
 
