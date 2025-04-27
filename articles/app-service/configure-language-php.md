@@ -87,6 +87,8 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ::: zone-end
 
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
+
 ::: zone pivot="platform-windows"  
 
 ## Run Composer

@@ -1,9 +1,9 @@
 ---
 author: baanders
-description: include file describing a code solution to the cross-tenant limitation with Azure Digital Twins
+description: Include file describing a code solution to the cross-tenant limitation with Azure Digital Twins.
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 12/07/2022
+ms.date: 4/21/2025
 ms.author: baanders
 ---
 
