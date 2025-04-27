@@ -8,8 +8,9 @@ ms.date: 02/10/2025
 ms.author: danlep 
 ms.custom: 
   - devx-track-azurecli
-  - migration
-  - aws-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 

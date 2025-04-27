@@ -53,7 +53,7 @@ items:
   expanded: true
   items:
     - name: Overview
-      href: migrate-to-azure-container-apps-build-overview.md
+      href: containerization-overview.md
     - name: Build image from artifacts
       href: migrate-to-azure-container-apps-build-artifacts.md
     - name: Build image using Paketo

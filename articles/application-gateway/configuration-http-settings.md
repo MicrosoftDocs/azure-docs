@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 03/19/2025
+ms.date: 04/14/2025
 ms.author: greglin
 ---
 
@@ -34,9 +34,7 @@ The default affinity cookie name is *ApplicationGatewayAffinity* and you can cha
 
 ## Connection draining
 
-Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are 
-- explicitly removed from the backend pool, or
-- reported as unhealthy by the health probes.
+Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are explicitly removed from the backend pool.
 
 You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This process is also true for WebSocket connections.
 

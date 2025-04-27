@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/26/2024
+ms.date: 04/14/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -399,24 +399,14 @@ Here's an example of bandwidth calculation for flow tuples from a TCP conversati
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 
-## Managing NSG flow logs
-
-To learn how to create, change, disable, or delete NSG flow logs, see one of the following guides:
-
-- [Azure portal](nsg-flow-logs-portal.md)
-- [PowerShell](nsg-flow-logs-powershell.md)
-- [Azure CLI](nsg-flow-logs-cli.md)
-- [REST API](nsg-flow-logs-rest.md)
-- [Azure Resource Manager](nsg-flow-logs-azure-resource-manager.md)
-
 ## Working with flow logs
 
 ### Read and export flow logs
 
 To learn how to read and export NSG flow logs, see one of the following guides:
 
-- [Download and view flow logs from the portal](nsg-flow-logs-portal.md#download-a-flow-log)
-- [Read flow logs by using PowerShell functions](network-watcher-read-nsg-flow-logs.md)
+- [Download and view flow logs](nsg-flow-logs-manage.md#download-a-flow-log)
+- [Read flow logs using PowerShell functions](network-watcher-read-nsg-flow-logs.md)
 - [Export NSG flow logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
 NSG flow log files are stored in a storage account at the following path:
@@ -550,8 +540,14 @@ If traffic analytics is enabled with NSG flow logs, traffic analytics pricing ap
 
 Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
+## Availability
+
+The following tables list the supported regions where you can enable NSG flow logs.
+
+[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
+
 ## Related content
 
-- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logs-portal.md).
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs](nsg-flow-logs-manage.md).
 - To find answers to some of the most frequently asked questions about NSG flow logs, see [Flow logs FAQ](frequently-asked-questions.yml#flow-logs).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
