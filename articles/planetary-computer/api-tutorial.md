@@ -236,8 +236,10 @@ Refresh your browser and you should be able to see the thumbnail.  You can also 
 
 ```python
 # Request the collection JSON from your GeoCatalog
+collection_endpoint = f"{geocatalog_url}/api/collections/{stac_collection['id']}"
+
 response = requests.get(
-    collections_endpoint,
+    collection_endpoint,
     json={'collection_id':stac_collection['id']},
     headers=getBearerToken(),
     params={"api-version": "2024-01-31-preview"}
@@ -419,6 +421,11 @@ for item in items:
 
     item_json = item.to_dict()
     item_json['collection'] = collection_id
+
+    # Remove non-static assets
+    del(item_json['assets']['rendered_preview'])
+    del(item_json['assets']['preview'])
+    del(item_json['assets']['tilejson'])
 
     response = requests.post(
         items_endpoint,
