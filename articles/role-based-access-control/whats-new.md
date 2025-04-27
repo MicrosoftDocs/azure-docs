@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| April 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | April 2025 | Roles | Added Azure Container Registry roles.<br/>[Container Registry Cache Rule Administrator](./built-in-roles/containers.md#container-registry-cache-rule-administrator)<br/>[Container Registry Cache Rule Reader](./built-in-roles/containers.md#container-registry-cache-rule-reader)<br/>[Container Registry Credential Set Administrator](./built-in-roles/containers.md#container-registry-credential-set-administrator)<br/>[Container Registry Credential Set Reader](./built-in-roles/containers.md#container-registry-credential-set-reader) |
 | April 2025 | Limits | Added system-managed deny assignments limit. See [Azure RBAC limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). |
 | April 2025 | Roles | Added [Compute Fleet Contributor](built-in-roles/compute.md#compute-fleet-contributor) role. |
