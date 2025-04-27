@@ -2,7 +2,7 @@
 title: Azure permissions for Hybrid + multicloud - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Hybrid + multicloud category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon

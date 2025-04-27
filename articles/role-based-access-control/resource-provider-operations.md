@@ -2,7 +2,7 @@
 title: Azure permissions - Azure RBAC
 description: Lists the permissions for Azure resource providers.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: femila

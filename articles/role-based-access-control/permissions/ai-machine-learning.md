@@ -2,7 +2,7 @@
 title: Azure permissions for AI + machine learning - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the AI + machine learning category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
