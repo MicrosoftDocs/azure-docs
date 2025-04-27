@@ -118,7 +118,7 @@ shell>
 ```
 
 ### Turn on NTP time sync
-
+<!-- look up and make any changes to ntp commands that 'dont work for client'-->
 Use the following commands to turn on synchronization for the appliance time with an NTP server.
 
 To use these commands, make sure that:
