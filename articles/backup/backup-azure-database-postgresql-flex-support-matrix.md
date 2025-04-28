@@ -2,7 +2,7 @@
 title: Azure Database for PostgreSQL- Flexible server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: reference
-ms.date: 02/28/2025
+ms.date: 04/11/2025
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
 author: jyothisuri
@@ -24,7 +24,7 @@ Consider the following support scenarios when you back up Azure Database for Pos
 - Vaulted backup restores are only available as **Restore to Files** in user specified storage containers. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
 - Backups for the PostgreSQL server are supported when the Backup Vault is in the same or a different subscription as the database, provided they are within the same tenant and region. Restores are supported across regions (Azure Paired) and across subscriptions within the same tenant.
 - For vaulted backups, entire server is backed up with all databases. Backup of specific databases isn't supported.
-- Recommended limit for the maximum server size is **1 TB**. While backups can be attempted on server size exceeding 1 TB, which aren't officially supported, and the success of vaulted backups for such server can't be guaranteed.
+- Vaulted backups are supported for server size **<= 1 TB**. If backup is configured on server size larger than 1 TB, the backup operation fails.
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
 - Private endpoint-enabled Azure Database for PostgreSQL - Flexible servers can be backed up by allowing trusted Microsoft services in the network settings.
 - Backups for PostgreSQL Flexible servers exclude databases owned by `azuresu` or `azure_pg_admin`, including the native PostgreSQL database. So, databases with these owners can't be backed up or restored.
@@ -36,8 +36,9 @@ Azure Database for PostgreSQL – Flexible Server backups include the following 
 - Vaulted backup doesn't support storage in archive tier.
 - Vaulted backup isn't supported on replicas; backup can be configured only on primary servers.
 - For restore operation, item level recovery (recovery of specific databases) isn't supported.
-- Weekly backups are supported for only one day in the week on which backup is initiated.
+- Only one weekly backup is currently supported. If multiple vaulted backups are scheduled in a week, only the first backup operation of the week is executed, and the subsequent backup jobs in the same week fail.”
 - Vaulted backups don't support tables containing a row with **BYTEA length exceeding 500 MB**.
+- Vaulted backups support full backups only; incremental or differential backups aren't supported.
 
 
 

@@ -1,18 +1,25 @@
 ---
-title: Extend Azure with Azure Native ISV Services
-description: Explore Azure Native ISV Services partner solutions for observability, data, networking, and storage.
+title: Extend Azure with Azure Native Integrations
+description: Explore Azure Native Integrations partner solutions for observability, data, networking, and storage.
 
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 03/31/2025
+ms.date: 04/21/2025
 ---
 
-# Extend Azure with Azure Native ISV Services
+# Extend Azure with Azure Native Integrations
 
-Partner organizations use Azure Native ISV Services to offer solutions which are fully integrated with Azure to enhance your cloud infrastructure. Use a resource provider, resource types, and SDKs to manage the solution as you would with other solutions from Microsoft.
+Partner organizations use Azure Native Integrations to offer solutions which are fully integrated with Azure to enhance your cloud infrastructure. Use a resource provider, resource types, and SDKs to manage the solution as you would with other solutions from Microsoft.
 
-Subscribe to any Azure Native ISV Service through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
+Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
+
+## AI
+
+|Partner                                           |Description |
+|--------------------------------------------------|------------|
+|[Arize AI](arize-ai/overview.md)|A unified AI observability and evaluation platform for tracing, monitoring, and troubleshooting AI applications and agents|
+|[LambdaTest - HyperExecute](lambda-test/overview.md)|An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.|
 
 ## Observability
 

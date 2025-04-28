@@ -59,6 +59,9 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 > [!NOTE] 
 > Please ensure the identity used by AGIC has the proper permissions. A list of permissions needed by the identity can be found here: [Configure Infrastructure - Permissions](configuration-infrastructure.md#permissions). If a custom role is not defined with the required permissions, you may use the _Network Contributor_ role.
 
+>[!NOTE]
+>If you are planning on using AGIC with an AKS cluster using CNI Overlay, specify the parameter `--aks-custom-headers AKSHTTPCustomFeatures=Microsoft.ContainerService/AppGatewayWithOverlayPreview` to configure AGIC to handle connectivity to the CNI Overlay enabled cluster.
+
 ```azurecli-interactive
 # Get application gateway id from AKS addon profile
 appGatewayId=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "addonProfiles.ingressApplicationGateway.config.effectiveApplicationGatewayId")

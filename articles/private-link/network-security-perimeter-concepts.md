@@ -74,7 +74,7 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 - Enable access rules to grant access outside the secure perimeter.
 - Manage access rules for all the PaaS resources within the network security perimeter in a single pane of glass.
 - Enable diagnostic settings to generate access logs of PaaS resources within the perimeter for Audit and Compliance.
-- Allow private endpoint traffic without other access rules.
+- Allow private endpoint traffic without the need for explicit access rules.
 
 
 ## How does a network security perimeter work?

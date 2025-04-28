@@ -71,7 +71,7 @@ After the application receives an access token, the SDK and/or application sends
 > [!NOTE]
 > `x-ms-client-id` is the Azure Maps account-based GUID that appears on the Azure Maps authentication page.
 
-Here's an example of an Azure Maps route request that uses a Microsoft Entra ID OAuth Bearer token:
+Here's an example of an Azure Maps Route request that uses a Microsoft Entra ID OAuth Bearer token:
 
 ```http
 GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872

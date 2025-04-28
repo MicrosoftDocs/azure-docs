@@ -68,7 +68,6 @@ The guided gateway migration experience supports the following scenarios:
 
 - Migrating from a non-Az-enabled SKU with a Basic IP to a non-Az-enabled SKU with a Standard IP.
 - Migrating from a non-Az-enabled SKU with a Basic IP to an Az-enabled SKU with a Standard IP.
-- Migrating from a non-Az-enabled SKU with a Standard IP to an Az-enabled SKU with a Standard IP.
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU. For detailed steps, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
