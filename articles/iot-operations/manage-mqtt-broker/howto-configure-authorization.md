@@ -45,7 +45,7 @@ The following example shows how to create a BrokerAuthorization resource by usin
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-show) command to create or change an authorization policy.
+Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
 
 ```azurecli
 az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
@@ -277,7 +277,7 @@ In the broker authorization rules for your authorization policy, use the followi
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-show) command to create or change an authorization policy.
+Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
 
 ```azurecli
 az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
@@ -495,7 +495,7 @@ In the broker authorization rules for your authorization policy, use the followi
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-show) command to create or change an authorization policy.
+Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
 
 ```azurecli
 az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
