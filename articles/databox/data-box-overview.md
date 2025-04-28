@@ -67,7 +67,7 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 You can use your Data Box data with many non-Azure service providers. For instance:
 
 - **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
-
+- **[Commvault](https://learn.microsoft.com/en-us/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/commvault/commvault-solution-guide)** - leverages Azure Data Box to migrate petabyte scale backup and archive data from on-premises to Azure for network constrained environments.
 ## Benefits
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
