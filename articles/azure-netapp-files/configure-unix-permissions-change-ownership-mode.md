@@ -1,11 +1,11 @@
 ---
-title: Configure Unix permissions and change ownership mode for Azure NetApp Files NFS and dual-protocol volumes | Microsoft Docs
-description: Describes how to set the Unix permissions and the change ownership mode options for Azure NetApp Files NFS and dual-protocol volumes.
+title: Configure Unix permissions and change ownership mode for Azure NetApp Files NFS and dual-protocol volumes
+description: Learn how to set the Unix permissions and the change ownership mode options for Azure NetApp Files NFS and dual-protocol volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 04/25/2025
 ms.author: anfdocs
 ---
 # Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes
@@ -22,7 +22,7 @@ The Unix permissions setting is set to `0770` by default. This default setting g
 
 ## Change ownership mode   
 
-The change ownership mode (**`Chown Mode`**) functionality enables you to set the ownership management capabilities of files and directories.  You can specify or modify the setting under a volume's export policy. Two options for **`Chown Mode`** are available:   
+The change ownership mode (**`Chown Mode`**) functionality enables you to set the ownership management capabilities of files and directories. You can specify or modify the setting under a volume's export policy. Two options for **`Chown Mode`** are available:   
 
 * `Restricted` (default) - Only the root user can change the ownership of files and directories.
 * `Unrestricted` - Non-root users can change the ownership for files and directories that they own.
@@ -30,23 +30,27 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 ## Considerations  
 
 * The Unix permissions you specify apply only for the volume mount point (root directory).  
-* You can modify the Unix permissions on the source volume *but not on the destination volume* that is in a cross-region replication configuration.
+* You can modify the Unix permissions on the source volume *but not the destination volume* that is in a replication configuration.
 
-## Steps
+## Set Unix permissions for new volumes
 
 1. You can specify the **Unix permissions** and change ownership mode (**`Chown Mode`**) settings under the **Protocol** tab when you [create an NFS volume](azure-netapp-files-create-volumes.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). 
 
-    The following example shows the Create a Volume screen for an NFS volume. 
+    The following example shows the Create a volume screen for an NFS volume. 
 
-    ![Screenshots that shows the Create a Volume screen for NFS.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-create-nfs-volume.png)
+    ![Screenshot that shows the Create a Volume screen for NFS.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-create-nfs-volume.png)
 
-2. For existing NFS or dual-protocol volumes, you can set or modify **Unix permissions** and **change ownership mode** as follows:  
+## Set Unix permissions for existing volumes
 
-    1. To modify Unix permissions, right-click the **volume**, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.  
-        ![Screenshots that shows the Edit screen for Unix permissions.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-edit.png)
+For existing NFS or dual-protocol volumes, you can set or modify **Unix permissions** and **change ownership mode** as follows:  
 
-    2. To modify the change ownership mode, click the **volume**, click **Export policy**, then modify the **`Chown Mode`** setting.  
-        ![Screenshots that shows the Export Policy screen.](./media/configure-unix-permissions-change-ownership-mode/chown-mode-edit.png)
+1. To modify Unix permissions, right-click the **volume**, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.
+
+    ![Screenshot that shows the Edit screen for Unix permissions.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-edit.png)
+
+2. To modify the change ownership mode, select the **volume**, click **Export policy** then modify the **`Chown Mode`** setting.  
+
+    ![Screenshot that shows the Export Policy screen.](./media/configure-unix-permissions-change-ownership-mode/chown-mode-edit.png)
 
 ## Next steps  
 

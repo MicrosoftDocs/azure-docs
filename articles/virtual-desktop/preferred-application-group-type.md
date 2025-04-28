@@ -3,7 +3,7 @@ title: Preferred application group type behavior for pooled host pools in Azure 
 description: Learn how setting a preferred application group type for pooled host pools determines the desktops and applications users can connect to.
 ms.topic: concept-article
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 06/07/2024
 ---
 
