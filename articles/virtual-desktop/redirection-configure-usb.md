@@ -4,7 +4,7 @@ description: Learn how to redirect USB peripherals from a local Windows device t
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 08/08/2024
 ---
 
