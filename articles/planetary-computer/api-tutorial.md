@@ -635,6 +635,11 @@ raise_for_status(response)
 print(f"STAC Collection deleted: {collection_id}")
 ```
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create a STAC Collection through the portal](./create-collection-portal.md)
+
 ## Related Content
 In this end-to-end tutorial, you walked through the process of creating a new STAC collection, ingesting Sentinel-2 images into the collection, and querying those images via GeoCatalog's APIs. If you would like to learn more about each of these topics, explore these other materials:
 

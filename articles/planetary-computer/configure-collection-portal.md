@@ -48,4 +48,7 @@ To configure a collection in the Microsoft Planetary Computer Pro portal, follow
  
 ## Next steps
 
-Now that your collection is ready to be vizualized, it's time to view it in the Explorer. Follow along with the [Quickstart: Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md) to learn how.
+Now that your collection is ready to be vizualized, it's time to view it in the Explorer.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro portal](./ingest-via-portal.md)

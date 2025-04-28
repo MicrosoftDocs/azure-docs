@@ -35,4 +35,9 @@ Once you have created a collection and configured an ingestion source, you are r
 
 ## Next steps
 
-Once you have created your collection, you will need to ingest data into it. Follow along with the [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro UI](./ingest-via-portal.md) to learn how to ingest data into your collection.
+<!-- TODO: Update this link to point to the next article in the sequence once finalized. -->
+
+Once you have ingested data, it's time to configure the STAC Collection for visualizing your data. 
+
+> [!div class="nextstepaction"]
+> [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro portal](./ingest-via-portal.md)
