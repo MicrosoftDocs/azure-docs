@@ -27,7 +27,6 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 dotnet
 :::zone-end
 
-
 :::zone target="docs" pivot="python"
 [Download the sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip).
 
