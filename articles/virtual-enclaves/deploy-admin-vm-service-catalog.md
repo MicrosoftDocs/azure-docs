@@ -13,7 +13,7 @@ The Admin VM template allows customers to install an application they want to pu
 
 In this article, you:
 
-- Deploy a Service Catalog template for a Admin VM into an existing Workload from the Portal.
+- Deploy a Service Catalog template for an Admin VM into an existing Workload from the Portal.
 
 > [!NOTE]
 > 

@@ -55,11 +55,11 @@ Required:
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
 7. (Optional) [Publish your RemoteApp](#publish-remote-app-optional) to other users
-8. (Optional) [Domain join](#domain-join-optional) your RemoteApp VM.
+8. (Optional) [Domain join](#join-vm-to-domain-optional) your RemoteApp VM.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
 10. Select `Review + Create`, if all validations have passed, select `Create`
 
-## Domain Join (Optional)
+## Join VM to Domain (Optional)
 1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
    * The Domain name should be in the format of `contoso.com`
@@ -83,7 +83,7 @@ It can take 20+ minutes to finish all resource creation. Wait for the deployment
 
 ## Validate the deployment
 1. Go to the specified Resource Group, the Workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC.
-2. If the RemoteApp was published: hostpool, app group, and workspace.
+2. If the RemoteApp was published: host pool, app group, and workspace.
 
 ## Connect to the Application VM
 Via the [Admin VM](./understanding-admin-vm.md):
@@ -104,7 +104,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
     1. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
             - *Private Container* - securely store installers, main script, and any supporting scripts. 
-                - You might want to choose this option if your scripts or installers can not be shared with others who have access to that storage account container.
+                - You might want to choose this option if your scripts or installers can’t be shared with others who have access to that storage account container.
             - *Public Container* - stores publicly accessible artifacts in the remoteappvm folder in the Service Catalog's container
         - App Folder:
             - app installer (ex: VSCodeSetup.exe)
