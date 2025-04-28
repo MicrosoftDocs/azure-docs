@@ -139,7 +139,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
 > [!NOTE]
 > If you have already failed over a VM and it is running in Azure, note that disable protection doesn't remove / affect the failed over VM.
-## Disable protection for a Azure VM (Azure to Azure)
+## Disable protection for an Azure VM (Azure to Azure)
 
 -  In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
 > [!NOTE]
@@ -179,7 +179,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up.
 
      > [!NOTE]
-     > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
+     > If you chose the **Remove** option, then run the following scripts to clean up the replication settings on-premises VMM Server.
 3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
     ```powershell
@@ -205,7 +205,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
    - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine is cleaned up and Site Recovery billing for this protected server is stopped.
    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. Run the following set of scripts to clean up the replication settings on-premises virtual machines.
      > [!NOTE]
-     > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
+     > If you chose the **Remove** option, then run the following scripts to clean up the replication settings on-premises VMM Server.
 
 3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
