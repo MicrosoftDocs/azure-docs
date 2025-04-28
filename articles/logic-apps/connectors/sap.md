@@ -98,6 +98,78 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
 
+* Difference in how empty XML elements are handled
+
+  - **BuiltIn SAP Connector**: An empty XML element is treated as a SAP parameter with an explicit empty value or default value.  
+  - **Managed SAP Connector**: An empty XML element is interpreted as a missing parameter, and the parameter is not sent to the SAP function.
+
+  **Example**  
+  Given the following SAP RFC input payload:
+  
+  ```xml
+  <RfcName>
+    <Parameter></Parameter>
+  </RfcName>
+  ```
+  - In Logic App Standard built-in connector, the Parameter is included in the SAP RFC call with an explicit empty value ('').
+  
+  - In the Managed SAP Connector, the Parameter is omitted entirely from the SAP RFC call.
+
+* Difference in handling BizTalk XML group segments.
+
+  - **Built-in SAP Connector**: Strictly follows the schema defined by the Schema Generator. A group segment (a segment ending with `GRP`) must define its child segments only once per instance. To represent multiple items, multiple instances of the group segment should be created, each containing its own set of child segments.
+  - **Managed SAP Connector**: Allows multiple repetitions of child elements within a single group segment. These are interpreted as multiple instances of the group segment.
+
+  **Example Behavior**  
+  The following structure, where multiple sequences of child elements are grouped under a single group segment, would be **rejected** by the Built-in SAP connector in Logic App Standard:
+  
+  ```xml
+  <ns2:E2EDKT1002GRP>
+      <ns2:E2EDKT1002>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDID>FD</ns2:TDID>
+      </ns2:E2EDKT1002>
+      <ns2:E2EDKT2001>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDLINE>CRSD</ns2:TDLINE>
+      </ns2:E2EDKT2001>
+      <ns2:E2EDKT1002>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDID>DTP</ns2:TDID>
+      </ns2:E2EDKT1002>
+      <ns2:E2EDKT2001>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+          <ns2:TDFORMAT>/</ns2:TDFORMAT>
+      </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  ```
+  Instead, the following structure is valid for the Built-in SAP connector, where each instance of the `E2EDKT1002GRP` group contains only a single sequence of child segments:
+
+  ```xml
+  <ns2:E2EDKT1002GRP>
+      <ns2:E2EDKT1002>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDID>FD</ns2:TDID>
+      </ns2:E2EDKT1002>
+      <ns2:E2EDKT2001>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDLINE>CRSD</ns2:TDLINE>
+      </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  <ns2:E2EDKT1002GRP>
+      <ns2:E2EDKT1002>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDID>DTP</ns2:TDID>
+      </ns2:E2EDKT1002>
+      <ns2:E2EDKT2001>
+          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+          <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+          <ns2:TDFORMAT>/</ns2:TDFORMAT>
+      </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  ```
+
 * **Generate Schema** action
 
   * You can select from multiple operation types, such as BAPI, IDoc, RFC, and tRFC, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
