@@ -177,7 +177,7 @@ Perform the following steps:
     | Public IP address | Select **Add new**. Enter **my-frontend** for the name of your frontend and select **OK** |
 
    > [!NOTE]
-   > For the Application Gateway v2 SKU, there must be a public frontend IP. For more information, see [Public and private IP address support](../application-gateway/configuration-frontend-ip#public-and-private-ip-address-support.md) and [Manage a public IP address with an Azure Application Gateway](../virtual-network/ip-services/configure-public-ip-application-gateway.md).
+   > For the Application Gateway v2 SKU, there must be a public frontend IP. For more information, see [Public and private IP address support](/azure/application-gateway/configuration-frontend-ip#public-and-private-ip-address-support) and [Manage a public IP address with an Azure Application Gateway](../virtual-network/ip-services/configure-public-ip-application-gateway.md).
 
 1. Select **Next: Backends**.
 
