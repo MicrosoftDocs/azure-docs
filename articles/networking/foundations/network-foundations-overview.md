@@ -79,7 +79,7 @@ Resource links are also provided in the left-hand service tree to help you under
 
 ## Learn more
 
-- [Load balancing and content delivery](/azure/networking/load-balancer-content-delivery/overview-load-balancing-content-delivery)
+- [Load balancing and content delivery](/azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview)
 - [Azure hybrid connectivity](/azure/networking/hybrid-connectivity)
 - [Azure network security](/azure/networking/security/)
 - [Azure network monitoring and management](/azure/networking/monitoring-management/)
