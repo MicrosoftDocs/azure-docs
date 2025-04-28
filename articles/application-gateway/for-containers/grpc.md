@@ -23,7 +23,7 @@ gRPC offers comprehensive support across most popular development stacks, includ
 
 ## gRPC Benefits
 
-gRPC uses HTTP/2 for its transport protocol. While compatible with HTTP 1.1, HTTP/2 features many advanced capabilities:
+gRPC uses HTTP/2 for its transport protocol bringing many advanced capabilities:
 
 - A binary framing protocol for data transport - unlike HTTP 1.1, which is text based.
 - Multiplexing support for sending multiple parallel requests over the same connection - HTTP 1.1 limits processing to one request/response message at a time.
