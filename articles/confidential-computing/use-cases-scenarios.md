@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 11/04/2021
 ms.author: jushiman
 ---
-# Use cases
+# Confidential computing use cases
 
 When you use confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own virtual machine (VM) admin. Depending on your threat model, you can use various technologies to:
 
@@ -18,7 +18,7 @@ When you use confidential computing technologies, you can harden your virtualize
 - **Ensure secure and untrusted collaboration.** Tackle industrywide work-scale problems by combining data across organizations, even competitors, to unlock broad data analytics and deeper insights.
 - **Isolate processing.** Offer a new wave of products that remove liability on private data with blind processing. The service provider can't retrieve user data.
 
-## Scenarios
+## Confidential computing scenarios
 
 Confidential computing can apply to various scenarios for protecting data in regulated industries like government, financial services, and healthcare institutes.
 
