@@ -124,57 +124,6 @@ The Geo-Replication feature enables customers to configure a secondary region to
 -	**Trigger promotion/failover** - All promotions are customer initiated.
 -	**Remove a secondary** - If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
 
-## Setup
-
-### Using Azure portal
-
-The following section is an overview to set up the Geo-Replication feature on a new namespace through the Azure portal.
-
-1. Create a new premium-tier namespace, or create a new namespace on a dedicated cluster.
-1. Check the **Enable Geo-replication checkbox** under the *Replication* section.
-1. Click on the **Add secondary region** button, and choose a region.
-1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
-TBD :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
-
-### Using Bicep template
-
-To create a namespace with the Geo-Replication feature enabled, add the *geoDataReplication* properties section.
-
-```bicep
-TBD
-```
-
-## Management
-
-Once you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade. 
-
-### Switch replication mode
-
-To switch between replication modes, or update the maximum replication lag, click on the link under **Replication consistency**, and click the checkbox to enable / disable synchronous replication, or update the value in the textbox to change the asynchronous maximum replication lag.
-TBD :::image type="content" source="./media/service-bus-geo-replication/update-namespace-geo-replication-configuration.png" alt-text="Screenshot showing how to update the configuration of the Geo-Replication feature.":::
-
-### Delete secondary region
-
-To remove a secondary region, click on the **...**-ellipsis next to the region, and click **Delete**. To delete the region, follow the instructions in the pop-up blade.
-TBD :::image type="content" source="./media/service-bus-geo-replication/delete-secondary-region-from-geo-replication.png" alt-text="Screenshot showing how to delete a secondary region.":::
-
-### Promotion flow
-
-A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
-
-| State | Diagram |
-| --- | ---|
-| Before failover (promotion of secondary) | :::image type="content" source="./media/geo-replication/a-as-primary.png" alt-text="Diagram showing when region A is primary, B is secondary."::: |
-| After failover (promotion of secondary) | :::image type="content" source="./media/geo-replication/b-as-primary.png" alt-text="Diagram showing when B is made the primary, that A becomes the new secondary."::: |
-
-#### Using Azure portal
-
-TBD
-
-#### Using Azure CLI
-
-TBD
- 
 ## Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Application Metrics logs.
 
@@ -191,25 +140,35 @@ Users can monitor the progress of the replication job by monitoring the replicat
 -	The column `count_d` indicates the replication lag in seconds between the primary and secondary region.
 
 ## Publishing Data 
-Event publishing applications can publish data to geo-replicated namespaces via stable namespace FQDN of the geo replicated namespace. The event publishing approach is the same as the non-Geo DR case and no changes to client applications are required. 
+Publishing applications can publish data to geo replicated namespaces via the namespace hostname of the Geo-Replication enabled namespace. The publishing approach is the same as the non-Geo-Replication case and no changes to data plane SDKs or client applications are required. 
 
 Event publishing might not be available during the following circumstances: 
 
--	During Failover grace period, the existing primary region rejects any new events that are published to the event hub. 
--	When replication lag between primary and secondary regions reaches the max replication lag duration, the publisher ingress workload might get throttled. 
+-	After requesting promotion of a secondary region, the existing primary region rejects any new events that are published to the event hub. 
+-	When replication lag between primary and secondary regions reaches the max replication lag duration, the publisher ingress workload might get throttled.
+
 Publisher applications can't directly access any namespaces in the secondary regions. 
 
 ## Consuming Data
-Event consuming applications can consume data using the stable namespace FQDN of a geo-replicated namespace. The consumer operations aren't supported, from when the failover is initiated until it's completed. 
+Consuming applications can consume data using the namespace hostname of a namespace with the Geo-Replication feature enabled. Consumer operations aren't supported from the moment that promotion is initiated until promotion is completed.
+
 
 ### Checkpointing/Offset Management
-Event consuming applications can continue to maintain offset management as they would do it with a single namespace. 
+
+Event consuming applications can continue to maintain offset management as they would do it with a single namespace.
+
+> [!WARNING]
+> In the event of forced failover (i.e. non graceful failover), some of the data that hasn't been copied over may be lost. This may cause the offsets of that specific data to be different across the primary and secondary regions for the namespace, however it would still be within the bounds of the maximum replication lag configured for the namespace.
+> In such cases, it is preferred to start consuming from the last committed offset. Some data might have duplicate processing and must be handled on the client side.
+>
 
 #### Kafka
 
 Offsets are committed to Event Hubs directly and offsets are replicated across regions. Therefore, consumers can start consuming from where it left off in the primary region. 
 
 #### Event Hubs SDK/AMQP
+
+TBD - call out that Track 0 SDKs will have trouble. Track 1 and later are fine.
 
 Clients that use the Event Hubs SDK need to upgrade to the April 2024 version of the SDK. The latest version of the Event Hubs SDK supports failover with an update to the checkpoint. The checkpoint is managed by users with a checkpoint store such as Azure Blob storage, or a custom storage solution. If there's a failover, the checkpoint store must be available from the secondary region so that clients can retrieve checkpoint data and avoid loss of messages.
 
