@@ -7,7 +7,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/04/2024
+ms.date: 04/07/2025
 ms.author: jkinma
 ---
 
