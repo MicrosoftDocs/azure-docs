@@ -6,7 +6,7 @@ ms.service: azure-managed-redis
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 04/28/2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -15,6 +15,13 @@ appliesto:
 
 Azure Managed Redis provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Redis Enterprise improves the performance and reliability of the community edition of Redis, while maintaining compatibility. Microsoft operates the service, hosted on Azure, and usable by any application within or outside of Azure.
 For more information on how Azure Managed Redis is built, see [Azure Managed Redis Architecture](architecture.md).
+
+> [!NOTE]
+> Azure Managed Redis is Generally Available (GA) as a product. However, certain features remain in Public Preview.
+>
+> - Scaling a cache
+> - Data persistence
+> - Non-clustered caches
 
 Azure Managed Redis can improve the performance and scalability of an application that heavily uses backend data stores. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly.
 
@@ -98,7 +105,6 @@ The following table helps describe some of the features supported by tier:
 | [Search functionality (including vector search)](redis-modules.md)                      | Yes               | Yes               | Yes               | No                |
 | [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                    | Yes               | Yes               | Yes               | Yes               |
 | [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)             | Yes               | Yes               | Yes               | Yes               |
-| [Redis on Flash(also known as autotiering)](architecture.md#flash-optimized-tier)       | Yes               | Yes               | Yes               | Yes               |
 | [Import/Export](how-to-import-export-data.md)                                           | Yes               | Yes               | Yes               | Yes               |
 | [Update channel and Schedule updates](administration.md)                                | No                | No                | No                | No                |
 
