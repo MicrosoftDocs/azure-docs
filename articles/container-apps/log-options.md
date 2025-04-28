@@ -168,7 +168,7 @@ For the `--metrics` parameter, the only available category is `AllMetrics`.
 
 For more information see [LogSettings](/rest/api/monitor/diagnostic-settings/create-or-update#logsettings) and [MetricSettings](/rest/api/monitor/diagnostic-settings/create-or-update#metricsettings).
 
-To create diagnostic settings at the container app level, run the following command. Replace the `<PLACEHOLDERS>` with your values. You can get the container app ID from the Azure portal, or from the [`az containerapp show`](cli/azure/containerapp#az-containerapp-show) command. 
+To create diagnostic settings at the container app level, run the following command. Replace the `<PLACEHOLDERS>` with your values. You can get the container app ID from the Azure portal, or from the [`az containerapp show`](/cli/azure/containerapp#az-containerapp-show) command. 
 
 When creating diagnostic settings at the container app level, the `--logs` parameter is not supported, and for the `--metrics` parameter, the only available category is `AllMetrics`.
 
