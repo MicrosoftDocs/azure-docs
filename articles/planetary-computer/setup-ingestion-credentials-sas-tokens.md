@@ -88,8 +88,6 @@ Your credential is now set up to support ingestions.
 
 NEED NEW SCREENSHOT
 
-![Screenshot of the MPC Pro Settings page showing a list of created credentials. Each credential entry displays the Container URL, Credential Token, expiration date, and options to edit or delete the credential.](media/credentials_6.png)
-
 If your credential expires or you need to add credentials for a different Blob Container, repeat the previous process. 
 
 ## Set up credentials through the API
