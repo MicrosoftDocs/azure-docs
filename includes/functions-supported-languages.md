@@ -80,6 +80,8 @@ The following table shows the language versions supported for Java functions.
 | **Java 11** | GA |See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 8** | GA | See this [Temurin support page](https://adoptium.net/support/). |
 
+Java 21 isn't currently supported when running on Windows or on Linux in a Flex Consumption plan.
+
 For more information on developing and running Java functions, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
 ::: zone-end
@@ -88,9 +90,11 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [Node.js 22](https://endoflife.date/nodejs) | Preview | April 30, 2027 |
+| [Node.js 22](https://endoflife.date/nodejs) | GA (Linux) <br> Preview (Windows) | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
+
+Node.js 22 isn't currently supported when running in a Flex Consumption plan.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  

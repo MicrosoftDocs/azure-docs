@@ -6,7 +6,7 @@ author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesto: 
+appliesto:
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 

@@ -17,7 +17,7 @@ _Azure IoT Operations_ is a unified data plane for the edge. It's a collection o
 Azure IoT Operations:
 
 * Is built from ground up by using Kubernetes native applications.
-* Is part of the Microsoft [adaptive cloud approach](/collections/5pq5hojn6xzogr) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
+* Is part of the Microsoft [adaptive cloud approach](/azure/adaptive-cloud/) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
 * Includes an industrial-grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
 * Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).

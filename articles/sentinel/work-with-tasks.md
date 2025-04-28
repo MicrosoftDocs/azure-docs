@@ -5,8 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 11/24/2022
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to manage and track incident tasks so that I can efficiently handle incident workflows and ensure thorough investigations.
 ---
 

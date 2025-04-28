@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting Domain Configuration issues for Azure Email Communication Service
+title: Troubleshooting domain configuration issues 
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Troubleshooting domain configuration issues.
+description: This article describes troubleshooting domain configuration issues.
 author: raviverm
 manager: daysha-carter
 services: azure-communication-services
@@ -10,9 +10,9 @@ ms.date: 04/09/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Troubleshooting Domain Configuration issues
+# Troubleshooting domain configuration issues
 
-This guide describes how to resolve common problems with setting up and using custom domains for Azure Email Communication Service.
+This article describes how to resolve common problems with setting up and using custom domains for Azure Email Communication Service.
 
 ## 1. Unable to verify Custom Domain Status
 
@@ -28,11 +28,11 @@ Once the verification process starts, Azure Email Communication Service attempts
 
     `ms-domain-verification=43d01b7e-996b-4e31-8159-f10119c2087a`
 
-2. If you haven’t added the TXT record, then you must add the TXT record to your domain's registrar or DNS hosting provider. For step-by-step instructions, see [Quickstart: How to add custom verified email domains](../../quickstarts/email/add-custom-verified-domains.md).   
+2. If you don't have the TXT record, then you must add the TXT record to your domain's registrar or DNS hosting provider. For step-by-step instructions, see [Quickstart: How to add custom verified email domains](../../quickstarts/email/add-custom-verified-domains.md).   
 
 3. Once you add the TXT record, you can query the TXT records for your custom domain.  
 
-    1. Use the `nslookup` tool from Windows CMD terminal to read TXT records from your domain.
+    1. To read TXT records from your domain, use the `nslookup` tool from Windows CMD terminal.
     2. Use a third-party DNS lookup tool: 
 
         https://www.bing.com/search?q=dns+lookup+tool
@@ -83,7 +83,6 @@ Once you verify the domain status, you need to verify the Sender Policy Framewor
     If your SPF records contain `~all` the SPF verification fails.
 
     Azure Communication Services requires `-all` instead of `~all` to validate your SPF record.
-
 
 ## 3. Unable to verify DKIM or DKIM2 Status
 

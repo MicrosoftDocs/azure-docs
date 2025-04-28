@@ -68,7 +68,6 @@ The guided gateway migration experience supports the following scenarios:
 
 - Migrating from a non-Az-enabled SKU with a Basic IP to a non-Az-enabled SKU with a Standard IP.
 - Migrating from a non-Az-enabled SKU with a Basic IP to an Az-enabled SKU with a Standard IP.
-- Migrating from a non-Az-enabled SKU with a Standard IP to an Az-enabled SKU with a Standard IP.
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU. For detailed steps, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
@@ -79,7 +78,7 @@ The guided gateway migration experience has the following limitations:
 - Downgrade scenarios, such as migrating from an Az-enabled SKU to a non-Az-enabled SKU, aren't supported.
 - The GatewaySubnet must have a prefix of /27 or longer to proceed with the migration.
 - Private endpoints (PEs) in the virtual network connected through ExpressRoute private peering can experience connectivity issues during migration. For guidance on mitigating these issues, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
-
+- ExpressRoute Gateways that were established or connected to circuits in 2017 or earlier.
 ## Common Validation Errors
 
 During the gateway migration process, it's essential to validate whether your resources are ready for migration. Below are some common validation errors you can encounter:

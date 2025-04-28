@@ -7,11 +7,11 @@ ms.author: adjohnso
 ---
 # Common Issues: Node to CycleCloud Connectivity
 
-Cyclecloud installs an agent on each VM that needs to be able to communicate back to the CycleCloud application in order to report status, monitoring, as well as to make API requests for auto-scaling and distributed synchronization.
+CycleCloud installs an agent on each virtual machine that needs to communicate with the CycleCloud application. The agent reports status and monitoring and makes API requests for autoscaling and distributed synchronization.
 
-It is recommended that the application server be deployed in the same VNET (virtual network) as the cluster. Where this is not feasible, connectivity may be established by doing [VNET peering](../network-connectivity.md#vnet-peering) or using a [proxy node](../network-connectivity.md#proxy-node). These error messages indicate that nodes are unable to communicate back to the CycleCloud application server.
+We recommend deploying the application server in the same virtual network as the cluster. If this configuration isn't feasible, establish connectivity by doing [virtual network peering](../network-connectivity.md#virtual-network-peering) or using a [proxy node](../network-connectivity.md#proxy-node). These error messages indicate that nodes can't communicate with the CycleCloud application server.
 
-## Possible Error Messages
+## Possible error messages
 - `Timeout awaiting system boot-up`
 - `Timed out connecting to CycleCloud at {https://A.B.C.D}`
 - `Connection refused to CycleCloud through return-proxy tunnel at {https://A.B.C.D:37140}`
@@ -21,17 +21,17 @@ It is recommended that the application server be deployed in the same VNET (virt
 
 ## Resolution
 
-- If the CycleCloud server and the cluster is in the same VNET, check the network security groups for the subnets in the VNET. Cluster nodes need to be able to reach the CycleCloud server at TCP 9443 and 5672. In the other direction, Azure CycleCloud needs to be able to reach ganglia (TCP 8652) and SSH (TCP 22) ports of the cluster for system and job monitoring.
+- If the CycleCloud server and the cluster are in the same virtual network, check the network security groups for the subnets in the virtual network. Cluster nodes need to reach the CycleCloud server at TCP 9443 and 5672. In the other direction, Azure CycleCloud needs to reach ganglia (TCP 8652) and SSH (TCP 22) ports of the cluster for system and job monitoring.
 
-- You may need to add a public IP address.
+- You might need to add a public IP address.
 
 - If the error message indicates a return proxy, check the [return proxy settings](../how-to/return-proxy.md).
 
-- After updating network or proxy settings, you can test connectivity by SSHing into the node as the cyclecloud user and using `curl -k {https://error-message-url}`.
+- After updating network or proxy settings, test connectivity by SSHing into the node as the cyclecloud user and using `curl -k {https://error-message-url}`.
 
-- After validating that network connectivity is fixed, you will need to terminate and restart the node.
+- After validating that network connectivity is fixed, terminate and restart the node.
 
-## More Information
+## More information
 
-[Read more about network-connectivity here](../network-connectivity.md)
-[Read more about return proxy here](../how-to/return-proxy.md)
+[Learn more about network connectivity](../network-connectivity.md).
+[Learn more about return proxy](../how-to/return-proxy.md).
