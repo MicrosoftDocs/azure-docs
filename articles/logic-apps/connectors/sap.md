@@ -98,6 +98,11 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
 
+* Changes to `guid` and `tId` Handling
+
+  The XML parameters for `guid` and `tId` are no longer available within the input or output XML payloads.  
+  Instead, they are now exposed as explicit parameters in the Logic App Designer's input pane and as dynamic output expressions.
+
 * Difference in how empty XML elements are handled
 
   - **BuiltIn SAP Connector**: An empty XML element is treated as a SAP parameter with an explicit empty value or default value.  
@@ -134,6 +139,13 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   </RfcName>
   ```
   Using `xml:space="preserve"` ensures that the connector retains the whitespace characters exactly as provided in the payload.
+
+* IDoc Format Validation
+
+  The **Built-in SAP Connector** strictly validates the input payload against the `IDoc Format` specified in the action inputs.  
+  If there is a mismatch between the provided `IDoc Format` and the structure of the input XML IDoc, the built-in connector will throw an error.
+  
+  In contrast, the **Managed SAP Connector** infers the IDoc format directly from the input payload, allowing more flexibility without requiring an exact format match.
 
 * Difference in handling BizTalk XML group segments.
 
