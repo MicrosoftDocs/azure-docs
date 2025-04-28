@@ -4,7 +4,7 @@ description: Learn how to redirect the clipboard between a local device and a re
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 04/29/2024
 ---
 
@@ -204,7 +204,7 @@ On a local Windows device, you can disable clipboard redirection by configuring 
 - **Value name**: `DisableClipboardRedirection`
 - **Value data**: `1`
 
-For iOS/iPadOS and Android devices, you can disable clipboard redirection using Intune. For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For iOS/iPadOS and Android devices, you can disable clipboard redirection using Intune. For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ## Related content
 

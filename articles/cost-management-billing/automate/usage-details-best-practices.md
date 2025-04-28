@@ -17,7 +17,7 @@ There are multiple ways to work with the cost details dataset (formerly referred
 
 ## Exports
 
-Exports are recurring data dumps to storage that can be configured to run on a custom schedule. We recommend Exports as the solution to ingest cost details data. It's the most scalable for large enterprises. Exports are [configured in the Azure portal](../costs/tutorial-export-acm-data.md) or using the [Exports API](/rest/api/cost-management/exports). Review the following considerations to analyze whether this solution is best for your particular data ingestion workload.
+Exports are recurring data dumps to storage that can be configured to run on a custom schedule. We recommend Exports as the solution to ingest cost details data. It's the most scalable for large enterprises. Exports are [configured in the Azure portal](../costs/tutorial-improved-exports.md) or using the [Exports API](/rest/api/cost-management/exports). Review the following considerations to analyze whether this solution is best for your particular data ingestion workload.
 
 - Exports are most scalable solution for your workloads.
 - Can be configured to use file partitioning for bigger datasets.
@@ -40,7 +40,7 @@ If the Cost Details API is your chosen solution, review the best practices to ca
 - Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
 - If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
 - If you get bound by rate limits at a lower scope, consider calling a higher scope to download data.
-- If your dataset is more than 2 GB month-to-month, consider using [exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
+- If your dataset is more than 2 GB month-to-month, consider using [exports](../costs/tutorial-improved-exports.md) as a more scalable solution.
 
 To learn more about how to properly call the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API, see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
@@ -60,7 +60,7 @@ Only [download your usage from the Azure portal](../understand/download-azure-da
 ## Related content
 
 - Get an overview of [how to ingest cost data](automation-ingest-usage-details-overview.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - [Understand cost details fields](understand-usage-details-fields.md).
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

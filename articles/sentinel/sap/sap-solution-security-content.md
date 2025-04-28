@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: reference
 ms.date: 03/26/2023
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to use built-in workbooks and analytics rules for SAP applications so that I can monitor, detect, and respond to security incidents effectively.
 

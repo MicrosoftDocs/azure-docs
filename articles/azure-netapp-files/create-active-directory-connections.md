@@ -94,7 +94,7 @@ For more information about the relationship between NetApp accounts and subscrip
     ![Screenshot showing the Active Directory connections menu. The join button is highlighted.](./media/create-active-directory-connections/azure-netapp-files-active-directory-connections.png)
 
     >[!NOTE]
-    >Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. 
+    >By default, Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. You can [create one Active Directory connection per NetApp account](#multi-ad).
 
 2. In the Join Active Directory window, provide the following information, based on the Domain Services you want to use:  
 
@@ -283,7 +283,9 @@ For more information about the relationship between NetApp accounts and subscrip
 
 ## <a name="multi-ad"></a> Create one Active Directory connection per NetApp account
 
-With this feature, each NetApp account within an Azure subscription can have its own AD connection. Once configured, the AD connection of the NetApp account is used when you create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). That means, Azure NetApp Files supports more than one AD connection per Azure subscription when multiple NetApp accounts are used.
+By default, Azure NetApp Files supports one AD connection per subscription and region. If you've enabled this feature, Azure NetApp Files supports each NetApp account within an Azure subscription can have its own AD connection. 
+
+Once configured, the AD connection of the NetApp account is used when you create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). That means, Azure NetApp Files supports more than one AD connection per Azure subscription when multiple NetApp accounts are used.
 
 >[!NOTE]
 >If a subscription has both this and the [Shared Active Directory](#shared_ad) feature enabled, its existing accounts still share the AD configuration. Any new NetApp accounts created on the subscription can use their own AD configurations. You can confirm your configuration in your account overview page in the [AD type](#netapp-accounts-and-active-directory-type) field. 

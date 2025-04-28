@@ -176,7 +176,7 @@ For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems to keep your billing data in sync.
 
-For more information about exporting billing data, see [Create and manage exported data](tutorial-export-acm-data.md).
+For more information about exporting billing data, see [Create and manage exported data](tutorial-improved-exports.md).
 
 ### Create budgets
 

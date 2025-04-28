@@ -5,7 +5,7 @@ description: Learn how to create a Basic SKU virtual network gateway for a VPN c
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/15/2024
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---

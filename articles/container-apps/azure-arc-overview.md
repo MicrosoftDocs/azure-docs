@@ -207,7 +207,7 @@ Arm64 based clusters aren't supported at this time.
  - Update Dapr to v1.12 and Dapr Metrics to v0.6
  - Allow customers to enabled Azure SDK debug logging in Dapr
  - Scale Envoy in response to memory usage
- - Change of Envoy log format to Json
+ - Change of Envoy log format to JSON
  - Export additional Envoy metrics
  - Truncate Envoy log to first 1,024 characters when log content failed to parse
  - Handle SIGTERM gracefully in local proxy

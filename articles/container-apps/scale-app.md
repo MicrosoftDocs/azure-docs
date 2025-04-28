@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/10/2025
+ms.date: 04/17/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -14,6 +14,8 @@ zone_pivot_groups: arm-azure-cli-portal
 # Set scaling rules in Azure Container Apps
 
 Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app revision scales out, new instances of the revision are created on-demand. These instances are known as replicas.
+
+To support this scaling behavior, Azure Container Apps is powered by KEDA (Kubernetes Event-driven Autoscaling). KEDA supports scaling against a variety of metrics like HTTP requests, queue messages, CPU and memory load, and event sources like Azure Service Bus, Azure Event Hubs, Apache Kafka, and Redis. For more information, see [Scalers in the KEDA documentation](https://keda.sh/docs/scalers/).
 
 Adding or editing scaling rules creates a new revision of your container app. A revision is an immutable snapshot of your container app. To learn which types of changes trigger a new revision, see revision [change types](./revisions.md#change-types).
 
@@ -42,15 +44,18 @@ As you define your scaling rules, it's important to consider the following items
 
 - You aren't billed usage charges if your container app scales to zero.
 - Replicas that aren't processing, but remain in memory might be billed at a lower "idle" rate. For more information, see [Billing](./billing.md).
-- If you want to ensure that an instance of your revision is always running, set the minimum  number of replicas to 1 or higher.
+- If you want to ensure that an instance of your revision is always running, set the minimum number of replicas to 1 or higher.
 
 ## Scale rules
 
-Scaling is driven by three different categories of triggers:
+Three categories of triggers determine how scaling occurs:
 
 - [HTTP](#http): Based on the number of concurrent HTTP requests to your revision.
 - [TCP](#tcp): Based on the number of concurrent TCP connections to your revision.
-- [Custom](#custom): Based on CPU, memory, or supported event-driven data sources such as:
+- [Custom](#custom): Based on custom metrics like:
+  - CPU
+  - Memory
+  - Supported event-driven data sources:
     - Azure Service Bus
     - Azure Event Hubs
     - Apache Kafka
@@ -230,12 +235,9 @@ Not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure
 
 ::: zone-end
 
-> [!NOTE]
-> TCP scaling rules are not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#authentication) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#authentication) to configure TCP scaling rules.
-
 ## Custom
 
-You can create a custom Container Apps scaling rule based on any [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/)  with these defaults:
+You can create a custom Container Apps scaling rule based on any [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/) with these defaults:
 
 | Defaults | Seconds |
 |--|--|
@@ -493,7 +495,7 @@ Container Apps scale rules support secrets-based authentication. Scale rules for
 
 #### Using managed identity
 
-Managed identity authentication is not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#authentication) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#authentication) to authenticate using managed identity.
+Managed identity authentication isn't supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure-cli#authentication) or [Azure Resource Manager](scale-app.md?&pivots=azure-resource-manager#authentication) to authenticate using managed identity.
 
 ::: zone-end
 
@@ -506,7 +508,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 | HTTP | 0 | 10 |
 
 > [!IMPORTANT]
-> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app will scale to zero and have no way of starting back up.
+> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app scales to zero and have no way of starting back up.
 
 ## Scale behavior
 
@@ -579,7 +581,7 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 
 - If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
 
-- Changing KEDA proxies through the [proxies](https://keda.sh/docs/2.16/operate/cluster/#http-proxies) settings are not supported. Consider using Workload Profiles with a NAT Gateway or User Defined Route (UDR) to send traffic to a network appliance, where traffic can be inspected or proxied from there.
+- Changing KEDA proxies through the [proxies](https://keda.sh/docs/2.16/operate/cluster/#http-proxies) settings aren't supported. Consider using Workload Profiles with a NAT Gateway or User Defined Route (UDR) to send traffic to a network appliance, where traffic can be inspected or proxied from there.
 ## Next steps
 
 > [!div class="nextstepaction"]

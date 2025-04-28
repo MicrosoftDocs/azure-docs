@@ -60,6 +60,18 @@ To resolve the issue, either elevate principal permissions, or don't deploy reso
 > [!NOTE]
 > Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
+### Deployment of MQTT broker fails
+
+A deployment can fail if the cluster doesn't have sufficient resources for the specified MQTT broker cardinality and memory profile. To resolve this situation, adjust the replica count, workers, sharding, and memory profile settings to appropriate values for your cluster.
+
+> [!WARNING]
+> Setting the replica count to one can result in data loss in node failure scenarios.
+
+> [!TIP]
+> Setting lower sharding, workers, or memory profile values lowers the broker's capacity to handle message load. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
+
+To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
+
 ## Troubleshoot Azure Key Vault secret management
 
 If you see the following error message related to secret management, you need to update your Azure Key Vault contents:
@@ -86,6 +98,35 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
     | `securityPolicy` | `http://opcfoundation.org/UA/SecurityPolicy#None` |
 
 - Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
+
+## Troubleshoot OPC PLC simulator
+
+### The OPC PLC simulator doesn't send data to the MQTT broker after you create an asset endpoint for it
+
+To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+
+```bash
+ENDPOINT_NAME=<name-of-you-endpoint-here>
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+-n azure-iot-operations \
+--type=merge \
+-p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+```
+
+> [!CAUTION]
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+You can patch all your asset endpoints with the following command:
+
+```bash
+ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
+for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
+kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
+   -n azure-iot-operations \
+   --type=merge \
+   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
+done
+```
 
 ## Troubleshoot Azure IoT Layered Network Management (preview)
 

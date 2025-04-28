@@ -172,7 +172,7 @@ pins = "custom|an15 53||{}||https://raw.githubusercontent.com/Azure-Samples/Azur
 encodedPins = urllib.parse.quote(pins, safe='')
 
 # Render the range and electric vehicle charging points on the map.
-staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=2022-08-01&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static?api-version=2024-04-01&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 poiRangeMap = await staticMapResponse.content.read()
 
@@ -260,7 +260,7 @@ minLat -= latBuffer
 maxLat += latBuffer
 
 # Render the route on the map.
-staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=2022-08-01&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse = await session.get("https://atlas.microsoft.com/map/static?api-version=2024-04-01&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 staticMapImage = await staticMapResponse.content.read()
 

@@ -13,7 +13,7 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 03/03/2025
+  ms.date: 03/25/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -64,3 +64,11 @@ landingContent:
         links:
           - text: Manage BCDR estate (preview)
             url: tutorial-manage-data-using-copilot.md
+
+  # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Well-Architecture design recommendation for monitoring/ alerting
+            url: /azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation
