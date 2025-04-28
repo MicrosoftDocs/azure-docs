@@ -25,9 +25,9 @@ Before you create a virtual network TAP resource, review the following items:
 
 ## Create a virtual network TAP resource
 
-The following steps show you how to create a virtual network TAP resource using the Azure portal.
+The following steps show you how to create a virtual network TAP resource using the [Azure portal](https://aka.ms/VTAPPublicPreview).
 
-In the portal, search for and select **Virtual network access points** to open the Virtual network terminal access points page.
+[In the portal](https://aka.ms/VTAPPublicPreview), select **Create** to open the Virtual network terminal access points page.
 
 :::image type="content" source="./media/virtual-network-tap/portal-tutorial-create.png" alt-text="Screenshot of virtual network tap Azure portal showing how to start creating a virtual network TAP resource." lightbox="./media/virtual-network-tap/portal-tutorial-create.png":::
 
