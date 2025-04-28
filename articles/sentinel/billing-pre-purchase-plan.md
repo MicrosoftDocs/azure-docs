@@ -36,7 +36,7 @@ Here's an example of the decision making and cost savings for a pre-purchase pla
 
 A $100,000 USD pre-purchase plan covers five months of that commitment tier but is valid for paying Microsoft Sentinel costs for 12 months. That pre-purchase plan is bought at a 22% discount for $78,000 USD. 
 
-The savings for the commitment tier and the pre-purchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a pre-purchase plan, the cost is reduced to $78,000 USD for a combined savings of over 51%. Since the example plan is depleted after just 5 months, the best way to ensure continued savings is to purchase more SCUs with an additional plan.
+The savings for the commitment tier and the pre-purchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a pre-purchase plan, the cost is reduced to $78,000 USD for a combined savings of over 51%. Since the example plan is depleted after just 5 months, the best way to ensure continued savings is to purchase more SCUs with another plan.
 
 For more information, see the following articles:
 - [Switch to simplified pricing](enroll-simplified-pricing-tier.md)
