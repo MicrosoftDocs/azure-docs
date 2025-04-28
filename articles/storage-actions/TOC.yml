@@ -56,8 +56,6 @@ items:
     href: storage-tasks/storage-task-conditions-operations-edit.md
   - name: Create and manage an assignment
     href: storage-tasks/storage-task-assignment-create.md
-  - name: Grant access to a storage account network
-    href: storage-tasks/storage-task-network-access.md
   - name: Monitor storage tasks
     href: storage-tasks/monitor-storage-tasks.md
   - name: Analyze storage task runs

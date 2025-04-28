@@ -31,7 +31,7 @@ In this quickstart, you learn how to use the Azure Storage Actions client librar
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Storage client library for .NET.
+This section walks you through preparing a project.
 
 ### Create the project
 
