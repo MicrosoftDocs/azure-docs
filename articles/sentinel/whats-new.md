@@ -23,6 +23,7 @@ The listed features were released in the last three months. For information abou
 - [Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)](#security-copilot-generates-incident-summaries-in-microsoft-sentinel-in-the-azure-portal-preview)
 - [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (Preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
 - [Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)](#microsoft-sentinel-now-ingests-all-stix-objects-and-indicators-into-new-threat-intelligence-tables-preview)
+- [SOC optimization support for unused columns (Preview)](#soc-optimization-support-for-unused-columns-Preview)
 
 ### Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)
 
