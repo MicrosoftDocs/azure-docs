@@ -389,7 +389,7 @@ First, run the following command to add an app setting called `PHP_INI_SCAN_DIR`
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="d:\home\site\ini"
 ```
 
-Go to the Kudu console, and then go to `d:\home\site`.
+In the Azure portal, select your app. Under **Development Tools** in the sidebar menu, select **Advanced Tools**, and then go to `d:\home\site` using SSH.
 
 Create a directory in `d:\home\site` called `ini`. Then, create an *.ini* file in the `d:\home\site\ini` directory, for example, `settings.ini`, with the directives that you want to customize. Use the same syntax that you would use in a `php.ini` file.
 
