@@ -5,7 +5,8 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 10/17/2024
 ms.author: yelevin
-appliesto: Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to manage and investigate incidents across multiple workspaces and tenants so that I can maintain comprehensive visibility and control over my organization's security posture.
 

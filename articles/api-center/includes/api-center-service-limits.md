@@ -14,6 +14,7 @@ ms.custom: Include file
 
 | Resource | Free plan<sup>1</sup> | Standard plan<sup>2</sup> |
 | ---------------------------------------------------------------------- | -------------------------- |-------------|
+| Maximum number of APIs | 200 |  10,000 |
 | Maximum number of versions per API | 5 | 100 |
 | Maximum number of definitions per version | 5  | 5 |
 | Maximum number of deployments per API | 10 | 10 |

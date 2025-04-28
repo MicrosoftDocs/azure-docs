@@ -3,7 +3,7 @@ title: What's new in documentation - Azure Virtual Desktop
 description: Learn about new and updated articles to the Azure Virtual Desktop documentation.
 ms.topic: release-notes
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 04/02/2025
 ---
 
@@ -32,12 +32,6 @@ Here are the highlights of documentation changes in February 2025:
 - Add a new article in the FSLogix documentation to [Store FSLogix profile containers on Azure Files using Microsoft Entra ID in a cloud only scenario](/fslogix/how-to-configure-profile-container-entra-id), which is applicable to Azure Virtual Desktop.
 
 - Updated using [Azure Private Link with Azure Virtual Desktop](private-link-overview.md) to include support with RDP Shortpath for managed networks in preview.
-
-### Expanded cloud support for Microsoft Intune management of devices connecting to Azure Virtual Desktop
-
-The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
-
-For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
 
 ## January 2025
 

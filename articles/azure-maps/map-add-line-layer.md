@@ -133,7 +133,7 @@ This code creates a map that appears as follows:
 ----------------------------------------------------------------------->
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates] document.
+> The Azure Maps Web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates] document.
 
 <a name="line-stroke-gradient"></a>
 

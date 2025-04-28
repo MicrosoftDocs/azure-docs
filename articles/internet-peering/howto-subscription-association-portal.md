@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 04/21/2025
 
 #CustomerIntent: As an administrator, I want to learn how to create a PeerASN resource so I can associate my peer ASN to Azure subscription and submit peering requests.
 ---

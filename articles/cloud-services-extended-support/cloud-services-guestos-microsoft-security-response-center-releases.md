@@ -13,6 +13,10 @@ ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
 ## March 2025 Guest OS

@@ -4,6 +4,9 @@ description: Learn about Azure Functions and the three stages that you need to c
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
+ms.collection: 
+ - migration
+ - aws-to-azure
 ms.topic: how-to
 ms.date: 03/18/2025
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
