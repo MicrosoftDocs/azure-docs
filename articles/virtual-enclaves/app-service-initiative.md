@@ -18,9 +18,7 @@ This article describes the Policy guardrails in place to ensure Azure App Servic
 ## App Service Policies Built in
 
 | Name | Description | Version | Type | Effect | Policy definition |
-| :---- | :---
-- | :---- | :---
-- |
+| :---- | :---- | :---- | :---- |
 | App Service apps should only be accessible over HTTPS | Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. | 4.0.0 | Built-in | AuditDeny | [Link](https://portal.azure.us/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa4af4a39-4135-47fb-b175-47fbdf85311d) |
 | Function apps should only be accessible over HTTPS | Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. | 5.0.0 | Built-in | AuditDeny | [Link](https://portal.azure.us/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6d555dd1-86f2-4f1c-8ed7-5abae7c6cbab) |
 | Function app slots should only be accessible over HTTPS | Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. | 2.0.0 | Built-in | AuditDeny | [Link](https://portal.azure.us/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5e5dbe3f-2702-4ffc-8b1e-0cae008a5c71) |

@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Setup Community Governance
 
-Currently, governance options for communities are only configurable during the Community creation. However, future updates will introduce the capability to modify community configurations post-creation, enhancing flexibility and control over community governance.
+Governance options for communities are configurable during the Community creation and can be managed after the Community is created.
 
 ## Prerequisites
 

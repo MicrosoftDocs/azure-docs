@@ -55,7 +55,7 @@ Certain AVE customers deployed enclaves with early preview or beta builds of AVE
 - Certain mission enclave deployments utilize [locks](../azure-resource-manager/management/lock-resources.md). Before you move any resources, these locks must be removed by a user with elevated privileges
 - Certain preview customers of mission enclaves utilize custom Role-based Access Control (RBAC) roles. All possible actions in AVE can be taken with our AVE RBAC roles
 - Accessing an AVE enclave through an [Admin Workstation](./understanding-admin-workstations.md) differs slightly from accessing a mission enclave's evPAW
-- **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. Learn more about [DNS in AVE](./understanding-dns-in-ave.md).
+- **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. Learn more about [DNS in AVE](./understand-domain-name-service.md).
   - If you have requirements to connect to an existing instance of DNS elsewhere, you would provide the private IP addresses of the DNS server as the DNS servers list field for your Community and Enclaves.
 
 ## References

@@ -12,7 +12,6 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) leverage **Privileged Identity Management (PIM)** to enable **Just-in-Time (JIT)** access for sensitive resources within enclaves and workloads. PIM allows users to request temporary, time-bound permissions to perform specific tasks, minimizing the risk of overprovisioning and unauthorized actions. This guide explains how to configure JIT access in AVE using PIM.
 
----
 
 [Azure Privileged Identity Management (PIM)](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure) is an Azure service that helps you manage, control, and monitor access within your Azure environment. By combining Azure PIM with Azure Virtual Enclave, you can enforce a controlled and secure workflow for approving actions that are taken within Azure Virtual Enclave. This can help prevent unauthorized or accidental changes that could change your organization's security posture.
 
@@ -78,7 +77,6 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 3. Approve the request to validate the workflow.
 4. Verify that permissions are granted and automatically revoked after the specified duration.
 
----
 
 ## Benefits of JIT Access in Azure Virtual Enclaves
 
@@ -94,7 +92,6 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
    - Logs of all access requests, approvals, and actions ensure traceability for audits.
    - Integration with tools like Azure Monitor and Microsoft Sentinel enhances visibility.
 
----
 
 ## Resources to Learn More
 
@@ -104,6 +101,5 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 - [Azure Monitor for Logging and Diagnostics](https://learn.microsoft.com/azure/azure-monitor/fundamentals/overview)
 - [Microsoft Sentinel Integration](../sentinel/overview.md)
 
----
 
 By configuring Just-in-Time access with Privileged Identity Management, Azure Virtual Enclaves provide a secure, scalable framework for managing temporary permissions. This approach supports operational flexibility while maintaining a robust security posture and compliance with organizational standards.

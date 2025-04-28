@@ -1,6 +1,6 @@
 ---
-title: Application Installation using Remote App VM
-description: Application Installation using Remote App VM.
+title: Application Installation using RemoteApp VM
+description: Application Installation using RemoteApp VM.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,27 +8,27 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Quickstart: Application Installation using RemoteAppVM
+# Application installation using RemoteApp VM
 
 Install an application via RemoteAppVM Template
 
 The application installation scripting supports the following scenarios:
 
-1. The most common use case for the RemoteApp app installation is to deploy remote app packages which can be accessed from an AVD common desktop.
-2. Install customer prerequisites such as cyber security and monitoring agents.
-3. Script configuration changes for compliance or application setup.
+  - The most common use case for the RemoteApp app installation is to deploy remote applications which can be accessed from an Azure Virtual Destop.
+  - Install customer prerequisites such as cyber security and monitoring agents.
+  - Script configuration changes for compliance or application setup.
 
-> [!NOTE] 
-> 
-> This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
+  > [!NOTE] 
+  > 
+  > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 
 ## Prerequisites
-The remote app template supports scripting to automate the process of installing applications and configuring the VM. Before you can start using the RemoteAppVM app installation, you need to make sure you have the following:
+The RemoteApp template supports scripting to automate the process of installing applications and configuring the VM. Before you can start using the RemoteAppVM app installation, you need to make sure you have the following:
 1. A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 2. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-a-storage-account-from-the-service-catalog-into-a-workload.md).
-1. A [community endpoint](./create-a-community-endpoint-in-the-azure-portal.md) to the storage account and AzToolBox.
-2. A copy of AzCopy.exe
+3. A [community endpoint](./create-a-community-endpoint-in-the-azure-portal.md) to the storage account and AzToolBox.
+4. A copy of AzCopy.exe
     1. Get AzCopy from the [AzToolBox](./application-deployment-using-remote-app-vm.md). Create a [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
     
     > [!NOTE] 
@@ -46,9 +46,10 @@ The remote app template supports scripting to automate the process of installing
         ![Screenshot showing storage container organization structure.](./media/remoteapp-container-artifacts.png)
 
         - Like the picture above, multiple app folders can be in the same container and utilize the same copy of AzCopy.exe.
-3. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
-1. Examples: 
-    - Community endpoint:![Example of connections](./media/remote-app-community-endpoint-rules.png)
+5. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
+
+![Screenshot showing example community endpoint rules.](./media/remote-app-community-endpoint-rules.png)
+
 > [!NOTE]
 > 
 > If the storage account is in a different enclave, create an [enclave endpoint](./create-enclave-endpoint-portal.md) in the enclave with the storage account and [enclave connection](./create-enclave-connection-portal.md) to that storage account.
@@ -56,7 +57,7 @@ The remote app template supports scripting to automate the process of installing
 
 ### Azure Resources Deployed
 
-- Remote app example VM
+- RemoteApp example VM
   - NIC
   - WindowsVM 
   - Windows VM Extension
@@ -95,10 +96,10 @@ The remote app template supports scripting to automate the process of installing
 
 ![Screenshot showing Workload overview page.](./media/workload-overview.png)
 
-2. For `Service`, select `Remote App VM`.
+2. For `Service`, select `RemoteApp VM`.
 3. For `Version`, if not selected by default, select the most recent version (for example: 1.0.0(latest)).
 
-![Screenshot showing Remote App VM selected from the Service Catalog list.](./media/service-catalog-list-virtual-machine.png)
+![Screenshot showing RemoteApp VM selected from the Service Catalog list.](./media/service-catalog-list-virtual-machine.png)
 
 4. Select `Next`
 5. Basics Tab:
@@ -116,7 +117,7 @@ The remote app template supports scripting to automate the process of installing
         - storageaccountexample.blob.core.windows.net/artifacts/vscode
     - For `Main Script` input the name (ex: main.ps1) of the script that installs the application.
 
-    ![Screenshow showing the App tab during a Remote App VM deployment.](./media/remote-app-app-tab.png)
+    ![Screenshow showing the App tab during a RemoteApp VM deployment.](./media/remote-app-app-tab.png)
 
 ### Private Container:
 
@@ -124,15 +125,16 @@ The remote app template supports scripting to automate the process of installing
 2. For `Storage container resource id` get the following three parts: `<storage-account-resource-id>` + '/blobServices/default/containers/' + `<container-name>`.
     - To get `Storage container resource id`, from the storage account, select "Overview," select "JSON View" in the far right corner, copy the storage account resource ID.
 
-        - ![Screenshot of account resource id for use in this deployment.](./media/remote-app-storage-account-resource-id.png)
+    ![Screenshot of account resource id for use in this deployment.](./media/remote-app-storage-account-resource-id.png)
 
     - For the container name, copy the name of the private container that holds the artifacts.
     - Example storage container resource ID: `subscriptions/000000a0-a0a0-000a-00a0-0000aaa0a000/resourceGroups/providers/Microsoft.Storage/storageAccounts/storage-account-example/blobServices/default/containers/container-name`
 3. If the parameter `AzCopy File URI` is displayed, add the URI to the azcopy.exe from the container
     - Select on the file, and copy its URL:
 
-    - ![Screenshot showing storage container organization structure with azcopy.exe file.](./media/remoteapp-container-artifacts.png)
-    - ![Screenshot showing the URI for the azcopy.exe file.](./media/remote-app-azcopy-container-uri.png)
+    ![Screenshot showing storage container organization structure with azcopy.exe file.](./media/remoteapp-container-artifacts.png)
+    
+    ![Screenshot showing the URI for the azcopy.exe file.](./media/remote-app-azcopy-container-uri.png)
 
 Example Private Container Parameters:
 
@@ -153,7 +155,7 @@ Folder Structure:
         - script to install and schedule reboot('install_winget.ps1')
         - ('restart.ps1')
 ```
-![Screenshot showing the artifacts needed to install winget onto the Remote App to then install and manage other applications using winget.](./media/remote-app-winget-folder.png)
+[ ![Screenshot showing the artifacts needed to install winget onto the RemoteApp to then install and manage other applications using winget.](./media/remote-app-winget-folder.png) ](./media/remote-app-winget-folder.png)
 
 1. Download installers and upload them to the winget folder in storage container
     1. WinGet MSIX bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))

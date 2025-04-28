@@ -139,9 +139,9 @@ Via the Admin VM:
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM is also called a "jumpbox".
 1. Sign-in to a desktop session on the Admin VM.
 2. From the start menu, type `RDP`, and open the RDP window
-3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
-4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
-5. From the Remote App VM desktop, validate any VM settings set during the deployment. Otherwise, start using the Remote App VM (e.g. install or configure an application for Remote App publishing).
+3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
+4. Enter RemoteApp VM credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the RemoteApp VM desktop, validate any VM settings set during the deployment. Otherwise, start using the RemoteApp VM (e.g. install or configure an application for RemoteApp publishing).
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.

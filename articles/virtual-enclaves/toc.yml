@@ -8,7 +8,7 @@
   - name: "Why use Azure Virtual Enclaves?"
     href: why-azure-virtual-enclaves.md
   - name: Quotas and region availability
-    href: quotas-and-region-availability-in-azure-virtual-enclaves.md
+    href: quotas-region-availability-azure-virtual-enclaves.md
   - name: Quickstarts
     expanded: true
     items:
@@ -52,18 +52,18 @@
 #       href: networking.md
 #     - name: Designing intra-enclave network isolation
 #       href: designing-intra-enclave-network-isolation.md
-#     - name: Best practices
-#       href: best-practices.md
-#     - name: Defense in Depth
-#       href: defense-in-depth.md
+    - name: Best practices
+      href: best-practices.md
+    - name: Defense in Depth
+      href: defense-in-depth.md
 #     - name: Workload and Application Planning
 #       href: workload-and-application-planning.md
-#     - name: Built in RBAC Roles
-#       href: built-in-rbac-roles.md
+    - name: Built in RBAC Roles
+      href: built-in-rbac-roles.md
 #     - name: Air-Gapped Communities and Enclaves
 #       href: air-gapped-communities-and-enclaves.md
-#     - name: Understanding Admin Virtual Machines
-#       href: understanding-admin-vm.md
+    - name: Understanding Admin Virtual Machines
+      href: understanding-admin-vm.md
   - name: Tutorials
     items:
     - name: Tutorial 1 Create a community
@@ -82,44 +82,53 @@
       href: 7-host-publicly-accessible-application-virtual-enclave.md
     - name: Tutorial 8 Migrate workload resources
       href: 8-migrate-workload-resources.md
-# - name: Governance, Security, and Compliance
-#   items:
-#     - name: Just-In-Time Access
-#       href: just-in-time-access.md
+  - name: Governance, Security, and Compliance
+    items:
+    - name: Just-In-Time Access
+      href: just-in-time-access.md
 #     - name: Dynamic Access Controls
 #       href: dynamic-access-controls.md
 #     - name: Attribute-Based Access Controls
 #       href: attribute-based-access-controls.md
-#     - name: Access Controls in Virtual Enclaves
-#       href: access-controls-in-virtual-enclaves.md
-#     - name: Managed Identity
-#       href: managed-identity.md
-#     - name: Policy compliance framework
-#       href: policy-compliance-framework.md
+    - name: Access Controls in Virtual Enclaves
+      href: access-controls-virtual-enclaves.md
+    - name: Create a User Managed Identity
+      href: create-user-managed-identity.md
+    - name: Use Managed Identity
+      href: use-managed-identity.md
+    - name: Policy compliance exemptions
+      href: policy-compliance-exemptions.md
+    - name: Create Customer Managed Key Encryption
+      href: setup-customer-managed-key-encryption-within-enclave.md
+    - name: Install BannerApp for RemoteApps
+      href: install-bannerapp-remoteapps.md
 #     - name: Regulatory compliance guidelines
 #       href: regulatory-compliance-guidelines.md
 #     - name: Security best practices
 #       href: security-best-practices.md
-#     - name: Setup Community Governance
-#       href: setup-community-governance.md
-# - name: Manage and Monitor
-#   items:
+    - name: Setup Community Governance
+      href: setup-community-governance.md
+  - name: Manage and Monitor
+    items:
 #     - name: Monitor your enclaves
 #       href: monitor-your-enclaves.md
-#     - name: Maintenance mode
-#       href: maintenance-mode.md
-#     - name: IP Allocation Management
-#       href: ip-allocation-management.md
-#     - name: Naming rules and restrictions
-#       href: naming-rules-and-restrictions-for-azure-virtual-enclave-resources.md
-# - name: Troubleshoot
-#   items:
-#     - name: Troubleshooting guide
-#       href: troubleshooting.md
-#     - name: Policy compliance exemptions
-#       href: policy-compliance-exemptions.md
-#     - name: Transfer or move data into my enclave
-#       href: transfer-or-move-data-into-my-enclave.md
+    - name: Maintenance mode
+      href: maintenance-mode.md
+    # - name: IP Allocation Management
+    #   href: ip-allocation-management.md
+    - name: Naming rules and restrictions
+      href: name-rules-restrictions-azure-virtual-enclave-resources.md
+    - name: Manage Key Vault SKUs
+      href: upgrade-enclave-key-vault-sku.md 
+  - name: Troubleshoot
+    items:
+    - name: Troubleshooting guide
+      href: troubleshooting.md
+    - name: Policy compliance exemptions
+      href: policy-compliance-exemptions.md
+    - name: Migrate Azure Resources into Azure Virtual Enclaves
+      href: migrate-azure-resources-azure-virtual-enclaves.md
+    - name: Move data inside Enclave boundary
 #     - name: Connectivity troubleshooting
 #       href: connectivity-troubleshooting.md
 #     - name: Firewall and security troubleshooting
@@ -148,25 +157,51 @@
       href: deploy-common-dependencies-service-catalog.md
     - name: Deploy Function App from the Service Catalog
       href: deploy-app-service-function-app-service-catalog.md
-    # - name: Deploy Key Vault from the Service Catalog
-    #   href: deploy-key-vault-service-catalog.md
+    - name: Deploy Key Vault from the Service Catalog
+      href: deploy-key-vault-service-catalog.md
     - name: Deploy Azure SQL from the Service Catalog
       href: deploy-azure-sql-service-catalog.md
     - name: Deploy Azure Kubernetes Service from the Service Catalog
       href: deploy-azure-kubernetes-service-service-catalog.md
-    - name: Deploy Remote App Virtual Machine from the Service Catalog
+    - name: Deploy RemoteApp Virtual Machine from the Service Catalog
       href: deploy-remoteapp-vm-service-catalog.md
     - name: Deploy Azure Service Bus from the Service Catalog
       href: deploy-service-bus-service-catalog.md
     - name: Deploy a Storage Account from the Service Catalog
       href: deploy-storage-account-service-catalog.md
-# - name: Resources
-#   items:
-#     - name: Support Policies
-#       href: support-policies.md
-#     - name: Videos
-#       href: videos.md
-#     - name: AVE Templates
-#       href: ave-templates.md
-#     - name: Migrate Azure Resources into AVE
-#       href: migrate-azure-resources-into-azure-virtual-enclaves.md
+    - name: Deploy Service Catalog Template from Azure CLI
+      href: deploy-service-catalog-template-azure-cli.md
+- name: Resources
+  items:
+    - name: AVE Templates
+      href: ave-templates.md
+    - name: Migrate Azure Resources into AVE
+      href: migrate-azure-resources-into-azure-virtual-enclaves.md
+    - name: Azure Virtual Enclaves FAQ
+      href: virtual-enclaves-faq.md
+    - name: What's New in Azure Virtual Enclaves
+      href: whats-new.md
+    # - name: Videos
+    #   href: videos.md
+- name: Guardrail Initiatives
+  items:
+    - name: Azure Kubernetes Service (AKS) Guardrail Initiative
+      href: aks-initiative.md
+    - name: App Service Enclaves Guardrail Initiative
+      href: app-service-initiative.md
+    - name: Azure Container Registry Guardrail Initiative
+      href: container-registry-initiative.md
+    - name: Azure Cosmos DB Guardrail Initiative
+      href: cosmosdb-initiative.md
+    - name: Azure Key Vault Guardrail Initiative
+      href: key-vault-initiative.md
+    - name: Azure SQL Guardrail Initiative
+      href: sql-initiative.md
+    - name: Azure Montior Guardrail Initiative
+      href: monitor-initiative.md
+    - name: Azure PostgreSQL Guardrail Initiative
+      href: postgresql-initiative.md
+    - name: Azure Service Bus Guardrail Initiative
+      href: service-bus-initiative.md
+    - name: Azure Storage Guardrail Initiative
+      href: storage-initiative.md

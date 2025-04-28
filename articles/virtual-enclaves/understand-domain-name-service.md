@@ -1,5 +1,5 @@
 ---
-title: Understanding DNS in AVE
+title: Understanding Domain Name Service in Azure Virtual Enclaves
 description: Understanding DNS in AVE.
 author: jadean-msft
 ms.author: jadean
@@ -17,16 +17,14 @@ Workloads and resources created in enclaves follow existing [name resolution for
 ## Common Design Patterns
 For some enterprise systems, this level of DNS doesn't fully satisfy all use-cases for a controlled, customer-managed, shared private DNS for all resources living in a community. This is because, by default, the enclave virtual networks wouldn't be able to resolve private endpoints within their own virtual network as they would be configured to use the DNS servers listed in the community. In these use-cases, AVE advises customers to:
 1. **Deploy their own DNS solution** as a [workload](./what-workload.md) within an enclave. An example of this would be to deploy an Active Directory Domain Controller [Virtual Machine](https://aka.ms/vm).
-   - In the future, AVE offers a [service catalog template](./what-service-catalog.md) for deploying a Domain Controller
 2. Specify that Domain Controller VM's private IP address as a DNS server for their community.
-3. For every enclave in your community, create DNS workloads where the workload consists of a DNS resolver/forwarder Virtual Machine 
-   - In the future, AVE offers a [service catalog template](./what-service-catalog.md) for deploying a DNS forwarder
+3. For every enclave in your community, create DNS workloads where the workload consists of a DNS resolver/forwarder Virtual Machine.
 4. Connect to the DNS resolver Virtual Machine, and manually add conditional forwarder DNS zone records for every private endpoint resource in that enclave where the VM is hosted in. An example of doing so is detailed below.
 
 ## Steps to manually add private endpoint DNS records to an Enclave DNS forwarder VM
 
-- Log in to the DNS server, and open a PowerShell Window 
-- Run the following commands:
+1. Log in to the DNS server, and open a PowerShell Window 
+2. Run the following commands:
 
 ``` PowerShell
 $AzureDnsIpAddress = '168.63.129.16'
