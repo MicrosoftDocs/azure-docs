@@ -115,6 +115,26 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   
   - In the Managed SAP Connector, the Parameter is omitted entirely from the SAP RFC call.
 
+* Trimming of whitespace characters.
+
+  The Built-in SAP Connector in Logic App Standard automatically trims whitespace characters within XML elements.
+
+  For example, the following input:
+  ```xml
+  <RfcName>
+    <Parameter>     </Parameter>
+  </RfcName>
+  ```
+  would result in the SAP RFC function call with the Parameter value interpreted as an empty string ('').
+
+  To preserve whitespace characters, you can explicitly specify the `xml:space="preserve"` attribute on the element. For example:
+  ```xml
+  <RfcName>
+    <Parameter xml:space="preserve">     </Parameter>
+  </RfcName>
+  ```
+  Using `xml:space="preserve"` ensures that the connector retains the whitespace characters exactly as provided in the payload.
+
 * Difference in handling BizTalk XML group segments.
 
   - **Built-in SAP Connector**: Strictly follows the schema defined by the Schema Generator. A group segment (a segment ending with `GRP`) must define its child segments only once per instance. To represent multiple items, multiple instances of the group segment should be created, each containing its own set of child segments.
@@ -169,6 +189,16 @@ The SAP built-in connector significantly differs from the SAP managed connector 
       </ns2:E2EDKT2001>
   </ns2:E2EDKT1002GRP>
   ```
+
+* SAP Trigger Behavior
+
+  - **Namespace Construction**:  
+    The SAP trigger uses the release version from the SAP Fetch Metadata response to construct the namespace in the trigger payload.  
+    To override this and use the release version specified in the control record instead, set the `EnforceControlRecordNamespace` property to `true` in the trigger input parameters within the Logic App Designer.
+  
+  - **Handling Empty Elements**:  
+    By default, the SAP trigger does not include empty elements in the output payload.  
+  To include empty nodes in the trigger output, set the `EnableEmptyXmlNode` property to `true` in the trigger input parameters within the Logic App Designer. 
 
 * **Generate Schema** action
 
