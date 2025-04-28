@@ -4,7 +4,7 @@ description: Learn how to redirect the clipboard between a local device and a re
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 04/29/2024
 ---
 

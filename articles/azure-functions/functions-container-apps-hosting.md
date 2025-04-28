@@ -85,13 +85,14 @@ All Functions triggers can be used in your containerized function app. However, 
 
 + Azure Event Grid 
 + Azure Event Hubs 
-+ Azure Blob Storage (event-based)
++ Azure Blob Storage (Event Grid based)
 + Azure Queue Storage 
 + Azure Service Bus 
 + Durable Functions (MSSQL storage provider)
 + HTTP 
 + Kafka  
-+ Timer 
++ Timer
++ Azure Cosmos DB
 
 Azure Functions on Container Apps is designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app. The following Azure CLI command sets the minimum and maximum replica count when creating a new function app in a Container Apps environment from an Azure Container Registry: 
 

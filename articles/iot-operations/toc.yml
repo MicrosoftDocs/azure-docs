@@ -40,7 +40,7 @@ items:
       - name: Validate images
         href: secure-iot-ops/howto-validate-images.md
       - name: Secure your solution
-        href: ../iot/iot-overview-security.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json&tabs=edge
+        href: ../iot/iot-overview-security.md
     - name: Discover and manage assets
       items:
       - name: Asset management overview

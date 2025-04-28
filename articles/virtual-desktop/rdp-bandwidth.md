@@ -5,7 +5,7 @@ description: Understanding RDP bandwidth requirements for Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

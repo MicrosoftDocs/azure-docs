@@ -57,7 +57,7 @@ After server discovery, you can [analyze dependencies](concepts-dependency-visua
 
 ### Optimization and sizing
 
-Azure provides flexibility to resize your cloud capacity over time, and migration provides an opportunity for you to optimize the CPU and memory resources allocated to your servers. Creating an assessment on servers you've identity helps you to understand your workload performance history. This is crucial for right sizing Azure VM SKUs, and disk recommendations in Azure.
+Azure provides flexibility to resize your cloud capacity over time, and migration provides an opportunity for you to optimize the CPU and memory resources allocated to your servers. Creating an assessment on servers you've identity helps you to understand your workload performance history. This is crucial for right-sizing Azure VM SKUs, and disk recommendations in Azure.
 
 ## Assess migration readiness
 

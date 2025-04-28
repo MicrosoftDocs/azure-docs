@@ -1,13 +1,13 @@
 ---
 title: SOC optimization reference
 description: Learn about the Microsoft Sentinel SOC optimization recommendations available to help you optimize your security operations.
-ms.author: bagol
-author: batamig
-manager: raynew
+ms.author: abbyweisberg
+author: AbbyMSFT
+manager: orspod
 ms.collection:
   - usx-security
 ms.topic: reference
-ms.date: 12/18/2024
+ms.date: 04/08/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -48,6 +48,15 @@ The following table lists the available types of data value SOC optimization rec
 | The table was only used by Azure Monitor.     | Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace.       |
 
 If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics) or a [threat intelligence matching analytics rule](/azure/sentinel/use-matching-analytics-to-detect-threats), SOC optimization doesn't recommend any changes in ingestion.
+
+### Unused columns (Preview)
+
+SOC optimization also surfaces unused columns in your tables. The following table lists the available types of columns available for SOC optimization recommendations:
+
+| Type of observation | Action |
+|---------|---------|
+| The **ConditionalAccessPolicies** column in the **SignInLogs** table or the **AADNonInteractiveUserSignInLogs** table is not in use.  | Stop data ingestion for the column. |
+ 
 
 > [!IMPORTANT]
 > When making changes to ingestion plans, we recommend always ensuring that the limits of your ingestion plans are clear, and that the affected tables aren't ingested for compliance or other similar reasons.

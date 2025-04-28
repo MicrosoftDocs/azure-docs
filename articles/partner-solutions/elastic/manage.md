@@ -47,20 +47,53 @@ Make the needed changes to how logs are sent to Elastic.
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Datadog, select **Elastic deployment configuration > Monitored resources** in the Resource menu.
+To view the list of resources emitting logs to Elastic, select **Elastic deployment configuration > Monitored resources** in the Resource menu.
 
 > [!TIP]
 > You can filter the list of resources by type, subscription, resource group, region, and whether the resource is sending logs to Elastic. 
 
+## Monitor multiple subscriptions
+
+To monitor multiple subscriptions:
+
+1. Select **Elastic deployment configuration > Monitored Subscriptions**.
+
+1. Select **Add subscriptions** from the Command bar.
+
+    The **Add subscriptions** experience that opens displays subscriptions you have _Owner_ role assigned to and any Elastic resource created in those subscriptions that is already linked to the same Elastic organization as the current resource.
+
+1. Select the subscriptions you want to monitor through the Elastic resource and click **Add**.
+
+    > [!IMPORTANT]
+    > Setting separate tag rules for different subscriptions isn't supported.
+
+    Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules.
+
+    Select **Refresh**  to view the subscriptions and their monitoring status. 
+
+Once the subscription is added, the status changes to *Active*.  
+
+### Remove subscriptions from a Elastic resource
+
+To unlink subscriptions from a Elastic resource:
+
+1. Select **Elastic deployment configuration > Monitored Subscriptions** from the Resource menu. 
+
+1. Select the subscription you want to remove.
+
+1. Choose **Remove subscriptions**. 
+
+To view the updated list of monitored subscriptions, select **Refresh** from the Command bar.
+
 ## Monitor resources with Elastic agents
 
-You can install Datadog agents on virtual machines. 
+You can install Elastic agents on virtual machines. 
 
 ### Virtual machines
 
 To monitor resources for virtual machines, select **Elastic deployment configuration > Virtual machine agent** in the Resource menu.
 
-[!INCLUDE [install-datadog-agent](../includes/agent.md)]
+[!INCLUDE [install-elastic-agent](../includes/agent.md)]
 
 ## Connect Azure OpenAI service with Elastic
 
@@ -76,7 +109,7 @@ Once the Connector is created, navigate to Kibana.
 
 > [!NOTE]
 > 
-> Kiabana is a user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Your Connector can be used within Elastic's Observability AI Assistant to help provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment.
+> Kibana is a user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Your Connector can be used within Elastic's Observability AI Assistant to help provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment.
 
 ## Private link management
 

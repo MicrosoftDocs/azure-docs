@@ -54,7 +54,7 @@ const role = meetingCall.role;
 ```
 
 > [!NOTE]
-> Collaborator is only available in beta for Azure Communication Services Calling Web SDK version 1.34.1-beta.2 or higher.
+> Collaborator is only available for Azure Communication Services Calling Web SDK. 
 
 ## Subscribe to role changes
 

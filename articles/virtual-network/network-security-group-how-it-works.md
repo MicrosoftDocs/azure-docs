@@ -32,7 +32,7 @@ For inbound traffic, Azure processes the rules in a network security group assoc
 
 - **VM3**: Since there's no network security group associated to *Subnet2*, traffic is allowed into the subnet and processed by *NSG2*, because *NSG2* is associated to the network interface attached to *VM3*.
 
-- **VM4**: Traffic is blocked to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the virtual machine. All network traffic is blocked through a subnet and network interface if they don't have a network security group associated to them.
+- **VM4**: Traffic is blocked to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the virtual machine. All network traffic is blocked through a subnet and network interface if they don't have a network security group associated to them. The virtual machine with a Standard public IP address is secure by default. For traffic to flow from the internet, an NSG must be assigned to the subnet or NIC of the virtual machine. For more information see, [IP address version](/azure/virtual-network/ip-services/public-ip-addresses#ip-address-version)
 
 ## Outbound traffic
 

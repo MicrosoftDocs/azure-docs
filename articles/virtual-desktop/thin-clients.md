@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Virtual Desktop using thin clients.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 05/22/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Connect to Azure Virtual Desktop with thin clients
@@ -30,4 +30,4 @@ The following partners have thin client devices that are approved to use with Az
 
 ## Next steps
 
-Learn more about Windows App at [What is Windows App](/windows-app/overview.md).
+Learn more about Windows App at [What is Windows App](/windows-app/overview).

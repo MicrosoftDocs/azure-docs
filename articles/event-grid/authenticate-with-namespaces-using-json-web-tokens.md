@@ -131,7 +131,7 @@ az resource update \
  
 ```
 ## JSON Web Token format
-Json Web Tokens are divided into the JWT Header and JWT payload sections.
+JSON Web Tokens are divided into the JWT Header and JWT payload sections.
  
 ### JWT Header 
 
