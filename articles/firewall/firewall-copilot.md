@@ -4,7 +4,7 @@ description: Learn about using Microsoft Security Copilot to investigate traffic
 keywords: security copilot, copilot for security, threat intelligence, IDPS, intrusion detection and prevention system, plugin, integration, azure firewall, firewall copilot, open ai, openai, co-pilot
 author: abhinavsriram
 ms.author: asriram
-ms.date: 03/24/2025
+ms.date: 04/25/2025
 ms.topic: concept-article
 ms.service: azure-firewall
 ms.localizationpriority: high
