@@ -37,18 +37,16 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 | Microsoft.Network/tapConfigurations/* | Required to create, update, read, and delete the TAP configuration on a network interface |
 
 ## Public preview limitations
-Following are limitations during our preview. The ones marked temporary are limitation which will be removed at GA. 
-|Limitation|Temporary|
-|-------------|----------|
-|Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.|No|
-|Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.|No|
-|Virtual network doesn't support Live Migration. VM set as source for virtual network TAP will have live migration disabled.|Yes|
-|VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source.|Yes|
-|VMs behind Basic Load Balancer can't be set as a mirroring source.|Yes|
-|Virtual network doesn't support mirroring of inbound Private Link Service traffic.|No|
-|VMs in a virtual network with encryption enabled can't be set as mirroring source.|No|
-|Virtual network doesn't support IPv6 isn't supported.|Yes|
-|When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).|Yes|
+Following are limitations during our preview.
+- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
+- Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
+- Virtual network doesn't support Live Migration. VM set as source for virtual network TAP will have live migration disabled.
+- VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source.
+- VMs behind Basic Load Balancer can't be set as a mirroring source.
+- Virtual network doesn't support mirroring of inbound Private Link Service traffic.
+- VMs in a virtual network with encryption enabled can't be set as mirroring source.
+- Virtual network doesn't support IPv6 isn't supported.
+- When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
 
 ## Supported Regions
 
