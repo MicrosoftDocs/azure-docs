@@ -86,7 +86,7 @@ Navigate on your machine to the *Room.json* file that you created in the [Prereq
 
 After designing models, you need to upload them to your Azure Digital Twins instance. Doing so configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you upload the models, you can create twin instances that use them.
 
-1. If you're using a local installation of the Azure CLI, you can skip this step. If you're using Cloud Shell, you need to upload your model files to Cloud Shell's storage so the files are available when you run the Cloud Shell command that uses them. To do so, select the "Upload/Download files" icon and choose "Upload."
+1. If you're using a local installation of the Azure CLI, you can skip this step. If you're using Cloud Shell, you need to upload your model files to Cloud Shell's storage so the files are available when you run the Cloud Shell command that uses them. Select **Manage Files** and then **Upload**.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Cloud Shell browser window showing selection of the Upload icon.":::
     
