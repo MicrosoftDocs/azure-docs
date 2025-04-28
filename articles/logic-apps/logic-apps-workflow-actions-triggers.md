@@ -1717,7 +1717,7 @@ This action stops the run for a workflow instance, cancels any actions in progre
 
 *Optional*
 
-The properties for the "runStatus" object apply only 
+The properties for the "runError" object apply only 
 when the "runStatus" property is set to "Failed" status.
 
 | Value | Type | Description |

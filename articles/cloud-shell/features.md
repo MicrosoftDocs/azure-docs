@@ -147,7 +147,7 @@ Source control
 Database tools
 
 - MySQL client
-- PostgreSql client
+- PostgreSQL client
 - [sqlcmd Utility][15]
 - [mssql-scripter][23]
 

@@ -4,7 +4,7 @@ description: Troubleshoot hardware validation failure for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 01/26/2024
+ms.date: 04/02/2025
 author: vnikolin
 ms.author: vanjanikolin
 ---
@@ -18,17 +18,19 @@ The Azure Operator Nexus platform is deployed on Dell servers. Dell servers use 
 
 [!INCLUDE [prerequisites-azure-cli-bare-metal-machine-actions](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
-Additional required access:
-
-- Request access to the cluster's Log Analytics workspace (LAW).
-- Access to the BMC web UI or a jumpbox that allows the `racadm` utility to run.
+1. Request access to the cluster's Log Analytics workspace (LAW).
+1. Access to the BMC web UI or a jumpbox that allows the `racadm` utility to run.
 
 ## Locate hardware validation results
 
+If hardware validation failed during a Bare Metal Machine (BMM) `Replace` action, detailed error results should be available in the `Replace` action result and BMM Activity Log. For more information, see [Replace a Bare Metal Machine](./howto-baremetal-functions.md#replace-a-bare-metal-machine).
+
+Otherwise, locate the hardware validation results in the cluster Log Analytics Workspace (LAW) as follows.
+
 1. Go to the cluster resource group in the subscription.
-1. Expand the cluster LAW resource for the cluster.
-1. Go to the **Logs*#### tab.
-1. Fetch hardware validation results with a query against the `HWVal_CL` table, according to the following example:
+2. Expand the cluster LAW resource for the cluster.
+3. Go to the \*_Logs_#### tab.
+4. Fetch hardware validation results with a query against the `HWVal_CL` table, according to the following example:
 
    :::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Screenshot that shows the cluster LAW custom table query." lightbox="media\hardware-validation-cluster-law.png":::
 
@@ -57,10 +59,10 @@ A failed DIMM is also reflected in the `health_info` category. The following exa
 
 ```json
 {
-    "field_name": "memory_capacity_GB",
-    "comparison_result": "Fail",
-    "expected": "512",
-    "fetched": "480"
+  "field_name": "memory_capacity_GB",
+  "comparison_result": "Fail",
+  "expected": "512",
+  "fetched": "480"
 }
 ```
 
@@ -80,10 +82,10 @@ CPU specs are defined in the version. A failed `cpu_sockets` check indicates a f
 
 ```json
 {
-    "field_name": "cpu_sockets",
-    "comparison_result": "Fail",
-    "expected": "2",
-    "fetched": "1"
+  "field_name": "cpu_sockets",
+  "comparison_result": "Fail",
+  "expected": "2",
+  "fetched": "1"
 }
 ```
 
@@ -103,10 +105,10 @@ A failed `Model` check indicates that the wrong server is racked in the slot or 
 
 ```json
 {
-    "field_name": "Model",
-    "comparison_result": "Fail",
-    "expected": "R750",
-    "fetched": "R650"
+  "field_name": "Model",
+  "comparison_result": "Fail",
+  "expected": "R750",
+  "fetched": "R650"
 }
 ```
 
@@ -128,10 +130,10 @@ The following example shows a failed serial number check.
 
 ```json
 {
-    "field_name": "Serial_Number",
-    "comparison_result": "Fail",
-    "expected": "1234567",
-    "fetched": "7654321"
+  "field_name": "Serial_Number",
+  "comparison_result": "Fail",
+  "expected": "1234567",
+  "fetched": "7654321"
 }
 ```
 
@@ -153,19 +155,19 @@ The following examples show a failed iDRAC license check for a trial license and
 
 ```json
 {
-    "field_name": "iDRAC License Check",
-    "comparison_result": "Fail",
-    "expected": "idrac9 x5 datacenter license or idrac9 x5 enterprise license - perpetual or production",
-    "fetched": "iDRAC9 x5 Datacenter Trial License - Trial"
+  "field_name": "iDRAC License Check",
+  "comparison_result": "Fail",
+  "expected": "idrac9 x5 datacenter license or idrac9 x5 enterprise license - perpetual or production",
+  "fetched": "iDRAC9 x5 Datacenter Trial License - Trial"
 }
 ```
 
 ```json
 {
-    "field_name": "iDRAC License Check",
-    "comparison_result": "Fail",
-    "expected": "idrac9 x5 datacenter license or idrac9 x5 enterprise license - perpetual or production",
-    "fetched": ""
+  "field_name": "iDRAC License Check",
+  "comparison_result": "Fail",
+  "expected": "idrac9 x5 datacenter license or idrac9 x5 enterprise license - perpetual or production",
+  "fetched": ""
 }
 ```
 
@@ -177,14 +179,12 @@ Apply the license by using the iDRAC web UI in the following navigation path `BM
 Firmware version checks were introduced in release 3.9. The following example shows the expected log for release versions earlier than 3.9.
 
 ```json
-    {
-        "system_info": {
-            "system_info_result": "Pass",
-            "result_log": [
-                "Firmware validation not supported in release 3.8"
-            ]
-        },
-    }
+{
+  "system_info": {
+    "system_info_result": "Pass",
+    "result_log": ["Firmware validation not supported in release 3.8"]
+  }
+}
 ```
 
 Firmware versions are determined based on the `cluster version` value in the cluster object.
@@ -193,12 +193,10 @@ If this problem is encountered, verify the version in the cluster object.
 
 ```json
 {
-    "system_info": {
-        "system_info_result": "Fail",
-        "result_log": [
-            "Unable to determine firmware release"
-        ]
-    },
+  "system_info": {
+    "system_info_result": "Fail",
+    "result_log": ["Unable to determine firmware release"]
+  }
 }
 ```
 
@@ -215,20 +213,20 @@ The following example shows a successful iDRAC firmware fix. (The versions and t
 
 ```json
 {
-    "system_info": {
-        "system_info_result": "Pass",
-        "result_detail": [
-            {
-            "field_name": "Integrated Dell Remote Access Controller - unsupported_firmware_check",
-            "comparison_result": "Pass",
-            "expected": "6.00.30.00 - unsupported_firmware",
-            "fetched": "7.10.30.00"
-            }
-        ],
-        "result_log": [
-            "Firmware autofix task /redfish/v1/TaskService/Tasks/JID_274085357727 completed"
-        ]
-    },
+  "system_info": {
+    "system_info_result": "Pass",
+    "result_detail": [
+      {
+        "field_name": "Integrated Dell Remote Access Controller - unsupported_firmware_check",
+        "comparison_result": "Pass",
+        "expected": "6.00.30.00 - unsupported_firmware",
+        "fetched": "7.10.30.00"
+      }
+    ],
+    "result_log": [
+      "Firmware autofix task /redfish/v1/TaskService/Tasks/JID_274085357727 completed"
+    ]
+  }
 }
 ```
 
@@ -241,28 +239,28 @@ Missing capacity and type fetched values indicate drives that failed, are missin
 
 ```json
 {
-    "field_name": "Disk_0_Capacity_GB",
-    "comparison_result": "Fail",
-    "expected": "893",
-    "fetched": "3576"
+  "field_name": "Disk_0_Capacity_GB",
+  "comparison_result": "Fail",
+  "expected": "893",
+  "fetched": "3576"
 }
 ```
 
 ```json
 {
-    "field_name": "Disk_0_Capacity_GB",
-    "comparison_result": "Fail",
-    "expected": "893",
-    "fetched": ""
+  "field_name": "Disk_0_Capacity_GB",
+  "comparison_result": "Fail",
+  "expected": "893",
+  "fetched": ""
 }
 ```
 
 ```json
 {
-    "field_name": "Disk_0_Type",
-    "comparison_result": "Fail",
-    "expected": "SSD",
-    "fetched": ""
+  "field_name": "Disk_0_Type",
+  "comparison_result": "Fail",
+  "expected": "SSD",
+  "fetched": ""
 }
 ```
 
@@ -286,46 +284,46 @@ Missing link or model fetched values indicate NICs that failed, are missing, or 
 
 ```json
 {
-    "field_name": "NIC.Slot.3-1-1_LinkStatus",
-    "comparison_result": "Fail",
-    "expected": "Up",
-    "fetched": "Down"
+  "field_name": "NIC.Slot.3-1-1_LinkStatus",
+  "comparison_result": "Fail",
+  "expected": "Up",
+  "fetched": "Down"
 }
 ```
 
 ```json
 {
-    "field_name": "NIC.Embedded.2-1-1_LinkStatus",
-    "comparison_result": "Fail",
-    "expected": "Down",
-    "fetched": "Up"
+  "field_name": "NIC.Embedded.2-1-1_LinkStatus",
+  "comparison_result": "Fail",
+  "expected": "Down",
+  "fetched": "Up"
 }
 ```
 
 ```json
 {
-    "field_name": "NIC.Slot.3-1-1_Model",
-    "comparison_result": "Fail",
-    "expected": "ConnectX-6",
-    "fetched": "BCM5720"
+  "field_name": "NIC.Slot.3-1-1_Model",
+  "comparison_result": "Fail",
+  "expected": "ConnectX-6",
+  "fetched": "BCM5720"
 }
 ```
 
 ```json
 {
-    "field_name": "NIC.Slot.3-1-1_LinkStatus",
-    "comparison_result": "Fail",
-    "expected": "Up",
-    "fetched": ""
+  "field_name": "NIC.Slot.3-1-1_LinkStatus",
+  "comparison_result": "Fail",
+  "expected": "Up",
+  "fetched": ""
 }
 ```
 
 ```json
 {
-    "field_name": "NIC.Slot.3-1-1_Model",
-    "comparison_result": "Fail",
-    "expected": "ConnectX-6",
-    "fetched": ""
+  "field_name": "NIC.Slot.3-1-1_Model",
+  "comparison_result": "Fail",
+  "expected": "ConnectX-6",
+  "fetched": ""
 }
 ```
 
@@ -351,19 +349,19 @@ HWV reports Layer 2 switch information for each of the server interfaces. The sw
 
 ```json
 {
-    "field_name": "NIC.Slot.3-1-1_SwitchConnectionID",
-    "comparison_result": "Info",
-    "expected": "unknown",
-    "fetched": "c0:d6:82:23:0c:7d"
+  "field_name": "NIC.Slot.3-1-1_SwitchConnectionID",
+  "comparison_result": "Info",
+  "expected": "unknown",
+  "fetched": "c0:d6:82:23:0c:7d"
 }
 ```
 
 ```json
 {
-    "field_name": "NIC.Slot.3-1-1_SwitchPortConnectionID",
-    "comparison_result": "Info",
-    "expected": "unknown",
-    "fetched": "Ethernet10/1"
+  "field_name": "NIC.Slot.3-1-1_SwitchPortConnectionID",
+  "comparison_result": "Info",
+  "expected": "unknown",
+  "fetched": "Ethernet10/1"
 }
 ```
 
@@ -374,22 +372,22 @@ In the following example, peripheral component interconnect (PCI) 3/1 and 3/2 co
 
 ```json
 {
-    "network_info": {
-        "network_info_result": "Fail",
-        "result_detail": [
-            {
-                "field_name": "NIC.Slot.3-1-1_SwitchPortConnectionID",
-                "fetched": "Ethernet1/1",
-            },
-            {
-                "field_name": "NIC.Slot.3-2-1_SwitchPortConnectionID",
-                "fetched": "Ethernet1/3",
-            }
-        ],
-        "result_log": [
-            "Cabling problem detected on PCI Slot 3 - server NIC.Slot.3-1-1 connected to switch Ethernet1/1 - server NIC.Slot.3-2-1 connected to switch Ethernet1/3"
-        ]
-    },
+  "network_info": {
+    "network_info_result": "Fail",
+    "result_detail": [
+      {
+        "field_name": "NIC.Slot.3-1-1_SwitchPortConnectionID",
+        "fetched": "Ethernet1/1"
+      },
+      {
+        "field_name": "NIC.Slot.3-2-1_SwitchPortConnectionID",
+        "fetched": "Ethernet1/3"
+      }
+    ],
+    "result_log": [
+      "Cabling problem detected on PCI Slot 3 - server NIC.Slot.3-1-1 connected to switch Ethernet1/1 - server NIC.Slot.3-2-1 connected to switch Ethernet1/3"
+    ]
+  }
 }
 ```
 
@@ -402,10 +400,10 @@ A failed `iDRAC_MAC` check indicates a mismatch between the iDRAC/BMC MAC in the
 
 ```json
 {
-    "field_name": "iDRAC_MAC",
-    "comparison_result": "Fail",
-    "expected": "aa:bb:cc:dd:ee:ff",
-    "fetched": "aa:bb:cc:dd:ee:gg"
+  "field_name": "iDRAC_MAC",
+  "comparison_result": "Fail",
+  "expected": "aa:bb:cc:dd:ee:ff",
+  "fetched": "aa:bb:cc:dd:ee:gg"
 }
 ```
 
@@ -420,10 +418,10 @@ A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster
 
 ```json
 {
-    "field_name": "NIC.Embedded.1-1_PXE_MAC",
-    "comparison_result": "Fail",
-    "expected": "aa:bb:cc:dd:ee:ff",
-    "fetched": "aa:bb:cc:dd:ee:gg"
+  "field_name": "NIC.Embedded.1-1_PXE_MAC",
+  "comparison_result": "Fail",
+  "expected": "aa:bb:cc:dd:ee:ff",
+  "fetched": "aa:bb:cc:dd:ee:gg"
 }
 ```
 
@@ -439,28 +437,28 @@ Server health checks cover various hardware component sensors. A failed health s
 
 ```json
 {
-    "field_name": "System Board Fan1A",
-    "comparison_result": "Fail",
-    "expected": "Enabled-OK",
-    "fetched": "Enabled-Critical"
+  "field_name": "System Board Fan1A",
+  "comparison_result": "Fail",
+  "expected": "Enabled-OK",
+  "fetched": "Enabled-Critical"
 }
 ```
 
 ```json
 {
-    "field_name": "Solid State Disk 0:1:1",
-    "comparison_result": "Fail",
-    "expected": "Enabled-OK",
-    "fetched": "Enabled-Critical"
+  "field_name": "Solid State Disk 0:1:1",
+  "comparison_result": "Fail",
+  "expected": "Enabled-OK",
+  "fetched": "Enabled-Critical"
 }
 ```
 
 ```json
 {
-    "field_name": "CPU.Socket.1",
-    "comparison_result": "Fail",
-    "expected": "Enabled-OK",
-    "fetched": "Enabled-Critical"
+  "field_name": "CPU.Socket.1",
+  "comparison_result": "Fail",
+  "expected": "Enabled-OK",
+  "fetched": "Enabled-Critical"
 }
 ```
 
@@ -480,10 +478,10 @@ Dell server health checks fail for recent LC Log Critical Alarms. The hardware v
 
 ```json
 {
-    "field_name": "LCLog_Critical_Alarms",
-    "comparison_result": "Fail",
-    "expected": "No Critical Errors",
-    "fetched": "53539 2023-07-22T23:44:06-05:00 The system board BP1 PG voltage is outside of range."
+  "field_name": "LCLog_Critical_Alarms",
+  "comparison_result": "Fail",
+  "expected": "No Critical Errors",
+  "fetched": "53539 2023-07-22T23:44:06-05:00 The system board BP1 PG voltage is outside of range."
 }
 ```
 
@@ -492,10 +490,10 @@ Dell server health checks fail for recent LC Log Critical Alarms. The hardware v
 
 ```json
 {
-    "field_name": "LCLog_Critical_Alarms",
-    "comparison_result": "Fail",
-    "expected": "No Critical Errors",
-    "fetched": "104473 2024-07-26T16:05:19-05:00 Virtual Disk 238 on RAID Controller in SL 3 has failed."
+  "field_name": "LCLog_Critical_Alarms",
+  "comparison_result": "Fail",
+  "expected": "No Critical Errors",
+  "fetched": "104473 2024-07-26T16:05:19-05:00 Virtual Disk 238 on RAID Controller in SL 3 has failed."
 }
 ```
 
@@ -503,10 +501,10 @@ Allow-listed critical alarms and warning alarms are logged as informational star
 
 ```json
 {
-    "field_name": "LCLog_Warning_Alarms - Non-Failing",
-    "comparison_result": "Info",
-    "expected": "Warning Alarm",
-    "fetched": "104473 2024-07-26T16:05:19-05:00 The Embedded NIC 1 Port 1 network link is down."
+  "field_name": "LCLog_Warning_Alarms - Non-Failing",
+  "comparison_result": "Info",
+  "expected": "Warning Alarm",
+  "fetched": "104473 2024-07-26T16:05:19-05:00 The Embedded NIC 1 Port 1 network link is down."
 }
 ```
 
@@ -526,10 +524,10 @@ Dell server health checks fail for failed server power-up or failed iDRAC reset.
 
 ```json
 {
-    "field_name": "Server Control Actions",
-    "comparison_result": "Fail",
-    "expected": "Success",
-    "fetched": "Failed"
+  "field_name": "Server Control Actions",
+  "comparison_result": "Fail",
+  "expected": "Success",
+  "fetched": "Failed"
 }
 ```
 
@@ -567,10 +565,10 @@ As part of a RAID cleanup, the RAID controller configuration is reset. The Dell 
 
 ```json
 {
-    "field_name": "Server Control Actions",
-    "comparison_result": "Fail",
-    "expected": "Success",
-    "fetched": "Failed"
+  "field_name": "Server Control Actions",
+  "comparison_result": "Fail",
+  "expected": "Success",
+  "fetched": "Failed"
 }
 ```
 
@@ -605,19 +603,19 @@ A failure of one power supply doesn't trigger an HWV device failure.
 
 ```json
 {
-    "field_name": "Power Supply 1",
-    "comparison_result": "Warning",
-    "expected": "Enabled-OK",
-    "fetched": "UnavailableOffline-Critical"
+  "field_name": "Power Supply 1",
+  "comparison_result": "Warning",
+  "expected": "Enabled-OK",
+  "fetched": "UnavailableOffline-Critical"
 }
 ```
 
 ```json
 {
-    "field_name": "System Board PS Redundancy",
-    "comparison_result": "Warning",
-    "expected": "Enabled-OK",
-    "fetched": "Enabled-Critical"
+  "field_name": "System Board PS Redundancy",
+  "comparison_result": "Warning",
+  "expected": "Enabled-OK",
+  "fetched": "Enabled-Critical"
 }
 ```
 
@@ -640,10 +638,10 @@ Reseating the power supply might fix the problem. If alarms persist, contact the
 
 ```json
 {
-    "field_name": "boot_device_name",
-    "comparison_result": "Info",
-    "expected": "NIC.PxeDevice.1-1",
-    "fetched": "NIC.PxeDevice.1-1"
+  "field_name": "boot_device_name",
+  "comparison_result": "Info",
+  "expected": "NIC.PxeDevice.1-1",
+  "fetched": "NIC.PxeDevice.1-1"
 }
 ```
 
@@ -656,23 +654,23 @@ Reseating the power supply might fix the problem. If alarms persist, contact the
 
 ```json
 {
-    "field_name": "pxe_device_1_name",
-    "comparison_result": "Fail",
-    "expected": "NIC.Embedded.1-1-1",
-    "fetched": "NIC.Embedded.1-2-1"
+  "field_name": "pxe_device_1_name",
+  "comparison_result": "Fail",
+  "expected": "NIC.Embedded.1-1-1",
+  "fetched": "NIC.Embedded.1-2-1"
 }
 ```
 
 ```json
 {
-    "field_name": "pxe_device_1_state",
-    "comparison_result": "Fail",
-    "expected": "Enabled",
-    "fetched": "Disabled"
+  "field_name": "pxe_device_1_state",
+  "comparison_result": "Fail",
+  "expected": "Enabled",
+  "fetched": "Disabled"
 }
 ```
 
-To update the PXE device state and name in the BMC web UI, set the value and then select **Apply*#### > **Apply and reboot**:
+To update the PXE device state and name in the BMC web UI, set the value and then select **Apply\*#### > **Apply and reboot\*\*:
 
 - `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1` -> `Enabled`
 - `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1 Settings` -> `Interface` -> `Embedded NIC 1 Port 1 Partition 1`
@@ -694,13 +692,13 @@ The `device_login` check fails if the iDRAC isn't reachable or if the hardware v
 
 ```json
 {
-    "device_login": "Fail - Unreachable"
+  "device_login": "Fail - Unreachable"
 }
 ```
 
 ```json
 {
-    "device_login": "Fail - Unauthorized"
+  "device_login": "Fail - Unauthorized"
 }
 ```
 

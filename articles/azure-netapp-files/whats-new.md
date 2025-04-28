@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 03/25/2025
+ms.date: 04/23/2025
 ms.author: anfdocs
 ---
 
@@ -14,6 +14,21 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## April 2025
+
+* [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) (preview)
+
+
+    Cross-tenant customer-managed keys for Azure NetApp Files volume encryption enables you to manage your own keys across different tenancies. In scenarios such as SaaS provider/user configurations, this feature ensures the end user retains full control of their keys rather than the SaaS provider. This capability provides SaaS providers with the flexibility to offer customers customizable key management options. This feature is available in all Azure NetApp Files supported regions. This feature is currently in preview. 
+
+* [New volume usage metrics:](azure-netapp-files-metrics.md#volumes) Volume Inodes Quota, Volume Inodes Total, Volume Inodes Used
+
+    Azure NetApp Files supports [new metrics](azure-netapp-files-metrics.md#volumes) to monitor consumption of [inodes (also known as maxfiles)](maxfiles-concept.md), which is the maximum number of files a volume can hold. These metrics are especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring these metrics, you can avoid running out of inodes thus keeping your storage running smoothly and making it easier to plan for future needs.
+
+* [File access logs](manage-file-access-logs.md) (preview)
+
+    File Access Logs provides detailed logging of file access activities, including user identity, operation type, and timestamps, enhancing security, reliability, and operational insights. It supports SMB, NFSv4.1, and dual-protocol volumes, offering valuable features for monitoring unauthorized access, tracing activity for compliance, resolving incidents, and optimizing data usage patterns. By embedding this capability, you can strengthen your organization's security posture, maintain system reliability, and achieve operational excellence in alignment with the Well-Architected Framework security best practices. Azure NetApp Files file access logs play a critical role in safeguarding sensitive data, detecting anomalies while enabling operational excellence.
+  
 ## March 2025
 
 * [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)
@@ -201,7 +216,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports the ability to transition an existing volume to use customer-managed keys for volume encryption. 
 
-* [Customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md#supported-regions) is now available in all US Gov regions
+* [Customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) is now available in all US Gov regions
 
 * [Azure NetApp Files large volume enhancement:](large-volumes-requirements-considerations.md) increased throughput and maximum size limit of 2-PiB volume (preview)
 
@@ -223,7 +238,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## June 2024
 
-* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
+* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md) (Preview)
 
     Extension 1 of application volume group for SAP HANA improves your volume group deployment experience for SAP HANA with:
     - The use of [availability zone volume placement](use-availability-zones.md), eliminating the need for manual AVSet pinning with proximity placement groups.
@@ -652,7 +667,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The following features are now GA. You no longer need to register the features before using them.
     * [Dynamic change of service level](dynamic-change-volume-service-level.md)
     * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)
-
 
 ## March 2022
 
