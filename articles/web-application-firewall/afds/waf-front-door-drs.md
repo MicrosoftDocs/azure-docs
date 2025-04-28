@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 05/30/2024
+ms.date: 04/28/2025
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -488,19 +488,19 @@ The following rule groups and rules are available when you use Azure Web Applica
 ## <a name="drs20"></a> 2.0 rule sets
 
 ### <a name="general-20"></a> General
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |200002|Failed to parse request body.|
 |200003|Multipart request body failed strict validation.|
 
 
 ### <a name="drs911-20"></a> Method enforcement
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |911100|Method isn't allowed by policy.|
 
 ### <a name="drs920-20"></a> Protocol enforcement
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |920100|Invalid HTTP Request Line.|
 |920120|Attempted multipart/form-data bypass.|
@@ -538,7 +538,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 
 ### <a name="drs921-20"></a> Protocol attack
 
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |921110|HTTP Request Smuggling Attack|
 |921120|HTTP Response Splitting Attack|
@@ -549,7 +549,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
 ### <a name="drs930-20"></a> LFI: Local file inclusion
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
 |930110|Path Traversal Attack (/../)|
@@ -557,7 +557,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |930130|Restricted File Access Attempt|
 
 ### <a name="drs931-20"></a> RFI: Remote file inclusion
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
@@ -565,7 +565,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-20"></a> RCE: Remote command execution
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
 |932105|Remote Command Execution: Unix Command Injection|
@@ -581,7 +581,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |932180|Restricted File Upload Attempt|
 
 ### <a name="drs933-20"></a> PHP attacks
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |933100|PHP Injection Attack: Opening/Closing Tag Found|
 |933110|PHP Injection Attack: PHP Script File Upload Found|
@@ -597,12 +597,12 @@ The following rule groups and rules are available when you use Azure Web Applica
 |933210|PHP Injection Attack: Variable Function Call Found|
 
 ### <a name="drs934-20"></a> Node JS attacks
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |934100|Node.js Injection Attack|
 
 ### <a name="drs941-20"></a> XSS: Cross-site scripting
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection.|
 |941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a `Referer` header.|
@@ -636,7 +636,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941380|AngularJS client side template injection detected.|
 
 ### <a name="drs942-20"></a> SQLI: SQL injection
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection.|
 |942110|SQL Injection Attack: Common Injection Testing Detected.|
@@ -680,14 +680,14 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942510|SQLi bypass attempt by ticks or backticks detected.|
 
 ### <a name="drs943-20"></a> Session fixation
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
 ### <a name="drs944-20"></a> Java attacks
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
 |944110|Detects potential payload execution|
@@ -699,7 +699,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-20"></a> MS-ThreatIntel-WebShells
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
@@ -707,19 +707,19 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-20"></a> MS-ThreatIntel-AppSec
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99030001|Path Traversal Evasion in Headers (/.././../)|
 |99030002|Path Traversal Evasion in Request Body (/.././../)|
 
 ### <a name="drs99031-20"></a> MS-ThreatIntel-SQLI
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99031001|SQL Injection Attack: Common Injection Testing Detected|
 |99031002|SQL Comment Sequence Detected|
 
 ### <a name="drs99001-20"></a> MS-ThreatIntel-CVEs
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
@@ -739,7 +739,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 ## <a name="drs11"></a> 1.1 rule sets
 
 ### <a name="drs921-11"></a> Protocol attack
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |921110|HTTP Request Smuggling Attack|
 |921120|HTTP Response Splitting Attack|
@@ -750,7 +750,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
 ### <a name="drs930-11"></a> LFI: Local file inclusion
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
 |930110|Path Traversal Attack (/../)|
@@ -758,7 +758,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |930130|Restricted File Access Attempt|
 
 ### <a name="drs931-11"></a> RFI: Remote file inclusion
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
@@ -766,7 +766,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-11"></a> RCE: Remote command execution
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
 |932105|Remote Command Execution: Unix Command Injection|
@@ -782,7 +782,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |932180|Restricted File Upload Attempt|
 
 ### <a name="drs933-11"></a> PHP attacks
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |933100|PHP Injection Attack: PHP Open Tag Found|
 |933110|PHP Injection Attack: PHP Script File Upload Found|
@@ -796,7 +796,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |933180|PHP Injection Attack: Variable Function Call Found|
 
 ### <a name="drs941-11"></a> XSS: Cross-site scripting
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection.|
 |941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a `Referer` header.|
@@ -827,7 +827,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
 ### <a name="drs942-11"></a> SQLI: SQL injection
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection.|
 |942110|SQL Injection Attack: Common Injection Testing Detected.|
@@ -868,14 +868,14 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942480|SQL Injection Attack.|
 
 ### <a name="drs943-11"></a> Session fixation
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
 ### <a name="drs944-11"></a> Java attacks
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |944100|Remote Command Execution: Suspicious Java class detected|
 |944110|Possible Session Fixation Attack: Setting Cookie Values in HTML|
@@ -887,7 +887,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-11"></a> MS-ThreatIntel-WebShells
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
@@ -895,19 +895,19 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-11"></a> MS-ThreatIntel-AppSec
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99030001|Path Traversal Evasion in Headers (/.././../)|
 |99030002|Path Traversal Evasion in Request Body (/.././../)|
 
 ### <a name="drs99031-11"></a> MS-ThreatIntel-SQLI
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99031001|SQL Injection Attack: Common Injection Testing Detected|
 |99031002|SQL Comment Sequence Detected|
 
 ### <a name="drs99001-11"></a> MS-ThreatIntel-CVEs
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
@@ -920,7 +920,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 ## <a name="drs10"></a> 1.0 rule sets
 
 ### <a name="drs921-10"></a> Protocol attack
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |921110|HTTP Request Smuggling Attack|
 |921120|HTTP Response Splitting Attack|
@@ -931,7 +931,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
 ### <a name="drs930-10"></a> LFI: Local file inclusion
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
 |930110|Path Traversal Attack (/../)|
@@ -939,7 +939,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |930130|Restricted File Access Attempt|
 
 ### <a name="drs931-10"></a> RFI: Remote file inclusion
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
@@ -947,7 +947,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-10"></a> RCE: Remote command execution
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
 |932105|Remote Command Execution: Unix Command Injection|
@@ -963,7 +963,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |932180|Restricted File Upload Attempt|
 
 ### <a name="drs933-10"></a> PHP attacks
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |933100|PHP Injection Attack: Opening/Closing Tag Found|
 |933110|PHP Injection Attack: PHP Script File Upload Found|
@@ -977,7 +977,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |933180|PHP Injection Attack: Variable Function Call Found|
 
 ### <a name="drs941-10"></a> XSS: Cross-site scripting
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection.|
 |941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a `Referer` header.|
@@ -1008,7 +1008,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
 ### <a name="drs942-10"></a> SQLI: SQL injection
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection.|
 |942110|SQL Injection Attack: Common Injection Testing Detected.|
@@ -1049,14 +1049,14 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942480|SQL Injection Attack.|
 
 ### <a name="drs943-10"></a> Session fixation
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
 ### <a name="drs944-10"></a> Java attacks
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
 |944110|Detects potential payload execution|
@@ -1068,12 +1068,12 @@ The following rule groups and rules are available when you use Azure Web Applica
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-10"></a> MS-ThreatIntel-WebShells
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs99001-10"></a> MS-ThreatIntel-CVEs
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
@@ -1085,7 +1085,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 ## <a name="bot"></a> 1.0 rule sets
 
 ### <a name="bot100"></a> Bad bots
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
@@ -1093,13 +1093,13 @@ The following rule groups and rules are available when you use Azure Web Applica
  Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
 
 ### <a name="bot200"></a> Good bots
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |Bot200100|Search engine crawlers|
 |Bot200200|Unverified search engine crawlers|
 
 ### <a name="bot300"></a> Unknown bots
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |Bot300100|Unspecified identity|
 |Bot300200|Tools and frameworks for web crawling and attacks|
@@ -1116,7 +1116,7 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 ## <a name="bot11"></a> 1.1 rule sets
 
 ### <a name="bot11-100"></a> Bad bots
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
@@ -1125,7 +1125,7 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
  Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
 
 ### <a name="bot11-200"></a> Good bots
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |Bot200100|Search engine crawlers|
 |Bot200200|Verified miscellaneous bots|
@@ -1136,7 +1136,7 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 |Bot200700|Verified advertising bots|
 
 ### <a name="bot11-300"></a> Unknown bots
-|RuleId|Description|
+|Rule ID|Description|
 |---|---|
 |Bot300100|Unspecified identity|
 |Bot300200|Tools and frameworks for web crawling and attacks|
