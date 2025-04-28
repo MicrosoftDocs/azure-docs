@@ -69,7 +69,7 @@ After onboarding your Microsoft Sentinel workspace to the Defender portal, note 
 | **Running playbooks on incidents requires Microsoft Sentinel sync** | If you try to run a playbook on an incident from the Defender portal and see the message *"Can't access data related to this action. Refresh the screen in a few minutes."* message, this means that the incident isn't yet synchronized to Microsoft Sentinel. <br><br>Refresh the incident page after the incident is synchronized to run the playbook successfully. |
 | **Incidents: Adding alerts to incidents / <br>Removing alerts from incidents** | Since adding alerts to, or removing alerts from incidents isn't supported after onboarding your workspace to the Defender portal, these actions are also not supported from within playbooks. For more information, see [Capability differences between portals](../microsoft-sentinel-defender-portal.md#capability-differences-between-portals). |
 |**Microsoft Defender XDR integration in multiple workspaces**|If you've integrated XDR data with more than one workspace in a single tenant, the data will now only be ingested into the primary workspace in the Defender portal. Transfer automation rules to the relevant workspace to keep them running.|
-|**Automation and Correlation engine** |The correlation engine may correlate Sentinel and XDR alerts, leading to alerts that you didn't anticipate being targeted for automation. |
+|**Automation and the Correlation engine** |The correlation engine may combine alerts from multiple signals into a single incident, which could result in automation receiving data you didn’t anticipate. We recommend reviewing your automation rules to ensure you're seeing the expected results.|
  
 ## Related content
 
