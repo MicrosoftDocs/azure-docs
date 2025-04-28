@@ -2,9 +2,7 @@
 title: Choosing your orchestration framework
 description: This article provides guidance to help developers pick an orchestration framework.
 ms.topic: conceptual
-ms.date: 04/24/2025
-ms.author: azfuncdf
-author: lilyjma
+ms.date: 04/28/2025
 ---
 
 # Choosing an orchestration framework
@@ -51,8 +49,8 @@ Lastly, if you're already writing Azure Function apps and realized that you need
 - [Configure a durable functions app with MSSQL](../quickstart-mssql.md)
 
 **Scenario samples**
-- Order processing workflow - [.NET](https://learn.microsoft.com/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/), [Python](https://learn.microsoft.com/samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/)
-- Intelligent PDF summarizer - [.NET](https://learn.microsoft.com/samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/), [Python](https://learn.microsoft.com/samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/)
+- Order processing workflow - [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/), [Python](/samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/)
+- Intelligent PDF summarizer - [.NET](/samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/), [Python](/samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/)
 
 ### Durable Task SDKs with Durable Task Scheduler (public preview)
 The Durable Task SDKs are client SDKs that allows the orchestrations you write to connect to the orchestration engine in Azure. As such, apps that leverage the Durable Task SDKs can be run on virtually any compute platforms, including Azure Kubernetes Service, Azure Container Apps, Azure App Service, or just VMs on-prem. 
@@ -65,13 +63,12 @@ Use the Durable Task SDKs when your app needs only workflows. The Durable Task S
 The other reason for using the Durable Task SDKs is when you need to run apps on Azure Kubernetes Services or VMs on-prem with official Microsoft support. While Durable Functions can be run on these platforms as well, there is no official support. 
 
 **Quickstarts** 
-- [.NET](./quickstart-portable-durable-task-sdks.md)
-- [Python]((./quickstart-portable-durable-task-sdks.md))
-- [Java](./quickstart-portable-durable-task-sdks.md) 
-- JavaScript/TypeScript (coming soon)
+- [.NET][TODO]
+- [Python][TODO]
+- [Java][TODO] 
 
->[!NOTE]
->The Durable Task Framework is an open-source .NET orchestration framework. Like the Durable Task SDKs, it can be used to build apps that run on platforms like the Azure Kubernetes Services. However, we don't recommend new customers to use Durable Task Framework because it is not officially supported by Microsoft. 
+> [!NOTE]
+> The Durable Task Framework is an open-source .NET orchestration framework. Like the Durable Task SDKs, it can be used to build apps that run on platforms like the Azure Kubernetes Services. However, we don't recommend new customers to use Durable Task Framework because it is not officially supported by Microsoft. 
 
 
 

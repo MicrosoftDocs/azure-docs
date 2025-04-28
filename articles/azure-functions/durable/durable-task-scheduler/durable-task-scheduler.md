@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler (preview)
 description: Learn about the characteristics of the Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 04/24/2025
+ms.date: 04/28/2025
 ---
 
 # Azure Functions Durable Task Scheduler (preview)
@@ -21,9 +21,8 @@ You can use the Durable Task Scheduler with the following orchestration framewor
 
 - Durable Functions
 - Durable Task SDKs, or "portable SDKs"
-- Durable Task Framework
 
-[Learn which orchestration works better for your project.](./durable-task-scheduler-framework.md)
+[Learn which orchestration works better for your project.](./choose-orchestration-framework.md)
 
 ## Architecture
 
