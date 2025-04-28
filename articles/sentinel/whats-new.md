@@ -38,7 +38,7 @@ For more information, see the following articles:
 - [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting.md)
 
 
-### SOC optimization support for unused columns in  (preview)
+### SOC optimization support for unused columns (Preview)
 To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables. SOC optimization now surfaces unused columns in your tables. For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md#unused-columns-preview).
 
 ## March 2025
