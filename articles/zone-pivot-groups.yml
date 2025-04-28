@@ -339,7 +339,7 @@ groups:
 # Owner: msangapu
 - id: app-service-webjobs
   title: Programming Language
-  prompt: Choose a language stack
+  prompt: Choose a programming language
   pivots:
   - id: dotnet
     title: .NET

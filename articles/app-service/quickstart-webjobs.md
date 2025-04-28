@@ -27,17 +27,6 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 dotnet
 :::zone-end
 
-:::zone target="docs" pivot="node"
-node
-:::zone-end
-
-:::zone target="docs" pivot="java"
-java
-:::zone-end
-
-:::zone target="docs" pivot="php"
-php
-:::zone-end
 
 :::zone target="docs" pivot="python"
 [Download the sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip).
@@ -62,6 +51,19 @@ The file, `run.sh` is included to show the capability of WebJobs. You can also o
 
 :::zone-end
 
+:::zone target="docs" pivot="node"
+node
+:::zone-end
+
+:::zone target="docs" pivot="java"
+java
+:::zone-end
+
+:::zone target="docs" pivot="php"
+php
+:::zone-end
+
+
 ## Create a scheduled WebJob
 
 1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
@@ -77,10 +79,10 @@ The file, `run.sh` is included to show the capability of WebJobs. You can also o
    | Setting      | value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myScheduledWebJob | A name that is unique within an App Service app. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the supported file types section. |
+   | **File Upload** | Python-webjob.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the supported file types section. |
    | **Type** | Scheduled | Continous, Triggered, or Scheduled. |
-   | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
-   | **CRON Expression** | 0 0/20 * * * * | [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) are described in the following section. |
+   | **Triggers** | Scheduled | For the scheduling to work reliably, `Always On` should be enabled (available in Basic, Standard, and Premium tiers).|
+   | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
 
 1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
 
