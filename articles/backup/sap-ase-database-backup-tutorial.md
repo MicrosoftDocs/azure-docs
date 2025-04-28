@@ -296,7 +296,7 @@ To discover the SAP ASE databases, follow these steps:
  
 1. On the **Select Virtual Machines** pane, download the prepost script that provides permissions for the Azure Backup service to access the SAP ASE VMs for database discovery.
 
-   :::image type="content" source="./media/sap-ase-database-backup-tutorial/select-database.png" alt-text="screenshot shows how to select a database for backup configuration from the discovered list." lightbox="./media/sap-ase-database-backup-tutorial/select-database.png"::: 
+   :::image type="content" source="./media/sap-ase-database-backup-tutorial/select-database.png" alt-text="Screenshot shows how to select a database for backup configuration from the discovered list." lightbox="./media/sap-ase-database-backup-tutorial/select-database.png"::: 
 
 1. Run the script on each VM hosting SAP ASE databases that you want to back up.
 1. After you run the script on the VMs, on the **Select Virtual Machines** pane, select the *VMs*, and then select **Discover DBs**.
@@ -389,7 +389,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 To run on-demand backups for SAP ASE database, follow these steps:
 
-1.	Go to **Business Continuity Center**,and then  select **Vaults**.
+1.	Go to **Business Continuity Center**, and then select **Vaults**.
 1. On the **Vaults** pane, select the Recovery Services vault from the list that is used to configure backup.
 1. On the selected **Recovery Services vault**, select **Backup items**.
 1.	On the **Backup Item** pane, select the **Backup Management Type** as **SAP ASE (Sybase) in Azure VM**.
