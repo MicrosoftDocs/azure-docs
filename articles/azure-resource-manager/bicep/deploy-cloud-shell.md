@@ -28,7 +28,7 @@ To deploy a local Bicep file, you must first upload your Bicep file to your Clou
 1. Select the Bicep file you want to upload, and then select **Open**.
 1. To deploy the Bicep file, use the following commands:
 
-   # [Azure CLI](#tab/azure-cli)
+   ### [Azure CLI](#tab/azure-cli)
 
    ```azurecli-interactive
    az group create --name ExampleGroup --location "South Central US"
@@ -38,7 +38,7 @@ To deploy a local Bicep file, you must first upload your Bicep file to your Clou
      --parameters storageAccountType=Standard_GRS
    ```
 
-   # [PowerShell](#tab/azure-powershell)
+   ### [PowerShell](#tab/azure-powershell)
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
