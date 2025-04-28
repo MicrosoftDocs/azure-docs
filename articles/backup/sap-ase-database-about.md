@@ -58,6 +58,9 @@ You can back up SAP ASE (Sybase) databases that are running inside an Azure VM a
 * The ASE backup engine returns a Backint stream with the data to be backed up.
 * All the scheduled backups and on-demand backups (triggered from the Azure portal) that are either full or differential are initiated via the Azure Backup plugin for ASE. However,  the ASE backup engine manages and triggers log backups.
 * Azure Backup for SAP ASE, because it's a Backint-certified solution, doesn't depend on underlying disk or VM types. ASE generates streams that actively perform the backup.
+
+:::image type="content" source="./media/sap-ase-database-about/database-backup-architecture.png" alt-text="Diagram shows the SAP ASE Sybase database backup." lightbox="./media/sap-ase-database-about/database-backup-architecture.png":::
+
 ## Use Azure VM backup with Azure SAP ASE backup
 
 In addition to using SAP ASE backup in Azure, which provides database-level backup and recovery, you can use the Azure VM backup solution to back up the operating system and nondatabase disks.
