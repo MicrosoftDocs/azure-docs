@@ -55,14 +55,16 @@ To manage the API key securely, store it in Azure Key Vault, and access the key 
 1. In the **Add configuration** page, set the values as follows:
     :::image type="content" source="media/authorize-api-access/configure-api-key.png" alt-text="Screenshot of configuring an API key in the portal.":::
 
-    1. Enter a **Title** (name) and optional **Description** for the configuration.
-    1. In **Security scheme**, select **API Key**.
-    1. In **API key location**, select how the key is presented in API requests. Available values are **Header** (request header) and **Query** (query parameter).
-    1. In **API key parameter name**, enter the name of the HTTP header or query parameter that contains the API key. For example, `x-api-key`.
-    1. In **API key Key Vault secret reference**, enter the URI of the secret in your key vault that contains the API key. This is a URI of the form `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`.
-    1. Select **Create**.
+    | **Setting**            | **Description**                                                                                                                                               |
+    |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Title**              | A name for the authorization.                                                |
+    | **Description**        | Optional description for the authorization.                  |
+    | **Security scheme**    | Select **API Key**.                                                                                    |
+    |**API key location**    | How the key is presented in API requests. Available values are **Header** (request header) and **Query** (query parameter).                                                               |
+    | **API key parameter name**      | Name of the HTTP header or query parameter that contains the API key. Example: `x-api-key`                                                        |
+    | **API key Key Vault secret reference**      | Secret identifier of the API key in Azure Key Vault. Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`  |
 
-:::image type="content" source="media/authorize-api-access/configure-api-key.png" alt-text="Screenshot of configuring an API key in the portal.":::
+1. Select **Create**.
 
 ## Option 2: Configure settings for OAuth 2.0 authorization
 
@@ -92,12 +94,12 @@ The following example shows how to create an app registration in Microsoft Entra
     1. Copy the client secret's **Value** before leaving the page. You will need it in the following section.
 1. Optionally, add API scopes in your app registration. For more information, see [Configure an application to expose a web API](/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope).
     
-In the following section, you will need the following values from the app registration:
+When you configure OAuth 2.0 authorization in your API center, you will need the following values from the app registration:
 
 * The **Application (client) ID** from the app registration's **Overview** page, and the **Client secret** you copied previously. 
 * The following endpoint URLs on the app registration's **Overview** > **Endpoints** page:
     * **OAuth2.0 authorization endpoint (v2)** - the authorization endpoint for Microsoft Entra ID 
-    * **OAuth 2.0 token endpoint (v2)** - the token URL endpoint for Microsoft Entra ID
+    * **OAuth 2.0 token endpoint (v2)** - the token endpoint and token refresh endpoint for Microsoft Entra ID
 *  Any API scopes configured in the app registration.
 
 ### 2. Store client secret in Azure Key Vault
@@ -112,20 +114,23 @@ To manage the secret securely, store it in Azure Key Vault, and access the key v
 1. In the left menu, under **Assets**, select **Authorization (preview)** > **+ Add configuration**.
 1. In the **Add configuration** page, set the values as follows:
 
+    :::image type="content" source="media/authorize-api-access/configure-oauth.png" alt-text="Screenshot of configuring OAuth 2.0 in the portal.":::
+
+
     | **Setting**            | **Description**                                                                                                                                               |
     |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Title**              | A name and optional description for the authorization.                                                                                                 |
+    | **Title**              | A name for the authorization.                                                                                                 |
     | **Description**        | Optional description for the authorization.                                                                                                                   |
-    | **Security scheme**    | Select **OAuth2**.                                                                                                                                           |
+    | **Security scheme**    | Select **OAuth2**.                                                                  |
     | **Client ID**          | Client ID of the app that you created in the previous section.                                                                                     |
-    | **Client secret**      | Enter the secret identifier of the client secret in Azure Key Vault. Example:                                                                                  |
+    | **Client secret**      | Secret identifier of the client secret in Azure Key Vault. Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`                                                                               |
     | **Authorization URL**  | OAuth 2.0 authorization endpoint for the identity provider.                                                                                        |
     | **Token URL**          | OAuth 2.0 token endpoint for the identity provider.                                                                                             |
     | **Refresh URL**        | OAuth 2.0 refresh token endpoint for the identity provider. For most providers, same as the Token URL.                                                                                                |
     | **OAuth2 flow**        | One or both of the OAuth 2.0 flows that you want to use. Available values are **Authorization code (PKCE)** and **Client credentials**.               |
     | **Scopes**             | One or more API scopes configured for your API, separated by spaces. If no scopes are configured, enter `.default`.                                                   |
 
-1. Select **Create** to save the configuration.                                                                                                                |
+1. Select **Create** to save the configuration.
 
 ## Add authentication configuration to an API version
 
