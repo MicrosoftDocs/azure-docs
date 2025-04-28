@@ -25,9 +25,9 @@ This feature relies on the data factory managed identity. Learn how it works fro
 To reference a credential stored in Azure Key Vault, you need to:
 
 1. **Retrieve data factory managed identity** by copying the value of "Managed Identity Object ID" generated along with your factory. If you use ADF authoring UI, the managed identity object ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
-1. **Grant the managed identity access to your Azure Key Vault.** You can use either access policies or RBAC permissions:
+1. **Grant the managed identity access to your Azure Key Vault.** You can use either access policies or access control permissions:
     1. _Access policy_ - In your key vault select **Access policies** -> **Add access Policy** -> search for your Azure Data Factory managed identity and grant **Get** and **List** permissions in the Secret permissions dropdown.
-    1. _RBAC permissions_ - In your key vault select **Access control (IAM)** -> **+ Add** -> **Add role assignment**. Select **Key Vault Secrets** user, and then select **Next**. Under **Members** select **Managed identity** then **Select members** and search for your Azure Data Factory managed identity. Then select **Review + assign**.
+    1. _Access control_ - In your key vault select **Access control (IAM)** -> **+ Add** -> **Add role assignment**. Select **Key Vault Secrets** user, and then select **Next**. Under **Members** select **Managed identity** then **Select members** and search for your Azure Data Factory managed identity. Then select **Review + assign**.
 1. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
 1. **Create the data store linked service. In its configuration, reference the corresponding secret stored in Azure Key Vault.** Refer to [Reference a secret stored in Azure Key Vault](#reference-secret-stored-in-key-vault).
 
