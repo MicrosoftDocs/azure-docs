@@ -7,7 +7,7 @@ manager: orspod
 ms.collection:
   - usx-security
 ms.topic: reference
-ms.date: 04/08/2025
+ms.date: 04/28/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -17,7 +17,7 @@ appliesto:
 
 ---
 
-# SOC optimization reference of recommendations types
+# SOC optimization recommendations types
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
@@ -25,9 +25,10 @@ Microsoft Sentinel SOC optimizations include the following types of recommendati
 
 - **Data value recommendations** suggest ways to improve your data use, such as a better data plan for your organization.
 
-- **Threat-based recommendations** suggest adding security controls that help you close coverage gaps.
+- **Coverage based recommendations** suggest adding controls to prevent coverage gaps that can lead to vulnerability to attacks or scenarios that can lead to financial loss.
+    - **Threat-based recommendations** suggest adding security controls that help you detect coverage gaps to prevent attacks and vulnerabilities.
 
-- **Risk-based recommendations** suggest adding security controls that help you protect against Operational, Financial, Reputational, Compliance and Legal business risks. 
+    - **Risk-based recommendations** suggest adding controls to detect coverage gaps that correlate with use cases that could lead to business risks and financial loss, including Operational, Financial, Reputational, Compliance and Legal business risks. 
 
 - **Similar organizations recommendations** suggest ingesting data from the types of sources used by organizations which have similar ingestion trends and industry profiles to yours.
 
@@ -62,8 +63,11 @@ SOC optimization also surfaces unused columns in your tables. The following tabl
 
 > [!IMPORTANT]
 > When making changes to ingestion plans, we recommend always ensuring that the limits of your ingestion plans are clear, and that the affected tables aren't ingested for compliance or other similar reasons.
->
-## Threat-based optimization recommendations
+
+## Coverage-based optimization recommendations
+Coverage-based optimization recommendations help you close coverage gaps against specific threats or to scenarios that can lead to business risks and financial loss.
+
+### Threat-based optimization recommendations
 
 To optimize data value, SOC optimization recommends adding security controls to your environment in the form of extra detections and data sources, using a threat-based approach. This optimization type is also known as *coverage optimization*, and is based on Microsoft's security research.
 
@@ -79,19 +83,20 @@ The following table lists the available types of threat-based SOC optimization r
 | Templates are turned on, but data sources are missing.     | Connect new data sources.     |
 | There are no existing detections or data sources.     | Connect detections and data sources or install a solution.      |
 
-## Risk-based optimization recommendations
-
-Organizations often struggle to align security measures with business risks, leading to inefficient resource allocation and vulnerabilities. The Risk-Based Optimization feature helps manage security coverage based on business risks. It prioritizes security measures by evaluating the potential impact and likelihood of risks, ensuring resources are allocated effectively. 
+### Risk-based optimization recommendations
 
 Risk-based optimizations consider real world security scenarios with a set of business risks associated with it, including Operational, Financial, Reputational, Compliance and Legal risks. The recommendations are based on the Microsoft Sentinel risk-based approach to security.
+
+To provide risk-based recommendations, SOC optimization looks at your ingested logs and analytics rules, and compares them to the logs and detections that are required to protect, detect, and respond to specific types of attacks that may cause business risks.
+Risk-based recommendations optimizations consider both predefined and user-defined detections.
 
 The following table lists the available types of threat-based SOC optimization recommendations:
 
 | Type of observation | Action |
 |---------|---------|
-|      |  |
-|      |      |
-|    |      |
+| There are data sources, but detections are missing.     | Turn on analytics rule templates based on the business risks: Create a rule using an analytics rule template, and adjust the name, description, and query logic to suit your environment. |
+| Templates are turned on, but data sources are missing.     | Connect new data sources.     |
+| There are no existing detections or data sources.     | Connect detections and data sources or install a solution.      |
 
 ## Similar organizations recommendations
 

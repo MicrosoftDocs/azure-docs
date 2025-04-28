@@ -69,7 +69,7 @@ Supported metrics at the top of the **Overview** tab include:
 | **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last three months. |
 |**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
-Select **See all threat scenarios** to view the full list of relevant threat and risk-based scenarios , percentages of active and recommended analytics rules, and coverage levels.
+Select **See all threat scenarios** to view the full list of relevant threat and risk-based scenarios, percentages of active and recommended analytics rules, and coverage levels.
 
 ### [Defender portal](#tab/defender-portal)
 
@@ -107,8 +107,8 @@ SOC optimization recommendations are calculated every 24 hours. Each optimizatio
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
 
-- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks.
-
+- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks, and risk-based recommendations for adding security controls to help close coverage gaps for various types of business risks.
+- 
 - **Data value**: Includes recommendations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
 
 ### View optimization details and take action
