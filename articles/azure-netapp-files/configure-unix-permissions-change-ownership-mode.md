@@ -38,7 +38,7 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 
     The following example shows the Create a volume screen for an NFS volume. 
 
-    ![Screenshots that shows the Create a Volume screen for NFS.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-create-nfs-volume.png)
+    ![Screenshot that shows the Create a Volume screen for NFS.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-create-nfs-volume.png)
 
 ## Set Unix permissions for existing volumes
 
@@ -46,11 +46,11 @@ For existing NFS or dual-protocol volumes, you can set or modify **Unix permissi
 
 1. To modify Unix permissions, right-click the **volume**, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.
 
-    ![Screenshots that shows the Edit screen for Unix permissions.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-edit.png)
+    ![Screenshot that shows the Edit screen for Unix permissions.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-edit.png)
 
 2. To modify the change ownership mode, select the **volume**, click **Export policy** then modify the **`Chown Mode`** setting.  
 
-    ![Screenshots that shows the Export Policy screen.](./media/configure-unix-permissions-change-ownership-mode/chown-mode-edit.png)
+    ![Screenshot that shows the Export Policy screen.](./media/configure-unix-permissions-change-ownership-mode/chown-mode-edit.png)
 
 ## Next steps  
 
