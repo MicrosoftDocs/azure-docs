@@ -77,7 +77,7 @@ productDirectory:
       links:
         - url: ./new-relic/new-relic-overview.md
           text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
-    - title: MongoDB Atlas
+    - title: MongoDB Atlas (preview)
       imageSrc: ./media/index/mongo-db.svg
       links:
         - url: ./mongo-db/overview.md
