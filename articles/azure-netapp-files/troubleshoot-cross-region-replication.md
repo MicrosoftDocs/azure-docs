@@ -16,8 +16,8 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error message    |     Resolution    |
 |-|-|
-| `Volume {0} cannot be used as source because it is already in replication` | You cannot   create a replication with a source volume that is already in a data replication relationship.    |
-| `Peered region '{0}' is not accepted` | You can't create replication between un-paired regions. Review [supported regional pairs](cross-region-replication-introduction.md#supported-region-pairs). |
+| `Volume {0} cannot be used as source because it is already in replication` | You cab't   create a replication with a source volume that is already in a data replication relationship.    |
+| `Peered region '{0}' is not accepted` | You can't create replication between unpaired regions. Review [supported regional pairs](cross-region-replication-introduction.md#supported-region-pairs). |
 | `RemoteVolumeResource '{0}' of wrong type '{1}'` | Validate that the remote resource ID is a volume resource ID.    |
 
 ## Errors authorizing volume  
@@ -42,14 +42,14 @@ This article describes error messages and resolutions that can help you troubles
 
 | Error message | Resolution |
 |-|-|
-| `‘Not able to break a volume replication in an uninitialized state.` | Use re-initialize endpoint to get replication in initialized state or delete the replication and try again. |
+| `‘Not able to break a volume replication in an uninitialized state.` | Reinitialize the endpoint to return replication to an initialized state or delete the replication and try again. |
 
 ## Errors deleting replication
 
 |     Error message    |     Resolution    |
 |-|-|
-|     `Replication cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validate that   either replication has been broken or it is uninitialized and idle (failed   initialization).    |
-|     `Cannot delete source replication`    |     Deleting the   replication from the source side is not allowed. Make sure that you are deleting the replication from the destination side.    |
+|     `Replication cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validate that   either replication has been broken or it's uninitialized and idle (failed   initialization).    |
+|     `Cannot delete source replication`    |     Deleting the   replication from the source side is not allowed. Make sure that you're deleting the replication from the destination side.    |
 | Deleting replication in uninitialized state and transferring relationship status: <br> `Replication cannot be deleted while relationship status is transferring.` | Wait until replication is idle and try again. |
 | `Replication cannot be deleted while in Mirrored state` | Break the replication relationship before proceeding. See [Delete volume replications or volumes](cross-region-replication-delete.md). |
 
@@ -64,20 +64,20 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error message    |     Resolution    |
 |-|-|
-|     `Volume Replication is in invalid status: (Mirrored|Uninitialized) for operation: 'ResyncReplication'`     | Confirm volume replication is in state "broken”. |
+| `Volume replication is in invalid status: (Mirrored|Uninitialized) for operation: 'ResyncReplication'` | Confirm the volume's replication state is "broken." |
 
 ## Errors deleting snapshot 
 
-|     Error message    |     Resolution    |
+| Error message | Resolution |
 |-|-|
-|     `Snapshot cannot be deleted, parent volume is a Data Protection volume with a replication object`    |     Validate that you've broken the volume's replication if you want to delete this snapshot.    |
-|     `Cannot delete volume replication generated snapshot`    |     Deletion of replication baseline snapshots is not allowed.    |
+| `Snapshot cannot be deleted, parent volume is a data protection volume with a replication object` | Validate that you've broken the volume's replication if you want to delete this snapshot. |
+| `Cannot delete volume replication generated snapshot` | Deleting replication baseline snapshots isn't allowed. |
 
 ## Errors resizing volumes
 
-|     Error message    |     Resolution    |
+| Error message | Resolution |
 |-|-|
-|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Ensure you have enough headroom in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. But if the capacity pool hosting the destination volume doesn’t have enough headroom, the resizing of both the source and the destination volumes will fail. See [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) for details.   |
+|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Ensure you have enough space available in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. If the capacity pool hosting the destination volume doesn’t have enough available space, resizing both the source and the destination volumes will fail. See [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) for details.   |
 
 ## Next steps  
 
