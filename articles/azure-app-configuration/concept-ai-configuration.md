@@ -49,3 +49,10 @@ Chat completion is an AI capability that produces human-like dialogue responses 
 
 Azure OpenAI Service supports a diverse set of models from OpenAI. For more information, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models). To learn more about models from Anthropic, refer to the [Claude models documentation](https://docs.anthropic.com/docs/about-claude/models/overview).  
 For more details about models provided by Google, see the [Gemini models documentation](https://ai.google.dev/gemini-api/docs/models).
+
+## Next steps
+
+To learn more about the AI configuration, continue to the following document:
+
+> [!div class="nextstepaction"]
+> [Getting started with Chat completion configuration](./howto-chat-completion-config.md)
