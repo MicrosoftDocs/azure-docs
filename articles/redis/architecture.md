@@ -71,7 +71,9 @@ Each SKU of Azure Managed Redis is configured to run a specific number of Redis 
 > The number of shards and vCPUs used on each SKU can change over time as performance is optimized by the Azure Managed Redis team.
 >
 
-|  Tiers      | Flash Optimized |   Memory Optimized   |    Balanced   |   Compute Optimized  |
+[!INCLUDE [tier-preview](includes/tier-preview.md)]
+
+|  Tiers      | Flash Optimized (preview) |   Memory Optimized   |    Balanced   |   Compute Optimized  |
 |:-----------:|:-------------------:|:--------------------:|:--------------------:|:--------------------:|
 | Size (GB)   | vCPUs/primary shards | vCPUs/primary shards | vCPUs/primary shards | vCPUs/primary shards |
 |    0.5      |       -      |    -          |          2/2         |           -          |
@@ -82,15 +84,17 @@ Each SKU of Azure Managed Redis is configured to run a specific number of Redis 
 |     24      |       -      |          4/2          |          8/6         |           16/12          |
 |     60      |       -      |          8/6          |          16/12         |           32/24         |
 |     120      |       -      |          16/12       |       32/24         |           64/48          |
-|     180      |       -      |          24/24          |          48/48         |           96/96          |
-|     240      |       8/6      |          32/24          |          64/48         |           128/96          |
-|     360      |       -      |         48/48         |          96/96         |           192/192        |
-|     480      |       16/12     |         64/48        |          128/96         |           256/192        |
-|     720      |       24/24      |         96/96         |          192/192         |           384/384        |
-|     960      |       32/24      |         128/192         |          256/192         |           -       |
-|     1440      |       48/48      |         192/192         |          -         |           -        |
-|     1920      |       64/48      |         256/192         |          -         |           -        |
-|     4500      |       144/96      |        -         |          -         |           -        |
+|     180 *      |       -      |          24/24          |          48/48         |           96/96          |
+|     240 *    |       8/6      |          32/24          |          64/48         |           128/96          |
+|     360 *    |       -      |         48/48         |          96/96         |           192/192        |
+|     480 *    |       16/12     |         64/48        |          128/96         |           256/192        |
+|     720 *     |       24/24      |         96/96         |          192/192         |           384/384        |
+|     960 *     |       32/24      |         128/192         |          256/192         |           -       |
+|     1440 *     |       48/48      |         192/192         |          -         |           -        |
+|     1920 *     |       64/48      |         256/192         |          -         |           -        |
+|     4500 *     |       144/96      |        -         |          -         |           -        |
+
+  * These tiers are in Public Preview.
 
 ## Running without high availability mode enabled
 
@@ -131,6 +135,6 @@ Some workloads have access characteristics that are less optimized for the desig
 - Random or uniform data access patterns across most of the dataset.
 - Long key names with relatively small value sizes.
 
-## Next steps
+## Related content
 
 - [Scale an Azure Managed Redis instance](how-to-scale.md)

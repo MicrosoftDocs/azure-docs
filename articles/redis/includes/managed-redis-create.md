@@ -25,6 +25,8 @@ ms.custom:
     For guidance on choosing the right performance tier, see [Choosing the right tier](../overview.md#choosing-the-right-tier).
    <!-- :::image type="content" source="media/managed-redis-create/managed-redis-new-cache-basics.png" alt-text="Screenshot showing the Azure Managed Redis Basics tab."::: -->
 
+   [!INCLUDE [tier-preview](tier-preview.md)]
+
 1. Select **Next: Networking** , and select either a **Public Endpoint** or **Private Endpoint**.
 
 1. Select **Next: Active geo-replication**. To use active geo-replication it must be enabled during provisioning. Caches without active geo-replication can't be added to or join active geo-replication groups later. For more information, see [Configure active geo-replication for Azure Managed Redis instances](../how-to-active-geo-replication.md).
