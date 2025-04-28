@@ -11,24 +11,24 @@ metadata:
   author: mbender-ms
   ms.author: mbender
   manager: kumudD
-  ms.date: 07/15/2024
+  ms.date: 04/24/2025
   ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
-    - title: Choose a load balancing solution 
-      itemType: concept
-      url: /azure/architecture/guide/technology-choices/load-balancing-overview
-    - title: Hub-spoke network topology in Azure
-      itemType: architecture
-      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Azure Networking blogs
+    - title: Load balancing and content delivery
+      itemType: overview
+      url: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview
+    - title: Azure Networking services
+      itemType: overview 
+      url: /azure/networking/
+    - title: Azure networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/category/networking/
-    - title: Azure Networking services overview
-      itemType: concept 
-      url: /azure/networking/
+    - title: What's new in Azure Load Balancer
+      itemType: whats-new
+      url: /azure/load-balancer/whats-new
 
 productDirectory:
   title: Get started

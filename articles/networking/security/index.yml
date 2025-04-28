@@ -23,7 +23,7 @@ highlightedContent:
     # Card
     - title: Azure network security overview 
       itemType: overview # controls the icon image and super-title text 
-      url: ../../security/fundamentals/network-overview.md
+      url: /azure/networking/security/network-security
     # Card
     - title: Azure best practices for network security
       itemType: concept

@@ -18,10 +18,13 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items:
+    - title: Hybrid connectivity overview
+      itemType: concept
+      url: /azure/networking/hybrid-connectivity/hybrid-connectivity
     - title: Introduction to Azure hybrid connectivity services
       itemType: training
       url: /training/paths/intro-to-azure-hybrid-connectivity-services/
-    - title: Azure Networking blogs
+    - title: Azure networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure network security documentation
@@ -30,7 +33,7 @@ highlightedContent:
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Azure networking services overview
+    - title: Azure networking services
       itemType: overview
       url: ../fundamentals/networking-overview.md
 

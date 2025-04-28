@@ -2,30 +2,20 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure Networking overview
+  - name: Azure Networking
     href: networking-overview.md
-  - name: Network foundations overview
-    href: ../foundations/index.yml
+  - name: Network foundations
+    href: ../foundations/network-foundations-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Load balancing and content delivery
-    href: ../load-balancer-content-delivery/index.yml
-  - name: Network security overview
-    href: ../security/index.yml
-  - name: Hybrid connectivity overview
-    href: ../hybrid-connectivity/index.yml
-  - name: Network monitoring and management overview
-    href: ../monitoring-management/index.yml
+    href: ../load-balancer-content-delivery/load-balancing-content-delivery-overview.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Network security
+    href: ../security/network-security.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Hybrid connectivity
+    href: ../hybrid-connectivity/hybrid-connectivity.md?toc=/azure/networking/fundamentals/toc.json
 - name: Plan and Design
   items:
-  - name: Architecture guides
-    href: architecture-guides.md
   - name: Azure for network engineers
     href: ../azure-for-network-engineers.md?toc=/azure/networking/fundamentals/toc.json
-  - name: Working remotely
-    href: ../working-remotely-support.md?toc=/azure/networking/fundamentals/toc.json  
-  - name: Virtual networks
-    href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
-  - name: Hub-spoke network topology in Azure
-    href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/networking/fundamentals/toc.json
   - name: Cross-premises connectivity - VPN
     items:
     - name: VPN Gateway
@@ -70,8 +60,12 @@
         href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
       - name: Outbound-only internet connectivity
         href: ../../virtual-network/nat-gateway/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
-
-    href: ../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Virtual networks
+    href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Working remotely
+    href: ../working-remotely-support.md?toc=/azure/networking/fundamentals/toc.json  
+  - name: Architecture guides
+    href: architecture-guides.md
 - name: Deploy
   items:
   - name: Deploy networking resources
