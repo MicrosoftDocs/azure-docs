@@ -142,12 +142,17 @@ To utilize Open OnDemand, please select the checkbox and provide the required de
 - the image name, 
 - the domain name (`contoso.com`) used to extract the user name (`user@contoso.com`) to match linux local account (`user`) managed by CycleCloud and used for authentication, 
 - the fully qualified domain name (FQDN) of the Open OnDemand web server (leave blank if you intend to use the private IP), 
-- indicate whether you plan to use an existing Entra ID application or register one manually at a later stage. `Automatically register Entra ID application` will only appear when doing CLI deployment.
+- indicate whether you plan to use an existing Entra ID application or register one manually at a later stage. `Automatically register Entra ID application` is an additional option that will only appear when doing CLI deployment.
 
 >[!NOTE]
 >An Entra ID application is necessary for user authentication. If an application has not been previously created by our scripts, please create one manually. See [How to register an Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md) for more information.
 
 ![Screenshot of the Open OnDemand options.](./images/ccws/marketplace-ood.png)
+
+### Advanced
+Availability zones can be enabled for cluster compute nodes and new file-system resources. This option ensures minimal latency between compute nodes and storage by placing them in the same availability zone.
+
+![Screenshot of the Advanced options.](./images/ccws/marketplace-advanced.png)
 
 ### Tags
 
