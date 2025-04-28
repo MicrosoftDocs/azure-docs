@@ -67,6 +67,8 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ::: zone-end
 
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
+
 ::: zone pivot="platform-linux"
 
 ## Customize build automation

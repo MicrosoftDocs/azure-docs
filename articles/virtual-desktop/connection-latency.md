@@ -4,7 +4,7 @@ description: Connection quality for Azure Virtual Desktop users.
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 01/05/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: engagement-fy23, docs_inherited
 ---
 # Analyze connection quality in Azure Virtual Desktop

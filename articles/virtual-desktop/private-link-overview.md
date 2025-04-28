@@ -4,7 +4,7 @@ description: Learn about using Private Link with Azure Virtual Desktop to privat
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 12/08/2023
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Azure Private Link with Azure Virtual Desktop

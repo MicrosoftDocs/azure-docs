@@ -4,7 +4,7 @@ description: New features and product updates for the Azure Virtual Desktop Agen
 author: sipastak
 ms.topic: release-notes
 ms.date: 04/07/2025
-ms.author: sipastak
+ms.author: avdcontent
 ms.custom: references_regions
 ---
 # What's new in the Azure Virtual Desktop Agent?

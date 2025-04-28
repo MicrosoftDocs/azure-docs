@@ -406,6 +406,9 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Introduction to containers
+        href: java-containers-intro.md
+        displayName: java
       - name: Turn on Java features
         href: java-feature-switch.md
         displayName: java
@@ -414,7 +417,7 @@
         displayName: java
       - name: Build environment variables (preview)
         href: java-build-environment-variables.md
-        displayName: java    
+        displayName: java
       - name: Launch your first Java app
         items:
         - name: Dockerfile
@@ -432,14 +435,13 @@
       - name: Artificial intelligence
         items:
         - name: PetClinic AI
-          items: 
+          items:
           - name: Overview
             href: java-petclinic-ai-overview.md
             displayName: java
           - name: Deploy the PetClinic AI sample
             href: java-petclinic-ai-tutorial.md
             displayName: java
-        displayName: java
       - name: Java components
         items:
         - name: Launch your first Java microservice apps with managed Java components
@@ -486,7 +488,7 @@
           href: java-dynamic-log-level.md
           displayName: java
     - name: JavaScript
-      items: 
+      items:
       - name: Overview
         href: javascript-overview.md
         displayName: javascript, typescript, node.js
