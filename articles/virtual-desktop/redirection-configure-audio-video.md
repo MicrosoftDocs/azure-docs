@@ -4,7 +4,7 @@ description: Learn how to redirect audio peripherals, such as microphone and spe
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 04/24/2024
 ---
 

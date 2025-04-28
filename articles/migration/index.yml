@@ -219,9 +219,9 @@ additionalContent:
     - title: Read migration blogs and articles from community members
       summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
       items:
-        - summary: Why we built the Azure Migration Hub—and how it helps teams move with clarity, not chaos.
-          title: The Smarter Way to Migrate to Azure
-          url: https://techcommunity.microsoft.com/blog/azuremigrationblog/the-smarter-way-to-migrate-to-azure/4401641
+        - summary: We recently walked through a real-world migration of a typical web app from AWS EKS to Azure AKS, and while the containers came over cleanly, the supporting architecture required some careful rework.
+          title: "Migrating from EKS to AKS: What Actually Matters"
+          url: https://techcommunity.microsoft.com/blog/azuremigrationblog/migrating-from-eks-to-aks-what-actually-matters/4403067
         - summary: Boost your growth and access more customers by replicating your AWS app to Azure and selling through Azure Marketplace.
           title: "Embracing the multicloud advantage: a guide to replicating your app from AWS to Azure"
           url: https://techcommunity.microsoft.com/blog/marketplace-blog/embracing-the-multicloud-advantage-a-guide-to-replicating-your-app-from-aws-to-a/4385153

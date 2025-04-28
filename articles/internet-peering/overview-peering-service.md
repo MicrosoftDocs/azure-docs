@@ -1,13 +1,11 @@
 ---
 title: Internet peering vs. Peering Service
 description: Internet peering vs. Peering Service.
-services: internet-peering
 author: halkazwini
+ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 05/22/2020
-ms.author: halkazwini
-ms.custom: template-overview
+ms.date: 04/21/2025
 ---
 
 # Internet peering vs. Peering Service
@@ -49,7 +47,7 @@ In the figure above each branch office of a global enterprise connects to the ne
 
 For frequently asked questions, see [Peering Service FAQ](faqs.md#peering-service).
 
-## Next steps
+## Related content
 
 * Learn more about customer benefits with [Peering Service](../peering-service/index.yml).
 * Learn about steps to enable a Direct peering for Peering Service in [Peering Service partner walkthrough](walkthrough-peering-service-all.md).

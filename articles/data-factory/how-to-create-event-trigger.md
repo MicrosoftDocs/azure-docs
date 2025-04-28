@@ -154,5 +154,5 @@ Three noticeable callouts in the workflow are related to event triggering pipeli
 
 ## Related content
 
-* For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+* For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-types).
 * To reference trigger metadata in a pipeline, see [Reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

@@ -299,7 +299,7 @@ for (var i = 0; i < count; i++)
 }
 ```
 
-## Using V1 SDKs for Search and Render
+## Using v1 SDKs for Search and Render
 
 For more information on using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5). For more information on using Render v1, see [Azure Maps Render client library for .NET](https://www.nuget.org/packages/Azure.Maps.Rendering/1.0.0-beta.3).
 

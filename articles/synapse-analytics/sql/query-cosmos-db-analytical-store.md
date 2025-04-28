@@ -47,10 +47,10 @@ The SQL connection string for Azure Cosmos DB includes the following components:
 - **account** - The name of the Azure Cosmos DB account you are targeting.
 - **database** - The container name, specified without quotation marks in the OPENROWSET syntax. If the container name contains special characters (for example, a dash -), it should be enclosed in square brackets ([]).
 - **region** (optional) - The region of your Cosmos DB analytical storage. If omitted, the container's primary region is used.
-- **endpoint** (optional) - required if your Cosmos DB account does not follow the standard `*.documents.azure.com` format.
+- **endpoint** (optional) - The Cosmos DB endpoint URI (for example `https://<account name>.documents.azure.us`) that is required if your Cosmos DB account does not follow the standard `*.documents.azure.com` format.
 
 > [!IMPORTANT]
-> The `endpoint` parameter is needed for accounts that don't match the standard `*.documents.azure.com` format. For example, if your Azure Cosmos DB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.
+> The `endpoint` parameter is needed for accounts that don't match the standard `*.documents.azure.com` format. For example, if your Azure Cosmos DB account ends with `.documents.azure.us`, make sure that you add `endpoint=https://<account name>.documents.azure.us` in the connection string. Make sure that you include `https://` prefix.
 
 These properties can be identified from the standard Cosmos DB connection string, for example:
 ```
@@ -59,7 +59,7 @@ AccountEndpoint=https://<database account name>.documents.azure.com:443/;Account
 
 The SQL connection string can be formatted as follows:
 ```sql
-'account=<database account name>;database=<database name>;region=<region name>'
+account=<database account name>;database=<database name>;region=<region name>
 ```
 
 This connection string does not include the authentication information required to connect to Cosmos DB analytical storage. Additional information is needed depending on the type of authentication used:
@@ -88,8 +88,8 @@ The examples of connection strings are shown in the following table:
 
 | Authentication type | Connection string |
 | --- | --- |
+| Synapse workspace managed identity | `account=<account name>;database=<db name>;region=<region name>;AuthType=ManagedIdentity` |
 | Cosmos DB account master key | `account=<account name>;database=<db name>;region=<region name>;key=<account master key>` |
-| Synapse workspace managed identity | `account=<account name>;database=<db name>;region=<region name>;authtype=ManagedIdentity` |
 
 ### [OPENROWSET with credential](#tab/openrowset-credential)
 
@@ -107,7 +107,7 @@ OPENROWSET(
 The SQL connection string for Azure Cosmos DB doesn't contain a key in this case. The connection string has the following format:
 
 ```sql
-'account=<database account name>;database=<database name>;region=<region name>'
+account=<database account name>;database=<database name>;region=<region name>
 ```
 
 Database account master key is placed in server-level credential or database scoped credential. 
