@@ -29,35 +29,41 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ## Create an origin group and add the API Management instance as an origin
 
-1. In your Azure Front Door Premium profile, go to *Settings* and select **Origin groups**.
+1. Under **Settings** of your Azure Front Door Premium profile, select **Origin groups**.
 
 1. Select **Add**
-2. Enter a name for the origin group
-3. Select **+ Add an origin** 
-4. Use the following table to configure the settings for the origin:
+
+1. Enter a name for the origin group.
+
+1. Select **+ Add an origin** 
+
+1. Use the following table to configure the origin settings:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter a name to identify this origin. |
-    | Origin Type | API Management |
+    | Origin Type | Select **API Management**. |
     | Host name | Select the host from the dropdown that you want as an origin. | 
-    | Origin host header | Will be autopopulated with the host of the chosen API Management instance|
-    | HTTP port | 80 (default) |
-    | HTTPS port | 443 (default) |
+    | Origin host header | Will be autopopulated with the host of the chosen API Management instance. |
+    | HTTP port | 80 (default). |
+    | HTTPS port | 443 (default). |
     | Priority | Assign different priorities to origins for primary, secondary, and backup purposes. |
     | Weight | 1000 (default). Use weights to distribute traffic among different origins. |
     | Region | Select the region that matches or is closest to your origin. |
-    | Target sub resource | Choose 'Gateway' |
+    | Target sub resource | Select **Gateway**. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
-    :::image type="content" source="../media/private-link/apim-privatelink.png" alt-text="Screenshot of origin settings for configuring API Management as a private origin.":::
+    :::image type="content" source="../media/how-to-enable-private-link-apim/apim-privatelink.png" alt-text="Screenshot of origin settings for configuring API Management as a private origin." lightbox="../media/how-to-enable-private-link-apim/apim-privatelink.png":::
 
-6. Select **Add** to save your origin settings
-7. Select **Add** to save the origin group settings.
+1. Select **Add** to save your origin settings
+
+1. Select **Add** to save the origin group settings.
 
 ## Approve the private endpoint
 
-1. Navigate to the API Management instance you configured with Private Link in the previous section. Under **Deployment + infrastructure**, select **Network**.
+1. Go to the API Management instance you configured with Private Link in the previous section.
+
+1. Under **Deployment + infrastructure**, select **Network**.
 
 1. Select **Inbound private endpoint connections** tab. 
 
@@ -65,7 +71,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your API Management through Front Door. 
 
-    :::image type="content" source="../media/private-link/apim-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in API Management portal.":::
+    :::image type="content" source="../media/how-to-enable-private-link-apimapim-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in API Management portal." lightbox="../media/how-to-enable-private-link-apim/apim-private-endpoint-connections.png":::
 
 ::: zone-end
 
