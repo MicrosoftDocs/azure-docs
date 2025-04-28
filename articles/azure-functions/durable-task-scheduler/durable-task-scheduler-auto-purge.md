@@ -7,7 +7,7 @@ ms.date: 04/28/2025
 
 # Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
 
-Orchestration history data should be purged periodically to free up storage resources. Otherwise, the app will likely observe performance degradation as history data accumulates overtime. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
+Orchestration history data should be purged periodically to free up storage resources. Otherwise, the app observes performance degradation as history data accumulates overtime. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
 
 Autopurge operates asynchronously in the background, optimized to minimize system resource usage and prevent interference with other Durable Task operations. Although autopurge doesn't adhere to a strict schedule, its clean-up rate generally aligns with your orchestration scheduling rate.
 
@@ -55,7 +55,7 @@ When configuring an autopurge retention policy, you can set either a *specific* 
      }
      ```
     
-Add specific policies to override the default policy applied to orchestrations, regardless of status. In the example below, the second and third policies override the default policy (`"retentionPeriodInDays": 1`). 
+Add specific policies to override the default policy applied to orchestrations, regardless of status. In the following example, the second and third policies override the default policy (`"retentionPeriodInDays": 1`). 
 - Data associated with completed orchestrations is deleted immediately. 
 - Data associated with failed orchestrations is purged after 60 days. 
 
@@ -141,7 +141,7 @@ PUT https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RE
 
 **Example response**
 
-If creation is successful, you'll see the following response.
+If creation is successful, you receive the following response.
 
 ```json
 {
@@ -177,7 +177,7 @@ If creation is successful, you'll see the following response.
 
 # [Azure CLI](#tab/cli)  
 
-Create or update the retention policy by running the following:
+Create or update the retention policy by running the following command.
 
 ```azurecli
   az rest --method put --url "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2025-04-01-preview" --body '{
@@ -203,7 +203,7 @@ Create or update the retention policy by running the following:
 
 **Example response**
 
-If creation is successful, you'll see the following response.
+If creation is successful, you receive the following response.
 
 ```json
 {
@@ -240,22 +240,25 @@ If creation is successful, you'll see the following response.
 
 # [Bicep](#tab/bicep)  
 
-Simply remove `retentionPolicies` from your Bicep
+Remove `retentionPolicies` from your Bicep file.
 
 # [Azure Resource Manager](#tab/arm)  
 
+Delete the retention policy using an API call.
+
+```HTTP
+DELETE https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2025-04-01-preview
+```
 
 # [Azure CLI](#tab/cli)  
-To disable autopurge, simply delete the retention policies. The Durable Task Scheduler will stop cleaning orchestration data within 5 to 10 minutes.
-Need
+
+Delete the retention policies using the following command. The Durable Task Scheduler stops cleaning orchestration data within 5 to 10 minutes.
 
 ```azurecli
 az rest --method delete --url "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAMER/retentionPolicies/default?api-version=2025-04-01-preview"
 ```
 
 ---
-
-
 
 ## Next steps
 
