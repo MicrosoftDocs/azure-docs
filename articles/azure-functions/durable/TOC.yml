@@ -116,7 +116,7 @@
     - name: Monitoring dashboard
       href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
     - name: Auto-purge 
-      href: ./durable-task-scheduler/durable-task-auto-purge.md
+      href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
   - name: Durable Functions
     items:
       - name: Throughput benchmark

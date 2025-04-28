@@ -155,4 +155,4 @@ curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose your orchestration framework](./durable-task-scheduler-framework.md)
+> [Choose your orchestration framework](./choose-orchestration-framework.md)
