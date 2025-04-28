@@ -224,14 +224,14 @@ Total items processed: 5
 
       ```bash
       python -m venv venv
-      venv/Scripts/activate
+      source ./venv/bin/activate
       ```      
 
       # [Linux](#tab/linux)
 
       ```bash
       python -m venv venv
-      source venv/bin/activate
+      source ./venv/bin/activate
       ```      
 
       ---
@@ -260,9 +260,10 @@ Total items processed: 5
      Successfully connected to http://localhost:8080. Waiting for work items...
      ```
      
-1. In a new terminal (with the virtual environment activated, if applicable), run the client.
+1. In a new terminal (with the virtual environment activated, if applicable), start the virtual environment, and then run the client.
 
      ```bash
+     source ./venv/bin/activate
      python client.py
      ```
 
