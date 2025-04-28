@@ -3,7 +3,7 @@ title: What is load balancing and content delivery?
 description: Learn about load balancing and content delivery in Azure, and the services that can help you optimize the performance and reliability of your web applications.
 ms.service: azure-load-balancer
 ms.topic: article
-ms.date: 04/21/2025
+ms.date: 04/28/2025
 ms.author: mbender
 author: mbender-ms
 ---
@@ -12,7 +12,7 @@ author: mbender-ms
 
 Load balancing and content delivery are critical components in optimizing the performance and reliability of web applications.  Load balancing ensures that incoming network traffic is distributed evenly across multiple servers or services, preventing any single server from becoming overwhelmed with requests. And content delivery optimizes the delivery of content to users by caching and distributing it across multiple locations, reducing latency and improving performance. Together, these two concepts help ensure that applications are highly available, responsive, and capable of handling varying levels of traffic.
 
-This article provides an overview of load balancing and content delivery in the context of Azure's services - Azure Application Gateway, Azure Front Door, and Azure Load Balancer. You learn about the key services and categories to help you choose the right solution for your needs.
+This article provides an overview of load balancing and content delivery in the context of Azure's services - Azure Application Gateway, Azure Load Balancer, and Azure Front Door. You learn about the key services and categories to help you choose the right solution for your needs.
 
 :::image type="content" source="media/load-balancer-content-delivery-services.png" alt-text="Diagram of Azure services including application gateway, front door, and load balancer.":::
 
@@ -29,19 +29,6 @@ When selecting a load-balancing or content delivery solution, consider the follo
 - **Features**: What features are required for your solution? For example, do you need SSL offload, URL-based routing, or web application firewall?
 
 Azure offers several load-balancing  and content delivery services, each catering to different needs and scenarios.
-
-## Azure Front Door
-
-[Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, and caching to improve performance and high availability of your applications.
-
-:::image type="content" source="media/load-balancing-frontdoor-base-scenario.png" alt-text="Diagram of Azure Front Door routing scenario.":::
-
-### Use cases
-
-- **Global content delivery**: Delivers content and applications globally with low latency by leveraging Microsoft's global edge network.
-- **Application acceleration**: Improves application performance by using features like split TCP connections and anycast network.
-- **Security**: Provides platform-level protection against DDoS attacks and integrates with web application firewalls for enhanced security.
-- **Modern Internet-first architectures**: Supports modern architectures with dynamic, high-quality digital experiences and automated, secure platforms.
 
 ## Azure Application Gateway
 
@@ -72,6 +59,19 @@ Azure offers several load-balancing  and content delivery services, each caterin
 - 
 > [!NOTE]
 > Clustering technologys, such as Azure Container Apps or Azure Kubernetes Service, contain load balancing constructs that operate mostly within the scope of their own cluster boundary, routing traffic to available application instances based on readiness and health probes. Those load balancing options aren't covered in this article.
+
+## Azure Front Door
+
+[Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, and caching to improve performance and high availability of your applications.
+
+:::image type="content" source="media/load-balancing-frontdoor-base-scenario.png" alt-text="Diagram of Azure Front Door routing scenario.":::
+
+### Use cases
+
+- **Global content delivery**: Delivers content and applications globally with low latency by leveraging Microsoft's global edge network.
+- **Application acceleration**: Improves application performance by using features like split TCP connections and anycast network.
+- **Security**: Provides platform-level protection against DDoS attacks and integrates with web application firewalls for enhanced security.
+- **Modern Internet-first architectures**: Supports modern architectures with dynamic, high-quality digital experiences and automated, secure platforms.
 
 ## Combining services
 
