@@ -6,7 +6,7 @@ ms.date: 4/24/2025
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
-#zone_pivot_groups: app-service-webjobs
+zone_pivot_groups: app-service-webjobs
 #Customer intent: As a web developer, I want to leverage a scheduled background task to keep my application running smoothly.
 ---
 
