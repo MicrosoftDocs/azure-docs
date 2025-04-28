@@ -58,4 +58,4 @@ You can move between Free or Standard plans via the Azure portal.
 
 1. Select **Save**.
 
-**For Dedicated Plan deployments, please follow the [Deploy your web app to Azure Static Web Apps](deploy-web-framework.md) guide to redeploy to a new Static Web App.**
+**For Dedicated Plan deployments, follow the [Deploy your web app to Azure Static Web Apps](deploy-web-framework.md) guide to redeploy to a new Static Web App.**
