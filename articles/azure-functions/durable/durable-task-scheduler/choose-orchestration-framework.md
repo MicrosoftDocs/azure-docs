@@ -7,7 +7,7 @@ ms.author: azfuncdf
 author: lilyjma
 ---
 
-# Choosing your orchestration framework
+# Choosing an orchestration framework
 
 The goal of this article is to provide information about two developer-oriented orchestration frameworks supported by Azure and considerations for when to choose which. The article will also provide some context around scenarios that warrant the use of an orchestration framework. 
 

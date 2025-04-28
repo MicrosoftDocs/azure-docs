@@ -111,8 +111,6 @@
     href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Choosing an orchestration framework
     href: ./durable-task-scheduler/choose-orchestration-framework.md
-  - name: Cost Considerations 
-    href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Concepts
     items:
     - name: Monitoring dashboard
@@ -163,8 +161,6 @@
       items:
       - name: Durable Functions
         href: /javascript/api/durable-functions/
-      - name: Durable Task SDK
-        href: /javascript/api/durable-functions/ #placeholder
     - name: Python API
       items:
       - name: Durable Functions
@@ -177,7 +173,7 @@
          href: /java/api/com.microsoft.durabletask.azurefunctions
        - name: Durable Task SDK
          href: /java/api/com.microsoft.durabletask
-  - name: Azure storage provider
+  - name: Azure storage provider for Durable Functions
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
