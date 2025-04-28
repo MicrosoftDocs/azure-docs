@@ -13,7 +13,7 @@ This article describes how to manage the settings for MongoDB Atlas resources.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an MongoDB Atlas resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a MongoDB Atlas resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
 The *Essentials* details include:
 
