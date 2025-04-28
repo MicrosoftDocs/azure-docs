@@ -27,7 +27,7 @@ Ensure the redirect URI in Authentication is correct, federated credentials are 
 If you already have an Entra ID application registered, you need to update the redirect URI with either the private IP or the FQDN of the Open OnDemand virtual machine.
 
 Verify that both the `ccw` and `OpenOnDemand` clusters are started. Although there may be some temporary errors, both clusters should be ready within a few minutes. 
-Retrieve the IP address of the Open OnDemand VM from the CycleCloud UI. To complete the configuration of the registered application, add a new redirect URI, 'https://<ip>/oidc', in the Authentication settings of the application as illustrated below.
+Retrieve the IP address of the Open OnDemand VM from the CycleCloud UI. To complete the configuration of the registered application, add a new redirect URI, 'https://`<ip`>/oidc', in the Authentication settings of the application as illustrated below.
 
 ![Screenshot of Entra ID redirect URI update](../../images/ccws/entraid-redirect-uri.png)
 
