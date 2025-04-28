@@ -20,14 +20,14 @@ This quickstart provides instructions on how to interact with the Microsoft Plan
 * A Geocatalog collection with:
   * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.md).
   * Items ingested. Learn how to [ingest STAC items](./ingestion-source.md).
-  * A collection that has been configured for visualization per the guidelines provided in [Configure a collection with the Microsoft Planetary Computer Pro portal](./configure-collection-portal.md)
+  * A collection that has been configured for visualization per the guidelines provided in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md)
 
-## Open the Microsoft Planetary Computer Pro portal
+## Open the Microsoft Planetary Computer Pro web interface
 
 1. Sign in to Azure Portal
 1. In the Azure Portal search box, enter GeoCatalogs. Select GeoCatalogs in the search results.
 1. In the GeoCatalogs page, select the GeoCatalog you want to explore.
-1. In the GeoCatalog's "Resource" page, under the Essentials section, follow the GeoCatalog URI link to open the Planetary Computer Pro portal.
+1. In the GeoCatalog's "Resource" page, under the Essentials section, follow the GeoCatalog URI link to open the Planetary Computer Pro web interface.
 
 ## Launch the Planetary Computer Pro Explorer
 

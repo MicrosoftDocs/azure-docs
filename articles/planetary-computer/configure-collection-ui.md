@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Configure a collection with the Microsoft Planetary Computer Pro portal"
+title: "Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface"
 description: Learn how to configure collections in the Microsoft Planetary Computer Pro portal. 
 author: beharris
 ms.author: brentharris
 ms.service: azure
 ms.topic: quickstart
 ms.date: 04/23/2025
-#customer intent: As a user of geospatial data, I want to configure a collection in the Planetary Computer Pro portal so that I can visualize my data in the Explorer.
+#customer intent: As a user of geospatial data, I want to configure a collection in the Planetary Computer Pro web interface so that I can visualize my data in the Explorer.
 ---
 
-# Quickstart: Configure a collection with the Microsoft Planetary Computer Pro portal
+# Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface
 
-This quickstart explains how to configure a collection in Microsoft Planetary Computer Pro via the portal. This approach is ideal if you are less comfortable using ur APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
+This quickstart explains how to configure a collection in Microsoft Planetary Computer Pro via the web interface. This approach is ideal if you are less comfortable using ur APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
 
 ## Prerequisites
 
@@ -22,12 +22,12 @@ To complete this quickstart, you need:
 - An Azure blob storage container with:
   - A geospatial dataset in a supported format. See [Supported data types](./supported-data-types.md) for more information.
   - Associated STAC metadata for the dataset. See [Create STAC Item](./create-stac-item.md) for more information.
-- A web browser to access the Planetary Computer Pro portal.
+- A web browser to access the Planetary Computer Pro web interface.
 - A collection in Microsoft Planetary Computer Pro with at least one item in it. 
 
 ## Configure a collection
 
-To configure a collection in the Microsoft Planetary Computer Pro portal, follow these steps:
+To configure a collection in the Microsoft Planetary Computer Pro web interface, follow these steps:
 
 1. Navigate to the **Overview** tab of your collection, and click the **Configuration** button.
    
@@ -51,4 +51,4 @@ To configure a collection in the Microsoft Planetary Computer Pro portal, follow
 Now that your collection is ready to be vizualized, it's time to view it in the Explorer.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro portal](./ingest-via-portal.md)
+> [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro web interface](./ingest-via-ui.md)

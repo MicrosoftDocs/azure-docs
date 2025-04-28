@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a collection with the Microsoft Planetary Computer Pro portal"
-description: Learn how to create collections in the Microsoft Planetary Computer Pro portal. 
+title: "Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface"
+description: Learn how to create collections in the Microsoft Planetary Computer Pro web interface. 
 author: beharris
 ms.author: brentharris
 ms.service: azure
@@ -9,9 +9,9 @@ ms.date: 04/23/2025
 #customer intent: As a user of geospatial data, I want to create a STAC collection so that I can organize metadata for geospatial assets for later querying.
 ---
 
-# Quickstart: Create a collection with the Microsoft Planetary Computer Pro portal
+# Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface
 
-This quickstart explains how to create a collection in Microsoft Planetary Computer Pro via the portal. This approach is ideal if you are less comfortable using ur APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
+This quickstart explains how to create a collection in Microsoft Planetary Computer Pro via the web interface. This approach is ideal if you are less comfortable using ur APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
 
 ## Prerequisites
 
@@ -22,13 +22,13 @@ To complete this quickstart, you need:
 - An Azure blob storage container with:
   - A geospatial dataset in a supported format. See [Supported data types](./supported-data-types.md) for more information.
   - Associated STAC metadata for the dataset. See [Create STAC Item](./create-stac-item.md) for more information.
-- A web browser to access the Planetary Computer Pro portal.
+- A web browser to access the Planetary Computer Pro web interface.
 
-## Navigating the Microsoft Planetary Computer Pro portal
+## Navigating the Microsoft Planetary Computer Pro web interface
 
-The Microsoft Planetary Computer Pro portal is a web-based interface that allows you to manage your geospatial data and collections. You can access the portal by navigating to the URL of your GeoCatalog instance in a web browser, or by using the link provided in your GeoCatalog resource in Azure Portal. 
+The Microsoft Planetary Computer Pro web interface is a web-based interface that allows you to manage your geospatial data and collections. You can access the web interface by navigating to the URL of your GeoCatalog instance in a web browser, or by using the link provided in your GeoCatalog resource in Azure Portal. 
 
-Upon entry to the portal, you will find yourself on the Planetary Computer Pro landing page, which provides you with a list of your most recently created collections (if you already have some), as well as a button to create a new collection. 
+Upon entry to the web interface, you will find yourself on the Planetary Computer Pro landing page, which provides you with a list of your most recently created collections (if you already have some), as well as a button to create a new collection. 
 
 The **Collections** page provides you with a full list of your collections, including their names, descriptions, date created, and a collection thumbnail. You can also search for collections by name or description keywords, and create a new collection from this page. This quickstart will show you how to create a collection.
 
@@ -66,4 +66,4 @@ The **Explorer** page is where you can visualize your data on a map. Here, you c
 
 ## Next steps
 
-Once you have created your collection, you will need to ingest data into it. Follow along with the [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro portal](./ingest-via-portal.md) to learn how to ingest data into your collection.
+Once you have created your collection, you will need to ingest data into it. Follow along with the [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro web interface](./ingest-via-ui.md) to learn how to ingest data into your collection.
