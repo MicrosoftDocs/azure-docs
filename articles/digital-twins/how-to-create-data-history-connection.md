@@ -165,9 +165,7 @@ Now that you created the required resources, use the command in this section to 
 
 This command also creates three tables in your Azure Data Explorer database to store twin property updates, relationship lifecycle events, and twin lifecycle events, respectively. For more information about these types of historized data and their corresponding Azure Data Explorer tables, see [Data types and schemas](concepts-data-history.md#data-types-and-schemas).
 
-# [CLI](#tab/cli) 
-
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
+# [CLI](#tab/cli)
 
 Use the command in this section to create a data history connection and the tables in Azure Data Explorer. The command always creates a table for historized twin property updates, and it includes parameters to create the tables for relationship lifecycle and twin lifecycle events.
 

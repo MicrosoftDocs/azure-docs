@@ -4,7 +4,7 @@ description: Some guidelines and recommendations for using proxy servers in Azur
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 08/08/2022
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
