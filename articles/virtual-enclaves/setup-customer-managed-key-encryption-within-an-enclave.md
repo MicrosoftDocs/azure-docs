@@ -32,7 +32,7 @@ Every enclave is deployed with an [Azure Key Vault](https://aka.ms/kv) in the [d
 Examples of setting-up CMK encryption are provided below, with more [detailed instructions](#create-cmk-via-the-portal) or articles provided.
 
 ### Create a Key in a Key Vault
-- How-to Azure article - [Key creation starts after Step 6](https://learn.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-azure-key-vault)
+- How-to Azure article - [Key creation starts after Step 6](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-azure-key-vault)
 
 ### Disk encryption sets (Windows IaaS)
 - How-to Azure article - [Pick up after KV creation](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
@@ -206,7 +206,7 @@ KV access is restricted to the KV virtual network so the KV Key will need to be 
 ```
 
 ## References
-- [Disk Encryption](https://learn.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
+- [Disk Encryption](/azure/virtual-machines/windows/disk-encryption-overview)
 Read More:
-- [Generate Keys on Windows](https://learn.microsoft.com/windows-server/administration/openssh/openssh_keymanagement)
+- [Generate Keys on Windows](/windows-server/administration/openssh/openssh_keymanagement)
 - [Configure Key Vault for Storage Account CMK](../storage/common/customer-managed-keys-configure-new-account.md)

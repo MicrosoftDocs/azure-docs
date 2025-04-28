@@ -18,9 +18,9 @@ Communities are isolated hub networks that can securely and logically group seve
 
 
 Communities come with the following primary platform-managed and platform-deployed resources:
-- Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](https://learn.microsoft.com/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud).
+- Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud).
 - [Azure Firewall](../firewall/overview.md). By default, all Communities are deployed with a secure-by-default Azure Firewall in which all Community network traffic is routed through.
-- [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview.md). By default, all Community resources are integrated into Azure Log Analytics, ensuring all activities within a Community are effectively monitored, logged, and audited, laying the foundation for actionable insights. More specifically, all resources deployed in a Community send their [diagnostic platform logs](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings.md) to this Log Analytics Workspace.
+- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all Community resources are integrated into Azure Log Analytics, ensuring all activities within a Community are effectively monitored, logged, and audited, laying the foundation for actionable insights. More specifically, all resources deployed in a Community send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
 
 ### Community address space
 > [!NOTE]
@@ -36,7 +36,7 @@ See [template documentation](./ave-templates.md#community-template)
 ## Managed Resources
 - [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md)
 - [Azure Firewall](../firewall/overview.md)
-- [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview.md)
+- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview)
 
 ## Next Steps
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)

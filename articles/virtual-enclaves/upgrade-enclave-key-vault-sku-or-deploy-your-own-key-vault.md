@@ -17,10 +17,10 @@ In accordance with Azure Virtual Enclaves (AVE) default [governance and cybersec
 
 Every [enclave](./what-enclave.md) is deployed with an [Azure Key Vault](https://aka.ms/kv) with Standard SKU. Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. By default, Enclave Contributors should be able to upload keys, secrets, or certificates to the Enclave Key Vault and utilize existing Azure capabilities and design patterns of other Azure services to support CMK encryption.
 
-Certain customers also have unique key management, security, encryption, or hardware requirements that dictate what Azure Key Vault SKU should be deployed. [Learn more](https://learn.microsoft.com/azure/security/fundamentals/key-management-choose).
+Certain customers also have unique key management, security, encryption, or hardware requirements that dictate what Azure Key Vault SKU should be deployed. [Learn more](/azure/security/fundamentals/key-management-choose).
 
 ## Upgrade/Downgrade Enclave SKU Key Vault through PowerShell
-These steps can be followed for scenarios where Enclave Owners require a different Key Vault SKU than the SKU currently configured for their enclave. If Enclave Owners require a Managed, Dedicated, or Payment HSM, AVE advises Enclave Owners to [Deploy a Managed HSM as a Workload](#deploy-a-managed-hsm-as-a-workload). Learn more about [Azure Key Vault PowerShell modules](https://learn.microsoft.com/powershell/module/az.keyvault/?view=azps-11.4.0). 
+These steps can be followed for scenarios where Enclave Owners require a different Key Vault SKU than the SKU currently configured for their enclave. If Enclave Owners require a Managed, Dedicated, or Payment HSM, AVE advises Enclave Owners to [Deploy a Managed HSM as a Workload](#deploy-a-managed-hsm-as-a-workload). Learn more about [Azure Key Vault PowerShell modules](/powershell/module/az.keyvault/?view=azps-11.4.0). 
 
 1. Select the enclave that has the key vault you wish to upgrade or downgrade
 2. Select the managed resource group in the Essentials section
@@ -51,7 +51,7 @@ Should an Enclave Owner require either Dedicated, Payment, or Managed HSM soluti
 - [Choose the right key management solution](../security/fundamentals/key-management-choose.md)
 - Determine SKU types (`StandardB1`, `CustomB32`)
 
-AVE recommends following the [Quickstart: Create and activate a Managed HSM using PowerShell](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-powershell.md) guide to create a new Managed HSM as a workload in an enclave. AVE also advises Enclave Owners to follow Azure Key Vault and [Managed HSM best practices](https://learn.microsoft.com/azure/key-vault/managed-hsm/overview.md). Some important notes or guidance follows:
+AVE recommends following the [Quickstart: Create and activate a Managed HSM using PowerShell](/azure/key-vault/managed-hsm/quick-create-powershell.md) guide to create a new Managed HSM as a workload in an enclave. AVE also advises Enclave Owners to follow Azure Key Vault and [Managed HSM best practices](/azure/key-vault/managed-hsm/overview). Some important notes or guidance follows:
 
 1. AVE advises setting `PublicNetworkAccess` to `Disabled`, and within `networkAcls`: `bypass` to `None`, and `defaultAction` to `Deny`.
 2. After ManagedHSM resource creation completes successfully, AVE advises Enclave Owners to create a Private Endpoint for their ManagedHSM. 
@@ -59,6 +59,6 @@ AVE recommends following the [Quickstart: Create and activate a Managed HSM usin
 
 
 ## References
-- [Azure Key Vault developer's guide](https://learn.microsoft.com/azure/key-vault/general/developers-guide.md)
-- [What is Azure Key Vault Managed HSM?](https://learn.microsoft.com/azure/key-vault/managed-hsm/overview.md)
+- [Azure Key Vault developer's guide](/azure/key-vault/general/developers-guide)
+- [What is Azure Key Vault Managed HSM?](/azure/key-vault/managed-hsm/overview)
 - [Choose the right key management solution](../security/fundamentals/key-management-choose.md)

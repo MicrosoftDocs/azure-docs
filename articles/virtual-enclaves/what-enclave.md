@@ -15,8 +15,8 @@ An enclave is an isolated Azure Virtual Network that is part of a [community](./
 ## Architecture of an enclave
 
 Enclaves come with the following primary platform-managed and platform-deployed resources:
-- Isolated [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts) you define. By default, these Enclaves aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](https://learn.microsoft.com/azure/azure-portal/azure-portal-safelist-urls.md). Enabling connections is done through the use of platform-managed [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-- [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview.md). By default, all Enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a Community and Enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an Enclave send their [diagnostic platform logs](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings.md) to this Log Analytics Workspace.
+- Isolated [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts) you define. By default, these Enclaves aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls). Enabling connections is done through the use of platform-managed [Network Security Groups](../virtual-network/network-security-groups-overview.md).
+- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all Enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a Community and Enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an Enclave send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
 - [Azure Bastion](../bastion/bastion-overview.md).
 - [Private Endpoints](../private-link/private-endpoint-overview.md) and [Private DNS Zones](../dns/private-dns-privatednszone.md). By default and for private networking security, Azure Private DNS Zones, along with certain private DNS records, are created for every new enclave. All platform-managed Enclave resources are configured to use Azure Private Link Service.
 
@@ -35,10 +35,10 @@ See [template documentation](./ave-templates.md#enclave-template)
 
 ## Managed Resources
 The following resources types are deployed into the Enclave Managed Resource Group:
-- [Azure Virtual Network](https://learn.microsoft.com/azure/virtual-network/virtual-networks-overview.md)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts)
 - [Network Security Groups](../virtual-network/network-security-groups-overview.md)
-- [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview.md)
+- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview)
 - [Azure Bastion](../bastion/bastion-overview.md)
 - [Private Endpoints](../private-link/private-endpoint-overview.md)
 - [Private DNS Zones](../dns/private-dns-privatednszone.md)

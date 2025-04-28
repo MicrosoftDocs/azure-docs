@@ -70,7 +70,7 @@ Deploy the template:
 
 ## Community and Enclaves Template
 
-[What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
+[What gets deployed](./deploy-community-enclaves-template.md#what-gets-deployed)
 1. One  [Community](./what-community.md)
 2. Two  [Community Endpoints](./what-community-endpoint.md)
 3. One  [Transit Hub](./what-transit-hub.md)
@@ -83,7 +83,7 @@ Deploy the template:
 
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
-[Deploy the template](./deploy-an-ave-community-with-enclaves.md#deploy-the-template)
+[Deploy the template](./deploy-community-enclaves-template.md#deploy-the-template)
 
 ### Community Template
 What gets deployed:

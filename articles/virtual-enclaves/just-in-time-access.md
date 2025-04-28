@@ -14,7 +14,7 @@ Azure Virtual Enclaves (AVE) leverage **Privileged Identity Management (PIM)** t
 
 ---
 
-[Azure Privileged Identity Management (PIM)](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure) is an Azure service that helps you manage, control, and monitor access within your Azure environment. By combining Azure PIM with Azure Virtual Enclave, you can enforce a controlled and secure workflow for approving actions that are taken within Azure Virtual Enclave. This can help prevent unauthorized or accidental changes that could change your organization's security posture.
+[Azure Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is an Azure service that helps you manage, control, and monitor access within your Azure environment. By combining Azure PIM with Azure Virtual Enclave, you can enforce a controlled and secure workflow for approving actions that are taken within Azure Virtual Enclave. This can help prevent unauthorized or accidental changes that could change your organization's security posture.
 
 Here's how you can use Azure PIM to approve actions within Azure Virtual Enclave:
 
@@ -101,7 +101,7 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 - [Privileged Identity Management Overview](../active-directory/privileged-identity-management/pim-configure.md)
 - [Azure Conditional Access Policies](../active-directory/conditional-access/overview.md)
 - [Azure Virtual Enclaves Documentation](./what-azure-virtual-enclaves.md)
-- [Azure Monitor for Logging and Diagnostics](https://learn.microsoft.com/azure/azure-monitor/fundamentals/overview)
+- [Azure Monitor for Logging and Diagnostics](/azure/azure-monitor/fundamentals/overview)
 - [Microsoft Sentinel Integration](../sentinel/overview.md)
 
 ---

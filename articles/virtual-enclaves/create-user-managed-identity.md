@@ -20,7 +20,7 @@ ms.date: 04/08/2025
 3. Select `Create`
 4. Enter the Workload Resource Group (RG) or RG where you would like to store the Managed Identity resource
 
-![Screenshot that shows the Create User Assigned Managed Identity pane.](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png)
+![Screenshot that shows the Create User Assigned Managed Identity pane.](/entra/identity/managed-identities-azure-resources/media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png)
 
 5. Confirm the Region and enter a name for the Managed Identity resource.
 6. Select `Review + Create` and then select `Create`
@@ -36,5 +36,5 @@ ms.date: 04/08/2025
 7. The Key Vault should be using Role Base Access Control (RBAC), then select the `Key Vault Crypto Service Encryption User` role
 
 Read More:
-1. [How to create a user assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+1. [How to create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 2. [Manage User Assigned Identity](../operator-service-manager/how-to-create-user-assigned-managed-identity.md)

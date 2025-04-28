@@ -48,7 +48,7 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
       - **Create new**: Select and enter the name `rg-webapp-frontend` then select `Ok`
 > [!Note]
 >
-> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming.md).
+> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
 ![Screenshot showing the frontend Workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-frontend-workload-screen-basics-input.png)
 

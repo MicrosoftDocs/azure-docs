@@ -74,8 +74,8 @@ Description: Azure Key Vault is one of several key management solutions in Azure
  - Certificate Management - Azure Key Vault lets you easily create, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
 
 Documentation:
-[About Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview)
-[Azure Key Vault basic concepts](https://learn.microsoft.com/azure/key-vault/general/basic-concepts)
+[About Azure Key Vault](/azure/key-vault/general/overview)
+[Azure Key Vault basic concepts](/azure/key-vault/general/basic-concepts)
 
 
 ## App Service Web App
@@ -92,25 +92,25 @@ Description: Azure Functions is a serverless solution that allows you to write l
 ## Azure SQL
 [How to create an AVE compliant Azure SQL](./deploy-azure-sql-service-catalog.md)
 
-Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [Learn more](https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview)
+Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [Learn more](/azure/azure-sql/database/sql-database-paas-overview)
 
 
 ## Azure Kubernetes Service (AKS)
 [How to create an AVE compliant AKS](./deploy-azure-kubernetes-service-service-catalog.md)
 
-Description: Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You need minimal container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. [Learn more](https://learn.microsoft.com/azure/aks/what-is-aks)
+Description: Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You need minimal container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. [Learn more](/azure/aks/what-is-aks)
 
 
 ## Azure Container Registry (ACR)
 [How to create an AVE compliant ACR](./deploy-azure-container-registry-service-catalog.md)
 
-Description: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers. [Learn more](https://learn.microsoft.com/azure/container-registry/container-registry-intro)
+Description: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers. [Learn more](/azure/container-registry/container-registry-intro)
 
 
 ## Azure Cosmos DB
 [How to create an AVE compliant Cosmos DB](./deploy-azure-cosmos-db-service-catalog.md)
 
-Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to back up to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [Learn more](https://learn.microsoft.com/azure/cosmos-db/introduction)
+Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to back up to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [Learn more](/azure/cosmos-db/introduction)
 
 
 ## Service Bus
@@ -121,7 +121,7 @@ Description: Azure Service Bus is a fully managed enterprise message broker with
 
 ## Azure Compute Gallery
 
-Description: An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and applications. [Learn more](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery)
+Description: An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and applications. [Learn more](/azure/virtual-machines/azure-compute-gallery)
 
 Status: **Future Development**
 

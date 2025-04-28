@@ -23,14 +23,14 @@ For a more exhaustive and detailed checklist, see [Checklist before moving resou
 - When you move a resource, the ID of the resource also changes. The standard format for a resource ID is `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. 
     - When you move a resource to a new resource group or subscription, you change one or more values in that path.
     - If you use the resource ID anywhere (such as in custom dashboards, scripts, or templates) you need to change that value. 
-- Source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, contact [Azure Support](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+- Source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, contact [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 - Source and destination subscriptions must exist within the same Microsoft Entra tenant.
 - The resources you want to move into your Enclave must support the move operation. For a list of which resources support move, see [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 - Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.
     - [App Service move guidance](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
     - [Networking move guidance](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
     - [Virtual Machine move guidance](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)
-    - To move an Azure subscription to a new management group, see [Move subscriptions](https://learn.microsoft.com/azure/governance/management-groups/overview).
+    - To move an Azure subscription to a new management group, see [Move subscriptions](/azure/governance/management-groups/overview).
 - The destination subscription must be registered for the `Microsoft.Mission` resource provider and the resource provider of the resource being moved. If not, you'll receive an error stating that the subscription isn't registered for a resource type.
 - Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription exceeds its limits, you need to review whether you can request an increase in the quota.
 - The account moving the resources must have at least the following permissions:
