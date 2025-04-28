@@ -32,7 +32,7 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 * The Unix permissions you specify apply only for the volume mount point (root directory).  
 * You can modify the Unix permissions on the source volume *but not the destination volume* that is in a replication configuration.
 
-## Set UNIX permissions for new volumes
+## Set Unix permissions for new volumes
 
 1. You can specify the **Unix permissions** and change ownership mode (**`Chown Mode`**) settings under the **Protocol** tab when you [create an NFS volume](azure-netapp-files-create-volumes.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). 
 
@@ -40,7 +40,7 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 
     ![Screenshots that shows the Create a Volume screen for NFS.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-create-nfs-volume.png)
 
-## Set UNIX permissions for existing volumes
+## Set Unix permissions for existing volumes
 
 For existing NFS or dual-protocol volumes, you can set or modify **Unix permissions** and **change ownership mode** as follows:  
 
