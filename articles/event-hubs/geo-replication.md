@@ -155,7 +155,7 @@ Consuming applications can consume data using the namespace hostname of a namesp
 
 ### Checkpointing/Offset Management
 
-Event consuming applications can continue to maintain offset management as they would do it with a single namespace.
+Event consuming applications can continue to maintain offset management as they would do it with a non-geo replicated namespace. No special consideration is needed for offset management for geo-replication enabled namespaces.
 
 > [!WARNING]
 > In the event of forced failover (i.e. non graceful failover), some of the data that hasn't been copied over may be lost. This may cause the offsets of that specific data to be different across the primary and secondary regions for the namespace, however it would still be within the bounds of the maximum replication lag configured for the namespace.
@@ -164,13 +164,44 @@ Event consuming applications can continue to maintain offset management as they 
 
 #### Kafka
 
-Offsets are committed to Event Hubs directly and offsets are replicated across regions. Therefore, consumers can start consuming from where it left off in the primary region. 
+Offsets are committed to Event Hubs directly and offsets are replicated across regions. Therefore, consumers can start consuming from where it left off in the primary region.
+
+Here are the list of Apache Kafka clients that are supported - 
+
+TBD add versions.
+| Client name | Version |
+| ----------- | ------- |
+| Apache Kafka | |
+| Librdkafka and derived libraries | |
+
+In the case of other libraries, these are supported based on the versioning of the specific definitions - 
+
+TBD add protocol versions.
+| Operation name | Version supported |
+| -------------- | ----------------- |
+|||
+|||
+|||
+
 
 #### Event Hubs SDK/AMQP
 
-TBD - call out that Track 0 SDKs will have trouble. Track 1 and later are fine.
+In the case of AMQP, the checkpoint is managed by users with a checkpoint store such as Azure Blob storage or a custom storage solution. If there's a failover, the checkpoint store must be available from the secondary region so that clients can retrieve checkpoint data and avoid loss of messages.
 
-Clients that use the Event Hubs SDK need to upgrade to the April 2024 version of the SDK. The latest version of the Event Hubs SDK supports failover with an update to the checkpoint. The checkpoint is managed by users with a checkpoint store such as Azure Blob storage, or a custom storage solution. If there's a failover, the checkpoint store must be available from the secondary region so that clients can retrieve checkpoint data and avoid loss of messages.
+The latest version of the Event Hubs SDK has made some changes to checkpoint representation to supports failovers. We recommend using the [latest versions of the SDKs](sdks.md), but prior versions of the below SDKs are supported as well.
+
+TBD add other language package names
+
+| Language | Package name|
+| -------- | ----------- |
+| C# | [Azure.Messaging.EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) |
+| C# | [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) |
+
+> [!WARNING]
+> If you use the legacy SDK, [Windows.Azure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) you may encounter issues consuming from a geo-replication namespace after promotion of the secondary to primary.
+>
+> It is recommended to upgrade to the [latest versions of the SDKs](sdks.md)
+>
 
 ## Considerations
 
