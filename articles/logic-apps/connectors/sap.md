@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/25/2025
+ms.date: 04/28/2025
 
 #customer intent: As a developer, I want to know the prerequisites and details about using SAP with Azure Logic Apps, so I can connect to an SAP server from my Consumption or Standard workflow.
 ---
@@ -70,6 +70,12 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   Instead, the SAP built-in connector communicates directly with your SAP server in the integrated virtual network, which avoids hops, latency, and failure points for a network gateway. Make sure that you upload or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
 
+* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
+
+* By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
+
+  In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
+
 * Payload sizes up to 100 MB are supported, so you don't have to use a blob URI for large requests.
 
 * Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
@@ -82,141 +88,143 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   
     This capability addresses a problem with the SAP managed connector where the outcome from the autocommit behavior is silent and observable only through logs.
 
+* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password.
+
+  This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
+
 * A longer time-out compared to the SAP managed connector.
 
   The SAP built-in connector natively runs on the Azure Logic Apps runtime, unlike the SAP managed connector that runs on the shared, global, multitenant Azure infrastructure. This design difference means that you can change the default time-out value on the Standard logic app resource by using the **host.json** settings named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and [**functionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions).
 
   The capability to adjust the time-out value means that you can use the SAP built-in connector as-is for long-running synchronous requests. Otherwise, these requests have to use the action pattern for long-running webhook-based requests in the SAP managed connector, which has a much shorter two-minute time-out for synchronous requests.
 
-* By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
+* Where to find the **`guid`** and **`tId`** parameters
 
-  In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
+  The XML parameters for **`guid`** and **`tId`** are no longer available in input and output XML payloads. Instead, you can find the parameters as explicit parameters in the workflow designer on the **Parameters** tab and as dynamic output expressions.
 
-* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
+* Handling empty XML elements
 
-* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password.
+  - SAP built-in connector: An empty XML element is treated as an SAP parameter with an explicit empty value or default value.
 
-  This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
+  - SAP managed connector: An empty XML element is interpreted as a missing parameter and isn't sent to the SAP function.
 
-* Changes to `guid` and `tId` Handling
+  **Example**
 
-  The XML parameters for `guid` and `tId` are no longer available within the input or output XML payloads.  
-  Instead, they are now exposed as explicit parameters in the Logic App Designer's input pane and as dynamic output expressions.
-
-* Difference in how empty XML elements are handled
-
-  - **BuiltIn SAP Connector**: An empty XML element is treated as a SAP parameter with an explicit empty value or default value.  
-  - **Managed SAP Connector**: An empty XML element is interpreted as a missing parameter, and the parameter is not sent to the SAP function.
-
-  **Example**  
-  Given the following SAP RFC input payload:
+  Suppose you have the following SAP RFC input payload:
   
   ```xml
   <RfcName>
-    <Parameter></Parameter>
+     <Parameter></Parameter>
   </RfcName>
   ```
-  - In Logic App Standard built-in connector, the Parameter is included in the SAP RFC call with an explicit empty value ('').
-  
-  - In the Managed SAP Connector, the Parameter is omitted entirely from the SAP RFC call.
 
-* Trimming of whitespace characters.
+  - In SAP built-in connector, the SAP RFC call includes the parameter as an explicit empty value ('').
 
-  The Built-in SAP Connector in Logic App Standard automatically trims whitespace characters within XML elements.
+  - In the SAP managed connector, the SAP RFC call omits the parameter entirely.
 
-  For example, the following input:
+* Trimming whitespace characters
+
+  The SAP built-in connector automatically trims whitespace characters in XML elements.
+
+  For example, suppose you have the following input:
+
   ```xml
   <RfcName>
-    <Parameter>     </Parameter>
+     <Parameter>   </Parameter>
   </RfcName>
   ```
-  would result in the SAP RFC function call with the Parameter value interpreted as an empty string ('').
 
-  To preserve whitespace characters, you can explicitly specify the `xml:space="preserve"` attribute on the element. For example:
+  In the SAP RFC function call, the whitespace in the **Parameter** value is treated as an empty string ('') and is trimmed. To make sure that the call keeps whitespace exactly as provided in the payload, include the **`xml:space="preserve"`** attribute with the element, for example:
+
   ```xml
   <RfcName>
-    <Parameter xml:space="preserve">     </Parameter>
+     <Parameter xml:space="preserve">   </Parameter>
   </RfcName>
   ```
-  Using `xml:space="preserve"` ensures that the connector retains the whitespace characters exactly as provided in the payload.
 
-* IDoc Format Validation
+* Validating IDoc format
 
-  The **Built-in SAP Connector** strictly validates the input payload against the `IDoc Format` specified in the action inputs.  
-  If there is a mismatch between the provided `IDoc Format` and the structure of the input XML IDoc, the built-in connector will throw an error.
-  
-  In contrast, the **Managed SAP Connector** infers the IDoc format directly from the input payload, allowing more flexibility without requiring an exact format match.
+  - SAP built-in connector: Strictly validates the input payload against the **`IDoc Format`** specified in the action inputs. If a mismatch exists between the provided **`IDoc Format`** and the input XML IDoc structure, the built-in connector throws an error.
 
-* Difference in handling BizTalk XML group segments.
+  - SAP managed connector: Direclty infers the IDoc format from the input payload, allowing for more flexibility by not requiring an exactly matching format.
 
-  - **Built-in SAP Connector**: Strictly follows the schema defined by the Schema Generator. A group segment (a segment ending with `GRP`) must define its child segments only once per instance. To represent multiple items, multiple instances of the group segment should be created, each containing its own set of child segments.
-  - **Managed SAP Connector**: Allows multiple repetitions of child elements within a single group segment. These are interpreted as multiple instances of the group segment.
+* Handling BizTalk XML group segments
 
-  **Example Behavior**  
-  The following structure, where multiple sequences of child elements are grouped under a single group segment, would be **rejected** by the Built-in SAP connector in Logic App Standard:
+  - SAP built-in connector**: Strictly follows the schema defined by the schema generator.
+
+    - A segment that ends with **`GRP`** (group segment) must define any child segments only one time per instance.
+
+    - To represent multiple sets of child segments, create multiple instances of the group segment so that each instance contains its own individual set of child segments.
+
+  - SAP managed connector: Allows multiple repetitions of child elements within a single group segment. These repetitions are interpreted as multiple instances of the group segment.
+
+  **Example behavior**
+
+  In the following structure, a single group segment defines multiple sequences of child elements, which is rejected by the SAP built-in connector:
   
   ```xml
   <ns2:E2EDKT1002GRP>
-      <ns2:E2EDKT1002>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDID>FD</ns2:TDID>
-      </ns2:E2EDKT1002>
-      <ns2:E2EDKT2001>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDLINE>CRSD</ns2:TDLINE>
-      </ns2:E2EDKT2001>
-      <ns2:E2EDKT1002>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDID>DTP</ns2:TDID>
-      </ns2:E2EDKT1002>
-      <ns2:E2EDKT2001>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
-          <ns2:TDFORMAT>/</ns2:TDFORMAT>
-      </ns2:E2EDKT2001>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>FD</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>CRSD</ns2:TDLINE>
+     </ns2:E2EDKT2001>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>DTP</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+        <ns2:TDFORMAT>/</ns2:TDFORMAT>
+     </ns2:E2EDKT2001>
   </ns2:E2EDKT1002GRP>
   ```
-  Instead, the following structure is valid for the Built-in SAP connector, where each instance of the `E2EDKT1002GRP` group contains only a single sequence of child segments:
+
+  Instead, use following structure for the SAP built-in connector where each **`E2EDKT1002GRP`** group instance contains only a single sequence of child segments:
 
   ```xml
   <ns2:E2EDKT1002GRP>
-      <ns2:E2EDKT1002>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDID>FD</ns2:TDID>
-      </ns2:E2EDKT1002>
-      <ns2:E2EDKT2001>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDLINE>CRSD</ns2:TDLINE>
-      </ns2:E2EDKT2001>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>FD</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>CRSD</ns2:TDLINE>
+     </ns2:E2EDKT2001>
   </ns2:E2EDKT1002GRP>
   <ns2:E2EDKT1002GRP>
-      <ns2:E2EDKT1002>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDID>DTP</ns2:TDID>
-      </ns2:E2EDKT1002>
-      <ns2:E2EDKT2001>
-          <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
-          <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
-          <ns2:TDFORMAT>/</ns2:TDFORMAT>
-      </ns2:E2EDKT2001>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>DTP</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+        <ns2:TDFORMAT>/</ns2:TDFORMAT>
+     </ns2:E2EDKT2001>
   </ns2:E2EDKT1002GRP>
   ```
 
-* SAP Trigger Behavior
+* Built-in trigger behavior
 
-  - **Namespace Construction**:  
-    The SAP trigger uses the release version from the SAP Fetch Metadata response to construct the namespace in the trigger payload.  
-    To override this and use the release version specified in the control record instead, set the `EnforceControlRecordNamespace` property to `true` in the trigger input parameters within the Logic App Designer.
-  
-  - **Handling Empty Elements**:  
-    By default, the SAP trigger does not include empty elements in the output payload.  
-  To include empty nodes in the trigger output, set the `EnableEmptyXmlNode` property to `true` in the trigger input parameters within the Logic App Designer. 
+  - Namespace construction
 
-* **Generate Schema** action
+    To construct the namespace in the SAP trigger payload, the trigger uses the released version from the SAP Fetch Metadata response. To override this behvior and use the release version specified in the control record instead, go to the workflow designer, and in the trigger input parameters, set the **`EnforceControlRecordNamespace`** property to **`true`**.
+
+  - Handling empty elements
+
+    By default, the SAP trigger doesn't include empty elements in the output payload. To include empty elements in the trigger output, go to the workflow designer, and in the trigger input parameters, set the **`EnableEmptyXmlNode`** property to **`true`**.
+
+* Built-in **Generate Schema** action
 
   * You can select from multiple operation types, such as BAPI, IDoc, RFC, and tRFC, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
 
-  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you had to provide a complex **Action URI** parameter name.
+  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you have to provide a complex **Action URI** parameter name.
 
   * By design, this action doesn't support generating multiple schemas for RFCs, BAPIs, or IDocs in single action execution, which the SAP managed connector supports. This capability change now prevents attempts to send large amounts of content in a single call.
 
