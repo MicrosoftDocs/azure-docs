@@ -3,7 +3,7 @@ title: Child resources in Bicep
 description: Describes how to set the name and type for child resources in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Set name and type for child resources in Bicep

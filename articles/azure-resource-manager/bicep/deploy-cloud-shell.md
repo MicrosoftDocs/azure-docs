@@ -3,7 +3,7 @@ title: Deploy Bicep files with Cloud Shell
 description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Deploy Bicep files from Azure Cloud Shell
