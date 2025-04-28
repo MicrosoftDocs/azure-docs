@@ -7,4 +7,4 @@ ms.author: godonnell
 ---
 
 > [!IMPORTANT]
-> Effective May 1, 2025, Azure AD B2C will no longer be available to purchase for new customers (learn more in our [FAQ](../articles/active-directory-b2c/faq.yml?#how-does-this-affect-azure-ad-b2c)). Microsoft Entra External ID represents the future of CIAM for Microsoft, and new features and capabilities will be focused on this platform. By choosing the next generation platform from the start, you will receive the benefits of rapid innovation and a future-proof architecture.
+> Effective May 1, 2025, Azure AD B2C will no longer be available to purchase for new customers (learn more in our [FAQ](../articles/active-directory-b2c/faq.yml?#how-does-this-affect-azure-ad-b2c-)). Microsoft Entra External ID represents the future of CIAM for Microsoft, and new features and capabilities will be focused on this platform. By choosing the next generation platform from the start, you will receive the benefits of rapid innovation and a future-proof architecture.
