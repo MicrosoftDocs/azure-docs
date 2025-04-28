@@ -14,10 +14,11 @@ This article summarizes naming rules and restrictions for Azure Virtual Enclave 
 
 This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 
-Note
-* Resource and resource group names are case-insensitive unless specifically noted in the valid characters column.
-* When using various APIs to retrieve the name for a resource or resource group, the returned value might have different casing than what you originally specified for the name. The returned value might even display different case values than what is listed in the valid characters table.
-* Always perform a case-insensitive comparison of names.
+> [!NOTE]
+> 
+> Resource and resource group names are case-insensitive unless specifically noted in the valid characters column.
+> When using various APIs to retrieve the name for a resource or resource group, the returned value might have different casing than what you originally specified for the name. The returned value might even display different case values than what is listed in the valid characters table.
+> Always perform a case-insensitive comparison of names.
 
 In the following tables, the term alphanumeric refers to:
 
@@ -25,10 +26,11 @@ In the following tables, the term alphanumeric refers to:
 - **A** through **Z** (uppercase letters)
 - **0** through **9** (numbers)
 
-Note
-* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../azure-resource-manager/troubleshooting/error-reserved-resource-name.md).
+> [!NOTE]
+> 
+> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../azure-resource-manager/troubleshooting/error-reserved-resource-name.md).
 
-## Azure Virtual Enclaves esource provider naming rules
+## Azure Virtual Enclaves resource provider naming rules
 There are naming rules for each Azure Virtual Enclaves resource under the `Microsoft.Mission` resource provider.
 
 | Entity | Scope | Length | Valid Characters |
