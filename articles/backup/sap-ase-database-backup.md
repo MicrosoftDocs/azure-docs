@@ -157,7 +157,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 16. Select **Enable Backup** to start the backup operation.
 
-After the backup configuration is complete, Azure Backup takes backup of the SAP ASE database as per the backup schedule set in the backup policy. You can also [run an on-demand backup](sap-ase-database-backup-tutorial.md#run-an-on-demand-backup) to create the first full backup.
+After the backup configuration is complete, Azure Backup takes backup of the SAP ASE database as per the backup schedule set in the backup policy. You can also [run an on-demand backup](sap-ase-database-backup-tutorial.md#run-an-on-demand-backup-for-sap-ase-database) to create the first full backup.
 
 ## Next step
 

@@ -279,7 +279,7 @@ To discover the SAP ASE databases, follow these steps:
 1. Select **Continue**.
 1. On the **Start: Configure Backup** pane,  under **Vault**, click **Select vault**.
 
-   :::image type="content" source="./media/sap-ase-database-backup-tutorial/select-vault.png" alt-text="Screenshot shows how to start the discovery of the database." lightbox="./media/sap-ase-database-backup-tutorial/start-database-discovery.png":::
+   :::image type="content" source="./media/sap-ase-database-backup-tutorial/select-vault.png" alt-text="Screenshot shows how to select a vault to configure backup." lightbox="./media/sap-ase-database-backup-tutorial/start-database-discovery.png":::
 
 
 1. On the **Select a Vault** pane, under **Filter by name**, type the vault name that hosts the SAP ASE database.
