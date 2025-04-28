@@ -9,14 +9,14 @@ ms.author: padmalathas
 # Azure CycleCloud Workspace for Slurm
 
 
-The current release is `_NEW_RELEASE_`
+The current release is `2025.04.24`
 
 
 ## Release Notes
 
 Comprehensive release notes for the individual releases are listed:
 
-* [**_NEW_RELEASE_ Release Notes**](_NEW_RELEASE_.md) - released on _NEW_RELEASE_
+* [**2025.04.24 Release Notes**](2025.04.24.md) - released on 04/24/25
 * [**2025.02.06 Release Notes**](2025.02.06.md) - released on 02/06/25
 * [**2024.12.18 Release Notes**](2024.12.18.md) - released on 12/18/24
 * [**2024.11.08 Release Notes**](2024.11.08.md) - released on 11/08/24
