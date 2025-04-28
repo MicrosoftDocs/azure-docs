@@ -15,11 +15,11 @@ You have two deployment options for Azure CycleCloud Workspace for Slurm:
 When doing a deployment, the Azure user account used need to be granted the following roles:
 - `Contributor` on the Subscription
 - `User Access Administrator` on the Subscription
-Optionaly you also need to be able to register an application in Entra ID.
+Optionals you also need to be able to register an application in Entra ID.
 
 > [!NOTE]
-> It is recommended to pre-deploy a [Hub VNet](/azure/architecture/networking/architecture/hub-spoke) to connect to your enterprise network if one is not already established. This hub can accommodate a [VPN Gateway](/azure/vpn-gateway/tutorial-create-gateway-portal) and an Azure Bastion. The CycleCloud Workspace for Slurm environment will be a spoke and peered during deployment.
-> Contact Azure HPC Support if VPN or Azure Bastion do not meet your requirements or are blocked by your organization
+> It's recommended to predeploy a [Hub VNet](/azure/architecture/networking/architecture/hub-spoke) to connect to your enterprise network if one isn't already established. This hub can accommodate a [VPN Gateway](/azure/vpn-gateway/tutorial-create-gateway-portal) and an Azure Bastion. The CycleCloud Workspace for Slurm environment will be a spoke and peered during deployment.
+> Contact Azure HPC Support if VPN or Azure Bastion don't meet your requirements or are blocked by your organization
 
 ## Greenfield Deployment
 
@@ -59,7 +59,7 @@ If you're bringing your own VNET, follow these prerequisites:
 
 The Azure Bastion tunneling scenario won't work for Open OnDemand. The recommended approach is to use a VPN Gateway with Point-to-Site (P2S) VPN connections or have an Express Route configured. This allows users to connect securely to the CycleCloud workspace network and access Open OnDemand.
 
-To support the Open ID Connect authentication mechanism, there will be a need to register an Entra ID application, make sure you are granted the roles to do it or have someone with the right permissions to do it for you.
+To support the Open ID Connect authentication mechanism, there will be a need to register an Entra ID application, make sure you're granted the roles to do it or have someone with the right permissions to do it for you.
 
 ## Quotas
 
