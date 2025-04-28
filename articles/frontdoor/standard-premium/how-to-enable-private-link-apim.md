@@ -53,7 +53,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
     | Target sub resource | Select **Gateway**. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
-    :::image type="content" source="../media/how-to-enable-private-link-apim/apim-privatelink.png" alt-text="Screenshot of origin settings for configuring API Management as a private origin." lightbox="../media/how-to-enable-private-link-apim/apim-privatelink.png":::
+    :::image type="content" source="../media/how-to-enable-private-link-apim/apim-private-link.png" alt-text="Screenshot of origin settings for configuring API Management as a private origin." lightbox="../media/how-to-enable-private-link-apim/apim-private-link.png":::
 
 1. Select **Add** to save your origin settings
 
