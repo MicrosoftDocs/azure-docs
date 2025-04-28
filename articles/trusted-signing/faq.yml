@@ -40,14 +40,11 @@ sections:
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
           - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
-  - name: Certificate profiles and identity validation
+  - name: identity validation
     questions:
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
-      - question: Does deleting a certificate profile revoke the certificates? 
-        answer: |
-          - No. If you delete a certificate profile, any certificates that were previously issued or used under that profile remain valid. The certificates aren't revoked.
       - question: Can I use a custom CN or a custom O with Trusted Signing? 
         answer: |
           - No, you can't use a custom Common Name (CN) or a custom Organization (O) with Trusted Signing. Currently, the Trusted Signing service doesn't support customization. Also, keep in mind that per the Certification Authority Browser Forum (CA/Browser Forum) in the Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must always be the legal entity's validated name (for example, `Microsoft Corporation`).
@@ -69,6 +66,20 @@ sections:
       - question: What if email validation link has expired?
         answer: | 
           - If you missed to click on the email verification within 7 dyas, you need to start a new identity validation request. A new link cannot be resent on the same request.
+      - question: What if email validation says "Failed" and you think you never received the email validation link?
+        answer: | 
+          - create another identity validation request, ensuring that the email address used meets the criteria and can receive links from external email addresses
+  - name: Certificate profiles
+    questions:
+      - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
+        answer: |
+          - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
+      - question: Does deleting a certificate profile revoke the certificates? 
+        answer: |
+          - Deleting a certificate profile does not revoke any previously issued certificates or invalidate their signatures; they remain valid.
+      - question: Can I add OU field to Public Trust or Public Trust Test or VBS enclave certificate profile? 
+        answer: |
+          - No. OU fields are only available with Private Trust certificates.
   - name: Signing
     questions:
       - question: What types of files can we sign by using Trusted Signing?
@@ -160,6 +171,9 @@ sections:
        - question: Is the pricing pro-rated or it is full amount regardless of when you begin to use the service?
          answer: | 
           The pricing is not calculated on a pro rata basis. The invoice is generated with the full amount for the SKU that you selected when you created the account, regardless of when you begin to use the service after you create your account. 
+       - question: What does the signing quota include?
+         answer: | 
+          The signing quota encompasses all signing activities across any certificate profile within a Trusted Signing account. 
   - name: Unenroll from the Trusted Signing service
     questions:  
        - question: How do I unenroll from Trusted Signing?
