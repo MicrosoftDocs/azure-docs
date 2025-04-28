@@ -94,7 +94,7 @@ The following table shows the language versions supported for Node.js functions.
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
 
-Node.js 22 support for Flex Consumption is coming soon.
+Node.js 22 isn't currently supported when running in a Flex Consumption plan.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
