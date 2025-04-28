@@ -185,7 +185,7 @@ items:
     - name: Migrate VMware servers 
       items:
         - name: Migrate to Azure Cloud
-          href: tutorial-migrate-vmware.md
+          href: ./vmware/tutorial-migrate-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
         - name: Migrate to Azure Local 
           href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate Hyper-V servers 
