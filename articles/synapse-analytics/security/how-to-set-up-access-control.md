@@ -289,4 +289,4 @@ This guide has focused on setting up a basic access control system. You can supp
 ## Related content
 
  - [Manage Azure Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
- - [Create aSynapse Workspace](../quickstart-create-workspace.md)
+ - [Create a Synapse Workspace](../quickstart-create-workspace.md)

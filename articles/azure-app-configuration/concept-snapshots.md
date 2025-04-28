@@ -45,7 +45,7 @@ As snapshots are immutable entities, snapshots can only be created and archived.
 * **Recover snapshot**: Recovering a snapshot puts it back in an active state. At this point, the snapshot is no longer subject to expiration based on its configured retention period. Recovery is only possible in the retention period after archival.
 
 > [!NOTE]
-> The retention period can only be set during the creation of a snapshot. The default value for retention period is 30 days for Standard stores and 7 days for Free stores.
+> The retention period can only be set during the creation of a snapshot. The default value for retention period is 30 days for Standard and Premium tier stores and 7 days for Free and Developer tier stores.
 
 ## Requirements for snapshot operations
 

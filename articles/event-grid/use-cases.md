@@ -66,7 +66,6 @@ A multitenant SaaS provider or platform can publish their events to Event Grid t
 - [Auth0](auth0-overview.md)
 - [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Microsoft Entra ID](microsoft-entra-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
 - [Tribal Group](subscribe-to-tribal-group-events.md)
-- [SAP](subscribe-to-sap-events.md)
 
 ## Pull delivery use cases
 Azure Event Grid features [pull CloudEvents delivery](pull-delivery-overview.md#push-and-pull-delivery). With this delivery mode, clients connect to Event Grid to read events. The following use cases can be realized using pull delivery.

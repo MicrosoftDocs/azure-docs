@@ -32,7 +32,7 @@ items:
     - name: Appliance requirements
       href: migrate-appliance.md
     - name: Discover VMware estate
-      href: tutorial-discover-vmware.md
+      href: ./vmware/tutorial-discover-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Scoped discovery of VMware estate
       href: set-discovery-scope.md
     - name: Discover Hyper-v estate
@@ -56,7 +56,7 @@ items:
       - name: CSV import
         href: tutorial-discover-import.md
       - name: RVTools import
-        href: tutorial-import-vmware-using-rvtools-xlsx.md
+        href: ./vmware/tutorial-import-vmware-using-rvtools-xlsx.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Create least privileged credentials for SQL discover
       href: least-privilege-credentials.md
 - name: Explore inventory
@@ -154,13 +154,13 @@ items:
     - name: Agent-based migrations
       items:
       - name: Agent-based migration using portal
-        href: vmware/tutorial-migrate-vmware-agent.md
+        href: ./vmware/tutorial-migrate-vmware-agent.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Agentless migrations
       items:
       - name: Agentless migrations using portal
         href: vmware/tutorial-migrate-vmware.md
       - name: Agentless migrations using scripts
-        href: vmware/tutorial-migrate-vmware-powershell.md
+        href: ./vmware/tutorial-migrate-vmware-powershell.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 #   - name: Limitations
 - name: Modernize applications
   items:
@@ -185,7 +185,7 @@ items:
     - name: Migrate VMware servers 
       items:
         - name: Migrate to Azure Cloud
-          href: tutorial-migrate-vmware.md
+          href: ./vmware/tutorial-migrate-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
         - name: Migrate to Azure Local 
           href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate Hyper-V servers 
