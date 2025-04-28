@@ -79,7 +79,7 @@ The following table specifies the values of each environment variable value post
 
 ## Task environment variables related to directory location
 
-The job directory are different between [single-run job](jobs-and-tasks.md#jobs) and [job schedule](jobs-and-tasks.md#scheduled-jobs), following table specifies the values of job directory in single-run job and job schedule.
+The job directories are different between [single-run job](jobs-and-tasks.md#jobs) and [job schedule](jobs-and-tasks.md#scheduled-jobs). The following table specifies the values of job directory in single-run job and job schedule.
 
 |Job Type|Job Directory Value Postfix after AZ_BATCH_NODE_ROOT_DIR|
 |:---|:---|
