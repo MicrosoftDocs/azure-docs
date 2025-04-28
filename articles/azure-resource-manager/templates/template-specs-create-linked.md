@@ -2,7 +2,7 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---

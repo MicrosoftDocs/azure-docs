@@ -4,7 +4,7 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/05/2024
+ms.date: 04/25/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 ms.custom: devx-track-azurecli
@@ -16,7 +16,7 @@ This article describes how to configure data export to send data to the Blob Sto
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md)
+To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md).
 
 ## Set up a Blob Storage export destination
 
@@ -96,7 +96,7 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 1. Select **Save**.
 
-If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshooting.md).
+If you don't see data arriving in your destination service, see [Troubleshooting in Azure IoT Central](troubleshooting.md).
 
 # [Connection string](#tab/connection-string)
 
@@ -311,4 +311,4 @@ The following example shows an exported audit log message received in Azure Blob
 
 ## Next steps
 
-Now that you know how to export to Blob Storage, a suggested next step is to learn [Export to Service Bus](howto-export-to-service-bus.md).
+Now that you know how to export to Blob Storage, a suggested next step is to learn how to [Export IoT data to Service Bus](howto-export-to-service-bus.md).
