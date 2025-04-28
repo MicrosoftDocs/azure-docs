@@ -167,7 +167,7 @@
     - name: Recover or purge deleted stores
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
 - name: AI configuration
-- items:
+  items:
   - name: Overview
     href: concept-ai-configuration.md
   - name: Chat completion
