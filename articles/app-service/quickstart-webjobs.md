@@ -1,33 +1,68 @@
 ---
-title: 'Quickstart: Create a scheduled WebJob'
+title: 'Create a scheduled Python WebJob'
 description: WebJobs on App Service enable you to automate repetitive tasks on your app. Learn how to create scheduled WebJobs in Azure App Service.
-ms.topic: quickstart
-ms.date: 8/21/2024
+ms.topic: how-to
+ms.date: 4/24/2025
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
-zone_pivot_groups: app-service-webjobs
+#zone_pivot_groups: app-service-webjobs
 #Customer intent: As a web developer, I want to leverage a scheduled background task to keep my application running smoothly.
 ---
 
 # Quickstart: Create a scheduled WebJob
 
-In this quickstart, you create a scheduled WebJob to delete temporary files from a specified directory.
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs. This sample uses a Triggered (scheduled) WebJob to output the system time once every 15 minutes.  
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An App Service App on Linux. In this quickstart, [a Python app](quickstart-python.md) is used.
+- An existing App Service app on Linux. In this quickstart, [a Python app](quickstart-python.md) is used.
 - **[Always on](configure-common.md?tabs=portal)** must enabled on your app.
-- App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `FALSE`.
+- App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` set to `FALSE`.
 
-## Create a scheduled WebJob
+## Download the sample WebJob
 
 :::zone target="docs" pivot="dotnet"
 dotnet
 :::zone-end
 
+:::zone target="docs" pivot="node"
+node
+:::zone-end
+
+:::zone target="docs" pivot="java"
+java
+:::zone-end
+
+:::zone target="docs" pivot="php"
+php
+:::zone-end
+
 :::zone target="docs" pivot="python"
+[Download the sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip).
+
+The sample Python WebJob is in `webjob.py`. It outputs the current time to the console as shown below:
+
+```Python 
+import datetime 
+
+current_datetime = datetime.datetime.now() 
+print(current_datetime) # Output: 2025-03-27 10:27:21.240752 
+``` 
+
+The file, `run.sh`, calls WebJob.py as shown below:
+
+```Bash
+#!/bin/bash
+/opt/python/3/bin/python3.13 webjob.py
+``` 
+
+The file, `run.sh` is included to show the capability of WebJobs. You can also omit the file and only include `webjob.py` in the .zip file.
+
+:::zone-end
+
+## Create a scheduled WebJob
 
 1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
 
@@ -54,19 +89,6 @@ dotnet
     :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
-:::zone-end
-
-:::zone target="docs" pivot="node"
-node
-:::zone-end
-
-:::zone target="docs" pivot="java"
-java
-:::zone-end
-
-:::zone target="docs" pivot="php"
-php
-:::zone-end
 
 ## <a name="NextSteps"></a> Next steps
 

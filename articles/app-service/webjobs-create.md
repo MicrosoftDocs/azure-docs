@@ -7,11 +7,8 @@ ms.topic: conceptual
 ms.date: 3/01/2024
 author: msangapu-msft
 ms.author: msangapu
-ms.reviewer: cephalin;suwatch;pbatum;naren.soni;
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./webjobs-create-ieux
+ms.reviewer: glenga;suwatch;pbatum;naren.soni;
+
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 ---
 
