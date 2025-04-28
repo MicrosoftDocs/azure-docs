@@ -310,7 +310,6 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
-
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -378,7 +377,18 @@
           href: troubleshoot-dns-issues.md
         - name: Troubleshoot TWAMP (UDP) not working
           href: troubleshoot-twamp-udp-not-working.md
-    - name: Cluster or BMM
+    - name: Cluster
+      expanded: false
+      items:
+        - name: Troubleshoot Accepted Cluster Resource
+          href: troubleshoot-accepted-cluster-hydration.md
+        - name: Troubleshoot Control Plane Quorum
+          href: troubleshoot-control-plane-quorum.md
+        - name: Troubleshoot ETCD Cluster quorum loss and recovery
+          href: troubleshoot-etcd-cluster-possible-quorum-lost.md
+        - name: Troubleshoot Cluster heartbeat connection status disconnected
+          href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
+    - name: Bare Metal Machine
       expanded: false
       items:
         - name: Troubleshoot Bare Metal Server Problems
@@ -391,14 +401,8 @@
           href: troubleshoot-bare-metal-machine-degraded.md
         - name: Troubleshoot Warning status
           href: troubleshoot-bare-metal-machine-warning.md
-        - name: Troubleshoot Control Plane Quorum
-          href: troubleshoot-control-plane-quorum.md
-        - name: Troubleshoot Accepted Cluster Resource
-          href: troubleshoot-accepted-cluster-hydration.md
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
-        - name: Troubleshoot Cluster heartbeat connection status disconnected
-          href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
         - name: Troubleshoot Bare Metal Machine in not ready state
           href: troubleshoot-bare-metal-machine-not-ready-state.md
     - name: Tenant Workload
