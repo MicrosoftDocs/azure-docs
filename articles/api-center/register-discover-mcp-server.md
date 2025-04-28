@@ -1,18 +1,18 @@
 ---
 title: Inventory and Discover MCP Servers in Your API Center
-description: Learn about how Azure API Center can be a centralized inventory for MCP servers in your organization. Developers and other stakeholders can use the API Center portal to discover MCP servers.
+description: Learn about how Azure API Center can be a centralized registry for MCP servers in your organization. Developers and other stakeholders can use the API Center portal to discover MCP servers.
 author: dlepow
 ms.service: azure-api-center
 ms.custom: 
 ms.topic: concept-article
-ms.date: 04/23/2025
+ms.date: 04/28/2025
 ms.author: danlep 
-# Customer intent: As an API program manager, I want to register and discover MCP servers as APIs in my API Center inventory.
+# Customer intent: As an API program manager, I want to register and discover  MCP servers as APIs in my API Center inventory.
 ---
 
-# Register and discover MCP servers in your API inventory
+# Register and discover remote MCP servers in your API inventory
 
-This article describes how to use Azure API Center to maintain an inventory of model context protocol (MCP) servers and help stakeholders discover them using the API Center portal. MCP servers expose backend APIs or data sources in a standard way to AI agents and models that consume them.
+This article describes how to use Azure API Center to maintain an inventory (or *registry*) of remote model context protocol (MCP) servers and help stakeholders discover them using the API Center portal. MCP servers expose backend APIs or data sources in a standard way to AI agents and models that consume them.
 
 ## About MCP servers
 
@@ -22,7 +22,7 @@ The [model context protocol](https://www.anthropic.com/news/model-context-protoc
 
 ### MCP architecture
 
-THe following diagram illustrates the MCP architecture:
+The following diagram illustrates the MCP architecture:
  
 :::image type="content" source="media/register-discover-mcp-server/mcp-architecture.png" alt-text="Diagram of model context protocol (MCP) architecture.":::
 
@@ -39,7 +39,7 @@ MCP follows a client-server architecture where a host application can connect to
 
 ### Remote versus local MCP servers
 
-The MCP standard supports two modes of operation:
+MCP utilizes a client-host-server architecture built on [JSON-RPC 2.0 for messaging](https://modelcontextprotocol.io/docs/concepts/architecture). Communication between clients and servers occurs over defined transport layers, and supports primarily two modes of operation:
 
 * **Remote MCP servers** - MCP clients connect to MCP servers over the internet, establishing a connection using HTTP and server-sent events (SSE), and authorizing the MCP client access to resources on the user's account using OAuth.
 
@@ -47,13 +47,13 @@ The MCP standard supports two modes of operation:
 
 ## MCP servers in your API inventory
 
-The following sections describe how to inventory and discover an MCP server in your API Center inventory. You can register remote or local MCP servers.
+The following sections describe how to inventory and discover an MCP server in your API Center. You can register remote or local MCP servers.
 
 ### MCP API type
 
 To register an MCP server in your API center inventory, specify the API type as **MCP**. To register an API using the Azure portal, see [Tutorial: Register APIs in your API inventory](register-apis.md).
 
-When you register an MCP server, you can specify the following information:
+As described in the following sections, when you register an MCP server, you can specify an environment, deployment, and definition.
 
 
 ### Environment and deployment for MCP server
@@ -67,7 +67,7 @@ For information about creating an environment and a deployment, see [Tutorial: A
 Optionally, add an API definition for a remote MCP server in OpenAPI 3.0 format. The API definition must include a URL endpoint for the MCP server. For an example of adding an OpenAPI definition, see [Tutorial: Register APIs in your API inventory](register-apis.md#add-a-definition-to-your-version).
 
 
-The following is an example of an OpenAPI 3.0 API definition for an MCP server, which includes a `url` endpoint for the MCP server:
+You can use the following lightweight OpenAPI 3.0 API definition for your MCP server, which includes a `url` endpoint for the MCP server:
 
 
 ```json
@@ -91,6 +91,9 @@ The following is an example of an OpenAPI 3.0 API definition for an MCP server, 
 Set up the [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover MCP servers in your API inventory. Users can browse and filter MCP servers in the inventory and view details such as a the URL endpoint of the MCP server, if available in the MCP server's API definition. 
 
 :::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP server in API Center portal.":::
+
+> [!NOTE]
+> The URL endpoint for the MCP server is only visible in the API Center portal if you add an MCP deployment and an API definition for the MCP server.
 
 ## Related content
 
