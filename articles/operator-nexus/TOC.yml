@@ -249,7 +249,7 @@
           href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
         - name: How to configure BGP prefix limit on Customer Edge (CE) devices for Azure Operator Nexus
           href: howto-configure-bgp-prefix-limit-on-customer-edge-devices.md
-        - name: BMP log streaming in Azure Operator Nexus Network Fabric 
+        - name: BMP log streaming in Azure Operator Nexus Network Fabric
           href: concepts-bmp-log-streaming.md
         - name: How to enable / disable BMP log streaming Azure Operator Nexus
           href: howto-enable-log-streaming.md
@@ -397,6 +397,10 @@
           href: troubleshoot-accepted-cluster-hydration.md
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
+        - name: Troubleshoot Cluster heartbeat connection status disconnected
+          href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
+        - name: Troubleshoot Bare Metal Machine in not ready state
+          href: troubleshoot-bare-metal-machine-not-ready-state.md
     - name: Tenant Workload
       expanded: false
       items:
