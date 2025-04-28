@@ -80,7 +80,7 @@ The following table shows the language versions supported for Java functions.
 | **Java 11** | GA |See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 8** | GA | See this [Temurin support page](https://adoptium.net/support/). |
 
-Java 21 support for Windows and Flex Consumption is coming soon.
+Java 21 isn't currently supported when running on Windows or on Linux in a Flex Consumption plan.
 
 For more information on developing and running Java functions, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
