@@ -139,7 +139,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
 > [!NOTE]
 > If you have already failed over a VM and it is running in Azure, note that disable protection doesn't remove / affect the failed over VM.
-## Disable protection for an Azure VM (Azure to Azure)
+## Disable protection for a Azure VM (Azure to Azure)
 
 -  In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
 > [!NOTE]
