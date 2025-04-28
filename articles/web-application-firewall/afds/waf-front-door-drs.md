@@ -1,6 +1,6 @@
 ---
 title: Azure Web Application Firewall DRS rule groups and rules
-description: This article provides information on Azure Web Application Firewall DRS rule groups and rules.
+description: Learn about the Azure Web Application Firewall Default Rule Set (DRS) rule groups and rules on Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
@@ -1150,7 +1150,7 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 
 ---
 
-## Next steps
+## Related content
 
 - [Custom rules for Azure Web Application Firewall on Azure Front Door](waf-front-door-custom-rules.md)
 - [Learn more about Azure network security](../../networking/security/index.yml)
