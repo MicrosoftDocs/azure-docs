@@ -56,8 +56,6 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
 3. The **Azure Firewall** section lists all the available capabilities that you can use.
 
-    :::image type="content" source="media/firewall-copilot/copilot-system-capabilities.png" alt-text="Screenshot of the system capabilities for Azure Firewall in Microsoft Security Copilot.":::
-
 ## Enable the Azure Firewall integration in Security Copilot
 
 1.  Ensure your Azure Firewall is configured correctly:
