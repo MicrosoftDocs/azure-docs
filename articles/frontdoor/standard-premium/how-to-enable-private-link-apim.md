@@ -71,7 +71,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your API Management through Front Door. 
 
-    :::image type="content" source="../media/how-to-enable-private-link-apimapim-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in API Management portal." lightbox="../media/how-to-enable-private-link-apim/apim-private-endpoint-connections.png":::
+    :::image type="content" source="../media/how-to-enable-private-link-apim/apim-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in API Management portal." lightbox="../media/how-to-enable-private-link-apim/apim-private-endpoint-connections.png":::
 
 ::: zone-end
 
