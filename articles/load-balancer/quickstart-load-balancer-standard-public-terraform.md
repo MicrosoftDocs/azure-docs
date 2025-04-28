@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a public load balancer - Terraform"
+title: 'Quickstart: Create a public load balancer - Terraform'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using Terraform.
 services: load-balancer
@@ -7,7 +7,7 @@ author: mbender-ms
 manager: kumudD
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 01/10/2025
+ms.date: 04/01/2025
 ms.author: mbender
 ms.custom: devx-track-terraform
 #Customer intent: I want to create a load balancer by using Terraform so that I can load balance internet traffic to VMs.
@@ -31,316 +31,34 @@ This quickstart shows you how to deploy a standard load balancer to load balance
 > * Create an Azure Virtual Machine Extension using [azurerm_virtual_machine_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension)
 
 ## Prerequisites
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ## Implement the Terraform code
 
-> [!NOTE]
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-load-balancer-public). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-load-balancer-public/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
-1. Create a directory in which to test the sample Terraform code and make it the current directory.
+1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+1. Create a file named `providers.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/providers.tf":::
 
-    ```
-    terraform {
-      required_version = ">=0.12"
-   
-      required_providers {
-        azapi = {
-          source  = "azure/azapi"
-          version = "~>1.5"
-        }
-        azurerm = {
-          source  = "hashicorp/azurerm"
-          version = "~>2.0"
-        }
-        random = {
-          source  = "hashicorp/random"
-          version = "~>3.0"
-        }
-      }
-    }
-   
-    provider "azurerm" {
-      features {}
-    }
-    ```
+1. Create a file named `main.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/main.tf":::
 
-1. Create a file named `main.tf` and insert the following code:
+1. Create a file named `variables.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/variables.tf":::
 
-    ```
-    resource "random_string" "my_resource_group" {
-      length  = 8
-      upper   = false
-     special = false
-    }
+1. Create a file named `outputs.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/outputs.tf":::
 
-    # Create Resource Group
-    resource "azurerm_resource_group" "my_resource_group" {
-     name     = "test-group-${random_string.my_resource_group.result}"
-     location = var.resource_group_location
-    }
-    
-    # Create Virtual Network
-    resource "azurerm_virtual_network" "my_virtual_network" {
-      name                = var.virtual_network_name
-      address_space       = ["10.0.0.0/16"]
-      location            = azurerm_resource_group.my_resource_group.location
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-    }
-    
-    # Create a subnet in the Virtual Network
-    resource "azurerm_subnet" "my_subnet" {
-      name                 = var.subnet_name
-      resource_group_name  = azurerm_resource_group.my_resource_group.name
-      virtual_network_name = azurerm_virtual_network.my_virtual_network.name
-      address_prefixes     = ["10.0.1.0/24"]
-    }
-    
-    # Create Network Security Group and rules
-    resource "azurerm_network_security_group" "my_nsg" {
-      name                = var.network_security_group_name
-      location            = azurerm_resource_group.my_resource_group.location
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-    
-      security_rule {
-        name                       = "web"
-        priority                   = 1008
-        direction                  = "Inbound"
-        access                     = "Allow"
-        protocol                   = "Tcp"
-        source_port_range          = "*"
-        destination_port_range     = "80"
-        source_address_prefix      = "*"
-        destination_address_prefix = "10.0.1.0/24"
-      }
-    }
-    
-    # Associate the Network Security Group to the subnet
-    resource "azurerm_subnet_network_security_group_association" "my_nsg_association" {
-      subnet_id                 = azurerm_subnet.my_subnet.id
-      network_security_group_id = azurerm_network_security_group.my_nsg.id
-    }
-    
-    # Create Public IP
-    resource "azurerm_public_ip" "my_public_ip" {
-      name                = var.public_ip_name
-      location            = azurerm_resource_group.my_resource_group.location
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-      allocation_method   = "Static"
-      sku                 = "Standard"
-    }
-    
-    # Create Network Interface
-    resource "azurerm_network_interface" "my_nic" {
-      count               = 2
-      name                = "${var.network_interface_name}${count.index}"
-      location            = azurerm_resource_group.my_resource_group.location
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-    
-      ip_configuration {
-        name                          = "ipconfig${count.index}"
-        subnet_id                     = azurerm_subnet.my_subnet.id
-        private_ip_address_allocation = "Dynamic"
-        primary = true
-      }
-    }
-    
-    # Associate Network Interface to the Backend Pool of the Load Balancer
-    resource "azurerm_network_interface_backend_address_pool_association" "my_nic_lb_pool" {
-      count                   = 2
-      network_interface_id    = azurerm_network_interface.my_nic[count.index].id
-      ip_configuration_name   = "ipconfig${count.index}"
-      backend_address_pool_id = azurerm_lb_backend_address_pool.my_lb_pool.id
-    }
-    
-    # Create Virtual Machine
-    resource "azurerm_linux_virtual_machine" "my_vm" {
-      count                 = 2
-      name                  = "${var.virtual_machine_name}${count.index}"
-      location              = azurerm_resource_group.my_resource_group.location
-      resource_group_name   = azurerm_resource_group.my_resource_group.name
-      network_interface_ids = [azurerm_network_interface.my_nic[count.index].id]
-      size                  = var.virtual_machine_size
-    
-      os_disk {
-        name                 = "${var.disk_name}${count.index}"
-        caching              = "ReadWrite"
-        storage_account_type = var.redundancy_type
-      }
-    
-      source_image_reference {
-        publisher = "Canonical"
-        offer     = "0001-com-ubuntu-server-jammy"
-        sku       = "22_04-lts-gen2"
-        version   = "latest"
-      }
-    
-      admin_username                  = var.username
-      admin_password                  = var.password
-      disable_password_authentication = false
-    
-    }
-    
-    # Enable virtual machine extension and install Nginx
-    resource "azurerm_virtual_machine_extension" "my_vm_extension" {
-      count                = 2
-      name                 = "Nginx"
-      virtual_machine_id   = azurerm_linux_virtual_machine.my_vm[count.index].id
-      publisher            = "Microsoft.Azure.Extensions"
-      type                 = "CustomScript"
-      type_handler_version = "2.0"
-    
-      settings = <<SETTINGS
-     {
-      "commandToExecute": "sudo apt-get update && sudo apt-get install nginx -y && echo \"Hello World from $(hostname)\" > /var/www/html/index.html && sudo systemctl restart nginx"
-     }
-    SETTINGS
-    
-    }
-    
-    # Create Public Load Balancer
-    resource "azurerm_lb" "my_lb" {
-      name                = var.load_balancer_name
-      location            = azurerm_resource_group.my_resource_group.location
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-      sku                 = "Standard"
-    
-      frontend_ip_configuration {
-        name                 = var.public_ip_name
-        public_ip_address_id = azurerm_public_ip.my_public_ip.id
-      }
-    }
-    
-    resource "azurerm_lb_backend_address_pool" "my_lb_pool" {
-      loadbalancer_id      = azurerm_lb.my_lb.id
-      name                 = "test-pool"
-    }
-    
-    resource "azurerm_lb_probe" "my_lb_probe" {
-      resource_group_name = azurerm_resource_group.my_resource_group.name
-      loadbalancer_id     = azurerm_lb.my_lb.id
-      name                = "test-probe"
-      port                = 80
-    }
-    
-    resource "azurerm_lb_rule" "my_lb_rule" {
-      resource_group_name            = azurerm_resource_group.my_resource_group.name
-      loadbalancer_id                = azurerm_lb.my_lb.id
-      name                           = "test-rule"
-      protocol                       = "Tcp"
-      frontend_port                  = 80
-      backend_port                   = 80
-      disable_outbound_snat          = true
-      frontend_ip_configuration_name = var.public_ip_name
-      probe_id                       = azurerm_lb_probe.my_lb_probe.id
-      backend_address_pool_ids       = [azurerm_lb_backend_address_pool.my_lb_pool.id]
-    }
-    
-    resource "azurerm_lb_outbound_rule" "my_lboutbound_rule" {
-      resource_group_name     = azurerm_resource_group.my_resource_group.name
-      name                    = "test-outbound"
-      loadbalancer_id         = azurerm_lb.my_lb.id
-      protocol                = "Tcp"
-      backend_address_pool_id = azurerm_lb_backend_address_pool.my_lb_pool.id
-    
-      frontend_ip_configuration {
-        name = var.public_ip_name
-      }
-    }
-    ```
-
-1. Create a file named `variables.tf` and insert the following code:
-
-    ```
-    variable "resource_group_location" {
-      type        = string
-      default     = "eastus"
-      description = "Location of the resource group."
-    }
-    
-    variable "username" {
-      type        = string
-      default     = "microsoft"
-      description = "The username for the local account that will be created on the new VM."
-    }
-    
-    variable "password" {
-      type        = string
-      default     = "Microsoft@123"
-      description = "The password for the local account that will be created on the new VM."
-    }
-    
-    variable "virtual_network_name" {
-      type        = string
-      default     = "test-vnet"
-      description = "Name of the Virtual Network."
-    }
-    
-    variable "subnet_name" {
-      type        = string
-      default     = "test-subnet"
-      description = "Name of the subnet."
-    }
-    
-    variable public_ip_name {
-      type        = string
-      default     = "test-public-ip"
-      description = "Name of the Public IP."
-    }
-    
-    variable network_security_group_name {
-      type        = string
-      default     = "test-nsg"
-      description = "Name of the Network Security Group."
-    }
-    
-    variable "network_interface_name" {
-      type        = string
-      default     = "test-nic"
-      description = "Name of the Network Interface."  
-    }
-    
-    variable "virtual_machine_name" {
-      type        = string
-      default     = "test-vm"
-      description = "Name of the Virtual Machine."
-    }
-    
-    variable "virtual_machine_size" {
-      type        = string
-      default     = "Standard_B2s"
-      description = "Size or SKU of the Virtual Machine."
-    }
-    
-    variable "disk_name" {
-      type        = string
-      default     = "test-disk"
-      description = "Name of the OS disk of the Virtual Machine."
-    }
-    
-    variable "redundancy_type" {
-      type        = string
-      default     = "Standard_LRS"
-      description = "Storage redundancy type of the OS disk."
-    }
-    
-    variable "load_balancer_name" {
-      type        = string
-      default     = "test-lb"
-      description = "Name of the Load Balancer."
-    }
-    ```
-
-1. Create a file named `outputs.tf` and insert the following code:
-
-    ```
-    output "public_ip_address" {
-      value = "http://${azurerm_public_ip.my_public_ip.ip_address}"
-    }
-    ```
+> [!IMPORTANT]
+> If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+>
+> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
+>
+> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
 
 ## Initialize Terraform
 
@@ -356,10 +74,22 @@ This quickstart shows you how to deploy a standard load balancer to load balance
 
 ## Verify the results
 
-1. When you apply the execution plan, Terraform displays the frontend public IP address. If you've cleared the screen, you can retrieve that value with the following Terraform command:
+1. Display the Azure resource group name.
 
     ```console
-    echo $(terraform output -raw public_ip_address)
+    terraform output -raw resource_group_name
+    ```
+
+1. Optionally, display the VM (virtual machine) password.
+
+    ```console
+    terraform output -raw vm_password
+    ```
+
+1. Display the public IP address.
+
+    ```console
+    terraform output -raw public_ip_address
     ```
 
 1. Paste the public IP address into the address bar of your web browser. The custom VM page of the Nginx web server is displayed in the browser.
@@ -374,12 +104,6 @@ This quickstart shows you how to deploy a standard load balancer to load balance
 
 ## Next steps
 
-In this quickstart, you:
-
-* Created an Azure Load Balancer
-* Attached 2 VMs to the load balancer
-* Tested the load balancer
-
-To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md)
+

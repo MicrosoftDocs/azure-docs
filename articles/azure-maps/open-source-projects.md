@@ -26,7 +26,7 @@ The following table lists the open-source projects maintained by Azure Maps team
 | [react-azure-maps] | An Azure Maps Web SDK wrapper in react framework. For more information and interactive samples, see the Azure Maps React wrapper [Getting Started] guide. | [react-azure-maps][react-azure-maps-npm] |
 | [Azure Maps Animation module] | A rich library of animations for use with the Azure Maps Web SDK. | [@azure-maps/animations] |
 | [Azure Maps Gridded Data Source module] | A module for the Azure Maps Web SDK that provides a data source that clusters data points into cells of a grid area. This operation is also known by many names such as tessellations, data binning, or hex bins.  | [@azure-maps/gridded-data-source] |
-| [Azure maps selection control module] | An Azure Maps Web SDK module that provides controls for selecting data in a data source using drawing tools or by requesting a route range polygon. | N/A |
+| [Azure Maps selection control module] | An Azure Maps Web SDK module that provides controls for selecting data in a data source using drawing tools or by requesting a route range polygon. | N/A |
 
 #### Contributed and maintained by Community
 
@@ -71,7 +71,6 @@ Find more open-source Azure Maps projects.
 
 [@azure-maps/animations]: https://www.npmjs.com/package/@azure-maps/animations
 [@azure-maps/gridded-data-source]: https://www.npmjs.com/package/@azure-maps/gridded-data-source
-[Azure Maps & Microsoft Entra ID Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
 [Azure Maps Animation module]: https://github.com/Azure-Samples/azure-maps-animations
 [Azure Maps Bring Data Into View Control module]: https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control
 [Azure Maps Code Samples]: https://github.com/Azure-Samples/AzureMapsCodeSamples
@@ -87,7 +86,6 @@ Find more open-source Azure Maps projects.
 [Azure Maps Sync Map module]: https://github.com/Azure-Samples/azure-maps-sync-maps
 [Code samples]: /samples/browse/?products=azure-maps
 [Getting Started]: https://azure.github.io/react-azure-maps-playground/?path=/docs/getting-started--docs
-[Implement IoT spatial analytics using Azure Maps]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [React Azure Maps Playground]: https://azure.github.io/react-azure-maps-playground/?path=/docs/getting-started--docs
 [react-azure-maps]: https://github.com/Azure/react-azure-maps
 [react-azure-maps-npm]: https://www.npmjs.com/package/react-azure-maps

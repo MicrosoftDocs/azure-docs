@@ -33,11 +33,12 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 
 ### Backup HCX 
 - Azure VMware Solution backs up HCX Cloud Manager configuration daily.
-
-
 - Use the appliance management interface to create backup of HCX in on-premises, see [Backing Up HCX Manager](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/backing-up-and-restoring-hcx-manager/backing-up-hcx-manager.html). You can use the configuration backup to restore the appliance to its state before the backup. The contents of the backup file supersede configuration changes made before restoring the appliance. 
- 
-- HCX cloud manager snapshots are taken automatically during upgrades to HCX 4.4 or later. HCX retains automatic snapshots for 24 hours before deleting them. To take a manual snapshot on HCX Cloud Manager or help with reverting from a snapshot, [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview). 
+- HCX cloud manager snapshots are taken automatically during upgrades to HCX 4.4 or later. HCX retains automatic snapshots for 24 hours before deleting them. 
+
+- You can use HCX Run commands to take an HCX Cloud Manager snapshot, which is retained for 72 hours, see [HCX Run commands](/azure/azure-vmware/use-hcx-run-commands)
+
+- To help with reverting from a snapshot, [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview). 
 
 ## Upgrade HCX 
 The upgrade process is in two steps: 

@@ -4,7 +4,7 @@ description: Known issues and troubleshooting instructions for Teams on Azure Vi
 author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 03/07/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

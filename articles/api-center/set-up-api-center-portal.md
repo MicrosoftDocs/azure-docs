@@ -22,7 +22,10 @@ This article shows you how to set up the *API Center portal* (preview), an Azure
 > [!TIP]
 > Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](#api-management-and-api-center-portals)
 
+
 [!INCLUDE [api-center-portal-prerequisites](includes/api-center-portal-prerequisites.md)]
+
+## Create Microsoft Entra app registration
 
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
 
@@ -52,6 +55,8 @@ API visibility settings control which APIs are discoverable (visible) to API Cen
 To make only specific APIs visible, go to the **API visibility** tab in the API Center portal settings. Here, add filter conditions for APIs based on built-in or custom API [metadata](metadata.md) properties. For instance, you can choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI). Additionally, you can select values of custom metadata properties that categorize your APIs.
 
 :::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::
+
+## Enable sign-in to portal by Microsoft Entra users and groups 
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 

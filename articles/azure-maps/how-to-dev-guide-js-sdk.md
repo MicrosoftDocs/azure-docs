@@ -70,10 +70,10 @@ mapsDemo
 
 ## Create and authenticate a MapsSearchClient
 
-You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either a Microsoft Entra credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
+You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps Search APIs. You can use either a Microsoft Entra credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
 
 > [!TIP]
-> The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search client library][JS-SDK] to learn more about the search methods available.
+> The`MapsSearchClient` is the primary interface for developers using the Azure Maps Search library. See [Azure Maps Search client library][JS-SDK] to learn more about the search methods available.
 
 <a name='using-an-azure-ad-credential'></a>
 
@@ -345,9 +345,9 @@ main().catch(console.error);
 
 ```
 
-## Use V1 SDK
+## Use v1 SDK
 
-We are working to make all V1 features available in V2, until then, install the following V1 SDK packages if needed:
+We are working to make all v1 features available in v2, until then, install the following v1 SDK packages if needed:
 
 ```bash
 npm install @azure-rest/map-search-v1@npm:@azure-rest/map-search@^1.0.0
@@ -361,7 +361,7 @@ const MapsSearchV1 = require("@azure-rest/map-search-v1").default;
 const MapsSearchV2 = require("@azure-rest/map-search-v2").default;
 ```
 
-The following example demonstrates creating a function that accepts an address and search POIs around it. Use V2 SDK to get the coordinates of the address(/geocode) and V1 SDK to search POIs around it(/search/nearby).
+The following example demonstrates creating a function that accepts an address and search POIs around it. Use v2 SDK to get the coordinates of the address(/geocode) and v1 SDK to search POIs around it(/search/nearby).
 
 ```javascript
 const MapsSearchV1 = require("@azure-rest/map-search-v1").default;
