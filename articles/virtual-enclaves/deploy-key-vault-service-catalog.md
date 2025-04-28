@@ -1,5 +1,6 @@
 ---
 title: Deploy a Key Vault from the Service Catalog into a Workload
+titleSuffix: Azure Virtual Enclaves
 description: Deploy a Key Vault from the Service Catalog into a Workload
 author: aserfass-msft
 ms.author: aserfass
@@ -32,16 +33,16 @@ There are guardrails in the enclaves to ensure resources are using CMK encryptio
 > 
 > These resources are not deployed with the enclave or workload by default. Required:
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
+Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
 3. Select the `Key Vault` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
-![Screenshot showing the Storage Account template selected from the Service Catalog list.](./media/service-catalog-list-key-vault.png)
+  ![Screenshot showing the Storage Account template selected from the Service Catalog list.](./media/service-catalog-list-key-vault.png)
 
-4. Enter the required parameters on each tab
+4. Enter the required parameters on each tab.
 5. Adjust any of the prepopulated parameters as needed.
 5. Select `Review + Add` then `Create`.
 

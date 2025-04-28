@@ -13,9 +13,9 @@ ms.date: 04/08/2025
 Moving Azure resources into an enclave is similar to [moving resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md). When you move resources, the target resource group would be a [Workload](./what-workload.md) resource group. [Learn more about Azure tools, scripts, templates, or commands to automate resource group moving or migration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 It's important to note that the following considerations still apply when moving resources into an Enclave or Workload:
-- Locked resources or resource groups can't be moved
-- Source and target resource groups (if using Azure portal, REST, Azure CLI, or Azure PowerShell Resource group move operations) are temporarily locked during the move operations
-- Setting up new dependent resources incur interruptions to those resources until they have been reconfigured
+- Locked resources or resource groups can't be moved.
+- Source and target resource groups (if using Azure portal, REST, Azure CLI, or Azure PowerShell Resource group move operations) are temporarily locked during the move operations.
+- Setting up new dependent resources incur interruptions to those resources until they have been reconfigured.
 - Moving resources only moves those resources to a new resource group or subscription. It doesn't change the location of the resource.
 
 ## Checklist before moving resources
@@ -44,17 +44,17 @@ For a more exhaustive and detailed checklist, see [Checklist before moving resou
 ## Existing Preview Customers
 Certain AVE customers deployed enclaves with early preview or beta builds of AVE or predecessor systems (for example, "mission enclaves"). If you deployed your system into a traditional mission enclave (or similar landing zone architecture), here are some things to consider as you plan your migration into Azure Virtual Enclaves:
 
-- You can't move a mission enclave network into a [Community](./what-community.md) or an [Enclave](./what-enclave.md)
+- You can't move a mission enclave network into a [Community](./what-community.md) or an [Enclave](./what-enclave.md).
 - Migrating secrets from a mission enclave Key Vault to an AVE Key Vault may require using Azure PowerShell modules to do the following:
     - Exporting secrets from the mission enclave Key Vault
     - Temporarily storing those secrets locally
     - Uploading the secrets to the AVE Key Vault
-- [Moving data](./transfer-or-move-data-into-my-enclave.md) from a mission enclave to an AVE enclave requires the creation of [connections](./create-an-enclave-connection-from-the-azure-portal.md) and [endpoints](./create-a-enclave-endpoint-in-the-azure-portal.md)
-- AVE assigns [Azure Policies](./what-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring) to all workload resource groups. Certain preview or beta versions of AVE had manually assigned Policies at different assignment scopes 
-- Certain mission enclave deployments utilized different networking connectivity technology, such as [VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) and IPSec tunnels. AVE additionally utilizes [Azure VWAN](../virtual-wan/virtual-wan-about.md) and [virtual network Peering](../virtual-network/virtual-network-peering-overview.md) for its hub-and-spoke network architecture
-- Certain mission enclave deployments utilize [locks](../azure-resource-manager/management/lock-resources.md). Before you move any resources, these locks must be removed by a user with elevated privileges
-- Certain preview customers of mission enclaves utilize custom Role-based Access Control (RBAC) roles. All possible actions in AVE can be taken with our AVE RBAC roles
-- Accessing an AVE enclave through an [Admin Workstation](./understanding-admin-workstations.md) differs slightly from accessing a mission enclave's evPAW
+- [Moving data](./transfer-or-move-data-into-my-enclave.md) from a mission enclave to an AVE enclave requires the creation of [connections](./create-an-enclave-connection-from-the-azure-portal.md) and [endpoints](./create-a-enclave-endpoint-in-the-azure-portal.md).
+- AVE assigns [Azure Policies](./what-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring) to all workload resource groups. Certain preview or beta versions of AVE had manually assigned Policies at different assignment scopes.
+- Certain mission enclave deployments utilized different networking connectivity technology, such as [VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) and IPSec tunnels. AVE additionally utilizes [Azure VWAN](../virtual-wan/virtual-wan-about.md) and [virtual network Peering](../virtual-network/virtual-network-peering-overview.md) for its hub-and-spoke network architecture.
+- Certain mission enclave deployments utilize [locks](../azure-resource-manager/management/lock-resources.md). Before you move any resources, these locks must be removed by a user with elevated privileges.
+- Certain preview customers of mission enclaves utilize custom Role-based Access Control (RBAC) roles. All possible actions in AVE can be taken with our AVE RBAC roles.
+- Accessing an AVE enclave through an [Admin Workstation](./understanding-admin-workstations.md) differs slightly from accessing a mission enclave's evPAW.
 - **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. Learn more about [DNS in AVE](./understand-domain-name-service.md).
   - If you have requirements to connect to an existing instance of DNS elsewhere, you would provide the private IP addresses of the DNS server as the DNS servers list field for your Community and Enclaves.
 

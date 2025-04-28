@@ -1,5 +1,6 @@
 ---
 title: Policy compliance exemptions
+titleSuffix: Azure Virtual Enclaves
 description: Policy compliance exemptions within Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean
@@ -25,7 +26,8 @@ Once these Initiative assignments have been identified, Enclave Owners can creat
 
 In this image, a Policy initiative assignment within the `contoso4-aadconnect` workload in the `contoso4` Enclave requires an exemption.
 
-![Screenshot showing example policy included guardrails to enforce the security of the isolated environment.](./media/policy-guardrails.png)
+[ ![Screenshot showing example policy included guardrails to enforce the security of the isolated environment.](./media/policy-guardrails.png) ](./media/policy-guardrails.png)
+
 Should further troubleshooting be required to investigate Azure Policy exemptions, contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References

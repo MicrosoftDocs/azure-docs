@@ -21,13 +21,13 @@ Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-pa
 Create a [Community](./what-community.md) and [Enclave](./what-enclave.md).
 
 ### Create AVD through Azure portal into an AVE Workload
-1. [Create a Workload](./create-workload-portal.md) with any specified name (for example, `wl-avd-mgmt-pool`)
-2. [Deploy AVD resources](../virtual-desktop/deploy-azure-virtual-desktop.md) to the Workload RG (for example, `wl-avd-mgmt-pool`)
-   - Create the AVD resources using the [RemoteApp VM template in the Service Catalog](./deploy-remoteapp-vm-service-catalog.md)
-   - Alternatively, follow the [AVD deployment instructions](../virtual-desktop/deploy-azure-virtual-desktop.md) to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the Workload RG (for example, `wl-avd-mgmt-pool`)
-3. [Create Community Endpoint](./create-community-endpoint-portal.md) for necessary URL networking information
-4. [Create Enclave Endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information
-5. [Create the Enclave Connection](./create-enclave-connection-portal.md) so that the customer can access the AVD service in Azure from specified Enclaves
+1. [Create a Workload](./create-workload-portal.md) with any specified name (for example, `wl-avd-mgmt-pool`).
+2. [Deploy AVD resources](../virtual-desktop/deploy-azure-virtual-desktop.md) to the Workload RG (for example, `wl-avd-mgmt-pool`).
+   - Create the AVD resources using the [RemoteApp VM template in the Service Catalog](./deploy-remoteapp-vm-service-catalog.md).
+   - Alternatively, follow the [AVD deployment instructions](../virtual-desktop/deploy-azure-virtual-desktop.md) to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the Workload RG (for example, `wl-avd-mgmt-pool`).
+3. [Create Community Endpoint](./create-community-endpoint-portal.md) for necessary URL networking information.
+4. [Create Enclave Endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information.
+5. [Create the Enclave Connection](./create-enclave-connection-portal.md) so that the customer can access the AVD service in Azure from specified Enclaves.
 
 ## References
 - [What is an Enclave?](./what-enclave.md)

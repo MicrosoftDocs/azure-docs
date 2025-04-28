@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting
-description: Troubleshooting steps for Azure Virtual Enclaves.
+title: Troubleshoot Azure Virtual Enclaves
+description: Troubleshoot steps for Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Troubleshooting
+# Troubleshoot Azure Virtual Enclaves
 
 The following are examples of errors that might be encountered and their solution.
 

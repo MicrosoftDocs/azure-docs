@@ -1,5 +1,6 @@
 ---
 title: Upgrade Key Vault SKU or Deploy your own Key Vault
+titlesuffix: Azure Virtual Enclaves
 description: Upgrade Key Vault SKU or Deploy your own Key Vault.
 author: jadean-msft
 ms.author: jadean

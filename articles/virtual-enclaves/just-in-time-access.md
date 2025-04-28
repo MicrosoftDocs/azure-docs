@@ -1,5 +1,6 @@
 ---
 title: Just-in-Time Access
+titleSuffix: Azure Virtual Enclaves
 description: Just-in-Time Access.
 author: jadean-msft
 ms.author: jadean

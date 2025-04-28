@@ -1,5 +1,6 @@
 ---
 title: Use managed identities
+titlesuffix: Azure Virtual Enclaves
 description: Use managed identities within Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean

@@ -1,5 +1,6 @@
 ---
 title: Setup Community Governance
+titleSuffix: Azure Virtual Enclaves
 description: Setup Community Governance.
 author: jadean-msft
 ms.author: jadean

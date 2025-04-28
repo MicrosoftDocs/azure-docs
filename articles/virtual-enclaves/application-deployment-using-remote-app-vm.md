@@ -1,5 +1,6 @@
 ---
 title: Application Installation using RemoteApp VM
+titleSuffix: Azure Virtual Enclaves
 description: Application Installation using RemoteApp VM.
 author: aserfass-msft
 ms.author: aserfass
@@ -48,7 +49,7 @@ The RemoteApp template supports scripting to automate the process of installing 
         - Like the picture above, multiple app folders can be in the same container and utilize the same copy of AzCopy.exe.
 5. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
 
-![Screenshot showing example community endpoint rules.](./media/remote-app-community-endpoint-rules.png)
+![Screenshot showing example community endpoint rules.](./media/remoteapp-community-endpoint-rules.png)
 
 > [!NOTE]
 > 
@@ -72,8 +73,8 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ### Setup Storage Account
 1. Add app folder to container within storage account
-![Diagram showing method of installation within the same enclave.](./media/remote-app-install-inside-storage-account-enclave.png)
-![Diagram showing method of installation outside enclave that contains the storage account.](./media/remote-app-install-outside-storage-account-enclave.png)
+![Diagram showing method of installation within the same enclave.](./media/remoteapp-install-inside-storage-account-enclave.png)
+![Diagram showing method of installation outside enclave that contains the storage account.](./media/remoteapp-install-outside-storage-account-enclave.png)
     - File Structure:
         ```md
             - artifacts container
@@ -107,7 +108,7 @@ The RemoteApp template supports scripting to automate the process of installing 
     - For  `Admin username` and `Admin password`, input the username and password you use to log into your VM.
 6. App Tab:
     - For `App folder URI` input the URI to the container. Select on an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
-        ![Screenshot showing the application folder URI for use in this deployment.](./media/remote-app-vm-app-folder-uri.png)
+        ![Screenshot showing the application folder URI for use in this deployment.](./media/remoteapp-vm-app-folder-uri.png)
 
         | Original URI | Fixed URI |
         |--|--|
@@ -117,7 +118,7 @@ The RemoteApp template supports scripting to automate the process of installing 
         - storageaccountexample.blob.core.windows.net/artifacts/vscode
     - For `Main Script` input the name (ex: main.ps1) of the script that installs the application.
 
-    ![Screenshow showing the App tab during a RemoteApp VM deployment.](./media/remote-app-app-tab.png)
+    ![Screenshow showing the App tab during a RemoteApp VM deployment.](./media/remoteapp-app-tab.png)
 
 ### Private Container:
 
@@ -125,7 +126,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 2. For `Storage container resource id` get the following three parts: `<storage-account-resource-id>` + '/blobServices/default/containers/' + `<container-name>`.
     - To get `Storage container resource id`, from the storage account, select "Overview," select "JSON View" in the far right corner, copy the storage account resource ID.
 
-    ![Screenshot of account resource id for use in this deployment.](./media/remote-app-storage-account-resource-id.png)
+    ![Screenshot of account resource id for use in this deployment.](./media/remoteapp-storage-account-resource-id.png)
 
     - For the container name, copy the name of the private container that holds the artifacts.
     - Example storage container resource ID: `subscriptions/000000a0-a0a0-000a-00a0-0000aaa0a000/resourceGroups/providers/Microsoft.Storage/storageAccounts/storage-account-example/blobServices/default/containers/container-name`
@@ -134,11 +135,11 @@ The RemoteApp template supports scripting to automate the process of installing 
 
     ![Screenshot showing storage container organization structure with azcopy.exe file.](./media/remoteapp-container-artifacts.png)
     
-    ![Screenshot showing the URI for the azcopy.exe file.](./media/remote-app-azcopy-container-uri.png)
+    ![Screenshot showing the URI for the azcopy.exe file.](./media/remoteapp-azcopy-container-uri.png)
 
 Example Private Container Parameters:
 
-![Screenshot showing the App tab parameters completed.](./media/remote-app-tab-parameters.png)
+![Screenshot showing the App tab parameters completed.](./media/remoteapp-tab-parameters.png)
 
 4. Select `Review and Create`, if validations pass, select `Create`.
 5. Once resources are deployed, check to see if app is installed on application VM by connecting to the Application VM. [Connect to the Application VM](./deploy-remoteapp-vm-service-catalog.md#connect-to-the-application-vm)
@@ -155,7 +156,7 @@ Folder Structure:
         - script to install and schedule reboot('install_winget.ps1')
         - ('restart.ps1')
 ```
-[ ![Screenshot showing the artifacts needed to install winget onto the RemoteApp to then install and manage other applications using winget.](./media/remote-app-winget-folder.png) ](./media/remote-app-winget-folder.png)
+[ ![Screenshot showing the artifacts needed to install winget onto the RemoteApp to then install and manage other applications using winget.](./media/remoteapp-winget-folder.png) ](./media/remoteapp-winget-folder.png)
 
 1. Download installers and upload them to the winget folder in storage container
     1. WinGet MSIX bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))

@@ -1,5 +1,6 @@
 ---
 title: Create New Subnet within an Enclave Virtual Network
+titleSuffix: Azure Virtual Enclaves
 description: Create New Subnet within an Enclave Virtual Network.
 author: jadean-msft
 ms.author: jadean

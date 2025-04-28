@@ -1,5 +1,6 @@
 ---
 title: Setup Customer Managed Key (CMK) Encryption within an Enclave
+titleSuffix: Azure Virtual Enclaves
 description: Setup Customer Managed Key (CMK) Encryption within an Enclave.
 author: jadean-msft
 ms.author: jadean
