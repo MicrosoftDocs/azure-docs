@@ -102,4 +102,5 @@ Azure Migrate has a suite of the following tools integrated within the product:
 ## Next steps
 - Try our tutorials to discover [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md).
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
+- [Cloud Adoption Framework for Azure VMware Solution landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone).
 

@@ -15,7 +15,7 @@ When you're running a web application, you want to be prepared for any problems 
 
 Although this experience is most helpful when you're having problems with your app within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-App Service diagnostics works for not only apps on Windows, but also apps on [Linux or containers](./overview.md#app-service-on-linux), [App Service Environments](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
+App Service diagnostics works for not only apps on Windows, but also apps on built-in or custom containers, [App Service Environments](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
 
 ## Steps for opening App Service diagnostics
 

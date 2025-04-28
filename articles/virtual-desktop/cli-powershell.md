@@ -4,7 +4,7 @@ description: Learn about Azure CLI and Azure PowerShell with Azure Virtual Deskt
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, docs_inherited
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 01/08/2024
 ---
 # Use Azure CLI and Azure PowerShell with Azure Virtual Desktop

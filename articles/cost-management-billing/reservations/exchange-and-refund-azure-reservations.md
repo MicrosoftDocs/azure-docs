@@ -1,17 +1,17 @@
 ---
 title: Self-service exchanges and refunds for Azure Reservations
-description: Learn how you can exchange or refund Azure Reservations. You must have owner access to the Reservation Order to exchange or refund reservations.
+description: Learn how you can exchange or refund Azure Reservations. You must have owner access to the Reservation Order to exchange or cancel/refund reservations.
 author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 04/26/2025
 ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
 
-# Self-service exchanges and refunds for Azure Reservations
+# Self-service exchanges and cancel/refunds for Azure Reservations
 
 Azure Reservations provide flexibility to help meet your evolving needs. Reservation products are interchangeable with each other if they're the same type of reservation. For example, you can exchange multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. You can also exchange multiple SQL database reservation types including SQL Managed Instances and Elastic Pool with each other. However, you can't exchange dissimilar reservations. For example, you can't exchange an Azure Cosmos DB reservation for SQL Database.
 
