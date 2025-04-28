@@ -17,16 +17,17 @@ summary: This page answers frequently asked questions about the Azure Active Dir
 
 
 sections:
-  - name: Microsoft Entra External ID preview
+  - name: Microsoft Entra External ID
     questions:
       - question: |
           What is Microsoft Entra External ID?
         answer: |
           We have released our next generation Microsoft Entra External ID product which combines powerful solutions for working with people outside of your organization. With External ID capabilities, you can allow external identities to securely access your apps and resources. Whether you’re working with external partners, consumers, or business customers, users can bring their own identities. These identities can range from corporate or government-issued accounts to social identity providers like Google or Facebook. For more information, see [Introduction to Microsoft Entra External ID](/entra/external-id/external-identities-overview)
       - question: |
-          How does this preview affect me?
+          How does this affect Azure AD B2C?
         answer: |
-          No action is required on your part at this time. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. 
+          Effective May 1, 2025 Azure AD B2C will no longer be available to purchase for new customers, but current Azure AD B2C customers can continue using the product. The product experience, including creating new tenants or user flows, will remain unchanged. The operational commitments, including service level agreements (SLAs), security updates, and compliance, will also remain unchanged. We'll continue supporting Azure AD B2C until at least May 2030. More information, including migration plans will be made available. Contact your account representative for more information and to learn more about Microsoft Entra External ID.
+ 
   - name: General
     questions:
       - question: |
