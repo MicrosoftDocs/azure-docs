@@ -3,7 +3,7 @@ title: Quickstart for adding chat completion configuration to .NET apps
 titleSuffix: Azure App Configuration
 description: Learn to implement chat completion configuration in your .NET application using Azure App Configuration.
 services: azure-app-configuration
-author: mgichohi-ms
+author: mgichohi
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
@@ -13,14 +13,14 @@ ms.date: 4/19/2025
 ms.author: mgichohi
 ---
 
-## Quickstart: Add chat completion configuration to a .NET console
+# Quickstart: Add chat completion configuration to a .NET console
 
 In this quickstart, you will use the [Azure App Configuration .NET provider](https://github.com/Azure/AppConfiguration-DotnetProvider) in a .NET console application to centralize the storage and management of your chat completion configuration.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/)
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [Azure OpenAI access](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview#how-do-i-get-access-to-azure-openai)
+- [Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 
 ## Create a console app
@@ -101,7 +101,7 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
     ```
     ---
 
-1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your credential the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor). For detailed steps, see [Role-based access control for Azure OpenAI service](../azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
+1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your credential the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor). For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
         // Existing code to connect to your App configuration store

@@ -3,7 +3,7 @@ title: Quickstart for adding chat completion configuration to Javascript apps
 titleSuffix: Azure App Configuration
 description: Learn to implement chat completion configuration in your Javascript application using Azure App Configuration.
 services: azure-app-configuration
-author: mgichohi-ms
+author: mgichohi
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.custom: devx-track-javascript, mode-other
@@ -13,7 +13,7 @@ ms.date: 4/19/2025
 ms.author: mgichohi
 ---
 
-## Quickstart: Add chat completion configuration to a Node.js console app
+# Quickstart: Add chat completion configuration to a Node.js console app
 
 In this quickstart, you will use the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider) in a Node js console application to centralize the storage and management of your chat completion configuration.
 
@@ -22,8 +22,7 @@ In this quickstart, you will use the [Azure App Configuration JavaScript provide
 - An Azure account with an active subscription - [Create one for free](https://azure.microsoft.com/free/)
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
-- [Azure OpenAI access](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview#how-do-i-get-access-to-azure-openai)
-
+[Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
 ## Create a Node.js console app
 
 1. Create a new directory for the project named *app-config-chat-completion*:
@@ -101,7 +100,7 @@ In this quickstart, you will use the [Azure App Configuration JavaScript provide
     ```
     ---
 
-1. Create an instance of the `AzureOpenAI` client. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your credential the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor). For detailed steps, see [Role-based access control for Azure OpenAI service](../azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
+1. Create an instance of the `AzureOpenAI` client. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your credential the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor). For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```javascript
     // Existing code to connect to your App configuration store

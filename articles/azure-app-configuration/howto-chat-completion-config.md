@@ -3,7 +3,7 @@ title: Getting started with chat completion configuration
 titleSuffix: Azure App Configuration
 description: Learn how to create chat completion configuration in Azure App Configuration.
 ms.service: azure-app-configuration
-author: mgichohi-ms
+author: mgichohi
 ms.author: mgichohi
 ms.topic: how-to
 ms.date: 04/20/2025
@@ -32,7 +32,7 @@ Azure OpenAI chat models support several [parameters](/azure/ai-services/openai/
 ## Prerequisites
 - An [Azure subscription](https://azure.microsoft.com/free/dotnet/)
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [Azure OpenAI access](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview#how-do-i-get-access-to-azure-openai)
+- [Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
 
  1. Select **Operations** > **Configuration explorer** > **Create** > **AI configuration**.
 
@@ -54,7 +54,7 @@ Azure OpenAI chat models support several [parameters](/azure/ai-services/openai/
 
 ## Create and deploy an Azure OpenAI service resource
 
-1. [Create an Azure OpenAI service resource](/azure/ai-services/openai/includes/create-resource-portal#create-a-resource)
+1. [Create an Azure OpenAI service resource](/azure/ai-services/openai/includes/create-resource-portal)
 
 1. Sign in to [Azure AI Foundry Portal](https://ai.azure.com/)
 
