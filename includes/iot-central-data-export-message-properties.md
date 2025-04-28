@@ -5,21 +5,21 @@
  author: dominicbetts
  ms.service: azure-iot-central
  ms.topic: include
- ms.date: 05/22/2023
+ ms.date: 04/25/2025
  ms.author: dobett
  ms.custom: include file
 ---
 
 #### Message properties
 
-Telemetry messages have properties for metadata as well as the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of device-to-cloud IoT Hub messages](../articles/iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-device-to-cloud-messages).
+Telemetry messages have properties for metadata and the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System properties of device-to-cloud messages](../articles/iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-device-to-cloud-messages).
 
 You can add properties to telemetry messages if you need to add custom metadata to your telemetry messages. For example, you need to add a timestamp when the device creates the message.
 
 The following code snippet shows how to add the `iothub-creation-time-utc` property to the message when you create it on the device:
 
 > [!IMPORTANT]
-> The format of this timestamp must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, `2021-04-21T11:30:16-07:00` is invalid.
+> The format of this timestamp must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, while `2021-04-21T11:30:16-07:00` is invalid.
 
 # [JavaScript](#tab/javascript)
 
