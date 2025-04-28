@@ -29,6 +29,12 @@ The *Essentials* details include:
 
 To manage your resource, select the links next to corresponding details.
 
+## Set password
+
+To set your password, select **Go to MongoDB Atlas** from the working pane. 
+
+:::image type="content" source="media/manage/set-password.png" alt-text="A screenshot of a MongoDB Atlas resource in the Azure portal with the overview displayed in the working pane. Go to MongoDB Atlas is emphasized.":::
+
 ## Delete an MongoDB Atlas resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
