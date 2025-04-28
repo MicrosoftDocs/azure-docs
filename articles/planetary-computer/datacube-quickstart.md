@@ -15,7 +15,7 @@ ms.date: 4/24/2025
 
 * An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * A [Microsoft Planetary Computer Pro GeoCatalog](deploy-geocatalog-resource.md)
-* A Blob Storage account [create a Blob Storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+* A Blob Storage account [create a Blob Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 * A Blob Storage container with data cube assets (NetCDF, HDF5, GRIB2), STAC Items, and static STAC Catalog. [Learn how to create STAC Items](create-stac-item.md).
 
 ## Set up ingestion source

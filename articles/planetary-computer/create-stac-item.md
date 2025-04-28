@@ -931,4 +931,4 @@ We can now add the STAC Collection and STAC Item we created to MPC Pro.
 
 - To add a single item, follow the [Add STAC Items to a Collection](./add-stac-item-to-collection.md)
 
-We also offer the [STAC Forge tool](/tools/stacforge-functions/README.md) which provides increased automation using templates around data. 
+We also offer the [STAC Forge tool](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/stacforge-functions) which provides increased automation using templates around data. 

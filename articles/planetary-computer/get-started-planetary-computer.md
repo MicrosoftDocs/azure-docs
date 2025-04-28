@@ -106,7 +106,7 @@ Data can also be accessed directly using the [API service](/azure/planetary-comp
 
 1. Review the [rest of the documentation](/azure/planetary-computer) to see if answers your question
 2. [Check out Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure)] to ask a question or find answers from others
-3. [File a Support Ticket](https://azure.microsoft.com/en-us/support/create-ticket)
+3. [File a Support Ticket](https://azure.microsoft.com/support/create-ticket)
 4. Contact the team at MPCProSupport@microsoft.com 
 
 <!-- TODO, Links to new Content
