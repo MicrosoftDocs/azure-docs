@@ -115,10 +115,10 @@ To manage the secret securely, store it in Azure Key Vault, and access the key v
     | **Setting**            | **Description**                                                                                                                                               |
     |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Title**              | A name and optional description for the authorization.                                                                                                 |
-    | **Description**        | Opitonal description for the authorization.                                                                                                                   |
+    | **Description**        | Optional description for the authorization.                                                                                                                   |
     | **Security scheme**    | Select **OAuth2**.                                                                                                                                           |
     | **Client ID**          | Client ID of the app that you created in the previous section.                                                                                     |
-    | **Client secret**      | Enter the .                                                                                 |
+    | **Client secret**      | Enter the secret identifier of the client secret in Azure Key Vault. Example:                                                                                  |
     | **Authorization URL**  | OAuth 2.0 authorization endpoint for the identity provider.                                                                                        |
     | **Token URL**          | OAuth 2.0 token endpoint for the identity provider.                                                                                             |
     | **Refresh URL**        | OAuth 2.0 refresh token endpoint for the identity provider. For most providers, same as the Token URL.                                                                                                |
@@ -164,6 +164,9 @@ You can manage access by specific users or groups in your organization to an API
 
 
 You can use the API Center portal to test an API that you configured for authentication and user access. 
+
+> [!TIP]
+> In addition to enabling specific users to test specific APIs in the API Center portal, you can also configure [visibility settings](set-up-api-center-portal.md#api-visibility) for APIs in your API center. Visibility settings in the portal control the APIs that appear for all signed-in users..
 
 1. In the [portal](https://azure.microsoft.com), navigate to your API center.
 1. In the left menu, under **API Center Portal**, select **Portal settings**.
