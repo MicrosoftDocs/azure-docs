@@ -60,8 +60,8 @@ Lastly, if you're already writing Azure Function apps and realized that you need
 - [Configure a durable functions app with MSSQL](../quickstart-mssql.md)
 
 **Scenario samples**
-- Order processing workflow - [.NET](samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/), [Python](samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/)
-- Intelligent PDF summarizer - [.NET](samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/), [Python](samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/)
+- Order processing workflow - [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/), [Python][TODO]
+- Intelligent PDF summarizer - [.NET][TODO], [Python][TODO]
 
 ### Durable Task SDKs with Durable Task Scheduler (public preview)
 The Durable Task SDKs are client SDKs that allows the orchestrations you write to connect to the orchestration engine in Azure. Apps that use the Durable Task SDKs can be run on any compute platforms, including:
