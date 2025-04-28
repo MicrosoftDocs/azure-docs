@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Create Azure Virtual Desktop (AVD) Workloads
 
-By default, all enclaves are created with [Admin Workstation Virtual Machines](./understanding-admin-vm.md). This means that all resources and hosts within an enclave are reachable through the Admin Workstation.
+By default, all enclaves are created with [Admin Workstation Virtual Machines](./understand-admin-vm.md). This means that all resources and hosts within an enclave are reachable through the Admin Workstation.
 
 For certain Enclave Owners, the default access pattern surrounding the Admin Workstation might not satisfy their requirements for various reasons. For example, Enclave Owners might have requirements that disallow the Azure Bastion service. 
 

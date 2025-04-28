@@ -86,9 +86,9 @@ It can take 20+ minutes to finish all resource creation. Wait for the deployment
 2. If the RemoteApp was published: host pool, app group, and workspace.
 
 ## Connect to the Application VM
-Via the [Admin VM](./understanding-admin-vm.md):
+Via the [Admin VM](./understand-admin-vm.md):
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
-1. Sign in to a desktop session on the [Admin VM](./understanding-admin-vm.md) page for the enclave.
+1. Sign in to a desktop session on the [Admin VM](./understand-admin-vm.md) page for the enclave.
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
 4. Enter RemoteApp VM credentials and select `Accept/Yes` to warnings about a new connection.

@@ -15,7 +15,7 @@ By default, all network traffic within an [enclave](./what-enclave.md) is permit
 
 ## Overview
 If the data that needs to be moved into an enclave resides in an Azure Storage Account, you'll need to create a connection to the data source, optionally download an application to help download/copy/move, and then perform the download/copy/move operation. Follow these detailed steps:
-1. Log into [Admin Workstation](./understanding-admin-vm.md), or any other resource located in the enclave private network. 
+1. Log into [Admin Workstation](./understand-admin-vm.md), or any other resource located in the enclave private network. 
 2. Create an Endpoint (at either the Community or Enclave level) and Connection (targeting the Enclave/Community and Endpoint created) to where the data is.
       - How to make a [Community Endpoint](./create-community-endpoint-portal.md) or [Enclave Endpoint](./create-enclave-endpoint-portal.md) for your IP Data Source / External Data Network (an example of this could look like this: `name: ep-mydatasource`, `source: 172.168.10.0/16`, `protocol: https`, `port: 443`).
       - [How to make a Connection](./create-enclave-connection-portal.md) connecting either a Community or an Enclave to the Endpoint created above.
@@ -46,7 +46,7 @@ Should further troubleshooting be required to investigate making Connections, se
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
 - [Best Practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)
-- [Understanding Admin Workstation](./understanding-admin-vm.md)
+- [Understanding Admin Workstation](./understand-admin-vm.md)
 - [Create an Enclave Endpoint](./create-enclave-endpoint-portal.md)
 - [Create a Community Endpoint](./create-community-endpoint-portal.md)
 - [Create a Connection from the Azure portal](./create-enclave-connection-portal.md)

@@ -55,16 +55,16 @@ Examples of setting-up CMK encryption are provided below, with more [detailed in
 ## Create CMK via the Portal
 Alternatively, CMK can be created via the Portal
 ### Steps in this guide
-1. [Sign in to Admin Workstation](./understanding-admin-workstations.md).
+1. [Sign in to Admin Workstation](./understand-admin-vm.md).
 2. [Create Access Policy from Admin Workstation](#create-access-policy-from-admin-workstation).
 3. [Generate Key for CMK in Key Vault](#generate-key-for-cmk-in-key-vault).
 
 ### Enable Enclave access to the Azure portal
 KV access is restricted to the KV virtual network so the KV Key will need to be created from the Azure portal from within the Admin Workstation.
-* [Create Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md) to Community endpoint for access to the Azure portal.
+* [Create Enclave Connection](./create-enclave-connection-portal.md) to Community endpoint for access to the Azure portal.
  
 ### Sign in to Admin Workstation
-Follow [these Admin Workstation](./understanding-admin-workstations.md) instructions to sign in.
+Follow [these Admin Workstation](./understand-admin-vm.md) instructions to sign in.
 
 ### Update Key Vault from Admin Workstation
 1. After Admin Workstation sign in, open Microsoft Edge (e.g. via the Start Menu).

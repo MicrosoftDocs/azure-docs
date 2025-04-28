@@ -47,7 +47,7 @@ Go to the specified Resource Group to confirm the intended resources were create
 ### Connect to the Application VM
 Via the Admin VM:
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a jumpbox.
-1. Sign-in to the Admin VM you have deployed for your enclave or [create a new Admin VM](./understanding-admin-vm.md)
+1. Sign-in to the Admin VM you have deployed for your enclave or [create a new Admin VM](./understand-admin-vm.md)
 2. From the start menu, type `RDP`, and open the RDP window
 3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
 4. Enter RemoteApp M credentials and select `Accept/Yes` to warnings about a new connection.
