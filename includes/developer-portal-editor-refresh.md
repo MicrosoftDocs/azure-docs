@@ -2,10 +2,12 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 04/09/2025
+ms.date: 04/28/2025
 ms.author: danlep
 ---
 
 
 > [!NOTE]
-> We're introducing improvements to the underlying website components of the developer portal, and changing the placeholder content you see when you first launch it. The appearance of your portal may vary from the screenshots in this article, but the functionality is the same.
+> * We're enhancing the developer portal with [Fluent UI Web Components](/fluent-us/web-components) in the React framework. We're also refreshing the placeholder content displayed when you first open the portal. Your portal's appearance may differ slightly from the screenshots in this article, but the functionality remains consistent.
+> * If you're using a version of the portal built on the previous components, you'll see a **Preview new UI design** setting at the bottom of the menu on the left. You can enable this setting to try the latest components. 
+> :::image type="content" source="../articles/api-management/media/api-management-howto-developer-portal-customize/preview-new-ui.png" alt-text="Screenshot of preview toggle in the API Management developer portal.":::

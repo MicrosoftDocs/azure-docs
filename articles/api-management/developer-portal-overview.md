@@ -245,7 +245,8 @@ To restore a previous portal revision:
 If you want to discard all changes you've made to the developer portal, you can reset the website to its starting state. Resetting the portal deletes any changes you've made to the developer portal pages, layouts, customizations, and uploaded media.
 
 > [!NOTE]
-> Resetting the developer portal doesn't delete the published version of the developer portal.
+> * Resetting the developer portal doesn't delete the published version of the developer portal.
+> * If you've already been using the developer portal for some time, resetting the portal could update the portal to a newer version of the developer portal codebase with updated components. The placeholder content that appears might also be changed, but the functionality remains consistent. 
 
 To reset the developer portal:
 
