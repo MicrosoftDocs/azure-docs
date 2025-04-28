@@ -54,7 +54,7 @@ Azure OpenAI chat models support several [parameters](/azure/ai-services/openai/
 
 ## Create and deploy an Azure OpenAI service resource
 
-1. [Create an Azure OpenAI service resource](/azure/ai-services/openai/includes/create-resource-portal)
+1. [Create an Azure OpenAI service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource)
 
 1. Sign in to [Azure AI Foundry Portal](https://ai.azure.com/)
 

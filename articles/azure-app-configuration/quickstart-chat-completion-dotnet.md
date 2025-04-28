@@ -293,3 +293,9 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+
+## Next steps
+To learn how to configure your app to dynamically refresh configuration settings, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)

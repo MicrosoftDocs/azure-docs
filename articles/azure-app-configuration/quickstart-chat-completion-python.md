@@ -24,7 +24,7 @@ In this quickstart, you will use the [Azure App Configuration Python provider cl
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 [Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
 
-# Create a python app
+## Create a python app
 
 1. Create a new directory for the project named *app-config-chat-completion*:
 
@@ -260,3 +260,9 @@ In this quickstart, you will use the [Azure App Configuration Python provider cl
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+
+## Next steps
+To learn how to configure your app to dynamically refresh configuration settings, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [Enable dynamic configuration](./enable-dynamic-configuration-python.md)

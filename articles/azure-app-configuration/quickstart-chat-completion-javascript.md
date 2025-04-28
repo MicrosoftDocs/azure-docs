@@ -252,3 +252,9 @@ In this quickstart, you will use the [Azure App Configuration JavaScript provide
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+
+## Next steps
+To learn how to configure your app to dynamically refresh configuration settings, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [Enable dynamic configuration](./enable-dynamic-configuration-javascript.md)
