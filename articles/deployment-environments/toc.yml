@@ -123,7 +123,7 @@ items:
   expanded: false
   items: 
     - name: Azure updates
-      href: https://azure.microsoft.com/en-us/updates/?filters=%5B%22Azure+Deployment+Environments%22%5D
+      href: https://azure.microsoft.com/updates/?filters=%5B%22Azure+Deployment+Environments%22%5D
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Report a problem
