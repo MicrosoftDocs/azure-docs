@@ -11,7 +11,11 @@ ms.date: 04/09/2025
 
 # Ingestion source for Microsoft Planetary Computer Pro
 
-Ingestion sources are representations of the location and authentication mechanisms required to [ingest data](./ingestion-overview.md) into a GeoCatalog resource. Listing and configuring ingestion sources can be accessed by selecting the **Settings** tab in the Data Plane UI. Once the ingestion source is set, data stored in that location is securely available to ingest from its original location into your Geocatalog. 
+Ingestion sources are representations of the location and authentication mechanisms required to [ingest data](./ingestion-overview.md) into a GeoCatalog resource. Listing and configuring ingestion sources can be accessed by selecting the **Settings** tab in the web portal. 
+
+:::image type="content" source="media/settings-link.png" alt-text="Screenshot of GeoCatalog Portal showing where the "Settings" button is located.":::
+
+Once the ingestion source is set, data stored in that location is securely available to ingest from its original location into your GeoCatalog. 
 
 ## Ingestion source location
 
@@ -19,20 +23,16 @@ Microsoft Planetary Computer Pro (MPC Pro) currently only supports secure ingest
 
 `https://{storage-account-name}.blob.core.windows.net/{container-name}`
 
-### Blob storage URI example
+| Storage Account | Container Name | Storage URI                                                |
+|-----------------|---------------|------------------------------------------------------------|
+| contosodata     | my data       | `https://contosodata.blob.core.windows.net/mydata`         |
 
-**Storage Account**: contosodata
-
-**Container Name**: mydata
-
-**Storage URI**: `https://contosodata.blob.core.windows.net/mydata`
-
->[!NOTE]
+>[!IMPORTANT]
 > Don't include a trailing "/" after the container name.
 
 ## Ingestion source authentication mechanisms
 
-Securely ingesting data requires users to provide an authentication mechanism which permits a GeoCatalog to read the data from a specific location. MPC Prosupports two mechanisms to do this:
+Securely ingesting data requires users to provide an authentication mechanism which permits a GeoCatalog to read the data from a specific location. MPC Pro supports two mechanisms to support secure ingestion:
 
 - [Managed identities](/entra/identity/managed-identities-azure-resources/overview) provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication.
 
