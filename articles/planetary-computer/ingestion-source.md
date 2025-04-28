@@ -11,7 +11,7 @@ ms.date: 04/09/2025
 
 # Ingestion source for Microsoft Planetary Computer Pro
 
-Ingestion sources are representations of the location and authentication mechanisms required to [ingest data](/concepts/ingestion-overview.md) into a GeoCatalog resource. Listing and configuring ingestion sources can be accessed by selecting the **Settings** tab in the Data Plane UI. Once the ingestion source is set, data stored in that location is securely available to ingest from its original location into your Geocatalog. 
+Ingestion sources are representations of the location and authentication mechanisms required to [ingest data](./ingestion-overview.md) into a GeoCatalog resource. Listing and configuring ingestion sources can be accessed by selecting the **Settings** tab in the Data Plane UI. Once the ingestion source is set, data stored in that location is securely available to ingest from its original location into your Geocatalog. 
 
 ## Ingestion source location
 

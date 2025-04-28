@@ -35,8 +35,8 @@
     href: setup-ingestion-credentials-managed-identity.md 
   - name: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
     href: setup-ingestion-credentials-sas-tokens.md
-  - name: Ingest data with the Bulk Ingest API
-    href: bulk-ingest-api.md
+  - name: Ingest data with the Bulk Ingestion API
+    href: bulk-ingestion-api.md
   - name: Visualize assets
     href: visualize-assets.md  
 - name: Concepts

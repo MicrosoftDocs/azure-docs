@@ -204,7 +204,7 @@ The `options` contain most of the render settings/behavior, and is assembled fro
 | Parameter        | Type | Description |
 | ---------------- | ---- | ----------- |
 | assets           | str | Asset's names, multiple assets should be provided using the pattern `assets=data0&assets=data1&...`, assets must be specified either here or within `expression` |
-| colormap_name    | str | Colormap name for single-band renders, reference [this graphic](media/colormaps_page.md) of named colormaps available in MPC Pro |
+| colormap_name    | str | Colormap name for single-band renders, reference [this graphic](media/colormaps.png) of named colormaps available in MPC Pro |
 | colormap         | str | Use a custom colormap, instead of a `colormap_name`, for single-band renders |
 | color_formula    | str | Color correction for three-band (i.e., RGB) renders, specified using a color formula comprising of gamma, sigmoidal, and saturation levels |
 | exitwhenfull     | bool | Return as soon as the geometry is fully covered |
@@ -270,7 +270,7 @@ Separately from the render config, each STAC collection JSON must have an `item_
 
 When it comes to color, there are different options you must choose from depending on whether you are dealing with a single-band or three-band render. If you use an algorithm or expression that outputs three bands, consider it a three-band render for the sake of this section.
 
-* Single-band render - Provide a `colormap_name`, **or** a custom `colormap`, providing neither may either error out or use a greyscale colormap by default. Optionally, you can add rescaling to either case to control how values are mapped to the colormap. Reference [this graphic](media/colormaps_page.md) for all named colormaps available in MPC Pro.
+* Single-band render - Provide a `colormap_name`, **or** a custom `colormap`, providing neither may either error out or use a greyscale colormap by default. Optionally, you can add rescaling to either case to control how values are mapped to the colormap. Reference [this graphic](media/colormaps.png) for all named colormaps available in MPC Pro.
 * Three-band render - A three-band render is already in RGB format so you do not need to provide anything, but you can optionally specify a `color_formula` to provide color correction. Specifying a colormap (`colormap` or `colormap_name`) is not supported and does not make sense when there are already three bands corresponding to RGB. Rescaling can still be used, to specify how the values get mapped to RGB (especially if your three bands are floating point values).
 
 For other cases such as a two-band render, an expression or algorithm **must** be used to translate the two bands into either a single or three band-render.

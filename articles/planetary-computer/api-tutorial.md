@@ -2,7 +2,7 @@
 title: Using the Planetary Computer Pro APIs to Ingest and Visualize Data
 description: "In this tutorial, you'll create and store satellite imagery within a Planetary Computer Pro GeoCatalog"
 author: TaylorCorbett
-ms.author: TaylorCorbett
+ms.author: gecorbet
 ms.service: azure
 ms.topic: tutorial
 ms.date: 4/25/2025

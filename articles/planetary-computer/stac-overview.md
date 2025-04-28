@@ -4,7 +4,7 @@ description: This article provides an overview of the Spatiotemporal Asset Catal
 author: brentharris
 ms.author: brentharris
 ms.service: azure
-ms.topic: overview
+ms.topic: concept-article
 ms.date: 04/09/2025
 #customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
 ---
@@ -122,7 +122,7 @@ The following is a minimal example of the collection JSON. For additional fields
 }
 ```
 
-For a slightly more complex example JSON check out [this example describing an open dataset from NAIP](files/NAIP_Duplin_NC_STAC_Collection.json).
+For a slightly more complex example JSON check out [this example describing an open dataset from NAIP](https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip).
 
 ### Collection configuration
 

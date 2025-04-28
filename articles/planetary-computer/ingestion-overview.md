@@ -4,7 +4,7 @@ description: Learn about the features that enable you to bring your own data int
 author: prasadko
 ms.author: prasadkomma
 ms.service: azure
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 04/24/2025
 #customer intent: As a geospatial data producer, I want to understand the the concept of a GeoCatalog ingestion source so that I can ingest petabytes of geospatial assets into my GeoCatalog resource. 
 ---

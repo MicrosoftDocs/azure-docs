@@ -27,7 +27,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Get started with Microsoft Planetary Computer Pro
-            url: get-started-with-planetary-computer.md
+            url: get-started-planetary-computer.md
       - linkListType: whats-new
         links:
           - text: What's new in Microsoft Planetary Computer Pro
@@ -55,8 +55,8 @@ landingContent:
             url: tile-settings.md
           - text: Queryables for data explorer custom search filters
             url: queryables-for-explorer-custom-search-filter.md
-          - text: Datacube enrichment
-            url: datacube-enrichment.md
+          - text: Data cube Overview
+            url: datacube-overview.md
   
   # Card
   - title: Quickstarts

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Configure a collection with the Microsoft Planetary Computer Pro portal"
 description: Learn how to configure collections in the Microsoft Planetary Computer Pro portal. 
-author: Brent Harris
+author: beharris
 ms.author: brentharris
 ms.service: azure
 ms.topic: quickstart
@@ -33,19 +33,12 @@ To configure a collection in the Microsoft Planetary Computer Pro portal, follow
    
 2. The **Configure collection** panel will open and you will see tabs for **Mosaic**, **Render**, **Tile Settings**, and **Queryables**, each of which you can define in JSON format. You can either write your own JSON or load and modify a template. 
 
-### Mosaic
-
-To define a mosaic configuration, follow the guidelines in [Quickstart: Mosaic configuration for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md).
-
-### Render
-
-To define a render configuration, follow the guidelines in [Quickstart: Render configuration in Microsoft Planetary Computer Pro](./render-configuration.md).
-
-### Tile Settings
-To define tile settings, follow the guidelines in [Quickstart: Tile settings in Microsoft Planetary Computer Pro](./tile-settings.md).
-
-### Queryables
-To define queryables, follow the guidelines in [Quickstart: Queryables for Microsoft Planetary Computer Pro Explorer custom search filters](./queryables-configuration.md).
+| Configuration | Purpose | Quick Start |
+|--------------------|---------|-----------------|
+| **Mosaic**         | Configure how items are mosaicked in your collection. | [Mosaic configuration](./mosaic-configurations-for-collections.md) |
+| **Render**         | Specify how data is visualized in the Explorer. | [Render configuration](./render-configuration.md) |
+| **Tile Settings**  | Set map tile parameters for your collection. | [Tile settings](./tile-settings.md) |
+| **Queryables**     | Add custom search filters for Explorer. | [Queryables configuration](./queryables-for-explorer-custom-search-filter.md) |
 
 **NOTE:** While it is helpful to define configuration JSONs for all four tabs, only the Render configuration is required to visualize your data in the Explorer. The other three tabs are optional and can be used to customize the behavior of your collection in the Explorer.
 

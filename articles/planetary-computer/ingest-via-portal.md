@@ -23,7 +23,7 @@ Before using this quickstart, you need:
   - A geospatial dataset in a supported format. See [Supported data types](./supported-data-types.md) for more information.
   - Associated STAC metadata for the dataset. See [Create STAC Item](./create-stac-item.md) for more information.
 - A web browser to access the Planetary Computer Pro portal.
-- A collection created using the [Quickstart: Create a collection with the Microsoft Planetary Computer Pro UI](./create-collection-UI.md) or the [Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md).
+- A collection created using the [Quickstart: Create a collection with the Microsoft Planetary Computer Pro UI](./create-collection-portal.md) or the [Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md).
 
 ## Create an ingestion
 
@@ -35,4 +35,4 @@ Once you have created a collection and configured an ingestion source, you are r
 
 ## Next steps
 
-Once you have created your collection, you will need to ingest data into it. Follow along with the [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro UI](./ingest-via-UI.md) to learn how to ingest data into your collection.
+Once you have created your collection, you will need to ingest data into it. Follow along with the [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro UI](./ingest-via-portal.md) to learn how to ingest data into your collection.

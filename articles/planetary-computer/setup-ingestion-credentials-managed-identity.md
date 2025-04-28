@@ -17,8 +17,8 @@ In this guide, you learn how to:
 
 - [Create a user assigned managed identity](#create-a-user-assigned-managed-identity)
 - [Give a user assigned managed identity Storage Blob Data Reader to Azure Blob Storage](#give-a-user-assigned-managed-identity-storage-blob-data-reader-to-azure-blob-storage)
-- [Associate a user assigned managed identity to a GeoCatalog](#associate-the-user-assigned-managed-identity-with-your-geocatalog-resource)
-- [Setup an ingestion source](#setup-an-ingestion)
+- [Associate a user assigned managed identity to a GeoCatalog](#associate-the-user-assigned-managed-identity-to-your-geocatalog-resource)
+- [Setup an ingestion source](#setup-an-ingestion-source)
 
 All four steps are required to setup your GeoCatalog resource to read data from an external ingestion source. 
 

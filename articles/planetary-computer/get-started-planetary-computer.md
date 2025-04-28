@@ -35,11 +35,11 @@ To deploy a GeoCatalog, navigate to the [Azure portal](https://portal.azure.com/
 
 :::image type="content" source="media/search-for-geocatalogs.png" alt-text="Screenshot of searching for GeoCatalogs in the Azure portal.":::
 
-Full details of the deployment process are available in the [Deployed GeoCatalog Quickstart](/deploy-geocatalog-resource.md)
+Full details of the deployment process are available in the [Deploy GeoCatalog Quickstart](./deploy-geocatalog-resource.md)
 
 Once the service is deployed, access to the GeoCatalog resource can be controlled through the **Access control (IAM)** tab in the left sidebar:
 
-    :::image type="content" source="media/RBAC_IAM_blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing options to manage role assignments.":::
+:::image type="content" source="media/RBAC_IAM_blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing options to manage role assignments.":::
 
 More details on the **GeoCatalog Administrator** and **GeoCatalog Reader** role is available in [Manage Access](./manage-access.md) documentation.
 
@@ -58,7 +58,7 @@ All data managed in Microsoft Planetary Computer Pro is organized into groupings
 The recommended and most secure method for ingesting data is to have the data stored in Azure Blob Storage and for you to provide read access to Blob Storage container using Managed Identity. 
 
 >[!WARNING]
->All data ingested into MPC Pro requires [STAC Items](./>stac-overview.md#introduction-to-stac-items). 
+>All data ingested into MPC Pro requires [STAC Items](./stac-overview.md#introduction-to-stac-items). 
 
 >[!TIP]
 > To accelerate the creation of STAC Items, we have a [detailed tutorial](./create-stac-item.md) and also have an open source tool called STAC Forge.
@@ -105,7 +105,7 @@ Data can also be accessed directly using the [API service](./). For details on e
 ## Get help
 
 1. Review the [rest of the documentation](./) to see if answers your question
-2. [Check out Microsoft Q&A](./link to content] to ask a question or find answers from others
+2. [Check out Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure)] to ask a question or find answers from others
 3. [File a Support Ticket](https://azure.microsoft.com/en-us/support/create-ticket)
 4. Contact the team at MPCProSupport@microsoft.com 
 
@@ -116,4 +116,4 @@ Data can also be accessed directly using the [API service](./). For details on e
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
+> [Using the Planetary Computer Pro APIs to Ingest and Visualize Data](./api-tutorial.md)
