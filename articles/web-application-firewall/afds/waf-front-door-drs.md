@@ -66,18 +66,18 @@ A single *Critical* rule match is enough for the WAF to block a request when in 
 
 When your WAF uses an older version of the Default Rule Set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 
-The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
+The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 
 ## Paranoia level
 
-Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they are expected to trigger false positives which should be fine-tuned.
+Each rule is assigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they are expected to trigger false positives which should be fine-tuned.
 
 By default, all DRS rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
 If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
 
 ### Upgrading or changing ruleset version
 
-If you are upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it is recommended to use PowerShell, CLI, REST API, or a templates to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It is recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
+If you are upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it is recommended to use PowerShell, CLI, REST API, or a template to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It is recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
 
 > [!NOTE]
 > If you are using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, or policy settings will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
@@ -655,7 +655,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections.|
 |942260|Detects basic SQL authentication bypass attempts 2/3.|
 |942270|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others.|
-|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts.|
+|942280|Detects Postgres pg_sleep injection, wait for delay attacks and database shutdown attempts.|
 |942290|Finds basic MongoDB SQL injection attempts.|
 |942300|Detects MySQL comments, conditions, and ch(a)r injections.|
 |942310|Detects chained SQL injection attempts 2/2.|
@@ -846,7 +846,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections.|
 |942260|Detects basic SQL authentication bypass attempts 2/3.|
 |942270|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others.|
-|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts.|
+|942280|Detects Postgres pg_sleep injection, wait for delay attacks and database shutdown attempts.|
 |942290|Finds basic MongoDB SQL injection attempts.|
 |942300|Detects MySQL comments, conditions and ch(a)r injections.|
 |942310|Detects chained SQL injection attempts 2/2.|
