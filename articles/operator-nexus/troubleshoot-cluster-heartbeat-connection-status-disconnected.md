@@ -8,7 +8,8 @@ ms.date: 04/28/2025
 ms.author: omarrivera
 author: omarrivera
 ---
-# Troubleshoot Azure Operator Nexus Cluster Heartbeat Connection Status shows Disconnected
+
+# Troubleshoot Cluster heartbeat connection status shows disconnected
 
 This guide attempts to provide steps to troubleshoot a Cluster with a `clusterConnectionStatus` in `Disconnected` state.
 For a Cluster, the `ClusterConnectionStatus` represents the stability in the connection between the on-premises Cluster and its ability to reach the Cluster Manager.
@@ -17,27 +18,22 @@ For a Cluster, the `ClusterConnectionStatus` represents the stability in the con
 > The `ClusterConnectionStatus` **doesn't** represent or is related to the health or connectivity of the Arc Connected Kubernetes Cluster.
 > The `ClusterConnectionStatus` indicates that the Cluster is successful in sending heartbeats and receiving acknowledgment from the Cluster Manager.
 
-> [!CAUTION]
-> The information the `ClusterConnectionStatus` provides is an indication of a symptom of instability, not the root cause.
-> This guide focuses on identifying basic signals and components that might help locate the problem but might not cover all scenarios.
-
 [!include[prereq-az-cli](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
-## Understanding the ClusterConnectionStatus signal
+## Understanding the Cluster connection status signal
 
-The `ClusterConnectionStatus` represents the ability for the on-premises Cluster to successfully send heartbeats and receive acknowledgments from the Cluster Manager.
-The continuous heartbeat messages are meant to detect the network connection health between the on-premises Cluster and the corresponding Cluster Manager.
-The `ClusterConnectionStatus` **isn't** the same as the connectivity of the Arc Connected Kubernetes Cluster.
-If there's network related issues, it's possible that the Arc Connected Kubernetes Cluster might also be affected.
+The `ClusterConnectionStatus` represents the ability of the on-premises Cluster to send heartbeats and receive acknowledgments from the Cluster Manager, indicating the health of the network connection between them.
+`ClusterConnectionStatus` distinct from the connectivity of the Arc Connected Kubernetes Cluster, though network issues may affect both.
 
 A Cluster resource has the property `ClusterConnectionStatus` which is set to the value `Connected` as the heartbeats are continuously received and acknowledged.
 The `ClusterConnectionStatus` becomes `Connected` once the Cluster is in a healthy state and network connectivity issues are resolved.
 The Cluster shows `Timeout` only as a transitional state between `Connected` and `Disconnected`.
 The Cluster `ClusterConnectionStatus` value becomes `Disconnected` as Cluster Manager detects continuously missed heartbeats.
+Once the cluster is a healthy state and there no network connectivity issues, the `ClusterConnectionStatus` will automatically move to `Connected`
 
 During the Cluster deployment process, the Cluster is in `Undefined` state until the Cluster is fully deployed and operational.
 
-The following table shows which status is displayed depending on the state of the undercloud cluster:
+The following table shows the possible values of `ClusterConnectionStatus` and their definitions:
 
 | Status         | Definition                                                                                                            |
 |----------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -67,19 +63,45 @@ ClusterConnectionStatus
 Connected
 ```
 
-## Basic Investigation Steps
+## Common investigation steps
 
-### 1. Ensure Network Connectivity for the Cluster
+The Cluster resource might be affected by infrastructure networking issues (such as DNS, BGP, InfraProxy, etct.), permission changes in the Managed Identity, or other issues that might not be obvious at first.
+The following sections provide some common investigation steps and references to help troubleshoot.
 
-TODO - what steps could be done here?
+> [!IMPORTANT]
+> The `ClusterConnectionStatus` indicates general instability, not the root cause.
+> This guide provides general resource health checks that might help locate the problem or at least help collect information useful for customer support.
 
-### Other possible causes to evaluate
+### Cluster Network Fabric health and connectivity
+
+It is useful to start with the Network Fabric [controller][Network Fabric Controller] and [services][Network Fabric Services] resources.
+Verify the [network configuration][How to Configure Network Fabric], firewall rules, and any other network-related settings that might be affecting the connectivity.
+Ensure there have not been any recent cabling or network configuration changes that could affect the network connectivity.
+
+[How to Configure Network Fabric]: https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-network-fabric
+[Network Fabric Controller]: https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-network-fabric-controller
+[Network Fabric Services]: https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-network-fabric-services
+
+Evaluate any configured monitoring or metrics for the Network Fabric resources.
+See the following links for more information:
+- [Nexus Network Fabric configuration monitoring overview](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-network-fabric-configuration-monitoring)
+- [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-diagnostic-settings-monitor-configuration-differences)
+- [Azure Operator Nexus Network Fabric internal network BGP metrics](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-internal-network-bgp-metrics)
+- [How to monitor interface In and Out packet rate for network fabric devices](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-monitor-interface-packet-rate)
+
+### Recent changes to the Managed Identity permissions
 
 - Are there recent changes to the Managed Identity permissions for the Cluster Manager or Cluster?
   - The Managed Identities (MI) and their permissions are used for service-to-service authentication. A change in the permissions results in authentication failures for the heartbeat messages. Cluster Managers must both receive and acknowledge heartbeats failure to do so will also result in a `ClusterConnectionStatus` of `Disconnected`.
 
-If the Cluster is expected to be healthy but the `ClusterConnectionStatus` remains in `Disconnected` state [contact support] after following the steps in this guide.
+### Check control-plane BareMetal Machines health
+
+The control-plane BareMetal Machines host the component that emits the heartbeats to the Cluster Manager.
+In most cases, the pods running on the control-plane will reschedule automatically to a differnent BareMetal Machine within the control-plane node pool.
+However, if the BareMetal Machines are not healthy, the pods will not be able to reschedule and the Cluster will be unable to send heartbeats.
+
+To check the BareMetal Machines, use the following command:
+
+**TBD**: Need to add the command to check BareMetal Machines
 
 [!include[stillHavingIssues](./includes/contact-support.md)]
-
-[contact support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
