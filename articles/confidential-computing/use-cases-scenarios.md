@@ -1,5 +1,5 @@
 ---
-title: Common Azure confidential computing scenarios and use cases
+title: Common Azure Confidential Computing Scenarios and Use Cases
 description: Understand how to use confidential computing in your scenario.
 services: virtual-machines
 author: ju-shim
@@ -65,13 +65,13 @@ Partnered health facilities contribute private health datasets to train a machin
 
 ### Protecting privacy with IoT and smart-building solutions
 
-Many countries or regions have strict privacy laws about gathering and using data on people's presence and movements inside buildings. This data might include information that's personally identifiable data from CCTV or security badge scans. Or it might be indirectly identifiable, but when different sets of sensor data are grouped together, it could be considered personally identifiable.
+Many countries or regions have strict privacy laws about gathering and using data on people's presence and movements inside buildings. This data might include information that's personally identifiable data from closed-circuit television (CCTV) or security badge scans. Or it might be indirectly identifiable, but when grouped together with different sets of sensor data, it could be considered personally identifiable.
 
 Privacy must be balanced with cost and environmental needs in scenarios when organizations want to understand occupancy or movement to provide the most efficient use of energy to heat and light a building.
 
 Determining which areas of corporate real estate are under- or overoccupied by staff from individual departments typically requires processing some personally identifiable data alongside less individual data like temperature and light sensors.
 
-In this use case, the primary goal is to allow analysis of occupancy data and temperature sensors to be processed alongside closed-circuit television (CCTV) motion-tracing sensors and badge-swipe data to understand usage without exposing the raw aggregate data to anyone.
+In this use case, the primary goal is to allow analysis of occupancy data and temperature sensors to be processed alongside CCTV motion-tracing sensors and badge-swipe data to understand usage without exposing the raw aggregate data to anyone.
 
 Confidential computing is used here by placing the analysis application inside a TEE where the in-use data is protected by encryption. In this example, the application is running on confidential containers on Azure Container Instances.
 
@@ -123,7 +123,7 @@ The attestation service returns cryptographically signed details from the hardwa
 
 Even though the security level provided by Azure is quickly becoming one of the top drivers for cloud computing adoption, customers trust their providers to different extents. Customers ask for:
 
-- Minimal hardware, software, and operational Trusted Computing Bases (TCBs) for sensitive workloads.
+- Minimal hardware, software, and operational trusted computing bases (TCBs) for sensitive workloads.
 - Technical enforcement rather than only business policies and processes.
 - Transparency about the guarantees, residual risks, and mitigations that they get.
 
