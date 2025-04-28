@@ -38,7 +38,6 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 - Azure file shares can be managed with Azure File Sync.
 - Kerberos authentication is available with Active Directory using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
 - Single sign-on (SSO) is supported.
-- Access is limited to the Active Directory forest where the storage account is registered. Users in other domains within the same forest can access the file share if they have appropriate permissions.
 - By default access is limited to the Active Directory forest where the storage account is registered. Users from any domain in that forest can access the file share contents, provided they have the appropriate permissions. To enable access from additional forests, you must configure a forest trust. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 - Identity-based authentication isn't currently supported for NFS file shares.
 
