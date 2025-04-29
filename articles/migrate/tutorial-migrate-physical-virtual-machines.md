@@ -302,29 +302,29 @@ Use the following steps to register the appliance:
 1. Select **Add vCenter Server** to input the vCenter information.
 1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](/en-us/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises?branch=main). The user account details are encrypted and stored locally on the machine.
 
-> [!Note]
-> If you're adding the same vCenter Server to multiple appliances, ensure that the same friendly name is used across all appliances.
+    > [!Note]
+    > If you're adding the same vCenter Server to multiple appliances, ensure that the same friendly name is used across all appliances.
 
 1. After successfully saving the vCenter information, select **Add Virtual Machine** credentials to provide user details for the VMs discovered through the vCenter.
 
  > [!Note]
  > * For Linux OS, ensure to provide root credentials.
-   * For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow.
-  * Visit the **Appliance Configurator** to edit or add credentials to access your machines.
+ > * For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow.
+ > * Visit the **Appliance Configurator** to edit or add credentials to access your machines.
 
 1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text=" Screenshot provides physical server details":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text=" Screenshot provides physical server details":::.
 
 1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a friendly name for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine.
 1. Finally, select **Add**.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Screenshot shows how to add physical server credentials":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Screenshot shows how to add physical server credentials":::.
 
 1. Select **Add Server** to add the physical server details. Provide the machine's **IP address or FQDN**
 1. Select the **credential account**, and then select **Add**.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Screenshot shows how to add physical server details":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Screenshot shows how to add physical server details":::.
 
 ## Install the Mobility service agent
 
