@@ -19,7 +19,7 @@ Autopurge is an opt-in feature. You can enable it by defining retention policies
 - `Canceled`
 - `Terminated`
 
-The orchestration instances eligible for autopurge match those targeted by [the Durable SDK PurgeInstancesAsync API](/dotnet/api/microsoft.durabletask.client.durabletaskclientextensions.purgeinstancesasync?view=durabletask-dotnet-1.x).
+The orchestration instances eligible for autopurge match those targeted by [the Durable SDK PurgeInstancesAsync API](/dotnet/api/microsoft.durabletask.client.durabletaskclientextensions.purgeinstancesasync?view=durabletask-dotnet-1.x&preserve-view=true).
 
 Autopurge ignores orchestration data associated with non-terminal statuses. "Non-terminal" statuses indicate that the orchestration instance is either actively executing, paused, or in a state where it may resume in the future (waiting for external events or timers). These orchestrations that are continuing as new, where the current *execution* is completed, but a new instance has been started as a continuation.
 
@@ -158,7 +158,7 @@ If creation is successful, you receive the following response.
 ```
 
 > [!TIP]
-> Learn more about the retention policy command via [the CLI reference][TODO]. 
+> Learn more about the retention policy command via [the CLI reference](/cli/azure/durabletask/retention-policy?view=azure-cli-latest&preserve-view=true). 
 
 # [Azure Resource Manager](#tab/arm)  
 
