@@ -275,6 +275,7 @@ Use the following steps to register the appliance:
 :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Shows registry with recovery service vault":::
 
 1. **Friendly name of appliance**: Provide a friendly name to track this appliance in the Azure portal under Recovery Services Vault infrastructure. 
+
     > [!Note]
     > The name can't be changed once set.
 1. **Azure Migrate replication appliance key**: Copy the key from the portal's discovery screen.

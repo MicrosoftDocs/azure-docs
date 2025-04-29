@@ -223,8 +223,6 @@ Finish setting up and registering the replication appliance.
 
 After the replication appliance is registered, Azure Migrate Server Assessment connects to VMware servers using the specified settings, and discovers VMs. You can view discovered VMs in **Manage** > **Discovered items**, in the **Other** tab.
 
-
-
 ## Replicate VMs
 
 Select VMs for migration.
@@ -296,7 +294,7 @@ Select VMs for migration.
 
 ## Simplified experience
 
-Now, the selection experience type is both classic and simplified. The new simplified process follow a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [[Simplified experience](../tutorial-migrate-physical-virtual-machines.md#simplified-experience)]().
+Now, the selection experience type is both classic and simplified. The new simplified process follow a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](../tutorial-migrate-physical-virtual-machines.md#simplified-experience).
 
 
 ## Track and monitor
