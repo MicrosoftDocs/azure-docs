@@ -39,7 +39,7 @@ Use the following steps to make an integrated request for a quota change.
 
 1. Locate the quota item in the appropriate region.
 
-1. Select the pencil icon (:::image type="icon" source="media/quotas/edit-icon.png" border="false":::)) to initiate a request.
+1. Select the pencil icon (:::image type="icon" source="media/quotas/edit-icon.png" border="false":::) to initiate a request.
 
 1. In the *New Quota Request* window, enter the new limit value you're requesting in the *New limit* box.
 
