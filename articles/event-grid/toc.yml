@@ -437,8 +437,6 @@ items:
           items:
           - name: Auth0
             href: auth0-overview.md
-          - name: SAP
-            href: subscribe-to-sap-events.md
           - name: Tribal Group
             href: subscribe-to-tribal-group-events.md
           - name: Microsoft Graph API
@@ -560,8 +558,6 @@ items:
           href: onboard-partner.md
         - name: Subscribe to partner events
           href: subscribe-to-partner-events.md
-        - name: Subscribe to SAP events
-          href: subscribe-to-sap-events.md        
         - name: Subscribe to Tribal Group events
           href: subscribe-to-tribal-group-events.md        
         - name: Auth0
