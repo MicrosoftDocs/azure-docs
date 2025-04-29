@@ -213,3 +213,7 @@
       href: create-domain-name-service-forwarder.md
     - name: Create New Enclave Subnet
       href: create-new-enclave-subnet.md
+- name: Architecture
+  items:
+    - name: Understand create and delete logic
+      href: understand-create-delete-logic.md

@@ -1,7 +1,7 @@
 ---
-title: Understanding Creation and Deletion in AVE
+title: Understand create and deletion in Azure Virtual Enclaves
 titleSuffix: Azure Virtual Enclaves
-description: Understanding Creation and Deletion in AVE.
+description: Understand create and deletion in Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Understanding Create/Delete in AVE
+# Understand create and delete in Azure Virtual Enclaves
 
 As an administrator, you can [delete Azure Virtual Enclave (AVE) resources and resource groups that hold AVE resources](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell). However, similar to other special Azure resources, AVE resources have protections and conditions surrounding create and delete operations. These outlined conditions must be met before creating or deleting AVE resources.
 
