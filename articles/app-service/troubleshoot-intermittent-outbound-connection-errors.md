@@ -16,7 +16,7 @@ This article helps you troubleshoot intermittent connection errors and related p
 
 ## Symptoms
 
-Applications and functions hosted on Azure App service might exhibit one or more of the following symptoms:
+Applications and functions hosted on Azure App service might exhibit one or more of the following issues:
 
 * Slow response times on all or some of the instances in a service plan.
 * Intermittent 5xx or **Bad Gateway** errors
@@ -32,7 +32,7 @@ The major cause for intermittent connection issues is hitting a limit while maki
 
 When applications or functions rapidly open a new connection, they can quickly exhaust their preallocated quota of 128 ports. They're then blocked until a new SNAT port becomes available, either through dynamically allocating more SNAT ports, or through reuse of a reclaimed SNAT port. If your app runs out of SNAT ports, it has intermittent outbound connectivity issues.
 
-## Avoid SNAT port limitations
+## Avoiding the problem
 
 There are a few solutions that let you avoid SNAT port limitations. They include:
 
@@ -51,7 +51,7 @@ If possible, improve your code to use connection pools and avoid the entire situ
 
 To learn more about strategies for mitigating SNAT port exhaustion, see [Use SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md). Of these strategies, the following are applicable to apps and functions hosted on Azure App service.
 
-### Modify the application to use connection pooling
+### Use connection pooling
 
 * For pooling HTTP connections, review [Pool HTTP connections with HttpClientFactory](/aspnet/core/performance/performance-best-practices#pool-http-connections-with-httpclientfactory).
 * For information on SQL Server connection pooling, review [SQL Server Connection Pooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
@@ -111,11 +111,11 @@ HTTP connection pooling
   * Keep-alive and HTTP connection pooling are enabled by default in [Requests](https://requests.readthedocs.io/en/latest/user/advanced/#keep-alive) module.
   * [Urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.connectionpool.html) 
 
-### Modify the application to reuse connections
+### Reuse connections
 
 For more pointers and examples on managing connections in Azure functions, see [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
 
-### Modify the application to use less aggressive retry logic
+### Use less aggressive retry logic
 
 For more guidance and examples, see [Retry pattern](/azure/architecture/patterns/retry).
 

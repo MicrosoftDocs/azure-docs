@@ -7,7 +7,7 @@ ms.author: msangapu
 ms.date: 04/28/2025
 ---
 
-# Tutorial: Secure your Azure App Service app with a custom domain and a managed certificate
+# Tutorial: Use a custom domain and a managed certificate to secure your app
 
 The default domain name that comes with your app might not represent your brand the way you want. In this tutorial, you configure App Service with a `www` domain you own, such as `www.contoso.com`, and secure the custom domain with an App Service managed certificate.
 

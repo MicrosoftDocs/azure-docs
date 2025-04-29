@@ -24,7 +24,7 @@ Like personal computers, mobile phones, and other devices, machines in the cloud
 
 Because a typical cloud solution consists of multiple applications, databases, storage accounts, functions, and other resources, parts of your solutions can undergo maintenance at different times. Some of this coordination is related to geography, region, datacenters, and availability zones. It can also be due to the cloud, where not everything is touched simultaneously. For more information, see [Safe deployment practices](/devops/operate/safe-deployment-practices).
 
-The following screenshot shows an example of a maintenance event:
+To find maintenance events, search for **Service Health** in the Azure Portal. Under **Active Events**, select **Planned maintenance**.
 
 :::image type="content" source="media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure portal." lightbox="media/routine-maintenance/routine-maintenance.png":::
 
@@ -34,7 +34,7 @@ From top to bottom, the example shows:
 - Affected regions and subscriptions.
 - The expected maintenance window.
 
-The following screenshots show additional information available through the Impacted Resources tab:
+The following screenshots show additional information available through the **Impacted Resources** tab:
 
 :::image type="content" source="media/routine-maintenance/routine-maintenance-first-page.png" alt-text="Screenshot of the Impacted Resources section in the Azure portal." lightbox="media/routine-maintenance/routine-maintenance-first-page.png":::
 
