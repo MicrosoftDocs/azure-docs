@@ -43,6 +43,21 @@ date:
 ntp:
 ```
 
+Commands can be entered in the shell level or in the category level. At the shell level type the category first, followed by the command and then type any parameters needed for the command. Alternatively, type the category and press Enter. The shell will change to the category name, then type the command and parameter. For example:
+
+```bash
+shell> system ntp enable 10.0.0.1
+Starting ntp-enable 10.0.0.1
+.....
+Finsihed ntp-enable
+
+shell> system
+system> ntp enable 10.0.0.1
+Starting ntp-enable 10.0.0.1
+.....
+Finsihed ntp-enable
+```
+
 ## Appliance maintenance
 
 ### Check OT monitoring services health
