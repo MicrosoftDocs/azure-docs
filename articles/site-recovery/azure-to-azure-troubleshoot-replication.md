@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
-description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery
+description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-manager: rochakm
 ms.topic: troubleshooting
-ms.date: 09/04/2024
+ms.date: 04/29/2025
 ms.service: azure-site-recovery
 ms.custom: engagement-fy23
 ---
@@ -163,6 +162,33 @@ Restart the following services:
 - VSS service.
 - Azure Site Recovery VSS Provider.
 - VDS service.
+
+#### Update TenantId and ClientId manually in source machine
+
+**How to fix**: To update the application TenantId and ClientId manually, follow these steps:
+
+1. Execute the **GET Protected item** API and retrieve the values for `mobilityAgentTenantIdToUpdate` and `mobilityAgentClientIdToUpdate` from the output.
+    
+      
+    ```powershell
+    https:/management.azure.com/Subscriptions/41b6b0c9-3e3a-4701-811b-92135df8f9e3/resourceGroups/A2A-Tenant-Mig-RG/providers/Microsoft.RecoveryServices/vaults/A2A-Tenant-Mig-Vault1/replicationFabrics/asr-a2a-default-centraluseuap/replicationProtectionContainers/asr-a2a-default-centraluseuap-container/replicationProtectedItems/UYmJamTxe-lo-LELm6HMSytVMe6QqgIA53RyRwOjKrI?api-version=2025-01-01
+    ```
+1.  Open the RCMInfo.conf file on the source machine. The location of the file is as follows:
+
+   - Windows: `C:\ProgramData\Microsoft Azure Site Recovery\Config\RCMInfo.conf`
+   - Linux: `/usr/local/InMage/config/RCMInfo.conf`
+1. Update the `AADTenantId`, `AADClientId`, and tenantid of `AADAudienceUri` with the new tenant details fetched from step 1 and save the file by using the following format:
+
+   ```
+   AADTenantId=<mobilityAgentTenantIdToUpdate>
+   AADClientId=<mobilityAgentClientIdToUpdate>
+   AADAudienceUri=api://<mobilityAgentTenantIdToUpdate>/RecoveryServiceContainer/eastus2euap/1394977864085472368/3134366
+   ```
+1. Restart the following services:
+   - **Windows**: "InMage Scout VX Agent - Sentinel/Outpost", "InMage Scout Application Service"
+   - **Linux**: vxagent, appservice
+
+
 
 ## Next steps
 
