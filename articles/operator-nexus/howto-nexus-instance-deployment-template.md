@@ -25,7 +25,7 @@ This template is designed to assist users in managing a reproducible end-to-end 
 - Latest `networkcloud` [CLI extension](howto-install-cli-extensions.md).
 - Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
 - Nexus instance data for the [Telco Input Template](concepts-telco-input-template.md).
-- Additional [Platform Prerequisites](howto-platform-prerequisites.md).
+- [Platform Prerequisites](howto-platform-prerequisites.md).
 
 </details>
  
@@ -78,9 +78,6 @@ This template is designed to assist users in managing a reproducible end-to-end 
 - <START_DATE>: Track deployment start date
 - <TARGET_DATE>: Track deployment expected end date
 
-> [!NOTE]
-> Additional parameters come from the [Telco Input template](concepts-telco-input-template.md).
-
 </details>
 
 ## Deployment Data
@@ -116,7 +113,7 @@ To view status of long running asynchronous operations, run the following comman
 az rest -m get -u '<ASYNC_URL>'
 ```
 
-Command status nformation is returned along with additional detailed messages or errors:
+Command status information is returned along with detailed informational or error messages:
 - `"status": "Accepted"`
 - `"status": "Succeeded"`
 - `"status": "Failed"`
@@ -143,17 +140,17 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    ```
 
    > [!IMPORTANT]
-   > Do not continue if NFC already exists for <NFC_NAME>.
+   > Don't continue if NFC already exists for <NFC_NAME>.
 
 3. Create NFC from Telco Input template (skip for existing NFC) with Azure CLI:
    ```
-   az networkfabric controller create --resource-group "NFC_RG" --subscription "SUBSCRIPTION_ID" --location "REGION" \
-     --resource-name "NFC_NAME" --ipv4-address-space "NFC_IPV4"/"NFC_IPV4_CIDR" --ipv6-address-space "NFC_IPV6"/"NFC_IPV6_CIDR" \
-     --infra-er-connections '[{"expressRouteCircuitId": "MGMT_ER1_RID", "expressRouteAuthorizationKey": "MGMT_AUTH_1"}, \
-       {"expressRouteCircuitId": "MGMT_ER2_RID", "expressRouteAuthorizationKey": "MGMT_AUTH_2"}]' \
-     --workload-er-connections '[{"expressRouteCircuitId": "TNT_ER1_RID", "expressRouteAuthorizationKey": "TNT_AUTH_1"}, \
-       {"expressRouteCircuitId": "TNT_ER2_RID", "expressRouteAuthorizationKey": "TNT_AUTH_2"}]' \
-     --mrg name='NFC_MRG' location='REGION' --debug --no-wait
+   az networkfabric controller create --resource-group <NFC_RG> --subscription <CUSTOMER_SUB_ID> --location <AZURE_REGION> \
+     --resource-name NFC_NAME --ipv4-address-space "<NFC_IPV4>/<NFC_IPV4_CIDR>" --ipv6-address-space "<NFC_IPV6>/<NFC_IPV6_CIDR>" \
+     --infra-er-connections '[{"expressRouteCircuitId": "<MGMT_ER1_RID>", "expressRouteAuthorizationKey": "<MGMT_AUTH_1>"}, \
+       {"expressRouteCircuitId": "<MGMT_ER2_RID>", "expressRouteAuthorizationKey": "<MGMT_AUTH_2>"}]' \
+     --workload-er-connections '[{"expressRouteCircuitId": "<TNT_ER1_RID>", "expressRouteAuthorizationKey": "<TNT_AUTH_1>"}, \
+       {"expressRouteCircuitId": "<TNT_ER2_RID>", "expressRouteAuthorizationKey": "<TNT_AUTH_2>"}]' \
+     --mrg name=<NFC_MRG> location=<AZURE_REGION> --debug --no-wait
    ```
 
    > [!NOTE]
@@ -161,7 +158,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 4. Check statuses of the NFC and the NFC `customlocation` are both `Succeeded` from Azure CLI:
    ```
-   az networkfabric controller show --resource-group "<NFC_RG>" --resource-name "<NFC_NAME>" --subscription <CUSTOMER_SUB_ID> -o table
+   az networkfabric controller show --resource-group <NFC_RG> --resource-name <NFC_NAME> --subscription <CUSTOMER_SUB_ID> -o table
 
    az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
    az vm list -o table --query "[?location=='<AZURE_REGION>']" --subscription <CUSTOMER_SUB_ID>
@@ -222,7 +219,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    ```
 
    > [!IMPORTANT]
-   > Do not continue if a CM already exists for <CM_NAME>.
+   > Don't continue if a CM already exists for <CM_NAME>.
 
 3. Create CM from Telco Input template (skip for existing CM) with ARM Deployment from Azure CLI:
    ```
@@ -267,7 +264,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    ```
 
    > [!IMPORTANT]
-   > Do not continue if a Fabric custom location already exists for <NF_NAME>.
+   > Don't continue if a Fabric custom location already exists for <NF_NAME>.
 
 3. Check if Fabric already exists from Azure CLI:
    ```
@@ -275,7 +272,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    Code: ResourceNotFound
    ```
    > [!IMPORTANT]
-   > Do not continue if a Fabric already exists for <NF_NAME>.
+   > Don't continue if a Fabric already exists for <NF_NAME>.
    
 4. Create Fabric from Telco Input template with Azure CLI:
    ```
@@ -303,7 +300,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    az rest  --subscription "SUBSCRIPTION_ID" -m put --url /subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/NNI_1_EGRESS_ACL_1_NAME?api-version=2023-06-15 --body @NNI_1_EGRESS_ACL_1.json
    ```
 
-7. Create Network-to-Network Interface (NNI) resource wih Azure CLI:
+7. Create Network-to-Network Interface (NNI) resource with Azure CLI:
    ```
    az networkfabric nni create --resource-group "NF_RG" --subscription "SUBSCRIPTION_ID" --resource-name "nni_1_name" --fabric "NF_NAME" --is-management-type "True" --use-option-b "False" \
      --layer2-configuration '{"interfaces": \
@@ -375,7 +372,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    ```
 
    > [!IMPORTANT]
-   > Do not continue if a Cluster already exists for <CLUSTER_NAME>.
+   > Don't continue if a Cluster already exists for <CLUSTER_NAME>.
    
 3. Create Cluster from Telco Input template with ARM Deployment from Azure CLI:
    ```
@@ -536,6 +533,7 @@ CC: stakeholders_list
 <details>
 <summary> Reference Links for Nexus Deployments </summary>
 
+Reference links for deploying a Nexus instance:
 - [Azure portal](https://aka.ms/nexus-portal)
 - [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
 - [Azure CLI](https://aka.ms/azcli)
@@ -545,7 +543,7 @@ CC: stakeholders_list
 - [Troubleshoot BMM provisioning](troubleshoot-bare-metal-machine-provisioning.md)
 - [Troubleshoot BMM degraded](troubleshoot-bare-metal-machine-degraded.md)
 - [Troubleshoot BMM warning](troubleshoot-bare-metal-machine-warning.md)
-- [Telco Input Template](concepts-telco-input-template.md).
-- [Platform Prerequisites](howto-platform-prerequisites.md).
+- Nexus [Telco Input Template](concepts-telco-input-template.md)
+- Nexus [Platform Prerequisites](howto-platform-prerequisites.md)
 
 </details>
