@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: v-uhabiba
 ms.manager: pallavi
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2025
 ---
 

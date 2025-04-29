@@ -16,13 +16,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (April 2025)
 
-Azure Migrate now supports the simplified experience through its upgraded version of the CS Stack of the Azure Migrate tool. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years.
-
-The key differences between the simplified experience and the classic experience are:
-
-1. The simplified experience is designed to make the migration process more user-friendly.
-1. The ASR applicance is used for physical stack migrations.
-1. VMware and Hyper-V migrations use different appliances.
+Azure Migrate now supports the simplified experience through its upgraded version of the CS Stack of the Azure Migrate tool. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
 
 ## Update (April 2025)
 

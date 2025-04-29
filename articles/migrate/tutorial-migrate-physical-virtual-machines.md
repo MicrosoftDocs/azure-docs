@@ -156,13 +156,16 @@ The mobility service agent must be installed on the servers to get them discover
 
 This section introduces a new process, which is simplified experience. Users will follow a streamlined flow that begins with discovery, followed by replication, and finally migration.
 
-This section introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 for the replication appliance, and enjoy a unified OS support matrix. The new Linux distributions supported include:
+It introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 and WS2022 for the replication appliance, and utilize a unified OS support matrix. 
 
-* Oracle Linux 9.0, 9.1
-* RHEL 9.0
-* RHEL 9.1
-* Ubuntu 22.04
-* SLES 15 SP5
+The supported new Linux distributions include:
+
+- Ubuntu 24.04
+- RHEL 9.X
+- Oracle Linux 9.X
+- SLES 15
+- Rocky Linux 
+- Alma Linux
 
 ## Navigate to Azure Migrate project
 
