@@ -20,7 +20,7 @@ Some of the inherent benefits of using Azure Functions as a compute resource for
 
 + **Rapid, event-driven scaling**: you have compute resources available when you need it. With certain plans, your app scales back to zero when it's not needed. For more information, see [Event-driven scaling in Azure Functions](event-driven-scaling.md).  
 + **Built-in support for Azure OpenAI**: the [OpenAI binding extension] greatly simplifies the process of interacting with Azure OpenAI for working with agents, assistants, and retrieval-augmented generation (RAG) workflows.
-+ **Broad language and library support**: Functions lets you interact with AI using your [choice of programming language](./supported-languages.md), and you're able to use a broad variety of [AI frameworks](#ai-frameworks). 
++ **Broad language and library support**: Functions lets you interact with AI using your [choice of programming language](./supported-languages.md), plus you're able to use a broad variety of [AI frameworks and libraries](#ai-tools-and-frameworks). 
 + **Orchestration capabilities**: while function executions are inherently stateless, the [Durable Functions extension](./durable/durable-functions-overview.md) lets you create the kind of complex workflows required by your AI agents.  
 
 This article is language-specific, so make sure you choose your programming language at the [top of the page](#top).
@@ -134,7 +134,6 @@ Here are some of the key Microsoft AI frameworks of which you should be aware:
 | Framework/library | Description |
 | ----- | ----- |
 | [Azure AI Services SDKs](/azure/developer/ai/azure-ai-for-developers) | By working directly with client SDKs, you can use the full breadth of Azure AI services functionality directly in your function code. |
-| [Microsoft Enterprise AI (MEAI)](/azure/enterprise-ai/overview)| Provides robust tools and services so that you can apply enterprise-grade AI capabilities in your functions. |
 | [OpenAI binding extension] | Easily integrate the power of Azure OpenAI in your functions and let Functions manage the service integration. |
 | [Semantic Kernel](/semantic-kernel/overview) | Enables you to easily build AI agents and models. |
 
