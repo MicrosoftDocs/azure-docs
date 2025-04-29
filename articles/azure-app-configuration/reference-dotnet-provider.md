@@ -208,6 +208,10 @@ builder.AddAzureAppConfiguration(options =>
 
 For example, if your App Configuration store contains a key named `TestApp:Settings:Message`, it will be accessible in your application as `Settings:Message` after trimming the `TestApp:` prefix.
 
+## Geo-replication
+
+For information about using geo-replication, go to [Enable geo-replication](./howto-geo-replication.md).
+
 ## Next steps
 
 To learn how to use the JavaScript configuration provider, continue to the following tutorial.
