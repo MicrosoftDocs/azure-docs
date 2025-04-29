@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file for Azure Digital Twins - set up CLI and the IoT extension
+description: Include file for Azure Digital Twins - set up CLI and the IoT extension.
 ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 03/17/2025

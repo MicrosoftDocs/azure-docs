@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 04/01/2025
+ms.date: 04/28/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -23,6 +23,7 @@ The listed features were released in the last three months. For information abou
 - [Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)](#security-copilot-generates-incident-summaries-in-microsoft-sentinel-in-the-azure-portal-preview)
 - [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (Preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
 - [Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)](#microsoft-sentinel-now-ingests-all-stix-objects-and-indicators-into-new-threat-intelligence-tables-preview)
+- [SOC optimization support for unused columns (Preview)](#soc-optimization-support-for-unused-columns-preview)
 
 ### Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)
 
@@ -57,6 +58,10 @@ For more information, see the following articles:
 
 - [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
 - [Work with STIX objects and indicators to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)](work-with-stix-objects-indicators.md)
+
+
+### SOC optimization support for unused columns (Preview)
+To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables. SOC optimization now surfaces unused columns in your tables. For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md#unused-columns-preview).
 
 ## March 2025
 
