@@ -119,6 +119,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Dedicated HSM
 - Azure Digital Twins
 - Azure HPC Cache
+- Azure Kubernetes Fleet Manager
 - Azure Lab Services
 - Azure Machine Learning
 - Azure Managed HSM
