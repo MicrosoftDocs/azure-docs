@@ -18,7 +18,7 @@ Developers often find themselves creating solutions that involve multi-step oper
 
 Another example would be an intelligent trip planner. The planner might suggest ideas based on user requirements, get preference confirmation, and then make required bookings. You can implement an agent for each task and orchestrate the steps for invoking these agents as a workflow.
 
-Since orchestrations involve multiple or long-running steps, it's important that the framework you tracks the application state so that execution can continue from the point of failure rather than the beginning. One way to ensure this statefulness is to continuously checkpoint orchestration states to a persistence layer while it runs. The next section demonstrates how orchestration frameworks maintain statefulness while also taking care automatic retries while you orchestrate your workflows without the burden of architecting for fault tolerance. 
+Since orchestrations involve multiple or long-running steps, it's important that the framework tracks the application state so that execution can continue from the point of failure rather than the beginning. One way to ensure this statefulness is to continuously checkpoint orchestration states to a persistence layer while it runs. The next section demonstrates how orchestration frameworks maintain statefulness while also taking care automatic retries while you orchestrate your workflows without the burden of architecting for fault tolerance. 
 
 The two previous scenarios share a commonly used orchestration pattern, which is *sequential chaining* of operations. There are other patterns that benefit from the statefulness of an orchestration framework: 
 - *Fan-out/fan-in*: For batch jobs, ETL (extract, transfer, and load), and any scenario that requires parallel processing 
@@ -77,10 +77,12 @@ Use the Durable Task SDKs when your app needs only workflows. The Durable Task S
 
 The other reason for using the Durable Task SDKs is when you need to run apps on Azure Kubernetes Services or VMs on-premises with official Microsoft support. While Durable Functions can be run on these platforms as well, there's no official support. 
 
+<!-- uncomment in quickstart PR 
 **Quickstarts** 
 - [.NET][TODO]
 - [Python][TODO]
 - [Java][TODO] 
+-->
 
 > [!NOTE]
 > The Durable Task Framework is an open-source .NET orchestration framework. Like the Durable Task SDKs, it can be used to build apps that run on platforms like the Azure Kubernetes Services. However, we don't recommend new customers to use Durable Task Framework because Microsoft doesn't officially support it. 
