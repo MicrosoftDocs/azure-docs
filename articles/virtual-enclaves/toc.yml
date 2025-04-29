@@ -54,16 +54,12 @@
 #       href: designing-intra-enclave-network-isolation.md
     - name: Best practices
       href: best-practices.md
-    - name: Defense in Depth
-      href: defense-in-depth.md
-#     - name: Workload and Application Planning
-#       href: workload-and-application-planning.md
-    - name: Built in RBAC Roles
-      href: built-in-rbac-roles.md
 #     - name: Air-Gapped Communities and Enclaves
 #       href: air-gapped-communities-and-enclaves.md
-    - name: Understanding Admin Virtual Machines
-      href: understanding-admin-vm.md
+    - name: Understand Admin Virtual Machines
+      href: understand-admin-vm.md
+    - name: Understand Domain Name Service
+      href: understand-domain-name-service.md
   - name: Tutorials
     items:
     - name: Tutorial 1 Create a community
@@ -124,8 +120,8 @@
       href: move-data-inside-enclave.md
   - name: Troubleshoot
     items:
-    - name: Troubleshooting guide
-      href: troubleshooting.md
+    - name: Troubleshoot guide
+      href: troubleshoot.md
     - name: Policy compliance exemptions
       href: policy-compliance-exemptions.md
     - name: Migrate Azure Resources into Azure Virtual Enclaves
@@ -215,7 +211,13 @@
       href: create-domain-name-service-forwarder.md
     - name: Create New Enclave Subnet
       href: create-new-enclave-subnet.md
+#     - name: Workload and Application Planning
+#       href: workload-and-application-planning.md
 - name: Architecture
   items:
     - name: Understand create and delete logic
-      href: understand-create-delete-logic.md
+      href: create-and-delete-logic.md
+    - name: Defense in Depth
+      href: defense-in-depth.md
+    - name: Built in RBAC Roles
+      href: built-in-rbac-roles.md
