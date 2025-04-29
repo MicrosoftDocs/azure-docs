@@ -100,11 +100,11 @@ To unregister an SAP ASE instance, follow these steps:
 
      :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png" alt-text="Screenshot showing how to backup infrastructure." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png":::
 
-2. On the **Backup Infrastructure** blade, for **BACKUP MANAGEMENT TYPE**, select **Workload in Azure VM**.
+2. On the **Backup Infrastructure** pane, for **BACKUP MANAGEMENT TYPE**, select **Workload in Azure VM**.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-workload.png" alt-text="Screenshot showing how to select workload in Azure VM." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-workload.png":::
 
-3. On the **Protected Servers** blade, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
+3. On the **Protected Servers** pane, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-instance.png" alt-text="Screenshot showing how to select instance to deregister." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-instance.png":::
 
