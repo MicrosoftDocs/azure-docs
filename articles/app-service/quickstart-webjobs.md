@@ -29,11 +29,9 @@ dotnet
 
 :::zone target="docs" pivot="python"
 
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly.
+You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.py` and `run.sh`.
 
-The sample includes two files that will run the WebJob: `webjob.py` and `run.sh`.
-
-The Python script, `webjob.py`, that outputs the current time to the console as shown below:
+The Python script, `webjob.py`, outputs the current time to the console as shown below:
 
 ```Python 
 import datetime 
@@ -50,7 +48,7 @@ The file, `run.sh`, calls WebJob.py as shown below:
 ``` 
 
 > [!NOTE]
-> `run.sh` invokes the Python script. It's included in the .zip to show the flexibility of WebJobs. Depending on your project needs, you can also omit `run.sh` from your WebJob.
+> The platform uses `run.py` or `run.sh` as the entry point for the Python WebJobs. If neither is present, it defaults to the first `.py` file it finds in the archive, which can lead to unpredictable results—especially when multiple `.py` files are included.
 
 :::zone-end
 
@@ -94,11 +92,6 @@ php
     :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
-
-### How the WebJob runs
-
-When you deploy a scheduled WebJob to Azure App Service, the platform checks for a CRON schedule and runs the script at the specified time intervals. If `run.sh` or `run.py` is present, it's used as the entry point. Otherwise, the platform will use the first `.py` file it detects in the archive, which can lead to unpredictable results.
-
 
 ## Review the WebJob logs
 
