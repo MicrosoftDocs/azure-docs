@@ -36,7 +36,7 @@ For more information, see [What is Azure Web Application Firewall on Azure Front
 
 Use the following information to enable and configure Sensitive Data Protection.
 
-#### [Portal](#tab/browser)
+#### [Portal](#tab/portal)
 
 To enable Sensitive Data Protection:
 
@@ -82,6 +82,6 @@ To verify your Sensitive Data Protection rules, open the Front Door firewall log
 
 ## Related content
 
-- [What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection?](waf-sensitive-data-protection-frontdoor.md)
+- [What is Azure Web Application Firewall on Azure Front Door sensitive data protection?](waf-sensitive-data-protection-frontdoor.md)
 - [Azure Web Application Firewall monitoring and logging](../afds/waf-front-door-monitor.md)
 - [A Closer Look at Azure WAF’s Data Masking Capabilities for Azure Front Door](https://techcommunity.microsoft.com/t5/azure-network-security-blog/a-closer-look-at-azure-waf-s-data-masking-capabilities-for-azure/ba-p/4167558)
