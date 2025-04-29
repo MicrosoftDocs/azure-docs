@@ -218,7 +218,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   - Handling empty elements
 
-    By default, the SAP trigger doesn't include empty elements in the output payload. To include empty elements in the trigger output, go to the workflow designer, and in the trigger input parameters, set the **`EnableEmptyXmlNode`** property to **`true`**.
+    By default, the SAP trigger doesn't include empty elements in the output payload. To include empty elements in the trigger output, go to the workflow designer, and in the trigger input parameters, set the **EnableEmptyXmlNode** property to **true**.
 
 * Built-in **Generate Schema** action
 
