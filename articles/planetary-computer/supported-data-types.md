@@ -16,7 +16,7 @@ Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds o
 ## Use cases
 
 It's important to understand which geospatial data formats are supported in MPC Pro when performing the following actions:
-- Creating STAC Collections and Ingesting STAC Items
+- Creating STAC (Spatio Temporal Asset Catalog) Collections and Ingesting STAC Items
 - Visualizing STAC Items in the Data Explorer UI
 
 ## Supported geospatial data types
