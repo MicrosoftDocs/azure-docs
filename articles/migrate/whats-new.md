@@ -16,6 +16,8 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (April 2025)
 
+- General Availability: Azure Migrate now supports the simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
+
 - Public preview: Azure Migrate supports application awareness to offer an enhanced and modernized user experience. This feature streamlines the discovery, assessment, and migration of on-premises applications and workloads to Azure. It streamlines and enhances the decision-making, planning, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
 
 - Updated inventory view: Explore the inventory of discovered workloads across the infrastructure, data, and web tiers. [Learn more](how-to-review-discovered-inventory.md).
@@ -36,6 +38,7 @@ ms.custom: mvc, engagement-fy25
   - Obtain recommendations on suitable compute and storage options, along with the associated costs.
   
   [Learn more](assessments-overview-migrate-to-azure-db-mysql.md).
+
 
 ## Update (November 2024)
 
